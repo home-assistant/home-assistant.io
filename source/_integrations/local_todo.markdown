@@ -13,10 +13,10 @@ ha_integration_type: integration
 ha_platforms:
   - todo
 related:
-- docs: /integrations/todo/
-  title: To-do list integration documentation
-- docs: /dashboards/todo-list/
-  title: To-do list card
+  - docs: /integrations/todo/
+    title: To-do list integration documentation
+  - docs: /dashboards/todo-list/
+    title: To-do list card
 ---
 
 The **Local to-do list** integration allows you to create to-do lists in Home Assistant.

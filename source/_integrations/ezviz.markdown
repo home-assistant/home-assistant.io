@@ -26,8 +26,8 @@ ha_platforms:
   - update
 ha_integration_type: integration
 related:
-- docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
-  title: Controlling the camera from the dashboard
+  - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
+    title: Controlling the camera from the dashboard
 ---
 
 The `ezviz` sensor platform uses the ezvizlife.com API to interact with the devices.

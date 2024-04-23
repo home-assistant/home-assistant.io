@@ -13,16 +13,16 @@ ha_platforms:
   - notify
 ha_integration_type: entity
 related:
-- url: https://www.home-assistant.io/integrations/#text-to-speech
-  title: List of integrations using the TTS integration
-- url: https://www.nabucasa.com/config/tts/
-  title: TTS with Home Assistant Cloud
-- url: https://www.home-assistant.io/integrations/google_translate/
-  title: Google Translate TTS
-- url: https://www.home-assistant.io/integrations/microsoft/
-  title: Microsoft TTS
-- url: https://www.home-assistant.io/voice_control/
-  title: Home Assistant Assist
+  - url: https://www.home-assistant.io/integrations/#text-to-speech
+    title: List of integrations using the TTS integration
+  - url: https://www.nabucasa.com/config/tts/
+    title: TTS with Home Assistant Cloud
+  - url: https://www.home-assistant.io/integrations/google_translate/
+    title: Google Translate TTS
+  - url: https://www.home-assistant.io/integrations/microsoft/
+    title: Microsoft TTS
+  - url: https://www.home-assistant.io/voice_control/
+    title: Home Assistant Assist
 ---
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.

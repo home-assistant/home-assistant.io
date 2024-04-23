@@ -13,16 +13,16 @@ ha_integration_type: integration
 ha_platforms:
   - todo
 related:
-- docs: /integrations/todo
-  title: To-do list integration documentation
-- docs: /integrations/#to-do-list
-  title: List of to-do list integrations
-- docs: /dashboards/todo-list/
-  title: To-do list card
-- url: https://support.google.com/tasks/answer/7675772
-  title: Google Tasks
-- url: https://console.cloud.google.com/apis/library/tasks.googleapis.com
-  title: Google Developers Console
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://support.google.com/tasks/answer/7675772
+    title: Google Tasks
+  - url: https://console.cloud.google.com/apis/library/tasks.googleapis.com
+    title: Google Developers Console
 ---
 
 The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
