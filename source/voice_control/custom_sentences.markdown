@@ -1,16 +1,16 @@
 ---
 title: "Assist - custom sentences"
 related:
-- docs: /voice_control/aliases/
-  title: Create aliases
-- docs: /docs/scripts/#respond-to-a-conversation/
-  title: Conversation response script action
-- docs: /docs/automation/trigger/#sentence-trigger
-  title: Sentence triggers
-- docs: /docs/automation/trigger/#sentence-wildcards
-  title: Sentence wildcards
-- url: https://developers.home-assistant.io/docs/intent_builtin/
-  title: View existing intents
+  - docs: /voice_control/aliases/
+    title: Create aliases
+  - docs: /docs/scripts/#respond-to-a-conversation/
+    title: Conversation response script action
+  - docs: /docs/automation/trigger/#sentence-trigger
+    title: Sentence triggers
+  - docs: /docs/automation/trigger/#sentence-wildcards
+    title: Sentence wildcards
+  - url: https://developers.home-assistant.io/docs/intent_builtin/
+    title: View existing intents
 ---
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.

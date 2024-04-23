@@ -1,14 +1,14 @@
 ---
 title: "Installing a local Assist pipeline"
 related:
-- docs: /voice_control/voice_remote_expose_devices/#exposing-your-devices
-  title: Expose your devices to Assist
-- docs: /voice_control/create_wake_word/
-  title: Create your own wake words
-- url: https://github.com/openai/whisper
-  title: Whisper for speech-to-text
-- url: https://github.com/rhasspy/piper
-  title: Piper for text-to-speech
+  - docs: /voice_control/voice_remote_expose_devices/#exposing-your-devices
+    title: Expose your devices to Assist
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake words
+  - url: https://github.com/openai/whisper
+    title: Whisper for speech-to-text
+  - url: https://github.com/rhasspy/piper
+    title: Piper for text-to-speech
 ---
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.

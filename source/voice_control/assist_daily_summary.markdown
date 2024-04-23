@@ -1,16 +1,16 @@
 ---
 title: "Daily summary by Assist"
 related:
-- docs: /voice_control/voice_remote_local_assistant/
-  title: Local assistant pipeline
-- docs: /integrations/local_calendar/
-  title: Local calendar
-- docs: /integrations/telegram/#setup-example
-  title: Telegram notification
-- docs: /voice_control/assist_create_open_ai_personality/
-  title: Telegram notification
-- url: https://www.nabucasa.com
-  title: Home Assistant Cloud
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Local assistant pipeline
+  - docs: /integrations/local_calendar/
+    title: Local calendar
+  - docs: /integrations/telegram/#setup-example
+    title: Telegram notification
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Telegram notification
+  - url: https://www.nabucasa.com
+    title: Home Assistant Cloud
 ---
 
 In this tutorial, we are creating an automation that has Assist send you a daily summary. Assist will tell you about the weather and your calendar events today. It will also send you the summary to your messenger.

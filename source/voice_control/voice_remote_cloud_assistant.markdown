@@ -1,14 +1,14 @@
 ---
 title: "Creating a cloud Assist pipeline"
 related:
-- docs: /voice_control/install_wake_word_add_on/
-  title: Enabling a wake word
-- docs: /voice_control/create_wake_word/
-  title: Create your own wake word
-- docs: /voice_control/voice_remote_cloud_assistant/
-  title: Creating a Cloud assistant
-- docs: /voice_control/voice_remote_expose_devices/
-  title: Exposing devices to Assist
+  - docs: /voice_control/install_wake_word_add_on/
+    title: Enabling a wake word
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake word
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Creating a Cloud assistant
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing devices to Assist
 ---
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.

@@ -1,14 +1,14 @@
 ---
 title: "About wake words"
 related:
-- docs: /voice_control/thirteen-usd-voice-remote/
-  title: Create a $13 voice assistant
-- docs: /voice_control/install_wake_word_add_on/
-  title: Enable wake words
-- docs: /voice_control/create_wake_word/
-  title: Create your own wake words
-- docs: /voice_control/voice_remote_cloud_assistant/)
-  title: Create a cloud assistant
+  - docs: /voice_control/thirteen-usd-voice-remote/
+    title: Create a $13 voice assistant
+  - docs: /voice_control/install_wake_word_add_on/
+    title: Enable wake words
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake words
+  - docs: /voice_control/voice_remote_cloud_assistant/)
+    title: Create a cloud assistant
 ---
 
 Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: *Hey Google*, *Hey Siri*, or *Alexa*. Home Assistant supports its own wake words, such as *Hey Nabu*.

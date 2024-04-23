@@ -1,10 +1,10 @@
 ---
 title: "Exposing devices"
 related:
-- docs: /voice_control/voice_remote_cloud_assistant/
-  title: Creating a Cloud assistant
-- docs: /voice_control/voice_remote_local_assistant/
-  title: Creating a local assistant
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Creating a Cloud assistant
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Creating a local assistant
 ---
 
 To be able to control your devices over a voice command, you must expose your entities to Assist.
