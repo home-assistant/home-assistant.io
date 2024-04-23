@@ -72,7 +72,7 @@ This can work with title search and basically any thing. The same wouldn't have 
 
 ### Service `call_query`
 
-Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player as an object, and in the 'query_result_json' attribute as a json string.  The 'query_result_json' attribute may be useful when, for example, calling this service from the [Home Assistant REST API](https://developers.home-assistant.io/docs/api/rest/)
+Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player as an object, and also in the 'query_result_json' attribute as a json string.  The 'query_result_json' attribute may be useful when, for example, calling this service from the [Home Assistant REST API](https://developers.home-assistant.io/docs/api/rest/)
 
 See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
 
