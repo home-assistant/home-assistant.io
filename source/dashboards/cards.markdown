@@ -2,18 +2,18 @@
 title: "Cards"
 description: "Introduction to the role of cards on the dashboard and how to add a card."
 related:
-- docs: /dashboards/actions/
-  title: Card tap actions
-- docs: /dashboards/features/
-  title: Card features
-- docs: /dashboards/header-footer/
-  title: Card header and footer widgets
-- docs: /dashboards/views/
-  title: Views
-- docs: /dashboards/
-  title: Introduction to dashboards
-- docs: /dashboards/#get-started-with-your-own-dashboard/
-  title: Take control of the default dashboard
+  - docs: /dashboards/actions/
+    title: Card tap actions
+  - docs: /dashboards/features/
+    title: Card features
+  - docs: /dashboards/header-footer/
+    title: Card header and footer widgets
+  - docs: /dashboards/views/
+    title: Views
+  - docs: /dashboards/
+    title: Introduction to dashboards
+  - docs: /dashboards/#get-started-with-your-own-dashboard/
+    title: Take control of the default dashboard
 ---
 
 Each dashboard is made up of cards.

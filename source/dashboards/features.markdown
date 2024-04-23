@@ -2,12 +2,12 @@
 title: "Features for dashboard cards"
 description: "Decorate your dashboard cards with quick controls."
 related:
-- docs: /dashboards/humidifier/
-  title: Humidifier card
-- docs: /dashboards/thermostat/
-  title: Thermostat card
-- docs: /dashboards/tile/
-  title: Tile card
+  - docs: /dashboards/humidifier/
+    title: Humidifier card
+  - docs: /dashboards/thermostat/
+    title: Thermostat card
+  - docs: /dashboards/tile/
+    title: Tile card
 ---
 
 Some dashboard cards have support for features. These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
