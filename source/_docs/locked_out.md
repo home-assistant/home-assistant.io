@@ -2,12 +2,12 @@
 title: "I'm locked out!"
 description: "Options for regaining access"
 related:
-- docs: /common-tasks/os/#listing-all-users-from-the-command-line
-  title: Listing all user names via command line
-- url: https://yellow.home-assistant.io/guides/factory-reset/
-  title: Reset the Yellow
-- url: https://green.home-assistant.io/guides/reset/
-  title: Reset the Green
+  - docs: /common-tasks/os/#listing-all-users-from-the-command-line
+    title: Listing all user names via command line
+  - url: https://yellow.home-assistant.io/guides/factory-reset/
+    title: Reset the Yellow
+  - url: https://green.home-assistant.io/guides/reset/
+    title: Reset the Green
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
