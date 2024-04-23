@@ -2,18 +2,18 @@
 title: "Views"
 description: "A view is a tab inside a dashboard."
 related:
-- docs: /dashboards/masonry/
-  title: Masonry view
-- docs: /dashboards/panel/
-  title: Panel view
-- docs: /dashboards/sidebar/
-  title: Sidebar view
-- docs: /dashboards/sections/
-  title: Sections view
-- docs: /dashboards/
-  title: About dashboards
-- docs: /dashboards/cards/#adding-cards-to-your-dashboard
-  title: Adding cards to a view
+  - docs: /dashboards/masonry/
+    title: Masonry view
+  - docs: /dashboards/panel/
+    title: Panel view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
+  - docs: /dashboards/sections/
+    title: Sections view
+  - docs: /dashboards/
+    title: About dashboards
+  - docs: /dashboards/cards/#adding-cards-to-your-dashboard
+    title: Adding cards to a view
 ---
 
 A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.

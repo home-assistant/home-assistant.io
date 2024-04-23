@@ -2,22 +2,22 @@
 title: "Actions"
 description: "Define what an object does when interacted with."
 related:
-- docs: /dashboards/button/
-  title: Button card
-- docs: /dashboards/entities/
-  title: Entities card
-- docs: /dashboards/glance/
-  title: Glance card
-- docs: /dashboards/light/
-  title: Light card
-- docs: /dashboards/picture/
-  title: Picture card
-- docs: /dashboards/picture-elements/
-  title: Picture element card
-- docs: /dashboards/picture-entity/
-  title: Picture entity card
-- docs: /dashboards/picture-glance/
-  title: Picture glance card
+  - docs: /dashboards/button/
+    title: Button card
+  - docs: /dashboards/entities/
+    title: Entities card
+  - docs: /dashboards/glance/
+    title: Glance card
+  - docs: /dashboards/light/
+    title: Light card
+  - docs: /dashboards/picture/
+    title: Picture card
+  - docs: /dashboards/picture-elements/
+    title: Picture element card
+  - docs: /dashboards/picture-entity/
+    title: Picture entity card
+  - docs: /dashboards/picture-glance/
+    title: Picture glance card
 ---
 
 Some cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
