@@ -1,6 +1,19 @@
 ---
 title: "Cards"
 description: "Introduction to the role of cards on the dashboard and how to add a card."
+related:
+  - docs: /dashboards/actions/
+    title: Card tap actions
+  - docs: /dashboards/features/
+    title: Card features
+  - docs: /dashboards/header-footer/
+    title: Card header and footer widgets
+  - docs: /dashboards/views/
+    title: Views
+  - docs: /dashboards/
+    title: Introduction to dashboards
+  - docs: /dashboards/#get-started-with-your-own-dashboard/
+    title: Take control of the default dashboard
 ---
 
 Each dashboard is made up of cards.
@@ -75,16 +88,3 @@ Another way to add entities to a dashboard is to use the **Device** page.
   ![Add to Dashboard button on the device page](/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg)
 
 {% enddetails %}
-
-## Related topics
-
-- [Views](/dashboards/views/)
-- [Introduction to dashboards](/dashboards/)
-- [Take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard)
-
-### Cards
-
-- For a list of available card types and more detailed documentation, refer to the **Card types** section in the side navigation.
-- [Card tap actions](/dashboards/actions/)
-- [Card features](/dashboards/actions/)
-- [Card header and footer widgets](/dashboards/header-footer/)

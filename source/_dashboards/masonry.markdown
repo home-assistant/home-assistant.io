@@ -4,10 +4,10 @@ title: Masonry view
 sidebar_label: Masonry (default)
 description: "The default panel layout uses a masonry algorithm."
 related:
-- docs: /dashboards/panel/
-  title: Panel view
-- docs: /dashboards/sidebar/
-  title: Sidebar view
+  - docs: /dashboards/panel/
+    title: Panel view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
 ---
 
 The masonry view is the default view type.

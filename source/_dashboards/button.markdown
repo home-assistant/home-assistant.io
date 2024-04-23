@@ -4,14 +4,14 @@ title: "Button card"
 sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
 related:
-- docs: /dashboards/actions/
-  title: Card actions
-- docs: /docs/scripts/
-  title: Scripts
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The button card allows you to add buttons to perform tasks.

@@ -11,14 +11,14 @@ ha_codeowners:
 ha_iot_class: Calculated
 ha_integration_type: system
 related:
-- docs: /installation/#advanced-installation-methods
-  title: Home Assistant installation methods
-- docs: /getting-started/onboarding/
-  title: Recover from backup during onboarding
-- docs: /docs/configuration/
-  title: Configuration file
-- docs: /common-tasks/os/#restoring-a-backup
-  title: Home Assistant Operating System- Restoring a backup
+  - docs: /installation/#advanced-installation-methods
+    title: Home Assistant installation methods
+  - docs: /getting-started/onboarding/
+    title: Recover from backup during onboarding
+  - docs: /docs/configuration/
+    title: Configuration file
+  - docs: /common-tasks/os/#restoring-a-backup
+    title: Home Assistant Operating System- Restoring a backup
 ---
 
 The **Backup** {% term integration %} allows you to create and download backups for your {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations. This backup file can be used if you migrate to {% term "Home Assistant Operating System" %}.

@@ -2,15 +2,15 @@
 title: "Areas"
 description: "Group your devices and entities in areas and group areas in floors."
 related:
-- docs: /docs/organizing/areas/
-  title: Areas
-- docs: /docs/organizing/
-- docs: /docs/organizing/labels/
-  title: Labels
-- docs: /docs/organizing/categories/
-  title: Categories
-- docs: /docs/configuration/templating/#areas
-  title: Using areas in template
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/
+  - docs: /docs/organizing/labels/
+    title: Labels
+  - docs: /docs/organizing/categories/
+    title: Categories
+  - docs: /docs/configuration/templating/#areas
+    title: Using areas in template
 ---
 
 An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. For example, the "Living room" area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.

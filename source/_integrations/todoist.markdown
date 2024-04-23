@@ -15,18 +15,18 @@ ha_platforms:
 ha_integration_type: integration
 ha_config_flow: true
 related:
-- docs: /integrations/todo
-  title: To-do list integration documentation
-- docs: /integrations/#to-do-list
-  title: List of to-do list integrations
-- docs: /dashboards/todo-list/
-  title: To-do list card
-- docs: /dashboards/dashboards/
-  title: Dashboards
-- docs: /integrations/calendar/
-  title: Calendar
-- url: https://todoist.com
-  title: Todoist projects
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/calendar/
+    title: Calendar
+  - url: https://todoist.com
+    title: Todoist projects
 ---
 
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.

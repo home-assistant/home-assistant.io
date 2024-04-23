@@ -2,12 +2,12 @@
 title: "General troubleshooting"
 description: "General troubleshooting information"
 related:
-- docs: /docs/configuration/#editing-configurationyaml
-  title: Editing your configuration
-- docs: /integrations/recovery_mode/
-  title: Recovery mode integration
-- docs: /docs/locked_out/
-  title: Resetting your password
+  - docs: /docs/configuration/#editing-configurationyaml
+    title: Editing your configuration
+  - docs: /integrations/recovery_mode/
+    title: Recovery mode integration
+  - docs: /docs/locked_out/
+    title: Resetting your password
 ---
 
 This page provides some information about more generic troubleshooting topics.

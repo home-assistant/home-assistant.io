@@ -2,18 +2,18 @@
 title: "YAML syntax"
 description: "Details about the YAML syntax used to configure Home Assistant."
 related:
-- docs: /docs/configuration/
-  title: `configuration.yaml` file
-- docs: /docs/configuration/secrets/
-  title: Storing private data in separate file
-- docs: /docs/automation/yaml/
-  title: Automation.yaml
-- docs: /docs/configuration/troubleshooting/
-  title: Troubleshooting the configuration files
-- docs: /docs/configuration/#validating-the-configuration
-  title: Validating the configuration
-- url: https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
-  title: YAML Style Guide for Home Assistant developers
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /docs/configuration/secrets/
+    title: Storing private data in separate file
+  - docs: /docs/automation/yaml/
+    title: Automation.yaml
+  - docs: /docs/configuration/troubleshooting/
+    title: Troubleshooting the configuration files
+  - docs: /docs/configuration/#validating-the-configuration
+    title: Validating the configuration
+  - url: https://developers.home-assistant.io/docs/documenting/yaml-style-guide/
+    title: YAML Style Guide for Home Assistant developers
 ---
 
 Home Assistant uses the [YAML](https://yaml.org/) syntax for configuration. While most integrations can be configured through the UI, some integrations require you to edit your [`configuration.yaml`](/docs/configuration/) file to specify its settings.

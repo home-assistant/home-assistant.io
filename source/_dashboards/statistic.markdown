@@ -4,10 +4,10 @@ title: "Statistic card"
 sidebar_label: Statistic
 description: "The statistic card allows you to display a statistical value for an entity."
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The statistic card allows you to display a statistical value for an entity.

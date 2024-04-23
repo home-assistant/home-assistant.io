@@ -10,10 +10,10 @@ ha_codeowners:
 ha_domain: history
 ha_integration_type: system
 related:
-- docs: /integrations/recorder/
-  title: Recorder integration
-- url: https://data.home-assistant.io
-  title: Home Assistant Data Science Portal
+  - docs: /integrations/recorder/
+    title: Recorder integration
+  - url: https://data.home-assistant.io
+    title: Home Assistant Data Science Portal
 ---
 
 The **History** integration tracks everything that is going on within Home
@@ -54,8 +54,3 @@ If you select a time frame that exceeds 10 days, the data is taken from the long
 
 The history information is also available through the
 [RESTful API](/developers/rest_api/#get-apihistory).
-
-## Related topics
-
-- [Recorder integration](/integrations/recorder/)
-- [Home Assistant Data Science Portal](https://data.home-assistant.io)

@@ -2,14 +2,14 @@
 title: "Grouping your assets"
 description: "Grouping your assets makes it easier to find them and allows you to target groups in automations."
 related:
-- docs: /docs/organizing/areas/
-  title: Areas
-- docs: /docs/organizing/floors/
-  title: Floors
-- docs: /docs/organizing/labels/
-  title: Labels
-- docs: /docs/organizing/categories/
-  title: Categories
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /docs/organizing/labels/
+    title: Labels
+  - docs: /docs/organizing/categories/
+    title: Categories
 ---
 
 Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).

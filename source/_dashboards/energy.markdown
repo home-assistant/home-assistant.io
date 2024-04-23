@@ -4,10 +4,10 @@ title: "Energy cards"
 sidebar_label: Energy cards
 description: "An overview of the energy cards that are available."
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.

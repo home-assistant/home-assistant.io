@@ -4,10 +4,10 @@ title: "Webpage card"
 sidebar_label: Webpage
 description: "The webpage card allows you to embed your favorite webpage right into Home Assistant."
 related:
-- docs: /dashboards/dashboards/#webpage-dashboard
-  title: Webpage dashboard
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /dashboards/dashboards/#webpage-dashboard
+    title: Webpage dashboard
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The webpage card allows you to embed your favorite webpage right into Home Assistant. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
