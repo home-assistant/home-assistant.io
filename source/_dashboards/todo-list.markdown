@@ -4,18 +4,18 @@ title: "To-do list card"
 sidebar_label: To-do list
 description: "The to-do list card allows you to add, edit, check-off, and clear items from your to-do list."
 related:
-- docs: /dashboards/dashboards/
-  title: Dashboards
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
-- docs: /integrations/todo
-  title: To-do list integration documentation
-- docs: /integrations/#to-do-list
-  title: List of to-do list integrations
-- docs: /integrations/local_todo/
-  title: Local to-do integration
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /integrations/local_todo/
+    title: Local to-do integration
 ---
 
 The to-do list card allows you to add, edit, check-off, and clear items from your to-do list.

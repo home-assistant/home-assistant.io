@@ -4,10 +4,10 @@ title: Panel view
 sidebar_label: Panel
 description: "The panel view shows a single card in the full width of the screen."
 related:
-- docs: /dashboards/masonry/
-  title: Masonry view
-- docs: /dashboards/sidebar/
-  title: Sidebar view
+  - docs: /dashboards/masonry/
+    title: Masonry view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
 ---
 
 The panel view must have exactly one card. This card is rendered full-width.

@@ -4,12 +4,12 @@ title: Picture entity card
 sidebar_label: Picture entity
 description: The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
 related:
-- docs: /dashboards/actions/
-  title: Card actions
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.

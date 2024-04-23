@@ -4,8 +4,8 @@ title: Conditional card
 sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
 related:
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The conditional card displays another card based on conditions.

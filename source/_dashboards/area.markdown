@@ -4,10 +4,10 @@ title: "Area card"
 sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
 related:
-- docs: /integrations/frontend/
-  title: Themes
-- docs: /dashboards/cards/
-  title: Dashboard cards
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The area card lets you control and monitor an individual {% term area %}.
