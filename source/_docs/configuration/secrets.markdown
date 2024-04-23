@@ -3,7 +3,7 @@ title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
 related:
   - docs: /docs/configuration/
-    title: `configuration.yaml` file
+    title: configuration.yaml file
   - docs: /docs/configuration/splitting_configuration/
     title: Splitting the configuration
 ---
