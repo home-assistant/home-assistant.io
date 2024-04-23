@@ -11,15 +11,65 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `telegram` platform uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+The `telegram` integration uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
-## Setup
+## Setup example
 
-The requirements are:
+To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-create-a-bot), follow these steps:
 
-- You need a [Telegram bot](https://core.telegram.org/bots). Please follow those [instructions](https://core.telegram.org/bots#6-botfather) to create one and get the token for your bot. Keep in mind that bots are not allowed to contact users. You need to make the first contact with your user. Meaning that you need to send a message to the bot from your user.
-- You need to configure a [Telegram bot in Home Assistant](/integrations/telegram_bot) and define there your API key and the allowed chat ids to interact with.
-- The `chat_id` of an allowed user or group to which the bot is added.
+  - Bots are not allowed to contact users. You need to make the first contact from the user for which you want to set up the bot.
+
+1. Tell Telegram to create a bot for you:
+   - In Telegram, open a chat with @BotFather and enter `/newbot`.
+   - Follow the instructions on screen and give your bot a name.
+   - BotFather will give you a link to your new bot and an HTTP API token.
+     - Store the token somewhere safe.
+2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
+   - Then, enter `/start`. 
+   - The bot will return your chat ID and the user name.
+3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
+   - Paste this into your [configuration file](/docs/configuration/):
+   - Replace the `api_key` and the `allowed_chat_ids` with your data.
+  
+      ```yaml
+      # Telegram Bot
+      telegram_bot:
+        - platform: polling
+          api_key: "1117774004:EABQulCACdgkQOTN3hS_5HZwSwxDlekCixr"
+          allowed_chat_ids:
+            - 44441111
+      ```
+
+4. Create a notifier:
+   - Paste this into your configuration file: 
+   - Replace the `name` and the `chat_id` with your data.
+  
+      ```yaml
+      # Notifier
+      notify:
+        - platform: telegram
+          name: "sarah"
+          chat_id: 44441111
+      ```
+   - Restart Home Assistant.
+
+5. From the conversation with BotFather, select the link to open a chat with your new bot.
+6. In the chat with the new bot, enter `/start`.
+7. Test the service:
+   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+   - Paste this into the YAML file:
+   - Replace the `service` and the `message` with your data.
+  
+      ```yaml
+      service: notify.sarah
+      data:
+        message: "Yay! A message from Home Assistant."
+      ```
+   - Select **Call service**. You should now get a message.
+
+8. You can do more with this. Check out the configuration descriptions and examples below.
+
+## Methods to retrieve a `chat_id`
 
 **Method 1:** You can get your `chat_id` by sending any message to the [GetIDs bot](https://t.me/getidsbot).
 
@@ -68,6 +118,10 @@ $ python3
 <div class='note'>
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
 </div>
+
+
+**Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already, you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
+[![Open your Home Assistant instance and show your Home Assistant logs.](https://my.home-assistant.io/badges/logs.svg)](https://my.home-assistant.io/redirect/logs/?)
 
 ## Configuration
 

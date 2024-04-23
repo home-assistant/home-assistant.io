@@ -24,7 +24,7 @@ Information on [how to share](#got-a-tip-for-the-next-edition).
 Are you one of those who always leave the doors open?
 
 Then this week we have a nice blueprint for you! [BasTijs](https://community.home-assistant.io/u/bastijs )
-has made a blueprint that announces through text to speech in the house,
+has made a blueprint that announces through text-to-speech in the house,
 that a door is open and only stops when the door is closed again.
 
 {% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/door-open-tts-announcer/266252" %}

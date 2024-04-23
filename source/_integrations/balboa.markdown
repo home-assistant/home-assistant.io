@@ -2,26 +2,33 @@
 title: Balboa Spa Client
 description: Instructions on how to integrate Balboa Spa WiFi within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
+  - Fan
+  - Light
 ha_release: 2021.12
 ha_iot_class: Local Push
 ha_domain: balboa
 ha_platforms:
   - binary_sensor
   - climate
+  - fan
+  - light
 ha_codeowners:
   - '@garbled1'
+  - '@natekspencer'
 ha_config_flow: true
 ha_integration_type: integration
 ---
 
-This integration adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
+The **Balboa Spa Client** {% term integration %} adds support for [Balboa](https://www.balboawatergroup.com/) Spa WiFi Modules to be used within Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor (Filter cycles and circulation pumps)
+- Binary sensor (Filter cycles and circulation pumps)
 - Climate
+- Fan (Pumps/Jets)
+- Light
 
 ## Compatible hardware
 

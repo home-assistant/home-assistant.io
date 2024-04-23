@@ -32,7 +32,7 @@ port:
 prefix:
   description: Prefix to use.
   required: false
-  default: hass
+  default: "`hass`"
   type: string
 rate:
   description: The sample rate.

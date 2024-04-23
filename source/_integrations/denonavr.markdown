@@ -2,8 +2,8 @@
 title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
-ha_iot_class: Local Polling
+  - Media player
+ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
 ha_codeowners:
@@ -28,6 +28,7 @@ Known supported devices:
 - Denon AVR-X1500H
 - Denon AVR-X1600H
 - Denon AVR-X1700H
+- Denon AVR-X1800H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -36,6 +37,7 @@ Known supported devices:
 - Denon AVR-X2500H
 - Denon AVR-X2600H
 - Denon AVR-X2700H
+- Denon AVR-X2800H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -48,10 +50,12 @@ Known supported devices:
 - Denon AVR-X4400H
 - Denon AVR-X4500H
 - Denon AVR-X4700H
+- Denon AVC-X4800H
 - Denon AVR-X6500H
 - Denon AVR-X6700H
 - Denon AVR-X7200W
 - Denon AVR-X8500H
+- Denon AVR-1713
 - Denon AVR-1912
 - Denon AVR-2112CI
 - Denon AVR-2312CI
@@ -62,15 +66,21 @@ Known supported devices:
 - Denon AVR-S650H
 - Denon AVR-S710W
 - Denon AVR-S720W
+- Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S770H
 - Denon AVR-S940H
 - Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz AV8802A
+- Marantz CINEMA 50
+- Marantz CINEMA 70s
 - Marantz M-CR510
 - Marantz M-CR511
 - Marantz M-CR603
@@ -78,9 +88,12 @@ Known supported devices:
 - Marantz M-CR611
 - Marantz SR5006
 - Marantz SR5008
+- Marantz SR5010
 - Marantz SR5011
+- Marantz SR5015
 - Marantz SR6007 - SR6012
 - Marantz SR7007
+- Marantz SR7010
 - Marantz SR7012
 - Marantz SR8015
 - Marantz NR1504

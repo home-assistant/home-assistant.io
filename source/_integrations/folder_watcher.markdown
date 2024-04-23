@@ -1,9 +1,10 @@
 ---
 title: Folder Watcher
-description: Component for monitoring changes within the filesystem.
+description: Integration for monitoring changes within the filesystem.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: 0.67
 ha_quality_scale: internal
 ha_domain: folder_watcher
@@ -12,46 +13,20 @@ ha_integration_type: integration
 
 This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
 
-* `closed`
-* `created`
-* `deleted`
-* `modified`
-* `moved`
+- `closed`
+- `created`
+- `deleted`
+- `modified`
+- `moved`
 
 Configured folders must be added to [allowlist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
-## Configuration
-
-To enable the Folder Watcher integration in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-folder_watcher:
-  - folder: /config
-```
-
-{% configuration %}
-folder:
-  description: The folder path
-  required: true
-  type: string
-patterns:
-  description: Pattern matching to apply
-  required: false
-  default: "`*`"
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
 
 ## Patterns
 
-Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns. The following example shows the configuration required to only monitor filetypes `.yaml` and `.txt`.
-
-```yaml
-folder_watcher:
-  - folder: /config
-    patterns:
-      - '*.yaml'
-      - '*.txt'
-```
+Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns.
+As example to monitor specific file, as example YAML and text-files add `*.yaml` and `*.txt`.
 
 ## Automations
 

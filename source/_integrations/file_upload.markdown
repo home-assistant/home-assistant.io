@@ -11,3 +11,5 @@ ha_category: []
 ---
 
 The file upload integration allows various features in the frontend to upload files.
+
+{% include integrations/building_block_integration.md %}

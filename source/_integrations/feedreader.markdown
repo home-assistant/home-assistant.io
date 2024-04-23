@@ -89,6 +89,11 @@ automation:
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
+### Video tutorial
+This video tutorial explains how to set up the feedreader and show the latest news feed item on your dashboard in Home Assistant.
+
+<lite-youtube videoid="Va4JOKbesi0" videotitle="How to view RSS feeds on your Dashboard in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+
 For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
 
 ```python
@@ -96,6 +101,6 @@ EVENT_FEEDREADER = "feedreader"
 hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
-To get started developing custom components, please refer to the [developers](/developers) documentation
+To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

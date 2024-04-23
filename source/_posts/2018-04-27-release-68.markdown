@@ -60,7 +60,7 @@ Another cool new platform, also by [@mjg59], is support for Eufy devices. Eufy i
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Icons! Material Design Icons has implemented some naming guidelines and this caused 9 icons to change names, 3 of which are home automation icons: `roomba` -> `robot-vacuum`, `nest-protect` -> `smoke-detector`, `nest-thermostat` -> `thermostat` ([see all changes](http://templarian.com/2018/04/18/material-design-icons-v2-3-54/)).
 - Support for multiple MAX!Cube LAN gateways caused a slight change to the configuration schema. Make sure to check the docs for the new one. ([@syssi] - [#13517]) ([maxcube docs]) ([binary_sensor.maxcube docs]) ([climate.maxcube docs]) (breaking change)

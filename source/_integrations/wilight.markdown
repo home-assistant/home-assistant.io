@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `wilight` integration is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
+The **WiLight** {% term integration %} is to integrate [WiLight](http://www.wilight.com.br) devices with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -36,9 +36,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Fan
 
-The `wilight` integration allows you to control your Fans from within Home Assistant.
+The **WiLight** {% term integration %} allows you to control your Fans from within Home Assistant.
 
-### Fan Services
+### Fan services
 
 There are several services which can be used for automations and control of the fan:
 
@@ -52,12 +52,12 @@ There are several services which can be used for automations and control of the 
 
 ## Irrigation
 
-The `wilight` integration allows you to control your Irrigation from within Home Assistant. This is exposed via switches in Home Assistant.
+The **WiLight** {% term integration %} allows you to control your Irrigation from within Home Assistant. This is exposed via switches in Home Assistant.
 There are two switch types for Irrigation: `watering switch` and `pause switch`.
 A `watering switch` can turn on and off the irrigation valve, while the `pause switch` can disable / enable the action of a `watering switch`.
 `Triggers` activate (turn on) the `watering switch` (irrigation valve) at the programmed time. The trigger can be set to run on a day of the week or only once (today).
 
-### Irrigation Services
+### Irrigation services
 
 There are several services which can be used for automations and control of the Irrigation:
 

@@ -26,7 +26,7 @@ Your Transmission client must first be configured to allow remote access. In you
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 The Transmission integration will add the following sensors and switches.
 
@@ -44,7 +44,7 @@ The Transmission integration will add the following sensors and switches.
 - `switch.transmission_switch`: A switch to start/stop all torrents.
 - `switch.transmission_turtle_mode`: A switch to enable turtle mode (a.k.a. alternative speed limits).
 
-## Event Automation
+## Event automation
 
 The Transmission integration is continuously monitoring the status of torrents in the target client. Once a torrent is started or completed, an event is triggered on the Home Assistant Bus containing the torrent name and ID, which can be used with automations.
 
@@ -63,8 +63,8 @@ Example of an automation that notifies on successful download and removes the to
 ```yaml
 - alias: "Notify and remove completed torrent"
   trigger:
-    platform: event
-    event_type: transmission_downloaded_torrent
+    - platform: event
+      event_type: transmission_downloaded_torrent
   action:
     - service: notify.telegram_notifier
       data:
@@ -72,13 +72,15 @@ Example of an automation that notifies on successful download and removes the to
         message: "{{trigger.event.data.name}}"
     - service: transmission.remove_torrent
       data:
-        name: "Transmission"
+        entry_id: eeb52bc78e11d813a1e6bc68c8ff93c8
         id: "{{trigger.event.data.id}}"
 ```
 
 {% endraw %}
 
 ## Services
+
+All Transmission services require integration `entry_id`. To find it, go to Developer Tools -> Services. Choose the desired service and select your integration from dropdown. Then switch to YAML mode to see `entry_id`.
 
 ### Service `add_torrent`
 

@@ -2,7 +2,7 @@
 title: Monoprice 6-Zone Amplifier
 description: Instructions on how to integrate Monoprice 6-Zone Home Audio Controller into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.56
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -26,7 +26,7 @@ If you are using an IP232 module instead of a direct serial connection, then use
   
 Sources can also be later edited from the integration options (gear icon in the top right when selecting the integration). Note that editing sources will remove the snapshot you may have saved.
 
-## Zone Management
+## Zone management
 
 Devices and entities are created for each of the possible 18 zones, and can be enabled, disabled and renamed through regular Home Assistant methods.
 By default, the first 6 zones (11..16) are enabled, and there's an attempt to automatically detect the 12 extension zones (21..26, and 31..36) on the first run.

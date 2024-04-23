@@ -2,14 +2,12 @@
 title: Threshold
 description: Instructions on how to integrate threshold binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Helper
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.34
 ha_quality_scale: internal
-ha_codeowners:
-  - '@fabaff'
 ha_domain: threshold
 ha_config_flow: true
 ha_platforms:
@@ -35,7 +33,7 @@ Upper limit:
   description: The upper threshold which the observed value is compared against.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the

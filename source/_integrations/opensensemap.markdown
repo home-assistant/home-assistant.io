@@ -17,7 +17,7 @@ The `opensensemap` air quality platform will query the open data API of [openSen
 
 To get the ID of a station you need to select it on the [openSense map](https://opensensemap.org/) and find it in the addressbar of your browser. It's the last part of the URL, e.g., `5b450e565dc1ec001bf7cd1d` [https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d](https://opensensemap.org/explore/5b450e565dc1ec001bf7cd1d).
 
-## Manual Configuration
+## Manual configuration
 
 To enable this platform, add the following lines to your `configuration.yaml` file:
 

@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `viaggiatreno` sensor will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
+The **Trenitalia ViaggiaTreno** {% term integration %} will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
 
 To activate the sensor you need at least two parameters: the `train_id` and the `station_id`.
 

@@ -15,6 +15,11 @@ ha_integration_type: integration
 ---
 
 [IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.
+The [WEM3050T](https://www.iammeter.com/products/3phase-meter-3050t) is the latest three-phase/split-phase meter, released by IAMMETER on Nov 2023.
+The WEM3050T provides nearly all of the features the WEM3080T provides, with the exception of the cloud service.
+The WEM3050T can be integrated into Home Assistant by [all of the methods](https://community.home-assistant.io/t/four-ways-to-integrate-the-electricity-usage-monitor-iammeter-into-the-home-assistant/485520/) that WEM3080T supports.
+Because there is no cloud service by default, the WEM3050T is much cheaper than the WEM3080T.
+
 
 
 ## Configuration

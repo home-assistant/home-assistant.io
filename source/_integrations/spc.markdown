@@ -3,7 +3,7 @@ title: Vanderbilt SPC
 description: Instructions on how to setup Vanderbilt SPC devices within Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
 ha_release: 0.47
 ha_iot_class: Local Push
@@ -21,7 +21,7 @@ Integration with SPC is done through a third-party API gateway called [SPC Web G
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 
 Home Assistant needs to know where to find the SPC Web Gateway API endpoints, to configure this add the following section to your `configuration.yaml` file:
 
@@ -38,7 +38,7 @@ api_url:
   required: true
   type: string
 ws_url:
-  description: URL of the SPC Web Gateway websocket, e.g., `ws://<ip>:8088/ws/spc`.
+  description: URL of the SPC Web Gateway WebSocket, e.g., `ws://<ip>:8088/ws/spc`.
   required: true
   type: string
 {% endconfiguration %}
@@ -69,7 +69,7 @@ automation:
 
 {% endraw %}
 
-## Binary Sensor
+## Binary sensor
 
 The `spc` platform allows you to get data from your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) binary sensors from within Home Assistant.
 

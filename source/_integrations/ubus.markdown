@@ -2,7 +2,7 @@
 title: OpenWrt (ubus)
 description: Instructions on how to integrate OpenWRT routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7.6
 ha_iot_class: Local Polling
 ha_domain: ubus
@@ -13,24 +13,40 @@ ha_integration_type: integration
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
 
-Before this scanner can be used you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
+Before this scanner can be used, you have to install the ubus RPC packages on OpenWrt (versions older than 18.06.x do not require the `uhttpd-mod-ubus` package):
 
 ```bash
 opkg update
 opkg install rpcd-mod-file uhttpd-mod-ubus
 ```
 
-And create on your OpenWrt device a read-only user to be used by setting up the ACL file `/usr/share/rpcd/acl.d/user.json`.
+Add a new system user `hass` (or do it in any other way that you prefer):
+
+- Add line to /etc/passwd: hass:x:10001:10001:hass:/var:/bin/false
+- Add line to /etc/shadow: hass:x:0:0:99999:7:::
+
+Edit the `/etc/config/rpcd` and add the following lines:
+
+```yaml
+config login
+        option username 'hass'
+        option password '$p$hass'
+        list read hass
+        list read unauthenticated
+        list write hass
+```
+
+Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass`:
 
 ```json
 {
-  "user": {
-    "description": "Read only user access role",
+  "hass": {
+    "description": "Access role for OpenWrt ubus integration",
     "read": {
       "ubus": {
-        "*": [ "*" ]
+        "hostapd.*": ["get_clients"],
+        "uci": ["get"]
       },
-      "uci": [ "*" ]
     },
     "write": {}
   }
@@ -87,10 +103,10 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 If you find that this never creates `known_devices.yaml`, or if you need more information on the communication chain between Home Assistant and OpenWrt, follow these steps to grab the packet stream and gain insight into what's happening.
 
-### Increase Log Level
+### Increase log level
 
 1. On your Home Assistant device, stop Home Assistant
-2. Adjust `configuration.yaml` to log more detail for the `device_tracker` component
+2. Adjust `configuration.yaml` to log more detail for the `device_tracker` integration.
 
     ```yaml
     logger:
@@ -128,7 +144,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
     17-04-28 10:50:34 INFO (Thread-7) [homeassistant.components.device_tracker.ubus] Checking ARP
     ```
 
-### Inspect Packets With TCPDump
+### Inspect packets with TCPDump
 
 _These steps require that `tcpdump` is installed on your Home Assistant device, and that you have a utility such as [Wireshark](https://www.wireshark.org) for viewing the packets. It also assumes that Home Assistant is communicating with your router over HTTP and not HTTPS._
 

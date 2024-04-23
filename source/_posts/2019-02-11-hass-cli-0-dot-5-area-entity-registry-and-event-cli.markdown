@@ -119,32 +119,32 @@ The full change list including bugfixes from community is as follows:
 
 New features:
 
-* Device, Area and event support [237ade8](http://github.com/home-assistant/home-assistant-cli/commit/237ade81372d25bfb3655c6a9f10d4aa697cad2e) @maxandersen
-* add minimal dockerfile [2b00bd7](http://github.com/home-assistant/home-assistant-cli/commit/2b00bd7e5b865775e7787c9cedf8d9c17d5f68cb) Ben Lebherz
+- Device, Area and event support [237ade8](http://github.com/home-assistant/home-assistant-cli/commit/237ade81372d25bfb3655c6a9f10d4aa697cad2e) @maxandersen
+- add minimal dockerfile [2b00bd7](http://github.com/home-assistant/home-assistant-cli/commit/2b00bd7e5b865775e7787c9cedf8d9c17d5f68cb) Ben Lebherz
 
 Bug fixes:
 
-* fix(entity): honor --columns in entity get [67397a1](http://github.com/home-assistant/home-assistant-cli/commit/67397a102295381d5d9101a51764643a3668e1e6) @maxandersen
-* Fix result reporting from service calls [14fc952](http://github.com/home-assistant/home-assistant-cli/commit/14fc9527ec0861a7dd26e185f4937bf9aace7f07) @maxandersen
-* Remove pyaml and move to ruamel only for yaml [df9f8c2](http://github.com/home-assistant/home-assistant-cli/commit/df9f8c23fa9993f16c735159634f29d2a50e1a43) @maxandersen
+- fix(entity): honor --columns in entity get [67397a1](http://github.com/home-assistant/home-assistant-cli/commit/67397a102295381d5d9101a51764643a3668e1e6) @maxandersen
+- Fix result reporting from service calls [14fc952](http://github.com/home-assistant/home-assistant-cli/commit/14fc9527ec0861a7dd26e185f4937bf9aace7f07) @maxandersen
+- Remove pyaml and move to ruamel only for yaml [df9f8c2](http://github.com/home-assistant/home-assistant-cli/commit/df9f8c23fa9993f16c735159634f29d2a50e1a43) @maxandersen
 
 Minor fixes:
 
-* fix: release 0.5.0 version [200a099](http://github.com/home-assistant/home-assistant-cli/commit/200a099d066f2f5b34cce986e29952f4b6bb6594) @maxandersen
-* fix: be pep440 complant [98320f8](http://github.com/home-assistant/home-assistant-cli/commit/98320f888b75c8a091c5d19b154cac5b2946ac7b) @maxandersen
-* fix: fix lint errors [eca26fa](http://github.com/home-assistant/home-assistant-cli/commit/eca26fa4c2ebd0637a75a221dc17af60210bd0b3) @maxandersen
-* fix: fix lint errors [ffd2369](http://github.com/home-assistant/home-assistant-cli/commit/ffd23695cace01e872590fba06dedab63a56693f) @maxandersen
-* enable deploy of git timestamped build [4b27a65](http://github.com/home-assistant/home-assistant-cli/commit/4b27a65a2ddab302d97253b677df55739696c6d7) @maxandersen
-* Merge branch 'master' into dev [caaf7b1](http://github.com/home-assistant/home-assistant-cli/commit/caaf7b160f1bc7f7854d82ecdb35d0954c5e7ea8) @maxandersen
-* add docker reference [d3b64e8](http://github.com/home-assistant/home-assistant-cli/commit/d3b64e886f2a3380e0c4dceb0ea5a5c7d8e7eedc) @maxandersen
-* docs: add docs for area, device and event watch [ee4f74a](http://github.com/home-assistant/home-assistant-cli/commit/ee4f74af87ec810a135c66d0d193a14242213328) @maxandersen
-* Make dockerfile build from source + entrypoint [b7f8764](http://github.com/home-assistant/home-assistant-cli/commit/b7f876420df65b07a6b2a99c0e7dc7635711c1cd) @maxandersen
-* Fix lint issue [8bb0c9e](http://github.com/home-assistant/home-assistant-cli/commit/8bb0c9e4d62ff364f54e1561573e37c7517a46c9) @fabaff
-* Fix lint issues [58fdc83](http://github.com/home-assistant/home-assistant-cli/commit/58fdc835978f0448d43e43595379c32c161f3af3) @fabaff
-* fix bad typing [499b544](http://github.com/home-assistant/home-assistant-cli/commit/499b5449b0441b546ea48aff212754433457dbd5) @maxandersen
-* fix editor formatting [86d9bf8](http://github.com/home-assistant/home-assistant-cli/commit/86d9bf8bf6bfb5bec1a9f28177c105f84912a91b) @maxandersen
-* Fix version [3765a03](http://github.com/home-assistant/home-assistant-cli/commit/3765a03ccf11f0865baa7e70937279bcaa245352) @maxandersen
-* Fix version marker [edbe4bf](http://github.com/home-assistant/home-assistant-cli/commit/edbe4bf42e7d0993d68a367ca04ad80217aac395) @maxandersen
+- fix: release 0.5.0 version [200a099](http://github.com/home-assistant/home-assistant-cli/commit/200a099d066f2f5b34cce986e29952f4b6bb6594) @maxandersen
+- fix: be pep440 complant [98320f8](http://github.com/home-assistant/home-assistant-cli/commit/98320f888b75c8a091c5d19b154cac5b2946ac7b) @maxandersen
+- fix: fix lint errors [eca26fa](http://github.com/home-assistant/home-assistant-cli/commit/eca26fa4c2ebd0637a75a221dc17af60210bd0b3) @maxandersen
+- fix: fix lint errors [ffd2369](http://github.com/home-assistant/home-assistant-cli/commit/ffd23695cace01e872590fba06dedab63a56693f) @maxandersen
+- enable deploy of git timestamped build [4b27a65](http://github.com/home-assistant/home-assistant-cli/commit/4b27a65a2ddab302d97253b677df55739696c6d7) @maxandersen
+- Merge branch 'master' into dev [caaf7b1](http://github.com/home-assistant/home-assistant-cli/commit/caaf7b160f1bc7f7854d82ecdb35d0954c5e7ea8) @maxandersen
+- add docker reference [d3b64e8](http://github.com/home-assistant/home-assistant-cli/commit/d3b64e886f2a3380e0c4dceb0ea5a5c7d8e7eedc) @maxandersen
+- docs: add docs for area, device and event watch [ee4f74a](http://github.com/home-assistant/home-assistant-cli/commit/ee4f74af87ec810a135c66d0d193a14242213328) @maxandersen
+- Make dockerfile build from source + entrypoint [b7f8764](http://github.com/home-assistant/home-assistant-cli/commit/b7f876420df65b07a6b2a99c0e7dc7635711c1cd) @maxandersen
+- Fix lint issue [8bb0c9e](http://github.com/home-assistant/home-assistant-cli/commit/8bb0c9e4d62ff364f54e1561573e37c7517a46c9) @fabaff
+- Fix lint issues [58fdc83](http://github.com/home-assistant/home-assistant-cli/commit/58fdc835978f0448d43e43595379c32c161f3af3) @fabaff
+- fix bad typing [499b544](http://github.com/home-assistant/home-assistant-cli/commit/499b5449b0441b546ea48aff212754433457dbd5) @maxandersen
+- fix editor formatting [86d9bf8](http://github.com/home-assistant/home-assistant-cli/commit/86d9bf8bf6bfb5bec1a9f28177c105f84912a91b) @maxandersen
+- Fix version [3765a03](http://github.com/home-assistant/home-assistant-cli/commit/3765a03ccf11f0865baa7e70937279bcaa245352) @maxandersen
+- Fix version marker [edbe4bf](http://github.com/home-assistant/home-assistant-cli/commit/edbe4bf42e7d0993d68a367ca04ad80217aac395) @maxandersen
 
 Have fun!
 

@@ -3,54 +3,47 @@ title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
 ---
 
-Once your devices are set up, it's time to put the cherry on the pie: automation. In this guide we're going to create a simple automation rule to **turn on the lights when the sun sets**. Of course, this assumes that you have set up an integration that provides a light at this point.
+Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}. We're going to create a simple automation to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
 
-In the user interface, click Settings in the sidebar, then click Automations & Scenes. You will now see the automation screen from which you can manage all the automations in Home Assistant.
+## Automatically turn on the lights before sunset
 
-<p class='img'>
-<img src='/images/getting-started/automation-editor.png'>
-The automation editor.
-</p>
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
 
-Click the blue button at the bottom right to create a new automation. A dialog will appear. Choose "Start with an empty automation". You are presented with a blank automation screen.
+    ![The automation editor.](/images/getting-started/automation-editor.png)
 
-<p class='img'>
-<img src='/images/getting-started/new-automation.png'>
-The start of a new automation.
-</p>
+   - You are presented with a blank automation screen.
 
-The first thing we will do is set a name. Enter "Turn Lights On at Sunset".
+     ![The start of a new automation.](/images/getting-started/new-automation.png)
 
-The second step is defining what should trigger our automation to run. In this case, we want to use the event of the sun setting to trigger our automation. However, if we would turn on the lights when the sun actually sets, it would be too late as it already gets quite dark while it's setting. So we're going to add an offset.
+2. The first step is defining what should {% term trigger %} the automation to run.
+   - In this case, we want to use the event of the sun setting to trigger our automation.
+   - Select **Add trigger**, type `Sun` and select it.
+   ![Use the sun as trigger.](/images/getting-started/sun-trigger.png)
+3. Select **Sunset**.
+   - We want the automation to be triggered a little before that, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before sunset. Neat!
 
-In the trigger section, click on the dropdown menu and change the trigger type to "Sun." It allows us to choose sunrise or sunset, so go ahead and pick sunset. As we discussed, we want our automation to be triggered a little before the sun actually sets, so let's add `-00:30` as the offset. This indicates that the automation will be triggered 30 minutes before the sun actually sets. Neat!
+    ![A new automation with a sun trigger filled in.](/images/getting-started/new-trigger.png)
 
-<p class='img'>
-<img src='/images/getting-started/new-trigger.png'>
-A new automation with a sun trigger filled in.
-</p>
+4. Once we have defined our trigger, we need to define what should happen.
+   - Select **Add action**.
+   - Type `Ser` and select **Call service**
+5. Select **Light** > **Turn on** or directly enter `light.turn_on`.
+   - For this automation, we're going to turn on all lights in the living room, so let's select the **Area**.
+   - This only works if your lights are assigned to an {% term area %}.
 
-Once we have defined our trigger, scroll down to the action section. Make sure the action type is set to "Call service," and change the service to `light.turn_on`. For this automation we're going to turn on all lights, so let's change the service data to:
+   ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)
 
-```yaml
-entity_id: all
-```
-
-<p class='img'>
-<img src='/images/getting-started/action.png'>
-A new automation with the action set up to turn on the lights.
-</p>
-
-Click the orange button to save the automation. Now wait till it's 30 minutes until the sun sets and see your automation magic!
+6. To save the automation, select **Save**, give the automation a name and **Save** again.
+   - Now wait till it's 30 minutes until the sun sets and see your automation magic!
 
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" %}
 
-If after completing this getting started, you are interested in reading more
-about automations, we recommend the following page.
+If after completing this getting started you are interested in reading more
+about automations, we recommend the following pages:
 
 - [Triggers](/docs/automation/trigger/)
 - [Conditions](/docs/automation/condition/)
 - [Actions](/docs/automation/action/)
 
-Please note, these pages require a bit more experience with Home Assistant
+Please note, these pages may require a bit more experience with Home Assistant
 than you probably have at this point of this tutorial.

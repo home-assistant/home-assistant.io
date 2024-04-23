@@ -49,7 +49,7 @@ automation:
 
 {% endraw %}
 
-### Breaking Changes
+### Backward-incompatible changes
 
  - Media Player: Attributes to call service play_media has been renamed to
 `media_content_type` and `media_content_id`, to match the corresponding media

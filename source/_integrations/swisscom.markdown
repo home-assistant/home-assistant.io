@@ -2,7 +2,7 @@
 title: Swisscom Internet-Box
 description: Instructions on how to integrate Swisscom Internet-Box into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.32
 ha_domain: swisscom
 ha_iot_class: Local Polling

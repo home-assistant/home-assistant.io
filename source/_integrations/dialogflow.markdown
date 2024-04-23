@@ -10,11 +10,13 @@ ha_domain: dialogflow
 ha_integration_type: integration
 ---
 
-The `dialogflow` integration is designed to be used with the [webhook](https://dialogflow.com/docs/fulfillment#webhook) integration of [Dialogflow](https://dialogflow.com/). When a conversation ends with a user, Dialogflow sends an action and parameters to the webhook.
+The **Dialogflow** {% term integration %} is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). After each phrase a user says, Dialogflow sends an action and parameters to the webhook.
 
 To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
-Dialogflow could be [integrated](https://dialogflow.com/docs/integrations/) with many popular messaging, virtual assistant and IoT platforms.
+Dialogflow could be [integrated](https://cloud.google.com/dialogflow/es/docs/integrations) with many popular messaging, virtual assistant and IoT platforms.
+
+<div class='note warning'> After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integreated with Google Assistant </div>
 
 Using Dialogflow will be easy to create conversations like:
 
@@ -38,7 +40,7 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 
 - [Login](https://console.dialogflow.com/) with your Google account.
 - Click on "Create Agent".
-- Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196?hl=en)) and time zone.
+- Select name, language (if you are planning to use Google Actions check their [supported languages](https://support.google.com/assistant/answer/7108196)) and time zone.
 - Click "Save".
 - Now go to "Fulfillment" (in the left menu).
 - Enable Webhook and set your Dialogflow webhook URL as the endpoint, e.g., `https://myhome.duckdns.org/api/webhook/800b4cb4d27d078a8871656a90854a292651b20635685f8ea23ddb7a09e8b417`
@@ -66,7 +68,7 @@ When activated, the [`alexa` integration](/integrations/alexa/) will have Home A
 
 ## Examples
 
-Download [this zip](https://github.com/home-assistant/home-assistant.io/blob/next/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
+Download [this zip](https://github.com/home-assistant/home-assistant.io/blob/current/source/assets/HomeAssistant_APIAI.zip) and load it in your Dialogflow agent (**Settings** -> **Export and Import**) for examples intents to use with this configuration:
 
 {% raw %}
 

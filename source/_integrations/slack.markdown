@@ -8,8 +8,8 @@ ha_config_flow: true
 ha_domain: slack
 ha_iot_class: Cloud Push
 ha_codeowners:
-  - '@bachya'
   - '@tkdrob'
+  - '@fletcherau'
 ha_platforms:
   - notify
   - sensor
@@ -18,39 +18,114 @@ ha_integration_type: service
 
 The `slack` platform allows you to deliver notifications from Home Assistant to [Slack](https://slack.com/).
 
+![](/images/integrations/slack/slack-message.png)
+
+
 ## Setup
 
-### Bot posting as you
+### Slack App
 
 1. Create a [new app](https://api.slack.com/apps) under your Slack.com account.
 2. Click the `OAuth & Permissions` link in the sidebar, under the Features heading.
-3. In the Scopes section, add the `chat:write` and `dnd:read` scopes and select `Send messages as user`. Many errors can occur if these options are not set correctly.
+
+Find `Features/OAuth and Permissions/Scopes/Bot Token Scopes`
+
+3. Add the `chat:write` and `dnd:read` scopes
+  - To modify your Slack bot's username and icon, additionally add the `chat:write.customize` OAuth scope
+
+![](/images/integrations/slack/bot-token-scopes.png)
+
 4. Scroll up to `OAuth Tokens & Redirect URLs` and click `Install to Workspace`.
-5. Copy your `OAuth Access Token` and put that key into the config flow.
 
-<div class='note'>
+In `Features/OAuth and Permissions/OAuth Tokens for Your Workspace`:
 
-There is an app credential Verification Token on the Basic Settings of your app. This is **not** the API key you want.
+5. Copy the Bot User OAuth Token. Use this as 'API Key' when setting up in Home Assistant
 
-</div>
+![](/images/integrations/slack/oauth-tokens-for-workspace.png)
 
-### Bot posting as its own user
+6. Ensure that the bot user is added to the channel in which you want it to post. This can be completed in several ways:
 
-It is also possible to use Slack bots as users. Just create a new bot at https://[YOUR_TEAM].slack.com/apps/build/custom-integration and use the provided token for that. You can add an icon from the frontend for Home Assistant and give the bot a meaningful name.
+- Using `/invite @bot` from the channel
+- Tagging the bot user in a message, then adding it to the channel via the Slackbot prompt.
+- Channel settings -> `Integrations` -> `Add apps`
 
-Don't forget to invite the bot to the room where you want to get the notifications.
+#### Sample App Manifest
+
+You can easily create a bot with all the permissions needed from an App Manifest. 
+
+```yaml
+display_information:
+  name: Home Notifications
+features:
+  bot_user:
+    display_name: Home Notifications
+    always_online: false
+oauth_config:
+  scopes:
+    bot:
+      - incoming-webhook
+      - chat:write
+      - dnd:read
+      - chat:write.customize
+settings:
+  org_deploy_enabled: false
+  socket_mode_enabled: false
+  token_rotation_enabled: false
+```
+
+### Integration Setup
+
+When installing the integration, use these settings:
+
+API Key: `xoxb-abc-def`
+- Bot User OAuth Token (from step 5 above)
+
+Default Channel: `#channel`
+- Channel name that bot will post to if a channel is not supplied when called
+
+Icon/Username:
+- optional - if you want to have a custom name/icon for the bot user not already set in Slack
+
+![](/images/integrations/slack/slack-integration-setup.png)
+
+## Usage
+
+### Sending Messages
+
+One of the easiest ways to send a message, is to create a script. You can paste in YAML and make changes in the GUI.
+
+You can call this script as a service. 
+
+1. Go to Home Assistant Settings > Automations and Scenes > Scripts > Add Script
+2. Click the three dots in the top right, and pick 'Edit in YAML'. Paste in the contents below.
+3. Change `YOUR_SLACK_TEAM` to the team name `(*.slack.com)`
+
+```yaml
+alias: "Notify: Slack Notification Template"
+sequence:
+  - service: notify.YOUR_SLACK_TEAM
+    data:
+      message: Fallback Text
+      target: "#test-channel"
+      title: Reminder
+      data:
+        blocks:
+          - type: section
+            text:
+              type: mrkdwn
+              text: >-
+                This is a mrkdwn section block *this is bold*, and ~this is
+                crossed out~, and <https://google.com|this is a link>
+mode: single
+```
+
+Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.
+
+Create a duplicate of this script to use for different messages, and different channels (the door was opened in #security, the light was left on on #lights, etc).
 
 ### Icons
 
-Slack uses the standard emoji sets used [here](https://www.webpagefx.com/tools/emoji-cheat-sheet/). Alternatively a publicly accessible URL may be used.
-
-<div class='note'>
-
-In order to modify your Slack bot's username and icon, you must ensure your Slack app has the `chat:write.customize` OAuth scope. See [the Slack API documentation](https://api.slack.com/methods/chat.postMessage#authorship) for more information.
-
-The added `notify` service will be named after the chat server the app is installed on. For example, a server named "Slack Chat" wil display as `notify.slack_chat`.
-
-</div>
+Slack uses the standard emoji sets used [here](https://slack.com/intl/en-gb/help/articles/202931348-Use-emoji-and-reactions#add-emoji-to-your-messages). Alternatively a publicly accessible URL may be used.
 
 {% include integrations/config_flow.md %}
 
@@ -67,8 +142,9 @@ The following attributes can be placed inside the `data` key of the service call
 | `username`               |      yes | The username of the Slack bot.
 | `icon`                   |      yes | The icon of the Slack bot.
 | `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` (note that the `message` is required nonetheless).
+| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used.
 | `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
+| `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
 
@@ -85,6 +161,16 @@ To include a remote file with the Slack message, use these attributes underneath
 | `url`                    |      no  | A URL that has been [whitelisted](/docs/configuration/basic/#allowlist_external_urls).
 | `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
 | `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
+
+### Obtaining a member ID
+
+Some of the examples below use a member ID. This is a unique string assigned by Slack to all users (members and guests) and not a username set by the user. To get a member ID:
+
+1. Select a Slack user (both name and profile image work) to bring up their profile side panel.
+2. Open the context menu by selecting the three dots.
+3. Select **Copy member ID**.
+
+![](/images/integrations/slack/slack-member-id.png)
 
 ### Examples
 
@@ -123,7 +209,7 @@ data:
 To use the block framework:
 
 ```yaml
-message: Fallback message in case the blocks don't display anything.
+message: Fallback message for notifications or in case the blocks don't display anything.
 title: Title of the file.
 data:
   blocks:
@@ -151,7 +237,9 @@ data:
           1.0
 ```
 
-Send a message directly to a user by setting the target to their member ID. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+
+Send a message directly to a user by setting the target to their member ID.
+
 
 ```yaml
 message: "Hello there!"
@@ -161,12 +249,21 @@ data:
   blocks: []
 ```
 
-Send a message to a channel that mentions (@username, highlights a users name in yellow) a user. Here are [instructions](https://www.workast.com/help/articles/61000165203/) to obtain a member ID.
+Send a message to a channel that mentions (@username, highlights a users name in yellow) a user.
 
 ```yaml
-message: "<@U12345> your appointment starts soon"
+message: "<@MEMBER_ID> your appointment starts soon"
 target: "#general"
 title: "Reminder"
 data:
   blocks: []
+```
+
+Send a message as reply to an existing message. `thread_ts` can be retrieved via a script utilising [Bolt](https://slack.dev/bolt-python/tutorial/getting-started), any other Slack library, or the Slack API directly.
+
+```yaml
+message: "Here's some supplementary information that doesn't need to be present in the channel directly."
+target: "#general"
+data:
+  thread_ts: "1684736481.064129"
 ```

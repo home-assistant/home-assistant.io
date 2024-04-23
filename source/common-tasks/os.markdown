@@ -1,5 +1,5 @@
 ---
-title: "Common Tasks - Operating System"
+title: "Common tasks - Operating System"
 description: "Common tasks for Home Assistant Operating System"
 installation: os
 installation_name: "Operating System"
@@ -13,10 +13,12 @@ This section will provide guides to some common tasks and information which you 
 {% include common-tasks/configuration_check.md %}
 {% include common-tasks/file_access.md %}
 {% include common-tasks/backups.md %}
+{% include common-tasks/network_storage.md %}
 {% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
 {% include common-tasks/data_disk.md %}
 {% include common-tasks/flashing_n2_otg.md %}
+{% include common-tasks/flashing_m1s_otg.md %}
 {% include common-tasks/enable_i2c.md %}
 

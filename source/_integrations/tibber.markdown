@@ -55,7 +55,7 @@ The `tibber` sensor provides the current electricity price if you are a [Tibber]
 You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-## Available Sensors
+## Available sensors
 
 - Accumulated cost since midnight (requires active Tibber power deal)
 - kWh consumed since midnight

@@ -2,7 +2,7 @@
 title: SlimProto (Squeezebox players)
 description: Instructions on how to integrate a SlimProto-based player (e.g., Squeezebox) into Home Assistant without the need for a media server.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 2022.5
 ha_iot_class: Local Push
 ha_domain: slimproto

@@ -16,29 +16,14 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The `solaredge` platform uses the [SolarEdge Monitoring API](https://www.solaredge.com/sites/default/files/se_monitoring_api.pdf) to allow you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
+The SolarEdge integration allows you to get details from your SolarEdge solar power setup and integrate these in your Home Assistant installation.
 
-<div class='note'>
+To integrate it, you need your installation ID and an API key. You can get these by logging in to your [SolarEdge web portal](https://monitoring.solaredge.com/). Note: if your portal is not in English, the labels will be different.
 
-The SolarEdge Monitoring API has a daily rate limit of 300 requests. In order to stay under this limit, and allow for some additional requests, the `solaredge` platform will update the site overview every 15 minutes.
+- Click on Admin and scroll down to API Access
+- Click on "Generate key"
+- Click on Save
 
-</div>
+Data is updated every 15 minutes to stay within the daily rate limit of 300 requests per day.
 
 {% include integrations/config_flow.md %}
-
-## Additional template sensor
-
-In case you would like to convert the values for example to kWh instead of the default Wh, you can use the [template platform](/integrations/template).
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry for template platform
-template:
-  - sensor:
-    - name: solaredge_energy_this_year_template
-      unit_of_measurement: kWh
-      state: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
-```
-
-{% endraw %}
