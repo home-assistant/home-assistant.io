@@ -156,6 +156,14 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
+### Device CPU
+
+Get entities reporting the the current CPU utilization of a UniFi Network device.
+
+### Device memory
+
+Get entities reporting the the current memory utilization of a UniFi Network device.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
