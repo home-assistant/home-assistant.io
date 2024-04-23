@@ -12,9 +12,9 @@ ha_platforms:
   - scene
 ha_integration_type: system
 related:
-- docs: /docs/configuration/basic/
-  title: Basic information
-- docs: /docs/configuration/
+  - docs: /docs/configuration/basic/
+    title: Basic information
+  - docs: /docs/configuration/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on`.
