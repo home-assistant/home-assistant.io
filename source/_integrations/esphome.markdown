@@ -26,6 +26,7 @@ ha_platforms:
   - date
   - datetime
   - diagnostics
+  - event
   - fan
   - light
   - lock
