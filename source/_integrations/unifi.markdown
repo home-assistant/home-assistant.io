@@ -164,6 +164,10 @@ Get entities reporting the the current CPU utilization of a UniFi Network device
 
 Get entities reporting the the current memory utilization of a UniFi Network device.
 
+### Port Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
