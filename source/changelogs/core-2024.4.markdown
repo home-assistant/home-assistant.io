@@ -1708,6 +1708,82 @@ For a summary in a more readable format:
 [@mdegat01]: https://github.com/mdegat01
 [@thecode]: https://github.com/thecode
 
+## Release 2024.4.4 - April 23
+
+- Bump slixmpp version to 1.8.5 ([@ravermeister] - [#114448])
+- Make Withings recoverable after internet outage ([@joostlek] - [#115124])
+- Fix Hyperion light not updating state ([@avee87] - [#115389])
+- Add scheduled mode to renault charge mode ([@slyoldfox] - [#115427])
+- Bump zeroconf to 0.132.1 ([@bdraco] - [#115501])
+- Bump zeroconf to 0.132.2 ([@bdraco] - [#115505])
+- Update pillow to 10.3.0 ([@cdce8p] - [#115524])
+- Fix race in TimestampDataUpdateCoordinator ([@bdraco] - [#115542])
+- Fix Teslemetry sensor values ([@Bre77] - [#115571])
+- Modbus: Bump pymodbus v3.6.8 ([@janiversen] - [#115574])
+- Fix sensor entity description in Teslemetry ([@Bre77] - [#115614])
+- Bump httpcore to 1.0.5 ([@bdraco] - [#115672])
+- Bump sqlparse to 0.5.0 ([@bdraco] - [#115681])
+- Bump aiohttp to 3.9.5 ([@bdraco] - [#115727])
+- Bump renault-api to 0.2.2 ([@epenet] - [#115738])
+- Fix homeworks import flow ([@emontnemery] - [#115761])
+- Allow [##:##:##] type keypad address in homeworks ([@emontnemery] - [#115762])
+- Add missing media_player features to Samsung TV ([@chemelli74] - [#115788])
+- Bump aiounifi to v75 ([@Kane610] - [#115819])
+- Ensure scripts with timeouts of zero timeout immediately ([@bdraco] - [#115830])
+- Fix KeyError error when fetching sensors (Airthings) ([@LaStrada] - [#115844])
+- Bump plexapi to 4.15.12 ([@jjlawren] - [#115872])
+- Bump ical to 8.0.0 ([@allenporter] - [#115907])
+- Fix geo location attributes of Tankerkoenig sensors ([@mib1185] - [#115914])
+- Use start helper in squeezebox for server discovery ([@rajlaud] - [#115978])
+
+[#114448]: https://github.com/home-assistant/core/pull/114448
+[#114764]: https://github.com/home-assistant/core/pull/114764
+[#114934]: https://github.com/home-assistant/core/pull/114934
+[#115124]: https://github.com/home-assistant/core/pull/115124
+[#115186]: https://github.com/home-assistant/core/pull/115186
+[#115389]: https://github.com/home-assistant/core/pull/115389
+[#115427]: https://github.com/home-assistant/core/pull/115427
+[#115463]: https://github.com/home-assistant/core/pull/115463
+[#115501]: https://github.com/home-assistant/core/pull/115501
+[#115505]: https://github.com/home-assistant/core/pull/115505
+[#115524]: https://github.com/home-assistant/core/pull/115524
+[#115542]: https://github.com/home-assistant/core/pull/115542
+[#115571]: https://github.com/home-assistant/core/pull/115571
+[#115574]: https://github.com/home-assistant/core/pull/115574
+[#115614]: https://github.com/home-assistant/core/pull/115614
+[#115672]: https://github.com/home-assistant/core/pull/115672
+[#115681]: https://github.com/home-assistant/core/pull/115681
+[#115727]: https://github.com/home-assistant/core/pull/115727
+[#115738]: https://github.com/home-assistant/core/pull/115738
+[#115761]: https://github.com/home-assistant/core/pull/115761
+[#115762]: https://github.com/home-assistant/core/pull/115762
+[#115788]: https://github.com/home-assistant/core/pull/115788
+[#115819]: https://github.com/home-assistant/core/pull/115819
+[#115830]: https://github.com/home-assistant/core/pull/115830
+[#115844]: https://github.com/home-assistant/core/pull/115844
+[#115872]: https://github.com/home-assistant/core/pull/115872
+[#115907]: https://github.com/home-assistant/core/pull/115907
+[#115914]: https://github.com/home-assistant/core/pull/115914
+[#115978]: https://github.com/home-assistant/core/pull/115978
+[@Bre77]: https://github.com/Bre77
+[@Kane610]: https://github.com/Kane610
+[@LaStrada]: https://github.com/LaStrada
+[@allenporter]: https://github.com/allenporter
+[@avee87]: https://github.com/avee87
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@chemelli74]: https://github.com/chemelli74
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@frenck]: https://github.com/frenck
+[@janiversen]: https://github.com/janiversen
+[@jjlawren]: https://github.com/jjlawren
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@rajlaud]: https://github.com/rajlaud
+[@ravermeister]: https://github.com/ravermeister
+[@slyoldfox]: https://github.com/slyoldfox
+
 [#100055]: https://github.com/home-assistant/core/pull/100055
 [#102333]: https://github.com/home-assistant/core/pull/102333
 [#102884]: https://github.com/home-assistant/core/pull/102884
