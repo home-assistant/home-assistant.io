@@ -115,11 +115,9 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose an MQTT broker
+## Setting up a broker
 
-### Run your own
-
-The most private option is running your own MQTT broker.
+While public MQTT brokers are available, the easiest and most private option is running your own.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
@@ -129,10 +127,6 @@ Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a k
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
 
 </div>
-
-### Use a public broker
-
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
 ## Broker configuration
 
