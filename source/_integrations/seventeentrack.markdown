@@ -77,7 +77,7 @@ content: >
 
 ## Services
 
-### Service `seventeentrack.get_packages
+### Service `seventeentrack.get_packages`
 
 The `seventeentrack.get_packages` service allows you to query the 17track API for the latest package data.
 
