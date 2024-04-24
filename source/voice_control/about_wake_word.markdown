@@ -1,5 +1,14 @@
 ---
 title: "About wake words"
+related:
+  - docs: /voice_control/thirteen-usd-voice-remote/
+    title: Create a $13 voice assistant
+  - docs: /voice_control/install_wake_word_add_on/
+    title: Enable wake words
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake words
+  - docs: /voice_control/voice_remote_cloud_assistant/)
+    title: Create a cloud assistant
 ---
 
 Wake words are special words or phrases that tell a voice assistant that a command is about to be spoken. The device then switches from passive to active listening. Examples are: *Hey Google*, *Hey Siri*, or *Alexa*. Home Assistant supports its own wake words, such as *Hey Nabu*.
@@ -100,13 +109,6 @@ Currently, there are [three models](https://github.com/esphome/micro-wake-word-m
 Right now, there are two easy options to get started with wake words:
 - Follow the guide to the [$13 voice assistant][13-tutorial]. This tutorial is using the tiny ATOM Echo, detecting wake words with openWakeWord.
 - Follow the guide to set up an [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/). This tutorial is using the bigger S3-BOX-3 device which features a display. It can detect wake words using openWakeWord. But it can also do on-device wake word detection using microWakeWord.
-
-## Related topics
-
-- [Create a $13 voice assistant](/voice_control/thirteen-usd-voice-remote/)
-- [Enable wake words](/voice_control/install_wake_word_add_on/)
-- [Create your own wake words](/voice_control/create_wake_word/)
-- [Create a cloud assistant](/voice_control/voice_remote_cloud_assistant/)
 
 [13-tutorial]: /voice_control/thirteen-usd-voice-remote/
 [openWakeWord]: https://github.com/dscripka/openWakeWord

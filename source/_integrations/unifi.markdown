@@ -156,12 +156,17 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
-### WLAN password sensor
+### Device CPU
 
-Provides the current password for a specific WLAN. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually. As this exposes the password in clear text it is only recommended to utilize this in scenarios where the QR Code is not sufficient. 
+Get entities reporting the current CPU utilization of a UniFi Network device.
 
-- Entity is disabled by default.
-- This feature requires admin privileges.
+### Device memory
+
+Get entities reporting the current memory utilization of a UniFi Network device.
+
+### Port Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
 ## Firmware updates
 

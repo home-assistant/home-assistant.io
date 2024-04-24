@@ -1,6 +1,12 @@
 ---
 title: "Shopping list card"
 description: "The shopping list card allows you to add, edit, check-off, and clear items from your shopping list."
+description: "The panel view shows a single card in the full width of the screen."
+related:
+  - docs: /integrations/todo/
+    title: To-do list integration
+  - docs: /integrations/local_todo/
+    title: Local to-do integration
 ---
 
 Note: the shopping list card is no longer available as a card to add from the user interface. Use the [to-do list card](/dashboards/todo-list/) instead.
@@ -45,8 +51,3 @@ Title example:
 type: shopping-list
 title: shopping list
 ```
-
-## Related topics
-
-- [To-do list integration](/integrations/todo)
-- [Local to-do integration](/integrations/local_todo/)

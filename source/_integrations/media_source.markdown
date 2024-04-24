@@ -64,7 +64,7 @@ homeassistant:
 
 <div class='note'>
 
-  If you want to use media from a network storage, the network storage must first be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+  If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
 
   The media from the network storage is then automatically added to the local media browser.
 

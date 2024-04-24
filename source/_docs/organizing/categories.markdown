@@ -1,6 +1,13 @@
 ---
 title: "Categories"
 description: "Use categories to group and filter your table items"
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /docs/organizing/labels/
+    title: Labels
 ---
 
 Categories let you group and filter items in a table. Like labels, categories allow grouping irrespective of the items physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
@@ -31,10 +38,6 @@ Follow these steps to create a new category.
    - In the top right corner, select **Move to category**.
    - Then, select the category from the list.
 4. Once categories are applied, the table items are grouped by those categories.
-   - The example shows 2 categories: Coffee and housekeeping. 
+   - The example shows 2 categories: Coffee and housekeeping.
 
     ![Group table items by category](/images/organizing/category_02.png)
-
-## Related topics
-
-- [Labels](/docs/organizing/labels/)

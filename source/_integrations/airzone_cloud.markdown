@@ -4,6 +4,8 @@ description: Instructions on how to integrate Airzone Cloud within Home Assistan
 ha_release: 2023.6
 ha_category:
   - Binary sensor
+  - Climate
+  - Select
   - Sensor
   - Water heater
 ha_iot_class: Cloud Push
@@ -13,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - select
   - sensor
   - water_heater
 ha_codeowners:
@@ -71,6 +74,14 @@ For each Airzone zone (thermostat), a climate entity is created.
 **HVAC mode can only be changed on a *parent zone*.**
 
 *Child zones* can only enable/disable the current HVAC mode selected on the corresponding *parent zone*. Attempting to change the HVAC mode on a *child zone* will result in a Home Assistant error.
+
+## Select
+
+For each Airzone zone (thermostat), the following *selects* are created:
+
+| Condition           | Description                                         |
+| :------------------ | :-------------------------------------------------- |
+| air_quality         | Selects the desired Air Quality working mode.       |
 
 ## Sensors
 

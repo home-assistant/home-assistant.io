@@ -1,5 +1,12 @@
 ---
 title: "Create a personality with OpenAI"
+related:
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Cloud assistant pipeline
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Local assistant pipeline
+  - url: https://www.nabucasa.com
+    title: Home Assistant Cloud
 ---
 
 You can give your voice assistant personality by using OpenAI. This requires an OpenAI account. For what we do in this tutorial, the free trial option is sufficient. No need to leave your credit card information.
@@ -36,9 +43,3 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
    - Leave the other settings unchanged and select **Create**.
 4. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
    - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
-
-## Related topics
-
-- [Home Assistant Cloud](https://www.nabucasa.com)
-- [Cloud assistant pipeline](/voice_control/voice_remote_cloud_assistant/)
-- [Local assistant pipeline](/voice_control/voice_remote_local_assistant/)

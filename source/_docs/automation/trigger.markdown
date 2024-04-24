@@ -1,6 +1,9 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
+related:
+  - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
+    title: Adding a custom sentence to trigger an automation
 ---
 
 Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).

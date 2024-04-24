@@ -3,13 +3,18 @@ title: Ollama
 description: Instructions on how to integrate Ollama
 ha_category:
   - Voice
-ha_release: 2023.4
+ha_release: 2024.4
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@synesthesiam'
 ha_domain: ollama
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/templating/
+    title: Home Assistant Templating
+  - docs: /docs/automation/trigger/#sentence-trigger
+    title: Sentence trigger
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.
@@ -35,8 +40,3 @@ Max history messages:
   description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
 
 {% endconfiguration_basic %}
-
-## Related topics
-
-- [Home Assistant Templating](/docs/configuration/templating/) 
-- [Sentence trigger](/docs/automation/trigger/#sentence-trigger)

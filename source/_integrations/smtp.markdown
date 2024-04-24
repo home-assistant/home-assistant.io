@@ -24,7 +24,7 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
-Check your email provider configuration or help pages to get the correct SMTP settings.
+Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
 
 {% configuration %}
 name:
@@ -86,7 +86,28 @@ verify_ssl:
 
 ### Usage
 
-To use the SMTP notification, refer to it in an automation or script like in this example:
+A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
+
+```yaml
+- alias: "Send E-Mail Every Morning"
+  description: ""
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  condition: []
+  action:
+    - service: notify.NOTIFIER_NAME
+      data:
+          title: "Good Morning"
+          message: "Rise and shine"
+          target:
+            - "morning@example.com"
+  mode: single
+```
+
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, morning@example.com.
+
+Another example attaching images stored locally in a script:
 
 ```yaml
 burglar:
@@ -106,8 +127,6 @@ burglar:
                   - /home/pi/snapshot1.jpg
                   - /home/pi/snapshot2.jpg
 ```
-
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, my_intruder_alert@example.com.
 
 The optional `html` field makes a custom text/HTML multi-part message, allowing total freedom for sending rich HTML emails by defining the HTML content. In them, if you need to include images, you can pass both arguments (`html` and `images`). The images will be attached with the basename of the images, so they can be included in the html page with `src="cid:image_name.ext"`.
 

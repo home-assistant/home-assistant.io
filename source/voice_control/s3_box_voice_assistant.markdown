@@ -3,6 +3,17 @@ title: "ESP32-S3-BOX voice assistant"
 product_name: ESP32-S3-BOX
 device_name_entry: ESP32-S3-BOX
 config_link: /voice_control/s3_box_voice_assistant/#to-delete-the-configuration-from-esphome
+related:
+  - docs: /voice_control/troubleshooting/
+    title: General troubleshooting section for Assist
+  - docs: /voice_control/troubleshooting_the_s3_box/
+    title: Troubleshooting the ESP32-S3-BOX-3
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Access to your configuration files
+  - docs: /voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword
+    title: Customizing the S3-BOX with on-device wake words
+  - url: https://esphome.io/projects/index.html
+    title: ESPHome projects page
 ---
 
 This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP32-S3-BOX-Light into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX is used to refer to any of the 3 product variants.
@@ -84,11 +95,3 @@ Before you can use this device with Home Assistant, you need to install a bit of
      - Disable **LCD Backlight**.
 
       ![Toggle to enable/disable wake word](/images/assist/s3-box-disable-screen.png)
-
-## Related topics
-
-- [General troubleshooting section for Assist](/voice_control/troubleshooting/)
-- [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
-- [ESPHome projects page](https://esphome.io/projects/index.html)
-- [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
-- [Customizing the S3-BOX with on-device wake words](/voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword)

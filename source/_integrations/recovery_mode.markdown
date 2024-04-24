@@ -8,6 +8,9 @@ ha_codeowners:
 ha_domain: recovery_mode
 ha_quality_scale: internal
 ha_integration_type: system
+related:
+  - docs: /docs/troubleshooting_general/
+    title: General troubleshooting
 ---
 
 The **Recovery mode** integration is an internal integration used by the
@@ -26,7 +29,3 @@ the Home Assistant frontend, settings and add-ons.
 
 This gives you the possibility to correct the issue and restart Home Assistant
 to re-try.
-
-## Related topics
-
-- [General troubleshooting](/docs/troubleshooting_general/)
