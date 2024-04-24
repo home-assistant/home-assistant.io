@@ -84,13 +84,9 @@ by someone with administrator access.
 
 Strict connection comes in two modes: **Guard page** and **Drop connection**.
 
-When your Home Assistant is accessed unauthenticated using the **guard page**
-mode, it will show a page the user cannot access the instance. A possibility
-to log in, is not available (unless you have a temporary link).
-
 When your Home Assistant is accessed unauthenticated using the **guard page**
 mode, it will show a page where the user cannot access the instance. Login is
-not possible (unless you have a temporary link).
+not possible (unless you have a temporary login link).
 
 When using the **drop connection** mode, Home Assistant will not even show the
 login page. The connection will be dropped immediately, making it look like
