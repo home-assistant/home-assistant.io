@@ -30,13 +30,21 @@ The `osoenergy` sensor integration exposes OSO Energy data as a sensor.
 The platform exposes the following sensors:
 
 - Heater Mode for water heaters.
+  - Indication of the current heater mode on the device.
 - Optimization Mode for water heaters.
+  - Indication of the way heating is managed by the device according to external factors, e.g. electricity prices.
 - Power load (kW) for water heaters.
+  - Indication of the current power load of the water heater - how much energy is currently drawn out of the electricity grid.
 - Tapping capacity (kWh) for water heaters.
+  - Indication for quantity of energy that is stored and available for use at the moment - the current kWh equivalent capacity of the water heater.
 - Capacity mixed water at 40°C (L) for water heaters.
+  - Indication of the current quantity of water that can be drained out after mixing the water in the heater with the inlet tap water to produce water at 40°C.
 - V40 Min (L) for water heaters.
+  - The current minimum allowed quantity of mixed water at 40°C. When the current capacity drops bellow this threshold the heater will turn on as a feature to guard against cold water.
 - Minimum Level of V40 Min (L) for water heaters.
+  - The lower boundary of the V40 Min sensor that can be achieved during normal work of the water heater. Can vary depending on the type of the heater.
 - Maximum Level of V40 Min (L) for water heaters.
+  - The upper boundary of the V40 Min sensor that can be achieved during normal work of the water heater. Can vary depending on the type of the heater.
 
 ### Water Heater
 
