@@ -84,8 +84,8 @@ The `seventeentrack.get_packages` service allows you to query the 17track API fo
 
 | Service data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
-| `config_entry_id`      | No       | The Id of the 17Track service config entry. |
-| `package_state`        | yes      | A list of the package state.                |
+| `config_entry_id`      | No       | The ID of the 17Track service config entry. |
+| `package_state`        | yes      | A list of the package states.                |
 
 ```yaml
 # Example automation action to add a product to the cart by name.
