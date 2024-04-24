@@ -470,7 +470,7 @@ The same thing can also be expressed as a test:
 {% raw %}
 
 ```text
-{{ floor() }}  # ['floor_id']
+{{ floors() }}  # ['floor_id']
 ```
 
 ```text
