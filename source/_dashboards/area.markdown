@@ -3,6 +3,11 @@ type: card
 title: "Area card"
 sidebar_label: Area
 description: "The area card gives control of your entities in a specified area."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The area card lets you control and monitor an individual {% term area %}.
@@ -86,8 +91,3 @@ navigation_path: my_bedroom
 show_camera: true
 theme: green
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

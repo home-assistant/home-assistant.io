@@ -26,6 +26,13 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /integrations/thread/
+    title: Thread
+  - docs: /integrations/homekit_controller/
+    title: HomeKit
+  - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
+    title: Adding an Apple HomeKit device through Thread
 ---
 
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
@@ -138,8 +145,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
 
 1. Open The Home Assistant app on your phone.
 2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. On the **Devices** tab, select the **Add device** button.
-4. Select **Add Matter device**.
+3. On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+4. In the dialog, select **No, it's new.**.
 5. Scan the QR-code of the Matter device with your phone camera or select **More options...** to manually enter the Commission code.
 6. Select **Add to Home Assistant**.
    - This starts the commissioning process which may take a few minutes.
@@ -150,8 +157,6 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - After entering a name, select **Continue**.
 9. Once the process is complete, select **Done**.
    - You are now redirected to the device page within Home Assistant. It is ready for use.
-
-<lite-youtube videoid="8y79Kq3QfCQ" videotitle="Add Matter device via iOS app in Home Assistant"></lite-youtube>
 
 ### To add a new device using the Android Companion app
 
@@ -166,8 +171,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
 4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - On the **Devices** tab, select the **Add device** button.
-   - Select **Add Matter device**.
+   - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
+   - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
@@ -177,7 +182,10 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
-<lite-youtube videoid="Fk0n0r0eKcE" videotitle="Add Matter device via Android app in Home Assistant"></lite-youtube>
+<p class='img'>
+    <img width="300" src="/images/integrations/matter/matter_android_connect_new.webp" alt="Screencast showing how to add a new Matter device to Home Assistant."/>
+    Screencast showing how to add a new Matter device to Home Assistant.
+</p>
 
 ### Troubleshooting the installation
 
@@ -214,37 +222,24 @@ Use one of these methods if your Matter device was added to Apple Home or Google
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.
 
-### Share a device from Apple Home
+### To share a device from another Matter controller (like Apple or Google Home)
 
-To allow Home Assistant to control the Matter device that has previously been added to Apple Home, follow these steps:
+To allow Home Assistant to control the Matter device that has already been added to another Matter controller, like Google Home, follow these steps:
 
-1. In Apple Home find your device and select the cogwheel to view the **Accessory Settings**.
-2. Scroll all the way down and select **Turn On Pairing Mode**.
-3. You are now given a setup code, copy this to the clipboard.
-4. In the Home Assistant Companion App, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-5. Select **Devices** > **Add device** and on the QR code scanner page, select **More options**.
-6. From the list, select your device and paste the code you just received from Apple Home.
-7. Once the device is connected with Home Assistant, the device page opens and you can control it from there.
-
-<lite-youtube videoid="nyGyZv90jnQ" videotitle="Share Matter device from Apple Home to Home Assistant"></lite-youtube>
-
-### Share a device from Google Home
-
-To allow Home Assistant to control the Matter device that has previously been added to Google Home, follow these steps:
-
-1. In Google Home, open the **Devices** page and select the cogwheel.
-2. On the **Settings** page, select your Matter device.
-3. Select **Linked Matter apps and services**.
-4. Select **Link apps and services** to link the device to Home Assistant.
-5. Choose Home Assistant from the list.
-   - You are redirected to the Home Assistant Companion app now.
-   - Select **Add device**.
-   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed and the latest version of the Companion app.
+1. Open the Home Assistant app on your phone.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+3. On the **Devices** tab, select the **Add device** button and select **Add Matter device**.
+4. In the dialog, select **Yes, it's already in use**, then select which controller it is already connected to. For example, Google Home.
+5. Follow the instructions given in the dialog.
+   - **Troubleshooting**: If Home Assistant fails to add the device, check if you have the Matter integration installed   and the latest version of the Companion app.
 6. Once the device has been added to Home Assistant, you see a notification **Your device has been added**.
    - When the process finishes, you're redirected to the device page in Home Assistant.
    - You can now control your device from within Home Assistant, as well as from Google Home.
 
-<lite-youtube videoid="-B4WWevd2JI" videotitle="Share Matter device from Google Home to Home Assistant"></lite-youtube>
+<p class='img'>
+    <img width="300" src="/images/integrations/matter/matter_share_from_apple.webp" alt="Screencast showing how to share a Matter device from Apple Home."/>
+    Screencast showing how to share a Matter device from Apple Home.
+</p>
 
 ### Using a Matter bridge
 
@@ -368,14 +363,3 @@ Also see this [extended troubleshooting guide](https://developers.home.google.co
 The Matter protocol relies on (local) IPv6 and mDNS (multicast traffic) which should be able to travel freely in your network. Matter devices that use Wi-Fi (including Thread border routers) must be on the same LAN/VLAN as Home Assistant. Matter devices that only use {% term Thread %} must be joined to {% term Thread %} networks for which there is at least one border router connected to the Home Assistant LAN.
 
 If you experience any issues with discovering devices (for example, if the initial {% term commissioning %} keeps failing or if devices become unavailable randomly), investigate your network topology. For instance, a setting on your router or Wi-Fi access point to "optimize" multicast traffic can harm the (discovery) traffic from Matter devices. Keep this in mind when you experience issues trying to add or control Matter devices. Protocols like Matter are designed for regular residential network setups and may not integrate well with enterprise networking solutions like VLANs, Multicast filtering, and (malfunctioning) IGMP snooping. To avoid issues, try to keep your network topology as simple and flat as possible.
-
-## Related topics
-
-### Related integrations
-
-- [Thread](/integrations/thread/)
-- [HomeKit](/integrations/homekit_controller/)
-
-### Related guides
-
-- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)

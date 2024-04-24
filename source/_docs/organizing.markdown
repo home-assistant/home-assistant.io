@@ -1,9 +1,18 @@
 ---
-title: "Organizing your assets"
-description: "Organizing and grouping your assets makes it easier to find them and allows you to target groups in automations."
+title: "Grouping your assets"
+description: "Grouping your assets makes it easier to find them and allows you to target groups in automations."
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /docs/organizing/labels/
+    title: Labels
+  - docs: /docs/organizing/categories/
+    title: Categories
 ---
 
-Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to organize your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
+Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
 
 | Taxonomy | Automation target | Entity can have multiple |
 | -------- | ----------------- | ------------------------ |
@@ -44,10 +53,3 @@ Once you have more devices, you may want to target entire groups of devices in a
 - Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
 
 <img class="no-shadow" src='/images/organizing/categories.png' alt='Screenshots the new categories. Automations are grouped into their categories, making it easier to get an overview or to filter them.'>
-
-## Related topics
-
-- [Areas](/docs/organzing/areas/)
-- [Floors](/docs/organzing/floors/)
-- [Labels](/docs/organzing/labels/)
-- [Categories](/docs/organzing/categories/)

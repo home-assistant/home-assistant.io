@@ -156,16 +156,33 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
-### WLAN password sensor
+### Device CPU
 
-Provides the current password for a specific WLAN. It allows users to access the password for various purposes, such as sharing with guests or configuring devices manually. As this exposes the password in clear text it is only recommended to utilize this in scenarios where the QR Code is not sufficient. 
+Get entities reporting the current CPU utilization of a UniFi Network device.
 
-- Entity is disabled by default.
-- This feature requires admin privileges.
+### Device memory
+
+Get entities reporting the current memory utilization of a UniFi Network device.
+
+### Port Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
 
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
+
+
+## Removing a device in Home Assistant
+
+Integration populates both UniFi devices as well as network clients into Home Assistant. In certain edge cases entities are left lingering even if they are not present in UniFi network anymore. This can lead to an accumulation of entries in the device registry.
+
+To manually remove a device entry, go to the Device Info page and select "Delete" from the Device Info menu.
+
+Only clients/devices which are no longer known by UniFi since the startup or reload of the UniFi integration can be removed.
+
+![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
+
 
 ## Debugging integration
 

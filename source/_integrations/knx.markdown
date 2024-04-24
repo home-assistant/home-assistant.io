@@ -1357,7 +1357,7 @@ knx:
 
 {% configuration %}
 address:
-  description: KNX group address of the notification. *DPT 16.000*
+  description: KNX group address the notification will be sent to. *DPT 16*
   required: true
   type: [string, list]
 name:
@@ -1369,7 +1369,21 @@ type:
   required: false
   default: "latin_1"
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
+
+### Example service call
+
+```yaml
+service: notify.send_message
+data:
+  message: "Hello from HA!"
+  entity_id: notify.alarm
+```
 
 ## Number
 

@@ -1,6 +1,15 @@
 ---
 title: "Configuration.yaml"
 description: "Configuring Home Assistant via text files."
+related:
+  - docs: /docs/configuration/yaml/
+    title: YAML syntax
+  - docs: /docs/configuration/secrets
+    title: Storing credentials in `secrets.yaml` file
+  - docs: /common-tasks/os/#backups
+    title: Creating and restoring backups
+  - docs: /integrations/backup
+    title: Creating backups for Home Assistant Container and Core
 ---
 
 While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
@@ -20,26 +29,32 @@ The path to your configuration directory can be found in the Home Assistant {% t
 Right under the version you are running, you will find what path Home Assistant has loaded the configuration from.
 ![Screenshot showing the top of the system information panel](/images/screenshots/System_information.png)
 
-_If you use Home Assistant Container, you can find `configuration.yaml` in the config folder that you mounted in your container._
+_If you use {% term "Home Assistant Container" %}, you can find `configuration.yaml` in the config folder that you mounted in your container._
 
-_If you use Home Assistant Operating System, you can find `configuration.yaml` in the `/config` folder of the installation._
+_If you use {% term "Home Assistant Operating System" %}, you can find `configuration.yaml` in the `/config` folder of the installation._
 
-_If you use Home Assistant Core, you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
+_If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
-## Reloading changes
+## Reloading configuration changes
 
-Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`. To do this, go to {% my server_controls title="Developer Tools > YAML" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for it).
+Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`.
 
-If you can't see your integration listed there, you will need to restart Home Assistant for changes to take effect.
+1. To reload configuration changes, go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for "reload").
+   - You are presented with a list of integrations, such as **Automations** or **Conversation**.
 
-<div class='note'>
+    ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
 
-  To test any changes to your configuration files from the command line, check out the common tasks for [operating system](/common-tasks/os/#configuration-check), [supervised](/common-tasks/supervised/#configuration-check), [container](/common-tasks/container/#configuration-check), [core](/common-tasks/core/#configuration-check) for how to do that. Configuration changes can also be tested using the UI by navigating to {% my server_controls title="Developer Tools > YAML" %} and clicking "Check Configuration". For the button to be visible, you must enable "Advanced Mode" on your {% my profile title="User Profile" %}.
+2. If the integration is listed, select it to reload the settings.
+3. If integration is not listed, you need to restart Home Assistant for changes to take effect:
+   - [Validate the configuration](#validating-the-configuration). Then, select the **Restart** button.
 
-</div>
+## Validating the configuration
 
-## Migrating to a new system
+After changing configuration or automation files, check if the configuration is valid.
 
-The preferred way of migrating to a new system is by {% my supervisor_backups title="making a backup" %}. Once you have created the backup on the old system, you can download it to the system that is running the Home Assistant frontend. When setting up the new system, you may use the backup. Alternatively, you can upload it to your new system using the _Upload backup_ menu option of the _Backups_ menu. Then, a restore of the uploaded backup on the new system concludes the migration.
+The method for running a configuration check depends on your [installation type](/installation/#advanced-installation-methods). Check the common tasks for your installation type:
 
-If you run the container or core installation methods, you will need to manually make a backup of your configuration folder. Be aware that some of the files you need start with `.`, which is hidden by default from both `ls` (in SSH), in Windows Explorer, and macOS Finder. You'll need to ensure that you're viewing all files before you copy them.
+- [Configuration check on Operating System](/common-tasks/os/#configuration-check)
+- [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
+- [Configuration check on Container](/common-tasks/container/#configuration-check)
+- [Configuration check on Core](/common-tasks/core/#configuration-check)
