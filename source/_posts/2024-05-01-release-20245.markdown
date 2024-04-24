@@ -197,7 +197,7 @@ We welcome the following new integrations in this release:
 - **[eQ-3 Bluetooth Smart Thermostats]**, added by [@EuleMitKeule]<br />
   Control your eQ-3 Smart Thermostats over Bluetooth.
 - **[Sanix]**, added by [@tomaszsluszniak]<br />
-  Monitor water/sweage level using your Sanix (by BIT Complex) devices.
+  Monitor water/sewage level using your Sanix (by BIT Complex) devices.
 
 [@EuleMitKeule]: https://github.com/EuleMitKeule
 [@gnumpi]: https://github.com/gnumpi
