@@ -3,7 +3,7 @@ title: Senziio
 description: Instructions on how to integrate Senziio devices into Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2024.4
+ha_release: 2024.5
 ha_iot_class: Local Push
 ha_domain: senziio
 ha_zeroconf: true
