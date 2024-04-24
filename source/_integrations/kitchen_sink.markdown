@@ -14,6 +14,7 @@ ha_platforms:
   - image
   - lawn_mower
   - lock
+  - notify
   - sensor
   - switch
   - weather

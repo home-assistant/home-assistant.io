@@ -82,4 +82,3 @@ The steps on recovering from a backup depend on the installation type and use ca
 
 3. If you migrate from a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation to {% term "Home Assistant Operating System" %}:
    - You can use these backup files during [onboarding](/getting-started/onboarding/) to recover your installation from backup.
-

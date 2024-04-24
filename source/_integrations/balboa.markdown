@@ -14,6 +14,7 @@ ha_platforms:
   - climate
   - fan
   - light
+  - select
 ha_codeowners:
   - '@garbled1'
   - '@natekspencer'

@@ -1,0 +1,483 @@
+---
+layout: post
+title: "2024.5: Beta release notes"
+description: "The beta release notes for Home Assistant 2024.5"
+date: 2024-04-24 00:00:00
+date_formatted: "May 1, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-05/social.png
+---
+
+<a href='/integrations/#version/2024.5'><img src='/images/blog/2024-05/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+These are the beta release notes for Home Assistant Core 2024.5 (and is thus a
+work in progress).
+
+If you encounter any issues with the beta release, please report them on GitHub:
+
+- Issues with integrations, automations and such (Core related):<br>
+  <https://github.com/home-assistant/core/issues>
+- Issues with the frontend/UI/dashboards:<br>
+  <https://github.com/home-assistant/frontend/issues>
+- Issues with the documentation:<br>
+  <https://github.com/home-assistant/home-assistant.io/issues>
+
+Please be sure to include the beta version you are running in the issue
+version field (not title), so we can classify your issue correctly.
+
+Issues introduced in the beta are processed with priority.
+
+---
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant Core 2024.5! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Strict connections](#strict-connections)
+- [More features for our data tables](#more-features-for-our-data-tables)
+- [Created helpers from automation editor](#created-helpers-from-automation-editor)
+- [Lock feature for tile card](#lock-feature-for-tile-card)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=POXZWxMenx4)
+1 May 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="POXZWxMenx4" videotitle="Home Assistant 2024.5 Release Party"></lite-youtube>
+
+## Strict connections
+
+In this release, we’ve added a new security feature to Home Assistant:
+Strict connection.
+
+Home Assistant will become more strict about the connections it accepts from
+non-private networks when enabling this mode. This feature is especially useful
+when exposing your Home Assistant instance to the internet.
+
+When enabled, Home Assistant will only accept clients that have already been
+authenticated. This means that unauthenticated connections will be denied
+without the possibility of logging in directly. To log in to a new device,
+you need to be either on the local network or use a temporary link generated
+by someone with administrator access.
+
+<img class="no-shadow" src='https://github.com/home-assistant/core/assets/5662298/6cc4b668-0a22-40e8-894b-bd509a86291d' alt='Temporary screenshot that needs to be replaced.'>
+
+Strict connection comes in two modes: **Guard page** and **Drop connection**.
+
+When your Home Assistant is accessed unauthenticated using the **guard page**
+mode, it will show a page the user cannot access the instance. A possibility
+to log in, is not available (unless you have a temporary link).
+
+When your Home Assistant is accessed unauthenticated using the **guard page**
+mode, it will show a page where the user cannot access the instance. Login is
+not possible (unless you have a temporary link).
+
+When using the **drop connection** mode, Home Assistant will not even show the
+login page. The connection will be dropped immediately, making it look like
+no Home Assistant is there at all.
+
+The strict connection feature is available for [Home Assistant Cloud](https://www.nabucasa.com)
+and non-cloud users. For non-cloud users, this option is available via YAML
+configuration. Home Assistant Cloud users can manage this feature from the
+cloud settings page.
+
+<img class="no-shadow" src='https://cdn.discordapp.com/attachments/1120776124398588006/1232736564677709834/image.png?ex=662a8ae4&is=66293964&hm=76fa335361d8b8643cec77a8bdcc8b9dfb3290a4d7b98651031562571403f7fc&' alt='Temporary screenshot that needs to be replaced.'>
+
+[Read more about it in our documentation](/integrations/http/#strict-connection-mode)
+
+## More features for our data tables
+
+In the last release, we introduced the new data tables, and by the looks of
+the responses, you all loved them! 🎉
+
+Nevertheless, we also saw lots of feedback for additional tweaks and features,
+so in this release, we’ve added a bunch!
+
+- Grouped items can now be collapsed!
+  
+  <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5662298/43fe01cf-69f1-44c0-a991-cff53106839b' alt='Temporary screenshot that needs to be replaced.'>
+  
+- You can now group entities by their domain in the entities panel.
+- You can now filter by entity domain in the entities panel.
+- Select and assign an area to multiple items at once in  the automation, scene,
+  script, and device pages.
+- We now store the last used grouping (and if they were collapsed or not) and
+  sorting you have used, so when you return to that page, it will be the same
+  as you left it.
+
+## Created helpers from automation editor
+
+Our good friend [@karwosts] has been busy creating a great quality of life
+improvement for our automation editor this release.
+
+I'm sure you'll know this feeling. You are creating an automation and think:
+"Hey, I need a helper for this!" But then you have to leave the automation
+editor, create the helper, and then go back to the automation editor.
+
+Well, not anymore! You can now create helpers directly from the automation
+editor 😎
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/32912880/ebd187fa-a979-4bf8-ab50-4f70a27d09da' alt='Temporary screenshot that needs to be replaced.'>
+
+[@karwosts]: https://github.com/karwosts
+
+## Lock feature for tile card
+
+The tile card is already amamzing, but [@marcgeurts] made it even better by 
+adding a new feature for the tile card: Locks!
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/3dfe28bd-9396-40e9-b232-2f997f918855' alt='Temporary screenshot that needs to be replaced.'>
+
+<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/39c394b7-a5d5-4fa0-bbb4-0a196086a437' alt='Temporary screenshot that needs to be replaced.'>
+
+[@marcgeurts]: https://github.com/marcgeurts
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+_Note to remove: Processed possible noteworthy up to PR #116022_
+
+Possible candites for noteworthy from Core:
+
+- If you have ever had an integration that is misbehaving and causes a crash,
+  this release is for you. A new debug mode option is available to detect thread
+  safety issues </integrations/homeassistant/#debug>.
+  It won’t detect every problem but it finds a lot of common ones.
+- Update quality scale mqtt integration to platinum ([@jbouwh] - [#116059])
+- Add GPU sensor to Glances ([@fhoekstra] - [#106322])
+- Add Glances network sensors ([@wittypluck] - [#114546])
+- Add Water Heater support for Airzone Cloud ([@Noltari] - [#115097])
+- Add a service to get maps for Roborock ([@Lash-L] - [#111478])
+- Add additional Vital 100S model to vesync ([@pleum] - [#113838])
+- Send/receive Voice Assistant audio via ESPHome native API ([@jesserockz] - [#114800])
+- Add extract media url service to media extractor ([@joostlek] - [#100780])
+- Add secondary temperature sensor for DHW in ViCare ([@CFenner] - [#106612])
+- ESPHome: Add datetime entities ([@jesserockz] - [#115942])
+- Add event platform to Lutron ([@joostlek] - [#109121])
+- Add number platform to Husqvarna Automower ([@Thomas55555] - [#115125])
+
+Possible candites for noteworthy from Frontend:
+
+- ZHA (Zigbee) visualization enhancement (#20511) @Cougar
+  It is now clearer to see which devices are now connected and their signal
+  strength. They are now better grouped on distances on connection strengths
+  (or something like that) and shows the areas they are in. Color based if they
+  are connected or not.
+
+## New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Ambient Weather Network]**, added by [@thomaskistler]<br />
+  Retrieve local weather station information from the Ambient Weather Network.
+- **[Arve]**, added by [@ikalnyi]<br />
+  Monitor real-life air quality data from your Arve devices.
+- **[Energenie Power-Sockets]**, added by [@gnumpi]<br />
+  Control your Energie Power-Strips over USB.
+- **[Epic Games Store]**, added by [@Quentame]<br />
+  Provides a calendar for the Epic Games Store to monitor discounts and free games.
+- **[eQ-3 Bluetooth Smart Thermostats]**, added by [@EuleMitKeule]<br />
+  Control your eQ-3 Smart Thermostats over Bluetooth.
+- **[Sanix]**, added by [@tomaszsluszniak]<br />
+  Monitor water/sweage level using your Sanix (by BIT Complex) devices.
+
+[@EuleMitKeule]: https://github.com/EuleMitKeule
+[@gnumpi]: https://github.com/gnumpi
+[@ikalnyi]: https://github.com/ikalnyi
+[@Quentame]: https://github.com/Quentame
+[@thomaskistler]: https://github.com/thomaskistler
+[@tomaszsluszniak]: https://github.com/tomaszsluszniak
+[Ambient Weather Network]: /integrations/ambient_network
+[Arve]: /integrations/arve
+[Energenie Power-Sockets]: /integratoins/egps
+[Epic Games Store]: /integrations/epic_games_store
+[eQ-3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart
+[Sanix]: /integrations/sanix
+
+## Integrations now available to set up from the UI
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Enigma2 (OpenWebif)]**, done by [@autinerd]
+- **[Folder watcher]**, done by [@gjohansson-ST]
+- **[LG Netcast]**, done by [@splinter98]
+
+[@autinerd]: https://github.com/autinerd
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@splinter98]: https://github.com/splinter98
+[Enigma2 (OpenWebif)]: /integrations/enigma2
+[Folder watcher]: /integrations/folder_watcher
+[LG Netcast]: /integrations/lg_netcast
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "AVM Fritz!SmartHome" %}
+
+Activating the hvac mode `heat` no longer overwrites the current target
+temperature with the comfort temperature, but retains the currently set target
+temperature, unless the thermostat is in hvac mode `off`, in which case the
+comfort temperature is still set.
+
+To set the target temperature in hvac mode `heat`, use the available presets
+or the set temperature service.
+
+([@jayme-github] - [#112119]) ([documentation](/integrations/fritzbox))
+
+[@jayme-github]: https://github.com/jayme-github
+[#112119]: https://github.com/home-assistant/core/pull/112119
+
+{% enddetails %}
+
+{% details "Big Ass Fans" %}
+
+The BAF fan `Auto` preset mode has been renamed to `auto`. Any scripts
+or automations using this need to be updated accordingly.
+
+([@mill1000] - [#109944]) ([documentation](/integrations/baf))
+
+[@mill1000]: https://github.com/mill1000
+[#109944]: https://github.com/home-assistant/core/pull/109944
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+The preset mode `Away`, `Home`, and `Sleep` have been renamed to the lower-case
+variants `away`, `home`, and `sleep`.
+
+This is consistent with the rest of Home Assistant also means Home Assistant
+can support icons and translations for these.
+
+If you used these preset modes in your automations or scripts, you will need
+to update them to use the new names.
+
+([@gagebenne] - [#116072]) ([documentation](/integrations/ecobee))
+
+[@gagebenne]: https://github.com/gagebenne
+[#116072]: https://github.com/home-assistant/core/pull/116072
+
+{% enddetails %}
+
+{% details "Groups" %}
+
+The state of a group entity will now return a specific `on` or `off` state,
+even if the entity component supports multiple `on` states, if:
+
+- ... the group state is on, and there is only one active domain, and one `on`
+  state used. Like, when all switched on vacuum's are `cleaning` -> the
+  `on` state will be `cleaning`. The previous behavior was that the group
+  state was `on`.
+- ... the group state is off, (all entities are in an `off` state) and all
+  `off` states are the same. Like when all entities are `locked`, the group
+  state will be `locked`.
+
+([@jbouwh] - [#115866]) ([documentation](/integrations/group))
+
+[@jbouwh]: https://github.com/jbouwh
+[#115866]: https://github.com/home-assistant/core/pull/115866
+
+{% enddetails %}
+
+{% details "Honeywell Total Connect Comfort (US)" %}
+
+The auxillary heat climate option has been deprecated and will be removed in
+Home Assistant 2024.10.
+
+Use the newly added emergency heat switch entity to set the thermostat mode
+to the previous auxillary heat mode.
+
+([@mkmer] - [#114110]) ([documentation](/integrations/honeywell))
+
+[@mkmer]: https://github.com/mkmer
+[#114110]: https://github.com/home-assistant/core/pull/114110
+
+{% enddetails %}
+
+{% details "IMAP" %}
+
+The default for new entries is that the `text` and `headers` will no longer be
+included by default in the `imap_content` event data. Instead, you can fetch
+the email content, if needed, using the `imap.fetch` service.
+
+It will not break for existing entries where we assume `text` and `headers`
+are included.
+
+([@luca-angemi] - [#115108]) ([documentation](/integrations/imap))
+
+[@luca-angemi]: https://github.com/luca-angemi
+[#115108]: https://github.com/home-assistant/core/pull/115108
+
+{% enddetails %}
+
+{% details "Insteon" %}
+
+The Insteon configuration panel, which previously was on the Home Assistant
+sidebar, has moved. It now can be accessed via the integration page in
+**Settings -> Device & services -> Insteon -> Configure**.
+
+([@teharris1] - [#105581]) ([documentation](/integrations/insteon))
+
+[@teharris1]: https://github.com/teharris1
+[#105581]: https://github.com/home-assistant/core/pull/105581
+
+{% enddetails %}
+
+{% details "Netatmo" %}
+
+The state of the Netatmo wind and gust direction sensor provided by
+the weather station now exposes the state in lower case.
+
+([@joostlek] - [#115413]) ([documentation](/integrations/netatmo))
+
+[@joostlek]: https://github.com/joostlek
+[#115413]: https://github.com/home-assistant/core/pull/115413
+
+---
+
+The state of the Netatmo health index sensor provided by the weather station
+now exposes the state in lower case.
+
+([@joostlek] - [#115409]) ([documentation](/integrations/netatmo))
+
+[@joostlek]: https://github.com/joostlek
+[#115409]: https://github.com/home-assistant/core/pull/115409
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+Previously, `recorder.purge_entities` called with no arguments would purge all
+entities. This PR makes this call raise an error instead. 
+
+It was too easy for a user to accidentally purge his entire database using the
+old logic. Users who want to purge all entities can still use
+the `recorder.purge` service to achieve the same effect, and that service
+is more obvious how it behaves. 
+
+([@karwosts] - [#110066]) ([documentation](/integrations/recorder))
+
+[@karwosts]: https://github.com/karwosts
+[#110066]: https://github.com/home-assistant/core/pull/110066
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+The `relative_time()` template function has been replaced with 2 new functions:
+`time_since()` and `time_until()`
+
+`relative_time()` as a template function is a confusing name, since it implies
+that the difference in time will be either from a time in the past,
+or in the future.
+
+Currently `relative_time()` supports only time differences from the past.
+This can be replaced with `time_since()`, and time differences for a time
+in the future can use the `time_until()` template function.
+
+([@rlippmann] - [#111177]) ([documentation](/integrations/homeassistant))
+
+[@rlippmann]: https://github.com/rlippmann
+[#111177]: https://github.com/home-assistant/core/pull/111177
+
+{% enddetails %}
+
+{% details "Traccar Server" %}
+
+The following attributes have been removed from `device_tracker` entities
+provided by the Traccar server integration:
+
+- `address`
+- `altitude`
+- `battery_level`
+- `geofence`
+- `speed`
+
+All of these are now dedicated sensor entities that you can enable.
+
+([@ludeeus] - [#111374]) ([documentation](/integrations/traccar_server))
+
+[@ludeeus]: https://github.com/ludeeus
+[#111374]: https://github.com/home-assistant/core/pull/111374
+
+---
+
+The following attributes have been removed from `device_tracker` entities
+provided by the Traccar server integration:
+
+- `motion`
+- `status`
+
+All of these are now dedicated binary sensor entities that you can enable.
+
+([@ludeeus] - [#114719]) ([documentation](/integrations/traccar_server))
+
+[@ludeeus]: https://github.com/ludeeus
+[#114719]: https://github.com/home-assistant/core/pull/114719
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Always reload after a successful re-auth flow](https://developers.home-assistant.io/blog/2024/04/25/always-reload-after-successful-reauth-flow)
+- [Deprecate old backports and typing alias](https://developers.home-assistant.io/blog/2024/04/08/deprecated-backports-and-typing-aliases/)
+- [Deprecating `async_add_hass_job`](https://developers.home-assistant.io/blog/2024/04/07/deprecate_add_hass_job/)
+- [New notify entity platform](https://developers.home-assistant.io/blog/2024/04/10/new-notify-entity-platform/)
+- [Replacing `async_track_state_change` with `async_track_state_change_event`](https://developers.home-assistant.io/blog/2024/04/13/deprecate_async_track_state_change/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Epson Workforce** has been removed. The source package/dependency this
+  integration is using, is no longer available.
+  ([@joostlek] - [#115201])
+
+[@joostlek]: https://github.com/joostlek
+[#115201]: https://github.com/home-assistant/core/pull/115201
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.5](/changelogs/core-2024.5)

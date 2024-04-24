@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: ambient_network
 ha_platforms:
   - sensor
-ha_integration_type: hub
+ha_integration_type: service
 ---
 
 The **Ambient Weather Network** {% term integration %} retrieves local weather station information

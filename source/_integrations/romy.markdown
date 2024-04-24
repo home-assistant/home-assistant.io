@@ -10,6 +10,8 @@ ha_codeowners:
   - '@xeniter'
 ha_domain: romy
 ha_platforms:
+  - binary_sensor
+  - sensor
   - vacuum
 ha_integration_type: integration
 ha_zeroconf: true
