@@ -3,9 +3,6 @@ type: card
 title: Conditional card
 sidebar_label: Conditional
 description: The Conditional card displays another card based on conditions.
-related:
-  - docs: /dashboards/cards/
-    title: Dashboard cards
 ---
 
 The conditional card displays another card based on conditions.
@@ -245,3 +242,6 @@ conditions:
 {% endconfiguration %}
 
 
+## Related topics
+
+- [Dashboard cards](/dashboards/cards/)
