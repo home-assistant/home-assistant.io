@@ -30,4 +30,4 @@ Full list of chapters:
 - Future - Madelena Mak ([2:07:29](https://www.youtube.com/watch?v=oa__fLArsFk&t=7649s))
 - Closing ([2:37:33](https://www.youtube.com/watch?v=oa__fLArsFk&t=9453s))
 
-**The Open Home Foundation** now owns and governs over 240 open-source projects, standards, drivers, and libraries including Home Assistant - protecting these projects from buy-out or becoming abandoned. To learn more about the Open Home Foundation visit: [https://www.openhomefoundation.org/](https://www.openhomefoundation.org/)
+**The Open Home Foundation** now owns and governs over 240 open-source projects, standards, drivers, and libraries, including Home Assistant - protecting these projects from buy-out or becoming abandoned. To learn more about the Open Home Foundation, visit: [https://www.openhomefoundation.org/](https://www.openhomefoundation.org/)
