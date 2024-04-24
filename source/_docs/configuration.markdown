@@ -35,19 +35,6 @@ _If you use {% term "Home Assistant Operating System" %}, you can find `configur
 
 _If you use {% term "Home Assistant Core" %} , you can find `configuration.yaml` in the config folder passed to the `hass` command (default is `~/.homeassistant`)._
 
-## Reloading configuration changes
-
-Most integrations in Home Assistant that do not interact with {% term devices %} or {% term services %} can reload changes made to their configuration in `configuration.yaml`.
-
-1. To reload configuration changes, go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for "reload").
-   - You are presented with a list of integrations, such as **Automations** or **Conversation**.
-
-    ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
-
-2. If the integration is listed, select it to reload the settings.
-3. If integration is not listed, you need to restart Home Assistant for changes to take effect:
-   - [Validate the configuration](#validating-the-configuration). Then, select the **Restart** button.
-
 ## Validating the configuration
 
 After changing configuration or automation files, check if the configuration is valid.
@@ -58,3 +45,20 @@ The method for running a configuration check depends on your [installation type]
 - [Configuration check on Supervised](/common-tasks/supervised/#configuration-check)
 - [Configuration check on Container](/common-tasks/container/#configuration-check)
 - [Configuration check on Core](/common-tasks/core/#configuration-check)
+
+## Reloading the configuration to apply changes
+
+For configuration changes to become effective, the configuration must be reloaded. Most integrations in Home Assistant (that do not interact with {% term devices %} or {% term services %}) can reload changes made to their configuration in `configuration.yaml` without needing to restart Home Assistant.
+
+1. There are two main ways to reload configuration changes.
+   - Under **Settings**, select the three dots menu (top right), select **Restart Home Assistant** > **Quick reload**.
+2. Another way to reload the configuration is by using the **Developer Tools**.
+   - Go to {% my server_controls title="**Developer Tools** > **YAML**" %} and scroll down to the YAML configuration reloading section (alternatively, hit "c" anywhere in the UI and search for "reload").
+   - You are presented with a list of integrations, such as **Automations** or **Conversation**.
+
+    ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
+
+3. If the integration is listed, select it to reload the settings.
+   - For example, if you've changed the [General settings](/docs/configuration/basic/), you can select **Location & customizations** to apply those changes.
+4. If the integration is not listed, you need to restart Home Assistant for changes to take effect:
+   - [Validate the configuration](#validating-the-configuration). Then, select the **Restart** button.
