@@ -87,7 +87,7 @@ ssl_profile:
   type: string
   default: modern
 strict_connection:
-  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `static_page` or `drop_connection`.
+  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `guard_page` or `drop_connection`.
   required: false
   type: string
   default: disabled
