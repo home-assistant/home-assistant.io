@@ -409,7 +409,7 @@ When a group contains entities from domains that have multiple `on` states, the 
 - More than one of these `on` states are actively used.
 - The entities only use `on` and `off`.
 
-If for example a group has multiple `vacuum` entities, that are all `cleaning`, the group state `on` state will be `cleaning`, of if multiple `lock` entities are `unlocked`, the group `on` state will be `unlocked`.
+If for example a group has multiple `vacuum` entities, that are all `cleaning`, the group state `on` state will be `cleaning`, or if multiple `lock` entities are `unlocked`, the group `on` state will be `unlocked`.
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
