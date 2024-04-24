@@ -5,7 +5,7 @@ ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_release: '2024.2'
+ha_release: '2024.5'
 ha_domain: bedrock_agent
 ha_codeowners:
   - '@paul-enno'
@@ -25,6 +25,10 @@ Your IAM user needs to have permission to list and invoke models on Amazon Bedro
 Configure Region, AWS secret and key, and the model to be used. After successful integration setup, you can select Bedrock as conversation agent in Settings > Voice Assistant > Home Assistant > Conversation Agent.
 
 {% configuration %}
+title:
+  description: A name for the bedrock agent. Makes it possible to have multiple service configurations at the same time.
+  required: true
+  type: string
 region:
   description: The AWS region to be used. For example `us-west-2`
   required: true
@@ -43,6 +47,10 @@ model_id:
   type: string
 prompt_context:
   description: Context that will be placed before the prompt. Can be used to receive short or long answers from the model. Or to add some specific context.
+  required: false
+  type: string
+knowledgebase:
+  description: Make use of an existing bedrock knowledge base. Only supported by Claude LLMs.
   required: false
   type: string
 {% endconfiguration %}
