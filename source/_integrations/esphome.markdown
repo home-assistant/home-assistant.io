@@ -36,8 +36,8 @@ ha_platforms:
   - switch
   - text
   - time
-  - valve
   - update
+  - valve
 ha_integration_type: device
 ha_dhcp: true
 works_with:
