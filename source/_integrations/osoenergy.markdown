@@ -37,7 +37,6 @@ The platform exposes the following sensors:
 - V40 Min (L) for water heaters.
 - Minimum Level of V40 Min (L) for water heaters.
 - Maximum Level of V40 Min (L) for water heaters.
-- Each hour is represented by the index. For example - index 10 if for 10:00 local user time.
 
 ### Water Heater
 
