@@ -2,7 +2,7 @@
 layout: post
 title: "2024.5: Beta release notes"
 description: "The beta release notes for Home Assistant 2024.5"
-date: 2024-04-24 00:00:00
+date: 2024-04-24 23:59:59
 date_formatted: "May 1, 2024"
 author: Franck Nijhof
 author_twitter: frenck
@@ -139,7 +139,7 @@ editor 😎
 
 ## Lock feature for tile card
 
-The tile card is already amamzing, but [@marcgeurts] made it even better by 
+The tile card is already amazing, but [@marcgeurts] made it even better by 
 adding a new feature for the tile card: Locks!
 
 <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/3dfe28bd-9396-40e9-b232-2f997f918855' alt='Temporary screenshot that needs to be replaced.'>
