@@ -176,6 +176,7 @@ Possible candites for noteworthy from Core:
 
 Possible candites for noteworthy from Frontend:
 
+- Allow customizing display name for energy device #112834 @karwosts
 - ZHA (Zigbee) visualization enhancement (#20511) @Cougar
   It is now clearer to see which devices are now connected and their signal
   strength. They are now better grouped on distances on connection strengths
