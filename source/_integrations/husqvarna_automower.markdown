@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Device tracker
   - Lawn Mower
+  - Number
   - Select
   - Sensor
   - Switch
@@ -16,7 +17,9 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - lawn_mower
+  - number
   - select
   - sensor
   - switch
@@ -108,6 +111,10 @@ The integration will create a lawn mower entity to control the mower. This entit
 - Pause mowing
 - Park until next schedule
 
+### Number (if available)
+
+The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually because it can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, consult the handbook of the mower. It's possible that you can use this entity only as sensor but cannot actively change the cutting height.
+
 ### Select (if available)
 
 The integration will create a select entity for selecting the headlight mode of the mower.
@@ -118,6 +125,8 @@ The integration will create the following sensors:
 
 - Battery level
 - Cutting blade usage time (if available)
+- Error. For example: *Mower tilted*, *outside geofence*.
+- Restricted reason. For example: *Week schedule*, *frost*, or *daily limit*.
 - Mode
 - Next start
 - Number of charging cycles

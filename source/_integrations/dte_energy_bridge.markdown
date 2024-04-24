@@ -1,5 +1,5 @@
 ---
-title: DTE Energy Bridge (2020 and older hardware only)
+title: DTE Energy Bridge
 description: Setup early-model DTE Energy Bridge with Home Assistant.
 ha_category:
   - Energy

@@ -85,6 +85,8 @@ Start logging the growth of objects in memory.
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
+See the [corresponding documentation for `growth()`](https://mg.pov.lt/objgraph/objgraph.html#objgraph.growth) regarding the format in which this data is logged.
+
 ### Service profiler.stop_log_objects
 
 {% my developer_call_service badge service="profiler.stop_log_objects" %}

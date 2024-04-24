@@ -1,6 +1,13 @@
 ---
 title: "Features for dashboard cards"
 description: "Decorate your dashboard cards with quick controls."
+related:
+  - docs: /dashboards/humidifier/
+    title: Humidifier card
+  - docs: /dashboards/thermostat/
+    title: Thermostat card
+  - docs: /dashboards/tile/
+    title: Tile card
 ---
 
 Some dashboard cards have support for features. These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
@@ -8,6 +15,12 @@ Some dashboard cards have support for features. These widgets add quick controls
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
 </p>
+
+Features can be enabled on the following cards:
+
+- [Humidifier](/dashboards/humidifier/)
+- [Thermostat](/dashboards/thermostat/)
+- [Tile](/dashboards/tile/)
 
 ## Alarm modes
 
@@ -574,3 +587,4 @@ operation_modes:
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
   type: list
 {% endconfiguration %}
+

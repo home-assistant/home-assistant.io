@@ -47,7 +47,7 @@ To set it up, go to the integrations page in the configuration screen and find T
 
 You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your [webhooks with Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook):
  - Go to your Twilio [console](https://www.twilio.com/console).
- - Under **phone numbers** > **active numbers** > (select number) > **configure**.
+ - Under **phone numbers** > **manage** > **active numbers** > (select number) > **configure**.
  - Paste your URL in the webhook URL box for **A call comes in** and **A message comes in** and save.
 
 Events coming in from Twilio will be available as events in Home Assistant and are fired as `twilio_data_received`. The data specified by Twilio will be available as the event data. You can use this event to trigger automations.

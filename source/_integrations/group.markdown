@@ -405,7 +405,11 @@ When member entities all have a single `on` and `off` state, the group state wil
 | person         | home     | not_home |
 | media_player   | ok       | problem  |
 
-When a group contains entities from domains that have multiple `on` states or only use `on` and `off`, the group state will be `on` or `off`.
+When a group contains entities from domains that have multiple `on` states, the **group** state will be `on` or `off` if one of the following is true:
+- More than one of these `on` states are actively used.
+- The entities only use `on` and `off`.
+
+If for example a group has multiple `vacuum` entities, that are all `cleaning`, the group state `on` state will be `cleaning`, or if multiple `lock` entities are `unlocked`, the group `on` state will be `unlocked`.
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
