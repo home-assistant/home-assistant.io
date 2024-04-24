@@ -21,13 +21,10 @@ This OSO Energy integration uses a subscription key, which a user can create for
 
 {% include integrations/config_flow.md %}
 
-## Platforms
 
-### Sensor
+## Sensors
 
-The `osoenergy` sensor integration exposes OSO Energy data as a sensor.
-
-The platform exposes the following sensors:
+The **OSO Energy** integration exposes OSO Energy data as a sensor. It provides the following sensors:
 
 - Heater Mode for water heaters.
   - Indication of the current heater mode on the device.
@@ -46,11 +43,11 @@ The platform exposes the following sensors:
 - Maximum Level of V40 Min (L) for water heaters.
   - The upper boundary of the V40 Min sensor that can be achieved during normal operation of the water heater. Can vary depending on the type of the heater.
 
-### Water Heater
+## Water heater
 
-The OSO Energy water heater platform integrates your OSO Energy devices into Home Assistant.
+The OSO Energy water heater integration integrates your OSO Energy devices into Home Assistant.
 
-The platform supports the following OSO Energy devices:
+It supports the following OSO Energy devices:
 
 - Water Heaters
 - Sensors
