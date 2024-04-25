@@ -15,6 +15,7 @@ related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
+  - docs: /docs/configuration/customizing-devices/
 ---
 
 The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on`.
@@ -138,7 +139,12 @@ country:
 
 ## Editing the entity settings in YAML
 
+The Home Assistant Core integration is also responsible for the entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
+
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entites](/docs/configuration/customizing-devices/).
+
+If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
 
 ### Possible values
 
