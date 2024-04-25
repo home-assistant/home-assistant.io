@@ -2,17 +2,23 @@
 title: "Enabling a wake word"
 ---
 
+This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it. 
+
+To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/).
+
+## To enable a wake word
+
 Enabling a wake word consists of 2 steps:
 
 1. Installing the openWakeWord add-on.
 2. Enabling the wake word for a specific voice assistant.
 
-## Prerequisites
+### Prerequisites
 
 - Home Assistant version 2023.10 or later, installed with the Home Assistant Operating System
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [local Assist pipeline](/voice_control/voice_remote_local_assistant)
 
-## Installing the openWakeWord add-on
+### Installing the openWakeWord add-on
 
 1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
 2. Start the add-on.
@@ -21,7 +27,7 @@ Enabling a wake word consists of 2 steps:
    - Select **Configure** and **Submit**.
    - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
-## Enabling wake word for your voice assistant
+### Enabling wake word for your voice assistant
 
 1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
 2. Give your assistant a name, for example the wake word you are going to use.
@@ -39,7 +45,16 @@ Enabling a wake word consists of 2 steps:
 
 ## Related topics
 
+### About wake words and assistants
+
 - [Create your own wake words](/voice_control/create_wake_word/)
 - [About wake words](/voice_control/about_wake_word/)
 - [Create a cloud assistant](/voice_control/voice_remote_cloud_assistant/)
 - [Create a local assistant](/voice_control/voice_remote_local_assistant)
+
+### Extra hardware to use wake word
+
+- [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa)
+  - [Tutorial: $13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
+- [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
+  - [Tutorial: ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)

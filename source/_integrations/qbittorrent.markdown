@@ -34,3 +34,42 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
+
+## Services
+
+### Service `qbittorrent.get_torrents`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with a dictionary of torrents based on the provided filter.
+
+| Service data attribute | Optional | Description                                    | Example                                             |
+| ---------------------- | -------- | ---------------------------------------------- | --------------------------------------------------- |
+| `device`               | no       | The device you'd like to check the torrents of | all, active, inactive, paused, downloading, seeding |
+| `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, downloading, seeding |
+
+```yaml
+service: qbittorrent.get_torrents
+data:
+  filter: "all"
+response_variable: torrents
+```
+
+The response data contains the field `torrents` which contains a dictionary of torrents. The names of the torrents are the keys.
+
+### Service `qbittorrent.get_all_torrents`
+
+This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with a dictionary of torrents based on the provided filter.
+
+| Service data attribute | Optional | Description                                   | Example                                             |
+| ---------------------- | -------- | --------------------------------------------- | --------------------------------------------------- |
+| `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, downloading, seeding |
+
+```yaml
+service: qbittorrent.get_all_torrents
+data:
+  filter: "all"
+response_variable: all_torrents
+```
+
+The response data contains the field `all_torrents`, which contains a dictionary of integrations, which each contains a dictionary of torrents. The names of the torrents are the keys.

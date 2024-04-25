@@ -2,13 +2,13 @@
 title: Fujitsu anywAIR
 description: Connect and control your Fujitsu anywAIR devices using the Advantage Air integration
 ha_category:
-  - Binary switch
+  - Binary sensor
   - Climate
   - Cover
   - Light
+  - Select
   - Sensor
   - Switch
-  - Update
   - Update
 ha_release: 0.117
 ha_domain: fujitsu_anywair

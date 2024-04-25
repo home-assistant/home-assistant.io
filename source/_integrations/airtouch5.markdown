@@ -23,4 +23,3 @@ The AirTouch 5 integration allows you to control ducted air conditioning systems
 ### Climate
 
 The integration will create a climate entity for each AC unit and each zone.
-

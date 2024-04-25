@@ -3,6 +3,7 @@ title: Lutron
 description: Instructions on how to use Lutron devices with Home Assistant.
 ha_category:
   - Cover
+  - Event
   - Fan
   - Hub
   - Light
@@ -12,16 +13,18 @@ ha_release: 0.37
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@cdheiser'
-  - '@wilburCforce'
+  - '@wilburCForce'
 ha_domain: lutron
 ha_platforms:
   - binary_sensor
   - cover
+  - event
   - fan
   - light
   - scene
   - switch
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 [Lutron](http://www.lutron.com/) is an American lighting control company. They have several lines of home automation devices that manage light switches/dimmers, occupancy sensors, HVAC controls, etc. The `lutron` integration in Home Assistant is responsible for communicating with the main hub for these systems.
@@ -50,15 +53,7 @@ If you are using RadioRA2 software version 12 or later, the default `lutron` use
 
 ## Keypad buttons
 
-Individual buttons on keypads are not represented as entities. Instead, they fire events called `lutron_event` whose payloads include `id`, `action`, and `uuid` attributes.
-
-The `id` attribute includes the name of the keypad and the name of the button, normalized the same way entity names are. For example, if the keypad is called "Kitchen Keypad" and the button is called "Dinner" the event's `id` will be `kitchen_keypad_dinner`. If the button has not been assigned a name by the Lutron system installer then the button will have a name of "Unknown Button". In this case the `id` will be suffixed with the underlying Lutron button number and will be of the form `kitchen_keypad_unknown_button_1`. The `uuid` is available to distinguish buttons with the same name on one keypad.
-
-The `action` attribute varies depending on the button type.
-
-For raise/lower buttons (dimmer buttons, shade controls, etc.) there will be two values, `pressed` and `released`, fired when the button is pressed and when it's released, respectively.
-
-For single-action buttons (scene selection, etc.), `action` will be `single`, and there will only be one event fired. This is a limitation of the Lutron controller which doesn't give Home Assistant any way of knowing when a single-action button is released.
+Keypad buttons actions are provided in event entities.
 
 ## Keypad LEDs
 

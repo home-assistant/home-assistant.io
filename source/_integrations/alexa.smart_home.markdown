@@ -100,13 +100,12 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Water heater](#water-heater)
     - [Set target temperature](#set-target-temperature)
     - [Operation Mode](#operation-mode)
-- [Alexa Web-Based App](#alexa-web-based-app)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will not work, but a public trusted certificate or a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) should work. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - An Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
@@ -241,9 +240,9 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
 
-    It is also possible to use a different port by appending `:1443` or a similar port number, make sure your firewall is forwarding the correct port:
-  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]:1443/auth/authorize`
-  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]:1433/auth/token`
+    Although it is possible to assign a different port, Alexa requires you use port 443, so make sure your firewall/proxy is forwarding via port 443.
+
+    Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
 
 <div class="note">
     Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
@@ -266,9 +265,8 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use the Alexa Mobile App or the [Alexa web-based app](#alexa-web-based-app) to link your account.
+- Next, you will use the Alexa Mobile App to link your account.
   - In the Alexa app, navigate to `More` -> `Skills & Games` -> `Your Skills` -> `Dev`
-  - Or In the Alexa web app, navigate to `Skills` -> `Your Skills` in the top right -> `Dev Skill`
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
@@ -1077,21 +1075,6 @@ If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utt
 
 - _"Alexa, turn on the [mode utterance]."_
 - _"Alexa, turn off the [entity name]."_
-
-## Alexa Web-Based App
-
-The following is a list of regions and the corresponding URL for the web-based Alexa app:
-
-- United States: `https://alexa.amazon.com`
-- United Kingdom: `https://alexa.amazon.co.uk`
-- Germany: `https://alexa.amazon.de`
-- Japan: `https://alexa.amazon.co.jp`
-- Canada: `https://alexa.amazon.ca`
-- Australia: `https://alexa.amazon.com.au`
-- India: `https://alexa.amazon.in`
-- Spain: `https://alexa.amazon.es`
-- France: `https://alexa.amazon.fr`
-- Italy: `https://alexa.amazon.it`
 
 ## Troubleshooting
 

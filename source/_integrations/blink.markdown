@@ -28,6 +28,10 @@ ha_integration_type: integration
 
 The **Blink** {% term integration %}  lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
 
+<p class='note'>
+This integration does NOT allow for live viewing of your Blink camera within Home Assistant.
+</p>
+
 ## Setup
 
 You will need your Blink login information (username, which is usually your email address, and password) to use this module.

@@ -1,5 +1,5 @@
 ---
-title: ROMY
+title: ROMY Vacuum Cleaner
 description: Integrate your ROMY vacuum robot with Home Assistant.
 ha_category:
   - Vacuum
@@ -12,6 +12,7 @@ ha_domain: romy
 ha_platforms:
   - vacuum
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The **ROMY** integration allows you to control your [ROMY](https://www.romyrobot.com) vacuum robot.
@@ -34,6 +35,16 @@ Currently supported services are:
 - `stop`
 - `return_to_base`
 
+## Integration entities
+
+The ROMY will add the following binary sensors.
+
+Binary Sensors:
+
+- **Dustbin present**: True if dustbin is inserted.
+- **Robot docked**: True if the robot is docked.
+- **Watertank present**: True if watertank is mounted (only present for ROMY's with wet cleaning function).
+- **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function).
 
 ## Troubleshooting
 

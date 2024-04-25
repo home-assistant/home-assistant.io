@@ -27,7 +27,7 @@ notify:
     url: YOUR_APPRISE_URLS
 ```
 
-You can also pre-define your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
+You can also predefine your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
 
 ```yaml
 # Example configuration.yaml entry using externally located Apprise

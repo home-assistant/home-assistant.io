@@ -95,3 +95,9 @@ The iOS app will only save the offline key to your device's filesystem if Auto-U
 The Android app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
 
 Root access is required to read the `key` and `slot` stored in `/data/data/com.august.luna/shared_prefs/PeripheralInfoCache.xml`
+
+### Android - Yale Home
+
+The Android app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
+
+Root access is required to copy the `ModelDatabase.sql` from `/data/data/com.assaabloy.yale/databases`. Once copied, you can use [DB Broser for SQLite](https://sqlitebrowser.org/) to open the `ModelDatabase.sql`, navigate to the table `LockData` and find the column `offlineKeys`.There, you will find a JSON that includes the `key` and `slot` properties.

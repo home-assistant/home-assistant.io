@@ -25,6 +25,7 @@ ha_codeowners:
   - '@vlebourl'
   - '@tetienne'
   - '@nyroDev'
+  - '@tronix117'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true

@@ -139,11 +139,11 @@ automation:
 
 ```
 
-### Automation: Phone notification with Wi-fi credentials when guest Wi-fi is created
+### Automation: Phone notification with Wi-Fi credentials when guest Wi-Fi is created
 
 ```yaml
 automation:
-  - alias: "Guests Wi-fi Turned On -> Send Password To Phone"
+  - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
     trigger:
       - platform: state
         entity_id: switch.fritzbox_7530_wifi_myssid

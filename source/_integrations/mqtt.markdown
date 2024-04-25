@@ -25,8 +25,10 @@ ha_platforms:
   - fan
   - humidifier
   - image
+  - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -47,13 +49,78 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% include integrations/config_flow.md %}
 
+<a name="configuration-via-mqtt-discovery"></a>
+{% details "Configuration of MQTT components via MQTT discovery" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVAC](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+<a name="configuration-via-yaml"></a>
+{% details "Configuration of MQTT components via YAML" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVACs](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose an MQTT broker
+## Setting up a broker
 
-### Run your own
-
-The most private option is running your own MQTT broker.
+While public MQTT brokers are available, the easiest and most private option is running your own.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
@@ -63,10 +130,6 @@ Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a k
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
 
 </div>
-
-### Use a public broker
-
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
 ## Broker configuration
 
@@ -109,14 +172,14 @@ If the server certificate does not match the hostname then validation will fail.
 
 The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
 
-#### Securing the the connection
+#### Securing the connection
 
 With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
 
 #### Using WebSockets as transport
 
 You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
-To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 <div class='note'>
 
@@ -212,40 +275,14 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Entity integrations supported by MQTT discovery" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Device trigger](/integrations/device_trigger.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Tag scanner](/integrations/tag.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
-
-{% enddetails %}
-
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
+
+<div class='note info'>
+
+Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
+
+</div>
 
 ### Discovery messages
 
@@ -700,6 +737,7 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+- [OTGateway](https://github.com/Laxilef/OTGateway)
 
 ### Discovery examples
 
@@ -986,37 +1024,13 @@ mqtt:
       ...
 ```
 
-{% details "MQTT components that support setup via YAML" %}
+If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
+<div class='note info'>
 
-{% enddetails %}
+Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 
-If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+</div>
 
 ## Using Templates
 
