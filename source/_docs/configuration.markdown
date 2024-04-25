@@ -11,7 +11,7 @@ related:
   - docs: /integrations/backup/docs/tools/dev-tools/#reloading-the-yaml-configuration
     title: Creating backups for Home Assistant Container and Core
   - docs: /docs/tools/dev-tools/#reloading-the-yaml-configuration
-    title: Reloading the YAML configuration
+    title: Reloading the YAML configuration from developer tools
 ---
 
 While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
