@@ -38,20 +38,20 @@ You can use the services from the [to-do list](/integrations/todo/) to create, u
 
 The **Bring** integration offers a service to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types. Note: If you want to receive these notifications yourself, you need to use a dedicated account as mentioned above.
 
-| Service data attribute | Optional | Description                                                                                                          |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------- |
-| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                              |
-| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types)           |
-| `item`                 |      yes | **Required for urgent message.** Item name to include in in the message e.g.: *Breaking news - Please get cilantro!* |
+| Service data attribute | Optional | Description                                                                                                                      |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                          |
+| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types)                       |
+| `item`                 |      yes | **Required for `urgent_message`.** Article name to include in in the message e.g.: *Urgent Message - Please buy cilantro urgently* |
 
 ### Available Notification types
 
-| Notification type | Text of Notification                              |
-| ----------------- | ------------------------------------------------- |
-| going_shopping    | I'm going shopping! - Last chance for adjustments |
-| changed_list      | List changed - Check it out                       |
-| shopping_done     | Shopping done - you can relax                     |
-| urgent_message    | Breaking news - Please get `item`!                |
+| Notification type | Text of Notification                                |
+| ----------------- | --------------------------------------------------- |
+| going_shopping    | I'm going shopping! - Last chance to make changes   |
+| changed_list      | List updated - Take a look at the articles          |
+| shopping_done     | Shopping done - The fridge is well stocked          |
+| urgent_message    | Urgent Message - Please buy `Article name` urgently |
 
 ### Sending a going shopping notification
 
