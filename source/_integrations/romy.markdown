@@ -37,7 +37,7 @@ Currently supported services are:
 
 ## Integration entities
 
-The ROMY will add the following binary sensors.
+The ROMY will add the following sensors.
 
 Binary Sensors:
 
@@ -45,9 +45,6 @@ Binary Sensors:
 - **Robot docked**: True if the robot is docked.
 - **Watertank present**: True if watertank is mounted (only present for ROMY's with wet cleaning function).
 - **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function).
-
-
-The ROMY will add the following sensors.
 
 Sensors:
 
@@ -58,7 +55,6 @@ Sensors:
 - **Total cleaning runs**: The total number of cleaning runs.
 - **Total cleaned area**: The total area in m² the robot has cleaned.
 - **Total distance driven**: The total distance in m the robot has driven.
-
 
 ## Troubleshooting
 
