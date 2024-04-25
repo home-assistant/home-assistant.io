@@ -39,9 +39,10 @@ For configuration changes to become effective, the configuration must be reloade
 
     ![Reload configuration changes](/images/docs/configuration/reloading_config.png)
 
-2. If the integration is listed, select it to reload the settings.
-   - For example, if you've changed the [General settings](/docs/configuration/basic/), you can select **Location & customizations** to apply those changes.
-3. If the integration is not listed, you need to **Restart** Home Assistant for changes to take effect.
+2. Depending on what you find in the list, you can proceed with either reloading or you need to restart Home Assistant:
+   - If the integration is listed, select it to reload the settings.
+     - For example, if you've changed the [General settings](/docs/configuration/basic/), you can select **Location & customizations** to apply those changes.
+   - If the integration is not listed, you need to **Restart** Home Assistant for changes to take effect.
 
 ## States tab
 
