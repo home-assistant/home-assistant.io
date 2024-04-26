@@ -55,7 +55,8 @@ Follow these steps to apply a label
 
 1. Go to the data table that contains the element from which you want to remove the label:
    -  Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.
-   -  Or, go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab
+   -  Or, go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
 2. Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
-   - From the list, select all the items to which you want to apply a label.
-   - In the top right corner, select the three dots menu, then select **Add label**. Then, deselect the labels from the list.
+   - From the list, select all the items from which you want to remove a label.
+   - In the top right corner, select the three dots menu, then select **Add label**. 
+   - Then, deselect the labels from the list.
