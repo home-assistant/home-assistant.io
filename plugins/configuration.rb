@@ -1,17 +1,17 @@
 module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
-      'action'       => '/docs/scripts/',
-      'device_class' => '/docs/configuration/customizing-devices/#device-class',
-      'template'     => '/docs/configuration/templating/',
-      'icon'         => '/docs/configuration/customizing-devices/#icon',
-      'selector'     => '/docs/blueprint/selectors/',
+      'action' => '/docs/scripts/',
+      'device_class' => '/integrations/homeassistant/#device-class',
+      'template' => '/docs/configuration/templating/',
+      'icon' => '/docs/configuration/customizing-devices/#icon',
+      'selector' => '/docs/blueprint/selectors/'
     }
 
-    TYPES = [
-      'action', 'boolean', 'string', 'integer', 'float', 'time', 'template',
-      'device_class', 'icon', 'map', 'list', 'date', 'datetime', 'any',
-      'selector',
+    TYPES = %w[
+      action boolean string integer float time template
+      device_class icon map list date datetime any
+      selector
     ]
 
     MIN_DEFAULT_LENGTH = 30
@@ -22,7 +22,7 @@ module Jekyll
     end
 
     def slug(key)
-      key.downcase.strip.gsub(' ', '-').gsub(/[^\w\-]/, '')
+      key.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
     end
 
     def type_class(type)
@@ -30,18 +30,14 @@ module Jekyll
     end
 
     def type_link(type, component: nil)
-      if type.include? ','
-        type = type.split(',')
-      end
+      type = type.split(',') if type.include? ','
 
-      if type.is_a? Array
-        return (type.map { |t| type_link(t, component: component) }).join(' | ')
-      end
+      return (type.map { |t| type_link(t, component:) }).join(' | ') if type.is_a? Array
 
       type.strip!
       if TYPE_LINKS.include? type.downcase
-        url = TYPE_LINKS[type.downcase] % {component: component}
-        "<a href=\"%s\">%s</a>" % [url, type]
+        url = format(TYPE_LINKS[type.downcase], component:)
+        format('<a href="%s">%s</a>', url, type)
       else
         type
       end
@@ -49,104 +45,107 @@ module Jekyll
 
     def required_value(value)
       if value === true
-        "Required"
+        'Required'
       elsif value === false
-        "Optional"
+        'Optional'
       else
         value.strip.titlecase
       end
     end
 
     def render_config_vars(vars:, component:, platform:, converter:, classes: nil, parent_type: nil)
-      result = Array.new
+      result = []
       result << "<div class='#{classes}'>"
 
       result << vars.map do |key, attr|
-        markup = Array.new
+        markup = []
         # There are spaces around the "{key}", to improve double-click selection in Chrome.
         markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'> #{key} </span>"
 
         if attr.key? 'type'
 
           # Check if the type (or list of types) are valid
-          if attr['type'].kind_of? Array
+          if attr['type'].is_a? Array
             attr['type'].each do |type|
-              raise ArgumentError, "Configuration type '#{type}' for key '#{key}' is not a valid type in the documentation."\
-              " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
-                TYPES.include? type
+              unless TYPES.include? type
+                raise ArgumentError, "Configuration type '#{type}' for key '#{key}' is not a valid type in the documentation."\
+                ' See: https://developers.home-assistant.io/docs/documenting/create-page#configuration'
+              end
             end
           else
-            raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
-            " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
-              TYPES.include? attr['type']
+            unless TYPES.include? attr['type']
+              raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
+              ' See: https://developers.home-assistant.io/docs/documenting/create-page#configuration'
+            end
           end
 
-          markup << "<span class='config-vars-type'>#{type_link(attr['type'], component: component)}</span>"
+          markup << "<span class='config-vars-type'>#{type_link(attr['type'], component:)}</span>"
         else
           # Type is missing, which is required (unless we are in a list or template)
           raise ArgumentError, "Configuration key '#{key}' is missing a type definition" \
-            unless ['list', 'template'].include? parent_type
+            unless %w[list template].include? parent_type
         end
 
-        defaultValue = ""
+        defaultValue = ''
         isDefault = false
-        if attr.key? 'default' and not attr['default'].to_s.empty?
+        if attr.key? 'default' and !attr['default'].to_s.empty?
           isDefault = true
           defaultValue = converter.convert(attr['default'].to_s)
         elsif attr['type'].to_s.include? 'boolean'
           # If the type is a boolean, a default key is required
           raise ArgumentError, "Configuration key '#{key}' is a boolean type and"\
-            " therefore, requires a default."
+            ' therefore, requires a default.'
         end
 
         if attr.key? 'required'
           # Check if required is a valid value
-          raise ArgumentError, "Configuration key '#{key}' required field must be specified as: "\
-            "true, false, inclusive or exclusive."\
-            unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
+          unless [true, false, 'inclusive', 'exclusive'].include? attr['required']
+            raise ArgumentError, "Configuration key '#{key}' required field must be specified as: "\
+              'true, false, inclusive or exclusive.'
+          end
 
           isTrue = attr['required'].to_s == 'true'
           startSymbol = isTrue ? ' ' : ' ('
           endSymbol = isTrue ? '' : ')'
           showDefault = isDefault && (defaultValue.length <= MIN_DEFAULT_LENGTH)
-          shortDefaultValue = ""
+          shortDefaultValue = ''
           if showDefault
             shortDefaultValue = defaultValue
-            shortDefaultValue.slice!("<p>")
-            shortDefaultValue.slice!("</p>")
+            shortDefaultValue.slice!('<p>')
+            shortDefaultValue.slice!('</p>')
             shortDefaultValue = shortDefaultValue.strip
-            shortDefaultValue = ", default: " + shortDefaultValue
+            shortDefaultValue = ', default: ' + shortDefaultValue
           end
 
-          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required'].to_s}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
+          markup << "<span class='config-vars-required'>#{startSymbol}<span class='#{attr['required']}'>#{required_value(attr['required'])}</span><span class='default'>#{shortDefaultValue}</span>#{endSymbol}</span>"
         end
 
         markup << "</div><div class='config-vars-description-and-children'>"
 
-        if attr.key? 'description'
-          markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"
-        else
-          # Description is missing
-          raise ArgumentError, "Configuration key '#{key}' is missing a description."
-        end
+        raise ArgumentError, "Configuration key '#{key}' is missing a description." unless attr.key? 'description'
+
+        markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"
+
+        # Description is missing
 
         if isDefault && defaultValue.length > MIN_DEFAULT_LENGTH
           markup << "<div class='config-vars-default'>\nDefault: #{defaultValue}</div>"
         end
-        markup << "</div>"
+        markup << '</div>'
 
         # Check for nested configuration variables
         if attr.key? 'keys'
           markup << render_config_vars(
-            vars: attr['keys'], component: component,
-            platform: platform, converter: converter,
-            classes: 'nested', parent_type: attr['type'])
+            vars: attr['keys'], component:,
+            platform:, converter:,
+            classes: 'nested', parent_type: attr['type']
+          )
         end
 
-        markup << "</div>"
+        markup << '</div>'
       end
 
-      result << "</div>"
+      result << '</div>'
       result.join
     end
 
@@ -175,10 +174,10 @@ module Jekyll
             <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>
           </div>
           #{render_config_vars(
-            vars: vars,
-            component: component,
-            platform: platform,
-            converter: converter
+            vars:,
+            component:,
+            platform:,
+            converter:
           )}
         </div>
       MARKUP
