@@ -32,7 +32,7 @@ http:
 
 {% configuration %}
 server_host:
-  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6."
+  description: "Only listen to incoming requests on specific IP/host. By default the `http` integration auto-detects IPv4/IPv6 and listens on all connections. Use `server_host: 0.0.0.0` if you want to only listen to IPv4 addresses. The default listed assumes support for IPv4 and IPv6. Alternatively, on supported systems using a [reverse proxy](#reverse-proxies), a UNIX socket can be used *instead of* IPv4/IPv6 by using the format `server_host: unix:/path/to/socket`. In that case `server_port` will be ignored."
   required: false
   type: [list, string]
   default: "0.0.0.0, ::"
@@ -91,6 +91,18 @@ strict_connection:
   required: false
   type: string
   default: disabled
+socket_user:
+  description: "The system user the socket should be owned by (user name or uid). Normal users will usually not be able to specify a different user here. Defaults to the user that started Home Assistant. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
+  required: false
+  type: [string, int]
+socket_group:
+  description: "The system group the socket should be owned by (group name or gid). Normal users can usually only specify groups they are a member of here. Defaults to the primary group for the user that started Home Assistant. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
+  required: false
+  type: [string, int]
+socket_permissions:
+  description: "Permissions to set on the socket, specified in octal. Some examples `0600` to only allow the same user to connect to the socket, `0660` to also allow users in the group, and `0666` to allow every user, however this generally indicates you should specify the proper `socket_group` (or `socket_user`) instead with `0660` (or `0600`). Defaults to `0755` on most systems which effectively means `0600` in socket context. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
+  required: false
+  type: int
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -125,6 +137,8 @@ http:
     - 10.0.0.200      # Add the IP address of the proxy server
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
+
+When using a UNIX socket with the reverse proxy, `127.0.0.1` must be specified in `trusted_proxies`.
 
 ## Strict connection mode
 
