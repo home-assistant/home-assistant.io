@@ -50,3 +50,11 @@ Follow these steps to apply a label
    - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
    - From the list, select all the items to which you want to apply a label.
    - In the top right corner, select the three dots menu, then select **Add label**. Then, select the labels from the list.
+
+## Deleting a label
+
+Follow these steps to delete a label. It will be removed from all the assets it was applied to.
+
+1. Go to {% my labels title="**Settings** > **Areas, labels & zones**" %} and on top, select the **Labels** tab.
+2. In the list of labels, find the label you want to delete and select the three dots menu.
+3. Select the **Delete** button.
