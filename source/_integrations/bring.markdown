@@ -32,7 +32,7 @@ For authentication, the integration requires the `email` and `password` you used
 
 ## Services
 
-You can use the services from the [to-do list](/integrations/todo/) to create, update or delete items on your Bring! shopping lists.
+You can use the services from the [to-do list](/integrations/todo/) to create, update, or delete items on your Bring! shopping lists.
 
 ### Notifications
 
@@ -41,12 +41,12 @@ The **Bring** integration offers a service to send push notifications to the Bri
 | Service data attribute | Optional | Description                                                                                                                      |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                          |
-| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types)                       |
-| `item`                 |      yes | **Required for `urgent_message`.** Article name to include in in the message e.g.: *Urgent Message - Please buy cilantro urgently* |
+| `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                      |
+| `item`                 |      yes | **Required for `urgent_message`.** Article name to include in the message. For example: *Urgent Message - Please buy cilantro urgently*. |
 
-### Available Notification types
+### Available notification types
 
-| Notification type | Text of Notification                                |
+| Notification type | Text of notification                                |
 | ----------------- | --------------------------------------------------- |
 | going_shopping    | I'm going shopping! - Last chance to make changes   |
 | changed_list      | List updated - Take a look at the articles          |
