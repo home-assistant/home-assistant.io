@@ -60,3 +60,14 @@ If you used this label in automations or script as targets, you need to adjust t
 2. In the list of labels, find the label you want to delete and select the three dots menu.
 3. Select **Delete**.
 4. If you used this label in automations or script as targets, you need to adjust those.
+
+## Removing labels
+
+1. Go to the data table that contains the element from which you want to remove the label:
+   -  Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.
+   -  Or, go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+2. Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+   - From the list, select all the items from which you want to remove a label.
+   - In the top right corner, select the three dots menu, then select **Add label**.
+   - Then, deselect the checkbox for the label you want to remove.
+
