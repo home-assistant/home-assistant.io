@@ -94,15 +94,15 @@ strict_connection:
 socket_user:
   description: "The system user the socket should be owned by (user name or uid). Normal users will usually not be able to specify a different user here. Defaults to the user that started Home Assistant. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
   required: false
-  type: [string, int]
+  type: [string, integer]
 socket_group:
   description: "The system group the socket should be owned by (group name or gid). Normal users can usually only specify groups they are a member of here. Defaults to the primary group for the user that started Home Assistant. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
   required: false
-  type: [string, int]
+  type: [string, integer]
 socket_permissions:
   description: "Permissions to set on the socket, specified in octal. Some examples `0600` to only allow the same user to connect to the socket, `0660` to also allow users in the group, and `0666` to allow every user, however this generally indicates you should specify the proper `socket_group` (or `socket_user`) instead with `0660` (or `0600`). Defaults to `0755` on most systems which effectively means `0600` in socket context. Only applicable when using a UNIX socket for `server_host`, ignored otherwise."
   required: false
-  type: int
+  type: integer
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
