@@ -4,7 +4,7 @@ module Jekyll
       'action'       => '/docs/scripts/',
       'device_class' => '/integrations/homeassistant/#device-class',
       'template'     => '/docs/configuration/templating/',
-      'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'icon'         => /integrations/homeassistant/#icon',
       'selector'     => '/docs/blueprint/selectors/',
     }
 
