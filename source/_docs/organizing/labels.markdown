@@ -54,7 +54,9 @@ Follow these steps to apply a label
 ## Deleting a label
 
 Follow these steps to delete a label. It will be removed from all the assets it was applied to.
+If you used this label in automations or script as targets, you need to adjust those.
 
 1. Go to {% my labels title="**Settings** > **Areas, labels & zones**" %} and on top, select the **Labels** tab.
 2. In the list of labels, find the label you want to delete and select the three dots menu.
 3. Select **Delete**.
+4. If you used this label in automations or script as targets, you need to adjust those.
