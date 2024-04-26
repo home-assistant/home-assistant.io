@@ -16,7 +16,7 @@ related:
     title: Troubleshooting the configuration
 ---
 
-While you can configure most of Home Assistant from the user interface, sometimes you need to edit the configuration directly in the source file: the `configuration.yaml` file. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant from the user interface, for some integrations, you need to edit the `configuration.yaml` file. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
 
 <p class='img'>
 <img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.'>
