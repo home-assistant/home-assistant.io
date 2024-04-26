@@ -263,8 +263,8 @@ layout: null
 /draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
-docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
-docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
+/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
+/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
