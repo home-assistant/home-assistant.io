@@ -186,6 +186,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Supports milliseconds, seconds, minutes, hours, days
 # Can be used in combination, at least one required
+# When using milliseconds, consider that delay as *at least* X milliseconds. It won´t be exact.
 # Waits 1 minute
 - delay:
     minutes: 1
