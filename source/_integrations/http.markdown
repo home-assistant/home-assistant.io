@@ -87,7 +87,7 @@ ssl_profile:
   type: string
   default: modern
 strict_connection:
-  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `static_page` or `drop_connection`.
+  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `guard_page` or `drop_connection`.
   required: false
   type: string
   default: disabled
@@ -133,7 +133,7 @@ The strict connection mode specifies how the Home Assistant instance should reac
 
 The following modes are supported:
 - `disabled`: Strict connection mode is disabled, and all unauthenticated requests are allowed (Same as before `2024.5`).
-- `static_page`: Home Assistant will answer any unauthenticated requests with a static page, informing the user about the strict connection mode.
+- `guard_page`: Home Assistant will answer any unauthenticated requests with a guard page, informing the user about the strict connection mode.
 - `drop_connection`: Home Assistant will drop/close the connection for any unauthenticated requests, similar to when no Home Assistant instance is running.
 
 If activated, Home Assistant will not even show the login page. To log in on a new device, the user needs to ask the instance admin for a temporary link. The instance admin can generate the link by calling the service `http.create_temporary_strict_connection_url`.

@@ -26,6 +26,7 @@ ha_platforms:
   - date
   - datetime
   - diagnostics
+  - event
   - fan
   - light
   - lock
@@ -37,6 +38,7 @@ ha_platforms:
   - text
   - time
   - update
+  - valve
 ha_integration_type: device
 ha_dhcp: true
 works_with:
