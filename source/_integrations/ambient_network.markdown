@@ -21,7 +21,7 @@ Similar to the [Ambient Weather Station](https://www.home-assistant.io/integrati
 integration, this integration gathers sensor data from individual weather stations.
 However, in contrast to the [Ambient Weather Station](https://www.home-assistant.io/integrations/ambient_station/)
 integration, which exclusively enables owners to fetch data solely from their owned stations, this
-integration directly pulls public data from <https://ambientwether.net/> without requiring an API key,
+integration directly pulls public data from <https://ambientweather.net> without requiring an API key,
 albeit with a reduced dataset (for example, excluding indoor sensors).
 
 {% include integrations/config_flow.md %}
