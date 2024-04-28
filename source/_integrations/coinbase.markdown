@@ -18,7 +18,7 @@ ha_integration_type: integration
 
 The `coinbase` integration lets you access account balances and exchange rates from [Coinbase](https://coinbase.com).
 
-You will need to obtain an API key from the API section in Coinbase's [User Settings](https://www.coinbase.com/settings/api) to use this integration. Your API key and secret should be of the form `organizations/XXXXX/apiKeys/XXXXX` and `-----BEGIN EC PRIVATE KEY-----\nXXXXXXXXXXXXXXXXX\n-----END EC PRIVATE KEY-----\n`. When creating your API key, it is highly recommended to ensure that only the "View" box is ticked in the "API restrications" section.
+You will need to obtain an API key from the API section in Coinbase's [User Settings](https://www.coinbase.com/settings/api) to use this integration. Your API key and secret should be of the form `organizations/XXXXX/apiKeys/XXXXX` and `-----BEGIN EC PRIVATE KEY-----\nXXXXXXXXXXXXXXXXX\n-----END EC PRIVATE KEY-----\n` respectively. When creating your API key, it is highly recommended to ensure that only the "View" box is ticked in the "API restrications" section.
 
 {% include integrations/config_flow.md %}
 
