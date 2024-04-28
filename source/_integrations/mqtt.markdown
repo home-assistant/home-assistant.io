@@ -138,7 +138,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
+<p>
+
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+
+
+</p>
 </div>
 
 ### Advanced broker configuration
@@ -1119,9 +1124,16 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-<p class='note'>
+
+<div class='note'>
+<p>
+
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
+
+
 </p>
+</div>
+
 
 ```yaml
 topic: homeassistant/light/1/command
