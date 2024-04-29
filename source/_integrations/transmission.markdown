@@ -84,40 +84,40 @@ All Transmission services require integration `entry_id`. To find it, go to Deve
 
 ### Service `add_torrent`
 
-Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/docs/configuration/basic/#allowlist_external_dirs)).
+Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), magnet link or a local file (make sure that the path is [white listed](/integrations/homeassistant/#allowlist_external_dirs)).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id`    | no | The integration entry_id
-| `torrent` | no | Torrent to download
+| Service data attribute | Optional | Description              |
+| ---------------------- | -------- | ------------------------ |
+| `entry_id`             | no       | The integration entry_id |
+| `torrent`              | no       | Torrent to download      |
 
 ### Service `remove_torrent`
 
 Removes a torrent from the client.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id`    | no | The integration entry_id
-| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
-| `delete_data` | yes | Delete torrent data (Default: false)
+| Service data attribute | Optional | Description                                                                                 |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `entry_id`             | no       | The integration entry_id                                                                    |
+| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
+| `delete_data`          | yes      | Delete torrent data (Default: false)                                                        |
 
 ### Service `start_torrent`
 
 Starts a torrent.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id`    | no | The integration entry_id
-| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
+| Service data attribute | Optional | Description                                                                                 |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `entry_id`             | no       | The integration entry_id                                                                    |
+| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
 
 ### Service `stop_torrent`
 
 Stops a torrent.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entry_id`    | no | The integration entry_id
-| `id` | no | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors
+| Service data attribute | Optional | Description                                                                                 |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `entry_id`             | no       | The integration entry_id                                                                    |
+| `id`                   | no       | ID of the torrent, can be found in the `torrent_info` attribute of the `*_torrents` sensors |
 
 ## Templating
 

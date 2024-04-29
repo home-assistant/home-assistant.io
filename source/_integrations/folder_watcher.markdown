@@ -18,7 +18,7 @@ This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system
 - `modified`
 - `moved`
 
-Configured folders must be added to [allowlist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+Configured folders must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
 ## Configuration
 
