@@ -339,26 +339,6 @@ is more obvious how it behaves.
 
 {% enddetails %}
 
-{% details "Templates" %}
-
-The `relative_time()` template function has been replaced with 2 new functions:
-`time_since()` and `time_until()`
-
-`relative_time()` as a template function is a confusing name, since it implies
-that the difference in time will be either from a time in the past,
-or in the future.
-
-Currently `relative_time()` supports only time differences from the past.
-This can be replaced with `time_since()`, and time differences for a time
-in the future can use the `time_until()` template function.
-
-([@rlippmann] - [#111177]) ([documentation](/integrations/homeassistant))
-
-[@rlippmann]: https://github.com/rlippmann
-[#111177]: https://github.com/home-assistant/core/pull/111177
-
-{% enddetails %}
-
 {% details "Traccar Server" %}
 
 The following attributes have been removed from `device_tracker` entities
