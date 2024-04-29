@@ -48,7 +48,6 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Strict connections](#strict-connections)
 - [More features for our data tables](#more-features-for-our-data-tables)
 - [Created helpers from automation editor](#created-helpers-from-automation-editor)
 - [Lock feature for tile card](#lock-feature-for-tile-card)
@@ -64,42 +63,6 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 1 May 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
 
 <lite-youtube videoid="POXZWxMenx4" videotitle="Home Assistant 2024.5 Release Party"></lite-youtube>
-
-## Strict connections
-
-In this release, we’ve added a new security feature to Home Assistant:
-Strict connection.
-
-Home Assistant will become more strict about the connections it accepts from
-non-private networks when enabling this mode. This feature is especially useful
-when exposing your Home Assistant instance to the internet.
-
-When enabled, Home Assistant will only accept clients that have already been
-authenticated. This means that unauthenticated connections will be denied
-without the possibility of logging in directly. To log in to a new device,
-you need to be either on the local network or use a temporary link generated
-by someone with administrator access.
-
-<img class="no-shadow" src='https://github.com/home-assistant/core/assets/5662298/6cc4b668-0a22-40e8-894b-bd509a86291d' alt='Temporary screenshot that needs to be replaced.'>
-
-Strict connection comes in two modes: **Guard page** and **Drop connection**.
-
-When your Home Assistant is accessed unauthenticated using the **guard page**
-mode, it will show a page where the user cannot access the instance. Login is
-not possible (unless you have a temporary login link).
-
-When using the **drop connection** mode, Home Assistant will not even show the
-login page. The connection will be dropped immediately, making it look like
-no Home Assistant is there at all.
-
-The strict connection feature is available for [Home Assistant Cloud](https://www.nabucasa.com)
-and non-cloud users. For non-cloud users, this option is available via YAML
-configuration. Home Assistant Cloud users can manage this feature from the
-cloud settings page.
-
-<img class="no-shadow" src='https://cdn.discordapp.com/attachments/1120776124398588006/1232736564677709834/image.png?ex=662a8ae4&is=66293964&hm=76fa335361d8b8643cec77a8bdcc8b9dfb3290a4d7b98651031562571403f7fc&' alt='Temporary screenshot that needs to be replaced.'>
-
-[Read more about it in our documentation](/integrations/http/#strict-connection-mode)
 
 ## More features for our data tables
 
