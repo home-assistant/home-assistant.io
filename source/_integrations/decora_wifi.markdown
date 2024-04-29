@@ -40,3 +40,5 @@ password:
   required: true
   type: string
 {% endconfiguration %}
+
+Once the configuration is implemented, restart home assistant. Any items brought in from the app can be found in the settings->entities menu.
