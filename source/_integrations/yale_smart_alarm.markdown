@@ -55,6 +55,6 @@ The lock platform requires a code for unlocking but no code for locking.
 
 ## Sensor
 
-Provides support for Smoke detector temperature sensors
+Provides support for smoke detector temperature sensors.
 
 The {% term integration %} can be configured to provide a default code that is used if no code is supplied and the number of digits required.
