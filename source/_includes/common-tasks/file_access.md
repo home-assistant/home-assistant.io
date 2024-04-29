@@ -47,7 +47,7 @@ The Terminal & SSH add-on also provides a web terminal which allows you to acces
 
 ### Installing and using the Visual Studio Code (VSC) add-on
 
-The **Studio Code Server** add-on provides access through a feature-packed web-based version of the Visual Studio Code editor. It currently only supports AMD64 and aarch64/ARM64 machines. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built in terminal, which allows for checking logs, stopping, and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info).
+The **Studio Code Server** add-on provides access through a feature-packed web-based version of the Visual Studio Code editor. It currently only supports AMD64 and aarch64/ARM64 machines. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built-in terminal, which allows for checking logs, stopping, and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](/hassio/commandline/) for further info).
 
 <p class='img'>
 <img src='/images/docs/configuration/config-yaml_via-vscode.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.'>
