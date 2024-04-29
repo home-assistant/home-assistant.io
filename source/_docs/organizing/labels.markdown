@@ -41,15 +41,25 @@ Follow these steps to apply a label
 2. To apply a label to a device, entity, or helper:
    - Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.
    - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
-   - From the list, select all the items to which you want to apply a label.
+   - From the list, select all the list entries to which you want to apply a label.
    - In the top right corner, select **Add label**. Then, select the labels from the list.
 
     ![Apply label](/images/organizing/labels_add_05.png)
 3. To apply a label to an automation, scene, or script:
    - Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
    - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
-   - From the list, select all the items to which you want to apply a label.
+   - From the list, select all the list entries to which you want to apply a label.
    - In the top right corner, select the three dots menu, then select **Add label**. Then, select the labels from the list.
+
+## Deleting a label
+
+Follow these steps to delete a label. It will be removed from all the list entries it was applied to.
+If you used this label in automations or script as targets, you need to adjust those.
+
+1. Go to {% my labels title="**Settings** > **Areas, labels & zones**" %} and on top, select the **Labels** tab.
+2. In the list of labels, find the label you want to delete and select the three dots menu.
+3. Select **Delete**.
+4. If you used this label in automations or script as targets, you need to adjust those.
 
 ## Removing labels
 
@@ -60,3 +70,4 @@ Follow these steps to apply a label
    - From the list, select all the items from which you want to remove a label.
    - In the top right corner, select the three dots menu, then select **Add label**.
    - Then, deselect the checkbox for the label you want to remove.
+
