@@ -1,5 +1,5 @@
 ---
-title: File Upload
+title: File upload
 description: File upload integration supports various frontend features within Home Assistant
 ha_release: 2022.9
 ha_quality_scale: internal
@@ -10,6 +10,6 @@ ha_codeowners:
 ha_category: []
 ---
 
-The file upload integration allows various features in the frontend to upload files.
+The **File upload** {% term integration %} allows various features in the frontend to upload files.
 
 {% include integrations/building_block_integration.md %}

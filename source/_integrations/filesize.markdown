@@ -1,5 +1,5 @@
 ---
-title: File Size
+title: File size
 description: Integration for monitoring the size of a file.
 ha_category:
   - Sensor
@@ -15,7 +15,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `filesize` sensor is for displaying the size in MB of a file.
+The **File size** {% term integration %} is for displaying the size in MB of a file.
 
 <div class='note'>
 
