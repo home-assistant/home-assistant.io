@@ -2,7 +2,7 @@
 title: Home Connect
 description: Instructions on how to set up the Home Connect integration within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -43,7 +43,12 @@ Note that it depends on the appliance and on API permissions which of the featur
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
 
-*Important*: after performing the steps above **log out** of your Home Connect Developer account. If you don't so this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+*Important*:
+ - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
+ - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on. 
+ - After performing the steps above **log out** of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+ - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
+ - All changes in the developer portal take 15 minutes before the change is implemented.
 
 {% details "I have manually disabled My Home Assistant" %}
 

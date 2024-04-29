@@ -2,12 +2,11 @@
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Notifications
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
-  - '@bendavid'
   - '@thecode'
 ha_domain: webostv
 ha_config_flow: true
@@ -24,8 +23,8 @@ The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS S
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#media-player)
-- [Notifications](#notifications)
+- [Media player](/integrations/media_player/)
+- [Notifications](/integrations/notify/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
@@ -33,7 +32,7 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 ## Turn on action
 
-Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
+Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
@@ -65,7 +64,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 ## Sources
 
-It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the integration card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
+It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the {% term integration %} card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 
 ## Change channel through play_media service
 

@@ -9,6 +9,8 @@ ha_domain: london_underground
 ha_platforms:
   - sensor
 ha_integration_type: integration
+ha_codeowners:
+  - '@jpbede'
 ---
 
 The `london_underground` sensor will display the status of London underground lines, as well as the Overground and DLR.

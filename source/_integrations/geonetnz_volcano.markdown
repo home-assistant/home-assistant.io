@@ -47,7 +47,7 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -63,7 +63,7 @@ the standard ones:
 | last update            | Timestamp of the last update from the feed.  |
 | last update successful | Timestamp of the last successful update from the feed.  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,7 +1,6 @@
 ---
 title: LIFX Cloud
 description: Instructions on using native LIFX scenes with Home Assistant.
-logo: lifx.png
 ha_category:
   - Scene
 ha_iot_class: Cloud Push
@@ -45,7 +44,7 @@ timeout:
 
 You create your API token on the LIFX website:
 1. Sign in to the [LIFX Cloud](https://cloud.lifx.com/)
-2. Click on your e-mail address and select _Personal Access Tokens_
+2. Click on your email address and select _Personal Access Tokens_
 3. Now click _Generate New Token_
 4. Enter a meaningful label, such as 'Home Assistant'
 5. Click _Generate_

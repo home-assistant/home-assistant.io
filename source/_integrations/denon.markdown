@@ -2,7 +2,7 @@
 title: Denon Network Receivers
 description: Instructions on how to integrate Denon Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Polling
 ha_release: 0.7.2
 ha_domain: denon

@@ -2,7 +2,7 @@
 title: Flic
 description: Instructions on how to integrate flic buttons within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_iot_class: Local Push
 ha_release: 0.35
 ha_domain: flic
@@ -112,6 +112,6 @@ automation:
 
 {% endraw %}
 
-### Ignoring Click Types
+### Ignoring click types
 
-For some purposes it might make sense to exclude a specific click type from triggering click events. For example when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.
+For some purposes it might make sense to exclude a specific click type from triggering click events. For example, when ignoring double clicks, pressing the button twice fast results in two `single` instead of a `double` click event. This is very useful for applications where you want to click fast.

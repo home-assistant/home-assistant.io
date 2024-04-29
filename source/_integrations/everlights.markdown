@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 [EverLights](https://myeverlights.com/) are permanent Christmas lights installed on a home's gutters or flashing. This integration can change all LEDs in a zone to a single color or activate a pattern that was previously saved to the control box.
 
-### Configuration Details
+### Configuration details
 
 To enable EverLights, add the following lines to your `configuration.yaml` file:
 

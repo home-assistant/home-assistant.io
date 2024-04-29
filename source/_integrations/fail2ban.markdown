@@ -157,7 +157,7 @@ server {
 }
 ```
 
-Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` component:
+Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
 
 ```yaml
 http:

@@ -18,7 +18,9 @@ Keeps track which switches are in your environment, their state and allows you t
 - Maintains a state per switch and a combined state `all_switches`.
 - Registers services `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
 
-## Device Class
+{% include integrations/building_block_integration.md %}
+
+## Device class
 
 The way these switches are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for switches:
 

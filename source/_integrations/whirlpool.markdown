@@ -9,14 +9,16 @@ ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
   - '@abmantis'
+  - '@mkmer'
 ha_domain: whirlpool
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-The `whirlpool` integration integrates Whirlpool 6th Sense Live, and Whirlpool/Maytag Washer and Dryer appliances into Home Assistant.
+The **Whirlpool Appliances** {% term integration %} integrates Whirlpool 6th Sense Live, and Whirlpool/Maytag Washer and Dryer appliances into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Supported hardware
 
-The following air conditioners are confirmed to be working, but other models that use the 6th Sense Live application may also work:
+The following appliances are confirmed to be working, but other models that use the 6th Sense Live application may also work:
 
 Climate:
 
@@ -36,6 +38,7 @@ Climate:
 Washer:
 
 - WTW6120HW2
+- MHW8630HW0
 
 Dryer:
 

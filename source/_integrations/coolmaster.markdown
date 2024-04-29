@@ -10,7 +10,10 @@ ha_codeowners:
   - '@OnFreund'
 ha_domain: coolmaster
 ha_platforms:
+  - binary_sensor
+  - button
   - climate
+  - sensor
 ha_integration_type: integration
 ---
 

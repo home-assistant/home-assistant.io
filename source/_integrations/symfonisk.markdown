@@ -2,7 +2,7 @@
 title: IKEA SYMFONISK
 description: Connect and control your IKEA SYMFONISK devices using the Sonos integration
 ha_category:
-  - Media Player
+  - Media player
   - Sensor
 ha_domain: symfonisk
 ha_release: 0.7.3
@@ -10,7 +10,6 @@ ha_integration_type: virtual
 ha_supporting_domain: sonos
 ha_supporting_integration: Sonos
 ha_codeowners:
-  - '@cgtobi'
   - '@jjlawren'
 ha_config_flow: true
 ha_platforms:

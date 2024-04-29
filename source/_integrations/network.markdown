@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings >> System >> Network" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
+This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings > System > Network" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
 
 **{% my general badge %}**
 

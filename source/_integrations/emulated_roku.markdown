@@ -79,12 +79,12 @@ After starting up, you can check if the emulated Roku is reachable at the specif
 
 All Roku commands are sent as `roku_command` events.
 
-Field | Description
------ | -----------
-`source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources.
-`type` | The type of the event that was called on the API.
-`key` | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.
-`app_id` | the id of the app that was launched when command `type` is `launch`.
+| Field         | Description                                                                                                                  |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| `source_name` | Name of the emulated Roku instance that sent the event. Only required when using multiple instances to filter event sources. |
+| `type`        | The type of the event that was called on the API.                                                                            |
+| `key`         | the code of the pressed key when the command `type` is `keypress`, `keyup` or `keydown`.                                     |
+| `app_id`      | the id of the app that was launched when command `type` is `launch`.                                                         |
 
 Available key codes |
 ------------------- |
@@ -124,6 +124,12 @@ The following is an example implementation of an automation:
       entity_id: media_player.amplifier
 ```
 
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
+
 ## Troubleshooting
 
 If you change your advertised IP or ports, you will have to re-add the emulated Roku in your app.
@@ -131,12 +137,12 @@ When using Harmony, the app should auto-discover any changes via UPnP discovery 
 Alternatively, you can trigger the 'Fix' page by pressing a button on the unreachable device's remote in the app and wait ~10 seconds, then click 'Fix it'.
 
 Known limitations:
-* Some Android remotes send key up/down events instead of key presses.
-* Functionality other than key presses and app launches are not implemented yet.
-* App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
-* Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
-  * Change Docker to host networking temporarily, then revert after pairing.
-  * Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
-* Harmony cannot launch apps as it uses IR instead of the Wi-Fi API and will not display the custom dummy app list.
-* Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
-* Harmony will not set the name of the added emulated Roku device to the specified `name`.
+- Some Android remotes send key up/down events instead of key presses.
+- Functionality other than key presses and app launches are not implemented yet.
+- App ids are limited between 1-10. (The emulated API reports 10 dummy apps)
+- Harmony uses UPnP discovery (UPnP is not needed after pairing), which might not work in Docker. You can:
+  - Change Docker to host networking temporarily, then revert after pairing.
+  - Run the `advertise.py` helper script from the emulated_roku library directly somewhere else and point it to the emulated Roku API.
+- Harmony cannot launch apps as it uses IR instead of the Wi-Fi API and will not display the custom dummy app list.
+- Home control buttons cannot be assigned to emulated Roku on the Harmony Hub Companion remote as they are limited to Hue (and possibly other APIs) within Harmony.
+- Harmony will not set the name of the added emulated Roku device to the specified `name`.

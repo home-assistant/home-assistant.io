@@ -2,9 +2,9 @@
 title: Digital Ocean
 description: Instructions on how to integrate the Digital Ocean within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Switch
-  - System Monitor
+  - System monitor
 ha_release: '0.30'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -16,11 +16,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `digital_ocean` integration allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
+The **Digital Ocean** {% term integration %} allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](/integrations/digital_ocean/#binary-sensor)
+- [Binary sensor](/integrations/digital_ocean/#binary-sensor)
 - [Switch](/integrations/digital_ocean/#switch)
 
 ## Setup
@@ -44,7 +44,7 @@ access_token:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `digital_ocean` binary sensor platform allows you to monitor your Digital Ocean droplets.
 

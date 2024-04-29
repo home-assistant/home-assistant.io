@@ -22,7 +22,7 @@ There now is support for two new super cool things: Beds and license plates. [@t
 
 ### Configuration validation
 
-On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the breaking changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
+On the voluptuous front we have also made great progress. We were able to fully remove the legacy config helpers and have migrated 323 of the 346 components and platforms that needed migrating! This does mean that for some components the configuration has slightly changed, make sure to check out the backward-incompatible changes section at the bottom for more info. Thanks everybody for reviewing the Pull requests, testing the changes, and reporting issues.
 
 ### Delayed Release
 
@@ -100,7 +100,7 @@ Since 0.28 [automation rules](/blog/2016/09/10/notify-group-reload-api-pihole/#r
 
  - Fix handling SIGTERM and SIGHUP signals (fixes Systemd restart issues) ([@pvizeli])
 
-### Breaking changes
+### Backward-incompatible changes
 
  - The template methods `now` and `utcnow` have been changed from variables to methods. To get the current time replace `now` with `now()`.
  - `yahooweather` default name is now `yweather`. Also min and max temperature are now correctly called `Temperature Min` and `Temperature Max`.

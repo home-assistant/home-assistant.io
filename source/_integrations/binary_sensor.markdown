@@ -1,8 +1,8 @@
 ---
-title: Binary Sensor
+title: Binary sensor
 description: Instructions on how-to setup binary sensors with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 0.9
 ha_quality_scale: internal
 ha_domain: binary_sensor
@@ -25,9 +25,12 @@ Some binary sensors are created automatically when you add a device integration.
 For example, adding the [ecobee integration](/integrations/ecobee/) will create
 a binary sensor to detect room occupancy. Other binary sensors can be created
 manually using the [template integration](/integrations/template/)
-or using an [input boolean helper](/integrations/input_boolean),
+or using an [input boolean helper](/integrations/input_boolean).
 
-### Device Class
+
+{% include integrations/building_block_integration.md %}
+
+### Device class
 
 Knowing a sensor is binary impacts how the sensor's current state may be
 represented in Home Assistant's UI (see [Dashboards](/dashboards/)). Opposing states
@@ -36,12 +39,10 @@ state over the other. This is set by the binary sensor's device class.
 
 Here are a few examples of this representation in the UI:
 
-<p class='img'>
-<img src='/images/screenshots/binary_sensor_classes_icons.png' />
+![List of binary sensors](/images/screenshots/binary_sensor_classes_icons.png)
 Example of various device classes icons in `on` and `off` state. The on image
 in this example has `state_color: true` specified in the Entities card
 configuration to receive the icon coloring.
-</p>
 
 The full list of supported binary sensor device classes is below
 *(note: these may also be modified in the [customizing section](/docs/configuration/customizing-devices)).*

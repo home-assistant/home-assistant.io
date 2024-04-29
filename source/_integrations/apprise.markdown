@@ -22,17 +22,19 @@ To use Apprise supported notifications, add the following to your `configuration
 ```yaml
 # Example configuration.yaml entry using URLs
 notify:
-  - platform: apprise
+  - name: NOTIFIER_NAME
+    platform: apprise
     url: YOUR_APPRISE_URLS
 ```
 
-You can also pre-define your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
+You can also predefine your own configuration files while storing them either remotely or locally. Simply just use the `config` option.
 
 ```yaml
 # Example configuration.yaml entry using externally located Apprise
 # Configuration Files/Sites:
 notify:
-  - platform: apprise
+  - name: NOTIFIER_NAME
+    platform: apprise
     config: YOUR_APPRISE_CONFIG_URLS
 ```
 
@@ -41,7 +43,8 @@ There is no restriction on the number of URLs or Apprise Configuration locations
 ```yaml
 # Example configuration.yaml entry using all options
 notify:
-  - platform: apprise
+  - name: NOTIFIER_NAME
+    platform: apprise
     config: YOUR_APPRISE_CONFIG_URLS
     url: YOUR_APPRISE_URLS
 ```
@@ -65,7 +68,7 @@ config:
 ## Example service call
 
 ```yaml
-- service: notify.apprise
+- service: notify.NOTIFIER_NAME
   data:
     message: "A message from Home Assistant"
 ```
@@ -73,7 +76,7 @@ config:
 If you're using configuration files to store your Apprise URLs in, then you have the added bonus of associating tags with them. By default, Apprise in Home Assistant will only notify the elements that have no tags associated with them. You can optionally focus on only notifying a specific service based on the tag(s) you assigned them like so:
 
 ```yaml
-- service: notify.apprise
+- service: notify.NOTIFIER_NAME
   data:
     message: "A message from Home Assistant"
     target: [

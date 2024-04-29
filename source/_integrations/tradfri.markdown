@@ -23,7 +23,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `tradfri` integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
 
 {% include integrations/config_flow.md %}
 
@@ -57,7 +57,7 @@ Then restart Home Assistant. When prompted, enter the security key and click *co
   This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
 </div>
 
-Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this component. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
+Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
 
 ## Known limitations
 

@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Microsoft Teams` platform allows you to send notifications from Home Assistant to a team channel in [Microsoft Teams](https://products.office.com/en-us/microsoft-teams/group-chat-software).
+The `Microsoft Teams` platform allows you to send notifications from Home Assistant to a team channel in [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software).
 
 ## Setup
 
@@ -49,6 +49,8 @@ The following attributes can be placed inside `data` for extended functionality.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `image_url`            |      yes | Attach an image to the message.
+
+The image must be an HTTPS URL, and as outlined by Microsoft in the [Documentation](https://learn.microsoft.com/en-us/microsoftteams/platform/task-modules-and-cards/cards/cards-reference#common-properties-for-all-cards), the picture must be on a publicly available location.
 
 Example for posting file from URL:
 

@@ -60,7 +60,7 @@ sender:
   description: The name or number of the sender. (Limited to 11 characters.)
   required: false
   type: string
-  default: "hass"
+  default: "`hass`"
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

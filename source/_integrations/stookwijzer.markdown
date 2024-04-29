@@ -2,8 +2,8 @@
 title: Stookwijzer
 description: Instructions on how to use Stookwijzer data within Home Assistant
 ha_category:
-  - Sensor
   - Environment
+  - Sensor
 ha_release: 2023.2
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -11,8 +11,8 @@ ha_codeowners:
 ha_domain: stookwijzer
 ha_config_flow: true
 ha_platforms:
-  - sensor
   - diagnostics
+  - sensor
 ha_integration_type: service
 ---
 

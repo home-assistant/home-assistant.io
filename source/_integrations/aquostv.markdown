@@ -2,7 +2,7 @@
 title: Sharp Aquos TV
 description: Instructions on how to integrate a Sharp Aquos TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.35
 ha_iot_class: Local Polling
 ha_domain: aquostv
@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/en/index.html).
+The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
 
 When the TV is first connected, you will need to accept Home Assistant on the TV to allow communication.
 
@@ -81,5 +81,7 @@ Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on 
 - LC-50US40 (no volume control, not fully tested)
 - LC-70LE650U
 - LC-70LE747E (no volume control)
+- LC-60LE650U
+- LC-80LE632U
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/aquostv.markdown).

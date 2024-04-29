@@ -1,16 +1,16 @@
 ---
-title: "Automation Modes"
+title: "Automation modes"
 description: "How to use and configure automation modes."
 ---
 
-An automation can be triggered while it is already running.
+An {% term automation %} can be triggered while it is already running.
 
-The automation's `mode` configuration option controls what happens when the automation is triggered while the actions are still running from a previous trigger.
+The automation's `mode` configuration option controls what happens when the automation is triggered while the {% term actions %} are still running from a previous {% term trigger %}.
 
 Mode | Description
 -|-
 `single` | (Default) Do not start a new run. Issue a warning.
-`restart` | Start a new run after first stopping previous run.
+`restart` | Start a new run after first stopping the previous run. The automation only restarts if the conditions are met. 
 `queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. Note that subsequent queued automations will only join the queue if any conditions it may have are met at the time it is triggered.
 `parallel` | Start a new, independent run in parallel with previous runs.
 
@@ -38,7 +38,7 @@ automation:
       - delay: 300  # seconds (=5 minutes)
 ```
 
-## Example Queued
+## Example queued
 
 Sometimes an automation is doing an action on a device that does not support multiple simultaneous actions. In such cases, a queue can be used. In that case, the automation will be executed once it's current invocation and queue are done.
 

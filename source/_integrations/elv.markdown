@@ -25,7 +25,7 @@ elv:
   device: SERIAL_PORT
 ```
 
-This platform will add all PCA 301 switches which are in range. You can read the total used energy in KWh and the current power in Watt.
+This platform will add all PCA 301 switches which are in range. You can read the total used energy in kWh and the current power in Watt.
 
 {% configuration %}
 device:

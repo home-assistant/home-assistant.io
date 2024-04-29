@@ -37,6 +37,12 @@ The documentation covers beginner to advanced topics around the installation, se
     </div>
     <div class='title'>Android and iOS</div>
   </a>
+  <a class='option-card' href='/voice_control/'>
+    <div class='img-container'>
+      <img src='/images/assist/assist-icon.svg' />
+    </div>
+    <div class='title'>Voice assistant</div>
+  </a>
 </div>
 
 <br/>

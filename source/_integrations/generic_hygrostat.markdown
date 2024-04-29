@@ -30,6 +30,10 @@ name:
   required: true
   default: Generic Hygrostat
   type: string
+unique_id:
+  description: An ID that uniquely identifies this humidifier. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 humidifier:
   description: "`entity_id` for humidifier or dehumidifier switch, must be a toggle device."
   required: true
@@ -42,16 +46,16 @@ min_humidity:
   description: Set minimum set point available.
   required: false
   default: 0
-  type: integer
+  type: float
 max_humidity:
   description: Set maximum set point available.
   required: false
   default: 100
-  type: integer
+  type: float
 target_humidity:
   description: Set initial target humidity. This value will be used as a fallback when the previous setpoint is not available.
   required: false
-  type: integer
+  type: float
 device_class:
   description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
   required: false

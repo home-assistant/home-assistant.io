@@ -5,16 +5,18 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2021.3
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Number
   - Select
   - Sensor
   - Switch
 ha_codeowners:
   - '@milanmeu'
+  - '@frenck'
 ha_domain: rituals_perfume_genie
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - number
   - select
   - sensor
