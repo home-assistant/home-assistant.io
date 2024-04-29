@@ -256,26 +256,6 @@ to update them to use the new names.
 
 {% enddetails %}
 
-{% details "Groups" %}
-
-The state of a group entity will now return a specific `on` or `off` state,
-even if the entity component supports multiple `on` states, if:
-
-- ... the group state is on, and there is only one active domain, and one `on`
-  state used. Like, when all switched on vacuum's are `cleaning` -> the
-  `on` state will be `cleaning`. The previous behavior was that the group
-  state was `on`.
-- ... the group state is off, (all entities are in an `off` state) and all
-  `off` states are the same. Like when all entities are `locked`, the group
-  state will be `locked`.
-
-([@jbouwh] - [#115866]) ([documentation](/integrations/group))
-
-[@jbouwh]: https://github.com/jbouwh
-[#115866]: https://github.com/home-assistant/core/pull/115866
-
-{% enddetails %}
-
 {% details "Honeywell Total Connect Comfort (US)" %}
 
 The auxillary heat climate option has been deprecated and will be removed in
