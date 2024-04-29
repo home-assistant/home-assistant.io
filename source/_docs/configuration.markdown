@@ -16,11 +16,16 @@ related:
     title: Configuring file access on the Operating System
   - docs: /common-tasks/supervised/#configuring-access-to-files
     title: Configuring file access on Supervised
+  - docs: docs/configuration/troubleshooting/
+    title: Troubleshooting the configuration
 ---
 
-While you can configure most of Home Assistant directly from the user interface under {% my config %}, some parts need you to edit `configuration.yaml`. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation you will find snippets that you can add to your configuration file to enable specific functionality.
+While you can configure most of Home Assistant from the user interface, for some integrations, you need to edit the `configuration.yaml` file. This file contains {% term integrations %} to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality.
 
-If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
+<p class='img'>
+<img src='/images/docs/configuration/config-yaml_via-file-editor.png' alt='Screenshot of an example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.'>
+Example of a configuration.yaml file, accessed using the File editor add-on on a Home Assistant Operating System installation.
+</p>
 
 ## Editing `configuration.yaml`
 
@@ -79,3 +84,7 @@ For configuration changes to become effective, the configuration must be reloade
    - Note: This interrupts automations and scripts.
 
    ![Reload and restart buttons](/images/docs/configuration/reload_restart.png)
+
+## Troubleshooting the configuration
+
+If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).

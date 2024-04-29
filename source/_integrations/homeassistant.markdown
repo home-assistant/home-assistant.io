@@ -103,15 +103,15 @@ internal_url:
   required: false
   type: string
 customize:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) entities."
   required: false
   type: string
 customize_domain:
-  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) all entities in a domain."
   required: false
   type: string
 customize_glob:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) entities matching a pattern."
   required: false
   type: string
 allowlist_external_dirs:
