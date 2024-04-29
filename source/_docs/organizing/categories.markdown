@@ -41,3 +41,16 @@ Follow these steps to create a new category.
    - The example shows 2 categories: Coffee and housekeeping.
 
     ![Group table items by category](/images/organizing/category_02.png)
+
+## Editing or deleting a category
+
+To rename or delete a category, follow these steps:
+
+1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+2. In the top left, select the **Filters** button.
+
+    ![Select the filter button](/images/organizing/filters_01.png)
+3. In the list, find the category you want to edit and select the three dot menu next to it.
+4. Select **Edit category** or **Delete category**.
+
+    ![Screenshot showing the edit and delete buttons for categories](/images/organizing/edit-delete-category.png)

@@ -59,7 +59,7 @@ There are multiple ways to store the backup on another device:
   - [Add a network storage location](/common-tasks/{{page.installation}}/#network-storage) for backups.
   - [Change the default location](/common-tasks/{{page.installation}}/#change-default-backup-location) for backups.
 
-- **Option 4**: Or even better, create an automation to handle that.
+- **Option 4**: Or even better, create an automation to handle that, using one of the [backup services](/integrations/hassio/#service-hassiobackup_full).
 - **Option 5**: Make use of a third-party add-on:
   - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
   - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
