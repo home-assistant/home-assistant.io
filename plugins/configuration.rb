@@ -2,9 +2,9 @@ module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
       'action'       => '/docs/scripts/',
-      'device_class' => '/docs/configuration/customizing-devices/#device-class',
+      'device_class' => '/integrations/homeassistant/#device-class',
       'template'     => '/docs/configuration/templating/',
-      'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'icon'         => '/integrations/homeassistant/#icon',
       'selector'     => '/docs/blueprint/selectors/',
     }
 

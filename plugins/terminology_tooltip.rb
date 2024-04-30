@@ -20,6 +20,7 @@ module Jekyll
       end
 
       def render(context)
+        @term.gsub!(/\"/, "")
         entries = context.registers[:site].data["glossary"].select do |entry|
           entry.key?("term") and (@term.casecmp(entry["term"]).zero? or (entry.key?("aliases") and entry["aliases"].any?{ |s| s.casecmp(@term)==0 }))
         end

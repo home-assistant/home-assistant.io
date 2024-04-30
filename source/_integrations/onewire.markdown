@@ -52,6 +52,7 @@ Each 1-wire component data sheet describes the different properties the componen
 | 3B     | [DS1825](https://datasheets.maximintegrated.com/en/ds/DS1825.pdf)            | Temperature                     |
 | 42     | [DS28EA00](https://datasheets.maximintegrated.com/en/ds/DS28EA00.pdf)        | Temperature                     |
 | 7E     | [EDS00xx](https://www.embeddeddatasystems.com/assets/images/supportFiles/manuals/EN-UserMan%20%20OW-ENV%20Sensor%20v13.pdf)        | Temperature/Humidity/Barometric pressure/Light <sup>[6](#note_6)</sup>|
+| A6     | Secondary family code for [DS2438](https://datasheets.maximintegrated.com/en/ds/DS2438.pdf)            | Temperature, Voltage, Current (pressure when using B1-R1-A, illuminance when using S2-R1-A, humidity when using compatible Honeywell or Humirel sensor) <sup>[2](#note_2)</sup> |
 | EF     | [HobbyBoard](https://hobbyboards.com/)                                       | Temperature, Humidity, Moisture, Wetness <sup>[3](#note_3)</sup> |  
 
 #### Switches:

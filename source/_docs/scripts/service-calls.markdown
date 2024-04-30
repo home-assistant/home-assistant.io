@@ -80,7 +80,7 @@ entity_id: switch.ac
 ### Using the Services Developer Tool
 
 You can use the Services Developer Tool to test data to pass in a service call.
-For example, you may test turning on or off a 'group' (See [groups] for more info)
+For example, you may test turning on or off a 'group' (See [groups](/integrations/group/) for more info)
 
 To turn a group on or off, pass the following info:
 

@@ -24,6 +24,11 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+related:
+  - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
+    title: Controlling the camera from the dashboard
+  - url: https://reolink.com/
+    title: Reolink product page
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
@@ -67,6 +72,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI pet detection
 - AI animal detection
 - AI face detection
+- AI package detection
 
 These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
@@ -88,11 +94,13 @@ Depending on the supported features of the camera, number entities are added for
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
+- AI package sensitivity
 - AI pet sensitivity
 - AI animal sensitivity
 - AI face delay*
 - AI person delay*
 - AI vehicle delay*
+- AI package delay*
 - AI pet delay*
 - AI animal delay*
 - Auto quick reply time
@@ -141,10 +149,10 @@ Depending on the supported features of the camera, button entities are added for
 
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                              |
-| ---------------------- | -------- | -----------------------------------------------------------------------------------------|
-| `entity_id`            |      no  | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`                |      no  | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                         |
+| Service data attribute | Optional | Description                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
 
 ## Select entities
 
@@ -153,13 +161,14 @@ Depending on the supported features of the camera, select entities are added for
 - Floodlight mode (Off, Auto, Schedule)
 - Day night mode (Auto, Color, Black&White)
 - <abbr title="pan, tilt, and zoom">PTZ</abbr> preset
+- Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
-**Auto quick reply messages** can be recorded in the Reolink app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+**Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
 ## Siren entities
 
@@ -178,6 +187,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Auto tracking
 - Auto focus
 - Guard return
+- PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
 - Push notifications
@@ -197,6 +207,8 @@ For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and *
 
 The Push-notification in the Reolink app is independent of the Home Assistant setting. It is also independent of the settings on other phones connected to the same camera. Reolink does this so you have an independent way of turning off push notifications per phone.
 
+The **PTZ patrol** positions first need to be configured using the Reolink [app](https://support.reolink.com/hc/en-us/articles/360008746833/)/[windows](https://support.reolink.com/hc/en-us/articles/900003738126/)/web client. When no positions are configured, the PTZ patrol entity will not be added. When adding patrol positions for the first time, you need to restart the Reolink integration.
+
 ## Light entities
 
 Depending on the supported features of the camera, light entities are added for:
@@ -212,6 +224,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- HDD/SD storage*
 
 ## Update entity
 
@@ -258,6 +271,7 @@ The following models have been tested and confirmed to work:
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
@@ -351,7 +365,3 @@ An SSL certificate can still be enforced for external connections, by, for insta
 
 To see if a Reolink integration is currently using `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
 
-## Related topics
-
-- [Controlling the camera from the dashboard](/dashboards/picture-glance/#creating-a-card-to-control-the-camera)
-- [Reolink product page](https://reolink.com/)

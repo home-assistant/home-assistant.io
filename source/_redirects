@@ -256,6 +256,7 @@ layout: null
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
+
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
@@ -263,6 +264,11 @@ layout: null
 /draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
+/docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
+/docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
+/docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
+/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
+/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -329,7 +335,6 @@ layout: null
 /getting-started/automation-trigger /docs/automation/trigger
 /getting-started/automation-templating /docs/automation/templating
 /getting-started/basic /docs/configuration/basic
-/getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
@@ -357,6 +362,8 @@ layout: null
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
+/common-tasks/os/#flashing-an-odroid-m1s /installation/odroid#flashing-an-odroid-m1s
+/common-tasks/os/#flashing-an-odroid-n2 /installation/odroid#flashing-an-odroid-n2
 /docs/installation /installation
 /docs/installation/docker /installation
 /docs/installation/raspberry-pi /installation
@@ -467,6 +474,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/scripts/editor/ /docs/scripts
 /getting-started/devices /integrations
+/integrations/map /dashboards/map/
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -529,7 +537,6 @@ layout: null
 /integrations/hydroquebec /more-info/removed-integration 301
 /integrations/ialarm_xr /more-info/removed-integration 301
 /integrations/iota /more-info/removed-integration 301
-/integrations/juicenet /more-info/removed-integration 301
 /integrations/life360 /more-info/removed-integration 301
 /integrations/lifx_legacy /more-info/removed-integration 301
 /integrations/linksys_ap /more-info/removed-integration 301
@@ -557,8 +564,10 @@ layout: null
 /integrations/nuimo_controller /more-info/removed-integration 301
 /integrations/openalpr /more-info/removed-integration 301
 /integrations/openalpr_local /more-info/removed-integration 301
+/integrations/opencv /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
+/integrations/panel_iframe /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301

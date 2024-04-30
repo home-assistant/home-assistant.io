@@ -1,5 +1,5 @@
 ---
-title: History Stats
+title: History stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
   - Sensor
@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
+The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
 It can track how long the integration has been in a specific state, in a custom time period.
 
