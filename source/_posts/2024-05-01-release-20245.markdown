@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "2024.5: Beta release notes"
-description: "The beta release notes for Home Assistant 2024.5"
+title: "2024.5: Just a little bit smaller"
+description: "New features to for our new data tables, create helpers directly from the automation editor, the tile card now supports locks, easily adjust the name of a device on the energy dashboard, and improved audio with ESPHome for Assist."
 date: 2024-04-24 22:00:00
 date_formatted: "May 1, 2024"
 author: Franck Nijhof
