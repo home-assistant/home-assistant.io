@@ -11,6 +11,7 @@ ha_iot_class: Local Polling
 ha_domain: vallox
 ha_platforms:
   - binary_sensor
+  - date
   - fan
   - number
   - sensor

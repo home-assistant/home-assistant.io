@@ -87,6 +87,7 @@ With the Home Assistant Operating System installed and accessible, you can now c
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
+
 {% include installation/container.md %}
 {% include installation/core.md %}
 
@@ -135,3 +136,4 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
     <i>We get commissions for purchases made through links in this post.</i></p>
 </div>
 
+{% include common-tasks/enable_i2c.md %}

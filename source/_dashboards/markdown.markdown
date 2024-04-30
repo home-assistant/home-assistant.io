@@ -3,6 +3,11 @@ type: card
 title: "Markdown card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
@@ -140,8 +145,3 @@ content: |
   <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

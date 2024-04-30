@@ -1,6 +1,6 @@
 ---
-title: Input Boolean
-description: Instructions on how to use the Input Boolean helper with Home Assistant.
+title: Input boolean
+description: Instructions on how to use the input boolean helper with Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,7 +12,7 @@ ha_domain: input_boolean
 ha_integration_type: helper
 ---
 
-The Input Boolean helper integration allows you to define boolean values that
+The **Input boolean** helper integration allows you to define boolean values that
 can be controlled via the user interface and can be used within conditions of
 an {% term automation %}. This can for example be used to disable or enable certain
 automations by using them in their {% term conditions %}.
@@ -67,12 +67,12 @@ This integration provides the following {% term services %} to modify the state 
 `input_boolean` and a service to reload the configuration without restarting
 Home Assistant itself.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `turn_on` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `on`
-| `turn_off` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `off`
-| `toggle` | `entity_id(s)`<br>`area_id(s)` | Toggle the value of specific `input_boolean` entities
-| `reload` | | Reload `input_boolean` configuration |
+| Service    | Data                           | Description                                                 |
+| ---------- | ------------------------------ | ----------------------------------------------------------- |
+| `turn_on`  | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `on`  |
+| `turn_off` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `off` |
+| `toggle`   | `entity_id(s)`<br>`area_id(s)` | Toggle the value of specific `input_boolean` entities       |
+| `reload`   |                                | Reload `input_boolean` configuration                        |
 
 ### Restore state
 

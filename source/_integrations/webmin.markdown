@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: webmin
 ha_integration_type: device
 ha_platforms:
+  - diagnostics
   - sensor
 ---
 

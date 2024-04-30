@@ -3,6 +3,20 @@ type: view
 title: Sections (experimental)
 sidebar_label: Sections (experimental)
 description: "Lets you organize your cards in sections on a grid."
+description: "The panel view shows a single card in the full width of the screen."
+related:
+  - docs: /dashboards/masonry/
+    title: Masonry view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
+  - docs: /dashboards/panel/
+    title: Panel view
+  - docs: /blog/2024/03/04/dashboard-chapter-1/
+    title: Dashboard chapter 1 blog post
+  - docs: /dashboards/cards/#adding-cards-to-your-dashboard
+    title: Adding cards to a view
+  - docs: /dashboards/views/#adding-a-view-to-a-dashboard
+    title: Adding a new view
 ---
 
 The sections view lets you organize your cards in sections on a grid.
@@ -21,15 +35,16 @@ You can group cards without using horizontal or vertical stack cards.
 
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. [Add a new view](/dashboards/views/#adding-a-view-to-a-dashboard) and under **View type**, select **Sections**.
-3. To add a card, select the **Add card** button.
+3. Select the number of columns you want to see in the new view. Select **Save**.
+4. To add a card, select the **Add card** button.
    - Follow the [steps on adding cards](/dashboards/cards/#adding-cards-to-your-dashboard).
 
     ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
-4. To add a section, select the **Create section** button.
-5. To edit the section title, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
+5. To add a section, select the **Create section** button.
+6. To edit the section title, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
    - If you leave the section title empty, this line will be hidden.
-6. To delete a section, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-trash.png" alt="Delete icon"/> button.
+7. To delete a section, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-trash.png" alt="Delete icon"/> button.
 
 ## Rearranging sections and cards
 
@@ -68,12 +83,3 @@ type:
   description: "`sections`"
   type: string
 {% endconfiguration %}
-
-## Related topics
-
-- [Masonry view](/dashboards/masonry/)
-- [Panel view](/dashboards/panel/)
-- [Sidebar view](/dashboards/sidebar/)
-- [Dashboard chapter 1 blog post](/blog/2024/03/04/dashboard-chapter-1/)
-- [Adding cards to a view](/dashboards/cards/#adding-cards-to-your-dashboard)
-- [Adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard)

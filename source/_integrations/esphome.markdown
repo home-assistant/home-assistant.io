@@ -23,6 +23,7 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
   - diagnostics
   - fan
   - light
@@ -33,6 +34,7 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - update
 ha_integration_type: device
 ha_dhcp: true

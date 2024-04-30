@@ -27,6 +27,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - valve
 ha_integration_type: integration
 ---
 
@@ -78,6 +79,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS6704-UC (In-wall Outlet)
 - YS6801-UC (Smart Power Strip)
 - YS6802-UC (Smart Outdoor Power Strip)
+- YS6803-UC (Outdoor Energy Plug)
 - YS7103-UC (Siren Alarm)
 - YS7104-UC (Outdoor Alarm Controller)
 - YS7105-UC (X3 Outdoor Alarm Controller)
@@ -95,6 +97,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS7904-UC (Water Leak Sensor 2)
 - YS7906-UC (Water Leak Sensor 4)
 - YS7916-UC (Water Leak Sensor 4 MoveAlert)
+- YS7905-UC (WaterDepthSensor)
 - YS7A01-UC (Smart Smoke/CO Alarm)
 - YS8003-UC (Temperature Humidity Sensor)
 - YS8004-UC (Weatherproof Temperature Sensor)
@@ -102,3 +105,6 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8006-UC (X3 Temperature & Humidity Sensor)
 - YS8014-UC (X3 Outdoor Temperature Sensor)
 - YS8015-UC (X3 Outdoor Temperature & Humidity Sensor)
+- YS5006-UC (FlowSmart Control)
+- YS5007-UC (FlowSmart Meter)
+- YS5008-UC (FlowSmart All-in-One)

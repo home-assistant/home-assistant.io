@@ -43,7 +43,8 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
-- Seattle City Light (SCL) - *provides consumption data, but no cost data*
+- Sacramento Municipal Utility District (SMUD)
+- Seattle City Light (SCL)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
 This is typically the same information needed to access your utility's website.

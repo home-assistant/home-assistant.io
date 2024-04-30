@@ -1,6 +1,13 @@
 ---
 title: "I'm locked out!"
 description: "Options for regaining access"
+related:
+  - docs: /common-tasks/os/#listing-all-users-from-the-command-line
+    title: Listing all user names via command line
+  - url: https://yellow.home-assistant.io/guides/factory-reset/
+    title: Reset the Yellow
+  - url: https://green.home-assistant.io/guides/reset/
+    title: Reset the Green
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
@@ -9,7 +16,7 @@ or need to recover your data.
 ## Forgot user name
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are using the Home Assistant Operating System and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
+If you are using the {% term "Home Assistant Operating System" %} and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
 
@@ -131,9 +138,3 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
-
-## Related topics
-
-- [Reset the Green](https://green.home-assistant.io/guides/reset/)
-- [Reset the Yellow](https://yellow.home-assistant.io/guides/factory-reset/)
-- [Listing all user names via command line](/common-tasks/os/#listing-all-users-from-the-command-line)

@@ -66,12 +66,7 @@ The alternative to a stick is a hub that supports Z-Wave. Home Assistant support
 
 ### 800 Series Controllers
 
-Z-Wave JS and Z-Wave JS UI do not support the following features available on most 800 series controllers.
-
-Unsupported:
-
- - Long Range
- - NVM Backup/Restore
+Z-Wave JS does not support Z-Wave Long Range yet.
 
 ### Aeotec Z-Stick
 
@@ -89,8 +84,8 @@ On Raspberry Pi 3 and 4, you need to disable the on-board Bluetooth since the bo
 
 For both processes below you will need to insert your SD card into your PC and open the configuration file with your favorite text editor.
 
-- If you are using Home Assistant Operating System, once you mounted the disk, you will see the `config.txt` directly in the root directory.
-- If you are using Home Assistant Supervised, the config file is stored in the boot folder: `/boot/config.txt`.
+- If you are using {% term "Home Assistant Operating System" %}, once you mounted the disk, you will see the `config.txt` directly in the root directory.
+- If you are using {% term "Home Assistant Supervised" %}, the config file is stored in the boot folder: `/boot/config.txt`.
 
 #### Raspberry Pi 5 procedure
 

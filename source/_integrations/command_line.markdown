@@ -1,6 +1,6 @@
 ---
-title: Command Line
-description: Instructions on how to integrate the Command Line utility within Home Assistant.
+title: Command line
+description: Instructions on how to integrate the command line utility within Home Assistant.
 ha_category:
   - Binary sensor
   - Cover
@@ -21,7 +21,7 @@ ha_codeowners:
   - '@gjohansson-ST'
 ---
 
-The `command_line` offers functionality that issues specific commands to get data or to control a device.
+The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
 <div class='note'>
 
@@ -43,7 +43,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -168,7 +168,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout
           required: false

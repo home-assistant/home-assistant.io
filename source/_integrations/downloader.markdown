@@ -6,25 +6,17 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: downloader
+ha_codeowners:
+  - '@erwindouna'
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The **Downloader** {% term integration %} provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
 
-To enable it, add the following lines to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-downloader:
-  download_dir: downloads
-```
-
-{% configuration %}
-download_dir:
-  description: "If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`)."
-  required: true
-  type: string
-{% endconfiguration %}
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, .homeassistant/downloads).
 
 ### Use the service
 
