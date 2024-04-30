@@ -170,7 +170,7 @@ Home Assistant for transferring voice audio, guaranteeing no audio is lost in th
 
 Hear the difference in this side-by-side comparison: 
 
-<lite-youtube videoid="6z7FIbTgLU4" videotitle="Improved audio with ESPHome for Assist" posterquality="maxresdefault"></lite-youtube>
+<lite-youtube videoid="6z7FIbTgLU4" videotitle="Improved audio with ESPHome for Assist"></lite-youtube>
 
 In addition to updating to this release, be sure to update your ESPHome devices
 to the latest version to benefit from this improvement.
