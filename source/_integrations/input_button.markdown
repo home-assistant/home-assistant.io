@@ -1,6 +1,6 @@
 ---
-title: Input Button
-description: Instructions on how to use the Input Button helper with Home Assistant.
+title: Input button
+description: Instructions on how to use the input button helper with Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,7 +12,7 @@ ha_domain: input_button
 ha_integration_type: helper
 ---
 
-The Input Button helper integration allows you to define buttons that
+The **Input button** helper integration allows you to define buttons that
 can be pressed via the user interface, and can be used to trigger things,
 like an automation.
 

@@ -133,7 +133,7 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
 
 <div class='note'>
 
-Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/docs/configuration/basic/).
+Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/integrations/homeassistant/#external_url).
 
 </div>
 

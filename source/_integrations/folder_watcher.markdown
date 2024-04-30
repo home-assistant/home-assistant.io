@@ -1,5 +1,5 @@
 ---
-title: Folder Watcher
+title: Folder watcher
 description: Integration for monitoring changes within the filesystem.
 ha_category:
   - System monitor
@@ -11,7 +11,7 @@ ha_domain: folder_watcher
 ha_integration_type: integration
 ---
 
-This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
+The **Folder watcher** {% term integration %} adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring, publishing events on the Home Assistant bus on the creation/deletion/modification of files within configured folders. The monitored `event_type` are:
 
 - `closed`
 - `created`
@@ -19,7 +19,7 @@ This integration adds [Watchdog](https://pythonhosted.org/watchdog/) file system
 - `modified`
 - `moved`
 
-Configured folders must be added to [allowlist_external_dirs](/docs/configuration/basic/). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
+Configured folders must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs). Note that by default folder monitoring is recursive, meaning that the contents of sub-folders are also monitored.
 
 {% include integrations/config_flow.md %}
 

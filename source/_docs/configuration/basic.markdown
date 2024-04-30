@@ -13,6 +13,8 @@ As part of the default onboarding process, Home Assistant can detect your locati
     Screenshot showing the General settings page.
 </p>
 
+The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the services offered by this integration, check out the integration documentation.
+
 ## Editing the general settings
 
 To change the general settings that were defined during onboarding, follow these steps:
@@ -27,7 +29,4 @@ To change the general settings that were defined during onboarding, follow these
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
-## Reload core service
-
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.
-
+5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
