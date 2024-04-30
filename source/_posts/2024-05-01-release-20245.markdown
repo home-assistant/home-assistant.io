@@ -435,7 +435,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **Epson Workforce** has been removed. The source package/dependency this
-  integration is using, is no longer available.
+  integration uses, is no longer available.
   ([@joostlek] - [#115201])
 
 [@joostlek]: https://github.com/joostlek
