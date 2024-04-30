@@ -1,6 +1,6 @@
 ---
-title: Input Text
-description: Instructions on how to integrate the Input Text integration into Home Assistant.
+title: Input text
+description: Instructions on how to integrate the Input text integration into Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,7 +12,7 @@ ha_domain: input_text
 ha_integration_type: helper
 ---
 
-The `input_text` integration allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
+The **Input text** {% term integration %} allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. It can also be configured in password mode (obscured text).
 
 The preferred way to configure an input text is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_text" title="Text" %}** option.
 
@@ -83,10 +83,10 @@ input_text:
 
 This integration provides a service to modify the state of the `input_text` and a service to reload the `input_text` configuration without restarting Home Assistant itself.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities.
-| `reload` | | Reload `input_text` configuration |
+| Service     | Data                      | Description                                       |
+| ----------- | ------------------------- | ------------------------------------------------- |
+| `set_value` | `value`<br>`entity_id(s)` | Set the value for specific `input_text` entities. |
+| `reload`    |                           | Reload `input_text` configuration                 |
 
 ### Restore state
 

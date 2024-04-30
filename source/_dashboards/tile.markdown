@@ -3,6 +3,13 @@ type: card
 title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs:  /dashboards/features
+    title: Card features
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
@@ -33,7 +40,7 @@ icon:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
   type: string
   default: state
 show_entity_picture:
@@ -130,8 +137,3 @@ features:
 
 You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
 
-## Related topics
-
-- [Card actions](/dashboards/actions/)
-- [Card features](/dashboards/features)
-- [Dashboard cards](/dashboards/cards/)

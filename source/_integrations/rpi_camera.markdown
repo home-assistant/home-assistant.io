@@ -87,4 +87,4 @@ file_path:
   default: A temporary file is used.
 {% endconfiguration %}
 
-The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/docs/configuration/basic/).
+The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/integrations/homeassistant/#allowlist_external_dirs).
