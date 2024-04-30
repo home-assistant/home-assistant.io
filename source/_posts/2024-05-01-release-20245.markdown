@@ -40,9 +40,26 @@ Issues introduced in the beta are processed with priority.
 
 Home Assistant Core 2024.5! 🎉
 
-Thanks for helping out testing the beta! ❤️
+The last two releases were massive! With our [new drag 'n drop dashboards](/blog/2024/03/06/release-20243/)
+and the tools to [organize your Home Assistant instance](/blog/2024/04/03/release-20244/),
+it is hard to top those releases... 😅
 
-Enjoy the (beta) release!
+So, this release is just a _tiny bit smaller_ than those two, but still epic! 🤘
+
+My personal favorite is the new features added to the data tables, which many
+of you requested since the last update. But the ability to change the names of
+the devices shown on the energy dashboard is a close second!
+
+Oh! We've held our [State of the Open Home 2024 livestream](/blog/2024/04/24/state-of-the-open-home-2024/)!
+In case you've missed it, I would definitly recommend on watching it back.
+If you’ve missed it, I recommend watching it back. There are tons of cool things
+and spoilers in there! But more importantly, it launched the
+[Open Home Foundation](https://www.openhomefoundation.org/),
+which now governs our beloved Home Assistant project! ❤️
+
+Read more in the [State of the Open Home 2024 blog post](/blog/2024/04/24/state-of-the-open-home-2024/).
+
+Anyway, I will not hold you any longer. Enjoy the release!
 
 ../Frenck
 
