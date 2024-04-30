@@ -500,6 +500,7 @@ layout: null
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
+/integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/coronavirus /more-info/removed-integration 301
@@ -516,7 +517,7 @@ layout: null
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
-/integrations/eq3btsmart /more-info/removed-integration 301
+/integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
