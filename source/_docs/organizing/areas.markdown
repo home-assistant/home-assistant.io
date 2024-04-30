@@ -44,3 +44,43 @@ If an area has not yet been assigned to a floor, it is shown in the **Unassigned
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select **Create area**.
 2. On the area card, select the pencil icon.
 3. In the dialog, select the floor and add labels, if you like.
+
+## Assigning devices to areas
+
+1. Go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
+2. In the list, [select all the devices](/docs/organizing/filtering#selecting-multiple-items-in-a-table) you want to assign to an area.
+
+    ![Assigning multiple devices to an area](/images/organizing/area_assign_devices.png)
+
+3. In the top right corner, select **Move to area** and select the target area from the list.
+
+## Editing an area
+
+Follow these steps to edit an area.
+
+1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and on the area card, select the pencil icon.
+2. In the dialog, adjust the area details you want to change:
+   - Edit the area **Name**.
+   - Add an icon (We use [Material icons](https://pictogrammers.com/library/mdi/)).
+   - Assign the area to a floor.
+     - If you have not created floors yet, you can [create a new one](/docs/organizing/floors/#creating-a-floor).
+     - The number can be negative. For example for underground floors.
+     - This number can later be used for sorting.
+   - Add an image representing that area.
+   - Add an **Alias**.
+     - Aliases are alternative names used in [voice assistants](/voice_control/aliases/) to refer to an area, entity, or floor.
+
+## Deleting an area
+
+Follow these steps to delete an area. It will be removed from all the floors it was assigned to. All the devices that were assigned to this area will become unassigned.
+If you used this area in automations or script as targets, or with voice assistant, these will no longer work.
+
+1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select the area card.
+2. In the top right corner, select the three dot menu. Then, select **Delete**.
+
+    ![Delete area](/images/organizing/area_delete.png)
+
+3. If you used this area in automations or script as targets, or with voice assistant, they will no longer work.
+   - You can adjust or delete the related scripts or automations.
+4. If you still had devices in that area, they are no longer assigned to any room.
+   - If you have moved the devices, you can now reassign them to a new area.
