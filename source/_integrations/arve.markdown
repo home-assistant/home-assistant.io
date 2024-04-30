@@ -5,7 +5,7 @@ ha_category:
   - Environment
   - Health
   - Sensor
-ha_release: "2024.4"
+ha_release: "2024.5"
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - "@ikalnyi"
@@ -13,7 +13,6 @@ ha_domain: arve
 ha_platforms:
   - sensor
 ha_integration_type: hub
-ha_external_link: https://github.com/home-assistant/core/tree/dev/homeassistant/components/arve
 ---
 
 The **Arve** {% term integration %} provides the ability to monitor real-life air quality data, as measured by your [Arve](https://www.arveair.com) device.
@@ -21,7 +20,7 @@ The **Arve** {% term integration %} provides the ability to monitor real-life ai
 {% include integrations/config_flow.md %}
 
 To create an integration for an Arve device, you need to fill in two required fields.
-Those are _Home Assistant acess token_ and _Arve customer token_.
+Those are _Home Assistant access token_ and _Arve customer token_.
 _Home Assistant access token_ and _Arve customer token_ can be obtained by the user on the [Arve web platform](https://dashboard.arveair.com).
 
 ## Measurement entities
