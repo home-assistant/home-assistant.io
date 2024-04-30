@@ -21,6 +21,8 @@ The **Energenie Power-Sockets** {% term integration %} allows you to include [En
 
 If you are running a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation: Depending on your system configuration, it may be necessary to grant explicit user access rights to the USB device by creating a udev rule.
 
+{% details "Creating an udev rule" %}
+
 1. Find the *vendor_id* and *product_id* of the USB device by calling `lsusb`:
 
 ```bash
@@ -36,3 +38,5 @@ sudo echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04b4", ATTR{idProduct}=="fd15", MO
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 ```
+
+{% enddetails %}
