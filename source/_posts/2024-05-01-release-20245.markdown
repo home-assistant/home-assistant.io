@@ -51,6 +51,7 @@ Enjoy the (beta) release!
 - [More features for our data tables](#more-features-for-our-data-tables)
 - [Created helpers from automation editor](#created-helpers-from-automation-editor)
 - [Lock feature for tile card](#lock-feature-for-tile-card)
+- [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
@@ -110,6 +111,37 @@ adding a new feature for the tile card: Locks!
 <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/39c394b7-a5d5-4fa0-bbb4-0a196086a437' alt='Temporary screenshot that needs to be replaced.'>
 
 [@marcgeurts]: https://github.com/marcgeurts
+
+## Improved audio with ESPHome for Assist
+
+If you're familiar with [Assist], our private voice assistant, and are using
+it on an [ESPHome-based device] (like an [ESP-S3-BOX-3] or the [ATOM Echo]),
+chances are you have experienced one of the biggest barriers to date when it
+comes to using it on a daily basis: chopped-off audio. 😞
+
+More often than not, the responses sent to the voice assistant device were
+missing a few parts, most notably at the beginning and the end of the audio.
+This was very noticeable when the responses were short, such as asking how many
+lights are on in a home or the room temperature.
+
+In conjunction with [the latest release of ESPHome] (2024.4), we are bringing
+a much improved and more reliable communication between [ESPHome] and
+Home Assistant for transferring voice audio, guaranteeing no audio is lost in the process.
+
+Hear the difference in this side-by-side comparison: 
+
+**TODO: Insert video**
+
+In addition to updating to this release, be sure to update your ESPHome devices
+to the latest version to benefit from this improvement.
+
+[Assist]: /voice_control/
+[ATOM Echo]: /voice_control/thirteen-usd-voice-remote/
+[ESP-S3-BOX-3]: /voice_control/s3_box_voice_assistant/
+[ESPHome-based device]: https://esphome.io/projects/
+[ESPHome]: https://esphome.io/
+[the latest release of ESPHome]: https://esphome.io/changelog/2024.4.0.html
+[to the latest version]: https://esphome.io/changelog/2024.4.0.html
 
 ## Other noteworthy changes
 
