@@ -51,6 +51,7 @@ Enjoy the (beta) release!
 - [More features for our data tables](#more-features-for-our-data-tables)
 - [Created helpers from automation editor](#created-helpers-from-automation-editor)
 - [Lock feature for tile card](#lock-feature-for-tile-card)
+- [Adjust the device names on the energy dashboard](#adjust-the-device-names-on-the-energy-dashboard)
 - [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
@@ -111,6 +112,28 @@ adding a new feature for the tile card: Locks!
 <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/39c394b7-a5d5-4fa0-bbb4-0a196086a437' alt='Temporary screenshot that needs to be replaced.'>
 
 [@marcgeurts]: https://github.com/marcgeurts
+
+## Adjust the device names on the energy dashboard
+
+Another outstanding quality-of-life improvement from @karwosts is the ability to
+customize the display name for energy devices on the energy dashboard.
+
+The entity's name representing the device you use on the energy dashboard
+commonly contains additional or redundant information. With this new feature,
+you can customize the display name to make it more meaningful.
+
+So, if, for example, the entity is named _“Garage Washing Machine Energy Total”_
+and is shown as that today, you can now change the name displayed on the energy
+dashboard to just _“Washing Machine”_.
+
+**TODO: Insert screenshot**
+
+You can adjust the name of each monitored device in the energy dashboard setting
+page by going to **Settings** > **Dashboards** > **Energy** > **Individual devices**.
+
+{% my config_energy badge %}
+
+[@karwosts]: https://github.com/karwosts
 
 ## Improved audio with ESPHome for Assist
 
