@@ -22,9 +22,7 @@ To set up the {% term integration %}, go to the [Sanix dashboard](https://sanix.
 
 Not anyone can pull your data from the API. You need to authenticate by using an API token. To retrieve your API token, on the [Sanix dashboard](https://sanix.bitcomplex.pl), go to the **Help** page, and under **System version**, copy your API token. You will need this during setup in Home Assistant.
 
-## Configuration
-
-[![Open your Home Assistant instance and start setting up a new integration.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=sanix)
+{% include integrations/config_flow.md %}
 
 ## Hardware support
 
