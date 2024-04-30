@@ -39,7 +39,7 @@ Currently supported services are:
 
 ## Integration entities
 
-The ROMY will add the following binary sensors.
+The ROMY will add the following sensors.
 
 Binary Sensors:
 
@@ -47,6 +47,16 @@ Binary Sensors:
 - **Robot docked**: True if the robot is docked.
 - **Watertank present**: True if watertank is mounted (only present for ROMY's with wet cleaning function).
 - **Watertank empty**: True if watertank is empty and water infill is required (only present for ROMY's with wet cleaning function).
+
+Sensors:
+
+- **Battery Level**: The battery level in percent.
+- **RSSI**: Wi-Fi signal strength.
+- **Dustbin Dirt Level**: The raw dustbin dirt sensor value (not every ROMY has one).
+- **Total cleaning time**: How many hours the robot has spent cleaning in total.
+- **Total cleaning runs**: The total number of cleaning runs.
+- **Total cleaned area**: The total area in m² the robot has cleaned.
+- **Total distance driven**: The total distance in m the robot has driven.
 
 ## Troubleshooting
 
