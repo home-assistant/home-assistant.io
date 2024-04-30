@@ -265,7 +265,7 @@ inline_keyboard:
 
 <div class='note'>
 
-Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
+Since Home Assistant version 0.48 you have to [whitelist the source folder](/integrations/homeassistant/#allowlist_external_dirs) of the file you want to include in the notification.
 
 ```yaml
 configuration.yaml

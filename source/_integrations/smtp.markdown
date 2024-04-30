@@ -134,7 +134,7 @@ The optional `images` field adds image attachments to the email. If `html` is de
 
 <div class='note info'>
 
-When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/docs/configuration/basic/)
+When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
 
 </div>
 
