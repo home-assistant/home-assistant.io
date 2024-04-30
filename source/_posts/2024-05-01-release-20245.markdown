@@ -116,35 +116,46 @@ adding a new feature for the tile card: Locks!
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-_Note to remove: Processed possible noteworthy up to PR #116022_
+- Have you ever had a misbehaving (custom) integration cause a crash? This
+  release introduces new detections and [a new debug mode] to catch known/common
+  unexpected integration behavior. Thanks, [@bdraco]!
+- The [ESPHome integration] now supports date, time, date/time, valve, and
+  event entities! The latter two require the upcoming [ESPHome] 2024.5.0
+  release. Thanks [@jesserockz], [@kbx81], and [@nohat]!
+- The [MQTT integration] has reached the highest quality scale: Platinum!
+  Thanks [@jbouwh], for all the work you have put into this!
+- The visualization graph for all Zigbee devices connected via [ZHA] has been
+  improved by [@Cougar]. Devices now have colors to indicate their availability,
+  signal strength, and relationship to other devices, which are much clearer.
+  Nice!
+- The [Glances integration] got new sensors for network traffic, disk I/O, GPU,
+  and uptime. Thanks [@fhoekstra] & [@wittypluck]!
+- [@Lash-L] added a service to the [Roborock integration] to easily get map
+  information from your vacuum. Awesome!
+- The [Airzone cloud integration] now supports water heaters. Thanks [@Noltari]!
+- [@joostlek] added an extract media URL service to the [media extractor],
+  allowing you to get a media item's source URL. Nice!
 
-Possible candites for noteworthy from Core:
-
-- If you have ever had an integration that is misbehaving and causes a crash,
-  this release is for you. A new debug mode option is available to detect thread
-  safety issues </integrations/homeassistant/#debug>.
-  It won’t detect every problem but it finds a lot of common ones.
-- Update quality scale mqtt integration to platinum ([@jbouwh] - [#116059])
-- Add GPU sensor to Glances ([@fhoekstra] - [#106322])
-- Add Glances network sensors ([@wittypluck] - [#114546])
-- Add Water Heater support for Airzone Cloud ([@Noltari] - [#115097])
-- Add a service to get maps for Roborock ([@Lash-L] - [#111478])
-- Add additional Vital 100S model to vesync ([@pleum] - [#113838])
-- Send/receive Voice Assistant audio via ESPHome native API ([@jesserockz] - [#114800])
-- Add extract media url service to media extractor ([@joostlek] - [#100780])
-- Add secondary temperature sensor for DHW in ViCare ([@CFenner] - [#106612])
-- ESPHome: Add datetime entities ([@jesserockz] - [#115942])
-- Add event platform to Lutron ([@joostlek] - [#109121])
-- Add number platform to Husqvarna Automower ([@Thomas55555] - [#115125])
-
-Possible candites for noteworthy from Frontend:
-
-- Allow customizing display name for energy device #112834 @karwosts
-- ZHA (Zigbee) visualization enhancement (#20511) @Cougar
-  It is now clearer to see which devices are now connected and their signal
-  strength. They are now better grouped on distances on connection strengths
-  (or something like that) and shows the areas they are in. Color based if they
-  are connected or not.
+[@bdraco]: https://github.com/bdraco
+[@Cougar]: https://github.com/Cougar
+[@fhoekstra]: https://github.com/fhoekstra
+[@jbouwh]: https://github.com/jbouwh
+[@jesserockz]: https://github.com/jesserockz
+[@joostlek]: https://github.com/joostlek
+[@kbx81]: https://github.com/kbx81
+[@Lash-L]: https://github.com/Lash-L
+[@nohat]: https://github.com/nohat
+[@Noltari]: https://github.com/Noltari
+[@wittypluck]: https://github.com/wittypluck
+[a new debug mode]: /integrations/homeassistant/#debug
+[Airzone cloud integration]: /integrations/airzone_cloud
+[ESPHome integration]: /integrations/esphome
+[ESPHome]: https://esphome.io/
+[Glances integration]: /integrations/glances
+[media extractor]: /integrations/media_extractor
+[MQTT integration]: /integrations/mqtt
+[Roborock integration]: /integrations/roborock
+[ZHA]: /integrations/zha
 
 ## New integrations
 
