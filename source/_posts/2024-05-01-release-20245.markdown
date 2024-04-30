@@ -426,6 +426,7 @@ changes and new features available for your integration: Be sure to follow our
 - [Deprecating `async_add_hass_job`](https://developers.home-assistant.io/blog/2024/04/07/deprecate_add_hass_job/)
 - [New notify entity platform](https://developers.home-assistant.io/blog/2024/04/10/new-notify-entity-platform/)
 - [Replacing `async_track_state_change` with `async_track_state_change_event`](https://developers.home-assistant.io/blog/2024/04/13/deprecate_async_track_state_change/)
+- [Store runtime data inside the config entry](https://developers.home-assistant.io/blog/2024/04/30/store-runtime-data-inside-config-entry/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
