@@ -222,13 +222,13 @@ other news about building an Open Home; straight into your inbox.
 
 {% details "AVM Fritz!SmartHome" %}
 
-Activating the hvac mode `heat` no longer overwrites the current target
-temperature with the comfort temperature, but retains the currently set target
-temperature, unless the thermostat is in hvac mode `off`, in which case the
+Activating the HVAC mode `heat` no longer overwrites the current target
+temperature with the comfort temperature but retains the currently set target
+temperature unless the thermostat is in HVAC mode `off`, in which case the
 comfort temperature is still set.
 
-To set the target temperature in hvac mode `heat`, use the available presets
-or the set temperature service.
+Use the available presets or the set temperature service to set the target
+temperature for HVAC-mode `heat`.
 
 ([@jayme-github] - [#112119]) ([documentation](/integrations/fritzbox))
 
@@ -251,11 +251,11 @@ or automations using this need to be updated accordingly.
 
 {% details "ecobee" %}
 
-The preset mode `Away`, `Home`, and `Sleep` have been renamed to the lower-case
+The preset modes `Away`, `Home`, and `Sleep` have been renamed to the lower-case
 variants `away`, `home`, and `sleep`.
 
-This is consistent with the rest of Home Assistant also means Home Assistant
-can support icons and translations for these.
+This is consistent with the rest of Home Assistant, which also means
+Home Assistant can support icons and translations for these.
 
 If you used these preset modes in your automations or scripts, you will need
 to update them to use the new names.
@@ -269,11 +269,11 @@ to update them to use the new names.
 
 {% details "Honeywell Total Connect Comfort (US)" %}
 
-The auxillary heat climate option has been deprecated and will be removed in
+The auxiliary heat climate option has been deprecated and will be removed in
 Home Assistant 2024.10.
 
 Use the newly added emergency heat switch entity to set the thermostat mode
-to the previous auxillary heat mode.
+to the previous auxiliary heat mode.
 
 ([@mkmer] - [#114110]) ([documentation](/integrations/honeywell))
 
@@ -285,8 +285,8 @@ to the previous auxillary heat mode.
 {% details "IMAP" %}
 
 The default for new entries is that the `text` and `headers` will no longer be
-included by default in the `imap_content` event data. Instead, you can fetch
-the email content, if needed, using the `imap.fetch` service.
+included in the `imap_content` event data. Instead, if needed, you can fetch
+the email content using the `imap.fetch` service.
 
 It will not break for existing entries where we assume `text` and `headers`
 are included.
@@ -300,8 +300,8 @@ are included.
 
 {% details "Insteon" %}
 
-The Insteon configuration panel, which previously was on the Home Assistant
-sidebar, has moved. It now can be accessed via the integration page in
+The Insteon configuration panel, which was previously on the Home Assistant
+sidebar, has moved to the integration page in
 **Settings -> Device & services -> Insteon -> Configure**.
 
 ([@teharris1] - [#105581]) ([documentation](/integrations/insteon))
@@ -314,7 +314,7 @@ sidebar, has moved. It now can be accessed via the integration page in
 {% details "Netatmo" %}
 
 The state of the Netatmo wind and gust direction sensor provided by
-the weather station now exposes the state in lower case.
+the weather station now exposes the state in lowercase.
 
 ([@joostlek] - [#115413]) ([documentation](/integrations/netatmo))
 
@@ -324,7 +324,7 @@ the weather station now exposes the state in lower case.
 ---
 
 The state of the Netatmo health index sensor provided by the weather station
-now exposes the state in lower case.
+now exposes the state in lowercase.
 
 ([@joostlek] - [#115409]) ([documentation](/integrations/netatmo))
 
@@ -341,7 +341,7 @@ entities. This PR makes this call raise an error instead.
 It was too easy for a user to accidentally purge his entire database using the
 old logic. Users who want to purge all entities can still use
 the `recorder.purge` service to achieve the same effect, and that service
-is more obvious how it behaves. 
+is more obvious in how it behaves. 
 
 ([@karwosts] - [#110066]) ([documentation](/integrations/recorder))
 
