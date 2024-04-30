@@ -21,6 +21,14 @@ This {% term integration %} provides sensors for monitoring the CPU and memory u
 
 {% include integrations/config_flow.md %}
 
+<div class='note warning'>
+
+Please beware that the Webmin API ignores any 2FA set up via the frontend, e.g. it is even with enabled 2FA possible to use the API with only username and password.
+
+For best security, create an specific Webmin user for Home Assistant with a strong password and only "Can accept RPC calls" rights (under "Permissions for all modules") and remove the "Can accept RPC calls" right for all other users.
+
+</div>
+
 ## Sensors
 
 **All entities are disabled by default, you need to enable the entities that you wish to use.**
