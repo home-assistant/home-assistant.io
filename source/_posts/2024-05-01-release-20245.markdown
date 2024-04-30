@@ -115,8 +115,8 @@ adding a new feature for the tile card: Locks!
 
 ## Adjust the device names on the energy dashboard
 
-Another outstanding quality-of-life improvement from @karwosts is the ability to
-customize the display name for energy devices on the energy dashboard.
+Another outstanding quality-of-life improvement from [@karwosts] os the ability
+to customize the display name for energy devices on the energy dashboard.
 
 The entity's name representing the device you use on the energy dashboard
 commonly contains additional or redundant information. With this new feature,
