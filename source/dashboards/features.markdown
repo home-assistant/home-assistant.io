@@ -430,7 +430,7 @@ type:
 
 ## Lock commands
 
-Widget that shows buttons to open or close a [lock](/integrations/lock).
+Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
 
 <p class='img'>
   <img src='/images/dashboards/features/lock_feature_commands.png' alt='Screenshot of the tile card with the lock commands feature'>
@@ -451,7 +451,7 @@ type:
 
 ## Lock open door
 
-Widget that shows buttons to open or close a [lock](/integrations/lock).
+Widget that displays a button to [open a door](/integrations/lock).
 
 <p class='img'>
   <img src='/images/dashboards/features/lock_feature_open_door.png' alt='Screenshot of the tile card with the lock open door feature'>
