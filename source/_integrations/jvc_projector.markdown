@@ -87,6 +87,6 @@ Detailed HDMI Input values:
 
 ### Selects
 
-The following Select entities are added which allow changing device state from a list of options.
+The following Select entities are added. They allow changing the device state from a list of options.
 
 - `input`
