@@ -50,14 +50,13 @@ My personal favorite is the new features added to the data tables, which many
 of you requested since the last update. But the ability to change the names of
 the devices shown on the energy dashboard is a close second!
 
-Oh! We've held our [State of the Open Home 2024 livestream](/blog/2024/04/24/state-of-the-open-home-2024/)!
+Oh! We've held our [State of the Open Home 2024 live stream](https://www.youtube.com/watch?v=oa__fLArsFk)!
 In case you've missed it, I would definitly recommend on watching it back.
 If you’ve missed it, I recommend watching it back. There are tons of cool things
-and spoilers in there! But more importantly, it launched the
-[Open Home Foundation](https://www.openhomefoundation.org/),
-which now governs our beloved Home Assistant project! ❤️
+and spoilers in there!
 
-Read more in the [State of the Open Home 2024 blog post](/blog/2024/04/24/state-of-the-open-home-2024/).
+But more importantly, it launched the [Open Home Foundation](https://www.openhomefoundation.org/),
+which now governs our beloved Home Assistant project! ❤️ Read more in the [State of the Open Home 2024 blog post](/blog/2024/04/24/state-of-the-open-home-2024/).
 
 Anyway, I will not hold you any longer. Enjoy the release!
 
