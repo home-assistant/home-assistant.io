@@ -3,7 +3,7 @@ title: Ambient Weather Network
 description: How to integrate Ambient Weather Network station within Home Assistant.
 ha_category:
   - Weather
-ha_release: 2024.1
+ha_release: 2024.5
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
