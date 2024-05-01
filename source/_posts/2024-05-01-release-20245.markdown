@@ -160,7 +160,7 @@ For example, if the entity is named _“Attic Boiler Daily Energy Usage”_
 and is shown as that today, you can now change the name displayed on the energy
 dashboard to just _“Boiler”_.
 
-<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png' alt='Screenshots showing you can now assign a different display name to energy sensor of devices that show on your energy dashboard.'>
+<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png' alt='Screenshots showing you can now assign a different display name to the energy sensor of devices that show on your energy dashboard.'>
 
 You can adjust the name of each monitored device in the energy dashboard setting
 page by going to **Settings** > **Dashboards** > **Energy** > **Individual devices**.
