@@ -82,7 +82,7 @@ so in this release, we’ve added a bunch!
 ## Created helpers from automation editor
 
 Our good friend [@karwosts] has been busy creating a great quality-of-life
-improvement for our automation editor this release.
+improvement for our {% term automation %} editor this release.
 
 I'm sure you'll know this feeling. You are creating an automation and think:
 "Hey, I need a helper for this!" But then you have to leave the automation
@@ -125,7 +125,7 @@ For example, if the entity is named _“Attic Boiler Daily Energy Usage”_
 and is shown as that today, you can now change the name displayed on the energy
 dashboard to just _“Boiler”_.
 
-<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png ' alt='Screenshots showing different tile cards with the new lock features.'>
+<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png ' alt='Screenshots showing you can now assign a different display name to energy sensor of devices that show on your energy dashboard.'>
 
 You can adjust the name of each monitored device in the energy dashboard setting
 page by going to **Settings** > **Dashboards** > **Energy** > **Individual devices**.
