@@ -427,7 +427,7 @@ now exposes the state in lowercase.
 Previously, `recorder.purge_entities` called with no arguments would purge all
 entities. This PR makes this call raise an error instead. 
 
-It was too easy for a user to accidentally purge his entire database using the
+It was too easy for users to accidentally purge their entire database using the
 old logic. Users who want to purge all entities can still use
 the `recorder.purge` service to achieve the same effect, and that service
 is more obvious in how it behaves. 
