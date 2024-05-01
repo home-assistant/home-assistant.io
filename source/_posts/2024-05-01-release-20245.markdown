@@ -51,8 +51,7 @@ of you requested since the last update. But the ability to change the names of
 the devices shown on the energy dashboard is a close second!
 
 Oh! We've held our [State of the Open Home 2024 live stream](https://www.youtube.com/watch?v=oa__fLArsFk)!
-In case you've missed it, I would definitly recommend on watching it back.
-If you’ve missed it, I recommend watching it back. There are tons of cool things
+In case you've missed it, I would definitly recommend on watching it back.  There are tons of cool things
 and spoilers in there!
 
 But more importantly, it launched the [Open Home Foundation](https://www.openhomefoundation.org/),
@@ -104,7 +103,7 @@ so in this release, we’ve added a bunch!
 
 ## Created helpers from automation editor
 
-Our good friend [@karwosts] has been busy creating a great quality of life
+Our good friend [@karwosts] has been busy creating a great quality-of-life
 improvement for our automation editor this release.
 
 I'm sure you'll know this feeling. You are creating an automation and think:
@@ -131,14 +130,14 @@ adding a new feature for the tile card: Locks!
 
 ## Adjust the device names on the energy dashboard
 
-Another outstanding quality-of-life improvement from [@karwosts] os the ability
+Another outstanding quality-of-life improvement from [@karwosts] is the ability
 to customize the display name for energy devices on the energy dashboard.
 
 The entity's name representing the device you use on the energy dashboard
 commonly contains additional or redundant information. With this new feature,
 you can customize the display name to make it more meaningful.
 
-So, if, for example, the entity is named _“Garage Washing Machine Energy Total”_
+For example, if the entity is named _“Garage Washing Machine Energy Total”_
 and is shown as that today, you can now change the name displayed on the energy
 dashboard to just _“Washing Machine”_.
 
