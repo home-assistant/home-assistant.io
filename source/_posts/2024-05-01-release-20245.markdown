@@ -42,7 +42,7 @@ Anyway, I will not hold you any longer. Enjoy the release!
 
 - [More features for our data tables](#more-features-for-our-data-tables)
 - [Created helpers from automation editor](#created-helpers-from-automation-editor)
-- [Lock feature for tile card](#lock-feature-for-tile-card)
+- [Lock features for the tile card](#lock-features-for-the-tile-card)
 - [Adjust the device names on the energy dashboard](#adjust-the-device-names-on-the-energy-dashboard)
 - [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -94,14 +94,20 @@ editor 😎
 
 [@karwosts]: https://github.com/karwosts
 
-## Lock feature for tile card
+## Lock features for the tile card
 
 The tile card is already amazing, but [@marcgeurts] made it even better by 
-adding a new feature for the tile card: Locks!
+adding new features to the tile card: Locks!
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/3dfe28bd-9396-40e9-b232-2f997f918855' alt='Temporary screenshot that needs to be replaced.'>
+When you now add a lock entity to the tile card, and if your lock supports it,
+you can now add two new features to the tile card:
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/11457346/39c394b7-a5d5-4fa0-bbb4-0a196086a437' alt='Temporary screenshot that needs to be replaced.'>
+- [**Lock commands**](/dashboards/features/#lock-commands)  
+  Adds buttons to your tile card to lock or unlock the lock.
+- [**Lock open door**](/dashboards/features/#lock-open-door)  
+  Adds a button to open/unlatch the door (with confirmation).
+
+<img class="no-shadow" src='/images/blog/2024-05/tile-lock-features.png' alt='Screenshots showing different tile cards with the new lock features.'>
 
 [@marcgeurts]: https://github.com/marcgeurts
 
