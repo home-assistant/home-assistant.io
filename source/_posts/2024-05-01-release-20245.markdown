@@ -61,23 +61,36 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## More features for our data tables
 
-In the last release, we introduced the new data tables, and by the looks of
-the responses, you all loved them! 🎉
+In our last release, we [introduced new data tables](/blog/2024/04/03/release-20244/#upgraded-tables)
+and we were thrilled to see that you all loved them! 🎉
 
-Nevertheless, we also saw lots of feedback for additional tweaks and features,
-so in this release, we’ve added a bunch!
+However, we also received a lot of feedback for additional tweaks and features,
+so we've added a bunch of them in this release. 😎
 
-- Grouped items can now be collapsed!
-  
-  <img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/5662298/43fe01cf-69f1-44c0-a991-cff53106839b' alt='Temporary screenshot that needs to be replaced.'>
-  
-- You can now group entities by their domain in the entities panel.
-- You can now filter by entity domain in the entities panel.
-- Select and assign an area to multiple items at once in  the automation, scene,
-  script, and device pages.
-- We now store the last used grouping (and if they were collapsed or not) and
-  sorting you have used, so when you return to that page, it will be the same
-  as you left it.
+One of the most requested features of these new tables' new
+[item grouping](/blog/2024/04/03/release-20244/#item-grouping) was the
+ability to collapse them, and we’ve added that!
+ 
+<p class='img'>
+    <img src="/images/blog/2024-05/collapse-groups.gif" alt="Screenrecording showing items grouped in our data tables can now be collapsed."/>
+    Each item group can now be collapsed and expanded.
+</p>
+
+Another one concerned the ability to select and assign an area to multiple items
+at once in the automation, scene, script, and device pages. We've added that too!
+
+Not only that, we now store the last used grouping (and if they were
+collapsed or not) and sorting you have used, so when you return to that page,
+it will be the same as you left it.
+
+<img class="no-shadow" src='/images/blog/2024-05/data-tables-assign-to-area.png' alt='Screenshot showing the device page with multiple items selected. They can all be assigned to an area with a single click.'>
+
+Last but certainly not least, we’ve added the ability to group and filter
+entities by their domain in the entities panel. As the domains represent the
+type of entity, this means you can group and filter, for example, all your
+lights, switches, sensors, etc.
+
+<img class="no-shadow" src='/images/blog/2024-05/data-tables-group-filter-by-domain.png' alt='Screenshot showing the new group and filter by domain functionality on the entities page.'>
 
 ## Create helpers directly from the automation editor
 
