@@ -42,7 +42,7 @@ Anyway, I will not hold you any longer. Enjoy the release!
 <!--more-->
 
 - [More features for our data tables](#more-features-for-our-data-tables)
-- [Created helpers from automation editor](#created-helpers-from-automation-editor)
+- [Create helpers directly from the automation editor](#create-helpers-directly-from-the-automation-editor)
 - [Lock features for the tile card](#lock-features-for-the-tile-card)
 - [Adjust the device names on the energy dashboard](#adjust-the-device-names-on-the-energy-dashboard)
 - [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
@@ -79,10 +79,10 @@ so in this release, we’ve added a bunch!
   sorting you have used, so when you return to that page, it will be the same
   as you left it.
 
-## Created helpers from automation editor
+## Create helpers directly from the automation editor
 
 Our good friend [@karwosts] has been busy creating a great quality-of-life
-improvement for our {% term automation %} editor this release.
+improvement for our {% term automation %} editor for this release.
 
 I'm sure you'll know this feeling. You are creating an automation and think:
 "Hey, I need a helper for this!" But then you have to leave the automation
@@ -91,7 +91,10 @@ editor, create the helper, and then go back to the automation editor.
 Well, not anymore! You can now create helpers directly from the automation
 editor 😎
 
-<img class="no-shadow" src='https://github.com/home-assistant/frontend/assets/32912880/ebd187fa-a979-4bf8-ab50-4f70a27d09da' alt='Temporary screenshot that needs to be replaced.'>
+In this example, a timer helper is created directly from the automation editor
+without leaving it:
+
+<lite-youtube videoid="GlkqCP7NavI" videotitle="Create helpers directly from the automation editor"></lite-youtube>
 
 [@karwosts]: https://github.com/karwosts
 
