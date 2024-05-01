@@ -44,6 +44,7 @@ Anyway, I will not hold you any longer. Enjoy the release!
 - [More features for our data tables](#more-features-for-our-data-tables)
 - [Create helpers directly from the automation editor](#create-helpers-directly-from-the-automation-editor)
 - [Lock features for the tile card](#lock-features-for-the-tile-card)
+- [Reorder features of the tile card](#reorder-features-of-the-tile-card)
 - [Adjust the device names on the energy dashboard](#adjust-the-device-names-on-the-energy-dashboard)
 - [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
 - [Other noteworthy changes](#other-noteworthy-changes)
@@ -127,6 +128,24 @@ you can now add two new features to the tile card:
 <img class="no-shadow" src='/images/blog/2024-05/tile-lock-features.png' alt='Screenshots showing different tile cards with the new lock features.'>
 
 [@marcgeurts]: https://github.com/marcgeurts
+
+## Reorder features of the tile card
+
+Some features of the tile card, such as the presets or the HVAC modes of a
+thermostat, can show many buttons. While you can limit the buttons you’d
+like to see, they may not be in the desired order.
+
+To improve this, [@karwosts] and [@piitaya] have added the ability to reorder
+the features of the tile card. For your thermostat, that means you can now
+reorder the HVAC modes or presets to your liking.
+
+<p class='img'>
+    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt="Screenrecording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.."/>
+    You can now reorder the features of the tile card.
+</p>
+
+[@karwosts]: https://github.com/karwosts
+[@piitaya]: https://github.com/piitaya
 
 ## Adjust the device names on the energy dashboard
 
