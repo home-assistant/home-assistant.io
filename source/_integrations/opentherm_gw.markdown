@@ -214,6 +214,20 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
 | `temperature`          | no       | The setback temperature. Accepted values are `0.0` through `30.0`. |
 
+### Service `opentherm_gw.send_transparent_command`
+
+<div class='note warning'>
+Improper use of this service may impair the performance of your central heating system.
+</div>
+
+Send a transparent [command](https://otgw.tclcode.com/firmware.html) to the OpenTherm Gateway.
+
+| Service data attribute | Optional | Description                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------ |
+| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
+| `transp_cmd`           | no       | The serial command to be send to the OpenTherm Gateway.            |
+| `transp_arg`           | no       | The serial command argument to be send to the OpenTherm Gateway.   |
+
 ## Sensors
 
 The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
