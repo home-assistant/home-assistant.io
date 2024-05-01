@@ -225,8 +225,8 @@ Send a transparent [command](https://otgw.tclcode.com/firmware.html) to the Open
 | Service data attribute | Optional | Description                                                        |
 | ---------------------- | -------- | ------------------------------------------------------------------ |
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
-| `transp_cmd`           | no       | The serial command to be send to the OpenTherm Gateway.            |
-| `transp_arg`           | no       | The serial command argument to be send to the OpenTherm Gateway.   |
+| `transp_cmd`           | no       | The serial command to be sent to the OpenTherm Gateway.            |
+| `transp_arg`           | no       | The serial command argument to be sent to the OpenTherm Gateway.   |
 
 ## Sensors
 
