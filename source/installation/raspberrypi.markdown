@@ -60,7 +60,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
 3. Connect the power supply to start up the device.
 
 ### Access Home Assistant
