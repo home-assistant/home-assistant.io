@@ -24,8 +24,9 @@ it is hard to top those releases... 😅
 So, this release is just a _tiny bit smaller_ than those two, but still epic! 🤘
 
 My personal favorite is the new features added to the data tables, which many
-of you requested since the last update. But the ability to change the names of
-the devices shown on the energy dashboard is a close second!
+of you requested since [the last update](/blog/2024/04/03/release-20244/#upgraded-tables).
+But the ability to change the names of the devices shown on the energy dashboard
+is a close second!
 
 Oh! We've held our [State of the Open Home 2024 live stream](https://www.youtube.com/watch?v=oa__fLArsFk)!
 In case you've missed it, I would definitely recommend watching it back. There are tons of cool things
@@ -120,11 +121,11 @@ The entity's name representing the device you use on the energy dashboard
 commonly contains additional or redundant information. With this new feature,
 you can customize the display name to make it more meaningful.
 
-For example, if the entity is named _“Garage Washing Machine Energy Total”_
+For example, if the entity is named _“Attic Boiler Daily Energy Usage”_
 and is shown as that today, you can now change the name displayed on the energy
-dashboard to just _“Washing Machine”_.
+dashboard to just _“Boiler”_.
 
-**TODO: Insert screenshot**
+<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png ' alt='Screenshots showing different tile cards with the new lock features.'>
 
 You can adjust the name of each monitored device in the energy dashboard setting
 page by going to **Settings** > **Dashboards** > **Energy** > **Individual devices**.
@@ -212,7 +213,7 @@ noteworthy changes this release:
 
 ## New integrations
 
-We welcome the following new integrations in this release:
+We welcome the following new {% term integrations %} in this release:
 
 - **[Ambient Weather Network]**, added by [@thomaskistler]<br />
   Retrieve local weather station information from the Ambient Weather Network.
@@ -242,7 +243,7 @@ We welcome the following new integrations in this release:
 
 ## Integrations now available to set up from the UI
 
-The following integrations are now available via the Home Assistant UI:
+The following {% term integrations %} are now available via the Home Assistant UI:
 
 - **[Enigma2 (OpenWebif)]**, done by [@autinerd]
 - **[Folder watcher]**, done by [@gjohansson-ST]
@@ -453,7 +454,8 @@ changes and new features available for your integration: Be sure to follow our
 
 ## Farewell to the following
 
-The following integrations are also no longer available as of this release:
+The following {% term integrations %} are also no longer available as of this
+release:
 
 - **Epson Workforce** has been removed. The source package/dependency this
   integration uses, is no longer available.
