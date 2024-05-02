@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - diagnostics
+  - sensor
 ha_integration_type: integration
 ---
 
