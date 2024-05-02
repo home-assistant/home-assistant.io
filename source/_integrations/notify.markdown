@@ -72,6 +72,7 @@ service: notify.send_message
 data:
   entity_id: notify.my_direct_message_notifier
   message: "You have an update!"
+  title: "Status changed"
 ```
 
 {% endraw %}
