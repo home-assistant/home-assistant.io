@@ -63,6 +63,66 @@ schedule:
         to: "21:00:00"
 ```
 
+Defining the schedule in YAML also allows adding extra data to each block, which will
+appear as attributes on the schedule helper entity when that block is active, and can
+be used to easily build schedule-based automations.
+
+For example, adding a single `data` value will show up as an attribute named "Data":
+
+```yaml
+schedule:
+  thermostat_schedule:
+    name: "Thermostat schedule"
+    thursday:
+      - from: "17:00:00"
+        to: "23:00:00"
+        data: 71
+    friday:
+      - from: "17:00:00"
+        to: "23:00:00"
+        data: 70
+    saturday:
+      - from: "07:00:00"
+        to: "10:00:00"
+        data: 74
+      - from: "16:00:00"
+        to: "23:00:00"
+        data: 72
+```
+
+It is also possible to add multiple data values by using a nested object. In this example,
+the schedule helper entity will have "Brightness" and "Color temp" attributes when
+the blocks are active:
+
+```yaml
+schedule:
+  light_schedule:
+    name: "Light schedule"
+    wednesday:
+      - from: "17:00:00"
+        to: "21:00:00"
+        data:
+          brightness: 100
+          color_temp: 4000
+    thursday:
+      - from: "17:00:00"
+        to: "23:00:00"
+        data:
+          brightness: 90
+          color_temp: 3500
+    friday:
+      - from: "07:00:00"
+        to: "10:00:00"
+        data:
+          brightness: 80
+          color_temp: 3000
+      - from: "16:00:00"
+        to: "23:00:00"
+        data:
+          brightness: 60
+          color_temp: 2500
+```
+
 {% configuration %}
 schedule:
   description: Alias for the schedule. Multiple entries are allowed.
@@ -91,6 +151,11 @@ schedule:
           description: The end time to mark as inactive/off again.
           required: true
           type: time
+        data:
+          description: Additional data to add to the entity's attributes when this block is active.
+          required: false
+          type: [boolean, string, integer, float]
+          default: {}
 {% endconfiguration %}
 
 ### Attributes
