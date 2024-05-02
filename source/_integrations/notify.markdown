@@ -41,6 +41,7 @@ Integrations can also implement the notify entity platform. Entity platform impl
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification.
+| `title`                |      yes | Title of the notification.
 
 ## Companion app notifications
 
