@@ -378,22 +378,33 @@ icon:
 
 Old style groups can calculate group state with entities from the following domains:
 
+- `alert`
 - `alarm_control_panel`
+- `automation`
 - `binary_sensor`
+- `calendar`
 - `climate`
 - `cover`
 - `device_tracker`
 - `fan`
 - `humidifier`
+- `input_boolean`
 - `light`
 - `lock`
 - `media_player`
 - `person`
 - `plant`
 - `remote`
+- `script`
 - `switch`
 - `vacuum`
 - `water_heater`
+
+<div class='note info'>
+
+Platform domains other than these are not supported to be used with old style groups, nor will they be supported in the future.
+
+</div>
 
 When member entities all have a single `on` and `off` state, the group state will be calculated as follows:
 
