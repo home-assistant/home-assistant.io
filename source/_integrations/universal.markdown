@@ -327,6 +327,61 @@ media_player:
 
 {% endraw %}
 
+### Denon AVR & HEOS
+
+This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations. 
+
+Features:
+- Volume control via Denon entity (might be more fine-granular than HEOS volume control)
+- ON/OFF button via Denon entity (not provided by HEOS media player)
+- Sound mode selector via Denon entity (not provided by HEOS media player)
+- Album art & Metadata via HEOS entity (not provided by Denon media player)
+
+The complete configuration is:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: Denon
+    unique_id: denon_universal_remote
+    device_class: receiver
+    children:
+      - media_player.denon_avr_x2700h       # Denon AVR Integration entity
+      - media_player.denon_avr_x2700h_heos  # Denon HEOS Integration entity
+    browse_media_entity: media_player.denon_avr_x2700h_heos
+    commands:
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      select_sound_mode:
+        service: media_player.select_sound_mode
+        target:
+          entity_id: media_player.denon_avr_x2700h
+        data:
+          sound_mode: "{{ sound_mode }}"
+    attributes:
+      sound_mode: media_player.denon_avr_x2700h|sound_mode
+      sound_mode_raw: media_player.denon_avr_x2700h|sound_mode_raw
+      sound_mode_list: media_player.denon_avr_x2700h|sound_mode_list
+```
+
+{% endraw %}
+
 ### Override active children
 
 This example shows how you can use `active_child_template`:

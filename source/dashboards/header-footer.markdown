@@ -1,6 +1,15 @@
 ---
 title: "Headers & Footers for dashboard cards"
 description: "Decorate your dashboard cards with header and footer widgets."
+related:
+  - docs: /integrations/entity/
+    title: Entity
+  - docs: /integrations/entities/
+    title: Entities
+  - docs: /integrations/statistics/
+    title: Statistics
+  - docs: /integrations/actions/
+    title: Card actions
 ---
 
 Some dashboard cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
@@ -146,10 +155,3 @@ hours_to_show:
   type: integer
   default: 24
 {% endconfiguration %}
-
-## Related topics
-
-- [Entity](/dashboards/entity/)
-- [Entities](/dashboards/entities/)
-- [statistics](/dashboards/statistics/)
-- [Card actions](/dashboards/actions/)

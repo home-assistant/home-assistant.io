@@ -3,9 +3,9 @@
 {% if page.installation_type == 'windows' %}
 ### Install WSL
 
-To install Home Assistant Core on Windows, you will need to use the Windows Subsystem for Linux (WSL). Follow the [WSL installation instructions](https://docs.microsoft.com/windows/wsl/install-win10) and install Ubuntu from the Windows Store.
+To install {% term "Home Assistant Core" %}  on Windows, you will need to use the Windows Subsystem for Linux (WSL). Follow the [WSL installation instructions](https://docs.microsoft.com/windows/wsl/install-win10) and install Ubuntu from the Windows Store.
 
-As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running Home Assistant Core directly on Windows is not supported.
+As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running {% term "Home Assistant Core" %}  directly on Windows is not supported.
 {% endif %}
 
 <div class='note warning'>

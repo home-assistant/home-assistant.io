@@ -3,6 +3,11 @@ type: card
 title: "Webpage card"
 sidebar_label: Webpage
 description: "The webpage card allows you to embed your favorite webpage right into Home Assistant."
+related:
+  - docs: /dashboards/dashboards/#webpage-dashboard
+    title: Webpage dashboard
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The webpage card allows you to embed your favorite webpage right into Home Assistant. You can also embed files stored in your `<config-directory>/www` folder and reference them using `/local/<file>`.
@@ -50,6 +55,11 @@ title:
   required: false
   description: The card title.
   type: string
+allow:
+  required: false
+  description: The [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy#iframes) of the iframe, that is, the value of the [`allow`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allow) attribute.
+  type: string
+  default: "fullscreen"
 {% endconfiguration %}
 
 ### Examples
@@ -59,8 +69,3 @@ type: iframe
 url: https://www.home-assistant.io
 aspect_ratio: 75%
 ```
-
-## Related topics
-
-- [Dashboard cards](/dashboards/cards/)
-- [Webpage dashboard](/dashboards/dashboards/#webpage-dashboard)

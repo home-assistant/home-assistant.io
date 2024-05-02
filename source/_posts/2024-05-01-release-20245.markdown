@@ -1,0 +1,505 @@
+---
+layout: post
+title: "2024.5: Just a little bit smaller"
+description: "New features for our new data tables, create helpers directly from the automation editor, the tile card now supports locks, easily adjust the name of a device on the energy dashboard, and improved audio with ESPHome for Assist."
+date: 2024-05-01 00:00:00
+date_formatted: "May 1, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-05/social.png
+---
+
+<a href='/integrations/#version/2024.5'><img src='/images/blog/2024-05/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2024.5! 🎉
+
+The last two releases were massive! With our [new drag 'n drop dashboards](/blog/2024/03/06/release-20243/)
+and the tools to [organize your Home Assistant instance](/blog/2024/04/03/release-20244/),
+it is hard to top those releases... 😅
+
+So, this release is just a _tiny bit smaller_ than those two, but still epic! 🤘
+
+My personal favorite is the new features added to the data tables, which many
+of you requested since [the last update](/blog/2024/04/03/release-20244/#upgraded-tables).
+But the ability to change the names of the devices shown on the energy dashboard
+is a close second!
+
+Oh! We've held our [State of the Open Home 2024 live stream](https://www.youtube.com/watch?v=oa__fLArsFk)!
+In case you've missed it, I would definitely recommend watching it back. There are tons of cool things
+and spoilers in there!
+
+But more importantly, it launched the [Open Home Foundation](https://www.openhomefoundation.org/),
+which now governs our beloved Home Assistant project! ❤️ Read more in the [State of the Open Home 2024 blog post](/blog/2024/04/24/state-of-the-open-home-2024/).
+
+Anyway, I will not hold you any longer. Enjoy the release!
+
+../Frenck
+
+<!--more-->
+
+- [More features for our data tables](#more-features-for-our-data-tables)
+- [Create helpers directly from the automation editor](#create-helpers-directly-from-the-automation-editor)
+- [Lock features for the tile card](#lock-features-for-the-tile-card)
+- [Reorder features of the tile card](#reorder-features-of-the-tile-card)
+- [Adjust the device names on the energy dashboard](#adjust-the-device-names-on-the-energy-dashboard)
+- [Improved audio with ESPHome for Assist](#improved-audio-with-esphome-for-assist)
+- [Other noteworthy changes](#other-noteworthy-changes)
+- [New integrations](#new-integrations)
+- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [Farewell to the following](#farewell-to-the-following)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=POXZWxMenx4)
+1 May 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="POXZWxMenx4" videotitle="Home Assistant 2024.5 Release Party"></lite-youtube>
+
+## More features for our data tables
+
+In our last release, we [introduced new data tables](/blog/2024/04/03/release-20244/#upgraded-tables)
+and we were thrilled to see that you all loved them! 🎉
+
+However, we also received a lot of feedback for additional tweaks and features,
+so we've added a bunch of them in this release. 😎
+
+One of the most requested features of these new tables' new
+[item grouping](/blog/2024/04/03/release-20244/#item-grouping) was the
+ability to collapse them, and we’ve added that!
+ 
+<p class='img'>
+    <img src="/images/blog/2024-05/collapse-groups.gif" alt="Screenrecording showing items grouped in our data tables can now be collapsed."/>
+    Each item group can now be collapsed and expanded.
+</p>
+
+Another one concerned the ability to select and assign an area to multiple items
+at once in the automation, scene, script, and device pages. We've added that too!
+
+Not only that, we now store the last used grouping (and if they were
+collapsed or not) and sorting you have used, so when you return to that page,
+it will be the same as you left it.
+
+<img class="no-shadow" src='/images/blog/2024-05/data-tables-assign-to-area.png' alt='Screenshot showing the device page with multiple items selected. They can all be assigned to an area with a single click.'>
+
+Last but certainly not least, we’ve added the ability to group and filter
+entities by their domain in the entities panel. As the domains represent the
+type of entity, this means you can group and filter, for example, all your
+lights, switches, sensors, etc.
+
+<img class="no-shadow" src='/images/blog/2024-05/data-tables-group-filter-by-domain.png' alt='Screenshot showing the new group and filter by domain functionality on the entities page.'>
+
+## Create helpers directly from the automation editor
+
+Our good friend [@karwosts] has been busy creating a great quality-of-life
+improvement for our {% term automation %} editor for this release.
+
+I'm sure you'll know this feeling. You are creating an automation and think:
+"Hey, I need a helper for this!" But then you have to leave the automation
+editor, create the helper, and then go back to the automation editor.
+
+Well, not anymore! You can now create helpers directly from the automation
+editor 😎
+
+In this example, a timer helper is created directly from the automation editor
+without leaving it:
+
+<lite-youtube videoid="GlkqCP7NavI" videotitle="Create helpers directly from the automation editor"></lite-youtube>
+
+[@karwosts]: https://github.com/karwosts
+
+## Lock features for the tile card
+
+The tile card is already amazing, but [@marcgeurts] made it even better by 
+adding new features to the tile card: Locks!
+
+When you now add a lock entity to the tile card, and if your lock supports it,
+you can now add two new features to the tile card:
+
+- [**Lock commands**](/dashboards/features/#lock-commands)  
+  Adds buttons to your tile card to lock or unlock the lock.
+- [**Lock open door**](/dashboards/features/#lock-open-door)  
+  Adds a button to open/unlatch the door (with confirmation).
+
+<img class="no-shadow" src='/images/blog/2024-05/tile-lock-features.png' alt='Screenshots showing different tile cards with the new lock features.'>
+
+[@marcgeurts]: https://github.com/marcgeurts
+
+## Reorder features of the tile card
+
+Some features of the tile card, such as the presets or the HVAC modes of a
+thermostat, can show many buttons. While you can limit the buttons you’d
+like to see, they may not be in the desired order.
+
+To improve this, [@karwosts] and [@piitaya] have added the ability to reorder
+the features of the tile card. For your thermostat, that means you can now
+reorder the HVAC modes or presets to your liking.
+
+<p class='img'>
+    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt="Screenrecording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.."/>
+    You can now reorder the features of the tile card.
+</p>
+
+[@karwosts]: https://github.com/karwosts
+[@piitaya]: https://github.com/piitaya
+
+## Adjust the device names on the energy dashboard
+
+Another outstanding quality-of-life improvement from [@karwosts] is the ability
+to customize the display name for energy devices on the energy dashboard.
+
+The entity's name representing the device you use on the energy dashboard
+commonly contains additional or redundant information. With this new feature,
+you can customize the display name to make it more meaningful.
+
+For example, if the entity is named _“Attic Boiler Daily Energy Usage”_
+and is shown as that today, you can now change the name displayed on the energy
+dashboard to just _“Boiler”_.
+
+<img class="no-shadow" src='/images/blog/2024-05/energy-device-names.png' alt='Screenshots showing you can now assign a different display name to the energy sensor of devices that show on your energy dashboard.'>
+
+You can adjust the name of each monitored device in the energy dashboard setting
+page by going to **Settings** > **Dashboards** > **Energy** > **Individual devices**.
+
+{% my config_energy badge %}
+
+[@karwosts]: https://github.com/karwosts
+
+## Improved audio with ESPHome for Assist
+
+If you're familiar with [Assist], our private voice assistant, and are using
+it on an [ESPHome-based device] (like an [ESP-S3-BOX-3] or the [ATOM Echo]),
+chances are you have experienced one of the biggest barriers to date when it
+comes to using it on a daily basis: chopped-off audio. 😞
+
+More often than not, the responses sent to the voice assistant device were
+missing a few parts, most notably at the beginning and the end of the audio.
+This was very noticeable when the responses were short, such as asking how many
+lights are on in a home or the room temperature.
+
+In conjunction with [the latest release of ESPHome] (2024.4), we are bringing
+a much improved and more reliable communication between [ESPHome] and
+Home Assistant for transferring voice audio, guaranteeing no audio is lost in the process.
+
+Hear the difference in this side-by-side comparison: 
+
+<lite-youtube videoid="6z7FIbTgLU4" videotitle="Improved audio with ESPHome for Assist"></lite-youtube>
+
+In addition to updating to this release, be sure to update your ESPHome devices
+to the latest version to benefit from this improvement.
+
+[Assist]: /voice_control/
+[ATOM Echo]: /voice_control/thirteen-usd-voice-remote/
+[ESP-S3-BOX-3]: /voice_control/s3_box_voice_assistant/
+[ESPHome-based device]: https://esphome.io/projects/
+[ESPHome]: https://esphome.io/
+[the latest release of ESPHome]: https://esphome.io/changelog/2024.4.0.html
+[to the latest version]: https://esphome.io/changelog/2024.4.0.html
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- Have you ever had a misbehaving (custom) integration cause a crash? This
+  release introduces new detections and [a new debug mode] to catch known/common
+  unexpected integration behavior. Thanks, [@bdraco]!
+- The [ESPHome integration] now supports date, time, date/time, valve, and
+  event entities! The latter two require the upcoming [ESPHome] 2024.5.0
+  release. Thanks [@jesserockz], [@kbx81], and [@nohat]!
+- The [MQTT integration] has reached the highest quality scale: Platinum!
+  Thanks [@jbouwh], for all the work you have put into this!
+- The visualization graph for all Zigbee devices connected via [ZHA] has been
+  improved by [@Cougar]. Devices now have colors to indicate their availability,
+  signal strength, and relationship to other devices, which are much clearer.
+  Nice!
+- The [Glances integration] got new sensors for network traffic, disk I/O, GPU,
+  and uptime. Thanks [@fhoekstra] & [@wittypluck]!
+- [@Lash-L] added a service to the [Roborock integration] to easily get map
+  information from your vacuum. Awesome!
+- The [Airzone cloud integration] now supports water heaters. Thanks [@Noltari]!
+- [@joostlek] added an extract media URL service to the [media extractor],
+  allowing you to get a media item's source URL. Nice!
+
+[@bdraco]: https://github.com/bdraco
+[@Cougar]: https://github.com/Cougar
+[@fhoekstra]: https://github.com/fhoekstra
+[@jbouwh]: https://github.com/jbouwh
+[@jesserockz]: https://github.com/jesserockz
+[@joostlek]: https://github.com/joostlek
+[@kbx81]: https://github.com/kbx81
+[@Lash-L]: https://github.com/Lash-L
+[@nohat]: https://github.com/nohat
+[@Noltari]: https://github.com/Noltari
+[@wittypluck]: https://github.com/wittypluck
+[a new debug mode]: /integrations/homeassistant/#debug
+[Airzone cloud integration]: /integrations/airzone_cloud
+[ESPHome integration]: /integrations/esphome
+[ESPHome]: https://esphome.io/
+[Glances integration]: /integrations/glances
+[media extractor]: /integrations/media_extractor
+[MQTT integration]: /integrations/mqtt
+[Roborock integration]: /integrations/roborock
+[ZHA]: /integrations/zha
+
+## New integrations
+
+We welcome the following new {% term integrations %} in this release:
+
+- **[Ambient Weather Network]**, added by [@thomaskistler]<br />
+  Retrieve local weather station information from the Ambient Weather Network.
+- **[Arve]**, added by [@ikalnyi]<br />
+  Monitor real-life air quality data from your Arve devices.
+- **[Energenie Power-Sockets]**, added by [@gnumpi]<br />
+  Control your Energie Power-Strips over USB.
+- **[Epic Games Store]**, added by [@Quentame]<br />
+  Provides a calendar for the Epic Games Store to monitor discounts and free games.
+- **[eQ-3 Bluetooth Smart Thermostats]**, added by [@EuleMitKeule]<br />
+  Control your eQ-3 Smart Thermostats over Bluetooth.
+- **[Sanix]**, added by [@tomaszsluszniak]<br />
+  Monitor water/sewage level using your Sanix (by BIT Complex) devices.
+
+[@EuleMitKeule]: https://github.com/EuleMitKeule
+[@gnumpi]: https://github.com/gnumpi
+[@ikalnyi]: https://github.com/ikalnyi
+[@Quentame]: https://github.com/Quentame
+[@thomaskistler]: https://github.com/thomaskistler
+[@tomaszsluszniak]: https://github.com/tomaszsluszniak
+[Ambient Weather Network]: /integrations/ambient_network
+[Arve]: /integrations/arve
+[Energenie Power-Sockets]: /integratoins/egps
+[Epic Games Store]: /integrations/epic_games_store
+[eQ-3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart
+[Sanix]: /integrations/sanix
+
+## Integrations now available to set up from the UI
+
+The following {% term integrations %} are now available via the Home Assistant UI:
+
+- **[Enigma2 (OpenWebif)]**, done by [@autinerd]
+- **[Folder watcher]**, done by [@gjohansson-ST]
+- **[LG Netcast]**, done by [@splinter98]
+
+[@autinerd]: https://github.com/autinerd
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@splinter98]: https://github.com/splinter98
+[Enigma2 (OpenWebif)]: /integrations/enigma2
+[Folder watcher]: /integrations/folder_watcher
+[LG Netcast]: /integrations/lg_netcast
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+{% details "AVM Fritz!SmartHome" %}
+
+Activating the HVAC mode `heat` no longer overwrites the current target
+temperature with the comfort temperature but retains the currently set target
+temperature unless the thermostat is in HVAC mode `off`, in which case the
+comfort temperature is still set.
+
+Use the available presets or the set temperature service to set the target
+temperature for HVAC-mode `heat`.
+
+([@jayme-github] - [#112119]) ([documentation](/integrations/fritzbox))
+
+[@jayme-github]: https://github.com/jayme-github
+[#112119]: https://github.com/home-assistant/core/pull/112119
+
+{% enddetails %}
+
+{% details "Big Ass Fans" %}
+
+The BAF fan `Auto` preset mode has been renamed to `auto`. Any scripts
+or automations using this need to be updated accordingly.
+
+([@mill1000] - [#109944]) ([documentation](/integrations/baf))
+
+[@mill1000]: https://github.com/mill1000
+[#109944]: https://github.com/home-assistant/core/pull/109944
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+The preset modes `Away`, `Home`, and `Sleep` have been renamed to the lower-case
+variants `away`, `home`, and `sleep`.
+
+This is consistent with the rest of Home Assistant, which also means
+Home Assistant can support icons and translations for these.
+
+If you used these preset modes in your automations or scripts, you will need
+to update them to use the new names.
+
+([@gagebenne] - [#116072]) ([documentation](/integrations/ecobee))
+
+[@gagebenne]: https://github.com/gagebenne
+[#116072]: https://github.com/home-assistant/core/pull/116072
+
+{% enddetails %}
+
+{% details "Honeywell Total Connect Comfort (US)" %}
+
+The auxiliary heat climate option has been deprecated and will be removed in
+Home Assistant 2024.10.
+
+Use the newly added emergency heat switch entity to set the thermostat mode
+to the previous auxiliary heat mode.
+
+([@mkmer] - [#114110]) ([documentation](/integrations/honeywell))
+
+[@mkmer]: https://github.com/mkmer
+[#114110]: https://github.com/home-assistant/core/pull/114110
+
+{% enddetails %}
+
+{% details "IMAP" %}
+
+The default for new entries is that the `text` and `headers` will no longer be
+included in the `imap_content` event data. Instead, if needed, you can fetch
+the email content using the `imap.fetch` service.
+
+It will not break for existing entries where we assume `text` and `headers`
+are included.
+
+([@luca-angemi] - [#115108]) ([documentation](/integrations/imap))
+
+[@luca-angemi]: https://github.com/luca-angemi
+[#115108]: https://github.com/home-assistant/core/pull/115108
+
+{% enddetails %}
+
+{% details "Insteon" %}
+
+The Insteon configuration panel, which was previously on the Home Assistant
+sidebar, has moved to the integration page in
+**Settings -> Device & services -> Insteon -> Configure**.
+
+([@teharris1] - [#105581]) ([documentation](/integrations/insteon))
+
+[@teharris1]: https://github.com/teharris1
+[#105581]: https://github.com/home-assistant/core/pull/105581
+
+{% enddetails %}
+
+{% details "Netatmo" %}
+
+The state of the Netatmo wind and gust direction sensor provided by
+the weather station now exposes the state in lowercase.
+
+([@joostlek] - [#115413]) ([documentation](/integrations/netatmo))
+
+[@joostlek]: https://github.com/joostlek
+[#115413]: https://github.com/home-assistant/core/pull/115413
+
+---
+
+The state of the Netatmo health index sensor provided by the weather station
+now exposes the state in lowercase.
+
+([@joostlek] - [#115409]) ([documentation](/integrations/netatmo))
+
+[@joostlek]: https://github.com/joostlek
+[#115409]: https://github.com/home-assistant/core/pull/115409
+
+{% enddetails %}
+
+{% details "Recorder" %}
+
+Previously, `recorder.purge_entities` called with no arguments would purge all
+entities. This PR makes this call raise an error instead. 
+
+It was too easy for users to accidentally purge their entire database using the
+old logic. Users who want to purge all entities can still use
+the `recorder.purge` service to achieve the same effect, and that service
+is more obvious in how it behaves. 
+
+([@karwosts] - [#110066]) ([documentation](/integrations/recorder))
+
+[@karwosts]: https://github.com/karwosts
+[#110066]: https://github.com/home-assistant/core/pull/110066
+
+{% enddetails %}
+
+{% details "Traccar Server" %}
+
+The following attributes have been removed from `device_tracker` entities
+provided by the Traccar server integration:
+
+- `address`
+- `altitude`
+- `battery_level`
+- `geofence`
+- `speed`
+
+All of these are now dedicated sensor entities that you can enable.
+
+([@ludeeus] - [#111374]) ([documentation](/integrations/traccar_server))
+
+[@ludeeus]: https://github.com/ludeeus
+[#111374]: https://github.com/home-assistant/core/pull/111374
+
+---
+
+The following attributes have been removed from `device_tracker` entities
+provided by the Traccar server integration:
+
+- `motion`
+- `status`
+
+All of these are now dedicated binary sensor entities that you can enable.
+
+([@ludeeus] - [#114719]) ([documentation](/integrations/traccar_server))
+
+[@ludeeus]: https://github.com/ludeeus
+[#114719]: https://github.com/home-assistant/core/pull/114719
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about breaking
+changes and new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Always reload after a successful re-auth flow](https://developers.home-assistant.io/blog/2024/04/25/always-reload-after-successful-reauth-flow)
+- [Deprecate old backports and typing alias](https://developers.home-assistant.io/blog/2024/04/08/deprecated-backports-and-typing-aliases/)
+- [Deprecating `async_add_hass_job`](https://developers.home-assistant.io/blog/2024/04/07/deprecate_add_hass_job/)
+- [New notify entity platform](https://developers.home-assistant.io/blog/2024/04/10/new-notify-entity-platform/)
+- [Replacing `async_track_state_change` with `async_track_state_change_event`](https://developers.home-assistant.io/blog/2024/04/13/deprecate_async_track_state_change/)
+- [Store runtime data inside the config entry](https://developers.home-assistant.io/blog/2024/04/30/store-runtime-data-inside-config-entry/)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## Farewell to the following
+
+The following {% term integrations %} are also no longer available as of this
+release:
+
+- **Epson Workforce** has been removed. The source package/dependency this
+  integration uses, is no longer available.
+  ([@joostlek] - [#115201])
+
+[@joostlek]: https://github.com/joostlek
+[#115201]: https://github.com/home-assistant/core/pull/115201
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.5](/changelogs/core-2024.5)

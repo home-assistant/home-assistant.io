@@ -3,6 +3,11 @@ type: card
 title: "Weather forecast card"
 sidebar_label: Weather forecast
 description: "The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
@@ -153,8 +158,3 @@ Example theme configuration:
 ```yaml
 --weather-icon-sunny: url("/local/sunny.png")
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

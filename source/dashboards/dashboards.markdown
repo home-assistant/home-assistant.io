@@ -1,6 +1,17 @@
 ---
 title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
+related:
+  - docs: /integrations/logbook/
+    title: Logbook integration
+  - docs: /integrations/history/
+    title: History integration
+  - docs: /integrations/todo/
+    title: To-do list integration
+  - docs: /dashboards/views/
+    title: Views
+  - docs: /dashboards/iframe/
+    title: Webpage card
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
@@ -282,11 +293,3 @@ views:
         content: >
           Welcome to your **dashboard**.
 ```
-
-## Related topics
-
-- [Logbook integration](/integrations/logbook/)
-- [History integration](/integrations/history/)
-- [To-do list integration](/integrations/todo/)
-- [Webpage card](/dashboards/iframe/)
-- [Views](/dashboards/views/)

@@ -33,6 +33,10 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
+<div class='note warning'>
+As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, and there is no ETA for when they will be allowed again. Existing developers are not affected.
+</div>
+
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
 2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to meet the developer login form's limits. If you've already enabled MFA, the web portal doesn't support disabling it. The iOS and Android apps do under Account > Account Security. You can re-enable MFA after becoming a developer.)
 3. Accept the SDK agreement.
@@ -84,15 +88,15 @@ You must [restart Home Assistant](/docs/configuration/#reloading-changes) for th
 
 ## Notifications
 
-The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recipient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
+The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. For each thermostat found, a `notify` entity will be added.
 
 Example service call:
 
 ```yaml
-service: notify.ecobee
+service: notify.send_message
 data:
   message: "Hello, this is your thermostat."
-  target: 0
+  entity_id: notify.ecobee
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
