@@ -402,7 +402,7 @@ Old style groups can calculate group state with entities from the following doma
 
 <div class='note info'>
 
-Platform domains other than these are not supported to be used with old style groups, nor will they be supported in the future.
+Platform domains other than these are not supported to be used with old style groups, nor will other domains be supported in the future.
 
 </div>
 
