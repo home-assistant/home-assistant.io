@@ -20,6 +20,8 @@ IMGW-PIB integration uses hydrological data from [Institute of Meteorology and W
 
 Sensor entities added to Home Assistant:
 
+- Flood alarm level (disabled by default)
+- Flood warning level (disabled by default)
 - Water level
 - Water temperature (if a given hydrological station supports it)
 
