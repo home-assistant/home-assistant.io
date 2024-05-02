@@ -255,7 +255,7 @@ We welcome the following new {% term integrations %} in this release:
 - **[Arve]**, added by [@ikalnyi]<br />
   Monitor real-life air quality data from your Arve devices.
 - **[Energenie Power-Sockets]**, added by [@gnumpi]<br />
-  Control your Energie Power-Strips over USB.
+  Control your Energenie Power-Strips over USB.
 - **[Epic Games Store]**, added by [@Quentame]<br />
   Provides a calendar for the Epic Games Store to monitor discounts and free games.
 - **[eQ-3 Bluetooth Smart Thermostats]**, added by [@EuleMitKeule]<br />
@@ -271,7 +271,7 @@ We welcome the following new {% term integrations %} in this release:
 [@tomaszsluszniak]: https://github.com/tomaszsluszniak
 [Ambient Weather Network]: /integrations/ambient_network
 [Arve]: /integrations/arve
-[Energenie Power-Sockets]: /integratoins/egps
+[Energenie Power-Sockets]: /integrations/energenie_power_sockets
 [Epic Games Store]: /integrations/epic_games_store
 [eQ-3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart
 [Sanix]: /integrations/sanix
