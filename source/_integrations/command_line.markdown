@@ -123,6 +123,10 @@ command_line:
           description: The name used to display the cover in the frontend.
           required: true
           type: string
+        icon:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template          
         unique_id:
           description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
           required: false

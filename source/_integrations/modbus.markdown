@@ -682,6 +682,40 @@ climates:
         value 1 is written."
       required: false
       type: integer
+    swing_mode_register:
+      description: "Configuration of the register for swing mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of swing mode register. (int to call write_register, list of 1 int to call write_registers). - Reading done through holding register"
+          required: true
+          type: [integer, list]
+        values:
+          description: "Mapping between the register values and swing modes"
+          required: true
+          type: map
+          keys:
+            swing_mode_state_on:
+              description: "Value corresponding to swing mode on."
+              required: false
+              type: integer
+            swing_mode_state_off:
+              description: "Value corresponding to swing mode off."
+              required: false
+              type: integer
+            swing_mode_state_horizontal:
+              description: "Value corresponding to swing mode horizontal."
+              required: false
+              type: integer
+            swing_mode_state_vertical:
+              description: "Value corresponding to swing mode vertical."
+              required: false
+              type: integer
+            swing_mode_state_both:
+              description: "Value corresponding to Swing mode both."
+              required: false
+              type: integer
     input_type:
       description: Modbus register type for current temperature.
       required: false

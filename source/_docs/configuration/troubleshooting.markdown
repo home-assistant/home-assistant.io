@@ -123,3 +123,14 @@ After you download logs, you will also want to download the diagnostics for the 
   <img src='/images/docs/configuration/download-diagnostics.png' alt='Example of Download Diagnostics'>
   Example of Download Diagnostics.
 </p>
+
+### Handling unexpected restarts or crashes
+
+Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your `configuration.yaml`:
+
+```yaml
+homeassistant:
+  debug: true
+```
+
+Once debug is enabled, periodically check [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs) for new messages.

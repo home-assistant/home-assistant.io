@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
   - '@jjlawren'
+  - '@peterager'
 ha_ssdp: true
 ha_platforms:
   - binary_sensor

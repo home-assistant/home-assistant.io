@@ -10,6 +10,8 @@ ha_codeowners:
   - '@balloob'
 ha_domain: openai_conversation
 ha_integration_type: service
+ha_platforms:
+  - conversation
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.

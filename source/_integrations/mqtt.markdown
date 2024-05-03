@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
   - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -28,6 +29,7 @@ ha_platforms:
   - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -35,13 +37,14 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - update
   - vacuum
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -66,6 +69,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -98,6 +102,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
