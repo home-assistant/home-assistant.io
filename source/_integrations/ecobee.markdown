@@ -8,6 +8,7 @@ ha_category:
   - Notifications
   - Number
   - Sensor
+  - Switch
   - Weather
 featured: true
 ha_release: 0.9
@@ -21,6 +22,7 @@ ha_platforms:
   - notify
   - number
   - sensor
+  - switch
   - weather
 ha_zeroconf: true
 ha_homekit: true
@@ -139,6 +141,12 @@ The ecobee climate entity has some extra attributes to represent the state of th
 ### Concepts
 
 The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
+
+### Switch
+
+The `ventilator 20 min` switch is behaving like the switch in the physical ecobee device. When switched on, the ventilator turns on for 20 min. When turned off, it stops the ventilator.
+
+*Note: this does not interact with the `ventilator min time`*
 
 ### Number
 

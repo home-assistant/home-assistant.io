@@ -29,6 +29,8 @@ ha_platforms:
   - switch
   - weather
 ha_integration_type: integration
+ha_codeowners:
+  - '@hahn-th'
 ---
 
 The [HomematicIP](https://www.homematic-ip.com/) integration platform is used as an interface to the cloud server. Since there is no official documentation about this API, everything was done via reverse engineering. Use at your own risk.

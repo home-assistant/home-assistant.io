@@ -10,6 +10,7 @@ ha_codeowners:
   - '@osohotwateriot'
 ha_domain: osoenergy
 ha_platforms:
+  - sensor
   - water_heater
 ha_config_flow: true
 ha_integration_type: integration

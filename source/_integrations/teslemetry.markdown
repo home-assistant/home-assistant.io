@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: teslemetry
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

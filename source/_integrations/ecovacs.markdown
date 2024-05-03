@@ -20,6 +20,7 @@ ha_platforms:
   - diagnostics
   - event
   - image
+  - lawn_mower
   - number
   - select
   - sensor
