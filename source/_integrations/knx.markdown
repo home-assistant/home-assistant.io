@@ -34,6 +34,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - diagnostics
   - fan
   - light

@@ -7,7 +7,6 @@ ha_release: 0.76
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@StevenLooman'
   - '@chishm'
 ha_domain: dlna_dmr
 ha_platforms:

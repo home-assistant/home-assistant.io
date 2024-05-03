@@ -33,6 +33,7 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+ha_zeroconf: true
 ---
 
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.

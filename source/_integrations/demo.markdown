@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - device_tracker
   - event
   - fan

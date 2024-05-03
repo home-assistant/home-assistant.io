@@ -13,6 +13,7 @@ ha_codeowners:
   - '@glodenox'
 ha_domain: dsmr_reader
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

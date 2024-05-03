@@ -1,6 +1,6 @@
 ---
-title: Device Automation
-description: Information about the Device Automation plugin.
+title: Device automation
+description: Information about the device automation plugin.
 ha_category:
   - Automation
 ha_release: 0.7
@@ -11,7 +11,7 @@ ha_domain: device_automation
 ha_integration_type: system
 ---
 
-Device Automations is a plugin for the automation integration to allow other integrations to provide device specific triggers, conditions and actions.
+**Device automation** is a plugin for the automation integration to allow other integrations to provide device specific triggers, conditions and actions.
 
 There is no device automation specific configuration. Instead, it is configured as part of the normal automations.
 

@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
   - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -36,13 +37,14 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - update
   - vacuum
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -115,7 +117,6 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% enddetails %}
 
-
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
 ## Setting up a broker
@@ -142,7 +143,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
+<p>
+
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+
+
+</p>
 </div>
 
 ### Advanced broker configuration
@@ -324,7 +330,6 @@ sw_version:
 support_url:
   description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
-
 
 {% details "Supported abbreviations" %}
 
@@ -597,7 +602,9 @@ support_url:
     'sa':                  'suggested_area',
     'sn':                  'serial_number',
 ```
+
 {% enddetails %}
+
 {% details "Supported abbreviations for origin info" %}
 
 ```txt
@@ -605,6 +612,7 @@ support_url:
     'sw':                  'sw_version',
     'url':                 'support_url',
 ```
+
 {% enddetails %}
 
 ### How to use discovery messages
@@ -1052,15 +1060,14 @@ The MQTT notification support is different than for the other [notification](/in
 ```
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' />
+  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
 </p>
 
 The same will work for automations.
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png' />
+  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
 </p>
-
 
 ### Examples
 
@@ -1122,9 +1129,16 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-<p class='note'>
+
+<div class='note'>
+<p>
+
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
+
+
 </p>
+</div>
+
 
 ```yaml
 topic: homeassistant/light/1/command
