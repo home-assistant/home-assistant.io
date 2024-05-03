@@ -221,6 +221,18 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
+### OTA updates of Zigbee device firmware
+
+The ZHA integration have the ability to perform OTA (Over-The-Air) firmware updates of paired/joined Zigbee devices and this feature is enabled by default. As this uses standard [Update](/integrations/update/) entities in Home Assistant, Home Assistant users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for that device.
+
+Prerequisites for OTA updates to become available for a specific device is that it both support the standard Zigbee OTAU (Over-The-Air Update) feature and firmware images with standard Zigbee OTA format for that brand and device model are provided to the public by the manufacturer. For this reason ZHA currently only includes OTA providers from a few manufacturers that provide official online sources for Zigbee device OTA firmware images for their brands and models. Today that is; IKEA, INOVELLI, LEDVANCE (OSRAM), SALUS (Computime), Sonoff (ITead), and 3reality (Third Reality).
+
+<div class="note warning">
+
+When it comes to Zigbee device OTA firmware updates it is always recommended to check if an update will bring you any advantages before updating. Most Zigbee device OTA firmware updates are normally NOT specifically made for this ZHA integration, but instead usually only tested to work with the manufacturer's own Zigbee gateway/hub/bridge from the same brand. In some cases, the firmware update can cause unwanted issues, including no longer accessible functions until ZHA Device Handlers (quirks) are added/updated, or at worse even bricking a device causing it to stop working. So the general advice is to try to apply a "*if it ain't broke then don't fix it*" philosophy when it comes to Zigbee device firmware updates.
+
+</div>
+
 ## Configuration - YAML
 
 For more advanced configuration, you can modify `configuration.yaml` and restart Home Assistant
@@ -241,19 +253,11 @@ custom_quirks_path:
   type: string
 {% endconfiguration %}
 
-### OTA updates of Zigbee device firmware
+### Advanced OTA configuration
 
-The ZHA integration have the ability to perform firmware updates of some specific Zigbee devices if they both support the standard Zigbee OTAU (Over-The-Air Update) feature and firmware images with standard Zigbee OTA format that brand and device are provided to the public by the manufacturer. You will get notifications if and when a device has firmware update available and to start an upgrade you have to initiate it by click a button.
+The default configuration for  OTA (Over-The-Air) firmware updates is today carefully chosen by ZHA developers, so normal users should not need to change any configurations manually. As such almost all of the configuration options listed in the zigpy section in the Home Assistant `configuration.yaml` file are just meant for development or advanced users. 
 
-OTA providers from a few manufacturer's official online sources that allow firmware update images are currently only available for Zigbee device brands from; IKEA, INOVELLI, LEDVANCE (OSRAM), SALUS (Computime), Sonoff (ITead), and 3reality (Third Reality). Automatic OTA firmware updating is set to disabled in the configuration by default, and if you set it to enabled for a brand then ZHA will currently automatically update firmware without notifications on any compatible device as soon as it finds a compatible image available on local storage.
-
-<div class="note warning">
-
-When it comes to Zigbee device firmware always check if a update will actually bring you any advantages before updating. Most firmware updates are normally NOT specifically made for this ZHA integration, but instead usually only tested to work with the manufacturer's own Zigbee gateway/hub/bridge from the same brand. In some cases, the firmware update can cause unwanted issues, including no longer accessible functions until ZHA Device Handlers (quirks) are added/updated, or at worse even bricking a device causing it to stop working. So try apply a "*if it ain't broke then don't fix it*" philosophy when it comes to Zigbee device firmware updates.
-
-</div>
-
-If want to disable OTA firmware updates for a specific manufacturer's provider then you need to add the following configuration to your `configuration.yaml` and restart Home Assistant.
+Hence most advanced configuration options will remain in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy). The exception is if want to disable OTA firmware updates for a specific manufacturer's provider, as then you can add the following configuration to your `configuration.yaml` and restart Home Assistant.
 
 ```yaml
 zha:
