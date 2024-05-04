@@ -12,7 +12,7 @@ ha_quality_scale: internal
 ha_iot_class: Local Push
 ---
 
-Intelligent Storage Acceleration (`isal`) is used for accelerating `aiohttp`. `zlib` is be a bottleneck for `aiohttp`, especially for websocket connections.
+[`zlib`](https://github.com/madler/zlib) is a bottleneck for [`aiohttp`](https://github.com/aio-libs/aiohttp), especially for WebSocket connections. [Intelligent Storage Acceleration](https://github.com/intel/isa-l), is used for accelerating [`aiohttp`](https://github.com/aio-libs/aiohttp) since it can [speed up](https://github.com/pycompression/python-isal/tree/develop/benchmark_scripts) compression as much as 5x.
 
 ## Configuration
 
