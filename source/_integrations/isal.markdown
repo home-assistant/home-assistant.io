@@ -16,7 +16,7 @@ Intelligent Storage Acceleration (`isal`) is used for accelerating `aiohttp`. `z
 
 ## Configuration
 
-Configuration of this integration only applies to core install types. Container based installs already have `isal` pre-installed and no action is required.
+Configuration of this integration only applies to core install types. Container-based installs already have `isal` pre-installed, and no action is required.
 
 If your system supports [`isal`](https://github.com/pycompression/python-isal), it can be enabled with the following configuration:
 
