@@ -16,7 +16,7 @@ ha_iot_class: Local Push
 
 ## Configuration
 
-Configuration of this integration only applies to core install types. Container-based installs already have `isal` pre-installed, and no action is required.
+Configuration of this integration only applies to Home Assistant Core installations types. Home Assistant Container, Home Assistant Supervisor, and Home Assistant Operation System installs already have `isal` pre-installed, and no action is required.
 
 If your system supports [`isal`](https://github.com/pycompression/python-isal), it can be enabled with the following configuration:
 
