@@ -59,6 +59,7 @@ For a summary in a more readable format:
 - Rework opensky tests ([@joostlek] - [#114441])
 - Add hourly forecast to open_meteo ([@Tommatheussen] - [#113622])
 - Add UniFi WLAN regenerate password button ([@brunohenriquy] - [#114422])
+- Add UniFi WLAN Password sensor ([@brunohenriquy] - [#114419])
 - Avoid call to `hass.helpers.store` in CategoryRegistry ([@jpbede] - [#114485])
 - Fix ZHA websocket API test ([@TheJulianJES] - [#114495])
 - Add pytest rewrite for wemo tests that use entity_test_helpers ([@bdraco] - [#114516])
@@ -556,6 +557,7 @@ For a summary in a more readable format:
 - Improve service validation exception test and translation key ([@jbouwh] - [#115843])
 - Allow manual delete of stale Unifi device from UI ([@wittypluck] - [#115267])
 - Refactor Totalconnect binary sensor ([@joostlek] - [#115629])
+- Remove sensor exposing UniFi WLAN password ([@Kane610] - [#115929])
 - Bump total_connect_client to 2023.12.1 ([@austinmroczek] - [#115928])
 - Add error translations to Blink ([@mkmer] - [#115924])
 - Make use of snapshot testing in Synology DSM ([@mib1185] - [#115931])
@@ -782,6 +784,72 @@ For a summary in a more readable format:
 - Improve scrape strings ([@joostlek] - [#116519])
 - Add blocklist for known Matter devices with faulty transitions ([@marcelveldt] - [#116524])
 - Fix stop event cleanup when reloading MQTT ([@bdraco] - [#116525])
+
+## Release 2024.5.1 - May 3
+
+- Fix nws forecast coordinators and remove legacy forecast handling ([@MatthewFlamm] - [#115857])
+- Bump opentherm_gw to 2.2.0 ([@GraceGRD] - [#116527])
+- Add a lock to homekit_controller platform loads ([@bdraco] - [#116539])
+- Fix MQTT discovery cooldown too short with large setup ([@jbouwh] - [#116550])
+- Bump upb_lib to 0.5.6 ([@gwww] - [#116558])
+- Bump elkm1_lib to 2.2.7 ([@gwww] - [#116564])
+- Fix Matter startup when Matter bridge is present ([@marcelveldt] - [#116569])
+- Bump sanix to 1.0.6 ([@tomaszsluszniak] - [#116570])
+- Fix Airthings BLE model names ([@LaStrada] - [#116579])
+- Improve coordinator in Ondilo ico ([@joostlek] - [#116596])
+- Fix inheritance order for KNX notify ([@farmio] - [#116600])
+- Bump Airthings BLE to 0.8.0 ([@LaStrada] - [#116616])
+- Bump pywaze to 1.0.1 ([@eifinger] - [#116621])
+- Add constraint for tuf ([@cdce8p] - [#116627])
+- Bump aiounifi to v77 ([@Kane610] - [#116639])
+- Bump govee-light-local library and fix wrong information for Govee lights ([@Galorhallen] - [#116651])
+- Bump ZHA dependency bellows to 0.38.4 ([@puddly] - [#116660])
+- Bump habluetooth to 2.8.1 ([@bdraco] - [#116661])
+- Bump env_canada lib to 0.6.2 ([@gwww] - [#116662])
+- Block dreame_vacuum versions older than 1.0.4 ([@bdraco] - [#116673])
+- Fix fyta test timezone handling ([@cdce8p] - [#116689])
+- Fix BroadlinkRemote._learn_command() ([@felipediel] - [#116692])
+
+[#115857]: https://github.com/home-assistant/core/pull/115857
+[#116527]: https://github.com/home-assistant/core/pull/116527
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116539]: https://github.com/home-assistant/core/pull/116539
+[#116550]: https://github.com/home-assistant/core/pull/116550
+[#116558]: https://github.com/home-assistant/core/pull/116558
+[#116564]: https://github.com/home-assistant/core/pull/116564
+[#116569]: https://github.com/home-assistant/core/pull/116569
+[#116570]: https://github.com/home-assistant/core/pull/116570
+[#116579]: https://github.com/home-assistant/core/pull/116579
+[#116596]: https://github.com/home-assistant/core/pull/116596
+[#116600]: https://github.com/home-assistant/core/pull/116600
+[#116616]: https://github.com/home-assistant/core/pull/116616
+[#116621]: https://github.com/home-assistant/core/pull/116621
+[#116627]: https://github.com/home-assistant/core/pull/116627
+[#116639]: https://github.com/home-assistant/core/pull/116639
+[#116651]: https://github.com/home-assistant/core/pull/116651
+[#116660]: https://github.com/home-assistant/core/pull/116660
+[#116661]: https://github.com/home-assistant/core/pull/116661
+[#116662]: https://github.com/home-assistant/core/pull/116662
+[#116673]: https://github.com/home-assistant/core/pull/116673
+[#116689]: https://github.com/home-assistant/core/pull/116689
+[#116692]: https://github.com/home-assistant/core/pull/116692
+[@Galorhallen]: https://github.com/Galorhallen
+[@GraceGRD]: https://github.com/GraceGRD
+[@Kane610]: https://github.com/Kane610
+[@LaStrada]: https://github.com/LaStrada
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@eifinger]: https://github.com/eifinger
+[@farmio]: https://github.com/farmio
+[@felipediel]: https://github.com/felipediel
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@puddly]: https://github.com/puddly
+[@tomaszsluszniak]: https://github.com/tomaszsluszniak
 
 [#100780]: https://github.com/home-assistant/core/pull/100780
 [#102424]: https://github.com/home-assistant/core/pull/102424
