@@ -73,5 +73,5 @@ This would require the following settings to extract the temperature:
 
 - Name: `Temperature`
 - File path: `/home/user/.homeassistant/sensor.csv`
-- Value template: `'{{ value.split(",")[1] }}'`
+- Value template: {% raw %}`'{{ value.split(",")[1] }}'`{% endraw %}
 - Unit of measurement: `"°C"`
