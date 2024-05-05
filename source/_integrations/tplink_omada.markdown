@@ -60,7 +60,7 @@ Controller versions 5.1.0 and later are supported.
 - LAN Port PoE activity sensor
 - Firmware Update
 
-### Device Trackers
+### Device trackers
 
 The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller. All known Wi-Fi clients will be initially created in a disabled state. You then need to enable the entities that you want to track.
 
