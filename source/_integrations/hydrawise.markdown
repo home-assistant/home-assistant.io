@@ -28,15 +28,6 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## Prerequisites
-
-To set up the Hydrawise integration, you must first obtain an API Key.
-
-1. Login at [https://app.hydrawise.com](https://app.hydrawise.com).
-2. Go to **Account Details** under the **My Account** menu (in the upper-right-hand corner).
-3. Under the **Account Settings** section, copy the **API Key**.
-   1. If no API Key is present, select the **Generate API Key** button.
-
 {% include integrations/config_flow.md %}
 
 ## Binary sensor
