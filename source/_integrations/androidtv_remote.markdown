@@ -32,11 +32,11 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
+Using the `media_player.play_media` {% term service %}, you can launch applications, switch channels, and start activities via `Deep Links`. Only `app`, `url` and `channel` media types are supported.
 
 ### Launching apps
 
-Using `media_player.play_media` {% term service %} you can run apps by package name.
+You can run any app by passing the package name.
 
 Examples:
 
@@ -60,6 +60,8 @@ target:
   entity_id: media_player.living_room_tv
 ```
 
+You can find an app's package name in the URL of your app's Google Play Store listing. For example, the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`. The app's package name is `com.example.app123`. The package name is also displayed in the media player card when you launch the application on the device.
+
 List of package names for popular applications:
 
 | App | Package name |
@@ -72,11 +74,11 @@ List of package names for popular applications:
 | Plex | `com.plexapp.android`
 | Kodi | `org.xbmc.kodi`
 
-You can find an app's package name in the URL of your app's Google Play Store listing. For example, the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`. The app's package name is `com.example.app123`. The package name is also displayed in the media player card when you launch the application on the device.
+### Launching activities
 
-You can also pass any URL to the device by specifying `media_content_type: url`. Using `Deep Links`, you can open activities in some apps.
+You can pass any URL to the device. Using `Deep Links`, you can open activities in some apps.
 
-Examples:
+Example:
 
 ```yaml
 # Open a specific YouTube video:
