@@ -36,29 +36,47 @@ Using the `media_player.play_media` service, you can launch applications via `De
 
 ### Launching apps
 
-You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
-
-Examples of some `Deep Links` for popular applications:
-
-| App | URL |
-| --- | --- |
-| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
-| Prime Video | `https://app.primevideo.com`
-| Disney+ | `https://www.disneyplus.com`
-| Plex | `plex://`
+Using `media_player.play_media` {% term service %} you can run apps by package name.
 
 Examples:
 
 ```yaml
-# Launch the Netflix app
+# Launch the YouTube app
 service: media_player.play_media
 data:
-  media_content_type: url
-  media_content_id: https://www.netflix.com/title
+  media_content_type: app
+  media_content_id: com.google.android.youtube.tv
 target:
   entity_id: media_player.living_room_tv
 ```
+
+```yaml
+# Launch the Twitch app
+service: media_player.play_media
+data:
+  media_content_type: app
+  media_content_id: tv.twitch.android.app
+target:
+  entity_id: media_player.living_room_tv
+```
+
+List of package names for popular applications:
+
+| App | Package name |
+| --- | --- |
+| YouTube | `com.google.android.youtube.tv`
+| Twitch | `tv.twitch.android.app`
+| Netflix | `com.netflix.ninja`
+| Prime Video | `com.amazon.amazonvideo.livingroom`
+| Disney+ | `com.disney.disneyplus`
+| Plex | `com.plexapp.android`
+| Kodi | `org.xbmc.kodi`
+
+You can find an app's package name in the URL of your app's Google Play Store listing. For example, the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`. The app's package name is `com.example.app123`. The package name is also displayed in the media player card when you launch the application on the device.
+
+You can also pass any URL to the device by specifying `media_content_type: url`. Using `Deep Links`, you can open activities in some apps.
+
+Examples:
 
 ```yaml
 # Open a specific YouTube video:
@@ -69,6 +87,16 @@ data:
 target:
   entity_id: media_player.living_room_tv
 ```
+
+Examples of some `Deep Links` for popular applications:
+
+| App | URL |
+| --- | --- |
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
 
 ### Switch channels
 
