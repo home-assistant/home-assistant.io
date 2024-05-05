@@ -1,6 +1,6 @@
 ---
-title: Network Configuration
-description: Network Configuration for Home Assistant
+title: Network configuration
+description: Network configuration for Home Assistant
 ha_category:
   - Other
 ha_release: 2021.6
@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-This integration provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings >> System >> Network" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
+The **Network configuration** {% term integration %} provides network configuration for integrations such as [Zeroconf](/integrations/zeroconf/). It is managed by going to **{% my network title="Settings > System > Network" %}** and is only available to users that have "Advanced Mode" enabled on their {% my profile title="user profile" %}.
 
 **{% my general badge %}**
 

@@ -54,7 +54,7 @@ The device item value is the last segment of the URL path, e.g., the URL
 
 ## Configuration
 
-To enable the component, add the following lines to your `configuration.yaml` file:
+To enable the integration, add the following lines to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

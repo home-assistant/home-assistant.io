@@ -2,7 +2,7 @@
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
   - Update
 ha_iot_class: Local Polling
 ha_release: pre 0.7
@@ -109,3 +109,7 @@ Displays the current link rate of the device indicating the maximum possible dat
 ### Link type
 
 Displays the current link type: wired, 2.4GHz or 5GHz.
+
+## Troubleshooting
+
+- If you get a "Connection or login error" when trying to setup the NETGEAR integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".

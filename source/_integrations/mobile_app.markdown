@@ -36,7 +36,9 @@ mobile_app:
 ## Apps that use Mobile App
 
 - [Home Assistant for iOS](https://apps.apple.com/us/app/home-assistant/id1099568401?ls=1) (official)
+  - [Beta release](https://testflight.apple.com/join/1AlPbnLZ) (Testflight)
 - [Home Assistant for Android](https://play.google.com/store/apps/details?id=io.homeassistant.companion.android) (official)
+  - [Beta release](https://play.google.com/apps/testing/io.homeassistant.companion.android)
 
 ## Mobile App Documentation
 

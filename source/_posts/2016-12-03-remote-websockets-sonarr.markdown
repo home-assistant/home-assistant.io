@@ -25,12 +25,12 @@ The brand new [`remote`][remote] component made by [@iandday] will simplify the 
 
 The [HomeMatic][homematic] component has received some updates worth mentioning:
 
-* Additional services
-  * `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
-  * `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
-* Support for multiple HomeMatic hosts
-* Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
-* Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
+- Additional services
+  - `reconnect`: Reconnect to your CCU/Homegear without restarting Home Assistant.
+  - `set_dev_value`: Manually control a device, even if it's not supported by Home Assistant yet.
+- Support for multiple HomeMatic hosts
+- Support for HomeMatic Wired (most devices) and HomeMatic IP (a few devices)
+- Various improvements and fixes, especially for HM-Sec-Key (KeyMatic)
 
 The support for multiple hosts is a result of allowing mixed configurations with wireless, wired, and IP devices. This has the drawback of making the update a breaking change (along with the renamed `set_value` service). However, the benefits and possibilities gained will be worth it.
 
@@ -127,7 +127,7 @@ We are working on a better solution for 0.35.
  - Fix Nest cameras without activity zones ([@technicalpickles])
  - Fix Plex doing I/O inside event loop ([@balloob])
 
-### Breaking changes
+### Backward-incompatible changes
 
 - The [HomeMatic][homematic] component now uses a different syntax for hosts and the `set_value` service has been renamed.
 - All [RFXtrx][rfxtrx] sensors will get a new entity ID.

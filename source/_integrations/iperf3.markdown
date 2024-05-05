@@ -3,7 +3,7 @@ title: Iperf3
 description: How to use Iperf3 within Home Assistant to measure your network bandwidth.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.71
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -89,7 +89,7 @@ Configuration variables (host):
     type: string
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -109,7 +109,7 @@ Parallel streams can help in some situations. As TCP attempts to be fair and con
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
-### Service
+## Service
 
 Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 

@@ -9,10 +9,10 @@ ha_domain: namecheapdns
 ha_integration_type: integration
 ---
 
-With the `namecheapdns` integration you can automatically update your dynamic DNS entry at [namecheapdns](https://www.namecheap.com/store/domains/freedns/).
+With the `namecheapdns` integration you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) service.
 
 <div class='note warning'>
-Namecheap only supports IPv4 addresses to update.
+Namecheap only supports updating IPv4 addresses.
 </div>
 
 ## Configuration
@@ -32,13 +32,13 @@ namecheapdns:
     required: false
     type: string
   domain:
-    description: Your namecheap TLD (example.com).
+    description: Your root domain (example.com).
     required: true
     type: string
   password:
-    description: The namecheap "Dynamic DNS Password" you can find under the "Advanced DNS" tab.
+    description: The Namecheap "Dynamic DNS Password" you can find under the "Advanced DNS" tab.
     required: true
     type: string
 {% endconfiguration %}
 
-See the [How do I set up a Host for Dynamic DNS?](https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns) for further instructions
+See Namecheap's [How do I set up a Host for Dynamic DNS?](https://www.namecheap.com/support/knowledgebase/article.aspx/43/11/how-do-i-set-up-a-host-for-dynamic-dns) guide for further instructions.

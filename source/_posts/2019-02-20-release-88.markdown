@@ -25,7 +25,7 @@ We also have a new command line auth provider. This will allow you to use a shel
 
 [@andrewsayre] has been working hard on extending the SmartThings support. This release brings sensors and climate devices into the mix. Awesome!
 
-## Noteworthy breaking changes
+## Noteworthy backward-incompatible changes
 
 We have tightened config validation, so expect a couple of new warnings. Platform configuration will no longer allow to contain keys that are not supported. This should help with finding typos in your current and future YAML configs. This will currently fallback to a warning and will become a full error in the future.
 
@@ -130,7 +130,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Split googlehome to a component with device tracker platform ([@ludeeus] - [#19971]) ([device_tracker docs]) ([googlehome docs]) (breaking change) (new-platform)
 - Support for new velux api, added cover.velux ([@Julius2342] - [#18738]) ([velux docs]) ([cover.velux docs]) (breaking change) (new-feature) (new-platform)

@@ -1,24 +1,69 @@
 ---
 title: "Views"
 description: "A view is a tab inside a dashboard."
+related:
+  - docs: /dashboards/masonry/
+    title: Masonry view
+  - docs: /dashboards/panel/
+    title: Panel view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
+  - docs: /dashboards/sections/
+    title: Sections view
+  - docs: /dashboards/
+    title: About dashboards
+  - docs: /dashboards/cards/#adding-cards-to-your-dashboard
+    title: Adding cards to a view
 ---
 
-A View is a tab inside a dashboard.
-To display cards on the UI you have to define them in views.
+A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
 
-You can add a view to your user interface, by clicking the menu (three dots at the top right of the screen) and then **Edit Dashboard**. 
-Click the `+` button in the top menu bar.
-
-<p class="img">
-  <img src="/images/dashboards/views.png" alt="Views toolbar">
-  Use titles and icons to describe the content of views.
+<p class='img'>
+    <img src='/images/dashboards/dashboard_view-tab.png' alt='Screenshot of a light view tab on the Overview dashboard'>
+    A lights view tab on the Overview dashboard
 </p>
+
+Views control the layout.
+
+<p class='img'>
+    <img src='/images/dashboards/layout-types.png' alt='The three basic view layouts: Panel, sidebar, and masonry'>
+    The three basic view layouts: panel, sidebar, and masonry
+</p>
+
+There are four different view types:
+
+- **Panel**: Displays one card in full width. For example a map or an image.
+- **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
+- **Masonry (default)**: Arranges cards in columns based on their card size.
+- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
+
+It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
+
+## Adding a view to a dashboard
+
+1. To add a view to your user interface, in the top right corner, select the pencil icon.
+2. Select the `+` button in the top menu bar.
+
+    ![Views toolbar](/images/dashboards/views.png)
+
+3. Define the view settings:
+   - If you want a view title, enter the **Title**.
+   - If you want to see an icon, select the icon.
+     - Note: If an icon is defined, the title text only shows as a tooltip.
+     - We use [Material icons](https://pictogrammers.com/library/mdi/).
+   - Select the view type.
+
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+
+4. On the **Badges** tab, add badges, if any.
+    - Note that the sidebar and panel views do not support badges.
+5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
 ## Path
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
-#### Example
+### Example
 
 View configuration:
 
@@ -42,7 +87,7 @@ Picture card configuration:
 
 If you define a view icon, the icon instead of the title will be displayed, the title will then be used as a tool-tip.
 
-#### Example
+### Example
 
 ```yaml
 - title: Garden
@@ -53,7 +98,7 @@ If you define a view icon, the icon instead of the title will be displayed, the 
 
 You can specify the visibility of views as a whole or per-user. (Note: This is only for the display of the tabs. The URL path is still accessible)
 
-#### Example
+### Example
 
 ```yaml
 views:
@@ -73,7 +118,7 @@ views:
       ...
 ```
 
-### Options For Visible
+### Options for visible objects
 
 If you define `visible` as objects instead of a boolean to specify conditions for displaying the view tab:
 
@@ -88,7 +133,7 @@ user:
 
 You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
 
-#### Example
+### Example
 
 ```yaml
 - title: Map
@@ -104,7 +149,7 @@ You can change the layout of a view by using a different view type. The default 
 
 Set a separate [theme](/integrations/frontend/#themes) for the view and its cards.
 
-#### Example
+### Example
 
 ```yaml
 - title: Home
@@ -115,7 +160,7 @@ Set a separate [theme](/integrations/frontend/#themes) for the view and its card
 
 You can style the background of your views with a [theme](/integrations/frontend/#themes). You can use the CSS variable `lovelace-background`. For wallpapers you probably want to use the example below, more options can be found [here](https://developer.mozilla.org/en-US/docs/Web/CSS/background).
 
-#### Example
+### Example
 
 ```yaml
 # Example configuration.yaml entry
@@ -134,7 +179,7 @@ By default, clicking on back button will navigate to the previous view but a cus
 
 You can access subviews from other parts of your dashboard by using [cards that support the `navigate` action](/dashboards/actions).
 
-#### Example
+### Example
 
 Simple subview:
 
@@ -207,7 +252,7 @@ views:
       type: string
 {% endconfiguration %}
 
-#### Example
+### Example
 
 View configuration:
 

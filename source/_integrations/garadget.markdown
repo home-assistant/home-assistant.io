@@ -125,14 +125,25 @@ As of firmware release 1.17 the garadget device has native support for MQTT. The
 For configuration of the garadget as a MQTT cover:
 
 ```yaml
-cover:
-  - platform: mqtt
-    name: "Garage Door"
-    command_topic: "garadget/device_name/command"
-    state_topic: "garadget/device_name/status"
-    payload_open: "open"
-    payload_close: "close"
-    value_template: "{{ value_json.status }}"
+mqtt:
+  cover:
+    - name: "Garage Door"
+      command_topic: "garadget/device_name/command"
+      state_topic: "garadget/device_name/status"
+      payload_open: "open"
+      payload_close: "close"
+      payload_stop: "stop"
+      value_template: "{{ value_json.status }}"
+  sensor:
+    - name: "Garage Door Since"
+      state_topic: "garadget/device_name/status"
+      value_template: '{{ value_json.time }}'
+
+    - name: "Large Garage Door Brightness"
+      state_topic: "garadget/device_name/status"
+      unit_of_measurement: '%'
+      value_template: '{{ value_json.bright }}'
+
 ```
 
 Replace device_name with the name of the device provided when configuring garadget.

@@ -51,7 +51,7 @@ Happy Easter! 🐣 and enjoy the release!
 - [Release 2023.4.5 - April 17](#release-202345---april-17)
 - [Release 2023.4.6 - April 21](#release-202346---april-21)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -950,7 +950,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Aladdin Connect" %}
 

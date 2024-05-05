@@ -10,6 +10,8 @@ ha_domain: matrix
 ha_platforms:
   - notify
 ha_integration_type: integration
+ha_codeowners:
+  - '@PaarthShah'
 ---
 
 This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
@@ -87,7 +89,7 @@ In order to prevent infinite loops when reacting to commands, you have to use a 
 
 </div>
 
-### Event Data
+### Event data
 
 If a command is triggered, a `matrix_command` event is fired. The event contains the name of the command in the `name` field.
 
@@ -216,7 +218,7 @@ action:
 
 <div class='note'>
 
-If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/integrations/homeassistant/#allowlist_external_dirs).
 
 ```yaml
 configuration.yaml

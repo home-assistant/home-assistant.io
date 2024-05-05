@@ -2,7 +2,7 @@
 title: NINA
 description: Instructions on how to set up NINA warnings in Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: 2022.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,7 +18,47 @@ The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-ni
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. The text of the warning and the metadata are stored in the attributes of the slots.
 
+<div class='note warning'>
+
+This integration may only works with an Internet connection that supports IPv4.
+
+</div>
+
 {% include integrations/config_flow.md %}
+
+### Filter
+
+The integration includes the possibility to filter warnings in two ways via a regex.
+
+<div class='note'>
+All filters are applied to lowercase text only.
+</div>
+
+#### Headline filter
+
+This filter filters warnings based on the headline as a **blacklist**. In other words, if the regular expression matches the headline of the warning, the warning will be **ignored**.
+
+Default: Match nothing (`/(?!)/`)
+
+##### Example
+
+Ignore warnings that contain the word `corona`
+
+Regex: `.*corona.*` <br>
+Headline: `corona-verordnung des landes: warnstufe durch landesgesundheitsamt ausgerufen`
+
+#### Affected area filter
+
+This filter **whitelists** warnings based on the affected area. In other words, if the regular expression matches the area, the warning will be **displayed**.
+
+Default: Match all (`.*`)
+
+##### Example
+
+Show only warnings from the city of nagold.
+
+Regex: `.*nagold.*` <br>
+Areas: `gemeinde oberreichenbach, gemeinde neuweiler, stadt nagold`
 
 ### Attributes
 
@@ -28,6 +68,8 @@ For each county/city it creates warning slots that change to Unsafe when warning
 | `description` | *(str)* Official description of the warning. |
 | `sender` | *(str)* Sender of the warning. Can be empty. |
 | `severity` | *(str)* Severity of the warning. <br>Extreme - Extraordinary threat to life or property <br>Severe - Significant threat to life or property <br>Moderate - Possible threat to life or property <br>Minor – Minimal to no known threat to life or property <br>Unknown - Severity unknown |
+| `recommended_actions` | *(str)* The recommendations for action. |
+| `affected_areas` | *(str)* Areas where the warning applies. |
 | `id` | *(str)* Individual ID for each warning. |
 | `sent` | *(time)* Transmission time and date (UTC) of the issued warning. |
 | `start` | *(time)* Starting time and date (UTC) of the issued warning. Can be empty. |

@@ -13,9 +13,11 @@ ha_integration_type: entity
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
 
-## Device Class
+{% include integrations/building_block_integration.md %}
 
-The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
+## Device class
+
+The way these {% term sensors %} are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
 
 - **None**: Generic cover. This is the default and doesn't need to be set.
 - **awning**: Control of an awning, such as an exterior retractable window, door, or patio cover.
@@ -31,7 +33,8 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 
 Here are a few examples of this representation in the UI:
 
-<p class='img'><img src='/images/screenshots/cover_classes_icons.png' />Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.</p>
+![List of cover examples](/images/screenshots/cover_classes_icons.png)
+Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
 
 ## Services
 
@@ -42,6 +45,19 @@ Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`,
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.demo
+```
 
 ### Service `cover.set_cover_position`
 

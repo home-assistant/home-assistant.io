@@ -16,25 +16,27 @@ The Profiler integration provides a profile which is a set of statistics that id
 
 {% include integrations/config_flow.md %}
 
-### Service {% my developer_call_service service="profiler.start" %}
+### Service profiler.start
+
+{% my developer_call_service badge service="profiler.start" %}
 
 Start the profiler for the specified number of seconds.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `seconds`              | yes      | The number of seconds to run the profile. Defaults to 60.0 |
 
 When the profile is complete, Profiler will generate a Python `cprof` and a `callgrind.out` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop. 
 
 The `cprof` file can be viewed with:
 
-* [SnakeViz](https://jiffyclub.github.io/snakeviz/)
-* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+- [SnakeViz](https://jiffyclub.github.io/snakeviz/)
+- [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
 Additionally, the profiler will generate a `callgrind.out` file that can be viewed with:
 
-* [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
-* [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
+- [KCachegrind or QCachegrind](https://kcachegrind.github.io/)
+- [Gprof2dot](https://github.com/jrfonseca/gprof2dot)
 
 The gprof2dot tool generates [DOT](http://www.graphviz.org/doc/info/lang.html) files, which can be converted to images using the `dot` tool from [Graphviz](http://www.graphviz.org/) or viewed directly using [xdot](https://github.com/jrfonseca/xdot.py). The `-e` and `-n` parameters can be used to set the minimum percentage required to include a function in the output file. Observe these examples:
 
@@ -51,17 +53,15 @@ dot callgrind.dot -Tpng -o callgrind.png
 gprof2dot -f pstats profile.1234567890123456.cprof | dot -Tsvg -o profile.svg
 ```
 
-### Service {% my developer_call_service service="profiler.memory" %}
+### Service profiler.memory
 
-<div class='note warning'>
-This service is unavailable when using Python 3.11 as the underlying guppy3 library does not yet support Python 3.11.
-</div>
+{% my developer_call_service badge service="profiler.memory" %}
 
 Start the memory profiler for the specified number of seconds.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `seconds` | yes | The number of seconds to run the profile. Defaults to 60.0
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `seconds`              | yes      | The number of seconds to run the profile. Defaults to 60.0 |
 
 When the memory profile is complete, Profiler will generate a `.hpy` file in your configuration directory. The exact path to these files will appear in a persistent notification so they can be easily located and copied to your desktop.
 
@@ -73,42 +73,54 @@ from guppy import hpy
 hpy().pb()
 ```
 
-### Service {% my developer_call_service service="profiler.start_log_objects" %}
+### Service profiler.start_log_objects
+
+{% my developer_call_service badge service="profiler.start_log_objects" %}
 
 Start logging the growth of objects in memory.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
+| Service data attribute | Optional | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
+| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0 |
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
-### Service {% my developer_call_service service="profiler.stop_log_objects" %}
+See the [corresponding documentation for `growth()`](https://mg.pov.lt/objgraph/objgraph.html#objgraph.growth) regarding the format in which this data is logged.
+
+### Service profiler.stop_log_objects
+
+{% my developer_call_service badge service="profiler.stop_log_objects" %}
 
 Stop logging the growth of objects in memory.
 
-### Service {% my developer_call_service service="profiler.start_log_object_sources" %}
+### Service profiler.start_log_object_sources
+
+{% my developer_call_service badge service="profiler.start_log_object_sources" %}
 
 Start logging the growth of objects in memory and attempt to find the source of the new objects.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `scan_interval` | yes | The the frequency between logging objects. Defaults to 30.0
-| `max_objects` | yes | The number of new objects to examine for source information. Defaults to 5
+| Service data attribute | Optional | Description                                                                |
+| ---------------------- | -------- | -------------------------------------------------------------------------- |
+| `scan_interval`        | yes      | The the frequency between logging objects. Defaults to 30.0                |
+| `max_objects`          | yes      | The number of new objects to examine for source information. Defaults to 5 |
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks.
 
 This service is similar to `start_log_objects` except that it is much more CPU intensive since it will attempt to locate the source of each new object up to `max_objects` each time it logs.
 
-### Service {% my developer_call_service service="profiler.stop_log_object_sources" %}
+### Service profiler.stop_log_object_sources
+
+{% my developer_call_service badge service="profiler.stop_log_object_sources" %}
 
 Stop logging the growth of objects with sources in memory.
 
-### Service {% my developer_call_service service="profiler.dump_log_objects" %}
+### Service profiler.dump_log_objects
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `type` | no | The type of object to dump to the log.
+{% my developer_call_service badge service="profiler.dump_log_objects" %}
+
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `type`                 | no       | The type of object to dump to the log. |
 
 When `start_log_objects` highlights the growth of a collection of objects in memory, this service can help investigate. The `repr` of each object that matches `type` will be logged.
 
@@ -125,7 +137,9 @@ data:
   type: Template
 ```
 
-### Service {% my developer_call_service service="profiler.log_thread_frames" %}
+### Service profiler.log_thread_frames
+
+{% my developer_call_service badge service="profiler.log_thread_frames" %}
 
 To help discover run away threads, why the executor is overloaded, or other threading problems, the current frames for each running thread will be logged when this service is called.
 
@@ -160,7 +174,9 @@ An example is below:
     sock.connect(address)
 ```
 
-### Service {% my developer_call_service service="profiler.log_event_loop_scheduled" %}
+### Service profiler.log_event_loop_scheduled
+
+{% my developer_call_service badge service="profiler.log_event_loop_scheduled" %}
 
 Log what is scheduled in the event loop. This can be helpful in tracking down integrations that do not stop listeners when Home Assistant stops or do not have sufficient locking to avoid scheduling updates before the previous update is finished.
 
@@ -168,6 +184,30 @@ Each upcoming scheduled item is logged similar to the below example:
 
 `[homeassistant.components.profiler] Scheduled: <TimerHandle when=1528307.1818668307 async_track_point_in_utc_time.<locals>.run_action(<Job HassJobType.Coroutinefunction <bound method DataUpdateCoordinator._handle_refresh_interval of <homeassistant.components.screenlogic.ScreenlogicDataUpdateCoordinator object at 0x7f985d896d30>>>) at /usr/src/homeassistant/homeassistant/helpers/event.py:1175>`
 
-### Service {% my developer_call_service service="profiler.lru_stats" %}
+### Service profiler.lru_stats
+
+{% my developer_call_service badge service="profiler.lru_stats" %}
 
 Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.html#functools.lru_cache) and [lru-dict](https://pypi.org/project/lru-dict/) to help tune Home Assistant and locate memory leaks.
+
+### Service profiler.set_asyncio_debug
+
+{% my developer_call_service badge service="profiler.set_asyncio_debug" %}
+
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `enabled`              | yes      | Boolean to enable asyncio debug.       |
+
+When `set_asyncio_debug` is enabled, `asyncio` will run in [debug mode](https://docs.python.org/3/library/asyncio-dev.html#debug-mode). Use this service to help identify an integration that is blocking the event loop.
+
+### Service profiler.log_current_tasks
+
+{% my developer_call_service badge service="profiler.log_current_tasks" %}
+
+This service can help track down task leaks, or find tasks that are delaying startup.
+
+An example is below:
+
+```txt
+[homeassistant.components.profiler] Task: <Task pending name='Task-1133' coro=<HubConnector._listener() running at /usr/local/lib/python3.12/site-packages/aioharmony/hubconnector_websocket.py:362> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+```

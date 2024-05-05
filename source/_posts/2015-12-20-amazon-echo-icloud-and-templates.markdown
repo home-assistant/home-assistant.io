@@ -71,7 +71,7 @@ The temperature at home is {{ states('sensor.temperature') }}.
 
 More information and examples can be found in the [template documentation][Template].
 
-### Breaking changes
+### Backward-incompatible changes
 
 Templates will now be the only way to extract data from 'raw' sources like REST, CommandSensor or MQTT. This will replace any specific option that used to do this before. This means that `precision`, `factor`, `attribute` or `json_path` etc will no longer work.
 

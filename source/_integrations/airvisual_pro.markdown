@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The AirVisual Pro integration allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.
+The **AirVisual Pro** {% term integration %} allows users to retrieve data from an [AirVisual Node/Pro unit](https://www.iqair.com/air-quality-monitors/airvisual-pro). Communication with the device occurs over the local network.
 
 ## Determining the Password
 
@@ -23,9 +23,9 @@ You will need the device's Samba password, which [can be found on the unit](http
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
-AirVisual Pro devices create a variety of sensors:
+AirVisual Pro {% term devices %} create a variety of {% term sensors %}:
 
 - Air Quality Index (AQI)
 - Battery Level

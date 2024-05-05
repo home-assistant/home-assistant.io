@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `heatmiser` climate platform let you control [Heatmiser DT/DT-E/PRT/PRT-E](https://www.heatmisershop.co.uk/room-thermostats/) thermostats from Heatmiser. The module itself is currently setup to work over a RS232 -> RS485 converter, therefore it connects over IP.
+The `heatmiser` climate platform lets you control [Heatmiser DT/DT-E/PRT/PRT-E](https://www.heatmisershop.co.uk/room-thermostats/) thermostats from Heatmiser. The module itself is currently set up to work over a RS232 -> RS485 converter, therefore it connects over IP.
 
 Further work would be required to get this setup to connect over Wi-Fi, but the HeatmiserV3 Python module being used is a full implementation of the V3 protocol.
 

@@ -2,7 +2,7 @@
 title: Vermont Castings
 description: Connect and control your Vermont Castings devices using the IntelliFire integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Fan
   - Light

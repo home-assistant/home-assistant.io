@@ -12,6 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
+  - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -46,44 +47,23 @@ At runtime you will be able to use API for each respective user by their Habitic
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
 
-{% configuration %}
-api_user:
-  description: "Habitica's API user ID. This value can be grabbed from [account setting](https://habitica.com/user/settings/api)"
-  required: true
-  type: string
-api_key:
-  description: "Habitica's API password (token). This value can be grabbed from [account setting](https://habitica.com/user/settings/api) by pressing 'Show API token'"
-  required: true
-  type: string
-name:
-  description: "Override for Habitica's username. Will be used for service calls"
-  required: false
-  type: string
-  default: Deduced at startup
-url:
-  description: "URL to your Habitica instance, if you are hosting your own"
-  required: false
-  type: string
-  default: https://habitica.com
-{% endconfiguration %}
-
 ### API Service Parameters
 
 The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
 
-| Service data attribute | Required | Type     |    Description  |
-|----------------------|--------|--------|----------------|
-|  `name`                |  yes     | string   |  Habitica's username as per `configuration.yaml` entry. |
-| `path` | yes | [string] | Items from API URL in form of an array with method attached at the end. See the example below. |
-| `args` | no | map | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
+| Service data attribute | Required | Type     | Description                                                                                                       |
+| ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
+| `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
+| `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
 
 A successful call to this service will fire an event `habitica_api_call_success`.
 
-| Event data attribute |  Type     |    Description  |
-|----------------------|--------|----------------|
-|  `name`                |   string   |  Copied from service data attribute. |
-| `path` | [string] | Copied from service data attribute. |
-| `data` | map | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
+| Event data attribute | Type     | Description                                                                                                                                                           |
+| -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `name`               | string   | Copied from service data attribute.                                                                                                                                   |
+| `path`               | [string] | Copied from service data attribute.                                                                                                                                   |
+| `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
 
 #### Let's consider some examples on how to call the service.
 
@@ -92,12 +72,12 @@ Let's create a new task (a todo) for this user via Home Assistant. There is an [
 To create a new task one should hit `https://habitica.com/api/v3/tasks/user` endpoint with `POST` request with a JSON object with task properties.
 So let's call the API on `habitica.api_call`.
 
-* The `name` key becomes `xxxNotAValidNickxxx`.
-* The `path` key is trickier.
-  * Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
-  * Split the remaining on slashes (/) and **append the lowercase method** at the end.
-  * You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
-* The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
+- The `name` key becomes `xxxNotAValidNickxxx`.
+- The `path` key is trickier.
+  - Remove `https://habitica.com/api/v3/` at the beginning of the endpoint URL.
+  - Split the remaining on slashes (/) and **append the lowercase method** at the end.
+  - You should get `["tasks", "user", "post"]`. To get a better idea of the API you are recommended to try all of the API calls in IPython console [using this package](https://github.com/ASMfreaK/habitipy/blob/master/README.md).
+- The `args` key is more or less described in the [API documentation](https://habitica.com/apidoc/).
 
 Combining all together:
 call `habitica.api_call` with data

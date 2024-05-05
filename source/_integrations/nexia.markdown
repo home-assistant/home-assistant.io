@@ -2,7 +2,7 @@
 title: Nexia/American Standard/Trane
 description: Instructions on how to integrate Trane and American Standard thermostats into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Scene
   - Sensor
@@ -18,6 +18,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - diagnostics
+  - number
   - scene
   - sensor
   - switch
@@ -28,7 +29,7 @@ The `nexia` integration allows you to integrate your [Nexia](https://mynexia.com
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Scene](#scene)
@@ -36,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-### Binary Sensor
+### Binary sensor
 
 The following binary sensors are added for each thermostat:
 
@@ -70,6 +71,10 @@ The following American Standard thermostats have been reported to work: `AZONE10
 The following thermostats are not supported: `XL624`, `XL950`, `AZONE950`, `AZEMT500`, `AZEMT400B`
 
 Other thermostats may work, but they have not been tested.
+
+### Number
+
+The number platform lets you adjust the fan speed on systems with variable-speed fan support.
 
 ### Scene
 

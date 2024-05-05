@@ -2,7 +2,7 @@
 title: Global Caché GC-100
 description: Instructions on how to integrate gc100 with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Switch
 ha_release: 0.57
@@ -20,7 +20,7 @@ hardware device which has an array of relays, RS232 serial ports, and flexible p
 There is currently support for the following device types within Home Assistant:
 
 - [Configuration](#configuration)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Switch](#switch)
 
 Currently, only relays and ports configured to be digital inputs are supported in Home Assistant. For IR support, please use the [iTach remote platform](/integrations/itach), but note that it will likely not function concurrently on the same GC100 due to limitations in the TCP socket server implementation used by Global Caché.
@@ -47,7 +47,7 @@ port:
   type: integer
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your `configuration.yaml` file:
 

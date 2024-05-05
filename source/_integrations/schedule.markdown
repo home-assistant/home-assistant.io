@@ -1,6 +1,6 @@
 ---
 title: Schedule
-description: Instructions on how use make weekly schedule in Home Assistant.
+description: Instructions on how to make a weekly schedule in Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -101,6 +101,23 @@ automations and templates.
 | Attribute | Description |
 | ----- | ----- |
 | `next_event` | A datetime object containing the next time the schedule is going to change state. |
+
+### Automation example
+
+A schedule creates an on/off (schedule) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
+
+```yaml
+trigger:
+    - platform: state
+      entity_id:
+        - schedule.thermostat_schedule
+      to: "on"
+  action:
+    - service: climate.turn_on
+      target:
+        entity_id: climate.thermostat
+```
+
 ### Services
 
 Available service: `schedule.reload`.

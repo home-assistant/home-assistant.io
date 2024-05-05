@@ -2,7 +2,7 @@
 title: Amcrest
 description: Instructions on how to integrate Amcrest (or Dahua) IP cameras within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Hub
   - Sensor
@@ -21,9 +21,9 @@ ha_integration_type: integration
 
 The `amcrest` camera platform allows you to integrate your [Amcrest](https://amcrest.com/) or Dahua IP camera or doorbell in Home Assistant.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Camera
 - Sensor
 
@@ -167,13 +167,13 @@ Newer Amcrest firmware may not work, then `rtsp` is recommended instead.
 make sure to follow the steps mentioned at [FFmpeg](/integrations/ffmpeg/)
 documentation to install the `ffmpeg`.
 
-### Streaming vs Polled Binary Sensors
+### Streaming vs polled binary sensors
 
 Some binary sensors provide two choices for method of operation: streaming or polled. Streaming is more responsive and causes less network traffic because the camera will tell Home Assistant when the sensor's state has changed. Polled mode queries the camera periodically (every five seconds) to check the state of the sensor. Therefore streaming is the better option. However, some camera models and versions of camera firmware do not seem to implement the streaming method properly. Therefore the polled mode is also available. It is recommended to use the streaming mode (e.g., `motion_detected`) first, and if that doesn't work (e.g., results in constant errors), then try the polled mode instead (e.g., `motion_detected_polled`.)
 
 ## Events
 
-Once loaded, the Amcrest integration will generate (Home Assistant) events when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
+Once loaded, the Amcrest integration will generate (Home Assistant) {% term events %} when it receives event notifications in the stream sent by the camera. This is only possible if the camera model and firmware implement the streaming method (see [above](#streaming-vs-polled-binary-sensors)). The event type is `amcrest` and the data is as follows:
 
 ```json
 {
@@ -190,9 +190,9 @@ The event code is sent by Amcrest or Dahua devices in the payload as a "Code" me
 
 ## Services
 
-Once loaded, the `amcrest` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
+Once loaded, the `amcrest` integration will expose {% term services %} that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras, or `all` can be used to specify all configured Amcrest cameras.
 
-Available services:
+Available {% term services %}:
 `enable_audio`, `disable_audio`,
 `enable_motion_recording`, `disable_motion_recording`,
 `enable_recording`, `disable_recording`,
@@ -200,23 +200,23 @@ Available services:
 `start_tour`, `stop_tour`, and
 `ptz_control`
 
-#### Service `enable_audio`/`disable_audio`
+### Service `enable_audio`/`disable_audio`
 
-These services enable or disable the camera's audio stream.
-
-Service data attribute | Optional | Description
--|-|-
-`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
-
-#### Service `enable_motion_recording`/`disable_motion_recording`
-
-These services enable or disable the camera to record a clip to its configured storage location when motion is detected.
+These {% term services %} enable or disable the camera's audio stream.
 
 Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `enable_recording`/`disable_recording`
+### Service `enable_motion_recording`/`disable_motion_recording`
+
+These {% term services %} enable or disable the camera to record a clip to its configured storage location when motion is detected.
+
+Service data attribute | Optional | Description
+-|-|-
+`entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
+
+### Service `enable_recording`/`disable_recording`
 
 These services enable or disable the camera to continuously record to its configured storage location.
 
@@ -224,16 +224,16 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `goto_preset`
+### Service `goto_preset`
 
-This service will cause the camera to move to one of the PTZ locations configured within the camera.
+This service will cause the camera to move to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
 
 Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `preset` | no | Preset number, starting from 1.
 
-#### Service `set_color_bw`
+### Service `set_color_bw`
 
 This service will set the color mode of the camera.
 
@@ -242,17 +242,17 @@ Service data attribute | Optional | Description
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 `color_bw` | no | One of `auto`, `bw` or `color`.
 
-#### Service `start_tour`/`stop_tour`
+### Service `start_tour`/`stop_tour`
 
-These services start or stop the camera's PTZ tour function.
+These services start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
 
 Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.
 
-#### Service `ptz_control`
+### Service `ptz_control`
 
-If your Amcrest or Dahua camera supports PTZ, you will be able to pan, tilt or zoom your camera.  
+If your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.  
 
 Service data attribute | Optional | Description
 -|-|-
@@ -260,12 +260,12 @@ Service data attribute | Optional | Description
  `movement` | no | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down`
  `travel_time` | yes |Travel time in fractional seconds. Allowed values: `0` to `1`. Default: `0.2`.
 
-#### Notes
+## Notes
 
 - PTZ zoom capability does not control VariFocal lens adjustments.
 - There can be several seconds of lag before the video (snapshot or live) reflects the camera movement.
 
-### Example card with controls
+## Example card with controls
 
 <p class='img'>
   <img src='/images/integrations/amcrest/amcrest_ptz.jpg' alt='Screenshot using a picture-elements with PTZ controls.'>
@@ -396,7 +396,7 @@ elements:
         movement: zoom_out
 ```
 
-## Advanced Configuration
+## Advanced configuration
 
 You can also use this more advanced configuration example:
 
@@ -424,9 +424,9 @@ amcrest:
       - ptz_preset
 ```
 
-## Example Automation to Detect Button Presses on AD110 and AD410 Doorbells
+## Example automation to detect button presses on AD110 and AD410 doorbells
 
-Using this trigger in an automation will allow you to detect the press of the doorbell call button and create automations based upon it. 
+Using this {% term trigger %} in an {% term automation %} will allow you to detect the press of the doorbell call button and create automations based upon it.
 
 ```yaml
 # Example automations.yaml entry

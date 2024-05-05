@@ -51,7 +51,7 @@ So, keep an eye on our social media for the announcement.
 - [Compact header](#compact-header)
 - [Script and automation YAML editor](#script-and-automation-yaml-editor)
 - [Xbox integration](#xbox-integration)
-- [Counters & Timers available as helpers in the UI](#counters--timers-available-as-helpers-in-the-ui)
+- [Counters \& Timers available as helpers in the UI](#counters--timers-available-as-helpers-in-the-ui)
 - [Native types support for templates (Beta)](#native-types-support-for-templates-beta)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New Integrations](#new-integrations)
@@ -64,7 +64,7 @@ So, keep an eye on our social media for the announcement.
 - [Release 0.117.5 - November 5](#release-01175---november-5)
 - [Release 0.117.6 - November 11](#release-01176---november-11)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -231,7 +231,7 @@ more advanced future additions and can significantly reduce the complexity of
 existing templates in your set up.
 
 It should be mostly compatible with your existing templates, however, if you
-enable this feature, please be sure to check the breaking changes section.
+enable this feature, please be sure to check the backward-incompatible changes section.
 
 We'd love to hear you experience with using this feature! And, if you run into,
 problems, [please let us know][problem].
@@ -511,7 +511,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -738,8 +738,7 @@ Options are now set through the UI (global options/add device/remove device/chan
 
 For newly added or detected devices, `device_class` cannot be set.
 
-Instead, it should be set by customizing entities:
-<https://www.home-assistant.io/docs/configuration/customizing-devices/>
+Instead, it should be set by [customizing entities](/docs/configuration/customizing-devices/).
 
 The debug key is removed as option for the integration. Instead, log level
 for the library can be set by configuring the logger (see below).
@@ -824,7 +823,7 @@ homeassistant:
   legacy_templates: false
 ```
 
-**This feature will be opt-in for this release, the breaking changes below
+**This feature will be opt-in for this release, the backward-incompatible changes below
 only apply if you explicitly enable this new feature.**
 
 A template would always result in a string (text). This made it hard

@@ -72,7 +72,7 @@ longitude:
 {% endconfiguration %}
 
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -88,7 +88,7 @@ the standard ones:
 | updated_date     | Date and time when this alert was last updated. |
 | status           | Status of the alert, for example, "Patrolled", "Going", "Contained" |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

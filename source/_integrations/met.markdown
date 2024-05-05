@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@danielhiversen'
-  - '@thimic'
 ha_domain: met
 ha_platforms:
   - weather

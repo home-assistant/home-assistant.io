@@ -1,6 +1,6 @@
 ---
 title: AccuWeather
-description: Instructions on how to integrate Accuweather within Home Assistant.
+description: Instructions on how to integrate AccuWeather within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.114
@@ -17,7 +17,7 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-The AccuWeather integration uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
+The **AccuWeather** {% term integration %} uses the [AccuWeather](https://accuweather.com/) web service as a source for weather data for your location.
 
 ## Setup
 

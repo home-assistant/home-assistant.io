@@ -24,7 +24,7 @@ LiteJet is a centralized lighting system that predates most home automation tech
 
 ## Prerequisites
 
-Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, no parity, and to transmit a 'CR' after each response. These settings can be configured using the [LiteJet programming software](https://www.centralite.com/helpdesk/knowledgebase.php?article=735). Connect the LiteJet's RS232-2 port to your computer.
+Your LiteJet MCP should be configured for 19.2 K baud, 8 data bits, 1 stop bit, no parity, and to transmit a 'CR' after each response. These settings can be configured using the LiteJet programming software from the [Dragon Technologies](https://www.dragontechinc.com/) Programming page. Connect the LiteJet's RS232-2 port to your computer.
 
 {% include integrations/config_flow.md %}
 

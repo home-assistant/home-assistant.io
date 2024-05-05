@@ -9,7 +9,6 @@ ha_release: 0.7.6
 ha_domain: radiotherm
 ha_config_flow: true
 ha_codeowners:
-  - '@bdraco'
   - '@vinnyfuria'
 ha_platforms:
   - climate

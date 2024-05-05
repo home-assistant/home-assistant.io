@@ -8,7 +8,7 @@ description: "More information on why the OS marks the installation as unsupport
 There are only two supported operating systems to run the Supervisor on:
 
 - Home Assistant OS
-- Debian 11 (Bullseye)
+- Debian 12 (Bookworm)
 
 These operating systems are actively tested and maintained, for use with the Supervisor.
 
