@@ -98,7 +98,7 @@ homekit:
       type: string
       default: '`Home Assistant Bridge`'
     ip_address:
-      description: The local network IP address. Only necessary if the default from Home Assistant does not work.
+      description: The HAP binding address. The bridge will advertise itself through the interface with this IP address, so it must be local to the machine (For Docker users, you cannot put your host IP here, because it's different from the container address and no advertisement will be generated). Only necessary if the default from Home Assistant does not work.
       required: false
       type: string
     mode:
