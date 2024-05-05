@@ -62,13 +62,8 @@ Controller versions 5.1.0 and later are supported.
 
 ### Device Trackers
 
-The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller.
-This feature is disabled by default. Use the Options panel to enable Device Trackers. You can select which
-clients to track from the list of known clients.
+The integration can track Wi-Fi devices connected to access points managed by the TP-Link Omada controller. All known Wi-Fi clients will be initially created in a disabled state. You then need to enable the entities that you want to track.
 
-Two types of trackers are supported:
+If you want to increase the polling frequency of client updates, follow [these instructions](https://www.home-assistant.io/common-tasks/general/#defining-a-custom-polling-interval). You only need to request a refresh from one of the tracked devices, all of the tracked devices will be refreshed at the same time.
 
-- Scanners - Track presence based on network connectivity.
-- Trackers - Track an approximate location based on the name of the nearest Wi-Fi access point.
-
-Note that the TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network.
+Note: The TP-Link Omada controller takes a few minutes to detect when a client disconnects from the Wi-Fi network, even with more regular polling updates.
