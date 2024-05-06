@@ -7,6 +7,8 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.67
 ha_quality_scale: internal
+ha_platforms:
+  - event
 ha_domain: folder_watcher
 ha_integration_type: integration
 ---
@@ -27,6 +29,11 @@ Configured folders must be added to [allowlist_external_dirs](/integrations/home
 
 Pattern matching using [fnmatch](https://docs.python.org/3.6/library/fnmatch.html) can be used to limit filesystem monitoring to only files which match the configured patterns.
 As example to monitor specific file, as example YAML and text-files add `*.yaml` and `*.txt`.
+
+## Entities
+
+This integration will besides the events also create `event` entities for the respective events that can happen.
+These entities can be used for automations instead of using the respective event.
 
 ## Automations
 
