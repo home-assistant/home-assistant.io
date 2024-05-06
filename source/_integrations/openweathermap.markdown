@@ -25,7 +25,16 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Weather
 
-You need an API key, which is free, but requires a [registration](https://home.openweathermap.org/users/sign_up).
+You need an API key, it requires a [subscription](https://openweathermap.org/api/one-call-3), 1000 calls/day or 60 calls/second are in free tier.
+
+<div class='note warning'>
+
+OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0. API version 3.0 requires a subscription.
+To use API V3.0 reconfigure your integration and select mode `v3.0`.
+
+[Official statement](https://openweathermap.org/one-call-transfer)
+
+</div>
 
 <div class='note'>
 
@@ -37,19 +46,16 @@ not be activated yet. Recent policy changes limit the API access for new registe
 
 {% include integrations/config_flow.md %}
 
-| Parameter            | Value                                                                                                                                                                                                                                      |
-| :------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API Key              | API Key from the website                                                                                                                                                                                                                   |
-| Name                 | Name of the integration                                                                                                                                                                                                                    |
-| Latitude             | Latitude for weather forecast and sensor                                                                                                                                                                                                   |
-| Longitude            | Longitude for weather forecast and sensor                                                                                                                                                                                                  |
-| Mode                 | Forecast mode, `hourly` for a three-hour forecast, `daily` for daily forecast using a paid API tier, `onecall_hourly` for an hourly forecast up to 2 days, or `onecall_daily` for a daily forecast up to 7 days (ideal for the free tier, default). |
-| Language             | Language for receiving data (only for `sensor`)                                                                                                                                                                                            |
+| Parameter | Value                                                                                 |
+| :-------- | :------------------------------------------------------------------------------------ |
+| API Key   | API Key from the website                                                              |
+| Name      | Name of the integration                                                               |
+| Latitude  | Latitude for weather forecast and sensor                                              |
+| Longitude | Longitude for weather forecast and sensor                                             |
+| Mode      | API version, `v2.5` old API which will be deprecated in June, `v3.0` new API version. |
+| Language  | Language for receiving data (only for `sensor`)                                       |
 
-The integration creates a weather entity as well as sensors for supported weather conditions.
-Selecting a `onecall` forecast mode with the free tier leverages the One Call API, resulting in updates every 5 minutes and is recommended for both hourly and daily forecast.
-
-A `sensor` entity will be created for each supported condition. Their ids will follow the format: 
+A `sensor` entity will be created for each supported condition. Their ids will follow the format:
 
 `sensor.<integration name>_<monitored condition>`
 
@@ -66,7 +72,7 @@ The Weather entity provides data only in English. Home Assistant automatically t
 ### Current Weather Conditions
 
 | Condition                | Description                                                                                                                       |
-| :----------------------- | :------------------------------------------------------------------------------------------------------------------------------   |
+| :----------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
 | `cloud_coverage`         | Cloudiness, %.                                                                                                                    |
 | `condition`              | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition).   |
 | `dew_point`              | Atmospheric temperature below which water droplets begin to condense and dew can form, ºC.                                        |
@@ -86,15 +92,9 @@ The Weather entity provides data only in English. Home Assistant automatically t
 
 ### Forecast Weather Conditions
 
-<div class='note'>
-
-The time period these sensors use depends on the forecast mode selected when configuring the integration: `hourly` or `onecall_hourly` will show conditions for the current hour of the day, while `daily` or `onecall_daily` will show conditions for the current day.
-
-</div>
-
 | Condition                            | Description                                                                                                                                                    |
-| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | 
-| `forecast_cloud_coverage`         | Cloudiness, %.                                                                                                                    |
+| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `forecast_cloud_coverage`            | Cloudiness, %.                                                                                                                                                 |
 | `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
 | `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |
 | `forecast_precipitation_probability` | Probability of precipitation for the forecast's time period.                                                                                                   |
