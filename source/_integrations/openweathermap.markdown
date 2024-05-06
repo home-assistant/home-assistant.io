@@ -29,8 +29,10 @@ You need an API key, it requires a [subscription](https://openweathermap.org/api
 
 <div class='note warning'>
 
-OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0. API version 3.0 requires a subscription.
-To use API V3.0 reconfigure your integration and select mode `v3.0`.
+OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0.
+You need to go to OpenWeatherMap website, activate One Call subscription (don't worry, it cost nothing if you don't go over free limit).
+Then configure your OWM integration and select mode `v3.0`.
+Keep in mind, subscription activation takes about 2 hours.
 
 [Official statement](https://openweathermap.org/one-call-transfer)
 
