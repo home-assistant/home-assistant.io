@@ -51,7 +51,7 @@ Now use the Discord Authorization page with the **Application ID** of your [appl
 
 Wait for the confirmation which should say "Authorized".
 
-Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. In The Discord application go to **Settings** > **Advanced** > **Enable Developer Mode**.
+Once the bot has been added to your server, get the channel ID of the channel you want the bot to operate in. Open Discord and go to **User Settings** > **Advanced** > **Enable Developer Mode**. User settings can be found next to your username in Discord.
 
 ![Screenshot of Discord bot create prompt](/images/screenshots/discord-api.png)
 
@@ -69,26 +69,26 @@ When adding the Discord integration you will be asked for an API Key. Enter the 
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `images`               |      yes | The file(s) to attach to message.
-| `urls`                 |      yes | The file(s) to download from a remote URL and attach to message.
-| `verify_ssl`           |      yes | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.
-| `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
+| Attribute    | Optional | Description                                                                                                                                  |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `images`     | yes      | The file(s) to attach to message.                                                                                                            |
+| `urls`       | yes      | The file(s) to download from a remote URL and attach to message.                                                                             |
+| `verify_ssl` | yes      | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.              |
+| `embed`      | yes      | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required. |
 
 To include messages with embedding, use these attributes underneath the `embed` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `title`                    |      yes  | Title of the embed.
-| `description`               |      yes | Description of the embed.
-| `color`                    |      yes  | Color code of the embed.  This value is an *int*.
-| `url`               |      yes | URL of the embed.
-| `author`                    |      yes  | Sets the footer for the embed content.
-| `footer`               |      yes | Sets the footer for the embed content.
-| `thumbnail`               |      yes | Sets the thumbnail for the embed content.
-| `image`               |      yes | Sets the image for the embed content.
-| `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
+| Attribute     | Optional | Description                                                                                          |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `title`       | yes      | Title of the embed.                                                                                  |
+| `description` | yes      | Description of the embed.                                                                            |
+| `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
+| `url`         | yes      | URL of the embed.                                                                                    |
+| `author`      | yes      | Sets the footer for the embed content.                                                               |
+| `footer`      | yes      | Sets the footer for the embed content.                                                               |
+| `thumbnail`   | yes      | Sets the thumbnail for the embed content.                                                            |
+| `image`       | yes      | Sets the image for the embed content.                                                                |
+| `fields`      | yes      | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default. |
 
 ### Example service call
 
@@ -117,7 +117,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "https://example.com/video.mp4"
 ```
 
-Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
+Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
 
 ### Example embed service call
 

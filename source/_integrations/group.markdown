@@ -253,7 +253,7 @@ name:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this group. If two groups have the same unique ID, Home Assistant will raise an error. Giving an group a unique ID allow the group name, icon and area to be customized via the UI.
+  description: An ID that uniquely identifies this group. If two groups have the same unique ID, Home Assistant will raise an error. Giving the group a unique ID allows the group name, icon and area to be customized via the UI.
   required: false
   type: string
 all:
@@ -378,22 +378,33 @@ icon:
 
 Old style groups can calculate group state with entities from the following domains:
 
+- `alert`
 - `alarm_control_panel`
+- `automation`
 - `binary_sensor`
+- `calendar`
 - `climate`
 - `cover`
 - `device_tracker`
 - `fan`
 - `humidifier`
+- `input_boolean`
 - `light`
 - `lock`
 - `media_player`
 - `person`
 - `plant`
 - `remote`
+- `script`
 - `switch`
 - `vacuum`
 - `water_heater`
+
+<div class='note info'>
+
+Platform domains other than these are not supported to be used with old style groups, nor will other domains be supported in the future.
+
+</div>
 
 When member entities all have a single `on` and `off` state, the group state will be calculated as follows:
 

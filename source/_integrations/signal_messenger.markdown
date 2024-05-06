@@ -70,7 +70,7 @@ recipients:
 
 You can use Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
 
-To accomplish this, edit the configuration of Home Assistant, adding a [RESTful resource](/integrations/rest/) as follows:
+To accomplish this, make sure the addon's `mode` parameter is set to `native` or `normal`, and edit the configuration of Home Assistant, adding a [RESTful resource](/integrations/rest/) as follows:
 
 ```yaml
 - resource: "http://127.0.0.1:8080/v1/receive/<number>"
@@ -115,6 +115,9 @@ action:
 
 ### Text message with an attachment
 
+This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
+
+
 ```yaml
 ...
 action:
@@ -123,12 +126,12 @@ action:
     message: "Alarm in the living room!"
     data:
       attachments:
-        - "/tmp/surveillance_camera.jpg"
+        - "/config/www/surveillance_camera.jpg"
 ```
 
 ### Text message with an attachment from a URL
 
-To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list.
+To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
 Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
 

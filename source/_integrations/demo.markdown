@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - device_tracker
   - event
   - fan
@@ -65,7 +66,6 @@ Available demo platforms:
 - [Image processing](/integrations/image_processing/) (`image_processing`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
-- [Mailbox](/integrations/mailbox/) (`mailbox`)
 - [Media player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)

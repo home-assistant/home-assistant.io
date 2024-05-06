@@ -39,7 +39,7 @@ Note that some entities are disabled by default. If you are missing a sensor or 
 
 {% include integrations/config_flow.md %}
 
-## Configuaration Options
+## Configuration Options
 
 The integration has two configuration options: 
 

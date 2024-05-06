@@ -8,7 +8,6 @@ ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Polling
 ha_domain: refoss
-featured: true
 ha_config_flow: true
 ha_platforms:
   - switch
@@ -27,6 +26,10 @@ Integrate Refoss devices into Home Assistant.
 - The integration will occupy port: 9989.    
 {% include integrations/config_flow.md %}
 
+### Supported device model
+
+- Refoss Smart Wi-Fi Switch, R10
+  
 ### Discover device
 
   - After integrating Refoss, it will start socket broadcast and Home Assistant will automatically discover Refoss devices under the current LAN.

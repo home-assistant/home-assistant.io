@@ -9,10 +9,11 @@ ha_config_flow: true
 ha_mqtt: true
 ha_release: 0.103
 ha_codeowners:
-  - '@depl0y'
+  - '@sorted-bits'
   - '@glodenox'
 ha_domain: dsmr_reader
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

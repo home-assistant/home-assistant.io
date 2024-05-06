@@ -76,6 +76,7 @@ Fetches the hourly prices for gas.
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `incl_vat` | no | Defines whether the prices include or exclude VAT. Defaults to True | False
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
@@ -105,6 +106,7 @@ Fetches the hourly prices for energy that you use (buy).
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `incl_vat` | no | Defines whether the prices include or exclude VAT.  Defaults to True | False
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
@@ -134,6 +136,7 @@ Fetches the hourly prices for energy that you return (sell).
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
+| `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 | `end` | yes | End time to get prices from. Defaults to today 00:00:00 | 2023-01-01 00:00:00
 
@@ -171,6 +174,7 @@ template:
       - service: easyenergy.get_energy_usage_prices
         response_variable: response
         data:
+          config_entry: "013713c172577bada2874a32dbe44feb"
           incl_vat: true
     sensor:
       - name: Energy prices

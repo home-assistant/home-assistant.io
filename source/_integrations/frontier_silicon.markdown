@@ -15,7 +15,7 @@ ha_ssdp: true
 ha_config_flow: true
 ---
 
-This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the UNDOK app.
+This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
 
 ## Supported models
 
@@ -28,11 +28,12 @@ Supported devices include, but are not limited to:
 - Silvercrest: [SIRD 14 C2 (archived website)]
 - Teufel: [Radio 3sixty (2019)]
 - Roberts: [Roberts Stream 94i]
-- Some models from: Auna, Technisat, Revo, Pinell, Como Audio
+- TechniSat: [DIGITRADIO 10 IR], and some other models
+- Some models from: Auna, Revo, Pinell, Como Audio
 
 This integration was developed and tested with a [Roberts Stream 94i].
 
-If your device is supported by the UNDOK app, then it is also supported by this integration.
+If your device is supported by the OKTIV or UNDOK apps, then it is also supported by this integration.
 
 ## Prerequisites
 
@@ -90,3 +91,4 @@ This renders the usage of [UNDOK] almost impossible for these older devices, as 
 [Radio 3sixty (2019)]: https://teufel.de/radio-3sixty-2019-105437000
 [SIRD 14 C2 (archived website)]: https://web.archive.org/web/20191011141311/https://www.silvercrest-multiroom.de/produkte/stereo-internet-radio/
 [Roberts Stream 94i]: https://www.robertsradio.com/en-gb/stream-94i
+[DIGITRADIO 10 IR]: https://www.technisat.com/en_XX/DIGITRADIO-10-IR/352-10774-22920/

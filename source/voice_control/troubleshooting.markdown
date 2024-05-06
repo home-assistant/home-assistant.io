@@ -26,7 +26,6 @@ If you want to test if a sentence works in a specific language without actually 
    - Which of the targeted entities were matched.
 ![Open the Assist developer tool sentence parser](/images/assist/assistant-debug-06.png)
 
-
 ## Test a sentence per assistant without voice: while executing the commands
 
 If you want to test if a sentence works with a specific assistant while actively executing the commands, use the sentence parser in the **Debug** view.
@@ -88,3 +87,53 @@ The example below shows common pitfalls when enquiring about the weather. While 
      ![Create alias for entity name](/images/assist/assist_create_alias.png)
 5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
 
+## Tweaking the Assist audio configuration for your device
+
+You think there is an issue with background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
+
+### To tweak the Assist audio configuration for your device
+
+1. Make sure you have the ESPHome add-on installed:
+   - Go to {% my supervisor_store title="**Settings** > **Add-ons** > **Add-on store**" %}.
+   - If you do not have the **ESPHome** add-on installed, install it.
+2. Start the ESPHome add-on, and select **Open Web UI**.
+3. Adopt your device to the ESPHome add-on:
+   - Once the ESPHome add-on is started, you see your device as **Discovered**.
+   - Select **Adopt**.
+   - When prompted, enter the Network credentials of your local 2.4 GHz Wi-Fi network and select **Adopt**.
+
+4. If you see a notification that there is an update available for this device, select **Update**.
+5. Make sure you have access to the configuration file.
+   - If you are unsure what method to use, [install the File editor](/common-tasks/os/#installing-and-using-the-file-editor-add-on) add-on.
+   - In the File Editor configuration, make sure the **Enforce basepath** option is disabled.
+6. Edit the general configuration to enable debug mode:
+   - Access the `config` folder and open the `configuration.yaml` file.
+   - Enter the following text:
+
+      ```yaml
+      assist_pipeline:
+         debug_recording_dir: /share/assist_pipeline
+      ```
+
+7. Save the changes and restart Home Assistant.
+8. Navigate to `/share/assist_pipeline`.
+   - For each voice command you gave, you will find a subfolder with the audio file in `.wav` format.
+9. Listen to the audio file of interest.
+10. Open the configuration file:
+    - In the ESPHome add-on, on your device, select **Edit**.
+    - This lets you edit the configuration file of that device.
+11. To add a section to adjust noise suppression and volume, add the following lines:
+
+      ```yaml
+      voice_assistant:
+         noise_suppression_level: 3
+         auto_gain: 31dBFS
+         volume_multiplier: 10.0
+      ```
+
+12. Adjust the settings:
+    - If the audio is too noisy, increase the `noise_suppression_level` (max.&nbsp;4).
+    - If the audio is too quiet, increase either the `auto_gain` (max.&nbsp;31) or the `volume_multiplier` (no maximum, but a too high value will cause distortion eventually).
+13. Note: Collecting debug recordings impacts your disk space.
+    - Once you have found a configuration that works, delete the folder with the audio files.
+    - In the `configuration.yaml` file, delete the `assist_pipeline entry` and restart Home Assistant.

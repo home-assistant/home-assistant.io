@@ -12,11 +12,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel). This requires the [Pro plan](https://ifttt.com/plans) or higher.
 
 ## Prerequisites
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic), or use your Nabu Casa account's webhook URL from the IFTTT integration.
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls), or use your Nabu Casa account's webhook URL from the IFTTT integration.
 
 {% include integrations/config_flow.md %}
 
@@ -111,11 +111,11 @@ When your screen looks like this, click the 'call service' button.
 By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
 want to send the trigger to a specific key use the `target` field:
 
-Field | Value
------ | -----
-domain | `ifttt`
-service | `trigger`
-Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
+| Field        | Value                                                                         |
+| ------------ | ----------------------------------------------------------------------------- |
+| domain       | `ifttt`                                                                       |
+| service      | `trigger`                                                                     |
+| Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}` |
 
 The `target` field can contain a single key name or a list of key names.
 

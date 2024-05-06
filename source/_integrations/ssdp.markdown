@@ -33,6 +33,7 @@ The following integrations are automatically discovered by the SSDP integration:
  - [Denon AVR](/integrations/denonavr/)
  - [Denon HEOS](/integrations/heos/)
  - [DirecTV](/integrations/directv/)
+ - [Frontier Silicon](/integrations/frontier_silicon/)
  - [Huawei LTE](/integrations/huawei_lte/)
  - [Hyperion](/integrations/hyperion/)
  - [Keenetic NDMS2 Router](/integrations/keenetic_ndms2/)

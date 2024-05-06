@@ -32,7 +32,10 @@ regenerate: false
 
     <div class="filter-button-group">
       <a href='#all' class="btn">All ({{tot}})</a>
-      <a href='#featured' class="btn featured">Featured</a>
+      <div class="featured">
+        <a href='#featured' class="btn">Featured</a>
+        <a href='#works-with-home-assistant' class="btn">Partner brands</a>
+      </div>
       <div class="version_select">Added in: <select name="versions">
           <option value="#"></option>
           {%- for group in components_by_version -%}
@@ -121,7 +124,7 @@ var allComponents = [
         {% capture category %}"{{ ha_category | slugify | downcase }}"{% endcapture %}
         {% assign categories = categories | push: category %}
       {%- endfor -%}
-      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}"},
+      {url:"{{ component.url }}", title:"{{component.title}}", cat: [{{categories|join: ","}}], featured: {% if component.featured %}true{% else %}false{% endif %}, v: "{{major_version}}.{{minor_version}}", logo: "{{component.logo}}", domain: "{{component.ha_domain}}", ha_brand: "{{component.ha_brand}}", wwha: {% if component.works_with %}true{% else %}false{% endif %}},
     {% endif -%}
   {%- endfor -%}
   false
@@ -208,6 +211,12 @@ allComponents.pop(); // remove placeholder element at the end
           // only show those with featured = true
           filter = function (comp) {
             return comp.featured;
+          };
+
+        } else if (hash === '#works-with-home-assistant') {
+          // only show those partners of the Works with Home Assistant program
+          filter = function (comp) {
+            return comp.wwha;
           };
 
         } else if (hash.indexOf('#version/') === 0) {

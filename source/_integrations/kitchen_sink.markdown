@@ -10,9 +10,13 @@ ha_codeowners:
 ha_domain: kitchen_sink
 ha_iot_class: Calculated
 ha_platforms:
+  - button
   - image
+  - lawn_mower
   - lock
+  - notify
   - sensor
+  - switch
   - weather
 ha_integration_type: integration
 ---

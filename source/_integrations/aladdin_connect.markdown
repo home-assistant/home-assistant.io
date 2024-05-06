@@ -14,6 +14,7 @@ ha_integration_type: integration
 ha_codeowners:
   - '@mkmer'
 ha_config_flow: true
+ha_quality_scale: platinum
 ---
 
 The Aladdin Connect integration lets you control Genie Aladdin Connect garage doors through Home Assistant.

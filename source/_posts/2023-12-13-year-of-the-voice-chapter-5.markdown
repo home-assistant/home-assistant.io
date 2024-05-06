@@ -22,7 +22,7 @@ At the start of 2023, Home Assistant had basic text-based control for some devic
 
 Home Assistant users can now create multiple voice assistants by mixing and matching components of a voice "pipeline". Home Assistant Cloud subscribers automatically gain access to high-quality voice components in over 130 languages and dialects. Fully local components are available as well, such as our [Piper] text-to-speech system, allowing for 100% offline voice control.
 
-In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the [M5 ATOM Echo Development Kit][m5-tutorial] to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words](community-wake-words) that everyone can use to make their voice experience unique.
+In [Chapter 4], we added wake word processing directly into Home Assistant by leveraging the [openWakeWord] project. This allowed tiny voice satellites such as the [M5 ATOM Echo Development Kit][m5-tutorial] to offload wake word detection by streaming audio to a Home Assistant server. The community has been hard at work training a variety of [custom wake words][community-wake-words] that everyone can use to make their voice experience unique.
 
 For the final chapter of 2023, we have expanded the available types of voice commands to include weather, temperature, and to-do lists. Voice satellites are now aware of which area they're in, and more hardware/software options are available too.
 
@@ -30,7 +30,7 @@ Happy holidays!
 
 <p class='img'>
 <lite-youtube videoid="erf7HqTwCGs" videotitle="ESP32-S3-Box running Assist"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3.
+Assist running on the ESP32-S3-BOX.
 </p>
 
 <!--more-->
@@ -40,8 +40,8 @@ Assist running on the ESP32-S3-BOX-3.
 Espressif recently released the [ESP32-S3-BOX-3], an update of the discontinued ESP32-S3-BOX (and "lite" variant). This "AIoT" development kit contains an ESP32-S3 chip, dual microphones, a small speaker, and a screen. Several docks are available in the box, which expose a USB-C power connector and GPIO pins for expanding the device.
 
 <p class='img'>
-<lite-youtube videoid="73QhFefsbbc" videotitle="Assist on the ESP32-S3-Box-3 with custom artwork"></lite-youtube>
-Assist running on the ESP32-S3-BOX-3 with custom artwork.
+<lite-youtube videoid="73QhFefsbbc" videotitle="Assist on the ESP32-S3-Box with custom artwork"></lite-youtube>
+Assist running on the ESP32-S3-BOX with custom artwork.
 </p>
 
 The [ESPHome] team has been hard at work adding support for the S3-BOX-3, including the ability to customize the display! Check out the [S3-BOX-3 tutorial][s3-box-tutorial] to get started.
@@ -58,7 +58,7 @@ Starting all the way back in [Chapter 1], we added voice commands for:
 - Turning lights and other devices on and off
 - Opening and closing doors, windows, etc.
 - Setting the brightness and color of lights
-- Adding items to a shopping list 
+- Adding items to a shopping list
 - Asking questions, such as which windows are open in an area
 
 For Chapter 5, we've extended this list to include:
@@ -80,7 +80,7 @@ Voice satellites can be placed all around the house, and it's important to keep 
 Voice satellites make use of the area they're in.
 </p>
 
-This is a small start to satellites being aware of their *context*, and adjusting behavior accordingly. 
+This is a small start to satellites being aware of their *context*, and adjusting behavior accordingly.
 
 
 ## Improved Raspberry Pi satellites
@@ -120,22 +120,22 @@ Thanks to our language leaders for extending the sentence support to all the var
 <img src='/images/blog/2023-12-13-year-of-the-voice-chapter-5/ha-support.png' alt="Thank you for supporting the Home Assistant project">
 </p>
 
-[Year of the Voice]: https://www.home-assistant.io/blog/2022/12/20/year-of-voice/
-[Chapter 1]: https://www.home-assistant.io/blog/2023/01/26/year-of-the-voice-chapter-1/
-[Chapter 4]: https://www.home-assistant.io/blog/2023/10/20/year-of-the-voice-chapter-4/
-[Assist]: https://www.home-assistant.io/voice_control/
-[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/ 
-[alias]: https://www.home-assistant.io/voice_control/aliases
+[Year of the Voice]: /blog/2022/12/20/year-of-voice/
+[Chapter 1]: /blog/2023/01/26/year-of-the-voice-chapter-1/
+[Chapter 4]: /blog/2023/10/20/year-of-the-voice-chapter-4/
+[Assist]: /voice_control/
+[exposed]: /voice_control/voice_remote_expose_devices/
+[alias]: /voice_control/aliases
 [wyoming]: https://github.com/rhasspy/wyoming
 [openWakeWord]: https://github.com/dscripka/openWakeWord
 [Piper]: https://github.com/rhasspy/piper/
 [community-wake-words]: https://github.com/fwartner/home-assistant-wakewords-collection
 [ESP32-S3-BOX-3]: https://www.espressif.com/en/news/ESP32-S3-BOX-3
-[wyoming]: https://www.home-assistant.io/integrations/wyoming
+[wyoming]: /integrations/wyoming
 [wyoming-satellite]: https://github.com/rhasspy/wyoming-satellite
 [rpi-zero-2w]: https://www.raspberrypi.com/products/raspberry-pi-zero-2-w/
-[s3-box-tutorial]: https://www.home-assistant.io/voice_control/s3_box_voice_assistant/
+[s3-box-tutorial]: /voice_control/s3_box_voice_assistant/
 [ESPHome]: https://esphome.io
 [nabucasa]: https://www.nabucasa.com
 [phone-tutorial]: https://www.home-assistant.io/voice_control/worlds-most-private-voice-assistant/
-[m5-tutorial]: http://localhost:4000/voice_control/thirteen-usd-voice-remote/
+[m5-tutorial]: /voice_control/thirteen-usd-voice-remote/

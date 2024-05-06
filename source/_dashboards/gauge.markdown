@@ -1,8 +1,13 @@
 ---
 type: card
-title: "Gauge Card"
+title: "Gauge card"
 sidebar_label: Gauge
 description: "The gauge card is a basic card that allows visually seeing sensor data."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The gauge card is a basic card that allows visually seeing sensor data.
