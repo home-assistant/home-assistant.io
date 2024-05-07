@@ -471,7 +471,7 @@ sidebar, has moved to the integration page in
 
 Turn on action for turning the TV on via a custom script
 within `configuration.yaml` has been changed to use a custom automation trigger
-`lg_netcast.turn_on` or a device trigger that can be setup from the UI.
+`lg_netcast.turn_on` or a device trigger that can be set up from the UI.
 
 ([@splinter98] - [#104913]) ([documentation](/integrations/lg_netcast))
 
