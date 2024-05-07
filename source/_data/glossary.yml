@@ -140,6 +140,10 @@
   link: /docs/scripts/conditions/
   aliases:
     - conditions
+- term: configuration.yaml
+  definition: >-
+    The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. For some integrations, the configuration.yaml needs to be edited manually. For others, configuration can be defined in the UI.
+  link: /docs/configuration/
 - term: Cover
   definition: >-
     Covers are devices such as blinds, garage doors, etc that can be opened and
