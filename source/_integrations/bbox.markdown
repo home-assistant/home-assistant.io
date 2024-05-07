@@ -12,6 +12,9 @@ ha_platforms:
   - device_tracker
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
@@ -35,7 +38,8 @@ Bbox is a generic name for different hardware routers. The platform has been tes
 
 ### Configuration
 
-To use an Bbox router in your installation, add the following to your `configuration.yaml` file:
+To use an Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
