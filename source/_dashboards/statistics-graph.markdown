@@ -45,8 +45,8 @@ entities:
   type: list
 days_to_show:
   required: false
-  description: Days to show in graph. Minimum is 1 day.
-  type: integer
+  description: Days to show in graph. Minimum is 0.1 day.
+  type: float
   default: 30
 chart_type:
   required: false
