@@ -142,7 +142,7 @@
     - conditions
 - term: configuration.yaml
   definition: >-
-    The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. For some integrations, the configuration.yaml needs to be edited manually. For others, configuration can be defined in the UI.
+    The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. In some cases, the configuration needs to be edited manually directly in the configuration.yaml file. Most integrations can be configured in the UI.
   link: /docs/configuration/
 - term: Cover
   definition: >-
