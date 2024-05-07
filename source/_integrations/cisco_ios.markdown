@@ -11,6 +11,9 @@ ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
@@ -49,7 +52,8 @@ If you have a very large number of devices on your VLan (+1000), then you may wa
 
 </div>
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
