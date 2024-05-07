@@ -11,6 +11,9 @@ ha_domain: aprs
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aprs` [(Automatic Packet Reporting System)](https://en.wikipedia.org/wiki/Automatic_Packet_Reporting_System) device tracker integration connects to the [APRS-IS](http://aprs-is.net/) network for tracking amateur radio devices.

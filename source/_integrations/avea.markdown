@@ -11,6 +11,9 @@ ha_domain: avea
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [Elgato Avea](https://www.evehome.com/en/news/elgato-avea-transform-your-home) is a Bluetooth light bulb that is no longer supported by the manufacturer. The `avea` integration allows you to control all your Avea bulbs with Home Assistant.

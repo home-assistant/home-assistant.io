@@ -13,6 +13,9 @@ ha_integration_type: integration
 ha_quality_scale: internal
 ha_platforms:
   - select
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Assist pipeline integration provides the foundation for the [Assist](/voice_control/) voice assistant in Home Assistant. 

@@ -11,6 +11,9 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@frenck'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.

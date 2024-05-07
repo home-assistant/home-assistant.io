@@ -10,6 +10,9 @@ ha_domain: ampio
 ha_platforms:
   - air_quality
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `ampio` air quality platform will query the open data API of [ampio.pl](http://smog.ampio.pl/) to monitor air quality sensor station.

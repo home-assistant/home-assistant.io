@@ -9,6 +9,9 @@ ha_domain: actiontec
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Actiontec** {% term integration %} allows you to detect presence by looking at devices connected to an [Actiontec](https://www.actiontec.com/) device.

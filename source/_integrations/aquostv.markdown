@@ -9,6 +9,9 @@ ha_domain: aquostv
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).

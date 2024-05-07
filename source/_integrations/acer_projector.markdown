@@ -9,6 +9,9 @@ ha_domain: acer_projector
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `acer_projector` switch platform allows you to control the state of RS232 connected projectors from [Acer](https://www.acer.com/).

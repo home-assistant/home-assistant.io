@@ -9,6 +9,9 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - tts
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.

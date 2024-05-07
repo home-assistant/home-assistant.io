@@ -11,6 +11,9 @@ ha_iot_class: Local Polling
 ha_platforms:
   - device_tracker
 ha_integration_type: hub
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This platform allows you to detect presence by looking at connected devices to an Arris TG2492LG router.
