@@ -32,7 +32,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable ADS, add the following lines to your `configuration.yaml` file:
+To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

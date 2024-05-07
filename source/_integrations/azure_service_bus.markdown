@@ -33,7 +33,8 @@ The queue or topic that you are sending to needs to exists with the service bus 
 
 ## Configuration
 
-Add the following lines to your `configuration.yaml` file:
+Add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

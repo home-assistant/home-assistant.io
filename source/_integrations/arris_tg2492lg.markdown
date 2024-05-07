@@ -24,7 +24,8 @@ This is one of the routers provided by:
 The router prevents the admin user from logging in twice. This can cause problems with accessing the router's configuration pages while this platform is active.
 </div>
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

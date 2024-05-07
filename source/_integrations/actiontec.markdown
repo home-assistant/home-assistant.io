@@ -21,7 +21,8 @@ Supported devices (tested):
 This device tracker needs telnet to be enabled on the router.
 </div>
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

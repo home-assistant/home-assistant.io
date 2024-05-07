@@ -23,7 +23,8 @@ The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/docu
 
 ## Configuration
 
-To use the `aws` integration and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` integration and the `notify` platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

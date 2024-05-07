@@ -24,7 +24,8 @@ As there is no official documentation for the API, the integration retrieves dat
 To use it, you need to order the device directly from "Total Direct Energie" Mobile App. Then you need to follow up the installation (covered in the Atome App).
 The configuration (see below) needs your Atome username & password you created during the initialization of the Atome device.
 
-Next, add the Atome sensor to your `configuration.yaml` file like below:
+Next, add the Atome sensor to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

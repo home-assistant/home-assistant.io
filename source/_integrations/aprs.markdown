@@ -17,7 +17,8 @@ The `aprs` [(Automatic Packet Reporting System)](https://en.wikipedia.org/wiki/A
 
 ## Configuration
 
-To enable APRS tracking in Home Assistant, add the following section to `configuration.yaml`:
+To enable APRS tracking in Home Assistant, add the following section to {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

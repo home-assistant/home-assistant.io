@@ -26,7 +26,8 @@ There is currently support for the following device types within Home Assistant:
 
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
-To use your aREST binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your aREST binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

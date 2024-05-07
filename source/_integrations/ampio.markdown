@@ -20,7 +20,8 @@ To get the ID of a station you need to contact Ampio directly.
 
 ## Manual configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this platform, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

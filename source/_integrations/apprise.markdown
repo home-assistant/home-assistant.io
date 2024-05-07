@@ -17,7 +17,8 @@ The [Apprise service](https://github.com/caronc/apprise/) is an all-in-one solut
 
 ## Configuration
 
-To use Apprise supported notifications, add the following to your `configuration.yaml` file:
+To use Apprise supported notifications, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry using URLs

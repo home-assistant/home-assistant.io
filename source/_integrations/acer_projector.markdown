@@ -15,7 +15,8 @@ The `acer_projector` switch platform allows you to control the state of RS232 co
 
 ## Configuration
 
-To use your Acer Projector in your installation, add the following to your `configuration.yaml` file:
+To use your Acer Projector in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
