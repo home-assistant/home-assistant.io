@@ -1,1 +1,0 @@
-After changing the {% term configuration.yaml %} file, [restart Home Assistant](/docs/configuration/#reloading-the-configuration-to-apply-changes) to apply the changes. To view the changes, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
