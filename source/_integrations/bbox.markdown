@@ -15,6 +15,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+---
 
 The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
