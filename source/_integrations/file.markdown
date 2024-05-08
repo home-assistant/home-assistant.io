@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Notifications
 
-The `file` integration allows you to store notifications from Home Assistant as a file.
+The `file` {% term integration %} allows you to store notifications from Home Assistant as a file.
 
 To enable file notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

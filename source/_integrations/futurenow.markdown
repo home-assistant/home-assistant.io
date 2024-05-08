@@ -14,7 +14,8 @@ related:
     title: Configuration file
 ---
 
-The `futurenow` light integration allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units: 
+The `futurenow` light {% term integration %} allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units:
+
 - [FutureNow FNIP-6x2AD](https://www.p5.hu/index.php/products/ethernet-modules/265-fnip-6x2ad) dimmer unit (outputs only)
 - [FutureNow FNIP-8x10A](https://www.p5.hu/index.php/products/ethernet-modules/263-fnip-8x10a) relay unit (outputs only)
 

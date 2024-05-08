@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `ffmpeg` integration allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
+The `ffmpeg` {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
 
 <div class='note'>
 

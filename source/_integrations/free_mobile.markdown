@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `free_mobile` integration uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
+The `free_mobile` {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
 
 ## Prerequisites
 

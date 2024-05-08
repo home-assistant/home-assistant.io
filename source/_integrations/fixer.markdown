@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `fixer` integration will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
+The `fixer` {% term integration %}  will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
 
 To get an overview about the available [currencies](https://fixer.io/symbols).
 
@@ -24,7 +24,7 @@ You need to create an [API key](https://apilayer.com/marketplace/fixer-api#prici
 
 ## Configuration
 
-To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml

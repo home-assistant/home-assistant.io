@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `fail2ban` integration allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
+The `fail2ban` {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
 <div class='note'>
 

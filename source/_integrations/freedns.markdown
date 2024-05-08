@@ -9,7 +9,7 @@ ha_domain: freedns
 ha_integration_type: integration
 ---
 
-With the `freedns` integration you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
+With the `freedns` {% term integration %} you can keep your [FreeDNS](https://freedns.afraid.org) record up to date.
 
 ## Setup (Default API V1)
 
@@ -24,7 +24,7 @@ You need to determine your update URL or your access token.
 
 ## Configuration (API V1)
 
-To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
