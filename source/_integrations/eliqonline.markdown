@@ -9,6 +9,9 @@ ha_domain: eliqonline
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Integrate your [ELIQ Online](https://eliq.io/) smart meter information into Home Assistant. To get an [access token](https://my.eliq.io/user/settings/api) and the [Channel ID](https://my.eliq.io/user/settings/locations), log in to your account.

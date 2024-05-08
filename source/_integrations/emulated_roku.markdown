@@ -8,6 +8,9 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: emulated_roku
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This integration integrates an emulated Roku API into Home Assistant,

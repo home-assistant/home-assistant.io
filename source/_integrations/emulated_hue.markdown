@@ -11,6 +11,9 @@ ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
   - '@Tho85'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 <div class='note warning'>

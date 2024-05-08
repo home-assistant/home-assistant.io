@@ -27,6 +27,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
