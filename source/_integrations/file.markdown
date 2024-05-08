@@ -20,10 +20,13 @@ There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 - [Sensor](#sensor)
+  - [Examples](#examples)
+    - [Entries as JSON](#entries-as-json)
+    - [Entries as CSV](#entries-as-csv)
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file.
+The `file` platform allows you to store notifications from Home Assistant as a file. Make sure that the file want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
 
 To enable file notifications in your installation, add the following to your `configuration.yaml` file:
 
