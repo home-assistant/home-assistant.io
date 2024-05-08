@@ -81,7 +81,8 @@ Available demo platforms:
 - [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
-To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate a demo platform in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

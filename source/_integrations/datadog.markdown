@@ -31,7 +31,8 @@ In the [Datadog Agent configuration](https://github.com/DataDog/datadog-agent/bl
 
 ## Configuration
 
-To use the `datadog` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `datadog` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -24,7 +24,8 @@ For valid stop IDs check for the 6 digits at the physical stops or visit the [st
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -27,7 +27,8 @@ Later model DTE Energy Bridge hardware uses [MQTT](https://www.home-assistant.io
 
 </div>
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

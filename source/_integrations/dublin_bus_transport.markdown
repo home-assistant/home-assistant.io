@@ -17,7 +17,8 @@ The [Dublin Bus](https://www.dublinbus.ie/RTPI/) website can help to determine t
 
 https://data.dublinked.ie/cgi-bin/rtpi/realtimebusinformation?stopid=[Stop ID]
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+Then add the data to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

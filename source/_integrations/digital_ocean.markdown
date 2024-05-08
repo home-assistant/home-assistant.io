@@ -29,7 +29,8 @@ Obtain your API key from your [Digital Ocean dashboard](https://cloud.digitaloce
 
 ## Configuration
 
-To integrate your Digital Ocean droplets with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Digital Ocean droplets with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

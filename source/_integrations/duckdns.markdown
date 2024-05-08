@@ -19,7 +19,8 @@ If you are running the Home Assistant DuckDNS add-on this integration is not req
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -43,6 +44,6 @@ duckdns:
 
 Set the TXT record of your DuckDNS subdomain.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `txt` | no | Payload for the TXT record. |
+| Service data attribute | Optional | Description                 |
+| ---------------------- | -------- | --------------------------- |
+| `txt`                  | no       | Payload for the TXT record. |

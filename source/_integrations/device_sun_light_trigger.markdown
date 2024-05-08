@@ -20,7 +20,8 @@ Home Assistant has a built-in integration called `device_sun_light_trigger` to h
 
 This integration requires the integrations [sun](/integrations/sun/), [device_tracker](/integrations/device_tracker/), [person](/integrations/person/) and [light](/integrations/light/) to be enabled.
 
-To enable this integration, add the following lines to your `configuration.yaml` file:
+To enable this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -21,7 +21,8 @@ There is currently support for the following device types within Home Assistant:
 - [Notifications](/integrations/dovado/#notifications)
 - [Sensor](/integrations/dovado/#sensor)
 
-To add a Dovado integration to your installation, add the following to your `configuration.yaml` file:
+To add a Dovado integration to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

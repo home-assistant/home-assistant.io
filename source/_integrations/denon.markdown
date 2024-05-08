@@ -20,7 +20,8 @@ Supported devices:
 - Denon RCD-N9 (partial support)
 - Denon AVR receivers with integrated Network support (partial support)
 
-To add a Denon Network Receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Denon Network Receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ## Telnet platform
 

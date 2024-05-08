@@ -28,7 +28,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use the `dweet` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `dweet` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

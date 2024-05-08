@@ -19,6 +19,9 @@ This integration is only available on Home Assistant Core installation types. Un
 
 ## Configuration
 
+To enable Dlib Face Detect, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
 ```yaml
 # Example configuration.yaml entry
 image_processing:
