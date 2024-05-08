@@ -9,6 +9,9 @@ ha_domain: kankun
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `kankun` switch platform allows you to toggle customized Kankun SP3 Wi-Fi switches. Switches are
@@ -21,7 +24,8 @@ but fortunately we can still access the information via
 
 ## Configuration
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
