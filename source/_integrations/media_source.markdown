@@ -99,4 +99,4 @@ data:
   media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 
-[basic-configuration]: /docs/configuration/basic/#media_dirs
+[basic-configuration]: /integrations/homeassistant/#media_dirs

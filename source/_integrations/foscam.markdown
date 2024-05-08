@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_codeowners:
-  - '@skgsergio'
   - '@krmarien'
 ha_domain: foscam
 ha_config_flow: true

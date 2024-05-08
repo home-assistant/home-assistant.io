@@ -20,7 +20,7 @@ For each county/city it creates warning slots that change to Unsafe when warning
 
 <div class='note warning'>
 
-This integration may only works with an Internet connection that supports IPv4.
+This integration may only work with an Internet connection that supports IPv4.
 
 </div>
 

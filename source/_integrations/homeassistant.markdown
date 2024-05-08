@@ -56,6 +56,7 @@ To get started with the general settings in YAML, follow these steps:
       media_dirs:
         media: "/media"
         recordings: "/mnt/recordings"
+      debug: false
     ```
 
 2. Edit each entry to fit your home.
@@ -103,15 +104,15 @@ internal_url:
   required: false
   type: string
 customize:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) entities."
   required: false
   type: string
 customize_domain:
-  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) all entities in a domain."
   required: false
   type: string
 customize_glob:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
+  description: "[Customize](#editing-the-entity-settings-in-yaml) entities matching a pattern."
   required: false
   type: string
 allowlist_external_dirs:
@@ -135,6 +136,11 @@ country:
   description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
   required: false
   type: string
+debug:
+  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Editing the entity settings in YAML

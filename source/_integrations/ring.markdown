@@ -13,6 +13,7 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: ring
+ha_quality_scale: silver
 ha_dhcp: true
 ha_platforms:
   - binary_sensor

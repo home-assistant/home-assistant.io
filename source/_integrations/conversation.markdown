@@ -5,7 +5,6 @@ ha_category:
   - Voice
 ha_release: 0.7
 ha_quality_scale: internal
-ha_iot_class: Local Push
 ha_codeowners:
   - '@home-assistant/core'
   - '@synesthesiam'

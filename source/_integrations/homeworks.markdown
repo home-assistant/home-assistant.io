@@ -28,3 +28,28 @@ Homeworks keypad buttons are momentary switches.  The button is pressed and rele
 {% include integrations/config_flow.md %}
 
 The protocol for automatically extracting device information from the controller isn't documented. Lights and keypads need to be added manually. This is done by configuring the integration after it has been added.
+
+## Services
+
+### Service `send_command`
+
+Send a custom command to the Lutron Homeworks controller.
+
+| Service data attribute | Optional | Example                 | Description                                         |
+| ---------------------- | -------- | ----------------------- | --------------------------------------------------- |
+| `controller_id`        | No       | `homeworks`             | The controller to which the command should be sent to. |
+| `command`              | No       | `KBP, [02:08:02:01], 1` | The command you want to send. This can either be a single command or a list of commands. In addition to the [commands supported by the controller](https://assets.lutron.com/a/documents/hwi%20rs232%20protocol.pdf), the special command `DELAY <ms>` is supported, where ms is the number of milliseconds to sleep. |
+
+#### Sending a list of commands 
+
+The example shows how to send `KBP`, wait 0.5 seconds, then send `KBR` to simulate a keypad button keypress with a duration of a half second.
+
+```yaml
+service: homeworks.send_command
+data:
+  controller_id: "homeworks"
+  command:
+    - "KBP, [02:08:02:01], 1"
+    - "DELAY 500"
+    - "KBR, [02:08:02:01], 1"
+```

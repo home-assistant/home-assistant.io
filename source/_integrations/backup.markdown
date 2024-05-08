@@ -21,13 +21,9 @@ related:
     title: Home Assistant Operating System- Restoring a backup
 ---
 
-The **Backup** {% term integration %} allows you to create and download backups for your {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations. This backup file can be used if you migrate to {% term "Home Assistant Operating System" %}.
+The **Backup** {% term integration %} is used for {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations to create and download backups. This backup file can be used if you migrate to {% term "Home Assistant Operating System" %}.
 
-<div class="note">
-
-If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %} , the [back up functionality is already built-in](/common-tasks/os/#backups). This integration is for {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations.
-
-</div>
+Note: If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %} installation, this page is not for you. Instead, refer to the documentation on using the [built-in back up](/common-tasks/os/#backups).
 
 ## Services
 
@@ -82,4 +78,3 @@ The steps on recovering from a backup depend on the installation type and use ca
 
 3. If you migrate from a {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %} installation to {% term "Home Assistant Operating System" %}:
    - You can use these backup files during [onboarding](/getting-started/onboarding/) to recover your installation from backup.
-

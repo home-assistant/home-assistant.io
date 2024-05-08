@@ -103,6 +103,7 @@ Available key codes |
 `BackSpace`
 `Search`
 `Enter`
+`PowerOff`
 
 ## Automations
 

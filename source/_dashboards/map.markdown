@@ -63,11 +63,11 @@ default_zoom:
   description: The default zoom level of the map.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
-dark_mode:
+theme_mode:
   required: false
-  description: Enable a dark theme for the map.
-  type: boolean
-  default: false
+  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
+  type: string
+  default: 'auto'
 hours_to_show:
   required: false
   description: Shows a path of previous locations. Hours to show as path on the map.
@@ -141,3 +141,4 @@ entities:
     focus: false
 hours_to_show: 48
 ```
+

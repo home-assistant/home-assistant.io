@@ -2,6 +2,7 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -21,6 +22,7 @@ ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - cover
@@ -37,6 +39,7 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -55,6 +58,10 @@ Configuration of Netatmo public weather stations is offered from the front end. 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
 To edit an existing area, enter its name and follow the dialog.
+
+## Binary sensor
+
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 
 ## Camera
 
@@ -116,10 +123,10 @@ Set the heating schedule.
 
 Set the preset mode for a Netatmo climate device. The preset mode must match a preset mode configured at Netatmo.
 
-| Service data attribute | Required | Description                                                |
-| ---------------------- | -------- | ---------------------------------------------------------- |
+| Service data attribute | Required | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
 | `preset_mode`          | Yes      | Climate preset mode such as Schedule, Away, or Frost Guard. |
-| `end_datetime`         | Yes      | Date & time until which the preset will be active.               |
+| `end_datetime`         | Yes      | Date & time until which the preset will be active.          |
 
 ### Set temperature with end date & time
 
@@ -138,9 +145,9 @@ Sets the target temperature for a Netatmo climate device with an end date & time
 
 Sets the target temperature for a Netatmo climate device as well as the time period during which this target temperature applies.
 
-| Service data attribute | Required | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `target_temperature`   | Yes      | The target temperature for the device.                 |
+| Service data attribute | Required | Description                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------- |
+| `target_temperature`   | Yes      | The target temperature for the device.                      |
 | `time_period`          | Yes      | Time period during which the target temperature is applied. |
 
 ### Clear temperature setting
@@ -187,7 +194,7 @@ It is therefore recommended to use [an individual development account](#developm
 
 </div>
 
-To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#allowlist_external_urls).
 
 Events coming in from Netatmo will be available as an event in Home Assistant and are fired as `netatmo_event`, along with their data. You can use these events to trigger automations.
 
@@ -297,7 +304,7 @@ Sign in using your username and password from your regular Netatmo account.
 
 <div class='note warning'>
  
-In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/docs/configuration/basic).
+In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
   
 </div>
 

@@ -31,10 +31,10 @@ Although the 17track.net website states that account passwords cannot be longer 
 - Not found
 - In transit
 - Expired
-- Pick up
+- Ready to be picked up
 - Undelivered
 - Delivered
-- Alert
+- Returned
 
 ## Package-level attributes
 
@@ -74,3 +74,23 @@ content: >
 ```
 
 {% endraw %}
+
+## Services
+
+### Service `seventeentrack.get_packages`
+
+The `seventeentrack.get_packages` service allows you to query the 17track API for the latest package data.
+
+
+| Service data attribute | Optional | Description                                 |
+|------------------------|----------|---------------------------------------------|
+| `config_entry_id`      | No       | The ID of the 17Track service config entry. |
+| `package_state`        | yes      | A list of the package states.                |
+
+```yaml
+# Example automation action to add a product to the cart by name.
+- service: seventeentrack.get_packages
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    package_state: ["Delivered", "In transit"]
+```
