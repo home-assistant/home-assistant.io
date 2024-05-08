@@ -24,7 +24,8 @@ You need to determine your update URL or your access token.
 
 ## Configuration (API V1)
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

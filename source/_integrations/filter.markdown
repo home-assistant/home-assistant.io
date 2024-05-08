@@ -13,9 +13,12 @@ ha_domain: filter
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `filter` platform enables sensors that process the states of other entities.
+The `filter` integration enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
@@ -25,7 +28,8 @@ The `filter` platform enables sensors that process the states of other entities.
 
 ## Configuration
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+To enable Filter Sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

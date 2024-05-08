@@ -9,9 +9,12 @@ ha_domain: ffmpeg_motion
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `ffmpeg` platform allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
+The `ffmpeg` integration allows you to use any video feed with [FFmpeg](https://www.ffmpeg.org/) for motion sensors in Home Assistant.
 
 <div class='note'>
 
@@ -25,7 +28,8 @@ FFmpeg doesn't have a motion detection filter, but can use a scene filter to det
 
 ## Configuration
 
-To add FFmpeg with motion detection to your installation, add the following to your `configuration.yaml` file:
+To add FFmpeg with motion detection to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

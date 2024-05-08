@@ -17,6 +17,9 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Flume integration will show you the current [Flume](https://flumewater.com/) status for the given Device ID.

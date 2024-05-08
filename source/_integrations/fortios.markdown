@@ -11,6 +11,9 @@ ha_platforms:
 ha_codeowners:
   - '@kimfrellsen'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The FortiOS presence detection enables Home Assistant to track devices with a MAC address connected to a FortiGate from [Fortinet](https://www.fortinet.com).
@@ -22,9 +25,11 @@ All devices with a MAC address identified by FortiGate would be tracked, this co
 
 The integration is based on the Home Assistant `device_tracker` platform.
 
-### Example configuration:
+### Example configuration
 
 This example uses the FortiOS integration as a device tracker, with an API token and does not verify the SSL certificate.
+Add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml
