@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `joaoapps_join` integration exposes services from
+The `joaoapps_join` {% term integration %} exposes services from
 [Join](https://joaoapps.com/join). In Home Assistant, the Joaoapps Join features are
 divided up in two locations, the Join integration, and the Joaoapps Join notify platform.
 The notify platform allows us to send messages to Joaoapps Join devices, the integration
