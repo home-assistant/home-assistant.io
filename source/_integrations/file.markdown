@@ -14,6 +14,9 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The File integration allows to store notifications to a file or to set up a sensor based on a file's content.
@@ -22,7 +25,35 @@ The File integration allows to store notifications to a file or to set up a sens
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file. Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
+The `file` {% term integration %} allows you to store notifications from Home Assistant as a file.
+
+To enable file notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+```yaml
+# Example configuration.yaml entry
+notify:
+  - name: NOTIFIER_NAME
+    platform: file
+    filename: FILENAME
+```
+
+{% configuration %}
+name:
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  required: false
+  default: notify
+  type: string
+filename:
+  description: Name of the file to use. The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there.
+  required: true
+  type: string
+timestamp:
+  description: Setting `timestamp` to `true` adds a timestamp to every entry.
+  required: false
+  default: false
+  type: boolean
+{% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
