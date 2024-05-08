@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-Home Assistant has a built-in integration called `device_sun_light_trigger` to help you automate your lights. The {% term integration %} will:
+Home Assistant has a built-in {% term integration %} called `device_sun_light_trigger` to help you automate your lights. The integration will:
 
 - Fade in the lights when the sun is setting and there are people home
 - Turn on the lights when people get home after the sun has set
