@@ -28,9 +28,9 @@ Integrate Refoss devices into Home Assistant.
 - The integration will occupy port: 9989.    
 {% include integrations/config_flow.md %}
 
-### Supported device model
+### Supported device models
 
-| model | version            |             
+| Model | Version            |             
 | ----------- |--------------------|
 | `Refoss Smart Wi-Fi Switch, R10`    | `all`              |
 | `Refoss Smart Wi-Fi Switch, R20`    | `all`              |
