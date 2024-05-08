@@ -9,6 +9,9 @@ ha_domain: google_maps
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `google_maps` {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
