@@ -28,7 +28,8 @@ The provided power unit must be the current power usage in Watts.  Values of `kW
 
 ## Configuration
 
-This integration requires the entities exposed to be listed in your `configuration.yaml` file:
+This integration requires the entities exposed to be listed in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

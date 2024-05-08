@@ -12,6 +12,9 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The EufyHome integration is the main integration to integrate [eufy](https://eufy.com/) devices sold under the EufyHome product line with Home Assistant.
@@ -21,7 +24,8 @@ There is currently support for the following device types within Home Assistant:
 - Light
 - Switch
 
-Supported devices will be discovered after the EufyHome integration is configured:
+Supported devices will be discovered after the EufyHome integration is added to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -53,7 +53,8 @@ Logitech Harmony remotes cannot connect to this emulator via Android and iOS mob
 
 ### Configuration
 
-To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
+To enable the emulated Hue bridge, add one of the following configs to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Google Home example configuration.yaml entry

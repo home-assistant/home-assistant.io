@@ -33,7 +33,8 @@ Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` 
 
 ## Manual configuration
 
-If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
+If you wish to configure advanced options, you can add the following entry in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

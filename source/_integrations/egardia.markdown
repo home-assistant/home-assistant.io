@@ -22,7 +22,8 @@ You will need to know the IP of your alarm panel on your local network. Test if 
 
 ## Basic configuration
 
-To enable the {% term integration %} with your alarm panel, add the following lines to your `configuration.yaml` file:
+To enable the {% term integration %} with your alarm panel, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
  ```yaml
     # Example configuration.yaml entry
