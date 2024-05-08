@@ -17,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.
+The `dovado` {% term integration %} manages communication with the [Dovado](https://www.dovado.com/) router.
 
 There is currently support for the following device types within Home Assistant:
 

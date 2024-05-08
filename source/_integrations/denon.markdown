@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `denon` platform allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
+The `denon` {% term integration %} allows you to control a Denon Network Receiver from Home Assistant. It might be that your device is supported by the [Denon AVR] platform.
 
 Supported devices:
 

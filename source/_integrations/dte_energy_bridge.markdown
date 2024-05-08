@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-A sensor platform for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
+A sensor {% term integration %} for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
 
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.

@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-This platform offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
+The `ddwrt` {% term integration %} offers presence detection by looking at connected devices to a [DD-WRT](https://dd-wrt.com/) based router.
 
 To use a DD-WRT router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
