@@ -16,9 +16,9 @@ related:
     title: Configuration file
 ---
 
-The `emoncms` sensor platform creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
+The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
 
-To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file. It will list all feeds as a sensor.
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file. It will list all feeds as a sensor.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
@@ -32,7 +32,7 @@ sensor:
 
 As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.
 
-To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) integration.
+To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
 ## Configuration variables
 

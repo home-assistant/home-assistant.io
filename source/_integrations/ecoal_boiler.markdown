@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `ecoal_boiler` integration is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
+The `ecoal_boiler` {% term integration %} is the base for pumps and sensors managed by [esterownik.pl eCoal boiler controller](https://esterownik.pl/nasze-produkty/ecoal).
 
 ## Configuration
 

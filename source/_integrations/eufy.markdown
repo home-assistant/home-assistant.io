@@ -17,7 +17,7 @@ related:
     title: Configuration file
 ---
 
-The EufyHome integration is the main integration to integrate [eufy](https://eufy.com/) devices sold under the EufyHome product line with Home Assistant.
+The **EufyHome** {% term integration %} is the main integration to integrate [eufy](https://eufy.com/) devices sold under the EufyHome product line with Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
