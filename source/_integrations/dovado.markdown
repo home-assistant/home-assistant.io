@@ -12,6 +12,9 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.

@@ -10,6 +10,9 @@ ha_domain: debugpy
 ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Remote Python debugger** {% term integration %} allows you to use the Visual Studio Code

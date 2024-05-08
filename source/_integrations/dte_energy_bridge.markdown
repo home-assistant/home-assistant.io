@@ -9,6 +9,9 @@ ha_domain: dte_energy_bridge
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 A sensor platform for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
