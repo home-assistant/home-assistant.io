@@ -9,6 +9,9 @@ ha_domain: aws
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
@@ -23,7 +26,8 @@ The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/docu
 
 ## Configuration
 
-To use the `aws` integration and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` integration and the `notify` platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
