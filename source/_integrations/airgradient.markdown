@@ -5,7 +5,7 @@ ha_category:
   - Health
   - Sensor
 ha_config_flow: true
-ha_release: 2024.5
+ha_release: 2024.6
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@airgradienthq'
