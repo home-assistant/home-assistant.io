@@ -42,15 +42,15 @@ Connecting this with the Home Assistant integration - automation and voice contr
 
 After many years of development and testing with the amazing community, we can finally say this is ready for daily use.
 
+<p class="img"><img src='/images/blog/2024-05-music-assistant/start-me-up.png'/></p>
+
 Even though Music Assistant is an HA Add-on, it can be installed from start to finish via [HACS <i class="icon-external-link"></i>](https://hacs.xyz/). You simply install the integration, which will automatically install and manage the add-on for you. The integration allows you to control your devices with automations and voice control.
 
 {% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
 
 <div class='note info'>
-    Music Assistant is distributed as a [Home Assistant add-on](https://www.home-assistant.io/addons/) – our way to easily extend your Home Assistant installation with third party applications. If you use Home Assistant Container, follow the [MA installation instructions <i class="icon-external-link"></i>](https://music-assistant.io/installation/#tertiary-installation-method-docker-image).
+    Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. If you use Home Assistant Container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions <i class="icon-external-link"></i></a>.
 </div>
-
-<p class="img"><img src='/images/blog/2024-05-music-assistant/start-me-up.png'/></p>
 
 For users without the Home Assistant Operation System (or supervisor) we also have a [docker installation <i class="icon-external-link"></i>](https://music-assistant.io/installation/) available to run the server.
 
@@ -69,7 +69,6 @@ I started Music Assistant out of frustration about the mainstream available opti
     
 *   Or maybe you fall into the category of users who don’t want any subscriptions and have a carefully curated local media collection you want to play on these shiny new playback devices.
     
-
 When we pay for our music or devices, we shouldn’t be limited by arbitrary limitations. We are slowly moving into a world of greater walled gardens and more vendor lock-in, and it’s time we took back control. 
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/fight-the-power.jpg'/><i>Tidal on a Google Home</i></p>
