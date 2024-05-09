@@ -93,7 +93,11 @@ Since there was still some time left, we took the chance to perform more range t
 
 Besides powering the Z-Wave integration in Home Assistant, Z-Wave JS is a great tool for development. Built with diagnostics in mind, Z-Wave JS helps understand what the controller and devices are doing and whether they are behaving as expected.
 
-Although we set out to tell people about Z-Wave JS, we learned that a lot of engineers from established companies already use it for development – and in their presentations! They use it to reproduce issues, do load testing, write scripts to automate certain tasks, and run their own test suites. This includes using the CLI tools to update firmware, for example, to investigate changes between different Z-Wave SDK versions. The Javascript API makes it trivial to perform arbitrary actions and automate things that are hard or impossible to do using UI-based applications.
+Although we set out to tell people about Z-Wave JS, we learned that a lot of engineers from established companies already use it for development – and in their presentations!
+
+<p class="img"><img src='/images/blog/2024-05-zwave-is-not-dead/slide.png'/></p>
+
+They use it to reproduce issues, do load testing, write scripts to automate certain tasks, and run their own test suites. This includes using the CLI tools to update firmware, for example, to investigate changes between different Z-Wave SDK versions. The Javascript API makes it trivial to perform arbitrary actions and automate things that are hard or impossible to do using UI-based applications.
 
 Another valuable development tool is the Zniffer, a special Z-Wave controller that can capture and decode all Z-Wave radio traffic. Like most of the existing tooling, this requires using Windows. Prior to the summit, Dominic had started working on adding support for Zniffer devices to Z-Wave JS. Although this was still a work in progress, people were already using it for development purposes and told us they were looking forward to it being officially released.
 

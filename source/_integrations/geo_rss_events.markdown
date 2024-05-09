@@ -11,11 +11,14 @@ ha_domain: geo_rss_events
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
+The `geo_rss_events` {% term integration %} retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
 
-This sensor is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
+This {% term integration %} is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
 
 <p class='img'>
   <img src='/images/screenshots/geo-rss-incidents-group-screenshot.png' />
@@ -29,7 +32,9 @@ The data is updated every 5 minutes.
 
 ## Configuration
 
-To enable the GeoRSS events sensor, add the following lines to your `configuration.yaml`. This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
+To enable the GeoRSS events sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

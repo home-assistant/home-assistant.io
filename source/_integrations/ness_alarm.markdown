@@ -13,9 +13,12 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `ness_alarm` integration will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
+The `ness_alarm` {% term integration %} will allow Home Assistant users who own a Ness D8x/D16x alarm system to leverage their alarm system and its sensors to provide Home Assistant with information about their homes. Connectivity between Home Assistant and the alarm is accomplished through a IP232 module that must be connected to the alarm.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -26,7 +29,8 @@ The module communicates via the [Ness D8x/D16x ASCII protocol](https://ia802202.
 
 ## Configuration
 
-A `ness_alarm` section must be present in the `configuration.yaml` file and contain the following options as required:
+A `ness_alarm` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options as required:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,15 +108,15 @@ scan_interval:
 
 Trigger an aux output.  This requires PCB version 7.8 or higher.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `output_id` | No | The aux output you wish to change.  A number from 1-4.
-| `state` | Yes | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E.
+| Service data attribute | Optional | Description                                                                                                                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `output_id`            | No       | The aux output you wish to change.  A number from 1-4.                                                                                                              |
+| `state`                | Yes      | The On/Off State, represented as true/false. Default is true.  If P14xE 8E is enabled then a value of true will pulse output x for the time specified in P14(x+4)E. |
 
 ### Service `panic`
 
 Trigger a panic
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `code` | No | The user code to use to trigger the panic.
+| Service data attribute | Optional | Description                                |
+| ---------------------- | -------- | ------------------------------------------ |
+| `code`                 | No       | The user code to use to trigger the panic. |
