@@ -14,6 +14,9 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -23,9 +26,10 @@ There is currently support for the following device types within Home Assistant:
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file.
+The `file` {% term integration %} allows you to store notifications from Home Assistant as a file.
 
-To enable file notifications in your installation, add the following to your `configuration.yaml` file:
+To enable file notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
