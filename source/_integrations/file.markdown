@@ -26,7 +26,7 @@ The `file` platform allows you to store notifications from Home Assistant as a f
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-Use the `notify.send_message` service to store notification messages.
+Use the `notify.{name}` service to store notification messages.
 
 ## Sensor
 
