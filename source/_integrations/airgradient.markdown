@@ -25,15 +25,15 @@ The Airgradient integration will fetch data from your [Airgradient devices](http
 
 The integration will fetch data from each device. The following sensors are supported:
 
-- Temperature
+- Carbon dioxide
 - Humidity
+- Nitrogen index
+- PM0.03 count
 - PM1 density
 - PM2.5 density
 - PM10 density
-- Nitrogen index
-- Total volatile organic compounds index
-- Signal strength
-- Carbon dioxide
-- PM0.03 count
 - Raw nitrogen
 - Raw total volatile organic compounds
+- Signal strength
+- Temperature
+- Total volatile organic compounds index
