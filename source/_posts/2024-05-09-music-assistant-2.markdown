@@ -27,18 +27,24 @@ To just play with Music Assistant without reading what it is (yes, we know you!)
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/how-it-works.jpg'/>From source to Music Assistant to speaker</p>
 
-#### [Connect and play anywhere](#freedom-of-choice)
+#### Connect and play anywhere
 Music Assistant allows you to quickly connect some of the <a href="https://music-assistant.io/music-providers/">most popular streaming providers <i class="icon-external-link"></i></a> like Spotify and Tidal, with your local media files. Importing your liked tracks, artists, albums, and playlists, all displayed with the correct artwork.
 
 It supports the most ubiquitous <a href="https://music-assistant.io/player-support/">streaming protocols and devices <i class="icon-external-link"></i></a> like Airplay, Cast and DLNA, letting you play media on almost any device - if an old speaker doesn’t support new services, Music Assistant can bring it back to life.
 
-#### [Unified music library with advanced features](#come-together)
+[Read more...](#freedom-of-choice)
+
+#### Unified music library with advanced features
 Your local and cloud libraries will be seamlessly merged together. If you have the same track on multiple place, it will appear once while helping you find the highest-quality version. You can even have multiple accounts from the same provider, allowing everyone in the house to have their playlists in one place.
 
 It can group supported players for synchronized playback. It also supports advanced playback features such as crossfade and volume normalization - regardless of whether the device supports them.
 
-#### [Built for Home Assistant](#we-are-family)
+[Read more...](#come-together)
+
+#### Built for Home Assistant
 Connecting this with the Home Assistant integration - automation and voice control supercharges the whole experience.
+
+[Read more...](#we-are-family)
 
 ## Start me up
 <h3 style="margin-top: -1em; opacity: .67;">How to install Music Assistant</h3>
