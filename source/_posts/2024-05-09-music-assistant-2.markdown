@@ -15,6 +15,9 @@ Today, exactly five years ago, I, Marcel, started working on [Music Assistant <i
 
 Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.
 
+To just play with Music Assistant without reading what it is (yes, we know you!):
+{% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
+
 <!--more-->
 
 ## Rainbow Connection
