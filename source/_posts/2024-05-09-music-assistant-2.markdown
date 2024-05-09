@@ -13,9 +13,11 @@ og_image: /images/blog/2024-05-music-assistant/art.jpg
 
 Today, exactly five years ago, I, Marcel, started working on [Music Assistant](https://music-assistant.io/). What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.
 
-Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices. This is just one of the many [Home Assistant Add-on’s](https://www.home-assistant.io/addons/) that can massively expand its smart capabilities.
+Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.
 
 {% my supervisor_addon badge addon="d5369777_music_assistant_beta" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
+
+_Music Assistant is distributed as a [Home Assistant add-on](https://www.home-assistant.io/addons/) – our way to easily extend your Home Assistant installation with third party applications. If you use Home Assistant Container, follow the [MA installation instructions](https://music-assistant.io/installation/#tertiary-installation-method-docker-image)._
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/how-it-works.jpg'/>From source to Music Assistant to speaker</p>
 
