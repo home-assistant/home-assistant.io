@@ -57,11 +57,7 @@ Even though Music Assistant is an HA Add-on, it can be installed from start to f
 
 {% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
 
-<div class='note info'>
-    Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. If you use Home Assistant Container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions <i class="icon-external-link"></i></a>.
-</div>
-
-For users without the Home Assistant Operation System (or supervisor) we also have a [docker installation <i class="icon-external-link"></i>](https://music-assistant.io/installation/) available to run the server.
+_Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. To install it as a Docker container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions <i class="icon-external-link"></i></a>._
 
 ## Fight the power
 <h3 style="margin-top: -1em; opacity: .67;">Why Music Assistant?</h3>
