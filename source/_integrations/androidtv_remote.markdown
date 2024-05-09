@@ -36,17 +36,17 @@ Using the `media_player.play_media` service, you can launch applications and swi
 
 ### Launching apps
 
-If the Android TV device has the Google Play Store, you can directly launch any app by passing the package name.
+If the Android TV device has the Google Play Store, you can directly launch any app by its application ID/package name.
 The app doesn't need to exist in the Google Play Store.
-If it exists, you can find the app's package name in the URL of the app's Google Play Store listing.
-For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the app's package name is `com.example.app123`.
-The package name is also displayed in the media player card when you launch the application on the device.
+If it exists, you can find the application ID in the URL of the app's Google Play Store listing.
+For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the application ID is `com.example.app123`.
+The application ID is also displayed in the media player card when you launch the application on the device.
 
 Alternatively, if the device doesn't have the Google Play Store or if you want to open an app in a specific section, you can pass deep links supported by some applications.
 
-Examples of package names and deep links for popular applications:
+Examples of application IDs and deep links for popular applications:
 
-| App | Package name | Deep link |
+| App | App ID | Deep link |
 | --- | --- | --- |
 | YouTube | `com.google.android.youtube.tv` | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
 | Netflix | `com.netflix.ninja` | `https://www.netflix.com/title` or `netflix://`
@@ -138,7 +138,7 @@ media_player:
 
 The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
-You can pass the package name shown in this `current_activity` as `activity` in the `remote.turn_on` service to launch that app.
+You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` service to launch that app.
 
 {% details "List of the most common commands" %}
 
