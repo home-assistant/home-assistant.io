@@ -35,8 +35,7 @@ _Music Assistant is distributed as a [Home Assistant add-on](https://www.home-as
 
 <!--more-->
 
-Start me up
------------
+## Start me up
 
 After many years of development and testing with the amazing community, we can finally say this is ready for daily use.
 
@@ -46,8 +45,7 @@ Even though Music Assistant is an HA Add-on, it can be installed from start to f
 
 For users without the Home Assistant Operation System (or supervisor) we also have a [docker installation](https://music-assistant.io/installation/) available to run the server.
 
-Fight the power
----------------
+## Fight the power
 
 I started Music Assistant out of frustration about the mainstream available options;
 
@@ -68,8 +66,7 @@ When we pay for our music or devices, we shouldn’t be limited by arbitrary lim
 
 I spent a long time and a good bit of my money looking at existing solutions to fill these gaps. They were either expensive, closed, or lacked the home approval factor - or a combination of all of these.
 
-Freedom of choice
------------------
+## Freedom of choice
 
 Music Assistant connects to your favorite streaming providers and local music files, letting you play them on almost any connected playback equipment from the past 20 years. It’s basically a translator of music protocol A towards speaker/player protocol B.
 
@@ -79,8 +76,7 @@ For instance, I have a traditional amplifier + speakers setup in my living room 
 
 Some people might say that the best way to prevent all that frustration is by buying into an ecosystem like Sonos which takes care of this for you entirely. While I am a big fan of Sonos (and I will recommend them to friends and family for ease of use), I am not a big fan of the vendor lock-in that comes with it. If Sonos or a streaming service decide to part ways, I don’t have to be locked out of my music. Also, they don’t make speakers at every price point, meaning you don’t get the advantages of the new higher-fidelity or more affordable hardware out there.
 
-Come together
--------------
+## Come together
 
 In the same interface as I can stream my kids’ music to their speakers, I can stream my Hi-Res favorites to my high-fidelity setup. It is an all-in-one interface. Gone are the days of needing five different apps to get playback going in multiple parts of the house or switching who is connected just to access their playlists.
 
@@ -88,19 +84,17 @@ In the same interface as I can stream my kids’ music to their speakers, I can 
 
 When you search in Music Assistant, it searches all your libraries. Every streaming service, or the local files you add, are available to choose for playback.
 
-We are family
--------------
+## We are family
 
-Music Assistant has always been closely linked to Home Assistant (more on that below). I now even work for Nabu Casa, partly because of my work on Music Assistant (but now I’m the Matter guy). 
+Music Assistant has always been closely linked to Home Assistant (more on that below). I now even work for [Nabu Casa](https://www.nabucasa.com/), partly because of my work on Music Assistant (but now I’m the Matter guy). 
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/we-are-family.png'/></p>
 
 Because of this strong link, Home Assistant seamlessly links with Music Assistant, unlocking several advanced features. MA players are exposed to HA and can be controlled via your dashboards, automations, and scripts. This allows HA users to control their music players and access MA’s powerful music search function. Players can provide TTS (Text-to-Speech) announcements and can be controlled by Home Assistant connected voice assistants.
 
-Liner notes 
-------------
+## Liner notes 
 
-So, I started working on [Music Assistant](https://github.com/music-assistant) exactly five years ago, at first for my own personal use. It started as a learning exercise - thanks to it, I learned asyncio Python programming as well as the Vue frontend framework. I had the project on GitHub just to host the code, but it was not really meant to be used by others.
+So, I started working on Music Assistant [exactly five years ago](<https://github.com/music-assistant/server/commit/75adea9721fa1f1b7225515087c81edd979fcc8f>), at first for my own personal use. It started as a learning exercise - thanks to it, I learned asyncio Python programming as well as the Vue frontend framework. I had the project on GitHub just to host the code, but it was not really meant to be used by others.
 
 At some point, it became clear to me that there was a real demand, and I posted some info on how to install it, which gained a little attention. In June 2022, we released the 1.0 version of Music Assistant, and it was still in rough shape but already suitable for many users. We even organized a Livestream, “[Let’s get Loud](https://www.youtube.com/watch?v=SEH-DxOsywg)” hosted by Home Assistant, to promote [audio support for ESPHome](https://esphome.io/components/media_player/i2s_audio.html) and the super cool things you can build when you combine these three open-source projects.
 
