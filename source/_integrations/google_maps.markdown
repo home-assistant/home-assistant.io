@@ -9,9 +9,12 @@ ha_domain: google_maps
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `google_maps` platform allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
+The `google_maps` {% term integration %} allows you to detect presence using the unofficial API of [Google Maps Location Sharing](https://myaccount.google.com/locationsharing).
 
 ## Setup
 
@@ -44,7 +47,8 @@ If using more than one account, your own device may show twice, however, the par
 
 ## Configuration
 
-To integrate Google Maps Location Sharing in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Google Maps Location Sharing in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

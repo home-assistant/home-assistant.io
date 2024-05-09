@@ -8,13 +8,17 @@ ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_domain: browser
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Browser** {% term integration %} provides a service to open URLs in the default browser on the host machine.
 
 ## Configuration
 
-To load this integration, add the following lines to your `configuration.yaml`:
+To load this integration, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,9 +31,9 @@ Once loaded, the `browser` platform will expose {% term services %} that can be 
 
 Available services: `browser/browse_url`.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                  |       no | The URL to open.
+| Service data attribute | Optional | Description      |
+| ---------------------- | -------- | ---------------- |
+| `url`                  | no       | The URL to open. |
 
 ### Usage
 

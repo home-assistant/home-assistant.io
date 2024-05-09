@@ -15,6 +15,9 @@ ha_platforms:
   - camera
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
@@ -31,7 +34,8 @@ Obtain your API key from your [BloomSky dashboard](https://dashboard.bloomsky.co
 
 ## Configuration
 
-To integrate your BloomSky hub with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your BloomSky hub with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

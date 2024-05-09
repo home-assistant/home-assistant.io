@@ -9,9 +9,12 @@ ha_domain: message_bird
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `MessageBird` notification platform sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
+The `MessageBird` notification {% term integration %} sends notifications as SMS messages using [MessageBird](https://www.messagebird.com/) to your mobile phone.
 
 ## Setup
 
@@ -19,7 +22,8 @@ Go to [MessageBird](https://www.messagebird.com/) to retrieve your API key.
 
 ## Configuration
 
-To enable MessageBird notifications in your installation, add the following to your `configuration.yaml` file:
+To enable MessageBird notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
