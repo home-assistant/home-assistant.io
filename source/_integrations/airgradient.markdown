@@ -27,9 +27,13 @@ The integration will fetch data from each device. The following sensors are supp
 
 - Temperature
 - Humidity
-- PM0.1 density
+- PM1 density
 - PM2.5 density
 - PM10 density
 - Nitrogen index
 - Total volatile organic compounds index
-- Boot time
+- Signal strength
+- Carbon dioxide
+- PM0.03 count
+- Raw nitrogen
+- Raw total volatile organic compounds
