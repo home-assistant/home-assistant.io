@@ -49,6 +49,7 @@ The integration will create sensor entities for a variety of metrics that relate
 - Percentage charged
 - Solar power
 - Total pack energy (disabled by default)
+- VPP backup reserve
 
 #### Vehicles
 - Battery level
