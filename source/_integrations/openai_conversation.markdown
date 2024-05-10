@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@balloob'
+  - '@tlanfer'
 ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
@@ -132,6 +133,91 @@ template:
     image:
       name: "AI generated image of New York"
       url: "{{ trigger.event.data.url }}"
+```
+
+{% endraw %}
+
+### Service `openai_conversation.describe_image`
+
+Allows you to ask OpenAI to describe an image taken from a camera entity.
+This service
+populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+with the response from OpenAI. You can ask OpenAI to respond as a JSON object by providing and explaining an example object.
+That object will then be the services response data.
+
+| Service data attribute | Optional | Description                                            | Example          |
+| ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
+| `config_entry`         | no       | Integration entry ID to use.                           |                  |
+| `camera`               | no       | The id of a camera entity to take a picture from.      |                  |
+| `prompt`               | yes      | The question you want to ask OpenAI about the picture  | How many people are visible? |
+| `detail`               | yes      | User [low or high fidelity understanding](https://platform.openai.com/docs/guides/vision/low-or-high-fidelity-image-understanding). High detail will use significantly more of your budget |          |
+
+{% raw %}
+
+```yaml
+service: openai_conversation.describe_image
+data:
+  config_entry: abcdef123456dd4d17f3b1ca1486887b
+  camera: camera.front_door
+response_variable: generated_response
+```
+
+{% endraw %}
+
+The response data will contain a field `description` if the response is text.
+If the response can be parsed as JSON, the response data will contain the content of the JSON object.
+See the default prompt for an example of how to request a JSON response.
+
+#### Default prompt
+
+If you do not provide a custom prompt, the following default prompt is used.
+
+{% raw %}
+
+```text
+Describe what is happening in this image. Do not describe the scenery.
+
+Provide the response in JSON format, according to this example:
+{
+  "summary": "A man walking with a dog towards the door",
+  "description": "A man walking along a path in a front yard is looking at his phone. He is being followed by a black dog",
+  "people": 1,
+}
+
+The field "summary" should be a very brief summary of things happening in this image.
+The field "description" can be more verbose, providing more context of the actions done by creatures in the image.
+The field "people" should describe how many humans are visible in the picture.
+
+Do not provide anything else other than the JSON object.
+```
+
+{% endraw %}
+
+#### Example using AI to get descriptive notifications
+
+The following example demonstrated how to use the service to identify how many people are at your front door when the doorbell is being pressed.
+To find the value for `config_entry` to use, see [#example-using-a-generated-image-entity](the previous section).
+
+{% raw %}
+
+```yaml
+automation:
+  - alias: "Ask AI to count the people at the door"
+    trigger:
+      - platform: state
+        entity_id: input_button.doorbell
+    action:
+      - service: openai_conversation.describe_image
+        data:
+          config_entry: abcdef123456dd4d17f3b1ca1486887b
+          camera: camera.front_door_fluent
+          prompt: How many people are at the door? Reply as a single sentence.
+          detail: low
+        response_variable: generated_response
+      - service: notify.persistent_notification
+        data:
+          title: Someones at the door
+          message: "{{ generated_response.Response }}"
 ```
 
 {% endraw %}
