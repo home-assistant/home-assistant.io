@@ -4,7 +4,7 @@ description: Instructions on how to connect your GoodWe Inverter to Home Assista
 ha_category:
   - Energy
   - Sensor
-ha_iot_class: Local Polling
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_release: 2022.2
 ha_codeowners:
