@@ -195,7 +195,7 @@ Do not provide anything else other than the JSON object.
 
 #### Example using AI to get descriptive notifications
 
-The following example demonstrated how to use the service to identify how many people are at your front door when the doorbell is being pressed.
+The following example demonstrates how to use the service to identify how many people are at your front door when the doorbell is being pressed, using a helper as a placeholder for your actual doorbell.
 To find the value for `config_entry` to use, see [#example-using-a-generated-image-entity](the previous section).
 
 {% raw %}
