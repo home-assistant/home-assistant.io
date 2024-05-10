@@ -52,6 +52,7 @@ Anyway, I will not hold you any longer. Enjoy the release!
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2024.5.1 - May 3](#release-202451---may-3)
 - [Release 2024.5.2 - May 6](#release-202452---may-6)
+- [Release 2024.5.3 - May 10](#release-202453---may-10)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -73,7 +74,7 @@ so we've added a bunch of them in this release. 😎
 One of the most requested features of these new tables' new
 [item grouping](/blog/2024/04/03/release-20244/#item-grouping) was the
 ability to collapse them, and we’ve added that!
- 
+
 <p class='img'>
     <img src="/images/blog/2024-05/collapse-groups.gif" alt="Screenrecording showing items grouped in our data tables can now be collapsed."/>
     Each item group can now be collapsed and expanded.
@@ -116,15 +117,15 @@ without leaving it:
 
 ## Lock features for the tile card
 
-The tile card is already amazing, but [@marcgeurts] made it even better by 
+The tile card is already amazing, but [@marcgeurts] made it even better by
 adding new features to the tile card: Locks!
 
 When you now add a lock entity to the tile card, and if your lock supports it,
 you can now add two new features to the tile card:
 
-- [**Lock commands**](/dashboards/features/#lock-commands)  
+- [**Lock commands**](/dashboards/features/#lock-commands)
   Adds buttons to your tile card to lock or unlock the lock.
-- [**Lock open door**](/dashboards/features/#lock-open-door)  
+- [**Lock open door**](/dashboards/features/#lock-open-door)
   Adds a button to open/unlatch the door (with confirmation).
 
 <img class="no-shadow" src='/images/blog/2024-05/tile-lock-features.png' alt='Screenshots showing different tile cards with the new lock features.'>
@@ -187,7 +188,7 @@ In conjunction with [the latest release of ESPHome] (2024.4), we are bringing
 a much improved and more reliable communication between [ESPHome] and
 Home Assistant for transferring voice audio, guaranteeing no audio is lost in the process.
 
-Hear the difference in this side-by-side comparison: 
+Hear the difference in this side-by-side comparison:
 
 <lite-youtube videoid="6z7FIbTgLU4" videotitle="Improved audio with ESPHome for Assist"></lite-youtube>
 
@@ -419,6 +420,77 @@ The following {% term integrations %} are now available via the Home Assistant U
 [@tkdrob]: https://github.com/tkdrob
 [@tronikos]: https://github.com/tronikos
 
+## Release 2024.5.3 - May 10
+
+- Fix Sonos select_source timeout error ([@PeteRager] - [#115640]) ([sonos docs])
+- Update strings for Bring notification service ([@tr4nt0r] - [#116181]) ([bring docs])
+- Bump Yolink api to 0.4.4 ([@matrixd2] - [#116967]) ([yolink docs])
+- Update jinja2 to 3.1.4 ([@cdce8p] - [#116986])
+- Simplify MQTT subscribe debouncer execution ([@bdraco] - [#117006]) ([mqtt docs])
+- Log an exception mqtt client call back throws ([@jbouwh] - [#117028]) ([mqtt docs])
+- Bump rokuecp to 0.19.3 ([@ctalkington] - [#117059]) ([roku docs])
+- Bump pyenphase to 1.20.3 ([@catsmanac] - [#117061]) ([enphase_envoy docs])
+- Add a missing `addon_name` placeholder to the SkyConnect config flow ([@puddly] - [#117089]) ([homeassistant_sky_connect docs])
+- Goodwe Increase max value of export limit to 200% ([@mletenay] - [#117090]) ([goodwe docs])
+- Improve config entry has already been setup error message ([@bdraco] - [#117091])
+- Fix nws blocking startup ([@MatthewFlamm] - [#117094]) ([nws docs])
+- Make the mqtt discovery update tasks eager and fix race ([@jbouwh] - [#117105]) ([mqtt docs])
+- Bump goodwe to 0.3.5 ([@mletenay] - [#117115]) ([goodwe docs])
+- Handle tilt position being None in HKC ([@bdraco] - [#117141]) ([homekit_controller docs])
+- Fix typo in xiaomi_ble translation strings ([@jbouwh] - [#117144]) ([xiaomi_ble docs])
+- Bump pytrydan to 0.6.0 ([@dgomes] - [#117162]) ([v2c docs])
+- Bump deebot-client to 7.2.0 ([@edenhaus] - [#117189]) ([ecovacs docs])
+
+[#115640]: https://github.com/home-assistant/core/pull/115640
+[#116181]: https://github.com/home-assistant/core/pull/116181
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#116967]: https://github.com/home-assistant/core/pull/116967
+[#116986]: https://github.com/home-assistant/core/pull/116986
+[#117006]: https://github.com/home-assistant/core/pull/117006
+[#117028]: https://github.com/home-assistant/core/pull/117028
+[#117059]: https://github.com/home-assistant/core/pull/117059
+[#117061]: https://github.com/home-assistant/core/pull/117061
+[#117089]: https://github.com/home-assistant/core/pull/117089
+[#117090]: https://github.com/home-assistant/core/pull/117090
+[#117091]: https://github.com/home-assistant/core/pull/117091
+[#117094]: https://github.com/home-assistant/core/pull/117094
+[#117105]: https://github.com/home-assistant/core/pull/117105
+[#117115]: https://github.com/home-assistant/core/pull/117115
+[#117141]: https://github.com/home-assistant/core/pull/117141
+[#117144]: https://github.com/home-assistant/core/pull/117144
+[#117162]: https://github.com/home-assistant/core/pull/117162
+[#117189]: https://github.com/home-assistant/core/pull/117189
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@PeteRager]: https://github.com/PeteRager
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
+[@ctalkington]: https://github.com/ctalkington
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@matrixd2]: https://github.com/matrixd2
+[@mletenay]: https://github.com/mletenay
+[@puddly]: https://github.com/puddly
+[@tr4nt0r]: https://github.com/tr4nt0r
+[accuweather docs]: /integrations/accuweather/
+[bring docs]: /integrations/bring/
+[ecovacs docs]: /integrations/ecovacs/
+[enphase_envoy docs]: /integrations/enphase_envoy/
+[goodwe docs]: /integrations/goodwe/
+[homeassistant_sky_connect docs]: /integrations/homeassistant_sky_connect/
+[homekit_controller docs]: /integrations/homekit_controller/
+[mqtt docs]: /integrations/mqtt/
+[nws docs]: /integrations/nws/
+[roku docs]: /integrations/roku/
+[sonos docs]: /integrations/sonos/
+[v2c docs]: /integrations/v2c/
+[xiaomi_ble docs]: /integrations/xiaomi_ble/
+[yolink docs]: /integrations/yolink/
+
 ## Need help? Join the community!
 
 Home Assistant has a great community of users who are all more than willing
@@ -566,12 +638,12 @@ now exposes the state in lowercase.
 {% details "Recorder" %}
 
 Previously, `recorder.purge_entities` called with no arguments would purge all
-entities. This PR makes this call raise an error instead. 
+entities. This PR makes this call raise an error instead.
 
 It was too easy for users to accidentally purge their entire database using the
 old logic. Users who want to purge all entities can still use
 the `recorder.purge` service to achieve the same effect, and that service
-is more obvious in how it behaves. 
+is more obvious in how it behaves.
 
 ([@karwosts] - [#110066]) ([documentation](/integrations/recorder))
 
