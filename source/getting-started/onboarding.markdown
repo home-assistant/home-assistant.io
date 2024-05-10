@@ -3,35 +3,42 @@ title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
 ---
 
-After your Home Assistant server is up and running, there are 5 steps to log in and see your devices.
+After Home Assistant has been installed, there are 5 steps to log in and see your devices.
 
 ### Step 1
 
-Type <http://homeassistant.local:8123/> into your browser.
+- Enter the home assistant address in your browser:
+   - Typically, this is `http://homeassistant.local:8123/`.
+   - If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `homeassistant:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your device’s IP address).
 
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
-If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `homeassistant:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your device’s IP address).
 
 ### Step 2
 
-Select **Create my Smart Home**
+You can either create a new installation or recover an existing installation from a backup.
 
-This will create an administrator account. It will always be able to change everything in Home Assistant. Enter your name, username, and password and select **Create Account**.   Be sure to save this information safely as there is no way to recover it.
+- To create a new installation, select **Create my Smart Home**.
 
-![Set your username and password.](/images/getting-started/username.png)
+   - **Result**: This will create an administrator account. It will always be able to change everything in Home Assistant. 
+   - Enter your name, username, and password and select **Create Account**. 
+   - Be sure to save this information safely, as there is no way to recover it.
 
-If you want to restore from a backup of a previous installation, select **Restore from backup**.
+    ![Set your username and password.](/images/getting-started/username.png)
 
-Continue with the procedure on restoring from backup. You can ignore the remaining steps listed on this page
+- If you want to restore from a backup of a previous installation, select **Restore from backup**.
+
+    - Continue with the procedure on restoring from backup. You can ignore the remaining steps listed on this page
 
 ### Step 3
 
-Enter the location of your home. The location is used to configure the time zone, unit system, and currency. It is also used for automations that would show the weather, open the shades at sunrise, or start the vacuum when you leave the home. You can always change this information later in settings.
+1. Enter the location of your home. 
+  - The location is used to configure the time zone, unit system, and currency. It is also used for automations that would show the weather, open the shades at sunrise, or start the vacuum when you leave the home. 
+  - You can always change this information later in settings.
 
-![Define your location.](/images/getting-started/onboarding_location.png)
+   ![Define your location.](/images/getting-started/onboarding_location.png)
 
- After finding your location, select **Next**
+2. After finding your location, select **Next**.
 
 ### Step 4
 
