@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The File integration allows to to store notifications to a file or to set up a sensor bases on a file's content.
+The File integration allows to store notifications to a file or to set up a sensor based on a file's content.
 
 {% include integrations/config_flow.md %}
 
