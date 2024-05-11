@@ -35,7 +35,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 ### Vehicles
 
 |Domain|Name|Enabled|
-|---|---|---|---|
+|---|---|---|
 |Button|Flash lights|Yes|
 |Button|Force refresh|Yes|
 |Button|Homelink|Yes|
@@ -91,8 +91,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 ### Energy Sites
 
-|Domain|Name|Method|Enabled|
-|---|---|---|---|
+|Domain|Name|Enabled|
+|---|---|---|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
@@ -108,8 +108,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 ### Wall Connector
 
-|Domain|Name|Method|Enabled|
-|---|---|---|---|
+|Domain|Name|Enabled|
+|---|---|---|
 |Sensor|Fault state|No|
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
