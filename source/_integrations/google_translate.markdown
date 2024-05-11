@@ -16,8 +16,81 @@ The `google_translate` text-to-speech platform uses the unofficial [Google Trans
 
 {% include integrations/config_flow.md %}
 
-Check the [complete list of supported languages](https://cloud.google.com/translate/docs/languages) (languages where "Talk" feature is enabled in Google Translate) for allowed values.
-Use the 2-digit language code which you can find at the end of the URL when you click on the language name.
+<details>
+<summary><b>Supported Languages </b></summary>
+  
+All languages where "Talk" feature is enabled in Google Translate are supported. The following is the current list of languages supported by Google. 
+If you'd like to add a newly supported language that is not in the list, follow the directions outlined in [this file](https://github.com/home-assistant/core/blob/dev/homeassistant/components/google_translate/const.py).
+  
+| Language Code | Language                      |
+| ------------- | ----------------------------- |
+| af            | Afrikaans                     |
+| am            | Amharic                       |
+| ar            | Arabic                        |
+| bg            | Bulgarian                     |
+| bn            | Bengali                       |
+| bs            | Bosnian                       |
+| ca            | Catalan                       |
+| cs            | Czech                         |
+| cy            | Welsh                         |
+| da            | Danish                        |
+| de            | German                        |
+| el            | Greek                         |
+| en            | English                       |
+| es            | Spanish                       |
+| et            | Estonian                      |
+| eu            | Basque                        |
+| fi            | Finnish                       |
+| fil           | Filipino (Tagalog)            |
+| fr            | French                        |
+| gl            | Galician                      |
+| gu            | Gujarati                      |
+| ha            | Hausa                         |
+| hi            | Hindi                         |
+| hr            | Croatian                      |
+| hu            | Hungarian                     |
+| id            | Indonesian                    |
+| is            | Icelandic                     |
+| it            | Italian                       |
+| iw            | Hebrew                        |
+| ja            | Japanese                      |
+| jw            | Javanese                      |
+| km            | Khmer                         |
+| kn            | Kannada                       |
+| ko            | Korean                        |
+| la            | Latin                         |
+| lt            | Lithuanian                    |
+| lv            | Latvian                       |
+| ml            | Malayalam                     |
+| mr            | Marathi                       |
+| ms            | Malay                         |
+| my            | Myanmar (Burmese)             |
+| ne            | Nepali                        |
+| nl            | Dutch                         |
+| no            | Norwegian                     |
+| pa            | Punjabi                       |
+| pl            | Polish                        |
+| pt            | Portuguese (Portugal, Brazil) |
+| ro            | Romanian                      |
+| ru            | Russian                       |
+| si            | Sinhala (Sinhalese)           |
+| sk            | Slovak                        |
+| sq            | Albanian                      |
+| sr            | Serbian                       |
+| su            | Sundanese                     |
+| sv            | Swedish                       |
+| sw            | Swahili                       |
+| ta            | Tamil                         |
+| te            | Telugu                        |
+| th            | Thai                          |
+| tl            | Tagalog (Filipino)            |
+| tr            | Turkish                       |
+| uk            | Ukrainian                     |
+| ur            | Urdu                          |
+| vi            | Vietnamese                    |
+
+
+</details>
 
 Check the [complete list of supported tld](https://www.google.com/supported_domains) for allowed TLD values. This is used to force the dialect used when multiple fall into the same 2-digit language code(i.e., _US, UK, AU_)
 
