@@ -2,35 +2,19 @@
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
-  - Binary Sensor
   - Button
   - Climate
-  - Cover
-  - Device Tracker
-  - Lock
-  - Media Player
-  - Number
   - Sensor
-  - Update
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
-ha_domain: Teslemetry
+ha_domain: teslemetry
 ha_platforms:
-  - binary_sensor
   - button
   - climate
-  - cover
-  - device_tracker
-  - lock
-  - media_player
-  - number
-  - select
   - sensor
-  - switch
-  - update
 ha_integration_type: integration
 ---
 
