@@ -462,7 +462,7 @@ queries_flux:
       required: false
     range_start:
       type: string
-      description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`."
+      description: "Duration or time value to start range from. All Flux queries require a `range` filter, one is automatically added to the beginning of your Flux query in the form of `range(start: {range_start}, stop: {range_stop})`, unless `verbatim` is specified."
       required: false
       default: -15m
     range_stop:
@@ -476,7 +476,7 @@ queries_flux:
       required: true
     group_function:
       type: string
-      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table."
+      description: "The group function to be used. If provided, this will add a filter to the end of your query like this `{group_function}(column: \"_value\")`. Note that unlike the 1.xx queries, this **does not** default to mean. You can omit if you wish to use your own aggregator, which takes additional/different parameters or want to act on a different column. If omitted, then a filter of `limit(n: 1)` will be added to the end instead to restrict to one result per table, unless `verbatim` is specified."
       required: false
     value_template:
       type: template
@@ -491,6 +491,9 @@ queries_flux:
       type: [string, list]
       description: Libraries to import in order to execute your query. Ex. `strings`, `date`, `experimental/query`, etc.
       required: false
+    verbatim:
+      type: boolean
+      description: Send the query 'as is' to InfluxDB (templates will still be respected). `bucket`, `imports`, `range_start`, `range_stop`, and `group_function` will be ignored, these should be specified inline in the query. Allows the specification of queries that would otherwise be syntactically incorrect. 
 {% endconfiguration %}
 
 ## Examples
