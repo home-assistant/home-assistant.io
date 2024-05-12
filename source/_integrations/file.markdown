@@ -50,7 +50,7 @@ This would require the following settings extract the temperature:
 
 - Name: `Temperature`
 - File path: `/home/user/.homeassistant/sensor.json`
-- Value template: `'{{ value_json.temperature }}'`
+- Value template: {% raw %}`'{{ value_json.temperature }}'`{% endraw %}
 - Unit of measurement: `"°C"`
 
 #### Entries as CSV
