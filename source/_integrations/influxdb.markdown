@@ -493,7 +493,9 @@ queries_flux:
       required: false
     verbatim:
       type: boolean
-      description: Send the query 'as is' to InfluxDB (templates will still be respected). `bucket`, `imports`, `range_start`, `range_stop`, and `group_function` will be ignored, these should be specified inline in the query. Allows the specification of queries that would otherwise be syntactically incorrect. 
+      description: Send the query 'as is' to InfluxDB (templates will still be respected). `bucket`, `imports`, `range_start`, `range_stop`, and `group_function` will be ignored, these should be specified inline in the query. Allows the specification of queries that would otherwise be syntactically incorrect.
+      required: false
+      default: false
 {% endconfiguration %}
 
 ## Examples
