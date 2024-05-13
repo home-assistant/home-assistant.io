@@ -32,7 +32,7 @@ type:
   type: string
 entity:
   required: true
-  description: "An `entity_id` used for the picture."
+  description: "A camera, image or person `entity_id` used for the picture."
   type: string
 camera_image:
   required: false
