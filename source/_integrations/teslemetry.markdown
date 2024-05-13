@@ -24,6 +24,7 @@ ha_platforms:
   - climate
   - cover
   - device_tracker
+  - diagnostics
   - lock
   - media_player
   - number
