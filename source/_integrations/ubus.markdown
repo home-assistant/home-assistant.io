@@ -9,6 +9,9 @@ ha_domain: ubus
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This is a presence detection scanner for [OpenWrt](https://openwrt.org/) using [ubus](https://wiki.openwrt.org/doc/techref/ubus). It scans for changes in `hostapd.*`, which will detect and report changes in devices connected to the access point on the router.
@@ -66,7 +69,8 @@ Check if the `file` namespaces is registered with the RPC server.
 file
 ```
 
-After this is done, add the following to your `configuration.yaml` file:
+After this is done, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
