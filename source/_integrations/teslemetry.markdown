@@ -106,7 +106,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
 
-### Wall Connector
+### Wall connector
 
 |Domain|Name|Enabled|
 |---|---|---|
