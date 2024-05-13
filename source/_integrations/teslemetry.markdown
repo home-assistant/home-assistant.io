@@ -14,7 +14,7 @@ ha_domain: teslemetry
 ha_platforms:
   - climate
   - device_tracker
-  - diagnostic
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
