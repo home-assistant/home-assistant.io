@@ -29,7 +29,7 @@ One weather entity is created for each entry in the configuration. Hourly and da
 
 ## Forecast Extra Service
 
-`nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather/#service-weatherget_forecasts`).
+`nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather/#service-weatherget_forecasts).
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
