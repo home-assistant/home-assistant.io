@@ -36,7 +36,7 @@ The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Re
 
 ## Configuration
 
-To use the Qwickswitch integration in your installation, add it to your {% term "`configuration.yaml`" %} file.
+To use the QwickSwitch integration in your installation, add it to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
