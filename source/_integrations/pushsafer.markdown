@@ -9,13 +9,17 @@ ha_domain: pushsafer
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify integration. This allows you to send messages to the user using Pushsafer.
 
 In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
-To use Pushsafer notifications, add the following to your `configuration.yaml` file:
+To use Pushsafer notifications, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
