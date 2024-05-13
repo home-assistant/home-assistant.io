@@ -46,7 +46,7 @@ response_variable: weather_forecast
 ```
 
 The response data field is a mapping of called target entities, each containing the `forecast` field.
-`forecast` is a list of forecasted conditions at a given point in time that are note returned from `weather.get_forecasts`:
+`forecast` is a list of forecasted conditions at a given point in time that are not returned from `weather.get_forecasts`.  The `datetime` and `is_daytime` attributes are still provided for context.
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
