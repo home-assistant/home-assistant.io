@@ -18,7 +18,6 @@ The Jewish Calendar (`jewish_calendar`) integration displays various information
 {% include integrations/config_flow.md %}
 
 
-## Configuration
 
 ### Language
 
