@@ -14,7 +14,7 @@ related:
     title: Configuration file
 ---
 
-The `harman_kardon_avr` platform allows you to control Harman Kardon Network Receivers from Home Assistant.
+The `harman_kardon_avr` {% term integration %} allows you to control Harman Kardon Network Receivers from Home Assistant.
 
 Supported devices:
 

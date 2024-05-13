@@ -11,9 +11,10 @@ ha_domain: panel_custom
 ha_integration_type: integration
 ---
 
-The `panel_custom` integration allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
+The `panel_custom` {% term integration %} allows you to write your own panels in JavaScript and add them to Home Assistant. See the developer documentation on [instructions how to build your own panels](https://developers.home-assistant.io/docs/frontend/custom-ui/creating-custom-panels/).
 
-To enable customized panels in your installation, add the following to your `configuration.yaml` file:
+To enable customized panels in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
