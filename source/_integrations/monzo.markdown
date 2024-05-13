@@ -24,15 +24,14 @@ The **Monzo** {% term integration %} allows you to connect your Monzo bank accou
 
 1. Before adding the Monzo integration, you'll need to create a [Monzo developer account](https://developers.monzo.com/). 
 2. From here, you need to create a new OAuth client for Home Assistant to use by going to **Clients** > **New OAuth Client**. 
-3. Then, fill in the form as follows:
+3. Then, fill in the form as follows, making sure to **copy the URL shown** - don't replace it with your own URL:
    - Name: Home Assistant
    - Logo URL: This can be left blank
    - Redirect URLs: <https://my.home-assistant.io/redirect/oauth>
    - Description: For example: Used by the Monzo Home Assistant Integration
    - Confidentiality: Confidential
 
-4. Make sure to **copy the URL shown** - don't replace it with your own URL.
-5. Once submitted, you can proceed with adding the integration.
+4. Once submitted, you can proceed with adding the integration.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}, and add the **Monzo** integration.
    - Fill in the OAuth details for the client you've created in the Monzo developer portal.
    - **Important** - After authorizing Home Assistant access via email, for security you'll also need to verify again from within the Monzo app. 
