@@ -311,8 +311,10 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Device discovery payload
 
-A device should send a discovery payload to expose all components for a device.
+A device can send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
+
+As an alternative it is also possible a device [can send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
 
 The shared options are at root level of the JSON message and must include the `device` mapping (abbreviated as `dev`) and `origin` mapping (abbreviated as `o`). The `device` and `origin` mappings are required options and cannot be overridden at entity/component level.
 
@@ -443,10 +445,10 @@ A component config part in a device discovery payload must have the `platform` o
 
 </div>
 
-#### Single component discovery payload (legacy)
+#### Single component discovery payload
 
 The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components. It is highly recommend to use the device based discovery instead.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components. It is recommended to use the device based discovery instead.
 
 Example discovery payload:
 
