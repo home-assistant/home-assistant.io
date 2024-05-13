@@ -82,7 +82,7 @@ data:
   media_content_id: "FV:2/31"
 ```
 
-or using the Sonos playlist name:
+Example using the Sonos playlist name:
 
 ```yaml
 service: media_player.play_media
