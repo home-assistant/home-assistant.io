@@ -12,6 +12,9 @@ ha_domain: monzo
 ha_homekit: true
 ha_platforms:
   - sensor
+related:
+  - docs: /docs/configuration/remote/
+    title: Remote access to Home Assistant
 ---
 
 The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant
@@ -72,7 +75,7 @@ These events are also registered as device triggers, so you can, for example, tr
 
 <div class='note warning'>
 
-For this to work, your Home Assistant instance must be accessible remotely.
+For this to work, your Home Assistant instance must be [accessible remotely](/docs/configuration/remote/).
 
 </div>
 
