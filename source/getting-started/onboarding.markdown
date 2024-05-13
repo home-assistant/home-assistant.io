@@ -7,7 +7,7 @@ After Home Assistant has been installed, there are 5 steps to log in and see you
 
 ### Step 1
 
-- Enter the home assistant address in your browser:
+- Enter the Home Assistant address in your browser:
    - Typically, this is `http://homeassistant.local:8123/`.
    - If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at `homeassistant:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your device’s IP address).
 
