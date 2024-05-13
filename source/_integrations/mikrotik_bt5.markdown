@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates [MikroTik](https://mikrotik.com/) bluetooth tags into Home Assistant.
+Integrates [MikroTik](https://mikrotik.com/) Bluetooth tags into Home Assistant.
 
 {% include integrations/config_flow.md %}
 
