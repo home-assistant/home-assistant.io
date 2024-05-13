@@ -12,6 +12,9 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Home Assistant has support to integrate your [Vanderbilt SPC](https://www.spcsupportinfo.com/SPCConnectPro/) alarm panel and any connected motion, door, smoke and technical sensors.
@@ -23,7 +26,8 @@ There is currently support for the following device types within Home Assistant:
 - [Alarm](#alarm)
 - [Binary sensor](#binary-sensor)
 
-Home Assistant needs to know where to find the SPC Web Gateway API endpoints, to configure this add the following section to your `configuration.yaml` file:
+Home Assistant needs to know where to find the SPC Web Gateway API endpoints, to configure this add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
