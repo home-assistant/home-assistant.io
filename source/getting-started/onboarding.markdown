@@ -47,7 +47,7 @@ Home Assistant can use anonymous information about your system to improve the pr
 
 The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/)
 
-Once you are done, select **Next**.
+- Once you are done, select **Next**.
 
 ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
@@ -55,7 +55,7 @@ Once you are done, select **Next**.
 
 Home Assistant will try to find any devices it has discovered on your network. What shows up depends on the devices in your home. Don’t worry if you don’t see anything but your name at the top. You can add more devices later.
 
-Select **Finish**.
+- Select **Finish**.
 
 ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
