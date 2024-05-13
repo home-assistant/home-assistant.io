@@ -12,9 +12,6 @@ ha_domain: monzo
 ha_homekit: true
 ha_platforms:
   - sensor
-related:
-  - docs: /docs/configuration/remote/
-    title: Remote access to Home Assistant
 ---
 
 The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant.
@@ -57,29 +54,3 @@ The integration will create a device for each of your accounts and pots. For an 
 Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
-
-## Webhooks and triggers
-
-Each account will setup a webhook that will fire an event in Home Assistant for each transaction created. The event contains lots of data about the transaction provided exactly reported by the Monzo API. For the structure of this data, see Monzo's [transaction created documentation](https://docs.monzo.com/#transaction-created).
-
-These events are also registered as device triggers, so you can, for example, trigger an automation when a transaction is created on your current account and access the data from that event for use in your automation.
-
-<div class='note warning'>
-
-For this to work, your Home Assistant instance must be [accessible remotely](/docs/configuration/remote/).
-
-</div>
-
-## Services
-
-### Pot transfer
-
-`pot_transfer`
-
-Transfer money between one of your accounts (default: current account) and one of your pots.
-
-### (Un-)Register webhooks
-
-`register_webhook` and `unregister_webhook`
-
-Service to manually register and unregister the webhook. This is done automatically as part of (un)installation, but can also be triggered manually with this service.
