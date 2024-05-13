@@ -140,3 +140,33 @@ The integration will create the following sensors:
 ### Switch
 
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
+
+## Services
+
+The integration offers the following service:
+
+### Park for
+
+With this service you can let your mower park for a given time. This will override all your schedules during this time. The duration has to be given in minutes. The values for the duration have to be between 1 and 60480 minutes.
+
+```yaml
+# Replace <name> with the name of your mower.
+service: husqvarna_automower.park_for
+target:
+  entity_id: lawn_mower.<name>
+data:
+  duration: 60
+```
+
+### Start for
+
+With this service you can let your mower start for a given time. This will override all your schedules during this time. The duration has to be given in minutes. The values for the duration have to be between 1 and 60480 minutes. The mower will only start if the battery is fully charged.
+
+```yaml
+# Replace <name> with the name of your mower.
+service: husqvarna_automower.start_for
+target:
+  entity_id: lawn_mower.<name>
+data:
+  duration: 60
+```
