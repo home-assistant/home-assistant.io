@@ -19,7 +19,6 @@ related:
 
 The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant
 
-{% include integrations/config_flow.md %}
 
 ## Prerequisites and approval
 
@@ -39,6 +38,8 @@ The **Monzo** {% term integration %} allows you to connect your Monzo bank accou
    - **Important** - After authorizing Home Assistant access via email, for security you'll also need to verify again from within the Monzo app. 
      - A reminder to do this will be displayed in Home Assistant before completing the installation - don't proceed until you've done this from the popup in the mobile app.
      - If you've forgotten to do this, the integration will fail to load, but you can simply accept the popup and reload the integration without entering your details again.
+
+{% include integrations/config_flow.md %}
 
 ### Adding a second account
 
