@@ -14,7 +14,7 @@ ha_platforms:
   - sensor
 ---
 
-The Monzo integration allows you to connect your Monzo bank accounts to Home Assistant
+The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant
 
 - [Prerequisites and Approval](#prerequisites-and-approval)
   - [Adding a second account](#adding-a-second-account)
@@ -26,14 +26,14 @@ The Monzo integration allows you to connect your Monzo bank accounts to Home Ass
 
 {% include integrations/config_flow.md %}
 
-## Prerequisites and Approval
+## Prerequisites and approval
 
-Before adding the Monzo integration, you'll need to create a [Monzo developer account](https://developers.monzo.com/). From here, you need to create a new OAuth client for Home Assistant to use by going to *Clients* > *New OAuth Client*, then fill in the form as follows:
+Before adding the Monzo integration, you'll need to create a [Monzo developer account](https://developers.monzo.com/). From here, you need to create a new OAuth client for Home Assistant to use by going to **Clients** > **New OAuth Client**, then fill in the form as follows:
 
 - Name: Home Assistant
 - Logo URL: This can be left blank
 - Redirect URLs: <https://my.home-assistant.io/redirect/oauth>
-- Description: Eg: Used by the Monzo Home Assistant Integration
+- Description: For example: Used by the Monzo Home Assistant Integration
 - Confidentiality: Confidential
 
 Make sure to **copy the URL shown** - don't replace it with your own URL.
@@ -58,7 +58,7 @@ Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
 
-## Webhooks and Triggers
+## Webhooks and triggers
 
 Each account will setup a webhook that will fire an event in Home Assistant for each transaction created. The event contains lots of data about the transaction provided exactly reported by the Monzo API. For the structure of this data, see Monzo's [transaction created documentation](https://docs.monzo.com/#transaction-created).
 
@@ -78,7 +78,7 @@ For this to work, your Home Assistant instance must be accessible remotely.
 
 Transfer money between one of your accounts (default: current account) and one of your pots.
 
-### (Un-)Register Webhooks
+### (Un-)Register webhooks
 
 `register_webhook` and `unregister_webhook`
 
