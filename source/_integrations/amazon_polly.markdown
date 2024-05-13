@@ -48,7 +48,7 @@ profile_name:
 region_name:
   description: The region identifier to connect to.
   required: false
-  type: [string, list]
+  type: string
   default: us-east-1
 text_type:
   description: "Whether to interpret messages as `text` or as [`ssml`](https://docs.aws.amazon.com/polly/latest/dg/ssml.html) by default."
@@ -70,7 +70,7 @@ sample_rate:
   type: string
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 engine:
-  description: "Override the default engine. Can be either of `standard` or `neural`. See Amazon documentation for compatible regions and voices."
+  description: "Override the default engine. Can be either of `standard`, `neural`, `long-form` or `generative`. See Amazon documentation for compatible regions and voices."
   required: false
   type: string
   default: standard  
@@ -121,6 +121,21 @@ Say with break:
           Amazon Polly
       </speak>
 ```
+
+Say with specific voice and engine as options:
+
+```yaml
+- service: tts.amazon_polly_say
+  data:
+    message: "Hello from Amazon Polly"
+    entity_id: media_player.living_room
+    language: en-GB
+    options:
+      voice: Amy
+      engine: generative
+```
+
+
 ## Advanced usage
 Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
 
