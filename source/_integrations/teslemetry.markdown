@@ -24,7 +24,7 @@ The Teslemetry integration exposes various commands and sensors from the Tesla v
 
 You must have a [Teslemetry](https://teslemetry.com) account, active subscription, and [access token](https://teslemetry.com/console).
 
-Vehicle delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
+Vehicles delivered in 2024 and later will require a [virtual key](https://teslemetry.com/docs/topics/virtualkey) to be configured in order to run certain commands.
 
 {% include integrations/config_flow.md %}
 
@@ -89,7 +89,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Traffic delay|No|
 |Sensor|Usable Battery level|No|
 
-### Energy Sites
+### Energy sites
 
 |Domain|Name|Enabled|
 |---|---|---|
