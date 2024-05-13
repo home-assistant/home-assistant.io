@@ -70,7 +70,7 @@ sample_rate:
   type: string
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 engine:
-  description: "Override the default engine. Can be either of `standard`, `neural`, `long-form` or `generative`. See Amazon documentation for compatible regions and voices."
+  description: "Override the default engine. Can be either of [`standard`](https://docs.aws.amazon.com/polly/latest/dg/standard-voices.html), [`neural`](https://docs.aws.amazon.com/polly/latest/dg/neural-voices.html), [`long-form`](https://docs.aws.amazon.com/polly/latest/dg/long-form-voices.html) or [`generative`](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html). See Amazon documentation for compatible regions and voices."
   required: false
   type: string
   default: standard  
