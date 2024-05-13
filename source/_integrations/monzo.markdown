@@ -17,7 +17,7 @@ related:
     title: Remote access to Home Assistant
 ---
 
-The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant
+The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant.
 
 
 ## Prerequisites and approval
