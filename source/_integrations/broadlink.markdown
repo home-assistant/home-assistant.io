@@ -18,6 +18,7 @@ ha_domain: broadlink
 ha_config_flow: true
 ha_platforms:
   - climate
+  - datetime
   - light
   - remote
   - sensor
@@ -47,6 +48,7 @@ The {% term entities %} have the same name as the device by default. To change t
 The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
+- [DateTime](#datetime)
 - [Remote](#remote)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -55,6 +57,10 @@ The {% term entities %} are divided into four subdomains:
 ## Climate
 
 The `climate` entities allow you to monitor and control Broadlink thermostats.
+
+## DateTime
+
+The `datetime` entities allow you to monitor and control the local clock of supported Broadlink devices.
 
 ## Remote
 
