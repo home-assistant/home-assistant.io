@@ -448,7 +448,7 @@ A component config part in a device discovery payload must have the `platform` o
 #### Single component discovery payload
 
 The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components. It is recommended to use the device based discovery instead.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components, and it is then recommended to use [device based discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
 Example discovery payload:
 
