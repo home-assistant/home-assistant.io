@@ -82,7 +82,9 @@ All {% term events %} have the fields:
 | `time` | The time of the event in the format `HH:MM AM`. |
 
 There is a unique list of known event_codes are defined in
-[events.csv](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/events.csv).
+[events.csv](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/events.csv)
+and the inferred groups and their ranges of event codes are defined in
+[timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
 ## Services
 
