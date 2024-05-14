@@ -94,7 +94,7 @@ Available {% term services %}: `change_setting`, `capture_image`, `trigger_autom
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
-[jaraco.abode settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
+[`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
