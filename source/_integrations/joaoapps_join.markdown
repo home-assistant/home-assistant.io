@@ -21,7 +21,7 @@ divided up in two locations, the Join integration, and the Joaoapps Join notify 
 The notify platform allows us to send messages to Joaoapps Join devices, the integration
 allows us to access the other special features that Joaoapps Join offers. When in doubt, you can reference the [API documentation](https://joaoapps.com/join/api/) this is based on.
 
-In the `configuration.yaml` file you need to provide the API key and device id
+In the {% term "`configuration.yaml`" %} file you need to provide the API key and device id
 or name of the target device. You can find your device id and API key
 [here](https://joinjoaomgcd.appspot.com/).
 
