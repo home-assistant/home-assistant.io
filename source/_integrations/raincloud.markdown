@@ -54,7 +54,7 @@ password:
 
 ## Binary sensor
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,7 +77,7 @@ monitored_conditions:
 
 ## Sensor
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,7 +104,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

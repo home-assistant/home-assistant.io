@@ -161,7 +161,7 @@ This configuration will ignore the button `1` of the `newkaku` device with ID `0
 
 ### Invert cover
 
-Devices can be configure to work in inverted mode by adding option in `configuration.yaml`:
+Devices can be configure to work in inverted mode by adding option in {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry for inverted RTS cover
