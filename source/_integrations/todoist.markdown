@@ -42,7 +42,7 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 ## Custom projects
 
-You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+You can manually configure the Todoist calendar (only) integration using {% term "`configuration.yaml`" %} which can specify "custom" projects which match against criteria you set. You should
 prefer the above instructions for configuring Todoist from the UI.
 
 {% details "Manual custom projects configuration" %}
@@ -75,7 +75,7 @@ custom_projects:
       type: list
 {% endconfiguration %}
 
-Here's an example of a more advanced `configuration.yaml`:
+Here's an example of a more advanced {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
