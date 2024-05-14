@@ -198,12 +198,6 @@ outgoing:
   required: false
 {% endconfiguration %}
 
-<div class='note'>
-
-If `destination` is explicitly set to `null` / `None`, the trigger is a no-op. It will never fire. This can be used in blueprints to provide inputs for addresses that are optional.
-
-</div>
-
 #### Available trigger data
 
 In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
