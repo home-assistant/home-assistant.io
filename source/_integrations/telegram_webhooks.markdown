@@ -26,7 +26,7 @@ telegram_bot:
     api_key: YOUR_API_KEY
     allowed_chat_ids:
       - 123456789 : 3328b4936eccd805bd65063c0562dcd2 # example id of a telegram user that maps to the Home Assistant user
-      - chat_id: -987654321  # example id of a group, starts with a -
+      - -987654321  # example id of a group, starts with a -
 ```
 
 {% configuration %}
