@@ -120,7 +120,7 @@ automation:
       service: persistent_notification.create
       data:
         title: Something bad happened
-        message: "{{ trigger.event.data.message }}"
+        message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}
