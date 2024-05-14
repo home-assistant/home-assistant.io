@@ -79,34 +79,12 @@ homeassistant:
       required: false
 input:
   description: >
-    A dictionary of defined user inputs. These are the input fields that the
+    A dictionary of defined user inputs or sections. These are the input fields that the
     consumer of your blueprint can provide using YAML definition, or via
-    a configuration form in the UI.
+    a configuration form in the UI. Sections provide a way to visually group a set of 
+    related inputs (see below).
   type: map
   required: false
-  keys:
-    name:
-      description: The name of the input field.
-      type: string
-      required: false
-    description:
-      description: >
-        A short description of the input field. Keep this short and descriptive.
-        The description can include [Markdown](https://commonmark.org/help/).
-      type: string
-      required: false
-    selector:
-      description: >
-        The [selector](/docs/blueprint/selectors/) to use for this input. A
-        selector defines how the input is displayed in the frontend UI.
-      type: selector
-      required: false
-    default:
-      description: >
-        The default value of this input, in case the input is not provided
-        by the user of this blueprint.
-      type: any
-      required: false
 {% endconfiguration %}
 
 ### Blueprint inputs
@@ -117,6 +95,34 @@ inputs from the blueprint user.
 These inputs can be of any type (string, boolean, list, dictionary). They can have
 a default value and also provide a [selector](/docs/blueprint/selectors/) that
 ensures a matching input field in the user interface.
+
+A blueprint input has the following configuration:
+
+{% configuration %}
+  name:
+    description: The name of the input field.
+    type: string
+    required: false
+  description:
+    description: >
+      A short description of the input field. Keep this short and descriptive.
+      The description can include [Markdown](https://commonmark.org/help/).
+    type: string
+    required: false
+  selector:
+    description: >
+      The [selector](/docs/blueprint/selectors/) to use for this input. A
+      selector defines how the input is displayed in the frontend UI.
+    type: selector
+    required: false
+  default:
+    description: >
+      The default value of this input, in case the input is not provided
+      by the user of this blueprint.
+    type: any
+    required: false
+
+{% endconfiguration %}
 
 Each input field can be referred to, outside of the blueprint metadata, using
 the `!input` custom YAML tag.
@@ -139,6 +145,41 @@ In this example, no [`selector`](/docs/blueprint/selectors/) was provided. In th
 It is then up to the user to find out what to enter there. Blueprints that come with [selectors](/docs/blueprint/selectors/) are easier to use.
 
 A blueprint can have as many inputs as you like.
+
+### Blueprint input sections
+
+One or more input sections can be added under the main `input` key, and each section visually groups the inputs in that section, 
+allows an optional description, and optionally allows for collapsing those inputs. 
+
+A section is differentiated from an input by the presence of an additional `input` key within that section. The full configuration for a section is below:
+
+{% configuration %}
+
+name:
+  description: A name for the section. If omitted the key of the section is used.
+  type: string
+  required: false
+icon:
+  description: An icon to display next to the name of the section.
+  type: string
+  required: false
+description:
+  description: >
+    An optional description of this section, which will be displayed at the top of the section.
+    The description can include [Markdown](https://commonmark.org/help/).
+  type: string
+  required: false
+collapsed:
+  description: If `true`, the group will be collapsed by default. Useful for optional groups or less important inputs.
+  type: boolean
+  required: false
+input:
+  description: >
+    A dictionary of defined user inputs within this section.
+  type: map
+  required: true
+
+{% endconfiguration %}
 
 ### Blueprint inputs in templates
 
