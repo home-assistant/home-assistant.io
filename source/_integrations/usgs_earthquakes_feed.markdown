@@ -29,7 +29,7 @@ The data is updated every 5 minutes.
 
 ## Configuration
 
-To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the following lines to your `configuration.yaml`.
+To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the following lines to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry

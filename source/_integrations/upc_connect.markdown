@@ -20,7 +20,7 @@ The `upc_connect` platform offers presence detection by looking at connected dev
 This integration works by logging into the router with a password. The router can only have one active session at any time, so if you want to access your router settings then stop Home Assistant first.
 </div>
 
-To use a Connect Box in your installation, add the following to your `configuration.yaml` file:
+To use a Connect Box in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

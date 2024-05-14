@@ -72,7 +72,7 @@ that provide a greater flexibility.
 
 Alternatively, this {% term integration %} can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

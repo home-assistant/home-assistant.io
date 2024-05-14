@@ -23,7 +23,7 @@ Queries are entered as a list, with the two transport modes available being `bus
 
 Train departure sensors require three character long `origin` and `destination` station codes which are searchable on the [National Rail enquiries](https://www.nationalrail.co.uk/times_fares/ldb.aspx) website (e.g., `WAT` is London Waterloo). The validity of a route can be checked by performing a GET request to `/uk/train/station/{station_code}/live.json` in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml#request_uk_train_station_station_code_live_json).
 
-To add a single train departure sensor add the following to your `configuration.yaml` file:
+To add a single train departure sensor add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry for a single sensor
@@ -114,7 +114,7 @@ follows:
 3. Tick the 'map data' layer, and wait for clickable objects to load.
 4. Click the bus stop node to reveal its tags on the left.
 
-The `destination` must be a valid location in the "direction" field returned by a GET query to `/uk/bus/stop/{atcocode}/live.json` as described in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). A bus sensor is added in the following `configuration.yaml` file entry:
+The `destination` must be a valid location in the "direction" field returned by a GET query to `/uk/bus/stop/{atcocode}/live.json` as described in the [API reference webpage](https://developer.transportapi.com/docs?raml=https://transportapi.com/v3/raml/transportapi.raml##bus_information). A bus sensor is added in the following {% term "`configuration.yaml`" %} file entry:
 
 ```yaml
 # Example configuration.yaml entry for multiple sensors

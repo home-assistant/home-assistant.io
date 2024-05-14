@@ -24,7 +24,7 @@ It is recommended that you create a new user for this platform in the NVR softwa
 
 ### Configuration
 
-To enable, add the following to your `configuration.yaml` file:
+To enable, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

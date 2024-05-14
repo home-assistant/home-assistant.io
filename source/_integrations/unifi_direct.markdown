@@ -15,7 +15,7 @@ ha_codeowners:
 
 This platform allows you to detect presence by looking at devices connected to a [UniFi AP](https://www.ui.com/products/#unifi). This device tracker differs from [Ubiquiti UniFi](/integrations/unifi) because it doesn't require the UniFi Network application.
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
