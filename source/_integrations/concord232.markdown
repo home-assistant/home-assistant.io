@@ -57,7 +57,7 @@ mode:
 
 ## Binary sensor
 
-To enable the binary sensor platform, add the following lines to your `configuration.yaml`:
+To enable the binary sensor platform, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
