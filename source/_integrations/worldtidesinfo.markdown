@@ -9,9 +9,12 @@ ha_domain: worldtidesinfo
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `worldtidesinfo` sensor platform uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
+The `worldtidesinfo` {% term integration %} uses details from [World Tides](https://www.worldtides.info/) to provide information about the prediction for the tides for any location in the world.
 
 ## Setup
 
@@ -19,7 +22,8 @@ Get your API key from your account at [https://www.worldtides.info/](https://www
 
 ## Configuration
 
-To use this sensor, add the following to your `configuration.yaml` file:
+To use this {% term integration %}, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

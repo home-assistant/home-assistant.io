@@ -14,6 +14,9 @@ ha_platforms:
   - alarm_control_panel
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Egardia** {% term integration %} enables the ability to control an [Egardia](https://egardia.com/)/[Woonveilig](https://woonveilig.nl) control panel. These alarm panels are known under different brand names across the world, including Woonveilig in the Netherlands. This was tested on the WL-1716, GATE-01, GATE-02 and GATE-03 versions of the Egardia/Woonveilig platform. Not only will you integrate your alarm control panel, supported sensors (door contacts at this moment) will be added automatically.
@@ -22,7 +25,8 @@ You will need to know the IP of your alarm panel on your local network. Test if 
 
 ## Basic configuration
 
-To enable the {% term integration %} with your alarm panel, add the following lines to your `configuration.yaml` file:
+To enable the {% term integration %} with your alarm panel, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
  ```yaml
     # Example configuration.yaml entry

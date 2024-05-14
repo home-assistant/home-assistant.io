@@ -12,9 +12,12 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mochad` integration is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
+The `mochad` {% term integration %} is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,7 +26,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate your Mochad units with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Mochad units with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

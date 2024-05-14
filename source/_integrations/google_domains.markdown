@@ -7,13 +7,17 @@ ha_release: 0.57
 ha_domain: google_domains
 ha_iot_class: Cloud Polling
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-With the Google Domains integration you can keep your Google Domains **dynamic** DNS record up to date. To setup a dynamic domain name using Goole Domains, refer to the [_Use Dynamic DNS_ section in the Google support documentation](https://support.google.com/domains/answer/6147083).
+With the Google Domains {% term integration %} you can keep your Google Domains **dynamic** DNS record up to date. To setup a dynamic domain name using Goole Domains, refer to the [_Use Dynamic DNS_ section in the Google support documentation](https://support.google.com/domains/answer/6147083).
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
