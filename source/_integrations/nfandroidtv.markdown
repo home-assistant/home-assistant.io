@@ -74,15 +74,15 @@ interrupt: 1
 
 The following attributes can be placed inside `data` to send images and icons.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `image`                 |      yes | Groups the attributes for image upload. If present, either `url` or `path` have to be provided.
-| `icon`                 |      yes | Groups the attributes for icon upload. If present, either `url` or `path` have to be provided.
-| `path`                |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
-| `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
-| `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
-| `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
-| `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
+| Service data attribute | Optional | Description                                                                                                                                        |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `image`                | yes      | Groups the attributes for image upload. If present, either `url` or `path` have to be provided.                                                    |
+| `icon`                 | yes      | Groups the attributes for icon upload. If present, either `url` or `path` have to be provided.                                                     |
+| `path`                 | yes      | Local path of an image file. Is placed inside `image`, `icon` or both.                                                                             |
+| `url`                  | yes      | URL of an image file. Is placed inside `image`, `icon` or both.                                                                                    |
+| `username`             | yes      | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.                                                            |
+| `password`             | yes      | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.                                                             |
+| `auth`                 | yes      | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both. |
 
 Example for posting image from URL:
 
@@ -146,4 +146,4 @@ data:
 
 {% endraw %}
 
-Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.
+Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.
