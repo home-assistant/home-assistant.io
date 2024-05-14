@@ -135,7 +135,7 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
 
 ## Notifications
 
-Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your `configuration.yaml` file:
+Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your {% term "`configuration.yaml`" %} file:
 
 ### Configuration
 
