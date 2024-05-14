@@ -170,7 +170,7 @@ description:
   type: string
   required: false
 collapsed:
-  description: If `true`, the group will be collapsed by default. Useful for optional groups or less important inputs.
+  description: If `true`, the section will be collapsed by default. Useful for optional or less important inputs. All collapsed inputs must also have a defined `default` before they can be hidden.
   type: boolean
   default: false
   required: false
