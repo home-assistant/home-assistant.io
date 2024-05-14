@@ -52,7 +52,8 @@ The response data field is a mapping of called target entities, each containing 
 | ---------------------- | ----------- | -------- |
 | `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
 | `is_daytime` | Only set for `twice_daily` forecasts. | True
-| `detailed_description` | A detailed description of the weather. | 50% Chance of rain, otherwise partly cloudy with a high of 75F.
+| `detailed_description` | Only set for `twice_daily` forecasts. | 50% Chance of rain, otherwise partly cloudy with a high of 75F.
+| `dewpoint` | Dewpoint in F | 52
 
 ## Details
 
