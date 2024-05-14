@@ -5,11 +5,14 @@ ha_category:
   - Alarm
 ha_release: 0.66
 ha_domain: ifttt
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
+The `ifttt` {% term integration %} allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
 
-This platform depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
+This {% term integration %} depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
 <div class='note'>
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
@@ -17,7 +20,8 @@ It is important to note that this platform fully relies on IFTTT to receive upda
 
 ## Configuration
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
