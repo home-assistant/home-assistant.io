@@ -148,7 +148,7 @@ A blueprint can have as many inputs as you like.
 
 ### Blueprint input sections
 
-One or more input sections can be added under the main `input` key. each section visually groups the inputs in that section, 
+One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
 allows an optional description, and optionally allows for collapsing those inputs. 
 
 A section is differentiated from an input by the presence of an additional `input` key within that section. The full configuration for a section is below:
@@ -182,7 +182,7 @@ input:
 
 {% endconfiguration %}
 
-The following example shows a blueprint with an inputs in a section:
+The following example shows a blueprint with some inputs in a section:
 
 ```yaml
 blueprint:
