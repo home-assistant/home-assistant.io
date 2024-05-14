@@ -44,7 +44,7 @@ User details are stored in the `[your config]/.storage`  directory. All password
 
 Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _{% my users %}_.
 
-This is the entry in `configuration.yaml` for Home Assistant auth:
+This is the entry in {% term "`configuration.yaml`" %} for Home Assistant auth:
 
 ```yaml
 homeassistant:
@@ -52,7 +52,7 @@ homeassistant:
     - type: homeassistant
 ```
 
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
+If you don't specify any `auth_providers` section in the {% term "`configuration.yaml`" %} file then this provider will be set up automatically.
 
 ### Trusted networks
 
@@ -72,7 +72,7 @@ You cannot trust a network that you are using in any [trusted_proxies](/integrat
 
 </div>
 
-Here is an example in `configuration.yaml` to set up Trusted Networks:
+Here is an example in {% term "`configuration.yaml`" %} to set up Trusted Networks:
 
 ```yaml
 homeassistant:

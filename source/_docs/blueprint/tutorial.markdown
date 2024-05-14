@@ -137,7 +137,7 @@ For more information on blueprint inputs, refer to the documentation of the [blu
 
 With the bare minimum metadata added, your blueprint is ready to use.
 
-Open your `configuration.yaml` and add the following:
+Open your {% term "`configuration.yaml`" %} and add the following:
 
 ```yaml
 automation tutorial:
