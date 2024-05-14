@@ -119,6 +119,10 @@ command_line:
           required: false
           type: integer
           default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
         name:
           description: The name used to display the cover in the frontend.
           required: true
