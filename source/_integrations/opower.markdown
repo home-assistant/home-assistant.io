@@ -91,8 +91,8 @@ For gas:
 
 Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic feet which is equivalent to 1 therm.
 
-Depending on the utility and your setup, there may be multiple meters for a single utility account.
-If this is the case, your sensors will use a unique id that does not tie back to any identifier used by the utility to distinguish the data streams within that single account.
+Depending on the utility and your setup, multiple meters may exist for a single utility account.
+If this is the case, your sensors will use a unique ID that does not tie back to any identifier used by the utility to distinguish the data streams within that single account.
 
 ## Energy
 
