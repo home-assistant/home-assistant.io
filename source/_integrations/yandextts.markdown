@@ -12,9 +12,6 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ---
 
 The `yandextts` text-to-speech {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
