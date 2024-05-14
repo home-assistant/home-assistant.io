@@ -13,7 +13,7 @@ Information on how to send a message via the service `telegram_bot.send_message`
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate this into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

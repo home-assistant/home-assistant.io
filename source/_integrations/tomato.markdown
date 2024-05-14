@@ -28,7 +28,7 @@ value can be obtained by logging in to the Tomato admin interface and search for
 ## Configuration
 
 To use this device tracker in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

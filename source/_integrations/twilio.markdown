@@ -17,7 +17,7 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 
 ## Configuration
 
-To use this notification integration in your installation, add the following to your `configuration.yaml` file:
+To use this notification integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
