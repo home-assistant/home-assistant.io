@@ -2,8 +2,8 @@
 title: Viam
 description: Support for Viam data and vision services using the Python SDK
 ha_category:
-  - Image Processing
-ha_release: '2023.11'
+  - Image processing
+ha_release: '2024.6'
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -12,11 +12,11 @@ ha_domain: viam
 ha_integration_type: integration
 ---
 
-The Viam integration allows you to turn your smart home into a smart machine! Use images and data from your Home Assistant setup to train custom machine learning models that run on device as part of your automation workflow.
+The **Viam** {% term integration %} allows you to turn your smart home into a smart machine! Use images and data from your Home Assistant setup to train custom machine learning models that run on the device as part of your automation workflow.
 
 ## Prerequisites
 
-In order to use this integration, you will need a [Viam account](https://www.viam.com/) and [a device with `viam-server` installed](https://docs.viam.com/installation/).
+In order to use this {% term integration %}, you will need a [Viam account](https://www.viam.com/) and [a device with `viam-server` installed](https://docs.viam.com/installation/).
 
 For authentication, you can use an [organization API key](https://docs.viam.com/manage/cli/#create-an-organization-api-key) or [robot address and location secret](https://docs.viam.com/manage/fleet/#control-with-the-sdks).
 
