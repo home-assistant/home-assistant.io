@@ -39,7 +39,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |---|---|---|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
-|Media player|Media Player|Yes|
+|Media player|Media player|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
