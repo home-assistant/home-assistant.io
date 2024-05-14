@@ -9,9 +9,12 @@ ha_domain: starlingbank
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Starling Bank sensor platform allows you to monitor your account balance data as sensors in Home Assistant.
+The Starling Bank sensor {% term integration %} allows you to monitor your account balance data as sensors in Home Assistant.
 
 - Turn off the lights when money's tight?
 - Play a song when you reach a savings goal?
@@ -37,7 +40,8 @@ Once you've signed up:
 
 ## Configuration
 
-To add Starling account balance sensors to your installation, add the following to your `configuration.yaml` file:
+To add Starling account balance sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 ```yaml
 # Example configuration.yaml entry
 sensor:

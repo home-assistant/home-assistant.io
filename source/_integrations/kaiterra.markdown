@@ -12,15 +12,19 @@ ha_platforms:
   - air_quality
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `kaiterra` integration allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://dev.kaiterra.com/).
+The `kaiterra` {% term integration %} allows you to view the readings from your Laser Egg or Sensedge device using the [Kaiterra REST API](https://dev.kaiterra.com/).
 
-To use the integration, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.cn/), registering the device and create the key under `Settings -> Profile -> Developer`.
+To use the {% term integration %}, you need to get the API key by signing up at [Kaiterra dashboard](https://dashboard.kaiterra.cn/), registering the device and create the key under `Settings -> Profile -> Developer`.
 
 ## Configuration
 
-To enable `kaiterra` in your installation, add the following to your `configuration.yaml` file:
+To enable `kaiterra` in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -482,7 +482,7 @@ For more examples [see](/integrations/mqtt/#discovery-examples-with-component-di
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked much like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -1213,7 +1213,7 @@ The following software has built-in support for MQTT discovery:
 
 ## Manual configured MQTT items
 
-For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 
