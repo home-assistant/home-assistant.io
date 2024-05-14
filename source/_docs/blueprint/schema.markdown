@@ -172,6 +172,7 @@ description:
 collapsed:
   description: If `true`, the group will be collapsed by default. Useful for optional groups or less important inputs.
   type: boolean
+  default: false
   required: false
 input:
   description: >
