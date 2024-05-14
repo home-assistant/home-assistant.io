@@ -20,7 +20,7 @@ The **USB Discovery** {% term integration %} will detect newly connected USB dev
 
 ## Configuration
 
-This {% term integration %} is part of [`default_config:`](/integrations/default_config/) if you have opted to not use [`default_config:`](/integrations/default_config/)you can add this {% term integration %} by adding the following lines to your `configuration.yaml`
+This {% term integration %} is part of [`default_config:`](/integrations/default_config/) if you have opted to not use [`default_config:`](/integrations/default_config/)you can add this {% term integration %} by adding the following lines to your {% term "`configuration.yaml`" %}
 
 ```yaml
 # Example configuration.yaml entry

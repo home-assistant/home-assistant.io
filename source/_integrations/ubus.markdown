@@ -66,7 +66,7 @@ Check if the `file` namespaces is registered with the RPC server.
 file
 ```
 
-After this is done, add the following to your `configuration.yaml` file:
+After this is done, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -106,7 +106,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
 ### Increase log level
 
 1. On your Home Assistant device, stop Home Assistant
-2. Adjust `configuration.yaml` to log more detail for the `device_tracker` integration.
+2. Adjust {% term "`configuration.yaml`" %} to log more detail for the `device_tracker` integration.
 
     ```yaml
     logger:
