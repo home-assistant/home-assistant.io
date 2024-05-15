@@ -146,6 +146,6 @@ like to see, they may not be in the desired order.
 For your thermostat, that means you can reorder the HVAC modes or presets.
 
 <p class='img'>
-    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt="Screenrecording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card.."/>
+    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
     You can now reorder the features of the tile card.
 </p>
