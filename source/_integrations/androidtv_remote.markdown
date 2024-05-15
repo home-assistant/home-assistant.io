@@ -222,7 +222,7 @@ Other:
 
 {% enddetails %}
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL or package name. See [Launching apps section](#launching-apps).
+If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
 
