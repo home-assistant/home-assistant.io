@@ -28,13 +28,9 @@ This integration only works with <b>AquaCell</b> devices which have an <b>i-Lid<
 This integration provides {% term sensors %} for the following information from the AquaCell device:
 
 - Percentage of salt remaining.
-- Number of days until 0% salt level is reached.
-- Firmware version.
-- Device name.
+- Time remaining until 0% salt level is reached.
 - iLid battery level.
-- Last update time.
 - Wi-Fi signal level.
-- Lid presence.
 
 <div class="note">
 The device does not update frequently, the integration polls the information once a day from the cloud.
