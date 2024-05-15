@@ -11,6 +11,7 @@ ha core logs
 ha core options
 ha core rebuild
 ha core restart
+ha core restart --safe-mode
 ha core start
 ha core stats
 ha core stop
