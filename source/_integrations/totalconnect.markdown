@@ -4,6 +4,7 @@ description: Integrate Resideo Total Connect 2.0-enabled alarm systems into Home
 ha_category:
   - Alarm
   - Binary sensor
+  - Button
 ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -13,6 +14,7 @@ ha_domain: totalconnect
 ha_platforms:
   - alarm_control_panel
   - binary_sensor
+  - button
   - diagnostics
 ha_integration_type: integration
 ---
@@ -94,7 +96,11 @@ The integration provides a binary sensor for each Total Connect zone. To see fau
 
 The Total Connect API has limited zone type information. Home Assistant device class `door` is assigned to Total Connect entry/exit, perimeter, and motion zones; along with most alarm panel buttons. The sensor will appear as `True` if the zone is opened (either fault or triggered in Total Connect) and `False` if closed. Device class `smoke` is assigned to Total Connect smoke detectors and alarm panel buttons set to a "Fire No Verification" response type. The sensor will appear as `True` if smoke is detected or the respective button is pressed.  Device class `gas` is assigned to Total Connect carbon monoxide detectors. The sensor will appear as `True` if carbon monoxide is detected.
 
-### Diagnostic Sensors
+## Buttons
+
+The integration provides a bypass button for each zone that can be bypassed. The **Bypass All** button for the alarm panel will bypass all faulted or troubled zones. The **Clear Bypass** button for the alarm panel will clear all bypassed zones.
+
+## Diagnostic Sensors
 
 The following diagnostic sensors are available:
 

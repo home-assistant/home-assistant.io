@@ -1,6 +1,9 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
+related:
+  - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
+    title: Adding a custom sentence to trigger an automation
 ---
 
 Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
@@ -257,7 +260,24 @@ automation:
 
 {% endraw %}
 
-More dynamic and complex calculations can be done with `value_template`.
+More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
+
+The state of the entity can be referenced like this:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.temperature
+      value_template: "{{ state.state | float * 9 / 5 + 32 }}"
+      above: 70
+```
+
+{% endraw %}
+
+Attributes of the entity can be referenced like this:
 
 {% raw %}
 
@@ -277,8 +297,8 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
-Number helpers (`input_number` entities), `number` and `sensor` entities that
-contain a numeric value, can be used in the `above` and `below` thresholds,
+Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
+that contain a numeric value, can be used in the `above` and `below` thresholds,
 making the trigger more dynamic, like:
 
 ```yaml

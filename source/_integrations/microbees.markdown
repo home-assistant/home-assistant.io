@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Cover
   - Button
+  - Cover
   - Light
   - Sensor
   - Switch
@@ -21,6 +22,7 @@ ha_platforms:
   - cover
   - binary_sensor
   - button
+  - cover
   - light
   - sensor
   - switch

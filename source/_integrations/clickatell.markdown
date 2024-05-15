@@ -9,6 +9,9 @@ ha_domain: clickatell
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `clickatell` platform uses [Clickatell](https://www.clickatell.com) to deliver SMS notifications from Home Assistant.
@@ -26,7 +29,8 @@ Go to your [Clickatell SMS Platform Portal](https://portal.clickatell.com/#/) se
 
 ## Configuration
 
-To add Clickatell to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add Clickatell to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

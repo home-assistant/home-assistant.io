@@ -11,9 +11,12 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The TCP integration allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
+The TCP {% term integration %} allows the integration of some services for which a specific Home Assistant integration does not exist. If the service communicates over a TCP socket with a simple request/reply mechanism then the chances are that this integration will allow integration with it.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -22,7 +25,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensor
 
-To enable the TCP sensor, add the following lines to your `configuration.yaml`:
+To enable the TCP {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

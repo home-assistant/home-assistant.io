@@ -11,9 +11,12 @@ ha_domain: signal_messenger
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
+The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
  
@@ -28,7 +31,8 @@ Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-
 
 ## Configuration
 
-To send Signal Messenger notifications with Home Assistant, add the following to your `configuration.yaml` file:
+To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for Signal Messenger 
@@ -131,7 +135,7 @@ action:
 
 ### Text message with an attachment from a URL
 
-To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list.
+To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
 Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
 

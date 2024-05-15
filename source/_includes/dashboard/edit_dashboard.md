@@ -9,4 +9,4 @@ To add the {{ title | downcase }} to your user interface:
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - To continue, in the dialog, select the three dots menu, then select **Take control**.
-2. In the bottom right corner, select the **Add card** button and select from the card picker.
+2. [Add a card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.

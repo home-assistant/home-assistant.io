@@ -3,13 +3,16 @@ title: Shelly
 description: Integrate Shelly devices
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
   - Energy
+  - Event
   - Light
   - Number
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'

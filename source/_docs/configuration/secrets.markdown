@@ -1,6 +1,11 @@
 ---
 title: "Storing secrets"
 description: "Storing secrets outside of your configuration.yaml."
+related:
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /docs/configuration/splitting_configuration/
+    title: Splitting the configuration
 ---
 
 The `configuration.yaml` file is a plain-text file, thus it is readable by anyone who has access to the file. The file contains passwords and API tokens which need to be redacted if you want to share your configuration. By using `!secret` you can remove any private information from your configuration files. This separation can also help you to keep easier track of your passwords and API keys, as they are all stored at one place and no longer spread across the `configuration.yaml` file or even multiple YAML files if you [split up your configuration](/docs/configuration/splitting_configuration/).
@@ -42,7 +47,7 @@ When you start splitting your configuration into multiple files, you might end u
 - A `secrets.yaml` located in the same folder as the YAML file referencing the secret,
 - next, parent folders will be searched for a `secrets.yaml` file with the secret, stopping at the folder with the main `configuration.yaml`.
 
-To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for Home Assistant Core installations given it's available through [`hass`](/docs/tools/hass/).
+To see where secrets are being loaded from, you can either add an option to your `secrets.yaml` file or use the `check_config` script. The latter is only available for {% term "Home Assistant Core" %} installations given it's available through [`hass`](/docs/tools/hass/).
 
 *Option 1*: Print where secrets are retrieved from to the Home Assistant log by adding the following to `secrets.yaml`:
 

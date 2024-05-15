@@ -1,6 +1,6 @@
 ---
-title: Command Line
-description: Instructions on how to integrate the Command Line utility within Home Assistant.
+title: Command line
+description: Instructions on how to integrate the command line utility within Home Assistant.
 ha_category:
   - Binary sensor
   - Cover
@@ -19,9 +19,12 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@gjohansson-ST'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `command_line` offers functionality that issues specific commands to get data or to control a device.
+The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
 <div class='note'>
 
@@ -43,7 +46,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -119,10 +122,18 @@ command_line:
           required: false
           type: integer
           default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
         name:
           description: The name used to display the cover in the frontend.
           required: true
           type: string
+        icon:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template          
         unique_id:
           description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
           required: false
@@ -168,7 +179,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout
           required: false

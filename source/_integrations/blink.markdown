@@ -68,11 +68,11 @@ Trigger a camera to take a new still image.
 
 ### `blink.save_video`
 
-Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example below).
+Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file (see example below).
 
-| Service Data Attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `filename`             | no       | Location of save file.                   |
+| Service Data Attribute | Optional | Description            |
+| ---------------------- | -------- | ---------------------- |
+| `filename`             | no       | Location of save file. |
 
 ```yaml
 homeassistant:
@@ -82,11 +82,11 @@ homeassistant:
 ```
 ### `blink.save_recent_clips`
 
-Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file.
+Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file.
 
-| Service Data Attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `file_path`            | no       | Location of save files.                  |
+| Service Data Attribute | Optional | Description             |
+| ---------------------- | -------- | ----------------------- |
+| `file_path`            | no       | Location of save files. |
 
 ### `blink.send_pin`
 

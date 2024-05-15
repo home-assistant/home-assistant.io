@@ -10,15 +10,19 @@ ha_domain: media_extractor
 ha_integration_type: integration
 ha_codeowners:
   - '@joostlek'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `media_extractor` integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
+The `media_extractor` {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
 
 <div class='note'>
 Media extractor doesn't transcode streams, it just tries to find a stream that matches the requested query.
 </div>
 
-To use the media extractor service in your installation, add the following to your `configuration.yaml` file:
+To use the media extractor service in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -76,6 +80,15 @@ This will download the file from the given URL.
 | `entity_id`            | yes      | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.       |
 | `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
 | `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
+
+### Extract media URL service
+
+There is also a service that will directly return the URL in the response of the service.
+
+| Service data attribute | Optional | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `url`                  | no       | The URL of the media to extract.                       |
+| `format_query`         | yes      | The query that will be used to select the right media. |
 
 ### Cookies
 

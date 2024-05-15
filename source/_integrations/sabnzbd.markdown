@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@shaiu'
+  - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
   - sensor

@@ -85,6 +85,8 @@ Start logging the growth of objects in memory.
 
 Periodically log the growth of new objects in memory. This service's primary use case is finding memory leaks. This service can be run for long periods to find slow leaks. For finding fast leaks, `profiler.start_log_object_sources` is preferred; however, it is much more CPU intensive.
 
+See the [corresponding documentation for `growth()`](https://mg.pov.lt/objgraph/objgraph.html#objgraph.growth) regarding the format in which this data is logged.
+
 ### Service profiler.stop_log_objects
 
 {% my developer_call_service badge service="profiler.stop_log_objects" %}
@@ -197,3 +199,15 @@ Logs statistics from [lru_cache](https://docs.python.org/3/library/functools.htm
 | `enabled`              | yes      | Boolean to enable asyncio debug.       |
 
 When `set_asyncio_debug` is enabled, `asyncio` will run in [debug mode](https://docs.python.org/3/library/asyncio-dev.html#debug-mode). Use this service to help identify an integration that is blocking the event loop.
+
+### Service profiler.log_current_tasks
+
+{% my developer_call_service badge service="profiler.log_current_tasks" %}
+
+This service can help track down task leaks, or find tasks that are delaying startup.
+
+An example is below:
+
+```txt
+[homeassistant.components.profiler] Task: <Task pending name='Task-1133' coro=<HubConnector._listener() running at /usr/local/lib/python3.12/site-packages/aioharmony/hubconnector_websocket.py:362> wait_for=<Future pending cb=[Task.task_wakeup()]>>
+```
