@@ -46,7 +46,7 @@ The **Terminal & SSH** add-on provides the following functionalities:
   - For a list of command line commands, refer to [Home Assistant via Command Line](/common-tasks/os#home-assistant-via-the-command-line).
 - It allows connecting to your system using an SSH client.
 - It also includes common tools like nano and vi editors.
-- The Terminal & SSH add-on does **not provide** access to the underlying host file system. For access to the host file system, refer to one of the other methods listed in this section, such as [using the Samba add-on](#installing-and-using-the-samba-add-on).
+- The Terminal & SSH add-on does **not provide** access to the underlying host file system.
 
 To get started with the **Terminal & SSH** add-on, follow these steps:
 
