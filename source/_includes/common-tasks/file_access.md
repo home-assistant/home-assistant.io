@@ -35,13 +35,30 @@ You would then enter the IP address or hostname of your Home Assistant OS instan
 
 ---
 
-### Installing and using the SSH add-on (requires enabling advanced mode for the HA user)
+### Installing and using the SSH add-on
 
-The Terminal & SSH add-on provides access over an SSH connection, and also includes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Additionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system.
+If you want to use the Home Assistant command line or an SSH client, you can do this through the **Terminal & SSH** add-on.
 
-To use the add-on, enter a password or public key on its configuration page, then save and start the add-on.
+The **Terminal & SSH** add-on provides the following functionalities:
 
-The Terminal & SSH add-on also provides a web terminal which allows you to access a terminal via the Home Assistant user interface. In order to access from an ssh client, a port needs to be entered in the network section of the add-on's configuration page.
+- It provides a web terminal that you can access from the Home Assistant user interface.
+- It allows you to use the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more.
+  - For a list of command line commands, refer to [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/).
+- It allows connecting to your system using an SSH client.
+- It also includes nano and vi editors.
+
+Note: The Terminal & SSH add-on does *not* provide access to the underlying host file system.
+
+To get started with the **Terminal & SSH** add-on, follow these steps:
+
+1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is activated.
+2. To install the add-on, go to the add-on store under [**Settings** > **Add-ons**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** add-on.
+3. To use the web terminal, **start** the add-on, then select **Open Web UI**.
+   - You can now start typing your [commands](https://www.home-assistant.io/hassio/commandline/).
+4. If you want to access from an ssh client, you need to enter credentials:
+   - Open the **Configuration** page.
+   - Enter a password or public key.
+   - Then save and start the add-on.
 
 ---
 
