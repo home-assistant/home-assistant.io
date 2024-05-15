@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.57
 ha_domain: remember_the_milk
-ha_integration_type: 
 related:
   - docs: /docs/configuration/
     title: Configuration file
