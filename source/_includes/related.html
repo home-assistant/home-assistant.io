@@ -8,8 +8,8 @@
 {% endif %}
 {%- endfor -%}
 {% if related_topics and related_topics.size != 0 %}
-<div class="text related-topics" id="related-topics">
-  <h2>Related topics</h2>
+<div class="text related-topics">
+  <h2><a class="title-link" href="#related-topics" name="related-topics"></a>Related topics</h2>
   <ul>
     {% assign site_part = "pages,documents" | split: "," %}
     {%- for related in related_topics -%}
@@ -33,8 +33,8 @@
 </div>
 {% endif %}
 {% if related_links and related_links.size != 0 %}
-<div class="text related-links" id="related-links">
-  <h2>Related links</h2>
+<div class="text related-links">
+  <h2><a class="title-link" href="#related-links" name="related-links"></a>Related links</h2>
   <ul>
     {% for link in related_links %}
     <li><a href="{{ link.url }}" class="link" target="_blank">{{ link.title | default: link.url }}</a></li>
