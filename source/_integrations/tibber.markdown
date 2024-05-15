@@ -97,7 +97,7 @@ Fetches hourly energy prices including price level.
 
 #### Response data
 
-The response data is a dictionary with th energy prices for each Home.
+The response data is a dictionary with the energy prices for each Home.
 
 ```json
 {
