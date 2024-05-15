@@ -151,7 +151,13 @@ A blueprint can have as many inputs as you like.
 One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
 allows an optional description, and optionally allows for collapsing those inputs. 
 
-A section is differentiated from an input by the presence of an additional `input` key within that section. The full configuration for a section is below:
+A section is differentiated from an input by the presence of an additional `input` key within that section. 
+
+<div class='note warning'>
+Input sections are a new feature in version 20??.?.?. Set the `min_version` for the blueprint to at least this version if using input sections, otherwise the blueprint will generate errors on older versions. 
+</div>
+
+The full configuration for a section is below:
 
 {% configuration %}
 
@@ -181,6 +187,8 @@ input:
   required: true
 
 {% endconfiguration %}
+
+
 
 The following example shows a blueprint with some inputs in a section:
 
