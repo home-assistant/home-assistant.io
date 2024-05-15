@@ -23,6 +23,7 @@ The **air-Q** {% term integration %} allows integrating the sensors, provided by
 
 During the initial configuration, the user is prompted for the IP address of the {% term device %} or the first 5 characters of the serial number, as well as the device password.
 
+
 For this integration to communicate with the device, both must be connected to the same Wi-Fi network.
 
 After the setup, separate {% term entities %} will be created for each of the {% term sensors %}, found in your {% term device %}.
@@ -89,8 +90,8 @@ Virtual sensors "Relative Pressure" and "Virus Index" are introduced in firmware
 
 ## Additional configuration
 
-After the integration is initialised, the user can configure any of the following two parameter:
+After the integration has been initialized, the user can configure any of the following two parameters:
 
-- **Show values averaged by the device**. Default: on. In its default configuration, air-Q averages the stream of sensor values, and the strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, switch this feature off.
+- **Show values averaged by the device**. Default: `on`. In its default configuration, air-Q averages the stream of sensor values. The strength of this averaging can be configured on the device side (not exposed through the HA). However, this integration allows to switch between polling the averaged and the raw data from the device. To poll noisy sensor readings from the device, set **Show values averaged by the device** to `off`.
 
-- **Clip negative values**. Default: on. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
+- **Clip negative values**. Default: `on`. For baseline calibration purposes, certain sensor values may briefly become negative. The default behavior is to clip such values to 0.
