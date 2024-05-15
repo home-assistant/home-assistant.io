@@ -53,7 +53,7 @@ Access keys
 
 ## Configuration
 
-To enable this integration, add the following lines to your `configuration.yaml`:
+To enable this integration, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,7 +120,7 @@ Devices overview
 
 ### Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml`:
+To enable this platform, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

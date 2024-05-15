@@ -19,7 +19,7 @@ In optimistic mode, the lock will immediately change state after every command. 
 
 ## Configuration
 
-To enable Template Locks in your installation, add the following to your `configuration.yaml` file:
+To enable Template Locks in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

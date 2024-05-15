@@ -82,7 +82,7 @@ Service parameters:
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -111,7 +111,7 @@ device_class:
 
 The `ads` light platform allows you to control your connected ADS lights.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -141,7 +141,7 @@ name:
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -180,7 +180,7 @@ The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -205,7 +205,7 @@ name:
 
 The `ads` cover platform allows you to control your connected ADS covers.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml

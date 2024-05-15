@@ -5,6 +5,9 @@ ha_category:
   - Voice
 ha_release: "0.10"
 ha_domain: alexa
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 ## I want to build custom commands to use with Echo
@@ -159,7 +162,8 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/integrations/intent_script) integration.
 
-To enable Alexa, add the following entry to your `configuration.yaml` file:
+To enable Alexa, add the following entry to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 alexa:

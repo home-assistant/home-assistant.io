@@ -17,7 +17,7 @@ If you have incorrect entries in your configuration files you can use the config
 
 ### Problems with the configuration
 
-One of the most common problems with Home Assistant is an invalid `configuration.yaml` or other configuration file.
+One of the most common problems with Home Assistant is an invalid {% term "`configuration.yaml`" %} or other configuration file.
 
 - Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has its own section in the common-tasks about this:
   - [Operating System](/common-tasks/os/#configuration-check)
@@ -25,7 +25,7 @@ One of the most common problems with Home Assistant is an invalid `configuration
   - [Core](/common-tasks/core/#configuration-check)
   - [Supervised](/common-tasks/supervised/#configuration-check)
 
-- The configuration files, including `configuration.yaml` must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
+- The configuration files, including {% term "`configuration.yaml`" %} must be UTF-8 encoded. If you see error like `'utf-8' codec can't decode byte`, edit the offending configuration and re-save it as UTF-8.
 - You can verify your configuration's YAML structure using [this online YAML parser](https://yaml-online-parser.appspot.com/) or [YAML Validator](https://codebeautify.org/yaml-validator/).
 - To learn more about the quirks of YAML, read [YAML IDIOSYNCRASIES](https://docs.saltproject.io/en/latest/topics/troubleshooting/yaml_idiosyncrasies.html) by SaltStack (the examples there are specific to SaltStack, but do explain YAML issues well).
 
@@ -126,7 +126,7 @@ After you download logs, you will also want to download the diagnostics for the 
 
 ### Handling unexpected restarts or crashes
 
-Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your `configuration.yaml`:
+Suppose you find that Home Assistant unexpectedly restarts or crashes; it's likely that you have a misbehaving integration impacting system stability. Home Assistant has a built-in debug option that can help find implementation errors. It can also block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use. To enable debug, add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 homeassistant:

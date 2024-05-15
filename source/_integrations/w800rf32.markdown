@@ -10,6 +10,9 @@ ha_domain: w800rf32
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **WGL Designs W800RF32** {% term integration %} supports W800RF32 devices by WGL Designs which
@@ -18,7 +21,8 @@ communicate in the frequency range of 310MHz or if you are outside Canada or the
 The W800 family of RF receivers are designed to receive X10 RF signals generated from X10 products: Palm Pad
 remotes, key chain remotes, Hawkeye motion detectors, and many, many other X10 RF devices.
 
-To enable W800rf32 in your installation, add the following to your `configuration.yaml` file:
+To enable W800rf32 in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -39,7 +43,7 @@ The `w800rf32` platform supports X10 RF binary sensors such as Palm Pad remotes,
 
 ## Setting up your devices
 
-Once you have set up your [w800rf32 hub](/integrations/w800rf32/), add the binary sensors to your `configuration.yaml`:
+Once you have set up your [w800rf32 hub](/integrations/w800rf32/), add the binary sensors to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

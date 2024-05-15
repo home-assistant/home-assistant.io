@@ -110,7 +110,7 @@ If you find that this never creates `known_devices.yaml`, or if you need more in
 ### Increase log level
 
 1. On your Home Assistant device, stop Home Assistant
-2. Adjust `configuration.yaml` to log more detail for the `device_tracker` integration.
+2. Adjust {% term "`configuration.yaml`" %} to log more detail for the `device_tracker` integration.
 
     ```yaml
     logger:

@@ -28,7 +28,7 @@ If the next-hop cannot be detected or is a loopback address, auto detection will
 
 This integration is by default enabled, unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
 
-Add the following section to your `configuration.yaml` file:
+Add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

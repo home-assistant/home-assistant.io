@@ -23,7 +23,7 @@ and then choose the **{% my config_flow_start domain=schedule title="Schedule" %
 {% include integrations/config_flow.md %}
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface you should
-have `default_config:` in your `configuration.yaml`, it should already
+have `default_config:` in your {% term "`configuration.yaml`" %}, it should already
 be there by default unless you removed it.
 
 If you removed `default_config:` from your configuration,

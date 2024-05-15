@@ -9,11 +9,14 @@ ha_domain: viaggiatreno
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Trenitalia ViaggiaTreno** {% term integration %} will give you information about configured train ids and stations using the public [ViaggiaTreno](http://viaggiatreno.it) API.
 
-To activate the sensor you need at least two parameters: the `train_id` and the `station_id`.
+To activate the {% term integration %}, you need at least two parameters: the `train_id` and the `station_id`.
 
 The first is available just looking at the [ViaggiaTreno](http://viaggiatreno.it/) timetable, the latter can be obtained using the dedicated API endpoint:
 `http://www.viaggiatreno.it/infomobilita/resteasy/viaggiatreno/autocompletaStazione/<Station name>`
@@ -25,7 +28,8 @@ Note that the `station_id` is referred to the train's **departing station**. If 
 
 </div>
 
-Then add the data to your `configuration.yaml` file as shown in the example:
+Then add the data to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

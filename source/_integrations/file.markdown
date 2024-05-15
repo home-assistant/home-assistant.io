@@ -62,7 +62,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
 
-To enable the `file` sensor, add the following lines to your `configuration.yaml`:
+To enable the `file` sensor, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,7 +105,7 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 {"temperature": 22, "humidity": 36}
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following entry in the {% term "`configuration.yaml`" %} file to extract the temperature:
 
 {% raw %}
 
@@ -131,7 +131,7 @@ timestamp,temperature,humidity
 1631472949,22,36
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following entry in the {% term "`configuration.yaml`" %} file to extract the temperature:
 
 {% raw %}
 
