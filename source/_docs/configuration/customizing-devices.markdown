@@ -4,7 +4,7 @@ description: "Simple customization for entities."
 related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/
-    title: Home Assistant Core integration documentation
+    title: configuration.yaml file
 ---
 
 ## Changing entity name and entity ID
@@ -30,4 +30,4 @@ To change the entity ID and friendly name of supported entities, follow these st
 
    ![Edit entity ID in automation.](/images/docs/configuration/edit_entity-id_in_automation.png)
 
-If your entity is not supported, or you cannot customize what you need via this method, you need to edit the settings in your [`configuration.yaml` file](/docs/configuration/). For a detailed description of the entity configuration variables and device class information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
+If your entity is not supported, or you cannot customize what you need via this method, you need to edit the settings in your {% term "`configuration.yaml`" %} file. For a detailed description of the entity configuration variables and device class information, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
