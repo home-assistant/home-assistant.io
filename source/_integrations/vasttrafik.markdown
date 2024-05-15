@@ -9,13 +9,17 @@ ha_domain: vasttrafik
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `vasttrafik` sensor will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
+The `vasttrafik` {% term integration %} will provide you traveling details for the larger Göteborg area in Sweden from the [Västtrafik](https://vasttrafik.se/) public transportation service.
 
 You must create an application [here](https://developer.vasttrafik.se/applications) to obtain a `key` and a `secret`. Make sure to also subscribe to the API by clicking on `Prenumerera på nytt API`, and selecting the API `Planera Resa v4`.
 
-Add the data to your `configuration.yaml` file as shown in the example:
+Add the data to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

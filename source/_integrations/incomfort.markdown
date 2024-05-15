@@ -17,9 +17,12 @@ ha_platforms:
   - sensor
   - water_heater
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 
 It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
@@ -37,7 +40,8 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 ## Configuration
 
-To set up this integration, add one of the following to your `configuration.yaml` file:
+To set up this integration, add one of the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 
