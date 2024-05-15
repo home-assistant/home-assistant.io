@@ -11,13 +11,17 @@ ha_domain: irish_rail_transport
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `irish_rail_transport` sensor will give you the time until the next two departures (within 90 minutes) from an Irish Rail station using the RTPI information.
 
 A station name is the full station name as specified on the Irish Rail search site, for example, `Tara Street` or `Dublin Connolly`.
 
-To activate the sensor add the data to your `configuration.yaml` file as shown in the example:
+To activate the sensor add the data to your {% term "`configuration.yaml`" %} file as shown in the example:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

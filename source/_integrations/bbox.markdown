@@ -12,9 +12,12 @@ ha_platforms:
   - device_tracker
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `bbox` platform uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
+The `bbox` {% term integration %} uses the [Bbox Modem Router](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) from the French Internet provider Bouygues Telecom. Sensors are mainly bandwidth measures.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,15 +30,16 @@ Due to third party limitation, the sensors will only be available if Home Assist
 
 ## Presence detection
 
-The `bbox` platform offers presence detection by looking at connected devices to a [Bbox](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) based router from [Bouygues](https://www.bouyguestelecom.fr/), which is one of the main Internet provider in France.
+The `bbox` {% term integration %} offers presence detection by looking at connected devices to a [Bbox](https://www.bouyguestelecom.fr/offres-internet/bbox-fit) based router from [Bouygues](https://www.bouyguestelecom.fr/), which is one of the main Internet provider in France.
 
-Bbox is a generic name for different hardware routers. The platform has been tested with the following devices:
+Bbox is a generic name for different hardware routers. The {% term integration %} has been tested with the following devices:
 
 - Sagem F@st 5330b
 
 ### Configuration
 
-To use an Bbox router in your installation, add the following to your `configuration.yaml` file:
+To use an Bbox router in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +63,8 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 ## Sensor
 
-To add Bbox sensors to your installation, add the following to your `configuration.yaml` file:
+To add Bbox sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

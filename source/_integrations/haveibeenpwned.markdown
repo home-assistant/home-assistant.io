@@ -9,9 +9,12 @@ ha_domain: haveibeenpwned
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `haveibeenpwned` sensor platform creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
+The `haveibeenpwned` sensor {% term integration %} creates sensors that check for breached email accounts on [haveibeenpwned](https://haveibeenpwned.com).
 
 ## Configuration
 
@@ -19,7 +22,8 @@ In order to use this integration you need to purchase an API key. Visit the [API
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`, it will list every specified email address as a sensor showing the number of breaches on that email account.
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file. It will list every specified email address as a sensor showing the number of breaches on that email account.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry using cloud based emoncms

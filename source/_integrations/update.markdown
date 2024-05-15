@@ -73,11 +73,16 @@ this capability. Additionally, if allowed by the {% term integration %}, the ser
 provides for installing a specific version and even could make a
 backup before installing the update.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`.
-| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the {% term integration %}.
-| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}.
+#### Service data attributes
+
+{% configuration_basic %}
+entity_id (required):
+  description: "String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`."
+version:
+  description: "A specific update version to install, if not provided, the latest available update will be installed. Availability of this attribute is dependent on the {% term integration %}."
+backup:
+  description: "If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}."
+{% endconfiguration_basic %}
 
 Example service call:
 
