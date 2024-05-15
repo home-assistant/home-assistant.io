@@ -226,8 +226,8 @@ Depending on the supported features of the camera, the following sensor entities
 - Wi-Fi signal*
 - HDD/SD storage*
 - Battery percentage
-- Battery temperature
-- Battery state (discharging, charging, charge complete)
+- Battery temperature*
+- Battery state* (discharging, charging, charge complete)
 
 ## Update entity
 
