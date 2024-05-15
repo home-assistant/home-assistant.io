@@ -1,6 +1,9 @@
 ---
 title: "Authentication providers"
 description: "Guide on configuring different authentication providers."
+related:
+  - docs: /docs/configuration/
+    title: configuration.yaml file
 ---
 
 <div class='note warning'>
@@ -13,13 +16,13 @@ When you log in, an _auth provider_ checks your credentials to make sure you are
 
 <div class='note warning'>
 
-Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
+Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your {% term "`configuration.yaml`" %} file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
 If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider` with `type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
 </div>
 
-Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. 
+Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
 If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
 
 
