@@ -27,7 +27,7 @@ To start the Radio Browser, in Home Assistant, go to **Media** > **Radio Browser
 You can also use the Radio Browser in automations. When creating an automation, use the **Play Media** action to pick a station from the directory. This allows you, for example, to create
 an automation that starts playing your favorite radio station on your Cast devices. 
 
-The easiest way to find `media_content_id` is to set up the automation via the UI and then switch to the YAML mode. See [Media Player](/integrations/media_player) for more options.
+If you want to use a YAML for the Automation you would look like this: 
 
 ```yaml
 service: media_player.play_media
@@ -36,16 +36,6 @@ target:
 data:
   media_content_id: media-source://radio_browser/963ccae5-0601-11e8-ae97-52543be04c81
   media_content_type: audio/mpeg
-metadata:
-  title: Deutschlandfunk [MP3 128k]
-  thumbnail: >-
-    http://www.deutschlandfunk.de/static/img/deutschlandfunk/icons/apple-touch-icon-128x128.png
-  media_class: music
-  children_media_class: null
-  navigateIds:
-    - {}
-    - media_content_type: app
-      media_content_id: media-source://radio_browser
-    - media_content_type: music
-      media_content_id: media-source://radio_browser/popular
 ```
+
+See [Media Player](/integrations/media_player) for more options.
