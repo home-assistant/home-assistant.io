@@ -54,7 +54,7 @@ The first time autodiscovery runs, **any device that is already linked to the mo
 ## Insteon Configuration Panel
 
 <p class='img'>
-<img src='/images/integrations/insteon/insteon-panel.png' alt='Insteon panel'>
+<img src='/images/integrations/insteon/insteon-panel.png' alt='Insteon configuration panel'>
 The Insteon configuration panel allows for product specific configuration of Insteon devices and Insteon scenes.
 </p>
 
@@ -63,17 +63,17 @@ To open the Insteon configuration panel:
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
 2. Select the **Insteon** {% term integration %}. Then, select **Configure** to open the Insteon configuration panel.
 
-The following capabilities are available in the Insteon panel:
+The following capabilities are available in the Insteon configuration panel:
 
 ### Add device
 
 In order for any two Insteon devices to talk with one another, they must be linked. For an overview of device linking, please read the Insteon page on [understanding linking]. To add an Insteon device:
 
 1. Open the [Insteon configuration panel](#insteon-configuration-panel).
-2. To add a new device select **Add device** on the bottom right corner of the screen.
+2. Press the **Add device** button on the bottom right corner of the screen.
 3. Fill in the **Add device** dialog using the following options:
 
-- **Device address**: Enter the address of the device, such as `1A.2B.3C`, to link a specific device remotely. Not all devices support remote linking. If a device does not support remote linking, press the `Set` button on the device to put the device in linking mode.
+- **Device address**: Enter the Insteon address of the device, such as `1A.2B.3C`, to link a specific device remotely. Not all devices support remote linking. If a device does not support remote linking, press the `Set` button on the device to put the device in linking mode.
 - **Link multiple**: To add multiple devices in a single session, select the **Add multiple** checkbox.
 
 ### Managing Insteon Scenes
@@ -82,24 +82,24 @@ Insteon scenes can be created, changed or deleted using the **Scenes** tab of th
 
 ### Device Properties
 
-Insteon device properties, such as the LED brightness, can be managed using the Insteon panel. To see the available properties of a device, select the device from the list of devices in the Insteon panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
+Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
 
-- **Read device properties**:  Use the **Load from device** button to read the properties from the device.
+- **Read device properties**:  Use the **Load from device** menu option to read the properties from the device.
 - **Change device properties**: Select the specific property from the list of properties. Use the dialog box to edit the property value. This does not write the change to the device.
-- **Write property changes**: Use the **Write to device** button to save the property changes to the device.
-- **Undo changes**: Property changes can be undone before they are written to the device by selecting the **Undo changes** button.
+- **Write property changes**: Use the **Write to device** menu option to save the property changes to the device.
+- **Undo changes**: Property changes can be undone before they are written to the device by selecting the **Undo changes** menu option.
 - **Delete device**: Deletes the Insteon device from Home Assistant and removes all references to the device in the modem. Optionally, it can remove any references to the device in other Insteon devices.
 
 ### Device All-Link Database
 
-The Insteon All-Link Database (ALDB) contains the list of links to other devices in the Insteon network. The All-Link Database can be managed using the Insteon Panel. To see the All-Link Database of a device, select the device from the list of devices in the Insteon panel and select the **All-Link Database** tab.
+The Insteon All-Link Database (ALDB) contains the list of links to other devices in the Insteon network. The All-Link Database can be managed using the Insteon configuration panel. To see the All-Link Database of a device, select the device from the list of devices in the Insteon configuration panel and select the **All-Link Database** tab.
 
-- **Read the ALDB**: Use the **Load from device** button to read the current ALDB records from the device.
-- **Add a record**: Use the **Create ALDB record** button to add a record to the All-Link Database. This does not write to the device.
+- **Read the ALDB**: Use the **Load from device** menu option to read the current ALDB records from the device.
+- **Add a record**: Use the **Create ALDB record** menu option to add a record to the All-Link Database. This does not write to the device.
 - **Modify a record**: To modify an existing record, select the record and use the dialog box to change the record as needed. This does not write to the device.
-- **Add default links**: There are a set of default records that need to exist in the ALDB in order for a device to communicate correctly to the modem. Use the **Add default links** button to add these links to the device. This **does** write to the device.
-- **Write changes to the device**: Use the **Write changes** button to write added or changed records to the device.
-- **Undo changes**: ALDB record changes can be undone prior to being written to the device using the **Undo changes** button.
+- **Add default links**: There are a set of default records that need to exist in the ALDB in order for a device to communicate correctly to the modem. Use the **Add default links** menu option to add these links to the device. This **does** write to the device.
+- **Write changes to the device**: Use the **Write changes** menu option to write added or changed records to the device.
+- **Undo changes**: ALDB record changes can be undone prior to being written to the device using the **Undo changes** menu option.
 - **Delete device**: Deletes the Insteon device from Home Assistant and removes all references to the device in the modem. Optionally, it can remove any references to the device in other Insteon devices.
 
 <p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well. Devices and scenes added in Home Assistant will not be available in the Insteon app.</p>
