@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
   - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -25,8 +26,10 @@ ha_platforms:
   - fan
   - humidifier
   - image
+  - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -34,26 +37,91 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - update
   - vacuum
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
 
 {% include integrations/config_flow.md %}
 
+<a name="configuration-via-mqtt-discovery"></a>
+{% details "Configuration of MQTT components via MQTT discovery" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Device trigger](/integrations/device_trigger.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVAC](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Tag scanner](/integrations/tag.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
+<a name="configuration-via-yaml"></a>
+{% details "Configuration of MQTT components via YAML" %}
+
+- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
+- [Binary sensor](/integrations/binary_sensor.mqtt/)
+- [Button](/integrations/button.mqtt/)
+- [Camera](/integrations/camera.mqtt/)
+- [Cover](/integrations/cover.mqtt/)
+- [Device tracker](/integrations/device_tracker.mqtt/)
+- [Event](/integrations/event.mqtt/)
+- [Fan](/integrations/fan.mqtt/)
+- [Humidifier](/integrations/humidifier.mqtt/)
+- [Image](/integrations/image.mqtt/)
+- [Climate/HVACs](/integrations/climate.mqtt/)
+- [Lawn mower](/integrations/lawn_mower.mqtt/)
+- [Light](/integrations/light.mqtt/)
+- [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
+- [Number](/integrations/number.mqtt/)
+- [Scene](/integrations/scene.mqtt/)
+- [Select](/integrations/select.mqtt/)
+- [Sensor](/integrations/sensor.mqtt/)
+- [Siren](/integrations/siren.mqtt/)
+- [Switch](/integrations/switch.mqtt/)
+- [Text](/integrations/text.mqtt/)
+- [Update](/integrations/update.mqtt/)
+- [Vacuum](/integrations/vacuum.mqtt/)
+- [Valve](/integrations/valve.mqtt/)
+- [Water heater](/integrations/water_heater.mqtt/)
+
+{% enddetails %}
+
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose an MQTT broker
+## Setting up a broker
 
-### Run your own
-
-The most private option is running your own MQTT broker.
+While public MQTT brokers are available, the easiest and most private option is running your own.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
@@ -63,10 +131,6 @@ Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a k
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
 
 </div>
-
-### Use a public broker
-
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
 
 ## Broker configuration
 
@@ -79,7 +143,12 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 3. Select **Configure**, then **Re-configure MQTT**.
 
 <div class='note'>
+<p>
+
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
+
+
+</p>
 </div>
 
 ### Advanced broker configuration
@@ -109,14 +178,14 @@ If the server certificate does not match the hostname then validation will fail.
 
 The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
 
-#### Securing the the connection
+#### Securing the connection
 
 With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
 
 #### Using WebSockets as transport
 
 You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
-To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
 <div class='note'>
 
@@ -212,40 +281,14 @@ Note that on each MQTT entity, the `has_entity_name` attribute will be set to `T
 
 The discovery of MQTT devices will enable one to use MQTT devices with only minimal configuration effort on the side of Home Assistant. The configuration is done on the device itself and the topic used by the device. Similar to the [HTTP binary sensor](/integrations/http/#binary-sensor) and the [HTTP sensor](/integrations/http/#sensor). To prevent multiple identical entries if a device reconnects, a unique identifier is necessary. Two parts are required on the device side: The configuration topic which contains the necessary device type and unique identifier, and the remaining device configuration without the device type.
 
-{% details "Entity integrations supported by MQTT discovery" %}
-
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Device trigger](/integrations/device_trigger.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVAC](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Tag scanner](/integrations/tag.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
-
-{% enddetails %}
-
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
+
+<div class='note info'>
+
+Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
+
+</div>
 
 ### Discovery messages
 
@@ -268,7 +311,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -287,7 +330,6 @@ sw_version:
 support_url:
   description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
-
 
 {% details "Supported abbreviations" %}
 
@@ -560,7 +602,9 @@ support_url:
     'sa':                  'suggested_area',
     'sn':                  'serial_number',
 ```
+
 {% enddetails %}
+
 {% details "Supported abbreviations for origin info" %}
 
 ```txt
@@ -568,6 +612,7 @@ support_url:
     'sw':                  'sw_version',
     'url':                 'support_url',
 ```
+
 {% enddetails %}
 
 ### How to use discovery messages
@@ -700,6 +745,7 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+- [OTGateway](https://github.com/Laxilef/OTGateway)
 
 ### Discovery examples
 
@@ -955,7 +1001,7 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 
@@ -986,37 +1032,13 @@ mqtt:
       ...
 ```
 
-{% details "MQTT components that support setup via YAML" %}
+If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-- [Alarm control panel](/integrations/alarm_control_panel.mqtt/)
-- [Binary sensor](/integrations/binary_sensor.mqtt/)
-- [Button](/integrations/button.mqtt/)
-- [Camera](/integrations/camera.mqtt/)
-- [Cover](/integrations/cover.mqtt/)
-- [Device tracker](/integrations/device_tracker.mqtt/)
-- [Event](/integrations/event.mqtt/)
-- [Fan](/integrations/fan.mqtt/)
-- [Humidifier](/integrations/humidifier.mqtt/)
-- [Image](/integrations/image.mqtt/)
-- [Climate/HVACs](/integrations/climate.mqtt/)
-- [Lawn mower](/integrations/lawn_mower.mqtt/)
-- [Light](/integrations/light.mqtt/)
-- [Lock](/integrations/lock.mqtt/)
-- [Number](/integrations/number.mqtt/)
-- [Scene](/integrations/scene.mqtt/)
-- [Select](/integrations/select.mqtt/)
-- [Sensor](/integrations/sensor.mqtt/)
-- [Siren](/integrations/siren.mqtt/)
-- [Switch](/integrations/switch.mqtt/)
-- [Text](/integrations/text.mqtt/)
-- [Update](/integrations/update.mqtt/)
-- [Vacuum](/integrations/vacuum.mqtt/)
-- [Valve](/integrations/valve.mqtt/)
-- [Water heater](/integrations/water_heater.mqtt/)
+<div class='note info'>
 
-{% enddetails %}
+Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
 
-If you have a lot of manual configured items you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
+</div>
 
 ## Using Templates
 
@@ -1038,15 +1060,14 @@ The MQTT notification support is different than for the other [notification](/in
 ```
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' />
+  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
 </p>
 
 The same will work for automations.
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png' />
+  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
 </p>
-
 
 ### Examples
 
@@ -1108,9 +1129,16 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-<p class='note'>
+
+<div class='note'>
+<p>
+
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
+
+
 </p>
+</div>
+
 
 ```yaml
 topic: homeassistant/light/1/command

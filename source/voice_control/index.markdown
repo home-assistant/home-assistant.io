@@ -1,5 +1,24 @@
 ---
 title: Assist - Talking to Home Assistant
+related:
+  - docs: /voice_control/android
+    title: Assist on Android
+  - docs: /voice_control/android/#assist-on-wear-os
+    title: Assist on Wear OS 
+  - docs: /voice_control/apple
+    title: Siri and Assist shortcuts
+  - docs: /voice_control/start_assist_from_dashboard/
+    title: Assist dashboard button
+  - docs: /voice_control/thirteen-usd-voice-remote/
+    title: Build a 13$ voice remote using an ESPHome device
+  - docs: /voice_control/install_wake_word_add_on
+    title: Enable a wake word
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake words
+  - docs: /voice_control/builtin_sentences
+    title: Built-in sentences
+  - url: https://www.nabucasa.com/config/
+    title: Home Assistant Cloud
 ---
 
 <img src='/images/assist/assist-logo.png' class='no-shadow' alt='Assist logo' style='width: 150px; float: right'>
@@ -8,7 +27,7 @@ Assist allows you to control Home Assistant using natural language. It is built 
 
 Assist is available to use on most platforms that can interface with Home Assistant. Look for the Assist icon <img src='/images/assist/assist-icon.svg' alt='Assist icon' style='height: 32px' class='no-shadow'>:
 
-<lite-youtube videoid="qkgdHTHM7Uw" videotitle="Home Assistant Year of the Voice, Part 3"></lite-youtube>
+<lite-youtube videoid="XF53wUbeLxA" videotitle="Voice at Home Assistant"></lite-youtube>
 
 _Want to use Home Assistant with Google Assistant or Amazon Alexa? Get started with [Home Assistant Cloud](https://www.nabucasa.com/config/)._
 
@@ -62,15 +81,3 @@ Use the [built-in sentences](/voice_control/builtin_sentences) to control entiti
 Did Assist not understand your sentence? [Contribute them](https://developers.home-assistant.io/docs/voice/intent-recognition/).
 
 _Assist was introduced in Home Assistant 2023.2._
-
-## Related topics
-
-- [Home Assistant Cloud](https://www.nabucasa.com/config/)
-- [Assist on Android](/voice_control/android)
-- [Assist on Wear OS](/voice_control/android/#assist-on-wear-os)
-- [Siri and Assist shortcuts](/voice_control/apple)
-- [Assist dashboard button](/voice_control/start_assist_from_dashboard/)
-- [Build a 13$ voice remote using an ESPHome device](/voice_control/thirteen-usd-voice-remote/)
-- [Enable a wake word](/voice_control/install_wake_word_add_on)
-- [Create your own wake words](/voice_control/create_wake_word/)
-- [Built-in sentences](/voice_control/builtin_sentences)

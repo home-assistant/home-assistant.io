@@ -3,7 +3,7 @@ title: Anova
 description: Instructions on how to integrate Anova Wi-Fi Sous Vide into home assistant.
 ha_category:
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_release: 2023.5
 ha_codeowners:

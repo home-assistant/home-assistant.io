@@ -42,7 +42,7 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: Allows you to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    description: Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development.
     required: false
     type: string
 {% endconfiguration %}
@@ -94,7 +94,7 @@ Note that the variables will be used in the listed order, so if multiple match y
 frontend:
   themes:
     my_theme:
-      state-cover-garage_door-open-color: "#ff0000"
+      state-cover-garage-open-color: "#ff0000"
       state-media_player-inactive-color: "#795548"
 ```
 

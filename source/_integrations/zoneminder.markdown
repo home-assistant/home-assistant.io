@@ -11,6 +11,7 @@ ha_release: 0.31
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@rohankapoorcom'
+  - '@nabbi'
 ha_domain: zoneminder
 ha_platforms:
   - binary_sensor
@@ -18,6 +19,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
@@ -30,6 +34,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 ## Configuration
+
+To add the {% term integration %} to your installation, add it to the {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,7 +98,7 @@ zoneminder:
 Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 
 | Service data attribute | Optional | Description                       |
-|:-----------------------|:---------|:----------------------------------|
+| :--------------------- | :------- | :-------------------------------- |
 | `id`                   | no       | Host of the ZoneMinder instance.  |
 | `name`                 | no       | Name of the new run state to set. |
 

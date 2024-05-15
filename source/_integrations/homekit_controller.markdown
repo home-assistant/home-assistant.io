@@ -116,7 +116,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 
 ## Adding a HomeKit device through Thread
 
-This section shows the the ways you can join a HomeKit device to a {% term Thread %} network:
+This section shows the ways you can join a HomeKit device to a {% term Thread %} network:
 
 1. via Home Assistant
 2. via Apple Thread border router

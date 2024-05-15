@@ -22,12 +22,14 @@ The integration makes it possible to retrieve the dynamic energy/gas prices
 from EnergyZero in order to gain insight into the price trend of the day and
 to adjust your consumption accordingly.
 
-Partners who purchase their energy through EnergyZero:
+Partners who are a reseller from EnergyZero:
 
 - [ANWB Energie](https://www.anwb.nl/huis/energie/anwb-energie)
-- [Mijndomein Energie](https://www.mijndomein.nl/energie)
 - [Energie van Ons](https://www.energie.vanons.org)
 - [GroeneStroomLokaal](https://www.groenestroomlokaal.nl)
+- [Mijndomein Energie](https://www.mijndomein.nl/energie)
+- [SamSam](https://www.samsam.nu)
+- [ZonderGas](https://www.zondergas.nu)
 
 {% include integrations/config_flow.md %}
 

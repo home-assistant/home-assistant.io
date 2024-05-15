@@ -9,6 +9,7 @@ ha_domain: flexit_bacnet
 ha_platforms:
   - binary_sensor
   - climate
+  - number
   - sensor
   - switch
 ha_integration_type: device
@@ -62,6 +63,16 @@ The integration adds entities for sensors with different readings from the devic
 ### Binary sensor
 
 The integration adds an entity for a binary sensor called _Air filter polluted_ which tells if it's time to change the filters in the unit.
+
+### Number
+
+The integration adds entities for setting setpoints for the fan in the respective mode:
+
+ - Away
+ - Home
+ - Fireplace
+ - High
+ - Cooker hood
 
 ### Switch
 

@@ -83,7 +83,7 @@ This entity reflects the duty you have scheduled, the value can be `on` = on dut
 ### Incident response switch
 
 With this switch you can respond to an incident, either by manually controlling the switch via the GUI, or by using an automation action.
-It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgement, switching it back `off` sends a response rejected.
+It gets reset to `unknown` value with every incident received. Switching it to `on` means you send a response acknowledgment, switching it back `off` sends a response rejected.
 
 The following attributes are available:
 

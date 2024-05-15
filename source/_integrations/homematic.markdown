@@ -15,7 +15,6 @@ ha_iot_class: Local Push
 ha_release: 0.23
 ha_codeowners:
   - '@pvizeli'
-  - '@danielperna84'
 ha_domain: homematic
 ha_platforms:
   - binary_sensor
@@ -27,9 +26,12 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The [Homematic](https://www.eq-3.com/products/homematic.html) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.eq-3.com/products/homematic.html) {% term integration %} provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:
@@ -58,7 +60,8 @@ You can manually rename the created entities by using Home Assistant's [Customiz
 
 ## Configuration
 
-To set up the integration, add the following information to your `configuration.yaml` file:
+To set up the integration, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 homematic:

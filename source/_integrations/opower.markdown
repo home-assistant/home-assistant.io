@@ -30,6 +30,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)
+- Duquesne Light Company (DQE)
 - Enmax Energy
 - Evergy
 - Exelon subsidiaries
@@ -42,6 +43,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
+- Sacramento Municipal Utility District (SMUD)
 - Seattle City Light (SCL)
 
 When you add the Opower integration to Home Assistant, you will need to provide your utility account's authentication details to enable retrieving your energy data.
@@ -86,8 +88,8 @@ For electricity:
 - Current bill electric cost to date
 - Current bill electric forecasted usage (for the first few days of the bill this is 0)
 - Current bill electric forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly electric usage
-- Typical monthly electric cost
+- Typical monthly electric usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly electric cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 For gas:
 
@@ -95,10 +97,13 @@ For gas:
 - Current bill gas cost to date
 - Current bill gas forecasted usage (for the first few days of the bill this is 0)
 - Current bill gas forecasted cost (for the first few days of the bill this is 0)
-- Typical monthly gas usage
-- Typical monthly gas cost
+- Typical monthly gas usage (based on the same month for previous years, not populated for accounts younger than a year)
+- Typical monthly gas cost (based on the same month for previous years, not populated for accounts younger than a year)
 
 Note the unit for gas is CCF (centum cubic feet). 1 CCF is one hundred cubic feet which is equivalent to 1 therm.
+
+Depending on the utility and your setup, multiple meters may exist for a single utility account.
+If this is the case, your sensors will use a unique ID that does not tie back to any identifier used by the utility to distinguish the data streams within that single account.
 
 ## Energy
 
@@ -109,14 +114,17 @@ You can find the statistics in {% my developer_statistics title="**Developer Too
 At the initial setup, the integration pulls historical monthly usage/cost since the account activation. If the utility provides more granular data, it pulls daily usage/cost for the past 3 years and hourly usage/cost for the past 2 months (note: typically, utilities provide only monthly or daily data for gas).
 After the initial setup, the integration keeps pulling data (twice per day) for the past 30 days to allow for any corrections in the data from the utilities.
 
+Similar to sensors, if there are multiple meters for a single utility account, the statistics IDs and names will use an id that does not tie back to any identifier used by the utility to distinguish the data streams within that single account.
+If you have multiple meters, when integrating statistics into the energy dashboard, you may have to guess and check to determine which statistic means what.
+
 In the configuration of the energy dashboard (**{% my config_energy title="Settings > Dashboards > Energy" %}**):
 
 For electricity:
 
 1. Select **Add consumption** for the **Electricity grid**.
-2. Select **Opower {utility name} elec {account number} consumption** for the **consumed energy**.
+2. Select **Opower {utility name} elec {account number/id} consumption** for the **consumed energy**.
 3. Select the radio button to **Use an entity tracking the total costs**.
-4. Select **Opower {utility name} elec {account number} cost** for the **entity with the total costs**.
+4. Select **Opower {utility name} elec {account number/id} cost** for the **entity with the total costs**.
 
 Your **Configure grid consumption** should now look like this:
 ![Screenshot configure grid consumption](/images/integrations/opower/configure_grid_consumption.png)
@@ -124,9 +132,9 @@ Your **Configure grid consumption** should now look like this:
 For gas:
 
 1. Select **Add gas source** for the **Gas consumption**.
-2. Select **Opower {utility name} gas {account number} consumption** for the **gas usage**.
+2. Select **Opower {utility name} gas {account number/id} consumption** for the **gas usage**.
 3. Select the radio button to **Use an entity tracking the total costs**.
-4. Select **Opower {utility name} gas {account number} cost** for the **entity with the total costs**.
+4. Select **Opower {utility name} gas {account number/id} cost** for the **entity with the total costs**.
 
 Your **Configure gas consumption** should now look like this:
 ![Screenshot configure gas consumption](/images/integrations/opower/configure_gas_consumption.png)

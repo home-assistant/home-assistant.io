@@ -40,11 +40,7 @@ parse_mode:
   type: string
   default: "`markdown`"
 proxy_url:
-  description: Proxy URL if working behind one (`socks5://proxy_ip:proxy_port`).
-  required: false
-  type: string
-proxy_params:
-  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.).
+  description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
   required: false
   type: string
 {% endconfiguration %}
