@@ -916,6 +916,25 @@ script:
           entity_id: light.ceiling
 ```
 
+Actions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+
+  action:
+    - delay: 0:35
+      enabled: !input input_boolean
+```
+
+{% endraw %}
+
 ## Respond to a conversation
 
 The `set_conversation_response` script {% term action %} allows returning a custom response

@@ -16,6 +16,8 @@ Hello all, this is Madelena. You may know me from [some](https://www.reddit.com/
 
 As you may have heard from our celebration for [the 10th anniversary of Home Assistant](/blog/2023/09/17/10-years-home-assistant/), we are making some tweaks to our logo! This is no small feat, as the logo is a big part of the identity of Home Assistant, and by extension a representation of the contributions of our community. This logo has served us well for 8 years. When we see the logo, it represents the culmination of work that we are all proud of.
 
+_For those who want to use our logo and for more details, the latest brand guidelines and logo assets can be found [at our design repository.](https://design.home-assistant.io/#brand/logo)_
+
 <!--more-->
 
 ## Humble beginnings
@@ -80,7 +82,7 @@ We have also changed our logotype to something more cozy and modern like a home.
 
 We have also toned the blue color to be slightly more saturated to make it feel brighter and more utopian, and expanded the palette to a wider gamut.
 
-For those who want to use our logo and for more details, the latest brand guidelines can be found [at our design repository.](https://design.home-assistant.io/)
+For those who want to use our logo and for more details, the latest brand guidelines and logo assets can be found [at our design repository.](https://design.home-assistant.io/#brand/logo)
 
 ## There’s more to come!
 

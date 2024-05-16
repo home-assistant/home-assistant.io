@@ -3,8 +3,10 @@ title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Button
+  - Car
   - Climate
   - Sensor
+  - Select
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,6 +16,8 @@ ha_domain: teslemetry
 ha_platforms:
   - button
   - climate
+  - diagnostics
+  - select
   - sensor
 ha_integration_type: integration
 ---
@@ -45,6 +49,14 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Select|Seat heater front left|Yes|
+|Select|Seat heater front right|Yes|
+|Select|Seat heater rear center|No|
+|Select|Seat heater rear left|No|
+|Select|Seat heater rear right|No|
+|Select|Seat heater third row left|No|
+|Select|Seat heater third row right|No|
+|Select|Steering wheel heater|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
