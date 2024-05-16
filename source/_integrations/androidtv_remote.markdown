@@ -79,7 +79,7 @@ Examples of deep links for popular applications:
 | Prime Video | `https://app.primevideo.com`
 | Disney+ | `https://www.disneyplus.com`
 | Plex | `plex://`
-| Twitch | `twitch://home` `[home,stream,game,video,clip,search,browse,channel,user]`
+| Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
 
 Example:
 
