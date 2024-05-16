@@ -108,7 +108,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
 |Switch|Allow charging from grid|Yes|
-|Switch|Storm mode|Yes|
+|Switch|Storm watch|Yes|
 
 ### Wall connector
 
