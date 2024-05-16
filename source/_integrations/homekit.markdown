@@ -74,6 +74,10 @@ homekit:
         type: outlet
       camera.back_porch:
         support_audio: True
+      sensor.some_co_sensor:
+        co_threshold: 1000
+      sensor.some_co2_sensor:
+        co2_threshold: 1000
   - name: HASS Bridge 2
     port: 21065
     filter:
@@ -269,11 +273,16 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
-            threshold:
-              description: Only for `sensor` entities with `device_class` `co`/`co2` or `co2` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+            co_threshold:
+              description: Only for `sensor` entities with `device_class` `carbon_dioxide` or `co2` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
               required: false
               type: integer
-              default: 25 for CO / 1000 for CO2
+              default: 1000
+            co2_threshold:
+              description: Only for `sensor` entities with `device_class` `carbon_monoxide` or `co` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              required: false
+              type: integer
+              default: 25
     devices:
       description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
       required: false
