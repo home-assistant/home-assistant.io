@@ -18,13 +18,16 @@ ha_platforms:
   - switch
 ha_quality_scale: platinum
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
@@ -33,6 +36,9 @@ Configure the modbus communication with modbus devices. This is a general setup 
 The modbus integration allows you to use multiple connections each with multiple sensors etc.
 
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+
+To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% configuration %}
 delay:
@@ -1608,7 +1614,7 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255)                                                                                                                                                                                                                                                  |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
@@ -1660,7 +1666,7 @@ When opening an issue, please add your current configuration (or a scaled down v
  - the entity (sensor, etc.) lines
 
 In order for the developers better to identify the problem, please add the
-following lines to configuration.yaml:
+following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

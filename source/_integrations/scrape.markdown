@@ -13,9 +13,12 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+The `scrape` sensor {% term integration %} is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
 
 If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
 
@@ -27,7 +30,8 @@ Both UI and YAML setup is supported while YAML provides additional configuration
 
 {% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

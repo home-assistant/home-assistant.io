@@ -7,9 +7,15 @@ ha_release: 0.26
 ha_iot_class: Cloud Push
 ha_domain: foursquare
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+
+To enable Foursquare, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
