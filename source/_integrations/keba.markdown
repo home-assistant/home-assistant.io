@@ -17,11 +17,14 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `keba` integrates your Keba charging station/BMW Wallbox into your Home Assistant instance using the UDP Smart Home Interface ([manual](https://www.ifix-solar.shop/wp-content/uploads/shop/Dokumente/KEBA/KeContact_P20_P30_UDP_ProgrGuide_en.pdf)). The fetching interval to the charging station is set to 5 seconds, same as in the official mobile app. In order to use the integration, enable the UDP Smart Home Interface by adjusting the DIP switches within the charging station according to the [installation manual](https://www.keba.com/file/downloads/e-mobility/KeContact_KCP20_30_ih_en.pdf).
 
-This integration provides the following platforms:
+This {% term integration %} provides the following platforms:
 
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
@@ -31,7 +34,8 @@ This integration provides the following platforms:
 
 ## Configuration
 
-To enable this integration in your installation, add at least the following to your `configuration.yaml` file:
+To enable this integration in your installation, add at least the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -131,7 +135,7 @@ The service `keba.set_failsafe` sets the failsafe mode of the charging station. 
 
 ## Notifications
 
-Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your `configuration.yaml` file:
+Some Keba chargers are equipped with a LED text display. The notification platform may be used to display text on this display. To enable this, add the following to your {% term "`configuration.yaml`" %} file:
 
 ### Configuration
 

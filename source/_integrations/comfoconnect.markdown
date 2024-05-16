@@ -24,7 +24,8 @@ the unofficial [pycomfoconnect](https://github.com/michaelarnauts/comfoconnect) 
 
 The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read out the outdoor temperature and humidity, the indoor temperature and humidity, and the extract and supply air flow (in m³ per hour).
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 comfoconnect:
@@ -58,7 +59,7 @@ pin:
   type: integer
 {% endconfiguration %}
 
-To register the sensors, add the following to your `configuration.yaml` file:
+To register the sensors, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

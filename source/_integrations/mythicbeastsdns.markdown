@@ -7,13 +7,17 @@ ha_release: 0.85
 ha_iot_class: Cloud Push
 ha_domain: mythicbeastsdns
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-With the `mythicbeastsdns` integration you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
+With the `mythicbeastsdns` {% term integration %} you can automatically update your dynamic DNS entry at [Mythic Beasts](https://www.mythic-beasts.com/).
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

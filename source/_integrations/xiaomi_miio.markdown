@@ -179,7 +179,7 @@ The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repea
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
-To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your `configuration.yaml` file:
+To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 device_tracker:
@@ -1232,11 +1232,11 @@ The `xiaomi miio` remote platform allows you to send IR commands from your Xiaom
 
 ### Setup
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the {% term "`configuration.yaml`" %} file.
 
 ### Configuring the Platform
 
-To add a Xiaomi IR Remote to your installation, add the following to your `configuration.yaml` file:
+To add a Xiaomi IR Remote to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 remote:
@@ -2042,7 +2042,7 @@ pip3 install pycryptodome pybase64 requests
 python3 token_extractor.py
 ```
 
-3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+3. Provide email address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)

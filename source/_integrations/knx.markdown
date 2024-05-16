@@ -34,6 +34,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - diagnostics
   - fan
   - light
@@ -81,7 +82,8 @@ As a Home Assistant KNX user, you can start a FREE KNX online training and get a
 
 ## Basic configuration
 
-In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
+In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main {% term "`configuration.yaml`" %} file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 knx:
@@ -1357,7 +1359,7 @@ knx:
 
 {% configuration %}
 address:
-  description: KNX group address of the notification. *DPT 16.000*
+  description: KNX group address the notification will be sent to. *DPT 16*
   required: true
   type: [string, list]
 name:
@@ -1369,7 +1371,21 @@ type:
   required: false
   default: "latin_1"
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
+
+### Example service call
+
+```yaml
+service: notify.send_message
+data:
+  message: "Hello from HA!"
+  entity_id: notify.alarm
+```
 
 ## Number
 

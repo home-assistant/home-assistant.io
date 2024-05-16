@@ -3,13 +3,16 @@ title: Shelly
 description: Integrate Shelly devices
 ha_category:
   - Binary sensor
+  - Climate
   - Cover
   - Energy
+  - Event
   - Light
   - Number
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: 0.115
 ha_codeowners:
   - '@balloob'
@@ -80,6 +83,12 @@ Integration is communicating directly with the device; cloud connection is not n
 Shelly generation 2 and 3 devices not battery-powered can act as a Bluetooth proxy for advertisements. Active or passive listening can be enabled in the options flow.
 
 {% include integrations/option_flow.md %}
+
+## Range Extender Support
+
+Shelly generation 2 and 3 devices that are not battery-powered can act as a Range Extender.
+Devices of the same generations can be configured via those Range Extenders specifying a custom TCP port during the configuration flow.
+Currently, only static IP or DHCP reserved IP are supported for the main device.
 
 ## Entity naming (generation 1)
 
@@ -295,7 +304,7 @@ The `switch` entity in Home Assistant does not support transition states. For th
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
-In order to change it, add the following key to your `configuration.yaml`:
+In order to change it, add the following key to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

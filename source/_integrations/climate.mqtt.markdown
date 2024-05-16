@@ -12,7 +12,8 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
+To enable this climate platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -188,7 +189,7 @@ json_attributes_topic:
 max_humidity:
   description: The minimum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 99
 max_temp:
   description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
@@ -197,7 +198,7 @@ max_temp:
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 30
 min_temp:
   description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.

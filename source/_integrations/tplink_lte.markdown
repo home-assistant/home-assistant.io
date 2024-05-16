@@ -18,7 +18,7 @@ The integration provides a notification service that will send an SMS.
 
 ## Configuration
 
-To enable the integration, add the following lines to your `configuration.yaml` file:
+To enable the integration, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

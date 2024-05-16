@@ -4,6 +4,7 @@ description: Instructions on how to integrate Tessie within Home Assistant.
 ha_category:
   - Binary Sensor
   - Button
+  - Car
   - Climate
   - Cover
   - Device Tracker
@@ -151,8 +152,11 @@ The integration will create sensor entities for a variety of metrics related to 
 
 #### Charge state
 
+- Battery charging
 - Battery level
 - Battery range
+- Battery range estimate (disabled)
+- Battery range ideal (disabled)
 - Charge energy added
 - Charge rate
 - Charger current

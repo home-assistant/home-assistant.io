@@ -33,6 +33,11 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - HPS10-66H45DV
 - HPS10-80H45DV
 - HPSX-50-DHPT
+- HPSX-50-DHPT 2
+- HPSX-66-DHPT
+- HPSX-66-DHPT 2
+- HPSX-80-DHPT
+- HPSX-80-DHPT 2
 - HPTS-50
 - HPTS-66
 - HPTS-80

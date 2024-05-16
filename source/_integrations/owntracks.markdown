@@ -53,7 +53,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ## Advanced configuration
 
-OwnTracks allows the user to set advanced configuration by adding a section to your `configuration.yaml`.
+OwnTracks allows the user to set advanced configuration by adding a section to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry
