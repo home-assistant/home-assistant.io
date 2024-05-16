@@ -11,6 +11,9 @@ ha_domain: vivotek
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
@@ -19,7 +22,8 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
