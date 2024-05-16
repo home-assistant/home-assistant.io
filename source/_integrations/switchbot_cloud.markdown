@@ -16,6 +16,7 @@ ha_domain: switchbot_cloud
 ha_platforms:
   - climate
   - switch
+  - sensor
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -37,14 +38,14 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - IR appliances exposed through the different hubs:
   - ON/OFF for all appliance types excepted "Others"
   - Air Conditioner
-- Sensors (Meter, MeterPlus, Outdoor Meter)
+- Meter
+- MeterPlus
+- Outdoor Meter
 
 ## Important considerations
 
-By default, each individual sensor will poll the SwitchBot Cloud API for a status update every 10 minutes (600 seconds). You can request more frequent updates by lowering the `Scan interval (seconds)` in the initial integration setup.
-
 <div class='note warning'>
-The SwitchBot Cloud API limits users to 10,000 requests per day. Please be cautious when lowering the scan interval.
+Each sensor will request a status update from the SwitchBot Cloud API once every 10 minutes (600 seconds). The SwitchBot Cloud API limits users to 10,000 requests per day.
 </div>
 
 <div class='note warning'>
