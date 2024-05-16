@@ -73,7 +73,7 @@ Alternatively, if the device doesn't have the Google Play Store or if you want t
 Examples of deep links for popular applications:
 
 | App | Deep link |
-| --- | --- | --- |
+| --- | --- |
 | YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
 | Netflix | `https://www.netflix.com/title` or `netflix://`
 | Prime Video | `https://app.primevideo.com`
