@@ -24,6 +24,9 @@ ha_platforms:
   - switch
 ha_dhcp: true
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
@@ -350,7 +353,7 @@ You can also define custom IR/RF switches to be controlled with universal remote
 
 ### Setting up custom IR/RF switches
 
-The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
+The first step is to configure the device normally via the configuration flow. Then add these lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -503,7 +506,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
     [+] Dumping codes to TV.txt
     ```
 
-6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your `configuration.yaml` file (or wherever you have your switches).
+6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your {% term "`configuration.yaml`" %} file (or wherever you have your switches).
 
 ### Using Windows to obtain codes with Broadlink Manager
 

@@ -11,6 +11,9 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
@@ -22,7 +25,8 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 ### Configuration
 
-To add Mastodon to your installation, add the following to your `configuration.yaml` file:
+To add Mastodon to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

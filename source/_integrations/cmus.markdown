@@ -13,7 +13,10 @@ ha_integration_type: integration
 
 The `cmus` platform allows you to control a [cmus](https://cmus.github.io/) music player on a remote or local machine from Home Assistant.
 
-To add cmus to your installation, add the following to your `configuration.yaml` file if running locally it will look like:
+To add cmus to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+Running it locally will look like:
 
 ```yaml
 # Example configuration.yaml entry
