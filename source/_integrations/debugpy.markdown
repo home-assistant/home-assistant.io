@@ -10,6 +10,9 @@ ha_domain: debugpy
 ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Remote Python debugger** {% term integration %} allows you to use the Visual Studio Code
@@ -27,7 +30,8 @@ performance when not injected.
 ## Configuration
 
 To enable the remote Python debugger integration add the following to
-your `configuration.yaml` file:
+your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
