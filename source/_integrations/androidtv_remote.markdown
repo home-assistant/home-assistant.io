@@ -36,9 +36,25 @@ Using the `media_player.play_media` {% term service %}, you can launch applicati
 
 ### Launching apps
 
-You can run any app by passing the package name.
+If the Android TV device has the Google Play Store, you can directly launch any app by its application ID (package name).
+The app doesn't need to exist in the Google Play Store.
+If it exists, you can find the application ID in the URL of the app's Google Play Store listing.
+For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the application ID is `com.example.app123`.
+The application ID is also displayed in the media player card when you launch the application on the device.
 
-Examples:
+Examples of application IDs for popular applications:
+
+| App | App ID |
+| --- | --- |
+| YouTube | `com.google.android.youtube.tv`
+| Netflix | `com.netflix.ninja`
+| Prime Video | `com.amazon.amazonvideo.livingroom`
+| Disney+ | `com.disney.disneyplus`
+| Plex | `com.plexapp.android`
+| Kodi | `org.xbmc.kodi`
+| Twitch | `tv.twitch.android.app`
+
+Example:
 
 ```yaml
 # Launch the YouTube app
@@ -50,33 +66,20 @@ target:
   entity_id: media_player.living_room_tv
 ```
 
-```yaml
-# Launch the Twitch app
-service: media_player.play_media
-data:
-  media_content_type: app
-  media_content_id: tv.twitch.android.app
-target:
-  entity_id: media_player.living_room_tv
-```
-
-You can find an app's package name in the URL of your app's Google Play Store listing. For example, the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`. The app's package name is `com.example.app123`. The package name is also displayed in the media player card when you launch the application on the device.
-
-List of package names for popular applications:
-
-| App | Package name |
-| --- | --- |
-| YouTube | `com.google.android.youtube.tv`
-| Twitch | `tv.twitch.android.app`
-| Netflix | `com.netflix.ninja`
-| Prime Video | `com.amazon.amazonvideo.livingroom`
-| Disney+ | `com.disney.disneyplus`
-| Plex | `com.plexapp.android`
-| Kodi | `org.xbmc.kodi`
-
 ### Launching activities
 
-You can pass any URL to the device. Using `Deep Links`, you can open activities in some apps.
+Alternatively, if the device doesn't have the Google Play Store or if you want to open specific activity in the app, you can pass deep links supported by some applications.
+
+Examples of deep links for popular applications:
+
+| App | Deep link |
+| --- | --- | --- |
+| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `https://app.primevideo.com`
+| Disney+ | `https://www.disneyplus.com`
+| Plex | `plex://`
+| Twitch | `twitch://home` `[home,stream,game,video,clip,search,browse,channel,user]`
 
 Example:
 
@@ -89,16 +92,6 @@ data:
 target:
   entity_id: media_player.living_room_tv
 ```
-
-Examples of some `Deep Links` for popular applications:
-
-| App | URL |
-| --- | --- |
-| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
-| Prime Video | `https://app.primevideo.com`
-| Disney+ | `https://www.disneyplus.com`
-| Plex | `plex://`
 
 ### Switch channels
 
@@ -160,6 +153,7 @@ media_player:
 
 The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
+You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` service to launch that app.
 
 {% details "List of the most common commands" %}
 
@@ -243,7 +237,7 @@ Other:
 
 {% enddetails %}
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
+If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
 
@@ -521,7 +515,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.netflix.com/title
+            activity: com.netflix.ninja
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -533,7 +527,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://app.primevideo.com
+            activity: com.amazon.amazonvideo.livingroom
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -545,7 +539,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.disneyplus.com
+            activity: com.disney.disneyplus
           target:
             entity_id: remote.living_room_tv
         hold_action:

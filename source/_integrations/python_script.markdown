@@ -129,7 +129,7 @@ The above `python_script` can be called using the following YAML as an input.
     rgb_color: [255, 0, 0]
 ```
 
-Services can also respond with data. Retrieving this data in your Python script can be done by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. This is shown in the example below, in this case, retrieving the weather forecast and putting it into a variable:
+Services can also respond with data. Retrieve this data in your Python script by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. The example below retrieves the weather forecast and assigns it to the `current_forecast` variable:
 
 ```python
 # get_forecast.py

@@ -9,9 +9,12 @@ ha_domain: telegram
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `telegram` integration uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup example
 
@@ -125,7 +128,8 @@ If you want to add new chat IDs then you will need to disable the active configu
 
 ## Configuration
 
-To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Telegram notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for the Telegram Bot
