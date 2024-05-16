@@ -8,6 +8,9 @@ ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: dialogflow
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Dialogflow** {% term integration %} is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). After each phrase a user says, Dialogflow sends an action and parameters to the webhook.

@@ -7,11 +7,15 @@ ha_release: 0.18
 ha_iot_class: Cloud Polling
 ha_domain: feedreader
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
 
-To use RSS feeds in your installation, add the following to your `configuration.yaml` file:
+To use RSS feeds in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

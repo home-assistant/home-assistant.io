@@ -9,9 +9,12 @@ ha_domain: gtfs
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `gtfs` sensor will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
+The `gtfs` {% term integration %} will give you the next departure time and associated data from your public transit station/stop. The data comes from your chosen public transit authority and is formatted as [General Transit Feed Specification](https://developers.google.com/transit/gtfs/) data, commonly known as GTFS.
 
 You need to find a valid GTFS data set, which you can usually find just by searching the internet. Most public transit authorities have GTFS available somewhere, as Google requires public transit authorities to provide the data if they wish to appear on Google Maps. You may also be able to find data at [TransitFeeds](https://transitfeeds.com/feeds).
 
@@ -34,6 +37,9 @@ The sensor attributes will contain all related information for the specific trip
 Your mileage may vary depending on the transit agency used. Most agencies respect the GTFS format but some will do weird things like adding extra columns or using different data formatting. If you have any data specific issues, please report them to the [PyGTFS](https://github.com/jarondl/pygtfs) project, which is what the GTFS sensor uses to parse data.
 
 **Please note**: This is a _static_ data source. Currently, there is no GTFS Realtime support in this sensor due to issues surrounding parsing the protocol buffer format in Python 3. Once those issues have been fixed Realtime support will be added. Once added, the sensor will check for any delays and advisories and report them in the sensor as needed.
+
+To enable the GTFS {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

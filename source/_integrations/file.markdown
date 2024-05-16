@@ -14,6 +14,9 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The File integration allows to store notifications to a file or to set up a sensor based on a file's content.
@@ -22,7 +25,7 @@ The File integration allows to store notifications to a file or to set up a sens
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file. Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
+Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 

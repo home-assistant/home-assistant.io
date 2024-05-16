@@ -7,13 +7,17 @@ ha_release: 0.54
 ha_iot_class: Local Push
 ha_domain: mqtt_statestream
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mqtt_statestream` integration publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
+The `mqtt_statestream` {% term integration %} publishes state changes in Home Assistant to individual MQTT topics. [The MQTT integration](/integrations/mqtt/) is a prerequisite for MQTT Statestream to work.
 
 ## Configuration
 
-To enable MQTT Statestream in Home Assistant, add the following section to your `configuration.yaml` file:
+To enable MQTT Statestream in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

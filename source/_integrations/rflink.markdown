@@ -15,9 +15,12 @@ ha_platforms:
 ha_codeowners:
   - '@javicalle'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
@@ -29,13 +32,14 @@ Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Color
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-This integration is tested with the following hardware/software:
+This {% term integration %} is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
 ## Configuration
 
-To enable RFLink in your installation, add the following to your `configuration.yaml` file:
+To enable RFLink in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

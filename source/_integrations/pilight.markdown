@@ -17,6 +17,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/) are already available.
@@ -34,7 +37,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate pilight into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
