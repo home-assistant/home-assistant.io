@@ -14,6 +14,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Envisalink** {% term integration %} will allow Home Assistant users who own either a DSC or Honeywell alarm panel to leverage their alarm system and its sensors to provide Home Assistant with rich information about their homes. Connectivity between Home Assistant and the alarm panel is accomplished through a device produced by Eyez On, known as the Envisalink. The Envisalink evl3 and evl4 boards provide a TCP/IP interface to the alarm panel, where it emulates an alarm keypad. This board also exposes a raw TCP/IP based API, upon which this integration is built. Currently, the Envisalink version 4 is the latest model. This integration supports both the evl3 and the evl4.
@@ -30,7 +33,8 @@ This is a fully event-based integration. Any event sent by the Envisalink device
 
 As of 0.29, the alarm_trigger service is supported.  It is possible to fire off an envisalink-based alarm directly from Home Assistant. For example, a newer Z-Wave/Zigbee sensor can now be integrated into a legacy alarm system using a Home Assistant automation.
 
-An `envisalink` section must be present in the `configuration.yaml` file and contain the following options as required:
+An `envisalink` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options as required.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -151,8 +155,8 @@ The following services are supported by Envisalink and can be used to script or 
 The zone status binary sensors have extra attributes representing additional
 information about each zone.
 
-| Name | Description |
-| ---- | ----------- |
-| `last_tripped_time` | Last time this zone was tripped.
-| `zone` | Zone number. Can be used in combination with `alarm_keypress` service
+| Name                | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| `last_tripped_time` | Last time this zone was tripped.                                      |
+| `zone`              | Zone number. Can be used in combination with `alarm_keypress` service |
 to issue commands relating to this zone.

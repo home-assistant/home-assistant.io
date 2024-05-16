@@ -11,13 +11,17 @@ ha_domain: nmbs
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `nmbs` platform will create sensors for monitoring travel time and information between 2 stations.
+The `nmbs` {% term integration %} will create sensors for monitoring travel time and information between 2 stations.
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
