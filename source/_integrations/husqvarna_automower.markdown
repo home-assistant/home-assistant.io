@@ -170,3 +170,5 @@ target:
 data:
   duration: 60
 ```
+
+Note: 1 day has 1440 minutes, and 60480 minutes are approximately 42 day
