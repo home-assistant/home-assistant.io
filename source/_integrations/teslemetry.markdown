@@ -6,6 +6,7 @@ ha_category:
   - Climate
   - Number
   - Sensor
+  - Select
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -16,6 +17,7 @@ ha_platforms:
   - climate
   - diagnostics
   - number
+  - select
   - sensor
 ha_integration_type: integration
 ---
@@ -43,6 +45,14 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Number|Speed limit|Yes|
+|Select|Seat heater front left|Yes|
+|Select|Seat heater front right|Yes|
+|Select|Seat heater rear center|No|
+|Select|Seat heater rear left|No|
+|Select|Seat heater rear right|No|
+|Select|Seat heater third row left|No|
+|Select|Seat heater third row right|No|
+|Select|Steering wheel heater|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
@@ -84,6 +94,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Tire pressure last measured rear right|No|
 |Sensor|Tire pressure rear left|No|
 |Sensor|Tire pressure rear right|No|
+|Sensor|Traffic delay|No|
+|Sensor|Usable Battery level|No|
 
 ### Energy sites
 

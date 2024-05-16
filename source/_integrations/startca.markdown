@@ -9,6 +9,9 @@ ha_domain: startca
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Integrate your [Start.ca](https://www.start.ca/) account information into Home Assistant.
@@ -19,7 +22,8 @@ You can get your API key from: [Start.ca Usage API](https://portal.start.ca/acco
 
 ## Configuration
 
-To use your Start.ca sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Start.ca {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

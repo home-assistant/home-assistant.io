@@ -19,6 +19,9 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@gjohansson-ST'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.

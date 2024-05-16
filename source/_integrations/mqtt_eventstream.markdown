@@ -7,13 +7,17 @@ ha_release: 0.11
 ha_iot_class: Local Polling
 ha_domain: mqtt_eventstream
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mqtt_eventstream` integration connects two Home Assistant instances via MQTT.
+The `mqtt_eventstream` {% term integration %} connects two Home Assistant instances via MQTT.
 
 ## Configuration
 
-To integrate MQTT Eventstream into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate MQTT Eventstream into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
