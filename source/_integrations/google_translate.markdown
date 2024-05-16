@@ -20,7 +20,6 @@ The `google_translate` text-to-speech platform uses the unofficial [Google Trans
 <summary><b>Supported Languages </b></summary>
   
 All languages where "Talk" feature is enabled in Google Translate are supported. The following is the current list of languages supported by Google. 
-If you'd like to add a newly supported language that is not in the list, follow the directions outlined in [this file](https://github.com/home-assistant/core/blob/dev/homeassistant/components/google_translate/const.py).
   
 | Language Code | Language                      |
 | ------------- | ----------------------------- |
