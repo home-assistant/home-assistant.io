@@ -19,7 +19,7 @@ The `google_translate` text-to-speech platform uses the unofficial [Google Trans
 <details>
 <summary><b>Supported Languages </b></summary>
   
-All languages where "Talk" feature is enabled in Google Translate are supported. The following is the current list of languages supported by Google. 
+All languages where the "Talk" feature is enabled in Google Translate are supported. The following is the current list of languages supported by Google. 
   
 | Language Code | Language                      |
 | ------------- | ----------------------------- |
