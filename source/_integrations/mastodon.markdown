@@ -61,16 +61,16 @@ base_url:
 
 ### Usage
 
-Mastodon is a notify platform, and can be used by calling notify service [as described here](/integrations/notify/). It will toot message using 
+Mastodon is a notify platform, and can be used by calling notify service as described in the [notify documentation](/integrations/notify/). It will toot messages using 
 your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
 
 | Service attribute      | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification.
-| `target`               |      yes | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users 
+| `target`               |      yes | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. 
 | `data`                 |      yes | See below for extended functionality. 
 
-### Service Data
+### Service data
 
 The following attributes can be placed inside `data` for extended functionality. 
 
@@ -80,7 +80,7 @@ The following attributes can be placed inside `data` for extended functionality.
 | `media_warning`        |      yes | If an image or video is attached, `True`: will marked the media as sensitive. `False` is default.
 | `content_warning`      |      yes | Text will be be shown as a warning before the text of the status. If not used, no warning will be displayed.
 
-### Example Service Call
+### Example service call
 
 This will post a message to Mastodon. Visibility will default to your account's setting. 
 
@@ -89,9 +89,9 @@ This will post a message to Mastodon. Visibility will default to your account's 
   message: "A toot from Home Assistant"
 ```
 
-### Example Service Call - Private
+### Example service call - private
 
-This will post a message to Mastodon, but Visibility is marked as `private` so only followers will see 
+This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
 
 ```yaml
 - service: notify.mastodon
@@ -99,9 +99,9 @@ This will post a message to Mastodon, but Visibility is marked as `private` so o
   target: private
 ```
 
-### Example Service Call - With Media
+### Example service call - with media
 
-This will post a message to Mastodon that includes an image 
+This will post a message to Mastodon that includes an image.
 
 ```yaml
 - service: notify.mastodon
@@ -110,9 +110,9 @@ This will post a message to Mastodon that includes an image
     media: /config/www/funny_meme.png
 ```
 
-### Example Service Call - With Media and content warning to hide post behind a warning. 
+### Example service call - with media and content warning to hide post behind a warning
 
-This will post a message to Mastodon that includes an image and target of `unlisted` so it doesn't show in the public timeline.
+This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
 
 ```yaml
 - service: notify.mastodon
