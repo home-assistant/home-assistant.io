@@ -911,6 +911,137 @@ For a summary in a more readable format:
 [@tkdrob]: https://github.com/tkdrob
 [@tronikos]: https://github.com/tronikos
 
+## Release 2024.5.3 - May 10
+
+- Fix Sonos select_source timeout error ([@PeteRager] - [#115640])
+- Update strings for Bring notification service ([@tr4nt0r] - [#116181])
+- Bump Yolink api to 0.4.4 ([@matrixd2] - [#116967])
+- Update jinja2 to 3.1.4 ([@cdce8p] - [#116986])
+- Simplify MQTT subscribe debouncer execution ([@bdraco] - [#117006])
+- Log an exception mqtt client call back throws ([@jbouwh] - [#117028])
+- Bump rokuecp to 0.19.3 ([@ctalkington] - [#117059])
+- Bump pyenphase to 1.20.3 ([@catsmanac] - [#117061])
+- Add a missing `addon_name` placeholder to the SkyConnect config flow ([@puddly] - [#117089])
+- Goodwe Increase max value of export limit to 200% ([@mletenay] - [#117090])
+- Improve config entry has already been setup error message ([@bdraco] - [#117091])
+- Fix nws blocking startup ([@MatthewFlamm] - [#117094])
+- Make the mqtt discovery update tasks eager and fix race ([@jbouwh] - [#117105])
+- Bump goodwe to 0.3.5 ([@mletenay] - [#117115])
+- Handle tilt position being None in HKC ([@bdraco] - [#117141])
+- Fix typo in xiaomi_ble translation strings ([@jbouwh] - [#117144])
+- Bump pytrydan to 0.6.0 ([@dgomes] - [#117162])
+- Bump deebot-client to 7.2.0 ([@edenhaus] - [#117189])
+
+[#115640]: https://github.com/home-assistant/core/pull/115640
+[#116181]: https://github.com/home-assistant/core/pull/116181
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#116967]: https://github.com/home-assistant/core/pull/116967
+[#116986]: https://github.com/home-assistant/core/pull/116986
+[#117006]: https://github.com/home-assistant/core/pull/117006
+[#117028]: https://github.com/home-assistant/core/pull/117028
+[#117059]: https://github.com/home-assistant/core/pull/117059
+[#117061]: https://github.com/home-assistant/core/pull/117061
+[#117089]: https://github.com/home-assistant/core/pull/117089
+[#117090]: https://github.com/home-assistant/core/pull/117090
+[#117091]: https://github.com/home-assistant/core/pull/117091
+[#117094]: https://github.com/home-assistant/core/pull/117094
+[#117105]: https://github.com/home-assistant/core/pull/117105
+[#117115]: https://github.com/home-assistant/core/pull/117115
+[#117141]: https://github.com/home-assistant/core/pull/117141
+[#117144]: https://github.com/home-assistant/core/pull/117144
+[#117162]: https://github.com/home-assistant/core/pull/117162
+[#117189]: https://github.com/home-assistant/core/pull/117189
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@PeteRager]: https://github.com/PeteRager
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
+[@ctalkington]: https://github.com/ctalkington
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@matrixd2]: https://github.com/matrixd2
+[@mletenay]: https://github.com/mletenay
+[@puddly]: https://github.com/puddly
+[@tr4nt0r]: https://github.com/tr4nt0r
+
+## Release 2024.5.4 - May 17
+
+- Fix Fully Kiosk set config service ([@amura11] - [#112840])
+- Mark Duotecno entities unavailable when tcp goes down ([@Cereal2nd] - [#114325])
+- Catch auth exception in husqvarna automower ([@Thomas55555] - [#115365])
+- Avoid exceptions when Gemini responses are blocked ([@tronikos] - [#116847])
+- Reduce update interval in Ondilo Ico ([@nijel] - [#116989])
+- Add reauth for missing token scope in Husqvarna Automower ([@Thomas55555] - [#117098])
+- Fix issue changing Insteon Hub configuration ([@teharris1] - [#117204])
+- Bump SoCo to 0.30.4 ([@jjlawren] - [#117212])
+- Fix zwave_js discovery logic for node device class ([@raman325] - [#117232])
+- Increase MQTT broker socket buffer size ([@jbouwh] - [#117267])
+- Fix Aurora naming ([@joostlek] - [#117314])
+- Call Google Assistant SDK service using async_add_executor_job ([@tronikos] - [#117325])
+- Fix squeezebox blocking startup ([@bdraco] - [#117331])
+- Fix Lutron Serena Tilt Only Wood Blinds set tilt function ([@wujiaqi] - [#117374])
+- Fix Kodi on/off status ([@mk-81] - [#117436])
+- Update wled to 0.17.1 ([@frenck] - [#117444])
+- Bump pyduotecno to 2024.5.0 ([@Cereal2nd] - [#117446])
+- Fix non-thread-safe state write in tellduslive ([@bdraco] - [#117487])
+- Reolink fix not unregistering webhook during ReAuth ([@starkillerOG] - [#117490])
+- Fix API creation for passwordless pi_hole ([@emontnemery] - [#117494])
+- Bump reolink-aio to 0.8.10 ([@starkillerOG] - [#117501])
+- Handle uncaught exceptions in Analytics insights ([@joostlek] - [#117558])
+- Fix poolsense naming ([@joostlek] - [#117567])
+- Improve syncing light states to deCONZ groups ([@Kane610] - [#117588])
+
+[#112840]: https://github.com/home-assistant/core/pull/112840
+[#114325]: https://github.com/home-assistant/core/pull/114325
+[#115365]: https://github.com/home-assistant/core/pull/115365
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116847]: https://github.com/home-assistant/core/pull/116847
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#116989]: https://github.com/home-assistant/core/pull/116989
+[#117098]: https://github.com/home-assistant/core/pull/117098
+[#117203]: https://github.com/home-assistant/core/pull/117203
+[#117204]: https://github.com/home-assistant/core/pull/117204
+[#117212]: https://github.com/home-assistant/core/pull/117212
+[#117232]: https://github.com/home-assistant/core/pull/117232
+[#117267]: https://github.com/home-assistant/core/pull/117267
+[#117314]: https://github.com/home-assistant/core/pull/117314
+[#117325]: https://github.com/home-assistant/core/pull/117325
+[#117331]: https://github.com/home-assistant/core/pull/117331
+[#117374]: https://github.com/home-assistant/core/pull/117374
+[#117436]: https://github.com/home-assistant/core/pull/117436
+[#117444]: https://github.com/home-assistant/core/pull/117444
+[#117446]: https://github.com/home-assistant/core/pull/117446
+[#117487]: https://github.com/home-assistant/core/pull/117487
+[#117490]: https://github.com/home-assistant/core/pull/117490
+[#117494]: https://github.com/home-assistant/core/pull/117494
+[#117501]: https://github.com/home-assistant/core/pull/117501
+[#117558]: https://github.com/home-assistant/core/pull/117558
+[#117567]: https://github.com/home-assistant/core/pull/117567
+[#117588]: https://github.com/home-assistant/core/pull/117588
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Kane610]: https://github.com/Kane610
+[@Thomas55555]: https://github.com/Thomas55555
+[@amura11]: https://github.com/amura11
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@joostlek]: https://github.com/joostlek
+[@mk-81]: https://github.com/mk-81
+[@nijel]: https://github.com/nijel
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[@teharris1]: https://github.com/teharris1
+[@tronikos]: https://github.com/tronikos
+[@wujiaqi]: https://github.com/wujiaqi
+
 [#100780]: https://github.com/home-assistant/core/pull/100780
 [#102424]: https://github.com/home-assistant/core/pull/102424
 [#104343]: https://github.com/home-assistant/core/pull/104343
