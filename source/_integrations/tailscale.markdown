@@ -28,7 +28,7 @@ the state of the devices in your Tailscale VPN network (Tailnet).
 This integration **DOES NOT** make your Home Assistant accessible via Tailscale VPN remotely!
 If you want to access your Home Assistant instance remotely, have to install Tailscale itself.
 For instructions on how to do this, please consult the [Tailscale documentation](https://tailscale.com/kb/) or 
-their [Youtube video](https://www.youtube.com/watch?v=vDxmtRByXDY) on how to configure it using the [Tailscale Addon](https://github.com/hassio-addons/addon-tailscale).
+their [YouTube video](https://www.youtube.com/watch?v=vDxmtRByXDY) on how to configure it using the [Tailscale add-on](https://github.com/hassio-addons/addon-tailscale).
 
 </div>
 
