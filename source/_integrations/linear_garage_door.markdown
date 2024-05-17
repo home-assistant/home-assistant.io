@@ -27,4 +27,4 @@ Garage doors linked to your Linear account will appear as covers.
 
 ## Light
 
-Lights on your garage door will be appear as lights.
+Lights on your garage door will appear as lights.
