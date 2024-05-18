@@ -54,3 +54,11 @@ The integration will create a device for each of your accounts and pots. For an 
 Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
+  
+## Services
+
+### Pot transfer
+
+`pot_transfer`
+
+Transfer money between one of your accounts (default: current account) and your pots.
