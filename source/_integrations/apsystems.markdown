@@ -13,10 +13,21 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The APsystems EZ1 integration will allow you to read the data from the inverter, disable its output and set the maximum output.
+The APsystems {% term integration %} allows you to read the data from your EZ1 inverter.
+<!--, disable its output and set the maximum output. -->
+The following data is provided by the integration:
 
-{% include integrations/config_flow.md %}
+- Lifetime production (Per input and in total)
+- Current production (Per input and in total)
+- Today's production (Per input and in total)
 
+<!-- 
+The following can be adjusted:
+
+- Status (Output can be enabled and disabled)
+- Output limit can be set between 30 and 800 watts
+
+-->
 Make sure the local API is activated and set to continuously. For that, connect to the inverter via Bluetooth using the app and go to settings -> local mode and set this to continuously.
 
-The polling frequency can be changed as needed, but don't set this too low, unless you know what you're doing and why. The default 15 seconds are enough.
+{% include integrations/config_flow.md %}
