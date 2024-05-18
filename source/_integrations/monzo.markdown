@@ -60,4 +60,13 @@ Additionally, an account will also have:
 
 `pot_transfer`
 
-Transfer money between one of your accounts (default: current account) and your pots.
+Transfer money between one of your accounts and your pots.
+
+#### Fields
+
+- `transfer_account`: The current or joint account to transfer from or to (default: current account)."
+- `transfer_pots`: The pot or pots to deposit to or withdraw from.
+- `transfer_type`: Either:
+  - `"deposit"`: Deposit into the pot(s) from the `transfer_account`.
+  - `"withdraw"`: Withdraw from the pot(s) to the `transfer_account`.
+- `amount`: The amount to transfer.
