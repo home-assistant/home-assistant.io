@@ -46,6 +46,9 @@ Top K:
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 
+Safety settings:
+  description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
+
 {% endconfiguration_basic %}
 
 ## Services
