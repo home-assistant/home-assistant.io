@@ -128,7 +128,7 @@ template:
 
 ### Handling positions updates
 
-To force the update of Last position and Charger position use the update_positions command on the vacuum entity_
+To force the update of Last position and Charger position use the update_positions command on the vacuum entity.
 
 {% raw %}
 
