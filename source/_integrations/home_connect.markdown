@@ -67,6 +67,10 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
+## Finding `device_id`
+The device ID needed for the services below is in the documentation as HAID. The easiest way to locate the device ID's is using the quickstart in the API documentation.
+https://api-docs.home-connect.com/quickstart/#the-home-connect-api
+
 ## Services
 
 The Home Connect integration makes various services available.
