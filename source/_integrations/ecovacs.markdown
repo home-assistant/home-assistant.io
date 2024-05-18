@@ -74,6 +74,9 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
+  - `Position`: The following position entities will be created.
+    - `Last Position`: The last bot position (JSON object with X and Y)
+    - `Charger Position`: The charger position (JSON object with X and Y)
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
@@ -123,6 +126,23 @@ template:
 
 {% endraw %}
 
+### Handling positions updates
+
+To force the update of Last position and Charger position use the update_positions command on the vacuum entity_
+
+{% raw %}
+
+```yaml
+# Example update_positions command service call
+service: vacuum.send_command
+target:
+  entity_id: vacuum.my_vacuum_id
+data:
+  command: update_positions
+```
+
+{% endraw %}
+
 ### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
@@ -143,6 +163,7 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
+
 - `Username`: Enter the email address configured in your instance. If authentication is disabled, you can enter any valid email address.
 - `Password`: Enter the password configured in your instance. If authentication is disabled, you can enter any string (series of characters).
 - `REST URL`: http://`SELF_HOSTED_INSTANCE`:8007
