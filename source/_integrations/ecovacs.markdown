@@ -52,6 +52,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Relocate`: Button entity to trigger manual relocation.
 - **Event**:
   - `Last job`: Provides the stop reason as event_type
+  - `Last position`: Provides Bot and Charger position coordinates
 - **Image**:
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
@@ -74,9 +75,6 @@ Additionally, **depending on your model**, the integration provides the followin
     - `Area`: Total cleaned area
     - `Cleanings`: The number of cleanings
     - `Time`: The total cleaning time
-  - `Position`: The following position entities will be created.
-    - `Last Position`: The last bot position (JSON object with X and Y)
-    - `Charger Position`: The charger position (JSON object with X and Y)
 - **Switch**:
   - `Advanced mode`: Enable advanced mode. Disabled by default.
   - `Border switch`: Enable border switch. Disabled by default.
@@ -126,22 +124,6 @@ template:
 
 {% endraw %}
 
-### Handling positions updates
-
-To force the update of Last position and Charger position use the update_positions command on the vacuum entity.
-
-{% raw %}
-
-```yaml
-# Example update_positions command service call
-service: vacuum.send_command
-target:
-  entity_id: vacuum.my_vacuum_id
-data:
-  command: update_positions
-```
-
-{% endraw %}
 
 ### Handling errors
 
