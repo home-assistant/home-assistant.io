@@ -291,9 +291,9 @@ sensor:
 
 If the endpoint returns XML it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html) before resolving the value_template.
 The following rules are used to determine that the content should be processed as xml:
-* The HTTP Content Type Response Header is any of `text/xml`, `application/xml` or `application/xhtml+xml`
-* The resource url ends with `.xml`
-* The returned data starts with `<?xml version="1.0"`
+- The HTTP Content Type Response Header is any of `text/xml`, `application/xml` or `application/xhtml+xml`
+- The resource url ends with `.xml`
+- The returned data starts with `<?xml version="1.0"`
 
 ### Fetch multiple JSON attributes and present them as values
 
