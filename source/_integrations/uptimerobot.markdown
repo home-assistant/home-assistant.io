@@ -25,4 +25,8 @@ The **UptimeRobot** {% term integration %} provides entities to get the status f
 
 To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the UptimeRobot website, at the bottom you will find your "Main API Key".
 
+> **NOTE**  
+> If you get redirected to the [new dashboard](https://dashboard.uptimerobot.com), you won't be able to find the API key.  
+> Go to [Account Details](https://dashboard.uptimerobot.com/account/details) and **disable** `Use New Interface as Default`. You'll now be able to use the previous link to My Settings and create the key.
+
 All the data will be fetched from [UptimeRobot](https://uptimerobot.com).
