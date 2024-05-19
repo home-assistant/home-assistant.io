@@ -433,10 +433,16 @@ Expose is only triggered on state changes. If you need periodical telegrams, use
 
 </div>
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 knx:
   expose:
+    # time and date exposures
+    - type: time
+      address: "0/0/1"
+    # entitiy exposures
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
@@ -456,11 +462,19 @@ knx:
       attribute: brightness
       default: 0
       address: "0/3/1"
-    - type: time
-      address: "0/0/1"
-    - type: datetime
-      address: "0/0/23"
+    - type: percent
+      address: "1/1/1"
+      entity_id: cover.office
+      attribute: current_position
+      value_template: "{{ 100 - value }}"  # invert the value
+    - type: percent
+      address: "2/2/2"
+      entity_id: media_player.kitchen
+      attribute: volume_level
+      value_template: "{{ value * 100 }}"  # convert from 0..1 to percent
 ```
+
+{% endraw %}
 
 {% configuration %}
 address:
@@ -487,6 +501,11 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+value_template:
+  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`.
+  required: false
+  default: None
+  type: template
 cooldown:
   description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
   type: float
