@@ -12,13 +12,17 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The Jewish Calendar (`jewish_calendar`) {% term integration %} displays a variety of information related to the Jewish Calendar as a variety of sensors.
 
 ## Configuration
 
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
+To enable this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

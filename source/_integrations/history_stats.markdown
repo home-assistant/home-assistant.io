@@ -11,11 +11,14 @@ ha_domain: history_stats
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
-It can track how long the integration has been in a specific state, in a custom time period.
+It can track how long the {% term integration %} has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
@@ -25,7 +28,8 @@ Examples of what you can track:
 
 ## Configuration
 
-To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
+To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 
@@ -140,7 +144,7 @@ This video tutorial explains how you can use history stats. It also shows how yo
 
 ### Examples
 
-Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
+Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 
 **Today**: starts at 00:00 of the current day and ends right now.
 

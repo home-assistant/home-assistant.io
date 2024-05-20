@@ -22,6 +22,7 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 - 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+  - HomeSeer SmartStick G8
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)

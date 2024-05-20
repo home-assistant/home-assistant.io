@@ -12,13 +12,17 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
+The `xmpp` notification {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 
-To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Jabber notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

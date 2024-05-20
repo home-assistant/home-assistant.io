@@ -2,6 +2,7 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -21,6 +22,7 @@ ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - cover
@@ -37,6 +39,7 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -55,6 +58,10 @@ Configuration of Netatmo public weather stations is offered from the front end. 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
 To edit an existing area, enter its name and follow the dialog.
+
+## Binary sensor
+
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 
 ## Camera
 

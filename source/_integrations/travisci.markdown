@@ -25,7 +25,7 @@ Create a GitHub [access token](https://github.com/settings/tokens) with the foll
 
 ## Configuration
 
-To enable this platform, please add the following to your `configuration.yaml` file:
+To enable this platform, please add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -12,6 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
+  - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -45,27 +46,6 @@ Tasks: allows you to view and monitor your tasks from [Habitica](https://habitic
 At runtime you will be able to use API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
-
-{% configuration %}
-api_user:
-  description: "Habitica's API user ID. This value can be grabbed from [account setting](https://habitica.com/user/settings/api)"
-  required: true
-  type: string
-api_key:
-  description: "Habitica's API password (token). This value can be grabbed from [account setting](https://habitica.com/user/settings/api) by pressing 'Show API token'"
-  required: true
-  type: string
-name:
-  description: "Override for Habitica's username. Will be used for service calls"
-  required: false
-  type: string
-  default: Deduced at startup
-url:
-  description: "URL to your Habitica instance, if you are hosting your own"
-  required: false
-  type: string
-  default: https://habitica.com
-{% endconfiguration %}
 
 ### API Service Parameters
 

@@ -11,6 +11,9 @@ ha_domain: usgs_earthquakes_feed
 ha_platforms:
   - geo_location
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `usgs_earthquakes_feed` platform lets you integrate a GeoJSON feed provided by the [U.S. Geological Survey](https://earthquake.usgs.gov/) with information about seismic events like earthquakes. It retrieves incidents from a feed and shows information of those incidents filtered by distance to Home Assistant's location.
@@ -29,7 +32,8 @@ The data is updated every 5 minutes.
 
 ## Configuration
 
-To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the following lines to your `configuration.yaml`.
+To integrate the U.S. Geological Survey Earthquake Hazards Program feed, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +72,7 @@ longitude:
 ### Supported feed types
 
 | Description                            | Feed Type                            |
-|----------------------------------------|--------------------------------------|
+| -------------------------------------- | ------------------------------------ |
 | Past Hour - Significant Earthquakes    | `past_hour_significant_earthquakes`  |
 | Past Hour - M4.5+ Earthquakes          | `past_hour_m45_earthquakes`          |
 | Past Hour - M2.5+ Earthquakes          | `past_hour_m25_earthquakes`          |
@@ -95,18 +99,18 @@ longitude:
 
 The following state attributes are available for each {% term entity %} in addition to the standard ones:
 
-| Attribute          | Description |
-|--------------------|-------------|
-| latitude           | Latitude of the earthquake. |
-| longitude          | Longitude of the earthquake. |
-| source             | `usgs_earthquakes_feed` to be used in conjunction with `geo_location` automation trigger. |
-| external_id        | The external ID used in the feed to identify the earthquake in the feed. |
-| place              | Textual description of named geographic region near to the event. |
-| magnitude          | Reported magnitude of the earthquake. |
-| time               | Date and time when this event occurred. |
-| updated            | Date and time when this event was most recently updated. |
-| status             | Indicates whether the event has been reviewed by a human: "automatic", "reviewed", "deleted" |
-| type               | Type of seismic event: "earthquake" or "quarry". |
+| Attribute   | Description                                                                                  |
+| ----------- | -------------------------------------------------------------------------------------------- |
+| latitude    | Latitude of the earthquake.                                                                  |
+| longitude   | Longitude of the earthquake.                                                                 |
+| source      | `usgs_earthquakes_feed` to be used in conjunction with `geo_location` automation trigger.    |
+| external_id | The external ID used in the feed to identify the earthquake in the feed.                     |
+| place       | Textual description of named geographic region near to the event.                            |
+| magnitude   | Reported magnitude of the earthquake.                                                        |
+| time        | Date and time when this event occurred.                                                      |
+| updated     | Date and time when this event was most recently updated.                                     |
+| status      | Indicates whether the event has been reviewed by a human: "automatic", "reviewed", "deleted" |
+| type        | Type of seismic event: "earthquake" or "quarry".                                             |
 
 
 ## Full configuration
