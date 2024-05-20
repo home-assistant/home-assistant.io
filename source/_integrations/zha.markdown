@@ -229,7 +229,7 @@ To see OTA updates for a device, it's required that it both supports OTA updates
 
 <div class="note warning">
 
-When it comes to Zigbee device OTA firmware updates it is always recommended to check if an update will bring you any advantages before updating. Most Zigbee device OTA firmware updates are normally NOT specifically made for this ZHA integration, but instead usually only tested to work with the manufacturer's own Zigbee gateway/hub/bridge from the same brand. In some cases, the firmware update can cause unwanted issues, including no longer accessible functions until ZHA Device Handlers (quirks) are added/updated, or at worse even bricking a device causing it to stop working. So the general advice is to try to apply a "*if it ain't broke then don't fix it*" philosophy when it comes to Zigbee device firmware updates.
+Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
 
 </div>
 
