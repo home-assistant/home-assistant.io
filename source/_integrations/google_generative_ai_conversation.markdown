@@ -36,9 +36,6 @@ Model:
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant
 
-Model:
-  description: Model used to generate response.
-
 Prompt template:
   description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
 
