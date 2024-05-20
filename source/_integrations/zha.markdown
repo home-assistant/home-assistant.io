@@ -225,7 +225,7 @@ Additional devices in the [Known working Zigbee radio modules](#known-working-zi
 
 The ZHA integration has the ability to perform OTA (over-the-air) firmware updates of Zigbee devices. This feature is enabled by default. As it uses standard [Update](/integrations/update/) entities in Home Assistant, users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for the device.
 
-Prerequisites for OTA updates to become available for a specific device is that it both support the standard Zigbee OTAU (Over-The-Air Update) feature and firmware images with standard Zigbee OTA format for that brand and device model are provided to the public by the manufacturer. For this reason ZHA currently only includes OTA providers from a few manufacturers that provide official online sources for Zigbee device OTA firmware images for their brands and models. Today that is; IKEA, INOVELLI, LEDVANCE (OSRAM), SALUS (Computime), Sonoff (ITead), and 3reality (Third Reality).
+To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
 
 <div class="note warning">
 
