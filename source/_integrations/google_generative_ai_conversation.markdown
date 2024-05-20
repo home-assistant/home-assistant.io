@@ -14,7 +14,7 @@ ha_integration_type: service
 
 The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.
 
-It can only query information that has been provided by Home Assistant in the prompt. To be able to answer questions about your house, Home Assistant will need to provide Google Generative AI with the details of your house, which include areas, devices and their states. This prompt can be customized to adjust the provided information and how the AI should respond.
+It can only query information that has been provided by Home Assistant in the prompt. To be able to answer questions about your home, Home Assistant will need to provide Google Generative AI with the details of your home, which includes areas, devices, and their states. This prompt can be customized to adjust the provided information and how the AI should respond.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
