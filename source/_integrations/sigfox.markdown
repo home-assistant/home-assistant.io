@@ -9,9 +9,12 @@ ha_domain: sigfox
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-[SigFox](https://www.sigfox.com/) integration adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ([snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
+[SigFox](https://www.sigfox.com/) {% term integration %} adding a sensor for each Sigfox device registered with your account. The default name of sensors is `sigfox_{DEVICE_ID}` where `DEVICE_ID` is the devices Sigfox ID. The state of an added Sigfox sensor is the payload of the last message published by that device. Additionally, there are attributes for the latitude and longitude coordinates of the device, as well as the signal-to-noise ratio ([snr](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)).
 
 ## Setup
 
@@ -24,7 +27,8 @@ Note that `your_api_login` and `your_api_password` are your **API access credent
 
 ## Configuration
 
-To use this sensor, add the following to your `configuration.yaml` file:
+To use this {% term integration %}, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

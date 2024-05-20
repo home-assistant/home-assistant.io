@@ -235,7 +235,7 @@ Before updating a device, you should search for any disadvantages or if you even
 
 ## Configuration - YAML
 
-For more advanced configuration, you can modify `configuration.yaml` and restart Home Assistant
+For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
 
 {% configuration %}
 database_path:
@@ -258,6 +258,7 @@ custom_quirks_path:
 The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
 
 Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
+
 However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
 
 ```yaml
@@ -299,7 +300,7 @@ The general recommendation is to only use channels 15, 20, or 25 in order to avo
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
-To correct the device type, also called domain, add the following to your `configuration.yaml` and restart Home Assistant:
+To correct the device type, also called domain, add the following to your {% term "`configuration.yaml`" %} and restart Home Assistant:
 
 ```yaml
 zha:
@@ -623,7 +624,7 @@ Note: Please also make sure you give it your best effort to follow the recommend
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

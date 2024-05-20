@@ -12,6 +12,9 @@ ha_platforms:
 ha_codeowners:
   - '@ntilley905'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Wake on LAN** {% term integration %} enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
@@ -22,7 +25,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use this {% term integration %} in your installation, add the following to your `configuration.yaml` file:
+To use this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,11 +41,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                   |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
-| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
+| Service data attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `mac`                  | no       | MAC address of the device to wake up.                 |
+| `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
+| `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
 
 Sample service data:
 
@@ -66,7 +70,7 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

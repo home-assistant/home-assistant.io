@@ -69,7 +69,7 @@ To use Lutron Caseta devices in your installation, you must first log in to your
 
 If you already have `caseta.key`, `caseta.crt`, `caseta-bridge.crt`, and cannot physically access the bridge to press the button, pairing can be done by utilizing these existing files.
 
-Once you have the three necessary files, place them in your configuration directory and add the following to your `configuration.yaml`:
+Once you have the three necessary files, place them in your configuration directory and add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
