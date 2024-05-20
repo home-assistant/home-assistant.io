@@ -99,7 +99,6 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
-|Switch|Valet mode|Yes|
 
 ### Energy sites
 
