@@ -446,7 +446,7 @@ Binding is an on-device feature for Zigbee devices. It provides a mechanism for 
 
 For example, binding a "target destination" Zigbee device like a remote to a Zigbee lightbulb, switch or group of lightbulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA.  This means that the remote can control the lightbulb/group of lightbulbs even when the Zigbee coordinator is not available.
 
-Note that not all devices support binding as it depends on the Zigbee implementation of the device itself. Also, by default, the ZHA integration binds remotes to the coordinator when joining/pairing them, so the coordinator can receive commands from the remotes and originate zha_events. However, some remotes can only be bound to a single destination and it is not possible to make this switch to bind to other destinations like a device or groups unless you first unbind the remote from the coordinator. Only after you unbind such a remote from the ZHA coordinator you can then bind it directly to any other Zigbee device or a group.
+Note that not all devices support binding. By default, ZHA binds remotes to the coordinator, so click events are forwarded to HA. As some remotes can only be bound to a single destination, you might need to unbind the remote from the coordinator before binding it to another device or group.
 
 ## Zigbee backup and restore in ZHA
 
