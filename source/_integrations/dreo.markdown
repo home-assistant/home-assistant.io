@@ -3,6 +3,7 @@ title: Dreo
 description: Instructions on how to set up Dreo fans within Home Assistant.
 ha_category:
   - Fan
+ha_release: 0.66
 ha_config_flow: true
 ha_domain: dreo
 ha_platforms:
