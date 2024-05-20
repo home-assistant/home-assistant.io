@@ -10,9 +10,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `**Dreo** {% term integration %} enables you to control smart switches and outlets connected to the Dreo App.
+The `**Dreo** integration enables you to control smart switches and outlets connected to the Dreo App.
 
-The devices must be added to the Dreo App before this {% term integration %} can discover them.
+The devices must be added to the Dreo App before this integration can discover them.
 
 The following platforms are supported:
 
@@ -20,7 +20,7 @@ The following platforms are supported:
 
 ## Supported devices
 
-This {% term integration %} supports devices controllable by the Dreo App.  The following devices are supported by this {% term integration %}:
+This integration supports devices controllable by the Dreo App.  The following devices are supported by this integration:
 
 ### Fans
 
@@ -35,7 +35,7 @@ This {% term integration %} supports devices controllable by the Dreo App.  The 
 
 ## Prerequisite
 
-Before you can use this {% term integration %}, all devices must be registered with the
+Before you can use this integration, all devices must be registered with the
 Dreo App. Once registration is complete,  Added dreo integration in Home Assistant.
 
 ## Fan exposed attributes
