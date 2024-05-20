@@ -19,6 +19,8 @@ The following data is provided by the integration:
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
 
-Make sure the local API is activated and set to **continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **local mode** and set this to **continuously**.
+## Prequisites
+
+Make sure the local API is activated and set to **Continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **Local Mode**, set the switch **Enable Local Mode** to on and make sure to set this to **Continuously**.
 
 {% include integrations/config_flow.md %}
