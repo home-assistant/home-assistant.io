@@ -440,7 +440,7 @@ To create a Zigbee Group click on "CONFIGURE" in the Zigbee Home Automation inte
 
 The group should consist of products of the same device type (e.g. all lights, switches, or fans), and at least two devices must be added to a Zigbee group before a group entity is created.
 
-### Zigbee Binding and Unbinding
+### Zigbee binding and unbinding
 
 Binding is a native on-device action for Zigbee devices, defining relations between specific endpoints two Zigbee devices. It provides a mechanism for attaching an endpoint on one Zigbee device to one or more endpoints other Zigbee devices or a Zigbee group.
 
