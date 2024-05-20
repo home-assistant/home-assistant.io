@@ -442,7 +442,7 @@ The group should consist of products of the same device type (e.g. all lights, s
 
 ### Zigbee binding and unbinding
 
-Binding is a native on-device action for Zigbee devices, defining relations between specific endpoints two Zigbee devices. It provides a mechanism for attaching an endpoint on one Zigbee device to one or more endpoints other Zigbee devices or a Zigbee group.
+Binding is an on-device feature for Zigbee devices. It provides a mechanism for attaching an endpoint of one Zigbee device to an endpoint of another Zigbee device or to a Zigbee group.
 
 For example, binding a "target destination" Zigbee device like a remote to a Zigbee lightbulb, switch or group of lightbulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA.  This means that the remote can control the lightbulb/group of lightbulbs even when the Zigbee coordinator is not available.
 
