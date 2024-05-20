@@ -9,9 +9,12 @@ ha_domain: llamalab_automate
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+The `llamalab_automate` {% term integration %} uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
 
 ## Prerequisites
 
@@ -19,7 +22,8 @@ Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud
 
 ## Configuration
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

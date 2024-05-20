@@ -50,4 +50,3 @@ Firmware update guides can be found here:
  - Use the **username** and **password** you entered during the initial PrusaLink setup (not the API key).
 
 {% include integrations/config_flow.md %}
-

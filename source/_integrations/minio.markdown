@@ -18,7 +18,7 @@ To download or upload files, folders must be added to [allowlist_external_dirs](
 
 ## Configuration
 
-To enable the Minio integration in your installation, add the following to your `configuration.yaml` file:
+To enable the Minio integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 minio:

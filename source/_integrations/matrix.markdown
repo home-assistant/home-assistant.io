@@ -12,15 +12,21 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@PaarthShah'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This {% term integration %} allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
 ## Configuration
+
+To enable the Matrix {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,7 +163,7 @@ This configuration will:
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
-To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your `configuration.yaml` file:
+To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

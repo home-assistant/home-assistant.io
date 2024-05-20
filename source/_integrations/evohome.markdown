@@ -14,6 +14,9 @@ ha_platforms:
   - climate
   - water_heater
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Evohome** {% term integration %} links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -29,7 +32,8 @@ For your system to be compatible with this integration, then you must be able to
 
 ## Configuration
 
-To set up this integration, add the following to your `configuration.yaml` file:
+To set up this integration, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

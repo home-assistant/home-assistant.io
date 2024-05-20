@@ -428,6 +428,48 @@ type:
   type: string
 {% endconfiguration %}
 
+## Lock commands
+
+Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_commands.png' alt='Screenshot of the tile card with the lock commands feature'>
+  Screenshot of the tile card with the lock commands feature
+</p>
+
+```yaml
+features:
+  - type: "lock-commands"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-commands`"
+  type: string
+{% endconfiguration %}
+
+## Lock open door
+
+Widget that displays a button to [open a door](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_open_door.png' alt='Screenshot of the tile card with the lock open door feature'>
+  Screenshot of the tile card with the lock open door feature
+</p>
+
+```yaml
+features:
+  - type: "lock-open-door"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-open-door`"
+  type: string
+{% endconfiguration %}
+
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).

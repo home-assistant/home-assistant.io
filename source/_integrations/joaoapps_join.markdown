@@ -10,19 +10,23 @@ ha_domain: joaoapps_join
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `joaoapps_join` integration exposes services from
+The `joaoapps_join` {% term integration %} exposes services from
 [Join](https://joaoapps.com/join). In Home Assistant, the Joaoapps Join features are
 divided up in two locations, the Join integration, and the Joaoapps Join notify platform.
 The notify platform allows us to send messages to Joaoapps Join devices, the integration
 allows us to access the other special features that Joaoapps Join offers. When in doubt, you can reference the [API documentation](https://joaoapps.com/join/api/) this is based on.
 
-In the `configuration.yaml` file you need to provide the API key and device id
+In the {% term "`configuration.yaml`" %} file you need to provide the API key and device id
 or name of the target device. You can find your device id and API key
 [here](https://joinjoaomgcd.appspot.com/).
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -104,11 +108,11 @@ data:
 The services exposed in the `joaoapps_join` integration can be used with the
 service data described below:
 
-| Service                       | Data                                                              |
-|------------------------------ |------------------------------------------------------------------ |
-| joaoapps_join/ring            |                                                                   |
-| joaoapps_join/send_sms        | `{"number":"5553334444", "message":"Hello!"}`                       |
-| joaoapps_join/send_tasker     | `{"command":"test"}`                                                |
-| joaoapps_join/send_url        | `{"url":"http://google.com"}`                                       |
-| joaoapps_join/send_wallpaper  | `{"url":"http://www.planwallpaper.com/static/images/ZhGEqAP.jpg"}`  |
-| joaoapps_join/send_file       | `{"url":"http://download.thinkbroadband.com/5MB.zip"}`              |
+| Service                      | Data                                                               |
+| ---------------------------- | ------------------------------------------------------------------ |
+| joaoapps_join/ring           |                                                                    |
+| joaoapps_join/send_sms       | `{"number":"5553334444", "message":"Hello!"}`                      |
+| joaoapps_join/send_tasker    | `{"command":"test"}`                                               |
+| joaoapps_join/send_url       | `{"url":"http://google.com"}`                                      |
+| joaoapps_join/send_wallpaper | `{"url":"http://www.planwallpaper.com/static/images/ZhGEqAP.jpg"}` |
+| joaoapps_join/send_file      | `{"url":"http://download.thinkbroadband.com/5MB.zip"}`             |

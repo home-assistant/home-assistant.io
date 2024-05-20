@@ -14,13 +14,17 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [EZcontrol XS1](http://www.ezcontrol.de/content/view/36/28/) {% term integration %} for Home Assistant allows you to observe and control devices configured on the XS1 Gateway. Please have a look at the official documentation for using this gateway [Bedienungsanleitung v3.0.0.0](http://www.ezcontrol.de/support/downloads/XS1/xs1manual/Bedienungsanleitung_EZcontrol_XS1_3.0.0.0-2.pdf).
 
 ## Configuration
 
-Add the following entry to the `configuration.yaml` file:
+Add the following entry to the {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,11 +75,11 @@ If you are using climate devices the "current temp" sensor will be automatically
 
 ### Actuators
 
-| Type          | Supported | Notes                                            |
-|---------------|-----------|--------------------------------------------------|
-| `switch`      | Yes       |                                                  |
-| `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :(|
-| `temperature` | Yes       |                                                  |
+| Type          | Supported | Notes                                                                             |
+| ------------- | --------- | --------------------------------------------------------------------------------- |
+| `switch`      | Yes       |                                                                                   |
+| `dimmer`      | Partly    | Dimmers are currently handled like switches so actual dimming is not supported :( |
+| `temperature` | Yes       |                                                                                   |
 
 ### Climate actuator/sensor
 

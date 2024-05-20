@@ -2,6 +2,7 @@
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
+  - Car
   - Climate
   - Sensor
 ha_release: 2024.2
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: teslemetry
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

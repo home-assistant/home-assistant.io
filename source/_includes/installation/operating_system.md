@@ -227,7 +227,8 @@ Use this method only if Method 1 does not work for you.
 
 - If you used method 2 for the installation, install the boot medium into your x86-64 hardware.
 
-1. Plug in an Ethernet cable that is connected to the network.
+1. Plug in an Ethernet cable that is connected to the network and to the internet.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
 <div class="note">
@@ -254,7 +255,8 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 {% else %}
 
 1. Insert the boot medium ({{ site.installation.types[page.installation_type].installation_media }}) you just created.
-2. Plug in an Ethernet cable that is connected to the network and power the system on.
+2. Plug in an Ethernet cable that is connected to the network and to the internet and power the system on.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 
 {% endif %}
 

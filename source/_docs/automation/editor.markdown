@@ -39,4 +39,4 @@ Automations created or edited via the user interface are activated immediately a
 
 ## Troubleshooting missing automations
 
-When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
+When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.

@@ -11,13 +11,17 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@emontnemery'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `zengge` platform allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.
+The `zengge` {% term integration %} allows you to integrate your [Zengge Bluetooth bulbs](http://www.zengge.com/) into Home Assistant.
 
 ## Configuration
 
-To enable the lights, add the following lines to your `configuration.yaml` file:
+To enable the lights, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

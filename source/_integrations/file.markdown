@@ -14,6 +14,9 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -23,9 +26,10 @@ There is currently support for the following device types within Home Assistant:
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file.
+The `file` {% term integration %} allows you to store notifications from Home Assistant as a file.
 
-To enable file notifications in your installation, add the following to your `configuration.yaml` file:
+To enable file notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +62,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
 
-To enable the `file` sensor, add the following lines to your `configuration.yaml`:
+To enable the `file` sensor, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -101,7 +105,7 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 {"temperature": 22, "humidity": 36}
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following entry in the {% term "`configuration.yaml`" %} file to extract the temperature:
 
 {% raw %}
 
@@ -127,7 +131,7 @@ timestamp,temperature,humidity
 1631472949,22,36
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following entry in the {% term "`configuration.yaml`" %} file to extract the temperature:
 
 {% raw %}
 
