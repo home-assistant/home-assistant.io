@@ -28,6 +28,6 @@ The following can be adjusted:
 - Output limit can be set between 30 and 800 watts
 
 -->
-Make sure the local API is activated and set to continuously. For that, connect to the inverter via Bluetooth using the app and go to settings -> local mode and set this to continuously.
+Make sure the local API is activated and set to continuously. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **local mode** and set this to **continuously**.
 
 {% include integrations/config_flow.md %}
