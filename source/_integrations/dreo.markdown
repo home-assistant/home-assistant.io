@@ -17,7 +17,7 @@ The devices must be added to the Dreo App before this integration can discover t
 
 The following platforms are supported:
 
-- **fan
+- **fan**
 
 ## Supported devices
 
