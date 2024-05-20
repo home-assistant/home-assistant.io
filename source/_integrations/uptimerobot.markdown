@@ -23,7 +23,7 @@ The **UptimeRobot** {% term integration %} provides entities to get the status f
 
 {% include integrations/config_flow.md %}
 
-To get your API key, go to [My Settings](https://uptimerobot.com/dashboard#mySettings) on the UptimeRobot website, at the bottom you will find your "Main API Key".
+To get your API key, go to [My Settings](https://old.uptimerobot.com/dashboard#mySettings) on the UptimeRobot website, at the bottom you will find your "Main API Key".
 
 > **NOTE**  
 > If you get redirected to the [new dashboard](https://dashboard.uptimerobot.com), you won't be able to find the API key.  
