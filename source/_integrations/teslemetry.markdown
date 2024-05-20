@@ -44,7 +44,6 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Climate|Climate|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
-|Number|Speed limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
