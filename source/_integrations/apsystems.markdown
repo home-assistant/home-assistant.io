@@ -12,7 +12,7 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The APsystems {% term integration %} allows you to read the data from your EZ1 inverter.
+The APsystems {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter.
 The following data is provided by the integration:
 
 - Lifetime production (Per input and in total)
