@@ -47,5 +47,3 @@ Dreo Tower Fan will expose the following details depending on the features suppo
 | `mode`    | The current mode the device is in. (DR-HTF001S/002S/004S/005S/007S/008S/009S/010S) | manual  |
 | `speed`   | The current speed setting of the device. (DR-HTF001S/002S/004S/005S/007S/008S/009S/010S) | 1       |
 | oscillate | The current oscillate setting of the device. (DR-HTF001S/002S/004S/005S/007S/008S/009S/010S) | true    |
-
-{% endraw %}
