@@ -436,7 +436,7 @@ A Zigbee group enables the grouping of multiple Zigbee lights, switches, and fan
 Note that while using a native Zigbee group instead of Home Assistant's [Group](/integrations/group/) integration can improve the visual responsiveness, the broadcast commands issued can flood the Zigbee network if issued repeatedly.
 </div>
 
-To create a Zigbee Group click on "CONFIGURE" in the Zigbee Home Automation integration, at the top of the screen you will find "Groups", and there you can select "+ CREATE GROUP". Give the group a name and choose which devices that are compatible with each other should be in that group.
+To create a Zigbee Group, press the "Configure" button on the ZHA integration config page. At the top, choose "Groups" and select "Create Group". Set a group name and choose which devices to include in the group.
 
 The group should consist of products of the same device type (e.g. all lights, switches, or fans), and at least two devices must be added to a Zigbee group before a group entity is created.
 
