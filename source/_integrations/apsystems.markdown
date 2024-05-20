@@ -1,7 +1,6 @@
 ---
-title: APsystems EZ1
+title: APsystems
 description: Control and monitor your APsystems EZ1 microinverters locally without the cloud
-featured: false
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 2024.6
@@ -20,6 +19,6 @@ The following data is provided by the integration:
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
 
-Make sure the local API is activated and set to continuously. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **local mode** and set this to **continuously**.
+Make sure the local API is activated and set to **continuously**. For that, connect to the inverter via Bluetooth using the app and go to **Settings** > **local mode** and set this to **continuously**.
 
 {% include integrations/config_flow.md %}
