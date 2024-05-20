@@ -33,7 +33,7 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 Model:
   description: Model used to generate response.
 
-Control Home Asssistant:
+Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant
 
 Model:
