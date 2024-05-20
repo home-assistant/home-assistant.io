@@ -246,7 +246,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: true
   type: string
 supported_features:
