@@ -1051,6 +1051,16 @@ fans:
       required: false
       default: 0x00
       type: integer
+    pulse:
+      description: "Send a pulse instead of an on or off command, the pulse wil first send the on command and after the pulse delay value it wil subsequently send the off command."
+      required: false
+      default: false
+      type: boolean
+    pulse_delay:
+      description: "The delay value in milliseconds when using pulse."
+      required: false
+      default: 50
+      type: integer
     write_type:
       description: Type of write request.
       required: false
@@ -1125,6 +1135,17 @@ modbus:
         address: 14
         write_type: coil
         verify:
+      - name: "Fan3"
+        slave: 2
+        address: 15
+        write_type: coil
+        pulse: true
+        pulse_delay: 100
+        verify:
+            input_type: coil
+            adress: 8192
+            state_on: 1
+            state_off: 0
       - name: "Register1"
         address: 11
         command_on: 1
@@ -1157,6 +1178,16 @@ lights:
       description: "Value to write to turn off the light."
       required: false
       default: 0x00
+      type: integer
+    pulse:
+      description: "Send a pulse instead of an on or off command, the pulse wil first send the on command and after the pulse delay value it wil subsequently send the off command."
+      required: false
+      default: false
+      type: boolean
+    pulse_delay:
+      description: "The delay value in milliseconds when using pulse."
+      required: false
+      default: 50
       type: integer
     write_type:
       description: "Type of write request."
@@ -1233,6 +1264,17 @@ modbus:
         address: 14
         write_type: coil
         verify:
+      - name: "light3"
+        slave: 2
+        address: 15
+        write_type: coil
+        pulse: true
+        pulse_delay: 100
+        verify:
+            input_type: coil
+            adress: 8192
+            state_on: 1
+            state_off: 0
       - name: "Register1"
         address: 11
         command_on: 1
@@ -1470,6 +1512,16 @@ switches:
       required: false
       default: 0x00
       type: integer
+    pulse:
+      description: "Send a pulse instead of an on or off command, the pulse wil first send the on command and after the pulse delay value it wil subsequently send the off command."
+      required: false
+      default: false
+      type: boolean
+    pulse_delay:
+      description: "The delay value in milliseconds when using pulse."
+      required: false
+      default: 50
+      type: integer
     write_type:
       description: Type of write request.
       required: false
@@ -1574,6 +1626,17 @@ modbus:
         address: 14
         write_type: coil
         verify:
+      - name: Switch3
+        slave: 2
+        address: 15
+        write_type: coil
+        pulse: true
+        pulse_delay: 100
+        verify:
+            input_type: coil
+            adress: 8192
+            state_on: 1
+            state_off: 0
       - name: Register1
         address: 11
         command_on: 1
