@@ -257,7 +257,8 @@ custom_quirks_path:
 
 The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
 
-Hence most advanced configuration options will remain in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy). The exception is if want to disable OTA firmware updates for a specific manufacturer's provider, as then you can add the following configuration to your `configuration.yaml` and restart Home Assistant.
+Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
+However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
 
 ```yaml
 zha:
