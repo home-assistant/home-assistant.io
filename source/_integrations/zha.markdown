@@ -430,7 +430,7 @@ ZHA supports Zigbee groups and binding devices to each other. These features can
 
 ### Zigbee group
 
-A "Zigbee Group" enables native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all compatible entities for those devices in those groups with only one command/entity.
+A Zigbee group enables the grouping of multiple Zigbee lights, switches, and fans. This allows you to control those devices with only one command/entity.
 
 <div class='note'>
 Note that while using a native "Zigbee Group" inside the ZHA integration instead of Home Assistant's [Group](/integrations/group/) integration can improve the visual responsiveness and better synchronization grouping lights, the control commands broadcast can be rejected by devices if try to issue it to any Zigbee groups more than once or twice per minute.
