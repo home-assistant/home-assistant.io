@@ -428,7 +428,7 @@ In practice, you will likely need to add a lot more Zigbee router devices than i
 
 ZHA supports Zigbee groups and binding devices to each other. These features can be used separately or combined. For example, binding a remote to a bulb or group has the benefit of faster response time and smoother control, as the remote directly controls the bound devices.
 
-### Zigbee Group
+### Zigbee group
 
 A "Zigbee Group" enables native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all compatible entities for those devices in those groups with only one command/entity.
 
