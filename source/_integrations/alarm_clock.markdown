@@ -16,7 +16,7 @@ They can be set to repeat on specific days of the week, or only once.
 Alarm clocks can be created as a helper and can be utilized by integrations, such as smart alarm clocks.
 
 When an alarm clock starts, changes, finishes, or gets canceled, the corresponding events are fired.
-Listening these events allows you to set your smart wake up light directly form home assistant, or gradually turn up the lights in your bedroom when it's time to wake up.
+Listening these events allows you to set your smart wake up light directly from Home Assistant, or gradually turn up the lights in your bedroom when it's time to wake up.
 
 ## Configuration
 
