@@ -424,7 +424,7 @@ In this theoretical example, a CC2652-based Zigbee coordinator has three CC2530 
 
 In practice, you will likely need to add a lot more Zigbee router devices than in this example in order to extend the coverage of the network to reach that many devices.
 
-## Zigbee Groups, Bindings and Unbindings
+## Zigbee groups and binding devices
 
 ZHA integration support for native Zigbee Groups, as well as Zigbee Bindings and Unbindings. These features can be used separately or combined. Binding a remote directly to a bulb or group has the benefit of faster response time and smoother control. This can improve user visual experience like dimming lights as the remote then directly dims the light and thus does not have to make the software roundtrip via the ZHA coordinator.
 
