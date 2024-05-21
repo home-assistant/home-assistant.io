@@ -3,9 +3,8 @@ title: Slide
 description: Instructions on how to integrate the Innovation in Motion Slide covers with Home Assistant.
 ha_category:
   - Cover
-  - Hub
-ha_iot_class: Cloud Polling
-ha_release: 0.99
+ha_iot_class: Local Polling
+ha_release: 2024.06
 ha_codeowners:
   - '@ualex73'
 ha_domain: slide
@@ -17,7 +16,7 @@ related:
     title: Configuration file
 ---
 
-The `slide` {% term integration %} allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the [official API](https://documenter.getpostman.com/view/6223391/S1Lu2pSf?version=latest).
+The `slide` {% term integration %} allows you to integrate your [slide.store](https://slide.store/) devices in Home Assistant using the Local API. Innovation in Motion company has closed down, the Cloud API will be stopped (or has stopped already).
 
 ### Configuration
 
@@ -27,23 +26,25 @@ To use the Slide {% term integration %} in your installation, add it to your {% 
 ```yaml
 # Example configuration.yaml entry
 slide:
-  username: YOUR_SLIDE_APP_USERNAME
-  password: YOUR_SLIDE_APP_PASSWORD
+  - host: IP/HOSTNAME
+    password: PASSWORD
+    api_version: 2
+    invert_position: False
 ```
 
 {% configuration %}
-username:
-  description: Username needed to log in to Slide App.
+host:
+  description: The IP or hostname of the Slide
   required: true
   type: string
 password:
-  description: Password needed to log in to Slide App.
-  required: true
-  type: string
-scan_interval:
-  description: "Minimum time interval between updates."
+  description: The device code of your Slide (inside of the Slide or in the box, length is 8 characters). Only required with api_version=1
   required: false
-  default: 30 seconds
+  type: string
+api_version:
+  description: 1 or 2. 1 is pre Aug-2023 firmware. 2 is for Aug-2023 or later
+  required: false
+  default: 2
   type: integer
 invert_position:
   description: Invert position percentage.
