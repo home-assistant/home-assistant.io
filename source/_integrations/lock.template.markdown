@@ -61,7 +61,7 @@ lock:
     type: template
     default: true
   code_format_template:
-    description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value the Frontend will prompt the user to enter a code when interacting with the lock. The code will be matched against the regular expression, and only if it matches the lock/unlock actions will be executed. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable; if the template fails to render for other reasons or the regular expression is invalid, no code will be accepted and the lock/unlock actions will never be invoked.
+    description: Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, the user is prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and only if it matches, the lock/unlock actions will be executed. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted and the lock/unlock actions will never be invoked.
     required: false
     type: template
     default: None
@@ -162,9 +162,9 @@ lock:
 
 {% endraw %}
 
-### Lock from Switch with Dynamic Code
+### Lock from switch with dynamic code
 
-This example shows a lock that copies data from a switch, needs a PIN code defined as a [secret](/docs/configuration/secrets) to unlock and no code to lock. Note that the actual validity check of the code is part of the `unlock` action and should always happen there or in scripts called from these actions. In this way, you can not only perform code checks against static values, but also dynamic ones (for instance, TOTPs).
+This example shows a lock that copies data from a switch. It needs a PIN code defined as a [secret](/docs/configuration/secrets) to unlock and no code to lock. Note that the actual validity check of the code is part of the `unlock` action and should always happen there or in scripts called from these actions. In this way, you can not only perform code checks against static values, but also dynamic ones (for instance, TOTPs).
 
 {% raw %}
 
