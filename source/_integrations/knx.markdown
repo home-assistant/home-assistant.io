@@ -164,7 +164,7 @@ The `knx.telegram` trigger can be used to trigger automations on incoming or out
 
 <div class='note'>
 
-This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI, but doesn't support setting a specific DPT (`type`) to decode the payload as it always relies on project data.
+This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI, but doesn't support setting a specific <abbr title="data point type">DPT</abbr> (`type`) to decode the payload as it always relies on project data.
 
 </div>
 
@@ -174,7 +174,7 @@ destination:
   type: [string, list]
   required: false
 type:
-  description: If set, the payload will be decoded as given DPT in the trigger data. When not set, the DPT is sorced from project data. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "percent").
+  description: If set, the payload will be decoded as given DPT in the trigger data. When not set, the DPT is sourced from project data. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "percent").
   type: [string, integer]
   required: false
 group_value_write:
