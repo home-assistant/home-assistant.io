@@ -274,7 +274,7 @@ homekit:
               default: libopus
               available options: copy, libopus
             co_threshold:
-              description: Only for `sensor` entities with `device_class` `carbon_dioxide` or `co2` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              description: Only for `sensor` entities with `device_class` `carbon_monoxide` or `co` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
               required: false
               type: integer
               default: 25
