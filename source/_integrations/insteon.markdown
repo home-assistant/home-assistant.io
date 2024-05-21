@@ -51,7 +51,7 @@ Overview of supported Insteon modems & hubs
 
 The first time autodiscovery runs, **any device that is already linked to the modem** will be identified. This process may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If the device is still not identified, relink the device to the modem following the linking instructions using the [Insteon configuration panel](#insteon-configuration-panel).
 
-## Insteon Configuration Panel
+## Insteon configuration panel
 
 <p class='img'>
 <img src='/images/integrations/insteon/insteon-panel.png' alt='Insteon configuration panel'>
@@ -76,11 +76,11 @@ In order for any two Insteon devices to talk with one another, they must be link
 - **Device address**: Enter the Insteon address of the device, such as `1A.2B.3C`, to link a specific device remotely. Not all devices support remote linking. If a device does not support remote linking, press the `Set` button on the device to put the device in linking mode.
 - **Link multiple**: To add multiple devices in a single session, select the **Add multiple** checkbox.
 
-### Managing Insteon Scenes
+### Managing Insteon scenes
 
 Insteon scenes can be created, changed or deleted using the **Scenes** tab of the [Insteon configuration panel](#insteon-configuration-panel). To trigger an Insteon scene see [Triggering Insteon Scenes](#triggering-insteon-scenes) below.
 
-### Device Properties
+### Device properties
 
 Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
 
@@ -113,7 +113,7 @@ The Insteon All-Link Database (ALDB) contains the list of links to other devices
 - **Configure device overrides**: Add or remove device overrides. See [Device Overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 
-## Triggering Insteon Scenes
+## Triggering Insteon scenes
 
 Triggering an Insteon scene on or off is done via automations. Two services are provided to support this feature:
 
@@ -194,7 +194,7 @@ The following services are available:
 - **insteon.print_im_all_link_database**: Print the All-Link Database for the Insteon Modem (IM).
 - **insteon.add_default_links**: Add a set of default links between the modem and the device to facilitate proper communication between them.
 
-## Device Overrides
+## Device overrides
 
 <p class='note warning'>Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
 
@@ -205,7 +205,7 @@ There are two primary uses for the **device override** feature:
 
 Device overrides can be set up using the [Insteon configuration panel](#insteon-configuration-panel).
 
-## Recovering After Factory Resetting The Hub
+## Recovering after factory resetting the hub
 
 Many users tried to factory reset their Insteon Hub when the Insteon app stopped working in April 2022. If you are one of those users, you can perform the following steps to connect it to Home Assistant and get all of your devices up and working again.
 
