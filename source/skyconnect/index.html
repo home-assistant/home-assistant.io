@@ -177,12 +177,23 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 <div class="faq-list">
   {% details "Why include a USB extension cable?" %} USB 3.0 ports (the ones with blue on the inside) are known to cause significant noise and radio interference to any 2.4Ghz  wireless devices. This includes Zigbee and Thread. If you do not use the extension cable, it may not work at all, and if it does, it could be flaky at best with intermittent problems (issues with pairing, device dropouts, unreachable devices, timeout errors, etc).
   <br><br>
-  <a href="https://www.youtube.com/watch?v=tHqZhNcFEvA">See demo on YouTube.</a> {% enddetails %}
+  <a href="https://www.youtube.com/watch?v=tHqZhNcFEvA">See demo on YouTube.</a> 
+  {% enddetails %}
+
   {% details "Which use case do you recommend for Home Assistant SkyConnect?" %}
   Our current recommendation for Home Assistant SkyConnect is to use the Zigbee firmware to power your Zigbee network. This solution offers a great experience out-of-the-box.<br /><br />
-  As part of our efforts to bring Matter to Home Assistant, we're now focused on ensuring that the Thread experience will catch up and become a first-class citizen, making it easy to connect to your Thread-based Matter devices in Home Assistant without a third-party Thread border router. The Thread firmware is already fully functional under the hood, but we still have some work to do to make the experience of using Thread-based devices in Home Assistant feel good. Once the experience has improved, we will recommend using this Thread firmware to power your Thread network as an alternative to using third-party Thread border routers from Apple or Google.{% enddetails %}
-  {% details "What is the current state of multiprotocol support?" %} When we launched Home Assistant SkyConnect, we announced our intent to release a firmware supporting multiprotocol, which allows the Silicon Labs chip to connect to both Zigbee and Thread networks with one radio. This experimental firmware has been available since December 2022. It integrates the Silicon Labs SDK, which adds this support for multiprotocol. During the further development and testing of the multiprotocol firmware, we have concluded that while Silicon Labs' multiprotocol works, it comes with technical limitations. These limitations mean users will not have the best experience compared to using dedicated Zigbee and Thread radios. That is why we do not recommend using this firmware, and it will remain an experimental feature of Home Assistant SkyConnect. If you currently have the multiprotocol firmware installed but don't actively use it to connect to Thread devices, we recommend that you <a href="https://skyconnect.home-assistant.io/procedures/disable-multiprotocol/">disable multiprotocol</a>.<br /><br />
-  Nothing changes for current users of the multiprotocol firmware who are happy with their experience. The experimental multiprotocol firmware will remain available, but we will not recommend it to new users. Instead, we will focus on making sure the dedicated Zigbee and Thread firmwares for Home Assistant SkyConnect deliver the best experience to users.{% enddetails %}
+  As part of our efforts to bring Matter to Home Assistant, we're now focused on ensuring that the Thread experience will catch up and become a first-class citizen, making it easy to connect to your Thread-based Matter devices in Home Assistant without a third-party Thread border router. The Thread firmware is already fully functional under the hood, but we still have some work to do to make the experience of using Thread-based devices in Home Assistant feel good. Once the experience has improved, we will recommend using this Thread firmware to power your Thread network as an alternative to using third-party Thread border routers from Apple or Google.
+  {% enddetails %}
+
+  {% details "What is the current state of multiprotocol support?" %} 
+  <br />
+  <b>Multiprotocol will remain an experimental feature and is not recommended for use. </b>
+  <br /><br />
+  When we launched Home Assistant SkyConnect, we announced our intent to release firmware supporting multiprotocol, which allows the device's Silicon Labs chip to connect to both Zigbee and Thread networks with one radio. <br /><br />
+  This experimental firmware has been available since December 2022. Through extensive testing, we have found that although it works in some circumstances, it has technical limitations that lead to a worse user experience. We now do not recommend using this firmware, and it will be experimental for the foreseeable future. Instead, we will focus on making sure the dedicated Zigbee and Thread firmwares for Home Assistant SkyConnect deliver the best experience to users.<br /><br />
+  
+  If you currently have the multiprotocol firmware installed but don't actively use it to connect to Thread devices, we recommend that you <a href="https://skyconnect.home-assistant.io/procedures/disable-multiprotocol/">disable multiprotocol</a>. Nothing changes for current users of the multiprotocol firmware who are happy with their experience. The experimental multiprotocol firmware will remain available, but we will not recommend it to new users. <br /><br />
+  Nothing changes for current users of the multiprotocol firmware who are happy with their experience. The experimental multiprotocol firmware will remain available, but we will not recommend it to new users.{% enddetails %}
 </div>
 
 <div style="margin-top: 24px; text-align: center; font-size: .8rem;">
