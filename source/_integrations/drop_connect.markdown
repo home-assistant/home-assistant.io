@@ -37,6 +37,7 @@ There is currently support for the following DROP products within Home Assistant
 - **Pump Controller**: smart replacement for an FSG pressure switch.
 - **RO Filter**: reverse osmosis drinking water filtration.
 - **Salt Sensor**: alerts when the salt level in the softener brine tank is low.
+- **Alert**: monitors an electrical circuit and a float or dry contact input, ideal for monitoring a sump pump.
 
 ### Prerequisites
 
