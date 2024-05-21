@@ -26,7 +26,7 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 
 - Visit the [API Keys page](https://makersuite.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
-On the same page you can see your plan: free of charge, if the associated Google Cloud project doesn't have billing, or pay-as-you-go, if the associated Google Cloud project has billing enabled.
+On the same page, you can see your plan: *free of charge* if the associated Google Cloud project doesn't have billing, or *pay-as-you-go* if the associated Google Cloud project has billing enabled.
 Comparison of the plans is available [here](https://ai.google.dev/pricing). The big differences are: free of charge is rate limited and free prompts/responses are used for product improvement.
 
 {% include integrations/option_flow.md %}
