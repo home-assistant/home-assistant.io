@@ -26,7 +26,7 @@ In this demo, you see Assist being triggered from the iPhone 15 Pro “action bu
 
 ### “What if I don’t have an iPhone 15 pro to use the action button?”
 
-It would be ideal if we could replace Siri with Assist in the power button long press, but since Apple doesn’t allow that. The second best option becomes the action button. For iPhones without it, there is a third option, the accessibility feature called “back tap”. Follow [this link](https://support.apple.com/en-gb/guide/shortcuts/apd897693606/ios) to learn how to configure it.
+It would be ideal if we could replace Siri with Assist in the power button long press, but since Apple doesn’t allow that. The second best option becomes the action button. For iPhones without it, there is a third option, the accessibility feature called “back tap”. Follow [this guide on the Apple page](https://support.apple.com/en-gb/guide/shortcuts/apd897693606/ios) to learn how to configure it.
 
 ### Widgets
 
