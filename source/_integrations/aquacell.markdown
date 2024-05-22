@@ -30,7 +30,7 @@ This integration provides {% term sensors %} for the following information from 
 - Percentage of salt remaining.
 - Time remaining until 0% salt level is reached.
 - iLid battery level.
-- Wi-Fi signal level.
+- Wi-Fi signal strength.
 
 <div class="note">
 The device does not update frequently, the integration polls the information once a day from the cloud.
