@@ -38,7 +38,7 @@ If back tap doesn’t work for you, Assist can be activated via our widgets from
 
 There is “one more thing” that you can use to launch Assist, iOS has an accessibility feature called “Voice Control” which allows a user to basically navigate an iPhone completely using voice commands. On top of that they allow you to add “custom commands” so… Yes! You can just add “Ok Nabu”, then use the option **Run shortcut** and have it trigger “Assist In App”.
 
-A couple things to take into consideration. I have tried this for the last weekend and although it’s pretty cool, it’s not as fast as calling Siri.  You will also have full voice control enabled, so  you trigger other commands every once in a while.
+There are a couple of things to take into consideration. I tried this last weekend, and although it’s pretty cool, it’s not as fast as calling Siri. You will also have full voice control enabled, so you trigger other commands every once in a while.
 
 <lite-youtube videoid="ovFqaIiefuo" videotitle="Assist in iOS using accessibility voice control"></lite-youtube>
 
