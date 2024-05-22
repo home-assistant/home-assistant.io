@@ -20,12 +20,15 @@ The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.
 
 ## Turn on action
 
-Home Assistant is able to turn on an LG Netcast TV is you specify an action, provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
+Home Assistant can turn on an LG Netcast TV if you specify an action provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
-You can create an automation from the user interface, from the device create a new automation and select the **Device is requested to turn on** automation.
+1. To create an automation, go to {% my integrations title="**Settings** > **Devices & services**" %} and open the device page. 
+2. Under **Automations**, select the + icon to create an automation with that device.
+3. In the dialog, select the **Device is requested to turn on** automation.
+
 Automations can also be created using an automation action:
 
-The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
+The example below shows how you can use the `turn_on_action` with the [`wake_on_lan` integration](/integrations/wake_on_lan/).
 
 ```yaml
 # Example configuration.yaml entry
