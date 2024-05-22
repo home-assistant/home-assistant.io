@@ -31,7 +31,7 @@ For a quick introduction on how to get started with Android TV Remote, check out
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Configure Applications List:
-  description: Here you can define applications where the keys are app IDs and the values are app names that will be displayed in the UI.
+  description: Here you can define applications where the keys are app IDs and the values are app names and icons that will be displayed in the UI.
 {% endconfiguration_basic %}
 
 ## Media player
