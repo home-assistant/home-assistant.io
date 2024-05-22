@@ -7,12 +7,12 @@ date_formatted: "May 22, 2024"
 author: Bruno Pantaleão
 comments: true
 categories: iOS Release-Notes
-og_image: /images/blog/2024-05-ios-assist/ios-og.png
+og_image: /images/blog/2024-05-ios-assist/ios-og.jpg
 ---
 
 Hey, this is Bruno. It has been a great few months since I  joined Nabu Casa to work full-time on the Home Assistant iOS app, again a big thanks to our Home Assistant Cloud subscribers for making this possible. Today, I would like to recap what has been introduced since [the last blog post for version 2024.1](https://www.home-assistant.io/blog/2024/01/29/companion-app-for-ios-20241-carplay/) and discuss more about how Assist is being integrated into the Apple ecosystem - along with a number of other improvements to the app.
 
-![Companion App for iOS 2024.5](/images/blog/2024-05-ios-assist/ios-og.png)
+![Companion App for iOS 2024.5](/images/blog/2024-05-ios-assist/ios-og.jpg)
 
 <!--more-->
 
