@@ -23,7 +23,7 @@ The MikroTik BT5 integration will automatically discover devices once the [Bluet
 
 ## Supported devices
 
-- [MikroTik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in/)
-- [MikroTik TB-BT5-OUT](https://mikrotik.com/product/tg_bt5_out/)
+- [MikroTik TG-BT5-IN](https://mikrotik.com/product/tg_bt5_in/) (acceleration and battery charge)
+- [MikroTik TB-BT5-OUT](https://mikrotik.com/product/tg_bt5_out/) (temperature, acceleration and battery charge)
 
   The MikroTik BT5 integration requires that your MikroTik BT5 devices have MikroTik Beacon enabled. This can be done within the settings portion of the MikroTik Beacon Manager mobile application on both Android and iOS.
