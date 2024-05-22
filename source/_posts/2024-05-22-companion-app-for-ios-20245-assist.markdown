@@ -54,7 +54,7 @@ A couple things to take into consideration. I have tried this for the last weeke
 
 - The Actions UI in CarPlay was aligned to display the same information as in Apple Watch, previously we were displaying the “Identifier” and ”Text”, now we display just the “Text” so we keep consistency between platforms.
 
-- We also added a button to reload your widgets, since sometimes they may become blank for a few users after an update. For actions we added a button to manually update server created Actions so you don't need to reopen the app for that (but remember to restart HA after adding or removing Actions from yaml).
+- We also added a button to reload your widgets, since sometimes they may become blank for a few users after an update. For actions, we added a button to manually update server-created Actions so you don't need to reopen the app for that (but remember to restart HA after adding or removing Actions from yaml).
 
 - Memory usage and performance issues on our macOS client are big topics in our GitHub right now, and we are aware of them and are working towards improving them. This release is the first iteration in that direction.
 
