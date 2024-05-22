@@ -42,6 +42,10 @@ arguments:
   description: Additional arguments to be passed to VLC.
   required: false
   type: string
+unique_id:
+  description: An ID that uniquely identifies this entity. If two entities have the same unique ID, Home Assistant will raise an exception.
+  required: false
+  type: string
 {% endconfiguration %}
 
 Only the "music" media type is supported for now.
@@ -58,6 +62,7 @@ media_player:
   - platform: vlc
     name: speaker_1
     arguments: "--alsa-audio-device=hw:1,0"
+    unique_id: 6a81257f-d6b9-4f38-86fa-066f367d99b6
 ```
 
 ## Additional configuration on macOS
