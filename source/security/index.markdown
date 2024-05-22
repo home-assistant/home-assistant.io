@@ -11,7 +11,7 @@ This page is intended to provide information about how to report security issues
 
 So, you have found a security vulnerability in Home Assistant? Please, be sure to [**responsibly disclose**](https://en.wikipedia.org/wiki/Coordinated_vulnerability_disclosure) it to us by [reporting a vulnerability using GitHub's Security Advisory](https://github.com/home-assistant/core/security/advisories/new).
 
-**DO NOT MAKE A PUBLIC ISSUES FOR SECURITY VULNERABILITIES!**
+**DO NOT MAKE A PUBLIC ISSUE FOR SECURITY VULNERABILITIES!**
 
 We are mostly interested in reports by actual Home Assistant users that are familiar with the platform, but all high quality contributions are welcome. Please do your best to describe a clear and realistic impact for your report.
 

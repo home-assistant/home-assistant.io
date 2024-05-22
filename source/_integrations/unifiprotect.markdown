@@ -53,11 +53,11 @@ This {% term integration %} supports all UniFi OS Consoles that can run UniFi Pr
 - Any UniFi "Dream" device (**[UDMPRO](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/udm-pro)**, **[UDR](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-router)**, or **[UDMSE](https://store.ui.com/collections/unifi-network-unifi-os-consoles/products/dream-machine-se)**), _except the base UniFi Dream Machine/UDM_
 - UniFi Cloud Key Gen2 Plus (**[UCKP](https://store.ui.com/collections/unifi-protect-nvr/products/unifi-cloudkey-plus)**) firmware version v2.0.24+
 
-UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware `[v2.0.24](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8)` or newer.
+UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`v2.0.24`](https://community.ui.com/releases/UniFi-Cloud-Key-Firmware-2-0-24/b6684f1e-8542-4660-bc0b-74e0634448e8) or newer.
 
 ### Software support
 
-The absolute **minimal** software version is `[v1.20.0](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011)` for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
+The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
 <div class='note warning'>
 
@@ -262,6 +262,15 @@ Use to set the paired doorbell(s) with a smart chime.
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
+### Service unifiprotect.remove_privacy_zone
+
+Use to remove a privacy zone from a camera.
+
+| Service data attribute | Optional | Description                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
+| `name`                 | No       | The name of the zone to remove.                                                                         |
+
 ## Views
 
 The {% term integrations %} provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
@@ -287,7 +296,7 @@ The default settings on the stream integration will give you a 5-15+ second dela
 
 ### Cannot play audio to speakers
 
-Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
+Unlike with many other things, playing audio to your speakers requires your Home Assistant to be able to reach your camera directly. Specifically via port `tcp/7004`. You can [enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) and it will output the full FFmpeg command that will be run and the output from FFmpeg to help you troubleshoot why audio is not playing to the device.
 
 ### Liveview options for viewer missing options or out of date
 

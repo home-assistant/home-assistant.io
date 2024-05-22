@@ -21,13 +21,14 @@ The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. D
 
 ## Before you begin
 
-In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.github.io/bluetooth-proxies/).
+In many cases, a better approach than a directly connected adapter or card is to use a Bluetooth proxy using an ESP32 since Linux kernel updates have previously broken Bluetooth functionality and Bluetooth driver support Linux generally falls behind other operating systems for newer adapters. A Bluetooth proxy is particularly interesting to users who virtualize their instance, where the USB pass-through may cause additional problems. More information is available in the Remote Adapters section below or by visiting ESPhome's [Bluetooth proxy page](https://esphome.io/projects/?type=bluetooth).
 
 Suppose a Bluetooth proxy is not a good fit for your use case. Consider using the Home Assistant Operating System when using a local adapter because it includes Bluetooth patches for issues unsolved in other operating systems.
 
 ## Configuration
 
-While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your `configuration.yaml`.
+While this integration is part of [`default_config:`](/integrations/default_config/) to enable automatic discovery of the Bluetooth Adapter, it will only be enabled by setting up the configuration flow, or manually adding it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -106,6 +107,7 @@ If you experience an unreliable Bluetooth connection, installing a short USB ext
 - Sena UD100-G03 (CSR8510A10) 📶
 - StarTech USBBT1EDR4 (CSR8510A10)
 - Techkey PBT06H (CSR8510A10)
+- TRENDnet TBW-106UB (CSR8510A10)
 - TRENDnet TBW-107UB (CSR8510A10)
 - UGREEN CM109 (CSR8510A10)
 - Warmstor WBT-AD01 (CSR8510A10)
@@ -250,14 +252,14 @@ When adding multiple remote adapters to increase range or available connection s
 
 The following remote adapters are supported:
 
-- [ESPHome](https://esphome.github.io/bluetooth-proxies/)
+- [ESPHome](https://esphome.io/projects/?type=bluetooth)
   - Bluetooth advertisement listening: ESPHome ESP32 device with firmware 2022.8.2 or later
   - Bluetooth advertisement bundling: ESPHome ESP32 device with firmware 2023.6.0 or later
   - Single active connection: ESPHome ESP32 device with firmware 2022.9.3 or later
   - Multiple active connections: ESPHome ESP32 device with firmware 2022.11.0 or later
 - [Shelly](/integrations/shelly/)
   - Bluetooth advertisement listening: Shelly v2 device with firmware 12.0 or later
-  - Bluetooth advertisement bundling: not supported
+  - Bluetooth advertisement bundling: Shelly v2 device with firmware 12.0 or later
   - Single active connection: not supported
   - Multiple active connections: not supported
 
@@ -284,7 +286,7 @@ The connection time and performance vary greatly based on the Bluetooth adapter 
 
 While newer integrations can share the Bluetooth Adapter, some legacy integrations require exclusive use of the adapter. Enabling this integration may prevent an integration that has not been updated to use newer methods from functioning.
 
-Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your `configuration.yaml`, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
+Deleting the config entry for this integration will release control of the adapter and allow another integration to gain exclusive use of the Bluetooth adapter. If you have manually added `bluetooth:` to your {% term "`configuration.yaml`" %}, you must also remove it to prevent the configuration from being recreated. Consider adding a second Bluetooth adapter on Linux systems if you need to continue using legacy integrations, as more integrations will move to use the Bluetooth integration in the future.
 
 ### Bluetooth interference with other devices
 

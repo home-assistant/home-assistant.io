@@ -159,7 +159,7 @@ payload_reset:
   description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
   required: false
   type: string
-  default: "None"
+  default: '"None"'
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

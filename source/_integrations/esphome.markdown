@@ -23,7 +23,10 @@ ha_platforms:
   - camera
   - climate
   - cover
+  - date
+  - datetime
   - diagnostics
+  - event
   - fan
   - light
   - lock
@@ -33,7 +36,9 @@ ha_platforms:
   - sensor
   - switch
   - text
+  - time
   - update
+  - valve
 ha_integration_type: device
 ha_dhcp: true
 works_with:

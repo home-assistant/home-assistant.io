@@ -11,13 +11,17 @@ ha_domain: synology_srm
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This platform allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
+This {% term integration %} allows you to detect presence by looking at connected devices to a [Synology SRM](https://www.synology.com/srm) router.
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +62,7 @@ verify_ssl:
   type: boolean
 {% endconfiguration %}
 
-It's not possible to create another account in SRM with admin permissions. You'll need to use your admin account (or the one you renamed at creation) for this connection.
+For instructions on creating multiple administrators on SRM, please refer to the [Synology Knowledge Center](https://kb.synology.com/en-id/SRM/tutorial/Create_multiple_administrator_accounts_on_Synology_Router).
 
 List of models known to be supported:
 

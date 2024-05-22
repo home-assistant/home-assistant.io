@@ -14,9 +14,12 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The SCSGate integration support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
+The SCSGate {% term integration %} support the [SCSGate](https://translate.google.com/translate?hl=en&sl=it&tl=en&u=http%3A%2F%2Fguidopic.altervista.org%2Feibscsgt%2Finterface.html) device. This a home-brew device allows to interact with the MyHome system from BTicino/Legrande.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,7 +27,8 @@ There is currently support for the following device types within Home Assistant:
 - [Light](/integrations/scsgate/#light)
 - [Switch](/integrations/scsgate/#switch)
 
-To enable SCSGate in your installation, add the following to your `configuration.yaml` file:
+To enable SCSGate in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

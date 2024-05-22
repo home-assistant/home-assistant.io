@@ -4,7 +4,7 @@ description: Get energy usage from Enmax Energy using the Opower integration
 ha_category:
   - Energy
   - Sensor
-ha_release: '2023.10'
+ha_release: 2023.8
 ha_domain: enmax
 ha_integration_type: virtual
 ha_supporting_domain: opower

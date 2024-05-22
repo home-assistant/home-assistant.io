@@ -15,6 +15,7 @@ ha_config_flow: true
 ha_integration_type: service
 ha_codeowners:
   - '@jpbede'
+  - '@VIKTORVAV99'
 ---
 
 The `Electricity Maps` sensor platform (formerly known as CO2Signal) queries the [Electricity Maps](https://www.electricitymaps.com/) API for the CO2 intensity of a specific region. Data can be collected for your home by using the latitude/longitude or a country code. This API uses the same data as <https://app.electricitymaps.com>. Not all countries/regions in the world are supported, so please consult the app to check local availability.

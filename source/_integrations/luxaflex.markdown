@@ -4,6 +4,7 @@ description: Connect and control your Luxaflex devices using the Hunter Douglas 
 ha_category:
   - Button
   - Cover
+  - Number
   - Scene
   - Select
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - button
   - cover
   - diagnostics
+  - number
   - scene
   - select
   - sensor

@@ -11,10 +11,15 @@ ha_codeowners:
 ha_domain: wyoming
 ha_integration_type: integration
 ha_platforms:
+  - binary_sensor
+  - number
+  - select
   - stt
+  - switch
   - tts
   - wake_word
 ha_config_flow: true
+ha_zeroconf: true
 ---
 
 The **Wyoming** {% term integration %} connects external voice services to Home Assistant using a [small protocol](https://github.com/rhasspy/rhasspy3/blob/master/docs/wyoming.md). This enables [Assist](/voice_control/) to use a variety of local [speech-to-text](/integrations/stt/), [text-to-speech](/integrations/tts/), and [wake-word-detection](/integrations/wake_word/) systems, such as:

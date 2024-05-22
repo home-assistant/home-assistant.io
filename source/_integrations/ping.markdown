@@ -12,6 +12,7 @@ ha_domain: ping
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - sensor
 ha_integration_type: integration
 ha_config_flow: true
 ha_codeowners:
@@ -21,6 +22,7 @@ ha_codeowners:
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Sensors](#sensors)
 - [Presence detection](#presence-detection)
 
 {% include integrations/config_flow.md %}
@@ -49,12 +51,16 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 This sensor is enabled by default. The default polling interval is 30 seconds.
 
-The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
+## Sensors
 
-- `round_trip_time_mdev`
-- `round_trip_time_avg`
-- `round_trip_time_min`
-- `round_trip_time_max`
+The integration exposes the different round trip times milliseconds as entities:
+
+- `Round Trip Time Mean Deviation` - the standard deviation
+- `Round Trip Time Average` - the average round trip time
+- `Round Trip Time Minimum` - the shortest round trip time
+- `Round Trip Time Maximum` - the longest round trip time
+
+**These entities are disabled by default and can be enabled in the UI if needed.**
 
 <div class='note'>
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.

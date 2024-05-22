@@ -19,6 +19,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
@@ -65,7 +68,8 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/spec
 - F6-02-01 (Light and Blind Control - Application Style 2)
 - F6-02-02 (Light and Blind Control - Application Style 1)
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -127,7 +131,7 @@ You can find the `event_data` `id` by going to {% my developer_events title="Dev
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -162,7 +166,7 @@ The EnOcean sensor platform currently supports the following device types:
 - [temperature sensor](#temperature-sensor)
 - [window handle](#window-handle)
  
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -326,7 +330,7 @@ The window handle sensor can have the following states:
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry

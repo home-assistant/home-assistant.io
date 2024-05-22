@@ -3,8 +3,8 @@ title: Trend
 description: Instructions on how to integrate Trend binary sensors into Home Assistant.
 ha_category:
   - Binary sensor
-  - Utility
   - Helper
+  - Utility
 ha_release: 0.28
 ha_iot_class: Calculated
 ha_quality_scale: internal

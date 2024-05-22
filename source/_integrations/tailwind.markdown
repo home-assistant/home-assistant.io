@@ -14,8 +14,11 @@ ha_platforms:
   - binary_sensor
   - button
   - cover
+  - diagnostics
   - number
 ha_integration_type: device
+ha_quality_scale: platinum
+ha_dhcp: true
 ---
 
 The Tailwind integration integrates [Tailwind](https://gotailwind.com/)

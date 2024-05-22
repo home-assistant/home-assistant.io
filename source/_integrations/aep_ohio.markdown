@@ -4,7 +4,7 @@ description: Get energy usage from AEP Ohio using the Opower integration
 ha_category:
   - Energy
   - Sensor
-ha_release: 2024.1
+ha_release: 2023.8
 ha_domain: aep_ohio
 ha_integration_type: virtual
 ha_supporting_domain: opower

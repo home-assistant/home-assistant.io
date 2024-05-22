@@ -1,6 +1,6 @@
 ---
 title: SMTP
-description: Instructions on how to add e-mail notifications to Home Assistant.
+description: Instructions on how to add email notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
@@ -11,9 +11,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
+The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by e-mail in your installation, add the following to your `configuration.yaml` file:
+To enable notification by email in your installation, add the following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -24,7 +24,7 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
-Check your e-mail provider configuration or help pages to get the correct SMTP settings.
+Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
 
 {% configuration %}
 name:
@@ -33,11 +33,11 @@ name:
   type: string
   default: notify
 sender:
-  description: E-mail address of the sender.
+  description: email address of the sender.
   required: true
   type: string
 recipient:
-  description: Default E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your E-mail notifications by default (when not specifying `target` in the service call). Any E-mail address(es) specified in the service call's `target` field will override this recipient content.
+  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the service call). Any email address(es) specified in the service call's `target` field will override this recipient content.
   required: true
   type: [list, string]
 server:
@@ -86,7 +86,28 @@ verify_ssl:
 
 ### Usage
 
-To use the SMTP notification, refer to it in an automation or script like in this example:
+A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
+
+```yaml
+- alias: "Send E-Mail Every Morning"
+  description: ""
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  condition: []
+  action:
+    - service: notify.NOTIFIER_NAME
+      data:
+          title: "Good Morning"
+          message: "Rise and shine"
+          target:
+            - "morning@example.com"
+  mode: single
+```
+
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, morning@example.com.
+
+Another example attaching images stored locally in a script:
 
 ```yaml
 burglar:
@@ -107,15 +128,13 @@ burglar:
                   - /home/pi/snapshot2.jpg
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, my_intruder_alert@example.com.
-
 The optional `html` field makes a custom text/HTML multi-part message, allowing total freedom for sending rich HTML emails by defining the HTML content. In them, if you need to include images, you can pass both arguments (`html` and `images`). The images will be attached with the basename of the images, so they can be included in the html page with `src="cid:image_name.ext"`.
 
 The optional `images` field adds image attachments to the email. If `html` is defined, the images need to be added to the message in-line as described above (and as shown in the example below). If `html` is not defined, images will be added as separate attachments.
 
 <div class='note info'>
 
-When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/docs/configuration/basic/)
+When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
 
 </div>
 
@@ -184,10 +203,10 @@ burglar:
 
 To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
-## Specific E-Mail Provider Configuration
+## Specific email provider configuration
 
-Check below some configurations examples for specific e-mail providers.
-If you are in doubt about the SMTP settings required, check your e-mail provider configuration or help pages for more information about its specific SMTP configuration.
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
 
 ### Google Mail
 

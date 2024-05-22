@@ -423,12 +423,12 @@ rest:
   
     sensor:
       - name: "Steam Temp"
-        value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
+        value_template: "{{ value_json['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
 
        steam_time_remaining:
       - name: "Steam Time Remaining"
-        value_template: "{{ json_value['response']['time0'] }}"
+        value_template: "{{ value_json['response']['time0'] }}"
         unit_of_measurement: "minutes"
 
 rest_command:  

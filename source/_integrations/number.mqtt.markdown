@@ -91,6 +91,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -105,10 +109,8 @@ device:
       type: string
 device_class:
   description: The [type/class](/integrations/number/#device-class) of the number. The `device_class` can be `null`.
-  default: None
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -123,7 +125,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -194,7 +195,6 @@ unique_id:
   type: string
 unit_of_measurement:
   description: Defines the unit of measurement of the sensor, if any. The `unit_of_measurement` can be `null`.
-  Default: None
   required: false
   type: string
 value_template:

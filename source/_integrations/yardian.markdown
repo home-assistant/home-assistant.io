@@ -19,7 +19,7 @@ The **Yardian** {% term integration %} allows you to control your [Yardian Smart
 
 There is currently support for the following platform within Home Assistant:
 
-- [Switch](#switch) - Allows you to view the status of zones and control them.
+- Switch - Allows you to view the status of zones and control them.
 
 {% include integrations/config_flow.md %}
 

@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: goodwe
 ha_platforms:
   - button
+  - diagnostics
   - number
   - select
   - sensor

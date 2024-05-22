@@ -12,26 +12,26 @@ Follow this guide if you want to get started with Home Assistant easily or if yo
 
 You will need a few things to get started with installing Home Assistant. The links below lead to Ameridroid. If you’re not in the US, you should be able to find these items in web stores in your country.
 
-To get started, we suggest the ODROID N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID M1.
+To get started, we suggest the ODROID-N2+, the board that powers our [Home Assistant Blue](/blue/), or the ODROID-M1.
 
-If unavailable, we also recommend the [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
+If unavailable, we also recommend the [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e).
 
 Home Assistant bundles (US market):
 
 The bundles come with Home Assistant pre-installed.
 
-- [ODROID N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
-- [ODROID N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
-- ODROID M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
-- ODROID M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
-- [ODROID M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
+- [ODROID-N2+: 2 GB RAM / 16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729286935?ref=eeb6nfw07e)
+- [ODROID-N2+: 4 GB RAM / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44748729221399?ref=eeb6nfw07e)
+- ODROID-M1: 4 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573028119?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940567831?ref=eeb6nfw07e)
+- ODROID-M1: 8 GB RAM / 256 GB NVMe / [16 GB &micro;SD](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44929573093655?ref=eeb6nfw07e) or [16 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940633367?ref=eeb6nfw07e)
+- [ODROID-M1: 8 GB RAM / 1 TB NVMe / 64 GB eMMC](https://ameridroid.com/products/odroid-n2-home-assistant-blue-bundle-limited-edition?variant=44994940698903?ref=eeb6nfw07e)
 
 Variants without pre-installed Home Assistant:
 
-- ODROID N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
-- [ODROID C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
-- [ODROID M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
-
+- ODROID-N2+, [2 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828719650?ref=eeb6nfw07e) or [4 GB RAM](https://ameridroid.com/products/odroid-n2-plus?variant=40371828752418?ref=eeb6nfw07e)
+- [ODROID-C4](https://ameridroid.com/products/odroid-c4?ref=eeb6nfw07e)
+- [ODROID-M1](https://ameridroid.com/products/odroid-M1?ref=eeb6nfw07e)
+- ODROID-M1S, [4 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396474135?ref=eeb6nfw07e) or [8 GB RAM](https://ameridroid.com/products/odroid-m1s?variant=47425396506903?ref=eeb6nfw07e)
 - [Power Supply](https://ameridroid.com/products/12v-2a-power-supply-plug?ref=eeb6nfw07e)
 - [CR2032 Coin Cell](https://ameridroid.com/products/rtc-bios-battery?ref=eeb6nfw07e)
 - [eMMC Module](https://ameridroid.com/products/emmc-module-n2-linux-red-dot?ref=eeb6nfw07e)
@@ -46,7 +46,7 @@ Variants without pre-installed Home Assistant:
 <div class='note'>
 <b>Prerequisites</b>
 
-This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the Home Assistant Operating System.
+This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the {% term "Home Assistant Operating System" %}.
 
 - This is typically an Intel or AMD-based system.
 - The system must be 64-bit capable and be able to boot using UEFI.
@@ -55,7 +55,7 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 <b>Summary</b>
 
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
-2. Then, write the Home Assistant Operating System disk image to your boot medium.
+2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
 
 </div>
 
@@ -88,7 +88,7 @@ Typically, an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non
 
 To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 different methods:
 
-  **Method 1 (recommended)**: Boot Ubuntu from a USB flash drive and install the Home Assistant Operating System from there. It also works on laptops and PCs with internal hard disks.
+  **Method 1 (recommended)**: Boot Ubuntu from a USB flash drive and install the {% term "Home Assistant Operating System" %} from there. It also works on laptops and PCs with internal hard disks.
 
   **Method 2**: With this method, you write the Home Assistant Operating disk image directly onto a boot medium from your regular computer. The steps are a bit more complex. If you have non-removable internal mediums (for example because you are using a laptop) or do not have the necessary adapter (for example an USB to S-ATA adapter) use method 1 instead.
 
@@ -97,13 +97,13 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 #### Required material
 
 - Computer
-- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
 - USB flash drive (USB thumb drive is sufficient, it should be at least 4&nbsp;GB in size)
 - Internet connection
 
 #### To install HAOS via Ubuntu from a USB flash drive
 
-1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+1. **Notice**: This procedure will write the {% term "Home Assistant Operating System" %} onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before carrying out this procedure.
 2. Create a *live operating system* on a USB flash drive:
@@ -114,10 +114,10 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 4. When prompted, make sure to select **Try Ubuntu**. This runs Ubuntu on the USB flash device.
    - The system then starts Ubuntu.
    - Connect your system to your network and make sure it has internet access.
-5. In Ubuntu, open a browser and open [this procedure](/installation/generic-x86-64).
+5. In Ubuntu, open a browser and open the current documentation page, so you can follow the steps.
    - From there, [download the image][generic-x86-64].
 6. In Ubuntu, in the bottom left corner, select **Show Applications**.
-7. In the applications, search and open **Disks** and start restoring the HOAS image:
+7. In the applications, search and open **Disks** and start restoring the HAOS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
    2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
@@ -145,7 +145,7 @@ Use this method only if Method 1 does not work for you.
 #### Required material
 
 - Computer
-- The target x86-64 hardware, on which you want to install the Home Assistant Operating System (HAOS)
+- The target x86-64 hardware, on which you want to install the {% term "Home Assistant Operating System" %} (HAOS)
 - Boot medium
 - Internet connection
 
@@ -157,14 +157,16 @@ Use this method only if Method 1 does not work for you.
 
 {% endif %}
 
-1. **Notice**: This procedure will write the Home Assistant Operating System onto your device.
+1. **Notice**: This procedure will write the {% term "Home Assistant Operating System" %} onto your device.
    - This means you will lose all the data as well as the previously installed operating system.
    - Back up your data before continuing with the next step.
 2. Attach the Home Assistant boot medium ({{site.installation.types[page.installation_type].installation_media}}) to your computer.
     {% if page.installation_type == 'odroid' %}
-      If you are using ODROID M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
+      If you are using ODROID-M1, note that booting from NVMe is not supported. If you want to boot from eMMC, [update the firmware](https://github.com/home-assistant/operating-system/blob/dev/Documentation/boards/hardkernel/odroid-m1.md) before installing the image.
 
-      If you are using a [Home Assistant Blue](/blue) or ODROID N2+, you can [attach your device directly](/common-tasks/os/#flashing-an-odroid-n2).
+      If you are using a [Home Assistant Blue](/blue) or ODROID-N2+, you can [attach your device directly](/installation/odroid#flashing-an-odroid-n2).
+
+      If you are using an ODROID-M1S, you need to follow this guide to [boot your device into UMS mode](/installation/odroid#flashing-an-odroid-m1s).
     {% endif %}
 3. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 4. Download the image to your computer.
@@ -182,7 +184,9 @@ Use this method only if Method 1 does not work for you.
     ```
 
     {% if variant.key == "odroid-n2" %}
-    [Guide: Flashing Odroid-N2 using OTG-USB](/hassio/flashing_n2_otg/)
+    [Guide: Flashing ODROID-N2 using OTG-USB](/installation/odroid#flashing-an-odroid-n2)
+    {% elsif variant.key == "odroid-m1s" %}
+    [Guide: Flashing ODROID-M1S using OTG-USB](/installation/odroid#flashing-an-odroid-m1s)
     {% elsif variant.key == "rpi4" or variant.key == "rpi3" %}
       *(64-bit is recommended)*
     {% endif %}
@@ -212,7 +216,7 @@ Use this method only if Method 1 does not work for you.
 9. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
-1.  When Balena Etcher has finished writing the image, you will see a confirmation.
+   - When Balena Etcher has finished writing the image, you will see a confirmation.
 ![Screenshot of the Etcher software showing that the installation has completed.](/images/installation/etcher6.png)
 
 ### Start up your {{site.installation.types[page.installation_type].board}}
@@ -223,7 +227,8 @@ Use this method only if Method 1 does not work for you.
 
 - If you used method 2 for the installation, install the boot medium into your x86-64 hardware.
 
-1. Plug in an Ethernet cable that is connected to the network.
+1. Plug in an Ethernet cable that is connected to the network and to the internet.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
 <div class="note">
@@ -250,7 +255,8 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 {% else %}
 
 1. Insert the boot medium ({{ site.installation.types[page.installation_type].installation_media }}) you just created.
-2. Plug in an Ethernet cable that is connected to the network and power the system on.
+2. Plug in an Ethernet cable that is connected to the network and to the internet and power the system on.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 
 {% endif %}
 
@@ -467,6 +473,13 @@ Minimum recommended assignments:
 With the Home Assistant Operating System installed and accessible, you can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
+
+{% if page.installation_type == 'odroid' %}
+
+{% include common-tasks/flashing_n2_otg.md %}
+{% include common-tasks/flashing_m1s_otg.md %}
+
+{% endif %}
 
 [generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip

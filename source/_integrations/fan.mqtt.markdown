@@ -105,6 +105,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -131,7 +135,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -224,12 +227,12 @@ payload_reset_percentage:
   description: A special payload that resets the `percentage` state attribute to `unknown` when received at the `percentage_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 payload_reset_preset_mode:
   description: A special payload that resets the `preset_mode` state attribute to `unknown` when received at the `preset_mode_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 percentage_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `percentage_command_topic`.
   required: false
@@ -325,7 +328,6 @@ mqtt:
       command_topic: "bedroom_fan/on/set"
       direction_state_topic: "bedroom_fan/direction/state"
       direction_command_topic: "bedroom_fan/direction/set"
-      oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_state_topic: "bedroom_fan/oscillation/state"
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       percentage_state_topic: "bedroom_fan/speed/percentage_state"

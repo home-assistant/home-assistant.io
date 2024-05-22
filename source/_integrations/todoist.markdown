@@ -14,12 +14,25 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/calendar/
+    title: Calendar
+  - url: https://todoist.com
+    title: Todoist projects
 ---
 
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
-A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all.
 
 ## Prerequisites
 
