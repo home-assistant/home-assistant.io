@@ -74,9 +74,9 @@ interrupt: 1
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path` directly, however if you need to use any of the authentication options either `url` or `path` have to be provided. |
-| `icon`                 |      yes | Groups the attributes for icon upload. It can take a `url` or `path` directly, however if you need to use any of the authentication options either `url` or `path` have to be provided. |
-| `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon` or both.
+| `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
+| `icon`                 |      yes | Groups the attributes for icon upload.  It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
+| `path`                 |      yes | Local path of an image file. Is placed inside `image`, `icon`, or both.
 | `url`                  |      yes | URL of an image file. Is placed inside `image`, `icon` or both.
 | `username`             |      yes | Username if the URL requires authentication. Is placed inside `image`, `icon` or both`.
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
