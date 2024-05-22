@@ -9,13 +9,17 @@ ha_domain: synology_chat
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `synology_chat` notification platform allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.
+The `synology_chat` notification {% term integration %} allows you to deliver notifications to your [Synology Chat](https://www.synology.com/en-us/dsm/feature/chat) install as a Synology Chat bot.
 
 To configure a Synology Chat bot, first you must create a [Synology Chat Integration Incoming Webhook](https://www.synology.com/en-us/knowledgebase/DSM/tutorial/Collaboration/How_to_configure_webhooks_and_slash_commands_in_Chat_Integration#t2.1). After this is complete, you will have a Webhook URL. This is what will be required in the Home Assistant configuration.
 
-To enable the Synology Chat notification in your installation, add the following to your `configuration.yaml` file:
+To enable the Synology Chat notification in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

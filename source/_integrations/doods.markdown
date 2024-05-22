@@ -7,9 +7,12 @@ ha_iot_class: Local Polling
 ha_release: '0.100'
 ha_domain: doods
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `doods` image processing integration allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
+The `doods` image processing {% term integration %} allows you to detect and recognize objects in a camera image using [DOODS](https://github.com/snowzach/doods/). The state of the entity is the number of objects detected and recognized objects are listed in the `summary` attribute along with quantity. The `matches` attribute provides the confidence `score` for recognition and the bounding `box` of the object for each detection category.
 
 ## Setup
 
@@ -20,7 +23,8 @@ The DOODS software needs to be running before this integration can be used. Opti
 
 ## Configuration
 
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
+To enable this integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

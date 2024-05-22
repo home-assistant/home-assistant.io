@@ -19,6 +19,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
@@ -65,7 +68,8 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/spec
 - F6-02-01 (Light and Blind Control - Application Style 2)
 - F6-02-02 (Light and Blind Control - Application Style 1)
 
-To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

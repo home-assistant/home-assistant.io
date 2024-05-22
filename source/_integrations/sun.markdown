@@ -13,9 +13,12 @@ ha_config_flow: true
 ha_integration_type: integration
 ha_platforms:
   - sensor
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The sun integration will use the location as
+The sun {% term integration %} will use the location as
 {% my general title="configured in your Home Assistant configuration" %} to
 track if the sun is above or below the horizon. The sun can be used within
 automations as
@@ -27,7 +30,7 @@ automations as
 
 ## Configured by default
 
-This integration is by default configured and installed, and you don't need
+This {% term integration %} is by default configured and installed, and you don't need
 to configure it yourself, unless you've disabled or removed the
 [`default_config:`](/integrations/default_config/) line from your
 YAML configuration.
@@ -40,7 +43,8 @@ If that is the case, you can configure it as described in the next paragraphs.
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the sun integration in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,30 +69,30 @@ trigger:
     offset: "-01:00:01"
 ```
 
-| Key name | Description |
-| --------- | ----------- |
-| `event` | Possible values: `sunset` or `sunrise`
-| `offset` | An optional offset for the sun event trigger, in a positive or negative number of seconds, or specified in `HH:MM:SS` (after sun event trigger) or `-HH:MM:SS` (before sun event trigger).
+| Key name | Description                                                                                                                                                                                |
+| -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `event`  | Possible values: `sunset` or `sunrise`                                                                                                                                                     |
+| `offset` | An optional offset for the sun event trigger, in a positive or negative number of seconds, or specified in `HH:MM:SS` (after sun event trigger) or `-HH:MM:SS` (before sun event trigger). |
 
 ### Maintains entity `sun.sun`
 
-| Possible state | Description |
-| --------- | ----------- |
-| `above_horizon` | When the sun is above the horizon.
-| `below_horizon` | When the sun is below the horizon.
+| Possible state  | Description                        |
+| --------------- | ---------------------------------- |
+| `above_horizon` | When the sun is above the horizon. |
+| `below_horizon` | When the sun is below the horizon. |
 
 ## Sensors
 
 The sensors are also available as attributes on the `sun.sun` entity for backwards compatibility reasons.
 
-| Sensors | Description |
-| --------- | ----------- |
-| Next rising | Date and time of the next sun rising (in UTC).
-| Next setting | Date and time of the next sun setting (in UTC).
-| Next dawn | Date and time of the next dawn (in UTC).
-| Next dusk | Date and time of the next dusk (in UTC).
-| Next noon | Date and time of the next solar noon (in UTC).
-| Next midnight | Date and time of the next solar midnight (in UTC).
-| Elevation |  Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon.
-| Azimuth | Solar azimuth. The angle is shown clockwise from north.
-| `rising` | True if the Sun is currently rising, after solar midnight and before solar noon.
+| Sensors       | Description                                                                                                            |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Next rising   | Date and time of the next sun rising (in UTC).                                                                         |
+| Next setting  | Date and time of the next sun setting (in UTC).                                                                        |
+| Next dawn     | Date and time of the next dawn (in UTC).                                                                               |
+| Next dusk     | Date and time of the next dusk (in UTC).                                                                               |
+| Next noon     | Date and time of the next solar noon (in UTC).                                                                         |
+| Next midnight | Date and time of the next solar midnight (in UTC).                                                                     |
+| Elevation     | Solar elevation. This is the angle between the sun and the horizon. Negative values mean the sun is below the horizon. |
+| Azimuth       | Solar azimuth. The angle is shown clockwise from north.                                                                |
+| `rising`      | True if the Sun is currently rising, after solar midnight and before solar noon.                                       |

@@ -10,16 +10,26 @@ ha_codeowners:
   - '@bieniu'
 ha_domain: imgw_pib
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ---
 
 IMGW-PIB integration uses hydrological data from [Institute of Meteorology and Water Management - National Research Institute](https://hydro.imgw.pl) to present information about rivers and water reservoirs in Poland.
 
+## Binary sensors
+
+Binary sensor entities added to Home Assistant:
+
+- Flood alarm
+- Flood warning
+
 ## Sensors
 
 Sensor entities added to Home Assistant:
 
+- Flood alarm level (disabled by default)
+- Flood warning level (disabled by default)
 - Water level
 - Water temperature (if a given hydrological station supports it)
 

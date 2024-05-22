@@ -9,13 +9,17 @@ ha_domain: ebusd
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Integration between the [ebusd](https://github.com/john30/ebusd/) daemon (used for communication with the eBUS heating systems), and Home Assistant. The ebusd integrations uses the sensor integration.
 
 ## Configuration
 
-Enable the sensor by adding the following to your `configuration.yaml` file:
+Enable the sensor by adding the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

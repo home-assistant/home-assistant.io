@@ -9,13 +9,17 @@ ha_domain: x10
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `x10` light platform allows you to control your X10 based lights with Home Assistant.
+The `x10` light {% term integration %} allows you to control your X10 based lights with Home Assistant.
 
 Requires [Heyu x10](https://www.heyu.org/) and a CM11A or a CM17A "FireCracker" interface.
 
-To enable those lights, add the following lines to your `configuration.yaml` file:
+To enable those lights, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
