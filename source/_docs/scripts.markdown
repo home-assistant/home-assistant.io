@@ -768,7 +768,7 @@ used to run multiple groups of actions in a sequence in parallel.
 In the example below, two separate groups of actions are executed in sequence,
 one for turning on devices, the other for sending notifications. Each group of
 actions is executed in order, this includes the actions in each group and the
-groups themselves. In total four actions are executed, one after the other.
+groups themselves. In total, four actions are executed, one after the other.
 
 ```yaml
 automation:
