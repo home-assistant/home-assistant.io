@@ -19,9 +19,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Buienradar integration uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
+The **Buienradar** {% term integration %} uses [buienradar.nl](https://buienradar.nl/) as a source for current meteorological data for your location. The weather forecast is delivered by Buienradar, who provides a web service that provides detailed weather information for users in The Netherlands.
 
-The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor component).  A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
+The relevant weather station used will be automatically selected based on the location specified in the Home Assistant configuration (or in the Buienradar weather/sensor integration). A map of all available weather stations can be found [here](https://www.google.com/maps/d/embed?mid=1NivHkTGQUOs0dwQTnTMZi8Uatj0).
 
 Besides the weather platform, there is currently support for the following additional device types:
 
@@ -34,39 +34,39 @@ Besides the weather platform, there is currently support for the following addit
 
 The `buienradar` camera platform uses [buienradar.nl](https://buienradar.nl/) as a source for the last rain radar map. The overview image of the whole of the Netherlands is loaded and shown as a camera in Home Assistant. The Netherlands is the default country and can be changed to Belgium (see [Options](#options)).
 
-Internally this component uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
+Internally, this integration uses the radar map image as [documented](https://www.buienradar.nl/overbuienradar/gratis-weerdata) on buienradar.nl.
 The downloaded image is cached to prevent Home Assistant from making a new request to buienradar.nl multiple times a minute when Home Assistant checks for new stills from the camera.
 
-The camera entity is added disabled by default and should first be enabled before it starts reading the camera images.
+The camera {% term entity %} is disabled by default and should be [enabled](/common-tasks/general/#enabling-entities) before it reads the camera images.
 
 ## Sensor
 
-The Buienradar integration will set up separate sensor entities with more detailed weather data. The selected weather station will provide all-weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from Buienradar using your actual GPS location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
+The **Buienradar** {% term integration %} will set up separate sensor {% term entities %} with more detailed weather data. The selected weather station will provide all-weather data, with the exception of the forecasted precipitation. The forecasted precipitation data will be retrieved from Buienradar using your actual GPS location (and not the location of the nearest weather station). The sensor entities are disabled by default and should be enabled before they will be updated with data.
 
-The following entities will be created:
+The following {% term entities %} will be created:
 
 - **Station name**: The name of the selected meteo-station
 - **Barometer forecast**: A numeric barometric forecast (1 to 7)
 - **Barometer forecast name**: A textual representation of the barometer forecast (eg: Thunderstorms, Stable, etc.)
 - **Condition code**: A symbol and a unique code identifying the current weather condition 
-  * `a`: sunny/clear
-  * `b`: Mix of clear and medium or low clouds
-  * `j`: Mix of clear and high clouds
-  * `o/r`: Partly cloudy (increasing character increases the condition)
-  * `c`: Heavily clouded
-  * `p`: Cloudy
-  * `d`: Alternating cloudy with local fog
-  * `n`: Clear and local mist or fog
-  * `f`: Alternatingly cloudy with some light rain
-  * `h/k/l`: rainy (increasing character increases the condition)
-  * `q`: Heavily clouded with rain
-  * `w`: Heavily clouded with rain and winter precipitation
-  * `m`: Heavily clouded with some light rain
-  * `u`: Cloudy with light snow
-  * `i/v`: Heavily clouded with light snowfall (increasing character increases the condition)
-  * `t`: (Heavy snowfall)
-  * `g`: (Clear with (possibly) some heavy lightning)
-  * `s`: (Cloudy with (possibly) some heavy (thunderstorms) showers)
+  - `a`: sunny/clear
+  - `b`: Mix of clear and medium or low clouds
+  - `j`: Mix of clear and high clouds
+  - `o/r`: Partly cloudy (increasing character increases the condition)
+  - `c`: Heavily clouded
+  - `p`: Cloudy
+  - `d`: Alternating cloudy with local fog
+  - `n`: Clear and local mist or fog
+  - `f`: Alternatingly cloudy with some light rain
+  - `h/k/l`: rainy (increasing character increases the condition)
+  - `q`: Heavily clouded with rain
+  - `w`: Heavily clouded with rain and winter precipitation
+  - `m`: Heavily clouded with some light rain
+  - `u`: Cloudy with light snow
+  - `i/v`: Heavily clouded with light snowfall (increasing character increases the condition)
+  - `t`: (Heavy snowfall)
+  - `g`: (Clear with (possibly) some heavy lightning)
+  - `s`: (Cloudy with (possibly) some heavy (thunderstorms) showers)
 - **Condition**: A symbol and the current weather condition (`clear`, `cloudy`, `fog`, `rainy`, `snowy` or `lightning`)
 - **Condition detailed**: A symbol and detailed current weather condition (`clear`, `partlycloudy`, `cloudy`, `partlycloudy-fog`, `partlycloudy-light-rain`, `partlycloudy-rain`, `light-rain`, `rainy`, `snowy-rainy`, `partlycloudy-light-snow`, `partlycloudy-snow`, `light-snow`, `snowy`, `partlycloudy-lightning` or `lightning`)
 - **Condition exact**: A symbol with the full current weather condition (in English)
@@ -102,8 +102,7 @@ The following entities will be created:
 - **Condition code n days ahead**: Symbol and condition code of the expected condition n days ahead
 - **Condition n days ahead**: Symbol and expected condition n days ahead
 - **Detailed condition n days ahead**: Symbol and detailed expected condition n days ahead
-- **Full condition (english) n days ahead**: Symbol and full expected condition n days ahead (in English)
-- **Full condition (dutch) n days ahead**: Symbol and full expected condition n days ahead (in Dutch)
+- **Full condition n days ahead**: Symbol and full expected condition n days ahead
 
 {% include integrations/option_flow.md %}
 

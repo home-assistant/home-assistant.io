@@ -57,9 +57,9 @@ Goal: _**Making things easier.**_
 
 The goal of making it easier is currently the main focus.
 
-## Breaking changes
+## Backward-incompatible changes
 
-We all dislike them, those breaking changes when a new release is published.
+We all dislike them, those backward-incompatible changes when a new release is published.
 We all scan the release notes hoping you are not affected by any of them in
 that release.
 
@@ -129,7 +129,7 @@ maintenance and support burden. The amount of energy that needs to be put in
 understand and accept that. If we do not do that, a contributor could simply
 stop contributing.
 
-Unfortunately, such a move creates breaking changes and often leads to a few
+Unfortunately, such a move creates backward-incompatible changes and often leads to a few
 pretty de-motivating comments, towards the contributor and the project in
 general. This is harmful to everybody, as the contributors get demotivated or,
 even worse, don’t want to implement new features or create a breaking change.

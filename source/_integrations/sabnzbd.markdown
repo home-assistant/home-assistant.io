@@ -9,13 +9,14 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@shaiu'
+  - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
 
-The `sabnzbd` integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
+The SABnzbd integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
 
 ## Prerequisites
 
@@ -29,7 +30,7 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 ## Sensor
 
-This component will create these sensors:
+This integration will create these sensors:
 
 - `status`: The current status of SABnzbd. (Idle, Paused, etc.)
 - `speed`: The current download speed.

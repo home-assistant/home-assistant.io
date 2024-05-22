@@ -9,13 +9,17 @@ ha_domain: temper
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This `temper` sensor platform allows you to get the current temperature from a TEMPer device.
+This `temper` sensor {% term integration %} allows you to get the current temperature from a TEMPer device.
 
 ## Configuration
 
-To use your TEMPer sensor in your installation, add the following to your `configuration.yaml` file:
+To use your TEMPer {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,10 +39,10 @@ scale:
   type: integer
   default: 1
 name:
-  description: The name to use when displaying this switch.
+  description: The name to use when displaying this sensor.
   required: false
   type: string
-  default: myStrom Switch
+  default: Unnamed Device
 {% endconfiguration %}
 
 Since some of these sensors consistently show higher temperatures the scale and offset values can be used to fine-tune your sensor.

@@ -2,7 +2,7 @@
 title: Marantz
 description: Connect and control your Marantz devices using the Denon AVR Network Receivers integration
 ha_category:
-  - Media Player
+  - Media player
 ha_domain: marantz
 ha_integration_type: virtual
 ha_supporting_domain: denonavr
@@ -14,7 +14,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - media_player
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_ssdp: true
 ---
 

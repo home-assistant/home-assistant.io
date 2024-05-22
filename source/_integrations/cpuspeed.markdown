@@ -2,12 +2,11 @@
 title: CPU Speed
 description: Instructions on how to integrate CPU speed within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@fabaff'
-  - '@frenck'
 ha_domain: cpuspeed
 ha_config_flow: true
 ha_platforms:

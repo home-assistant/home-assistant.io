@@ -2,7 +2,7 @@
 title: Person
 description: Instructions on how to set up people tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.88
 ha_quality_scale: internal
 ha_domain: person

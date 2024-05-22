@@ -2,10 +2,10 @@
 title: Intergas InComfort/Intouch Lan2RF gateway
 description: Instructions on how to integrate an Intergas Lan2RF gateway with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Sensor
-  - Water Heater
+  - Water heater
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -17,19 +17,22 @@ ha_platforms:
   - sensor
   - water_heater
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 
 It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
 ### Boiler
 
-The boiler is represented as a **Water Heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.
+The boiler is represented as a **Water heater** device. It will report the boiler's `state` and `current_temperature`. The gateway does not expose any means to directly control the boiler or change its configuration.
 
 Note that the `current_temperature` will switch between the CV (circulating volume) and Tap temperatures according to the current operating mode of the boiler.  If the boiler is neither pumping nor tapping, it will be reported as the higher of the two.
 
-In addition, there is a **Sensor** for each of CV pressure, CV temperature, and Tap temperature, and a **Binary Sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
+In addition, there is a **Sensor** for each of CV pressure, CV temperature, and Tap temperature, and a **Binary sensor** that will be `on` if there is a fault with the boiler (the fault code will be a state attribute).
 
 ### Rooms
 
@@ -37,7 +40,8 @@ Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** dev
 
 ## Configuration
 
-To set up this integration, add one of the following to your `configuration.yaml` file:
+To set up this integration, add one of the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
 

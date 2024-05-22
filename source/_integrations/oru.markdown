@@ -11,14 +11,18 @@ ha_domain: oru
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [Orange and Rockland Utility](https://oru.com) is an energy provider in NY and NJ, USA.
-The `oru` sensor platform fetches your current energy usage from your ORU smart meter.
+The `oru` sensor {% term integration %} fetches your current energy usage from your ORU smart meter.
 
 ## Configuration
 
-To add the `oru` sensor to your installation, add your `meter_number` to your `configuration.yaml` file:
+To add the `oru` {% term integration %} to your installation, add your `meter_number` to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

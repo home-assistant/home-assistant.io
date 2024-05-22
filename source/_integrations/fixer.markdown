@@ -9,19 +9,23 @@ ha_domain: fixer
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `fixer` sensor will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
+The `fixer` {% term integration %}  will show you the current exchange rate from [Fixer.io](https://fixer.io/) which is using data from the [European Central Bank (ECB)](https://www.ecb.europa.eu).
 
 To get an overview about the available [currencies](https://fixer.io/symbols).
 
 ## Setup
 
-You need to create an [API key](https://fixer.io/product). The free account is limited to only EUR as a base currency, allows 250 requests per month, and updates every hour.
+You need to create an [API key](https://apilayer.com/marketplace/fixer-api#pricing). The free account is limited to only EUR as a base currency, allows 100 requests per month, and updates every hour.
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

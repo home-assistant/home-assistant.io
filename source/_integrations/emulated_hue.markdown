@@ -10,15 +10,19 @@ ha_domain: emulated_hue
 ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
+  - '@Tho85'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 <div class='note warning'>
 
-Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant component](/integrations/google_assistant/) or [Nabu Casa cloud](/integrations/cloud) component.
+Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant](/integrations/google_assistant/) integration or [Nabu Casa cloud](/integrations/cloud) integration.
 
 </div>
 
-The `emulated_hue` integration provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
+The `emulated_hue` {% term integration %} provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
@@ -40,19 +44,20 @@ If you added or upgraded to a newer Alexa device and devices are not found, you 
 
 <div class='note'>
 
-[Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off entities. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/en-us/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if the type is defined as Alexa in the configuration.
+[Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off entities. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if the type is defined as Alexa in the configuration.
 
 </div>
 
 <div class='note'>
   
-Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/en-us/download) must be used with the original cable to connect it, then "Scan for Devices". 
+Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/download) must be used with the original cable to connect it, then "Scan for Devices". 
   
 </div>
 
 ### Configuration
 
-To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
+To enable the emulated Hue bridge, add one of the following configs to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Google Home example configuration.yaml entry
@@ -173,7 +178,7 @@ On Linux systems (Ubuntu, Debian, etc) execute the following command to allow `e
 sudo setcap 'cap_net_bind_service=+ep' /srv/homeassistant/homeassistant_venv/bin/python3
 ```
 
-Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/docs/installation/virtualenv/), your path will be `/srv/homeassistant/bin/python3`.
+Please note that your path may be different depending on your installation method. For example, if you followed the [Virtualenv instructions](/installation/linux/), your path will be `/srv/homeassistant/bin/python3`.
 
 ### License
 

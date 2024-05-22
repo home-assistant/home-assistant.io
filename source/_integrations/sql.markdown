@@ -8,15 +8,18 @@ ha_release: 0.63
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
-  - '@dgomes'
   - '@gjohansson-ST'
+  - '@dougiteixeira'
 ha_domain: sql
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The `sql` sensor {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -27,7 +30,8 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 To configure this sensor, define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query.
 
-To enable it, add the following lines to your `configuration.yaml` file (example by required fields):
+To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 ```yaml
@@ -35,11 +39,26 @@ To enable it, add the following lines to your `configuration.yaml` file (example
 sql:
   - name: Sun state
     query: >
-      SELECT *
-      FROM states
-      WHERE entity_id = 'sun.sun'
-      ORDER BY state_id
-      DESC LIMIT 1;
+      SELECT
+        states.state
+      FROM
+        states
+        LEFT JOIN state_attributes ON (
+          states.attributes_id = state_attributes.attributes_id
+        )
+      WHERE
+        metadata_id = (
+          SELECT
+            metadata_id
+          FROM
+            states_meta
+          where
+            entity_id = 'sun.sun'
+        )
+      ORDER BY
+        state_id DESC
+      LIMIT
+        1;
     column: "state"
 ```
 {% endraw %}
@@ -53,12 +72,12 @@ sql:
     db_url:
       description: The URL which points to your database. See [supported engines](/integrations/recorder/#custom-database-engines).
       required: false
-      default: "Defaults to the default recorder `db_url` (not the current `db_url` of recorder)."
+      default: "Defaults to the recorder `db_url`."
       type: string
     name:
       description: The name of the sensor.
       required: true
-      type: string
+      type: template
     query:
       description: An SQL QUERY string, should return 1 result at most.
       required: true
@@ -87,15 +106,27 @@ sql:
       description: "Provide [state class](https://developers.home-assistant.io/docs/core/entity/sensor/#available-state-classes) for this sensor."
       required: false
       type: string
+    icon:
+      description: "Defines a template for the icon of the entity."
+      required: false
+      type: template
+    picture:
+      description: "Defines a template for the entity picture of the entity."
+      required: false
+      type: template
+    availability:
+      description: "Defines a template if the entity state is available or not."
+      required: false
+      type: template
 {% endconfiguration %}
 
 ## Information
 
 See [supported engines](/integrations/recorder/#custom-database-engines) for which you can connect with this integration.
 
-The SQL integration will connect to the default SQLite if "Database URL" has not been specified. If you use a different database recorder (eg MariaDB or others), you will have to specify the "Database URL" manually during integration setup.
+The SQL integration will connect to the Home Assistant Recorder database if "Database URL" has not been specified.
 
-There is no explicit configuration required for attributes. The integration will set all additional columns returned by the query as attributes. 
+There is no explicit configuration required for attributes. The integration will set all columns returned by the query as attributes.
 
 Note that in all cases only the first row returned will be used.
 
@@ -117,7 +148,23 @@ sensor:
 The query will look like this:
 
 ```sql
-SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  metadata_id = (
+    SELECT
+      metadata_id
+    FROM
+      states_meta
+    WHERE
+      entity_id = 'sensor.temperature_in'
+  )
+ORDER BY
+  state_id DESC
+LIMIT
+  1;
 ```
 
 Use `state` as column for value.
@@ -126,18 +173,80 @@ Use `state` as column for value.
 
 Based on previous example with temperature, the query to get the former state is :
 ```sql
-SELECT * FROM (SELECT * FROM states WHERE entity_id = 'sensor.temperature_in' ORDER BY state_id DESC LIMIT 2) two_entity ORDER BY state_id ASC LIMIT 1;
+SELECT
+  states.state
+FROM
+  states
+WHERE
+  state_id = (
+    SELECT
+      states.old_state_id
+    FROM
+      states
+    WHERE
+      metadata_id = (
+        SELECT
+          metadata_id
+        FROM
+          states_meta
+        WHERE
+          entity_id = 'sensor.temperature_in'
+      )
+      AND old_state_id IS NOT NULL
+    ORDER BY
+      last_updated_ts DESC
+    LIMIT
+      1
+  );
 ```
 Use `state` as column for value.
+
+### State of an entity x time ago
+
+If you want to extract the state of an entity from a day, hour, or minute ago, the query is:
+
+```sql
+SELECT 
+  states.state
+FROM 
+  states 
+  INNER JOIN states_meta ON 
+    states.metadata_id = states_meta.metadata_id
+WHERE 
+  states_meta.entity_id = 'sensor.temperature_in' 
+  AND last_updated_ts <= strftime('%s', 'now', '-1 day')
+ORDER BY 
+  last_updated_ts DESC 
+LIMIT
+  1;
+```
+
+Replace `-1 day` with the target offset, for example, `-1 hour`.
+Use `state` as column for value.
+
+Keep in mind that, depending on the update frequency of your sensor and other factors, this may not be a 100% accurate reflection of the actual situation you are measuring. Since your database won’t necessarily have a value saved exactly 24 hours ago, use “>=” or “<=” to get one of the closest values.
+
+#### MariaDB
+
+On MariaDB the following where clause can be used to compare the timestamp:
+
+```sql
+...
+  AND last_updated_ts <= UNIX_TIMESTAMP(NOW() - INTERVAL 1 DAY)
+...
+```
+
+Replace `- INTERVAL 1 DAY` with the target offset, for example, `- INTERVAL 1 HOUR`.
 
 ### Database size
 
 #### Postgres
 
 ```sql
-SELECT (pg_database_size('dsmrreader')/1024/1024) as db_size;
+SELECT pg_database_size('dsmrreader')/1024/1024 as db_size;
 ```
 Use `db_size` as column for value.
+Replace `dsmrreader` with the correct name of your database.
 
 #### MariaDB/MySQL
 

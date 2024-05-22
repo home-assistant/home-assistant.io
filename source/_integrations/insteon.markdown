@@ -2,7 +2,7 @@
 title: Insteon
 description: Instructions on how to set up an Insteon Modem (PLM or Hub) locally within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Fan
   - Hub
@@ -186,6 +186,6 @@ Many users tried to factory reset their Insteon Hub when the Insteon app stopped
 
     - If you have a Hub v2 you will need the default username and password which are printed on the bottom of the Hub
 
-3. Add devices to the Hub using the instructions for adding devices to the INSTEON integration using the [Insteon Panel]](#insteon-panel)
+3. Add devices to the Hub using the instructions for adding devices to the Insteon integration using the [Insteon Panel](#insteon-panel)
 
 Once your devices are linked to the Hub again they will appear in Home Assistant automatically.

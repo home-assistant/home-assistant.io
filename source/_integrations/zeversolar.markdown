@@ -14,9 +14,9 @@ ha_codeowners:
   - '@kvanzuijlen'
 ---
 
-The Zeversolar integration uses the local device IP to get information like the current power and
+The **Zeversolar** {% term integration %} uses the local device IP to get information like the current power and
 today's total energy production.
-This integration allows you to collect and save data providig a historical overview of your Zeversolar
+This {% term integration %} allows you to collect and save data providing a historical overview of your Zeversolar
 production.
 
 ## Prerequisites
@@ -26,9 +26,9 @@ get the Zeversolar IP address.
 
 {% include integrations/config_flow.md %}
 
-## Sensor Types
+## Sensor types
 
-When configured, the integration will create two sensors for each configured inverter:
+When configured, the {% term integration %} will create two sensors for each configured inverter:
 
 - Energy today, in `kWh` (Kilowatt-hour)
 - Current power, in `W` (Watts)

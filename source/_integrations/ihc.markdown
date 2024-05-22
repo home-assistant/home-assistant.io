@@ -2,7 +2,7 @@
 title: IHC Controller
 description: Instructions on how to integrate the IHC integrations with Home Assistant
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -16,18 +16,22 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-IHC Controller integration for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
+IHC Controller {% term integration %} for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Light](#light)
 - [Switch](#switch)
 
-An `ihc` section must be present in the `configuration.yaml` file and contain the following options:
+An `ihc` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for two IHC controllers
@@ -59,7 +63,7 @@ auto_setup:
   type: boolean
   default: true
 info:
-  description: Shows the IHC "name", "note" and "position" attributes of each component. This will make it easier to identify the IHC products within Home Assistant.
+  description: Shows the IHC "name", "note" and "position" attributes of each integration. This will make it easier to identify the IHC products within Home Assistant.
   required: false
   type: boolean
   default: true
@@ -83,9 +87,9 @@ If you want an easier way to get the IHC resource ids, you can download the [Alt
 
 See the manual of each device type for configuration options.
 
-## Binary Sensor
+## Binary sensor
 
-Before you can use the IHC Binary Sensor platform, you must setup the IHC Component.
+Before you can use the IHC Binary Sensor platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as binary sensors:
 
@@ -154,7 +158,7 @@ The resource id should be an id of a boolean IHC resource. For more information 
 
 ## Sensor
 
-Before you can use the IHC Sensor platform, you must setup the IHC Component.
+Before you can use the IHC Sensor platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as sensors:
 
@@ -212,7 +216,7 @@ The resource id should be a IHC float resource. For more information about IHC r
 
 ## Light
 
-Before you can use the IHC Light platform, you must setup the IHC Component.
+Before you can use the IHC Light platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the IHC project and setup as light devices:
 
@@ -265,7 +269,7 @@ light:
       required: false
       type: integer
     name:
-      description: The name of the component
+      description: The name of the integration
       required: false
       type: string
     note:
@@ -282,7 +286,7 @@ In the example above 12345 is ihc resource id and "tablelight" is the name. The 
 
 ## Switch
 
-Before you can use the IHC Switch platform, you must setup the IHC Component.
+Before you can use the IHC Switch platform, you must setup the IHC integration.
 
 When auto setup is enabled the following products will be found in the ihc project and setup as switch devices:
 
@@ -323,7 +327,7 @@ switch:
       required: false
       type: integer
     name:
-      description: The name of the component
+      description: The name of the integration
       required: false
       type: string
     note:

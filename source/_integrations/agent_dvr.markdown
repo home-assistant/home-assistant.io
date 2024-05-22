@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
+[Agent DVR](https://www.ispyconnect.com/download.aspx/) is a free* software DVR solution for Windows 10, Mac and Linux. Agent DVR runs as a service or console application and can access and control a huge range of third party cameras with advanced motion detection, including DeepStack integration for object recognition. The iSpyConnect website provides secured (SSL) remote access without port forwarding needed.
 
 You can add Agent DVR via integrations using the IP address and port of the server, e.g.,: `http://192.168.1.3:8090/`.
 
@@ -26,7 +26,7 @@ You can add Agent DVR via integrations using the IP address and port of the serv
   Please ensure you are using Agent DVR v2.6.1.0 +
 </div>
 
-## Alarm Control Panel
+## Alarm control panel
 
 Reports on the current alarm status and can be used to arm and disarm the system.
 
@@ -63,7 +63,7 @@ Service data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-## IFrame
+## Iframe
 
 - Using the Webpage Card you can embed the Agent DVR viewer directly in Home Assistant. Just point it to <https://www.ispyconnect.com/app/>
 

@@ -2,7 +2,7 @@
 title: AVM FRITZ!Box Call Monitor
 description: Instructions on how to integrate a phone call monitor for AVM FRITZ!Box routers into Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_release: 0.27
 ha_iot_class: Local Polling
 ha_domain: fritzbox_callmonitor
@@ -29,6 +29,8 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 6.  Enter a user name and password.
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
+
+You also need network access from HA to your FRITZ!Box on port `tcp/1012` for the call monitoring, as well as *one time access* to port `tcp/80` for setting up the integration.
 
 ## Setup
 

@@ -2,23 +2,27 @@
 title: NAD
 description: Instructions on how to integrate NAD receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.36
 ha_iot_class: Local Polling
 ha_domain: nad
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `nad` platform allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
+The `nad` {% term integration %} allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
 
 Please note that the RS232 interface is only tested with the NAD T748v2, but it should work with other NAD receivers.
 The Telnet interface has been tested with the NAD T787 and the NAD C658.
 
 ## Configuration
 
-To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
+To add a NAD receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for RS232 configuration

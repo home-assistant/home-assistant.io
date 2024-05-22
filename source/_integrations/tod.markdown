@@ -2,10 +2,10 @@
 title: Times of the Day
 description: Instructions on how to integrate Times of the Day binary sensors within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Helper
 ha_release: 0.89
-ha_iot_class: Local Push
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_config_flow: true
 ha_domain: tod
@@ -26,7 +26,7 @@ Off time:
   description: The time when the sensor should turn off.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
 Alternatlively, this integration can be configured and set up manually via YAML instead. This has some additional functionality over the UI version.
 
@@ -98,3 +98,34 @@ binary_sensor:
 ```
 
 In the above example, the next day `sunrise` is calculated as a time range end.
+
+## Daylight Saving Time Handling
+
+The ToD sensor handles the following cases where the sensor interval:
+- does not exist at all
+- stops at a non-existent time
+- starts at a non-existent time.
+
+To help understand all 3 cases, actual examples are provided below.
+
+### Case 1: Sensor Interval Does Not Exist
+
+Let's make the following assumptions:
+- Daylight Saving starts at 2am
+- On the DST day, the ToD sensor interval is from non-existent 2:30am to non-existent 2:40am.
+
+In this case, the ToD sensor will not trigger since the 2:30am-2:40am interval does not exist on the day when time jumps from 2am to 3am. However, on the following day, the sensor resumed operating normally.
+
+### Case 2: Sensor End Time Does Not Exist
+
+- Daylight Saving starts at 2am
+- On the DST day, the ToD sensor interval is from 1:50am to non-existent 2:10am.
+
+In this case, the ToD sensor will last 10 minutes starting at 1:50am and stop at 3am (the 2am-3am time is jumped over and does not exist).
+
+### Case 3: Sensor Start Time Does Not Exist
+
+- Daylight Saving starts at 2am
+- On the DST day, the ToD sensor interval is from non-existent 2:50am to 3:10am.
+
+In this case, the ToD sensor will last 10 minutes, starting at 3:00am and stopping at 3:10am (the 2am-3am time is jumped over and does not exist).

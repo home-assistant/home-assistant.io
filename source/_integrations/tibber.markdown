@@ -35,7 +35,7 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 ## Notifications
 
-Tibber can send a notification by calling the [`notify` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
+Tibber can send a notification by calling the [`notify.send_message` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -43,8 +43,9 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.tibber
+  service: notify.send_message
   data:
+    entity_id: notify.tibber
     title: Your title
     message: This is a message for you!
 ```
@@ -55,7 +56,7 @@ The `tibber` sensor provides the current electricity price if you are a [Tibber]
 You also get sensors for monthly consumption, monthly cost, and monthly peak hour
 If you have a Tibber Pulse it will also show the electricity consumption in real time.
 
-## Available Sensors
+## Available sensors
 
 - Accumulated cost since midnight (requires active Tibber power deal)
 - kWh consumed since midnight

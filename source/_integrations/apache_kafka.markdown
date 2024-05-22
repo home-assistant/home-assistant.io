@@ -11,13 +11,13 @@ ha_iot_class: Local Push
 ha_integration_type: integration
 ---
 
-The `apache_kafka` integration sends all state changes to a
+The **Apache Kafka** {% term integration %} sends all state changes to a
 [Apache Kafka](https://kafka.apache.org/) topic.
 
 Apache Kafka is a real-time data pipeline that can read and write streams of data. It
 stores its data safely in a distributed, replicated, fault-tolerant cluster.
 
-To use the `apache_kafka` integration in your installation, add the following to your
+To use the **Apache Kafka** {% term integration %} in your installation, add the following to your
 `configuration.yaml` file:
 
 ```yaml
@@ -84,7 +84,7 @@ filter:
       type: list
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Apache Kafka`, you can use the `filter` parameter.
 

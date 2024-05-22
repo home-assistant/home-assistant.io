@@ -21,11 +21,11 @@ Thanks to the work done by John McLaughlin and Geoff Norton we now support the l
 **The getting started guide and component page have been reorganized**<br>
 The getting started instructions have been split into separate pages per component and a general overview page. The goal is to have a page per component that describes:
 
- * What it does
- * How to set it up
- * Which states it maintains
- * Which services it provides
- * Additional development tips
+- What it does
+- How to set it up
+- Which states it maintains
+- Which services it provides
+- Additional development tips
 
 **More reasonable errors**<br>
 Home Assistant should now throw better errors and offer solutions if you do not have the right version of Python 3, forgot to clone the git submodules or install the dependencies.

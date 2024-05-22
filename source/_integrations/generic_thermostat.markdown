@@ -1,5 +1,5 @@
 ---
-title: Generic Thermostat
+title: Generic thermostat
 description: Turn Home Assistant into a thermostat
 ha_category:
   - Climate
@@ -9,9 +9,15 @@ ha_domain: generic_thermostat
 ha_platforms:
   - climate
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
+The `generic_thermostat` climate {% term integration %} is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
+
+To enable the {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -87,6 +93,10 @@ away_temp:
   type: float
 comfort_temp:
   description: "Set the temperature used by `preset_mode: comfort`."
+  required: false
+  type: float
+eco_temp:
+  description: "Set the temperature used by `preset_mode: eco`."
   required: false
   type: float
 home_temp:

@@ -2,7 +2,7 @@
 title: Xiaomi TV
 description: Instructions on how to integrate a Xiaomi TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.64
 ha_iot_class: Assumed State
 ha_codeowners:
@@ -11,13 +11,18 @@ ha_domain: xiaomi_tv
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).
+The `xiaomi_tv` {% term integration %} allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).
+The Xiaomi TV integration only supports Xiaomi TVs running MIUI.
 
 You need to make sure the TV is connected to the internet, and that your Home Assistant instance is on the same network.
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To add a TV to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

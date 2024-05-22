@@ -13,7 +13,7 @@ ha_integration_type: system
 
 This integration handles redirects from the [My Home Assistant](https://my.home-assistant.io) service.
 
-My Home Assistant allows the documentation to link you to specific pages in your Home Assistant instance. See the [My Home Assistant FAQ](https://my.home-assistant.io/faq.html) for more information.
+My Home Assistant allows the documentation to link you to specific pages in your Home Assistant instance. See the [My Home Assistant FAQ](https://my.home-assistant.io/faq/) for more information.
 
 ## Configuration
 

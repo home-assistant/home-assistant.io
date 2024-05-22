@@ -2,10 +2,10 @@
 title: Vultr
 description: Instructions on how to integrate Vultr within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
-  - System Monitor
+  - System monitor
 ha_release: 0.58
 ha_iot_class: Cloud Polling
 ha_domain: vultr
@@ -14,13 +14,16 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The **Vultr** {% term integration %} allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -32,7 +35,8 @@ Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#set
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
 </div>
 
-To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Vultr subscriptions with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -187,7 +191,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Additional Examples
+### Additional examples
 
 Full example that produces `switch.amazing_server`, assuming a subscription that has an ID of `123456` and a label of `Web Server`:
 

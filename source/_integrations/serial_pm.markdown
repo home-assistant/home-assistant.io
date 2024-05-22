@@ -19,14 +19,14 @@ Cheap LED based sensors usually use a GPIO interface that is hard to attach to c
 
 At this time, the following sensors are supported:
 
-* oneair,s3
-* novafitness,sds021
-* novafitness,sds011
-* plantower,pms1003
-* plantower,pms5003
-* plantower,pms7003
-* plantower,pms2003
-* plantower,pms3003
+- oneair,s3
+- novafitness,sds021
+- novafitness,sds011
+- plantower,pms1003
+- plantower,pms5003
+- plantower,pms7003
+- plantower,pms2003
+- plantower,pms3003
 
 ## Configuration
 

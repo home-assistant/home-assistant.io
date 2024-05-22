@@ -1,8 +1,8 @@
 ---
-title: "RESTful Binary Sensor"
+title: "RESTful binary sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: "0.10"
 ha_iot_class: Local Polling
 ha_domain: rest
@@ -33,7 +33,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 ## Configuration
 
 To enable this sensor,
-add the following lines to your `configuration.yaml` file for a GET request:
+add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,8 +83,20 @@ method:
 name:
   description: Name of the REST binary sensor.
   required: false
-  type: string
+  type: template
   default: REST Binary Sensor
+icon:
+  description: Defines a template for the icon of the entity.
+  required: false
+  type: template
+picture:
+  description: Defines a template for the entity picture of the entity.
+  required: false
+  type: template
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false

@@ -2,7 +2,7 @@
 title: Telldus Live
 description: Instructions on how to integrate Telldus Live into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -22,15 +22,25 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `tellduslive` integration let you connect to [Telldus Live](https://live.telldus.com). It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
+The `tellduslive` {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
-Home Assistant will automatically discover the presence of a Tellstick Net or Tellstick ZNet on your local network if the [discovery](/integrations/discovery/) integration is enabled. When discovery and the key exchange with Telldus Live have been completed, you will be presented with an option to integrate with the cloud or local API for direct communication with your hardware in your LAN. Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
+<div class='note'>
+
+Note that you need a [Telldus Premium](https://telldus.com/en/telldus-premium/) subscription to access the Cloud API (https://telldus.com/en/important-announcement-english/).
+
+</div>
+
+Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
 
 ## Configuration
 
-To manually integrate your Telldus Live with Home Assistant, e.g., if your device is on another network or in another location, add the following section to your `configuration.yaml` file:
+To manually integrate your Telldus Live with Home Assistant, e.g., if your device is on another network or in another location, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

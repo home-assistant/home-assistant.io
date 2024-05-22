@@ -9,9 +9,12 @@ ha_domain: fail2ban
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
+The `fail2ban` {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
 <div class='note'>
 
@@ -21,7 +24,8 @@ Your system must have `fail2ban` installed and correctly configured for this sen
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,7 +161,7 @@ server {
 }
 ```
 
-Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` component:
+Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
 
 ```yaml
 http:
