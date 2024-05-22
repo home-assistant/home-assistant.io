@@ -31,7 +31,7 @@ ha_dhcp: true
 
 This integration adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
-_If you have factory reset your device please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed._
+_If you have factory reset your device, please see the instructions [Recovering After Factory Resetting The Hub](#recovering-after-factory-resetting-the-hub) for how to proceed._
 
 {% include integrations/config_flow.md %}
 
@@ -49,7 +49,7 @@ Overview of supported Insteon modems & hubs
 
 ## Autodiscovery
 
-The first time autodiscovery runs, **any device that is already linked to the modem** will be identified. This process may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device, such as toggling a button, to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If the device is still not identified, relink the device to the modem following the linking instructions using the [Insteon configuration panel](#insteon-configuration-panel).
+The first time autodiscovery runs, **any device that is already linked to the modem** will be identified. This process may require up to 60 seconds per device. Subsequent startups will occur much quicker using cached device information. If a device is not recognized during autodiscovery, trigger the device&mdash;for example, by toggling a button&mdash;to force the device to send a message to the modem. The device will then be discovered. You may need to trigger the device a few times. If the device is still not identified, relink the device to the modem following the linking instructions using the [Insteon configuration panel](#insteon-configuration-panel).
 
 ## Insteon configuration panel
 
@@ -84,22 +84,22 @@ Insteon scenes can be created, changed or deleted using the **Scenes** tab of th
 
 Insteon device properties, such as the LED brightness, can be managed using the Insteon configuration panel. To see the available properties of a device, select the device from the list of devices in the Insteon configuration panel. This will display the list of available properties for the specific device on the **Properties** tab. Each device type will have a different set of properties and not all devices have properties.
 
-- **Read device properties**:  Use the **Load from device** menu option to read the properties from the device.
-- **Change device properties**: Select the specific property from the list of properties. Use the dialog box to edit the property value. This does not write the change to the device.
+- **Read device properties**:  Reads the properties from the device.
+- **Change device properties**: Allows you to select a specific property from a list of properties and edit the property values. This does not write the change to the device.
 - **Write property changes**: Use the **Write to device** menu option to save the property changes to the device.
-- **Undo changes**: Property changes can be undone before they are written to the device by selecting the **Undo changes** menu option.
+- **Undo changes**: Undoes property changes before they are written to the device.
 - **Delete device**: Deletes the Insteon device from Home Assistant and removes all references to the device in the modem. Optionally, it can remove any references to the device in other Insteon devices.
 
 ### Device All-Link Database
 
 The Insteon All-Link Database (ALDB) contains the list of links to other devices in the Insteon network. The All-Link Database can be managed using the Insteon configuration panel. To see the All-Link Database of a device, select the device from the list of devices in the Insteon configuration panel and select the **All-Link Database** tab.
 
-- **Read the ALDB**: Use the **Load from device** menu option to read the current ALDB records from the device.
+- **Read the All-Link Database**: Use the **Load from device** menu option to read the current ALDB records from the device.
 - **Add a record**: Use the **Create ALDB record** menu option to add a record to the All-Link Database. This does not write to the device.
 - **Modify a record**: To modify an existing record, select the record and use the dialog box to change the record as needed. This does not write to the device.
 - **Add default links**: There are a set of default records that need to exist in the ALDB in order for a device to communicate correctly to the modem. Use the **Add default links** menu option to add these links to the device. This **does** write to the device.
-- **Write changes to the device**: Use the **Write changes** menu option to write added or changed records to the device.
-- **Undo changes**: ALDB record changes can be undone prior to being written to the device using the **Undo changes** menu option.
+- **Write changes to the device**: Writes added or changed records to the device.
+- **Undo changes**: Undoes ALDB record changes before they are written to the device.
 - **Delete device**: Deletes the Insteon device from Home Assistant and removes all references to the device in the modem. Optionally, it can remove any references to the device in other Insteon devices.
 
 <p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well. Devices and scenes added in Home Assistant will not be available in the Insteon app.</p>
@@ -110,7 +110,7 @@ The Insteon All-Link Database (ALDB) contains the list of links to other devices
 ### Utilities
 
 - **Change the modem connection**: Reconfigure the modem connection information such as USB port or Hub IP address.
-- **Configure device overrides**: Add or remove device overrides. See [Device Overrides](#device-overrides) below.
+- **Configure device overrides**: Add or remove device overrides. See [Device overrides](#device-overrides) below.
 - **Delete device**: Delete an Insteon device from the network using the device's Insteon address.
 
 ## Triggering Insteon scenes
