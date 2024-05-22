@@ -34,7 +34,7 @@ Actions can be enabled on the following cards:
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
 - [Tile](/dashboards/tile/)
-- [Weather Forecast](/dashboards/weather-forecast/)
+- [Weather forecast](/dashboards/weather-forecast/)
 
 ## Tap action
 
