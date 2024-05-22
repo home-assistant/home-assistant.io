@@ -32,12 +32,18 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 
 ![Home Assistant device](/images/getting-started/home-assistant-device_02.png)
 
+## Areas
+
+An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world: your home. For example, the `living room` area groups devices and entities in your living room. Areas allow you to target service calls at an entire group of devices. For example, turning off all the lights in the living room.
+Locations within your home such as living room, dance floor, etc. Areas can be assigned to {% term floors %}.
+Areas can also be used for automatically generated cards, such as the [Area card](/dashboards/area/).
+
 ## Automations
 
 A set of repeatable {% term actions %} that can be set up to run automatically. Automations are made of three key components:
 
 1. Triggers - events that start an {% term automation %}. For example, when the sun sets or a motion sensor is activated.
-2. Conditions - optional tests that must be met an {% term action %} can be run. For example, if someone is home.
+2. Conditions - optional tests that must be met before an {% term action %} can be run. For example, if someone is home.
 3. Actions - interact with {% term devices %} such as turn on a light.
 
 To learn the basics about {% term automations %}, refer to the [automation basics](/docs/automation/basics/) page or try [creating an automation](/getting-started/automation) yourself.

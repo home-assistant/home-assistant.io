@@ -4,71 +4,52 @@ description: Instructions on how to integrate a LG TV (Netcast 3.0 & 4.0) within
 ha_category:
   - Media player
 ha_iot_class: Local Polling
+ha_config_flow: true
 ha_release: '0.20'
 ha_domain: lg_netcast
 ha_platforms:
   - media_player
 ha_codeowners:
   - '@Drafteed'
-ha_integration_type: integration
+  - '@splinter98'
+ha_integration_type: device
+ha_config_flow: true
 ---
 
 The `lg_netcast` platform allows you to control a LG Smart TV running NetCast 3.0 (LG Smart TV models released in 2012) and NetCast 4.0 (LG Smart TV models released in 2013). For the new LG WebOS TV's use the [webostv](/integrations/webostv#media-player) platform.
 
-To add a LG TV to your installation, add the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
+
+## Turn on action
+
+Home Assistant can turn on an LG Netcast TV if you specify an action provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
+
+1. To create an automation, go to {% my integrations title="**Settings** > **Devices & services**" %} and open the device page. 
+2. Under **Automations**, select the + icon to create an automation with that device.
+3. In the dialog, select the **Device is requested to turn on** automation.
+
+Automations can also be created using an automation action:
+
+The example below shows how you can use the `turn_on_action` with the [`wake_on_lan` integration](/integrations/wake_on_lan/).
 
 ```yaml
 # Example configuration.yaml entry
-media_player:
-  - platform: lg_netcast
-    host: IP_ADDRESS
-```
-
-{% configuration %}
-host:
-  description: The IP address of the LG Smart TV, e.g., 192.168.0.20.
-  required: true
-  type: string
-access_token:
-  description: The access token needed to connect.
-  required: false
-  type: string
-name:
-  description: The name you would like to give to the LG Smart TV.
-  required: false
-  default: LG TV Remote
-  type: string
-turn_on_action:
-  description: Defines an [action](/docs/automation/action/) to turn the TV on.
-  required: false
-  type: string
-{% endconfiguration %}
-
-To get the access token for your TV configure the `lg_netcast` platform in Home Assistant without the `access_token`.
-After starting Home Assistant the TV will display the access token on screen.
-Just add the token to your configuration and restart Home Assistant and the media player integration for your LG TV will show up.
-
-<div class='note'>
-  The access token will not change until you factory reset your TV.
-</div>
-
-## Advanced configuration
-
-The example below shows how you can use the `turn_on_action` the [`wake_on_lan` integration](/integrations/wake_on_lan/).
-
-```yaml
 wake_on_lan: # enables `wake_on_lan` integration
 
 # Enables the `lg_netcast` media player
-media_player:
-  - platform: lg_netcast
-    host: 192.168.0.20
-    turn_on_action:
-      service: wake_on_lan.send_magic_packet
-      data:
-        mac: AA-BB-CC-DD-EE-FF
-        broadcast_address: 11.22.33.44
+automation:
+  - alias: "Turn On Living Room TV with WakeOnLan"
+    trigger:
+      - platform: lg_netcast.turn_on
+        entity_id: media_player.lg_netcast_smart_tv
+    action:
+      - service: wake_on_lan.send_magic_packet
+        data:
+          mac: AA-BB-CC-DD-EE-FF
+          broadcast_address: 11.22.33.44
 ```
+
+Any other [actions](/docs/automation/action/) to power on the device can be configured.
 
 ## Change channel through play_media service
 

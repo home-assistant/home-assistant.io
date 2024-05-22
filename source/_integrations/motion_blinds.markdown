@@ -7,7 +7,7 @@ ha_iot_class: Local Push
 ha_release: 2020.12
 ha_domain: motion_blinds
 ha_codeowners:
-  - "@starkillerOG"
+  - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
   - cover
@@ -33,6 +33,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Krispol](https://krispol.eu/en/drives/)
 - [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
 - [Motionblinds](https://motionblinds.com/)

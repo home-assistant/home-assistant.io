@@ -1,5 +1,5 @@
 ---
-title: "Getting Started"
+title: "Getting started"
 description: "Getting started with Home Assistant"
 body_id: getting_started
 show_title: true

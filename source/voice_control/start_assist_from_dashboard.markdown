@@ -1,5 +1,14 @@
 ---
 title: "Starting Assist from your dashboard"
+related:
+  - docs: /voice_control/android/
+    title: Assist for Android
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Creating a local assistant
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Creating a Cloud assistant
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing devices to Assist
 ---
 
 If you are using Home Assistant in kiosk mode, for example if you have a tablet mounted on the wall, the Assist icon in the top right corner is not accessible. In this case, use a dashboard button to start Assist.
@@ -21,10 +30,3 @@ If you are using Home Assistant in kiosk mode, for example if you have a tablet 
 6. If you are using Assist with your voice, enable **Start listening**.
    - If you don't want to use voice but just want to type, you do not need to enable listening.
 7. **Save** your new button card.
-
-## Related topics
-
-- [Assist for Android](/voice_control/android/)
-- [Creating a local assistant](/voice_control/voice_remote_local_assistant/)
-- [Creating a Cloud assistant](/voice_control/voice_remote_cloud_assistant/)
-- [Exposing devices to Assist](/voice_control/voice_remote_expose_devices/)

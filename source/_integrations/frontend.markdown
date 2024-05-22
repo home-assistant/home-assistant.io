@@ -94,7 +94,7 @@ Note that the variables will be used in the listed order, so if multiple match y
 frontend:
   themes:
     my_theme:
-      state-cover-garage_door-open-color: "#ff0000"
+      state-cover-garage-open-color: "#ff0000"
       state-media_player-inactive-color: "#795548"
 ```
 

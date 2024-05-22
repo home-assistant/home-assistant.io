@@ -2,6 +2,23 @@
 title: "Customize the S3-BOX-3"
 product_name: ESP32-S3-BOX-3
 device_name_entry: ESP32-S3-BOX-3
+related:
+  - docs: /voice_control/voice_remote_cloud_assistant/
+    title: Home Assistant Cloud
+  - docs: /voice_control/voice_remote_local_assistant
+    title: Assist Pipeline
+  - docs: /voice_control/s3_box_voice_assistant/
+    title: ESP32-S3-BOX-3 voice assistant
+  - docs: /voice_control/troubleshooting/
+    title: General troubleshooting section for Assist
+  - docs: /voice_control/troubleshooting_the_s3_box/
+    title: Troubleshooting the ESP32-S3-BOX-3
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Access to your configuration files
+  - url: https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main
+    title: Community image repository
+  - url: https://github.com/kahrendt/microWakeWord
+    title: microWakeWord
 ---
 
 ## Customize the S3-BOX-3 with your own illustrations
@@ -52,7 +69,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 ### Option 1: Using images from a community repository
 
 If you want new images but don't want to create your own, you can use images from the community.
-If you want to use your own images, skip this procedure and go to [Option 2: Using your own imagess](#option-2-using-your-own-illustrations) instead.
+If you want to use your own images, skip this procedure and go to [Option 2: Using your own images](#option-2-using-your-own-illustrations) instead.
 
 #### To use images from the community
 
@@ -180,20 +197,21 @@ If your images have transparency, you can define the background color in the con
 
 ## Customizing on-device wake words (microWakeWord)
 
-If you are running the latest version of ESPHome on your device, you can already process your wake word on your S3-BOX (instead of running it on the Home Assistant server). This is done using the [microWakeWord](https://github.com/kahrendt/microWakeWord) model. By default, the wake word then is *Okay Nabu*. If you want to change the on-device wake word to *Hey Jarvis* or *Alexa*, follow these steps.
+You can change the on-device wake word (microWakeWord) that is used on your S3-BOX-3.
 
 ### Prerequisites
 
 - Home Assistant 2024.2, installed with the Home Assistant Operating System. If you do not have Home Assistant installed yet, refer to the [installation page](/installation/) for instructions.
 - Successfully [installed ESPHome on the S3-BOX-3](/voice_control/s3_box_voice_assistant/)
 - ESPHome 2024.2 or later
-- Home Assistant server with at least 2&nbsp;GB of RAM
-  - The firmware needs to be compiled on the server before it is installed on the S3-BOX-*.
+- Home Assistant server with at least 2&nbsp;GB of RAM free
+  - The firmware needs to be compiled on the server before it is installed on the S3-BOX-3.
   - Compiling requires a bit of RAM.
+- [On-device wake word installed](#installing-on-device-wake-words-microwakeword) on your S3-BOX-3.
 
-(It also works on the, now discontinued, S3-BOX and S3-BOX-Lite)_
+*(It also works on the (now discontinued) S3-BOX and S3-BOX-Lite)*
 
-### To customize the S3-BOX-* with on-device wake words
+### To customize the S3-BOX-3 with on-device wake words
 
 1. If you haven't done so already, [adopt the device in the ESPHome add-on](#adopting-the-device-in-the-esphome-add-on).
 2. In Home Assistant, go to [**Settings** > **Add-ons** > **ESPHome**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=5c53de3b_esphome), and **Open Web UI**.
@@ -207,24 +225,19 @@ If you are running the latest version of ESPHome on your device, you can already
      ```yaml
      substitutions:
        ...
-       micro_wake_word_model: okay_nabu
+       micro_wake_word_model: hey_jarvis
      ```
 
 5. Save the changes and in the top right corner, select **Install**.
-   - Depending on your environment, the installation process can take a while. (On Home Assistant Green, for example, it takes about 45 minutes.)
-   - On Home Assistant Green, for example, it takes about 45 minutes.86. Once the installation is complete, you can see the new image on the S3-BOX-3.
-6.  - Now, speak a command to test the new setting. For example, *OK Nabu, turn on the light*.
+   - Depending on your environment, the installation process can take a while.
+   - On Home Assistant Green, for example, it takes about 45 minutes.
+6. Select the **ESPHome** integration. Under **Devices**, you should see the **ESP32-S3-BOX** listed.
+    - On the ESP32-S3-BOX-3 entry, select **Device** to open the device page.
+    - Under **Wake word engine location**, select **On device**.
 
-## Related topics
+      ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
 
-- [Community image repository](https://github.com/jlpouffier/home-assistant-s3-box-community-illustrations/tree/main)
-- [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/)
-- [Assist Pipeline](/voice_control/voice_remote_local_assistant)
-- [ESP32-S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)
-- [General troubleshooting section for Assist](/voice_control/troubleshooting/)
-- [Troubleshooting the ESP32-S3-BOX-3](/voice_control/troubleshooting_the_s3_box/)
-- [Access to your configuration files](/common-tasks/os/#configuring-access-to-files)
-- [microWakeWord](https://github.com/kahrendt/microWakeWord)
+7. Now, speak a command to test the new setting. For example, *Hey Jarvis, turn on the light*.
 
 [microWakeWord]: https://github.com/kahrendt/microWakeWord
 [Kevin Ahrendt]: https://www.kevinahrendt.com/

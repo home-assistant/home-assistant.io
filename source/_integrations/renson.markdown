@@ -18,9 +18,9 @@ ha_platforms:
   - binary_sensor
   - button
   - fan
-  - switch
   - number
   - sensor
+  - switch
   - time
 ha_integration_type: integration
 ---

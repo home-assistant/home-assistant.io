@@ -1,6 +1,6 @@
 ---
-title: Input Select
-description: Instructions on how to integrate the Input Select integration into Home Assistant.
+title: Input select
+description: Instructions on how to integrate the input select integration into Home Assistant.
 ha_category:
   - Automation
   - Helper
@@ -12,7 +12,7 @@ ha_domain: input_select
 ha_integration_type: helper
 ---
 
-The `input_select` integration allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
+The **Input select** {% term integration %} allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
 The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
 
@@ -77,29 +77,29 @@ If you set a valid value for `initial` this integration will start with the stat
 
 This integration provides three services to modify the state of the `input_select`.
 
-| Service | Data | Description |
-| ------- | ---- | ----------- |
-| `select_option` | `option` | This can be used to select a specific option.
-| `set_options` | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities.
-| `select_first` | | Select the first option.
-| `select_last` | | Select the last option.
-| `reload` | | Reload `input_select` configuration |
+| Service         | Data                        | Description                                           |
+| --------------- | --------------------------- | ----------------------------------------------------- |
+| `select_option` | `option`                    | This can be used to select a specific option.         |
+| `set_options`   | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities. |
+| `select_first`  |                             | Select the first option.                              |
+| `select_last`   |                             | Select the last option.                               |
+| `reload`        |                             | Reload `input_select` configuration                   |
 
 #### Service `input_select.select_next`
 
 Select the next option.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `cycle` | yes | Whether to cycle to the first value after the last. Default: `true`
+| Service data attribute | Optional | Description                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `cycle`                | yes      | Whether to cycle to the first value after the last. Default: `true` |
 
 #### Service `input_select.select_previous`
 
 Select the previous option.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `cycle` | yes | Whether to cycle to the last value before the first. Default: `true`
+| Service data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `cycle`                | yes      | Whether to cycle to the last value before the first. Default: `true` |
 
 ### Scenes
 

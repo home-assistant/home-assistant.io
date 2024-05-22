@@ -60,6 +60,9 @@ _Oh! And don't forget Valentine's Day is coming up!_ 😘
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
 - [Release 2024.2.1 - February 9](#release-202421---february-9)
 - [Release 2024.2.2 - February 16](#release-202422---february-16)
+- [Release 2024.2.3 - February 22](#release-202423---february-22)
+- [Release 2024.2.4 - February 25](#release-202424---february-25)
+- [Release 2024.2.5 - February 27](#release-202425---february-27)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -279,7 +282,7 @@ noteworthy changes this release:
 
 - [@edenhaus] improved how we handle errors in our form fields. We no longer
   show the technical coding gibberish that often showed up in the past. Nice!
-- When you [change the type of a switch entity] to, for example, a garage door 
+- When you [change the type of a switch entity] to, for example, a garage door
   entity, you will now have the option to invert its behavior.
   Thanks, [@emontnemery]!
 - The [Ecovacs] integration received lots of love from [@edenhaus] and now
@@ -367,7 +370,7 @@ We welcome the following new integrations in this release:
 - **[Tedee]**, added by [@zweckj]<br />
   Use your Tedee smart locks in Home Assistant.
 - **[Teslemetry]**, added by [@Bre77]<br />
-  Pull in live telemetry data from your Tesla vehicle via the Tesla Fleet API. 
+  Pull in live telemetry data from your Tesla vehicle via the Tesla Fleet API.
 - **[TechnoVE]**, added by [@Moustachauve]<br />
   Control of TechnoVE Smart Charging Station using a local API.
 - **[Traccar server]**, added by [@ludeeus]<br />
@@ -609,6 +612,141 @@ The following integrations are now available via the Home Assistant UI:
 [@tkdrob]: https://github.com/tkdrob
 [@wilburCforce]: https://github.com/wilburCforce
 [@zxdavb]: https://github.com/zxdavb
+
+## Release 2024.2.3 - February 22
+
+- Fix reauth in Overkiz for config entries created prior to 2022.12 ([@iMicknl] - [#106251])
+- Handle deep standby and poweroffs of enigma2 devices gracefully ([@autinerd] - [#107462])
+- Add wake up timeout to Teslemetry ([@Bre77] - [#109037])
+- Fix set_temperature in Tessie climate platform ([@Bre77] - [#110445])
+- Fix uuid issue in Lutron ([@wilburCforce] - [#110524])
+- Update rokuecp to 0.19.1 ([@ctalkington] - [#110670])
+- Fix scene activation with climate entities with `None` attribute values ([@mib1185] - [#110684])
+- Remove matplotlib pinning due to Python 3.12 incompatibility ([@sbyx] - [#110706])
+- Bump roombapy to 1.6.12 ([@mib1185] - [#110762])
+- Ensure Tile timestamps are reported as UTC ([@bachya] - [#110773])
+- Detect reached API rate limit in Tankerkoenig ([@mib1185] - [#110432])
+- Bump aiotankerkoenig to 0.4.1 ([@jpbede] - [#110840])
+- Update govee-local-api library to 1.4.4 ([@Galorhallen] - [#110854])
+- Allow loading of more then 1 defined Apprise URL ([@caronc] - [#110868])
+- Reolink continue setup when internet blocked ([@starkillerOG] - [#110888])
+- Bump deluge-client to 1.10.0 ([@tkdrob] - [#110663])
+- Bump deluge-client to 1.10.2 ([@dsander] - [#110905])
+- Bump reolink-aio to 0.8.8 ([@starkillerOG] - [#110959])
+- Reset error state when Ecovacs bot is operational again ([@mib1185] - [#110962])
+- Bump motionblinds to 0.6.21 ([@starkillerOG] - [#110970])
+- Bump holidays to 0.43 ([@gjohansson-ST] - [#111039])
+- Fixes UniFi Protect light state check ([@AngellusMortis] - [#111058])
+- Bump pywebpush to 1.14.1 ([@thecode] - [#111082])
+- Bump aioairzone to v0.7.4 ([@Noltari] - [#111105])
+- Bump deebot-client to 5.2.2 ([@edenhaus] - [#111112])
+- Ignore cloudhook already removed in mobile app ([@joostlek] - [#111122])
+
+[#106251]: https://github.com/home-assistant/core/pull/106251
+[#107462]: https://github.com/home-assistant/core/pull/107462
+[#109037]: https://github.com/home-assistant/core/pull/109037
+[#109883]: https://github.com/home-assistant/core/pull/109883
+[#110078]: https://github.com/home-assistant/core/pull/110078
+[#110432]: https://github.com/home-assistant/core/pull/110432
+[#110445]: https://github.com/home-assistant/core/pull/110445
+[#110524]: https://github.com/home-assistant/core/pull/110524
+[#110663]: https://github.com/home-assistant/core/pull/110663
+[#110670]: https://github.com/home-assistant/core/pull/110670
+[#110684]: https://github.com/home-assistant/core/pull/110684
+[#110706]: https://github.com/home-assistant/core/pull/110706
+[#110720]: https://github.com/home-assistant/core/pull/110720
+[#110762]: https://github.com/home-assistant/core/pull/110762
+[#110773]: https://github.com/home-assistant/core/pull/110773
+[#110840]: https://github.com/home-assistant/core/pull/110840
+[#110854]: https://github.com/home-assistant/core/pull/110854
+[#110868]: https://github.com/home-assistant/core/pull/110868
+[#110888]: https://github.com/home-assistant/core/pull/110888
+[#110905]: https://github.com/home-assistant/core/pull/110905
+[#110959]: https://github.com/home-assistant/core/pull/110959
+[#110962]: https://github.com/home-assistant/core/pull/110962
+[#110970]: https://github.com/home-assistant/core/pull/110970
+[#111035]: https://github.com/home-assistant/core/pull/111035
+[#111039]: https://github.com/home-assistant/core/pull/111039
+[#111058]: https://github.com/home-assistant/core/pull/111058
+[#111082]: https://github.com/home-assistant/core/pull/111082
+[#111105]: https://github.com/home-assistant/core/pull/111105
+[#111112]: https://github.com/home-assistant/core/pull/111112
+[#111122]: https://github.com/home-assistant/core/pull/111122
+[@AngellusMortis]: https://github.com/AngellusMortis
+[@Bre77]: https://github.com/Bre77
+[@Galorhallen]: https://github.com/Galorhallen
+[@Noltari]: https://github.com/Noltari
+[@autinerd]: https://github.com/autinerd
+[@bachya]: https://github.com/bachya
+[@caronc]: https://github.com/caronc
+[@ctalkington]: https://github.com/ctalkington
+[@dsander]: https://github.com/dsander
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@iMicknl]: https://github.com/iMicknl
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mib1185]: https://github.com/mib1185
+[@sbyx]: https://github.com/sbyx
+[@starkillerOG]: https://github.com/starkillerOG
+[@thecode]: https://github.com/thecode
+[@tkdrob]: https://github.com/tkdrob
+[@wilburCforce]: https://github.com/wilburCforce
+
+## Release 2024.2.4 - February 25
+
+- Return group unit of measurement when device_class is None ([@PoppyPop] - [#110973]) ([group docs])
+- Bump roombapy to 1.6.13 ([@Orhideous] - [#111187]) ([roomba docs])
+- Bump orjson to 3.9.15 ([@bdraco] - [#111233])
+- Set Lutron switch to device name ([@joostlek] - [#111293]) ([lutron docs])
+- Bump opower to 0.3.0 ([@swartzd] - [#109248]) ([opower docs])
+- Bump opower to 0.3.1 ([@benhoff] - [#111307])
+- Fix another name missing in wyoming getLogger ([@llluis] - [#111390]) ([wyoming docs])
+- Update caldav to 1.3.9 ([@cdce8p] - [#111429]) ([caldav docs])
+- Update guppy3 to 3.1.4.post1 ([@cdce8p] - [#111430]) ([profiler docs])
+- Bump openwebifpy to 4.2.4 ([@autinerd] - [#110676]) ([enigma2 docs])
+
+[@autinerd]: https://github.com/autinerd
+[enigma2 docs]: /integrations/enigma2/
+[#110676]: https://github.com/home-assistant/core/pull/110676
+[#109248]: https://github.com/home-assistant/core/pull/109248
+[#109883]: https://github.com/home-assistant/core/pull/109883
+[#110078]: https://github.com/home-assistant/core/pull/110078
+[#110720]: https://github.com/home-assistant/core/pull/110720
+[#110973]: https://github.com/home-assistant/core/pull/110973
+[#111133]: https://github.com/home-assistant/core/pull/111133
+[#111187]: https://github.com/home-assistant/core/pull/111187
+[#111233]: https://github.com/home-assistant/core/pull/111233
+[#111293]: https://github.com/home-assistant/core/pull/111293
+[#111307]: https://github.com/home-assistant/core/pull/111307
+[#111390]: https://github.com/home-assistant/core/pull/111390
+[#111429]: https://github.com/home-assistant/core/pull/111429
+[#111430]: https://github.com/home-assistant/core/pull/111430
+[@Orhideous]: https://github.com/Orhideous
+[@PoppyPop]: https://github.com/PoppyPop
+[@bdraco]: https://github.com/bdraco
+[@benhoff]: https://github.com/benhoff
+[@cdce8p]: https://github.com/cdce8p
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@llluis]: https://github.com/llluis
+[@swartzd]: https://github.com/swartzd
+[abode docs]: /integrations/abode/
+[caldav docs]: /integrations/caldav/
+[group docs]: /integrations/group/
+[lutron docs]: /integrations/lutron/
+[opower docs]: /integrations/opower/
+[profiler docs]: /integrations/profiler/
+[roomba docs]: /integrations/roomba/
+[wyoming docs]: /integrations/wyoming/
+
+## Release 2024.2.5 - February 27
+
+- Add title to reauthenticate integration issue ([@timmo001] - [#111275])
+
+[#111275]: https://github.com/home-assistant/core/pull/111275
+[@timmo001]: https://github.com/timmo001
 
 ## Need help? Join the community!
 
@@ -1149,11 +1287,11 @@ The following integrations are also no longer available as of this release:
   ([@reedy] - [#107005])
 - **Legrand Home+ Control** has been removed as their API shut down in December.
   Use [the Netatmo integration](/integrations/netatmo/) as an alternative to
-  integrate your Legrand Home+ Control devices.  
+  integrate your Legrand Home+ Control devices.
   ([@jpbede] - [#107587])
 - **Life360** has been removed. They are now actively blocking third-party
   access, including Home Assistant. The [Home Assistant Companion app](https://companion.home-assistant.io/)
-  is a good and (above all) privacy-friendly alternative.  
+  is a good and (above all) privacy-friendly alternative.
   ([@pnbruckner] - [#107805])
 
 [@jpbede]: https://github.com/jpbede
