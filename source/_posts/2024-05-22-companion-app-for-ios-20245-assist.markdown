@@ -22,7 +22,7 @@ I am very happy to bring Assist for iOS with a new native UI, integrated with iO
 
 <lite-youtube videoid="AW_eslcO6AU" videotitle="Assist in Companion App for iOS"></lite-youtube>
 
-In this demo, you see Assist being triggered from the iPhone 15 Pro “action button” and lock screen widget. Those are a few ways of interacting with Assist, but as it’s an iOS shortcut, you can trigger it in all sorts of creative ways.  You can create an automation triggered by  scanning an NFC tag that launches Assist, or even add it to an existing shortcut you already use.
+In this demo, you see Assist being triggered from the iPhone 15 Pro “action button” and lock screen widget. Those are a few ways of interacting with Assist, but as it’s an iOS shortcut, you can trigger it in all sorts of creative ways. You can create an automation triggered by scanning an NFC tag that launches Assist, or even add it to an existing shortcut you already use.
 
 ### “What if I don’t have an iPhone 15 pro to use the action button?”
 
