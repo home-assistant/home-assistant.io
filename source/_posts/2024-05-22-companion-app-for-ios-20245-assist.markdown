@@ -56,6 +56,6 @@ There are a couple of things to take into consideration. I tried this last weeke
 
 - We also added a button to reload your widgets, since sometimes they may become blank for a few users after an update. For actions, we added a button to update server-created Actions manually, so you don't need to reopen the app for that (but remember to restart HA after adding or removing Actions from YAML).
 
-- Memory usage and performance issues on our macOS client are big topics in our GitHub right now, and we are aware of them and are working towards improving them. This release is the first iteration in that direction, we ask you to send your feedback since this issue is not easily reproducible in all instances.
+- Memory usage and performance issues on our macOS client are big topics in our GitHub right now, and we are aware of them and are working towards improving them. As this release is the first iteration in that direction, we would like your feedback since this issue is not easily reproducible in all instances.
 
 Before wrapping up, I would like to say how important reporting issues on GitHub is for the development of these companion apps. We are addressing them as fast as we can and with the attention necessary to make sure your problems are resolved. I would also like to take this opportunity to invite iOS devs (aspiring or established) who wish to contribute to jump in. Drop me a message so we can work together and move faster, I will be happy to help you get started.
