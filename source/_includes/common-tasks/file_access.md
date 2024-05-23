@@ -34,7 +34,7 @@ To connect to the Samba server from the other device, follow these steps:
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and take note of the **Host name**.
    - Alternatively, you can look up the host name or IP address of your Home Assistant on your router.
 2. How you connect from another device to Home Assistant depends on your system. Use one of the following options:
-   - **On Windows**: Open **File Explorer** and in the address bar, enter the IP address or hostname with two backslashes.
+   - **On Windows**: Open **File Explorer** and in the address bar, enter the IP address or hostname with two backslashes as `\\your.ha.ip.address` or `\\hostname`.
 
      <img src='/images/hassio/screenshots/file_explorer.png' />
 
