@@ -3,6 +3,8 @@ title: "Common tasks - Operating System"
 description: "Common tasks for Home Assistant Operating System"
 installation: os
 installation_name: "Operating System"
+related:
+  - docs: /docs/configuration/
 ---
 This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
 
