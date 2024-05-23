@@ -4,6 +4,8 @@ related:
   - docs: /voice_control/thirteen-usd-voice-remote/
     title: $13 voice assistant for Home Assistant
   - docs: /voice_control/custom_sentences/
+    title: Custom Sentences
+  - docs: /common-tasks/os/#configuring-access-to-files
     title: Installing the Samba add-on
   - docs: /voice_control/about_wake_word/
     title: About wake words
