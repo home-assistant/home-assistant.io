@@ -22,7 +22,7 @@ The Samba add-on creates smb shares which can be accessed from another computer.
 To install the add-on, follow these steps:
 
 1. Go to {% my supervisor_addon title="**Settings** > **Add-ons** > **Samba share**" addon="core_samba" %} and select **Install**.
-2. On the **Configuration** tab, define **Username** and **Password**, store them in a save place, and save your changes.
+2. On the **Configuration** tab, define **Username** and **Password**, store them in a safe place, and save your changes.
    - You can specify any username and password.
    - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer with which you will use Samba share.
    - The add-on won't start if user name and password are not defined.
