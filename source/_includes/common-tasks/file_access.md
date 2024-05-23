@@ -42,7 +42,7 @@ To access the Home Assistant directories from the other device, follow these ste
      </p>
 
    - **On OS X**: Open **Finder** and select **Go** > **Connect to Server...** and enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
-   - **On Ubuntu**: Open **Nautilus** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
+   - **On Ubuntu**: Open **Files** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
 
 3. Enter the credentials you entered in the **Samba** add-on configuration.
    - You also have the option of having the credentials stored so that you do not need to enter them again.
