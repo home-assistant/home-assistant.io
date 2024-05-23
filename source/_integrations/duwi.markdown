@@ -1,6 +1,6 @@
 ---
 title: Duwi
-description: The Duwi Smart Hub Integration allows users to easily connect and manage their Duwi Smart devices directly from Home Assistant. Control, monitor, and automate your Duwi Smart-enabled devices like lights, switches, and covers. Simplify your home automation tasks with the Duwi Smart Hub Integration.
+description: The Duwi Integration allows users to easily connect and manage their Duwi Smart devices directly from Home Assistant. Control, monitor, and automate your Duwi Smart-enabled devices like lights, switches, and covers. Simplify your home automation tasks with the Duwi Integration.
 ha_category:
 - Cover
 - Light
