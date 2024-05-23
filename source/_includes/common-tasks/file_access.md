@@ -17,19 +17,19 @@ Using any of the add-ons listed below, the following directories are made availa
 
 ### Installing and using the Samba add-on
 
-The Samba add-on creates smb shares which can be accessed from another computer. You can also edit files using the editor of your preference from your client computer. This add-on can be installed from the add-on store's official repository.
+The **Samba** add-on allows you to share the directories on Home Assistant with other systems on your network. After installing the add-on, you can then also edit files using the editor of your preference from your client computer. This add-on can be installed from the add-on store's official repository.
 
 To install the add-on, follow these steps:
 
 1. Go to {% my supervisor_addon title="**Settings** > **Add-ons** > **Samba share**" addon="core_samba" %} and select **Install**.
 2. On the **Configuration** tab, define **Username** and **Password**, store them in a safe place, and save your changes.
    - You can specify any username and password.
-   - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer with which you will use Samba share.
+   - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer from which you are accessing the files.
    - The add-on won't start if user name and password are not defined.
 3. For further configuration information, refer to the **Documentation** tab.
 4. To start the add-on, on the **Information** tab, select **Start**.
 
-To connect to the Samba server from the other device, follow these steps:
+To access the Home Assistant directories from the other device, follow these steps:
 
 1. Go to {% my network title="**Settings** > **System** > **Network**" %} and take note of the **Host name**.
    - Alternatively, you can look up the host name or IP address of your Home Assistant on your router.
@@ -42,9 +42,9 @@ To connect to the Samba server from the other device, follow these steps:
      </p>
 
    - **On OS X**: Open **Finder** and select **Go** > **Connect to Server...** and enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
-   - **On Ubuntu**: Open **Nautilus** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
+   - **On Ubuntu**: Open **Files** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
 
-3. Enter the credentials you entered in the Samba add-on configuration.
+3. Enter the credentials you entered in the **Samba** add-on configuration.
    - You also have the option of having the credentials stored so that you do not need to enter them again.
 4. Done! You now have access to the directories which you can then mount as a drive or pin to Quick Access.
 
