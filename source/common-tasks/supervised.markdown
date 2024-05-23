@@ -3,6 +3,8 @@ title: "Common tasks - Supervised"
 description: "Common tasks for Home Assistant Supervised"
 installation: supervised
 installation_name: Supervised
+related:
+  - docs: /docs/configuration/
 ---
 
 ## Update

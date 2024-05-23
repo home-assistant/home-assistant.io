@@ -35,32 +35,6 @@ You would then enter the IP address or hostname of your Home Assistant OS instan
 
 ---
 
-### Installing and using the SSH add-on
-
-If you want to use the Home Assistant command line or an SSH client, you can do this through the **Terminal & SSH** add-on.
-
-The **Terminal & SSH** add-on provides the following functionalities:
-
-- It provides a web terminal that you can access from the Home Assistant user interface.
-- It allows you to use the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more.
-  - For a list of command line commands, refer to [Home Assistant via Command Line](/common-tasks/os#home-assistant-via-the-command-line).
-- It allows connecting to your system using an SSH client.
-- It also includes common tools like nano and vi editors.
-- The Terminal & SSH add-on does **not provide** access to the underlying host file system.
-
-To get started with the **Terminal & SSH** add-on, follow these steps:
-
-1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
-2. To install the add-on, go to the add-on store under [**Settings** > **Add-ons**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** add-on.
-3. To use the web terminal, **start** the add-on, then select **Open Web UI**.
-   - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
-4. If you want to access from an ssh client, you need to enter credentials:
-   - Open the **Configuration** page.
-   - Enter a password or authorized Keys.
-   - Then save and start the add-on.
-
----
-
 ### Installing and using the Visual Studio Code (VSC) add-on
 
 The **Studio Code Server** add-on provides access through a feature-packed web-based version of the Visual Studio Code editor. It currently only supports AMD64 and aarch64/ARM64 machines. The add-on also provides access to the Home Assistant Command Line Interface (CLI) using VSC's built-in terminal, which allows for checking logs, stopping, and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](/hassio/commandline/) for further info).
@@ -97,3 +71,29 @@ To install and use the File Editor in Home Assistant, follow these steps:
 3. For information on other configuration settings, open the **Documentation** tab.
 4. To confirm your changes, select **Save**.
 5. To start browsing, on the **Info** tab, select **Open Web UI**.
+
+---
+
+### Installing and using the SSH add-on
+
+If you want to use the Home Assistant command line or an SSH client, you can do this through the **Terminal & SSH** add-on.
+
+The **Terminal & SSH** add-on provides the following functionalities:
+
+- It provides a web terminal that you can access from the Home Assistant user interface.
+- It allows you to use the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more.
+  - For a list of command line commands, refer to [Home Assistant via Command Line](/common-tasks/os#home-assistant-via-the-command-line).
+- It allows connecting to your system using an SSH client.
+- It also includes common tools like nano and vi editors.
+- The Terminal & SSH add-on does **not provide** access to the underlying host file system.
+
+To get started with the **Terminal & SSH** add-on, follow these steps:
+
+1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
+2. To install the add-on, go to the add-on store under [**Settings** > **Add-ons**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** add-on.
+3. To use the web terminal, **start** the add-on, then select **Open Web UI**.
+   - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
+4. If you want to access from an ssh client, you need to enter credentials:
+   - Open the **Configuration** page.
+   - Enter a password or authorized Keys.
+   - Then save and start the add-on.
