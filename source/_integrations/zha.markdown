@@ -214,7 +214,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)                                                                       | Zeroconf         | xzg.local.                     |
 | [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
 | [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)                                                                   | Zeroconf         | uzg-01._tcp.local.             |
-| [cod.m Zigbee Coordinator](https://docs.codm.de/zigbee/zigbee-coordinator/)                                                                 | Zeroconf         | czc._tcp.local.                |
+| [cod.m Zigbee Coordinator](https://docs.codm.de/zigbee/coordinator/)                                                                        | Zeroconf         | czc._tcp.local.                |
 | [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
 | [Tube's CC2652P2 USB-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2.local.     |
 | [Tube's CC2652P2 PoE-powered Zigbee to Ethernet Serial Coordinator)](https://www.tubeszb.com/)                                              | Zeroconf         | tube_zb_gw_cc2652p2_poe.local. |
