@@ -36,7 +36,10 @@ To connect to the Samba server from the other device, follow these steps:
 2. How you connect from another device to Home Assistant depends on your system. Use one of the following options:
    - **On Windows**: Open **File Explorer** and in the address bar, enter the IP address or hostname with two backslashes as `\\your.ha.ip.address` or `\\hostname`.
 
-     <img src='/images/hassio/screenshots/file_explorer.png' />
+     <p class='img'>
+         <img src='/images/hassio/screenshots/file_explorer.png' alt='Screenshot of File Explorer displaying the navigation to a file share using an IP address'>
+         Screenshot of File Explorer displaying the navigation to a file share using an IP address
+     </p>
 
    - **On OS X**: Open **Finder** and select **Go** > **Connect to Server...** and enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
    - **On Ubuntu**: Open **Nautilus** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
