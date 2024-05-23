@@ -5,6 +5,7 @@ ha_category:
   - Car
   - Climate
   - Sensor
+  - Switch
   - Select
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
@@ -17,6 +18,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -91,6 +93,12 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable Battery level|No|
+|Switch|Auto seat climate left|Yes|
+|Switch|Auto seat climate right|Yes|
+|Switch|Auto steering wheel heater|Yes|
+|Switch|Charge|Yes|
+|Switch|Defrost|Yes|
+|Switch|Sentry mode|Yes|
 
 ### Energy sites
 
@@ -108,6 +116,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Switch|Allow charging from grid|Yes|
+|Switch|Storm watch|Yes|
 
 ### Wall connector
 
