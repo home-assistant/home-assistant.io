@@ -152,4 +152,4 @@ The integration will create a switch to enable or disable the schedule of the mo
 
 #### Avoid (if available)
 
-The integration will create a switch for each stay out zone of for your mower. When the switch is on, the mower avoids the corresponding zone. When the switch is off, the mower enters the corresponding zone.
+The integration will create a switch for each stay-out zone defined for your mower. When the switch is on, the mower avoids the corresponding zone. When the switch is off, the mower enters the corresponding zone.
