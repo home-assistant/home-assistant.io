@@ -45,7 +45,7 @@ To access the Home Assistant directories from the other device, follow these ste
    - **On Ubuntu**: Open **Nautilus** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
 
 3. Enter the credentials you entered in the **Samba** add-on configuration.
-   - You also have the option of having the **credentials stored so that you do not need to enter them again.
+   - You also have the option of having the credentials stored so that you do not need to enter them again.
 4. Done! You now have access to the directories which you can then mount as a drive or pin to Quick Access.
 
 ---
