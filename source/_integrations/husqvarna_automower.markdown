@@ -146,4 +146,10 @@ The integration will create the following sensors:
 
 ### Switch
 
+#### Enable schedule
+
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
+
+#### Avoid (if available)
+
+The integration will create a switch for each stay-out zone defined for your mower. When the switch is on, the mower avoids the corresponding zone. When the switch is off, the mower enters the corresponding zone.
