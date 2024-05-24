@@ -1,4 +1,4 @@
-## Run a development version
+### Running a development version
 
 If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 

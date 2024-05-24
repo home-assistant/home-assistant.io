@@ -1,4 +1,4 @@
-## Run a beta version
+### Running a beta version
 
 If you would like to test next release before anyone else, you can install the beta version.
 
