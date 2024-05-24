@@ -58,7 +58,7 @@ Use this procedure only if the following conditions are met:
 2. Once you have opened the Home Assistant command line, enter the following command:
    - Note: `existing_user` is a placeholder. Replace it with your user name.
    - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `auth reset --username existing_user --password new_password`
+   - **Command**: `ha auth reset --username existing_user --password new_password`
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 3. You can now log in to Home Assistant using this new password.
 
@@ -138,3 +138,13 @@ For Windows or macOS you will need third party software. Below are some options.
 
 - Windows: <https://www.diskinternals.com/linux-reader/> (read-only access to the SD)
 - macOS: <https://osxfuse.github.io/>
+
+### Serial console setup on Windows
+
+If you are using a Home Assistant Yellow and need to set up a serial console on Windows, follow these steps:
+
+1. Connect the USB cable to the Home Assistant Yellow and your Windows computer.
+2. Download and install the [CP210x Universal Windows Driver](https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads) from Silicon Labs.
+3. Open Device Manager to find the COM port number assigned to your device.
+4. Use a terminal program like PuTTY to connect to the serial console. Use the COM port number found in step 3, set the baud rate to 115200, data bits to 8, stop bits to 1, and parity to None.
+5. You should now have access to the Home Assistant command line interface through the serial console.
