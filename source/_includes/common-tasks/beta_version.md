@@ -10,9 +10,9 @@ If you would like to test next release before anyone else, you can install the b
   content: |
 
    1. In Home Assistant, go to {% my updates title=**System** > **Updates** %}.
-   2. In the top-right corner, select the overflow menu.
+   2. In the top-right corner, select the three-dots menu.
    3. Select **Join beta**.
-   4. Navigate to the Configuration panel.
+   4. Go to the {% my configuration title="**Configuration**" %} panel.
    5. Install the update that is presented to you.
 
 - title: From the CLI
@@ -24,13 +24,13 @@ If you would like to test next release before anyone else, you can install the b
         ha supervisor options --channel beta
         ```
 
-    2. Reload the supervisor.
+    2. Reload the {% term "Home Assistant Supervisor" %}.
 
         ```bash
         ha supervisor reload
         ```
 
-    3. Update Home Assistant core to the latest beta version.
+    3. Update {% term "Home Assistant Core" %} to the latest beta version.
 
         ```bash
         ha core update --backup
