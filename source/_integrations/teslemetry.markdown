@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Car
   - Climate
+  - Cover
   - Lock
   - Sensor
   - Switch
@@ -18,6 +19,7 @@ ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - diagnostics
   - lock
   - select
@@ -69,6 +71,10 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|User present|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
