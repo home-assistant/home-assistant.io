@@ -9,7 +9,7 @@ If you would like to test next release before anyone else, you can install the b
 - title: From the UI
   content: |
 
-   1. In Home Assistant, go to {% my updates title="**System**" > "**Updates**" %}.
+   1. In Home Assistant, go to {% my updates title=**System** > **Updates** %}.
    2. Select the overflow menu in the top-right corner
    3. Select "Join beta".
    4. Navigate to Configuration panel.
