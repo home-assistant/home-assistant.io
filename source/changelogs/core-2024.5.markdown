@@ -1042,6 +1042,74 @@ For a summary in a more readable format:
 [@tronikos]: https://github.com/tronikos
 [@wujiaqi]: https://github.com/wujiaqi
 
+## Release 2024.5.5 - May 24
+
+- Fix Sonos album artwork performance ([@PeteRager] - [#116391])
+- Filter out HTML greater/less than entities from huawei_lte sensor values ([@scop] - [#117209])
+- Add options-property to Plugwise Select ([@bouwew] - [#117655])
+- Fix setting MQTT socket buffer size with WebsocketWrapper ([@bdraco] - [#117672])
+- Bump pyrisco to 0.6.2 ([@OnFreund] - [#117682])
+- Consider only active config entries as media source in Synology DSM ([@mib1185] - [#117691])
+- Bump aranet4 to 2.3.4 ([@Anrijs] - [#117738])
+- Bump crownstone-sse to 2.0.5, crownstone-cloud to 1.4.11 ([@RicArch97] - [#117748])
+- Block older versions of custom integration mydolphin_plus since they cause crashes ([@bdraco] - [#117751])
+- Fix race in config entry setup ([@bdraco] - [#117756])
+- Update wled to 0.18.0 ([@frenck] - [#117790])
+- Account for disabled ZHA discovery config entries when migrating SkyConnect integration ([@puddly] - [#117800])
+- Tesla Wall Connector fix spelling error/typo ([@bajansen] - [#117841])
+- Prevent time pattern reschedule if cancelled during job execution ([@swoga] - [#117879])
+- Update philips_js to 3.2.1 ([@elupus] - [#117881])
+- Bump pyrympro to 0.0.8 ([@OnFreund] - [#117919])
+- Add Shelly debug logging for async_reconnect_soon ([@thecode] - [#117945])
+- Update pySwitchbot to 0.46.0 to fix lock key retrieval ([@bdraco] - [#118005])
+- Improve async_get_issue_tracker for custom integrations ([@emontnemery] - [#118016])
+- Bump pySwitchbot to 0.46.1 ([@bdraco] - [#118025])
+- Extend the blocklist for Matter transitions with more models ([@marcelveldt] - [#118038])
+
+[#116391]: https://github.com/home-assistant/core/pull/116391
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#117203]: https://github.com/home-assistant/core/pull/117203
+[#117209]: https://github.com/home-assistant/core/pull/117209
+[#117631]: https://github.com/home-assistant/core/pull/117631
+[#117655]: https://github.com/home-assistant/core/pull/117655
+[#117672]: https://github.com/home-assistant/core/pull/117672
+[#117682]: https://github.com/home-assistant/core/pull/117682
+[#117691]: https://github.com/home-assistant/core/pull/117691
+[#117738]: https://github.com/home-assistant/core/pull/117738
+[#117748]: https://github.com/home-assistant/core/pull/117748
+[#117751]: https://github.com/home-assistant/core/pull/117751
+[#117756]: https://github.com/home-assistant/core/pull/117756
+[#117790]: https://github.com/home-assistant/core/pull/117790
+[#117800]: https://github.com/home-assistant/core/pull/117800
+[#117841]: https://github.com/home-assistant/core/pull/117841
+[#117879]: https://github.com/home-assistant/core/pull/117879
+[#117881]: https://github.com/home-assistant/core/pull/117881
+[#117919]: https://github.com/home-assistant/core/pull/117919
+[#117945]: https://github.com/home-assistant/core/pull/117945
+[#118005]: https://github.com/home-assistant/core/pull/118005
+[#118016]: https://github.com/home-assistant/core/pull/118016
+[#118025]: https://github.com/home-assistant/core/pull/118025
+[#118038]: https://github.com/home-assistant/core/pull/118038
+[@Anrijs]: https://github.com/Anrijs
+[@OnFreund]: https://github.com/OnFreund
+[@PeteRager]: https://github.com/PeteRager
+[@RicArch97]: https://github.com/RicArch97
+[@bajansen]: https://github.com/bajansen
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
+[@scop]: https://github.com/scop
+[@swoga]: https://github.com/swoga
+[@thecode]: https://github.com/thecode
+
 [#100780]: https://github.com/home-assistant/core/pull/100780
 [#102424]: https://github.com/home-assistant/core/pull/102424
 [#104343]: https://github.com/home-assistant/core/pull/104343
