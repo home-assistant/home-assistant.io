@@ -32,7 +32,7 @@ docker pull {{ site.installation.container }}:{{current_version}}
 
 1. Stop the Home Assistant service.
 
-2. Switch to the user that is running Home Assistant.
+2. Switch to the user who is running Home Assistant.
 
     ```bash
     sudo -u homeassistant -H -s
