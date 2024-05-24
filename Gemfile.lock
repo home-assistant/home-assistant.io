@@ -5,6 +5,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bigdecimal (3.1.8)
     chunky_png (1.4.0)
     colorator (1.1.0)
     commonmarker (0.23.10)
@@ -27,7 +28,8 @@ GEM
     eventmachine (1.2.7)
     ffi (1.16.3)
     forwardable-extended (2.6.0)
-    google-protobuf (4.26.1-x86_64-linux)
+    google-protobuf (4.27.0-x86_64-linux)
+      bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
     i18n (1.14.5)
