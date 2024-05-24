@@ -24,13 +24,13 @@ If you would like to test next release before anyone else, you can install the b
         ha supervisor options --channel beta
         ```
 
-    2. Reload the {% term "Home Assistant Supervisor" %}.
+    2. Reload Home Assistant Supervisor.
 
         ```bash
         ha supervisor reload
         ```
 
-    3. Update {% term "Home Assistant Core" %} to the latest beta version.
+    3. Update Home Assistant Core to the latest beta version.
 
         ```bash
         ha core update --backup
