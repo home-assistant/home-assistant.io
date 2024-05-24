@@ -41,7 +41,6 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Domain|Name|Enabled|
 |---|---|---|
 |Button|Flash lights|Yes|
-|Button|Force refresh|Yes|
 |Button|Homelink|Yes|
 |Button|Honk horn|Yes|
 |Button|Keyless driving|Yes|
