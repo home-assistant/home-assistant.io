@@ -4,6 +4,7 @@ description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Car
   - Climate
+  - Lock
   - Sensor
   - Switch
   - Select
@@ -16,6 +17,7 @@ ha_domain: teslemetry
 ha_platforms:
   - climate
   - diagnostics
+  - lock
   - select
   - sensor
   - switch
@@ -42,6 +44,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 |---|---|---|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Lock|Charge cable lock|Yes|
+|Lock|Lock|Yes|
+|Lock|Speed limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
