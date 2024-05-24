@@ -31,14 +31,16 @@ You need an API key, it requires a [subscription](https://openweathermap.org/api
 
 ### OpenWeatherMap API V2.5 Deprecation
 
-OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0.
+OpenWeatherMap API V2.5 will be closed in June 2024. After this date, you will need to use API V3.0.
 
-You need to go to OpenWeatherMap website, activate One Call subscription.
-Then configure your OWM integration and select mode `v3.0`.
-Keep in mind, subscription activation takes about 2 hours.
-OpenWeatherMap will charge you if you go over the free tier (1000 calls/day), to avoid that you can set limit on [OpenWeatherMap website](https://home.openweathermap.org/subscriptions).
+To continue using the service:
 
-[Official statement](https://openweathermap.org/one-call-transfer)
+- Visit the OpenWeatherMap website and activate the One Call subscription.
+- During activation, you will be prompted for a credit card, but you will not be charged unless you exceed the free tier limits.
+- Configure your OWM integration to select mode `v3.0`.
+- Note: Subscription activation may take up to 2 hours.
+
+For more details, set limits on your usage to avoid charges at [OpenWeatherMap Subscriptions](https://home.openweathermap.org/subscriptions).
 
 <div class='note'>
 
