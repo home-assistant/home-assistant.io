@@ -11,13 +11,17 @@ ha_domain: nederlandse_spoorwegen
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This sensor will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
+This {% term integration %} will provide you with time table information of the [Nederlandse Spoorwegen](https://www.ns.nl/) train service in the Netherlands.
 
 To obtain an API key, create an account on the [NS API-Portaal](https://apiportal.ns.nl/) and obtain an API key for the `Reisinformatie` API which is part of the `Ns-App` product.
 
-The `nederlandse_spoorwegen` integration can be configured using `configuration.yaml` as shown below:
+The `nederlandse_spoorwegen` {% term integration %} can be configured using your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

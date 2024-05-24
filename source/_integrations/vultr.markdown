@@ -14,6 +14,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Vultr** {% term integration %} allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
@@ -32,7 +35,8 @@ Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#set
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
 </div>
 
-To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Vultr subscriptions with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
