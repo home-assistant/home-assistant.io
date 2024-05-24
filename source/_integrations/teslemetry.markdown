@@ -2,6 +2,7 @@
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Climate
   - Lock
@@ -15,6 +16,7 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
 ha_platforms:
+  - binary_sensor
   - climate
   - diagnostics
   - lock
@@ -42,6 +44,29 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Battery heater|No|
+|Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Charge cable|Yes|
+|Binary sensor|Charger has multiple phases|No|
+|Binary sensor|Dashcam|No|
+|Binary sensor|Front driver door|Yes|
+|Binary sensor|Front driver window|Yes|
+|Binary sensor|Front passenger door|Yes|
+|Binary sensor|Front passenger window|Yes|
+|Binary sensor|Preconditioning enabled|No|
+|Binary sensor|Preconditioning|No|
+|Binary sensor|Rear driver door|Yes|
+|Binary sensor|Rear driver window|Yes|
+|Binary sensor|Rear passenger door|Yes|
+|Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Status|Yes|
+|Binary sensor|Tire pressure warning front left|No|
+|Binary sensor|Tire pressure warning front right|No|
+|Binary sensor|Tire pressure warning rear left|No|
+|Binary sensor|Tire pressure warning rear right|No|
+|Binary sensor|Trip charging|No|
+|Binary sensor|User present|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
 |Lock|Charge cable lock|Yes|
@@ -109,6 +134,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Backup capable|Yes|
+|Binary sensor|Grid services active|Yes|
+|Binary sensor|Grid services enabled|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
