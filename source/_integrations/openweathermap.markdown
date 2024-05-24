@@ -27,17 +27,18 @@ There is currently support for the following device types within Home Assistant:
 
 You need an API key, it requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost.
 
-<div class='note warning'>
+## ⚠️ Important Deprecation Notice
+
+### OpenWeatherMap API V2.5 Deprecation
 
 OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0.
 
-You need to go to OpenWeatherMap website, activate One Call subscription. OpenWeatherMap will charge you if you go over the free tier (1000 calls/day), to avoid that you can set limit on [OpenWeatherMap website](https://home.openweathermap.org/subscriptions).
+You need to go to OpenWeatherMap website, activate One Call subscription.
 Then configure your OWM integration and select mode `v3.0`.
 Keep in mind, subscription activation takes about 2 hours.
+OpenWeatherMap will charge you if you go over the free tier (1000 calls/day), to avoid that you can set limit on [OpenWeatherMap website](https://home.openweathermap.org/subscriptions).
 
 [Official statement](https://openweathermap.org/one-call-transfer)
-
-</div>
 
 <div class='note'>
 
