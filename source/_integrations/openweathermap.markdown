@@ -25,13 +25,13 @@ There is currently support for the following device types within Home Assistant:
 - Sensor
 - Weather
 
-You need an API key, it requires a [subscription](https://openweathermap.org/api/one-call-3), 1000 calls/day or 60 calls/second are in free tier.
+You need an API key, it requires a [subscription](https://openweathermap.org/api/one-call-3). The subscription has a free tier with 1000 calls/day. Consider setting the limit on the OpenWeatherMap website to stay under the threshold where API usage incurs a cost.
 
 <div class='note warning'>
 
 OpenWeatherMap API V2.5 will be closed in June 2024. After that you can use only API V3.0.
 
-You need to go to OpenWeatherMap website, activate One Call subscription. During subscription activation OpenWeatherMap will ask your credit card, don't worry, they won't charge anything. OpenWeatherMap will charge you if you go over the free tier, to avoid that you can set limit on [OpenWeatherMap website](https://home.openweathermap.org/subscriptions).
+You need to go to OpenWeatherMap website, activate One Call subscription. OpenWeatherMap will charge you if you go over the free tier (1000 calls/day), to avoid that you can set limit on [OpenWeatherMap website](https://home.openweathermap.org/subscriptions).
 Then configure your OWM integration and select mode `v3.0`.
 Keep in mind, subscription activation takes about 2 hours.
 
@@ -49,14 +49,14 @@ not be activated yet. Recent policy changes limit the API access for new registe
 
 {% include integrations/config_flow.md %}
 
-| Parameter | Value                                                                                 |
-| :-------- | :------------------------------------------------------------------------------------ |
-| API Key   | API Key from the website                                                              |
-| Name      | Name of the integration                                                               |
-| Latitude  | Latitude for weather forecast and sensor                                              |
-| Longitude | Longitude for weather forecast and sensor                                             |
-| Mode      | API version, `v2.5` old API which will be deprecated in June, `v3.0` new API version. |
-| Language  | Language for receiving data (only for `sensor`)                                       |
+| Parameter | Value                                                     |
+| :-------- | :-------------------------------------------------------- |
+| API Key   | API Key from the website                                  |
+| Name      | Name of the integration                                   |
+| Latitude  | Latitude for weather forecast and sensor                  |
+| Longitude | Longitude for weather forecast and sensor                 |
+| Mode      | API version, `v2.5` (deprecated), `v3.0` new API version. |
+| Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their ids will follow the format:
 
