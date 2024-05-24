@@ -5,6 +5,7 @@ related:
   - docs: /integrations/homeassistant/
   - docs: /docs/configuration/
     title: configuration.yaml file
+  - docs: /docs/configuration/troubleshooting/
 ---
 
 ## Changing entity name and entity ID
