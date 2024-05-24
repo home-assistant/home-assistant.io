@@ -576,11 +576,14 @@ The following {% term integrations %} are now available via the Home Assistant U
 - Improve async_get_issue_tracker for custom integrations ([@emontnemery] - [#118016])
 - Bump pySwitchbot to 0.46.1 ([@bdraco] - [#118025])
 - Extend the blocklist for Matter transitions with more models ([@marcelveldt] - [#118038])
+- Fix rc pylint warning in MQTT ([@frenck] - [#118050])
+- Add state check to config entry setup to ensure it cannot be setup twice ([@bdraco] - [#117193])
 
 [#116391]: https://github.com/home-assistant/core/pull/116391
 [#116538]: https://github.com/home-assistant/core/pull/116538
 [#116696]: https://github.com/home-assistant/core/pull/116696
 [#116937]: https://github.com/home-assistant/core/pull/116937
+[#117193]: https://github.com/home-assistant/core/pull/117193
 [#117203]: https://github.com/home-assistant/core/pull/117203
 [#117209]: https://github.com/home-assistant/core/pull/117209
 [#117631]: https://github.com/home-assistant/core/pull/117631
@@ -603,6 +606,7 @@ The following {% term integrations %} are now available via the Home Assistant U
 [#118016]: https://github.com/home-assistant/core/pull/118016
 [#118025]: https://github.com/home-assistant/core/pull/118025
 [#118038]: https://github.com/home-assistant/core/pull/118038
+[#118050]: https://github.com/home-assistant/core/pull/118050
 [@Anrijs]: https://github.com/Anrijs
 [@OnFreund]: https://github.com/OnFreund
 [@PeteRager]: https://github.com/PeteRager
