@@ -36,7 +36,7 @@ If you would like to test next release before anyone else, you can install the b
         ha core update --backup
         ```
 
-        _The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
+        _The_ `--backup` _flag here ensures that you have a partial backup of your current setup in case you need to downgrade._
 
 {% endtabbed_block %}
 
