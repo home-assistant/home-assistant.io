@@ -60,4 +60,22 @@ Additionally the following diagnostic sensors are available:
 
 ## Networking notes
 
-This {% term integration %} relies on the ability of Home Assistant to receive `UDP` traffic on port `50222`. You may run into trouble if you have a more complex network setup utilizing either VLANs or multiple subnets.
+This {% term integration %} relies on the ability of Home Assistant to receive `UDP` traffic on port `50222`. You may run into trouble if you have a more complex network setup utilizing either VLANs or multiple subnets. If you are deploying Home Assistant via a Docker container, make sure to run using host networking mode or expose port `50222` as `UDP`. For example.:
+
+```
+docker run -d \
+   ...
+  --network=host \
+  ghcr.io/home-assistant/home-assistant:stable
+```
+
+or
+
+```
+docker run -d \
+   ...
+  -p 50222:50222/udp \
+  ghcr.io/home-assistant/home-assistant:stable
+```
+
+Failing to run host networking or exposing port `50222` as `UDP` will result in the error `Config flow could not be loaded: Unknown error`.
