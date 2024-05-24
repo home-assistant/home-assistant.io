@@ -1,4 +1,4 @@
-## Run a specific version
+### Running a specific version
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
 

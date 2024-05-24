@@ -8,6 +8,9 @@ related:
 ---
 This section will provide guides to some common tasks and information which you will need in order to run, maintain, and edit your Home Assistant OS system. For further details on any particular subject, make sure to refer to the documentation for specific add-ons or topics listed here.
 
+{% include common-tasks/file_access.md %}
+{% include common-tasks/backups.md %}
+
 ## Updating Home Assistant
 
 If you have the {% term "Home Assistant Operating System" %} installed, you receive update notifications from different components:
@@ -74,14 +77,16 @@ You can manually define that the previous boot slot is used. This can be useful 
 ### Updating Home Assistant Core
 
 {% include common-tasks/update.md %}
-{% include common-tasks/specific_version.md %}
-{% include common-tasks/beta_version.md %}
-{% include common-tasks/development_version.md %}
-{% include common-tasks/configuration_check.md %}
-{% include common-tasks/file_access.md %}
-{% include common-tasks/backups.md %}
 {% include common-tasks/network_storage.md %}
 {% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
+{% include common-tasks/configuration_check.md %}
+
+## Home Assistant Versions
+
+{% include common-tasks/specific_version.md %}
+{% include common-tasks/beta_version.md %}
+{% include common-tasks/development_version.md %}
+
 {% include common-tasks/data_disk.md %}
