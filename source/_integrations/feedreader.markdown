@@ -33,6 +33,8 @@ automation:
         entity_id: script.my_action
 ```
 
+{% raw %}
+
 ```yaml
 automation:
   - alias: "Send notification of RSS feed title when updated"
@@ -48,6 +50,8 @@ automation:
         message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
         notification_id: "{{ trigger.event.data.title }}"
 ```
+
+{% endraw %}
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
