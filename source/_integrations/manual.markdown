@@ -10,13 +10,17 @@ ha_iot_class: Calculated
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
+The `manual` alarm control panel {% term integration %} enables you to create an alarm system in Home Assistant.
 
 ## Configuration
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

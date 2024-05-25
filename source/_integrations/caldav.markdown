@@ -21,6 +21,9 @@ related:
     title: To-do list card
   - docs: /integrations/calendar
     title: Calendar
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
@@ -47,7 +50,8 @@ This integration was tested against the following systems, but any other complyi
 
 ## Manual configuration
 
-You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
+You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your {% term "`configuration.yaml`" %} file. This method does not support to-do lists. 
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% details Manual configuration examples %}
 

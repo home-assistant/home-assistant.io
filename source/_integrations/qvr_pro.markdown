@@ -11,6 +11,9 @@ ha_codeowners:
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [QVR Pro](https://www.qnap.com/en/software/qvr-pro) allows you to create 
@@ -22,7 +25,8 @@ Currently, only cameras are supported by this integration.
 ## Configuration
 
 To enable QVR Pro integration, add the following to your
-`configuration.yaml` file:
+{% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
