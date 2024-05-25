@@ -1,3 +1,20 @@
+---
+title: LedSC
+description: Instructions about LedSC integration via WebSC.
+ha_category:
+  - Light
+ha_release: '0.40'
+ha_iot_class: Local Polling
+ha_domain: ledsc
+ha_config_flow: true
+ha_platforms:
+  - light
+ha_integration_type: integration
+related:
+  - url: https://ledsc.eu/
+    title: LedSC website
+---
+
 # LedSC integration
 
 [LedSC] is a controller for LED strips that communicates via the Modbus protocol.
