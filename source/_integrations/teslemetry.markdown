@@ -2,9 +2,13 @@
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Climate
+  - Cover
+  - Lock
   - Sensor
+  - Switch
   - Select
   - Update
 ha_release: 2024.2
@@ -14,10 +18,14 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
 ha_platforms:
+  - binary_sensor
   - climate
+  - cover
   - diagnostics
+  - lock
   - select
   - sensor
+  - switch
   - update
 ha_integration_type: integration
 ---
@@ -40,8 +48,38 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Battery heater|No|
+|Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Charge cable|Yes|
+|Binary sensor|Charger has multiple phases|No|
+|Binary sensor|Dashcam|No|
+|Binary sensor|Front driver door|Yes|
+|Binary sensor|Front driver window|Yes|
+|Binary sensor|Front passenger door|Yes|
+|Binary sensor|Front passenger window|Yes|
+|Binary sensor|Preconditioning enabled|No|
+|Binary sensor|Preconditioning|No|
+|Binary sensor|Rear driver door|Yes|
+|Binary sensor|Rear driver window|Yes|
+|Binary sensor|Rear passenger door|Yes|
+|Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Status|Yes|
+|Binary sensor|Tire pressure warning front left|No|
+|Binary sensor|Tire pressure warning front right|No|
+|Binary sensor|Tire pressure warning rear left|No|
+|Binary sensor|Tire pressure warning rear right|No|
+|Binary sensor|Trip charging|No|
+|Binary sensor|User present|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
+|Lock|Charge cable lock|Yes|
+|Lock|Lock|Yes|
+|Lock|Speed limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
@@ -93,12 +131,21 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable Battery level|No|
+|Switch|Auto seat climate left|Yes|
+|Switch|Auto seat climate right|Yes|
+|Switch|Auto steering wheel heater|Yes|
+|Switch|Charge|Yes|
+|Switch|Defrost|Yes|
+|Switch|Sentry mode|Yes|
 |Update|Update|Yes|
 
 ### Energy sites
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Backup capable|Yes|
+|Binary sensor|Grid services active|Yes|
+|Binary sensor|Grid services enabled|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
@@ -111,6 +158,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Switch|Allow charging from grid|Yes|
+|Switch|Storm watch|Yes|
 
 ### Wall connector
 
