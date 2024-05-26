@@ -12,6 +12,7 @@ ha_category:
   - Sensor
   - Switch
   - Select
+  - Update
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -29,6 +30,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -147,6 +149,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
+|Update|Update|Yes|
 
 ### Energy sites
 
