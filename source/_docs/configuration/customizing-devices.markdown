@@ -20,7 +20,7 @@ To change the entity ID and friendly name of supported entities, follow these st
    ![Entity dialog box with cog icon.](/images/docs/configuration/customizing-entity-dialog.png)
 
 3. Enter the new name or the new entity ID.
-   - For example, the entity ID here could be `light.bedroom_ligthstrip_3`.
+   - For example, the entity ID here could be `light.bedroom_lightstrip_3`.
    - Do not change the domain of the entity - the part before the `.` (period).
    - You can use lowercase letters, numbers, and underscores.
    - The name must not start or end with an underscore.
