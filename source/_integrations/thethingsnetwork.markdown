@@ -46,7 +46,7 @@ The **Application ID** is used to identify the scope of your data.
 ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
 3. You need an API key to be able to read the data from your application. 
-  - The minimal required right is `Read Application Traffic (uplink and downlink)`.
+  - The minimum required rights are `Read Application Traffic (uplink and downlink)`.
 
 ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
 
@@ -55,5 +55,5 @@ The **Application ID** is used to identify the scope of your data.
 
 ## Sensor
 
-All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. Each field in `decoded_payload` will be added as Home Assistant sensor entity.
+All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. Each field in `decoded_payload` will be added as a Home Assistant sensor entity.
 
