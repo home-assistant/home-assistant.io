@@ -37,15 +37,16 @@ The **Application ID** is used to identify the scope of your data.
 
 ![Application overview](/images/integrations/thethingsnetwork/applications.png)
 
-Enable the storage integration under the integrations menu:
+1. Under the integrations menu, enable the storage integration:
 
 ![Storage Integration](/images/integrations/thethingsnetwork/storage_integration.png)
 
-Ensure you have an [Uplink Payload Formatter](https://www.thethingsindustries.com/docs/integrations/payload-formatters/) for your device.
+2. Ensure you have an [Uplink Payload Formatter](https://www.thethingsindustries.com/docs/integrations/payload-formatters/) for your device.
 
 ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
-You need an API key to be able to read the data from your application. The minimum rights is `Read Application Traffic (uplink and downlink)`.
+1. You need an API key to be able to read the data from your application. 
+  - The minimum rights is `Read Application Traffic (uplink and downlink)`.
 
 ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
 
