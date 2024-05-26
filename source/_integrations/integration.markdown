@@ -1,5 +1,5 @@
 ---
-title: Integration - Riemann sum integral
+title: Integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Energy
