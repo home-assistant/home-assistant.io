@@ -14,9 +14,8 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays various information related to the Jewish Calendar as various sensors.
+The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.
 {% include integrations/config_flow.md %}
-
 
 
 ### Language

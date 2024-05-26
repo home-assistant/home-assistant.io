@@ -91,6 +91,7 @@ Depending on the supported features of the camera, number entities are added for
 - Volume
 - Guard return time
 - Motion sensitivity
+- PIR sensitivity
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -194,6 +195,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Buzzer on event
 - Email on event
 - FTP upload
+- PIR enabled*
+- PIR reduce false alarm*
 - HDR*
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
@@ -225,6 +228,9 @@ Depending on the supported features of the camera, the following sensor entities
 - PTZ pan position
 - Wi-Fi signal*
 - HDD/SD storage*
+- Battery percentage
+- Battery temperature*
+- Battery state* (discharging, charging, charge complete)
 
 ## Update entity
 

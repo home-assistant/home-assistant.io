@@ -9,9 +9,12 @@ ha_domain: dte_energy_bridge
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-A sensor platform for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
+A sensor {% term integration %} for [DTE](https://www.newlook.dteenergy.com/) using an early model of the Energy Bridge. To find out which version of the DTE Energy Bridge you have, find the status LED on your box.
 
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.
@@ -27,7 +30,8 @@ Later model DTE Energy Bridge hardware uses [MQTT](https://www.home-assistant.io
 
 </div>
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

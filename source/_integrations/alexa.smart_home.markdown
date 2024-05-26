@@ -178,7 +178,7 @@ Next you need create a Lambda function.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your {% term "`configuration.yaml`" %} file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
@@ -869,13 +869,13 @@ Adjust lights that support color temperature using the following friendly names:
 
 The following table lists the possible friendly name synonyms available to lights that support color temperature.
 
-| Color Temperature in Kelvin | Friendly Name Synonyms  |
-| -----| ---------------------------------------------- |
-| 2200 | _"warm"_, _"warm white"_                       |
-| 2700 | _"incandescent"_, _"soft white"_               |
-| 4000 | _"white"_                                      |
-| 5500 | _"daylight"_, _"daylight white"_               |
-| 7000 | _"cool"_, _"cool white"_                       |
+| Color Temperature in Kelvin | Friendly Name Synonyms           |
+| --------------------------- | -------------------------------- |
+| 2200                        | _"warm"_, _"warm white"_         |
+| 2700                        | _"incandescent"_, _"soft white"_ |
+| 4000                        | _"white"_                        |
+| 5500                        | _"daylight"_, _"daylight white"_ |
+| 7000                        | _"cool"_, _"cool white"_         |
 
 Use _"warmer"_, _"softer"_, _"cooler_, _"whiter"_ utterances to adjust color temperature by 50 `mired` (approximately 300-500 degree kelvin change).
 
@@ -1090,7 +1090,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 ## Debugging
 
-The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
+The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %}:
 
 If using Alexa with an Alexa Smart Home Skill and Lambda function such as haaska:
 

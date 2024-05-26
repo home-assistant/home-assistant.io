@@ -11,9 +11,12 @@ ha_domain: signal_messenger
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `signal_messenger` integration uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
+The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
  
@@ -28,7 +31,8 @@ Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-
 
 ## Configuration
 
-To send Signal Messenger notifications with Home Assistant, add the following to your `configuration.yaml` file:
+To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for Signal Messenger 
