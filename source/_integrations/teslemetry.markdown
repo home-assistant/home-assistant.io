@@ -8,6 +8,7 @@ ha_category:
   - Climate
   - Cover
   - Lock
+  - Number
   - Sensor
   - Switch
   - Select
@@ -24,6 +25,7 @@ ha_platforms:
   - cover
   - diagnostics
   - lock
+  - number
   - select
   - sensor
   - switch
@@ -86,6 +88,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
+|Number|Charge current|Yes|
+|Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
@@ -151,6 +155,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Number|Backup reserve|Yes|
+|Number|Off grid reserve|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
