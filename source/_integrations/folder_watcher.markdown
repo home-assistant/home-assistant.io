@@ -15,7 +15,7 @@ ha_integration_type: integration
 
 The **Folder watcher** {% term integration %} adds [Watchdog](https://pythonhosted.org/watchdog/) file system monitoring.
 
-It creates Event entities for these monitored event types:
+It creates event entities for these monitored event types:
 
 - `closed`
 - `created`
@@ -45,7 +45,7 @@ When the `event_type` is `moved`, the file details are for the source file and d
 - `dest_file`: The name of the moved file (e.g. "world.txt")
 - `dest_folder`: The folder moved path (e.g. "/hello")
 
-Automations can be triggered on filesystem events data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
+Automations can be triggered on file system events data using a template. The following automation will send a notification with the name and folder of new files added to that folder:
 
 {% raw %}
 
