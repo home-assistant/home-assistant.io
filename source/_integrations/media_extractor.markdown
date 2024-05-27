@@ -10,9 +10,12 @@ ha_domain: media_extractor
 ha_integration_type: integration
 ha_codeowners:
   - '@joostlek'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Media extractor integration gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
+The Media extractor {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
 
 <div class='note'>
 Media extractor doesn't transcode streams, it just tries to find a stream that matches the requested query.
@@ -36,10 +39,10 @@ This will download the file from the given URL.
 
 There is also a service that will directly return the URL in the response of the service.
 
-| Service data attribute | Optional | Description                                                                                               |
-|-----------------------| -------- |-----------------------------------------------------------------------------------------------------------|
-| `url`                 | no       | The URL of the media to extract.                                                                          |
-| `format_query`        | yes      | The query that will be used to select the right media.                                                    |
+| Service data attribute | Optional | Description                                            |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `url`                  | no       | The URL of the media to extract.                       |
+| `format_query`         | yes      | The query that will be used to select the right media. |
 
 ### Format query
 

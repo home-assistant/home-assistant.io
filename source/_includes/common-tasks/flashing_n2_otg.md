@@ -72,9 +72,9 @@ This will configure the ODROID-N2+ and OTG to act as a memory card reader:
    - Make sure to toggle the boot mode switch back to MMC.
 
 4. Put the ODROID back in its case.
-5. Connect your ODROID-N2+ to your network with an Ethernet cable and plug in power.
+5. Connect your ODROID-N2+ to your network with an Ethernet cable, make sure there is internet access, and plug in power.
 
 6. If your router supports mDNS, you can reach your installation at `http://homeassistant.local:8123`. 
-   - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-N2+ instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`. 
+   - If your network doesn’t support mDNS, you’ll have to use the IP address of your ODROID-N2+ instead of `homeassistant.local`. For example, `http://192.168.0.9:8123`.
    - You should be able to find the IP address of your ODROID-N2+ from the admin interface of your router.
 7. Continue with [onboarding](/getting-started/onboarding/).

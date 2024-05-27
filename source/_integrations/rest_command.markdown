@@ -11,12 +11,13 @@ ha_codeowners:
   - '@jpbede'
 ---
 
-This integration can expose regular REST commands as services. Services can be called from a [script] or in [automation].
+This {% term integration %} can expose regular REST commands as services. Services can be called from a [script] or in [automation].
 
 [script]: /integrations/script/
 [automation]: /getting-started/automation/
 
-To use this integration, add the following lines to your `configuration.yaml` file:
+To use this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

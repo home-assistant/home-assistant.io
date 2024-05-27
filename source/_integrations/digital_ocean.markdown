@@ -14,6 +14,9 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Digital Ocean** {% term integration %} allows you to access the information about your [Digital Ocean](https://www.digitalocean.com/) droplets from Home Assistant.
@@ -29,7 +32,8 @@ Obtain your API key from your [Digital Ocean dashboard](https://cloud.digitaloce
 
 ## Configuration
 
-To integrate your Digital Ocean droplets with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Digital Ocean droplets with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

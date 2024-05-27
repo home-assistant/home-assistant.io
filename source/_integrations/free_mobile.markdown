@@ -9,9 +9,12 @@ ha_domain: free_mobile
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `free_mobile` platform uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
+The `free_mobile` {% term integration %} uses the French mobile operator [Free Mobile](http://mobile.free.fr/) to send SMS to your own cell phone.
 
 ## Prerequisites
 
@@ -29,7 +32,8 @@ If you disable and re-enable the SMS API option, please be sure to update your t
 
 ## Configuration
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
