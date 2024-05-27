@@ -6,7 +6,7 @@ ha_category:
 - Light
 - Switch
 ha_iot_class: Cloud Push
-ha_release: 2024.5.4
+ha_release: 2024.6.0
 ha_config_flow: true
 ha_domain: duwi
 ha_codeowners:
