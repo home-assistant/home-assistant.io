@@ -9,6 +9,7 @@ ha_category:
   - Device tracker
   - Cover
   - Lock
+  - Media player
   - Number
   - Sensor
   - Switch
@@ -28,6 +29,7 @@ ha_platforms:
   - diagnostics
   - device_tracker
   - lock
+  - media_player
   - number
   - select
   - sensor
@@ -94,6 +96,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
+|Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
