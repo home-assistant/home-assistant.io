@@ -128,7 +128,12 @@ type: button
 entity: light.living_room
 ```
 
-Button card with a button name and a script that runs when card is tapped:
+Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+
+<p class='img'>
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
+Screenshot of the button card with script service.
+</p>
 
 ```yaml
 type: button
@@ -141,7 +146,58 @@ tap_action:
     entity_id: script.turn_off_lights
 ```
 
+Example of 4 buttons on a vertical stack card:
+
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
-Screenshot of the button card with script service.
+<img src='/images/dashboards/buttons_on_vertical_stack_card.png' alt='Screenshot of a vertical stack card with 4 buttons and an entity selector'>
+Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
+
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example the netflix script which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+
+```yaml
+cards:
+  - entities:
+      - entity: input_select.living_room_scene
+        name: Scene
+    show_header_toggle: false
+    type: entities
+  - type: horizontal-stack
+    cards:
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: script.netflix
+        hold_action:
+          action: more-info
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: script.youtube
+        hold_action:
+          action: more-info
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: script.wake_on_lan
+        icon: mdi:desktop-tower
+        name: Start computer
+      - show_name: true
+        show_icon: true
+        type: button
+        tap_action:
+          action: toggle
+        entity: script.sleep
+        icon: mdi:sleep
+        hold_action:
+          action: more-info
+type: vertical-stack
+```
+
+
