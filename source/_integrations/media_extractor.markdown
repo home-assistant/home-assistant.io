@@ -49,7 +49,7 @@ There is also a service that will directly return the URL in the response of the
 The query can be used to select the right media.
 Query examples with explanations:
 
-- **bestvideo**: Best video only stream
+- **bestvideo**: Best video-only stream
 - **best**: Best video + audio stream
 - **bestaudio[ext=m4a]**: Best audio stream with m4a extension
 - **worst**: Worst video + audio stream
