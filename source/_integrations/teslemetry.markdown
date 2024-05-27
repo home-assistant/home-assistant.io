@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Car
   - Climate
+  - Device tracker
   - Cover
   - Lock
   - Number
@@ -25,6 +26,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - device_tracker
   - lock
   - number
   - select
@@ -83,6 +85,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Trunk|Yes|
