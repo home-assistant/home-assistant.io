@@ -363,7 +363,7 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:
@@ -714,7 +714,7 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 supported_color_modes:
@@ -1081,7 +1081,7 @@ state_template:
   required: false
   type: template
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 unique_id:
