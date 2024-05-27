@@ -3,6 +3,7 @@ title: "Securing"
 description: "Instructions on how to secure your Home Assistant installation."
 
 related:
+  - docs: /docs/configuration/
   - docs: /docs/configuration/secrets/
     title: Secrets.yaml file
   - docs: /cloud/
