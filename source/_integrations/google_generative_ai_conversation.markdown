@@ -12,9 +12,11 @@ ha_domain: google_generative_ai_conversation
 ha_integration_type: service
 ---
 
-The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant.
+The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.
 
-This conversation agent is unable to control your house. The Google Generative AI conversation agent can be used in automations, but not as a [sentence trigger](/docs/automation/trigger/#sentence-trigger). It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide Google Generative AI with the details of your house, which include areas, devices and their states.
+It can only query information that has been provided by Home Assistant in the prompt. To be able to answer questions about your home, Home Assistant will need to provide Google Generative AI with the details of your home, which includes areas, devices, and their states. This prompt can be customized to adjust the provided information and how the AI should respond.
+
+This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
 This integration requires an API key to use, [which you can generate here](https://makersuite.google.com/app/apikey).
 
@@ -28,11 +30,14 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
-Prompt Template:
-  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
-
 Model:
   description: Model used to generate response.
+
+Control Home Assistant:
+  description: If the model is allowed to interact with Home Assistant
+
+Prompt template:
+  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Temperature:
   description: Creativity allowed in the responses. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
