@@ -97,31 +97,31 @@ Fetches hourly energy prices including price level.
 
 #### Response data
 
-The response data is a dictionary with the energy prices for each Home.
+The response data is a dictionary with the energy prices for each Home. `start_time` is returned in local time from the API.
 
 ```json
 {
   "prices": {
     "Nickname_Home":[
       {
-        "start_time": "2023-12-09 03:00:00+00:00",
+        "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
         "level": "VERY_EXPENSIVE"
       },
       {
-        "start_time": "2023-12-09 04:00:00+00:00",
+        "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
         "level": "VERY_EXPENSIVE"
       }
     ],
     "Nickname_Home_2":[
       {
-        "start_time": "2023-12-09 03:00:00+00:00",
+        "start_time": "2023-12-09 03:00:00+02:00",
         "price": 0.46914,
         "level": "VERY_EXPENSIVE"
       },
       {
-        "start_time": "2023-12-09 04:00:00+00:00",
+        "start_time": "2023-12-09 04:00:00+02:00",
         "price": 0.46914,
         "level": "VERY_EXPENSIVE"
       }
