@@ -30,7 +30,7 @@ Note that for the media player and remote entities to be added your Xbox will ne
 
 <div class='note'>
 
-Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`.
+Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your {% term "`configuration.yaml`" %}.
 
 </div>
 

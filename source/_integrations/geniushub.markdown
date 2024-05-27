@@ -179,7 +179,7 @@ value_template: "{{ state_attr('climate.genius_zone_12', 'status').occupied }}"
 
 ## Configuration
 
-To set up this integration, add one of the following to your `configuration.yaml` file.
+To set up this integration, add one of the following to your{% term "`configuration.yaml`" %}on.yaml`" %} file.
 
 If required, you can switch between one Option and the other and, as the `unique_id` remains consistent, state history will be preserved. This assumes that the correct MAC address is provided for Option 2, below. If a wrong MAC address was provided for Option 1, then the MAC address can be overridden for Option 1 to maintain these links within the entity registry.
 

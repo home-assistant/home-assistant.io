@@ -23,7 +23,7 @@ Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-- Hama: [IR50], [IR110], [DIR3110]
+- Hama: [IR50], [IR110], [DIR3110], [DIR355BT]
 - Medion: [Medion Radios]
 - Silvercrest: [SIRD 14 C2 (archived website)]
 - Teufel: [Radio 3sixty (2019)]

@@ -77,7 +77,7 @@ For more details about the GPIO layout, visit the Wikipedia [article](https://en
 
 The `remote_rpi_gpio` switch platform allows you to control the GPIOs of a [Remote Raspberry Pi](https://www.raspberrypi.org/).
 
-To use your remote Raspberry Pi's GPIO in your installation, add the following to your `configuration.yaml` file:
+To use your remote Raspberry Pi's GPIO in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

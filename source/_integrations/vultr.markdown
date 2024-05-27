@@ -88,7 +88,7 @@ name:
 
 ### Full example
 
-Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
+Full {% term "`configuration.yaml`" %} (produces `binary_sensor.totally_awesome_server`):
 
 ```yaml
 binary_sensor:
@@ -109,7 +109,7 @@ The following examples assume a subscription that has an ID of `123456` and a la
 
 </div>
 
-Minimal `configuration.yaml` (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
+Minimal {% term "`configuration.yaml`" %} (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
 
 ```yaml
 sensor:
@@ -139,7 +139,7 @@ monitored_conditions:
       description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
-Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
+Full {% term "`configuration.yaml`" %} using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
 
 ```yaml
 sensor:
@@ -151,7 +151,7 @@ sensor:
       - pending_charges
 ```
 
-Custom `configuration.yaml` with only one condition monitored (produces `sensor.web_server_bandwidth`):
+Custom {% term "`configuration.yaml`" %} with only one condition monitored (produces `sensor.web_server_bandwidth`):
 
 ```yaml
 sensor:
@@ -170,7 +170,7 @@ To control your Vultr subscription, you first have to set up your Vultr hub.
 
 ### Configuration
 
-Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
+Minimal {% term "`configuration.yaml`" %} (produces `switch.vultr_web_server`):
 
 ```yaml
 # Example configuration.yaml entry

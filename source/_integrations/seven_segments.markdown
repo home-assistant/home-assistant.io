@@ -115,7 +115,7 @@ It's suggested that the first attempt to determine the needed parameters is usin
 ssocr -D erosion crop 390 250 490 280 -t 20 -d 4 seven-seg.png
 ```
 
-This would lead to the following entry for the `configuration.yaml` file:
+This would lead to the following entry for the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 camera:

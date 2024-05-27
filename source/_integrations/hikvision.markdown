@@ -75,7 +75,7 @@ This platform also was confirmed to work with the following Hikvison-based NVRS
 ## Configuration
 
 To enable this sensor,
-add the following lines are required in your `configuration.yaml` file:
+add the following lines are required in your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 binary_sensor:
@@ -166,7 +166,7 @@ Supported sensor/event types are:
 
 ## Examples
 
-Example of a configuration in your `configuration.yaml`
+Example of a configuration in your {% term "`configuration.yaml`" %}
 that utilizes the customize options for a camera:
 
 ```yaml
@@ -184,7 +184,7 @@ binary_sensor:
         ignored: true
 ```
 
-Example of a configuration in your `configuration.yaml`
+Example of a configuration in your {% term "`configuration.yaml`" %}
 that utilizes the customize options for a nvr:
 
 ```yaml

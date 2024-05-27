@@ -52,7 +52,7 @@ intents:
 
 {% endraw %}
 
-To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your `configuration.yaml` file:
+To teach Home Assistant how to handle the custom `CustomOutsideHumidity` {% term intent %}, create an `intent_script` entry in your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -173,6 +173,6 @@ This service is able to return [response data](/docs/scripts/service-calls/#use-
 ## Service `conversation.reload`
 
 | Service data attribute | Optional | Description                                                              |
-|------------------------|----------|--------------------------------------------------------------------------|
+| ---------------------- | -------- | ------------------------------------------------------------------------ |
 | `language`             | yes      | Language to clear intent cache for. No value clears all languages        |
 | `agent_id`             | yes      | ID of conversation agent. Defaults to the built-in Home Assistant agent. |

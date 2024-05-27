@@ -40,7 +40,7 @@ A partial backup consists of any number of the above default directories and ins
 2. `ha backups restore slugname` - restores a specific backup
 3. `ha backups new --name nameofbackup` - create a backup
 
-Use `ha help` to get more information about the command line usage.
+For additional information about command line usage, use the `ha help` command or refer to the [Home Assistant Command Line documentation](/common-tasks/os/#home-assistant-via-the-command-line).
 
 ### Copying your backups to another location
 

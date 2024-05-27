@@ -65,7 +65,7 @@ For those of us using Docker, the above tutorial may not be sufficient. The foll
 
 #### Set HTTP logger
 
-In your `configuration.yaml` file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
+In your {% term "`configuration.yaml`" %} file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
 
 ```yaml
 logger:
@@ -161,7 +161,7 @@ server {
 }
 ```
 
-Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
+Once that's added to the NGINX configuration, we need to modify the Home Assistant {% term "`configuration.yaml`" %} such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
 
 ```yaml
 http:
@@ -172,7 +172,7 @@ At this point, once the Let's Encrypt and Home Assistant dockers are restarted, 
 
 #### Add the fail2ban sensor
 
-Now that we've correctly set everything up for Docker, we can add our sensors to `configuration.yaml` with the following:
+Now that we've correctly set everything up for Docker, we can add our sensors to {% term "`configuration.yaml`" %} with the following:
 
 ```yaml
 sensor:
