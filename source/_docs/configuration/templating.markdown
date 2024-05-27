@@ -900,7 +900,7 @@ Examples:
 
 Not supported in [limited templates](#limited-templates).
 
-- `distance()` will measure the distance in kilometers or miles between home, entity, or coordinates.
+- `distance()` measures the distance between home, an entity, or coordinates. The unit of measurement (kilometers or miles) depends on the system's configuration settings.
 - `closest()` will find the closest entity.
 
 #### Distance examples
