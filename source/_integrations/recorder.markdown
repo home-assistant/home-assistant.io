@@ -38,7 +38,7 @@ Changing database used by the recorder may result in losing your existing histor
 
 </div>
 
-To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
+To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -208,21 +208,21 @@ recorder:
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                              |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
-| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
 ### Service `purge_entities`
 
 Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                              |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database. |
-| `domains`              | yes      | A list of domains that should be purged from the recorder database. |
-| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+| Service data attribute | Optional | Description                                                                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
+| `domains`              | yes      | A list of domains that should be purged from the recorder database.                                                   |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database.                             |
 | `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
 #### Example automation to remove data rows for specific entities

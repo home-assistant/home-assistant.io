@@ -58,7 +58,7 @@ To get your BloomSky binary sensors working with Home Assistant, follow the inst
 
 ### Configuration
 
-To use your BloomSky binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your BloomSky binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -87,7 +87,7 @@ The `bloomsky` camera integration allows you to view the current photo created b
 
 ### Configuration
 
-To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your `configuration.yaml` file:
+To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -101,7 +101,7 @@ The `bloomsky` sensor integration allows you to view the measurements made by se
 
 ### Configuration
 
-To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your `configuration.yaml` file:
+To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry

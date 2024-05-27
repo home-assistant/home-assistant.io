@@ -9,11 +9,15 @@ ha_domain: ziggo_mediabox_xl
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Ziggo Mediabox XL** {% term integration %} allows you to control a [Ziggo](https://www.ziggo.nl/) Mediabox XL from Home Assistant.
 
-To add a Ziggo Mediabox XL to your installation, add the following to your `configuration.yaml` file:
+To add a Ziggo Mediabox XL to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

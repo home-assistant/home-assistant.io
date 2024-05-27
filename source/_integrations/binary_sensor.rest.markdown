@@ -33,7 +33,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 ## Configuration
 
 To enable this sensor,
-add the following lines to your `configuration.yaml` file for a GET request:
+add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry

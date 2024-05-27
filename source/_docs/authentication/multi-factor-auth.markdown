@@ -24,7 +24,7 @@ Home Assistant generates a secret key which is synchronized with an app on your 
 
 #### Setting up TOTP
 
-Enable TOTP in your `configuration.yaml` like this:
+Enable TOTP in your {% term "`configuration.yaml`" %} like this:
 
 ```yaml
 homeassistant:
@@ -64,7 +64,7 @@ The Notify MFA module uses the [notify integration](/integrations/notify/) to se
 
 #### Setting up MFA notify
 
-Add Notify MFA to your `configuration.yaml` file like this:
+Add Notify MFA to your {% term "`configuration.yaml`" %} file like this:
 
 ```yaml
 homeassistant:

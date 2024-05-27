@@ -12,11 +12,14 @@ ha_domain: iperf3
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
+The `iperf3` sensor {% term integration %} allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
-Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
+Enabling this {% term integration %} will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
 
 ## Setup
 
@@ -24,7 +27,8 @@ This integration requires the `iperf3` command to be installed on your OS. Pleas
 
 ## Configuration
 
-To add the `iperf3` sensor to your installation, add the following to your `configuration.yaml` file:
+To add the `iperf3` sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 Once per hour, on the hour (default):
 

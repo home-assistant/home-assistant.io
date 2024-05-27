@@ -82,13 +82,13 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     9. Create a private key in JSON format.
     10. This will start a download of a JSON file.
         1. Rename the file to `SERVICE_ACCOUNT.JSON`.
-        2. Add this file to your config-folder. This will be the same folder as your `configuration.yaml`.
+        2. Add this file to your config-folder. This will be the same folder as your{% term "`configuration.yaml`" %}.
     11. Go back to [Google Cloud Platform](https://console.cloud.google.com/) and select **Close**.
     12. Then select **Save**.
     13. Go to the **Search products and resources** and search for **Homegraph API** and select it.
     14. Enable the HomeGraph API.
 
-5. Add the `google_assistant` integration configuration to your `configuration.yaml` file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
+5. Add the `google_assistant` integration configuration to your{% term "`configuration.yaml`" %} file and restart Home Assistant following the [configuration guide](#yaml-configuration) below.
 6. Add services in the Google Home App (note that app versions may be slightly different).
     1. Open the Google Home app.
     2. Select the `+` button on the top left corner, select **Set up device**. In the **Set up a device** screen, select **Works with Google**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
@@ -167,7 +167,7 @@ You can debug the setup by following [these instructions](https://developers.hom
 
 ### YAML configuration
 
-Now add your setup to your `configuration.yaml` file, such as:
+Now add your setup to your {% term "`configuration.yaml`" %} file, such as:
 
 ```yaml
 # Example configuration.yaml entry
