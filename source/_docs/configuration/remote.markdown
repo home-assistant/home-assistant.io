@@ -38,7 +38,7 @@ If you cannot access your Home Assistant installation remotely, remember to chec
 
 <div class='note'>
 
-Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970) to using Let's Encrypt with Home Assistant.
+Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details, please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970) to using Let's Encrypt with Home Assistant.
 
 </div>
 
