@@ -104,7 +104,7 @@ You will need the authentication token returned by this command to configure Hom
 
 ## Configuration
 
-To add your VIZIO TV to your installation, add the following to your `configuration.yaml` file:
+To add your VIZIO TV to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -204,7 +204,7 @@ vizio:
 
 ### Obtaining an app configuration
 
-If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
+If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in {% term "`configuration.yaml`" %}. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
 
 ### Obtaining a list of valid apps to include or exclude
 

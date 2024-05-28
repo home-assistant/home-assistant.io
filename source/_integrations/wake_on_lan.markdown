@@ -70,7 +70,7 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

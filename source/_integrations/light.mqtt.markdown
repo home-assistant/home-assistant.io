@@ -413,7 +413,7 @@ In this section you will find some real-life examples of how to use this sensor.
 
 ### Brightness and RGB support
 
-To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -441,7 +441,7 @@ mqtt:
 
 ### Brightness and no RGB support
 
-To enable a light with brightness (no RGB version) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness (no RGB version) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -460,7 +460,7 @@ mqtt:
 
 ### Brightness without on commands
 
-To enable a light that sends only brightness topics to turn it on, add the following to your `configuration.yaml` file. The `command_topic` is only used to send an off command in this case:
+To enable a light that sends only brightness topics to turn it on, add the following to your {% term "`configuration.yaml`" %} file. The `command_topic` is only used to send an off command in this case:
 
 ```yaml
 # Example configuration.yaml entry
@@ -742,7 +742,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### Brightness and RGB support
 
-To enable a light with brightness and RGB support in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness and RGB support in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -758,7 +758,7 @@ mqtt:
 
 ### Brightness and no RGB support
 
-To enable a light with brightness (but no color support) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness (but no color support) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -827,7 +827,7 @@ Home Assistant expects the hue values to be in the range 0 to 360 and the satura
 
 ### Brightness and RGBW support
 
-To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your `configuration.yaml` file:
+To enable a light with brightness, RGB support and a separate white channel (RGBW) in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -1090,7 +1090,7 @@ In this section you find some real-life examples of how to use this light.
 
 ### Simple string payload
 
-For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your `configuration.yaml` file:
+For a simple string payload with the format `state,brightness,r-g-b,h-s` (e.g., `on,255,255-255-255,360-100`), add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -1114,7 +1114,7 @@ mqtt:
 
 ### JSON payload
 
-For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your `configuration.yaml` file:
+For a JSON payload with the format `{"state": "on", "brightness": 255, "color": [255, 255, 255], "effect": "rainbow"}`, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -1159,7 +1159,7 @@ mqtt:
 This example comes from a configuration of Shelly RGBW Bulb working in White mode.
 `max_mireds` and `min_mireds` set color temperature boundaries to 3000K - 6500K. Notice the same limits are applied in `command_on_template`, but in kelvin units this time. It's due to conversion from mired to kelvin which causes exceeding boundary values accepted by the device.
 The code also ensures bi-directional conversion of brightness scale between 0-100 (required by the device) and 0-255 (required by Home Assistant).
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

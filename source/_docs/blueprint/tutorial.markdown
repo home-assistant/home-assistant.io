@@ -137,7 +137,7 @@ For more information on blueprint inputs, refer to the documentation of the [blu
 
 With the bare minimum metadata added, your blueprint is ready to use.
 
-Open your `configuration.yaml` and add the following:
+Open your {% term "`configuration.yaml`" %} and add the following:
 
 ```yaml
 automation tutorial:
@@ -202,8 +202,7 @@ blueprint:
       selector:
         target:
           entity:
-            filter:
-              - domain: light
+            - domain: light
 ```
 
 By limiting our blueprint to working with lights and motion sensors, we unlock a couple of benefits: the UI will be able to limit suggested values to lights and motion sensors instead of all devices. It will also allow the user to pick an area to control the lights in.
@@ -234,8 +233,7 @@ blueprint:
       selector:
         target:
           entity:
-            filter:
-              - domain: light
+            - domain: light
 
 trigger:
   - platform: state

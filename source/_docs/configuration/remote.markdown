@@ -1,6 +1,11 @@
 ---
 title: "Remote access"
 description: "Setting up remote access for Home Assistant."
+related:
+  - docs: /docs/configuration/securing/
+    title: Securing your instance
+  - url: https://www.nabucasa.com/config/remote/
+    title: Home Assistant Cloud - remote access
 ---
 
 If you're interested in logging in to Home Assistant while away, you'll have to make your instance remotely accessible. Below are a few options to do this.

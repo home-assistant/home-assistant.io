@@ -29,7 +29,9 @@ There is currently support for the following device types within Home Assistant:
 - [Setup](#setup)
 - [Sensor](#sensor)
 
+
 ## Prerequisites
+
 
 1. Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
    - The **Application ID** is used to identify the scope of your data.
@@ -51,6 +53,7 @@ There is currently support for the following device types within Home Assistant:
 
 
 {% include integrations/config_flow.md %}
+
 
 ## Sensor
 

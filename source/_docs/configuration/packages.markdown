@@ -19,7 +19,7 @@ The package configuration can include: `switch`, `light`, `automation`, `groups`
 
 It can be specified inline or in a separate YAML file using `!include`.
 
-Inline example, main `configuration.yaml`:
+Inline example, main {% term "`configuration.yaml`" %}:
 
 ```yaml
 homeassistant:
@@ -34,7 +34,7 @@ homeassistant:
           ...
 ```
 
-Include example, main `configuration.yaml`:
+Include example, main {% term "`configuration.yaml`" %}:
 
 ```yaml
 homeassistant:
@@ -74,7 +74,7 @@ Integrations inside packages can only specify platform entries using configurati
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory, you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all YAML-files in this _packages_ folder and its subfolders:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory, you can store any number of packages in a YAML file. This entry in your {% term "`configuration.yaml`" %} will load all YAML-files in this _packages_ folder and its subfolders:
 
 ```yaml
 homeassistant:

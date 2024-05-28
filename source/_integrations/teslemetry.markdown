@@ -6,8 +6,10 @@ ha_category:
   - Button
   - Car
   - Climate
+  - Device tracker
   - Cover
   - Lock
+  - Media player
   - Number
   - Sensor
   - Switch
@@ -25,7 +27,9 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - device_tracker
   - lock
+  - media_player
   - number
   - select
   - sensor
@@ -83,6 +87,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Trunk|Yes|
@@ -90,6 +96,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
+|Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
@@ -183,3 +190,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
+
+## Vehicle sleep
+
+Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.

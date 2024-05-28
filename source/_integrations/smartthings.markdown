@@ -361,7 +361,7 @@ If you have completed the checklist above and are still unable to setup the plat
 
 ### Debugging
 
-The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
+The SmartThings integration will log additional information about push updates received, events fired, and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
