@@ -16,6 +16,15 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 {% include integrations/building_block_integration.md %}
 
+## Device class
+
+The way sensors are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, if the device class is set to humidifier, the UI shows "Humidifying". If it is set to dehumidifier, it shows "Drying".
+
+The following device classes are supported for humidifiers:
+
+- **Humidifier**: Adds humidity to the air around it.
+- **Dehumidifier**: Removes humidity from the air around it.
+
 ## Services
 
 ### Humidifier services
