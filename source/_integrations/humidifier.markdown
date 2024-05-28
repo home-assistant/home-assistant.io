@@ -25,6 +25,10 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 A device class represents a group of device types. The device class controls how the device is shown on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
 
+The screenshot shows different text and UI for different device classes for humidifiers:
+
+![Humidifier device classes](/images/screenshots/humudifier_device_class.png)
+
 The following device classes are supported for humidifiers:
 
 - **Humidifier**: Adds humidity to the air around it.
