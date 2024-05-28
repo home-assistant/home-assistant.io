@@ -41,10 +41,10 @@ Not all humidifier services may be available for your platform. Be sure to check
 
 Set mode for the humidifier device. This service is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
 
-| Service data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
-| `mode`                 | no       | New mode.                                                                               |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `mode` | no  | New mode.
 
 #### Automation example
 
@@ -65,10 +65,10 @@ automation:
 
 Set target humidity of the humidifier device
 
-| Service data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
-| `humidity`             | no       | New target humidity for humidifier device                                               |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| `humidity` | no  | New target humidity for humidifier device
 
 #### Automation example
 
@@ -89,22 +89,22 @@ automation:
 
 Turn the humidifier device on.
 
-| Service data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
 ### Service `humidifier.turn_off`
 
 Turn the humidifier device off.
 
-| Service data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
 
 ### Service `humidifier.toggle`
 
 Toggle the humidifier device on/off.
 
-| Service data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
