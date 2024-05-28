@@ -33,7 +33,7 @@ The output will be limited to 3 decimals.
 
 ## Configuration
 
-To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
+To add a simulated sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

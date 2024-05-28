@@ -28,6 +28,9 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 
 - Visit the [API Keys page](https://makersuite.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
+On the same page, you can see your plan: *free of charge* if the associated Google Cloud project doesn't have billing, or *pay-as-you-go* if the associated Google Cloud project has billing enabled.
+Comparison of the plans is available [here](https://ai.google.dev/pricing). The big differences are: free of charge is rate limited and free prompts/responses are used for product improvement.
+
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
 Model:
@@ -59,6 +62,12 @@ Safety settings:
 ## Services
 
 ### Service `google_generative_ai_conversation.generate_content`
+
+<div class='note info'>
+
+  This service isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` service.
+  
+</div>
 
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
 This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with the generated content.

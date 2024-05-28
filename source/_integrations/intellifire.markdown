@@ -121,7 +121,7 @@ The IFT module can suffer a variety of issues that will render it inoperable. So
 
 #### Enabling Debugging
 
-To turn on debug logging modify your `configuration.yaml` file in the `/config` directory and add the following:
+To turn on debug logging modify your {% term "`configuration.yaml`" %} file in the `/config` directory and add the following:
 
 
 ```yaml
