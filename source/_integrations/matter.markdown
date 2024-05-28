@@ -105,6 +105,7 @@ Note: The section below mentions third-party Thread border routers such as the N
 ### Prerequisites
 
 Make sure you have all these components ready before trying to add a Matter device to Home Assistant.
+
 #### Prepare Home Assistant
 
 - Make sure you have the latest version of Home Assistant [installed](/installation/).
