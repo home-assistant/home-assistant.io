@@ -143,7 +143,7 @@ debug:
   default: false
 {% endconfiguration %}
 
-## Editing Entity settings in YAML
+## Editing entity settings in YAML
 
 The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
