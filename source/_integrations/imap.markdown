@@ -120,7 +120,7 @@ The custom event data template is an advanced feature. The option is available o
 server:
   description: The IMAP server name
 username:
-  description: The IMAP user name
+  description: The IMAP username
 search:
   description: The IMAP search configuration
 folder:

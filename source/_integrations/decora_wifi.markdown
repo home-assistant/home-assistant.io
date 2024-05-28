@@ -36,7 +36,7 @@ light:
 
 {% configuration %}
 username:
-  description: Your "My Leviton" app email address/user name.
+  description: Your "My Leviton" app email address/username.
   required: true
   type: string
 password:
