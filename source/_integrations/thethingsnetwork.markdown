@@ -26,6 +26,7 @@ The Things Network supports various integrations to make the data available:
 
 There is currently support for the following device types within Home Assistant:
 
+- [Prerequisites](#prerequisites)
 - [Sensor](#sensor)
 
 
@@ -37,15 +38,15 @@ There is currently support for the following device types within Home Assistant:
 
    ![Application overview](/images/integrations/thethingsnetwork/applications.png)
 
-1. Under the integrations menu, enable the storage integration:
+2. Under the integrations menu, enable the storage integration:
 
    ![Storage Integration](/images/integrations/thethingsnetwork/storage_integration.png)
 
-2. Ensure you have an [Uplink Payload Formatter](https://www.thethingsindustries.com/docs/integrations/payload-formatters/) for your device.
+3. Ensure you have an [Uplink Payload Formatter](https://www.thethingsindustries.com/docs/integrations/payload-formatters/) for your device.
 
    ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
-3. You need an API key to be able to read the data from your application. 
+4. You need an API key to be able to read the data from your application. 
   - The minimum required rights are `Read Application Traffic (uplink and downlink)`.
 
   ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
