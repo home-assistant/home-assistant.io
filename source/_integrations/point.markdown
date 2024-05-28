@@ -32,17 +32,19 @@ The Point hub enables integration with the [Minut Point](https://minut.com/). Th
     - [Webhook events](#webhook-events)
   - [Sensor](#sensor)
 
-## Get Minut Point application credentials
+## Prerequisites
 
-Navigate to the [API-client | Minut](https://web.minut.com/settings/api-clients) dashboard and **Create client**:
+Before adding the integration to Home Assistant, you need to get Minut Point application credentials.
 
-- Enter a **Name** for your client (this is just an identifier).
-- Enter `https://my.home-assistant.io/redirect/oauth` in the **Redirect URI** field.
-- Get the **ClientID** and **ClientSecret** for the new client, you need them to complete the integration setup in Home Assistant.
+1. Navigate to the [API-client | Minut](https://web.minut.com/settings/api-clients) dashboard and **Create client**:
+
+  - Enter a **Name** for your client (this is just an identifier).
+  - Enter `https://my.home-assistant.io/redirect/oauth` in the **Redirect URI** field.
+2. Get the **ClientID** and **ClientSecret** for the new client and store them in a safe place. You need them to complete the integration setup in Home Assistant.
 
 <div class='note'>
 
-If you are a kickstarter backer you need to send an email to hello@minut.com to retrive **ClientID** and **ClientSecret**, don't forget to mention that the **Redirect URI** should be `https://my.home-assistant.io/redirect/oauth`.
+If you are a Kickstarter backer, you need to send an email to hello@minut.com to retrieve the **ClientID** and **ClientSecret**. Don't forget to mention that the **Redirect URI** should be `https://my.home-assistant.io/redirect/oauth`.
 
 </div>
 
