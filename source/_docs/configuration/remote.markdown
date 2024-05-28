@@ -38,6 +38,14 @@ If you cannot access your Home Assistant installation remotely, remember to chec
 
 <div class='note'>
 
-Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](/docs/ecosystem/certificates/lets_encrypt/) to using Let's Encrypt with Home Assistant.
+Just putting a port up is not secure. You should definitely consider encrypting your traffic if you are accessing your Home Assistant installation remotely. For details please check the [set up encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/) blog post or this [detailed guide](https://community.home-assistant.io/t/certificate-authority-and-self-signed-certificate-for-ssl-tls/196970) to using Let's Encrypt with Home Assistant.
 
 </div>
+
+## Adding a remote URL to Home Assistant
+
+To set the URL under which your Home Assistant can be accessed from outside your local network, follow these steps:
+
+1. In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and make sure **Advanced mode** is enabled.
+2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
+3. Under **Home Assistant URL**, enter the external URL that you previously set up for your instance.
