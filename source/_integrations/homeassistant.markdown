@@ -191,16 +191,23 @@ initial_state:
 
 ### Device class
 
+A device class represents a group of device types. The way a specific device class is shown in the user interface depends on the platform that is using it. For example, binary sensor and cover both support the device class "window". While for the binary sensor the window can only be open or closed, for cover, a window can also be tilted. For a given platform, the device class controls how the device is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+
 Device class is currently supported by the following platforms:
 
-- [Binary sensor](/integrations/binary_sensor/)
-- [Button](/integrations/button/)
-- [Cover](/integrations/cover/)
-- [Humidifier](/integrations/humidifier/)
-- [Media player](/integrations/media_player/)
-- [Number](/integrations/number/)
-- [Sensor](/integrations/sensor/)
-- [Switch](/integrations/switch/)
+- [Binary sensor](/integrations/binary_sensor/#device-class)
+- [Button](/integrations/button/#device-class)
+- [Cover](/integrations/cover/#device-class)
+- [Event](/integrations/event/#device-class)
+- [Humidifier](/integrations/humidifier/#device-class)
+- [Media player](/integrations/media_player/#device-class)
+- [Number](/integrations/number/#device-class)
+- [Sensor](/integrations/sensor#device-class)
+- [Switch](/integrations/switch/#device-class)
+- [Update](/integrations/update/#device-class)
+- [Valve](/integrations/valve/#device-class)
+
+For a list of the supported device classes, refer to the documentation of the platform.
 
 ### Manual customization
 
