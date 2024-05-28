@@ -27,7 +27,7 @@ A device class represents a group of device types. The device class controls how
 
 The screenshot shows different text and UI for different device classes for humidifiers:
 
-![Humidifier device classes](/images/screenshots/humudifier_device_class.png)
+![Humidifier device classes](/images/screenshots/humidifier_device_class.png)
 
 The following device classes are supported for humidifiers:
 
