@@ -46,6 +46,6 @@ Just putting a port up is not secure. You should definitely consider encrypting 
 
 To set the URL under which your Home Assistant can be accessed from outside your local network, follow these steps:
 
-1. In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and make sure **Advanced mode** is enabled.
+1. In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and make sure **Advanced mode** is enabled.
 2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 3. Under **Home Assistant URL**, enter the external URL that you previously set up for your instance.
