@@ -26,7 +26,6 @@ The Things Network supports various integrations to make the data available:
 
 There is currently support for the following device types within Home Assistant:
 
-- [Setup](#setup)
 - [Sensor](#sensor)
 
 
