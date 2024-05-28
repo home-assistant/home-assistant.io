@@ -10,6 +10,11 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
@@ -18,7 +23,14 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ## Device class
 
-The way sensors are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, if the device class is set to humidifier, the UI shows "Humidifying". If it is set to dehumidifier, it shows "Drying".
+The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+
+The screenshot shows different text and UI for different device classes for humidifiers:
+
+<p class='img'>
+<img src='/images/screenshots/humidifier_device_class.png' />
+Humidifier device classes.
+</p>
 
 The following device classes are supported for humidifiers:
 

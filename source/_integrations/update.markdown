@@ -8,6 +8,11 @@ ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 An update {% term entity %} is an entity that indicates if an update is available for a
@@ -51,8 +56,9 @@ information on the update state:
 
 ## Device class
 
-The way these update entities are displayed in the frontend depend on their
-device classes. The following device classes are supported for switches:
+The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+
+The following device classes are supported for update entities:
 
 - **`None`**: A generic software update. This is the default and doesn't need
   to be set.
