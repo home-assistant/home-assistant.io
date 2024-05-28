@@ -9,6 +9,11 @@ ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Interacts with media players on your network.
@@ -180,7 +185,9 @@ Allows to group media players together for synchronous playback. Only works on s
 
 ### Device class
 
-The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
+A device class represents a group of device types. The device class controls how the device is shown on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+
+The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
 - `speaker`: Device is a speaker or stereo type device.
