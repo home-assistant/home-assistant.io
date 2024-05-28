@@ -47,9 +47,9 @@ There is currently support for the following device types within Home Assistant:
    ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
 4. You need an API key to be able to read the data from your application. 
-  - The minimum required rights are `Read Application Traffic (uplink and downlink)`.
+   - The minimum required rights are `Read Application Traffic (uplink and downlink)`.
 
-  ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
+   ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
 
 
 {% include integrations/config_flow.md %}
