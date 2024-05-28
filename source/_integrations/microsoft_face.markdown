@@ -27,7 +27,7 @@ Please note that all keys on cognitive services must be recreated every 90 days.
 ## Configuration
 
 To enable the Microsoft Face {% term integration %},
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

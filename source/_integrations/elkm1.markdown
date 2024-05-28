@@ -146,7 +146,7 @@ The complete list of trouble statuses are:
 
 ## Manual configuration
 
-Alternatively, configuration through the `configuration.yaml` file
+Alternatively, configuration through the {% term "`configuration.yaml`" %} file
 is supported (example below).
 
 Both methods of configuration support "auto configuration". This works by
@@ -561,7 +561,7 @@ Speak a word. The list of words is defined in the ElkM1 ASCII Protocol documenta
 Debug logs are often required to solve an issue. Follow the instructions on [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
 Sometimes, for example, a problem can occur while starting Home Assistant. In this case, follow these instructions.
-Add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+Add the following to your {% term "`configuration.yaml`" %} file in your Home Assistant `config` directory:
 
 ```yaml
 logger:

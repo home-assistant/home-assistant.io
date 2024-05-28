@@ -12,7 +12,7 @@ The `rest` sensor platform is consuming a given endpoint which is exposed by a [
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry

@@ -42,7 +42,7 @@ for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where your `configuration.yaml` is located).
+`media` under the configuration path (where your {% term "`configuration.yaml`" %} is located).
 
 Files served from `media` are protected by Home Assistant authentication
 unlike those served from `www`.
