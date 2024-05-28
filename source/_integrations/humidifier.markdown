@@ -27,7 +27,10 @@ The device class defines how the entity is represented on the [dashboard](/dashb
 
 The screenshot shows different text and UI for different device classes for humidifiers:
 
-![Humidifier device classes](/images/screenshots/humidifier_device_class.png)
+<p class='img'>
+<img src='/images/screenshots/humidifier_device_class.png' />
+Humidifier device classes.
+</p>
 
 The following device classes are supported for humidifiers:
 
