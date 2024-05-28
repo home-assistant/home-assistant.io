@@ -22,8 +22,8 @@ The way sensors are displayed in the {% term frontend %} can be modified in the 
 
 The following device classes are supported for humidifiers:
 
-- **Humidifier**: Adds humidity to the air around it.
-- **Dehumidifier**: Removes humidity from the air around it.
+- **Humidifier**: Adds humidity to the surrounding air.
+- **Dehumidifier**: Removes humidity from the surrounding air.
 
 ## Services
 
