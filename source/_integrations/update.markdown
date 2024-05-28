@@ -49,7 +49,7 @@ information on the update state:
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
 
-## Device classes
+## Device class
 
 The way these update entities are displayed in the frontend depend on their
 device classes. The following device classes are supported for switches:
