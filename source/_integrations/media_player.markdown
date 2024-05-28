@@ -185,7 +185,7 @@ Allows to group media players together for synchronous playback. Only works on s
 
 ### Device class
 
-A device class represents a group of device types. The device class controls how the device is shown on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
 
 The following device classes are supported for media players:
 

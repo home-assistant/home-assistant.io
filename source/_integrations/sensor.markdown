@@ -22,7 +22,16 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 
 ## Device class
 
-The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
+The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+
+The screenshot shows different icons representing different device classes for sensors:
+
+<p class='img'>
+<img src='/images/screenshots/sensor_device_classes_icons.png' />
+Example of various device class icons for sensors.
+</p>
+
+The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
@@ -76,8 +85,3 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph
-
-<p class='img'>
-<img src='/images/screenshots/sensor_device_classes_icons.png' />
-Example of various device class icons for sensors.
-</p>
