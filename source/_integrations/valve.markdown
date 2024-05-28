@@ -22,7 +22,7 @@ The valve entity in Home Assistant provides an interface to control valves such 
 
 ## Device class
 
-A device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+{% include integrations/device_class_intro.md %}
 
 The following device classes are supported for valves:
 

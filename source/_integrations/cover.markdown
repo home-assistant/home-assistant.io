@@ -22,7 +22,7 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 ## Device class
 
-The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+{% include integrations/device_class_intro.md %}
 
 The screenshot shows different icons representing different device classes for covers:
 
