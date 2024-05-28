@@ -445,6 +445,63 @@ A component config part in a device discovery payload must have the `platform` o
 
 </div>
 
+##### Migration from single component to device based discovery
+
+To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to migrate back.
+
+**Example (device automation):**
+Discovery topic single: `homeassistant/device_automation/0AFFD2/bla/config`
+Discovery id: `0AFFD2 bla` *(both `0AFFD2` and `bla` from the discovery topic)*
+Discovery payload single:
+
+```json
+{
+  "automation_type": "trigger",
+  "device": {
+    "identifiers": [
+      "0AFFD2"
+    ]
+  },
+  "o": {
+    "name": "foobar"
+  },
+  "payload": "short_press",
+  "topic": "foobar/triggers/button1",
+  "type": "button_short_press",
+  "subtype": "button_1"
+}
+```
+
+**Device discovery with migration support:**
+Discovery topic device: `homeassistant/device/0AFFD2/config`
+Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
+Discovery payload device:
+
+```json
+{
+  "device": {
+    "identifiers": [
+      "0AFFD2"
+    ]
+  },
+  "o": {
+    "name": "foobar"
+  },
+  "cmp": {
+    "bla": {
+      "automation_type": "trigger",
+      "payload": "short_press",
+      "topic": "foobar/triggers/button1",
+      "type": "button_short_press",
+      "subtype": "button_1",
+      "platform": "device_automation"
+    }
+  }
+}
+```
+
+If the new device discovery payload has the same `discovery_id` and comes after the single discovery payload. Home Assistant will publish `None` (retained) to the single discovery payload to remove it. This avoids rediscovery when Home Assistant restarts.
+
 #### Single component discovery payload
 
 The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
