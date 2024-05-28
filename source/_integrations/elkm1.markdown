@@ -77,7 +77,7 @@ version of the TLS protocol, the user must specify the TLS version to connect.
 
 ### Global Setting 35
 
-The ElkM1 integration tracks the user number and name of the last user name to
+The ElkM1 integration tracks the user number and name of the last username to
 arm or disarm the panel. The `changed_by` and `changed_by_id` attributes of
 the `alarm_control_panel` hold those two attributes.
 
