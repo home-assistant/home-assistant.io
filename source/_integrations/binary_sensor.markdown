@@ -41,7 +41,7 @@ Example of various device classes icons in `on` and `off` state. The on image
 in this example has `state_color: true` specified in the entities card
 configuration to receive the icon coloring.
 
-The following device classes are supported for buttons:
+The following device classes are supported for binary sensors:
 
 - **None**: Generic on/off. This is the default and doesn't need to be set.
 - **battery**: `on` means low, `off` means normal

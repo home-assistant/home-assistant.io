@@ -26,7 +26,11 @@ A device class represents a group of device types. The device class controls how
 
 The screenshot shows different icons representing different device classes for covers:
 
-![List of cover examples](/images/screenshots/cover_classes_icons.png)
+<p class='img'>
+<img src='/images/screenshots/cover_classes_icons.png' />
+List of cover examples.
+</p>
+
 Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
 
 The following device classes are supported for covers.
