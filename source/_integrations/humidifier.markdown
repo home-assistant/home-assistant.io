@@ -16,6 +16,15 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 {% include integrations/building_block_integration.md %}
 
+## Device class
+
+The way sensors are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, if the device class is set to humidifier, the UI shows "Humidifying". If it is set to dehumidifier, it shows "Drying".
+
+The following device classes are supported for humidifiers:
+
+- **Humidifier**: Adds humidity to the air around it.
+- **Dehumidifier**: Removes humidity from the air around it.
+
 ## Services
 
 ### Humidifier services
@@ -32,10 +41,10 @@ Not all humidifier services may be available for your platform. Be sure to check
 
 Set mode for the humidifier device. This service is only available if the device supports operating in several working modes. The list of available modes and the device functionality in every mode depend on the device itself.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-| `mode` | no  | New mode.
+| Service data attribute | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
+| `mode`                 | no       | New mode.                                                                               |
 
 #### Automation example
 
@@ -56,10 +65,10 @@ automation:
 
 Set target humidity of the humidifier device
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
-| `humidity` | no  | New target humidity for humidifier device
+| Service data attribute | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
+| `humidity`             | no       | New target humidity for humidifier device                                               |
 
 #### Automation example
 
@@ -80,22 +89,22 @@ automation:
 
 Turn the humidifier device on.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| Service data attribute | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
 
 ### Service `humidifier.turn_off`
 
 Turn the humidifier device off.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| Service data attribute | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
 
 ### Service `humidifier.toggle`
 
 Toggle the humidifier device on/off.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of humidifier devices to control.
+| Service data attribute | Optional | Description                                                                             |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of humidifier devices to control. |
