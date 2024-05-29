@@ -38,8 +38,8 @@ Before adding the integration to Home Assistant, you need to get Minut Point app
 
 1. Navigate to the [API-client | Minut](https://web.minut.com/settings/api-clients) dashboard and **Create client**:
 
-    - Enter a **Name** for your client (this is just an identifier).
-    - Enter `https://my.home-assistant.io/redirect/oauth` in the **Redirect URI** field.
+   - Enter a **Name** for your client (this is just an identifier).
+   - Enter `https://my.home-assistant.io/redirect/oauth` in the **Redirect URI** field.
 2. Get the **ClientID** and **ClientSecret** for the new client and store them in a safe place. You need them to complete the integration setup in Home Assistant.
 
 <div class='note'>
