@@ -187,6 +187,13 @@ Allows to group media players together for synchronous playback. Only works on s
 
 {% include integrations/device_class_intro.md %}
 
+The screenshot shows different icons representing device classes of the media player entity:
+
+<p class='img'>
+<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
+Example of different icons representing device classes of the media player entity.
+</p>
+
 The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
