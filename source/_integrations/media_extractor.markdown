@@ -53,7 +53,7 @@ Query examples with explanations:
 - **best**: Best video + audio stream
 - **bestaudio[ext=m4a]**: Best audio stream with m4a extension
 - **worst**: Worst video + audio stream
-- **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best m4a audio, otherwise best ogg audio and only then any best audio
+- **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best M4A audio, otherwise best OGG audio and only then any best audio
 
 More info about queries can be found [here](https://github.com/ytdl-org/youtube-dl#format-selection).
 
