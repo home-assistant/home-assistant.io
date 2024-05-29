@@ -51,7 +51,7 @@ Query examples with explanations:
 
 - **bestvideo**: Best video-only stream
 - **best**: Best video + audio stream
-- **bestaudio[ext=m4a]**: Best audio stream with m4a extension
+- **bestaudio[ext=m4a]**: Best audio stream in M4A format
 - **worst**: Worst video + audio stream
 - **bestaudio[ext=m4a]/bestaudio[ext=ogg]/bestaudio**: Best M4A audio, otherwise best OGG audio and only then any best audio
 
