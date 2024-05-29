@@ -25,7 +25,7 @@ To install the add-on, follow these steps:
 2. On the **Configuration** tab, define **Username** and **Password**, store them in a safe place, and save your changes.
    - You can specify any username and password.
    - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer from which you are accessing the files.
-   - The add-on won't start if user name and password are not defined.
+   - The add-on won't start if username and password are not defined.
 3. For further configuration information, refer to the **Documentation** tab.
 4. To start the add-on, on the **Information** tab, select **Start**.
 

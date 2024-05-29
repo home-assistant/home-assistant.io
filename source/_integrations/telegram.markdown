@@ -29,7 +29,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
      - Store the token somewhere safe.
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
    - Then, enter `/start`. 
-   - The bot will return your chat ID and the user name.
+   - The bot will return your chat ID and the username.
 3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
    - Paste this into your [configuration file](/docs/configuration/):
    - Replace the `api_key` and the `allowed_chat_ids` with your data.

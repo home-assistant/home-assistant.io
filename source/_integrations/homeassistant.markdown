@@ -18,9 +18,9 @@ related:
   - docs: /docs/configuration/customizing-devices/
 ---
 
-The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on`.
+The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` service.
 
-## Editing the general settings in YAML
+## Editing the General Settings in YAML
 
 The Home Assistant Core integration is also responsible for the general settings. These settings are defined during onboarding, but you can change them later under {% my general title="**Settings** > **System** > **General**" %}. For the detailed steps, refer to [Basic settings](/docs/configuration/basic/).
 
@@ -143,12 +143,12 @@ debug:
   default: false
 {% endconfiguration %}
 
-## Editing the entity settings in YAML
+## Editing entity settings in YAML
 
-The Home Assistant Core integration is also responsible for the entity settings.
+The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entites](/docs/configuration/customizing-devices/).
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
 
 If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
 
@@ -191,16 +191,23 @@ initial_state:
 
 ### Device class
 
+A device class represents a group of device types. The way a specific device class is shown in the user interface depends on the platform that is using it. For example, binary sensor and cover both support the device class "window". While for the binary sensor the window can only be open or closed, for cover, a window can also be tilted. For a given platform, the device class controls how the device is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+
 Device class is currently supported by the following platforms:
 
-- [Binary sensor](/integrations/binary_sensor/)
-- [Button](/integrations/button/)
-- [Cover](/integrations/cover/)
-- [Humidifier](/integrations/humidifier/)
-- [Media player](/integrations/media_player/)
-- [Number](/integrations/number/)
-- [Sensor](/integrations/sensor/)
-- [Switch](/integrations/switch/)
+- [Binary sensor](/integrations/binary_sensor/#device-class)
+- [Button](/integrations/button/#device-class)
+- [Cover](/integrations/cover/#device-class)
+- [Event](/integrations/event/#device-class)
+- [Humidifier](/integrations/humidifier/#device-class)
+- [Media player](/integrations/media_player/#device-class)
+- [Number](/integrations/number/#device-class)
+- [Sensor](/integrations/sensor#device-class)
+- [Switch](/integrations/switch/#device-class)
+- [Update](/integrations/update/#device-class)
+- [Valve](/integrations/valve/#device-class)
+
+For a list of the supported device classes, refer to the documentation of the platform.
 
 ### Manual customization
 
