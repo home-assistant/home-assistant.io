@@ -695,7 +695,7 @@ payload_not_available:
   type: string
   default: offline
 platform:
-  description: Must be `lght`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  description: Must be `light`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
   required: true
   type: string
 qos:
