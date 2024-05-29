@@ -11,7 +11,7 @@ related:
 
 ## Customizing an entity
 
-After adding a new device, the entity may not have a friendly name and the automatically assigned entity ID might look very technical. If you like, you can use your own naming concept for devices. Or you may want to change other elements, such as the icon.
+After adding a new device, you might find the automatically assigned entity ID too technical and the entity lacking a friendly name. You can personalize these elements to better fit your naming conventions or modify other attributes like the icon.
 
 To change entity attributes, follow these steps:
 
