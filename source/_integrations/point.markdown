@@ -23,14 +23,8 @@ related:
     title: Application credentials
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). There is currently support for the following device types within Home Assistant:
+The Point hub enables integration with the [Minut Point](https://minut.com/).
 
-- [Device types](#device-types)
-  - [Alarm](#alarm)
-  - [Binary sensor](#binary-sensor)
-    - [Automation example](#automation-example)
-    - [Webhook events](#webhook-events)
-  - [Sensor](#sensor)
 
 ## Prerequisites
 
@@ -50,15 +44,11 @@ If you are a Kickstarter backer, you need to send an email to hello@minut.com to
 
 {% include integrations/config_flow.md %}
 
-# Device types
+## Device types
 
 The integration supports the following device types within Home Assistant:
-
-- [Device types](#device-types)
   - [Alarm](#alarm)
   - [Binary sensor](#binary-sensor)
-    - [Automation example](#automation-example)
-    - [Webhook events](#webhook-events)
   - [Sensor](#sensor)
 
 <div class='note'>
