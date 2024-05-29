@@ -37,3 +37,11 @@ The integration will fetch data from each device. The following sensors are supp
 - Signal strength
 - Temperature
 - Total volatile organic compounds index
+
+## Available configuration entities
+
+The integration provides a few configuration entities to customize the device experience.
+The settings are only applied to the device when the configuration source is set to local.
+The following entities are supported:
+
+- Display temperature unit
