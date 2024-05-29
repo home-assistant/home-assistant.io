@@ -370,7 +370,7 @@ The components id's under the `components` (`cmp`) key should are used as part o
 
 To remove the components, publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
-To remove a single component from the device discovery an empty config can be published as an update. Note that it is still required to add the platform option.
+An empty config can be published as an update to remove a single component from the device discovery. Note that adding the platform option is still required.
 
 ```json
 {
