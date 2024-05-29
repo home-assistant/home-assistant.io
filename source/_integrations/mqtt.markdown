@@ -505,7 +505,7 @@ If the new device discovery payload has the same `discovery_id` and comes after 
 #### Single component discovery payload
 
 The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be send for the other components, and it is then recommended to use [device based discovery](/integrations/mqtt/#device-discovery-payload) instead.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be sent for the other components, and it is then recommended to use [device based discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
 Example discovery payload:
 
