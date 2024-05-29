@@ -23,7 +23,7 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 ## Device class
 
-The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+{% include integrations/device_class_intro.md %}
 
 The screenshot shows different text and UI for different device classes for humidifiers:
 

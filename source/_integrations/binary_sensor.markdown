@@ -31,7 +31,7 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 ### Device class
 
-The device class defines how the entity is represented on the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.
+{% include integrations/device_class_intro.md %}
 
 The screenshot shows a few examples of different device classes for binary sensors:
 
