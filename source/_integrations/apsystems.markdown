@@ -10,6 +10,9 @@ ha_domain: apsystems
 ha_platforms:
   - sensor
 ha_integration_type: device
+ha_codeowners:
+  - '@mawoka-myblock'
+  - '@SonnenladenGmbH'
 ---
 
 The **APsystems** {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter.

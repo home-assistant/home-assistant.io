@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: airgradient
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ha_zeroconf: true
 ---
 

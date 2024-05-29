@@ -1,5 +1,5 @@
 ---
-title: Google Generative AI Conversation
+title: Google Generative AI
 description: Instructions on how to integrate Google Generative AI as a conversation agent
 ha_category:
   - Voice
@@ -10,6 +10,10 @@ ha_codeowners:
   - '@tronikos'
 ha_domain: google_generative_ai_conversation
 ha_integration_type: service
+ha_quality_scale: platinum
+ha_platforms:
+  - conversation
+  - diagnostics
 ---
 
 The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.

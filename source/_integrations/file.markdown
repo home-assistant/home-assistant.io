@@ -17,6 +17,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The File integration allows to store notifications to a file or to set up a sensor based on a file's content.

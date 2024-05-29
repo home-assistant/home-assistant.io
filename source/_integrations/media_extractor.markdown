@@ -13,6 +13,7 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The `media_extractor` {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.

@@ -12,6 +12,7 @@ ha_domain: nws
 ha_quality_scale: platinum
 ha_config_flow: true
 ha_platforms:
+  - diagnostics
   - sensor
   - weather
 ha_integration_type: integration

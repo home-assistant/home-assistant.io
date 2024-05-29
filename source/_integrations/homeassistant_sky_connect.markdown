@@ -7,7 +7,7 @@ ha_category:
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: homeassistant_sky_connect
-ha_integration_type: device
+ha_integration_type: hardware
 ha_config_flow: true
 ---
 

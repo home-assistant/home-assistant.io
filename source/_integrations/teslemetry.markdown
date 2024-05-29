@@ -6,14 +6,14 @@ ha_category:
   - Button
   - Car
   - Climate
-  - Device tracker
   - Cover
+  - Device tracker
   - Lock
   - Media player
   - Number
+  - Select
   - Sensor
   - Switch
-  - Select
   - Update
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
@@ -26,8 +26,8 @@ ha_platforms:
   - button
   - climate
   - cover
-  - diagnostics
   - device_tracker
+  - diagnostics
   - lock
   - media_player
   - number
