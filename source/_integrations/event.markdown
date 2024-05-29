@@ -84,11 +84,11 @@ When creating automations in the automation editor in the UI, the event types ar
 
 {% include integrations/device_class_intro.md %}
 
-The screenshot shows different icons representing devices classes of the event entity:
+The screenshot shows different icons representing device classes of the event entity:
 
 <p class='img'>
-<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing devices classes of the event entity' />
-Example of different icons representing devices classes of the event entity.
+<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing device classes of the event entity' />
+Example of different icons representing device classes of the event entity.
 </p>
 
 The following device classes are supported by event entities:
