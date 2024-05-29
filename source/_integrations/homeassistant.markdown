@@ -191,7 +191,7 @@ initial_state:
 
 ### Device class
 
-A device class represents a group of device types. The way a specific device class is shown in the user interface depends on the platform that is using it. For example, binary sensor and cover both support the device class "window". While for the binary sensor the window can only be open or closed, for cover, a window can also be tilted. For a given platform, the device class controls how the device is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+A device class is a measurement categorization in Home Assistant. It influences how the entity is shown in the [dashboard](/dashboards/). The way a specific device class is represented depends on the platform that is using it. For example, binary sensor and cover both support the device class "window". While for the binary sensor the window can only be open or closed, for cover, a window can also be tilted. For a given platform, the device class influences what is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
 
 Device class is currently supported by the following platforms:
 
