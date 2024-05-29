@@ -32,7 +32,7 @@ The **OSO Energy** integration exposes OSO Energy data as a binary sensor. It pr
   - Indication if the water heater is currently in an extra energy/high demand state.
 - Power save
   - Indication if the water heater is currently in a power save/sleep mode state.
-- Heater state
+- Heating
   - Indication if the water heater is currently heating the water.
 
 ## Sensors
