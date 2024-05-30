@@ -16,7 +16,7 @@ The Google Generative AI integration adds a conversation agent powered by [Googl
 
 This conversation agent is unable to control your house. The Google Generative AI conversation agent can be used in automations, but not as a [sentence trigger](/docs/automation/trigger/#sentence-trigger). It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide Google Generative AI with the details of your house, which include areas, devices and their states.
 
-This integration requires an API key to use, [which you can generate here](https://makersuite.google.com/app/apikey).
+This integration requires an API key to use, [which you can generate here](https://aistudio.google.com/app/apikey), and to be in one of the [available regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
 {% include integrations/config_flow.md %}
 
@@ -24,10 +24,10 @@ This integration requires an API key to use, [which you can generate here](https
 
 The Google Generative AI API key is used to authenticate requests to the Google Generative AI API. To generate an API key take the following steps:
 
-- Visit the [API Keys page](https://makersuite.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
+- Visit the [API Keys page](https://aistudio.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
 On the same page, you can see your plan: *free of charge* if the associated Google Cloud project doesn't have billing, or *pay-as-you-go* if the associated Google Cloud project has billing enabled.
-Comparison of the plans is available [here](https://ai.google.dev/pricing). The big differences are: free of charge is rate limited and free prompts/responses are used for product improvement.
+Comparison of the plans is available [at this pricing page](https://ai.google.dev/pricing). The major differences include: the free of charge plan is rate limited, free prompts/responses are used for product improvement, and the free plan is not available in all [regions](https://ai.google.dev/gemini-api/docs/available-regions).
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
