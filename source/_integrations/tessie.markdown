@@ -208,7 +208,6 @@ The integration will show vehicle software updates and their installation progre
 
 ### Sensor
 
-
 - Battery power
 - Energy left
 - Generator power
