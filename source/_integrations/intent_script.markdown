@@ -17,6 +17,7 @@ The `intent_script` integration allows users to configure actions and responses 
 # Example configuration.yaml entry
 intent_script:
   GetTemperature:  # Intent type
+    description: Return the temperature and notify the user
     speech:
       text: We have {{ states('sensor.temperature') }} degrees
     action:
@@ -35,6 +36,14 @@ intent:
   required: true
   type: map
   keys:
+    description:
+      description: Description of the intent.
+      required: false
+      type: string
+    platforms:
+      description: List of domains that the entity supports
+      required: false
+      type: list
     action:
       description: Defines an action to run to intents.
       required: false
