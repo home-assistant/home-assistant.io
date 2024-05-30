@@ -45,6 +45,16 @@ longitude:
   description: Longitude for time calculations of the sensor.
   default: Home Assistant location
   type: integer
+elevation:
+  required: false
+  description: Elevation for time calculations of the sensor.
+  default: Home Assistant location
+  type: integer
+time_zone:
+  required: false
+  description: Timezone for time calculations of the sensor.
+  default: Home Assistant location
+  type: string
 diaspora:
   required: false
   description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
