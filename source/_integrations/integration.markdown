@@ -22,7 +22,7 @@ This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riema
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
-The integration sensors are updated upon changes of the source and based on time.
+The integration sensors are updated upon changes of the source and optionally based on time.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -38,8 +38,9 @@ Metric prefix:
   description: Metric unit to prefix the integration result.
 Integration time:
   description: SI unit of time to integrate over.
-Maximum update duration:
-  description: If the source sensor is constant this duration will be used for time based updates.
+Max sub-interval:
+  description: Applies time based integration if the source did not change for this duration. Use 0 for no time based updates.
+
 {% endconfiguration_basic %}
 
 
@@ -90,8 +91,8 @@ method:
   required: false
   type: string
   default: trapezoidal
-max_age:
-  description: "If the source sensor is constant this duration will be used for time based updates."
+max_sub_interval:
+  description: "Applies time based integration if the source did not change for this duration. Use 0 for no time based updates."
   required: false
   type: time
 {% endconfiguration %}
@@ -102,7 +103,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, values can be more or less accurate.
 
-The integration method defines how to calculate the area under the source sensor when it changes. The config max_age defines when to trigger integration if the source sensor is constant.
+The integration method defines how to calculate the area under the source sensor when it changes. The config max_sub_interval defines when to trigger integration if the source sensor is constant.
 
 ### Trapezoidal
 
@@ -129,7 +130,7 @@ sensor:
     name: energy_spent
     unit_prefix: k
     round: 2
-    max_age:
+    max_sub_interval:
       minutes: 5
 ```
 
