@@ -194,7 +194,7 @@ lounge_appletv_netflix:
     data:
       source: Netflix
 ```
-Note: Source is case senstive. You can check the options and proper names selecting the media.player entity created for your AppleTV once it is on.
+Note: Source is case sensitive. You can check the options and proper names selecting the media.player entity created for your AppleTV once it is on.
 
 ## FAQ
 
