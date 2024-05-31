@@ -1,6 +1,10 @@
 ---
 title: "Troubleshooting your configuration"
 description: "Common problems with tweaking your configuration and their solutions."
+related:
+  - docs: /docs/configuration/
+  - docs: /docs/configuration/customizing-devices/
+    title: Changing entity name and ID
 ---
 
 It can happen that you run into trouble while configuring Home Assistant. Perhaps an integration is not showing up or is acting strangely. This page will discuss a few of the most common problems.
@@ -96,7 +100,9 @@ The only characters valid in entity names are:
 - Numbers
 - Underscores
 
-If you create an entity with other characters then Home Assistant may not generate an error for that entity. However you will find that attempts to use that entity will generate errors (or possibly fail silently).
+The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the YAML file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
+
+For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-devices/).
 
 ## Debug logs and diagnostics
 

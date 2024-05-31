@@ -9,6 +9,11 @@ ha_domain: button
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 A button {% term entity %} is an entity that can fire an {% term event %} / trigger an {% term action %} towards
@@ -55,13 +60,16 @@ This service can be called to trigger a button press for that entity.
 
 ## Device class
 
-The way these buttons are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/).
-The following device classes are supported for buttons:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for buttons:
 
 <p class='img'>
 <img src='/images/screenshots/button_classes_icons.png' />
 Example of device class icons.
 </p>
+
+The following device classes are supported for buttons:
 
 - **None**: Generic button. This is the default and doesn't need to be set.
 - **identify**: The button is used to identify a device.

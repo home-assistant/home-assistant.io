@@ -165,7 +165,7 @@ condition:
 
 ## Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
+This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
 If both `below` and `above` are specified, both tests have to pass.
 

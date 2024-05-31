@@ -9,6 +9,11 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: valve
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 The valve entity in Home Assistant provides an interface to control valves such as water, gas, or air valves.
@@ -17,7 +22,9 @@ The valve entity in Home Assistant provides an interface to control valves such 
 
 ## Device class
 
-You can change the device class of the valve in the [customize section](/docs/configuration/customizing-devices/). Valves support the following device classes:
+{% include integrations/device_class_intro.md %}
+
+The following device classes are supported for valves:
 
 - **None**: Generic valve. This is the default and doesn't need to be set.
 - **water**: Valve that controls the flow of water through a system.
