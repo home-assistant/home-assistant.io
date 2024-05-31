@@ -121,25 +121,6 @@ The following commands are currently available:
 
 ### Examples
 
-Create a script to invoke the Netflix application based on the application icon
-being in a fixed place on the home screen:
-
-```yaml
-lounge_appletv_netflix:
-  alias: "Select Netflix"
-  sequence:
-    - service: remote.send_command
-      target:
-        entity_id: remote.lounge_appletv
-      data:
-        delay_secs: 1.5
-        command:
-          - top_menu
-          - home
-          - right
-          - select
-```
-
 Script using the quick action menu to send your Apple TV to sleep and turn off
 the Media Player:
 
@@ -179,6 +160,41 @@ data:
   command:
     - left
 ```
+#### Invoking Sources
+
+You can use two methods. One relying simple on this integration (Method 1) and another leveraging the [Media Player](https://www.home-assistant.io/integrations/media_player/) integration (Method 2):
+
+**Method 1 - Purely Apple TV:** Create a script to invoke the Netflix application based on the application icon being in a fixed place on the home screen:
+
+```yaml
+lounge_appletv_netflix:
+  alias: "Select Netflix"
+  sequence:
+    - service: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        delay_secs: 1.5
+        command:
+          - top_menu
+          - home
+          - right
+          - select
+```
+
+**Method 2 - Using Media Player:** Create a Script to invoke Netflix application selecting as Source through Media Player integration 
+
+```yaml
+lounge_appletv_netflix:
+  alias: "Select Netflix"
+  sequence:
+  - service: media_player.select_source
+    target:
+      entity_id: media_player.lounge_appletv
+    data:
+      source: Netflix
+```
+Note: Source is case senstive. You can check the options and proper names selecting the media.player entity created for your AppleTV once it is on.
 
 ## FAQ
 
