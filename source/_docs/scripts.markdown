@@ -754,6 +754,48 @@ automation:
 
 {% endraw %}
 
+## Grouping actions
+
+The `sequence` {% term action %} allows you to group multiple {% term actions %}
+together. Each action will be executed in order, meaning the next action will
+only be executed after the previous action has been completed.
+
+Grouping actions in a sequence can be useful when you want to be able to
+collapse related groups in the user interface for organizational purposes.
+
+Combined with the [`parallel`](#parallelizing-actions) action, it can also be
+used to run multiple groups of actions in a sequence in parallel.
+
+In the example below, two separate groups of actions are executed in sequence,
+one for turning on devices, the other for sending notifications. Each group of
+actions is executed in order, this includes the actions in each group and the
+groups themselves. In total, four actions are executed, one after the other.
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - alias: "Turn on devices"
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.ceiling
+          - service: siren.turn_on
+            target:
+              entity_id: siren.noise_maker
+      - alias: "Send notifications"
+        sequence:
+          - service: notify.person1
+            data:
+              message: "The motion sensor was triggered!"
+          - service: notify.person2
+            data:
+              message: "Oh oh, someone triggered the motion sensor..."
+```
+
 ## Parallelizing actions
 
 By default, all sequences of {% term actions %} in Home Assistant run sequentially. This
@@ -916,6 +958,25 @@ script:
         target:
           entity_id: light.ceiling
 ```
+
+Actions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+
+  action:
+    - delay: 0:35
+      enabled: !input input_boolean
+```
+
+{% endraw %}
 
 ## Respond to a conversation
 

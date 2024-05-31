@@ -167,7 +167,7 @@ mode_state_template:
   required: false
   type: template
 mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the water heater operation mode. If this is not set, the operation mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the water heater operation mode. If this is not set, the operation mode works in optimistic mode (see below). A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 modes:
@@ -209,6 +209,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `water_heater`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 power_command_template:
   description: A template to render the value sent to the `power_command_topic` with. The `value` parameter is the payload set for `payload_on` or `payload_off`.
   required: false

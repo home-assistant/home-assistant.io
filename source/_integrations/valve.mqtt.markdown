@@ -218,6 +218,10 @@ payload_stop:
   description: The command payload that stops the valve. When not configured, the valve will not support the `valve.stop` service.
   required: false
   type: string
+platform:
+  description: Must be `valve`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position. The valve's position will be scaled to the(`position_closed`...`position_open`) range when a service is called and scaled back when a value is received.
   required: false
@@ -264,7 +268,7 @@ state_opening:
   type: string
   default: opening
 state_topic:
-  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
+  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together. A "None" state value resets to an `unknown` state. An empty string is ignored.
   required: false
   type: string
 unique_id:

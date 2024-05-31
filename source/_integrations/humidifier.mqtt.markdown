@@ -262,6 +262,10 @@ modes:
   required: false
   type: [list]
   default: []
+platform:
+  description: Must be `humidfier`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -273,7 +277,7 @@ retain:
   type: boolean
   default: true
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:

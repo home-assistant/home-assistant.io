@@ -197,6 +197,10 @@ payload_reset:
   required: false
   type: string
   default: '"None"'
+platform:
+  description: Must be `lock`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -223,7 +227,7 @@ state_locking:
   type: string
   default: LOCKING
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_unlocked:

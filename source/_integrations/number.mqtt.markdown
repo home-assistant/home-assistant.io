@@ -170,6 +170,10 @@ payload_reset:
   required: false
   type: string
   default: '"None"'
+platform:
+  description: Must be `number`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -181,7 +185,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive number values.
+  description: The MQTT topic subscribed to receive number values. An empty payload is ignored.
   required: false
   type: string
 step:

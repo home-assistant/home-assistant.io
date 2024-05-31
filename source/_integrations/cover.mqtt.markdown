@@ -195,6 +195,10 @@ payload_stop:
   required: false
   type: string
   default: STOP
+platform:
+  description: Must be `cover`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position.
   required: false
@@ -257,7 +261,7 @@ state_stopped:
   type: string
   default: stopped
 state_topic:
-  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.
+  description: The MQTT topic subscribed to receive cover state messages. State topic can only read (`open`, `opening`, `closed`, `closing` or `stopped`) state.  A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 tilt_closed_value:
