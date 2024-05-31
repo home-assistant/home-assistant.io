@@ -182,7 +182,7 @@ lounge_appletv_netflix:
           - select
 ```
 
-**Method 2 - Using Media Player:** Create a Script to invoke Netflix application selecting as Source through Media Player integration 
+**Method 2 - Using Media Player:** Create a Script, to invoke Netflix application selecting as Source through Media Player integration
 
 ```yaml
 lounge_appletv_netflix:
