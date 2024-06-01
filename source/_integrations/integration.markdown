@@ -39,7 +39,7 @@ Metric prefix:
 Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
-  description: Applies time based integration if the source did not change for this duration. Use 0 for no time based updates.
+  description: Applies time based integration if the source did not change for this duration. This implies that at least every 'max sub-interval' the integral is updated. Use 0 for no time based updates.
 
 {% endconfiguration_basic %}
 
@@ -92,7 +92,7 @@ method:
   type: string
   default: trapezoidal
 max_sub_interval:
-  description: "Applies time based integration if the source did not change for this duration. Use 0 for no time based updates."
+  description: "Applies time based integration if the source did not change for this duration. This implies that at least every `max_sub_interval` the integral is updated. Use 0 for no time based updates."
   required: false
   type: time
 {% endconfiguration %}
