@@ -22,7 +22,8 @@ This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riema
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
-The integration sensors are updated upon changes of the source and optionally based on time.
+The integration sensors are updated upon changes of the source and optionally based on
+time. Fast sampling source sensors provide more accurate results.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -103,7 +104,7 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, values can be more or less accurate.
 
-The integration method defines how to calculate the area under the source sensor when it changes. The config max_sub_interval defines when to trigger integration if the source sensor is constant.
+The integration method defines how to calculate the area under the source sensor when it changes. Regardless of the method used the integration will be more accurate if the source updates more often. The config `max_sub_interval` can be used to trigger integration when the source sensor is constant.
 
 ### Trapezoidal
 
