@@ -41,7 +41,7 @@ intent:
       required: false
       type: string
     platforms:
-      description: List of domains that the entity supports
+      description: List of domains that the entity supports.
       required: false
       type: list
     action:
