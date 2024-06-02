@@ -9,17 +9,21 @@ ha_domain: fleetgo
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `fleetgo` device tracker platform allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
+The `fleetgo` device tracker {% term integration %} allows you to integrate your vehicles equipped with [FleetGO](https://fleetgo.com) hardware into Home Assistant. It allows you to see certain details about your vehicle, but also shows your vehicle on the map.
 
 ## Setup
 
-To use this integration, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
+To use this {% term integration %}, you need an **API key** and **API secret**, which can be requested by contacting [info@fleetgo.com](mailto:info@fleetgo.com?subject=API%20Key).
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

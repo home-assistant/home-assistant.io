@@ -7,7 +7,7 @@ Automations are created in Home Assistant via the UI, but are stored in a YAML f
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
-It is also possible to write your automations directly inside `configuration.yaml` or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
+It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
 
 ```yaml
 # The configuration required for the UI to work
@@ -128,7 +128,7 @@ Mode | Description
 
 ## YAML example
 
-Example of a YAML based automation that you can add to `configuration.yaml`.
+Example of a YAML based automation that you can add to {% term "`configuration.yaml`" %}.
 
 {% raw %}
 

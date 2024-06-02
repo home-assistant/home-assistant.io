@@ -12,11 +12,14 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 ## Description
 
-The [Notify.Events service](https://notify.events/) is a platform for the **notify** integration. 
+The [Notify.Events service](https://notify.events/) is an {% term integration %} for the **notify** integration. 
 
 This platform allows you to quickly configure the distribution of messages between different recipients, no matter how they are used to receiving notifications: 
 
@@ -38,7 +41,7 @@ To start getting notifications, you need to follow those simple steps:
  
 1. Sign up to [Notify.Events](https://notify.events/) and create a Channel
 2. Add **Home Assistant** source to this channel and get your **token**
-3. Add the Notify.Events integration to your installation by adding the following to your `configuration.yaml` file:
+3. Add the Notify.Events integration to your installation by adding the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 notify_events:
@@ -52,7 +55,8 @@ token:
   type: string
 {% endconfiguration %}
 
-Now you can use notify_events integration as a platform for your **notify service**, add the following to your `configuration.yaml` file:
+Now you can use notify_events integration as a platform for your **notify service**, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,21 +102,21 @@ Now you can use the `notify.events` service inside your Home Assistant to:
 
 The following attributes can be placed inside `data` for extended functionality.
 
-| Attribute  | Description
-| ---------- | -----------
-| `title`    | Message title.
-| `level`    | For recipients who have differences in the display of messages at different levels, this level will be applied.<br>Available values: `verbose`, `info`, `notice`, `warning`, `error`, `success`.
-| `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.
-| `images`   | Array of images to attach (see item properties below).
-| `files`    | Array of files to attach (see item properties below).
-| `token`    | Notify.Events channel token (in case you want to override the channel to get this message to).
+| Attribute  | Description                                                                                                                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `title`    | Message title.                                                                                                                                                                                   |
+| `level`    | For recipients who have differences in the display of messages at different levels, this level will be applied.<br>Available values: `verbose`, `info`, `notice`, `warning`, `error`, `success`. |
+| `priority` | For recipients which supports priority, the message will be highlighted accordingly.<br>Available values: `lowest`, `low`, `normal`, `high`, `highest`.                                          |
+| `images`   | Array of images to attach (see item properties below).                                                                                                                                           |
+| `files`    | Array of files to attach (see item properties below).                                                                                                                                            |
+| `token`    | Notify.Events channel token (in case you want to override the channel to get this message to).                                                                                                   |
 
 Every item of images and files has the following properties:
 
-| Property                     | Required | Description
-| ---------------------------- | -------- | ----
-| `path` or `url` or `content` | True     | File source.
-| `name`                       | False    | Result file name
-| `mime_type`                  | False    | File MIME-type
+| Property                     | Required | Description      |
+| ---------------------------- | -------- | ---------------- |
+| `path` or `url` or `content` | True     | File source.     |
+| `name`                       | False    | Result file name |
+| `mime_type`                  | False    | File MIME-type   |
 
 To use notifications effectively, please see the [getting started with automation page](/getting-started/automation/).

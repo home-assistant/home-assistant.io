@@ -113,7 +113,14 @@ The integration will create a lawn mower entity to control the mower. This entit
 
 ### Number (if available)
 
-The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually because it can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, consult the handbook of the mower. It's possible that you can use this entity only as sensor but cannot actively change the cutting height.
+#### Cutting height
+
+The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
+Possible values are 1 (grass stays short) to 9 (grass stays high).
+
+#### Cutting height for work areas
+
+The integration will create a number entity for changing the cutting height for each work area of the mower if your mower supports work areas. Possible values for the cutting heights are 0% (grass stays short) to 100% (grass stays high) of the default cutting height. Note: It's not yet possible to change the default cutting height with Home Assistant.
 
 ### Select (if available)
 
@@ -138,6 +145,12 @@ The integration will create the following sensors:
 - Total searching time
 
 ### Switch
+
+#### Avoid (if available)
+
+The integration will create a switch for each stay-out zone defined for your mower. When the switch is on, the mower avoids the corresponding zone. When the switch is off, the mower enters the corresponding zone.
+
+#### Enable schedule
 
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
 

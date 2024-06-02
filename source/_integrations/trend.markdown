@@ -38,7 +38,7 @@ Invert the result:
 ### YAML Configuration
 
 To enable Trend binary sensors in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

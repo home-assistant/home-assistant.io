@@ -9,6 +9,9 @@ ha_domain: local_file
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Local file** camera {% term integration %} allows you to integrate an image file from disk into Home Assistant as a camera. If the image is updated on the file system the image displayed in Home Assistant will also be updated. The service `local_file.update_file_path` can be used to update the image using an automation.
@@ -17,7 +20,8 @@ The `local_file` camera can for example be used with various camera platforms th
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

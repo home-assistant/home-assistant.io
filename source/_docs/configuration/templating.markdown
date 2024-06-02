@@ -900,7 +900,7 @@ Examples:
 
 Not supported in [limited templates](#limited-templates).
 
-- `distance()` will measure the distance in kilometers between home, entity, coordinates.
+- `distance()` measures the distance between home, an entity, or coordinates. The unit of measurement (kilometers or miles) depends on the system's configuration settings.
 - `closest()` will find the closest entity.
 
 #### Distance examples
@@ -1067,6 +1067,8 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `multiply(arg)` will convert the input to a number and multiply it by `arg`. Useful in list operations in conjunction with `map`.
+- Filter `add(arg)` will convert the input to a number and add it to `arg`. Useful in list operations in conjunction with `map`.
 
 ### Complex type checking
 

@@ -1,5 +1,5 @@
 ---
-title: Integration - Riemann sum integral
+title: Integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Energy
@@ -48,7 +48,7 @@ Integration time:
 
 Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

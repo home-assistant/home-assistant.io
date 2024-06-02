@@ -30,12 +30,9 @@ There is currently support for the following device types within Home Assistant:
 
 ## Prerequisites
 
-To set up the Hydrawise integration, you must first obtain an API Key.
-
-1. Login at [https://app.hydrawise.com](https://app.hydrawise.com).
-2. Go to **Account Details** under the **My Account** menu (in the upper-right-hand corner).
-3. Under the **Account Settings** section, copy the **API Key**.
-   1. If no API Key is present, select the **Generate API Key** button.
+1. To set up the Hydrawise integration, you must first set up an online account at
+[https://app.hydrawise.com](https://app.hydrawise.com). 
+2. Then, use your online credentials to configure the integration.
 
 {% include integrations/config_flow.md %}
 
@@ -71,7 +68,7 @@ Switches are added for each zone, controlling:
 
 When `auto_watering` is `on` the irrigation zone will follow the Smart Watering schedule set through the Hydrawise [mobile or web app](https://www.hydrawise.com). When the `auto_watering` switch is `off` the zone's Smart Watering schedule is suspended for 1 year.
 
-When `manual_watering` is `on` the zone will run for the amount of time set by `watering_minutes`.
+When `manual_watering` is `on` the zone will run for 15 minutes.
 
 <div class='note warning'>
 Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.

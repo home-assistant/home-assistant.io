@@ -215,7 +215,7 @@ automation:
 
 ## Numeric state trigger
 
-Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold (equal excluded). On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold (equal excluded).
 
 <div class='note'>
 Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
@@ -1035,3 +1035,35 @@ automation:
     - platform: time
       at: "15:32:00"
 ```
+
+Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+    input_number:
+      name: Number
+      selector:
+        number:
+          min: 0
+          max: 100
+
+  trigger_variables:
+    _enable_number: !input input_number
+
+  trigger:
+    - platform: sun
+      event_type: sunrise
+      enabled: !input input_boolean
+    - platform: sun
+      event_type: sunset
+      enabled: "{{ _enable_number < 50 }}"
+```
+
+{% endraw %}

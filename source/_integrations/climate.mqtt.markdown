@@ -12,7 +12,8 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
+To enable this climate platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,8 +30,8 @@ action_template:
   type: template
 action_topic:
   description: >-
-    The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source.
-    Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
+    The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source. A "None" payload resets the current action state. An empty payload is ignored.
+    Valid action values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
   required: false
   type: string
 availability:
@@ -161,7 +162,7 @@ fan_mode_state_template:
   required: false
   type: template
 fan_mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC fan mode. If this is not set, the fan mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the HVAC fan mode. If this is not set, the fan mode works in optimistic mode (see below). A "None" payload resets the fan mode state. An empty payload is ignored.
   required: false
   type: string
 fan_modes:
@@ -216,7 +217,7 @@ mode_state_template:
   required: false
   type: template
 mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC operation mode. If this is not set, the operation mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the HVAC operation mode. If this is not set, the operation mode works in optimistic mode (see below). A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 modes:

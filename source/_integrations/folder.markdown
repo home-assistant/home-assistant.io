@@ -17,7 +17,7 @@ The sensor exposes the number of filtered files in the folder, total size in byt
 
 ## Configuration
 
-To enable the `folder` sensor in your installation, add the following to your `configuration.yaml` file:
+To enable the `folder` sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:
