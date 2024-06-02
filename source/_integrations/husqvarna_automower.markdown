@@ -145,30 +145,19 @@ The integration will create a switch to enable or disable the schedule of the mo
 
 The integration offers the following services:
 
-### Park for
+### Override schedule
 
-With this service, you can let your mower park for a given time. This will override all your schedules during this time. The duration has to be given in minutes. The values for the duration have to be between 1 and 60480 minutes.
-
-```yaml
-# Replace <name> with the name of your mower.
-service: husqvarna_automower.park_for
-target:
-  entity_id: lawn_mower.<name>
-data:
-  duration: 60
-```
-
-### Start for
-
-With this service, you can let your mower start for a given time. This will override all your schedules during this time. The duration has to be given in minutes. The values for the duration have to be between 1 and 60480 minutes. The mower will only start if the battery is fully charged.
+With this service, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.start_for
+service: husqvarna_automower.override_schedule
 target:
   entity_id: lawn_mower.<name>
 data:
-  duration: 60
+  duration:
+    days: 1
+    hours: 12
+    minutes: 30
+  override_mode: mowing  ### alternative: `parking`
 ```
-
-Note: 1 day has 1440 minutes, and 60480 minutes are approximately 42 days.
