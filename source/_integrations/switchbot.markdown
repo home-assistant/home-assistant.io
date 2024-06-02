@@ -64,6 +64,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock) (currently the Pro model is not supported)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2)
 
 ## SwitchBot Entity
 
