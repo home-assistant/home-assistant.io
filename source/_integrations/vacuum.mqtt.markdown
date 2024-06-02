@@ -170,6 +170,10 @@ payload_stop:
   required: false
   type: string
   default: stop
+platform:
+  description: Must be `vacuum`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

@@ -12,7 +12,7 @@ The `mqtt` Text platform allows you to integrate devices that show text that can
 
 ## Configuration
 
-To enable MQTT text platform in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT text platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -164,6 +164,10 @@ object_id:
 pattern:
   description: A valid regular expression the text being set or received must match with.
   required: false
+  type: string
+platform:
+  description: Must be `text`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
   type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.

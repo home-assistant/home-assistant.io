@@ -11,6 +11,10 @@ ha_iot_class: Calculated
 ha_integration_type: integration
 ha_codeowners:
   - '@mib1185'
+ha_platforms:
+  - diagnostics
+  - sensor
+ha_config_flow: true
 ---
 
 The `proximity` integration allows you to monitor the proximity of devices or persons to a particular [zone](/integrations/zone/) and the direction of travel.

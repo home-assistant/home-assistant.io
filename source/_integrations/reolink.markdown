@@ -24,6 +24,11 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+related:
+  - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
+    title: Controlling the camera from the dashboard
+  - url: https://reolink.com/
+    title: Reolink product page
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
@@ -86,6 +91,7 @@ Depending on the supported features of the camera, number entities are added for
 - Volume
 - Guard return time
 - Motion sensitivity
+- PIR sensitivity
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -144,10 +150,10 @@ Depending on the supported features of the camera, button entities are added for
 
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                              |
-| ---------------------- | -------- | -----------------------------------------------------------------------------------------|
-| `entity_id`            |      no  | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`                |      no  | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                         |
+| Service data attribute | Optional | Description                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
 
 ## Select entities
 
@@ -189,6 +195,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Buzzer on event
 - Email on event
 - FTP upload
+- PIR enabled*
+- PIR reduce false alarm*
 - HDR*
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
@@ -219,6 +227,10 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- HDD/SD storage*
+- Battery percentage
+- Battery temperature*
+- Battery state* (discharging, charging, charge complete)
 
 ## Update entity
 
@@ -265,6 +277,7 @@ The following models have been tested and confirmed to work:
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
@@ -357,8 +370,3 @@ Therefore, ensure no Global SSL certificate is configured in the [`configuration
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 
 To see if a Reolink integration is currently using `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
-
-## Related topics
-
-- [Controlling the camera from the dashboard](/dashboards/picture-glance/#creating-a-card-to-control-the-camera)
-- [Reolink product page](https://reolink.com/)

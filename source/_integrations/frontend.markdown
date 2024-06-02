@@ -94,7 +94,7 @@ Note that the variables will be used in the listed order, so if multiple match y
 frontend:
   themes:
     my_theme:
-      state-cover-garage_door-open-color: "#ff0000"
+      state-cover-garage-open-color: "#ff0000"
       state-media_player-inactive-color: "#795548"
 ```
 
@@ -145,7 +145,7 @@ Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. 
 
 As with all configuration, you can either:
 
-- Directly specify the themes inside your `configuration.yaml` file.
+- Directly specify the themes inside your {% term "`configuration.yaml`" %} file.
 - Put them into a separate file (e.g., `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`).
 - Create a dedicated folder (e.g., `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`).
 
@@ -157,7 +157,7 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 
 There are two themes-related services:
 
-- `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+- `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
 ### Service `set_theme`
@@ -165,14 +165,14 @@ There are two themes-related services:
 | Service data attribute | Description                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------- |
 | `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`).  |
+| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
 
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.
 
 ### Manual theme selection
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
 
 <p class='img'>

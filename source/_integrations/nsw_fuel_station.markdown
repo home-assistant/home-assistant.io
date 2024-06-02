@@ -32,7 +32,7 @@ Alternatively:
 
 ## Configuration
 
-To add the NSW fuel station price sensor to your installation, add the following to your `configuration.yaml` file:
+To add the NSW fuel station price sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

@@ -9,11 +9,15 @@ ha_domain: alpha_vantage
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `alpha_vantage` sensor platform uses [Alpha Vantage](https://www.alphavantage.co) to monitor the stock market. This platform also provides detail about exchange rates.
 
-To enable the `alpha_vantage` platform, add the following lines to your `configuration.yaml` file:
+To enable the `alpha_vantage` platform, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,7 +79,9 @@ foreign_exchange:
 
 ## API information
 
-Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version you will be limited to five queries per minute. This means that you'll likely only be able to have one or two ticker entries. The paid version starts at thirty queries per minute increasing ticker quantity quite a bit.
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day.
+
+The paid version starts at 75 queries per minute, increasing ticker quantity quite a bit.
 
 ## Examples
 

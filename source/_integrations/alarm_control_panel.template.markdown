@@ -7,11 +7,14 @@ ha_release: 0.105
 ha_iot_class: "Local Push"
 ha_qa_scale: internal
 ha_domain: template
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `template` integrations creates alarm control panels that combine integrations or adds preprocessing logic to actions.
+The `template` {% term integration %} creates alarm control panels that combine integrations or adds preprocessing logic to actions.
 
-There are several powerful ways to use this integration, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
+There are several powerful ways to use this {% term integration %}, including grouping existing integrations into a simpler integrations, or adding logic that Home Assistant will execute when accessed.
 
 For example, if you want to expose a true alarm panel to Google Home, Alexa, or HomeKit - but limit its ability to disarm when there's no one home, you can do that using a template.
 
@@ -23,7 +26,8 @@ In optimistic mode, the alarm control panel will immediately change state after 
 
 ## Configuration
 
-To enable a template alarm control panel in your installation, add the following to your `configuration.yaml` file:
+To enable a template alarm control panel in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 

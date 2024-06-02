@@ -7,15 +7,19 @@ ha_iot_class: Calculated
 ha_release: 0.87
 ha_domain: qrcode
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `qrcode` image processing platform enables QR code recognition from cameras.
+The `qrcode` image processing {% term integration %} enables QR code recognition from cameras.
 
 To get this running, please install `zbar-tools` (Ubuntu 18.04)
 
 ## Configuration
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

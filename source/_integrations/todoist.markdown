@@ -14,12 +14,25 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /dashboards/dashboards/
+    title: Dashboards
+  - docs: /integrations/calendar/
+    title: Calendar
+  - url: https://todoist.com
+    title: Todoist projects
 ---
 
 This platform allows you to connect to your [Todoist projects](https://todoist.com) as [todo](/integrations/todo/) or [calendar](/integrations/calendar/) entities. All tasks get updated roughly every 15 minutes.
 
 
-A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all. 
+A calendar entity will be `on` if you have a task due in that project. It will be `off` if all the tasks in the project are completed or if the project doesn't have any tasks at all.
 
 ## Prerequisites
 
@@ -29,7 +42,7 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 ## Custom projects
 
-You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+You can manually configure the Todoist calendar (only) integration using {% term "`configuration.yaml`" %} which can specify "custom" projects which match against criteria you set. You should
 prefer the above instructions for configuring Todoist from the UI.
 
 {% details "Manual custom projects configuration" %}
@@ -62,7 +75,7 @@ custom_projects:
       type: list
 {% endconfiguration %}
 
-Here's an example of a more advanced `configuration.yaml`:
+Here's an example of a more advanced {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

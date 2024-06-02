@@ -12,7 +12,7 @@ The `rest` switch platform allows you to control a given endpoint that supports 
 
 ## Configuration
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

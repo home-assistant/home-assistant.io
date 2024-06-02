@@ -8,11 +8,14 @@ ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: dialogflow
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Dialogflow** {% term integration %} is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). After each phrase a user says, Dialogflow sends an action and parameters to the webhook.
 
-To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#editing-the-general-settings-in-yaml). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://cloud.google.com/dialogflow/es/docs/integrations) with many popular messaging, virtual assistant and IoT platforms.
 

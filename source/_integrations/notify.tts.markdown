@@ -15,7 +15,7 @@ In order to use this integration, you must already have a TTS platform installed
 
 To enable this platform in your installation, consider the following example using [google_translate](/integrations/google_translate/) and an example `media_player.living_room`.
 
-In your `configuration.yaml` file type:
+In your {% term "`configuration.yaml`" %} file type:
 
 ```yaml
 notify:
