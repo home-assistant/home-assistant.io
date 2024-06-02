@@ -56,7 +56,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
-- [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
+- Humidifier (WoHumi)
 - Light Strip (WoStrip)
 - [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
