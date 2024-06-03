@@ -140,6 +140,36 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
+### Sending custom commands
+
+The integration has a `send_custom_command` service used to send custom commands to the bot.
+
+Example:
+```yaml
+service: ecovacs.send_custom_command
+data:
+  command: getPos
+  params:
+    - deebotPos
+    - chargePos
+target:
+  entity_id: vacuum.deebot_n8_plus
+
+```
+
+Depending on the command, you can get a response like this:
+```json
+vacuum.deebot_n8_plus:
+  ret: ok
+  resp:
+    header:
+       ...
+    body:
+       ...
+  id: xRV3
+  payloadType: j
+```
+
 ## Self-hosted configuration
 
 Depending on your setup of the self-hosted instance, you can connect to the server using the following settings:
