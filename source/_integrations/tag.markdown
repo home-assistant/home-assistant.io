@@ -41,6 +41,17 @@ Home Assistant has a dedicated panel that allows you to manage your tags. You ca
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
 
+## Entities
+
+Every card automatically creates an `tag` entity. This is useful for automations or for displaying on dashboards to see when the card was last scanned.
+
+State shows the time when the card was last scanned in datetime format. For example, `2013-09-17 07:32:51`
+
+Attributes:
+
+- **Tag ID**: identification as set during creation of the tag.
+- **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
+
 ## Building an RFID jukebox
 
 One of the most fun applications of tags is to pick music in your living room. To make this super easy, you can use the below automation:
@@ -107,13 +118,6 @@ The seller of above tray + cards also made an [ID card printing app](https://bra
 Happy printing!
 
 ![NFC Cards](/images/blog/2020-09-15-home-assistant-tags/cards.jpg)
-
-## Entities
-
-Every card automatically creates an `tag` entity. This is useful for automations or for showing on dashboards to see when the card was last scanned.
-
-State is the datetime when the card was last scanned.
-`tag_id` and `last_scanned_by_device_id` are set as attributes on the entity.
 
 ## Tag scanned events
 
