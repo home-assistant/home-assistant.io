@@ -45,7 +45,7 @@ Home Assistant has a dedicated panel that allows you to manage your tags. You ca
 
 Every card automatically creates an `tag` entity. This is useful for automations or for displaying on dashboards to see when the card was last scanned.
 
-State shows the time when the card was last scanned in datetime format. For example, `2013-09-17 07:32:51`
+State shows the time when the card was last scanned in datetime format. For example, `2013-09-17 07:32:51`.
 
 ### Attributes
 
