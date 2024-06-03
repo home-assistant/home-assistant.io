@@ -248,6 +248,39 @@ data:
   enqueue: play
 ```
 
+## Selecting Source
+
+The `media_player.select_source` service may be used to select specific sources on your Sonos.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. | 
+| `source` | no | A source ID or Sonos favorite name. | "Line-in","TV" |
+
+### Examples
+
+Select the line in.
+
+```yaml
+action:
+- service: media_player.select_source
+  target:
+    entity_id: media_player.living_room
+  data:
+    source: "Line-in"
+```
+
+Select a Sonos Favorite by name.
+
+```yaml
+action:
+- service: media_player.select_source
+  target:
+    entity_id: media_player.living_room
+  data:
+    source: 66 - Watercolors
+```
+
 ## Services
 
 The Sonos integration makes various custom services available in addition to the [standard media player services](/integrations/media_player/#services).
@@ -285,6 +318,15 @@ A cloud queue cannot be restarted. This includes queues started from within Spot
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of `entity_id`s that should have their snapshot restored. To target all Sonos devices, use `all`.
 | `with_group` | yes | Should we also restore the group layout and the state of other speakers in the group, defaults to true.
+
+### Service `sonos.set_sleep_timer`
+
+Sets a timer that will turn off a speaker by tapering the volume down to 0 after a certain amount of time. Protip: If you set the sleep_time value to 0, then the speaker will immediately start tapering the volume down.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of `entity_id`s that will have their timers set.
+| `sleep_time` | no | Integer number of seconds that the speaker should wait until it starts tapering. Cannot exceed 86399 (one day).
 
 ### Service `sonos.set_sleep_timer`
 
