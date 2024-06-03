@@ -17,7 +17,6 @@ ha_integration_type: integration
 
 The **HueBLE** {% term integration %} allows you to control your Phillips Hue Bluetooth lights with Home Assistant.
 
-{% include integrations/config_flow.md %}
 
 ### Initial setup
 
