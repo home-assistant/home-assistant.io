@@ -26,7 +26,7 @@ Before trying to connect your light(s) to Home Assistant you must put the light(
 
 **Settings** > **Voice Assistants** > **Amazon Alexa** or **Google Home** > **Make Discoverable**.
 
-When the light is in pairing mode you may proceed to connect to it with Home Assistant, either utilizing automatic discovery or by manually specifying the name and MAC address in the form.
+When the light is in pairing mode, connect with Home Assistant, either utilizing automatic discovery or by manually specifying the name and MAC address in the form.
 
 </div>
 
