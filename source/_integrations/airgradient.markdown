@@ -19,6 +19,12 @@ ha_zeroconf: true
 
 The Airgradient integration will fetch data from your [Airgradient devices](https://www.airgradient.com/).
 
+<div class='note'>
+
+In order for the device to be set up or discovered by Home Assistant, the firmware version should be at least 3.1.1.
+
+</div>
+
 {% include integrations/config_flow.md %}
 
 ## Available sensors
