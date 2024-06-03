@@ -9,6 +9,11 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: cover
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
@@ -17,7 +22,18 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 ## Device class
 
-The way these {% term sensors %} are displayed in the {% term frontend %} can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for covers:
+
+<p class='img'>
+<img src='/images/screenshots/cover_classes_icons.png' />
+List of cover examples.
+</p>
+
+Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
+
+The following device classes are supported for covers.
 
 - **None**: Generic cover. This is the default and doesn't need to be set.
 - **awning**: Control of an awning, such as an exterior retractable window, door, or patio cover.
@@ -31,20 +47,15 @@ The way these {% term sensors %} are displayed in the {% term frontend %} can be
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
-Here are a few examples of this representation in the UI:
-
-![List of cover examples](/images/screenshots/cover_classes_icons.png)
-Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
-
 ## Services
 
 ### Cover control services
 
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
 
 #### Automation example
 
@@ -63,10 +74,10 @@ automation:
 
 Set cover position of one or multiple covers.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
-| `position` | no | Integer between 0 and 100.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `position`             | no       | Integer between 0 and 100.                                                                           |
 
 #### Automation example
 
@@ -87,10 +98,10 @@ automation:
 
 Set cover tilt position of one or multiple covers.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
-| `tilt_position` | no | Integer between 0 and 100.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `tilt_position`        | no       | Integer between 0 and 100.                                                                           |
 
 #### Automation example
 
