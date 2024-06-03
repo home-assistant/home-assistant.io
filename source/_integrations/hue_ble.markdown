@@ -30,6 +30,8 @@ When the light is in pairing mode you may proceed to connect to it with Home Ass
 
 </div>
 
+{% include integrations/config_flow.md %}
+
 ### Supported models
 
 <div class='note warning'>
