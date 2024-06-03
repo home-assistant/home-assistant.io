@@ -32,7 +32,7 @@ When the light is in pairing mode you may proceed to connect to it with Home Ass
 
 {% include integrations/config_flow.md %}
 
-### Supported models
+## Supported models
 
 <div class='note warning'>
 This {% term integration %} is tested to work with the following models but has been designed to work with other models. If you have a different model and it is working, please let us know.
