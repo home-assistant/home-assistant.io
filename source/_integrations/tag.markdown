@@ -112,7 +112,7 @@ Happy printing!
 
 Every card automatically creates an `tag` entity. This is useful for automations or for showing on dashboards to see when the card was last scanned.
 
-State is the last datetime when the card was scanned.
+State is the datetime when the card was last scanned.
 `tag_id` and `last_scanned_by_device_id` are set as attributes on the entity.
 
 ## Tag scanned events
