@@ -47,7 +47,7 @@ Every card automatically creates an `tag` entity. This is useful for automations
 
 State shows the time when the card was last scanned in datetime format. For example, `2013-09-17 07:32:51`
 
-Attributes:
+### Attributes
 
 - **Tag ID**: identification as set during creation of the tag.
 - **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
