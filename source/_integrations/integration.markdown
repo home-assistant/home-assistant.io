@@ -22,8 +22,8 @@ This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riema
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
-The integration sensors are updated upon changes of the source and optionally based on
-time. Fast sampling source sensors provide more accurate results.
+The integration sensors are updated whenever the source changes and, optionally, based on a predefined
+time interval. Source sensors with higher sampling frequency provide more accurate results.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -40,7 +40,7 @@ Metric prefix:
 Integration time:
   description: SI unit of time to integrate over.
 Max sub-interval:
-  description: Applies time based integration if the source did not change for this duration. This implies that at least every 'max sub-interval' the integral is updated. Use 0 for no time based updates.
+  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0.
 
 {% endconfiguration_basic %}
 
@@ -93,7 +93,7 @@ method:
   type: string
   default: trapezoidal
 max_sub_interval:
-  description: "Applies time based integration if the source did not change for this duration. This implies that at least every `max_sub_interval` the integral is updated. Use 0 for no time based updates."
+  description: "Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0."
   required: false
   type: time
 {% endconfiguration %}
@@ -102,9 +102,9 @@ The unit of `source` together with `unit_prefix` and `unit_time` is used to gene
 
 ## Integration method
 
-Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, values can be more or less accurate.
+The Riemann Sum is an approximation of an integral by a finite sum and is therefore intrinsically inaccurate. Nonetheless, values can be more or less accurate.
 
-The integration method defines how to calculate the area under the source sensor when it changes. Regardless of the method used the integration will be more accurate if the source updates more often. The config `max_sub_interval` can be used to trigger integration when the source sensor is constant.
+The integration method defines how to calculate the area under the source sensor when it changes. Regardless of the method used, the integration will be more accurate if the source updates more often. The config `max_sub_interval` can be used to trigger integration when the source sensor is constant.
 
 ### Trapezoidal
 
