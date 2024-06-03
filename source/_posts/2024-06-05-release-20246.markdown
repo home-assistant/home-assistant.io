@@ -48,21 +48,28 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Dipping our toes in the world of AI using LLMs](#dipping-our-toes-in-the-world-of-ai-using-llms)
-- [Assist: Media player intents](#assist-media-player-intents)
-- [Show sections conditionally](#show-sections-conditionally)
-- [Setting a dashboard background](#setting-a-dashboard-background)
-- [Data tables improvements](#data-tables-improvements)
-- [Updates Matter](#updates-matter)
-- [Ability to disable the expiring of login tokens](#ability-to-disable-the-expiring-of-login-tokens)
-- [Tag entities!](#tag-entities)
-- [Collapsable sections for blueprints!](#collapsable-sections-for-blueprints)
-- [Other noteworthy changes](#other-noteworthy-changes)
-- [New integrations](#new-integrations)
-- [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Voice \& Assist](#voice--assist)
+  - [Dipping our toes in the world of AI using LLMs](#dipping-our-toes-in-the-world-of-ai-using-llms)
+  - [Media player intents](#media-player-intents)
+- [Dashboards](#dashboards)
+  - [Show sections conditionally](#show-sections-conditionally)
+  - [Setting a dashboard background](#setting-a-dashboard-background)
+- [Automations](#automations)
+  - [Collapsable sections for blueprints!](#collapsable-sections-for-blueprints)
+  - [Tag entities!](#tag-entities)
+  - [Data tables improvements](#data-tables-improvements)
+  - [Other automation improvements](#other-automation-improvements)
+- [Open Protocols](#open-protocols)
+  - [Updates Matter](#updates-matter)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Other settings](#other-settings)
+  - [Ability to disable the expiring of login tokens](#ability-to-disable-the-expiring-of-login-tokens)
+  - [Other noteworthy changes](#other-noteworthy-changes)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
-- [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=xMFC8yaVtpI)
@@ -70,7 +77,13 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="xMFC8yaVtpI" videotitle="Home Assistant 2024.6 Release Party"></lite-youtube>
 
-## Dipping our toes in the world of AI using LLMs
+## Voice & Assist
+
+This month, we are continuing our work on improving Assist capabilities out of the box: Not only are we adding features, such as media control, that our users would expect from a voice assistant, we are leapfrogging ahead with some new exciting developments experimenting with AI!
+
+We will have more to announce soon at Voice Chapter 7 on June XXX.
+
+### Dipping our toes in the world of AI using LLMs
 
 Our voice assistant brain is called a **conversation agent**.
 It is responsible for understanding the intention behind the spoken command,
@@ -98,7 +111,7 @@ conversation agent control your home with a flick of a switch.
 
 This is already available on Open AI and Google AI.
 
-## Assist: Media player intents
+### Media player intents
 
 We released new voice intents in 2024.3: The ability to control media players
 
@@ -131,7 +144,11 @@ sentences to control your media players, such as:
 Just make sure your voice assistant is assigned to an area that contains an
 exposed media player, and you will be good to go.
 
-## Show sections conditionally
+## Dashboards
+
+Work has continued to make customization and organization of dashboards easier and intuitive. This month, we are adding a new feature for our new sections, as well as customization for backgrounds which everyone at your home would enjoy.
+
+### Show sections conditionally
 
 For the new sections dashboard feature, we added a new visibility option. This
 options allows you to hide or show a section based on certain conditions.
@@ -148,7 +165,7 @@ in the options of a section.
 
 <lite-youtube videoid="hhELdXsyL9Q" videotitle="Temporary video that needs to be replaced"></lite-youtube>
 
-## Setting a dashboard background
+### Setting a dashboard background
 
 [@Nezz] contributed an great new feature to our dashboarding UI: The ability to
 set an background image for your dashboard!
@@ -167,7 +184,31 @@ to the picture card too! Thanks, [@karwosts] for that one!
 
 _Note: Add a picture uploader to picture-card-editor (#18695) @karwosts__
 
-## Data tables improvements
+## Automations
+
+While we are working hard to make automations easier to create, there are some remaining work done on making automations easier to organize, and a few quality-of-life improvements to our automation and template engines.
+
+### Collapsable sections for blueprints!
+
+[@karwosts] added the ability to add collapsible sections to blueprint
+configuration. This allows blueprint creators to group configuration options
+together, or to hide advanced or less common options by default.
+
+![collapsible-blueprint](https://github.com/home-assistant/core/assets/32912880/8a05f428-d4cc-41ef-9507-764d191f197b)
+
+### Tag entities!
+
+Home Assistant has support for tags for a long time. The tags feature allowed
+for NFC tags or QR codes, to be used with Home Assistant, for example, to
+trigger automations.
+
+However, tags were not real entities, and thus not always as logical to use as
+other entities. With this release, this has been changed by [@gjohansson-ST]!
+
+Tags are now normal entities, and can be used in automations, scripts, templates,
+and even been shown on your dashboard!
+
+### Data tables improvements
 
 Just like the last release, this release keeps on improving our data tables.
 
@@ -189,18 +230,27 @@ by area and domain.
 
 ![CleanShot 2024-05-15 at 10 51 08](https://github.com/home-assistant/frontend/assets/5878303/1603f219-8828-47f5-a4a7-603111f64f97)
 
-## Updates Matter
+### Other automation improvements
+
+- A new action building block has been added to our automations and scripts
+  by [@frenck]: [Run sequence of actions]. This allows you to group multiple
+  actions together.
+
+
+## Open Protocols
+
+### Updates Matter
 
 First of all, as one of the first in the industry, we are proud to announce that
 Home Assistant is already based on the latest Matter specification: Matter 1.3!
 
 Improved logic for custom clusters which allows us to receive custom attributes
-push based (attribute subscrtiption) if the device supports that and if not,
+push based (attribute subscription) if the device supports that and if not,
 we receive it using a poll logic. This Poll logic has also been optimized and
 now is executed in an optimized way server-side, accounting for network traffic
 so it will no longer have a very bad negative impact on bigger Thread networks.
 
-Introduction of the Fan platform, used by Air Purifier and Room Airconditioner
+Introduction of the Fan platform, used by Air Purifier and Room Air Conditioner
 device types in Matter.
 
 Lots of smaller bugfixes and extensions of discovery schemas so more entities
@@ -208,49 +258,12 @@ will be discovered for your Matter devices. Also, optimizations of the climate
 platform to fix issues with setting a new thermostat setpoint, for example,
 on various devices.
 
-## Ability to disable the expiring of login tokens
 
-A few releases ago we introduce the automatic expiration of logins. If a login
-token wasn't used for 90 days, it would expire and automatically be cleaned up.
-
-Some users have expressed that they would like to disable this feature, so we
-added a new option to the user profile settings to disable the expiration of
-login tokens.
-
-![CleanShot 2024-05-27 at 16 49 35](https://github.com/home-assistant/frontend/assets/5878303/fab560e1-28fc-4ad7-bbbf-cd65607a8ae2)
-
-## Tag entities!
-
-Home Assistant has support for tags for a long time. The tags feature allowed
-for NFC tags or QR codes, to be used with Home Assistant, for example, to
-trigger automations.
-
-However, tags were not real entities, and thus not always as logical to use as
-other entities. With this release, this has been changed by [@gjohansson-ST]!
-
-Tags are now normal entities, and can be used in automations, scripts, templates,
-and even been shown on your dashboard!
-
-## Collapsable sections for blueprints!
-
-[@karwosts] added the ability to add collapsible sections to blueprint
-configuration. This allows blueprint creators to group configuration options
-together, or to hide advanced or less common options by default.
-
-![collapsible-blueprint](https://github.com/home-assistant/core/assets/32912880/8a05f428-d4cc-41ef-9507-764d191f197b)
-
-## Other noteworthy changes
+## Integrations
 
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- A default code can now be set in the entity settings for every alarm control
-  panel entities. Nice work [@gjohansson-ST]!
-- [@Troon] added a filter to our templates: `add`. This filter allows you to
-  add a value, similar to the existing `multiply`. Great!
-- A new action building block has been added to our automations and scripts
-  by [@frenck]: [Run sequence of actions]. This allows you to group multiple
-  actions together.
 - Need a wireless device that can bridge a larger distance? A [LoRa] device
   might be a good option. Thanks to [@angelnu] we now have a working integration
   for [The Things Network].
@@ -303,7 +316,7 @@ Possible other candites:
 - Add standard deviation calculation to group ([@CoRfr] - [#112076])
 - Implement support for SwitchBot Meter, MeterPlus, and Outdoor Meter ([@laurence-presland] - [#115522])
 
-## New integrations
+### New integrations
 
 We welcome the following new integrations in this release:
 
@@ -333,7 +346,7 @@ We welcome the following new integrations in this release:
 [Intelligent Storage Acceleration]: /integrations/isal
 [Monzo]: /integrations/monzo
 
-## Integrations now available to set up from the UI
+### Integrations now available to set up from the UI
 
 The following integrations are now available via the Home Assistant UI:
 
@@ -350,6 +363,38 @@ The following integrations are now available via the Home Assistant UI:
 [Jewish Calendar]: /integrations/jewish_calendar
 [Media extractor]: /integrations/media_extractor
 [The Things Network]: /integrations/thethingsnetwork
+
+### Farewell to the following
+
+The following integrations are also no longer available as of this release:
+
+- **Ambiclimate** has been removed. Their services have been terminated,
+  effective March 31, 2024. ([@gjohansson-ST] - [#116410])
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#116410]: https://github.com/home-assistant/core/pull/116410
+
+
+## Other settings
+
+### Ability to disable the expiring of login tokens
+
+A few releases ago we introduce the automatic expiration of logins. If a login
+token wasn't used for 90 days, it would expire and automatically be cleaned up.
+
+Some users have expressed that they would like to disable this feature, so we
+added a new option to the user profile settings to disable the expiration of
+login tokens.
+
+![CleanShot 2024-05-27 at 16 49 35](https://github.com/home-assistant/frontend/assets/5878303/fab560e1-28fc-4ad7-bbbf-cd65607a8ae2)
+
+### Other noteworthy changes
+
+- A default code can now be set in the entity settings for every alarm control
+  panel entities. Nice work [@gjohansson-ST]!
+- [@Troon] added a filter to our templates: `add`. This filter allows you to
+  add a value, similar to the existing `multiply`. Great!
+
 
 ## Need help? Join the community!
 
@@ -530,15 +575,6 @@ changes and new features available for your integration: Be sure to follow our
 
 [devblog]: https://developers.home-assistant.io/blog/
 
-## Farewell to the following
-
-The following integrations are also no longer available as of this release:
-
-- **Ambiclimate** has been removed. Their services have been terminated,
-  effective March 31, 2024. ([@gjohansson-ST] - [#116410])
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#116410]: https://github.com/home-assistant/core/pull/116410
 
 ## All changes
 
