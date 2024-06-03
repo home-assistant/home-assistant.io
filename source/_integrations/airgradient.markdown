@@ -21,7 +21,7 @@ The Airgradient integration will fetch data from your [Airgradient devices](http
 
 <div class='note'>
 
-In order for the device to be able to be set up or discovered by Home Assistant, the firmware version should be at least 3.1.1.
+In order for the device to be set up or discovered by Home Assistant, the firmware version should be at least 3.1.1.
 
 </div>
 
