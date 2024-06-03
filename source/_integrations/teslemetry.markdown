@@ -3,13 +3,18 @@ title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Climate
+  - Device tracker
   - Cover
   - Lock
+  - Media player
+  - Number
   - Sensor
   - Switch
   - Select
+  - Update
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -18,13 +23,18 @@ ha_codeowners:
 ha_domain: teslemetry
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
+  - device_tracker
   - lock
+  - media_player
+  - number
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 ---
 
@@ -69,8 +79,16 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Button|Flash lights|Yes|
+|Button|Homelink|Yes|
+|Button|Honk horn|Yes|
+|Button|Keyless driving|Yes|
+|Button|Play fart|Yes|
+|Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Trunk|Yes|
@@ -78,6 +96,9 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
+|Media player|Media player|Yes|
+|Number|Charge current|Yes|
+|Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
@@ -135,6 +156,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Switch|Charge|Yes|
 |Switch|Defrost|Yes|
 |Switch|Sentry mode|Yes|
+|Update|Update|Yes|
 
 ### Energy sites
 
@@ -143,6 +165,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Number|Backup reserve|Yes|
+|Number|Off grid reserve|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
@@ -166,3 +190,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Power|Yes|
 |Sensor|State|Yes|
 |Sensor|Vehicle|Yes|
+
+## Vehicle sleep
+
+Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.

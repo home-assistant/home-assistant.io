@@ -12,7 +12,7 @@ The `mqtt` water heater platform lets you control your MQTT enabled water heater
 
 ## Configuration
 
-To enable this water heater platform in your installation, first add the following to your `configuration.yaml` file:
+To enable this water heater platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -209,6 +209,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `water_heater`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 power_command_template:
   description: A template to render the value sent to the `power_command_topic` with. The `value` parameter is the payload set for `payload_on` or `payload_off`.
   required: false

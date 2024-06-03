@@ -20,7 +20,7 @@ Zones can be added and managed through the user interface at {% my zones title="
 
 You can add a zone in the user interface by specifying the GPS coordinates or dragging the icon on the map. You can adjust the zone radius (except for the Home zone) by changing the size of the zone circle.
 
-Zones can also be configured via `configuration.yaml`:
+Zones can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

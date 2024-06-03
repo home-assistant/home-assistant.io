@@ -1,4 +1,4 @@
-## Run a specific version
+### Running a specific version
 
 {% assign current_version = site.current_major_version | append: "." | append: site.current_minor_version | append: "." | append: site.current_patch_version  %}
 
@@ -10,13 +10,15 @@ In the event that a Home Assistant Core version doesn't play well with your hard
 
 {% if page.installation == "os" or page.installation == "supervised" %}
 
-You can use the CLI to upgrade to a specific version (`{{current_version}}` in this example), to downgrade your installation you should do a partial restore of a [backup](#backups) instead.
+To upgrade to a specific version, you can use the CLI. The example below shows how to upgrade to `{{current_version}}`.
 
 ```bash
 ha core update --version {{current_version}} --backup
 ```
 
-_The_ `--backup` _flag here ensures that you have a partial backup of your current setup incase you need to downgrade._
+_The_ `--backup` _flag here ensures that you have a partial backup of your current setup in case you need to downgrade later._
+
+To downgrade your installation, do a [partial restore of a backup](/common-tasks/os/#backups) instead.
 
 {% elsif page.installation == "container" %}
 
@@ -30,19 +32,19 @@ docker pull {{ site.installation.container }}:{{current_version}}
 
 1. Stop the Home Assistant service.
 
-2. Switch to the user that is running Home Assistant
+2. Switch to the user that is running Home Assistant.
 
     ```bash
     sudo -u homeassistant -H -s
     ```
 
-3. Activate the virtual environment that Home Assistant is running in
+3. Activate the virtual environment that Home Assistant is running in.
 
     ```bash
     source /srv/homeassistant/bin/activate
     ```
 
-4. Download and install the version you want
+4. Download and install the version you want.
 
     ```bash
     pip3 install homeassistant=={{current_version}}

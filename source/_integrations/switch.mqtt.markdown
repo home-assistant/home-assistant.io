@@ -18,7 +18,7 @@ When a `state_topic` is not available, the switch will work in optimistic mode. 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -181,6 +181,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `switch`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false

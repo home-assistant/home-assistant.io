@@ -18,7 +18,7 @@ This `Switchmate` switch platform allows you to control Switchmate [devices]( ht
 
 ## Configuration
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 switch:

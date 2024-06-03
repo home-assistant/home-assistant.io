@@ -18,7 +18,7 @@ A valve entity can be have the following states: `open`, `opening`, `closed` or 
 
 If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed`, and `payload_stop` will be published to `command_topic` to control the valve.
 
-To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry for a value that is set by open or close command
@@ -40,7 +40,7 @@ Example of a JSON state update:
 
 The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when the services `valve.open`, `value.close`, or `value.set_position` are called.
 
-To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry for a valve that reports position
@@ -217,6 +217,10 @@ payload_open:
 payload_stop:
   description: The command payload that stops the valve. When not configured, the valve will not support the `valve.stop` service.
   required: false
+  type: string
+platform:
+  description: Must be `valve`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
   type: string
 position_closed:
   description: Number which represents closed position. The valve's position will be scaled to the(`position_closed`...`position_open`) range when a service is called and scaled back when a value is received.

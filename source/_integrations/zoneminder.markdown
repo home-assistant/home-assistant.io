@@ -124,7 +124,7 @@ The `zoneminder` camera platform lets you monitor the current stream of your [Zo
 
 ### Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -136,7 +136,7 @@ camera:
 
 The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -178,7 +178,7 @@ You must have the [ZoneMinder integration](/integrations/zoneminder/) configured
 
 </div>
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

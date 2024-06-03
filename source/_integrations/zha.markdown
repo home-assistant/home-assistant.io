@@ -223,7 +223,7 @@ Additional devices in the [Known working Zigbee radio modules](#known-working-zi
 
 ## Configuration - YAML
 
-For more advanced configuration, you can modify `configuration.yaml` and restart Home Assistant
+For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
 
 {% configuration %}
 database_path:
@@ -247,7 +247,7 @@ The ZHA {% term integration %} has the ability to automatically download and per
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
-To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
+To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your {% term "`configuration.yaml`" %} and restart Home Assistant:
 
 ```yaml
 zha:
@@ -308,7 +308,7 @@ The general recommendation is to only use channels 15, 20, or 25 in order to avo
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
-To correct the device type, also called domain, add the following to your `configuration.yaml` and restart Home Assistant:
+To correct the device type, also called domain, add the following to your {% term "`configuration.yaml`" %} and restart Home Assistant:
 
 ```yaml
 zha:
@@ -632,7 +632,7 @@ Note: Please also make sure you give it your best effort to follow the recommend
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

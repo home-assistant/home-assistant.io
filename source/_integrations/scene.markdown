@@ -33,7 +33,7 @@ Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mq
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
-Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via `configuration.yaml`. Note that the entity data is not service call parameters, it's a representation of the wanted state:
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via {% term "`configuration.yaml`" %}. Note that the entity data is not service call parameters, it's a representation of the wanted state:
 
 ```yaml
 # Example configuration.yaml entry
