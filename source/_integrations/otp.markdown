@@ -10,6 +10,7 @@ ha_quality_scale: internal
 ha_domain: otp
 ha_platforms:
   - sensor
+ha_config_flow: true
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
