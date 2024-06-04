@@ -34,6 +34,7 @@ To create a paid cluster, follow the instructions from the [Microsoft quickstart
 However, Microsoft has released a free offer, and this guide describes how to set up a free Azure Data Explorer Cluster and database:
 
 There are a few differences between the **PAYG** and **Free** versions:
+
 | Feature         | PAYG cluster           | Free cluster                    |
 | --------------- | ---------------------- | ------------------------------- |
 | Ingestion       | Streaming and queueing | Queueing only (for now)         |
