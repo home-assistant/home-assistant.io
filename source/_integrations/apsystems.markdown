@@ -3,7 +3,7 @@ title: APsystems
 description: Control and monitor your APsystems EZ1 microinverters locally without the cloud
 ha_iot_class: Local Polling
 ha_config_flow: true
-ha_release: 2024.6
+ha_release: 2024.7
 ha_category:
   - Energy
 ha_domain: apsystems
