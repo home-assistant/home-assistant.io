@@ -91,6 +91,7 @@ Depending on the supported features of the camera, number entities are added for
 - Volume
 - Guard return time
 - Motion sensitivity
+- PIR sensitivity
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -164,7 +165,7 @@ Depending on the supported features of the camera, select entities are added for
 - Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
-- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
+- Doorbell LED (Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -194,6 +195,8 @@ Depending on the supported features of the camera, switch entities are added for
 - Buzzer on event
 - Email on event
 - FTP upload
+- PIR enabled*
+- PIR reduce false alarm*
 - HDR*
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
@@ -225,6 +228,9 @@ Depending on the supported features of the camera, the following sensor entities
 - PTZ pan position
 - Wi-Fi signal*
 - HDD/SD storage*
+- Battery percentage
+- Battery temperature*
+- Battery state* (discharging, charging, charge complete)
 
 ## Update entity
 
