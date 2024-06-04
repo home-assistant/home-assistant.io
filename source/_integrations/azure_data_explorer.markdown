@@ -32,7 +32,7 @@ For Home Assistant to authenticate with Azure Data Explorer, it needs a *Service
 ### Creating a Free Azure Data Explorer cluster and database
 
 There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**.
-To create a paid cluster, follow the instructions from the [Microsoft quickstart guide](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
+To create a paid cluster, follow the instructions from the [Microsoft Quickstart Guide](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal). 
 However, Microsoft has released a free offer, and this guide describes how to set up a free Azure Data Explorer Cluster and database:
 
 There are a few differences between the **PAYG** and **Free** versions:
