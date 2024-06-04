@@ -85,8 +85,6 @@ This is an example with a free cluster for reference:
 .create table ['raw'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
-
-
 {% include integrations/config_flow.md %}
 
 If using a free cluster, check the **Use Queueing client** in the form.
