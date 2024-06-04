@@ -10,49 +10,49 @@ ha_codeowners:
   - '@kaareseras'
 ha_domain: azure_data_explorer
 ---
-[Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/)  is a high performace timeseries database, query engine and dashboarding tool. The Home Assistant `Azure Data Explorer` integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here data can be viewed in buildin dashboards, PowerBi and Grafana amoung others.
+[Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant Azure Data Explorer integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
 
-## Create a free Azure account
+## Creating a free Azure account
 
-* Create a  [free Azure account](https://azure.microsoft.com/). you will be asked for creditcard info, but all rescources created here are free.
+* Create a [free Azure account](https://azure.microsoft.com/). You will be asked for credit card information, but all resources created here are free.
 
-## Create a Service Principal (App registration)
+## Creating a Service Principal (App registration)
 
-For Home Assistant to authenticate with Azure Data Explorer, it need a **Service Principal**
-1. Create a [Service Principal](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) follow guide step 1-7
+For Home Assistant to authenticate with Azure Data Explorer, it needs a *Service Principal*.
+1. To create a Service Principal, follow the guide on [Creating Microsoft Entra application registration](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) steps 1-7.
 2. Copy values for later use:
-    * Application (client) ID  <--From App registration owerwiev
-    * Directory (tenant) ID    <--From App registration owerwiev
-    * Secret value             <--From when the secret was created in 1.7
+    - Application (client) ID: From App registration overview
+    - Directory (tenant) ID: From App registration overview
+    - Secret value: From when the secret was created in step 1.7
 
-## Create Free Azure Dataexplorer cluster and Database
+## Creating a Free Azure Data Explorer cluster and database
 
-There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**
-to create a paid cluster follow instructions from here: [Microsoft quickstart](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
-However Microsoft has released a free offer and this guide describes how to set up a free Azure Data Explorer Cluster and database:
+There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**.
+To create a paid cluster, follow the instructions from the [Microsoft quickstart guide](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
+However, Microsoft has released a free offer, and this guide describes how to set up a free Azure Data Explorer Cluster and database:
 
-There are a few different between the **PAYG** and **Free** versions:
-| Feature         | PAYG Cluster           | Free Cluster                    |
+There are a few differences between the **PAYG** and **Free** versions:
+| Feature         | PAYG cluster           | Free cluster                    |
 | --------------- | ---------------------- | ------------------------------- |
-| Ingestion       | Streaming and Queueing | Queueing only (for now)         |
-| Cluster size    | Fully scalable         | 4 vCPU, 8GB Menory, ~100GB data |
+| Ingestion       | Streaming and queueing | Queueing only (for now)         |
+| Cluster size    | Fully scalable         | 4 vCPU, 8 GB Memory, ~100 GB data |
 
-1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
-2. Navigate to **My Cluster** .
-3. And click the **Create Cluster** button.
-4. Name the Cluster and database.
-5. Copy the **database name** for later use
-5. Check terms and condition (after reading them) and click **Create Cluster**.
+1. Go to [aka.ms/kustofree](https://aka.ms/kustofree).
+2. Go to **My Cluster** .
+3. Select **Create Cluster**.
+4. Name the cluster and database.
+5. Copy the **database name** for later use.
+5. Check the **Terms and Conditions** (after reading them) and select **Create Cluster**.
 
-Within a minute, you will have a Azure Data Explorer cluster ready
+Within a minute, you will have an Azure Data Explorer cluster ready.
 
-After the creation of the database, copy the **Data ingestion URI** from the top of the page
+After the database has been created, copy the **Data ingestion URI** from the top of the page.
 
-## Create Azure Data Table
+## Creating an Azure data table
 
-1. Navigate to [aka.ms/kustofree](https://aka.ms/kustofree).
-2. Navigate to **Query**.
-3. Write and execute the foloing statements one by one, replacing the content between the <> with the copied values (including the brackets)
+1. Go to [aka.ms/kustofree](https://aka.ms/kustofree).
+2. Go to **Query**.
+3. Write and perform the following statements one by one, replacing the placeholder content between the <> with the copied values (including the brackets).
 
 ```KQL
 // Give the Service Pricipal write access to the database
@@ -61,14 +61,14 @@ After the creation of the database, copy the **Data ingestion URI** from the top
 // Give the Service Pricipal read access to database (used for connectivity checks) 
 .add database ['<databasename>'] viewers ('aadapp=<ApplicationID>;<DirectoryID>');
 
-// Create a table for the data to be ingested into (Replace name and copy inserted *name* for later use)
+// Create a table for the data to be ingested into (replace the name and copy inserted *name* for later use)
 .create table ['<name_to_be_replaced>'] (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
 
-// Creat a mapping from the incomming JSON to the table and collums just created (replace name with table name from previous step)
+// Creat a mapping from the incoming JSON to the table and columns just created (replace the name with the table name from the previous step)
 .create table ['<name_to_be_replaced>'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
-This is an example with a free cluster for reference
+This is an example with a free cluster for reference:
 
 ```KQL
 .add database ['HomeAssistant'] ingestors ('aadapp=b5253d02-c8f4-1234-a0f0-818491ba2a1f;72f123bf-86f1-41af-91ab-2d7cd011db93');
@@ -82,17 +82,17 @@ This is an example with a free cluster for reference
 
 ## Configuration
 
->if using a free cluste, check the **Use Queueing client** in the form
+If using a free cluster, check the **Use Queueing client** in the form.
 
 {% include integrations/config_flow.md %}
 
-After completiing the flow, Home Assistant is sending data to Azure Data Explorer. 
+After the flow has been completed, Home Assistant sends data to Azure Data Explorer. 
 
-> Home Assistant is buffering for defualt 5 seconds before sending, and Batching Policy in Azure Data Explorer will futher batch up for default 
+By default, Home Assistant buffers for 5 seconds before sending, and the Batching Policy in Azure Data Explorer will further batch up for default.
 
 ## Filters
 
-Optinaly add the following lines to your `configuration.yaml` file for filtering data ingested into Azure Data Explorer:
+Optionally, add the following lines to your {% term "configuration.yaml" %} file for filtering data ingested into Azure Data Explorer:
 
 ```yaml
 # Example configuration.yaml entry
