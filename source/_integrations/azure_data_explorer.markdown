@@ -14,7 +14,7 @@ ha_domain: azure_data_explorer
 
 ## Creating a free Azure account
 
-* Create a [free Azure account](https://azure.microsoft.com/). You will be asked for credit card information, but all resources created here are free.
+Create a [free Azure account](https://azure.microsoft.com/). You will be asked for credit card information, but all resources created here are free.
 
 ## Creating a Service Principal (App registration)
 
@@ -42,7 +42,7 @@ There are a few differences between the **PAYG** and **Free** versions:
 3. Select **Create Cluster**.
 4. Name the cluster and database.
 5. Copy the **database name** for later use.
-5. Check the **Terms and Conditions** (after reading them) and select **Create Cluster**.
+6. Check the **Terms and Conditions** (after reading them) and select **Create Cluster**.
 
 Within a minute, you will have an Azure Data Explorer cluster ready.
 
