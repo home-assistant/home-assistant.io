@@ -34,9 +34,3 @@ The **ista EcoTrend** integration exposes the last monthly readings as sensors. 
 - **Water costs**: estimated costs in EUR
 
 Not all values may be available in your ista EcoTrend account. Cost estimation is an optional service that has to be booked by your property manager. Therefore, the cost sensors are deactivated by default.
-
-## Statistics
-
-The **ista EcoTrend** integration will additionally import all historical monthly consumption readings as statistics that can be used in the energy dashboard. New consumption readings usually become available in the first week of the following month. In contrast to the sensors, values in the statistics are corrected and added on the last day of their corresponding month. 
-
-Make sure to select the correct statistics in the energy dashboard. You can differentiate the statistics from the sensors by their prefix `ista_ecotrend`.
