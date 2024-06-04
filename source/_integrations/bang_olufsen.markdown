@@ -52,7 +52,7 @@ Device model:
 
 ### play_media services
 
-The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favourite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, and tracks.
+The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 
 #### play_media examples
 
@@ -148,6 +148,64 @@ target:
 data:
   media_content_type: deezer
   media_content_id: 1234567890
+```
+
+##### Overlay
+
+Interrupts currently playing media to play an audio message.
+
+To use the Bang & Olufsen Cloud TTS, use `overlay_tts` as the `media_content_type` and enter a message into the `media_content_id` field.
+Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and are cached for 24 hours.
+
+Extra keys available:
+
+| Service data attribute    | Optional | Description                                                                                      |
+| ------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                      |
+| `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                 |
+| `overlay_tts_language`    | yes      | Specify the language used for text-to-speech. Uses the BCP 47 standard. Default value is "en-us". |
+
+###### Examples:
+
+Playing a local file with an absolute volume as an overlay:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  media_content_type: music
+  media_content_id: media-source://media_source/local/doorbell.mp3
+  announce: true
+  extra:
+    overlay_absolute_volume: 60
+```
+
+Playing a Bang & Olufsen Cloud TTS message with an offset volume (as TTS messages can be quiet):
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  media_content_type: overlay_tts
+  media_content_id: This is a test
+  announce: true
+  extra:
+    overlay_offset_volume: 10
+```
+
+Playing a Bang & Olufsen Cloud TTS message with a local language:
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.beosound_balance_12345678
+data:
+  media_content_type: overlay_tts
+  media_content_id: Dette er en test
+  announce: true
+  extra:
+    overlay_tts_language: da-dk
 ```
 
 ## Automations
