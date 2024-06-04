@@ -135,7 +135,7 @@ target:
 ```
 
 The service call returns a response with a list of coordinates like this:
-```json
+```yaml
 vacuum.deebot_n8_plus:
   - type: deebotPos
     x: 1
