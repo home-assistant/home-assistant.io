@@ -123,6 +123,30 @@ template:
 
 {% endraw %}
 
+### Getting bot and chargers coordinates
+
+The integration has a `get_positions` service used to retrieve bot and chargers coordinates.
+
+Example:
+```yaml
+service: ecovacs.get_positions
+target:
+  entity_id: vacuum.deebot_n8_plus
+```
+
+The service call returns a response with a list of coordinates like this:
+```json
+vacuum.deebot_n8_plus:
+  - type: deebotPos
+    x: 1
+    y: 5
+    a: 85
+  - type: chargePos
+    x: 5
+    y: 9
+    a: 85
+```
+
 ### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
@@ -139,36 +163,6 @@ Alternatively, you can use the `ecovacs_error` event to watch for errors. This e
 ```
 
 Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
-
-### Sending custom commands
-
-The integration has a `send_custom_command` service used to send custom commands to the bot.
-
-Example:
-```yaml
-service: ecovacs.send_custom_command
-data:
-  command: getPos
-  params:
-    - deebotPos
-    - chargePos
-target:
-  entity_id: vacuum.deebot_n8_plus
-
-```
-
-Depending on the command, you can get a response like this:
-```json
-vacuum.deebot_n8_plus:
-  ret: ok
-  resp:
-    header:
-       ...
-    body:
-       ...
-  id: xRV3
-  payloadType: j
-```
 
 ## Self-hosted configuration
 
