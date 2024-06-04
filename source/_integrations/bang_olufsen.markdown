@@ -52,7 +52,7 @@ Device model:
 
 ### play_media services
 
-The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favourite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, and tracks and playing files and TTS as an overlay.
+The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 
 #### play_media examples
 
