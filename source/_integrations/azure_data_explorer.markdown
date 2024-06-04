@@ -14,6 +14,7 @@ ha_domain: azure_data_explorer
 ## Prerequisites
 
 Before you can add Azure Data Explorer to Home Assistant, you need to set up an Azure account, create a Service Principal,  create a cluster, and add a database.
+
 ### Creating a free Azure account
 
 Create a [free Azure account](https://azure.microsoft.com/). You will be asked for credit card information, but all resources created here are free.
