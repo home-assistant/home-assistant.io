@@ -163,7 +163,7 @@ Extra keys available:
 | ------------------------- | -------- | ---------------------------------------------------------------- |
 | `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                      |
 | `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level. |
-| `overlay_tts_language`    | yes      | Specify TTS language.                                            |
+| `overlay_tts_language`    | yes      | Specify the language used for text-to-speech.                                            |
 
 ###### Examples:
 
