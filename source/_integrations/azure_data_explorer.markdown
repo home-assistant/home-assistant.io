@@ -25,9 +25,9 @@ Create a [free Azure account](https://azure.microsoft.com/). You will be asked f
 For Home Assistant to authenticate with Azure Data Explorer, it needs a *Service Principal*.
 1. To create a Service Principal, follow the guide on [Creating Microsoft Entra application registration](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) steps 1-7.
 2. Copy values for later use:
-    - Application (client) ID: From App registration overview
-    - Directory (tenant) ID: From App registration overview
-    - Secret value: From when the secret was created in step 1.7
+   - Application (client) ID: From App registration overview
+   - Directory (tenant) ID: From App registration overview
+   - Secret value: From when the secret was created in step 1.7
 
 ### Creating a Free Azure Data Explorer cluster and database
 
