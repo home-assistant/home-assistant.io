@@ -96,7 +96,7 @@ conversation agent control your home with a flick of a switch.
     Temporary screenshot that needs to be replaced.
 </p>
 
-This release makes this available to [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/). To make it easier to get started with LLMs, we have updated these integrations with recommended model settings that strike the right balance between performance, speed and cost. If you had them set up previously, we recommend enabling the recommended settings and emptying the instructions.
+This release makes this available to [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/). To make it easier to get started with LLMs, we have updated these integrations with recommended model settings that strike the right balance between accuracy, speed and cost. If you had them set up previously, we recommend enabling the recommended settings and emptying the instructions.
 
 Our recommended model settings perform equally well for voice assistant tasks. Google is 14x cheaper than OpenAI, but OpenAI is better at answering non-smart home questions. We are preparing a blog post with a deep dive into the research that went into this feature, coming soon.
 
