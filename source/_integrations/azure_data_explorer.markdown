@@ -50,7 +50,7 @@ There are a few differences between the **PAYG** and **Free** versions:
 4. Name the cluster and database.
 5. Copy the **database name** for later use.
 6. Check the **Terms and Conditions** (after reading them) and select **Create Cluster**.
-  - Within a minute, you will have an Azure Data Explorer cluster ready.
+   - Within a minute, you will have an Azure Data Explorer cluster ready.
 7. After the database has been created, copy the **Data ingestion URI** from the top of the page.
 
 ### Creating an Azure data table
