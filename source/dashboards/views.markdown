@@ -55,9 +55,11 @@ It is currently not possible to migrate your dashboard from one view type into a
 
    ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
 
-4. On the **Badges** tab, add badges, if any.
+4. If you want to use a background image, on the **Background** tab, select an image.
+   - For better readability and contrast with the font, use dark images with dark theme, and light images with light theme.
+5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Note that the sidebar and panel views do not support badges.
-5. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
+6. By default, the new section is visible to all users. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
 ## Path
 
