@@ -123,6 +123,30 @@ template:
 
 {% endraw %}
 
+### Getting bot and chargers coordinates
+
+The integration has a `get_positions` service used to retrieve bot and chargers coordinates.
+
+Example:
+```yaml
+service: ecovacs.get_positions
+target:
+  entity_id: vacuum.deebot_n8_plus
+```
+
+The service call returns a response with a list of coordinates like this:
+```json
+vacuum.deebot_n8_plus:
+  - type: deebotPos
+    x: 1
+    y: 5
+    a: 85
+  - type: chargePos
+    x: 5
+    y: 9
+    a: 85
+```
+
 ### Handling errors
 
 The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
