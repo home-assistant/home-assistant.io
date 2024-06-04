@@ -11,12 +11,14 @@ ha_codeowners:
 ha_domain: azure_data_explorer
 ---
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant Azure Data Explorer integration allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
+## Prerequisites
 
-## Creating a free Azure account
+Before you can add Azure Data Explorer to Home Assistant, you need to set up an Azure account, create a Service Principal, and create a cluster and add a database.
+### Creating a free Azure account
 
 Create a [free Azure account](https://azure.microsoft.com/). You will be asked for credit card information, but all resources created here are free.
 
-## Creating a Service Principal (App registration)
+### Creating a Service Principal (App registration)
 
 For Home Assistant to authenticate with Azure Data Explorer, it needs a *Service Principal*.
 1. To create a Service Principal, follow the guide on [Creating Microsoft Entra application registration](https://docs.microsoft.com/en-us/azure/data-explorer/provision-azure-ad-app) steps 1-7.
@@ -25,7 +27,7 @@ For Home Assistant to authenticate with Azure Data Explorer, it needs a *Service
     - Directory (tenant) ID: From App registration overview
     - Secret value: From when the secret was created in step 1.7
 
-## Creating a Free Azure Data Explorer cluster and database
+### Creating a Free Azure Data Explorer cluster and database
 
 There are two ways of creating an Azure Data Explorer Cluster: **Pay as you go (PAYG)** or **Free**.
 To create a paid cluster, follow the instructions from the [Microsoft quickstart guide](https://docs.microsoft.com/en-us/azure/data-explorer/create-cluster-database-portal)
@@ -48,7 +50,7 @@ Within a minute, you will have an Azure Data Explorer cluster ready.
 
 After the database has been created, copy the **Data ingestion URI** from the top of the page.
 
-## Creating an Azure data table
+### Creating an Azure data table
 
 1. Go to [aka.ms/kustofree](https://aka.ms/kustofree).
 2. Go to **Query**.
@@ -80,11 +82,11 @@ This is an example with a free cluster for reference:
 .create table ['raw'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
-## Configuration
 
-If using a free cluster, check the **Use Queueing client** in the form.
 
 {% include integrations/config_flow.md %}
+
+If using a free cluster, check the **Use Queueing client** in the form.
 
 After the flow has been completed, Home Assistant sends data to Azure Data Explorer. 
 
