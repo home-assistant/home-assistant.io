@@ -170,12 +170,12 @@ Filters are applied as follows:
       - If the entity matches include glob pattern, and the entity does not match any exclude criteria (domain, glob pattern, or listed), pass.
       - If the domain is not included, the glob pattern does not match, and the entity not included, fail.
    - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
+      - If the domain is excluded and the entity is not included, fail.
+      - If the entity matches an exclude glob pattern and the entity is not included, fail.
+      - If the entity does not match any exclude criteria (domain, glob pattern, or listed), pass.
    - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+      - If the entity is included, pass (as #2 above).
+      - If the entity matches both an include and an exclude pattern, the entity exclude is ignored.
 
 
 ## Using Azure Data Explorer
