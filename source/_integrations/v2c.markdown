@@ -47,7 +47,7 @@ The V2C integration currently exposes the following sensors:
 - charge_power: Current power charging your vehicle.
 - charge_energy: Energy transferred to your car during the current charging session.
 - charge_time: Time spent in the current charging session.
-- slave_error: Information from the EVSE on errors associated with the dynamic power control mode. Can be ignored when this mode is not used.
+- meter_error: Information from the EVSE on errors associated with the dynamic power control mode. It can be ignored when this mode is not used.
 - house_power: Power consumed by your household. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
 - fv_power: Power produced by your photovoltaic system. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
 - battery_power: Power directed to a home battery. This data is available if you installed and configured the settings in the V2C app for the <abbr title="current transformer">CT</abbr> clamp that was supplied with your <abbr title="electric vehicle supply equipment">EVSE</abbr>).
