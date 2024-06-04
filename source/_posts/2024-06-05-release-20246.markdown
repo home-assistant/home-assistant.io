@@ -258,9 +258,12 @@ noteworthy changes this release:
   integrations. Nice!
 - The [Teslemetry] integration has been expanded tremendously, adding new
   platforms and features. Awesome job [@Bre77]!
+- Limited templates can now be used to disable triggers, conditions and actions.
+  [@farmio] thought this might be helpful for blueprint creators.
 
 [@angelnu]: https://github.com/angelnu
 [@Bre77]: https://github.com/Bre77
+[@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@starkillerOG]: https://github.com/starkillerOG
