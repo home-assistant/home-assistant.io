@@ -142,7 +142,7 @@ Not filtering domains or entities will send every event to Azure Data Explorer.
 </div>
 
 
-### Configure Filter
+### Configuring a filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `Azure Data Explorer`, you can use the `filter` parameter.
 
@@ -161,14 +161,14 @@ azure_data_explorer:
 
 Filters are applied as follows:
 
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
+1. No includes or excludes - pass all entities.
+2. Includes, no excludes - only include specified entities.
+3. Excludes, no includes - only exclude specified entities.
 4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
+   - Include domain and/or glob patterns specified:
+      - If the domain is included, and the entity is not excluded or matches the exclude glob pattern, pass.
+      - If the entity matches include glob pattern, and the entity does not match any exclude criteria (domain, glob pattern, or listed), pass.
+      - If the domain is not included, the glob pattern does not match, and the entity not included, fail.
    - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
       - If domain is excluded and entity not included, fail
       - If entity matches exclude glob pattern and entity not included, fail
@@ -180,9 +180,9 @@ Filters are applied as follows:
 
 ## Using Azure Data Explorer
 
-As the setup is complete, data is being sent to Azure Data Explorer, and you can start exploring your data.
-Here are som rescources to learn to use Azure Data Explorer
+Once the setup is complete, data is being sent to Azure Data Explorer, and you can start exploring your data.
+Here are some resources to help you learn how to use Azure Data Explorer:
 
-* MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
-* You tube: [Official Microsoft Azure Data Explorer YouTube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
-* Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
+- MS Learn: [https://aka.ms/learn.kql](https://aka.ms/learn.kql), [https://aka.ms/learn.adx](https://aka.ms/learn.adx)
+- YouTube: [Official Microsoft Azure Data Explorer YouTube channal](https://www.youtube.com/channel/UCPgPN-0DLaImaaDR_TtKR8A)
+- Blog: [Official Microsoft Data Explorer blog](https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/bg-p/AzureDataExplorer)
