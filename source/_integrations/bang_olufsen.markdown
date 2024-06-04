@@ -159,11 +159,11 @@ Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and a
 
 Extra keys available:
 
-| Service data attribute    | Optional | Description                                                      |
-| ------------------------- | -------- | ---------------------------------------------------------------- |
-| `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                      |
-| `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level. |
-| `overlay_tts_language`    | yes      | Specify the language used for text-to-speech.                                            |
+| Service data attribute    | Optional | Description                                                                                      |
+| ------------------------- | -------- | ------------------------------------------------------------------------------------------------ |
+| `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                      |
+| `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                 |
+| `overlay_tts_language`    | yes      | Specify the language used for text-to-speech. Uses the BCP 47 standard. Default value is "en-us" |
 
 ###### Examples:
 
