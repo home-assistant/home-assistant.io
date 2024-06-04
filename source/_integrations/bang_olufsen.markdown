@@ -154,7 +154,7 @@ data:
 
 Interrupts currently playing media to play an audio message.
 
-To use the Bang & Olufsen Cloud TTS, use `overlay_tts` as the `media_content_type` and enter message in the `media_content_id` field.
+To use the Bang & Olufsen Cloud TTS, use `overlay_tts` as the `media_content_type` and enter a message into the `media_content_id` field.
 Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and are cached for 24 hours.
 
 Extra keys available:
