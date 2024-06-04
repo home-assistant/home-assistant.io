@@ -9,6 +9,8 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@kaareseras'
 ha_domain: azure_data_explorer
+related:
+  - docs: /docs/configuration/
 ---
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant **Azure Data Explorer** {% term integration %} allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
 
@@ -43,7 +45,7 @@ There are a few differences between the **PAYG** and **Free** versions:
 | Cluster size    | Fully scalable         | 4 vCPU, 8 GB Memory, ~100 GB data |
 
 1. Go to [aka.ms/kustofree](https://aka.ms/kustofree).
-2. Go to **My Cluster** .
+2. Go to **My Cluster**.
 3. Select **Create Cluster**.
 4. Name the cluster and database.
 5. Copy the **database name** for later use.
