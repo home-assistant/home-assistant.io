@@ -53,11 +53,7 @@ A card can be added to a dashboard directly [from the view](#to-add-a-card-from-
         - Then, select **Continue**.
         ![Screenshot add cards by entity](/images/dashboards/dashboard_add-by-entity_02.png)
 
-3. If you want this card to be visible only to specific users or under a certain condition, you can define those conditions:
-   - On the **Visibility** tab, select **Add condition**.
-   - Select the type of condition, and enter the parameters.
-   - If you define multiple conditions, the section is only shown when all conditions are met.
-   - If you did not define any conditions, the section is always shown, to all users.
+3. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#show-or-hide-a-card-conditionally).
 4. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 5. Select **Add to dashboard**.
@@ -70,23 +66,30 @@ This method is useful if you are on the **Device** page and want to create a car
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. On the integration card of interest, select **Devices**.
    - If there are multiple devices, select the device from the list.
+3. Add the card:
+   - Find the area of interest, for example **Sensors**, or **Events** and select **Add to Dashboard**.
+  ![Add to Dashboard button on the device page](/images/dashboards/add_card_from_device_page.png)
+4. In the dialog, select the target dashboard and if you have multiple views, select the view.
+   - Select **Next**.
+   - If you like the card proposal, select **Add to dashboard**.
+   - If you want to change the card, **Pick different card** and choose your card type.
+   - **Result**: The card is added to the selected view.
+  ![Add to Dashboard button on the device page](/images/dashboards/add_card_from_device_page_02.png) 
+5. To edit the card configuration, open the view to which you added the card.
+   - Select **Edit card**.
+6. If you want this card to be visible only to specific users or under a certain condition, you can [define those conditions](#show-or-hide-a-card-conditionally).
 
-3. If you want this card to be visible only to specific users or under a certain condition, you can define those conditions:
-   - On the **Visibility** tab, select **Add condition**.
-   - Select the type of condition, and enter the parameters.
-   - If you define multiple conditions, the section is only shown when all conditions are met.
-   - If you did not define any conditions, the section is always shown, to all users.
-4. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
+7. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
-
-5. In the **Controls** section, select **Add to Dashboard**.
-  ![Add to Dashboard button on the device page](/images/blog/2024-03-dashboard-chapter-1/sections-add-from-device-page.jpg)
 
 ## Show or hide a card conditionally
 
 You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
-To edit the card visibility conditions, open the card editor, select the **Visibility** tab and add your conditions.
+1. On the **Visibility** tab, select **Add condition**.
+2. Select the type of condition, and enter the parameters.
+   - If you define multiple conditions, the section is only shown when all conditions are met.
+   - If you did not define any conditions, the section is always shown, to all users.
 
 ## Card actions, features, header and footer widgets
 
