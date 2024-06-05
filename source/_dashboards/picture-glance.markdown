@@ -19,7 +19,7 @@ The picture glance card shows an image and lets you place small icons of entity 
   Picture glance card for a living room.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 
