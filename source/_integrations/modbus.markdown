@@ -1489,9 +1489,9 @@ switches:
         coils:
           description: "write_coils is called."
     verify:
-      description: "Read from Modbus device to verify fan.
+      description: "Read from Modbus device to verify switch.
         If used without attributes, it uses the toggle register configuration.
-        If omitted, no verification is done, but the state of the fan is set with each toggle."
+        If omitted, no verification is done, but the state of the switch is set with each toggle."
       required: false
       type: map
       keys:
