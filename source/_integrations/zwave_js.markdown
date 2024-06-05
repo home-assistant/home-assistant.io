@@ -427,6 +427,50 @@ This service will set the configuration of a lock.
 | `twist_assist`       | no       | Enable Twist Assist.   |
 | `block_to_block`       | no       | Enable block-to-block functionality.   |
 
+### Service `zwave_js.get_lock_usercode`
+
+This service will get the usercode for a lock at code slot X.
+
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to get the usercode. |
+| `code_slot`            | yes      | The code slot to get the usercode for.               |
+
+#### Response data
+
+The response data is a dictionary containing the usercode as a string.
+
+```json
+{
+  "usercode": "1234"
+}
+```
+
+### Service `zwave_js.get_lock_usercodes`
+
+This service will get all the usercodes for a lock.
+
+| Service Data Attribute | Required | Description                                          |
+| ---------------------- | -------- | ---------------------------------------------------- |
+| `entity_id`            | no       | Lock entity or list of entities to get the usercode. |
+
+#### Response data
+
+The response data is a dictionary of code slots to usercodes, both represented as strings.
+
+Only code slots that have set usercodes are present in the dictionary.
+
+```json
+{
+  "usercodes": {
+    "1": "1234",
+    "2": "5678",
+    "9": "abcd",
+    "10": "efgh"
+  }
+}
+```
+
 ### Service `zwave_js.set_lock_usercode`
 
 This service will set the usercode of a lock to X at code slot Y.
