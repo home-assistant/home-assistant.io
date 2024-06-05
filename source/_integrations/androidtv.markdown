@@ -2,7 +2,7 @@
 title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.7.6
 ha_config_flow: true
@@ -255,35 +255,35 @@ The integration supports the `remote` platform. The remote allows you to send co
 **Power Keys**
 Key|Description
 ---|-----------
-"POWER"|Power Toggle
-"SLEEP"|Sleep Mode
+"POWER"|Power toggle
+"SLEEP"|Sleep mode
 "RESUME"|Resume
-"SUSPEND"|Suspend Mode
-"WAKEUP"|Wake Up
+"SUSPEND"|Suspend mode
+"WAKEUP"|Wake up
 ____________
 
 **Input Keys**
 Key|Description
 ---|-----------
-"COMPONENT1"|Component1
-"COMPONENT2"|Component2
-"COMPOSITE1"|Composite1
-"COMPOSITE2"|Composite2
-"HDMI1"|HDMI1
-"HDMI2"|HDMI2
-"HDMI3"|HDMI3
-"HDMI4"|HDMI4
-"INPUT"|Change Input
-"SAT"|Sat
+"COMPONENT1"|Component 1
+"COMPONENT2"|Component 2
+"COMPOSITE1"|Composite 1
+"COMPOSITE2"|Composite 2
+"HDMI1"|HDMI output port 1
+"HDMI2"|HDMI output port 2
+"HDMI3"|HDMI output port 3
+"HDMI4"|HDMI output port 4
+"INPUT"|Change input
+"SAT"|Satellite
 "VGA"|VGA
 _____________
 
 **Volume Keys**
 Key|Description
 ---|-----------
-"VOLUME_DOWN"|Volume Down
-"VOLUME_UP"|Volume Up
-"MUTE"|Volume Mute
+"VOLUME_DOWN"|Volume down
+"VOLUME_UP"|Volume up
+"MUTE"|Volume mute
 ________________
 
 **Color Keys**
@@ -304,11 +304,11 @@ Key|Description
 "END"|End
 "ENTER"|Enter
 "ESCAPE"|Escape
-"FAST_FORWARD"|Fast Forward
+"FAST_FORWARD"|Fast forward
 "HOME"|Home
 "LEFT"|Left
 "MENU"|Menu
-"MOVE_HOME"|Move Home
+"MOVE_HOME"|Move home
 "PAIRING"|Pairing
 "REWIND"|Rewind
 "RIGHT"|Right
@@ -324,7 +324,7 @@ Key|Description
 
 {% enddetails %}
 
-You can also send others Android keys using the syntax `input keyevent {key}`, replacing `{key}` with the Android numeric key event. Refer to [Android TV KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) for details.
+You can also send other Android keys using the syntax `input keyevent {key}`, replacing `{key}` with the Android numeric key event. Refer to [Android TV KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) for details.
 
 **Example to send sequence of commands:**
 
