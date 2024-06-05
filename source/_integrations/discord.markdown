@@ -65,6 +65,28 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
 
+## Set Message entry
+
+The `message` field will accept any string value input as a literal value. If quotation marks are input, the quotations will come through in the message.
+
+For example: `message: Hello, world!` will compe through as is, however, `message: "Hello, world!"` will come through with the quotation marks.
+
+## Set Channel IDs as necessary
+
+The `target` field is for the channel IDs where the message should be sent. Accepted data type is `string` for a single channel or `string[]` for multiple channels.
+
+For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
+
+## Pinging users, roles, or linking to other channels in the same server
+
+You are able to use standard Discord methods for pinging users, roles, and channels contained within the server.
+
+| Tyoe      | Format         |
+| --------- | -------------- |
+| `User`    | `<@userID>`    |
+| `Role`    | `<@&roleID>`   |
+| `Channel` | `<#channelID>` |
+
 ## Discord service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
