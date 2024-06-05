@@ -2,21 +2,16 @@
 title: Duwi
 description: The Duwi Integration allows users to easily connect and manage their Duwi Smart devices directly from Home Assistant. Control, monitor, and automate your Duwi Smart-enabled devices like lights, switches, and covers. Simplify your home automation tasks with the Duwi Integration.
 ha_category:
-- Cover
-- Light
 - Switch
 ha_iot_class: Cloud Push
-ha_release: 2024.6.0
+ha_release: 2024.7
 ha_config_flow: true
 ha_domain: duwi
 ha_codeowners:
 - '@duwi2024'
 - '@Ledgerbiggg'
 ha_platforms:
-- cover
-- light
 - switch
-ha_dhcp: false
 ha_integration_type: hub
 ---
 
@@ -24,12 +19,13 @@ ha_integration_type: hub
 
 To integrate with the Duwi Smart application, please follow these steps:
 
-1. **Obtain the Application Key**: Request a free App Key and Secret by sending an email to [lujunquan@duwi.com.cn](mailto:lujunquan@duwi.com.cn). These credentials are necessary for the authentication process.
+1. **Obtain Application Key**: You can apply to become a developer for Duwi Smart Home by logging into your account on the Duwi Smart app and navigating to the "Developer Authentication" section under personal settings. After submitting your application, you should receive the necessary App Key and App Secret within approximately 1-2 business days. These credentials will be required on the first page of the configuration flow.
 2. **Install the Duwi Smart Application**:
-   - Download and install the Duwi Smart application.
-   - Create a new account.
-   - Add at least one house to your account, ensuring it is equipped with available devices.
+    - Download and install the Duwi Smart app.
+    - Create a new account.
+    - Add at least one house to your account, making sure it is equipped with available devices.
 
+{% include integrations/config_flow.md %}
 
 ### Obtaining the Login User Code
 
