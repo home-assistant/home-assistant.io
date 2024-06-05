@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2024.6: Dipping our toes in the world of AI using LLMs 🤖"
-description: "Beta release notes for Home Assistant 2024.6.0"
+description: "Control your home with an AI powered Assist, conditional sections and cards for your dashboards, amazing new media player commands, and so much more! 🚀"
 date: 2024-06-05 00:00:00
 date_formatted: "June 5, 2024"
 author: Franck Nijhof
@@ -17,11 +17,31 @@ og_image: /images/blog/2024-06/social.png
 
 Home Assistant Core 2024.6! 🎉
 
-Thanks for helping out testing the beta! ❤️
+Welcome to another loaded release of Home Assistant! Packed with many exciting
+new features, this month is most definitely one to remember.
+
+Let's talk about AI. AI might just as well be talk of the century. These
+so-called [LLMs] most certainly open up a whole new world of possibilities.
+When we first introduced the OpenAI and Google AI conversation agents for Assist,
+one of the most requested features was the ability to control your home with it.
+
+Now for the big news:
+
+_**Well, as of today, you can control your home with an AI!**_ 🤖 
+
+But there is a lot more to this release. Super simple media player commands,
+more data table improvements, tag entities, collapsable blueprint sections,
+and so much more!
+
+I’m personally most excited about the new features in the dashboarding area.
+Being able to conditionally show sections and cards is definitely a game-changer
+for my dashboards.
 
 Enjoy the release!
 
 ../Frenck
+
+[LLMs]: https://en.wikipedia.org/wiki/Large_language_model
 
 <!--more-->
 
