@@ -51,10 +51,10 @@ It is currently not possible to migrate your dashboard from one view type into a
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
    - If you want to see an icon, select the [view icon](#view-icon).
-     - Note: If an icon is defined, the title text only shows as a tooltip.
+     - If an icon is defined, only the icon is shown. The text only shows as a tooltip.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
    - If you want to link to another view, define the [URL](#url-of-a-view).
-   - If you want to use a previously define theme, select the [theme](/integrations/frontend/#themes).
+   - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
    - Select the [view type](#view-type).
    - If this view is meant to be used as a [subview](#subview) only, enable the **Subview** toggle.
 
@@ -63,11 +63,11 @@ It is currently not possible to migrate your dashboard from one view type into a
 4. To use a background image, on the **Background** tab, select an image.
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
    - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
-     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on)  add-on.
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on) add-on.
    - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
-    - Note that the sidebar and panel views do not support badges.
-6. By default, the new section is visible to all users. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
+    - Sidebar and panel views do not support badges.
+6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
 
 ## URL of a view
 
