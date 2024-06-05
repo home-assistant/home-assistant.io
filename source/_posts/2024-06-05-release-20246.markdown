@@ -397,14 +397,17 @@ noteworthy changes this release:
 ### Tag entities!
 
 Home Assistant has support for tags for a long time. The tags feature allowed
-for NFC tags or QR codes, to be used with Home Assistant, for example, to
-trigger automations.
+NFC tags or QR codes to be used with Home Assistant, for example, to
+trigger {% term automations %}.
 
-However, tags were not real entities, and thus not always as logical to use as
-other entities. With this release, this has been changed by [@gjohansson-ST]!
+However, tags were not real entities and, thus, not always as logical to use.
+With this release, [@gjohansson-ST] changed this!
 
-Tags are now normal entities, and can be used in automations, scripts, templates,
-and even been shown on your dashboard!
+Tags are now normal {% term entities %} and can be used in {% term automations %},
+{% term scripts %}, {% term templates %}, and even added to
+your [dashboards](/dashboards)!
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 
 ### Disabling expiration of login tokens
 
