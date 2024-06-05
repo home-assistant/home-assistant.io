@@ -106,7 +106,7 @@ The agent will figure out the intention behind the words, and call the correct i
 
 Our intent system has been built from the start to be extensible. Custom integration and even users can register their own intents. This allows you to guide the agent beyond what's capable out of the box.
 
-Here is a simple example of a custom intent that explains to the LLM what to do when I leave my home.
+Here is an example of a custom intent that explains to the LLM what to do when I leave my home.
 ```yaml
 conversation:
   intents:
@@ -123,7 +123,7 @@ intent_script:
       text: "Done"
 ```
 
-With this simple YAML snippet added to my configuration.yaml, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is precisely what I want it to do.
+With this YAML snippet added to my {% term "`configuration.yaml`" %}, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is precisely what I want it to do.
 
 {% enddetails %}
 
