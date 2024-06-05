@@ -30,6 +30,7 @@ Enjoy the release!
   - [Improved media player commands](#improved-media-player-commands)
 - [Dashboards](#dashboards)
   - [Show sections conditionally](#show-sections-conditionally)
+  - [Control visibility of cards](#control-visibility-of-cards)
   - [Setting a dashboard background](#setting-a-dashboard-background)
 - [Data tables improvements](#data-tables-improvements)
 - [Integrations](#integrations)
@@ -199,19 +200,36 @@ and customization for backgrounds, which everyone in your home will enjoy.
 
 ### Show sections conditionally
 
-We added a visibility option to the new sections dashboard feature. It allows you to hide or show a section based on certain conditions.
+We added a visibility option to the new [sections dashboard] feature. This 
+amazing new feature allows you to hide or show a section based on certain
+conditions.
 
-For example, you may want to only display a section on mobile, when you're at
-home, and when the kitchen lights are on.
+For example, you may want to display only a section on mobile when you’re at
+home. Or, only show the switch to turn off kitchen lights when the kitchen lights
+are actually on. Maybe you have that one section only relevant to you or your
+partner, and you want to hide it from the kids.
 
-It uses the [same conditions as condition cards](/dashboards/conditional/#conditions-options).
-The big difference is, that you don't need a condition card to use this feature.
-it is available directly in the section configuration, in the visibility tab
-in the options of a section.
+<img class="no-shadow" src='/images/blog/2024-06/dashboard-section-visibility.png' alt='Screenshot showing how to conditional make a section visible on the new sections dashboard.'>
 
-![CleanShot 2024-05-16 at 12 40 44](https://github.com/home-assistant/frontend/assets/5878303/89c09bc1-bdc6-41f8-90e6-56a5993b821b)
+It uses the [same conditions as condition cards](/dashboards/conditional/#conditions-options),
+meaning you have a lot of flexibility in what you can do.
 
-<lite-youtube videoid="hhELdXsyL9Q" videotitle="Temporary video that needs to be replaced"></lite-youtube>
+[sections dashboard]: /dashboards/sections/
+
+### Control visibility of cards
+
+Wait, we didn't stop there! This same visibility feature is now also available
+for cards! Oh yes! 🚀
+
+You can now hide or show a card based on certain conditions. This allows you
+to create more dynamic dashboards that adapt to your needs.
+
+<img class="no-shadow" src='/images/blog/2024-06/dashboard-card-visibility.png' alt='Screenshot showing a tile card that is only visible to a specific person.'>
+
+You can now hide or show a card based on certain conditions. This allows you to
+create more dynamic dashboards that adapt to your needs. The big difference is
+that you don’t need a condition card to use this feature. It is available
+directly in the card configuration in the **Visibility** tab.
 
 ### Setting a dashboard background
 
