@@ -85,7 +85,7 @@ livestream on June the 26th! Keep an eye out for that! 🎙️
 
 ### Dipping our toes in the world of AI using LLMs
 
-Our voice assistant's brain is called a **conversation agent**.
+Our voice assistant's brain is called a _conversation agent_.
 It is responsible for understanding the intention behind the spoken command,
 performing an action, and generating a response.
 
