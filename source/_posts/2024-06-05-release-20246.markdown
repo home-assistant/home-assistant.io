@@ -54,13 +54,13 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Voice & Assist
 
-This month, we are continuing our work on improving Assist capabilities out of
-the box: Not only are we adding features, such as media control, that you would
-expect from a voice assistant, we are leapfrogging ahead with some new
-exciting developments experimenting with AI!
+This month, we are continuing our work on improving Assist's out-of-the-box
+capabilities: Not only are we adding features, such as media control,
+that you would expect from a voice assistant, but we are leapfrogging ahead
+with some new exciting developments and experimenting with AI! 🤖
 
-We will have more to announce during, soon to be announced, Voice Chapter 7 live
-stream. Keep an eye out for that!
+We will have more to announce during a soon-to-be-announced Voice Chapter 7
+livestream. Keep an eye out for that!
 
 ### Dipping our toes in the world of AI using LLMs
 
