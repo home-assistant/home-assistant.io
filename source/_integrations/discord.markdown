@@ -63,7 +63,7 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 {% include integrations/config_flow.md %}
 
-When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+When adding the Discord integration, you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
 
 ## Set Message entry
 
