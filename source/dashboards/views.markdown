@@ -14,6 +14,8 @@ related:
     title: About dashboards
   - docs: /dashboards/cards/#adding-cards-to-your-dashboard
     title: Adding cards to a view
+  - docs: /common-tasks/os/#configuring-access-to-files
+    title: Configure access to files
 ---
 
 A view is a tab inside a dashboard. For example, the screenshot below shows a separate view for lights on the Overview dashboard.
@@ -48,23 +50,26 @@ It is currently not possible to migrate your dashboard from one view type into a
 
 3. Define the view settings:
    - If you want a view title, enter the **Title**.
-   - If you want to see an icon, select the icon.
+   - If you want to see an icon, select the [view icon](#view-icon).
      - Note: If an icon is defined, the title text only shows as a tooltip.
      - We use [Material icons](https://pictogrammers.com/library/mdi/).
-   - Select the view type.
+   - If you want to link to another view, define the [URL](#url-of-a-view).
+   - If you want to use a previously define theme, select the [theme](/integrations/frontend/#themes).
+   - Select the [view type](#view-type).
+   - If this view is meant to be used as a [subview](#subview) only, enable the **Subview** toggle.
 
    ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
 
-4. If you want to use a background image, on the **Background** tab, select an image.
+4. To use a background image, on the **Background** tab, select an image.
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
-   - **Local path** lets you pick an image that is stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`
+   - **Local path** lets you pick an image stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`.
      - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on)  add-on.
    - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Note that the sidebar and panel views do not support badges.
 6. By default, the new section is visible to all users. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.
 
-## Path
+## URL of a view
 
 You can link to one view from a card in another view when using cards that support navigation (`navigation_path`). The string supplied here will be appended to the string `/lovelace/` to create the path to the view. Do not use special characters in paths. Do not begin a path with a number. This will cause the parser to read your path as a view index.
 
@@ -134,7 +139,7 @@ user:
   type: string
 {% endconfiguration %}
 
-## Type
+## View type
 
 You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
 
