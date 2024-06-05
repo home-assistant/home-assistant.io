@@ -193,7 +193,9 @@ media player, and you will be good to go.
 
 ## Dashboards
 
-Work has continued to make customization and organization of dashboards easier and intuitive. This month, we are adding a new feature for our new sections, as well as customization for backgrounds which everyone at your home would enjoy.
+Work has continued, making the dashboard customization and organization easier
+and more intuitive. This month, we are adding a new feature for our new sections
+and customization for backgrounds, which everyone at your home will enjoy.
 
 ### Show sections conditionally
 
