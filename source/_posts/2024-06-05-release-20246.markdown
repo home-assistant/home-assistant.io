@@ -84,15 +84,54 @@ When setting up an LLM-Based conversation agent you can decide to let your
 conversation agent control your home with a flick of a switch.
 
 <p class='img'>
-    <img src="/images/blog/2024-06/llm-control-assistant.png" alt="Temporary screenshot that needs to be replaced."/>
-    Temporary screenshot that needs to be replaced.
+    <img src="/images/blog/2024-06/llm-based-conversation-agent-config-flow.png" alt="Configuration screen of the OpenAI integration, showing how to enable Home Assistant control."/>
+    Configuration screen of the OpenAI integration, showing how to enable Home Assistant control.
 </p>
+
+With this new setting, LLM-based conversation agents can tap into our intent system, which is what powers Assist. They also get access to every entity exposed to Assist. That way, you control what your agents have access to.
+
+Tapping into our intent system is great because it works out of the box. Everything that Assist can do, LLM-based conversation agents can too. The added benefit is that they are capable of reasoning beyond words, which is something Assist was not capable of doing.
+
+For example, if you have a light called "Webcam light" exposed in your "office" area, you can give direct commands such as
+
+> Turn on the office webcam light.
+
+That was also working with Assist previously, but you can also give more complex commands such as
+
+> I'm going in a meeting, can you please make sure people see my face?
+
+The agent will figure out the intention behind the words, and call the correct intent on the correct exposed entities.
+
+{% details "What about custom intents?" %}
+
+Our intent system has been built from the start to be extensible. Custom integration and even users can register their own intents. This allows you to guide the agent beyond what's capable out of the box.
+
+Here is an example of a custom intent that explains to the agent what to do when I leave my home.
+```yaml
+conversation:
+  intents:
+    LeaveHome:
+      - "Leave home"
+
+intent_script:
+  LeaveHome:
+    description: "Launch the leave home script. To be used when I am about to leave my home."
+    action:
+      - service: script.leave_home
+        data: {}
+    speech:
+      text: "Done"
+```
+
+With this YAML snippet added to my {% term "`configuration.yaml`" %}, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is precisely what I want it to do.
+
+{% enddetails %}
 
 This release makes it available for our [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/) integrations. To make it easier to get started with LLMs, we have updated them with recommended model settings that strike the right balance between accuracy, speed and cost. If you had them set up previously, we recommend enabling the recommended settings and emptying the instructions.
 
 Our recommended model settings perform equally well for voice assistant tasks. Google is 14x cheaper than OpenAI, but OpenAI is better at answering non-smart home questions. We are preparing a blog post with a deep dive into the research that went into this feature, coming soon.
 
-_Thanks to our AI team [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@allenporter](https://github.com/allenporter), [@synesthesiam](https://github.com/synesthesiam), [@jlpouffier](https://github.com/jlpouffier) and [@balloob](https://github.com/balloob) for this feature!_
+_Thanks to everyone who contributed to this feature! [@shulyaka](https://github.com/shulyaka), [@tronikos](https://github.com/tronikos), [@allenporter](https://github.com/allenporter), [@synesthesiam](https://github.com/synesthesiam), [@jlpouffier](https://github.com/jlpouffier) and [@balloob](https://github.com/balloob)._
 
 ### Improved media player commands
 
