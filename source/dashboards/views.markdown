@@ -41,7 +41,7 @@ It is currently not possible to migrate your dashboard from one view type into a
 
 ## Adding a view to a dashboard
 
-1. To add a view to your user interface, in the top right corner, select the pencil icon.
+1. To add a view to your dashboard, in the top right corner, select the pencil icon.
 2. Select the `+` button in the top menu bar.
 
     ![Views toolbar](/images/dashboards/views.png)
@@ -56,7 +56,10 @@ It is currently not possible to migrate your dashboard from one view type into a
    ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
 
 4. If you want to use a background image, on the **Background** tab, select an image.
-   - For better readability and contrast with the font, use dark images with dark theme, and light images with light theme.
+   - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
+   - **Local path** lets you pick an image that is stored on Home Assistant. For example: `/homeassistant/images/lights_view_background_image.jpg`
+     - To store an image on Home Assistant, you need to [configure access to files](/common-tasks/os/#configuring-access-to-files), for example via [Samba](/common-tasks/os/#installing-and-using-the-samba-add-on) or the [Studio Code Server](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on)  add-on.
+   - **web URL** let you pick an image from the web. For example `https://www.home-assistant.io/images/frontpage/assist_wake_word.png`.
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Note that the sidebar and panel views do not support badges.
 6. By default, the new section is visible to all users. If this view should not be visible for some users, on the **Visibility** tab, disable the view for those users.

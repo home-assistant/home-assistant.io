@@ -34,7 +34,7 @@ You can group cards without using horizontal or vertical stack cards.
 ## Creating a sections view
 
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
-2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard)
+2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections (experimental)**.
 3. Select the maximum number of columns you want to see in the new sections view.
 4. When you are done, select **Save**.
