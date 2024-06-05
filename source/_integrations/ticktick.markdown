@@ -27,6 +27,6 @@ The **TickTick** integration allows you to interact with your [TickTick](https:/
 
 For authentication, the integration requires the `email` and `password` you used for your TickTick account.
 
-Also, a developer.ticktick.com account is needed with a client_id and client_secret, and currently a preauthenticated access token in JSON format.
+Also, a developer.ticktick.com account is needed with a client_id and client_secret, and currently a pre-authenticated access token in JSON format.
 
 {% include integrations/config_flow.md %}
