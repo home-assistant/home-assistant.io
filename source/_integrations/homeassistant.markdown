@@ -104,15 +104,15 @@ internal_url:
   required: false
   type: string
 customize:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) entities."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities."
   required: false
   type: string
 customize_domain:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) all entities in a domain."
+  description: "[Customize](#editing-entity-settings-in-yaml) all entities in a domain."
   required: false
   type: string
 customize_glob:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) entities matching a pattern."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities matching a pattern."
   required: false
   type: string
 allowlist_external_dirs:
