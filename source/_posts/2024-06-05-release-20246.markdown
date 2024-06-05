@@ -40,8 +40,8 @@ Enjoy the release!
   - [Farewell to the following](#farewell-to-the-following)
 - [Matter turns 1.3](#matter-turns-13)
 - [Other noteworthy changes](#other-noteworthy-changes)
-  - [Tag entities!](#tag-entities)
   - [Disabling expiration of login tokens](#disabling-expiration-of-login-tokens)
+  - [Tag entities!](#tag-entities)
   - [Collapsable sections for blueprints!](#collapsable-sections-for-blueprints)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -222,8 +222,8 @@ by area and domain.
 
 ## Integrations
 
-Thanks to our community for keeping pace with the new integrations and
-improvements to existing ones! You’re all awesome 🥰
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
 
 ### New integrations
 
@@ -261,9 +261,9 @@ We welcome the following new integrations in this release:
 
 ### Noteworthy improvements to existing integrations
 
-It is not just new integrations that are added; existing integrations
-are also constantly improved. Here are some of the noteworthy changes
-to existing integrations:
+It is not just new {% term integrations %} that are added; existing
+integrations are also constantly improved. Here are some of the noteworthy
+changes to existing integrations:
 
 - Do you need a wireless device that can bridge a larger distance, like
   kilometers? A [LoRa] device might be a good option. Thanks to [@angelnu]
@@ -272,8 +272,9 @@ to existing integrations:
   integrations. Nice!
 - The [Teslemetry] integration has been expanded tremendously, adding new
   platforms and features. Awesome job [@Bre77]!
-- Limited templates can now be used to disable triggers, conditions
-  and actions. [@farmio] thought this might be helpful for blueprint creators.
+- Limited templates can now be used to disable {% term triggers %},
+  {% term conditions %}, and {% term actions %}. [@farmio] thought this might
+  be helpful for {% term blueprint %} creators.
 - [@Anrijs] added support for the [Aranet Radiation] devices to the
   [Aranet] integration. Nice!
 - You can now set the cutting height of your [Husqvarna Automower], and there
@@ -306,7 +307,7 @@ to existing integrations:
 
 ### Integrations reaching platinum quality level
 
-The following integrations reached the platinum 🏆 level on our
+The following {% term integrations %} reached the platinum 🏆 level on our
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
@@ -331,8 +332,8 @@ Congratulations to all the developers who worked on these integrations!
 
 ### Now available to set up from the UI
 
-While most integrations can be set up directly from the Home Assistant user
-interface, some were only available using YAML configuration. We keep moving
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
 more integrations to the UI, making them more accessible for everyone
 to set up and use.
 
@@ -354,7 +355,8 @@ The following integrations are now available via the Home Assistant UI:
 
 ### Farewell to the following
 
-The following integrations are also no longer available as of this release:
+The following {% term integrations %} are also no longer available as
+of this release:
 
 - **Ambiclimate** has been removed by [@gjohansson-ST]. Their services have been
   terminated, effective March 31, 2024.
@@ -364,14 +366,25 @@ The following integrations are also no longer available as of this release:
 
 ## Matter turns 1.3
 
-As one of the first in the industry, we are proud to announce that
-Home Assistant is already based on the latest Matter specification: Matter 1.3!
-The updated SDK should improve the reliability and compatibility of Matter
-devices.
+As one of the first in the industry, we proudly announce that Home Assistant
+is already based on the latest {% term Matter %} specification: Matter 1.3! 😎
+This updated version of the Matter SDK improves the reliability
+and compatibility of Matter devices.
 
-This release also improves and expands device support. Matter-based air purifier and room air conditioner devices are now supported, thermostats and other climate devices had important fixes around set points, and updates to our discovery schema ensures that we can represent more Matter data for most devices.
+This release also improves and expands device support. Matter-based
+air purifiers and room air conditioner devices are now supported, thermostats
+and other climate devices had important fixes around set points, and updates
+to our discovery ensure that we can represent more data for most devices.
 
-There are a couple of Matter devices out there that have custom clusters. Custom clusters are a standardized way for manufacturers to include non-standardized data. We want to support custom clusters and so we need to add support for each one individually. This release allows Home Assistant to be notified when the data of a custom cluster changes, instead of polling for it. This will reduce the network traffic and improve the performance of your Matter network, especially on bigger Thread networks.
+A couple of Matter devices out there have so-called "custom clusters".
+Custom clusters are a standardized way for manufacturers to include
+non-standardized data. We want to support custom clusters, so we need
+to add support for each one individually.
+
+This release allows Home Assistant to be notified when the data of a custom
+cluster changes instead of polling for it on an interval. This will reduce the
+network traffic and improve the performance of your Matter network,
+especially on bigger {% term Thread %} networks.
 
 ## Other noteworthy changes
 
@@ -379,12 +392,12 @@ There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
 - A default code can now be set in the entity settings for every alarm control
-  panel entities. Nice work [@gjohansson-ST]!
-- [@Troon] added a filter to our templates: `add`. This filter allows you to
-  add a value similar to the existing `multiply`. Great!
-- A new action building block has been added to our automations and scripts
-  by [@surfingbytes] and [@frenck]: [Run sequence of actions]. This allows you
-  to group multiple actions together.
+  panel {% term entities %}. Nice work [@gjohansson-ST]!
+- [@Troon] added a filter to our {% term templates %}: `add`. This filter allows
+  you to add a value similar to the existing `multiply`. Great!
+- A new action building block has been added to our {% term automations %} and
+  {% term scripts %}  by [@surfingbytes] and [@frenck]: [Run sequence of actions].
+  This allows you to group multiple {% term actions %} together.
 - Sensors can be [grouped] to calculate, for example, their sum or mean value.
   Thanks to [@CoRfr], it is now possible to calculate the [standard deviation]
   of a group of sensors. Cool!
@@ -397,21 +410,6 @@ noteworthy changes this release:
 [grouped]: /integrations/group
 [Run sequence of actions]: /docs/scripts/#grouping-actions
 [standard deviation]: https://en.wikipedia.org/wiki/Standard_deviation
-
-### Tag entities!
-
-Home Assistant has support for tags for a long time. The tags feature allowed
-NFC tags or QR codes to be used with Home Assistant, for example, to
-trigger {% term automations %}.
-
-However, tags were not real entities and, thus, not always as logical to use.
-With this release, [@gjohansson-ST] changed this!
-
-Tags are now normal {% term entities %} and can be used in {% term automations %},
-{% term scripts %}, {% term templates %}, and even added to
-your [dashboards](/dashboards)!
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
 
 ### Disabling expiration of login tokens
 
@@ -429,6 +427,21 @@ the expiration of specific login tokens.
 You can find these token in your profile settings, under the **Security** tab.
 
 {% my profile badge %}
+
+### Tag entities!
+
+Home Assistant has support for tags for a long time. The tags feature allowed
+NFC tags or QR codes to be used with Home Assistant, for example, to
+trigger {% term automations %}.
+
+However, tags were not real entities and, thus, not always as logical to use.
+With this release, [@gjohansson-ST] changed this!
+
+Tags are now normal {% term entities %} and can be used in {% term automations %},
+{% term scripts %}, {% term templates %}, and even added to
+your [dashboards](/dashboards)!
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 
 ### Collapsable sections for blueprints!
 
@@ -471,13 +484,12 @@ other news about building an Open Home; straight into your inbox.
 
 ## Backward-incompatible changes
 
-We do our best, to avoid making changes to existing functionality that
-potentially might have an unexpected impact on your Home Assistant installation.
-Unfortunately, sometimes it is inevitable.
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
 
-We always make sure to document these changes, to make the transition as easy
-as possible for you. This release has the following backward-incompatible
-changes:
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
 
 {% details "Anova" %}
 
