@@ -59,8 +59,8 @@ capabilities: Not only are we adding features, such as media control,
 that you would expect from a voice assistant, but we are leapfrogging ahead
 with some new exciting developments and experimenting with AI! 🤖
 
-We will have more to announce during a soon-to-be-announced Voice Chapter 7
-livestream. Keep an eye out for that!
+We will have more to announce during a soon-to-be-announced _Voice - Chapter 7_
+livestream on June the 26th! Keep an eye out for that! 🎙️
 
 ### Dipping our toes in the world of AI using LLMs
 
@@ -195,7 +195,7 @@ media player, and you will be good to go.
 
 Work has continued, making the dashboard customization and organization easier
 and more intuitive. This month, we are adding a new feature for our new sections
-and customization for backgrounds, which everyone at your home will enjoy.
+and customization for backgrounds, which everyone in your home will enjoy.
 
 ### Show sections conditionally
 
@@ -234,25 +234,25 @@ _Note: Add a picture uploader to picture-card-editor (#18695) @karwosts__
 
 ## Data tables improvements
 
-Just like the last release, this release keeps on improving our data tables.
+Like the [last release](/blog/2024/05/01/release-20245/#more-features-for-our-data-tables),
+this release keeps improving our data tables.
 
-When we introduced grouping of data in the tables, you've been asking for a way
-to collapse and expand those groupings, so, last release, we did! But then
-quickly realized that it was not enough, and you wanted to be able to collapse
-and expand all groups at once. So, we did that for this release!
+When we [introduced data groupings](/blog/2024/04/03/release-20244/#item-grouping)
+in the tables, you asked for a way to collapse and expand those groupings,
+so we did in the last release! But then we quickly realized that it was not
+enough, and you wanted to be able to collapse and expand all groups at once.
+So, we did that for this release!
 
-![CleanShot 2024-05-28 at 11 07 39@2x](https://github.com/home-assistant/frontend/assets/5662298/ff5645b1-18c0-4a7d-8b09-3e15ffa9cc0d)
+<img class="no-shadow" src='/images/blog/2024-06/data-tables-collapse-expand-all.png' alt='Screenshot showing the new collapse and expand all feature of our data tables.'>
+
+We've also expanded the voice assistant expose data table to allow grouping
+by area and domain.
 
 Additionally, filters you've set in the data tables are now saved in your
 browser session. Meaning, if you navigate away from the page and come back, your
 filters will still be there. But! Each browser tab or window has its own session,
 meaning you can have different filters in different tabs or windows that are
 remembered for that specific tab or window.
-
-Lastly, we've expanded the voice assistant expose data table to allow grouping
-by area and domain.
-
-![CleanShot 2024-05-15 at 10 51 08](https://github.com/home-assistant/frontend/assets/5878303/1603f219-8828-47f5-a4a7-603111f64f97)
 
 ## Integrations
 
