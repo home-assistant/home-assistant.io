@@ -52,7 +52,7 @@ Screenshot of an entities card with a picture header and buttons footer.
 
 ## Show or hide card conditionally
 
-You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the condition card.
+You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
 
 To edit the card visibility conditions, open the card editor and and then click on the visibility tab.
 
