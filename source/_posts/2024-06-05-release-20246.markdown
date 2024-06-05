@@ -215,22 +215,24 @@ in the options of a section.
 
 ### Setting a dashboard background
 
-[@Nezz] contributed an great new feature to our dashboarding UI: The ability to
-set an background image for your dashboard!
+[@Nezz] contributed a great new feature to our dashboarding UI: the ability to
+set a background image for your [dashboard](/dashboards)!
 
-Previously, this was only possible by editting YAML, but now you can do it
-directly from the UI. Even better, you can just directly upload an image from
-your computer!
+Previously, this was only possible by editing YAML, but now you can do it
+directly from the UI. Even better, you can upload an image directly from your
+computer or provide a URL to one!
 
-![Screenshot 2024-05-02 231131](https://github.com/home-assistant/frontend/assets/431167/706dc550-1335-46ee-9673-6fced559c533)
+<img class="no-shadow" src='/images/blog/2024-06/dashboards-change-background.png' alt='Screenshot of the configuration screen of the OpenAI integration, showing how to enable Home Assistant control.'>
 
-This same ability to upload images directly from your computer, was added
-to the picture card too! Thanks, [@karwosts] for that one!
+_Photo: [Body of Water Between Green Leaf Trees] by [Ian Turnell](https://www.pexels.com/@samandgos/)._
 
-[@Nezz]: https://github.com/Nezz
+The same ability (to upload images directly from your computer) was added to
+the picture card, too! Thanks, [@karwosts], for that one!
+
 [@karwosts]: https://github.com/karwosts
-
-_Note: Add a picture uploader to picture-card-editor (#18695) @karwosts__
+[@Nezz]: https://github.com/Nezz
+[Body of Water Between Green Leaf Trees]: https://www.pexels.com/photo/body-of-water-between-green-leaf-trees-709552/
+[Ian Turnell]: https://www.pexels.com/@samandgos/
 
 ## Data tables improvements
 
