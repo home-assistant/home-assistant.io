@@ -99,7 +99,7 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 
 3. Download the image to your computer.
-   - Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+   - Copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}

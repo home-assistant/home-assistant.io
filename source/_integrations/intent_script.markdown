@@ -101,6 +101,7 @@ available in the `action_response` variable.
 
 ```yaml
 conversation:
+  intents:
     EventCountToday:
       - "How many meetings do I have today?"
 

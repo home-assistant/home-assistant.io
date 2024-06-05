@@ -191,7 +191,7 @@ initial_state:
 
 ### Device class
 
-A device class represents a group of device types. The way a specific device class is shown in the user interface depends on the platform that is using it. For example, binary sensor and cover both support the device class "window". While for the binary sensor the window can only be open or closed, for cover, a window can also be tilted. For a given platform, the device class controls how the device is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+Devices classes categorize certain entities and influence how these are shown in the dashboard. Some device classes categorize by measurement type, such as sensors or binary sensors. Other device classes categorize into more specific types. For example, a cover can be a blind or a curtain. For a given platform, the device class influences what is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
 
 Device class is currently supported by the following platforms:
 

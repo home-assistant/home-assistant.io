@@ -333,6 +333,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**
