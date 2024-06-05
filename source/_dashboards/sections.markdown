@@ -65,6 +65,12 @@ In the sections view, you can rearrange sections and cards by dragging them to a
         Rearranging cards by dragging
     </p>
 
+## Show or hide section conditionally
+
+You can choose to show or hide certain sections based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the condition card.
+
+To edit the section visibility conditions, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button and then click on the visibility tab.
+
 ## Check out the demo
 
 Check out the demo from the March live stream on dashboards.
