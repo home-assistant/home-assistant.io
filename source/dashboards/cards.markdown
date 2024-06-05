@@ -50,6 +50,12 @@ Some cards have support for [header and footer widgets](/dashboards/header-foote
 Screenshot of an entities card with a picture header and buttons footer.
 </p>
 
+## Show or hide card conditionally
+
+You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as that for the conditional card.
+
+To edit the card visibility conditions, open the card editor and then click on the visibility tab.
+
 ## Adding cards to your dashboard
 
 1. If this is your first time editing a dashboard, [take control of the default dashboard](/dashboards/#get-started-with-your-own-dashboard).
