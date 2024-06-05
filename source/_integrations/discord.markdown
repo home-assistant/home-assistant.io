@@ -69,7 +69,7 @@ When adding the Discord integration you will be asked for an API Key. Enter the 
 
 The `message` field will accept any string value input as a literal value. If quotation marks are input, the quotations will come through in the message.
 
-For example: `message: Hello, world!` will come through as is, however, `message: "Hello, world!"` will come through with the quotation marks.
+For example: `message: Hello, world!` will appear exactly as is, while `message: "Hello, world!"` will include the quotation marks in the message.
 
 ## Set Channel IDs as necessary
 
