@@ -106,7 +106,7 @@ The agent will figure out the intention behind the words, and call the correct i
 
 Our intent system has been built from the start to be extensible. Custom integration and even users can register their own intents. This allows you to guide the agent beyond what's capable out of the box.
 
-Here is an example of a custom intent that explains to the LLM what to do when I leave my home.
+Here is an example of a custom intent that explains to the agent what to do when I leave my home.
 ```yaml
 conversation:
   intents:
