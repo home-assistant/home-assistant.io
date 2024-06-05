@@ -90,9 +90,7 @@ conversation agent control your home with a flick of a switch.
 
 With this new setting, LLM-based conversation agents can tap into our intent system, which is what powers Assist. They also get access to every entity exposed to Assist. That way, you control what your agents have access to.
 
-Tapping into our intent system is great for two reasons:
-
-First, it works out of the box. Everything that Assist can do, LLM-based conversation agents can too. The added benefit is that they are capable of reasoning beyond words, which is something Assist was not capable of doing.
+Tapping into our intent system is great because it works out of the box. Everything that Assist can do, LLM-based conversation agents can too. The added benefit is that they are capable of reasoning beyond words, which is something Assist was not capable of doing.
 
 For example, if you have a light called "Webcam light" exposed in your "office" area, you can give direct commands such as
 
@@ -104,7 +102,9 @@ That was also working with Assist previously, but you can also give more complex
 
 The agent will figure out the intention behind the words, and call the correct intent on the correct exposed entities.
 
-Second, our intent system has been built from the start to be extensible. Custom integration and even users can register their own intents. This allows you to guide the agent beyond what's capable out of the box.
+{% details "What about custom intents?" %}
+
+Our intent system has been built from the start to be extensible. Custom integration and even users can register their own intents. This allows you to guide the agent beyond what's capable out of the box.
 
 Here is a simple example of a custom intent that explains to the LLM what to do when I leave my home.
 ```yaml
@@ -124,6 +124,8 @@ intent_script:
 ```
 
 With this simple YAML snippet added to my configuration.yaml, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is exactly what I want it to do.
+
+{% enddetails %}
 
 This release makes it available for our [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/) integrations. To make it easier to get started with LLMs, we have updated them with recommended model settings that strike the right balance between accuracy, speed and cost. If you had them set up previously, we recommend enabling the recommended settings and emptying the instructions.
 
