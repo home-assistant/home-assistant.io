@@ -81,7 +81,7 @@ For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
 
 You can use standard Discord methods for pinging users, roles, and channels contained within the server.
 
-| Tyoe      | Format         |
+| Type      | Format         |
 | --------- | -------------- |
 | `User`    | `<@userID>`    |
 | `Role`    | `<@&roleID>`   |
