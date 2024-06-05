@@ -20,7 +20,7 @@ Home Assistant Core 2024.6! 🎉
 Welcome to another loaded release of Home Assistant! Packed with many exciting
 new features, this month is most definitely one to remember.
 
-Let's talk about AI. AI might just as well be talk of the century. These
+Let's talk about AI. AI might just as well be the talk of the century. These
 so-called [LLMs] most certainly open up a whole new world of possibilities.
 When we first introduced the OpenAI and Google AI conversation agents for Assist,
 one of the most requested features was the ability to control your home with it.
@@ -30,7 +30,7 @@ Now for the big news:
 _**Well, as of today, you can control your home with an AI!**_ 🤖 
 
 But there is a lot more to this release. Super simple media player commands,
-more data table improvements, tag entities, collapsable blueprint sections,
+more data table improvements, tag entities, collapsible blueprint sections,
 and so much more!
 
 I’m personally most excited about the new features in the dashboarding area.
@@ -63,7 +63,7 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Disabling expiration of login tokens](#disabling-expiration-of-login-tokens)
   - [Tag entities!](#tag-entities)
-  - [Collapsable sections for blueprints!](#collapsable-sections-for-blueprints)
+  - [Collapsible sections for blueprints!](#collapsible-sections-for-blueprints)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -76,16 +76,16 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## Voice & Assist
 
 This month, we are continuing our work on improving Assist's out-of-the-box
-capabilities: Not only are we adding features, such as media control,
-that you would expect from a voice assistant, but we are leapfrogging ahead
-with some new exciting developments and experimenting with AI! 🤖
+capabilities: Not only are we adding features that you would expect from a
+voice assistant, such as media control, but we are leap-frogging ahead with
+some new exciting developments and experimenting with AI! 🤖
 
 We will have more to announce during a soon-to-be-announced _Voice - Chapter 7_
 livestream on June the 26th! Keep an eye out for that! 🎙️
 
 ### Dipping our toes in the world of AI using LLMs
 
-Our voice assistant brain is called a **conversation agent**.
+Our voice assistant's brain is called a **conversation agent**.
 It is responsible for understanding the intention behind the spoken command,
 performing an action, and generating a response.
 
@@ -124,15 +124,15 @@ _"office"_ area, you can give direct commands such as:
 That was also working with Assist previously, but you can also give more
 complex commands, such as:
 
-> I'm going in a meeting, can you please make sure people see my face?
+> I'm going to a meeting, can you please make sure people see my face?
 
 The agent will figure out the intention behind the words
-and call the correct intent on the correct exposed entities.
+and call the correct intent on the matching exposed entities.
 
 {% details "What about custom intents?" %}
 
 Our intent system has been built from the start to be extensible.
-Custom integration and even users can register their own intents.
+Custom integrations and even users can register their own intents.
 This allows you to guide the agent beyond what's capable out of the box.
 
 Here is an example of a custom intent that explains to the agent what
@@ -204,13 +204,13 @@ awareness makes our voice assistant aware of the devices in the same area as
 the satellite. We have also created a smart matching strategy that finds the
 right media player to target.
 
-For example, if you say “pause,” the voice assistant will automatically
+For example, if you say “pause”, the voice assistant will automatically
 target the media player that is playing.
 
 <lite-youtube videoid="pFmwY-k5IcU" videotitle="Demo of media player commands of Home Assistant Assist"></lite-youtube>
 
 Just ensure your voice assistant device is assigned to an area with an exposed
-media player, and you will be good to go.
+media player, and you are good to go.
 
 ## Dashboards
 
@@ -240,9 +240,6 @@ meaning you have a lot of flexibility in what you can do.
 
 Wait, we didn't stop there! This same visibility feature is now also available
 for cards! Oh yes! 🚀
-
-You can now hide or show a card based on certain conditions. This allows you
-to create more dynamic dashboards that adapt to your needs.
 
 <img class="no-shadow" src='/images/blog/2024-06/dashboard-card-visibility.png' alt='Screenshot showing a tile card that is only visible to a specific person.'>
 
@@ -351,8 +348,8 @@ changes to existing integrations:
   be helpful for {% term blueprint %} creators.
 - [@Anrijs] added support for the [Aranet Radiation] devices to the
   [Aranet] integration. Nice!
-- You can now set the cutting height of your [Husqvarna Automower], and there
-  switches to make it stay out of certain zones. Thanks [@Thomas55555]!
+- You can now set the cutting height of your [Husqvarna Automower] and there
+  are switches to make it stay out of certain zones. Thanks [@Thomas55555]!
 - [@thomaskistler] added flow and rain sensor support to the [Hydrawise]
   integration. Great!
 - The [SwitchBot Cloud] integration now supports the [SwitchBot Meter],
@@ -456,7 +453,7 @@ non-standardized data. We want to support custom clusters, so we need
 to add support for each one individually.
 
 This release allows Home Assistant to be notified when the data of a custom
-cluster changes instead of polling for it on an interval. This will reduce the
+cluster changes (instead of polling for it on an interval). This will reduce the
 network traffic and improve the performance of your Matter network,
 especially on bigger {% term Thread %} networks.
 
@@ -493,9 +490,9 @@ A few releases ago, we introduced the automatic expiration of logins. If a login
 session wasn't used for 90 days, it would expire and be automatically cleaned up.
 
 Some of you have expressed that you would like to disable this feature for
-various reasons. For example, because of a secondary holiday home, one doesn’t
+various reasons. For example, because of a secondary holiday home one doesn’t
 regularly visit, or because of relatives who can only come over a few times
-a year, we added a new option to the user profile settings to disable
+a year. We added a new option to the user profile settings to disable
 the expiration of specific login tokens.
 
 <img class="no-shadow" src='/images/blog/2024-06/disabling-expiration-login-tokens.png' alt='Screenshot showing the option to disable the expiration of tokens in the profile page.'>
@@ -506,22 +503,22 @@ You can find these token in your profile settings, under the **Security** tab.
 
 ### Tag entities!
 
-Home Assistant has support for tags for a long time. The tags feature allowed
-NFC tags or QR codes to be used with Home Assistant, for example, to
+Home Assistant has had support for tags for a long time. The tags feature
+allowed NFC tags or QR codes to be used with Home Assistant, for example, to
 trigger {% term automations %}.
 
 However, tags were not real entities and, thus, not always as logical to use.
 With this release, [@gjohansson-ST] changed this!
 
 Tags are now normal {% term entities %} and can be used in {% term automations %},
-{% term scripts %}, {% term templates %}, and even added to
+{% term scripts %}, {% term templates %}, and even be added to your
 your [dashboards](/dashboards)!
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 
-### Collapsable sections for blueprints!
+### Collapsible sections for blueprints!
 
-[@karwosts] makes an appearance again this release with another of his QoL 
+[@karwosts] makes an appearance again this release with another one of his QoL 
 (Quality of Live) improvements. He added the ability to add collapsible sections
 to {% term blueprints %}. This allows blueprint creators to group configuration
 options together or hide advanced or less common options by default.
@@ -535,7 +532,7 @@ Thanks [@karwosts]!
 
 Read more about blueprint input sections [in our documentation](/docs/blueprint/schema/#blueprint-input-sections).
 
-Looking for an interesting blueprint to get started? Check out the 
+Looking for an interesting blueprint to get started? Check out the
 [Blueprints Exchange] on our community forum! There are great automation
 blueprints available.
 
@@ -582,8 +579,8 @@ updated.
 
 {% details "AVM FRITZ!Box Tools" %}
 
-The previously deprecated services `reboot`, `reconnect`, and `cleanup` has been
-removed. Please use the corresponding button entities instead.
+The previously deprecated services `reboot`, `reconnect`, and `cleanup` have
+been removed. Please use the corresponding button entities instead.
 
 ([@mib1185] - [#118108]) ([documentation](/integrations/fritz))
 
