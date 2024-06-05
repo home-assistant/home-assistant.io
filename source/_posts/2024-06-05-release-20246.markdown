@@ -123,7 +123,7 @@ intent_script:
       text: "Done"
 ```
 
-With this simple YAML snippet added to my configuration.yaml, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is exactly what I want it to do.
+With this simple YAML snippet added to my configuration.yaml, if the agent understands that I am leaving home, it will not turn off what it thinks I want, it will run my `leave_home` script, which is precisely what I want it to do.
 
 {% enddetails %}
 
