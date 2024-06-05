@@ -425,11 +425,26 @@ You can find these token in your profile settings, under the **Security** tab.
 
 ### Collapsable sections for blueprints!
 
-[@karwosts] added the ability to add collapsible sections to blueprint
-configuration. This allows blueprint creators to group configuration options
-together, or to hide advanced or less common options by default.
+[@karwosts] makes an appearance again this release with another of his QoL 
+(Quality of Live) improvements. He added the ability to add collapsible sections
+to {% term blueprints %}. This allows blueprint creators to group configuration
+options together or hide advanced or less common options by default.
 
-![collapsible-blueprint](https://github.com/home-assistant/core/assets/32912880/8a05f428-d4cc-41ef-9507-764d191f197b)
+<p class='img'>
+    <img src="/images/blog/2024-06/blueprint-input-sections.gif" alt="Screenrecording showing sections of Blueprints inputs being collapsed/uncollapsed."/>
+    Each section can be collapsed or uncollapsed by clicking on the section header.
+</p>
+
+Thanks [@karwosts]!
+
+Read more about blueprint input sections [in our documentation](/docs/blueprint/schema/#blueprint-input-sections).
+
+Looking for an interesting blueprint to get started? Check out the 
+[Blueprints Exchange] on our community forum! There are great automation
+blueprints available.
+
+[@karwosts]: https://github.com/karwosts
+[Blueprints Exchange]: https://community.home-assistant.io/c/blueprints-exchange/53
 
 ## Need help? Join the community!
 
