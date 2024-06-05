@@ -79,7 +79,7 @@ For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
 
 ## Pinging users, roles, or linking to other channels in the same server
 
-You are able to use standard Discord methods for pinging users, roles, and channels contained within the server.
+You can use standard Discord methods for pinging users, roles, and channels contained within the server.
 
 | Tyoe      | Format         |
 | --------- | -------------- |
