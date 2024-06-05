@@ -165,29 +165,31 @@ Thanks to everyone who contributed to this feature! [@shulyaka], [@tronikos],
 
 ### Improved media player commands
 
-We have introduced new media player intents that allow you to do more while saying less. Thanks to
-two new features, you can say the following voice commands to control media players in the same area:
+We have introduced new media player {% term intents %} that allow you to do
+more while saying less. You can say the following voice commands to control
+media players in the same area as your Assist device:
 
-- "Pause"
-- "Resume"
-- "Next"
-- "Set the volume to 50%"
+- _"Pause"_
+- _"Resume"_
+- _"Next"_
+- _"Set the volume to 50%"_
 
-Up until now, we were only proposing sentence targeting a specific entity by its
-name. Due to this limitation, these intents were not the most user friendly to
-use, as the sentences were pretty heavy to say: _"Skip to the next song on the TV"_.
+Up until now, we have only proposed sentences targeting a specific entity by
+its name. Due to this limitation, these intents were not the most user-friendly,
+as the sentences were too long to say: _“Skip to the next song on the TV”_.
 
-We added two features to allow us to get to the smallest sentences possible. Context awareness makes
-our voice assistant aware of the devices in the same area as the satellite. On top of that we have created
-a smart matching strategy that finds the right media player to target. For example, if you say "pause",
-the voice assistant will automatically target the media player that is playing.
+We added two features to get to the smallest sentences possible. Context
+awareness makes our voice assistant aware of the devices in the same area as
+the satellite. We have also created a smart matching strategy that finds the
+right media player to target.
 
-<lite-youtube videoid="SAd5ZBOhaUg" videotitle="Temporary video that needs to be replaced"></lite-youtube>
+For example, if you say “pause,” the voice assistant will automatically
+target the media player that is playing.
 
-Just make sure your voice assistant is assigned to an area that contains an
-exposed media player, and you will be good to go.
+<lite-youtube videoid="pFmwY-k5IcU" videotitle="Demo of media player commands of Home Assistant Assist"></lite-youtube>
 
-_There is a lot more cooking in the voice kitchen. Keep a look out for Voice - Chapter 7 on June 26th!_
+Just ensure your voice assistant device is assigned to an area with an exposed
+media player, and you will be good to go.
 
 ## Dashboards
 
