@@ -377,11 +377,11 @@ noteworthy changes this release:
 - A default code can now be set in the entity settings for every alarm control
   panel entities. Nice work [@gjohansson-ST]!
 - [@Troon] added a filter to our templates: `add`. This filter allows you to
-  add a value, similar to the existing `multiply`. Great!
+  add a value similar to the existing `multiply`. Great!
 - A new action building block has been added to our automations and scripts
   by [@surfingbytes] and [@frenck]: [Run sequence of actions]. This allows you
   to group multiple actions together.
-- Sensors can be [grouped] to calculate, for example, their sum of mean value.
+- Sensors can be [grouped] to calculate, for example, their sum or mean value.
   Thanks to [@CoRfr], it is now possible to calculate the [standard deviation]
   of a group of sensors. Cool!
 
