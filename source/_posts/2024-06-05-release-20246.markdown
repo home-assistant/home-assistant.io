@@ -429,7 +429,8 @@ noteworthy changes this release:
   you to add a value similar to the existing `multiply`. Great!
 - A new action building block has been added to our {% term automations %} and
   {% term scripts %}  by [@surfingbytes] and [@frenck]: [Run sequence of actions].
-  This allows you to group multiple {% term actions %} together.
+  This allows you to group multiple {% term actions %} together or run multiple
+  sequences of actions in [parallel].
 - Sensors can be [grouped] to calculate, for example, their sum or mean value.
   Thanks to [@CoRfr], it is now possible to calculate the [standard deviation]
   of a group of sensors. Cool!
@@ -440,6 +441,7 @@ noteworthy changes this release:
 [@surfingbytes]: https://github.com/surfingbytes
 [@Troon]: https://github.com/Troon
 [grouped]: /integrations/group
+[parallel]: /docs/scripts/#parallelizing-actions
 [Run sequence of actions]: /docs/scripts/#grouping-actions
 [standard deviation]: https://en.wikipedia.org/wiki/Standard_deviation
 
