@@ -59,6 +59,8 @@ Once you have created a sections view, you can populate it with sections and car
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
 
+    ![Define visibility](/images/dashboards/section-visibility.png)
+
 ## Deleting a section
 
 1. To delete a section, go to the dashboard and in the top right corner, select the pencil icon.
