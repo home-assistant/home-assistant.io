@@ -2,6 +2,7 @@
 title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
+  - Fan
   - Hub
   - Light
   - Sensor
@@ -17,6 +18,7 @@ ha_codeowners:
 ha_domain: tplink
 ha_platforms:
   - diagnostics
+  - fan
   - light
   - sensor
   - switch
@@ -36,98 +38,33 @@ If you have an older device that does not currently require authentication, you 
 
 ## Supported Devices
 
-See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list that includes hardware and firmware versions.
 
 Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-### Not requiring authentication
+### Supported Kasa devices
 
-#### Plugs
+- **Plugs**: EP10, EP25<sup>\*</sup>, HS100<sup>\*\*</sup>, HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M<sup>\*</sup>, KP401
+- **Power Strips**: EP40, HS107, HS300, KP200, KP303, KP400
+- **Wall Switches**: ES20M, HS200, HS210, HS220, KP405, KS200M, KS205<sup>\*</sup>, KS220M, KS225<sup>\*</sup>, KS230, KS240<sup>\*</sup>
+- **Bulbs**: KL110, KL120, KL125, KL130, KL135, KL50, KL60, LB110
+- **Light Strips**: KL400L5, KL420L5, KL430
+- **Hubs**: KH100<sup>\*</sup>
+- **Hub-Connected Devices<sup>\*\*\*</sup>**: KE100<sup>\*</sup>
 
-- HS100
-- HS103
-- HS105
-- HS107
-- HS110
-- KP100
-- KP105
-- KP115
-- KP125
-- KP401
-- EP10
-- EP25 (Hardware version < 2.6)
+### Supported Tapo<sup>\*</sup> devices
 
-#### Power Strips
+- **Plugs**: P100, P110, P115, P125M, P135, TP15
+- **Power Strips**: P300, TP25
+- **Wall Switches**: S500D, S505, S505D
+- **Bulbs**: L510B, L510E, L530E
+- **Light Strips**: L900-10, L900-5, L920-5, L930-5
+- **Hubs**: H100
+- **Hub-Connected Devices<sup>\*\*\*</sup>**: T110, T300, T310, T315
 
-- EP40
-- HS300
-- KP303
-- KP200
-- KP400
-- KP405
-
-#### Wall switches
-
-- ES20M
-- HS200
-- HS210
-- HS220
-- KS200M
-- KS220M
-- KS230
-
-#### Bulbs
-
-- EP40
-- LB100
-- LB110
-- LB120
-- LB130
-- LB230
-- KL50
-- KL60
-- KL110
-- KL120
-- KL125
-- KL130
-- KL135
-
-#### Light strips
-
-- KL400
-- KL420
-- KL430
-
-### Requiring authentication
-
-#### Plugs
-
-- EP25 (Hardware version >= 2.6)
-- KP125M
-- P110
-- P115
-- HS100 (UK Hardware version 4.1 with firmware 1.1.0)
-
-#### Wall switches
-
-- KS205
-- KS225
-
-#### Bulbs
-
-- L510B
-- L530E
-- TL135E
-  
-#### Light strips
-
-- L900-5
-- L900-10
-- L920
-
-#### Power Strips
-
-- P300
+<sup>\*</sup>&nbsp;&nbsp; Model requires authentication<br>
+<sup>\*\*</sup>&nbsp; Newer versions require authentication<br>
+<sup>\*\*\*</sup> Devices may work across TAPO/KASA branded hubs
 
 ## Light strip effects
 
