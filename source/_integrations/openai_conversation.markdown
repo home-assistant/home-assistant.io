@@ -12,6 +12,15 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+related:
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Create an AI personality
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing entities to Assist
+  - url: https://www.openai.com
+    title: OpenAI
+  - url: https://platform.openai.com/account/api-keys
+    title: OpenAI API key
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -39,7 +48,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant
+  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
@@ -76,12 +85,12 @@ Allows you to ask OpenAI to generate an image based on a prompt. This service
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the requested image.
 
-| Service data attribute | Optional | Description                                            | Example          |
-| ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
-| `config_entry`         | no       | Integration entry ID to use.                           |                  |
-| `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
-| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                 | Example          |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
+| `config_entry`         | no       | Integration entry ID to use.                                                                                                                                                                                                                |                  |
+| `prompt`               | no       | The text to turn into an image.                                                                                                                                                                                                             | Picture of a dog |
+| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`.                                                                                                                     | 1024x1024        |
+| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image.                                                                                                           | standard         |
 | `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
 {% raw %}
