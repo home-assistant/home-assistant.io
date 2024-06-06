@@ -128,6 +128,7 @@ template:
 The integration has a `get_positions` service used to retrieve bot and chargers coordinates.
 
 Example:
+
 ```yaml
 service: ecovacs.get_positions
 target:
@@ -135,6 +136,7 @@ target:
 ```
 
 The service call returns a response with a list of coordinates like this:
+
 ```yaml
 vacuum.deebot_n8_plus:
   - type: deebotPos
