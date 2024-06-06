@@ -27,7 +27,7 @@ one of the most requested features was the ability to control your home with it.
 
 Now for the big news:
 
-_**Well, as of today, you can control your home with an AI!**_ 🤖 
+_**Well, as of today, you can control your home with an AI!**_ 🤖
 
 But there is a lot more to this release. Super simple media player commands,
 more data table improvements, tag entities, collapsible blueprint sections,
@@ -172,6 +172,8 @@ Google is 14x cheaper than OpenAI, but OpenAI is better at answering non-smart
 home questions. We are preparing a blog post with a deep dive into the research
 that went into this feature, coming soon™!
 
+Local LLMs have been supported via [the Ollama integration](/integrations/ollama/) since Home Assistant 2024.4. Ollama and the major open source LLM models are not tuned for tool calling, so this has to be built from scratch and was not done in time for this release. We're collaborating with NVIDIA to get this working – [they showed a prototype last week.](https://youtu.be/aq7QS9AtwE8?si=yZilHo4uDUCAQiqN)
+
 Thanks to everyone who contributed to this feature! [@shulyaka], [@tronikos],
 [@allenporter], [@synesthesiam], [@jlpouffier], and [@balloob]!
 
@@ -220,7 +222,7 @@ and customization for backgrounds, which everyone in your home will enjoy.
 
 ### Show sections conditionally
 
-We added a visibility option to the new [sections dashboard] feature. This 
+We added a visibility option to the new [sections dashboard] feature. This
 amazing new feature allows you to hide or show a section based on certain
 conditions.
 
@@ -518,7 +520,7 @@ your [dashboards](/dashboards)!
 
 ### Collapsible sections for blueprints!
 
-[@karwosts] makes an appearance again this release with another one of his QoL 
+[@karwosts] makes an appearance again this release with another one of his QoL
 (Quality of Live) improvements. He added the ability to add collapsible sections
 to {% term blueprints %}. This allows blueprint creators to group configuration
 options together or hide advanced or less common options by default.
