@@ -67,7 +67,7 @@ When adding the Discord integration, you will be asked for an API Key. Enter the
 
 ## Set Message entry
 
-The `message` field will accept any string value input as a literal value. If quotation marks are input, the quotations will come through in the message.
+The `message` field treats all input as literal text, including quotation marks.
 
 For example: `message: Hello, world!` will appear exactly as is, while `message: "Hello, world!"` will include the quotation marks in the message.
 
@@ -79,7 +79,7 @@ For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
 
 ## Pinging users, roles, or linking to other channels in the same server
 
-You can use standard Discord methods for pinging users, roles, and channels contained within the server.
+You can use standard Discord methods to ping users, roles, and channels within the server.
 
 | Type      | Format         |
 | --------- | -------------- |
