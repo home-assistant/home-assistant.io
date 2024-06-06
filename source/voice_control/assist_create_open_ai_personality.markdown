@@ -16,9 +16,19 @@ related:
     
 ---
 
-You can give your voice assistant personality by using an LLM-based conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration. For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient. No need to leave your credit card information.
+You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration. For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient. No need to leave your credit card information.
+
+## Demos
+
+### Interview with an AI Mario personality
 
 <lite-youtube videoid="eLx8_NAqptk" videotitle="Give your voice assistant personality using the OpenAI integration"></lite-youtube>
+
+### Using Assist with AI to control your smart home
+
+An 1-minute clip showing how Assist is using AI to control a smart home.
+
+<lite-youtube videoid="KXoIpwKsekY" videotitle="Demo of using Assist with an AI to control your smart home!"></lite-youtube>
 
 ## Prerequisites
 
@@ -58,3 +68,9 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
    - Leave the other settings unchanged and select **Create**.
 5. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
    - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
+
+## Tutorial: Setting up Assist with OpenAi
+
+Step-by-step tutorial with some background information, from the Home Assistant Release Party 2024.6 live stream.
+
+<lite-youtube videoid="xMFC8yaVtpI" videoStartAt="176" videotitle="Home Assistant Release Party 2024.6"></lite-youtube>
