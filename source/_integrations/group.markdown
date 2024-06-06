@@ -129,7 +129,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 ## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
-instead. Here are example of how to configure groups when using the `configuration.yaml` file.
+instead. Here are example of how to configure groups when using the {% term "`configuration.yaml`" %} file.
 
 Example YAML configuration of a binary sensor group:
 
@@ -262,7 +262,7 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev` or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:

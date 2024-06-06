@@ -148,7 +148,7 @@ The `zabbix` sensor platform let you monitor the current count of active trigger
 You must have the <a href="#configuration">Zabbix integration</a> configured to use those sensors.
 </div>
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

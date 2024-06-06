@@ -47,7 +47,7 @@ device:
 
 The SCSGate integration relies on the [scsgate](https://github.com/flavio/scsgate) Python module.
 
-This module provides also a command line tool called `scs-monitor`. This program can be used to find the IDs of your lights, switches and roller shutters and produce the YAML snippet to insert into your `configuration.yaml` file.
+This module provides also a command line tool called `scs-monitor`. This program can be used to find the IDs of your lights, switches and roller shutters and produce the YAML snippet to insert into your {% term "`configuration.yaml`" %} file.
 
 For more information checkout [this](https://scsgate.readthedocs.org/en/latest/?badge=latest#creation-of-a-home-assistant-configuration-file) section of `scsgate`'s documentation.
 
@@ -55,7 +55,7 @@ For more information checkout [this](https://scsgate.readthedocs.org/en/latest/?
 
 The SCSGate devices can control motorized covers connected to the BTicino MyHome system.
 
-To enable SCSGate covers in your installation, add the following to your `configuration.yaml` file:
+To enable SCSGate covers in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,7 +98,7 @@ devices:
 
 The SCSGate device can control lights of the BTicino MyHome system.
 
-To enable SCSGate lights in your installation, add the following to your `configuration.yaml` file:
+To enable SCSGate lights in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,7 +121,7 @@ devices:
 
 The SCSGate device can control switches of the BTicino MyHome system.
 
-To enable SCSGate switches in your installation, add the following to your `configuration.yaml` file:
+To enable SCSGate switches in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

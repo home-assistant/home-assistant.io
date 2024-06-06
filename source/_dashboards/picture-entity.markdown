@@ -19,7 +19,7 @@ The picture entity card displays an entity in the form of an image. Instead of i
   Background changes according to the entity state.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 

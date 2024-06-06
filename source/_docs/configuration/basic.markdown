@@ -22,9 +22,9 @@ To change the general settings that were defined during onboarding, follow these
 1. Go to {% my general title="**Settings** > **System** > **General**" %} and make your changes.
 2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
 3. If some of the settings are not visible, you may need to enable **Advanced mode**.
-   - In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
-4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the [`configuration.yaml` file](/docs/configuration/).
-   - If you prefer editing the settings in the UI, you have to delete these entries from the [`configuration.yaml` file](/docs/configuration/).
+   - In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
+4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
+   - If you prefer editing the settings in the UI, you have to delete these entries from the {% term "`configuration.yaml`" %} file.
    - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)

@@ -6,7 +6,7 @@ related:
     title: Validating the configuration
 ---
 
-Test any changes to your `configuration.yaml` file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
+Test any changes to your {% term "`configuration.yaml`" %} file before launching Home Assistant. This script allows you to test changes without the need to restart Home Assistant.
 
 ```bash
 hass --script check_config

@@ -14,7 +14,7 @@ ha_integration_type: service
 
 The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.
 
-It can only query information that has been provided by Home Assistant in the prompt. To be able to answer questions about your home, Home Assistant will need to provide Google Generative AI with the details of your home, which includes areas, devices, and their states. This prompt can be customized to adjust the provided information and how the AI should respond.
+Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
@@ -28,16 +28,29 @@ The Google Generative AI API key is used to authenticate requests to the Google 
 
 - Visit the [API Keys page](https://makersuite.google.com/app/apikey) to retrieve the API key you'll use to configure the integration.
 
+On the same page, you can see your plan: *free of charge* if the associated Google Cloud project doesn't have billing, or *pay-as-you-go* if the associated Google Cloud project has billing enabled.
+Comparison of the plans is available [here](https://ai.google.dev/pricing). The big differences are: free of charge is rate limited and free prompts/responses are used for product improvement.
+
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
-Model:
-  description: Model used to generate response.
+
+Instructions:
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
   description: If the model is allowed to interact with Home Assistant
 
-Prompt template:
-  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
+Recommended settings:
+  description: If enabled, the recommended model and settings are chosen.
+
+{% endconfiguration_basic %}
+
+If you choose to not use the recommended settings, you can configure the following options:
+
+{% configuration_basic %}
+
+Model:
+  description: Model used to generate response.
 
 Temperature:
   description: Creativity allowed in the responses. Higher values produce a more random and varied response. A temperature of zero will be deterministic.
@@ -51,11 +64,20 @@ Top K:
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate.
 
+Safety settings:
+  description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
+
 {% endconfiguration_basic %}
 
 ## Services
 
 ### Service `google_generative_ai_conversation.generate_content`
+
+<div class='note info'>
+
+  This service isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` service.
+
+</div>
 
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
 This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with the generated content.
