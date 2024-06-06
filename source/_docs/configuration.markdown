@@ -40,11 +40,11 @@ File access depends on your [installation method](/installation/#advanced-instal
 
    - [Configure file access on the Operating System](/common-tasks/os/#configuring-access-to-files):
      - If you are unsure which option to choose, install the [file editor add-on](/common-tasks/os/#installing-and-using-the-file-editor-add-on).
-     - Alternatively, use the [VS Code add-on](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
+     - Alternatively, use the [Studio Code Server add-on](/common-tasks/os/#installing-and-using-the-visual-studio-code-vsc-add-on). This editor offers live syntax checking and auto-fill of various Home Assistant entities. But it looks more complex than the file editor.
      - If you prefer to use a file editor on your computer, use the [Samba add-on](/common-tasks/os/#installing-and-using-the-samba-add-on).
    - [Configure file access on Supervised](/common-tasks/supervised/#configuring-access-to-files):
      - Using the [File editor add-on](/common-tasks/supervised/#installing-and-using-the-file-editor-add-on).
-     - Using the [VS Code add-on](/common-tasks/supervised/#installing-and-using-the-visual-studio-code-vsc-add-on).
+     - Using the [Studio Code Server add-on](/common-tasks/supervised/#installing-and-using-the-visual-studio-code-vsc-add-on).
      - Using the [Samba add-on](/common-tasks/supervised/#installing-and-using-the-samba-add-on).
 
 2. To look up the path to your configuration directory, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
