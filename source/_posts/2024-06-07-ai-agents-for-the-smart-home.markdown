@@ -76,7 +76,7 @@ Nigel and Sean had experimented with AI being responsible for multiple tasks. Th
 
 The NVIDIA engineers, as one expects from a company selling GPUs to run AI, were all about running LLMs locally. But they had a point: running LLMs locally removes the constraint on what one can do with LLMs. You start to consider different approaches if you don't have to be concerned about raking up a cloud bill in the thousands of dollars.
 
-For example, imagine we passed every state change in your house to an LLM. If the front door opens at night while everyone is home, is that suspicious? Creating a rule based system for this is hard to get right for everyone, but an LLM might just do the trick.
+For example, imagine we passed every state change in your house to an LLM. If the front door opens at night while everyone is home, is that suspicious? Creating a rule-based system for this is hard to get right for everyone, but an LLM might just do the trick.
 
 It was this conversation that led us to our current approach: In Home Assistant we want AI agents. Many AI agents.
 
