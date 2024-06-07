@@ -56,7 +56,7 @@ To improve local AI options for Home Assistant, we have been collaborating with 
 
 ## What is AI?
 
-The current wave of AI hype evolves around large language models (LLMs) which are created by ingesting huge amounts of data. When you run these models, you give it text and it will predict the next words. If you give it a question as input, the generated next words will be the answer. To make it a bit smarter, AI companies will layer API access to other services on top, allowing the LLM to do mathematics or integrate web searches.
+The current wave of AI hype evolves around large language models (LLMs), which are created by ingesting huge amounts of data. When you run these models, you give it text and it will predict the next words. If you give it a question as input, the generated next words will be the answer. To make it a bit smarter, AI companies will layer API access to other services on top, allowing the LLM to do mathematics or integrate web searches.
 
 One of the biggest benefits of large language models is that because it is trained on human language, you control it with human language. Want it to answer in the style of Super Mario? Just add "Answer like Super Mario" to your input text and it will work.
 
