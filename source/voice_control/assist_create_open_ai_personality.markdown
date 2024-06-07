@@ -82,7 +82,7 @@ Step-by-step tutorial with some background information, from the Home Assistant 
 
 ## Using the AI voice assistant on your devices
 
-To learn how to use the AI assistant with your devices, refer to one of the following tutorials, depending on the hardware you want to use ot interact with it:
+To learn how to use the AI assistant with your devices, refer to one of the following tutorials, depending on the hardware you want to use to interact with it:
 
 - [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/)
 - [$13 voice assistant using ATOM Echo](/voice_control/thirteen-usd-voice-remote/)
