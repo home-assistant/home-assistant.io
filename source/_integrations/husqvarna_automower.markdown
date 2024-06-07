@@ -172,5 +172,5 @@ data:
     days: 1
     hours: 12
     minutes: 30
-  override_mode: mowing  ### alternative: `parking`
+  override_mode: mow  ### alternative: `park`
 ```
