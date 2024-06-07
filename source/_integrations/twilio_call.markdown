@@ -18,7 +18,7 @@ The requirement is that you have setup [Twilio](/integrations/twilio/).
 
 ## Configuration
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

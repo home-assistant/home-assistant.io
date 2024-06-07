@@ -131,4 +131,4 @@ data:
 
 {% endraw %}
 
-Please note that `path` is validated against the `allowlist_external_dirs` in the `configuration.yaml`.
+Please note that `path` is validated against the `allowlist_external_dirs` in the {% term "`configuration.yaml`" %}.

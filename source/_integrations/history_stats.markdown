@@ -144,7 +144,7 @@ This video tutorial explains how you can use history stats. It also shows how yo
 
 ### Examples
 
-Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
+Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 
 **Today**: starts at 00:00 of the current day and ends right now.
 

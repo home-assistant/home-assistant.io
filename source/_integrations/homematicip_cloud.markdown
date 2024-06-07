@@ -56,7 +56,7 @@ Generate the authentication token:
 
 `hmip_generate_auth_token.py`
 
-Add the information to your `configuration.yaml` file:
+Add the information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 homematicip_cloud:

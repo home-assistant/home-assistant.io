@@ -41,7 +41,7 @@ host:
 
 ## Using notifications
 
-To use Mycroft for sending notifications, add the following to your `configuration.yaml` file:
+To use Mycroft for sending notifications, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

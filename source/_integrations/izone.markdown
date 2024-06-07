@@ -71,7 +71,7 @@ In this mode the current control zone that has been selected is reported, as is 
 zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
-You can add configure to read these values into sensors (in `configuration.yaml`), 
+You can add configure to read these values into sensors (in {% term "`configuration.yaml`" %}), 
 along with the supply temperature (use the ID of your unit):
 
 {% raw %}

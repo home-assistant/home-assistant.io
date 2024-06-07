@@ -1386,6 +1386,10 @@ sensors:
       description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
       required: false
       type: float
+    unique_id:
+      description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
 <div class='note'>

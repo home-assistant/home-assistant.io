@@ -30,7 +30,7 @@ In short, when you're at home, your position is determined first by stationary t
 
 **Hint**: When you use multiple device trackers together, especially stationary and GPS trackers, it's advisable to set `consider_home` for stationary trackers as low as possible see [device_tracker](/integrations/device_tracker/#configuring-a-device_tracker-platform)).
 
-You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %}  or via `YAML` in your `configuration.yaml` file.
+You can manage persons {% my people title="via the UI from the person page inside the configuration panel" %}  or via `YAML` in your {% term "`configuration.yaml`" %} file.
 
 ## Configuring the `person` integration via the Home Assistant configuration panel
 
@@ -42,7 +42,7 @@ person:
 
 ## Configuring the `person` integration via YAML
 
-If you prefer YAML, you can also configure your persons via the `configuration.yaml` file:
+If you prefer YAML, you can also configure your persons via the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
