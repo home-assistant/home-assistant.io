@@ -65,16 +65,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection
-- Visitor (Doorbell presses)
-- AI person detection
-- AI vehicle detection
-- AI pet detection
-- AI animal detection
-- AI face detection
-- AI package detection
+- Motion detection+
+- Visitor+ (Doorbell presses)
+- AI person detection+
+- AI vehicle detection+
+- AI pet detection+
+- AI animal detection+
+- AI face detection+
+- AI package detection+
+- Sleep status
 
-These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\+ These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
