@@ -1,6 +1,6 @@
 ---
-title: Airgradient
-description: Instructions on how to setup Airgradient devices in Home Assistant.
+title: AirGradient
+description: Instructions on how to setup AirGradient devices in Home Assistant.
 ha_category:
   - Health
   - Sensor
@@ -17,7 +17,7 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The Airgradient integration will fetch data from your [Airgradient devices](https://www.airgradient.com/).
+The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).
 
 <div class='note'>
 
@@ -34,7 +34,7 @@ The integration will fetch data from each device. The following sensors are supp
 - Carbon dioxide
 - Humidity
 - Nitrogen index
-- PM0.03 count
+- PM0.3 count
 - PM1 density
 - PM2.5 density
 - PM10 density
