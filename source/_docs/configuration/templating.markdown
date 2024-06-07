@@ -1129,8 +1129,9 @@ Some examples:
 
 Some examples:
 {% raw %}
+
 - `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
-- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode("raw") }}` - renders as `b'homeassistant'`
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
 
 {% endraw %}
 
