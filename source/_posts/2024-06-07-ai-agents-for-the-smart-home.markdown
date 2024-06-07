@@ -182,7 +182,7 @@ We'll continue to collaborate with NVIDIA to enable more local AI functionalitie
 
 There is also room for us to improve the local models we use. We want to explore fine-tuning a model for specific tasks like voice commands or area summarization. This would allow us to get away with much smaller models with better performance and reliability. And the best thing about our community? [People are already working on this <i class="icon-external-link"></i>](https://huggingface.co/acon96/Home-3B-v3-GGUF).
 
-We also want to see if we can use RAG to allow users to teach LLMs about personal items or people that it cares about. Wouldn't it be great if Home Assistant could help you find your glasses?
+We also want to see if we can use RAG to allow users to teach LLMs about personal items or people that they care about. Wouldn't it be great if Home Assistant could help you find your glasses?
 
 ## Join us
 
