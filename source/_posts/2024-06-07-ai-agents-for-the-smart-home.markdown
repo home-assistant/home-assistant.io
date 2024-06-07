@@ -162,7 +162,7 @@ intent_script:
 {% endraw %}
 {% endhighlight %}
 
-We haven't forgotten about custom components either. They can [register their own intents](https://developers.home-assistant.io/docs/intent_handling) or even better: define their own API.
+We haven't forgotten about custom components either. They can [register their own intents](https://developers.home-assistant.io/docs/intent_handling) or, even better, define their own API.
 
 ### Custom integrations providing their own LLM APIs
 
