@@ -82,6 +82,12 @@ Safety settings:
 
 {% endconfiguration_basic %}
 
+## Talking to Super Mario
+
+You can use an OpenAI Conversation integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
+
+The tutorial is using OpenAI, but this could also be done with the Google Generative AI integration.
+
 ## Services
 
 ### Service `google_generative_ai_conversation.generate_content`

@@ -16,7 +16,9 @@ related:
     
 ---
 
-You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration. For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient. No need to leave your credit card information.
+You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration. At time of writing (June 7, 2024), Google was 14x cheaper than OpenAI, but OpenAI is better at answering non-smart home questions.
+
+For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient.
 
 ## Demos
 
@@ -53,9 +55,12 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
      - **No control**: you can talk to Mario, but it cannot control devices.
      - **Assist**: you can talk to it and it can control devices. For example, it could turn on the lights.
        - Assist can only control {% term entities %} that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
-   - Select **Recommended model settings** and select **Submit**.
+   - Define the **Model**:
+     - If you have a paid OpenAI subscription that supports GPT4.0, you can select **Submit**.
+     - If you use the free trial version, deselect the **Recommended model settings** checkbox and select **Submit**.
+     - Then, under **Model**, enter `gpt-3.5-turbo` and select **Submit**.
   
-      ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-02.png)
+      ![Add prompt for Mario personality](/images/assist/assistant-openai-mario-09.png)
   
 3. Give your personality a name:
    - Select **Rename** and change the name to `OpenAI Mario`.
@@ -74,3 +79,12 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
 Step-by-step tutorial with some background information, from the Home Assistant Release Party 2024.6 live stream.
 
 <lite-youtube videoid="xMFC8yaVtpI" videoStartAt="176" videotitle="Home Assistant Release Party 2024.6"></lite-youtube>
+
+## Using the AI voice assistant
+
+To learn how to use the assistant with your voice, refer to one of the following tutorials, depending on the hardware you want to use ot interact with it:
+
+- [ESP32-S3-BOX voice assistant](/voice_control/s3_box_voice_assistant/)
+- [$13 voice assistant using ATOM Echo](/voice_control/thirteen-usd-voice-remote/)
+- [Assist on Android](/voice_control/android/)
+- [Assist on Apple](/voice_control/apple/)

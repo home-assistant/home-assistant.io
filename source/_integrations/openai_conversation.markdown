@@ -73,9 +73,9 @@ Top P:
 
 {% endconfiguration_basic %}
 
-## Talking to Super Mario over the phone
+## Talking to Super Mario
 
-You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
+You can use an OpenAI Conversation integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
 
 ## Services
 
