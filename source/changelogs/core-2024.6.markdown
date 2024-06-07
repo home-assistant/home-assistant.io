@@ -1172,6 +1172,68 @@ For a summary in a more readable format:
 - Bump intents to 2024.6.5 ([@synesthesiam] - [#118890])
 - Replace slave by meter in v2c ([@edenhaus] - [#118893])
 
+## Release 2024.6.1 - June 7
+
+- Update requests to 2.32.3 ([@cdce8p] - [#118868])
+- Prioritize literal text with name slots in sentence matching ([@synesthesiam] - [#118900])
+- Check if imap message text has a value instead of checking if its not None ([@engrbm87] - [#118901])
+- Fix flaky Google Assistant test ([@jpbede] - [#118914])
+- Revert "Bump orjson to 3.10.3 (#116945)" ([@bdraco] - [#118920])
+- Bump `imgw-pib` backend library to version `1.0.2` ([@bieniu] - [#118953])
+- Fix Alarm control panel not require code in several integrations ([@gjohansson-ST] - [#118961])
+- Bump python-holidays to 0.50 ([@gjohansson-ST] - [#118965])
+- Bump pydrawise to 2024.6.3 ([@dknowles2] - [#118977])
+- Bump `imgw-pib` library to version `1.0.4` ([@bieniu] - [#118978])
+- Fix unit of measurement for airgradient sensor ([@joostlek] - [#118981])
+- Fix exposure checks on some intents ([@synesthesiam] - [#118988])
+- Remove isal from after_dependencies in http ([@bdraco] - [#119000])
+- Hold connection lock in Shelly RPC reconnect ([@thecode] - [#119009])
+- Always have addon url in detached_addon_missing ([@mdegat01] - [#119011])
+- Increase test coverage for KNX Climate ([@farmio] - [#117903])
+- Fix KNX `climate.set_hvac_mode` not turning `on` ([@farmio] - [#119012])
+- Fix refactoring error in snmp switch ([@bdraco] - [#119028])
+- Fix remember_the_milk calling configurator async api from the wrong thread ([@bdraco] - [#119029])
+- Fix AirGradient name ([@joostlek] - [#119046])
+- Add type ignore comments ([@cdce8p] - [#119052])
+- Fix Azure Data Explorer strings ([@joostlek] - [#119067])
+
+[#117903]: https://github.com/home-assistant/core/pull/117903
+[#118400]: https://github.com/home-assistant/core/pull/118400
+[#118868]: https://github.com/home-assistant/core/pull/118868
+[#118900]: https://github.com/home-assistant/core/pull/118900
+[#118901]: https://github.com/home-assistant/core/pull/118901
+[#118914]: https://github.com/home-assistant/core/pull/118914
+[#118920]: https://github.com/home-assistant/core/pull/118920
+[#118953]: https://github.com/home-assistant/core/pull/118953
+[#118961]: https://github.com/home-assistant/core/pull/118961
+[#118965]: https://github.com/home-assistant/core/pull/118965
+[#118977]: https://github.com/home-assistant/core/pull/118977
+[#118978]: https://github.com/home-assistant/core/pull/118978
+[#118981]: https://github.com/home-assistant/core/pull/118981
+[#118988]: https://github.com/home-assistant/core/pull/118988
+[#119000]: https://github.com/home-assistant/core/pull/119000
+[#119009]: https://github.com/home-assistant/core/pull/119009
+[#119011]: https://github.com/home-assistant/core/pull/119011
+[#119012]: https://github.com/home-assistant/core/pull/119012
+[#119028]: https://github.com/home-assistant/core/pull/119028
+[#119029]: https://github.com/home-assistant/core/pull/119029
+[#119046]: https://github.com/home-assistant/core/pull/119046
+[#119052]: https://github.com/home-assistant/core/pull/119052
+[#119067]: https://github.com/home-assistant/core/pull/119067
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cdce8p]: https://github.com/cdce8p
+[@dknowles2]: https://github.com/dknowles2
+[@engrbm87]: https://github.com/engrbm87
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mdegat01]: https://github.com/mdegat01
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+
 [#101731]: https://github.com/home-assistant/core/pull/101731
 [#101786]: https://github.com/home-assistant/core/pull/101786
 [#103844]: https://github.com/home-assistant/core/pull/103844
