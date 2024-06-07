@@ -37,7 +37,7 @@ And because this is _just_ Assist, it works on [Android](/blog/2023/07/20/year-o
 
 The architecture that allows LLMs to control Home Assistant is, as one expects from us, fully customizable. The default API is based on Assist, focuses on voice control, and can be extended using intents [defined in YAML](/integrations/intent_script/) or [written in Python](https://developers.home-assistant.io/docs/intent_handling) ([examples below](#defining-the-api-for-llms)).
 
-The current API that we offer is just one approach, and depending on the LLM model used, might not be the best one. That's why it is architected to allow custom integrations to [provide their own LLM APIs](https://developers.home-assistant.io/docs/core/llm/). This allows experimentation with different types of tasks, like creating automations. All LLM integrations in Home Assistant can be configured to use any of the registered custom APIs.
+The current API that we offer is just one approach, and depending on the LLM model used, it might not be the best one. That's why it is architected to allow custom integrations to [provide their own LLM APIs](https://developers.home-assistant.io/docs/core/llm/). This allows experimentation with different types of tasks, like creating automations. All LLM integrations in Home Assistant can be configured using any registered custom APIs.
 
 <p class="img"><img src='/images/blog/2024-06-ai-agents-for-the-smart-home/02-options.png'/>The options screen for an AI agent allows you to pick the Home Assistant API that it has access to.</p>
 
