@@ -29,8 +29,8 @@ To integrate with the Duwi Smart application, please follow these steps:
     - Add at least one house to your account, making sure it is equipped with available devices.
 
 <p class='img'>
-  <img src='/images/integrations/duwi/image001.png' />
-  <img src='/images/integrations/duwi/image002.png' />
+  <img src='/images/integrations/duwi/image001.png' alt="Duwi Integration Setup Step 1"/>
+  <img src='/images/integrations/duwi/image002.png' alt="Duwi Integration Setup Step 2"/>
 </p>
 
 {% include integrations/config_flow.md %}
@@ -45,7 +45,7 @@ To synchronize device information from the Duwi Smart system to Home Assistant, 
    application directly through Home Assistant.
 
 <p class='img'>
-  <img src='/images/integrations/duwi/image003.png' />
+  <img src='/images/integrations/duwi/image003.png' alt="Duwi Integration Final Step"/>
 </p>
 
 Remember to follow security best practices by not storing or sharing your login information, including your phone
@@ -53,19 +53,19 @@ number, password, App Key, and Secret, in any insecure locations.
 
 {% configuration %}
 api_key:
-description: "Your Duwi Application Key."
-required: true
-type: string
+   description: "Your Duwi Application Key."
+   required: true
+   type: string
 secret:
-description: "Your Application Secret provided by Duwi."
-required: true
-type: string
+   description: "Your Application Secret provided by Duwi."
+   required: true
+   type: string
 phone:
-description: "Your phone number used for the Duwi Smart application."
-required: true
-type: string
+   description: "Your phone number used for the Duwi Smart application."
+   required: true
+   type: string
 password:
-description: "Your Duwi Smart application password."
-required: true
-type: string
+   description: "Your Duwi Smart application password."
+   required: true
+   type: string
 {% endconfiguration %}
