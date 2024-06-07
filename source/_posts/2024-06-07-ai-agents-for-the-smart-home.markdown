@@ -52,7 +52,7 @@ We see the best results with cloud-based LLMs, as they are currently more powerf
 To improve local AI options for Home Assistant, we have been collaborating with NVIDIA's [Jetson AI Lab Research Group <i class="icon-external-link"></i>](https://www.jetson-ai-lab.com/research.html), and there has been tremendous progress. They have published text-to-speech and speech-to-text engines with [support for our Wyoming Protocol <i class="icon-external-link"></i>](https://github.com/dusty-nv/jetson-containers/tree/78159ca37d3195afdade81688e22a34cd7a89dbc/packages/smart-home/wyoming), added [support for Ollama to their Jetson platform <i class="icon-external-link"></i>](https://github.com/dusty-nv/jetson-containers/tree/dev/packages/llm/ollama) and just last week showed their progress on making a local Llama 3 model control Home Assistant:
 
 <lite-youtube videoid="aq7QS9AtwE8" videotitle="The first 5 minutes Dustin shows his prototype of controlling Home Assistant using a local LLM."></lite-youtube>
-<p style="text-align: center;"><i>The first 5 minutes Dustin shows his prototype of controlling Home Assistant using a local LLM.</i></p>
+<p style="text-align: center;"><i>The first 5 minutes, Dustin shows his prototype of controlling Home Assistant using a local LLM.</i></p>
 
 ## What is AI?
 
