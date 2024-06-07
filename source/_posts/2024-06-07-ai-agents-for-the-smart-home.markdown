@@ -178,7 +178,7 @@ Custom LLM APIs are written in Python. When a user talks to an LLM, the API is a
 
 One thing we can do to improve AI in Home Assistant is wait. LLMs, both local and remotely accessible ones, are improving rapidly and new ones are released regularly (fun fact, I started writing this post before GPT4o and Gemini 1.5 were announced). Wait a couple of months and the new Llama, Gemini, or GPT release might unlock many new possibilities.
 
-We're going to continue to collaborate with NVIDIA to enable more local AI functionalities. High on our list is making local LLM with function calling easily accessible to all Home Assistant users.
+We'll continue to collaborate with NVIDIA to enable more local AI functionalities. High on our list is making local LLM with function calling easily accessible to all Home Assistant users.
 
 There is also room for us to improve the local models we use. We want to explore fine tuning a model for specific tasks like voice commands or area summarization. This would allow us to get away with much smaller models with better performance and reliability. And the best thing about our community? [People are already working on this <i class="icon-external-link"></i>](https://huggingface.co/acon96/Home-3B-v3-GGUF).
 
