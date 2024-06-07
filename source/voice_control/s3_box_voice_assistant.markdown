@@ -10,6 +10,8 @@ related:
     title: Troubleshooting the ESP32-S3-BOX-3
   - docs: /common-tasks/os/#configuring-access-to-files
     title: Access to your configuration files
+  - docs: /voice_control/about_wake_word/
+    title: Enable wake word
   - docs: /voice_control/s3-box-customize/#customizing-on-device-wake-words-microwakeword
     title: Customizing the S3-BOX with on-device wake words
   - url: https://esphome.io/projects/index.html
@@ -71,14 +73,15 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Controlling Home Assistant
 
-1. Say your wake word. For this tutorial, use "OK, Nabu".
-2. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn on the light*.
+1. Make sure your assistant has [wake word enabled](/voice_control/about_wake_word/), using "OK Nabu".
+2. Say your wake word. For this tutorial, use "OK Nabu".
+3. Say a [supported voice command](/voice_control/builtin_sentences/). For example, *Turn on the light*.
    - Once the intent has been processed, the LED lights up in green and Home Assistant confirms the action.
       - Make sure you’re using the area name exactly as you defined it in Home Assistant.
       - You can also ask a question, such as
           - *Is the front door locked?*
           - *Which lights are on in the living room?*
-3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
+4. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
 
 ## Turning off microphone or screen
 
