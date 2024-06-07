@@ -68,9 +68,9 @@ Another downside is that depending on the AI model and where it runs, it can be 
 
 Last January, the most upvoted article on HackerNews was about controlling Home Assistant using an LLM. [I commented on the story <i class="icon-external-link"></i>](https://news.ycombinator.com/item?id=38985152) to share our excitement for LLMs and the things we plan to do with it. In response to that comment, Nigel Nelson and Sean Huver, two ML engineers from the NVIDIA Holoscan team, reached out to share some of their experience to help Home Assistant. It evolved around AI agents.
 
-AI agents are programs that run independently. Users, or other programs, can interact with it to ask it things like describe an image, answer a question or control your home. In this case, the agents are powered by LLM models and the way the agent responds is steered by instructions in natural language (English!).
+AI agents are programs that run independently. Users or other programs can interact with them to ask them to describe an image, answer a question, or control your home. In this case, the agents are powered by LLM models, and the way the agent responds is steered by instructions in natural language (English!).
 
-Nigel and Sean had experimented with AI being responsible for multiple tasks. Their tests showed that giving a single agent complicated instructions, so it could handle multiple tasks, led to the AI model being confused. One didn't cut it, you need multiple AI agents responsible for one task each to do things right. If an incoming query can be handled by multiple agents, a selector agent approach ensures the query is sent to the right agent.
+Nigel and Sean had experimented with AI being responsible for multiple tasks. Their tests showed that giving a single agent complicated instructions so it could handle multiple tasks confused the AI model. One didn't cut it, you need multiple AI agents responsible for one task each to do things right. If an incoming query can be handled by multiple agents, a selector agent approach ensures the query is sent to the right agent.
 
 <p class="img"><img src='/images/blog/2024-06-ai-agents-for-the-smart-home/03-agents.png'/>High level overview of the described agent framework.</p>
 
