@@ -45,7 +45,7 @@ The options screen for an AI agent allows you to pick the Home Assistant API tha
 
 ## Cloud versus local
 
-Home Assistant currently offers two cloud LLM providers with various model options: Google and OpenAI. Both integrations ship with a recommended model that balances price, accuracy and speed. Our recommended model for OpenAI is better at non-home related questions but Google's model is 14x cheaper, yet has similar voice assistant performance.
+Home Assistant currently offers two cloud LLM providers with various model options: Google and OpenAI. Both integrations ship with a recommended model that balances price, accuracy, and speed. Our recommended model for OpenAI is better at non-home related questions but Google's model is 14x cheaper, yet has similar voice assistant performance.
 
 We see the best results with cloud-based LLMs, as they are currently more powerful and easier to run compared to open source options. But local and open source LLMs are improving at a staggering rate. This is important because local AI is better for your privacy and, in the long term, your wallet. Local models also tend to be a lot smaller, which means a lot less electricity is used to run them.
 
