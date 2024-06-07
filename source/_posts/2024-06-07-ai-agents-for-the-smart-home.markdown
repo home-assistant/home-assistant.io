@@ -141,7 +141,7 @@ Leveraging intents also meant that we already have a place in the UI where users
 
 <img src='/images/blog/2024-06-ai-agents-for-the-smart-home/06-expose.png' alt='Home Assistant Conference header' class='no-shadow'>
 
-Home Assistant already has different ways for a user to define their own intents, and this allows users to extend the Assist API that LLMs have access to. The first one is the [intent script integration](/integrations/intent_script/). Using YAML, users can define a script to run when the intent is invoked and use a template to define the response.
+Home Assistant already has different ways for you to define your own intents, allowing you to extend the Assist API to which LLMs have access. The first one is the [intent script integration](/integrations/intent_script/). Using YAML, users can define a script to run when the intent is invoked and use a template to define the response.
 
 {% highlight python %}
 {% raw %}
