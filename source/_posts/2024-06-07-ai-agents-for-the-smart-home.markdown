@@ -168,7 +168,7 @@ We haven't forgotten about custom components either. They can [register their ow
 
 The built-in LLM API is focused on simplicity and being good at the things that it does. The larger the API surface, the easier AI models, especially the smaller ones, can get confused and invoke them incorrectly.
 
-So instead of one large API, we are aiming for many focused APIs. An AI agent will only have access to one API at a time to ensure it has a higher success rate. It will require experimentation to figure out the best API for creating automations, querying the history, and maybe even creating dashboards. When all those APIs are in place, we can start playing with a selector agent that routes incoming requests to the right agent and API.
+Instead of one large API, we are aiming for many focused APIs. To ensure a higher success rate, an AI agent will only have access to one API at a time. Figuring out the best API for creating automations, querying the history, and maybe even creating dashboards will require experimentation. When all those APIs are in place, we can start playing with a selector agent that routes incoming requests to the right agent and API.
 
 To find out what APIs work best is a task we need to do as a community. That's why we have designed our API system in a way that [any custom component can provide them](https://developers.home-assistant.io/docs/core/llm/). When configuring an LLM that supports control of Home Assistant, users can pick any of the available APIs.
 
