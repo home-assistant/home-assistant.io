@@ -123,30 +123,49 @@ template:
 
 {% endraw %}
 
-### Getting bot and chargers coordinates
+### Getting device and chargers coordinates
 
-The integration has a `get_positions` service used to retrieve bot and chargers coordinates.
+The integration has a `raw_get_positions` service used to retrieve device and chargers coordinates.
 
 Example:
 
 ```yaml
-service: ecovacs.get_positions
+service: ecovacs.raw_get_positions
 target:
   entity_id: vacuum.deebot_n8_plus
 ```
 
-The service call returns a response with a list of coordinates like this:
+The service call returns a raw response with a list of coordinates availables in `resp -> body -> data` like this:
 
 ```yaml
 vacuum.deebot_n8_plus:
-  - type: deebotPos
-    x: 1
-    y: 5
-    a: 85
-  - type: chargePos
-    x: 5
-    y: 9
-    a: 85
+  ret: ok
+  resp:
+    header:
+      pri: 1
+      tzm: 480
+      ts: "1717748487712"
+      ver: 0.0.1
+      fwVer: 1.2.0
+      hwVer: 0.1.1
+    body:
+      code: 0
+      msg: ok
+      data:
+        deebotPos:
+          x: 1
+          y: 5
+          a: 85
+          invalid: 0
+        chargePos:
+          - x: 5
+            y: 9
+            a: 85
+            t: 1
+            invalid: 0
+        mid: "200465850"
+  id: 5o81
+  payloadType: j
 ```
 
 ### Handling errors
