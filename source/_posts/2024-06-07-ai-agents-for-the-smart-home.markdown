@@ -21,7 +21,7 @@ Instead, we are focussing our efforts on allowing anyone to play with AI in Home
 
 Read more about our approach, how you can use AI today, and what the future holds. Or jump straight in and add [Google AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/) to your Home Assistant installation (or [Ollama](/integrations/ollama) for local AI without the ability to control HA yet).
 
-_Huge thanks to our AI team [@shulyaka <i class="icon-external-link"></i>](https://github.com/Shulyaka), [@tronikos <i class="icon-external-link"></i>](https://github.com/tronikos), [@allenporter <i class="icon-external-link"></i>](https://github.com/allenporter), [@synesthesiam <i class="icon-external-link"></i>](https://github.com/synesthesiam), [@jlpuffier <i class="icon-external-link"></i>](https://github.com/jlpouffier) and [@balloob <i class="icon-external-link"></i>](https://github.com/balloob)._
+_Huge thanks for contributing: [@shulyaka <i class="icon-external-link"></i>](https://github.com/Shulyaka), [@tronikos <i class="icon-external-link"></i>](https://github.com/tronikos), [@allenporter <i class="icon-external-link"></i>](https://github.com/allenporter), [@synesthesiam <i class="icon-external-link"></i>](https://github.com/synesthesiam), [@jlpuffier <i class="icon-external-link"></i>](https://github.com/jlpouffier) and [@balloob <i class="icon-external-link"></i>](https://github.com/balloob)._
 
 <!--more-->
 
