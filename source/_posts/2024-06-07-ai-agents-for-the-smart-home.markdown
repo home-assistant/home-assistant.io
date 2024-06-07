@@ -15,13 +15,13 @@ Back in the day, the saying was _computers don't lie_. They were deterministic, 
 
 Home Assistant is uniquely positioned to be the smart home platform for AI. As part of [our Open Home values](https://www.openhomefoundation.org/), we believe users own their own data (a novel concept, we know) and that they can choose what happens with it. That's why Home Assistant stores all user data locally, including rich history, and it offers powerful APIs for anyone to build anything on top -- no constraints. Empowering our users with real control of their homes [is part of our DNA](/blog/2016/01/19/perfect-home-automation/#limit-the-impact-of-false-positives-and-negatives), and helps reduce the impact of false positives caused by hallucinations. All this makes Home Assistant the perfect foundation for anyone looking to build powerful AI-powered solutions for the smart home - something that is not possible with any of the other big platforms.
 
-As we have researched AI ([more about that below](#the-foundation-for-ai-experimentation-in-the-smart-home)), we concluded that there are currently no AI-powered solutions _yet_ that are worth it. Would you want a summary of your home at the top of your dashboard if it could be wrong, cost you money, or even [harm the planet <i class="icon-external-link"></i>](https://www.theguardian.com/commentisfree/article/2024/may/30/ugly-truth-ai-chatgpt-guzzling-resources-environment)?
+As we have researched AI ([more about that below](#the-foundation-for-ai-experimentation-in-the-smart-home)), we concluded that there are currently no AI-powered solutions _yet_ that are worth it. Would you want a summary of your home at the top of your dashboard if it could be wrong, cost you money, or even [harm the planet](https://www.theguardian.com/commentisfree/article/2024/may/30/ugly-truth-ai-chatgpt-guzzling-resources-environment)?
 
 Instead, we are focussing our efforts on allowing anyone to play with AI in Home Assistant by making it easier to integrate it into existing workflows and run the models locally. To experiment with AI today, the latest release of Home Assistant allows you to connect and control devices with OpenAI or Google AI. For the local AI solutions of the future, we are [working with NVIDIA](#ai-agents), who have made amazing progress already. This will unleash the power of our community, our collective intelligence, to come up with creative use cases.
 
 Read more about our approach, how you can use AI today, and what the future holds. Or jump straight in and add [Google AI](/integrations/google_generative_ai_conversation/), [OpenAI](/integrations/openai_conversation/) to your Home Assistant installation (or [Ollama](/integrations/ollama) for local AI without the ability to control HA yet).
 
-_Huge thanks for contributing: [@shulyaka <i class="icon-external-link"></i>](https://github.com/Shulyaka), [@tronikos <i class="icon-external-link"></i>](https://github.com/tronikos), [@allenporter <i class="icon-external-link"></i>](https://github.com/allenporter), [@synesthesiam <i class="icon-external-link"></i>](https://github.com/synesthesiam), [@jlpuffier <i class="icon-external-link"></i>](https://github.com/jlpouffier) and [@balloob <i class="icon-external-link"></i>](https://github.com/balloob)._
+_Huge thanks for contributing: [@shulyaka](https://github.com/Shulyaka), [@tronikos](https://github.com/tronikos), [@allenporter](https://github.com/allenporter), [@synesthesiam](https://github.com/synesthesiam), [@jlpuffier](https://github.com/jlpouffier) and [@balloob](https://github.com/balloob)._
 
 <!--more-->
 
@@ -49,7 +49,7 @@ Home Assistant currently offers two cloud LLM providers with various model optio
 
 We see the best results with cloud-based LLMs, as they are currently more powerful and easier to run compared to open source options. But local and open source LLMs are improving at a staggering rate. This is important because local AI is better for your privacy and, in the long term, your wallet. Local models also tend to be a lot smaller, which means a lot less electricity is used to run them.
 
-To improve local AI options for Home Assistant, we have been collaborating with NVIDIA's [Jetson AI Lab Research Group <i class="icon-external-link"></i>](https://www.jetson-ai-lab.com/research.html), and there has been tremendous progress. They have published text-to-speech and speech-to-text engines with [support for our Wyoming Protocol <i class="icon-external-link"></i>](https://github.com/dusty-nv/jetson-containers/tree/78159ca37d3195afdade81688e22a34cd7a89dbc/packages/smart-home/wyoming), added [support for Ollama to their Jetson platform <i class="icon-external-link"></i>](https://github.com/dusty-nv/jetson-containers/tree/dev/packages/llm/ollama) and just last week showed their progress on making a local Llama 3 model control Home Assistant:
+To improve local AI options for Home Assistant, we have been collaborating with NVIDIA's [Jetson AI Lab Research Group](https://www.jetson-ai-lab.com/research.html), and there has been tremendous progress. They have published text-to-speech and speech-to-text engines with [support for our Wyoming Protocol](https://github.com/dusty-nv/jetson-containers/tree/78159ca37d3195afdade81688e22a34cd7a89dbc/packages/smart-home/wyoming), added [support for Ollama to their Jetson platform](https://github.com/dusty-nv/jetson-containers/tree/dev/packages/llm/ollama) and just last week showed their progress on making a local Llama 3 model control Home Assistant:
 
 <lite-youtube videoid="aq7QS9AtwE8" videotitle="The first 5 minutes Dustin shows his prototype of controlling Home Assistant using a local LLM."></lite-youtube>
 <p style="text-align: center;"><i>The first 5 minutes, Dustin shows his prototype of controlling Home Assistant using a local LLM.</i></p>
@@ -66,7 +66,7 @@ Another downside is that depending on the AI model and where it runs, it can be 
 
 ## AI Agents
 
-Last January, the most upvoted article on HackerNews was about controlling Home Assistant using an LLM. [I commented on the story <i class="icon-external-link"></i>](https://news.ycombinator.com/item?id=38985152) to share our excitement for LLMs and the things we plan to do with it. In response to that comment, Nigel Nelson and Sean Huver, two ML engineers from the NVIDIA Holoscan team, reached out to share some of their experience to help Home Assistant. It evolved around AI agents.
+Last January, the most upvoted article on HackerNews was about controlling Home Assistant using an LLM. [I commented on the story](https://news.ycombinator.com/item?id=38985152) to share our excitement for LLMs and the things we plan to do with it. In response to that comment, Nigel Nelson and Sean Huver, two ML engineers from the NVIDIA Holoscan team, reached out to share some of their experience to help Home Assistant. It evolved around AI agents.
 
 AI agents are programs that run independently. Users or other programs can interact with them to ask them to describe an image, answer a question, or control your home. In this case, the agents are powered by LLM models, and the way the agent responds is steered by instructions in natural language (English!).
 
@@ -92,10 +92,10 @@ The conversation entities can be included in an Assist Pipeline, our voice assis
 
 As a user, you are in control when your agents are invoked. This is possible by leveraging the beating heart of Home Assistant: the automation engine. You can write an automation, listen for a specific trigger, and then feed that information to the AI agent.
 
-The following example is based on an automation [originally shared by /u/Detz on the Home Assistant subreddit <i class="icon-external-link"></i>](https://www.reddit.com/r/homeautomation/comments/1at0re0/out_of_my_42_automations_this_is_my_best_one_by/). Every time the song changes on their media player, it will check if the band is a country band and if so, skip the song. The impact of hallucinations here is low, the user might end up listening to a country song or a non-country song is skipped.
+The following example is based on an automation [originally shared by /u/Detz on the Home Assistant subreddit](https://www.reddit.com/r/homeautomation/comments/1at0re0/out_of_my_42_automations_this_is_my_best_one_by/). Every time the song changes on their media player, it will check if the band is a country band and if so, skip the song. The impact of hallucinations here is low, the user might end up listening to a country song or a non-country song is skipped.
 
-{% highlight python %}
 {% raw %}
+```python
 trigger:
   - platform: state
     entity_id: media_player.sonos_roam
@@ -116,8 +116,8 @@ action:
       - service: media_player.media_next_track
         target:
           entity_id: '{{ trigger.entity_id }}'
+```
 {% endraw %}
-{% endhighlight %}
 
 We've turned this automation into a blueprint that you can try yourself. It allows you to configure the criteria on when to skip the song.
 
@@ -127,7 +127,7 @@ We've turned this automation into a blueprint that you can try yourself. It allo
 
 One of the weird things about LLMs is that it's opaque how they exactly work and their usefulness can differ greatly per task. Even the creators of the models need to run tests to understand what their new models are capable of. Given that our tasks are quite unique, we had to create our own reproducible benchmark to compare LLMs.
 
-To make this possible, Allen Porter created a [set of evaluation tools <i class="icon-external-link"></i>](https://github.com/allenporter/home-assistant-datasets?tab=readme-ov-file#home-assistant-datasets) including a new integration called ["Synthetic home" <i class="icon-external-link"></i>](https://github.com/allenporter/home-assistant-synthetic-home/tree/main). This integration allows us to launch a Home Assistant instance based on a definition in a YAML file. The file specifies the areas, the devices (including manufacturer/model) and their state. This allows us to test each LLM against the exact same Home Assistant state.
+To make this possible, Allen Porter created a [set of evaluation tools](https://github.com/allenporter/home-assistant-datasets?tab=readme-ov-file#home-assistant-datasets) including a new integration called ["Synthetic home"](https://github.com/allenporter/home-assistant-synthetic-home/tree/main). This integration allows us to launch a Home Assistant instance based on a definition in a YAML file. The file specifies the areas, the devices (including manufacturer/model) and their state. This allows us to test each LLM against the exact same Home Assistant state.
 
 <p class="img"><img src='/images/blog/2024-06-ai-agents-for-the-smart-home/05-testing.png' alt='Graph showing accuracy between different assist options'/>Results comparing a set of difficult sentences to control Home Assistant between Home Assistant's sentence matching, Google Gemini 1.5 Flash and OpenAI GPT-4o.</p>
 
@@ -143,8 +143,8 @@ Leveraging intents also meant that we already have a place in the UI where you c
 
 Home Assistant already has different ways for you to define your own intents, allowing you to extend the Assist API to which LLMs have access. The first one is the [intent script integration](/integrations/intent_script/). Using YAML, users can define a script to run when the intent is invoked and use a template to define the response.
 
-{% highlight python %}
 {% raw %}
+```python
 intent_script:
   EventCountToday:
     action:
@@ -159,8 +159,8 @@ intent_script:
         response_variable: result
     speech:
       text: "{{ action_response['calendar.my_calendar'].events | length }} events"
+```
 {% endraw %}
-{% endhighlight %}
 
 We haven't forgotten about custom components either. They can [register their own intents](https://developers.home-assistant.io/docs/intent_handling) or, even better, define their own API.
 
@@ -180,7 +180,7 @@ One thing we can do to improve AI in Home Assistant is wait. LLMs, both local an
 
 We'll continue to collaborate with NVIDIA to enable more local AI functionalities. High on our list is making local LLM with function calling easily accessible to all Home Assistant users.
 
-There is also room for us to improve the local models we use. We want to explore fine-tuning a model for specific tasks like voice commands or area summarization. This would allow us to get away with much smaller models with better performance and reliability. And the best thing about our community? [People are already working on this <i class="icon-external-link"></i>](https://huggingface.co/acon96/Home-3B-v3-GGUF).
+There is also room for us to improve the local models we use. We want to explore fine-tuning a model for specific tasks like voice commands or area summarization. This would allow us to get away with much smaller models with better performance and reliability. And the best thing about our community? [People are already working on this](https://huggingface.co/acon96/Home-3B-v3-GGUF).
 
 We also want to see if we can use RAG to allow users to teach LLMs about personal items or people that they care about. Wouldn't it be great if Home Assistant could help you find your glasses?
 
