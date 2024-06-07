@@ -121,7 +121,7 @@ action:
 
 We've turned this automation into a blueprint that you can try yourself. It allows you to configure the criteria on when to skip the song.
 
-{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/automatically-skip-songs-that-match-criteria/736522" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/automatically-skip-songs-that-match-criteria/736522" description="View Blueprint" %}
 
 ## Researching AI
 
