@@ -12,15 +12,6 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
-related:
-  - docs: /voice_control/assist_create_open_ai_personality/
-    title: Create an AI personality
-  - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
-  - url: https://www.openai.com
-    title: OpenAI
-  - url: https://platform.openai.com/account/api-keys
-    title: OpenAI API key
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -48,7 +39,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: If the model is allowed to interact with Home Assistant
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
@@ -73,9 +64,9 @@ Top P:
 
 {% endconfiguration_basic %}
 
-## Talking to Super Mario
+## Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
+You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
 
 ## Services
 
