@@ -13,7 +13,7 @@ related:
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
 
-For each component, you can choose from different options. There is a speech-to-text and text-to-speech option that runs entirely local.
+For each component, you can choose from different options. There is a speech-to-text and text-to-speech option that runs entirely local. No data is sent to external servers for processing.
 
 The speech-to-text option is [Whisper](https://github.com/openai/whisper). It's an open source AI model that supports [various languages](https://github.com/openai/whisper#available-models-and-languages). We use a forked version called [faster-whisper](https://github.com/guillaumekln/faster-whisper). On a Raspberry Pi 4, it takes around 8 seconds to process incoming voice commands. On an Intel NUC, it is done in under a second.
 
