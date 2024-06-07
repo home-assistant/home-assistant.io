@@ -14,15 +14,6 @@ ha_quality_scale: platinum
 ha_platforms:
   - conversation
   - diagnostics
-related:
-  - docs: /voice_control/voice_remote_expose_devices/
-    title: Exposing entities to Assist
-  - docs: /voice_control/assist_create_open_ai_personality/
-    title: Create an AI personality
-  - url: https://aistudio.google.com/app/apikey
-    title: Google Generative AI API key
-  - url: https://ai.google.dev/
-    title: Google Generative AI
 ---
 
 The Google Generative AI integration adds a conversation agent powered by [Google Generative AI](https://ai.google.dev/) in Home Assistant. It can optionally be allowed to control Home Assistant.
@@ -51,7 +42,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+  description: If the model is allowed to interact with Home Assistant.
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
@@ -81,12 +72,6 @@ Safety settings:
   description: Thresholds for different [harmful categories](https://ai.google.dev/gemini-api/docs/safety-settings).
 
 {% endconfiguration_basic %}
-
-## Talking to Super Mario
-
-You can use an OpenAI Conversation integration to [talk to Super Mario and, if you want, have him control devices in your home](/voice_control/assist_create_open_ai_personality/).
-
-The tutorial is using OpenAI, but this could also be done with the Google Generative AI integration.
 
 ## Services
 
