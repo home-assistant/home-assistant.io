@@ -33,7 +33,7 @@ Once you have your own Starling bank account you will need to sign up for a Star
 Once you've signed up:
 
 1. Connect your personal Starling Bank account to your developer account. Head to [Personal Access Page](https://developer.starlingbank.com/personal) of your developer account.
-2. Follow the instructions to generate the QR code to scan within the Starling mobile app to authorize and link your bank account to the developer account. 
+2. Follow the instructions to generate the QR code to scan within the Starling mobile app to authorize and link your bank account to the developer account.
 3. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account.
 4. Click "Create Token".
 5. Give your token a name, e.g., "Home Assistant".
