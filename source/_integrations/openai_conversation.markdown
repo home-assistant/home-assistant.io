@@ -76,12 +76,12 @@ Allows you to ask OpenAI to generate an image based on a prompt. This service
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the requested image.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                 | Example          |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| `config_entry`         | no       | Integration entry ID to use.                                                                                                                                                                                                                |                  |
-| `prompt`               | no       | The text to turn into an image.                                                                                                                                                                                                             | Picture of a dog |
-| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`.                                                                                                                     | 1024x1024        |
-| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image.                                                                                                           | standard         |
+| Service data attribute | Optional | Description                                            | Example          |
+| ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
+| `config_entry`         | no       | Integration entry ID to use.                           |                  |
+| `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
+| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
+| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
 | `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
 {% raw %}
