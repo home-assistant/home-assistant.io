@@ -74,7 +74,7 @@ Using OpenAI requires an OpenAI account. For this tutorial, the free trial optio
 5. You can repeat this with other OpenAI personalities. You can add as many OpenAI Conversation integrations as you would like.
    - To add a new personality, you need to create a new API key. Then, add a new OpenAI Conversation integration with that API key.
 
-## Tutorial: Setting up Assist with OpenAi
+## Tutorial: Setting up Assist with OpenAI
 
 Step-by-step tutorial with some background information, from the Home Assistant Release Party 2024.6 live stream.
 
