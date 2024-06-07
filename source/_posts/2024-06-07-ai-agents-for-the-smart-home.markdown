@@ -137,7 +137,7 @@ We've used these tools extensively to fine tune the prompt and API that we give 
 
 Home Assistant has different API interfaces. We have the Home Assistant Python object, a WebSocket API, a REST API, and intents. We decided to base our LLM API on the intent system because it is our smallest API. Intents are used by our sentence-matching voice assistant and are limited to controlling devices and querying information. They don't bother with creating automations, managing devices, or other administrative tasks.
 
-Leveraging intents also meant that we already have a place in the UI where users can configure what entities are accessible, a test suite in many languages matching sentences to intent and a baseline of what the LLM should be able to achieve with the API.
+Leveraging intents also meant that we already have a place in the UI where you can configure what entities are accessible, a test suite in many languages matching sentences to intent, and a baseline of what the LLM should be able to achieve with the API.
 
 <img src='/images/blog/2024-06-ai-agents-for-the-smart-home/06-expose.png' alt='Home Assistant Conference header' class='no-shadow'>
 
