@@ -86,9 +86,9 @@ Safety settings:
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
 This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with the generated content.
 
-| Service data attribute | Optional | Description                                     | Example             |
-| ---------------------- | -------- | ----------------------------------------------- | ------------------- |
-| `prompt`               | no       | The prompt for generating the content.          | Describe this image |
+| Service data attribute | Optional | Description                                    | Example             |
+| ---------------------- | -------- | ---------------------------------------------- | ------------------- |
+| `prompt`               | no       | The prompt for generating the content.         | Describe this image |
 | `image_filename`       | yes      | File names for images to include in the prompt. | /tmp/image.jpg      |
 
 {% raw %}
