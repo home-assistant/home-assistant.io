@@ -42,7 +42,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant.
+  description: If the model is allowed to interact with Home Assistant
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
