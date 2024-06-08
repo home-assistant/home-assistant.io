@@ -73,7 +73,7 @@ disarm_after_trigger:
   type: boolean
   default: false
 arming_states:
-  description: Limit the supported arming states
+  description: Limit the supported arming states.
   required: false
   type: list
   default: armed_away, armed_home, armed_night, armed_vacation, armed_custom_bypass
