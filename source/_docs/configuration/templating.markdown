@@ -1121,6 +1121,21 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
+
+<div class='note'>
+
+Some examples:
+{% raw %}
+
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+
+{% endraw %}
+
+</div>
 
 ### Regular expressions
 
