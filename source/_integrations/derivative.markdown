@@ -21,14 +21,14 @@ ha_integration_type: helper
 The derivative ([Wikipedia](https://en.wikipedia.org/wiki/Derivative)) integration creates a sensor that estimates the derivative of the
 values provided by another sensor (the **source sensor**). Derivative sensors are updated upon changes of the **source sensor**.
 
-For sensors that reset to zero after a power interruption and need a "non-negative derivative", such as bandwidth counters in routers, or rain gauges, consider using the [Utility Meter](/integrations/utility_meter/) integration instead. Otherwise, each reset will register a significant change in the derivative sensor.
-
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
 Name:
   description: The name the sensor should have. You can change it again later.
 Input sensor:
   description: The entity providing numeric readings to create the derivative of.
+Ignore negative derivative:
+  description: Enabling this ensures that any negative derivatives are disregarded, which is particularly useful when dealing with input sensors that periodically reset, such as bandwidth counters in routers or rain gauges.
 Precision:
   description: Round the calculated derivative value to at most N decimal places.
 Time window:
@@ -62,6 +62,11 @@ name:
   required: false
   default: source entity ID derivative
   type: string
+ignore_negative:
+  description: Enabling this ensures that any negative derivatives are disregarded, which is particularly useful when dealing with input sensors that periodically reset, such as bandwidth counters in routers or rain gauges.
+  required: false
+  default: false
+  type: boolean
 round:
   description: Round the calculated derivative value to at most N decimal places.
   required: false
