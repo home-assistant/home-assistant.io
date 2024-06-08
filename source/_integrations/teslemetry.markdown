@@ -205,7 +205,7 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field         | Description                | Example                          |
 |---------------|----------------------------|----------------------------------|
-| device_id     | The vehicles device_id     | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| device_id     | The vehicle's device_id     | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
 | gps           | Dictionary of coordinates  |                                  |
 | gps.latitude  | Latitude in degrees        | -27.9699373                      |
 | gps.longitude | Longitude in degrees       | 153.4081865                      |
