@@ -123,6 +123,23 @@ template:
 
 {% endraw %}
 
+### Handling errors
+
+The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
+
+If the vacuum fires a "no error" event, the `error` attribute will change back to `None`. Note, however, that this does not happen for all types of errors.
+
+Alternatively, you can use the `ecovacs_error` event to watch for errors. This event will contain a data payload that looks like:
+
+```json
+{
+  "entity_id": "vacuum.deebot_m80",
+  "error": "an_error_name"
+}
+```
+
+Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
+
 ### Getting device and chargers coordinates
 
 The integration has a `raw_get_positions` service used to retrieve device and chargers coordinates.
@@ -170,22 +187,6 @@ vacuum.deebot_n8_plus:
 ```
 
 {% enddetails %}
-### Handling errors
-
-The vacuum entity has an `error` attribute that will contain the _most recent_ error message that came from the vacuum. There is not a comprehensive list of all error messages, so you may need to do some experimentation to determine the error messages that your vacuum can send.
-
-If the vacuum fires a "no error" event, the `error` attribute will change back to `None`. Note, however, that this does not happen for all types of errors.
-
-Alternatively, you can use the `ecovacs_error` event to watch for errors. This event will contain a data payload that looks like:
-
-```json
-{
-  "entity_id": "vacuum.deebot_m80",
-  "error": "an_error_name"
-}
-```
-
-Finally, if a vacuum becomes unavailable (usually due to being idle and off its charger long enough for it to completely power off,) the vacuum's `status` attribute will change to `offline` until it is turned back on.
 
 ## Self-hosted configuration
 
