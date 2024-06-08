@@ -62,7 +62,7 @@ name:
   required: false
   default: source entity ID derivative
   type: string
-ignore_negative:
+ignore_negative_derivative:
   description: Enabling this ensures that any negative derivatives are disregarded, which is particularly useful when dealing with input sensors that periodically reset, such as bandwidth counters in routers or rain gauges.
   required: false
   default: false
