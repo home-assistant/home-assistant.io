@@ -63,7 +63,6 @@ action:
   - repeat:
       sequence:
         - service: climate.set_temperature
-          continue_on_error: true
           target:
             entity_id: climate.stat
           data:
