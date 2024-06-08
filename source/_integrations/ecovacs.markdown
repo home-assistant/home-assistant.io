@@ -135,6 +135,7 @@ target:
   entity_id: vacuum.deebot_n8_plus
 ```
 
+{% details "Service response example" %}
 The service call returns a raw response with a list of coordinates availables in `resp -> body -> data` like this:
 
 ```yaml
