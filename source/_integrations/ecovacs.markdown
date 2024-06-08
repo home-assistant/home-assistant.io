@@ -153,7 +153,7 @@ target:
 ```
 
 {% details "Service response example" %}
-The service call returns a raw response with a list of coordinates availables in `resp -> body -> data` like this:
+The service call returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
 
 ```yaml
 vacuum.deebot_n8_plus:
