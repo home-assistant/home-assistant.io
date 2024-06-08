@@ -260,7 +260,7 @@ The services are all documented inside Home Assistant as well, so its recommende
 
 `teslemetry.time_of_use`
 
-| Field         | Description                  | Example                          |
-|---------------|------------------------------|----------------------------------|
-| device_id     | The vehicles device_id       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| tou_settings  | <td colspan=2>See https://developer.tesla.com/docs/fleet-api#time_of_use_settings for details. |
+| Field         | Description                  | Example                                                                         |
+|---------------|------------------------------|---------------------------------------------------------------------------------|
+| device_id     | The vehicles device_id       | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                |
+| tou_settings  | Time of use settings         | See https://developer.tesla.com/docs/fleet-api#time_of_use_settings for details |
