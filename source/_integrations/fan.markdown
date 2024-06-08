@@ -126,7 +126,7 @@ automation:
 
 ### Service `fan.turn_on`
 
-Turn fan device on. This is only supported if the fan device supports being turned off.
+Turn fan device on. This is only supported if the fan device supports being turned off. See a similar example under `fan.turn_off`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -151,7 +151,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: fan.set_speed
+    - service: fan.turn_off
       target:
         entity_id: fan.kitchen
       data:

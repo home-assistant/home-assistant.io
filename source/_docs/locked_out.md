@@ -1,15 +1,22 @@
 ---
 title: "I'm locked out!"
 description: "Options for regaining access"
+related:
+  - docs: /common-tasks/os/#listing-all-users-from-the-command-line
+    title: Listing all usernames via command line
+  - url: https://yellow.home-assistant.io/guides/factory-reset/
+    title: Reset the Yellow
+  - url: https://green.home-assistant.io/guides/reset/
+    title: Reset the Green
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
 or need to recover your data.
 
-## Forgot user name
+## Forgot username
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are the owner and have forgotten your user name, then you need to [prepare the system to start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
+If you are using the {% term "Home Assistant Operating System" %} and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
 
@@ -49,9 +56,9 @@ Use this procedure only if the following conditions are met:
      - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
    - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Green in the step above.
 2. Once you have opened the Home Assistant command line, enter the following command:
-   - Note: `existing_user` is a placeholder. Replace it with your user name.
+   - Note: `existing_user` is a placeholder. Replace it with your username.
    - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `auth reset --username existing_user --password new_password`
+   - **Command**: `ha auth reset --username existing_user --password new_password`
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 3. You can now log in to Home Assistant using this new password.
 

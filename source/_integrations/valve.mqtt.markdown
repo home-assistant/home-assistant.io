@@ -18,7 +18,7 @@ A valve entity can be have the following states: `open`, `opening`, `closed` or 
 
 If a `state_topic` is configured, the entity's state will be updated only after an MQTT message is received on `state_topic` matching `state_open`, `state_opening`, `state_closed` or `state_closing`. Commands configured through `payload_open`, `payload_closed`, and `payload_stop` will be published to `command_topic` to control the valve.
 
-To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry for a value that is set by open or close command
@@ -40,7 +40,7 @@ Example of a JSON state update:
 
 The wanted position value or `payload_stop` will be published to `command_topic` to control the valve when the services `valve.open`, `value.close`, or `value.set_position` are called.
 
-To use your MQTT valve in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT valve in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry for a valve that reports position
@@ -134,6 +134,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: Suggest an area if the device isn’t in one yet.
       required: false
@@ -148,7 +152,6 @@ device:
       type: string
 device_class:
   description: Sets the [class of the device](/integrations/valve/), changing the device state and icon that is displayed on the frontend. The `device_class` can be `null`.
-  default: None
   required: false
   type: string
 enabled_by_default:
@@ -165,7 +168,6 @@ entity_category:
   description: "The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity."
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -262,7 +264,7 @@ state_opening:
   type: string
   default: opening
 state_topic:
-  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together.
+  description: The MQTT topic subscribed to receive valve state messages. State topic accepts a state payload (`open`, `opening`, `closed`, or `closing`) or, if `reports_position` is supported, a numeric value representing the position. In a JSON format with variables `state` and `position` both values can received together. A "None" state value resets to an `unknown` state. An empty string is ignored.
   required: false
   type: string
 unique_id:

@@ -10,6 +10,7 @@ ha_codeowners:
   - '@Guy293'
 ha_domain: tami4
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: integration
 ---

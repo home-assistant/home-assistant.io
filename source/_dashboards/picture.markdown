@@ -1,8 +1,15 @@
 ---
 type: card
-title: "Picture Card"
+title: "Picture card"
 sidebar_label: Picture
 description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
@@ -12,7 +19,7 @@ The picture card allows you to set an image to use for navigation to various pat
 Screenshot of the picture card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 

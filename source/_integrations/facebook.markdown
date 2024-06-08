@@ -9,11 +9,15 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
+The `facebook` notification {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

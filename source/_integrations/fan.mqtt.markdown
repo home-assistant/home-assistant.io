@@ -18,7 +18,8 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT fans in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,6 +106,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -131,7 +136,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -224,12 +228,12 @@ payload_reset_percentage:
   description: A special payload that resets the `percentage` state attribute to `unknown` when received at the `percentage_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 payload_reset_preset_mode:
   description: A special payload that resets the `preset_mode` state attribute to `unknown` when received at the `preset_mode_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 percentage_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `percentage_command_topic`.
   required: false
@@ -288,7 +292,7 @@ speed_range_min:
   type: integer
   default: 1
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:
@@ -325,7 +329,6 @@ mqtt:
       command_topic: "bedroom_fan/on/set"
       direction_state_topic: "bedroom_fan/direction/state"
       direction_command_topic: "bedroom_fan/direction/set"
-      oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_state_topic: "bedroom_fan/oscillation/state"
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       percentage_state_topic: "bedroom_fan/speed/percentage_state"

@@ -235,7 +235,7 @@ kitchen_fade_on:
 
 ## Debugging
 
-Debug logs are often required to solve an issue. To enable UPB debug logs add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+Debug logs are often required to solve an issue. To enable UPB debug logs add the following to your {% term "`configuration.yaml`" %} file in your Home Assistant `config` directory:
 
 ```yaml
 logger:

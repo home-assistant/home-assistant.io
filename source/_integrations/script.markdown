@@ -122,11 +122,6 @@ sequence:
   type: list
 {% endconfiguration %}
 
-### Video tutorial
-This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
-
-<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>
-
 ### Script modes
 
 Mode | Description
@@ -140,10 +135,133 @@ Mode | Description
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
-### Full configuration
+### Passing variables to scripts
+
+As part of the service, variables can be passed along to a script so they become available within templates in that script.
+
+To configure a script to accept variables using the UI, the variables can be added as fields in the script editor.
+1. In the script editor, in the 3-dots menu, select **Add fields**.
+2. A new section called **Fields** is added between the basic information and **Sequence** sections.
+3. Enter a name and choose type and options of each desired field.
+4. Fields set up here will be shown in other UI editors, such as in an automation that calls the script as inputs depending on the type of field.
+5. To use the field data, use them as templates using the **Field key name** when they were added, as shown in the example below.
+
+Using the variables in the script requires the use of templates:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+script:
+  notify_pushover:
+    description: "Send a pushover notification"
+    fields:
+      title:
+        description: "The title of the notification"
+        example: "State change"
+      message:
+        description: "The message content"
+        example: "The light is on!"
+    sequence:
+      - condition: state
+        entity_id: switch.pushover_notifications
+        state: "on"
+      - service: notify.pushover
+        data:
+          title: "{{ title }}"
+          message: "{{ message }}"
+```
+{% endraw %}
+
+Aside from the automation editor UI, variables can be passed to scripts within the service data. This can be used either by calling the script directly or the generic `script.turn_on` service. The difference is described in [Waiting for Script to Complete](#waiting-for-script-to-complete). All service data will be made available as variables in templates, even if not specified as fields in the script. This example shows how to call the script directly:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: "off"
+    to: "on"
+  action:
+    service: script.notify_pushover
+    data:
+      title: "State change"
+      message: "The light is on!"
+```
+{% endraw %}
+
+This example shows using `script.turn_on` service:
+
+{% raw %}
+```yaml
+# Example configuration.yaml entry
+automation:
+  trigger:
+    platform: state
+    entity_id: light.bedroom
+    from: "off"
+    to: "on"
+  action:
+    service: script.turn_on
+    target:
+      entity_id: script.notify_pushover
+    data:
+      variables:
+        title: "State change"
+        message: "The light is on!"
+```
+{% endraw %}
+
+
+
+<div class='note'>
+
+Script variables that may be used by templates include the following: 
+- those provided from the configuration as fields
+- those that are passed as data when started from a service, 
+- the `this` variable the value of which is a dictionary of the current script's state.
+
+</div>
+
+### Waiting for Script to Complete
+
+When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
+If any errors occur that cause the called script to abort, the calling script will be aborted as well.
+
+When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
+Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
+
+<p class='img'>
+  <img src='/images/integrations/script/script_wait.jpg'>
+</p>
+
+Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
+This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
 
 {% raw %}
 
+```yaml
+script:
+  script_1:
+    sequence:
+      - service: script.turn_on
+        target:
+          entity_id: script.script_2
+      # Perform some other steps here while second script runs...
+      # Now wait for called script to complete.
+      - wait_template: "{{ is_state('script.script_2', 'off') }}"
+      # Now do some other things...
+  script_2:
+    sequence:
+      # Do some things at the same time as the first script...
+```
+
+{% endraw %}
+
+### Full configuration
+
+{% raw %}
 ```yaml
 script: 
   wakeup:
@@ -187,115 +305,11 @@ script: 
         target:
           entity_id: "{{ turn_on_entity }}"
 ```
-
 {% endraw %}
 
-### Passing variables to scripts
 
-As part of the service, variables can be passed along to a script so they become available within templates in that script.
+## Video tutorial
 
-There are two ways to achieve this. One way is using the generic `script.turn_on` service. To pass variables to the script with this service, call it with the desired variables:
+This video tutorial explains how scripts work, how to use fields in scripts, and how to use response variables in scripts.
 
-```yaml
-# Example configuration.yaml entry
-automation:
-  trigger:
-    platform: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
-  action:
-    service: script.turn_on
-    target:
-      entity_id: script.notify_pushover
-    data:
-      variables:
-        title: "State change"
-        message: "The light is on!"
-```
-
-The other way is calling the script as a service directly. In this case, all service data will be made available as variables. If we apply this approach on the script above, it would look like this:
-
-```yaml
-# Example configuration.yaml entry
-automation:
-  trigger:
-    platform: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
-  action:
-    service: script.notify_pushover
-    data:
-      title: "State change"
-      message: "The light is on!"
-```
-
-Using the variables in the script requires the use of templates:
-
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-script:
-  notify_pushover:
-    description: "Send a pushover notification"
-    fields:
-      title:
-        description: "The title of the notification"
-        example: "State change"
-      message:
-        description: "The message content"
-        example: "The light is on!"
-    sequence:
-      - condition: state
-        entity_id: switch.pushover_notifications
-        state: "on"
-      - service: notify.pushover
-        data:
-          title: "{{ title }}"
-          message: "{{ message }}"
-```
-
-<div class='note'>
-
-Script variables that may be used by templates include those provided from the configuration, those that are passed when started from a service and the `this` variable whose value is a dictionary of the current script's state.
-
-</div>
-
-{% endraw %}
-
-### Waiting for Script to Complete
-
-When calling a script "directly" (e.g., `script.NAME`) the calling script will wait for the called script to finish.
-If any errors occur that cause the called script to abort, the calling script will be aborted as well.
-
-When calling a script (or multiple scripts) via the `script.turn_on` service the calling script does _not_ wait. It starts the scripts, in the order listed, and continues as soon as the last script is started.
-Any errors that occur in the called scripts that cause them to abort will _not_ affect the calling script.
-
-<p class='img'>
-  <img src='/images/integrations/script/script_wait.jpg'>
-</p>
-
-Following is an example of the calling script not waiting. It performs some other operations while the called script runs "in the background." Then it later waits for the called script to complete via a `wait_template`.
-This technique can also be used for the calling script to wait for the called script, but _not_ be aborted if the called script aborts due to errors.
-
-{% raw %}
-
-```yaml
-script:
-  script_1:
-    sequence:
-      - service: script.turn_on
-        target:
-          entity_id: script.script_2
-      # Perform some other steps here while second script runs...
-      # Now wait for called script to complete.
-      - wait_template: "{{ is_state('script.script_2', 'off') }}"
-      # Now do some other things...
-  script_2:
-    sequence:
-      # Do some things at the same time as the first script...
-```
-
-{% endraw %}
+<lite-youtube videoid="vD_xckjQxRk" videotitle="Mastering Scripts in Home Assistant: A Comprehensive Guide" posterquality="maxresdefault"></lite-youtube>

@@ -9,6 +9,7 @@ ha_iot_class: Local Push
 ha_codeowners:
   - '@aschmitz'
   - '@thecode'
+  - '@anrijs'
 ha_domain: aranet
 ha_config_flow: true
 ha_platforms:

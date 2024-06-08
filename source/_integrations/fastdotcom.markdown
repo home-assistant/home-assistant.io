@@ -12,8 +12,10 @@ ha_codeowners:
   - '@erwindouna'
 ha_domain: fastdotcom
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: gold
 ---
 
 The `fastdotcom` integration uses the [Fast.com](https://fast.com/) web service to measure network bandwidth performance.

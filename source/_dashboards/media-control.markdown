@@ -3,6 +3,11 @@ type: card
 title: "Media control card"
 sidebar_label: Media control
 description: "The media control card is used to display media player entities on an interface with easy to use controls."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The media control card is used to display [media player](/integrations/#media-player) entities on an interface with easy to use controls.

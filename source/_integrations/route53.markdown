@@ -7,9 +7,12 @@ ha_iot_class: Cloud Push
 ha_release: 0.81
 ha_domain: route53
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-With the `route53` integration can you keep your AWS Route53 DNS records up to date.
+With the `route53` {% term integration %} can you keep your AWS Route53 DNS records up to date.
 
 The integration will run every hour, but can also be started manually by using the service `route53.update_records` under services.
 
@@ -61,7 +64,8 @@ Here is an IAM Policy sample, don't forget to update your Zone ID on the Resourc
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -2,7 +2,7 @@
 title: Freebox
 description: Instructions on how to integrate Freebox routers into Home Assistant.
 ha_category:
-  - Alarm Control Panel
+  - Alarm
   - Camera
   - Network
   - Presence detection
@@ -45,34 +45,9 @@ You can find out your Freebox host and port by opening this address <http://mafr
 The returned JSON should contain an `api_domain` (`host`) and a `https_port` (`port`).
 Please consult the [API documentation](https://dev.freebox.fr/sdk/os/) for more information.
 
-### Via the frontend
-
-Menu: **Settings** -> **Devices & Services**. Search for "Freebox", add your host and port, click submit.
-
-If you add the integration for the first time, follow the instructions in the [Initial setup](#initial-setup) section.
-
-### Via the configuration file
-
-```yaml
-freebox:
-  host: foobar.fbxos.fr
-  port: 1234
-```
-
-{% configuration %}
-host:
-  description: The URL of the Freebox.
-  required: true
-  type: string
-port:
-  description: The HTTPS port the Freebox is listening on.
-  required: true
-  type: string
-{% endconfiguration %}
-
 <div class='note warning'>
-  
-  If you change your Freebox router for a new one, go into your Home Assistant configuration `.storage` folder and delete the "freebox" folder, then add the integration again.
+
+The `host` (ex: xxxxxxxx.fbxos.fr) and `port` given by <http://mafreebox.freebox.fr/api_version> refers to your Freebox public IP address and may not work if your Home Assistant server is located inside your local LAN. For local API access, you can alternatively use `host` = *mafreebox.freebox.fr* and `port` = *443*.
 
 </div>
 

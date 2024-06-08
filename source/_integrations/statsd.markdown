@@ -7,11 +7,15 @@ ha_iot_class: Local Push
 ha_release: 0.12
 ha_domain: statsd
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `statsd` integration makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
+The `statsd` {% term integration %} makes it possible to transfer all state changes to an external [StatsD](https://github.com/etsy/statsd) instance.
 
-To use the `statsd` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `statsd` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

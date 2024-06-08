@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - diagnostics
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -25,6 +26,7 @@ If your system is compatible with this integration, then you will be able access
 - [Supported hardware](#supported-hardware)
 - [Climate](#climate)
 - [Sensor](#sensor)
+- [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
@@ -48,7 +50,33 @@ The climate platform integrates Honeywell US-based thermostats into Home Assista
 
 All [climate services](/integrations/climate) are supported except set_swing_mode.
 
-There is a "known" issue related to setting the temperature from Home Assistant with some thermostats. If your instance receives errors when setting the temperature above or below some value, go to the Honeywell web page and set the temperature to the max or min for the mode you are using, then adjust from Home Assistant.
+Due to the instability of the Honeywell total connect system, service calls within automations should repeat until success similar to the following example:
+
+```yaml
+alias: "No one home"
+description: "Everyone has left home"
+trigger:
+  - platform: numeric_state
+    entity_id: zone.home
+    for:
+      minutes: 10
+    below: 1
+action:
+  - repeat:
+      sequence:
+        - service: climate.set_temperature
+          target:
+            entity_id: climate.stat
+          data:
+            temperature: 64
+        - delay:
+            minutes: 1
+      until:
+        - condition: state
+          entity_id: climate.stat
+          attribute: temperature
+          state: 64
+```
 
 ## Sensor
 
@@ -61,3 +89,12 @@ This integration will add Home Assistant sensors for the following:
 |Outdoor humidity | Average humidity of all Honeywell Wireless Outdoor Sensors|
 |Indoor temperature | Current temperature as measured at the specific thermostat|
 |Indoor humidity | Current humidity as measured at the specific thermostat|
+
+## Switch
+
+The switch entity integrates the emergency heat option for each device.  If the thermostat supports emergency heat, the switch entity will be created.
+
+This integration will add a switch for the following:
+|Switch|Value|
+--- | ---
+|Emergency Heat | Activates second stage heat source as primary heat|
