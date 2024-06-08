@@ -263,4 +263,4 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 | Field         | Description                  | Example                                                                         |
 |---------------|------------------------------|---------------------------------------------------------------------------------|
 | device_id     | The vehicles device_id       | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                |
-| tou_settings  | Time of use settings         | See https://developer.tesla.com/docs/fleet-api#time_of_use_settings for details |
+| tou_settings  | Time of use settings         | See [Tesla Developer Documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
