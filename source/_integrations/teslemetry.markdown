@@ -197,7 +197,7 @@ Constant API polling will prevent most Model S and Model X vehicles manufactured
 
 ## Services
 
-The services are all documented inside Home Assistant as well, so its recommended you start with the services developer tool (developer-tools/service) to correctly format your service calls.
+Teslemetry provides various custom services to interact with the Tesla Fleet API directly.
 
 ### Navigate to coordinates
 
