@@ -140,6 +140,11 @@ max_age:
   description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period. A statistics sensor requires `sampling_size`, `max_age`, or both to be defined.
   required: false
   type: time
+keep_last_sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the `max_age` setting. 
+  required: false
+  default: false
+  type: boolean
 percentile:
   description: Only relevant in combination with the `percentile` characteristic. Must be a value between 1 and 99. The value defines the percentile value to consider. The 25th percentile is also known as the first quartile, the 50th percentile as the median.
   required: false

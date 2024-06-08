@@ -105,6 +105,7 @@ Resume suspended integration.
 Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
 
 - Huawei B310s-22
+- Huawei B315s-936
 - Huawei B525s-23a
 - Huawei E5186s-22a
 - Huawei B618

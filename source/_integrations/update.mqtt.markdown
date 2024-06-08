@@ -12,7 +12,7 @@ The `mqtt` Update platform allows you to integrate devices that might expose fir
 
 ## Configuration
 
-To enable MQTT Update in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT Update in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -94,6 +94,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

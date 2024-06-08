@@ -1,0 +1,803 @@
+---
+layout: post
+title: "2024.6: Dipping our toes in the world of AI using LLMs 🤖"
+description: "Control your home with an AI powered Assist, conditional sections and cards for your dashboards, amazing new media player commands, and so much more! 🚀"
+date: 2024-06-05 00:00:00
+date_formatted: "June 5, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-06/social.png
+---
+
+<a href='/integrations/#version/2024.6'><img src='/images/blog/2024-06/social.png' style='border: 0;box-shadow: none;'></a>
+
+Home Assistant Core 2024.6! 🎉
+
+Welcome to another loaded release of Home Assistant! Packed with many exciting
+new features, this month is most definitely one to remember.
+
+Let's talk about AI. AI might just as well be the talk of the century. These
+so-called [LLMs] most certainly open up a whole new world of possibilities.
+When we first introduced the OpenAI and Google AI conversation agents for Assist,
+one of the most requested features was the ability to control your home with it.
+
+Now for the big news:
+
+_**Well, as of today, you can control your home with an AI!**_ 🤖
+
+But there is a lot more to this release. Super simple media player commands,
+more data table improvements, tag entities, collapsible blueprint sections,
+and so much more!
+
+I’m personally most excited about the new features in the dashboarding area.
+Being able to conditionally show sections and cards is definitely a game-changer
+for my dashboards.
+
+Enjoy the release!
+
+../Frenck
+
+[LLMs]: https://en.wikipedia.org/wiki/Large_language_model
+
+<!--more-->
+
+- [Voice \& Assist](#voice--assist)
+  - [Dipping our toes in the world of AI using LLMs](#dipping-our-toes-in-the-world-of-ai-using-llms)
+  - [Improved media player commands](#improved-media-player-commands)
+- [Dashboards](#dashboards)
+  - [Show sections conditionally](#show-sections-conditionally)
+  - [Control visibility of cards](#control-visibility-of-cards)
+  - [Setting a dashboard background](#setting-a-dashboard-background)
+- [Data tables improvements](#data-tables-improvements)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integrations reaching platinum quality level](#integrations-reaching-platinum-quality-level)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [Matter turns 1.3](#matter-turns-13)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Disabling expiration of login tokens](#disabling-expiration-of-login-tokens)
+  - [Tag entities!](#tag-entities)
+  - [Collapsible sections for blueprints!](#collapsible-sections-for-blueprints)
+- [Patch releases](#patch-releases)
+  - [2024.6.1 - June 7](#202461---june-7)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=xMFC8yaVtpI)
+5 June 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="xMFC8yaVtpI" videotitle="Home Assistant 2024.6 Release Party"></lite-youtube>
+
+## Voice & Assist
+
+This month, we are continuing our work on improving Assist's out-of-the-box
+capabilities: Not only are we adding features that you would expect from a
+voice assistant, such as media control, but we are leap-frogging ahead with
+some new exciting developments and experimenting with AI! 🤖
+
+We will have more to announce during a soon-to-be-announced _Voice - Chapter 7_
+livestream on June the 26th! Keep an eye out for that! 🎙️
+
+### Dipping our toes in the world of AI using LLMs
+
+Our voice assistant's brain is called a _conversation agent_.
+It is responsible for understanding the intention behind the spoken command,
+performing an action, and generating a response.
+
+Since the beginning of our voice journey, we allowed you to switch your
+conversation agent for an LLM-based one. This led to some very funny experiments,
+such as our [infamous interview with Mario](https://www.youtube.com/watch?v=eLx8_NAqptk).
+
+Until now, these two worlds (our own Home Assistant conversation agent
+controlling your home and LLM-based conversation agents) did not overlap;
+it was impossible to control your home from an LLM-based conversation agent.
+
+Today, we’re happy to announce that we are closing this gap!
+
+<lite-youtube videoid="KXoIpwKsekY" videotitle="Demo of using Assist with an AI to control your smart home!"></lite-youtube>
+
+When setting up an LLM-based conversation agent, you can decide to let
+your conversation agent control your home with a flick of a switch.
+
+<img class="no-shadow" src='/images/blog/2024-06/llm-based-conversation-agent-config-flow.png' alt='Screenshot of the configuration screen of the OpenAI integration, showing how to enable Home Assistant control.'>
+
+With this new setting, LLM-based conversation agents can tap into our
+{% term intent %} system, which powers Assist. They also get access to every
+{% term entity %} exposed to Assist. That way, you control what your agents
+have access to.
+
+Tapping into our intent system is great because it works out of the box.
+LLM-based conversation agents can do everything that Assist can do.
+The added benefit is that they are capable of reasoning beyond words,
+which Assist was incapable of doing.
+
+For example, if you have a light called _"Webcam light"_ exposed in your
+_"office"_ area, you can give direct commands such as:
+
+> Turn on the office webcam light.
+
+That was also working with Assist previously, but you can also give more
+complex commands, such as:
+
+> I'm going to a meeting, can you please make sure people see my face?
+
+The agent will figure out the intention behind the words
+and call the correct intent on the matching exposed entities.
+
+{% details "What about custom intents?" %}
+
+Our intent system has been built from the start to be extensible.
+Custom integrations and even users can register their own intents.
+This allows you to guide the agent beyond what's capable out of the box.
+
+Here is an example of a custom intent that explains to the agent what
+to do when I leave my home.
+
+```yaml
+conversation:
+  intents:
+    LeaveHome:
+      - "Leave home"
+
+intent_script:
+  LeaveHome:
+    description: "Launch the leave home script. To be used when I am about to leave my home."
+    action:
+      - service: script.leave_home
+        data: {}
+    speech:
+      text: "Done"
+```
+
+With this YAML snippet added to my {% term "`configuration.yaml`" %}, if the
+agent understands that I am leaving home, it will not turn off what it thinks
+I want, it will run my `leave_home` script, which is precisely what
+I want it to do.
+
+{% enddetails %}
+
+This release makes it available for our [OpenAI] and [Google AI]
+{% term integrations %}. To make it easier to get started with LLMs,
+we have updated them with recommended model settings that strike the right
+balance between accuracy, speed, and cost. If you had them set up previously,
+we recommend enabling the recommended settings and emptying the instructions.
+
+Our recommended model settings perform equally well for voice assistant tasks.
+Google is 14x cheaper than OpenAI, but OpenAI is better at answering non-smart
+home questions. We are preparing a blog post with a deep dive into the research
+that went into this feature, coming soon™!
+
+Local LLMs have been supported via [the Ollama integration](/integrations/ollama/) since Home Assistant 2024.4. Ollama and the major open source LLM models are not tuned for tool calling, so this has to be built from scratch and was not done in time for this release. We're collaborating with NVIDIA to get this working – [they showed a prototype last week.](https://youtu.be/aq7QS9AtwE8?si=yZilHo4uDUCAQiqN)
+
+Thanks to everyone who contributed to this feature! [@shulyaka], [@tronikos],
+[@allenporter], [@synesthesiam], [@jlpouffier], and [@balloob]!
+
+[@allenporter]: https://github.com/allenporter
+[@balloob]: https://github.com/balloob
+[@jlpouffier]: https://github.com/jlpouffier
+[@shulyaka]: https://github.com/shulyaka
+[@synesthesiam]: https://github.com/synesthesiam
+[@tronikos]: https://github.com/tronikos
+[Google AI]: /components/google_generative_ai_conversation/
+[OpenAI]: /components/openai_conversation/
+
+### Improved media player commands
+
+We have introduced new media player {% term intents %} that allow you to do
+more while saying less. You can say the following voice commands to control
+media players in the same area as your Assist device:
+
+- _"Pause"_
+- _"Resume"_
+- _"Next"_
+- _"Set the volume to 50%"_
+
+Up until now, we have only proposed sentences targeting a specific entity by
+its name. Due to this limitation, these intents were not the most user-friendly,
+as the sentences were too long to say: _“Skip to the next song on the TV”_.
+
+We added two features to get to the smallest sentences possible. Context
+awareness makes our voice assistant aware of the devices in the same area as
+the satellite. We have also created a smart matching strategy that finds the
+right media player to target.
+
+For example, if you say “pause”, the voice assistant will automatically
+target the media player that is playing.
+
+<lite-youtube videoid="pFmwY-k5IcU" videotitle="Demo of media player commands of Home Assistant Assist"></lite-youtube>
+
+Just ensure your voice assistant device is assigned to an area with an exposed
+media player, and you are good to go.
+
+## Dashboards
+
+Work has continued, making the dashboard customization and organization easier
+and more intuitive. This month, we are adding a new feature for our new sections
+and customization for backgrounds, which everyone in your home will enjoy.
+
+### Show sections conditionally
+
+We added a visibility option to the new [sections dashboard] feature. This
+amazing new feature allows you to hide or show a section based on certain
+conditions.
+
+For example, you may want to display only a section on mobile when you’re at
+home. Or, only show the switch to turn off kitchen lights when the kitchen lights
+are actually on. Maybe you have that one section only relevant to you or your
+partner, and you want to hide it from the kids.
+
+<img class="no-shadow" src='/images/blog/2024-06/dashboard-section-visibility.png' alt='Screenshot showing how to conditional make a section visible on the new sections dashboard.'>
+
+It uses the [same conditions as condition cards](/dashboards/conditional/#conditions-options),
+meaning you have a lot of flexibility in what you can do.
+
+[sections dashboard]: /dashboards/sections/
+
+### Control visibility of cards
+
+Wait, we didn't stop there! This same visibility feature is now also available
+for cards! Oh yes! 🚀
+
+<img class="no-shadow" src='/images/blog/2024-06/dashboard-card-visibility.png' alt='Screenshot showing a tile card that is only visible to a specific person.'>
+
+You can now hide or show a card based on certain conditions. This allows you to
+create more dynamic dashboards that adapt to your needs. The big difference is
+that you don’t need a condition card to use this feature. It is available
+directly in the card configuration in the **Visibility** tab.
+
+### Setting a dashboard background
+
+[@Nezz] contributed a great new feature to our dashboarding UI: the ability to
+set a background image for your [dashboard](/dashboards)!
+
+Previously, this was only possible by editing YAML, but now you can do it
+directly from the UI. Even better, you can upload an image directly from your
+computer or provide a URL to one!
+
+<img class="no-shadow" src='/images/blog/2024-06/dashboards-change-background.png' alt='Screenshot of the configuration screen of the OpenAI integration, showing how to enable Home Assistant control.'>
+
+_Photo: [Body of Water Between Green Leaf Trees] by [Ian Turnell](https://www.pexels.com/@samandgos/)._
+
+The same ability (to upload images directly from your computer) was added to
+the picture card, too! Thanks, [@karwosts], for that one!
+
+[@karwosts]: https://github.com/karwosts
+[@Nezz]: https://github.com/Nezz
+[Body of Water Between Green Leaf Trees]: https://www.pexels.com/photo/body-of-water-between-green-leaf-trees-709552/
+[Ian Turnell]: https://www.pexels.com/@samandgos/
+
+## Data tables improvements
+
+Like the [last release](/blog/2024/05/01/release-20245/#more-features-for-our-data-tables),
+this release keeps improving our data tables.
+
+When we [introduced data groupings](/blog/2024/04/03/release-20244/#item-grouping)
+in the tables, you asked for a way to collapse and expand those groupings,
+so we did in the last release! But then we quickly realized that it was not
+enough, and you wanted to be able to collapse and expand all groups at once.
+So, we did that for this release!
+
+<img class="no-shadow" src='/images/blog/2024-06/data-tables-collapse-expand-all.png' alt='Screenshot showing the new collapse and expand all feature of our data tables.'>
+
+We've also expanded the voice assistant expose data table to allow grouping
+by area and domain.
+
+Additionally, filters you've set in the data tables are now saved in your
+browser session. Meaning, if you navigate away from the page and come back, your
+filters will still be there. But! Each browser tab or window has its own session,
+meaning you can have different filters in different tabs or windows that are
+remembered for that specific tab or window.
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Airgradient]**, added by [@joostlek]<br />
+  Provides air quality data from your local Airgradient device.
+- **[APsystems]**, added by [@mawoka-myblock]<br />
+  Monitor your APsystems EZ1 microinverters.
+- **[Azure data explorer]**, added by [@kaareseras]<br />
+  Forward events from Home Assistant to the Azure Data Explorer for analysis.
+- **[IMGW-PIB]**, added by [@bieniu]<br />
+  Hydrological data from the Institute of Meteorology and
+  Water Management—National Research Institute provides information
+  about rivers and water reservoirs in Poland.
+- **[Intelligent Storage Acceleration]**, added by [@bdraco]<br />
+  Intelligent Storage Acceleration Library (ISAL) is used to accelerate our
+  Home Assistant frontend. It is automatically enabled/activated.
+- **[Monzo]**, added by [@JakeMartin-ICL]<br />
+  Connect your Monzo bank account to Home Assistant and get insights
+  into your account balance.
+
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@JakeMartin-ICL]: https://github.com/JakeMartin-ICL
+[@joostlek]: https://github.com/joostlek
+[@kaareseras]: https://github.com/kaareseras
+[@mawoka-myblock]: https://github.com/mawoka-myblock
+[Airgradient]: /integrations/airgradient
+[APsystems]: /integrations/apsystems
+[Azure data explorer]: /integrations/azure_data_explorer
+[IMGW-PIB]: /integrations/imgw_pib
+[Intelligent Storage Acceleration]: /integrations/isal
+[Monzo]: /integrations/monzo
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that are added; existing
+integrations are also constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- Do you need a wireless device that can bridge a larger distance, like
+  kilometers? A [LoRa] device might be a good option. Thanks to [@angelnu]
+  we now have a working integration for [The Things Network].
+- [@starkillerOG] added support for PIR and battery sensors to the [Reolink]
+  integrations. Nice!
+- The [Teslemetry] integration has been expanded tremendously, adding new
+  platforms and features. Awesome job [@Bre77]!
+- Limited templates can now be used to disable {% term triggers %},
+  {% term conditions %}, and {% term actions %}. [@farmio] thought this might
+  be helpful for {% term blueprint %} creators.
+- [@Anrijs] added support for the [Aranet Radiation] devices to the
+  [Aranet] integration. Nice!
+- You can now set the cutting height of your [Husqvarna Automower] and there
+  are switches to make it stay out of certain zones. Thanks [@Thomas55555]!
+- [@thomaskistler] added flow and rain sensor support to the [Hydrawise]
+  integration. Great!
+- The [SwitchBot Cloud] integration now supports the [SwitchBot Meter],
+  [MeterPlus], and [Outdoor Meter]. Thanks [@laurence-presland]!
+
+[@angelnu]: https://github.com/angelnu
+[@Anrijs]: https://github.com/Anrijs
+[@Bre77]: https://github.com/Bre77
+[@farmio]: https://github.com/farmio
+[@laurence-presland]: https://github.com/laurence-presland
+[@starkillerOG]: https://github.com/starkillerOG
+[@Thomas55555]: https://github.com/Thomas55555
+[@thomaskistler]: https://github.com/thomaskistler
+[Aranet Radiation]: https://aranet.com/products/aranet-radiation-sensor
+[Aranet]: /integrations/aranet
+[Husqvarna Automower]: /integrations/husqvarna_automower
+[Hydrawise]: /integrations/hydrawise
+[LoRa]: https://en.wikipedia.org/wiki/LoRa
+[MeterPlus]: https://www.switch-bot.com/products/switchbot-meter-plus
+[Outdoor Meter]: https://www.switch-bot.com/products/switchbot-indoor-outdoor-thermo-hygrometer
+[Reolink]: /integrations/reolink
+[SwitchBot Cloud]: /integrations/switchbot_cloud
+[SwitchBot Meter]: https://www.switch-bot.com/products/switchbot-meter
+[Teslemetry]: /integrations/teslemetry
+[The Things Network]: /integrations/thethingsnetwork
+
+### Integrations reaching platinum quality level
+
+The following {% term integrations %} reached the platinum 🏆 level on our
+[integration quality scale](/docs/quality_scale). These integrations are
+the best of the best and give you an excellent out-of-the-box experience.
+
+- **[Fyta]**, done by [@dontinelli]
+- **[Google Generative AI]**, done by [@tronikos]
+- **[IMGW-PIB]**, done by [@bieniu]
+- **[Minecraft Server]**, done by [@elmurato]
+- **[tedee]**, done by [@zweckj]
+
+Congratulations to all the developers who worked on these integrations!
+
+[@bieniu]: https://github.com/bieniu
+[@dontinelli]: https://github.com/dontinelli
+[@elmurato]: https://github.com/elmurato
+[@tronikos]: https://github.com/tronikos
+[@zweckj]: https://github.com/zweckj
+[Fyta]: /integrations/fyta
+[Google Generative AI]: /integrations/google_generative_ai_conversation
+[IMGW-PIB]: /integrations/imgw_pib
+[Minecraft Server]: /integrations/minecraft_server
+[tedee]: /integrations/tedee
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[File]**, done by [@jbouwh]
+- **[Jewish Calendar]**, done by [@yuvalabou]
+- **[Media extractor]**, done by [@joostlek]
+- **[The Things Network]**, done by [@angelnu]
+
+[@angelnu]: https://github.com/angelnu
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@yuvalabou]: https://github.com/yuvalabou
+[File]: /integrations/file
+[Jewish Calendar]: /integrations/jewish_calendar
+[Media extractor]: /integrations/media_extractor
+[The Things Network]: /integrations/thethingsnetwork
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **Ambiclimate** has been removed by [@gjohansson-ST]. Their services have been
+  terminated, effective March 31, 2024.
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#116410]: https://github.com/home-assistant/core/pull/116410
+
+## Matter turns 1.3
+
+As one of the first in the industry, we proudly announce that Home Assistant
+is already based on the latest {% term Matter %} specification: Matter 1.3! 😎
+This updated version of the Matter SDK improves the reliability
+and compatibility of Matter devices.
+
+This release also improves and expands device support. Matter-based
+air purifiers and room air conditioner devices are now supported, thermostats
+and other climate devices had important fixes around set points, and updates
+to our discovery ensure that we can represent more data for most devices.
+
+A couple of Matter devices out there have so-called "custom clusters".
+Custom clusters are a standardized way for manufacturers to include
+non-standardized data. We want to support custom clusters, so we need
+to add support for each one individually.
+
+This release allows Home Assistant to be notified when the data of a custom
+cluster changes (instead of polling for it on an interval). This will reduce the
+network traffic and improve the performance of your Matter network,
+especially on bigger {% term Thread %} networks.
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- A default code can now be set in the entity settings for every alarm control
+  panel {% term entities %}. Nice work [@gjohansson-ST]!
+- [@Troon] added a filter to our {% term templates %}: `add`. This filter allows
+  you to add a value similar to the existing `multiply`. Great!
+- A new action building block has been added to our {% term automations %} and
+  {% term scripts %}  by [@surfingbytes] and [@frenck]: [Run sequence of actions].
+  This allows you to group multiple {% term actions %} together or run multiple
+  sequences of actions in [parallel].
+- Sensors can be [grouped] to calculate, for example, their sum or mean value.
+  Thanks to [@CoRfr], it is now possible to calculate the [standard deviation]
+  of a group of sensors. Cool!
+
+[@CoRfr]: https://github.com/CoRfr
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@surfingbytes]: https://github.com/surfingbytes
+[@Troon]: https://github.com/Troon
+[grouped]: /integrations/group
+[parallel]: /docs/scripts/#parallelizing-actions
+[Run sequence of actions]: /docs/scripts/#grouping-actions
+[standard deviation]: https://en.wikipedia.org/wiki/Standard_deviation
+
+### Disabling expiration of login tokens
+
+A few releases ago, we introduced the automatic expiration of logins. If a login
+session wasn't used for 90 days, it would expire and be automatically cleaned up.
+
+Some of you have expressed that you would like to disable this feature for
+various reasons. For example, because of a secondary holiday home one doesn’t
+regularly visit, or because of relatives who can only come over a few times
+a year. We added a new option to the user profile settings to disable
+the expiration of specific login tokens.
+
+<img class="no-shadow" src='/images/blog/2024-06/disabling-expiration-login-tokens.png' alt='Screenshot showing the option to disable the expiration of tokens in the profile page.'>
+
+You can find these token in your profile settings, under the **Security** tab.
+
+{% my profile badge %}
+
+### Tag entities!
+
+Home Assistant has had support for tags for a long time. The tags feature
+allowed NFC tags or QR codes to be used with Home Assistant, for example, to
+trigger {% term automations %}.
+
+However, tags were not real entities and, thus, not always as logical to use.
+With this release, [@gjohansson-ST] changed this!
+
+Tags are now normal {% term entities %} and can be used in {% term automations %},
+{% term scripts %}, {% term templates %}, and even be added to your
+your [dashboards](/dashboards)!
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+
+### Collapsible sections for blueprints!
+
+[@karwosts] makes an appearance again this release with another one of his QoL
+(Quality of Live) improvements. He added the ability to add collapsible sections
+to {% term blueprints %}. This allows blueprint creators to group configuration
+options together or hide advanced or less common options by default.
+
+<p class='img'>
+    <img src="/images/blog/2024-06/blueprint-input-sections.gif" alt="Screenrecording showing sections of Blueprints inputs being collapsed/uncollapsed."/>
+    Each section can be collapsed or uncollapsed by clicking on the section header.
+</p>
+
+Thanks [@karwosts]!
+
+Read more about blueprint input sections [in our documentation](/docs/blueprint/schema/#blueprint-input-sections).
+
+Looking for an interesting blueprint to get started? Check out the
+[Blueprints Exchange] on our community forum! There are great automation
+blueprints available.
+
+[@karwosts]: https://github.com/karwosts
+[Blueprints Exchange]: https://community.home-assistant.io/c/blueprints-exchange/53
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.6 in June. These
+patch releases only contain bug fixes. Our goal is to release a patch release
+every Friday.
+
+### 2024.6.1 - June 7
+
+- Update requests to 2.32.3 ([@cdce8p] - [#118868])
+- Prioritize literal text with name slots in sentence matching ([@synesthesiam] - [#118900])
+- Check if imap message text has a value instead of checking if its not None ([@engrbm87] - [#118901])
+- Fix flaky Google Assistant test ([@jpbede] - [#118914])
+- Revert "Bump orjson to 3.10.3 (#116945)" ([@bdraco] - [#118920])
+- Bump `imgw-pib` backend library to version `1.0.2` ([@bieniu] - [#118953])
+- Fix Alarm control panel not require code in several integrations ([@gjohansson-ST] - [#118961])
+- Bump python-holidays to 0.50 ([@gjohansson-ST] - [#118965])
+- Bump pydrawise to 2024.6.3 ([@dknowles2] - [#118977])
+- Bump `imgw-pib` library to version `1.0.4` ([@bieniu] - [#118978])
+- Fix unit of measurement for airgradient sensor ([@joostlek] - [#118981])
+- Fix exposure checks on some intents ([@synesthesiam] - [#118988])
+- Remove isal from after_dependencies in http ([@bdraco] - [#119000])
+- Hold connection lock in Shelly RPC reconnect ([@thecode] - [#119009])
+- Always have addon url in detached_addon_missing ([@mdegat01] - [#119011])
+- Increase test coverage for KNX Climate ([@farmio] - [#117903])
+- Fix KNX `climate.set_hvac_mode` not turning `on` ([@farmio] - [#119012])
+- Fix refactoring error in snmp switch ([@bdraco] - [#119028])
+- Fix remember_the_milk calling configurator async api from the wrong thread ([@bdraco] - [#119029])
+- Fix AirGradient name ([@joostlek] - [#119046])
+- Add type ignore comments ([@cdce8p] - [#119052])
+- Fix Azure Data Explorer strings ([@joostlek] - [#119067])
+
+[#117903]: https://github.com/home-assistant/core/pull/117903
+[#118400]: https://github.com/home-assistant/core/pull/118400
+[#118868]: https://github.com/home-assistant/core/pull/118868
+[#118900]: https://github.com/home-assistant/core/pull/118900
+[#118901]: https://github.com/home-assistant/core/pull/118901
+[#118914]: https://github.com/home-assistant/core/pull/118914
+[#118920]: https://github.com/home-assistant/core/pull/118920
+[#118953]: https://github.com/home-assistant/core/pull/118953
+[#118961]: https://github.com/home-assistant/core/pull/118961
+[#118965]: https://github.com/home-assistant/core/pull/118965
+[#118977]: https://github.com/home-assistant/core/pull/118977
+[#118978]: https://github.com/home-assistant/core/pull/118978
+[#118981]: https://github.com/home-assistant/core/pull/118981
+[#118988]: https://github.com/home-assistant/core/pull/118988
+[#119000]: https://github.com/home-assistant/core/pull/119000
+[#119009]: https://github.com/home-assistant/core/pull/119009
+[#119011]: https://github.com/home-assistant/core/pull/119011
+[#119012]: https://github.com/home-assistant/core/pull/119012
+[#119028]: https://github.com/home-assistant/core/pull/119028
+[#119029]: https://github.com/home-assistant/core/pull/119029
+[#119046]: https://github.com/home-assistant/core/pull/119046
+[#119052]: https://github.com/home-assistant/core/pull/119052
+[#119067]: https://github.com/home-assistant/core/pull/119067
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@cdce8p]: https://github.com/cdce8p
+[@dknowles2]: https://github.com/dknowles2
+[@engrbm87]: https://github.com/engrbm87
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@mdegat01]: https://github.com/mdegat01
+[@synesthesiam]: https://github.com/synesthesiam
+[@thecode]: https://github.com/thecode
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Anova" %}
+
+The `State` and `Mode` entities for Anova devices have been changed to match the
+new protocol messaging. Any automations based on these entities will need to be
+updated.
+
+([@Lash-L] - [#109508]) ([documentation](/integrations/anova))
+
+[@Lash-L]: https://github.com/Lash-L
+[#109508]: https://github.com/home-assistant/core/pull/109508
+
+{% enddetails %}
+
+{% details "AVM FRITZ!Box Tools" %}
+
+The previously deprecated services `reboot`, `reconnect`, and `cleanup` have
+been removed. Please use the corresponding button entities instead.
+
+([@mib1185] - [#118108]) ([documentation](/integrations/fritz))
+
+[@mib1185]: https://github.com/mib1185
+[#118108]: https://github.com/home-assistant/core/pull/118108
+
+{% enddetails %}
+
+{% details "File" %}
+
+The notify services for the file integration now require that the file path
+is an allowed path. You should check the accessed file is in the
+[allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs)
+to ensure your automations keep working.
+
+([@jbouwh] - [#116861]) ([documentation](/integrations/file))
+
+[@jbouwh]: https://github.com/jbouwh
+[#116861]: https://github.com/home-assistant/core/pull/116861
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+MQTT Lock now supports the lock `open` and `opening` states. When a lock is used
+in `optimistic` mode, its state will become `open` instead of `unlocked` when
+it is opened.
+
+([@jbouwh] - [#117110]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#117110]: https://github.com/home-assistant/core/pull/117110
+
+---
+
+The behavior on processing  empty and `"None"` state payloads for MQTT entities
+has been made more predictable for `alarm_control_panel`, `climate`, `cover`,
+`device_tracker`, `lock`, `select`, `valve`, and `water_heater` items:
+
+- A "None" (string) for a state payload generally means the state
+  becomes `unknown`.
+- An empty payload is ignored.
+
+Previously, a "None" state could be considered invalid or ignored.
+
+([@jbouwh] - [#117813]) ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#117813]: https://github.com/home-assistant/core/pull/117813
+
+{% enddetails %}
+
+{% details "OpenWeatherMap" %}
+
+Migration to the new library with support of OneCall API (3.0).
+
+OWM API v2.5 will be closed in June 2024. All OpenWeatherMap integrations must
+be migrated to mode (API) v3.0 to avoid service interruption.
+
+Before the migration, you must have an active subscription (be aware that
+subscription activation takes up to 2h). After the subscription is activated,
+users can migrate integrations to mode v3.0 via repair notification or manually
+via the integration configuration menu.
+
+The subscription has a free tier with 1000 calls/day. Consider setting the limit
+on the OpenWeatherMap website to stay under the threshold where API usage
+incurs a cost.
+
+[OpenWeatherMap official statement](https://openweathermap.org/one-call-transfer)
+
+([@freekode] - [#116870]) ([documentation](/integrations/openweathermap))
+
+[@freekode]: https://github.com/freekode
+[#116870]: https://github.com/home-assistant/core/pull/116870
+
+{% enddetails %}
+
+{% details "Synology DSM" %}
+
+The option to define a custom timeout has been removed. The timeout is set
+static to a sane value of 30 seconds.
+
+([@mib1185] - [#116815]) ([documentation](/integrations/synology_dsm))
+
+[@mib1185]: https://github.com/mib1185
+[#116815]: https://github.com/home-assistant/core/pull/116815
+
+{% enddetails %}
+
+{% details "Webmin" %}
+
+You may need to remove obsolete duplicated entities if this change affects you.
+
+([@autinerd] - [#113084]) ([documentation](/integrations/webmin))
+
+[@autinerd]: https://github.com/autinerd
+[#113084]: https://github.com/home-assistant/core/pull/113084
+
+{% enddetails %}
+
+{% details "World Air Quality Index (WAQI)" %}
+
+The state attributes of the WAQI air quality sensor have been removed.
+The attributes have been replaced by individual sensors; use these instead.
+
+([@joostlek] - [#116595]) ([documentation](/integrations/waqi))
+
+[@joostlek]: https://github.com/joostlek
+[#116595]: https://github.com/home-assistant/core/pull/116595
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+
+You must use `zwave-js-server` 1.35.0 or greater (schema 35).
+- If you use the Z-Wave JS add-on, you need at least version 0.5.0.
+- If you use the Z-Wave JS UI add-on, you need at least version [3.4.2](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.4.2).
+- If you use the Z-Wave JS UI Docker container, you need at least version [9.10.0](https://github.com/zwave-js/zwave-js-ui/releases/tag/v9.10.0).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.35.0.
+
+([@raman325] - [#117288]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+[#117288]: https://github.com/home-assistant/core/pull/117288
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Alarm Control Panel Entity code validation](https://developers.home-assistant.io/blog/2024/05/22/alarm_control_panel_validation/)
+- [Changes in setup entity platforms with group integration](https://developers.home-assistant.io/blog/2024/05/10/group-integration)
+- [Exposing Home Assistant API to LLMs](https://developers.home-assistant.io/blog/2024/05/20/llm-api)
+- [Handling time zones without blocking the event loop](https://developers.home-assistant.io/blog/2024/05/19/fix_zoneinfo_blocking_io)
+- [How we managed to speed up our CI to save 168+ days of execution time per month](https://developers.home-assistant.io/blog/2024/05/09/improving-ci-test-execution)
+- [Improved typing for hass.data](https://developers.home-assistant.io/blog/2024/05/01/improved-hass-data-typing)
+- [LockEntity supports open/opening state](https://developers.home-assistant.io/blog/2024/05/10/lock-supports-open-state)
+- [Second phase of notify entity platform implementation](https://developers.home-assistant.io/blog/2024/05/03/notify-title)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.6](/changelogs/core-2024.6)

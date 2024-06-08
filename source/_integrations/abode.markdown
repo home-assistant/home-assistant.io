@@ -66,36 +66,40 @@ They are grouped into the below events:
 
 All {% term events %} have the fields:
 
-Field | Description
------ | -----------
-`device_id` | The Abode device ID of the event.
-`device_name` | The Abode device name of the event.
-`device_type` | The Abode device type of the event.
-`event_code` | The event code of the event.
-`event_name` | The name of the event.
-`event_type` | The type of the event.
-`event_utc` | The UTC timestamp of the event.
-`user_name` | The Abode user that triggered the event, if applicable.
-`app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.).
-`event_by` | The keypad user that triggered the event.
-`date` | The date of the event in the format `MM/DD/YYYY`.
-`time` | The time of the event in the format `HH:MM AM`.
+| Field | Description |
+| ----- | ----------- |
+| `device_id` | The Abode device ID of the event. |
+| `device_name` | The Abode device name of the event. |
+| `device_type` | The Abode device type of the event. |
+| `event_code` | The event code of the event. |
+| `event_name` | The name of the event. |
+| `event_type` | The type of the event. |
+| `event_utc` | The UTC timestamp of the event. |
+| `user_name` | The Abode user that triggered the event, if applicable. |
+| `app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.). |
+| `event_by` | The keypad user that triggered the event. |
+| `date` | The date of the event in the format `MM/DD/YYYY`. |
+| `time` | The time of the event in the format `HH:MM AM`. |
 
-There is a unique list of known event_codes that can be found
-[here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
+There is a unique list of known event_codes are defined in
+[events.csv](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/events.csv)
+and the inferred groups and their ranges of event codes are defined in
+[timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
-## {% term Services %}
+## Services
+
+Available {% term services %}: `change_setting`, `capture_image`, `trigger_automation`
 
 ### Service `change_setting`
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
-[AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
+[`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `setting` | No | The setting you wish to change.
-| `value` | No | The value you wish to change the setting to.
+| `setting` | No | The setting you wish to change. |
+| `value` | No | The value you wish to change the setting to. |
 
 ### Service `capture_image`
 
@@ -103,7 +107,7 @@ Request a new still image from your Abode camera.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras.
+| `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
 ### Service `trigger_automation`
 
@@ -111,4 +115,4 @@ Trigger an automation on your Abode system.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations.
+| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations. |

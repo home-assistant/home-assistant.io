@@ -15,14 +15,14 @@ The `logger` integration lets you define the level of logging activities in Home
 Assistant.
 
 To enable the `logger` integration in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
 logger:
 ```
 
-The log severity level is `warning` if the logger integration is not enabled in `configuration.yaml`.
+The log severity level is `warning` if the logger integration is not enabled in {% term "`configuration.yaml`" %}.
 
 To log all messages and ignore events lower than critical for specified
 integrations:
@@ -130,7 +130,7 @@ logger:
   logs:
     custom_components.my_integration: critical
   filters:
-    custom_component.my_integration:
+    custom_components.my_integration:
       - "HTTP 429" # Filter all HTTP 429 errors
       - "Request to .*unreliable.com.* Timed Out"
     homeassistant.components.nws:

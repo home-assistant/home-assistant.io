@@ -14,9 +14,9 @@ ha_platforms:
   - todo
 ---
 
-The `shopping_list` integration allows you to keep track of shopping list items. 
+The **Shopping list** {% term integration %} allows you to keep track of shopping list items.
 
-Your shopping list will be accessible from the sidebar, and you can optionally add the [shopping list card](/dashboards/shopping-list/) to your dashboard. With the [conversation integration](/integrations/conversation/) you can add items to your shopping list using voice commands like "Add eggs to my shopping list." 
+Your shopping list will be accessible from the sidebar, and you can optionally add the [To-do list card](/dashboards/todo-list/) to your dashboard. With the [conversation integration](/integrations/conversation/), you can add items to your shopping list using voice commands like "Add eggs to my shopping list."
 
 {% include integrations/config_flow.md %}
 
@@ -28,33 +28,33 @@ You can add or remove items from your shopping list by using the following servi
 
 Add an item to the shopping list.
 
-| Service data attribute | Optional | Description                                            |
-|------------------------|----------|--------------------------------------------------------|
-| `name`                 |       no | Name of the item to add. Example: "Milk"               |
+| Service data attribute | Optional | Description                              |
+| ---------------------- | -------- | ---------------------------------------- |
+| `name`                 | no       | Name of the item to add. Example: "Milk" |
 
 ### Service `shopping_list.remove_item`
 
 Remove the first item with matching name from the shopping list.
 
-| Service data attribute | Optional | Description                                            |
-|------------------------|----------|--------------------------------------------------------|
-| `name`                 |       no | Name of the item to remove. Example: "Milk"            |
+| Service data attribute | Optional | Description                                 |
+| ---------------------- | -------- | ------------------------------------------- |
+| `name`                 | no       | Name of the item to remove. Example: "Milk" |
 
 ### Service `shopping_list.complete_item`
 
 Mark the first item with matching name as completed in the shopping list. It does not remove the item.
 
 | Service data attribute | Optional | Description                                            |
-|------------------------|----------|--------------------------------------------------------|
-| `name`                 |       no | Name of the item to mark as completed. Example: "Milk" |
+| ---------------------- | -------- | ------------------------------------------------------ |
+| `name`                 | no       | Name of the item to mark as completed. Example: "Milk" |
 
 ### Service `shopping_list.incomplete_item`
 
 Mark the first item with matching name as incomplete in the shopping list.
 
-| Service data attribute | Optional | Description                                            |
-|------------------------|----------|--------------------------------------------------------|
-| `name`                 |       no | Name of the item to mark as incomplete. Example: "Milk" |
+| Service data attribute | Optional | Description                                             |
+| ---------------------- | -------- | ------------------------------------------------------- |
+| `name`                 | no       | Name of the item to mark as incomplete. Example: "Milk" |
 
 ### Service `shopping_list.complete_all`
 
@@ -73,15 +73,15 @@ Clear completed items from the shopping list.
 Sort all items by name in the shopping list.
 
 | Service data attribute | Optional | Description                                                         |
-|------------------------|----------|---------------------------------------------------------------------|
-| `reverse`              |      yes | Whether to sort in reverse (_descending_) order. (default: `False`) |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `reverse`              | yes      | Whether to sort in reverse (_descending_) order. (default: `False`) |
 
 ## Using in automations
 
 A `shopping_list_updated` event is triggered when items in the list are modified, with the following data payload attached to it. This can be used to trigger automations such as sending a push notification when someone adds an item to the shopping list, which when clicked, will open the list.
 
 | Data payload attribute | Description                                                                                                        |
-|------------------------|--------------------------------------------------------------------------------------------------------------------|
+| ---------------------- | ------------------------------------------------------------------------------------------------------------------ |
 | `action`               | What action was taken on the item. Either `add` for a new item being added, or `update` for an item being updated. |
 | `item`                 | A dictionary containing details of the item that was updated.                                                      |
 | `item.id`              | A unique ID for this item                                                                                          |

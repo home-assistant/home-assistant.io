@@ -45,6 +45,8 @@ If you have multiple devices of the same type, you need to get the BTLE MAC addr
 
 Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
 
+Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
+
 {% include integrations/config_flow.md %}
 
 ## Supported devices
@@ -54,13 +56,13 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
-- [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
+- Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
-- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock) (currently the Pro model is not supported)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 
 ## SwitchBot Entity

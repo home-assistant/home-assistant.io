@@ -62,7 +62,7 @@ The HomeKit Device integration automatically detects HomeKit [compatible devices
 
 ### Prerequisites
 
-- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your `configuration.yaml` file.
+- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your {% term "`configuration.yaml`" %} file.
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.
@@ -116,7 +116,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 
 ## Adding a HomeKit device through Thread
 
-This section shows the the ways you can join a HomeKit device to a {% term Thread %} network:
+This section shows the ways you can join a HomeKit device to a {% term Thread %} network:
 
 1. via Home Assistant
 2. via Apple Thread border router

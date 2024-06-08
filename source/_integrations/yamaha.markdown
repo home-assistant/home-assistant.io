@@ -9,9 +9,12 @@ ha_domain: yamaha
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
+The `yamaha` {% term integration %} allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
 
 Supported devices:
 
@@ -25,7 +28,8 @@ Supported devices:
 - [RX-V3067](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v3067/specs.html)
 - And more
 
-To add a Yamaha Network Receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Yamaha Network Receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -127,26 +131,26 @@ script:
 
 Enable or disable an output port (HDMI) on the receiver.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `port` | no | Port to enable or disable, e.g., `hdmi1`.
-| `enabled` | no | To enable set true, otherwise set to false.
+| Service data attribute | Optional | Description                                                               |
+| ---------------------- | -------- | ------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers. |
+| `port`                 | no       | Port to enable or disable, e.g., `hdmi1`.                                 |
+| `enabled`              | no       | To enable set true, otherwise set to false.                               |
 
 ### Service `menu_cursor`
 
 Control the menu cursor.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
+| Service data attribute | Optional | Description                                                                        |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.          |
+| `cursor`               | no       | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return` |
 
 ### Service `select_scene`
 
 Select a scene on the receiver.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `scene` | no | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`.
+| Service data attribute | Optional | Description                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.                                |
+| `scene`                | no       | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`. |

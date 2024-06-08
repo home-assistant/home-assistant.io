@@ -18,7 +18,7 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To enable this image in your installation, add the following to your `configuration.yaml` file:
+To enable this image in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,6 +102,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -172,7 +176,7 @@ url_topic:
 
 ### Example receiving images from a URL
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it publish an image URL to the topic from the console:
 
@@ -193,7 +197,7 @@ mqtt:
 
 ### Example receiving images from a file
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it, publish an image URL to the topic from the console:
 

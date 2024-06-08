@@ -18,7 +18,8 @@ The **Compensation** {% term integration %} consumes the {% term state %} from o
 
 ## Configuration
 
-To enable the compensation sensor, add the following lines to your `configuration.yaml`:
+To enable the compensation sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,7 +32,7 @@ compensation:
       - [0.2, -80.0]
       - [1.0, 0.0]
 
-  media_player_db_volume:
+  media_player_zone_2_db_volume:
     source: media_player.yamaha_receiver_zone_2
     attribute: volume_level
     unit_of_measurement: dB

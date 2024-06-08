@@ -1,6 +1,9 @@
 ---
 title: "Automation Trigger"
 description: "All the different ways how automations can be triggered."
+related:
+  - docs: /voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation
+    title: Adding a custom sentence to trigger an automation
 ---
 
 Triggers are what starts the processing of an {% term automation %} rule. When _any_ of the automation's triggers becomes true (trigger _fires_), Home Assistant will validate the [conditions](/docs/automation/condition/), if any, and call the [action](/docs/automation/action/).
@@ -212,7 +215,7 @@ automation:
 
 ## Numeric state trigger
 
-Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold. On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold.
+Fires when the numeric value of an entity's state (or attribute's value if using the `attribute` property, or the calculated value if using the `value_template` property) **crosses** a given threshold (equal excluded). On state change of a specified entity, attempts to parse the state as a number and fires if the value is changing from above to below or from below to above the given threshold (equal excluded).
 
 <div class='note'>
 Crossing the threshold means that the trigger only fires if the state wasn't previously within the threshold.
@@ -257,7 +260,24 @@ automation:
 
 {% endraw %}
 
-More dynamic and complex calculations can be done with `value_template`.
+More dynamic and complex calculations can be done with `value_template`. The variable 'state' is the [state object](/docs/configuration/state_object) of the entity specified by `entity_id`.
+
+The state of the entity can be referenced like this:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.temperature
+      value_template: "{{ state.state | float * 9 / 5 + 32 }}"
+      above: 70
+```
+
+{% endraw %}
+
+Attributes of the entity can be referenced like this:
 
 {% raw %}
 
@@ -277,8 +297,8 @@ Listing above and below together means the numeric_state has to be between the t
 In the example above, the trigger would fire a single time if a numeric_state goes into the 17.1-24.9 range (above 17 and below 25). It will only fire again, once it has left the defined range and enters it again.
 </div>
 
-Number helpers (`input_number` entities), `number` and `sensor` entities that
-contain a numeric value, can be used in the `above` and `below` thresholds,
+Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
+that contain a numeric value, can be used in the `above` and `below` thresholds,
 making the trigger more dynamic, like:
 
 ```yaml
@@ -946,6 +966,10 @@ The sentences matched by this trigger will be:
 
 Punctuation and casing are ignored, so "It's PARTY TIME!!!" will also match.
 
+### Related topic
+
+- [Adding a custom sentence to trigger an automation](/voice_control/custom_sentences/#adding-a-custom-sentence-to-trigger-an-automation)
+
 ### Sentence wildcards
 
 Adding one or more `{lists}` to your trigger sentences will capture any text at that point in the sentence. A `slots` object will be [available in the trigger data](/docs/automation/templating#sentence).
@@ -1011,3 +1035,35 @@ automation:
     - platform: time
       at: "15:32:00"
 ```
+
+Triggers can also be disabled based on limited templates or blueprint inputs. These are only evaluated once when the automation is loaded.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+    input_number:
+      name: Number
+      selector:
+        number:
+          min: 0
+          max: 100
+
+  trigger_variables:
+    _enable_number: !input input_number
+
+  trigger:
+    - platform: sun
+      event_type: sunrise
+      enabled: !input input_boolean
+    - platform: sun
+      event_type: sunset
+      enabled: "{{ _enable_number < 50 }}"
+```
+
+{% endraw %}

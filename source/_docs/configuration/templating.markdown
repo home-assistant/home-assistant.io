@@ -325,6 +325,32 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
 ### Working with groups
 
 Not supported in [limited templates](#limited-templates).
@@ -432,6 +458,51 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
+### Floors
+
+- `floors()` returns the full list of floor IDs.
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
+- `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+
+#### Floors examples
+
+{% raw %}
+
+```text
+{{ floors() }}  # ['floor_id']
+```
+
+```text
+{{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('my_device_id') }}  # 'second_floor'
+```
+
+```text
+{{ floor_id('sensor.sony') }}  # 'first_floor'
+```
+
+```text
+{{ floor_name('first_floor') }}  # 'First floor'
+```
+
+```text
+{{ floor_name('my_device_id') }}  # 'Second floor'
+```
+
+```text
+{{ floor_name('sensor.sony') }}  # 'First floor'
+```
+
+```text
+{{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
+```
+
+{% endraw %}
+
 ### Areas
 
 - `areas()` returns the full list of area IDs
@@ -482,10 +553,12 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Integrations
+### Entities for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
 
 #### Integrations examples
 
@@ -497,6 +570,78 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Labels
+
+- `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
+- `label_id(lookup_value)` returns the label ID for a given label name.
+- `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
+- `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
+- `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
+
+Each of the label template functions can also be used as a filter.
+
+#### Labels examples
+
+{% raw %}
+
+```text
+{{ labels() }}  # ['christmas_decorations', 'energy_saver', 'security']
+```
+
+```text
+{{ labels("living_room") }}  # ['christmas_decorations', 'energy_saver']
+```
+
+```text
+{{ labels("my_device_id") }}  # ['security']
+```
+
+```text
+{{ labels("light.christmas_tree") }}  # ['christmas_decorations']
+```
+
+```text
+{{ label_id('Energy saver') }}  # 'energy_saver'
+```
+
+```text
+{{ label_name('energy_saver') }}  # 'Energy saver'
+```
+
+```text
+{{ label_areas('security') }}  # ['driveway', 'garden', 'porch']
+```
+
+```text
+{{ label_devices('energy_saver') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ label_entities('security') }}  # ['camera.driveway', 'binary_sensor.motion_garden', 'camera.porch']
+```
+
+{% endraw %}
+
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
 ```
 
 {% endraw %}
@@ -587,12 +732,16 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
-- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g., if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
-  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
+- `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the future, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
+- `time_until(datetime, precision)` converts a datetime object into a human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the past, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
   {% raw %}
@@ -751,7 +900,7 @@ Examples:
 
 Not supported in [limited templates](#limited-templates).
 
-- `distance()` will measure the distance in kilometers between home, entity, coordinates.
+- `distance()` measures the distance between home, an entity, or coordinates. The unit of measurement (kilometers or miles) depends on the system's configuration settings.
 - `closest()` will find the closest entity.
 
 #### Distance examples
@@ -916,7 +1065,10 @@ The numeric functions and filters raise an error if the input is not a valid num
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `multiply(arg)` will convert the input to a number and multiply it by `arg`. Useful in list operations in conjunction with `map`.
+- Filter `add(arg)` will convert the input to a number and add it to `arg`. Useful in list operations in conjunction with `map`.
 
 ### Complex type checking
 

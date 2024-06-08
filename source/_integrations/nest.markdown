@@ -42,6 +42,12 @@ The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buyin
 
 </div>
 
+<div class='note'>
+
+The Google Nest integration uses a Cloud Pub/Sub subscription with a 15-minute retention period by default. The Google Cloud Pub/Sub billing changes, effective June 30, 2024, do not apply. The billing changes only apply to subscriptions with a 24-hour retention period. See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions if you previously created one manually.
+
+</div>
+
 <lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
 ## Configuration
@@ -345,12 +351,12 @@ If you are still not getting notifications, you can read this [troubleshooting g
 {% details "Google Home App Notification Settings" %}
 
 
-| Google Home App Setting  | Notes                                                                                 |
-| ------------------------ | :-----------------------------------------------------------------------------------: |
-| Notifications: Push      | Required for any detection event to be published                                      |
-| Notifications: Away-Only | Events will only be published when a user is detected as away from home                 |
-| Seen: Motion             | Required for `Motion` events to be published                                          |
-| Seen: Person             | Required for `Person` events to be published                                          |
+| Google Home App Setting  |                                  Notes                                  |
+| ------------------------ | :---------------------------------------------------------------------: |
+| Notifications: Push      |            Required for any detection event to be published             |
+| Notifications: Away-Only | Events will only be published when a user is detected as away from home |
+| Seen: Motion             |              Required for `Motion` events to be published               |
+| Seen: Person             |              Required for `Person` events to be published               |
 
 ![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
 
@@ -580,13 +586,13 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+- *Subscriber error* means that {% term "`configuration.yaml`" %} has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
 
 ```yaml
 
@@ -609,11 +615,3 @@ logger:
 - It is recommended to let Home Assistant create the Pub/Sub subscription for you. However, if you would like more control you can enter a `subscriber_id` in the configuration. See [Subscribe to Events](https://developers.google.com/nest/device-access/subscribe-to-events) for more instructions on how to manually create a subscription and use the full subscription name in the Home Assistant configuration e.g. `projects/gcp-project-name/subscriptions/subscription-id`
 
 - *Not receiving camera motion and person events*: assuming the integration is correctly configured (for example, the oauth and SDM API are set up correctly, you can see camera streams, and permissions are correctly set in [Partner Connections Manager](https://nestservices.google.com/partnerconnections)): If you are then still not seeing events, it's possible you need to adjust the Google Home App settings. Refer to the [Google Home App Notification Settings](#google-home-app-notification-settings) for details.
-
-# Works With Nest API
-
-<div class='note warning'>
-
-The Legacy [Works with Nest](https://developers.nest.com/) API is deprecated, and will be shut down by Google in September 2023.
-
-</div>

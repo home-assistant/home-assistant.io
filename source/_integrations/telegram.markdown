@@ -9,9 +9,12 @@ ha_domain: telegram
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `telegram` integration uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
+The `telegram` {% term integration %} uses [Telegram](https://www.telegram.org) to deliver notifications from Home Assistant to your Telegram application(s).
 
 ## Setup example
 
@@ -26,7 +29,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
      - Store the token somewhere safe.
 2. To get a chat ID, send any message to the [GetIDs bot](https://t.me/getidsbot).
    - Then, enter `/start`. 
-   - The bot will return your chat ID and the user name.
+   - The bot will return your chat ID and the username.
 3. Create a [Telegram bot in Home Assistant](/integrations/telegram_bot):
    - Paste this into your [configuration file](/docs/configuration/):
    - Replace the `api_key` and the `allowed_chat_ids` with your data.
@@ -119,9 +122,14 @@ $ python3
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
 </div>
 
+
+**Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already, you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
+[![Open your Home Assistant instance and show your Home Assistant logs.](https://my.home-assistant.io/badges/logs.svg)](https://my.home-assistant.io/redirect/logs/?)
+
 ## Configuration
 
-To enable Telegram notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Telegram notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for the Telegram Bot
@@ -261,7 +269,7 @@ inline_keyboard:
 
 <div class='note'>
 
-Since Home Assistant version 0.48 you have to [whitelist the source folder](/docs/configuration/basic/) of the file you want to include in the notification.
+Since Home Assistant version 0.48 you have to [whitelist the source folder](/integrations/homeassistant/#allowlist_external_dirs) of the file you want to include in the notification.
 
 ```yaml
 configuration.yaml

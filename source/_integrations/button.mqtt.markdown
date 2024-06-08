@@ -62,7 +62,7 @@ command_template:
   type: template
 command_topic:
   description: The MQTT topic to publish commands to trigger the button.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -95,6 +95,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:

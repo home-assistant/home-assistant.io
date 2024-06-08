@@ -22,7 +22,6 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_quality_scale: platinum
 ha_codeowners:
-  - '@AngellusMortis'
   - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
@@ -261,6 +260,15 @@ Use to set the paired doorbell(s) with a smart chime.
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
+
+### Service unifiprotect.remove_privacy_zone
+
+Use to remove a privacy zone from a camera.
+
+| Service data attribute | Optional | Description                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
+| `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
+| `name`                 | No       | The name of the zone to remove.                                                                         |
 
 ## Views
 

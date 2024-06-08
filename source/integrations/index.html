@@ -24,9 +24,6 @@ regenerate: false
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 
-<p class='note'>
-  Support for these integrations is provided by the Home Assistant community.
-</p>
 <div class="grid">
   <div class="grid__item one-sixth lap-one-whole palm-one-whole">
 
@@ -36,7 +33,7 @@ regenerate: false
       <div class="version_select">Added in: <select id="versions" name="versions">
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
-        <a href='#works-with-home-assistant' class="btn">Partners</a>
+        <a href='#works-with-home-assistant' class="btn">Partner brands</a>
       </div>
       <div class="version_select">Added in: <select id="versions" name="versions">
           <option value="#"></option>
@@ -176,7 +173,7 @@ allComponents.pop(); // remove placeholder element at the end
           // only show those with featured = true
           filter = comp => comp.featured;
 
-        } else if (hash === '#works-with-home-assistant' || hash === '') {
+        } else if (hash === '#works-with-home-assistant') {
           // only show those partners of the Works with Home Assistant program
           filter = function (comp) {
             return comp.wwha;

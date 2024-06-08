@@ -9,6 +9,8 @@
     {% include asides/common_tasks_navigation.html %}
   {% elsif root == 'dashboards' %}
     {% include asides/dashboards_navigation.html %}
+  {% elsif root == 'docs' and url_parts[2] == "organizing" %}
+    {% include asides/organizing_navigation.html %}
   {% elsif root == 'developers' or root == 'help' %}
     {% include asides/help_navigation.html %}
   {% elsif root == 'getting-started' %}

@@ -52,7 +52,7 @@ port:
 ## Notes and limitations
 
 - The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
-- Enabling this platform will set and enforce **Standby IP Control On** on your Anthem device. You almost certainly want this. If you disable it on the device, it will just get re-enabled by Home Assistant.
+- Enabling this platform will set and enforce **Standby IP Control On** within your Anthem device. You almost certainly want this. If you disable it on the device, it will just get re-enabled by Home Assistant.
 
 <div class='note warning'>
 
