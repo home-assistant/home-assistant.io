@@ -44,5 +44,5 @@ There is not a straight 1-1 mapping between the Home Assistant supported weather
 | sleet | snowy-rainy |
 | snow | snowy |
 | thunderstorm | lightning |
-| windy | wind |
+| windy | windy |
 
