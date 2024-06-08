@@ -70,6 +70,7 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 - `plag_mincha`: Time of the Plag Hamincha (פלג המנחה)
 - `sunset`: Sunset (Shkiya - שקיעה)
 - `first_stars`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `three_stars`: Time at which the first three stars are visible (Tseit Hakochavim - צאת הכוכבים - for Shabbat and Yom Tov) 
 - `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
 - `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if a holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
 - `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.
