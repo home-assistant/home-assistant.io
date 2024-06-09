@@ -59,7 +59,7 @@ Additionally, an account will also have:
 
 Each account will setup a webhook that will fire an event in Home Assistant for each transaction created. The event contains lots of data about the transaction provided exactly reported by the Monzo API. For the structure of this data, see Monzo's [transaction created documentation](https://docs.monzo.com/#transaction-created).
 
-These events are also registered as device triggers, so you can, for example, trigger an automation when a transaction is created on your current account and access the data from that event within your automation using `{{ trigger.event.data.data }}`.
+These events are also registered as device triggers, so you can, for example, trigger an automation when a transaction is created on your current account and access the data from that event within your automation using {% raw %}`{{ trigger.event.data.data }}`{% endraw %}.
 
 <div class='note warning'>
 
