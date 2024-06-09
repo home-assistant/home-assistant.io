@@ -28,6 +28,11 @@ Configure Region, AWS secret and key, and the model to be used. After successful
 title:
   description: A name for the bedrock agent. Makes it possible to have multiple service configurations at the same time.
   required: true
+  Description: A name for the bedrock agent. Makes it possible to have multiple service configurations at the same time.
+  Description: Your AWS Access Key ID.
+  Description: Your AWS Secret Access Key.
+  Description: Context that will be placed before the prompt. Can be used to receive short or long answers from the model. Or to add some specific context.
+  Description: Make use of an existing bedrock knowledge base. Only supported by Claude LLMs.
   type: string
 region:
   description: The AWS region to be used. For example, `us-west-2`
