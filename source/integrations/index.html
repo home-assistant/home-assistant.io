@@ -29,8 +29,6 @@ regenerate: false
 
     <div class="filter-button-group">
       <a href='#all' class="btn">All ({{tot}})</a>
-      <a href='#featured' class="btn featured">Featured</a>
-      <div class="version_select">Added in: <select id="versions" name="versions">
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
         <a href='#works-with-home-assistant' class="btn">Partner brands</a>
@@ -175,9 +173,7 @@ allComponents.pop(); // remove placeholder element at the end
 
         } else if (hash === '#works-with-home-assistant') {
           // only show those partners of the Works with Home Assistant program
-          filter = function (comp) {
-            return comp.wwha;
-          };
+          filter = comp => comp.wwha;
 
         } else if (hash.indexOf(VERSION_PREFIX) === 0) {
           // compare against a version
