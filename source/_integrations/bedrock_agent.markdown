@@ -20,7 +20,7 @@ To enable this functionality, valid AWS credentials are required. The integratio
 
 ## Setup
 
-Your IAM user needs to have permission to list and invoke models on Amazon Bedrock. See the [Amazon Bedrock Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html) for detailed description.
+Your IAM user needs to have permission to list and invoke models on Amazon Bedrock. See the [Amazon Bedrock Documentation](https://docs.aws.amazon.com/bedrock/latest/userguide/security-iam.html) for a detailed description.
 
 Configure Region, AWS secret and key, and the model to be used. After successful integration setup, you can select Bedrock as conversation agent in Settings > Voice Assistant > Home Assistant > Conversation Agent.
 
