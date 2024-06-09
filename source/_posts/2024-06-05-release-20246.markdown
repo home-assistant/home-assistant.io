@@ -744,7 +744,8 @@ static to a sane value of 30 seconds.
 
 {% details "Webmin" %}
 
-You may need to remove obsolete duplicated entities if this change affects you.
+Duplicate entities may appear due to unique ID changes. The obsolete entities
+can be removed.
 
 ([@autinerd] - [#113084]) ([documentation](/integrations/webmin))
 
