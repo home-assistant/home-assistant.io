@@ -27,6 +27,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Elk-M1 is a home security and automation controller that is capable of alarm control panel functions and automation.
@@ -74,7 +77,7 @@ version of the TLS protocol, the user must specify the TLS version to connect.
 
 ### Global Setting 35
 
-The ElkM1 integration tracks the user number and name of the last user name to
+The ElkM1 integration tracks the user number and name of the last username to
 arm or disarm the panel. The `changed_by` and `changed_by_id` attributes of
 the `alarm_control_panel` hold those two attributes.
 
@@ -90,13 +93,13 @@ code on a physical keypad.
 If you are using the features below then these respective global options
 should be enabled:
 
-| Option # | Option Name | Description |
-| ---------------------- | -------- | ----------- |
-| 36 | Transmit Zone Changes | If you are using Zones this allows Home Assistant to track the status of the Zones.
-| 37 | Transmit Output Changes | If you are using Outputs this allows Home Assistant to track the status of the Outputs.
-| 38 | Transmit Automation Task Changes | If you are using ElkM1 Tasks this allows Home Assistant to track the status of the Tasks.
-| 39 | Transmit Light Changes | If you are using ElkM1 Lights this allows Home Assistant to track the status of the lights.
-| 40 | Transmit Keypad Changes | Oddly, this option tracks keypad changes and alarm status. If you are wishing to track keypresses on ElkM1 keypad or if you are wishing to track the armed, disarmed, and alarm state of the ElkM1 then this option should be set.
+| Option # | Option Name                      | Description                                                                                                                                                                                                                        |
+| -------- | -------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 36       | Transmit Zone Changes            | If you are using Zones this allows Home Assistant to track the status of the Zones.                                                                                                                                                |
+| 37       | Transmit Output Changes          | If you are using Outputs this allows Home Assistant to track the status of the Outputs.                                                                                                                                            |
+| 38       | Transmit Automation Task Changes | If you are using ElkM1 Tasks this allows Home Assistant to track the status of the Tasks.                                                                                                                                          |
+| 39       | Transmit Light Changes           | If you are using ElkM1 Lights this allows Home Assistant to track the status of the lights.                                                                                                                                        |
+| 40       | Transmit Keypad Changes          | Oddly, this option tracks keypad changes and alarm status. If you are wishing to track keypresses on ElkM1 keypad or if you are wishing to track the armed, disarmed, and alarm state of the ElkM1 then this option should be set. |
 
 ## System Trouble Status
 
@@ -143,7 +146,7 @@ The complete list of trouble statuses are:
 
 ## Manual configuration
 
-Alternatively, configuration through the `configuration.yaml` file
+Alternatively, configuration through the {% term "`configuration.yaml`" %} file
 is supported (example below).
 
 Both methods of configuration support "auto configuration". This works by
@@ -462,33 +465,33 @@ and Switch the ElkM1 integration offers these additional services:
 Arms the ElkM1 area in "home instant", "night instant", or "vacation" modes
 respectively.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 area which to arm.
-| `code` | no | Alarm code to arm the system (4 or 6 digits).
+| Service data attribute | Optional | Description                                   |
+| ---------------------- | -------- | --------------------------------------------- |
+| `entity_id`            | yes      | ElkM1 area which to arm.                      |
+| `code`                 | no       | Alarm code to arm the system (4 or 6 digits). |
 
 ### Services `elkm1.alarm_bypass` and `elkm1.alarm_clear_bypass`
 
 For all zones associated with the specified alarm panel these services respectively
 bypass or clear the bypass the zones.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 area which to bypass or clear bypass.
-| `code` | no | Alarm code to bypass the alarm panel (4 or 6 digits).
+| Service data attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `entity_id`            | yes      | ElkM1 area which to bypass or clear bypass.           |
+| `code`                 | no       | Alarm code to bypass the alarm panel (4 or 6 digits). |
 
 ### Service `elkm1.alarm_display_message`
 
 Display text on an area's keypads.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 area which to display the message.
-| `clear` | yes | 0=clear message, 1=clear message with * key, 2=Display until timeout; default 2
-| `beep` | yes | 0=no beep, 1=beep; default 0
-| `timeout` | yes | Time to display message, 0=forever, max 65535, default 0
-| `line1` | yes | Up to 16 characters of text (truncated if too long). Default blank.
-| `line2` | yes | Up to 16 characters of text (truncated if too long). Default blank.
+| Service data attribute | Optional | Description                                                                     |
+| ---------------------- | -------- | ------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | ElkM1 area which to display the message.                                        |
+| `clear`                | yes      | 0=clear message, 1=clear message with * key, 2=Display until timeout; default 2 |
+| `beep`                 | yes      | 0=no beep, 1=beep; default 0                                                    |
+| `timeout`              | yes      | Time to display message, 0=forever, max 65535, default 0                        |
+| `line1`                | yes      | Up to 16 characters of text (truncated if too long). Default blank.             |
+| `line2`                | yes      | Up to 16 characters of text (truncated if too long). Default blank.             |
 
 ### Service `elkm1.sensor_counter_refresh`
 
@@ -496,69 +499,69 @@ Refresh the value of a counter. Note that under certain conditions the
 panel does not automatically send a new value under certain
 conditions. This service retrieves the current counter value.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 counter to refresh.
+| Service data attribute | Optional | Description               |
+| ---------------------- | -------- | ------------------------- |
+| `entity_id`            | yes      | ElkM1 counter to refresh. |
 
 ### Service `elkm1.sensor_counter_set`
 
 Set counter to value.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 counter to refresh.
-| `value` | no | Value to set the counter to Can be 0-65536.
+| Service data attribute | Optional | Description                                 |
+| ---------------------- | -------- | ------------------------------------------- |
+| `entity_id`            | yes      | ElkM1 counter to refresh.                   |
+| `value`                | no       | Value to set the counter to Can be 0-65536. |
 
 ### Service `elkm1.sensor_zone_bypass`
 
 Bypass a zone. Note that the only mechanism ElkM1 offers to clear the bypass
 is to clear all the bypassed zones in a given alarm panel (area).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 zone which to bypass.
-| `code` | no | Alarm code to bypass the zone (4 or 6 digits).
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | yes      | ElkM1 zone which to bypass.                    |
+| `code`                 | no       | Alarm code to bypass the zone (4 or 6 digits). |
 
 ### Service `elkm1.sensor_zone_trigger`
 
 Cause a zone on the panel to trigger. This command creates a virtual momentary 
 open condition on the zone as if the EOL hardwired loop had been physically opened.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | ElkM1 zone which to trigger.
+| Service data attribute | Optional | Description                  |
+| ---------------------- | -------- | ---------------------------- |
+| `entity_id`            | yes      | ElkM1 zone which to trigger. |
 
 ### Service `elkm1.set_time`
 
 Set the time on the panel. Uses the current time on the instance of Home Assistant.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `prefix` | yes | Prefix to identify panel when multiple panels configured.
+| Service data attribute | Optional | Description                                               |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `prefix`               | yes      | Prefix to identify panel when multiple panels configured. |
 
 ### Service `elkm1.speak_phrase`
 
 Speak a phrase. The list of phrases is defined in the ElkM1 ASCII Protocol documentation.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `phrase` | no | Phrase to speak.
-| `prefix` | yes | Prefix to identify panel when multiple panels configured.
+| Service data attribute | Optional | Description                                               |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `phrase`               | no       | Phrase to speak.                                          |
+| `prefix`               | yes      | Prefix to identify panel when multiple panels configured. |
 
 ### Service `elkm1.speak_word`
 
 Speak a word. The list of words is defined in the ElkM1 ASCII Protocol documentation.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `word` | no | Word to speak.
-| `prefix` | yes | Prefix to identify panel when multiple panels configured.
+| Service data attribute | Optional | Description                                               |
+| ---------------------- | -------- | --------------------------------------------------------- |
+| `word`                 | no       | Word to speak.                                            |
+| `prefix`               | yes      | Prefix to identify panel when multiple panels configured. |
 
 ## Debugging
 Debug logs are often required to solve an issue. Follow the instructions on [Enabling debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging).
 
 Sometimes, for example, a problem can occur while starting Home Assistant. In this case, follow these instructions.
-Add the following to your `configuration.yaml` file in your Home Assistant `config` directory:
+Add the following to your {% term "`configuration.yaml`" %} file in your Home Assistant `config` directory:
 
 ```yaml
 logger:

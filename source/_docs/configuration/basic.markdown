@@ -13,6 +13,8 @@ As part of the default onboarding process, Home Assistant can detect your locati
     Screenshot showing the General settings page.
 </p>
 
+The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the services offered by this integration, check out the integration documentation.
+
 ## Editing the general settings
 
 To change the general settings that were defined during onboarding, follow these steps:
@@ -20,14 +22,11 @@ To change the general settings that were defined during onboarding, follow these
 1. Go to {% my general title="**Settings** > **System** > **General**" %} and make your changes.
 2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
 3. If some of the settings are not visible, you may need to enable **Advanced mode**.
-   - In the bottom left, select your user name to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
-4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the [`configuration.yaml` file](/docs/configuration/).
-   - If you prefer editing the settings in the UI, you have to delete these entries from the [`configuration.yaml` file](/docs/configuration/).
+   - In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
+4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
+   - If you prefer editing the settings in the UI, you have to delete these entries from the {% term "`configuration.yaml`" %} file.
    - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
-## Reload core service
-
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.
-
+5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).

@@ -13,6 +13,7 @@ ha_domain: jvc_projector
 ha_platforms:
   - binary_sensor
   - remote
+  - select
   - sensor
 ha_integration_type: device
 ---
@@ -84,3 +85,9 @@ Detailed HDMI Input values:
 
 - `hdmi1`
 - `hdmi2`
+
+### Selects
+
+The following Select entities are added. They allow changing the device state from a list of options.
+
+- `input`

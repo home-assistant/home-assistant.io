@@ -1,5 +1,5 @@
 ---
-title: Recovery Mode
+title: Recovery mode
 description: Allows Home Assistant to start up in recovery mode.
 ha_category: []
 ha_release: 0.105
@@ -13,7 +13,7 @@ related:
     title: General troubleshooting
 ---
 
-The **Recovery mode** integration is an internal integration used by the
+The **Recovery mode** {% term integration %} is an internal integration used by the
 Home Assistant Core.
 
 You don't have to configure it since it is automatically always

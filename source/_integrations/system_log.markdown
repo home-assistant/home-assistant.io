@@ -13,7 +13,7 @@ The `system_log` integration stores information about all logged errors and warn
 
 ## Configuration
 
-This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file:
+This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 system_log:
@@ -120,7 +120,7 @@ automation:
       service: persistent_notification.create
       data:
         title: Something bad happened
-        message: "{{ trigger.event.data.message }}"
+        message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}

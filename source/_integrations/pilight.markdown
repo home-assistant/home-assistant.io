@@ -17,6 +17,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [Pilight](https://www.pilight.org/) is a modular and open source solution to communicate with 433 MHz devices and runs on various small form factor computers. A lot of common [protocols](https://manual.pilight.org/protocols/) are already available.
@@ -34,7 +37,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate pilight into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate pilight into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +89,7 @@ pilight:
 
 The `pilight` binary sensor platform implements the [pilight hub](#configuration) binary sensor functionality. There are two types of Pilight binary sensor configuration: a normal sensor which sends the on and off cyclical state and a trigger sensor which sends only a trigger when an event happened (for example lots of cheap PIR motion detectors).
 
-To enable a Pilight binary sensor in your installation, add the following to your `configuration.yaml` file:
+To enable a Pilight binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -152,7 +156,7 @@ binary_sensor:
 
 This `pilight` sensor platform for 433 MHz devices uses a value in the message payload as the sensor value. Unique identifiers (e.g., _uuid_) can be set to distinguish between multiple pilight devices. To use a pilight sensor the pilight Home Assistant hub has to be set up.
 
-To use your sensor via pilight, make sure it is [supported](https://manual.pilight.org/protocols/index.html) and add the following to your `configuration.yaml` file:
+To use your sensor via pilight, make sure it is [supported](https://manual.pilight.org/protocols/index.html) and add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -218,7 +222,7 @@ Additionally, RF commands can be defined that trigger this switch to turn on and
 
 To be really sure that Home Assistant knows the actual state of your device it is recommended to use the RF remote with codes unknown to any of your 433 MHz devices. Thus you use the remote to trigger this switch to send the correct RF code to the device.
 
-To define a Pilight switch, add the following lines to your `configuration.yaml`:
+To define a Pilight switch, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

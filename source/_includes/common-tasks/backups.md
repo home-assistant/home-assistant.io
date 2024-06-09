@@ -40,7 +40,7 @@ A partial backup consists of any number of the above default directories and ins
 2. `ha backups restore slugname` - restores a specific backup
 3. `ha backups new --name nameofbackup` - create a backup
 
-Use `ha help` to get more information about the command line usage.
+For additional information about command line usage, use the `ha help` command or refer to the [Home Assistant Command Line documentation](/common-tasks/os/#home-assistant-via-the-command-line).
 
 ### Copying your backups to another location
 
@@ -59,7 +59,7 @@ There are multiple ways to store the backup on another device:
   - [Add a network storage location](/common-tasks/{{page.installation}}/#network-storage) for backups.
   - [Change the default location](/common-tasks/{{page.installation}}/#change-default-backup-location) for backups.
 
-- **Option 4**: Or even better, create an automation to handle that.
+- **Option 4**: Or even better, create an automation to handle that, using one of the [backup services](/integrations/hassio/#service-hassiobackup_full).
 - **Option 5**: Make use of a third-party add-on:
   - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
   - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)

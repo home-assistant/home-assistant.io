@@ -170,7 +170,6 @@ automation:
 
 ```yaml
 panel: true
-title: Home
 views:
   - badges: []
     cards:
@@ -215,7 +214,7 @@ This screenshot shows what a FireServiceRota dashboard can look like.
 
 ## Debugging
 
-The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the `configuration.yaml`:
+The FireServiceRota integration will log additional information about WebSocket incidents received, response and duty status gathered, and other messages when the log level is set to `debug`. Add the relevant lines below to the {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

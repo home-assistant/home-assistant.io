@@ -15,7 +15,7 @@ The `clicksend_tts` platform uses [ClickSend](https://clicksend.com) to deliver 
 
 After creating your account, you should now be able to obtain your `username` and `api_key` [here](https://dashboard.clicksend.com/account/subaccounts).
 
-To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add ClickSend to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file:
 
 ```yaml
 notify:

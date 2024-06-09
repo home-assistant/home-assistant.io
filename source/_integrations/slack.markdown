@@ -137,30 +137,30 @@ One sensor entity will be created:
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `username`               |      yes | The username of the Slack bot.
-| `icon`                   |      yes | The icon of the Slack bot.
-| `file`                   |      yes | A file to include with the message; see below.
-| `blocks`                 |      yes | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used.
-| `blocks_template`        |      yes | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).
-| `thread_ts`              |      yes | Sends the message as a reply to a specified parent message.
+| Attribute         | Optional | Description                                                                                                                                                                                                                                                                                                                                     |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `username`        | yes      | The username of the Slack bot.                                                                                                                                                                                                                                                                                                                  |
+| `icon`            | yes      | The icon of the Slack bot.                                                                                                                                                                                                                                                                                                                      |
+| `file`            | yes      | A file to include with the message; see below.                                                                                                                                                                                                                                                                                                  |
+| `blocks`          | yes      | Array of [Slack blocks](https://api.slack.com/messaging/composing/layouts). *NOTE*: if using `blocks`, they are shown **in place of** the `message` within Slack apps. The message field will be used as notification text and anywhere else Slack is unable to display blocks. `message` is required regardless of whether this field is used. |
+| `blocks_template` | yes      | The same as `blocks`, but able to support [templates](https://www.home-assistant.io/docs/configuration/templating).                                                                                                                                                                                                                             |
+| `thread_ts`       | yes      | Sends the message as a reply to a specified parent message.                                                                                                                                                                                                                                                                                     |
 
 Note that using `file` will ignore all usage of `blocks` and `blocks_template` (as Slack does not support those frameworks in messages that accompany uploaded files).
 
 To include a local file with the Slack message, use these attributes underneath the `file` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `path`                   |      no  | A local filepath that has been [whitelisted](/docs/configuration/basic/#allowlist_external_dirs).
+| Attribute | Optional | Description                                                                                         |
+| --------- | -------- | --------------------------------------------------------------------------------------------------- |
+| `path`    | no       | A local filepath that has been [whitelisted](/integrations/homeassistant/#allowlist_external_dirs). |
 
 To include a remote file with the Slack message, use these attributes underneath the `file` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `url`                    |      no  | A URL that has been [whitelisted](/docs/configuration/basic/#allowlist_external_urls).
-| `username`               |      yes | An optional username if the URL is protected by HTTP Basic Auth.
-| `password`               |      yes | An optional password if the URL is protected by HTTP Basic Auth.
+| Attribute  | Optional | Description                                                                              |
+| ---------- | -------- | ---------------------------------------------------------------------------------------- |
+| `url`      | no       | A URL that has been [whitelisted](/integrations/homeassistant/#allowlist_external_urls). |
+| `username` | yes      | An optional username if the URL is protected by HTTP Basic Auth.                         |
+| `password` | yes      | An optional password if the URL is protected by HTTP Basic Auth.                         |
 
 ### Obtaining a member ID
 

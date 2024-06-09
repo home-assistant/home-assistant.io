@@ -62,7 +62,7 @@ The HomeKit Device integration automatically detects HomeKit [compatible devices
 
 ### Prerequisites
 
-- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your `configuration.yaml` file.
+- If you do not have the [`default_config`](/integrations/default_config/) integration, add [`zeroconf`](/integrations/zeroconf/) to your {% term "`configuration.yaml`" %} file.
 - Find your HomeKit pairing code. The code is on the device itself, or on the packaging. If your device has a screen, it may be shown on screen.
   - There is no way to recover this if you do not have it. In this case, you will need to contact the manufacturer to see what options you have.
 - Make sure your device is powered up.

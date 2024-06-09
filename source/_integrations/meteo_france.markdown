@@ -32,9 +32,7 @@ It displays the current weather along with a 5 days forecast and create sensors,
 
 ## Weather platform
 
-To be used with the weather dashboard card to access current condition, today and next four days forecast.
-
-The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Settings** -> **Devices & Services**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
+To be used with the weather dashboard card to access current condition, today and next four days (default) or hours forecast.
 
 ## Sensor platforms
 

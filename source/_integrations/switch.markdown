@@ -11,6 +11,11 @@ ha_platforms:
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Keeps track which switches are in your environment, their state and allows you to control them.
@@ -22,10 +27,12 @@ Keeps track which switches are in your environment, their state and allows you t
 
 ## Device class
 
-The way these switches are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for switches:
+{% include integrations/device_class_intro.md %}
+
+ The following device classes are supported for switches:
 
 - **None**: Generic switch. This is the default and doesn't need to be set.
-- **outlet**: This switch, switches a power outlet.
+- **outlet**: A switch for a power outlet.
 - **switch**: A generic switch.
 
 ## Use the services
@@ -36,6 +43,6 @@ In the frontend open the sidebar. At the bottom, under **Developer Tools**, clic
 {"entity_id":"switch.livingroom_pin2"}
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of switches. To target all switches, set `entity_id` to `all`.
+| Service data attribute | Optional | Description                                                                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of strings that point at `entity_id`s of switches. To target all switches, set `entity_id` to `all`. |

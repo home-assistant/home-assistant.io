@@ -304,7 +304,7 @@ The `switch` entity in Home Assistant does not support transition states. For th
 
 In some cases, it may be needed to customize the CoAP UDP port (default: `5683`) your Home Assistant instance is listening to.
 
-In order to change it, add the following key to your `configuration.yaml`:
+In order to change it, add the following key to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry

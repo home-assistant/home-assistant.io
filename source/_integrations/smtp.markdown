@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by email in your installation, add the following to your `configuration.yaml` file:
+To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -134,7 +134,7 @@ The optional `images` field adds image attachments to the email. If `html` is de
 
 <div class='note info'>
 
-When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/docs/configuration/basic/)
+When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
 
 </div>
 
