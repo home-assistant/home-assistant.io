@@ -46,7 +46,7 @@ model_id:
   required: false
   type: string
 prompt_context:
-  description: Context that will be placed before the prompt. Can be used to receive short or long answers from the model. Or to add some specific context.
+  description: Context that will be placed before the prompt. This can be used to receive short or long answers from the model, or to add some specific context.
   required: false
   type: string
 knowledgebase:
