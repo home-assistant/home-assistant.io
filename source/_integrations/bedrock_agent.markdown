@@ -30,7 +30,7 @@ title:
   required: true
   type: string
 region:
-  description: The AWS region to be used. For example `us-west-2`
+  description: The AWS region to be used. For example, `us-west-2`
   required: true
   type: string
 key_id:
