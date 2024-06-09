@@ -191,6 +191,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
+- Manual Record
 - Push notifications
 - Buzzer on event
 - Email on event
