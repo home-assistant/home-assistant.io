@@ -142,7 +142,7 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 
 ### Getting device and chargers coordinates
 
-The integration has a `raw_get_positions` service used to retrieve device and chargers coordinates.
+The integration has a `raw_get_positions` service to retrieve device and chargers coordinates.
 
 Example:
 
