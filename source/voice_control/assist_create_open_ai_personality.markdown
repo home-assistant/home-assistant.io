@@ -16,7 +16,7 @@ related:
     
 ---
 
-You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration. At time of writing (June 7, 2024), Google was 14x cheaper than OpenAI, but OpenAI is better at answering non-smart home questions.
+You can give your voice assistant personality by using an AI conversation agent. Currently, this works with the **OpenAI Conversation** or the **Google Generative AI** integration.
 
 For this tutorial, we will work with OpenAI. This requires an OpenAI account. For what we do here, the free trial option is sufficient.
 
