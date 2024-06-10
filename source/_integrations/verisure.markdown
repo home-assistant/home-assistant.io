@@ -85,9 +85,11 @@ automation:
 
 ## Limitations and known issues
 
-Some users have reported that this integration currently doesn't work in the following countries:
+Some users have reported that this integration currently doesn't work in the following countries because of two-factor authentication:
 
 - France
 - Ireland
 - Italy 
 - Sweden
+
+Instead, users in these countries can use the [`securitas-direct-new-api`](https://github.com/guerrerotook/securitas-direct-new-api) available via HACS.
