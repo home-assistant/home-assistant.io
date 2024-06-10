@@ -11,6 +11,8 @@ ha_integration_type: integration
 
 The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
 
+If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
+
 {% raw %}
 
 ```yaml
