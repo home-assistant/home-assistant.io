@@ -231,7 +231,7 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 | enable                          | Enable or disable scheduled departure     | true                             |
 | preconditioning_enabled         | Enable preconditioning                    | true                             |
 | preconditioning_weekdays_only   | Enable preconditioning on weekdays only   | false                            |
-| departure_time                  | Time to precondition by (HH:MM)           | 6:00                             |
+| departure_time                  | Planned departure time (HH:MM)         | 6:00                             |
 | off_peak_charging_enabled       | Enable off-peak charging                  | false                            |
 | off_peak_charging_weekdays_only | Enable off-peak charging on weekdays only | false                            |
 | end_off_peak_time               | Time to complete charging by (HH:MM)      | 5:00                             |
