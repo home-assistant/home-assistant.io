@@ -217,8 +217,8 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field     | Description                           | Example                          |
 |-----------|---------------------------------------|----------------------------------|
-| device_id | The vehicle's device_id               | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
-| enable    | Enable or disable scheduled charging. | true                             |
+| device_id | The vehicle's device ID              | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| enable    | Enable or disable scheduled charging | true                             |
 | time      | Time to start charging in HH:MM       | 6:00                             |
 
 ### Set scheduled departure
@@ -227,7 +227,7 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field                           | Description                               | Example                          |
 |---------------------------------|-------------------------------------------|----------------------------------|
-| device_id                       | The vehicle's device_id                   | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| device_id                       | The vehicle's device ID                  | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
 | enable                          | Enable or disable scheduled departure     | true                             |
 | preconditioning_enabled         | Enable preconditioning                    | true                             |
 | preconditioning_weekdays_only   | Enable preconditioning on weekdays only   | false                            |
@@ -244,7 +244,7 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 |---------------|------------------------------|----------------------------------|
 | device_id     | The vehicle's device_id      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
 | enable        | Enable or disable valet mode | true                             |
-| pin           | 4 digit pin                  | 1234                             |
+| pin           | 4-digit pin                  | 1234                             |
 
 ### Speed Limit
 
@@ -252,9 +252,9 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field         | Description                   | Example                          |
 |---------------|-------------------------------|----------------------------------|
-| device_id     | The vehicle's device_id       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| device_id     | The vehicle's device ID       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
 | enable        | Enable or disable speed limit | true                             |
-| pin           | 4 digit pin                   | 1234                             |
+| pin           | 4-digit pin                   | 1234                             |
 
 ### Time of use
 
@@ -262,5 +262,5 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field         | Description                  | Example                                                                                                          |
 |---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
-| device_id     | The energy site's device_id  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
+| device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
 | tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
