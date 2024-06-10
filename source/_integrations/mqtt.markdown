@@ -447,7 +447,7 @@ A component config part in a device discovery payload must have the `platform` o
 
 ##### Migration from single component to device based discovery
 
-To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to migrate back.
+To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to migrate back. To indicate discovery migration should happen, add the `discovery_migration` option to the new discovery payload. This will allow to clean up the old discovery payload without the item to be removed.
 
 **Example (device automation):**
 Discovery topic single: `homeassistant/device_automation/0AFFD2/bla/config`
@@ -496,11 +496,12 @@ Discovery payload device:
       "subtype": "button_1",
       "platform": "device_automation"
     }
-  }
+  },
+  "migrate_discovery": true
 }
 ```
 
-If the new device discovery payload has the same `discovery_id` and comes after the single discovery payload. Home Assistant will publish `None` (retained) to the single discovery payload to remove it. This avoids rediscovery when Home Assistant restarts.
+If the new device discovery payload has the same `discovery_id` and comes after the single discovery payload. Home Assistant will deactivate the previous discovery topic, so that it can be removed without side effects. This avoids rediscovery when Home Assistant restarts.
 
 #### Single component discovery payload
 
@@ -654,6 +655,7 @@ support_url:
     'max_hum':             'max_humidity',
     'max_mirs':            'max_mireds',
     'max_temp':            'max_temp',
+    'migr_discvry':        'migrate_discovery',
     'min':                 'min',
     'min_hum':             'min_humidity',
     'min_mirs':            'min_mireds',
