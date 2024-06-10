@@ -43,7 +43,7 @@ You must have a [Tessie](https://my.tessie.com/) account and [access token](http
 
 {% include integrations/config_flow.md %}
 
-## Vehicle Entities
+## Vehicle entities
 
 ### Binary sensor
 
@@ -204,7 +204,7 @@ The integration will create switch entities to control various aspects of your v
 
 The integration will show vehicle software updates and their installation progress. Updates can only be installed from Home Assistant after they have finished downloading.
 
-## Energy Entities
+## Energy entities
 
 ### Sensor
 
@@ -219,7 +219,7 @@ The integration will show vehicle software updates and their installation progre
 - Total pack energy
 - Version
 - Vehicle
-- VPP backup reserve
+- <abbr title="Virtual power plant">VPP</abbr> backup reserve
 - Fault state code
 - Power
 - State code
