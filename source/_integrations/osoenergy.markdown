@@ -28,11 +28,11 @@ This OSO Energy integration uses a subscription key, which a user can create for
 
 ### Service `osoenergy.get_profile`
 
-You can use the service `osoenergy.get_profile` to get the temperature profile for a water heater. Each temperature corresponds to the a given local hour during the current day, e.g. temperature at index 1 corresponds to 01:00 local time.
+You can use the service `osoenergy.get_profile` to get the temperature profile for a water heater. Each temperature corresponds to a given local hour during the current day. For example, a temperature at index 1 corresponds to 01:00 local time.
 
 | Service data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `water_heater.heater` |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater` |
 
 Example:
 
@@ -151,8 +151,8 @@ You can use the service `osoenergy.set_v40_min` to set the minimum quantity of w
 
 | Service data attribute | Optional | Description                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `water_heater.heater`                            |
-| `v40_min`              | no       | Specify the minimum quantity of water at 40°C for a water heater, e.g., `240` |
+| `entity_id`            | no       | String, name of entity. For example:  `water_heater.heater`        f entity e.g., `water_heater.heater`                            |
+| `v40_min`              | no       | Specify the minimum quantity of water at 40°C for a water heater.  For example, `240` |
 
 Examples:
 
@@ -174,8 +174,8 @@ You can use the service `osoenergy.turn_off` to turn off the heating on your dev
 
 | Service data attribute | Optional | Description                                                                                                       |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `water_heater.heater`                                                                |
-| `until_temp_limit`     | no       | Choose if heating should be off until minimum temperature (`True`) is reached or for one hour (`False`), e.g., `True` |
+| `entity_id`            | no       | String, name of entity. For example:  `water_heater.heater`                                                                |
+| `until_temp_limit`     | no       | Choose, if the heating should be off until the minimum temperature (`True`) is reached, or for one hour (`False`). For example, `True` |
 
 Examples:
 
@@ -197,13 +197,13 @@ You can use the service `osoenergy.turn_on` to turn on the heating on your devic
 
 | Service data attribute | Optional | Description                                                                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | String, Name of entity e.g., `water_heater.heater`                                                               |
-| `until_temp_limit`     | no       | Choose if heating should be on until maximum temperature (`True`) is reached or for one hour (`False`), e.g., `True` |
+| `entity_id`            | no       | String, name of entity. For example: `water_heater.heater`                                                               |
+| `until_temp_limit`     | no       | Choose, if the heating should be on until the maximum temperature (`True`) is reached, or for one hour (`False`). For example, `True` |
 
 Examples:
 
 ```yaml
-# Example script to turn on heating, until temp limit specified.
+# Example script to turn on the heating until the specified temperature limit has been reached.
 script:
   turn_on:
     sequence:
