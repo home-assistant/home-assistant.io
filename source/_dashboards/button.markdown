@@ -164,40 +164,42 @@ cards:
     type: entities
   - type: horizontal-stack
     cards:
-      - show_name: true
-        show_icon: true
-        type: button
-        tap_action:
-          action: toggle
+      - name: Watch Netflix
         entity: script.netflix
-        hold_action:
-          action: more-info
-      - show_name: true
-        show_icon: true
         type: button
         tap_action:
           action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Watch YouTube
         entity: script.youtube
+        type: button
+        tap_action:
+          action: toggle
         hold_action:
           action: more-info
-      - show_name: true
+        show_name: true
         show_icon: true
-        type: button
-        tap_action:
-          action: toggle
+      - name: Wake PC
         entity: script.wake_on_lan
-        icon: mdi:desktop-tower
-        name: Start computer
-      - show_name: true
-        show_icon: true
         type: button
         tap_action:
           action: toggle
+        icon: mdi:desktop-tower
+        show_name: true
+        show_icon: true
+        show_state: false
+      - name: Go to sleep
         entity: script.sleep
+        type: button
+        tap_action:
+          action: toggle
         icon: mdi:sleep
         hold_action:
           action: more-info
+        show_name: true
+        show_icon: true
 type: vertical-stack
 ```
-
-
