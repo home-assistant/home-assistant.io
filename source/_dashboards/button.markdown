@@ -153,7 +153,7 @@ Example of 4 buttons on a vertical stack card:
 Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
 
-The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example the netflix script which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
 
 ```yaml
 cards:
