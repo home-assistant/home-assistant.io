@@ -15,18 +15,20 @@ ha_codeowners:
 ha_integration_type: device
 ---
 
-The [SMLIGHT](https://smlight.tech) SLZB-06x ethernet Zigbee coordinators
+The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
 provide a convenient way to add Zigbee to your smart home setup.
 
-This integration allows users to monitor and manage their SLZB-06x devices
-directly from within Home Assistant. Allowing for direct access to many of the
+The **SMLIGHT SLZB** {% term integrations %} allows users to monitor and manage their SLZB-06x devices
+directly from within Home Assistant and to directly access many of the
 features found in the SMLIGHT web UI. You can also use these in your automations.
 
 {% include integrations/config_flow.md %}
 
 ## Prerequisite
 
-A supported SLZB-06 Adapter, this integration has been tested with:
+You need a supported SLZB-06 adapter.
+
+ This integration has been tested with the following devices:
 
 - [SLZB-06](https://smlight.tech/product/slzb-06)
 - [SLZB-06M](https://smlight.tech/product/slzb-06m)
