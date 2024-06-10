@@ -242,7 +242,7 @@ Teslemetry provides various custom services to interact with the Tesla Fleet API
 
 | Field         | Description                  | Example                          |
 |---------------|------------------------------|----------------------------------|
-| device_id     | The vehicle's device_id      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| device_id     | The vehicle's device ID      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
 | enable        | Enable or disable valet mode | true                             |
 | pin           | 4-digit pin                  | 1234                             |
 
