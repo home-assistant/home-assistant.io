@@ -158,8 +158,8 @@ The image shows a vertical stack card with 4 buttons arranged in a horizontal st
 ```yaml
 cards:
   - entities:
-     - entity: input_select.living_room_scene
-       name: Scene
+      - entity: input_select.living_room_scene
+        name: Scene
     show_header_toggle: false
     type: entities
   - type: horizontal-stack
