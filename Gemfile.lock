@@ -78,7 +78,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
-    parallel (1.24.0)
+    parallel (1.25.1)
     parser (3.3.2.0)
       ast (~> 2.4.1)
       racc
