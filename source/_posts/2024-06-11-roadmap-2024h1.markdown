@@ -22,9 +22,9 @@ You can skip straight to the sections you’re most interested:
 * [Home Assistant Cloud: “Peace of Mind”](#home-assistant-cloud-peace-of-mind)
 * [Open standards: “Certified Quality”](#open-standards-certified-quality)
 
-~ Madelena
+~ [Madelena](https://github.com/madelena) & [JLo](https://github.com/jlpouffier)
 
-_Huge thanks to [@jlpouffier](https://github.com/jlpouffier) for the amazing work on the roadmap and everyone who had given feedback to us throughout the entire process._
+_Big thanks to everyone who had given feedback to us throughout the entire process!_
 
 <!--more-->
 
