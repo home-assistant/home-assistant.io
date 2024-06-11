@@ -29,7 +29,7 @@ The requirements are:
 
 Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API.
 
-### Configuration Variables
+### Configuration Options
 
 To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -56,11 +56,11 @@ url:
   required: true
   type: string
 number:
-  description: The sender number, [see Sender/recipient formats](#senderrecipient-formats).
+  description: The sender number. [See Sender/recipient formats](#senderrecipient-formats).
   required: true
   type: string
 recipients:
-  description: A list of recipients (either phone numbers or Signal Messenger group ids [see Sender/recipient formats](#senderrecipient-formats)).
+  description: A list of recipients (either phone numbers or Signal Messenger group IDs [see Sender/recipient formats](#senderrecipient-formats)).
   required: true
   type: list
 {% endconfiguration %}
@@ -71,13 +71,13 @@ Both phone numbers and Signal Messenger groups can be added to the `recipients`l
 
 Phone numbers shall include the international code "+XX" format.
 
-To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
+To obtain the Signal Messenger group IDs, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
 
 ## Notification Service
 
 ### Examples
 
-A few examples on how to use this integration to send notifications from automations..
+A few examples on how to use this integration to send notifications from automations.
 
 #### Text message
 
@@ -142,11 +142,11 @@ action:
 
 - To attach files from outside of Home Assistant, the URLs must be reachable and added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
-- There is a 50MB size limit for attachments retrieved via URLs. 
+- There is a 50MB size limit for attachments retrieved via URLs.
 
 ## Triggering events based on Signal message reception
 
-You can use Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
+You can use the Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
 
 To accomplish this, make sure the addon's `mode` parameter is set to `native` or `normal`, and edit the configuration of Home Assistant, adding a [RESTful resource](/integrations/rest/) as follows:
 
