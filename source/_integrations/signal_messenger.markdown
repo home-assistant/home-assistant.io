@@ -19,16 +19,15 @@ related:
 The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
- 
+
 ### Requirements
+
 The requirements are:
 
-- You need to set up the Signal Messenger REST API. 
-- You need a spare phone number to register with the Signal Messenger service. 
+- You need to set up the Signal Messenger REST API.
+- You need a spare phone number to register with the Signal Messenger service.
 
-
-Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
-
+Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API.
 
 ### Configuration Variables
 
@@ -45,6 +44,7 @@ notify:
     recipients: # one or more recipients
       - "RECIPIENT1"
 ```
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -66,15 +66,15 @@ recipients:
 {% endconfiguration %}
 
 ### Sender/recipient formats
+
 Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
 
 Phone numbers shall include the international code "+XX" format.
 
 To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
 
-
-
 ## Notification Service
+
 ### Examples
 
 A few examples on how to use this integration to send notifications from automations..
@@ -91,13 +91,14 @@ action:
     data:
       text_mode: styled
 ```
+
 | Attribute   | Optional | Default |Description                                                                                                                                                                                          |
 | ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or `styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+
 #### Text message with an attachment
 
 This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
-
 
 ```yaml
 ...
@@ -114,7 +115,8 @@ action:
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
 | ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `attachments` | **required** | -  | List of paths of files to be attached. |
-| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or `styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+
 #### Text message with an attachment from a URL
 
 ```yaml
@@ -129,17 +131,18 @@ action:
         - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
       text_mode: styled
 ```
+
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
 | ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `urls` | **required** | -  | List of URLs of files to be attached. |
 | `verify_ssl` | *optional* | true  | Accepted values are `true`, `false`. You can set it to `false` to ignore SSL errors. |
-| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or `styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
 
 **Notes:**
+
 - To attach files from outside of Home Assistant, the URLs must be reachable and added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
 - There is a 50MB size limit for attachments retrieved via URLs. 
-
 
 ## Triggering events based on Signal message reception
 
@@ -158,6 +161,7 @@ To accomplish this, make sure the addon's `mode` parameter is set to `native` or
       json_attributes:
         - source #using attributes you can get additional information, in this case, the phone number.
   ```
+
 You can create an automation as follows:
 
 ```yaml
