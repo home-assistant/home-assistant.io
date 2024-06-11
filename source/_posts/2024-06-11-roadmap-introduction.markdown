@@ -10,7 +10,7 @@ categories: Announcements Roadmap
 og_image: images/blog/2024-06-roadmap-introduction/art.jpg
 ---
 
-<p class="img no-shadow"><img src='/images/blog/2024-06-roadmap-introduction/art.jpg'/><i>Art by Clelia Rella</i></p>
+<p class="img no-shadow"><img src='/images/blog/2024-06-roadmap-introduction/art.jpg' alt='Artwork for the roadmap introduction'/><i>Art by Clelia Rella</i></p>
 
 During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&t=7649s), we presented the future of the open home with the announcement of our first roadmap.
 
