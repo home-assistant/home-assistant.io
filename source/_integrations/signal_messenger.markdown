@@ -77,7 +77,7 @@ To obtain the Signal Messenger group ids, follow [this guide]( https://github.co
 ## Notification Service
 ### Examples
 
-A few examples on how to use this integration as actions in automations.
+A few examples on how to use this integration to send notifications from automations..
 
 #### Text message
 
