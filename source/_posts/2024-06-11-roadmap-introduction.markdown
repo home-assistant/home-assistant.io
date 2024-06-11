@@ -74,7 +74,7 @@ For our first roadmap in 2024 H1, we worked hard for 7 months to build it from s
 
 3. **Prioritization**: We then organized and categorized these issues into various initiatives that we can pursue. Finally, we prioritized all these initiatives by the amount of potential users who could benefit from them, how big an impact it can make, how certain we are in the issue, or if research is needed before proceeding. The final result is then organized into the roadmap that you see now.
 
-A roadmap is a *living document*, and we intend to adjust our bearings and revisit our roadmap every half-year. For instance, when we improve initiatives to an adequate level or if the needs of our users and community change, we will move our resources to focus on the next important priorities.
+A roadmap is a _living document_, and we intend to adjust our bearings and revisit our roadmap every half-year. For instance, when we improve initiatives to an adequate level or if the needs of our users and community change, we will move our resources to focus on the next important priorities.
 
 Our next update on the roadmap will be around late October to early November, after collecting your feedback from our infamous Month of What the Heck.
 
