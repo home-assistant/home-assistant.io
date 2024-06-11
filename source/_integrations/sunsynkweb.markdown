@@ -22,15 +22,13 @@ The **Sunsynk web** {% term integration %} gathers statistics from [Sunsynk conn
 
 This will log into your Sunsynk account and will collate the information of any plants or inverters and present the main sensors for the plant, real-time and historical.
 
-Prerequisites
-=============
+## Prerequisites
 
 To use this integration you will need a sunsynk-branded e-linter [wifi dongle](https://www.sunsynk.org/logger-support) for your inverter(s) and a [Sunsynk connect](Sunsynk.net) account. This will typically be created by your installer on your behalf. The account needs at least the 'visitor' permissions.
 
 {% include integrations/config_flow.md %}
 
-Sensors
-=======
+## Sensors
 
 The integration exposes the following sensors.
 
@@ -53,3 +51,14 @@ The energy totals produce statistics that are usable with the energy dashboard.
 | `acc_grid_export`       |  Total energy exported to the grid                        |  
 | `acc_battery_charge`    |  Accumulated energy charged into the batteries            |  
 | `acc_battery_discharge` |  Accumulated energy discharged from the batteries         |
+
+## Other considerations
+
+The Sunsynk web api and website seem to be rebranded [e-linter](https://www.e-linter.com) services.
+Currently the underlying wrapper [pysunsybkweb](https://github.com/francoisverbeek/pysunsynkweb) has hardcoded
+references to Sunsynk. If you are using another brand that uses the same underlying service, get in touch, we may
+be able to extend the support to additional tenants of e-linter's infrastructure.
+
+## Disclaimer
+
+This work is done without Sunsynk or E-linter's involvement or endorsement, based on public documentation.
