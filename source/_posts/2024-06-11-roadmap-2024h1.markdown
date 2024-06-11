@@ -10,7 +10,7 @@ categories: Announcements Roadmap
 og_image: /images/blog/2024-06-roadmap-2024h1/banner.png
 ---
 
-<p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' /></p>
+<p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' alt='Banner for Roadmap 2024 H1'/></p>
 
 During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, ESPHome, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](./2024-06-11-roadmap-introduction).
 
