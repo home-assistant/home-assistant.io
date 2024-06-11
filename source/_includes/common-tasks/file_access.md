@@ -17,31 +17,36 @@ Using any of the add-ons listed below, the following directories are made availa
 
 ### Installing and using the Samba add-on
 
-The Samba add-on creates smb shares which can be accessed from another computer. You can also edit files using the editor of your preference from your client computer. This add-on can be installed from the add-on store's official repository.
+The **Samba** add-on allows you to share the directories on Home Assistant with other systems on your network. After installing the add-on, you can then also edit files using the editor of your preference from your client computer. This add-on can be installed from the add-on store's official repository.
 
-To configure the Samba add-on, you only need to set a user and password of your choice on the configuration page, save, and then start the add-on. The add-on will not start without setting a password!
+To install the add-on, follow these steps:
 
-To connect to the Samba server from another device, you will use the IP address or hostname of your server. Either of these can be found on the {% my network title="Settings > System > Network" %} page of your UI.
+1. Go to {% my supervisor_addon title="**Settings** > **Add-ons** > **Samba share**" addon="core_samba" %} and select **Install**.
+2. On the **Configuration** tab, define **Username** and **Password**, store them in a safe place, and save your changes.
+   - You can specify any username and password.
+   - They are not related to the login credentials you use to log in to Home Assistant or to log in to the computer from which you are accessing the files.
+   - The add-on won't start if username and password are not defined.
+3. For further configuration information, refer to the **Documentation** tab.
+4. To start the add-on, on the **Information** tab, select **Start**.
 
-For connecting from Windows 10, you can enter the IP address or hostname in File Explorer's address bar with two backslashes, as shown in the example screenshot.
+To access the Home Assistant directories from the other device, follow these steps:
 
-<img src='/images/hassio/screenshots/file_explorer.png' />
+1. Go to {% my network title="**Settings** > **System** > **Network**" %} and take note of the **Host name**.
+   - Alternatively, you can look up the host name or IP address of your Home Assistant on your router.
+2. How you connect from another device to Home Assistant depends on your system. Use one of the following options:
+   - **On Windows**: Open **File Explorer** and in the address bar, enter the IP address or hostname with two backslashes as `\\your.ha.ip.address` or `\\hostname`.
 
-You should then be prompted for the credentials you entered in the Samba add-on configuration. You also have the option of having the credentials stored so that you do not need to enter them again. After that, you'll have access to the directories which you can then mount as a drive or pin to Quick Access.
+     <p class='img'>
+         <img src='/images/hassio/screenshots/file_explorer.png' alt='Screenshot of File Explorer displaying the navigation to a file share using an IP address'>
+         Screenshot of File Explorer displaying the navigation to a file share using an IP address
+     </p>
 
+   - **On OS X**: Open **Finder** and select **Go** > **Connect to Server...** and enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
+   - **On Ubuntu**: Open **Files** and in the address bar, enter the IP address or hostname as `smb://your.ha.ip.address` or `smb://hostname`.
 
-For OS X, connecting to the shares is a matter of using the Finder menu > Go > Connect to Server...
-You would then enter the IP address or hostname of your Home Assistant OS instance as `smb://your.ha.ip.address` or `smb://homeassistant` and enter your credentials when prompted.
-
----
-
-### Installing and using the SSH add-on (requires enabling advanced mode for the HA user)
-
-The Terminal & SSH add-on provides access over an SSH connection, and also includes nano and vi editors. It can be installed from the add-on store's Official add-on repository after enabling advanced mode for your Home Assistant user's profile. Additionally, this add-on provides access to the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more. (See [Home Assistant via Command Line](https://www.home-assistant.io/hassio/commandline/) for further info). The Terminal & SSH add-on does *not* provide access to the underlying host file system.
-
-To use the add-on, enter a password or public key on its configuration page, then save and start the add-on.
-
-The Terminal & SSH add-on also provides a web terminal which allows you to access a terminal via the Home Assistant user interface. In order to access from an ssh client, a port needs to be entered in the network section of the add-on's configuration page.
+3. Enter the credentials you entered in the **Samba** add-on configuration.
+   - You also have the option of having the credentials stored so that you do not need to enter them again.
+4. Done! You now have access to the directories which you can then mount as a drive or pin to Quick Access.
 
 ---
 
@@ -81,3 +86,29 @@ To install and use the File Editor in Home Assistant, follow these steps:
 3. For information on other configuration settings, open the **Documentation** tab.
 4. To confirm your changes, select **Save**.
 5. To start browsing, on the **Info** tab, select **Open Web UI**.
+
+---
+
+### Installing and using the SSH add-on
+
+If you want to use the Home Assistant command line or an SSH client, you can do this through the **Terminal & SSH** add-on.
+
+The **Terminal & SSH** add-on provides the following functionalities:
+
+- It provides a web terminal that you can access from the Home Assistant user interface.
+- It allows you to use the Home Assistant Command Line Interface (CLI) which provides custom commands for checking logs, stopping and starting Home Assistant and add-ons, creating/restoring backups, and more.
+  - For a list of command line commands, refer to [Home Assistant via Command Line](/common-tasks/os#home-assistant-via-the-command-line).
+- It allows connecting to your system using an SSH client.
+- It also includes common tools like nano and vi editors.
+- The Terminal & SSH add-on does **not provide** access to the underlying host file system.
+
+To get started with the **Terminal & SSH** add-on, follow these steps:
+
+1. In the bottom left, select your user to open the {% my profile title="**Profile**" %} page. Make sure **Advanced Mode** is enabled.
+2. To install the add-on, go to the add-on store under [**Settings** > **Add-ons**](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_ssh) and install the **Terminal & SSH** add-on.
+3. To use the web terminal, **start** the add-on, then select **Open Web UI**.
+   - You can now start typing your [commands](/common-tasks/os#home-assistant-via-the-command-line).
+4. If you want to access from an ssh client, you need to enter credentials:
+   - Open the **Configuration** page.
+   - Enter a password or authorized Keys.
+   - Then save and start the add-on.

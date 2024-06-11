@@ -37,7 +37,7 @@ It does not matter for the integration what you enter as a callback or website U
 
 ## Configuration
 
-To add X to your installation, add the following to your `configuration.yaml` file:
+To add X to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

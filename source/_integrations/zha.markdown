@@ -105,6 +105,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 - Texas Instruments based radios (via the [zigpy-znp](https://github.com/zigpy/zigpy-znp) library for zigpy)
   - [CC2652P/CC2652R/CC2652RB USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
   - [CC1352P/CC1352R USB stick, module, or dev board hardware flashed with Z-Stack coordinator firmware](https://www.zigbee2mqtt.io/guide/adapters/)
+  - [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)
 - dresden elektronik deCONZ based Zigbee radios (via the [zigpy-deconz](https://github.com/zigpy/zigpy-deconz) library for zigpy)
   - [ConBee III (a.k.a. ConBee 3) USB adapter from dresden elektronik](https://phoscon.de/conbee3)
   - [ConBee II (a.k.a. ConBee 2) USB adapter from dresden elektronik](https://phoscon.de/conbee2)
@@ -212,6 +213,7 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 | [ZigStar Stick (CC2652 + CH340B variant)](https://zig-star.com/projects/zigbee-stick-v4/)                                                   | USB              | 1A86:7523                      |
 | [Tube’s EFR32 Pro Ethernet/Serial Coordinator](https://www.tubeszb.com/)                                                                    | USB              | 10C4:EA60                      |
 | [ZigStar Coordinators](https://zig-star.com/)                                                                                               | USB              | 1A86:7523                      |
+| [XZG - Universal Firmware for Zigbee Gateway](https://xzg.xyzroe.cc/)                                                                       | Zeroconf         | xzg.local.                     |
 | [SMLIGHT SLZB-06 POE Zigbee LAN WiFi USB Adapter](https://smlight.tech/product/slzb-06/)                                                    | Zeroconf         | slzb-06.local.                 |
 | [ZigStar UZG Universal Zigbee Gateway (UZG-01)](https://uzg.zig-star.com)                                                                   | Zeroconf         | uzg-01._tcp.local.             |
 | [ZigStar LAN/POE Coordinators](https://zig-star.com/projects/zigbee-gw-lan/)                                                                | Zeroconf         | zigstargw.local.               |
@@ -223,7 +225,7 @@ Additional devices in the [Known working Zigbee radio modules](#known-working-zi
 
 ## Configuration - YAML
 
-For more advanced configuration, you can modify `configuration.yaml` and restart Home Assistant
+For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
 
 {% configuration %}
 database_path:
@@ -247,7 +249,7 @@ The ZHA {% term integration %} has the ability to automatically download and per
 
 Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
 
-To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your `configuration.yaml` and restart Home Assistant:
+To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your {% term "`configuration.yaml`" %} and restart Home Assistant:
 
 ```yaml
 zha:
@@ -308,7 +310,7 @@ The general recommendation is to only use channels 15, 20, or 25 in order to avo
 
 As not all device manufacturers follow the Zigbee standard, at times a device can be incorrectly classified. For example, a switch could be classified as a light.
 
-To correct the device type, also called domain, add the following to your `configuration.yaml` and restart Home Assistant:
+To correct the device type, also called domain, add the following to your {% term "`configuration.yaml`" %} and restart Home Assistant:
 
 ```yaml
 zha:
@@ -632,7 +634,7 @@ Note: Please also make sure you give it your best effort to follow the recommend
 
 ### Debug logging
 
-To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to `configuration.yaml`:
+To enable debug logging for the ZHA {% term integration %} and radio libraries, add the following [logger](/integrations/logger/) configuration to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

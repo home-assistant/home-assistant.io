@@ -815,13 +815,15 @@ Switching does not require renaming your devices.
 
 2. Note your network security keys from the official add-on.
 
-3. Install and configure the Z-Wave JS UI add-on, including setting the location of your Z-Wave device and the network security keys.
+3. Install and start the Z-Wave JS UI add-on.
 
-4. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+4. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
 
-5. Uninstall the official Z-Wave JS add-on.
+5. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
 
-6. Enable the Z-Wave integration.
+6. Uninstall the official Z-Wave JS add-on.
+
+7. Enable the Z-Wave integration.
 
 ### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
 
