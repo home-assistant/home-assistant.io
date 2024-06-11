@@ -23,6 +23,8 @@ You can skip straight to the sections you’re most interested here:
 
 ~ Madelena
 
+_Huge thanks to [@jlpouffier](https://github.com/jlpouffier) for the amazing work and for driving the process, and everyone who had given feedback to us throughout the entire process._
+
 <!--more-->
 
 ## Home Assistant: “A Home-Approved Smart Home”
