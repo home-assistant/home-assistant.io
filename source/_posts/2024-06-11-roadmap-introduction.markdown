@@ -60,7 +60,7 @@ These initiatives are organized by themes, usually in the different product area
 
 ### Timeframes
 
-Our timeframes are divided roughly into what’s current, next, and later priorities. We decided against using exact dates because, on the one hand, guaranteeing a due date on features we might not even need to build puts unnecessary pressure on our maintainers. On the other hand, we cannot predict if or when our contributors will make contributions on our top initiatives. In general, a current priority is about three months, next is another three months after what’s current is done, and so on.
+Our timeframes are divided roughly into what’s current, next, and later priorities. We decided against using exact dates because, on the one hand, guaranteeing a due date on features we might not even need to build puts unnecessary pressure on our maintainers. On the other hand, we cannot predict if or when our contributors will make contributions to our top initiatives. In general, a current priority is about three months, next is another three months after what’s current is done, and so on.
 
 ## How are roadmaps made?
 
