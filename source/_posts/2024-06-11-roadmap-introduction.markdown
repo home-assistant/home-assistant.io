@@ -40,7 +40,7 @@ A roadmap provides the general direction of where we want to take our projects n
 
 With existing products, it can be easy to operate on autopilot, especially when we are in a rhythm of building new features. Once in a while, it is important for us to understand the strategic context behind why we are doing what we are doing for our users, and figure out how we can get there in the long term.
 
-A conversation about our roadmap with our community and users is an opportunity for us to verify our understanding of your needs before actually spending time and resources building them. Ideally, if we had done a excellent job in our user research, then the roadmap should merely confirm what you need, and there should be no surprises.
+A conversation about our roadmap with our community and users is an opportunity for us to verify our understanding of your needs before actually spending time and resources building them. Ideally, if we had done an excellent job in our user research, then the roadmap should merely confirm what you need, and there should be no surprises.
 
 ### What it is not
 
@@ -70,11 +70,11 @@ For our first roadmap in 2024 H1, we worked hard for 7 months to build it from s
 
 1. **Foundation**: We make sure that our [founder’s vision](/blog/2016/01/19/perfect-home-automation/) of what the best Home Assistant can be is reflected fully in the North Star of the roadmap. We also agree upon the purpose of the roadmap.
 
-2. **Collective feedback**: After that, we met with the core project maintainers of various product areas, from frontend, voice, OS, documentation, open protocols, ESPHome, and more. We collected hundreds of problems that they know are the most concerning to our users, and their ideas on how these problems can be solved. We also scoured and scanned through every top feature request on our forums and from previous Months of What the Heck. We collated them into one huge list of product issues we need to solve.
+2. **Collective feedback**: After that, we met with the core project maintainers of various product areas, from frontend, voice, OS, documentation, open protocols, ESPHome, and more. We collected hundreds of problems that they know are the most concerning to our users and their ideas on how these problems can be solved. We also scoured and scanned through every top feature request on our forums and from previous Months of What the Heck. We collated them into one huge list of product issues we need to solve.
 
-3. **Prioritization**: We then organized and categorized these issues into various initiatives that we can pursue. Finally, we prioritized all these initiatives by the amount of potential users who could benefit from them, how big an impact it can make, how certain we are in the issue, or if research is needed before proceeding. The final result is then organized into the roadmap that you see now.
+3. **Prioritization**: We organized and categorized these issues into various initiatives that we can pursue. Finally, we prioritized all these initiatives by the number of potential users who could benefit from them, how big an impact they can make, how certain we are in the issue, or if research is needed before proceeding. The final result is then organized into the roadmap that you see now.
 
-A roadmap is a _living document_, and we intend to adjust our bearings and revisit our roadmap every half-year. For instance, when we improve initiatives to an adequate level or if the needs of our users and community change, we will move our resources to focus on the next important priorities.
+A roadmap is a _living document_, and we intend to adjust our bearings and revisit it every half-year. For instance, when we improve initiatives to an adequate level or if the needs of our users and community change, we will move our resources to focus on the next important priorities.
 
 Our next update on the roadmap will be around late October to early November, after collecting your feedback from our infamous Month of What the Heck.
 
@@ -86,11 +86,11 @@ If you would like to contribute to the Home Assistant project, I hope that our r
 
 - **Develop**: If you are a developer, of course you can contribute your code!
   
-  If you are an expert in the areas we are currently focused on in our roadmap, please feel free to reach out to us directly on [Discord](https://www.home-assistant.io/join-chat). For example, if our current focus is to “improve voice assistant abilities out of the box” and if you were a wake word or LLM expert, that’s perfect! Please reach out and see where you can help.
+  If you are an expert in the areas we are currently focused on in our roadmap, please feel free to reach out to us directly on [Discord](/join-chat). For example, if our current focus is to “improve voice assistant abilities out of the box” and if you were a wake word or LLM expert, that’s perfect! Please reach out and see where you can help.
   
   If you know what you want to build, awesome! Be sure to check out our developer docs and learn about our [review process](https://developers.home-assistant.io/docs/review-process).
   
-  If you don’t have any ideas what to code, please feel free to check out our [GitHub issues](https://github.com/home-assistant/core/issues) and our [top feature requests](https://community.home-assistant.io/c/feature-requests/13/l/latest?order=votes). You may also chat with other folks on Discord to find out what needs your help the most.
+  If you don’t have any ideas on what to code, please feel free to check out our [GitHub issues](https://github.com/home-assistant/core/issues) and our [top feature requests](https://community.home-assistant.io/c/feature-requests/13/l/latest?order=votes). You may also chat with other folks on Discord to find out what needs your help the most.
   
 - **Design**: If you are a product person or a designer, we need you! Many of our features and contributions need great product goals, research, and design that solve real problems. Help us brainstorm ideas and solutions for the problems we want to solve on our roadmap, or report any new unforeseen problems that you notice in our community.
   
