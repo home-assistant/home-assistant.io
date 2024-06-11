@@ -14,7 +14,7 @@ og_image: images/blog/2024-06-roadmap-introduction/art.jpg
 
 During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&t=7649s), we presented the future of the open home with the announcement of our first roadmap.
 
-Over the past few years, we had begun the practice of giving a theme for the direction we wanted to take the Home Assistant project towards each year. Last year, we had the successful [Year of the Voice](/blog/2022/12/20/year-of-voice/), in which we built our voice assistant architecture from the ground up. And before that, we had “[Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/)” where we took our first stab at improving the UX.
+Over the past few years, we have begun the practice of giving a theme for the direction we wanted to take the Home Assistant project towards each year. Last year, we had the successful [Year of the Voice](/blog/2022/12/20/year-of-voice/), in which we built our voice assistant architecture from the ground up. And before that, we had “[Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/)” where we took our first stab at improving the UX.
 
 Having a good set of goals allows us to focus our community and resources to build new projects rapidly together. With the Year of the Voice, we have attracted new contributors who are experts in wake words and voice technologies, translators of many languages, and hobbyists in building impressive one-of-a-kind voice assistants. We want to continue this success by laying out the strategy and direction for the continuous development of the Home Assistant project, and a product roadmap is a perfect tool for such a purpose.
 
