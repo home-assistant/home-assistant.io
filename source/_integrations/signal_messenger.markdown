@@ -86,9 +86,14 @@ A few examples on how to use this integration as actions in automations.
 action:
   service: notify.NOTIFIER_NAME
   data:
-    message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml"
+    message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
+    ## Optional
+    data:
+      text_mode: styled
 ```
-
+| Attribute   | Optional | Default |Description                                                                                                                                                                                          |
+| ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
 #### Text message with an attachment
 
 This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
@@ -103,13 +108,18 @@ action:
     data:
       attachments:
         - "/config/www/surveillance_camera.jpg"
+      text_mode: styled
 ```
 
+| Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
+| ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `attachments` | **required** | -  | List of paths of files to be attached. |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
 #### Text message with an attachment from a URL
 
 To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
-Note there is a 50MB size limit for attachments retrieved via URLs. You can also set `verify_ssl` to `false` to ignore SSL errors (default `true`).
+Note there is a 50MB size limit for attachments retrieved via URLs. 
 
 ```yaml
 ...
@@ -121,7 +131,15 @@ action:
       verify_ssl: false
       urls:
         - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
+      text_mode: styled
 ```
+| Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
+| ----------- | -------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `urls` | **required** | -  | List of URLs of files to be attached. |
+| `verify_ssl` | *optional* | true  | Accepted values are `true`, `false`. You can set it to `false` to ignore SSL errors. |
+| `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+
+
 ## Triggering events based on Signal message reception
 
 You can use Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
