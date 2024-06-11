@@ -6,7 +6,7 @@ date: 2024-06-11 00:00:00
 date_formatted: "June 11, 2024"
 author: Madelena Mak
 comments: true
-categories: Announcements, Roadmap
+categories: Announcements Roadmap
 og_image: images/blog/2024-06-roadmap-introduction/art.jpg
 ---
 
