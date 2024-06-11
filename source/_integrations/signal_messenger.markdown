@@ -20,6 +20,7 @@ The `signal_messenger` {% term integration %} uses the [Signal Messenger REST AP
 
 ## Setup
  
+### Requirements
 The requirements are:
 
 - You need to set up the Signal Messenger REST API. 
@@ -29,7 +30,7 @@ The requirements are:
 Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
 
 
-## Configuration
+### Configuration Variables
 
 To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -44,11 +45,6 @@ notify:
     recipients: # one or more recipients
       - "RECIPIENT1"
 ```
-
-Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
-
-To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
-
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -60,22 +56,30 @@ url:
   required: true
   type: string
 number:
-  description: The sender number.
+  description: The sender number, [see Sender/recipient formats](#senderrecipient-formats).
   required: true
   type: string
 recipients:
-  description: A list of recipients (either phone numbers or Signal Messenger group ids).
+  description: A list of recipients (either phone numbers or Signal Messenger group ids [see Sender/recipient formats](#senderrecipient-formats)).
   required: true
-  type: string
+  type: list
 {% endconfiguration %}
 
+### Sender/recipient formats
+Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
+
+Phone numbers shall include the international code "+XX" format.
+
+To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
 
 
-## Examples
+
+## Notification Service
+### Examples
 
 A few examples on how to use this integration as actions in automations.
 
-### Text message
+#### Text message
 
 ```yaml
 ...
@@ -85,7 +89,7 @@ action:
     message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml"
 ```
 
-### Text message with an attachment
+#### Text message with an attachment
 
 This example assumes you have an image stored in the default `www`-folder in Home Assistant Operating System.
 
@@ -101,7 +105,7 @@ action:
         - "/config/www/surveillance_camera.jpg"
 ```
 
-### Text message with an attachment from a URL
+#### Text message with an attachment from a URL
 
 To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
 
