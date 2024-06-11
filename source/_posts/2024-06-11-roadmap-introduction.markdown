@@ -18,7 +18,7 @@ Over the past few years, we have begun the practice of giving a theme for the di
 
 Having a good set of goals allows us to focus our community and resources to build new projects rapidly together. With the Year of the Voice, we have attracted new contributors who are experts in wake words and voice technologies, translators of many languages, and hobbyists in building impressive one-of-a-kind voice assistants. We want to continue this success by laying out the strategy and direction for the continuous development of the Home Assistant project, and a product roadmap is a perfect tool for such a purpose.
 
-Our roadmap is an open call for contributions in the product areas we are focusing on. Unlike many public roadmaps of commercial products, this is not a marketing ploy to attract customers to buy into nebulous unrealized future features. This is a tool for our contributors and us, the maintainers of the project, to plan ahead for our collective future.
+Our roadmap is an open call for contributions in the product areas we are focusing on. Unlike many public roadmaps of commercial products, this is not a marketing ploy to attract customers to buy into nebulous, unrealized future features. It is a tool for our contributors and us, the project maintainers, to plan ahead for our collective future.
 
 For this blog post, I’d like to detail how we came up with the roadmap, what it entails, and how you can build upon it together.
 
