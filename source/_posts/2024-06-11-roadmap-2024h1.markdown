@@ -127,7 +127,7 @@ All our teams are currently working very hard on certification - we want to make
 
 #### Current priority: Certification
 
-For Zigbee, we already have a well-established hardware solution, via our [Home Assistant Connect ZBT-1](https://www.home-assistant.io/skyconnect/) (formally known as the SkyConnect). We are also continuing to contribute code and refine ZHA and Zigpy, the software powering Zigbee in Home Assistant.
+For Zigbee, we already have a well-established hardware solution, via our [Home Assistant Connect ZBT-1](https://www.home-assistant.io/skyconnect/) (formerly known as the SkyConnect). We are also continuing to contribute code and refine ZHA and Zigpy, the software powering Zigbee in Home Assistant.
 
 ### Matter
 
