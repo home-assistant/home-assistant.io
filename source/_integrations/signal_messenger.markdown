@@ -117,10 +117,6 @@ action:
 | `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
 #### Text message with an attachment from a URL
 
-To attach files from outside of Home Assistant, the URLs must be added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
-
-Note there is a 50MB size limit for attachments retrieved via URLs. 
-
 ```yaml
 ...
 action:
@@ -138,6 +134,11 @@ action:
 | `urls` | **required** | -  | List of URLs of files to be attached. |
 | `verify_ssl` | *optional* | true  | Accepted values are `true`, `false`. You can set it to `false` to ignore SSL errors. |
 | `text_mode` | *optional* | normal | Accepted values are `normal` or ` styled`. If set to `styled`, additional text formatting is enabled (*`*italic*`*, **`**bold**`**, and ~~`~strikethrough~`~~). |
+
+**Notes:**
+- To attach files from outside of Home Assistant, the URLs must be reachable and added to the [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list.
+
+- There is a 50MB size limit for attachments retrieved via URLs. 
 
 
 ## Triggering events based on Signal message reception
