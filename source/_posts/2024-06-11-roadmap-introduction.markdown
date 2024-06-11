@@ -14,7 +14,7 @@ og_image: images/blog/2024-06-roadmap-introduction/art.jpg
 
 During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&t=7649s), we presented the future of the open home with the announcement of our first roadmap.
 
-Over the past few years, we had begun the practice of giving a theme for the direction we wanted to take the Home Assistant project towards each year. Last year, we had the successful [Year of the Voice](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/), in which we built our voice assistant architecture from the ground up. And before that, we had “[Streamlining Experiences](https://www.home-assistant.io/blog/2022/01/19/streamlining-experiences/)” where we took our first stab at improving the UX.
+Over the past few years, we had begun the practice of giving a theme for the direction we wanted to take the Home Assistant project towards each year. Last year, we had the successful [Year of the Voice](/blog/2022/12/20/year-of-voice/), in which we built our voice assistant architecture from the ground up. And before that, we had “[Streamlining Experiences](/blog/2022/01/19/streamlining-experiences/)” where we took our first stab at improving the UX.
 
 Having a good set of goals allows us to focus our community and resources to build new projects rapidly together. With the Year of the Voice, we have attracted new contributors who are experts in wake words and voice technologies, translators of many languages, and hobbyists in building impressive one-of-a-kind voice assistants. We want to continue this success by laying out the strategy and direction for the continuous development of the Home Assistant project, and a product roadmap is a perfect tool for such a purpose.
 
@@ -28,9 +28,9 @@ For this blog post, I’d like to detail how we came up with the roadmap, what i
 
 ## Where can I find the roadmap?
 
-Our roadmaps will be published in our blog in the [Roadmap category](https://www.home-assistant.io/blog/categories/roadmap/), this allows the community to provide feedback and discuss our direction in the forums easily.
+Our roadmaps will be published in our blog in the [Roadmap category](/blog/categories/roadmap/), this allows the community to provide feedback and discuss our direction in the forums easily.
 
-Our first roadmap for 2024 H1 can be found [here](./2024-06-11-roadmap-2024h1).
+Our first roadmap for 2024 H1 can be found [here](/blog/2024/06/11/roadmap-2024h1/).
 
 ## What is a roadmap?
 
@@ -68,7 +68,7 @@ We want to make sure that this is an open source, open development, and open des
 
 For our first roadmap in 2024 H1, we worked hard for 7 months to build it from scratch in the following steps:
 
-1. **Foundation**: We make sure that our [founder’s vision](https://www.home-assistant.io/blog/2016/01/19/perfect-home-automation/) of what the best Home Assistant can be is reflected fully in the North Star of the roadmap. We also agree upon the purpose of the roadmap.
+1. **Foundation**: We make sure that our [founder’s vision](/blog/2016/01/19/perfect-home-automation/) of what the best Home Assistant can be is reflected fully in the North Star of the roadmap. We also agree upon the purpose of the roadmap.
 
 2. **Collective feedback**: After that, we met with the core project maintainers of various product areas, from frontend, voice, OS, documentation, open protocols, ESPHome, and more. We collected hundreds of problems that they know are the most concerning to our users, and their ideas on how these problems can be solved. We also scoured and scanned through every top feature request on our forums and from previous Months of What the Heck. We collated them into one huge list of product issues we need to solve.
 

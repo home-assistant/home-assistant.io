@@ -12,9 +12,9 @@ og_image: /images/blog/2024-06-roadmap-2024h1/banner.png
 
 <p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' alt='Banner for Roadmap 2024 H1'/></p>
 
-During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, ESPHome, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](./2024-06-11-roadmap-introduction).
+During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, ESPHome, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](/blog/2024/06/11/roadmap-introduction).
 
-There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](./2024-06-11-roadmap-introduction).
+There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](/blog/2024/06/11/roadmap-introduction/#how-are-roadmaps-made).
 
 You can skip straight to the sections you’re most interested here:
 * [Home Assistant: “A Home-Approved Smart Home”](#home-assistant-a-home-approved-smart-home)
@@ -43,7 +43,7 @@ We have been hard at work renovating our dashboards since last year. Moving forw
 
 #### Current priority: Make customization of dashboards easy and intuitive
 
-With the new Sections view layout, better tile cards, and our incredibly well-received [drag and drop](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/) 🐉, we have recently begun our work into making customization of dashboards easy and intuitive. We aim to implement an intuitive and organized grid system for dashboards. We will need community contributions to update our current cards to fit the grid system.
+With the new Sections view layout, better tile cards, and our incredibly well-received [drag and drop](/blog/2024/03/04/dashboard-chapter-1/) 🐉, we have recently begun our work into making customization of dashboards easy and intuitive. We aim to implement an intuitive and organized grid system for dashboards. We will need community contributions to update our current cards to fit the grid system.
 
 #### Next priority: Make default dashboards more useful and relevant
 
@@ -55,7 +55,7 @@ The inability to fine-tune access to Home Assistant by guests or other members o
 
 ### Voice assistants
 
-Since last year, we have built our voice assistant framework from scratch with our [“Year of the Voice”](https://www.home-assistant.io/blog/2022/12/20/year-of-voice/) initiative. Now that the infrastructure is in place, we want to make sure that it will be usable for everyone (before the demise of Alexa and Google Assistant 😜).
+Since last year, we have built our voice assistant framework from scratch with our [“Year of the Voice”](/blog/2022/12/20/year-of-voice/) initiative. Now that the infrastructure is in place, we want to make sure that it will be usable for everyone (before the demise of Alexa and Google Assistant 😜).
 
 #### Current priority 1: Improve Assist capabilities out of the box
 
@@ -91,7 +91,7 @@ Secondly, of the three Open Home values, privacy, choice, and sustainability, wh
 
 #### Technology research (R&D)
 
-Yes, large language models (LLMs) are a hot trend, but that’s not why we’re exploring them. We know there are very interesting problems they can solve in the home, and with the amount of data our users collect in their history, we believe that there is much power underneath Home Assistant yet to be unearthed and it is uniquely positioned to be the smart home platform for AI. [Our AI vision](./2024-06-07-ai-agents-for-the-smart-home) lays down the foundation for what we want to do with AI and LLMs next.
+Yes, large language models (LLMs) are a hot trend, but that’s not why we’re exploring them. We know there are very interesting problems they can solve in the home, and with the amount of data our users collect in their history, we believe that there is much power underneath Home Assistant yet to be unearthed and it is uniquely positioned to be the smart home platform for AI. [Our AI vision](/blog/2024/06/07/ai-agents-for-the-smart-home/) lays down the foundation for what we want to do with AI and LLMs next.
 
 In order to help AI make better decisions, we need a better understanding of the context of what each device actually is. To do so, we need to refine our information architecture. For instance, we recently rolled out floors helping Home Assistant better understand your house. This is no small task but could be vital in implementing better voice or even AI in the home.
 
@@ -145,7 +145,7 @@ There are still some big challenges that need to be addressed like device commis
 
 #### Current priority: Certification
 
-This year, we made several big announcements with our support of Z-Wave. We joined the Z-Wave Alliance in February this year and have been [working to improve our Z-Wave JS software](https://www.home-assistant.io/blog/2024/05/08/zwave-is-not-dead).
+This year, we made several big announcements with our support of Z-Wave. We joined the Z-Wave Alliance in February this year and have been [working to improve our Z-Wave JS software](/blog/2024/05/08/zwave-is-not-dead).
 
 #### Next priority: Home Assistant Connect Hardware for Z-Wave
 
@@ -157,4 +157,4 @@ To build the most seamless user experience for this protocol, we’re building o
 
 Our roadmap is an open call for contributions in the product areas we are focusing on. It outlines what the core maintainers of the Home Assistant project are going to work on in the near future. This is a tool for our contributors and us, the maintainers of the project, to plan ahead for our collective future. As this is a living document, we will revisit and update our roadmap every half year.
 
-For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](./2024-06-11-roadmap-introduction).
+For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](/blog/2024/06/11/roadmap-introduction).
