@@ -85,7 +85,7 @@ To make informed product decisions, we need to base our work on solid research. 
 
 #### User research
 
-In order for all of us in our community to make the right product, design, and engineering decisions, we need all of us to have a clear picture of who our users really are. Last year, we had done some initial research mostly focused on dashboard. This year, we want to get the full picture with complete foundational research of our users.
+In order for all of us in our community to make the right product, design, and engineering decisions, we need all of us to have a clear picture of who our users really are. Last year, we had done some initial research, mostly focused on dashboard. This year, we want to get the full picture with complete foundational research of our users.
 
 Secondly, of the three Open Home values, privacy, choice, and sustainability, while we have a pretty solid understanding of choice and some understanding of sustainability, the idea of privacy can benefit from more clarity. We want a better understanding of what privacy really means to a home and its residents.
 
