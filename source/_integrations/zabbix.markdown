@@ -29,7 +29,7 @@ There is currently also support for the following device types within Home Assis
 
 For the details about filter configuration on step "Publish filter configuration" check ([Configure Filter](#configure-filter))
 
-### Configuration via {% term "`configuration.yaml`" %} (Depreciated)
+### Configuration via {% term "`configuration.yaml`" %} (Deprecated)
 
 To set the Zabbix {% term integration %} up, add the following information to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -122,7 +122,7 @@ zabbix:
       - sensor.time
 ```
 
-### Configure filter
+#### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being published to Zabbix, you can use the `include` and `exclude` parameters.
 
