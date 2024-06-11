@@ -1,5 +1,5 @@
 ---
-title: Home Assistant SkyConnect
+title: Home Assistant Connect&nbsp;ZBT-1
 description: Home Assistant SkyConnect provides hardware information for the hardware configuration page.
 ha_release: 2022.9
 ha_category:
