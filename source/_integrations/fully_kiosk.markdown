@@ -3,6 +3,7 @@ title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
   - Binary sensor
+  - Notifications
   - Sensor
   - Switch
 ha_release: 2022.9
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - diagnostics
   - media_player
+  - notify
   - number
   - sensor
   - switch
@@ -127,4 +129,20 @@ data:
   application: "de.ozerov.fully"
 target:
   device_id: a674c90eca95eca91f6020415de07713
+```
+
+**Service `notify.fully_kiosk_<hostname>`**
+
+You can use the service `notify.fully_kiosk_<hostname>` to send a text to speech (TTS) message to the Fully Kiosk Browser app.
+
+| Service data attribute | Optional | Description  |
+| ---------------------- | -------- | ------------ |
+| `message`              | no       | TTS message  |
+
+Example:
+
+```yaml
+service: notify.fully_kiosk_galaxy_tab_s2
+data:
+  message: hello
 ```
