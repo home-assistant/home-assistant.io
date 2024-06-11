@@ -87,7 +87,7 @@ GEM
     prism (0.29.0)
     public_suffix (5.0.5)
     racc (1.8.0)
-    rack (3.0.11)
+    rack (3.1.0)
     rack-protection (4.0.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0, < 4)
