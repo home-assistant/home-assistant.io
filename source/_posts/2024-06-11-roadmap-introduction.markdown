@@ -30,7 +30,7 @@ For this blog post, I’d like to detail how we came up with the roadmap, what i
 
 Our roadmaps will be published in our blog in the [Roadmap category](https://www.home-assistant.io/blog/categories/roadmap/), this allows the community to provide feedback and discuss our direction in the forums easily.
 
-Our first roadmap for 2024 H1 can be found [here](./2024-06-11-roadmap-2024h1.markdown).
+Our first roadmap for 2024 H1 can be found [here](./2024-06-11-roadmap-2024h1).
 
 ## What is a roadmap?
 

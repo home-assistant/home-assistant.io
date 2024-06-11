@@ -12,9 +12,9 @@ og_image: /images/blog/2024-06-roadmap-2024h1/banner.png
 
 <p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' /></p>
 
-During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, ESPHome, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](./2024-06-11-roadmap-introduction.markdown).
+During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, ESPHome, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](./2024-06-11-roadmap-introduction).
 
-There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](./2024-06-11-roadmap-introduction.markdown).
+There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](./2024-06-11-roadmap-introduction).
 
 You can skip straight to the sections you’re most interested here:
 * [Home Assistant: “A Home-Approved Smart Home”](#home-assistant-a-home-approved-smart-home)
@@ -91,7 +91,7 @@ Secondly, of the three Open Home values, privacy, choice, and sustainability, wh
 
 #### Technology research (R&D)
 
-Yes, large language models (LLMs) are a hot trend, but that’s not why we’re exploring them. We know there are very interesting problems they can solve in the home, and with the amount of data our users collect in their history, we believe that there is much power underneath Home Assistant yet to be unearthed and itt is uniquely positioned to be the smart home platform for AI. [Our AI vision](./2024-06-07-ai-agents-for-the-smart-home.markdown) lays down the foundation for what we want to do with AI and LLMs next.
+Yes, large language models (LLMs) are a hot trend, but that’s not why we’re exploring them. We know there are very interesting problems they can solve in the home, and with the amount of data our users collect in their history, we believe that there is much power underneath Home Assistant yet to be unearthed and itt is uniquely positioned to be the smart home platform for AI. [Our AI vision](./2024-06-07-ai-agents-for-the-smart-home) lays down the foundation for what we want to do with AI and LLMs next.
 
 In order to help AI make better decisions, we need a better understanding of the context of what each device actually is. To do so, we need to refine our information architecture. For instance, we recently rolled out floors helping Home Assistant better understand your house. This is no small task but could be vital in implementing better voice or even AI in the home.
 
@@ -155,4 +155,4 @@ To build the most seamless user experience for this protocol, we’re building o
 
 Our roadmap is an open call for contributions in the product areas we are focusing on. It outlines what the core maintainers of the Home Assistant project are going to work on in the near future. This is a tool for our contributors and us, the maintainers of the project, to plan ahead for our collective future. As this is a living document, we will revisit and update our roadmap every half year.
 
-For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](./2024-06-11-roadmap-introduction.markdown).
+For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](./2024-06-11-roadmap-introduction).
