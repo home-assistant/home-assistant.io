@@ -52,7 +52,7 @@ name:
   type: string
   default: notify
 url:
-  description: The URL where the Signal Messenger REST API listens for incoming requests. 
+  description: The URL where the Signal Messenger REST API listens for incoming requests.
   required: true
   type: string
 number:
