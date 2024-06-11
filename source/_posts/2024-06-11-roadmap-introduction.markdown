@@ -106,7 +106,7 @@ And that’s all you need to know about our roadmaps! Thanks for reading! Lookin
 
 1. I want feature X!
   
-  Sure thing, we hear you. if you really want feature X, can you tell us and everyone in our community more about it, such as, what problems will this feature solve? Better yet, is it a recurring problem you have noticed that will help many other people? Use cases, research, and various evidence help us all decide whether we will proceed with such a feature. Make some noise on our forums, submit it to our feature requests, and see if it resonates with others. Maybe a contributor can help you out if the need is strong enough
+  Sure thing, we hear you. If you really want feature X, can you tell us and everyone in our community more about it, such as, what problems will this feature solve? Better yet, is it a recurring problem you have noticed that will help many other people? Use cases, research, and various evidence help us all decide whether we will proceed with such a feature. Make some noise on our forums, submit it to our feature requests, and see if it resonates with others. Maybe a contributor can help you out if the need is strong enough
   
 2. I think the Home Assistant project should go in direction Y.
   
