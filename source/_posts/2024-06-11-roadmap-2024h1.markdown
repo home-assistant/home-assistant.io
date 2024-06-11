@@ -78,7 +78,7 @@ As users grow their smart home, they will create more automation. Our automation
 
 #### Current priority 2: Make automations easier to create
 
-While we have been making headway earlier this year making automations easier to create. We need a more comprehensive effort with a full product development cycle of research, discovery, ideation, and validation to confidently make design and implementation decisions. As of now, many seemingly simple automations can be too complex to create and debug, and there is a lot of room for improvement. We foresee that when this opportunity is done, admins and housemates will be able to create automations with ease.
+While we made headway earlier this year in making automations easier to create, we need a more comprehensive effort with a full product development cycle of research, discovery, ideation, and validation to confidently make design and implementation decisions. As of now, many seemingly simple automations can be too complex to create and debug, and there is a lot of room for improvement. We foresee that when this opportunity is done, admins and housemates can easily create automations.
 
 * * *
 
