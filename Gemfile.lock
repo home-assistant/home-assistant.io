@@ -26,8 +26,12 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
+    ffi (1.17.0-aarch64-linux-gnu)
     ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
+    google-protobuf (4.27.1-aarch64-linux)
+      bigdecimal
+      rake (>= 13)
     google-protobuf (4.27.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
@@ -76,6 +80,8 @@ GEM
     multi_json (1.15.0)
     mustermann (3.0.0)
       ruby2_keywords (~> 0.0.1)
+    nokogiri (1.16.5-aarch64-linux)
+      racc (~> 1.4)
     nokogiri (1.16.5-x86_64-linux)
       racc (~> 1.4)
     parallel (1.25.1)
@@ -126,10 +132,15 @@ GEM
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass (3.4.25)
+    sass-embedded (1.77.4)
+      google-protobuf (>= 3.25, < 5.0)
+      rake (>= 13)
     sass-embedded (1.77.4-x86_64-linux-gnu)
       google-protobuf (>= 3.25, < 5.0)
     sass-globbing (1.1.5)
       sass (>= 3.1)
+    sassc (2.1.0)
+      ffi (~> 1.9)
     sassc (2.1.0-x86_64-linux)
       ffi (~> 1.9)
     sinatra (4.0.0)
@@ -152,6 +163,7 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
+  aarch64-linux
   x86_64-linux
 
 DEPENDENCIES
