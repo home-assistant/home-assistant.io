@@ -29,7 +29,7 @@ You can skip straight to the sections you’re most interested here:
 
 <p><img src='/images/blog/2024-06-roadmap-2024h1/ha-roadmap-2024h1.png' class='no-shadow' /></p>
 
-The mission of the Home Assistant project is to become the best smart home platform that embodies the Open Home vision (privacy, choice, sustainability), powered by a helpful open source user community.
+The mission of the Home Assistant project is to become the best smart home platform that embodies the Open Home vision (privacy, choice, sustainability), powered by a helpful open-source user community.
 
 A smart home platform should allow users to observe, control, automate, and anticipate the key functions within a home, which provides safety, security, comfort, convenience, personalization, and accessibility to its residents.
 
@@ -63,7 +63,7 @@ Our [research has shown](https://community.home-assistant.io/t/poll-what-do-you-
 
 #### Current priority 2: Make Assist easier to start with
 
-At the moment, there are a lot of things you need to install or configure to get started with voice. We want to make it easier to set up and onboard. There are already some good hardware choices to start using voice, but we’re exploring building our voice satellite hardware to create a more plug-and-play experience.
+At the moment, there are several things you need to install or configure to get started with voice. We want to make it easier to set up and onboard. There are already some good hardware choices to start using voice, but we’re exploring building our voice satellite hardware to create a more plug-and-play experience.
 
 ### Automations
 
@@ -99,7 +99,7 @@ In order to help AI make better decisions, we need a better understanding of the
 
 ## Home Assistant Cloud: “Peace of Mind”
 
-[Home Assistant Cloud](https://www.nabucasa.com/), powered by our commercial partner Nabu Casabrings, to the many, the hard-to-reach features of Home Assistant usually reserved for power users with expensive hardware at home, with no compromise on privacy.
+[Home Assistant Cloud](https://www.nabucasa.com/), powered by our commercial partner Nabu Casa brings, to the many, the hard-to-reach features of Home Assistant usually reserved for power users with expensive hardware at home, with no compromise on privacy.
 
 Currently, Home Assistant Cloud provides the simplest and safest way to access your Home Assistant instance anywhere in the world and connect to third-party cloud-connected voice assistants, like Google’s and Alexa’s offerings. Our newest ability added to Cloud is the ability to offload the resource-intensive tasks of speech-to-text and text-to-speech. This allows our users to have power-efficient hardware at home, like the Home Assistant Green, which uses three watts and performs tasks usually reserved for hundred-watt home servers.
 
@@ -108,7 +108,9 @@ For the next phase of Home Assistant Cloud, we want to continue to build feature
 #### Current priority: Hardening security
 
 We want to harden our security, providing more control for remote access and Two-Factor Authentication (2FA) for your Nabu Casa account.
+
 #### Next priority: Encrypted cloud backup
+
 This would allow users to have a more resilient installation of Home Assistant, so if your instance completely breaks down it can be restored from the cloud.
 
 #### Later priority: Cloud monitoring
@@ -126,8 +128,6 @@ We believe open standards are critical to providing choices for the future of th
 All our teams are currently working very hard on certification - we want to make sure all our open standards implementations are up to industry standards.
 
 ### Zigbee
-
-#### Current priority: Certification
 
 For Zigbee, we already have a well-established hardware solution, via our [Home Assistant Connect ZBT-1](https://www.home-assistant.io/skyconnect/) (formerly known as the SkyConnect). We are also continuing to contribute code and refine ZHA and Zigpy, the software powering Zigbee in Home Assistant.
 

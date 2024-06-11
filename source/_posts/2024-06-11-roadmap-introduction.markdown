@@ -40,7 +40,7 @@ A roadmap provides the general direction of where we want to take our projects n
 
 With existing products, it can be easy to operate on autopilot, especially when we are in a rhythm of building new features. Once in a while, it is important for us to understand the strategic context behind why we are doing what we are doing for our users, and figure out how we can get there in the long term.
 
-A conversation about our roadmap with our community and users is an opportunity for us to verify our understanding of your needs before actually spending time and resources building them. Ideally, if we had done a great job in our user research, then the roadmap should merely confirm what you need, and there should be no surprises.
+A conversation about our roadmap with our community and users is an opportunity for us to verify our understanding of your needs before actually spending time and resources building them. Ideally, if we had done a excellent job in our user research, then the roadmap should merely confirm what you need, and there should be no surprises.
 
 ### What it is not
 
@@ -90,7 +90,7 @@ If you would like to contribute to the Home Assistant project, I hope that our r
   
   If you know what you want to build, awesome! Be sure to check out our developer docs and learn about our [review process](https://developers.home-assistant.io/docs/review-process).
   
-  If you don’t have any ideas what to code, please feel free to check out our [Github issues](https://github.com/home-assistant/core/issues) and our [top feature requests](https://community.home-assistant.io/c/feature-requests/13/l/latest?order=votes). You may also chat with other folks on Discord to find out what needs your help the most.
+  If you don’t have any ideas what to code, please feel free to check out our [GitHub issues](https://github.com/home-assistant/core/issues) and our [top feature requests](https://community.home-assistant.io/c/feature-requests/13/l/latest?order=votes). You may also chat with other folks on Discord to find out what needs your help the most.
   
 - **Design**: If you are a product person or a designer, we need you! Many of our features and contributions need great product goals, research, and design that solve real problems. Help us brainstorm ideas and solutions for the problems we want to solve on our roadmap, or report any new unforeseen problems that you notice in our community.
   
@@ -104,10 +104,10 @@ And that’s all you need to know about our roadmaps! Thanks for reading! Lookin
 
 ## FAQ
 
-1. I want feature X!
-  
-  Sure thing, we hear you. If you really want feature X, can you tell us and everyone in our community more about it, such as, what problems will this feature solve? Better yet, is it a recurring problem you have noticed that will help many other people? Use cases, research, and various evidence help us all decide whether we will proceed with such a feature. Make some noise on our forums, submit it to our feature requests, and see if it resonates with others. Maybe a contributor can help you out if the need is strong enough
-  
-2. I think the Home Assistant project should go in direction Y.
-  
-  If you have some brilliant vision, please feel free to discuss them in the comments section of the roadmap, or post your thoughts on our forums. Our direction is not determined by any one person, but by the collective needs of our users, guided by our Open Home values of privacy, choice, and sustainability. Any ideas that can benefit these areas may be considered part of our project vision.
+#### 1. I want feature X!
+
+Sure thing, we hear you. If you really want feature X, can you tell us and everyone in our community more about it, such as, what problems will this feature solve? Better yet, is it a recurring problem you have noticed that will help many other people? Use cases, research, and various evidence help us all decide whether we will proceed with such a feature. Make some noise on our forums, submit it to our feature requests, and see if it resonates with others. Maybe a contributor can help you out if the need is strong enough
+
+#### 2. I think the Home Assistant project should go in direction Y.
+
+If you have a brilliant vision of what Home Assistant can become, please feel free to discuss them openly in the comments section of the roadmap, or post your thoughts on our forums. Our direction is determined by the collective needs of our users, guided by our Open Home values of privacy, choice, and sustainability. Any ideas that can benefit these areas may be considered to become part of our project vision.
