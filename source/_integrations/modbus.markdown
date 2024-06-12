@@ -1214,10 +1214,7 @@ lights:
           default: "Same as `command_off`"
           type: integer
         sync:
-          description: "Keep the output synced with HA state.
-          It will cause a signal update on modbus if verify will report a different status of light respect the current one.
-          No action will be performed if verify confirm the current state
-          "
+          description: "Synchronizes the output with the Home Assistant state. If the 'verify' reports a status different from the current one, a signal update on Modbus is performed. No action is taken if the 'verify' confirms the current state."
           required: false
           default: false
           type: boolean
@@ -1538,10 +1535,7 @@ switches:
           default: "Same as `command_off`"
           type: integer
         sync:
-          description: "Keep the output synced with HA state.
-          It will cause a signal update on modbus if verify will report a different status of switch respect the current one.
-          No action will be performed if verify confirm the current state
-          "
+          description: "Synchronizes the output with the Home Assistant state. If the 'verify' reports a status different from the current one, a signal update on Modbus is performed. No action is taken if the 'verify' confirms the current state."
           required: false
           default: false
           type: boolean
