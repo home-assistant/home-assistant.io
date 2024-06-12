@@ -66,6 +66,7 @@ Enjoy the release!
   - [Collapsible sections for blueprints!](#collapsible-sections-for-blueprints)
 - [Patch releases](#patch-releases)
   - [2024.6.1 - June 7](#202461---june-7)
+  - [2024.6.2 - June 11](#202462---june-11)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -610,6 +611,119 @@ every Friday.
 [@mdegat01]: https://github.com/mdegat01
 [@synesthesiam]: https://github.com/synesthesiam
 [@thecode]: https://github.com/thecode
+
+### 2024.6.2 - June 11
+
+- Fix statistic_during_period wrongly prioritizing ST statistics over LT ([@karwosts] - [#115291])
+- Bump pyElectra to 1.2.1 ([@rubeecube] - [#118958])
+- Update gardena library to 1.4.2 ([@elupus] - [#119010])
+- Calculate attributes when entity information available in Group sensor ([@gjohansson-ST] - [#119021])
+- Bump google-generativeai to 0.6.0 ([@tronikos] - [#119062])
+- Fix Azure data explorer ([@kaareseras] - [#119089])
+- Ensure multiple executions of a restart automation in the same event loop iteration are allowed ([@bdraco] - [#119100])
+- Fix control 4 on os 2 ([@adrum] - [#119104])
+- Properly handle escaped unicode characters passed to tools in Google Generative AI ([@tronikos] - [#119117])
+- Catch GoogleAPICallError in Google Generative AI ([@tronikos] - [#119118])
+- Bump aioshelly to 10.0.1 ([@thecode] - [#119123])
+- Bump aiowaqi to 3.1.0 ([@joostlek] - [#119124])
+- Ensure intent tools have safe names ([@balloob] - [#119144])
+- Fix workday timezone ([@TomBrien] - [#119148])
+- Bump py-synologydsm-api to 2.4.4 ([@mib1185] - [#119156])
+- Use more conservative timeout values in Synology DSM ([@mib1185] - [#119169])
+- Handle Shelly BLE errors during connect and disconnect ([@thecode] - [#119174])
+- Fix elgato light color detection ([@LapsTimeOFF] - [#119177])
+- Bump opower to 0.4.7 ([@tronikos] - [#119183])
+- Add fallback to entry_id when no mac address is retrieved in enigma2 ([@autinerd] - [#119185])
+- Fix envisalink alarm ([@gjohansson-ST] - [#119212])
+- Fixes crashes when receiving malformed decoded payloads ([@angelnu] - [#119216])
+- Fix Glances v4 network and container issues (glances-api 0.8.0) ([@wittypluck] - [#119226])
+- Bump python-roborock to 2.3.0 ([@ethemcemozkan] - [#119228])
+- Revert SamsungTV migration ([@epenet] - [#119234])
+- Always provide a currentArmLevel in Google assistant ([@elupus] - [#119238])
+- Remove myself as codeowner for unifiprotect ([@bdraco] - [#118824])
+- Switch unifiprotect lib to use uiprotect ([@bdraco] - [#119243])
+- Fix wrong arg name in Idasen Desk config flow ([@abmantis] - [#119247])
+- Fix climate on/off in nexia ([@bdraco] - [#119254])
+- Bump google-nest-sdm to 4.0.5 ([@allenporter] - [#119255])
+- Bump uiprotect to 0.4.0 ([@bdraco] - [#119256])
+- Improve workday test coverage ([@bdraco] - [#119259])
+- Fix persistence on OpenWeatherMap raised repair issue ([@frenck] - [#119289])
+- Bump uiprotect to 0.4.1 ([@bdraco] - [#119308])
+- Add more debug logging to Ping integration ([@jpbede] - [#119318])
+- Update frontend to 20240610.0 ([@bramkragten] - [#119320])
+- Fix statistic_during_period after core restart ([@emontnemery] - [#119323])
+- Fix AladdinConnect OAuth domain ([@swcloudgenie] - [#119336])
+- Bump `imgw-pib` backend library to version 1.0.5 ([@bieniu] - [#119360])
+
+[#115291]: https://github.com/home-assistant/core/pull/115291
+[#118400]: https://github.com/home-assistant/core/pull/118400
+[#118824]: https://github.com/home-assistant/core/pull/118824
+[#118958]: https://github.com/home-assistant/core/pull/118958
+[#119010]: https://github.com/home-assistant/core/pull/119010
+[#119021]: https://github.com/home-assistant/core/pull/119021
+[#119062]: https://github.com/home-assistant/core/pull/119062
+[#119089]: https://github.com/home-assistant/core/pull/119089
+[#119096]: https://github.com/home-assistant/core/pull/119096
+[#119100]: https://github.com/home-assistant/core/pull/119100
+[#119104]: https://github.com/home-assistant/core/pull/119104
+[#119117]: https://github.com/home-assistant/core/pull/119117
+[#119118]: https://github.com/home-assistant/core/pull/119118
+[#119123]: https://github.com/home-assistant/core/pull/119123
+[#119124]: https://github.com/home-assistant/core/pull/119124
+[#119144]: https://github.com/home-assistant/core/pull/119144
+[#119148]: https://github.com/home-assistant/core/pull/119148
+[#119156]: https://github.com/home-assistant/core/pull/119156
+[#119169]: https://github.com/home-assistant/core/pull/119169
+[#119174]: https://github.com/home-assistant/core/pull/119174
+[#119177]: https://github.com/home-assistant/core/pull/119177
+[#119183]: https://github.com/home-assistant/core/pull/119183
+[#119185]: https://github.com/home-assistant/core/pull/119185
+[#119212]: https://github.com/home-assistant/core/pull/119212
+[#119216]: https://github.com/home-assistant/core/pull/119216
+[#119226]: https://github.com/home-assistant/core/pull/119226
+[#119228]: https://github.com/home-assistant/core/pull/119228
+[#119234]: https://github.com/home-assistant/core/pull/119234
+[#119238]: https://github.com/home-assistant/core/pull/119238
+[#119243]: https://github.com/home-assistant/core/pull/119243
+[#119247]: https://github.com/home-assistant/core/pull/119247
+[#119254]: https://github.com/home-assistant/core/pull/119254
+[#119255]: https://github.com/home-assistant/core/pull/119255
+[#119256]: https://github.com/home-assistant/core/pull/119256
+[#119259]: https://github.com/home-assistant/core/pull/119259
+[#119289]: https://github.com/home-assistant/core/pull/119289
+[#119308]: https://github.com/home-assistant/core/pull/119308
+[#119318]: https://github.com/home-assistant/core/pull/119318
+[#119320]: https://github.com/home-assistant/core/pull/119320
+[#119323]: https://github.com/home-assistant/core/pull/119323
+[#119336]: https://github.com/home-assistant/core/pull/119336
+[#119360]: https://github.com/home-assistant/core/pull/119360
+[@LapsTimeOFF]: https://github.com/LapsTimeOFF
+[@TomBrien]: https://github.com/TomBrien
+[@abmantis]: https://github.com/abmantis
+[@adrum]: https://github.com/adrum
+[@allenporter]: https://github.com/allenporter
+[@angelnu]: https://github.com/angelnu
+[@autinerd]: https://github.com/autinerd
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@epenet]: https://github.com/epenet
+[@ethemcemozkan]: https://github.com/ethemcemozkan
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@kaareseras]: https://github.com/kaareseras
+[@karwosts]: https://github.com/karwosts
+[@mib1185]: https://github.com/mib1185
+[@rubeecube]: https://github.com/rubeecube
+[@swcloudgenie]: https://github.com/swcloudgenie
+[@thecode]: https://github.com/thecode
+[@tronikos]: https://github.com/tronikos
+[@wittypluck]: https://github.com/wittypluck
 
 ## Need help? Join the community!
 
