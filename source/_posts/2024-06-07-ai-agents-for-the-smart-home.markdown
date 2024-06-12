@@ -3,7 +3,7 @@ layout: post
 title: "AI agents for the smart home"
 description: "AI is all the hype and everyone is adding it to everything. We did our research and decided to focus on enabling experimentation."
 date: 2024-06-07 00:00:01
-date_formatted: "June 07, 2024"
+date_formatted: "June 7, 2024"
 author: Paulus Schoutsen
 comments: true
 categories: Assist
