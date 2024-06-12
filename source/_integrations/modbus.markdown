@@ -1213,6 +1213,14 @@ lights:
           required: false
           default: "Same as `command_off`"
           type: integer
+        sync:
+          description: "Keep the output synced with HA state.
+          It will cause a signal update on modbus if verify will report a different status of light respect the current one.
+          No action will be performed if verify confirm the current state
+          "
+          required: false
+          default: false
+          type: bool
 
 {% endconfiguration %}
 
@@ -1529,6 +1537,14 @@ switches:
           required: false
           default: "Same as `command_off`"
           type: integer
+        sync:
+          description: "Keep the output synced with HA state.
+          It will cause a signal update on modbus if verify will report a different status of switch respect the current one.
+          No action will be performed if verify confirm the current state
+          "
+          required: false
+          default: false
+          type: bool
 
 {% endconfiguration %}
 
