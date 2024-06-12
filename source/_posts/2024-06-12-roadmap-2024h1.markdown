@@ -2,8 +2,8 @@
 layout: post
 title: "Roadmap 2024 H1: A home-approved smart home, peace of mind, and more!"
 description: "Our first detailed roadmap outlining the direction of the continued development of the Home Assistant project"
-date: 2024-06-11 00:00:01
-date_formatted: "June 11, 2024"
+date: 2024-06-12 00:00:01
+date_formatted: "June 12, 2024"
 author: Madelena Mak
 comments: true
 categories: Announcements Roadmap

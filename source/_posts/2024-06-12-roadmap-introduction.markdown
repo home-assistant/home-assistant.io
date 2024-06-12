@@ -2,8 +2,8 @@
 layout: post
 title: "A roadmap for Home Assistant"
 description: "Learn more about what we came up with the roadmap, what it entails, and how you can build upon it together!"
-date: 2024-06-11 00:00:00
-date_formatted: "June 11, 2024"
+date: 2024-06-12 00:00:00
+date_formatted: "June 12, 2024"
 author: Madelena Mak
 comments: true
 categories: Announcements Roadmap
@@ -85,17 +85,17 @@ As I mentioned before, our roadmap is not a list of future features, but an open
 If you would like to contribute to the Home Assistant project, I hope that our roadmap can provide you with ideas and guidance on what you can do. There are a number of ways you can support this journey. Let’s build the future of the Open Home together!
 
 - **Develop**: If you are a developer, of course you can contribute your code!
-  
+
   If you are an expert in the areas we are currently focused on in our roadmap, please feel free to reach out to us directly on [Discord](/join-chat). For example, if our current focus is to “improve voice assistant abilities out of the box” and if you were a wake word or LLM expert, that’s perfect! Please reach out and see where you can help.
-  
+
   If you know what you want to build, awesome! Be sure to check out our developer docs and learn about our [review process](https://developers.home-assistant.io/docs/review-process).
-  
+
   If you don’t have any ideas on what to code, please feel free to check out our [GitHub issues](https://github.com/home-assistant/core/issues) and our [top feature requests](https://community.home-assistant.io/c/feature-requests/13/l/latest?order=votes). You may also chat with other folks on Discord to find out what needs your help the most.
-  
+
 - **Design**: If you are a product person or a designer, we need you! Many of our features and contributions need great product goals, research, and design that solve real problems. Help us brainstorm ideas and solutions for the problems we want to solve on our roadmap, or report any new unforeseen problems that you notice in our community.
-  
+
 - **Participate in user research**: If you and your housemates or family are interested, we would love to have you as part of our user research pool. From time to time, we will send out surveys or invite users to user interviews. This allows us to get an objective understanding of our users and validate and test our assumptions. Sign up to be part of the [Home Assistant User Research Group](https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN).
-  
+
 - **Guide our direction**: As already mentioned, we use our [Feature Request](https://community.home-assistant.io/c/feature-requests/) and [Month of What The Heck?](https://community.home-assistant.io/c/what-the-heck/56) forums to guide the creation and prioritization of the roadmap. The number of votes and the amount of thoughtful discussions and creative ideas matter, so please participate in the threads and help guide the direction of our project.
 
 And that’s all you need to know about our roadmaps! Thanks for reading! Looking forward to collaborating with you on the Home Assistant project soon!
