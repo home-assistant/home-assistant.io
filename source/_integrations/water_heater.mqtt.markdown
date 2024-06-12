@@ -248,6 +248,38 @@ temperature_state_topic:
   description: The MQTT topic to subscribe for changes in the target temperature. If this is not set, the target temperature works in optimistic mode (see below). A `"None"` value received will reset the temperature set point. Empty values (`'''`) will be ignored.
   required: false
   type: string
+temperature_high_command_template:
+  description: A template to render the value sent to the `temperature_high_command_topic` with.
+  required: false
+  type: template
+temperature_high_command_topic:
+  description: The MQTT topic to publish commands to change the high target temperature.
+  required: false
+  type: string
+temperature_high_state_template:
+  description: A template to render the value received on the `temperature_high_state_topic` with. A `"None"` value received will reset the temperature high set point. Empty values (`'''`) will be ignored.
+  required: false
+  type: template
+temperature_high_state_topic:
+  description: The MQTT topic to subscribe for changes in the target high temperature. If this is not set, the target high temperature works in optimistic mode (see below).
+  required: false
+  type: string
+temperature_low_command_template:
+  description: A template to render the value sent to the `temperature_low_command_topic` with.
+  required: false
+  type: template
+temperature_low_command_topic:
+  description: The MQTT topic to publish commands to change the target low temperature.
+  required: false
+  type: string
+temperature_low_state_template:
+  description: A template to render the value received on the `temperature_low_state_topic` with. A `"None"` value received will reset the temperature low set point. Empty values (`'''`) will be ignored.
+  required: false
+  type: template
+temperature_low_state_topic:
+  description: The MQTT topic to subscribe for changes in the target low temperature. If this is not set, the target low temperature works in optimistic mode (see below).
+  required: false
+  type: string
 temperature_unit:
   description: Defines the temperature unit of the device, `C` or `F`. If this is not set, the temperature unit is set to the system temperature unit.
   required: false
