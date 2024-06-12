@@ -1220,7 +1220,7 @@ lights:
           "
           required: false
           default: false
-          type: bool
+          type: boolean
 
 {% endconfiguration %}
 
@@ -1544,7 +1544,7 @@ switches:
           "
           required: false
           default: false
-          type: bool
+          type: boolean
 
 {% endconfiguration %}
 
