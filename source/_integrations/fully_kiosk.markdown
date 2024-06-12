@@ -66,6 +66,11 @@ The following controls are available:
 - Play and stop media files
 - Set device volume
 
+The following notify entities that can be passed to `notify.send_message` service are available:
+
+- Text to speech
+- Overlay message
+
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
 </div>
@@ -129,20 +134,4 @@ data:
   application: "de.ozerov.fully"
 target:
   device_id: a674c90eca95eca91f6020415de07713
-```
-
-**Service `notify.fully_kiosk_<hostname>`**
-
-You can use the service `notify.fully_kiosk_<hostname>` to send a text to speech (TTS) message to the Fully Kiosk Browser app.
-
-| Service data attribute | Optional | Description  |
-| ---------------------- | -------- | ------------ |
-| `message`              | no       | TTS message  |
-
-Example:
-
-```yaml
-service: notify.fully_kiosk_galaxy_tab_s2
-data:
-  message: hello
 ```
