@@ -3,6 +3,7 @@ title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
   - Binary sensor
+  - Camera
   - Sensor
   - Switch
 ha_release: 2022.9
@@ -14,6 +15,7 @@ ha_domain: fully_kiosk
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - diagnostics
   - media_player
   - number
@@ -63,6 +65,11 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+
+The following is available as cameras:
+
+- Camera (requires motion detection on)
+- Screenshot
 
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
