@@ -30,7 +30,7 @@ For this blog post, I’d like to detail how we came up with the roadmap, what i
 
 Our roadmaps will be published in our blog in the [Roadmap category](/blog/categories/roadmap/), this allows the community to provide feedback and discuss our direction in the forums easily.
 
-Our first roadmap for 2024 H1 can be found [here](/blog/2024/06/11/roadmap-2024h1/).
+Our first roadmap for midyear 2024, can be found [here](/blog/2024/06/12/roadmap-2024h1/).
 
 ## What is a roadmap?
 
@@ -66,7 +66,7 @@ Our timeframes are divided roughly into what’s current, next, and later priori
 
 We want to make sure that this is an open source, open development, and open design process. So we, as the core project maintainers, will keep the dialog open to feedback and changes from our contributors and our community.
 
-For our first roadmap in 2024 H1, we worked hard for 7 months to build it from scratch in the following steps:
+For our first roadmap in midyear 2024, we worked hard for 7 months to build it from scratch in the following steps:
 
 1. **Foundation**: We make sure that our [founder’s vision](/blog/2016/01/19/perfect-home-automation/) of what the best Home Assistant can be is reflected fully in the North Star of the roadmap. We also agree upon the purpose of the roadmap.
 

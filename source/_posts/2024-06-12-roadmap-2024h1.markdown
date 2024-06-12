@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Roadmap 2024 H1: A home-approved smart home, peace of mind, and more!"
+title: "Roadmap 2024 Midyear Update: A home-approved smart home, peace of mind, and more!"
 description: "Our first detailed roadmap outlining the direction of the continued development of the Home Assistant project"
 date: 2024-06-12 00:00:01
 date_formatted: "June 12, 2024"
@@ -10,11 +10,11 @@ categories: Announcements Roadmap
 og_image: /images/blog/2024-06-roadmap-2024h1/banner.png
 ---
 
-<p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' alt='Banner for Roadmap 2024 H1'/></p>
+<p><img src='/images/blog/2024-06-roadmap-2024h1/banner.png' class='no-shadow' alt='Banner for Roadmap 2024 Midyear Update'/></p>
 
-During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](/blog/2024/06/11/roadmap-introduction).
+During our [State of the Open Home livestream](https://www.youtube.com/watch?v=oa__fLArsFk&amp;t=7649s) in April, we presented our roadmaps for Home Assistant, open protocols, and Home Assistant Cloud. If you’re not sure what a roadmap is, or why we aren’t just listing features and dates - please read our intro to [Home Assistant Roadmaps](/blog/2024/06/12/roadmap-introduction).
 
-There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](/blog/2024/06/11/roadmap-introduction/#how-are-roadmaps-made).
+There has already been a lot of great discussion about these roadmaps in the community, and we would really like to encourage you to give your thoughts in the comments of this blog - as they will inform [how the roadmap evolves over time](/blog/2024/06/12/roadmap-introduction/#how-are-roadmaps-made).
 
 You can skip straight to the sections you’re most interested:
 
@@ -30,7 +30,7 @@ _Big thanks to everyone who had given feedback to us throughout the entire proce
 
 ## Home Assistant: “A Home-Approved Smart Home”
 
-<p><img src='/images/blog/2024-06-roadmap-2024h1/ha-roadmap-2024h1.png' class='no-shadow' alt="[Home Assistant Roadmap 2024 H1"/></p>
+<p><img src='/images/blog/2024-06-roadmap-2024h1/ha-roadmap-2024h1.png' class='no-shadow' alt="[Home Assistant Roadmap 2024 Midyear Update"/></p>
 
 The mission of the Home Assistant project is to become the best smart home platform that embodies the Open Home vision (privacy, choice, sustainability), powered by a helpful open-source user community.
 
@@ -157,4 +157,4 @@ To build the most seamless user experience for this protocol, we’re building o
 ## What’s next?
 Our roadmap is an open call for contributions in the product areas we are focusing on. It outlines what the core maintainers of the Home Assistant project will work on in the near future. This is a tool for our contributors and us, the project maintainers, to plan ahead for our collective future. As this is a living document, we will revisit and update our roadmap every half year.
 
-For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](/blog/2024/06/11/roadmap-introduction).
+For more information on how the roadmaps were created and how you can contribute, please check out [this blog post here](/blog/2024/06/12/roadmap-introduction).
