@@ -140,7 +140,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 ### Method 2: Installing HAOS directly from a boot medium
 
-Use this method only if Method 1 does not work for you.
+<div class='note warning'>Use this method only if Method 1 does not work for you.</div>
 
 #### Required material
 
@@ -205,15 +205,16 @@ Use this method only if Method 1 does not work for you.
 *Select and copy the URL or use the "copy" button that appear when you hover it.*
 
 5. Paste the URL into your browser to start the download.
-6. Select **Flash from file** and select the image you just downloaded.
+6. Extract the archive.
+7. Select **Flash from file** and select the image you just downloaded.
    - Do not use **Flash from URL**. It does not work on some systems.
 
   ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
-7. **Select target**.
+8. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-8. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
+9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
-9. Select **Flash!** to start writing the image.
+10. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
    - When Balena Etcher has finished writing the image, you will see a confirmation.
