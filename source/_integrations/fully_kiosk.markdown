@@ -15,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - image
   - media_player
   - number
   - sensor
@@ -63,6 +64,10 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+
+The following is available as image entities:
+
+- Screenshot
 
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
