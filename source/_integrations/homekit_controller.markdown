@@ -137,9 +137,9 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
 - **Thread network**: In order to use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
-  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a {% term Thread %} network.
+  - If you have a Home Assistant Yellow or Connect ZBT-1, you can enable multiprotocol to set up an Open Thread border router and with that a {% term Thread %} network.
     - Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
-    - Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
+    - Documentation on [enabling multiprotocol on Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-multiprotocol/)
 
 #### To add a HomeKit device to a Thread network via Home Assistant
 
