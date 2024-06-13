@@ -7,7 +7,7 @@ date_formatted: "June 12, 2024"
 author: Madelena Mak
 comments: true
 categories: Announcements Roadmap
-og_image: images/blog/2024-06-roadmap-introduction/art.jpg
+og_image: /images/blog/2024-06-roadmap-introduction/art.jpg
 ---
 
 <p class="img no-shadow"><img src='/images/blog/2024-06-roadmap-introduction/art.jpg' alt='Artwork for the roadmap introduction'/><i>Art by Clelia Rella</i></p>
