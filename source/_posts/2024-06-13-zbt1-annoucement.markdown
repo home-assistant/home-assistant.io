@@ -28,7 +28,7 @@ We are working towards building a new line of Connect products, specifically we 
 
 ## What has changed?
 
-<p class="img"><img src='/images/blog/2024-06-ZBT1/zbt1-packaging-render.jpg' alt='Rendering of the Home Assistant Connect ZBT-1 Packaging'/>Home Assistant Connect ZBT-1 packaging renders 🤤, they look even better in person!</p>
+<p class="img"><img src='/images/blog/2024-06-ZBT1/zbt1-packaging.jpg' alt='Home Assistant Connect ZBT-1 Packaging'/>Home Assistant Connect ZBT-1 packaging 🤤.</p>
 
 As I said nothing has changed internally - the [listed specs](/connectzbt1) are identical. You do get new packaging, which we're pretty proud of. The device itself has been updated visually with our current logo and has the new ZBT-1 name.
 
