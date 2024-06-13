@@ -188,6 +188,8 @@ binary_sensor:
 
 Here's an example for `template` observation platform, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
 
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -199,10 +201,12 @@ binary_sensor:
   observations:
     - platform: template
       value_template: >
-        "{{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}"
+        {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
       prob_given_true: 0.05
       prob_given_false: 0.99
 ```
+
+{% endraw %}
 
 ### Multiple state and numeric entries per entity
 
