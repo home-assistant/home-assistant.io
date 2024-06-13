@@ -390,6 +390,9 @@ layout: null
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
 
+# Moved marketing pages / rebranding
+/skyconnect /connectzbt1
+
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
 /cookbook/dropboxbackup https://community.home-assistant.io/t/backing-up-to-dropbox/196960
