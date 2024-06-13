@@ -12,7 +12,7 @@ og_image: /images/blog/2024-06-ZBT1/art.jpg
 
 <p class="img no-shadow"><img src='/images/blog/2024-06-ZBT1/art.jpg' alt='Home Assistant Skyconnect becomes Connect ZBT-1'/></p>
 
-[Connect ZBT-1](/connect-zbt1) is the new name for Home Assistant SkyConnect. Though it's a new name and look, they have the exact same hardware, capability, and support.
+[Connect ZBT-1](/connectzbt1) is the new name for Home Assistant SkyConnect. Though it's a new name and look, they have the exact same hardware, capability, and support.
 
 We launched Home Assistant SkyConnect in late 2022, a device designed to be the easiest, most stable way to connect Zigbee and Home Assistant together. It also came with Thread connectivity support, which was (and still is) pretty groundbreaking at its price point.  All these years later, it continues to receive strong support and is a community favorite.
 
