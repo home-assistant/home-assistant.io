@@ -69,7 +69,6 @@ The following controls are available:
 The following is available as cameras:
 
 - Camera (requires motion detection on)
-- Screenshot
 
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
