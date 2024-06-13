@@ -33,9 +33,8 @@ To use this integration, you will need a sunsynk-branded e-linter [wifi dongle](
 The integration exposes the following sensors:
 
 If you have multiple plants (inverters), the sensors represent an aggregated
-view of the relevant sensors. For instance battery state of charge, in a typical installation,
-as the batteries are on a shared bus, is the max of battery charge reported by both inverters,
-while load power will be the sum of the load on each inverter.
+view of the relevant sensors. For example: in a typical installation, the battery state of charge is the maximum battery charge reported by both inverters. This is because the batteries are on a shared bus. 
+The load power will be the sum of the load on each inverter.
 The energy totals produce statistics that are usable with the energy dashboard.
 
 | id                      | description                                               |
