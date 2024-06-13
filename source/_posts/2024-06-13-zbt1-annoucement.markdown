@@ -12,11 +12,11 @@ og_image: /images/blog/2024-06-ZBT1/art.jpg
 
 <p class="img no-shadow"><img src='/images/blog/2024-06-ZBT1/art.jpg' alt='Home Assistant Skyconnect becomes Connect ZBT-1'/></p>
 
-[Connect ZBT-1](/connectzbt1) is the new name for Home Assistant SkyConnect. Though it's a new name and look, they have the exact same hardware, capability, and support.
+[Home Assistant Connect ZBT-1](/connectzbt1) is the new name for Home Assistant SkyConnect. Though it's a new name and look, they have the exact same hardware, capability, and support.
 
-We launched Home Assistant SkyConnect in late 2022, a device designed to be the easiest, most stable way to connect Zigbee and Home Assistant together. It also came with Thread connectivity support, which was (and still is) pretty groundbreaking at its price point.  All these years later, it continues to receive strong support and is a community favorite.
+We launched Home Assistant SkyConnect in late 2022, a device designed to be the easiest, most stable way to connect Zigbee and Home Assistant together. It also came with Thread connectivity support, which was (and still is) pretty groundbreaking at its price point. All these years later, it continues to receive strong support and is a community favorite.
 
-Home Assistant Connect ZBT-1 is the same great product we all know and love. Going forward, whenever we mention updates or features for Connect ZBT-1, this will also apply to Home Assistant SkyConnect-branded devices. Keep reading to learn why we changed the name.
+Home Assistant Connect ZBT-1 is the same great product we all know and love. Going forward, whenever we mention updates or features for Home Assistant Connect ZBT-1, this will also apply to Home Assistant SkyConnect-branded devices. Keep reading to learn why we changed the name.
 
 <!--more-->
 
@@ -28,12 +28,12 @@ We are working towards building a new line of Connect products, specifically we 
 
 ## What has changed?
 
-<p class="img"><img src='/images/blog/2024-06-ZBT1/zbt1-packaging-render.jpg' alt='Rendering of the Connect ZBT-1 Packaging'/>Connect ZBT-1 packaging renders 🤤, they look even better in person!</p>
+<p class="img"><img src='/images/blog/2024-06-ZBT1/zbt1-packaging-render.jpg' alt='Rendering of the Home Assistant Connect ZBT-1 Packaging'/>Home Assistant Connect ZBT-1 packaging renders 🤤, they look even better in person!</p>
 
-As I said nothing has changed internally - the [listed specs](/connectzbt1) are identical. You do get new packaging, which we're pretty proud of.  The device itself has been updated visually with our current logo and has the new ZBT-1 name.
+As I said nothing has changed internally - the [listed specs](/connectzbt1) are identical. You do get new packaging, which we're pretty proud of. The device itself has been updated visually with our current logo and has the new ZBT-1 name.
 
 ## Which one should I buy?
 
-Whichever is in stock, as they are the same. Retailers will continue to sell Home Assistant SkyConnect-branded devices while supplies last.  Regardless of what you buy, you will still get the same long-term support, updates, plug-and-play experience, and great range.
+Whichever is in stock, as they are the same. Retailers will continue to sell Home Assistant SkyConnect-branded devices while supplies last. Regardless of what you buy, you will still get the same long-term support, updates, plug-and-play experience, and great range.
 
 Learn more about where you can buy Home Assistant Connect ZBT-1 [here](/connectzbt1).
