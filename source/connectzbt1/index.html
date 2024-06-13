@@ -1,14 +1,14 @@
 ---
 layout: landingpage
-title: "Home Assistant SkyConnect"
+title: "Home Assistant Connect ZBT-1"
 description: "Best way to add Zigbee and Thread to Home Assistant"
 date: 2022-10-05
-tagline: Home Assistant SkyConnect
+tagline: Home Assistant Connect ZBT-1
 tagline_wide: false
-og_image: /images/skyconnect/skyconnect-cover.png
-hero_image: /images/skyconnect/skyconnect_horizontal.png
+og_image: /images/connectzbt1/connectzbt1-cover.jpg
+hero_image: /images/connectzbt1/connectzbt1_horizontal.png
 frontpage: true
-frontpage_image: /images/skyconnect/skyconnect-cover.png
+frontpage_image: /images/connectzbt1/connectzbt1-cover.jpg
 ---
 
 <style>
@@ -68,6 +68,12 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
     display: flex;
     align-items: center;
   }
+
+  #skyconnectBanner {
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
 </style>
 
 <div class="content">
@@ -75,23 +81,23 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
     <div>
       <div class="banner-overlay-header">Available now</div>
       <div class="banner-overlay-content">
-        The Home Assistant SkyConnect is the easiest way to add Zigbee support
+        Home Assistant Connect ZBT-1 (previously known as Home Assistant SkyConnect) is the easiest way to add Zigbee support
         to your Home Assistant instance.
         <br /><br />
-        We will soon add Thread support; allowing your Home Assistant SkyConnect
+        We will soon add Thread support; allowing your Home Assistant Connect ZBT-1
         to be used to connect to Thread-based Matter devices.
       </div>
     </div>
     <div class="material-card text box">
       <div class="banner-overlay-images">
         <div class="img-container">
-          <img src="/images/skyconnect/skyconnect_square.jpg" />
+          <img src="/images/connectzbt1/connectzbt1_square.jpg" />
         </div>
         <div class="img-container">
-          <img src="/images/skyconnect/skyconnect_horizontal.png" />
+          <img src="/images/connectzbt1/connectzbt1_horizontal.png" />
         </div>
         <div class="img-container">
-          <img src="/images/skyconnect/skyconnect_isometric.png" />
+          <img src="/images/connectzbt1/connectzbt1_isometric.png" />
         </div>
       </div>
       <div class="banner-overlay-button" onclick="showBuyDialog()">
@@ -132,7 +138,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
       <div class="component-list">
 
         <div class="spec-title">Model No.</div>
-        <div class="spec-content">HASKYCNCT</div>
+        <div class="spec-content">NC-ZBT-9710</div>
 
         <div class="spec-title">Radio Chipset</div>
         <div class="spec-content">Silicon Labs Multiprotocol EFR32MG21</div>
@@ -175,13 +181,16 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 
 <h1 class="sub-title">FAQs</h1>
 <div class="faq-list">
-  {% details "Why include a USB extension cable?" %} USB 3.0 ports (the ones with blue on the inside) are known to cause significant noise and radio interference to any 2.4Ghz  wireless devices. This includes Zigbee and Thread. If you do not use the extension cable, it may not work at all, and if it does, it could be flaky at best with intermittent problems (issues with pairing, device dropouts, unreachable devices, timeout errors, etc).
+  {% details "What is the difference between Home Assistant SkyConnect and Connect ZBT-1?" %} Home Assistant Connect ZBT-1 is the new name for Home Assistant SkyConnect. Though it's a new name and look, they have the exact same hardware, capability, and support. We made this change to help make room for a new line of Connect products, specifically an upcoming Z-Wave Connect product. Going forward, whenever we mention updates or features for Home Assistant Connect ZBT-1, this will also apply to SkyConnect-branded devices. Retailers will continue to sell SkyConnect-branded devices while supplies last, and we would encourage you to purchase whatever is available as they are functionally identical.
+  {% enddetails %}
+
+  {% details "Why include a USB extension cable?" %} USB 3.0 ports (the ones with blue on the inside) are known to cause significant noise and radio interference to any 2.4&nbsp;GHz wireless devices. This includes Zigbee and Thread. If you do not use the extension cable, it may not work at all, and if it does, it could be flaky at best with intermittent problems (issues with pairing, device dropouts, unreachable devices, timeout errors, etc).
   <br><br>
   <a href="https://www.youtube.com/watch?v=tHqZhNcFEvA">See demo on YouTube.</a> 
   {% enddetails %}
 
-  {% details "Which use case do you recommend for Home Assistant SkyConnect?" %}
-  Our current recommendation for Home Assistant SkyConnect is to use the Zigbee firmware to power your Zigbee network. This solution offers a great experience out-of-the-box.<br /><br />
+  {% details "Which use case do you recommend for Home Assistant Connect ZBT-1?" %}
+  Our current recommendation for Home Assistant Connect ZBT-1 is to use the Zigbee firmware to power your Zigbee network. This solution offers a great experience out-of-the-box.<br /><br />
   As part of our efforts to bring Matter to Home Assistant, we're now focused on ensuring that the Thread experience will catch up and become a first-class citizen, making it easy to connect to your Thread-based Matter devices in Home Assistant without a third-party Thread border router. The Thread firmware is already fully functional under the hood, but we still have some work to do to make the experience of using Thread-based devices in Home Assistant feel good. Once the experience has improved, we will recommend using this Thread firmware to power your Thread network as an alternative to using third-party Thread border routers from Apple or Google.
   {% enddetails %}
 
@@ -189,10 +198,10 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   <br />
   <b>Multiprotocol will remain an experimental feature and is not recommended for use. </b>
   <br /><br />
-  When we launched Home Assistant SkyConnect, we announced our intent to release firmware supporting multiprotocol, which allows the device's Silicon Labs chip to connect to both Zigbee and Thread networks with one radio. <br /><br />
-  This experimental firmware has been available since December 2022. Through extensive testing, we have found that although it works in some circumstances, it has technical limitations that lead to a worse user experience. We now do not recommend using this firmware, and it will be experimental for the foreseeable future. Instead, we will focus on making sure the dedicated Zigbee and Thread firmwares for Home Assistant SkyConnect deliver the best experience to users.<br /><br />
+  When we launched this device, we announced our intent to release firmware supporting multiprotocol, which allows the device's Silicon Labs chip to connect to both Zigbee and Thread networks with one radio. <br /><br />
+  This experimental firmware has been available since December 2022. Through extensive testing, we have found that although it works in some circumstances, it has technical limitations that lead to a worse user experience. We now do not recommend using this firmware, and it will be experimental for the foreseeable future. Instead, we will focus on making sure the dedicated Zigbee and Thread firmwares for Home Assistant Connect ZBT-1 deliver the best experience to users.<br /><br />
   
-  If you currently have the multiprotocol firmware installed but don't actively use it to connect to Thread devices, we recommend that you <a href="https://skyconnect.home-assistant.io/procedures/disable-multiprotocol/">disable multiprotocol</a>. <br /><br />
+  If you currently have the multiprotocol firmware installed but don't actively use it to connect to Thread devices, we recommend that you <a href="https://connectzbt1.home-assistant.io/procedures/disable-multiprotocol/">disable multiprotocol</a>. <br /><br />
   Nothing changes for current users of the multiprotocol firmware who are happy with their experience. The experimental multiprotocol firmware will remain available, but we will not recommend it to new users.{% enddetails %}
 </div>
 
@@ -200,7 +209,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   1: Relies on the experimental EmberZNet support in Zigbee2MQTT.
 </div>
 <div class="material-card text spaced-card" style="margin-top: 72px;">
-  <a href="https://skyconnect.home-assistant.io/" target="_blank"
+  <a href="https://connectzbt1.home-assistant.io/" target="_blank"
   class="documentation-card">
     <div class="content-container">
         <div>
@@ -223,7 +232,7 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
   <div class="material-card text dialog-content">
     <div class="close-container"></div>
     <div class="dialog-header">
-      <span>Home Assistant SkyConnect</span>
+      <span>Home Assistant Connect ZBT-1</span>
       <span class="dialog-close" onclick="closeDialog()" title="close">
         <svg width="24" height="24" viewBox="0 0 24 24">
           <path
@@ -681,9 +690,9 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
 </div>
 
 <div
-  class="fab" style="position: fixed; top: 78px; height: 48px;"
+  class="fab" style="position: fixed; top: 116px; height: 48px;"
   onclick="showBuyDialog()"
-  title="pre-order Home Assistant SkyConnect"
+  title="Order Home Assistant Connect ZBT-1"
 >
   <svg style="width: 32px; height: 32px" viewBox="0 0 32 32">
     <path
@@ -727,5 +736,22 @@ frontpage_image: /images/skyconnect/skyconnect-cover.png
     }
   } catch ( ev ) {
     // Ignore...
+  }
+</script>
+<script>
+  if (window.location.hash === "#from-skyconnect") {
+    const banner = document.createElement("div");
+    banner.id = "skyconnectBanner";
+    banner.textContent = "We noticed you were looking for Home Assistant SkyConnect - it's now called Home Assistant Connect ZBT-1, and remains the best way to connect to Zigbee devices.";
+
+    // Apply styles
+    Object.assign(banner.style, {
+        backgroundColor: "white",
+        padding: "10px",
+        fontSize: "16px",
+      });
+
+    // Insert the banner content into the header element
+    document.querySelector("header").appendChild(banner);
   }
 </script>
