@@ -24,7 +24,7 @@ This will log into your Sunsynk account and will collate the information of any 
 
 ## Prerequisites
 
-To use this integration you will need a sunsynk-branded e-linter [wifi dongle](https://www.sunsynk.org/logger-support) for your inverter(s) and a [Sunsynk connect](Sunsynk.net) account. This will typically be created by your installer on your behalf. The account needs at least the 'visitor' permissions.
+To use this integration, you will need a sunsynk-branded e-linter [wifi dongle](https://www.sunsynk.org/logger-support) for your inverter(s) and a [Sunsynk connect](Sunsynk.net) account. This will typically be created by your installer on your behalf. The account needs at least the 'visitor' permissions.
 
 {% include integrations/config_flow.md %}
 
