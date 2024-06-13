@@ -738,58 +738,18 @@ frontpage_image: /images/connectzbt1/connectzbt1-cover.jpg
     // Ignore...
   }
 </script>
-<script>
-  // Function to create and insert the banner element
-      function insertBanner() {
-        // Check if #from-skyconnect is present in the URL
-        if (window.location.hash === "#from-skyconnect") {
-          // Create the banner element (a `<div>`)
-          const banner = document.createElement("div");
-          banner.id = "skyconnectBanner";  // Add an ID for potential styling
-          banner.textContent = "We noticed you were looking for Home Assistant SkyConnect - it's now called Home Assistant Connect ZBT-1, and remains the best way to connect to Zigbee devices.";
-          // Style the banner (optional)
-          banner.style.backgroundColor = "white";
-          banner.style.padding = "10px";
-          banner.style.fontSize = "16px";
-          // Find a suitable location to insert the banner (replace with your preference)
-          const header = document.querySelector("header");
-          if (header) {
-            header.appendChild(banner);
-          } else {
-            console.warn("No header element found. Banner not inserted.");
-          }
-        }
-      }
-      // Function to handle link clicks with hash preservation
-      function handleLinkClick(event) {
-        const link = event.target;
-        // Check if it's a link and not clicked within the link itself (e.g., on an image)
-        if (link.tagName.toLowerCase() === "a" && !link.classList.contains("ignore-hash")) {
-          // Get the original target URL
-          let targetURL = link.href;
-          // Check if form submission
-          if (link.hasAttribute("form")) {
-            // Assuming a hidden input named "hash" exists in the form
-            const form = link.closest("form");
-            const hiddenInput = form.querySelector("input[name='hash']");
-            if (hiddenInput) {
-              hiddenInput.value = "#from-skyconnect";
-            } else {
-              console.warn("Form missing hidden input named 'hash'");
-            }
-            return;  // Allow form submission to handle hash
-          }
-          // Modify URL to include #test if not already present
-          if (!targetURL.includes("#from-skyconnect")) {
-            targetURL += "#from-skyconnect";
-          }
-          // Prevent default behavior and navigate with modified URL
-          event.preventDefault();
-          window.location.href = targetURL;
-        }
-      }
-      // Call the function on page load and handle hash changes
-      window.addEventListener("load", insertBanner);
-      window.addEventListener("hashchange", insertBanner);
-      document.addEventListener("click", handleLinkClick);
-  </script>
+  if (window.location.hash === "#from-skyconnect") {
+    const banner = document.createElement("div");
+    banner.textContent = "We noticed you were looking for Home Assistant SkyConnect - it's now called Home Assistant Connect ZBT-1, and remains the best way to connect to Zigbee devices.";
+
+    // Apply styles
+    Object.assign(banner.style, {
+        backgroundColor: "white",
+        padding: "10px",
+        fontSize: "16px",
+        textAlign: "center",
+      });
+
+    // Insert the banner content into the header element
+    document.querySelector("header").appendChild(banner);
+  }
