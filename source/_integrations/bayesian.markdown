@@ -199,7 +199,7 @@ binary_sensor:
   observations:
     - platform: template
       value_template: >
-        {{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}
+        "{{is_state('device_tracker.paulus','not_home') and ((as_timestamp(now()) - as_timestamp(states.device_tracker.paulus.last_changed)) > 300)}}"
       prob_given_true: 0.05
       prob_given_false: 0.99
 ```
