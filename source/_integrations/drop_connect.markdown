@@ -38,7 +38,7 @@ There is currently support for the following DROP products within Home Assistant
 - **RO Filter**: reverse osmosis drinking water filtration.
 - **Salt Sensor**: alerts when the salt level in the softener brine tank is low.
 
-### Pre-requisites
+### Prerequisites
 
 To use DROP with Home Assistant, you must have already configured the [MQTT](/integrations/mqtt/) platform.
 

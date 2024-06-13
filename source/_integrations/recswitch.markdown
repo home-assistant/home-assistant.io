@@ -9,9 +9,12 @@ ha_domain: recswitch
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `recswitch` switch platform allows you to control the Ankuoo REC Switch devices.
+The `recswitch` switch {% term integration %} allows you to control the Ankuoo REC Switch devices.
 
 Supported devices (tested):
 
@@ -21,7 +24,8 @@ Supported devices (tested):
 
 ## Configuration
 
-To enable this switch, add the following lines to your `configuration.yaml`:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

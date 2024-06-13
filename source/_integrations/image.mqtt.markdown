@@ -18,7 +18,7 @@ An alternative setup is to use the `url_topic` option to receive an image URL fo
 
 ## Configuration
 
-To enable this image in your installation, add the following to your `configuration.yaml` file:
+To enable this image in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,6 +102,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -128,7 +132,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -137,7 +140,6 @@ image_encoding:
   description: The encoding of the image payloads received. Set to `"b64"` to enable base64 decoding of image payload. If not set, the image payload must be raw binary data.
   required: false
   type: string
-  default: None
 image_topic:
   description: The MQTT topic to subscribe to receive the image payload of the image to be downloaded. Ensure the `content_type` type option is set to the corresponding content type. This option cannot be used together with the `url_topic` option. But at least one of these option is required.
   required: exclusive
@@ -174,7 +176,7 @@ url_topic:
 
 ### Example receiving images from a URL
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it publish an image URL to the topic from the console:
 
@@ -195,7 +197,7 @@ mqtt:
 
 ### Example receiving images from a file
 
-Add the configuration below to your `configuration.yaml`.
+Add the configuration below to your {% term "`configuration.yaml`" %}.
 
 To test it, publish an image URL to the topic from the console:
 

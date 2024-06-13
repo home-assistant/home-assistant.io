@@ -2,7 +2,9 @@
 title: Vodafone Station
 description: Instructions on how to integrate Vodafone Station routers into Home Assistant.
 ha_category:
+  - Button
   - Presence detection
+  - Sensor
 ha_release: 2023.9
 ha_domain: vodafone_station
 ha_config_flow: true
@@ -14,7 +16,8 @@ ha_platforms:
   - button
   - device_tracker
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The **Vodafone Station** {% term integration %} allows you to control your [Vodafone Station](https://www.vodafone.it/privati/area-supporto/assistenza-dispositivi/vodafone-station.html) based router.

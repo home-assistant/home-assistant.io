@@ -17,6 +17,7 @@ ha_platforms:
   - stt
   - switch
   - tts
+  - wake_word
 ha_config_flow: true
 ha_zeroconf: true
 ---

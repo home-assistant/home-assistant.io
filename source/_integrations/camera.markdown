@@ -39,27 +39,27 @@ Available services: `enable_motion_detection`, `disable_motion_detection`, `play
 
 Enable the motion detection in a camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
+| Service data attribute | Optional | Description                                                                        |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to enable motion detection, e.g., `camera.living_room_camera`. |
 
 #### Service `disable_motion_detection`
 
 Disable the motion detection in a camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
+| Service data attribute | Optional | Description                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to disable motion detection, e.g., `camera.living_room_camera`. |
 
 #### Service `play_stream`
 
 Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) integration to be set up.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of entity to fetch stream from, e.g., `camera.living_room_camera`. |
-| `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
-| `format`               |      yes | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
+| Service data attribute | Optional | Description                                                                                 |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of entity to fetch stream from, e.g., `camera.living_room_camera`.                     |
+| `media_player`         | no       | Name of media player to play stream on, e.g., `media_player.living_room_tv`.                |
+| `format`               | yes      | Stream format supported by `stream` integration and selected `media_player`. Default: `hls` |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
@@ -78,14 +78,14 @@ Make a `.mp4` recording from a camera stream. Requires `stream` integration to b
 
 Both `duration` and `lookback` options are suggestions, but should be consistent per camera.  The actual length of the recording may vary. It is suggested that you tweak these settings to fit your needs.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id.name }}.mp4`{% endraw %}. |
-| `duration`             |      yes | Target recording length (in seconds). Default: 30 |
-| `lookback`             |      yes | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
+| Service data attribute | Optional | Description                                                                                                                                    |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                                              |
+| `filename`             | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/{{ entity_id.name }}.mp4`{% endraw %}.                                  |
+| `duration`             | yes      | Target recording length (in seconds). Default: 30                                                                                              |
+| `lookback`             | yes      | Target lookback period (in seconds) to include in addition to duration.  Only available if there is currently an active HLS stream. Default: 0 |
 
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/#allowlist_external_dirs) section of your {% term "`configuration.yaml`" %} file.
 
 For example, the following action in an automation would take a recording from "yourcamera" and save it to /tmp with a timestamped filename.
 
@@ -106,12 +106,12 @@ action:
 
 Take a snapshot from a camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id.name }}`{% endraw %}. |
+| Service data attribute | Optional | Description                                                                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | no       | Name(s) of entities to create a snapshot from, e.g., `camera.living_room_camera`.                                  |
+| `filename`             | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id.name }}`{% endraw %}. |
 
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/) section of your {% term "`configuration.yaml`" %} file.
 
 For example, the following action in an automation would take a snapshot from "yourcamera" and save it to /tmp with a timestamped filename.
 
@@ -132,17 +132,17 @@ action:
 
 Turn off camera. Not all camera models support this service, please consult individual camera page.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
+| Service data attribute | Optional | Description                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to turn off, e.g., `camera.living_room_camera`. |
 
 #### Service `turn_on`
 
 Turn on camera. Not all camera models support this service, please consult individual camera page.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to turn on, e.g., `camera.living_room_camera`.      |
+| Service data attribute | Optional | Description                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------ |
+| `entity_id`            | yes      | Name(s) of entities to turn on, e.g., `camera.living_room_camera`. |
 
 ### Test if it works
 

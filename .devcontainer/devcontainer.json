@@ -32,7 +32,8 @@
         "gitlens.showWelcomeOnInstall": false,
         "gitlens.showWhatsNewAfterUpgrades": false,
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
-        "workbench.startupEditor": "none"
+        "workbench.startupEditor": "none",
+        "rubyLsp.rubyVersionManager": "none"
       }
     }
   }

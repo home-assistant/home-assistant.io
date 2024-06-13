@@ -12,13 +12,17 @@ ha_domain: worldclock
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `worldclock` sensor platform simply displays the current time in a different time zone.
+The `worldclock` {% term integration %} simply displays the current time in a different time zone.
 
 ## Configuration
 
-To enable this sensor in your installation, add the following to your `configuration.yaml` file:
+To enable this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

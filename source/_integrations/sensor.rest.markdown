@@ -12,7 +12,7 @@ The `rest` sensor platform is consuming a given endpoint which is exposed by a [
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -423,12 +423,12 @@ rest:
   
     sensor:
       - name: "Steam Temp"
-        value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
+        value_template: "{{ value_json['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
 
        steam_time_remaining:
       - name: "Steam Time Remaining"
-        value_template: "{{ json_value['response']['time0'] }}"
+        value_template: "{{ value_json['response']['time0'] }}"
         unit_of_measurement: "minutes"
 
 rest_command:  

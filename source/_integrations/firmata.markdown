@@ -26,7 +26,7 @@ The Firmata protocol is a standard protocol for microcontrollers. Most of these 
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary sensor](#binary_sensor)
+- [Binary sensor](#binary_sensors)
 - [Light](#lights)
 - [Sensor](#sensors)
 - [Switch](#switches)
@@ -35,7 +35,7 @@ There is currently support for the following device types within Home Assistant:
 
 You will need to upload a [Firmata firmware](https://github.com/firmata/) to your board. Please upload any `StandardFirmata` sketch to your board; please refer to the [Arduino documentation](https://www.arduino.cc/en/Main/Howto) for further information for uploading sketches. Firmata is available in the Arduino Library Manager in the Arduino IDE. You may also use a [Firmata Express](https://github.com/MrYsLab/FirmataExpress).
 
-To integrate Arduino boards with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Arduino boards with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file:
 
 <div class='note warning'>
 Firmata does not store the last state across power cycles. This means that with every powerup the pins are set to off/low and after every initialization, they will be set to the default that you have configured in YAML.

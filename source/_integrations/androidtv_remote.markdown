@@ -32,21 +32,29 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
+Using the `media_player.play_media` service, you can launch applications and switch channels. Only `url` and `channel` media types are supported.
 
 ### Launching apps
 
-You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
+If the Android TV device has the Google Play Store, you can directly launch any app by its application ID/package name.
+The app doesn't need to exist in the Google Play Store.
+If it exists, you can find the application ID in the URL of the app's Google Play Store listing.
+For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the application ID is `com.example.app123`.
+The application ID is also displayed in the media player card when you launch the application on the device.
 
-Examples of some `Deep Links` for popular applications:
+Alternatively, if the device doesn't have the Google Play Store or if you want to open an app in a specific section, you can pass deep links supported by some applications.
 
-| App | URL |
-| --- | --- |
-| YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
-| Netflix | `https://www.netflix.com/title` or `netflix://`
-| Prime Video | `https://app.primevideo.com`
-| Disney+ | `https://www.disneyplus.com`
-| Plex | `plex://`
+Examples of application IDs and deep links for popular applications:
+
+| App | App ID | Deep link |
+| --- | --- | --- |
+| YouTube | `com.google.android.youtube.tv` | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
+| Netflix | `com.netflix.ninja` | `https://www.netflix.com/title` or `netflix://`
+| Prime Video | `com.amazon.amazonvideo.livingroom` | `https://app.primevideo.com`
+| Disney+ | `com.disney.disneyplus` | `https://www.disneyplus.com`
+| Plex | `com.plexapp.android` | `plex://`
+| Kodi | `org.xbmc.kodi` | N/A
+| Twitch | `tv.twitch.android.app` | `twitch://home` `[home,stream,game,video,clip,search,browse,channel,user]`
 
 Examples:
 
@@ -55,7 +63,7 @@ Examples:
 service: media_player.play_media
 data:
   media_content_type: url
-  media_content_id: https://www.netflix.com/title
+  media_content_id: com.netflix.ninja
 target:
   entity_id: media_player.living_room_tv
 ```
@@ -130,6 +138,7 @@ media_player:
 
 The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
+You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` service to launch that app.
 
 {% details "List of the most common commands" %}
 
@@ -143,6 +152,7 @@ Navigation:
 - BUTTON_B
 - BUTTON_X
 - BUTTON_Y
+- BACK
 
 Volume Control:
 - VOLUME_DOWN
@@ -208,10 +218,11 @@ Other:
 - SETTINGS
 - SEARCH
 - ASSIST
+- POWER
 
 {% enddetails %}
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
+If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
 Examples of service calls:
 
@@ -489,7 +500,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.netflix.com/title
+            activity: com.netflix.ninja
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -501,7 +512,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://app.primevideo.com
+            activity: com.amazon.amazonvideo.livingroom
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -513,7 +524,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.disneyplus.com
+            activity: com.disney.disneyplus
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -534,6 +545,13 @@ cards:
 - If you cannot use the Google TV mobile app or the Google Home mobile app to send commands to the device, you cannot send commands with this integration either.
 - Commands don't work on Netflix. They don't work from the Google TV mobile app or the Google Home mobile app either.
 - Some devices, like Xiaomi, become unavailable after they are turned off and can't be turned on with this integration.
+- Some devices, like TCL, become unavailable after they are turned off, unless you activate the **Screenless service**. To activate it, go to **Settings** > **System** > **Power and energy** > **Screenless service**, and activate it.
 - Some devices experience disconnects every 15 seconds. This is typically resolved by rebooting the Android TV device after the initial setup of the integration.
-- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **settings** > **Apps** >  **Show system apps**. Then,  select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
-- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by unselecting **Enable IME** in the **Configure** page of the integration.
+- If you are not able to connect to the Android TV device, or are asked to pair it again and again, try force-stopping the Android TV Remote Service and clearing its storage. On the Android TV device, go to **Settings** > **Apps** > **Show system apps**. Then, select **Android TV Remote Service** > **Storage** > **Clear storage**. You will have to pair again.
+- Some onscreen keyboards enabled by TV manufacturers do not support concurrent virtual and onscreen keyboard use. This presents whenever a text field is selected, such as "search" where a constant **use the keyboard on your mobile device** will show, preventing you from opening the onscreen keyboard to type. This can be overcome by either disabling your 3rd party keyboard and using the default Gboard keyboard or by deselecting **Enable IME** in the **Configure** page of the integration.
+- In some instances, Zeroconf will assign an incorrect IP address to a device. As a workaround, the below can be added to `configuration.yaml` to prevent Zeroconf from assigning IPs for the integration. IPs will need to be manually entered during setup, as described [above](/integrations/androidtv_remote/#configuration).
+```yaml
+zeroconf:
+  ignore:
+    - androidtv_remote
+```

@@ -2,9 +2,9 @@ module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
       'action'       => '/docs/scripts/',
-      'device_class' => '/docs/configuration/customizing-devices/#device-class',
+      'device_class' => '/integrations/homeassistant/#device-class',
       'template'     => '/docs/configuration/templating/',
-      'icon'         => '/docs/configuration/customizing-devices/#icon',
+      'icon'         => '/integrations/homeassistant/#icon',
       'selector'     => '/docs/blueprint/selectors/',
     }
 
@@ -72,12 +72,12 @@ module Jekyll
           if attr['type'].kind_of? Array
             attr['type'].each do |type|
               raise ArgumentError, "Configuration type '#{type}' for key '#{key}' is not a valid type in the documentation."\
-              " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
+              " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
                 TYPES.include? type
             end
           else
             raise ArgumentError, "Configuration type '#{attr['type']}' for key '#{key}' is not a valid type in the documentation."\
-            " See: https://developers.home-assistant.io/docs/en/documentation_create_page.html#configuration" unless \
+            " See: https://developers.home-assistant.io/docs/documenting/create-page#configuration" unless \
               TYPES.include? attr['type']
           end
 

@@ -1,6 +1,6 @@
 ---
-title: Command Line
-description: Instructions on how to integrate the Command Line utility within Home Assistant.
+title: Command line
+description: Instructions on how to integrate the command line utility within Home Assistant.
 ha_category:
   - Binary sensor
   - Cover
@@ -19,9 +19,12 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@gjohansson-ST'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `command_line` offers functionality that issues specific commands to get data or to control a device.
+The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
 <div class='note'>
 
@@ -43,7 +46,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
@@ -80,6 +83,11 @@ command_line:
           description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -114,10 +122,18 @@ command_line:
           required: false
           type: integer
           default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
         name:
           description: The name used to display the cover in the frontend.
           required: true
           type: string
+        icon:
+          description: Defines a template for the icon of the entity.
+          required: false
+          type: template          
         unique_id:
           description: An ID that uniquely identifies this cover. Set this to a unique value to allow customization through the UI.
           required: false
@@ -126,6 +142,11 @@ command_line:
           description: if specified, `command_state` will ignore the result code of the command but the template evaluating will indicate the position of the cover. For example, if your `command_state` returns a string "open", using `value_template` as in the example configuration above will allow you to translate that into the valid state `100`.
           required: false
           type: template
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -158,7 +179,7 @@ command_line:
         command:
           description: The action to take to get the value.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout
           required: false
@@ -189,6 +210,11 @@ command_line:
           description: "Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload."
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         device_class:
           description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
           required: false
@@ -250,6 +276,11 @@ command_line:
           description: "If specified, `command_state` will ignore the result code of the command but the template evaluating to `true` will indicate the switch is on."
           required: false
           type: string
+        availability:
+          description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that string comparisons are not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+          required: false
+          type: template
+          default: true
         scan_interval:
           description: Define time in seconds between each update.
           required: false
@@ -259,7 +290,7 @@ command_line:
 
 ## Binary sensor
 
-To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Command binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -276,7 +307,7 @@ command_line:
 
 A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
 
-To enable a command line cover in your installation, add the following to your `configuration.yaml` file:
+To enable a command line cover in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -294,7 +325,7 @@ command_line:
 
 The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.
 
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+To enable those notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -309,7 +340,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ## Sensor
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 {% raw %}
 ```yaml
@@ -329,7 +360,7 @@ and off. This might very well become our most powerful platform as it allows
 anyone to integrate any type of switch into Home Assistant that can be
 controlled from the command line, including calling other scripts!
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 {% raw %}
 ```yaml
@@ -470,7 +501,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### CPU temperature
 
-Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
+Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -487,7 +518,7 @@ command_line:
 
 ### Monitoring failed login attempts on Home Assistant
 
-If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your `configuration.yaml` file:
+If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -541,7 +572,7 @@ command_line:
 
 The example is doing the same as the [aREST sensor](/integrations/arest#sensor) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
-The one-line script to retrieve a value is shown below. Of course it would be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
+The one-line script to retrieve a value is shown below. Of course it would be possible to use this directly in the {% term "`configuration.yaml`" %} file but need extra care about the quotation marks.
 
 {% raw %}
 ```bash
@@ -561,7 +592,7 @@ print(response.json()["return_value"])
 ```
 {% endraw%}
 
-To use the script you need to add something like the following to your `configuration.yaml` file.
+To use the script you need to add something like the following to your {% term "`configuration.yaml`" %} file.
 
 {% raw %}
 ```yaml

@@ -12,9 +12,12 @@ ha_platforms:
   - media_player
   - remote
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Panasonic Viera integration allows you to control a Panasonic Viera TV.
+The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -30,6 +33,8 @@ To allow your TV to be turned on or controlled while off, enable `Powered On By 
 ## Manual configuration
 
 If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
+To enable the integration via YAML, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

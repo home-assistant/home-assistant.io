@@ -53,7 +53,7 @@ light:
               value: "{{ s }}"
               entity_id: input_number.s_input
           - service: light.turn_on
-            data_template:
+            data:
               entity_id:
                 - light.led_strip
               transition: "{{ transition | float }}"
@@ -62,7 +62,7 @@ light:
                 - "{{ hs[1] }}"
         set_effect:
           - service: light.turn_on
-            data_template:
+            data:
               entity_id:
                 - light.led_strip
               effect: "{{ effect }}"
@@ -399,12 +399,12 @@ light:
         set_level:
           service: light.turn_on
           entity_id: light.wled_master
-          data_template:
+          data:
             brightness: "{{ brightness }}"
         set_rgbw:
           service: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
-          data_template:
+          data:
             rgbw_color:
               - "{{ r }}"
               - "{{ g }}"
@@ -414,7 +414,7 @@ light:
         set_effect:
           service: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
-          data_template:
+          data:
             effect: "{{ effect }}"
 ```
 
