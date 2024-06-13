@@ -30,7 +30,7 @@ To use this integration, you will need a sunsynk-branded e-linter [wifi dongle](
 
 ## Sensors
 
-The integration exposes the following sensors.
+The integration exposes the following sensors:
 
 If you have multiple plants (inverters), the sensors represent an aggregated
 view of the relevant sensors. For instance battery state of charge, in a typical installation,
