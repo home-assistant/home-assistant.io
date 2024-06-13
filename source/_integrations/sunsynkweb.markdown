@@ -3,7 +3,6 @@
 title: Sunsynk web
 description: Home Assistant integration to gather statistics from [Sunsynk connect](http://sunsynk.org) REST API
 ha_category:
-
 - Energy
 - Sensor
 ha_release: TBD
