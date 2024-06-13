@@ -39,7 +39,7 @@ The qBittorrent integration will add the following sensors:
 
 
 ## Switch
-`Alternative Speed` is added, controling qBittorrent's alternative speed
+`Alternative Speed` is added, controlling qBittorrent's alternative speed
 
 ## Services
 
