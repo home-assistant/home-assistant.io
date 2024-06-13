@@ -140,7 +140,9 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 ### Method 2: Installing HAOS directly from a boot medium
 
-<div class='note warning'>Use this method only if Method 1 does not work for you.</div>
+<div class='note warning'>
+Use this method only if Method 1 does not work for you.
+</div>
 
 #### Required material
 
@@ -205,8 +207,8 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 *Select and copy the URL or use the "copy" button that appear when you hover it.*
 
 5. Paste the URL into your browser to start the download.
-6. Extract the archive.
-7. Select **Flash from file** and select the image you just downloaded.
+6. Extract the file you just downloaded.
+7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
 
   ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
