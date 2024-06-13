@@ -5,8 +5,8 @@ description: "More information on why untrusted content marks an installation as
 
 ## The issue
 
-Home Assistant detected untrusted code. It looks like someone/something tried to inject not signed images or code into your Home Assistant system. But don't worry, we blocked this action and nothing was applied.
+Home Assistant detected untrusted code. It looks like someone/something injected not signed images or code into your Home Assistant system.
 
 ## The solution
 
-Please make sure your network is not affected by an intruder and try it again. To reset this status, you need to restart the Supervisor.
+Please make sure your network is not affected by an intruder. We recommend reinstalling your installation and make sure only authorized persons have access to your instance.

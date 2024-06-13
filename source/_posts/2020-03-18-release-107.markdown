@@ -69,7 +69,7 @@ admin users only.
 
 An unlimited amount of dashboards can be created right from the UI in the new
 Lovelace configuration panel, and YAML dashboards can be set up in
-`configuration.yaml`, see [the documentation](/lovelace/yaml-mode/).
+`configuration.yaml`, see [the documentation](/dashboards/yaml-mode/).
 
 This awesome new feature comes with a deprecation if you use Lovelace in
 manual YAML mode: You need to move the `resources` section from
@@ -162,7 +162,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Xfinity Gateway** *(Deprecated)* - The Xfinity Gateway integration relies on web scraping and is deprecated, to be removed in Home Assistant Core 0.109. (ADR-0004) - ([@frenck] - [#32017])
 
@@ -176,14 +176,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 - **Input Number** - Adds an entity ID to input_number warning. Passing an out of range value to `input_number.set_value` will now raise a validation error. Incrementing/decrementing an `input_number` will no longer cause warnings. - ([@balloob] - [#32012]) ([input_number docs])
 
-- **History Graph** - The `history_graph` integration has been deprecated in Home Assistant 0.105 and is now removed. This integration was used for the old states UI, which is no longer available. A Lovelace an equivalent is available: [The Lovelace History Graph](/lovelace/history-graph/). ([@frenck] - [#32028])
+- **History Graph** - The `history_graph` integration has been deprecated in Home Assistant 0.105 and is now removed. This integration was used for the old states UI, which is no longer available. A Lovelace an equivalent is available: [The Lovelace History Graph](/dashboards/history-graph/). ([@frenck] - [#32028])
 
 - **Weblink** - The `weblink` integration is was deprecated in 0.105.0 and now removed. This integration only works with the old states UI, which is no longer available. ([@frenck] - [#32024])
 
   With Lovelace, the same can be achieved using:
 
-  - [The Lovelace Markdown card](/lovelace/markdown/)
-  - [The Lovelace Entities card](/lovelace/entities/#weblink)
+  - [The Lovelace Markdown card](/dashboards/markdown/)
+  - [The Lovelace Entities card](/dashboards/entities/#weblink)
 
 - **Environment Canada** - This integration was previously using web scraping for weather alert details. The details attribute has been removed to make it compliant. (ADR-0004) - ([@michaeldavie] - [#32077]) ([environment_canada docs])
 

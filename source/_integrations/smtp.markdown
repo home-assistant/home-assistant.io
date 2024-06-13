@@ -1,20 +1,19 @@
 ---
 title: SMTP
-description: Instructions on how to add e-mail notifications to Home Assistant.
+description: Instructions on how to add email notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
 ha_release: pre 0.7
-ha_codeowners:
-  - '@fabaff'
 ha_domain: smtp
 ha_platforms:
   - notify
+ha_integration_type: integration
 ---
 
-The SMTP platform allows you to deliver notifications from Home Assistant to an e-mail recipient.
+The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by e-mail in your installation, add the following to your `configuration.yaml` file:
+To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,6 +24,8 @@ notify:
     recipient: "YOUR_RECIPIENT"
 ```
 
+Check your email provider configuration or help pages to get the correct SMTP settings. A restart of Home Assistant is required to pick up the configuration changes.
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -32,20 +33,20 @@ name:
   type: string
   default: notify
 sender:
-  description: E-mail address of the sender.
+  description: email address of the sender.
   required: true
   type: string
 recipient:
-  description: Default E-mail address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your E-mail notifications by default (when not specifying `target` in the service call). Any E-mail address(es) specified in the service call's `target` field will override this recipient content.
+  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the service call). Any email address(es) specified in the service call's `target` field will override this recipient content.
   required: true
   type: [list, string]
 server:
   description: SMTP server which is used to send the notifications.
   required: false
   type: string
-  default: localhost  
+  default: localhost
 port:
-  description: The port that the SMTP server is using.  
+  description: The port that the SMTP server is using.
   required: false
   type: integer
   default: 587
@@ -71,36 +72,42 @@ sender_name:
   description: "Sets a custom 'sender name' in the emails headers (*From*: Custom name <example@mail.com>)."
   required: false
   type: string
-debug:  
+debug:
   description: Enables Debug, e.g., `true` or `false`.
   required: false
   type: boolean
   default: false
+verify_ssl:
+  description: If the SSL certificate of the server needs to be verified.
+  required: false
+  type: boolean
+  default: true
 {% endconfiguration %}
 
-A sample configuration entry for Google Mail.
+### Usage
+
+A notify integration will be created using the name without spaces. In the above example, it will be called `notify.NOTIFIER_NAME`. To use the SMTP notification, refer to it in an automation or script like in this example:
 
 ```yaml
-# Example configuration.yaml entry
-notify:
-  - name: "NOTIFIER_NAME"
-    platform: smtp
-    server: "smtp.example.com"
-    port: 587
-    timeout: 15
-    sender: "john@example.com"
-    encryption: starttls
-    username: "john@example.com"
-    password: "thePassword"
-    recipient:
-      - "james@example.com"
-      - "bob@example.com"
-    sender_name: "My Home Assistant"
+- alias: "Send E-Mail Every Morning"
+  description: ""
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  condition: []
+  action:
+    - service: notify.NOTIFIER_NAME
+      data:
+          title: "Good Morning"
+          message: "Rise and shine"
+          target:
+            - "morning@example.com"
+  mode: single
 ```
 
-Keep in mind that Google has some extra layers of protection which need special attention (Hint: 'Less secure apps'). If you have 2-step verification enabled on your Google account, you'll need to use [an application-specific password](https://support.google.com/mail/answer/185833?hl=en).
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, morning@example.com.
 
-To use the SMTP notification, refer to it in an automation or script like in this example:
+Another example attaching images stored locally in a script:
 
 ```yaml
 burglar:
@@ -121,11 +128,15 @@ burglar:
                   - /home/pi/snapshot2.jpg
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, james@example.com and bob@example.com.
+The optional `html` field makes a custom text/HTML multi-part message, allowing total freedom for sending rich HTML emails by defining the HTML content. In them, if you need to include images, you can pass both arguments (`html` and `images`). The images will be attached with the basename of the images, so they can be included in the html page with `src="cid:image_name.ext"`.
 
-The optional `images` field adds in-line image attachments to the email. This sends a text/HTML multi-part message instead of the plain text default.
+The optional `images` field adds image attachments to the email. If `html` is defined, the images need to be added to the message in-line as described above (and as shown in the example below). If `html` is not defined, images will be added as separate attachments.
 
-The optional `html` field makes a custom text/HTML multi-part message, allowing total freedom for sending rich html emails. In them, if you need to attach images, you can pass both arguments (`html` and `images`), the attachments will be joined with the basename of the images, so they can be included in the html page with `src="cid:image_name.ext"`.
+<div class='note info'>
+
+When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
+
+</div>
 
 ```yaml
 burglar:
@@ -190,11 +201,40 @@ burglar:
               </html>
 ```
 
-This platform is fragile and not able to catch all exceptions in a smart way because of the large number of possible configuration combinations.
+To learn more about how to use notifications in your automations, please see the [getting started with automation page](/getting-started/automation/).
 
-A combination that will work properly is port 587 and STARTTLS. It's recommended to enable STARTTLS, if possible.
+## Specific email provider configuration
 
-For Google Mail (smtp.gmail.com) an additional step in the setup process is needed. Google has some extra layers of protection
-which need special attention. By default, the usage by external applications, especially scripts, is limited. Visit the [Less secure apps](https://www.google.com/settings/security/lesssecureapps) page and enable it.
+Check below some configurations examples for specific email providers.
+If you are in doubt about the SMTP settings required, check your email provider configuration or help pages for more information about its specific SMTP configuration.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+### Google Mail
+
+A sample configuration entry for Google Mail.
+
+```yaml
+# Example configuration.yaml entry for Google Mail.
+notify:
+  - name: "NOTIFIER_NAME"
+    platform: smtp
+    server: "smtp.gmail.com"
+    port: 587
+    timeout: 15
+    sender: "YOUR_USERNAME@gmail.com"
+    encryption: starttls
+    username: "YOUR_USERNAME@gmail.com"
+    password: "YOUR_APP_PASSWORD"
+    recipient:
+      - "RECIPIENT_1@example.com"
+      - "RECIPIENT_N@example.com"
+    sender_name: "SENDER_NAME"
+```
+
+Google has some extra layers of protection that need special attention. You must use [an application-specific password](https://support.google.com/mail/answer/185833) in your notification configuration.
+
+If any of the following conditions are met you will not be able to create an app password:
+
+- You do not have 2-step verification enabled on your account.
+- You have 2-step verification enabled but have only added a security key as an authentication mechanism.
+- Your Google account is enrolled in Google's [Advanced Protection Program](https://landing.google.com/advancedprotection/).
+- Your Google account belongs to a Google Workspace that has disabled this feature. Accounts owned by a school, business, or other organization are examples of Google Workspace accounts.

@@ -2,11 +2,12 @@
 title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light
   - Sensor
+  - Siren
   - Switch
 ha_release: '0.110'
 ha_iot_class: Local Push
@@ -15,15 +16,18 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_control
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
+  - siren
   - switch
 ha_zeroconf: true
+ha_integration_type: hub
 ---
 
 devolo Home Control is a Z-Wave ecosystem with a Z-Wave to IP gateway in the center. The integration allows you to control devices connected to the gateway.
@@ -44,7 +48,7 @@ The integration provides support for the following Z-Wave devices:
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
 
-## Binary Sensors
+## Binary sensors
 
 The integration provides support for the following Z-Wave devices:
 
@@ -91,3 +95,9 @@ The integration provides support for the following features:
 - Temperature and brightness of devolo Sensors, that support it
 - Consumptions of devolo and Qubino devices, that support it
 - Voltage of devolo Metering Plug v2
+
+## Siren
+
+The integration provides support for the following Z-Wave devices:
+
+- devolo Siren

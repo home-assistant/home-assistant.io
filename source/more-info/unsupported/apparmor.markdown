@@ -10,7 +10,7 @@ without this, the Supervisor is missing important security mechanics to protect 
 
 ## The solution
 
-If the AppArmor is not enabled on your host, set this to the Linux boot cmd: `apparmor=1 security=apparmor` and reboot your operating system.
+If the AppArmor is not enabled on your host, add this to the Linux kernel boot parameters:  `apparmor=1 security=apparmor` and then reboot your operating system.
 
 As a last resort, you might need to reinstall the host running the Supervisor
 with one of the supported operating systems, [see instructions here](/more-info/unsupported/os).

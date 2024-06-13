@@ -10,9 +10,13 @@ ha_domain: sinch
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `sinch` platform uses [Sinch](https://www.sinch.com/products/messaging/sms/) to deliver notifications from Home Assistant.
+The `sinch` {% term integration %} uses [Sinch](https://www.sinch.com/products/apis/messaging/sms/) to deliver notifications from Home Assistant.
 
 ## Prerequisites
 
@@ -20,7 +24,8 @@ Go to your [Sinch Dashboard](https://dashboard.sinch.com/sms/api/rest) and click
 
 ## Configuration
 
-To add Sinch to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add Sinch to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

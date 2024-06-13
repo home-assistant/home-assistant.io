@@ -1,16 +1,17 @@
 ---
-title: Media Source
+title: Media source
 description: Instructions on how to access your media with Home Assistant.
 ha_category:
-  - Media Source
+  - Media source
 ha_release: 0.115
 ha_domain: media_source
 ha_codeowners:
   - '@hunterjm'
 ha_quality_scale: internal
+ha_integration_type: system
 ---
 
-The Media Source integration platform allows integrations to expose media for
+The Media source integration platform allows integrations to expose media for
 use inside Home Assistant through the Media Browser panel or through supported
 media players like Google Cast.
 
@@ -27,7 +28,7 @@ to your configuration file:
 media_source:
 ```
 
-## Local Media
+## Local media
 
 By default, the integration looks for media in a specified folder.
 If other `media_dirs` are not declared you need to use `/media/local` path for
@@ -41,7 +42,7 @@ for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where your `configuration.yaml` is located).
+`media` under the configuration path (where your {% term "`configuration.yaml`" %} is located).
 
 Files served from `media` are protected by Home Assistant authentication
 unlike those served from `www`.
@@ -61,11 +62,15 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
-Please note, that the folder must be accessible locally. Home Assistant
-cannot connect to external or remote network shares using this configuration
-option.
+<div class='note'>
 
-## Playing media from a Media Source
+  If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+
+  The media from the network storage is then automatically added to the local media browser.
+
+</div>
+
+## Playing media from a media source
 
 To play media from a media source via a service call, use the uri
 scheme `media-source://media_source/<media_dir>/<path>`.
@@ -73,7 +78,7 @@ Default `media_dir` is `local`.
 
 <div class="note">
 Web browsers and Google Cast media players have very limited video container
-and codec support. The Media Source integration does not do any transcoding of
+and codec support. The media source integration does not do any transcoding of
 media, meaning media files must be natively supported by your media player or
 web browser (for playing in the frontend).
 
@@ -94,4 +99,4 @@ data:
   media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 
-[basic-configuration]: /docs/configuration/basic/#media_dirs
+[basic-configuration]: /integrations/homeassistant/#media_dirs

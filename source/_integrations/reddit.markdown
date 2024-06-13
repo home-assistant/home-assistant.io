@@ -8,6 +8,10 @@ ha_iot_class: Cloud Polling
 ha_domain: reddit
 ha_platforms:
   - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
@@ -22,7 +26,8 @@ This integration does not support Reddit's two-factor authentication. If you use
 
 ## Configuration
 
-To enable this platform, add the following to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

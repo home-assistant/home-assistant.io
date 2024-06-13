@@ -11,14 +11,17 @@ ha_codeowners:
   - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
+  - '@Aohzan'
 ha_domain: harmony
 ha_ssdp: true
 ha_platforms:
   - remote
+  - select
   - switch
+ha_integration_type: integration
 ---
 
-The `harmony` remote platform allows you to control the state of your [Harmony Hub Device](https://www.logitech.com/en-us/product/harmony-hub).
+The `harmony` integration allows you to control the state of your [Harmony Hub Device](https://support.myharmony.com/hub).
 
 Supported units:
 
@@ -30,7 +33,9 @@ Supported units:
 
 {% include integrations/config_flow.md %}
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Configuration** >> **Integrations** >> **Your Logitech Harmony Hub**
+**Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
+
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & Services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -46,20 +51,20 @@ This file will be overwritten whenever the Harmony HUB has a new configuration, 
 
 Turn off all devices that were switched on from the start of the current activity.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
+| Service data attribute | Optional | Description          |
+| ---------------------- | -------- | -------------------- |
+| `entity_id`            | no       | Entity ID to target. |
 
 ### Service `remote.turn_on`
 
-Start an activity. Will start the default `activity` from `configuration.yaml` if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `activity`             |      yes | Activity ID or Activity Name to start.
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `entity_id`            | no       | Entity ID to target.                   |
+| `activity`             | yes      | Activity ID or Activity Name to start. |
 
-##### Example
+#### Example
 
 In the file 'harmony_REMOTENAME.conf' you can find the available activities, for example:
 
@@ -89,13 +94,13 @@ action:
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `device`               |       no | Device ID or Device Name to send the command to.
-| `command`              |       no | A single command or a list of commands to send.
-| `num_repeats`          |      yes | The number of times to repeat the command(s).
-| `delay_secs`           |      yes | The number of seconds between sending each command.
+| Service data attribute | Optional | Description                                         |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `entity_id`            | no       | Entity ID to target.                                |
+| `device`               | no       | Device ID or Device Name to send the command to.    |
+| `command`              | no       | A single command or a list of commands to send.     |
+| `num_repeats`          | yes      | The number of times to repeat the command(s).       |
+| `delay_secs`           | yes      | The number of seconds between sending each command. |
 
 In the file 'harmony_REMOTENAME.conf' you can find the available devices and commands, for example:
 
@@ -153,10 +158,10 @@ data:
 
 Sends the change channel command to the Harmony HUB
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `channel`              |       no | Channel number to change to
+| Service data attribute | Optional | Description                 |
+| ---------------------- | -------- | --------------------------- |
+| `entity_id`            | no       | Entity ID to target.        |
+| `channel`              | no       | Channel number to change to |
 
 A typical service call for changing the channel would be::
 
@@ -172,9 +177,9 @@ data:
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
+| Service data attribute | Optional | Description          |
+| ---------------------- | -------- | -------------------- |
+| `entity_id`            | no       | Entity ID to target. |
 
 ### Examples
 
@@ -183,15 +188,14 @@ Template sensors can be utilized to display current activity in the frontend.
 {% raw %}
 
 ```yaml
-sensor:
-  - platform: template
-    sensors:
-      family_room:
-        value_template: '{{ state_attr("remote.family_room", "current_activity") }}'
-        friendly_name: "Family Room"
-      bedroom:
-        value_template: '{{ state_attr("remote.bedroom", "current_activity") }}'
-        friendly_name: "bedroom"
+template:
+  - sensor:
+    - name: 'Family Room Harmony Remote'
+      state: >
+        {{ state_attr('remote.family_room', 'current_activity') }}
+    - name: 'Bedroom Harmony Remote'
+      state: >
+        {{ state_attr('remote.bedroom', 'current_activity') }}
 ```
 
 {% endraw %}

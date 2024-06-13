@@ -90,14 +90,14 @@ module Jekyll
         end
 
         { "label" => version, "new_components_count" => v[1].count, "sort_key" => gem_ver }
-      }.sort_by { |v| v["sort_key"] }.reverse.group_by { |v|
+      }.sort_by { |v| Gem::Version.new(v["sort_key"]) }.reverse.group_by { |v|
         version = v["label"]
 
         split_ver = version.split('.')
         major = split_ver[0]
         minor = split_ver[1]
 
-        if minor.length == 1
+        if major.length == 4 || minor.length == 1
           "#{major}.X"
         else
           "#{major}.#{minor.chop}X"

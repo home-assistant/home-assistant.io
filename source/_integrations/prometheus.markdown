@@ -8,13 +8,18 @@ ha_iot_class: Assumed State
 ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The `prometheus` {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
 ## Configuration
 
-To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -67,7 +72,7 @@ override_metric:
 component_config:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -76,7 +81,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -85,13 +90,17 @@ component_config_domain:
 component_config_glob:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
       description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
       required: false
-
+requires_auth:
+  type: boolean
+  description: "This makes authentication optional for the `/api/prometheus` endpoint."
+  required: false
+  default: true
 {% endconfiguration %}
 
 ### Configure Filter
@@ -111,23 +120,7 @@ prometheus:
       - light.kitchen_light
 ```
 
-Filters are applied as follows:
-
-1. No includes or excludes - pass all entities
-2. Includes, no excludes - only include specified entities
-3. Excludes, no includes - only exclude specified entities
-4. Both includes and excludes:
-   - Include domain and/or glob patterns specified
-      - If domain is included, and entity not excluded or match exclude glob pattern, pass
-      - If entity matches include glob pattern, and entity does not match any exclude criteria (domain, glob pattern or listed), pass
-      - If domain is not included, glob pattern does not match, and entity not included, fail
-   - Exclude domain and/or glob patterns specified and include does not list domains or glob patterns
-      - If domain is excluded and entity not included, fail
-      - If entity matches exclude glob pattern and entity not included, fail
-      - If entity does not match any exclude criteria (domain, glob pattern or listed), pass
-   - Neither include or exclude specifies domains or glob patterns
-      - If entity is included, pass (as #2 above)
-      - If entity include and exclude, the entity exclude is ignored
+{% include common-tasks/filters.md %}
 
 ## Full Example
 
@@ -167,6 +160,25 @@ You can then configure Prometheus to fetch metrics from Home Assistant by adding
 
     # Long-Lived Access Token
     bearer_token: "your.longlived.token"
+
+    scheme: https
+    static_configs:
+      - targets: ['HOSTNAME:8123']
+```
+
+Replace `your.longlived.token` with a Home Assistant [generated token](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
+
+The format to configure the bearer token has changed in Prometheus 2.26, so if you have a newer version, you can use this configuration sample:
+
+```yaml
+# Example Prometheus scrape_configs entry (For version 2.26+
+  - job_name: "hass"
+    scrape_interval: 60s
+    metrics_path: /api/prometheus
+
+    # Long-Lived Access Token
+    authorization:
+      credentials: "your.longlived.token"
 
     scheme: https
     static_configs:

@@ -1,15 +1,18 @@
 ---
-title: RSS Feed Template
+title: RSS feed template
 description: Use this integration to generate RSS feeds showing your latest data.
 ha_category:
-  - Front End
+  - Front end
 ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: rss_feed_template
+ha_codeowners:
+  - '@home-assistant/core'
+ha_integration_type: integration
 ---
 
-The `rss_feed_template` integration can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
+The `rss_feed_template` {% term integration %} can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 
@@ -41,7 +44,7 @@ feed_id:
   required: true
   type: string
 title:
-  description: The title of the feed, which is parsed as [template](/topics/templating/).
+  description: The title of the feed, which is parsed as [template](/docs/configuration/templating/).
   required: false
   type: template
 items:
@@ -50,11 +53,11 @@ items:
   type: list
   keys:
     title:
-      description: The title of the item, which is parsed as [template](/topics/templating/).
+      description: The title of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
     description:
-      description: The description of the item, which is parsed as [template](/topics/templating/).
+      description: The description of the item, which is parsed as [template](/docs/configuration/templating/).
       required: false
       type: template
 {% endconfiguration %}

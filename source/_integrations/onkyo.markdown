@@ -2,21 +2,26 @@
 title: Onkyo
 description: Instructions on how to integrate Onkyo and some Pioneer receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.17
 ha_iot_class: Local Polling
 ha_domain: onkyo
 ha_platforms:
   - media_player
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `onkyo` platform allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
+The `onkyo` {% term integration %} allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
 and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
 
-To add an Onkyo or Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
+To add an Onkyo or Pioneer receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -40,7 +45,7 @@ name:
   required: false
   type: string
 max_volume:
-  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of it's maximum volume.
+  description: Maximum volume as a percentage. Often the maximum volume of the receiver is far too loud. Setting this will set Home Assistant's 100% volume to be this setting on the amp. i.e., if you set this to 50% when you set Home Assistant to be 100% then your receiver will be set to 50% of its maximum volume.
   required: false
   default: 100
   type: integer
@@ -90,6 +95,8 @@ If your source is not listed above, and you want to figure out how to format tha
 onkyo --host 192.168.0.100 source=query
 ```
 
+If this returns multiple, comma-separated values, use the first one. For example, if `dvd,bd,dvd` is returned, use `dvd`.
+
 To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
 (don't do this whilst playing something!) and run:
 
@@ -102,10 +109,10 @@ unknown-model: master-volume = 191
 
 Changes HDMI output of your receiver
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of a single `entity_id` that will change output.
-| `hdmi_output` | no | The desired output code.
+| Service data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
+| `hdmi_output`          | no       | The desired output code.                                        |
 
 Accepted values are:
 'no', 'analog', 'yes', 'out', 'out-sub', 'sub', 'hdbaset', 'both', 'up'
@@ -145,7 +152,7 @@ script:
     alias: "Hdmi out projector"
     sequence:
       - service: media_player.onkyo_select_hdmi_output
-        service_data:
+        data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub
 ```

@@ -1,17 +1,32 @@
 ---
 title: "Splitting up the configuration"
 description: "Splitting the configuration.yaml into several files."
+related:
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /examples/#example-configurationyaml
+    title: Example configuration files by the community
+  - docs: /docs/configuration/packages
+    title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears or you simply want to start off with the distributed approach, here's how to split the `configuration.yaml` into more manageable (read: humanly readable) pieces.
+So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
 
-First off, several community members have sanitized (read: without API keys/passwords etc) versions of their configurations available for viewing, you can see a list of them [here](/examples/#example-configurationyaml).
+## Example configuration files for inspiration
 
-As commenting code doesn't always happen, please read on for the details.
+First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example files here](/examples/#example-configurationyaml).
 
-Now despite the logical assumption that the `configuration.yaml` will be replaced by this process it will in fact remain, albeit in a much less cluttered form.
+As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
 
-In this lighter version we will still need what could be called the core snippet:
+## Analyzing the configuration files
+
+In this section, we are going use some example configuration files and look at their structure and format in more detail.
+
+Now you might think that the {% term "`configuration.yaml`" %} will be replaced during the splitting process. However, it will in fact remain, albeit in a much less cluttered form.
+
+### The core configuration file
+
+In this lighter version, we will still need what could be called the core snippet:
 
 ```yaml
 homeassistant:
@@ -20,16 +35,18 @@ homeassistant:
   # Location required to calculate the time the sun rises and sets
   latitude: 37
   longitude: -121
-  # 'metric' for Metric, 'imperial' for Imperial
-  unit_system: imperial
-  # Pick yours from here: http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+  # 'metric' for Metric, 'us_customary' for US Customary
+  unit_system: us_customary
+  # Pick yours from here: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: "America/Los_Angeles"
   customize: !include customize.yaml
 ```
 
+### Indentation, includes, comments, and modularization
+
 Note that each line after `homeassistant:` is indented two (2) spaces. Since the configuration files in Home Assistant are based on the YAML language, indentation and spacing are important. Also note that seemingly strange entry under `customize:`.
 
-`!include filename.yaml` is the statement that tells Home Assistant to insert the contents of `filename.yaml` at that point. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
+`!include customize.yaml` is the statement that tells Home Assistant to insert the parsed contents of `customize.yaml` at that point. The contents of the included file must be yaml data that is valid at the location it is included. This is how we are going to break a monolithic and hard to read file (when it gets big) into more manageable chunks.
 
 Now before we start splitting out the different components, let's look at the other integrations (in our example) that will stay in the base file:
 
@@ -43,22 +60,28 @@ http:
 ifttt:
   key: ["nope"]
 
-wink:
-  access_token: ["wouldn't you"]
-  refresh_token: ["like to know"]
-
-zwave:
-  usb_path: "/dev/ttyUSB0"
-  config_path: "/usr/local/share/python-openzwave/config"
-  polling_interval: 10000
-
 mqtt:
-  broker: 127.0.0.1
+  sensor:
+    - name: "test sensor 1"
+      state_topic: "test/some_topic1"
+    - name: "test sensor 2"
+      state_topic: "test/some_topic2"
 ```
 
-As with the core snippet, indentation makes a difference. The integration headers (`mqtt:`) should be fully left aligned (aka no indent), and the parameters (`broker:`) should be indented two (2) spaces.
+As with the core snippet, indentation makes a difference:
 
-While some of these integrations can technically be moved to a separate file they are so small or "one off's" where splitting them off is superfluous. Also, you'll notice the # symbol (hash/pound). This represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored. This makes breaking up files for human readability really convenient, not to mention turning off features while leaving the entry intact.
+- The integration headers (`mqtt:`) should be fully left aligned (aka no indent).
+- The key (`sensor:`) should be indented two (2) spaces.
+- The list `-` under the key `sensor` should be indented another two (2) spaces followed by a single space.
+- The `mqtt` sensor list contains two (2) configurations, with two (2) keys each.
+
+#### Comments
+
+The # symbol (hash/pound) represents a "comment" as far as the commands are interpreted. Put another way, any line prefixed with a `#` will be ignored by the software. It is for humans only. Comments allow breaking up files for readability, as well as turning off features while leaving the entry intact.
+
+#### Modularization and granularity
+
+While some of these integrations could technically be moved to a separate file, they are so small or "one off's" where splitting them off is superfluous.
 
 Now, lets assume that a blank file has been created in the Home Assistant configuration directory for each of the following:
 
@@ -73,7 +96,7 @@ customize.yaml
 
 `automation.yaml` will hold all the automation integration details. `zone.yaml` will hold the zone integration details and so forth. These files can be called anything but giving them names that match their function will make things easier to keep track of.
 
-Inside the base configuration file add the following entries:
+Inside the base configuration file, add the following entries:
 
 ```yaml
 automation: !include automation.yaml
@@ -83,7 +106,17 @@ switch: !include switch.yaml
 device_tracker: !include device_tracker.yaml
 ```
 
-Nesting `!include`s (having an `!include` within a file that is itself `!include`d) isn't going to work. You can, however, have multiple top-level `!include`s for a given integration, if you give a different label to each one:
+#### Include statements and packages to split files
+
+Nesting `!include` statements (having an `!include` within a file that is itself `!include`d) will also work.
+
+Some integrations support multiple top-level `!include` statements. This includes integrations defining an IoT domain. For example, `light`, `switch`, or `sensor`; as well as the `automation`, `script`, and `template` integrations, if you give a different label to each one. 
+
+Configuration for other integrations can instead be split up by using packages. To learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
+#### Top level keys
+
+Example of multiple top-level keys for the `light` platform.
 
 ```yaml
 light:
@@ -166,7 +199,7 @@ This (large) sensor configuration gives us another example:
 - platform: steam_online
   api_key: ["not telling"]
   accounts:
-      - 76561198012067051
+    - 76561198012067051
 
 #### TIME/DATE ##################################
 - platform: time_date
@@ -185,29 +218,34 @@ This (large) sensor configuration gives us another example:
 
 You'll notice that this example includes a secondary parameter section (under the steam section) as well as a better example of the way comments can be used to break down files into sections.
 
+All of the above can be applied when splitting up files using packages. To
+learn more about packages, see the [Packages](/docs/configuration/packages) page.
+
 That about wraps it up.
 
-If you have issues checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
+If you have issues, checkout `home-assistant.log` in the configuration directory as well as your indentations. If all else fails, head over to our [Discord chat server][discord] and ask away.
 
 ## Debugging configuration files
 
-If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them, each installation type has it's own section in the common-tasks about this:
+If you have many configuration files, Home Assistant provides a CLI that allows you to see how it interprets them. Each installation type has its own section in the common-tasks about this:
 
 - [Operating System](/common-tasks/os/#configuration-check)
 - [Container](/common-tasks/container/#configuration-check)
 - [Core](/common-tasks/core/#configuration-check)
 - [Supervised](/common-tasks/supervised/#configuration-check)
 
-## Advanced Usage
+## Advanced usage
 
 We offer four advanced options to include whole directories at once. Please note that your files must have the `.yaml` file extension; `.yml` is not supported.
+
+This will allow you to `!include` files with `.yml` extensions from within the `.yaml` files; without those `.yml` files being imported by the following commands themselves.
 
 - `!include_dir_list` will return the content of a directory as a list with each file content being an entry in the list. The list entries are ordered based on the alphanumeric ordering of the names of the files.
 - `!include_dir_named` will return the content of a directory as a dictionary which maps filename => content of file.
 - `!include_dir_merge_list` will return the content of a directory as a list by merging all files (which should contain a list) into 1 big list.
 - `!include_dir_merge_named` will return the content of a directory as a dictionary by loading each file and merging it into 1 big dictionary.
 
-These work recursively. As an example using `!include_dir_* automation`, will include all 6 files shown below:
+These work recursively. As an example using `!include_dir_list automation`, will include all 6 files shown below:
 
 ```bash
 .
@@ -287,8 +325,6 @@ action:
 ```
 
 It is important to note that each file must contain only **one** entry when using `!include_dir_list`.
-It is also important to note that if you are splitting a file after adding -id: to support the automation UI,
-the -id: line must be removed from each of the split files.
 
 ### Example: `!include_dir_named`
 

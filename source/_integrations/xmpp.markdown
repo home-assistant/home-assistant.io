@@ -11,13 +11,18 @@ ha_domain: xmpp
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
+The `xmpp` notification {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 
-To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Jabber notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,7 +50,7 @@ resource:
   description: "Resource part of JID, e.g., your_name@jabber.org/`HA-cabin`."
   required: false
   type: string
-  default: home-assistant
+  default: "`home-assistant`"
 password:
   description: The password for your given Jabber account.
   required: true
@@ -82,7 +87,7 @@ All Jabber IDs (JID) must include the domain. Make sure that the password matche
 
 You can send text messages and images as well as other files through Jabber.
 
-### Jabber Text Message
+### Jabber text message
 
 Here are some examples on how to set up a script, that can be run from an automation.
 
@@ -100,7 +105,7 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
         message: "My funny or witty message"
 ```
 
-### Jabber Image Message
+### Jabber image message
 
 You can send images or files from locally stored files or remote web locations via Jabber's HTTP Upload feature.
 To send files and images, your jabber server must support [XEP_0363](https://xmpp.org/extensions/xep-0363.html).
@@ -144,10 +149,10 @@ Number 3 sends an image from a local path.
           path: "/home/homeassistant/super_view.jpg"
 ```
 
-### Jabber File Message
+### Jabber file message
 
 
-Number 4 sends a text-file, retrieved from Github, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
+Number 4 sends a text-file, retrieved from GitHub, renamed to `Hass_Cheatsheet.txt` to be viewable on a mobile Android device, as most don't offer any application to view `.md` files. Optionally you can add a timeout for the HTTP upload in seconds.
 
 ```yaml      
 # Example script.yaml entry
@@ -204,6 +209,6 @@ Number 6 sends an image from a templated URL.
 
 {% endraw %}
 
-The possible source of a file is prioritized and only one will be picked up. `url_template` has the hightest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
+The possible source of a file is prioritized and only one will be picked up. `url_template` has the highest priority; next is `url` then `path_template` and finally if none of them are defined `path` would be used. `path` will be used to eliminate file extension guessing for unknown URL downloads. Only the file extension will be left, as Home Assistant changes the filename to a random string for added privacy.
 
 To find out more about notifications, please see the [getting started with automation page](/getting-started/automation/).

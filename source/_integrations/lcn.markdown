@@ -2,10 +2,10 @@
 title: LCN
 description: Instructions on how to integrate LCN components with Home Assistant.
 ha_category:
-  - Hub
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
+  - Hub
   - Light
   - Scene
   - Sensor
@@ -23,6 +23,7 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
@@ -32,7 +33,7 @@ With this setup sending and receiving commands to and from LCN modules is possib
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Cover](#cover)
 - [Light](#light)
@@ -42,15 +43,15 @@ There is currently support for the following device types within Home Assistant:
 
 <div class='note'>
 
-  Please note: Besides the implemented platforms, the `lcn` integration offers a variety of [service calls](#services).
-  These service calls cover functionalities of the LCN system, which cannot be represented by the platform implementations.
+  The implemented platforms do not cover the whole functionality of the LCN system.
+  Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [service calls](#services).
   They are ideal to be used in automation scripts or for the `template` platforms.
 
 </div>
 
 ## Configuration
 
-To use your LCN system in your installation, add the following lines to your `configuration.yaml` file.
+To use your LCN system in your installation, add the following lines to your {% term "`configuration.yaml`" %} file.
 You have to specify at least one IP/port with login credentials for a PCHK host.
 Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
 
@@ -331,7 +332,7 @@ switches:
       type: string
 {% endconfiguration %}
 
-## LCN Addresses
+## LCN addresses
 
 LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
 
@@ -363,55 +364,55 @@ s0.g7
 
 Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
 
-## LCN Constants
+## LCN constants
 
 The platforms and service calls use several predefined constants as parameters.
 
 ### Ports
 
-| Constant | Values |
-| -------- | ------ |
-| OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
-| RELAY_PORT | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8` |
-| MOTOR_PORT | `motor1`, `motor2`, `motor3`, `motor4`, `outputs` |
-| LED_PORT | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12` |
-| LOGICOP_PORT | `logicop1`, `logicop2`, `logicop3`, `logicop4` |
+| Constant       | Values                                                                                                         |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| OUTPUT_PORT    | `output1`, `output2`, `output3`, `output4`                                                                     |
+| RELAY_PORT     | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8`                                 |
+| MOTOR_PORT     | `motor1`, `motor2`, `motor3`, `motor4`, `outputs`                                                              |
+| LED_PORT       | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12`              |
+| LOGICOP_PORT   | `logicop1`, `logicop2`, `logicop3`, `logicop4`                                                                 |
 | BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
 
 The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configuration will be used:
 
-| Motor    | Relay on/off | Relay up/down |
+|  Motor   | Relay on/off | Relay up/down |
 | :------: | :----------: | :-----------: |
-| `motor1` | `relay1`     | `relay2`      |
-| `motor2` | `relay3`     | `relay4`      |
-| `motor3` | `relay5`     | `relay6`      |
-| `motor4` | `relay7`     | `relay8`      |
+| `motor1` |   `relay1`   |   `relay2`    |
+| `motor2` |   `relay3`   |   `relay4`    |
+| `motor3` |   `relay5`   |   `relay6`    |
+| `motor4` |   `relay7`   |   `relay8`    |
 
-| Motor     | Output up | Output down |
+|   Motor   | Output up | Output down |
 | :-------: | :-------: | :---------: |
-| `outputs` | `output1` | `output2`   |
+| `outputs` | `output1` |  `output2`  |
 
 
 ### Variables and Units
 
-| Constant | Values |
-| -------- | ------ |
-| VARIABLE | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var` |
-| SETPOINT | `r1varsetpoint`, `r2varsetpoint` |
-| THRESHOLD | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
-| S0_INPUT | `s0input1`, `s0input2`, `s0input3`, `s0input4` |
-| VAR_UNIT | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree` |
-| TIME_UNIT | `seconds`, `minutes`, `hours`, `days` |
-| RELVARREF | `current`, `prog` |
-| REVERSE_TIME | `rt70`, `rt600`, `rt1200` |
+| Constant     | Values                                                                                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VARIABLE     | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var`                                                     |
+| SETPOINT     | `r1varsetpoint`, `r2varsetpoint`                                                                                                                                                |
+| THRESHOLD    | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
+| S0_INPUT     | `s0input1`, `s0input2`, `s0input3`, `s0input4`                                                                                                                                  |
+| VAR_UNIT     | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree`                                                                                     |
+| TIME_UNIT    | `seconds`, `minutes`, `hours`, `days`                                                                                                                                           |
+| RELVARREF    | `current`, `prog`                                                                                                                                                               |
+| REVERSE_TIME | `rt70`, `rt600`, `rt1200`                                                                                                                                                       |
 
 ### States:
 
-| Constant | Values |
-| -------- | ------ |
-| LED_STATE | `on`, `off`, `blink`, `flicker` |
-| LOGICOP_STATE | `none`, `some`, `all` |
-| KEY_STATE | `hit`, `make`, `break`, `dontsend` |
+| Constant      | Values                             |
+| ------------- | ---------------------------------- |
+| LED_STATE     | `on`, `off`, `blink`, `flicker`    |
+| LOGICOP_STATE | `none`, `some`, `all`              |
+| KEY_STATE     | `hit`, `make`, `break`, `dontsend` |
 
 ### Keys:
 
@@ -420,7 +421,7 @@ Examples: `a1`, `a5`, `d8`.
 
 ## Platforms
 
-### Binary Sensor
+### Binary sensor
 
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) binary data sources:
 
@@ -483,8 +484,10 @@ The `lcn` sensor platform allows the monitoring of the following [LCN](https://w
 The sensor can be used in automation scripts or in conjunction with `template` platforms.
 
 <div class='note'>
+
   Ensure that the LCN module is configured properly to provide the requested value.
   Otherwise, the module might show unexpected behavior or return error messages.
+
 </div>
 
 ### Switch
@@ -494,26 +497,243 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 - Output ports
 - Relays
 
+## Additional features
+
+### Transponder, fingerprint sensor and code lock
+
+To use LCN transponders, fingerprint sensors or code locks ensure that the corresponding module's I-port property
+is enabled in the LCN-PRO software and properly configured.
+LCN transponders, fingerprints and code locks are identified by a six value hexadecimal code (e.g. *123abc*).
+If a code is received a corresponding event ([transponder event](#event-lcn_transponder), [fingerprint event](#event-lcn_fingerprint), [codelock event](#event-lcn_codelock))
+is fired and can be used to trigger an automation.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Example:
+
+This example shows how the `event_data` can be extracted and used in a condition using Home Assistant's templating engine.
+Trigger on a transponder event and ensure that the received code is in the given list:
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transponder
+  condition: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
+  action:
+    ...
+```
+
+{% endraw %}
+
+Further examples can be found in the [event section](#events).
+
+### Remote control
+
+To use LCN remote controls (e.g., LCN-RT or LCN-RT16) ensure that the corresponding module's I-port property
+is enabled in the LCN-PRO software and its behavior is properly configured as "IR access control".
+With this configuration each remote control is identified by a six value hexadecimal code (e.g. *123abc*).
+If a command from a remote control is received a corresponding event ([transponder event](#event-lcn_transponder))
+is fired and can be used to trigger an automation. Along with the transmitted code, the pressed key and the key action
+are transmitted.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Examples can be found in the [event section](#events).
+
+### LCN commands addressed to PCHK host (Home Assistant)
+
+A LCN module can not only be programmed to send commands to other modules/groups but also to the PCHK host configured
+in the LCN integration. These commands are directly passed to Home Assistant and can be evaluated. Only the *send keys*
+(former) command is supported.
+
+Within LCN-PRO program the *send keys* command (only "A-C former command" is supported) to a key. For the target address
+manually enter the PCHK host id (default: 4). Select the keys and key actions as desired.
+
+When a *send keys* command is received, the LCN integration will fire a [send keys event](#event-lcn_send_keys) for each
+key configured. These events can be used to trigger an automation.
+Alternatively, you can use the corresponding [device triggers](#device-triggers).
+
+Examples can be found in the [event section](#events).
+
+<div class='note'>
+
+  Only commands sent from physical buttons of a module are evaluated. The "Test command" button in the LCN-PRO software
+  is not evaluated and therefore cannot be used for testing purposes.
+
+</div>
+
+## Events
+
+There are several functionalities of the LCN system which are not exposed as regular entities by the integration, but as events.
+Examples are button presses from remote controls (transmitters), transponder findings, fingerprint sensors and so called *send keys* events.
+
+<div class='note'>
+
+  If you find it difficult to deal with events in scripted automations, you can also use [device triggers](#device-triggers)
+  which offer automation design via the UI.
+
+</div>
+
+All events have some common attributes in their `event_data` which identify the sending LCN hardware module (e.g., the module the transponder is connected to):
+
+| Event payload | Description                      | Values |
+| ------------- | -------------------------------- | ------ |
+| `device_id`   | Internal device id of LCN module | string |
+| `segment_id`  | Module's segment id              | 5..128 |
+| `module_id`   | Module id                        | 5..254 |
+
+In addition, every event has its own special attributes which are described below.
+All special attributes are optional and can be used as supplementary filters.
+
+### Event: `lcn_transmitter`
+
+The `lcn_transmitter` event is fired if a LCN remote control command is received.
+
+| Special payload | Description      | Values                 |
+| --------------- | ---------------- | ---------------------- |
+| `code`          | Transmitter code | string (6 hex values)  |
+| `level`         | Key level        | 0..4                   |
+| `key`           | Key              | 0..4                   |
+| `action`        | Key action       | `hit`, `make`, `break` |
+
+Example:
+
+The trigger will fire if any key on the remote control with code *123abc* is `hit` as long as the
+receiver hardware is connected to module 7 in segment 0.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transmitter
+      event_data:
+        segment_id: 0
+        module_id: 7
+        code: 123abc
+        action: hit
+```
+
+### Event: `lcn_transponder`
+
+The `lcn_transponder` event is fired if a LCN transponder command is received.
+
+| Special payload | Description      | Values                |
+| --------------- | ---------------- | --------------------- |
+| `code`          | Transponder code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the transponder with code *123abc* was detected at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_transponder
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_fingerprint`
+
+The `lcn_fingerprint` event is fired if a LCN fingerprint command is received.
+
+| Special payload | Description      | Values                |
+| --------------- | ---------------- | --------------------- |
+| `code`          | Fingerprint code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the fingerprint with code *123abc* was detected at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_fingerprint
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_codelock`
+
+The `lcn_codelock` event is fired if a LCN code lock command is received.
+
+| Special payload | Description    | Values                |
+| --------------- | -------------- | --------------------- |
+| `code`          | Code lock code | string (6 hex values) |
+
+Example:
+
+The trigger will fire if the code lock with code *123abc* was activated at
+any hardware module.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_codelock
+      event_data:
+        code: 123abc
+```
+
+### Event: `lcn_send_keys`
+
+The `lcn_send_keys` event is fired if the PCHK host receives a *send keys* command.
+
+| Special payload | Description | Values                 |
+| --------------- | ----------- | ---------------------- |
+| `key`           | LCN Key     | a1..c8                 |
+| `action`        | Key action  | `hit`, `make`, `break` |
+
+Example:
+
+The trigger will fire if the PCHK host receives a command that issues a `hit` of
+key `a1`.
+
+```yaml
+automation:
+  trigger:
+    - platform: event
+      event_type: lcn_send_keys
+      event_data:
+        key: a1
+        action: hit
+```
+
+## Device triggers
+
+To simplify using events in automations the LCN integration exposes them as device triggers.
+Those device triggers can be selected from the automation editor within Home Assistant.
+
+After creating a new automation select *Device* as trigger type and search for the module which is
+supposed to cause the event in the device list. You may select the trigger type and configure its
+attributes. If an attribute is optional it is considered as a supplementary filter for the trigger.
+For an explanation of the attributes refer to the corresponding [events](#events).
+
 ## Services
 
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
-Refer to the (Services Calls)[/docs/scripts/service-calls] page for examples on how to use them.
+Refer to the [Services Calls](/docs/scripts/service-calls) page for examples on how to use them.
 
-### Service `output_abs`
+### Service: `output_abs`
 
 Set absolute brightness of output port in percent.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
-| `brightness` | Yes | Absolute brightness in percent | 0..100 |
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
+| Service data attribute | Optional | Description                       | Values                |
+| ---------------------- | -------- | --------------------------------- | --------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `brightness`           | Yes      | Absolute brightness in percent    | 0..100                |
+| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
 ```yaml
-service: output_abs
+service: lcn.output_abs
 data:
   address: myhome.0.7
   output: output1
@@ -521,104 +741,104 @@ data:
   transition: 0
 ```
 
-### Service `output_rel`
+### Service: `output_rel`
 
 Set relative brightness of output port in percent.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
-| `brightness` | Yes | Relative brightness in percent | -100..100 |
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
+| Service data attribute | Optional | Description                       | Values                |
+| ---------------------- | -------- | --------------------------------- | --------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `brightness`           | Yes      | Relative brightness in percent    | -100..100             |
+| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
 ```yaml
-service: output_rel
+service: lcn.output_rel
 data:
   address: myhome.0.7
   output: output1
   brightness: 30
 ```
 
-### Service `output_toggle`
+### Service: `output_toggle`
 
 Toggle output port.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `output` | No | Output port of module | [OUTPUT_PORT](#ports) |
-| `transition` | Yes | Transition (ramp) time in seconds | 0..486 |
+| Service data attribute | Optional | Description                       | Values                |
+| ---------------------- | -------- | --------------------------------- | --------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses)     |
+| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
 ```yaml
-service: output_toggle
+service: lcn.output_toggle
 data:
   address: myhome.0.7
   output: output1
   transition: 0
 ```
 
-### Service `relays`
+### Service: `relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
 
 Example states:  `t---001-`
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | Relay states as string |
+| Service data attribute | Optional | Description                   | Values |
+| ---------------------- | -------- | ----------------------------- | ------ |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `state`                | No       | Relay states as string        |
 
 Example:
 
 ```yaml
-service: relays
+service: lcn.relays
 data:
   address: myhome.0.7
   state: t---001-
 ```
 
-### Service `led`
+### Service: `led`
 
 Set the LED status.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `state` | No | LED state as string | [LED_STATE](#states) |
+| Service data attribute | Optional | Description                   | Values               |
+| ---------------------- | -------- | ----------------------------- | -------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `state`                | No       | LED state as string           | [LED_STATE](#states) |
 
 Example:
 
 ```yaml
-service: led
+service: lcn.led
 data:
   address: myhome.0.7
   led: led6
   state: blink
 ```
 
-### Service `var_abs`
+### Service: `var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
-| `value` | Yes | Variable value | _any positive number_ |
-| `unit_of_measurement` | Yes | Variable unit | [VAR_UNIT](#variables-and-units) |
+| Service data attribute | Optional | Description                   | Values                                                             |
+| ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+| `value`                | Yes      | Variable value                | _any positive number_                                              |
+| `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                   |
 
 Example:
 
 ```yaml
-service: var_abs
+service: lcn.var_abs
 data:
   address: myhome.0.7
   variable: var1
@@ -627,27 +847,27 @@ data:
 ```
 
 <div class='note'>
-  Ensure that the LCN module is configured properly to provide acces to the defined variable.
+  Ensure that the LCN module is configured properly to provide access to the defined variable.
   Otherwise the module might show unexpected behaviors or return error messages.
 </div>
 
-### Service `var_rel`
+### Service: `var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
-| `value` | Yes | Variable value | _any positive or negative number_ |
-| `unit_of_measurement` | Yes | Variable unit | [VAR_UNIT](#variables-and-units) |
+| Service data attribute | Optional | Description                   | Values                                                                                                |
+| ---------------------- | -------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
+| `value`                | Yes      | Variable value                | _any positive or negative number_                                                                     |
+| `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                                                      |
 
 Example:
 
 ```yaml
-service: var_rel
+service: lcn.var_rel
 data:
   address: myhome.0.7
   variable: var1
@@ -660,19 +880,19 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </div>
 
-### Service `var_reset`
+### Service: `var_reset`
 
 Reset value of variable or setpoint.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `variable` | No | Variable name | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+| Service data attribute | Optional | Description                   | Values                                                             |
+| ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
 
 Example:
 
 ```yaml
-service: var_reset:
+service: lcn.var_reset
 data:
   address: myhome.0.7
   variable: var1
@@ -683,28 +903,28 @@ data:
   Otherwise the module might show unexpected behavior or return error messages.
 </div>
 
-### Service `lock_regulator`
+### Service: `lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `setpoint` | No | Setpoint name | [SETPOINT](#variables-and-units) |
-| `state` | Yes | Lock state | true, false |
+| Service data attribute | Optional | Description                   | Values                           |
+| ---------------------- | -------- | ----------------------------- | -------------------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `setpoint`             | No       | Setpoint name                 | [SETPOINT](#variables-and-units) |
+| `state`                | Yes      | Lock state                    | true, false                      |
 
 Example:
 
 ```yaml
-service: lock_regulator
+service: lcn.lock_regulator
 data:
   address: myhome.0.7
   setpoint: r1varsetpoint
   state: true
 ```
 
-### Service `send_keys`
+### Service: `send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -712,19 +932,19 @@ If `state` is not defined, it is assumed to be `hit`.
 The command allows the sending of keys immediately or deferred. For a deferred sending the attributes `time` and `time_unit` have to be specified. For deferred sending, the only key state allowed is `hit`.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `keys` | No | Keys string |
-| `state` | Yes | Keys state | [KEY_STATE](#states) |
-| `time` | Yes | Deferred time | 0.. |
-| `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
+| Service data attribute | Optional | Description                   | Values                            |
+| ---------------------- | -------- | ----------------------------- | --------------------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `keys`                 | No       | Keys string                   |
+| `state`                | Yes      | Keys state                    | [KEY_STATE](#states)              |
+| `time`                 | Yes      | Deferred time                 | 0..                               |
+| `time_unit`            | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
 
 Examples:
 
 Send keys immediately:
 ```yaml
-service: send_keys
+service: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -733,7 +953,7 @@ data:
 
 Send keys deferred:
 ```yaml
-service: send_keys
+service: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -741,7 +961,7 @@ data:
   time_unit: s
 ```
 
-### Service `lock_keys`
+### Service: `lock_keys`
 
 Locks keys.
 If the table is not defined, it is assumed to be table `a`.
@@ -749,19 +969,19 @@ The key lock states are defined as a string with eight characters. Each characte
 The command allows the locking of keys for a specified time period. For a time period, the attributes `time` and `time_unit` have to be specified. For a time period, only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `table` | Yes | Table with keys to lock |
-| `state` | No | Key lock states as string | [KEY_STATE](#states) |
-| `time` | Yes | Time period to lock | 0.. |
-| `time_unit` | Yes | Time unit | [TIME_UNIT](#variables-and-units)
+| Service data attribute | Optional | Description                   | Values                            |
+| ---------------------- | -------- | ----------------------------- | --------------------------------- |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `table`                | Yes      | Table with keys to lock       |
+| `state`                | No       | Key lock states as string     | [KEY_STATE](#states)              |
+| `time`                 | Yes      | Time period to lock           | 0..                               |
+| `time_unit`            | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
 
 Examples:
 
 Lock keys forever:
 ```yaml
-service: lock_keys
+service: lcn.lock_keys
 data:
   address: myhome.0.7
   table: a
@@ -770,7 +990,7 @@ data:
 
 Lock keys for a specified time period:
 ```yaml
-service: lock_keys
+service: lcn.lock_keys
 data:
   address: myhome.0.7
   state: 1---t0--
@@ -778,42 +998,42 @@ data:
   time_unit: s
 ```
 
-### Service `dyn_text`
+### Service: `dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
 Each row can be set independently and can store up to 60 characters (encoded in UTF-8).
 
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `row` | No | Text row 1..4 |
-| `text` | No | Text to send for the specified row |
+| Service data attribute | Optional | Description                        | Values |
+| ---------------------- | -------- | ---------------------------------- | ------ |
+| `address`              | No       | [LCN address](#lcn-addresses)      |
+| `row`                  | No       | Text row 1..4                      |
+| `text`                 | No       | Text to send for the specified row |
 
 Example:
 
 ```yaml
-service: dyn_text
+service: lcn.dyn_text
 data:
   address: myhome.0.7
   row: 1
   text: "text in row 1"
 ```
 
-### Service `pck`
+### Service: `pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
-| Service data attribute | Optional | Description  | Values |
-| ---------------------- | -------- | -----------  | ------ |
-| `address` | No | [LCN address](#lcn-addresses) |
-| `pck` | No | PCK command |
+| Service data attribute | Optional | Description                   | Values |
+| ---------------------- | -------- | ----------------------------- | ------ |
+| `address`              | No       | [LCN address](#lcn-addresses) |
+| `pck`                  | No       | PCK command                   |
 
 Example:
 
 ```yaml
-service: pck
+service: lcn.pck
 data:
   address: myhome.0.7
   pck: PIN4

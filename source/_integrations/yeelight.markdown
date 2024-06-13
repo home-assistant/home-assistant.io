@@ -4,26 +4,30 @@ description: Instructions on how to setup Yeelight Wifi devices within Home Assi
 ha_category:
   - Light
 ha_release: 0.32
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
-  - '@rytilahti'
   - '@zewelor'
   - '@shenxn'
+  - '@starkillerOG'
+  - '@alexyao2015'
 ha_domain: yeelight
 ha_platforms:
   - binary_sensor
   - light
 ha_homekit: true
 ha_dhcp: true
+ha_quality_scale: platinum
+ha_zeroconf: true
+ha_integration_type: integration
 ---
 
-The `yeelight` integration allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
+The **Yeelight** {% term integration %} allows you to control your Yeelight Wi-Fi bulbs with Home Assistant.
 
 There is support for the following device types within Home Assistant:
 
 - **Light** - The Yeelight platform for supporting lights.
-- **Binary Sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
+- **Binary sensor** - The Yeelight platform for supporting binary sensors. Currently, only nightlight mode sensor for ceiling lights.
 
 {% include integrations/config_flow.md %}
 
@@ -147,7 +151,7 @@ custom_effects:
 
 ### Music mode
 
-Per default, the bulb limits the number of requests per minute to 60, a limitation that can be bypassed by enabling the music mode. In music mode, the bulb is commanded to connect back to a socket provided by the integration and it tries to keep the connection open, which may not be wanted in all use-cases.
+Per default, the bulb limits the number of requests per minute to 60, a limitation that can be bypassed by enabling the music mode. In music mode, the bulb is commanded to connect back to a socket provided by the {% term integration %} and it tries to keep the connection open, which may not be wanted in all use-cases.
 **Also note that bulbs in music mode will not update their state to "unavailable" if they are disconnected, which can cause delays in Home Assistant. Bulbs in music mode may also not react to commands from Home Assistant the first time if the connection is dropped. If you experience this issue, turn the light off and back on again in the frontend and everything will return to normal.**
 
 ### Initial setup
@@ -157,44 +161,54 @@ Per default, the bulb limits the number of requests per minute to 60, a limitati
 Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
 In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
 Determine your bulb IP (using router, software, ping...).
-Information on how to enable "LAN Control" can be found [here](https://www.yeelight.com/faqs/lan_control).
+Currently, there is no official way to change LAN mode. However, some methods might be found here:
+- [Desktop app](https://community.home-assistant.io/t/the-easiest-method-to-enable-lan-developer-mode-on-xiaomi-bulb/727360)
+- CLI using the python-miio library: [1](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-easy-steps/312174), [2](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-warm-white-xmbgdp01ylk/290404)
 
 </div>
 
 ### Supported models
 
 <div class='note warning'>
-This integration is tested to work with the following models. If you have a different model and it is working, please let us know.
+This {% term integration %} is tested to work with the following models. If you have a different model and it is working, please let us know.
 </div>
 
 | Model ID   | Model number | Product name                                     |
 |------------|--------------|--------------------------------------------------|
+| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
 | `mono1`    | YLDP01YL     | LED Bulb (White)                                 |
 | ?          | YLDP05YL     | LED Bulb (White) - 2nd generation                |
 | `color1`   | YLDP02YL     | LED Bulb (Color)                                 |
 | `color1`   | YLDP03YL     | LED Bulb (Color) - E26                           |
 | `color2`   | YLDP06YL     | LED Bulb (Color) - 2nd generation                |
 | `color4`   | YLDP13YL     | LED Bulb 1S (Color)                              |
+| `color4`   | YLDP04YL     | LED Bulb 1S (Color)                              |
 | `color6`   | YLDP13AYL    | LED Bulb 1S (Color)                              |
+| `colorb`   | YLDP005      | LED Bulb (Color)                                 |
 | `colorc`   | YLDP004-A    | GU10 W1 (Color)                                  |
 | `strip1`   | YLDD01YL     | Lightstrip (Color)                               |
 | `strip1`   | YLDD02YL     | Lightstrip (Color)                               |
 | ?          | YLDD04YL     | Lightstrip (Color)                               |
+| `strip6`   | YLDD05YL     | Lightstrip (Color)                               |
 | `bslamp1`  | MJCTD01YL    | Xiaomi Mijia Bedside Lamp - Wi-Fi Version!       |
 | `bslamp1`  | MJCTD02YL    | Xiaomi Mijia Bedside Lamp II                     |
 | `RGBW`     | MJDP02YL     | Mi LED smart Lamp - white and color Wi-Fi Version|
+| `lamp`     | MJTD02YL     | Xiaomi Mijia Desk Lamp Pro                       |
 | `lamp1`    | MJTD01YL     | Xiaomi Mijia Smart LED Desk Lamp (autodiscovery isn't possible because the device doesn't support mDNS due to the small amount of RAM) |
+| `lamp9`    | YLCT03YL     | Yeelight Staria Bedside Lamp Pro                 |
+| `lamp15`   | YLTD003      | Yeelight LED Screen Light Bar Pro                |
 | `ceiling1` | YLXD01YL     | Yeelight Ceiling Light                           |
 | `ceiling2` | YLXD03YL     | Yeelight Ceiling Light - Youth Version           |
 | ?          | YLXD62YI     | Yeelight Ceiling Light (Jiaoyue 260)             |
 | ?, may be `ceiling3` | YLXD04YL     | Yeelight Ceiling Light (Jiaoyue 450)   |
 | `ceiling3` | YLXD05YL     | Yeelight Ceiling Light (Jiaoyue 480)             |
 | `ceiling4` | YLXD02YL     | Yeelight Ceiling Light (Jiaoyue 650)             |
-| `mono`     | YLTD03YL     | Yeelight Serene Eye-Friendly Desk Lamp           |
-| `ceiling10`     | YLDL01YL     | Yeelight Meteorite Pendant Light            |
-| `ceiling13`     | YLXD01YL     | Yeelight LED Ceiling Light           |
+| `ceiling10`| YLDL01YL     | Yeelight Meteorite Pendant Light                 |
+| `ceiling13`| YLXD01YL     | Yeelight LED Ceiling Light                       |
 | `ceil26`   | YLXD76YL     | Yeelight Ceiling Light - Updated HomeKit 23w     |
-| `lamp` | MJTD02YL | Xiaomi Mijia Desk Lamp Pro |
+| ?, may be `ceilb` | YLXD013-B    | Yeelight Arwen Ceiling Light 450C         |
+| ?, may be `ceilb` | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
+| `ceilb`    | YLXD013      | Yeelight Arwen Ceiling Light 450S                |
 
 ## Services
 

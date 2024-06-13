@@ -2,8 +2,8 @@
 title: Iperf3
 description: How to use Iperf3 within Home Assistant to measure your network bandwidth.
 ha_category:
-  - System Monitor
   - Sensor
+  - System monitor
 ha_release: 0.71
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -11,11 +11,15 @@ ha_codeowners:
 ha_domain: iperf3
 ha_platforms:
   - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `iperf3` sensor integration allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
+The `iperf3` sensor {% term integration %} allows you to measure network bandwidth performance against a private or public [Iperf3](https://software.es.net/iperf/index.html) server.
 
-Enabling this integration will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
+Enabling this {% term integration %} will automatically create the Iperf3 sensors for the monitored conditions (below). By default, it will run every hour. The user can change the update frequency in the configuration by defining the `scan_interval` for a Iperf3 test to run.
 
 ## Setup
 
@@ -23,7 +27,8 @@ This integration requires the `iperf3` command to be installed on your OS. Pleas
 
 ## Configuration
 
-To add the `iperf3` sensor to your installation, add the following to your `configuration.yaml` file:
+To add the `iperf3` sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 Once per hour, on the hour (default):
 
@@ -88,7 +93,7 @@ Configuration variables (host):
     type: string
 {% endconfiguration %}
 
-#### Time period dictionary example
+### Time period dictionary example
 
 ```yaml
 scan_interval:
@@ -108,7 +113,7 @@ Parallel streams can help in some situations. As TCP attempts to be fair and con
 
 You can use the service `sensor.iperf3_update` to trigger a manual speed test for all sensors. Iperf3 has its own service call that allow to perform a speed test on a particular entity.
 
-### Service
+## Service
 
 Once loaded, the `iperf3` integration will expose a service (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 

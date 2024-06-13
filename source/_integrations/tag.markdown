@@ -9,6 +9,9 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
+ha_platforms:
+  - event
+ha_integration_type: integration
 ---
 
 <p class='img'>
@@ -24,23 +27,30 @@ To make tags accessible to anyone in your house hold, there is also a [standalon
 
 The easiest way to get started with tags is to use NFC tags ([stickers](https://amzn.to/3bQU0nN), [cards](https://amzn.to/2RlqPzM)) with the official Home Assistant mobile apps. Once you have written a card, hover it with your phone to scan it.
 
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
 <div class='note' data-title='for iPhone users'>
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
 </div>
 
-<div class="videoWrapper">
-  <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/xE7wm1bxRLs" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
+<lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
 
 ## Managing tags
 
 Home Assistant has a dedicated panel that allows you to manage your tags. You can add names, automate or delete them. If you open the tag dashboard from the mobile app, you can also write them directly to a tag.
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
+
+## Entities
+
+Every card automatically creates an `tag` entity. This is useful for automations or for displaying on dashboards to see when the card was last scanned.
+
+State shows the time when the card was last scanned in datetime string format. For example, `2013-09-17T07:32:51.095+00:00`
+
+### Attributes
+
+- **Tag ID**: identification as set during creation of the tag.
+- **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
 
 ## Building an RFID jukebox
 
@@ -91,7 +101,7 @@ automation:
 {% endraw %}
 
 To find your scanner's device ID, open Developer tools -> Events -> Listen to events and subscribe to `tag_scanned`.
-Then scan a tag on the reader and note down the `device_id` from the `data` section. 
+Then scan a tag on the reader and note down the `device_id` from the `data` section.
 
 ## Printing tags
 
@@ -99,21 +109,22 @@ NFC tags come in many different shapes and formats. [NFC Stickers](https://amzn.
 
 To get started with printing cards, you need the following hardware:
 
-- [Inktjet Printer](https://amzn.to/3khMrts)
+- [Canon TS702a Inkjet Printer](https://www.amazon.com/TS702a-Compact-Connected-Inkjet-Printer/dp/B09TG8F4YS/)
 - [Compatible card printing tray](https://amzn.to/3hq59x2)
 - [Printable NFC cards](https://amzn.to/3iqHpKx)
 
-The seller of above tray + cards also made a [layout tool](https://brainstormidsupply.com/id-card-printing-layout-tool.html/) available to prepare printable PDFs. It runs fully in your browser and no data is sent to their server. If you've used above equipment, pick Canon MP tray as what you're printing on.
+The seller of above tray + cards also made an [ID card printing app](https://brainstormidsupply.com/try-id-maker/) available to prepare printable PDFs. It runs fully in your browser and no data is sent to their server. If you've used above equipment, pick Canon MP tray as what you're printing on.
 
 Happy printing!
 
 ![NFC Cards](/images/blog/2020-09-15-home-assistant-tags/cards.jpg)
 
-## Tag Scanned events
+## Tag scanned events
 
 When a tag is scanned, the `tag_scanned` event is fired. This event contains the values:
 
 | Value | Description |
 | - | - |
 | `tag_id` | Identifier of the tag. Use this to decide what to do.
+| `name` | Name of the tag. The name is not unique. Multiple tags can have the same name.
 | `device_id` | Device registry identifier of the device that scanned the tag. Use this to decide where to do it.

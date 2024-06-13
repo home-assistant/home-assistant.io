@@ -4,4 +4,4 @@ description: "found character '\t' that cannot start any token"
 ha_category: Usage
 ---
 
-This error means that you used a tab, rather than two spaces. Replace the tab with spaces.
+This error means you used tabs rather than two spaces in one of your YAML configuration files. Replace the tabs with spaces.

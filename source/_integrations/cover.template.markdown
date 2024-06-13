@@ -1,6 +1,6 @@
 ---
-title: "Template Cover"
-description: "Instructions on how to integrate Template Covers into Home Assistant."
+title: "Template cover"
+description: "Instructions on how to integrate template covers into Home Assistant."
 ha_category:
   - Cover
 ha_release: 0.48
@@ -16,7 +16,7 @@ close, stop, position and tilt commands of a cover.
 ## Configuration
 
 To enable Template Covers in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -54,11 +54,11 @@ cover:
         required: false
         type: string
       value_template:
-        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining_value_template_and_position_template) are specified, only `opening` and `closing` are set from the `value_template`.
+        description: Defines a template to get the state of the cover. Valid output values from the template are `open`, `opening`, `closing` and `closed` which are directly mapped to the corresponding states. In addition, `true` is valid as a synonym to `open` and `false` as a synonym to `closed`. If [both a `value_template` and a `position_template`](#combining-value_template-and-position_template) are specified, only `opening` and `closing` are set from the `value_template`. If the template produces a `None` value the state will be set to `unknown`.
         required: false
         type: template
       position_template:
-        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        description: Defines a template to get the position of the cover. Legal values are numbers between `0` (closed) and `100` (open). If the template produces a `None` value the current position will be set to `unknown`.
         required: false
         type: template
       icon_template:
@@ -70,7 +70,7 @@ cover:
         required: false
         type: template
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
@@ -91,11 +91,11 @@ cover:
         required: false
         type: action
       set_cover_position:
-        description: Defines an action to set to a cover position (between `0` and `100`).
+        description: Defines an action to set to a cover position (between `0` and `100`). The variable `position` will contain the entity's set position.
         required: false
         type: action
       set_cover_tilt_position:
-        description: Defines an action to set the tilt of a cover (between `0` and `100`).
+        description: Defines an action to set the tilt of a cover (between `0` and `100`). The variable `tilt` will contain the entity's set tilt position.
         required: false
         type: action
       optimistic:
@@ -109,10 +109,14 @@ cover:
         type: boolean
         default: false
       tilt_template:
-        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).
+        description: Defines a template to get the tilt state of the cover. Legal values are numbers between `0` (closed) and `100` (open).  If the template produces a `None` value the current tilt state will be set to `unknown`.
         required: false
         type: template
 {% endconfiguration %}
+
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
@@ -126,7 +130,7 @@ with this equivalent that returns `true`/`false` and never gives an unknown
 result:
 {% raw %}`{{ is_state('cover.source', 'open') }}`{% endraw %}
 
-## Optimistic Mode
+## Optimistic mode
 
 In optimistic mode, the cover position state is maintained internally. This mode
 is automatically enabled if neither [`value_template`](#value_template) or
@@ -142,21 +146,21 @@ There is an equivalent mode for `tilt_position` that is enabled when
 
 If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
 
-| value_template output | result |
-| ------------- |-------------|
-| open | state defined by `position_template` |
-| close | state defined by `position_template` |
-| true | state defined by `position_template` |
-| false | state defined by `position_template` |
-| opening | state set to `opening` |
-| closing | state set to `closing` |
-| <any other output> | No change of state or position |
+| value_template output | result                               |
+| --------------------- | ------------------------------------ |
+| open                  | state defined by `position_template` |
+| closed                | state defined by `position_template` |
+| true                  | state defined by `position_template` |
+| false                 | state defined by `position_template` |
+| opening               | state set to `opening`               |
+| closing               | state set to `closing`               |
+| <any other output>    | No change of state or position       |
 
 ## Examples
 
 In this section you will find some real-life examples of how to use this cover.
 
-### Garage Door
+### Garage door
 
 This example converts a garage door with a controllable switch and position
 sensor into a cover. The condition check is optional, but suggested if you
@@ -200,7 +204,7 @@ cover:
 
 {% endraw %}
 
-### Multiple Covers
+### Multiple covers
 
 This example allows you to control two or more covers at once.
 
@@ -233,6 +237,10 @@ cover:
           service: script.cover_group_position
           data:
             position: "{{position}}"
+        set_cover_tilt_position:
+          service: script.cover_group_tilt_position
+          data:
+            tilt: "{{tilt}}"
         value_template: "{{is_state('sensor.cover_group', 'open')}}"
         icon_template: >-
           {% if is_state('sensor.cover_group', 'open') %}
@@ -288,7 +296,7 @@ automation:
 
 {% endraw %}
 
-### Change The Icon
+### Change the icon
 
 This example shows how to change the icon based on the cover state.
 
@@ -323,7 +331,7 @@ cover:
 
 {% endraw %}
 
-### Change The Entity Picture
+### Change the entity picture
 
 This example shows how to change the entity picture based on the cover state.
 

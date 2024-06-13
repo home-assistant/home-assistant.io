@@ -8,11 +8,12 @@ ha_iot_class: Local Push
 ha_domain: zhong_hong
 ha_platforms:
   - climate
+ha_integration_type: integration
 ---
 
-The `zhong_hong` climate platform lets you control [Zhonghong HVAC Gateway Controller](http://zhonghongtech.cn/v1/index.shtml) thermostats through Home Assistant.
+The `zhong_hong` climate platform lets you control Zhonghong HVAC Gateway Controller thermostats through Home Assistant.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

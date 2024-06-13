@@ -11,7 +11,9 @@ ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - geo_location
   - sensor
+ha_integration_type: service
 ---
 
 The `geonetnz_quakes` integration lets you use a GeoJSON feed provided by 
@@ -45,7 +47,7 @@ We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science 
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -89,7 +91,7 @@ from the feed.
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

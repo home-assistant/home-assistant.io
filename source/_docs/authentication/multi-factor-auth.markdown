@@ -7,8 +7,8 @@ The Multi-factor Authentication (MFA) modules require you to solve a second chal
 
 A password can be compromised in a number of ways, for example, it can be guessed if it is a simple password. MFA provides a second level of defense by requiring:
 
-* something you know, like your username and password, and
-* something you have, like a one-time password sent to your phone.
+- something you know, like your username and password, and
+- something you have, like a one-time password sent to your phone.
 
 You can use MFA with any of the other authentication providers. If more than one MFA module is enabled, you can choose one when you log in.
 
@@ -24,7 +24,7 @@ Home Assistant generates a secret key which is synchronized with an app on your 
 
 #### Setting up TOTP
 
-Enable TOTP in your `configuration.yaml` like this:
+Enable TOTP in your {% term "`configuration.yaml`" %} like this:
 
 ```yaml
 homeassistant:
@@ -60,11 +60,11 @@ TOTP is _time based_ so it relies on your Home Assistant clock being accurate. I
 
 ### Notify multi-factor authentication module
 
-The Notify MFA module uses the [notify component](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
+The Notify MFA module uses the [notify integration](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
 
 #### Setting up MFA notify
 
-Add Notify MFA to your `configuration.yaml` file like this:
+Add Notify MFA to your {% term "`configuration.yaml`" %} file like this:
 
 ```yaml
 homeassistant:

@@ -2,9 +2,9 @@
 title: Smappee
 description: Instructions on how to setup Smappee within Home Assistant.
 ha_category:
-  - Hub
+  - Binary sensor
   - Energy
-  - Binary Sensor
+  - Hub
   - Sensor
   - Switch
 ha_iot_class: Cloud Polling
@@ -18,24 +18,28 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Smappee integration will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
+The Smappee {% term integration %} will allow users to integrate their Smappee monitors, Smappee Comfort Plugs and Smappee Switches into Home Assistant using the [official cloud API](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview) or the limited local option.
 
 ## Smappee monitors
 
 The table below summarizes the available options to initiate the Smappee integration in Home Assistant per Smappee monitor type.
 
-|Monitor type|Local discovery|Cloud API|
-|---|---|---|
-|Smappee Energy|Yes|Yes|
-|Smappee Solar|Yes|Yes|
-|Smappee Plus|Yes|Yes|
-|Smappee Pro|Yes|Yes|
-|Smappee Genius|Yes|Yes|
-|Smappee Connect|No|Yes|
-|Smappee Wi-Fi Connect|No|Yes|
-|Smappee P1/S1 module|No|Yes|
+| Monitor type          | Local discovery | Cloud API |
+| --------------------- | --------------- | --------- |
+| Smappee Energy        | Yes             | Yes       |
+| Smappee Solar         | Yes             | Yes       |
+| Smappee Plus          | Yes             | Yes       |
+| Smappee Pro           | Yes             | Yes       |
+| Smappee Genius        | Yes             | Yes       |
+| Smappee Connect       | No              | Yes       |
+| Smappee Wi-Fi Connect | No              | Yes       |
+| Smappee P1/S1 module  | No              | Yes       |
 
 ## Local discovery
 
@@ -43,6 +47,8 @@ In most cases, the Smappee Energy, Solar, Plus, Pro and Genius monitors will be 
 Those automatically discovered Smappee devices are listed on the integrations page and can be configured without any additional details.
 This will provide you a limited number of entities only.
 If your home network doesn't support mDNS you can still manually initiate the Smappee integration by choosing the LOCAL option and entering the IP address of the Smappee monitor through the configuration flow.
+
+Technical note: Auto-discovery of Smappee device requires that its mDNS name and password are set to factory default values. These values are typically accessed on the device expert web portal (locally at http://[IP-Address]/smappee.html). If you have changed the mDNS name, this typically is "Smappee[serialnumber]".
 
 ### Sensor
 A sensor entity is being added for the current active power usage. In case of solar production, an entity for active power production is added as well.
@@ -56,7 +62,7 @@ Switch entities are created for each Smappee Switch and Smappee Comfort Plug.
 
 ## Cloud API configuration
 
-To use the Smappee cloud integration you need a personal `client_id` and `client_secret` and add these to your `configuration.yaml` file. The `client_id` and `client_secret` can be obtained by contacting [info@smappee.com](mailto:info@smappee.com) and require a recurring monthly fee.
+To use the Smappee cloud integration you need a personal `client_id` and `client_secret` and add these to your {% term "`configuration.yaml`" %} file. For personal use, access to the API is free and credentials can be obtained by contacting [support@smappee.com](mailto:support@smappee.com). For commercial usage, it is based on a recurring fee and credentials can be obtained by contacting [info@smappee.com](mailto:info@smappee.com).
 For any information about the use of the API please refer to the [Smappee API space](https://smappee.atlassian.net/wiki/spaces/DEVAPI/overview).
 
 ```yaml
@@ -66,7 +72,7 @@ smappee:
   client_secret: YOUR_CLIENT_SECRET
 ```
 
-Once Home Assistant restarted, go to Configuration > Integrations and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
+Once Home Assistant restarted, go to Settings > Devices & Services and select the Smappee integration. You will be redirected to a login page and be able to select the locations you would like to use within Home Assistant.
 
 Using the Smappee cloud integration allows you to access your Smappee monitor and other shared devices from outside your local network. Additionally a number of (binary) sensor entities become available as well.
 

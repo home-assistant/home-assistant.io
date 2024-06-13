@@ -1,6 +1,6 @@
 ---
 title: LlamaLab Automate
-description: Instructions on how to add user notifications to Home Assistant.
+description: Instructions on how to add LlamaLab Automate notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
@@ -8,13 +8,22 @@ ha_release: 0.27
 ha_domain: llamalab_automate
 ha_platforms:
   - notify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `llamalab_automate` platform uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+The `llamalab_automate` {% term integration %} uses Googles Cloud Messaging Services to push messages from Home Assistant to your Android device running the LlamaLab [Automate](https://llamalab.com/automate/) app. This can serve as an alternative to Tasker + AutoRemote.
+
+## Prerequisites
 
 Go to [https://llamalab.com/automate/cloud/](https://llamalab.com/automate/cloud/) and create a new API key/secret.
 
-To add Automate to your installation, add the following to your `configuration.yaml` file:
+## Configuration
+
+To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,7 +45,7 @@ api_key:
   required: true
   type: string
 to:
-  description: E-Mail address the Automate-Fiber is configured for.
+  description: Email address the Automate-Fiber is configured for.
   required: true
   type: string
 device:
@@ -66,7 +75,7 @@ Receiving cloud messages in Automate:
 4. Connect OK from Flow beginning to IN of Cloud receive
 5. Connect OK from Cloud receive to Toast show
 6. Connect OK form Toast show to IN of Cloud receive
-7. Tap Cloud receive and select the E-Mail account as setup in your configuration
+7. Tap Cloud receive and select the email account as setup in your configuration
 8. Assign a variable name for the Payload
 9. Tap Toast show and set the message value to the variable you've specified
 

@@ -1,8 +1,8 @@
 ---
 title: MeteoAlarm
 description: Instructions on how to set up MeteoAlarm binary sensors within Home Assistant.
-logo: meteoalarm.png
-ha_category: Binary Sensor
+ha_category:
+  - Binary sensor
 ha_release: 0.93
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -10,15 +10,16 @@ ha_codeowners:
 ha_domain: meteoalarm
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
-The `MeteoAlarm` platform allows one to watch for weather alerts in europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the name of your country and the province name from  [MeteoAlarm](https://www.meteoalarm.org). Please note that you need to write the exact details from the website with capitals.
+The `MeteoAlarm` platform allows one to watch for weather alerts in Europe from [MeteoAlarm](https://www.meteoalarm.org) (EUMETNET). To use this binary sensor, you need the country and the province name from  [MeteoAlarm](https://feeds.meteoalarm.org). Please note that it is crucial to write the country name exactly as it appears in the URL starting with https://feeds.meteoalarm.org/feeds/meteoalarm-legacy-atom-, including any hyphens used in the name. Failure to do so may result in errors or incorrect data.
 
-The binary sensor state shows if applicable the warning message. The details are available as attribute.
+The binary sensor state shows the warning message if applicable. The details are available as attribute.
 
 ## Configuration
 
-To enable this binary sensor, add the following lines to your `configuration.yaml`:
+To enable this binary sensor, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 binary_sensor:
@@ -42,10 +43,10 @@ province:
   required: true
   type: string
 language:
-  description: "The 2 letters of your language, please be aware that this is only possible in the current country. So 'ne' is only possible in Netherlands. Possible options are: bu, bs, ce, da, de, ee, en, es, ga, ca, su, fr, gr, he, hr, ma, is, it, li, la, sr, mk, ma, ne, no, po, pt, ro, cp, sv, sl, eu."
+  description: "The ISO code of your language, please be aware that this is only possible in the current country. So 'nl-NL' or 'nl-BE' is only possible in Netherlands or Belgium"
   required: false
   type: string
-  default: "en"
+  default: "en-US"
 {% endconfiguration %}
 
 
@@ -79,13 +80,11 @@ icon: mdi:alert
 
 There are a few awareness levels:
 
-* 2; yellow; Moderate
-* 3; orange; Severe
-* 4; red; High
+- 2; yellow; Moderate
+- 3; orange; Severe
+- 4; red; High
 
 Example automation
-
-Below you find an example of an automation.
 
 {% raw %}
 
@@ -95,7 +94,7 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.meteoalarm
-      from: ‘off’
+      from: 'off'
     action:
       - service: notify.notify
         data:

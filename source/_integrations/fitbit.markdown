@@ -8,80 +8,49 @@ ha_release: 0.19
 ha_domain: fitbit
 ha_platforms:
   - sensor
+ha_integration_type: integration
+ha_codeowners:
+  - '@allenporter'
+ha_config_flow: true
 ---
 
 The Fitbit sensor allows you to expose data from [Fitbit](https://fitbit.com/) to Home Assistant.
 
-Enable the sensor by adding the following to your `configuration.yaml` file:
+## Prerequisites
 
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: fitbit
-    clock_format: 12H
-    monitored_resources:
-      - "body/weight"
-```
+You need to configure developer credentials to allow Home Assistant to access your Fitbit account.
 
-Restart Home Assistant once this is complete. Go to the frontend. You will see a new entry for configuring Fitbit. Follow the instructions there to complete the setup process.
+{% details "Generate Client ID and Client Secret" %}
 
-Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every entry in `monitored_resources`.
+1. Your Fitbit account must be registered as a Developer account at the [Fitbit Developer Portal](https://dev.fitbit.com), and have a verified email address. 
+2. Visit [Register an application](https://dev.fitbit.com/apps/new).
+3. Enter an **Application Name** of your choosing, for example **Home Assistant**.
+4. Since we are creating a *Personal* registration, the details for **Description**, **Application Website URL**, **Organization**, etc. must be filled in. However, the contents do not matter and will only be shown to you on the authorization page later.
+5. Set **OAuth 2.0 Application Type** to **Personal**.
+6. Under **Redirect URL**, add `https://my.home-assistant.io/redirect/oauth`.
+7. You can leave **Default Access Type** as **Read Only**.
+8. Read the terms of service, check the box, then select **Register**.
+9. You will then be shown the page with your registered application, showing **OAuth 2.0 Client ID** and **Client Secret**. Make a note of these (for example, copy and paste them into a text editor), as you will need them shortly. You can always revisit this page through the **Manage My Apps** tab.
+
+{% enddetails %}
+
+{% include integrations/config_flow.md %}
+
+The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your Fitbit account
+
+{% details "OAuth and Authorization steps" %}
+
+1. Continue through the steps of selecting the account you want to authorize.
+2. You will be asked to grant access to specific data in your Fitbit account.
+3. For Home Assistant to understand your account, select **profile**.
+4. All other data is optional. Home Assistant will create entities based on the information you select. For example, if you allow access to **Activity and exercise**, then Home Assistant will create activity-related sensors such as `sensor.step`. 
+5. The page will now display **Link account to Home Assistant?**, note **Your instance URL**. If this is not correct, refer to [My Home Assistant](/integrations/my). If everything looks good, select **Link Account**.
+6. You may close the window, and return back to Home Assistant where you should see a **Success!** message from Home Assistant.
+
+{% enddetails %}
+
+## Additional information
+
+Please be aware that Fitbit has very low rate limits, 150 per user per hour. The clock resets at the _top_ of the hour (meaning it is not a rolling 60 minutes). There is no way around the limits. Due to the rate limits, the sensor only updates every 30 minutes. You can manually trigger an update by restarting Home Assistant. Keep in mind that 1 request is used for every sensor.
 
 The unit system that the sensor will use is based on the country you set in your Fitbit profile.
-
-{% configuration %}
-monitored_resources:
-  description: Resource to monitor.
-  required: false
-  default: "`activities/steps`"
-  type: list
-clock_format:
-  description: Format to use for `sleep/startTime` resource. Accepts `12H` or `24H`.
-  required: false
-  default: "`24H`"
-  type: string
-unit_system:
-  description: Unit system to use for measurements. Accepts `default`, `metric`, `en_US` or `en_GB`.
-  required: false
-  default: "`default`"
-  type: string
-{% endconfiguration %}
-
-Below is the list of resources that you can add to `monitored_resources`. One sensor is exposed for every resource.
-
-```text
-activities/activityCalories
-activities/calories
-activities/caloriesBMR
-activities/distance
-activities/elevation
-activities/floors
-activities/heart
-activities/minutesFairlyActive
-activities/minutesLightlyActive
-activities/minutesSedentary
-activities/minutesVeryActive
-activities/steps
-activities/tracker/activityCalories
-activities/tracker/calories
-activities/tracker/distance
-activities/tracker/elevation
-activities/tracker/floors
-activities/tracker/minutesFairlyActive
-activities/tracker/minutesLightlyActive
-activities/tracker/minutesSedentary
-activities/tracker/minutesVeryActive
-activities/tracker/steps
-body/bmi
-body/fat
-body/weight
-devices/battery
-sleep/awakeningsCount
-sleep/efficiency
-sleep/minutesAfterWakeup
-sleep/minutesAsleep
-sleep/minutesAwake
-sleep/minutesToFallAsleep
-sleep/startTime
-sleep/timeInBed
-```

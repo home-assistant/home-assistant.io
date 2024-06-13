@@ -11,10 +11,11 @@ ha_codeowners:
 ha_domain: faa_delays
 ha_platforms:
   - binary_sensor
+ha_integration_type: integration
 ---
 
-The FAA Delays integration collects and displays information about delays at US Airports based on the
-[FAA's National Airspace System Status](https://www.fly.faa.gov/ois/).
+The **FAA Delays** {% term integration %} collects and displays information about delays at US Airports based on the
+[FAA's National Airspace System Status](https://nasstatus.faa.gov/).
 
 Data measured includes:
 
@@ -25,18 +26,13 @@ Data measured includes:
 
 {% include integrations/config_flow.md %}
 
-## Supported Airports
+## Supported airports
 
 The airport entered must be a valid IATA
 airport code for an airport in the US. You can find this by looking up the 
-FAA Identifier at [Airnav](https://airnav.com/airports/). Officially the FAA
-only supports the airports listed below, but all airports will return data.
+FAA Identifier at [Airnav](https://airnav.com/airports/).
 
-Supported airports: BOS, LGA, TEB, EWR, JFK, PHL, PIT, IAD, BWI, DCA, RDU,
-CLT, ATL, MCO, TPA, MCO, FLL, MIA, DTW, CLE, MDW, ORD, IND, CVG, BNA, MEM,
-STL, MCI, MSP, DFW, IAH, DEN, SLC, PHX, LAS, SAN, LAX, SJC, SFO, PDX, SEA
-
-## Additional Delay Information
+## Additional delay information
 
 Each airport added will expose 5 binary sensors, one for each type of delay. Within each sensor there is additional
 information listed as attributes, which depends on the type of delay it is. Each delay type has the attributes
@@ -56,4 +52,3 @@ listed below:
 - Closure
   - Start of closure (begin)
   - End of closure (end)
-  - Closure reason

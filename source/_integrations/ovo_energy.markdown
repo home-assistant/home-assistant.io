@@ -12,10 +12,13 @@ ha_codeowners:
 ha_domain: ovo_energy
 ha_platforms:
   - sensor
+ha_integration_type: service
 ---
 
 The `ovo_energy` integration allows you to monitor your energy consumption data
 in Home Assistant.
+
+Currently, this integration only supports OVO Energy in the UK.
 
 {% include integrations/config_flow.md %}
 

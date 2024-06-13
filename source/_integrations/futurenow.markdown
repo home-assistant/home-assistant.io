@@ -1,7 +1,6 @@
 ---
 title: P5 FutureNow
 description: Instructions on how to set up P5 FutureNow relay/dimmer units as lights within Home Assistant.
-logo: p5.png
 ha_category:
   - Light
 ha_iot_class: Local Polling
@@ -9,15 +8,21 @@ ha_release: 0.75
 ha_domain: futurenow
 ha_platforms:
   - light
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `futurenow` light platform allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units: 
-* [FutureNow FNIP-6x2AD](https://www.p5.hu/index.php/products/ethernet-modules/265-fnip-6x2ad) dimmer unit (outputs only)
-* [FutureNow FNIP-8x10A](https://www.p5.hu/index.php/products/ethernet-modules/263-fnip-8x10a) relay unit (outputs only)
+The `futurenow` light {% term integration %} allows you to use [P5](https://www.p5.hu/) FutureNow relay/dimmer units as lights. Currently supported units:
+
+- [FutureNow FNIP-6x2AD](https://www.p5.hu/index.php/products/ethernet-modules/265-fnip-6x2ad) dimmer unit (outputs only)
+- [FutureNow FNIP-8x10A](https://www.p5.hu/index.php/products/ethernet-modules/263-fnip-8x10a) relay unit (outputs only)
 
 ### Configuration Sample
 
-To use your FutureNow units, add the following to your `configuration.yaml` file:
+To use your FutureNow units, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +73,7 @@ devices:
 
 ### Extended Configuration Sample
 
-The following example `configuration.yaml` has two different FutureNow units with multiple channels:
+The following example {% term "`configuration.yaml`" %} has two different FutureNow units with multiple channels:
 
 ```yaml
 # Example configuration.yaml entry

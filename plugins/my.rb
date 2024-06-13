@@ -16,15 +16,15 @@ module Jekyll
             #{args}
 
             Valid syntax:
-              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [service="light.turn_on"] %}
+              {% my <redirect> [title="Link name"] [badge] [icon[="icon-puzzle-piece"]] [addon="core_ssh"] [blueprint_url="http://example.com/blueprint.yaml"] [domain="hue"] [brand="philips"] [service="light.turn_on"] %}
           MSG
         end
       end
-  
+
       def render(context)
         # We parse on render, as we now have context
         options = parse_options(@options, context)
-  
+
         # Base URI
         uri =  URI.join("https://my.home-assistant.io/redirect/", @redirect)
 
@@ -33,6 +33,7 @@ module Jekyll
         query += [["addon", options[:addon]]] if options.include? :addon
         query += [["blueprint_url", options[:blueprint_url]]] if options.include? :blueprint_url
         query += [["domain", options[:domain]]] if options.include? :domain
+        query += [["brand", options[:brand]]] if options.include? :brand
         query += [["repository_url", options[:repository_url]]] if options.include? :repository_url
         query += [["service", options[:service]]] if options.include? :service
         unless query.empty?
@@ -80,26 +81,29 @@ module Jekyll
       DEFAULT_ICONS = {
         "config_flow_start" => "icon-plus-sign",
         "config" => "icon-cog",
-        "integrations" => "icon-puzzle-piece",
       }
 
       # Default title used for in-line text
       DEFAULT_TITLES = {
+        "automations" => "Automations & Scenes",
         "blueprint_import" => "Import Blueprint",
         "cloud" => "Home Assistant Cloud",
+        "config_energy" => "Energy Configuration",
         "config_flow_start" => "Add Integration",
         "config_mqtt" => "MQTT Configuration",
-        "config_zha" => "ZHA Configuration", 
+        "config_zha" => "ZHA Configuration",
         "config_zwave_js" => "Z-Wave JS Configuration",
-        "config" => "Configuration",
+        "config" => "Settings",
         "developer_events" => "Events",
         "developer_services" => "Services",
         "developer_states" => "States",
         "developer_template" => "Templates",
+        "energy" => "Energy",
         "general" => "General Settings",
         "info" => "Information",
         "supervisor_info" => "Supervisor Information",
-        "supervisor_snapshots" => "Snapshots",
+        "supervisor_backups" => "Backups",
+        "integrations" => "Devices & Services",
       }
 
       def parse_options(input, context)
@@ -108,7 +112,7 @@ module Jekyll
         # Split along 3 possible forms: key="value", key=value, or just key
         input.scan(OPTIONS_REGEX) do |opt|
           key, value = opt.split("=")
-          if !value.nil? 
+          if !value.nil?
             if value&.include?('"')
               value.delete!('"')
             else

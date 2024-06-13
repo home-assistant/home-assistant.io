@@ -8,9 +8,16 @@ ha_iot_class: Local Polling
 ha_domain: osramlightify
 ha_platforms:
   - light
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `osramlightify` platform allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
+The `osramlightify` {% term integration %} allows you to integrate your [Osram Lightify](https://www.osram.com/cb/lightify/index.jsp) into Home Assistant.
+
+To enable the {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -62,7 +69,7 @@ Also for sensors a list of raw values is exposed as `sensor_values` attribute, a
 in automations, if you know what particular values mean for your sensor.
 
 It is suggested to make [scan_interval](/docs/configuration/platform_options/#scan-interval)
-(30 seconds by default) less or equal to `interval_lightify_status`, oherwise the latter won't work
+(30 seconds by default) less or equal to `interval_lightify_status`, otherwise the latter won't work
 as expected. Shorter `scan_interval` may improve synchronization speed between individual lights and
 groups. For example, if you turn on a group, all its lights may be updated to `on` immediately,
 without querying the bridge.

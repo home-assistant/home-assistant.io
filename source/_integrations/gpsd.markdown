@@ -4,15 +4,18 @@ description: Instructions on how to integrate GPSD into Home Assistant.
 ha_category:
   - Utility
 ha_release: 0.26
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
+  - '@jrieger'
 ha_domain: gpsd
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
-The `gpsd` integration is using the GPS information collected by [gpsd](http://catb.org/gpsd/) and a GPS receiver.
+The `gpsd` integration is using the GPS information collected by [gpsd](https://gpsd.gitlab.io/gpsd/index.html) and a GPS receiver.
 
 ## Setup
 
@@ -41,30 +44,4 @@ Escape character is '^]'.
 {"class":"VERSION","release":"3.15","rev":"3.15-2.fc23","proto_major":3,"proto_minor":11}
 ```
 
-## Configuration
-
-To setup a GPSD sensor in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: gpsd
-```
-
-{% configuration %}
-host:
-  description: The host where GPSD is running.
-  required: false
-  type: string
-  default: localhost
-port:
-  description: The port which GPSD is using.
-  required: false
-  type: integer
-  default: 2947
-name:
-  description: Friendly name to use for the frontend.
-  required: false
-  type: string
-  default: GPS
-{% endconfiguration %}
+{% include integrations/config_flow.md %}

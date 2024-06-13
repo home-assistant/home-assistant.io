@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-05/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.5'><img src='/images/blog/2021-05/social.png' style='border: 0;box-shadow: none;'></a>
@@ -25,7 +24,7 @@ release (which was epic, in my opinion!). But it is not a bad thing!
 Some really good stability improvements have been introduced this release! Not
 the hot new items you want to explore immediately, but these fundamental things
 will really help our systems now and in the future. Making this release an
-upgrade that would be a smooth sail for most of us (check the breaking changes).
+upgrade that would be a smooth sail for most of us (check the backward-incompatible changes).
 
 The most visual part changed this release can be found in the facelift that the
 integrations dashboard got. Oh, and the new color modes for lights is an amazing
@@ -60,7 +59,7 @@ want to tell me who it is...)
 - [Release 2021.5.4 - May 14](#release-202154---may-14)
 - [Release 2021.5.5 - May 19](#release-202155---may-19)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -544,7 +543,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -840,7 +839,7 @@ Database migrations are now done in the background and no longer prevent
 Home Assistant from starting.
 
 The migration is started shortly after the started event since they are CPU
-intensive (mostly just sqlite since its in the same process) and we do not want
+intensive (mostly just sqlite since it's in the same process) and we do not want
 to compete with startup.
 
 Events created by your system are queued and processed when the migration is

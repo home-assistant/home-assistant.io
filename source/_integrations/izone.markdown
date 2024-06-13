@@ -4,7 +4,7 @@ description: Instructions on how to integrate iZone climate control devices with
 ha_category:
   - Climate
 ha_release: '0.100'
-ha_iot_class: Local Push
+ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Swamp-Ig'
@@ -12,22 +12,26 @@ ha_domain: izone
 ha_homekit: true
 ha_platforms:
   - climate
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The `iZone` {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 ## Supported hardware
 
-Any current iZone unit with ducted reverse cycle airconditioning and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
+Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wired or wireless bridge device installed should currently work. There is currently no support for the iZone lights, reticulation, or other devices.
 
 {% include integrations/config_flow.md %}
-
 
 ## Manual configuration
 
 Alternatively, the iZone integration can be configured manually via the
-`configuration.yaml` file if there is more than one iZone system on the local
-network and one or more must be excluded use manual configuration:
+{% term "`configuration.yaml`" %} file if there is more than one iZone system on the local
+network and one or more must be excluded use manual configuration.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Full manual example configuration.yaml entry
@@ -67,7 +71,7 @@ In this mode the current control zone that has been selected is reported, as is 
 zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
-You can add configure to read these values into sensors (in `configuration.yaml`), 
+You can add configure to read these values into sensors (in {% term "`configuration.yaml`" %}), 
 along with the supply temperature (use the ID of your unit):
 
 {% raw %}
@@ -75,20 +79,16 @@ along with the supply temperature (use the ID of your unit):
 ```yaml
 # Example configuration.yaml entry to create sensors
 # from the izone controller state attributes
-sensor:
-  - platform: template
-    sensors:
-      control_zone:
-        friendly_name: "Control zone"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
-      control_zone_target:
-        friendly_name: "Target temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
-        unit_of_measurement: "°C" 
-      temperature_supply:
-        friendly_name: "Supply temperature"
-        value_template: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
-        unit_of_measurement: "°C"
+template:
+  - sensor:
+    - name: "Control zone"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_name') }}"
+    - name: "Target temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','control_zone_setpoint') }}"
+      unit_of_measurement: "°C" 
+    - name : "Supply temperature"
+      state: "{{ state_attr('climate.izone_controller_0000XXXXX','supply_temperature') }}"
+      unit_of_measurement: "°C"
 ```
 
 {% endraw %}
@@ -110,7 +110,7 @@ type: history-graph
 
 ## Debugging
 
-If you're trying to track down issues with the component, set up logging for it:
+If you're trying to track down issues with the integration, set up logging for it:
 
 ```yaml
 # Example configuration.yaml with logging for iZone
@@ -129,16 +129,16 @@ This will help you to find network connection issues etc.
 
 Set the minimum airflow for a particular zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
-| `airflow` | no | Airflow percent in 5% increments
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`              | no       | Airflow percent in 5% increments               |
 
 ### Service `izone.airflow_max`
 
 Set the maximum airflow for a particular zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
-| `airflow` | no | Airflow percent in 5% increments
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`              | no       | Airflow percent in 5% increments               |

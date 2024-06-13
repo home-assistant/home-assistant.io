@@ -1,7 +1,6 @@
 ---
 title: Greenwave Reality
 description: Instructions on how to set up Greenwave Reality lights within Home Assistant.
-logo: greenwavereality.png
 ha_category:
   - Light
 ha_release: 0.61
@@ -9,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: greenwave
 ha_platforms:
   - light
+ha_integration_type: integration
 ---
 
 This integration communicates with the Greenwave Reality (TCP Connected) Gateway to allow control of all lights and fixtures registered to the gateway. Bulbs and Fixtures can be created and modified inside the TCP Lighting App for Android and iOS.
@@ -17,7 +17,7 @@ This integration has been tested on firmware revisions:
 
 - 2.0.105
 
-To configure the connection to the gateway, add the following to your `configuration.yaml` file:
+To configure the connection to the gateway, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 light:

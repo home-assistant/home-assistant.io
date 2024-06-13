@@ -8,19 +8,21 @@ ha_release: 0.116
 ha_config_flow: true
 ha_dhcp: true
 ha_domain: goalzero
+ha_quality_scale: silver
 ha_platforms:
   - binary_sensor
   - sensor
   - switch
 ha_codeowners:
   - '@tkdrob'
+ha_integration_type: device
 ---
 
 This Goal Zero Yeti integration pulls data from a Wifi-enabled [Goal Zero Yeti](https://www.goalzero.com).
 
 {% include integrations/config_flow.md %}
 
-## Integration Entities
+## Integration entities
 
 Each added configuration entry will create the following binary sensors:
 
@@ -49,3 +51,5 @@ The following sensors will also be created:
 - **Time to Empty/Full**: Shows the time left in minutes to empty or full depending on current usage. Shows -1 when there is no battery activity.
 - **Wi-fi Strength**: Shows the Wi-fi strength the device has with the connected access point.
 - **Total Run Time**: The total run time of the device. (disabled by default)
+- **Wi-Fi SSID**: The W-Fi network the device is connected to. (disabled by default)
+- **IP Address**: The IP address of the device. (disabled by default)

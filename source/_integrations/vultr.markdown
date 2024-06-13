@@ -2,10 +2,10 @@
 title: Vultr
 description: Instructions on how to integrate Vultr within Home Assistant.
 ha_category:
-  - System Monitor
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
+  - System monitor
 ha_release: 0.58
 ha_iot_class: Cloud Polling
 ha_domain: vultr
@@ -13,13 +13,17 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `vultr` integration allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
+The **Vultr** {% term integration %} allows you to access information about and interact with your [Vultr](https://www.vultr.com) subscriptions (Virtual Private Servers) from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
@@ -31,7 +35,8 @@ Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#set
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
 </div>
 
-To integrate your Vultr subscriptions with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Vultr subscriptions with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +88,7 @@ name:
 
 ### Full example
 
-Full `configuration.yaml` (produces `binary_sensor.totally_awesome_server`):
+Full {% term "`configuration.yaml`" %} (produces `binary_sensor.totally_awesome_server`):
 
 ```yaml
 binary_sensor:
@@ -104,7 +109,7 @@ The following examples assume a subscription that has an ID of `123456` and a la
 
 </div>
 
-Minimal `configuration.yaml` (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
+Minimal {% term "`configuration.yaml`" %} (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
 
 ```yaml
 sensor:
@@ -134,7 +139,7 @@ monitored_conditions:
       description: The current (invoice period) charges that have built up for this subscription. Value is in US Dollars (US$).
 {% endconfiguration %}
 
-Full `configuration.yaml` using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
+Full {% term "`configuration.yaml`" %} using `{}` to format condition name (produces `sensor.server_current_bandwidth_gb` and `sensor.server_pending_charges`):
 
 ```yaml
 sensor:
@@ -146,7 +151,7 @@ sensor:
       - pending_charges
 ```
 
-Custom `configuration.yaml` with only one condition monitored (produces `sensor.web_server_bandwidth`):
+Custom {% term "`configuration.yaml`" %} with only one condition monitored (produces `sensor.web_server_bandwidth`):
 
 ```yaml
 sensor:
@@ -165,7 +170,7 @@ To control your Vultr subscription, you first have to set up your Vultr hub.
 
 ### Configuration
 
-Minimal `configuration.yaml` (produces `switch.vultr_web_server`):
+Minimal {% term "`configuration.yaml`" %} (produces `switch.vultr_web_server`):
 
 ```yaml
 # Example configuration.yaml entry
@@ -186,7 +191,7 @@ name:
   type: string
 {% endconfiguration %}
 
-### Additional Examples
+### Additional examples
 
 Full example that produces `switch.amazing_server`, assuming a subscription that has an ID of `123456` and a label of `Web Server`:
 
