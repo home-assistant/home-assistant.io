@@ -738,8 +738,10 @@ frontpage_image: /images/connectzbt1/connectzbt1-cover.jpg
     // Ignore...
   }
 </script>
+<script>
   if (window.location.hash === "#from-skyconnect") {
     const banner = document.createElement("div");
+    banner.id = "skyconnectBanner";
     banner.textContent = "We noticed you were looking for Home Assistant SkyConnect - it's now called Home Assistant Connect ZBT-1, and remains the best way to connect to Zigbee devices.";
 
     // Apply styles
@@ -747,9 +749,9 @@ frontpage_image: /images/connectzbt1/connectzbt1-cover.jpg
         backgroundColor: "white",
         padding: "10px",
         fontSize: "16px",
-        textAlign: "center",
       });
 
     // Insert the banner content into the header element
     document.querySelector("header").appendChild(banner);
   }
+</script>
