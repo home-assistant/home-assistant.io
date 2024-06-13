@@ -210,7 +210,7 @@ binary_sensor:
 
 ### Multiple state and numeric entries per entity
 
-Lastly an example that illustrates how to configure Bayesian when there are more than two states of interest and a number of possible numeric ranges. When an entity can hold more than 2 values of interest (numeric ranges or states) then you may wish to specify probabilities for each possible value. Once you have specified more than one, Bayesian cannot infer anything about states or numeric values that are unspecified, so it is recommended that all possible values are included. As above the `prob_given_true`s of all the possible states should sum to 1, as should the `prob_given_false`s. If a value to observed that is not specified then the observation will be ignored as it would if the entity were `UNKNOWN` or `UNAVAILABLE`.
+Lastly an example that illustrates how to configure Bayesian when there are more than two states of interest and a number of possible numeric ranges. When an entity can hold more than 2 values of interest (numeric ranges or states) then you may wish to specify probabilities for each possible value. Once you have specified more than one, Bayesian cannot infer anything about states or numeric values that are unspecified, so it is recommended that all possible values are included. As above the `prob_given_true`s of all the possible states should sum to 1, as should the `prob_given_false`s. If a value is observed that has not been specified then the observation will be ignored as it would if the entity were `UNKNOWN` or `UNAVAILABLE`.
 
 When more than once range is specified then if a value falls on the threshold of two ranges, it will be included with the range that lists it in `below`. Said another way, `below` really means "below or equal to". This is not true when only a single range is specified.
 
@@ -265,7 +265,7 @@ binary_sensor:
       to_state: "due"
     - platform: "state"
       entity_id: "sensor.bin_collection"
-      prob_given_true: 0.15 All the prob_given_true should add to 1
+      prob_given_true: 0.15 #All the prob_given_true should add to 1
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
