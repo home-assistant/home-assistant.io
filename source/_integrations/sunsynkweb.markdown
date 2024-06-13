@@ -37,7 +37,7 @@ view of the relevant sensors. For example: in a typical installation, the batter
 The load power will be the sum of the load on each inverter.
 The energy totals produce statistics that are usable with the energy dashboard.
 
-| id                      | description                                               |
+| ID                     | Description                                               |
 | ----------------------- | --------------------------------------------------------- |
 | `battery_power`         |  Solar supply battery power                               |
 | `load_power`            |  Total inverter load                                      |  
