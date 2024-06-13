@@ -121,9 +121,11 @@ observations:
 {% endconfiguration %}
 
 ## Full examples
+
 These are a number of worked examples which you may find helpful for each of the state types.
 
 ### State
+
 The following is an example for the `state` observation platform.
 
 ```yaml
@@ -163,6 +165,7 @@ binary_sensor:
 ```
 
 ### Numeric State
+
 Next up an example which targets the `numeric_state` observation platform,
 as seen in the configuration it requires `below` and/or `above` instead of `to_state`.
 
@@ -182,8 +185,8 @@ binary_sensor:
 ```
 
 ### Template
-Here's an example for `template` observation platform, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
 
+Here's an example for `template` observation platform, as seen in the configuration it requires `value_template`. This template will evaluate to true if the device tracker `device_tracker.paulus` shows `not_home` and it last changed its status more than 5 minutes ago.
 
 ```yaml
 # Example configuration.yaml entry
@@ -201,12 +204,13 @@ binary_sensor:
       prob_given_false: 0.99
 ```
 
-### Multiple state and numeric entries per enitity
-Lastly an example that illustrates how to configure Bayesian when there are more than two states of interest and a number of possible numeric ranges. When an entity can hold more than 2 values of interest (numeric ranges or states) then you may wish to specifiy probabilities for each possible value. Once you have specified more than one, Bayesian cannot infer anything about states or numeric values that are unspecified, so it is reccomended that all possible values are included. As above the `prob_given_true`s of all the possible states should sum to 1, as should the `prob_given_false`s. If a value to observed that is not sepcified then the observation will be ignored as it would if the entity were `UNKNOWN` or `UNAVAILABLE`.
+### Multiple state and numeric entries per entity
+
+Lastly an example that illustrates how to configure Bayesian when there are more than two states of interest and a number of possible numeric ranges. When an entity can hold more than 2 values of interest (numeric ranges or states) then you may wish to specify probabilities for each possible value. Once you have specified more than one, Bayesian cannot infer anything about states or numeric values that are unspecified, so it is recommended that all possible values are included. As above the `prob_given_true`s of all the possible states should sum to 1, as should the `prob_given_false`s. If a value to observed that is not specified then the observation will be ignored as it would if the entity were `UNKNOWN` or `UNAVAILABLE`.
 
 When more than once range is specified then if a value falls on the threshold of two ranges, it will be included with the range that lists it in `below`. Said another way, `below` really means "below or equal to". This is not true when only a single range is specified.
 
-This is an example sensor to detect if the bins have been left on the side of the road and need to be brought in closer to the house. It combines a theorectical prescence sensor that gives a numeric signal strength and an API sensor from local government that can have 3 possible states: `due` when collection is due in the next 24 hours, `collected` when collection has happened in the last 24 hours and `not_due` at other times.
+This is an example sensor to detect if the bins have been left on the side of the road and need to be brought in closer to the house. It combines a theoretical presence sensor that gives a numeric signal strength and an API sensor from local government that can have 3 possible states: `due` when collection is due in the next 24 hours, `collected` when collection has happened in the last 24 hours and `not_due` at other times.
 
 ```yaml
 # Example configuration.yaml entry
@@ -219,7 +223,7 @@ binary_sensor:
     - platform: "numeric_state"
       entity_id: "sensor.signal_strength"
       prob_given_true: 0.01 # if the bins are out and need bringing in there is only a 1% we will get a strong signal of above 10
-      prob_given_false: 0.3 # if the bins are not out, we still tend not to get a sigal this strong
+      prob_given_false: 0.3 # if the bins are not out, we still tend not to get a signal this strong
       above: 10
     - platform: "numeric_state"
       entity_id: "sensor.signal_strength"
@@ -247,7 +251,7 @@ binary_sensor:
     # then lets say we want to combine this with an imaginary sensor.bin_collection which reads for a local government API which can have 1 of three values (collected, due, not due)
     - platform: "state"
       entity_id: "sensor.bin_collection"
-      prob_given_true: 0.8 # If the bins need bringing in, usually its becuase they've just been collectd
+      prob_given_true: 0.8 # If the bins need bringing in, usually its because they've just been collected
       prob_given_false: 0.05 # 
       to_state: "collected"
     - platform: "state"
