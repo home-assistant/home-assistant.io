@@ -53,7 +53,7 @@ The energy totals produce statistics that are usable with the energy dashboard.
 
 ## Other considerations
 
-The Sunsynk web api and website seem to be rebranded [e-linter](https://www.e-linter.com) services.
+The Sunsynk web API and website seem to be rebranded [e-linter](https://www.e-linter.com) services.
 Currently the underlying wrapper [pysunsybkweb](https://github.com/francoisverbeek/pysunsynkweb) has hardcoded
 references to Sunsynk. If you are using another brand that uses the same underlying service, get in touch, we may
 be able to extend the support to additional tenants of e-linter's infrastructure.
