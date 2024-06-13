@@ -37,8 +37,8 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
 
-
 ## Switch
+
 `Alternative Speed` is added, controlling qBittorrent's alternative speed
 
 ## Services
@@ -79,4 +79,3 @@ response_variable: all_torrents
 ```
 
 The response data contains the field `all_torrents`, which contains a dictionary of integrations, which each contains a dictionary of torrents. The names of the torrents are the keys.
-
