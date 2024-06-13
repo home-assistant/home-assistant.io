@@ -562,7 +562,7 @@
     uses its radio frequency (RF) radio to communicate with the Thread mesh
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
-    mini, and the Home Assistant SkyConnect together with the OpenThread Border
+    mini, and the Home Assistant Connect&nbsp;ZBT-1 together with the OpenThread Border
     Router add-on.
   link: /integrations/thread/#about-thread-border-routers
   aliases:
