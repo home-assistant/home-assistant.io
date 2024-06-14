@@ -15,15 +15,15 @@ ha_integration_type: integration
 ha_quality_scale: silver
 ---
 
-This integration interacts with your [Sensoterra](https://sensoterra.com) soil moisture probes by communicating with the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) through HTTPS.
+This integration communicates with your [Sensoterra](https://sensoterra.com) soil moisture probes using the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) via HTTPS.
 
 ## Pre-requisites
 
-- You need to own registered Sensoterra soil moisture probes.
+Soil moisture probes can be purchased at Sensoterra.com. Create a free account in the Sensoterra app and register your probes. The Sensoterra Home Assistant integration needs your credentials to obtain a token to access your probe data.
 
 ## Sensors
 
-The integration offers a few sensors per probe: 
+The integration provides the following sensors for each probe:
 
 - Soil moisture (either in volumetric-% or in SI)
 - Temperature
