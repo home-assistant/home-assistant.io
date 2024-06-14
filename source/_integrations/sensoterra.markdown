@@ -24,6 +24,7 @@ This integration interacts with your [Sensoterra](https://sensoterra.com) soil m
 ## Sensors
 
 The integration offers a few sensors per probe: 
+
 - Soil moisture (either in volumetric-% or in SI)
 - Temperature
 - LoRaWAN signal strength (RSSI level)
