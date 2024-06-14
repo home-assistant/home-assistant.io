@@ -50,6 +50,7 @@ envisalink:
   zonedump_interval: 30
   timeout: 10
   panic_type: Police
+  unique_id: 3973575
   zones:
     1:
       name: "Back Door"
@@ -112,6 +113,10 @@ panic_type:
   description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
   required: false
   default: Police
+  type: string
+unique_id:
+  description: A unique id for this integration to use as unique id prefix on the entities. Enables controlling of your entities directly on the entity itself.
+  required: false
   type: string
 zones:
   description: "Envisalink boards have no way to tell us which zones are actually in use, so each zone must be configured in Home Assistant. Zone numbers correspond to the zone numbers configured on your alarm system and must be in the range of 1 to 64. For each zone, at least a name must be given. For more information about the visual representation of a zone, take a look at the [binary sensor](/integrations/binary_sensor/#device-class) documentation. *Note: If no zones are specified, Home Assistant will not load any binary_sensor integrations.*"
