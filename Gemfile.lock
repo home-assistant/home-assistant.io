@@ -107,7 +107,7 @@ GEM
     regexp_parser (2.9.2)
     rexml (3.3.0)
       strscan
-    rouge (4.2.1)
+    rouge (4.3.0)
     rubocop (1.64.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
