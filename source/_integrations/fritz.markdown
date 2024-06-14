@@ -52,9 +52,22 @@ The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the
 
 ## Services
 
-Available {% term services %}: `set_guest_wifi_password`
+Currently supported services are Platform specific:
 
-### Service `set_guest_wifi_password`
+- `fritz.cleanup`
+
+### Platform services
+
+#### Service `fritz.cleanup`
+
+Remove all stale devices from Home Assistant.
+A device is identified as stale when it's still present on Home Assistant but not on the FRITZ!Box.
+
+| Service data attribute | Optional | Description                                                                                                    |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
+
+#### Service `fritz.set_guest_wifi_password`
 
 Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.

@@ -82,6 +82,7 @@ To enable displaying the relative time in your `default_view` add the following 
 
 ```yaml
 # Example default_view entry
+title: Home Assistant
 views:
     cards:
       - entities:

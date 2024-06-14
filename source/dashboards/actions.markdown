@@ -26,15 +26,12 @@ Actions can be enabled on the following cards:
 
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
-- [Gauge](/dashboards/gauge/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
 - [Picture element](/dashboards/picture-elements/)
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
-- [Tile](/dashboards/tile/)
-- [Weather forecast](/dashboards/weather-forecast/)
 
 ## Tap action
 

@@ -228,6 +228,7 @@ dashboards:
 As a super minimal example of a dashboard config, here's the bare minimum you will need for it to work:
 
 ```yaml
+title: My Awesome Home
 views:
     # View tab title.
   - title: Example
@@ -242,6 +243,7 @@ views:
 A slightly more advanced example:
 
 ```yaml
+title: My Awesome Home
 views:
     # View tab title.
   - title: Example

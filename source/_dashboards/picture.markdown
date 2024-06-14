@@ -19,7 +19,7 @@ The picture card allows you to set an image to use for navigation to various pat
 Screenshot of the picture card.
 </p>
 
-{% include dashboard/add_picture_to_card.md %}
+{% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 

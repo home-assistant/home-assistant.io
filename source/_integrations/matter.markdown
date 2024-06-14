@@ -5,7 +5,6 @@ ha_category:
   - Binary sensor
   - Climate
   - Cover
-  - Fan
   - Light
   - Lock
   - Sensor
@@ -22,7 +21,6 @@ ha_platforms:
   - cover
   - diagnostics
   - event
-  - fan
   - light
   - lock
   - sensor

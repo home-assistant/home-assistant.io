@@ -170,6 +170,7 @@ automation:
 
 ```yaml
 panel: true
+title: Home
 views:
   - badges: []
     cards:

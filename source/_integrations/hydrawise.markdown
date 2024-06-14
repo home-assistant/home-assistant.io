@@ -28,12 +28,6 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-## Prerequisites
-
-1. To set up the Hydrawise integration, you must first set up an online account at
-[https://app.hydrawise.com](https://app.hydrawise.com). 
-2. Then, use your online credentials to configure the integration.
-
 {% include integrations/config_flow.md %}
 
 ## Binary sensor

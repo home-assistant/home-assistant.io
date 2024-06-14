@@ -181,7 +181,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive number values. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive number values.
   required: false
   type: string
 step:

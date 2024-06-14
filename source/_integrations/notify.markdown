@@ -41,7 +41,6 @@ Integrations can also implement the notify entity platform. Entity platform impl
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
 
 ## Companion app notifications
 
@@ -72,7 +71,6 @@ service: notify.send_message
 data:
   entity_id: notify.my_direct_message_notifier
   message: "You have an update!"
-  title: "Status changed"
 ```
 
 {% endraw %}
