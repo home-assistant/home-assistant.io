@@ -143,6 +143,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 ### Switch
 
