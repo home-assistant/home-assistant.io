@@ -67,6 +67,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2024.6.1 - June 7](#202461---june-7)
   - [2024.6.2 - June 11](#202462---june-11)
+  - [2024.6.3 - June 15](#202463---june-15)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -724,6 +725,80 @@ every Friday.
 [@thecode]: https://github.com/thecode
 [@tronikos]: https://github.com/tronikos
 [@wittypluck]: https://github.com/wittypluck
+
+### 2024.6.3 - June 15
+
+- Make remaining time of timers available to LLMs ([@tronikos] - [#118696])
+- Bump uiprotect to 0.10.1 ([@bdraco] - [#119327])
+- Bump uiprotect to 0.13.0 ([@bdraco] - [#119344])
+- Bump uiprotect to 1.0.0 ([@bdraco] - [#119415])
+- Fix incorrect key name in unifiprotect options strings ([@bdraco] - [#119417])
+- Bump buieradar to 1.0.6 ([@mjj4791] - [#119433])
+- Bump uiprotect to v1.0.1 ([@ep1cman] - [#119436])
+- Bump uiprotect to 1.1.0 ([@bdraco] - [#119449])
+- Add loggers to gardena bluetooth ([@elupus] - [#119460])
+- Revert Use integration fallback configuration for tado water heater fallback ([@erwindouna] - [#119466])
+- Partially revert "Add more debug logging to Ping integration" ([@jpbede] - [#119487])
+- Revert "Revert Use integration fallback configuration for tado water fallback" ([@ethemcemozkan] - [#119526])
+- Fix error for Reolink snapshot streams ([@starkillerOG] - [#119572])
+- Bump uiprotect to 1.2.1 ([@bdraco] - [#119620])
+- Fix group enabled platforms are preloaded if they have alternative states ([@jbouwh] - [#119621])
+- Update frontend to 20240610.1 ([@piitaya] - [#119634])
+- Soften unifiprotect EA channel message ([@bdraco] - [#119641])
+- Bump goodwe to 0.3.6 ([@mletenay] - [#119646])
+- Bump uiprotect to 1.4.1 ([@bdraco] - [#119653])
+- Bump uiprotect to 1.6.0 ([@bdraco] - [#119661])
+- Fix alarm default code in concord232 ([@gjohansson-ST] - [#119691])
+- Bump uiprotect to 1.7.1 ([@bdraco] - [#119694])
+- Bump uiprotect to 1.7.2 ([@bdraco] - [#119705])
+- Bump ZHA dependencies ([@TheJulianJES] - [#119713])
+- Ensure UniFi Protect EA warning is not persistent ([@frenck] - [#119730])
+- Ensure workday issues are not persistent ([@frenck] - [#119732])
+
+[#118400]: https://github.com/home-assistant/core/pull/118400
+[#118696]: https://github.com/home-assistant/core/pull/118696
+[#119096]: https://github.com/home-assistant/core/pull/119096
+[#119327]: https://github.com/home-assistant/core/pull/119327
+[#119344]: https://github.com/home-assistant/core/pull/119344
+[#119376]: https://github.com/home-assistant/core/pull/119376
+[#119415]: https://github.com/home-assistant/core/pull/119415
+[#119417]: https://github.com/home-assistant/core/pull/119417
+[#119433]: https://github.com/home-assistant/core/pull/119433
+[#119436]: https://github.com/home-assistant/core/pull/119436
+[#119449]: https://github.com/home-assistant/core/pull/119449
+[#119460]: https://github.com/home-assistant/core/pull/119460
+[#119466]: https://github.com/home-assistant/core/pull/119466
+[#119487]: https://github.com/home-assistant/core/pull/119487
+[#119526]: https://github.com/home-assistant/core/pull/119526
+[#119572]: https://github.com/home-assistant/core/pull/119572
+[#119620]: https://github.com/home-assistant/core/pull/119620
+[#119621]: https://github.com/home-assistant/core/pull/119621
+[#119634]: https://github.com/home-assistant/core/pull/119634
+[#119641]: https://github.com/home-assistant/core/pull/119641
+[#119646]: https://github.com/home-assistant/core/pull/119646
+[#119653]: https://github.com/home-assistant/core/pull/119653
+[#119661]: https://github.com/home-assistant/core/pull/119661
+[#119691]: https://github.com/home-assistant/core/pull/119691
+[#119694]: https://github.com/home-assistant/core/pull/119694
+[#119705]: https://github.com/home-assistant/core/pull/119705
+[#119713]: https://github.com/home-assistant/core/pull/119713
+[#119730]: https://github.com/home-assistant/core/pull/119730
+[#119732]: https://github.com/home-assistant/core/pull/119732
+[@TheJulianJES]: https://github.com/TheJulianJES
+[@bdraco]: https://github.com/bdraco
+[@elupus]: https://github.com/elupus
+[@ep1cman]: https://github.com/ep1cman
+[@erwindouna]: https://github.com/erwindouna
+[@ethemcemozkan]: https://github.com/ethemcemozkan
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@jpbede]: https://github.com/jpbede
+[@mjj4791]: https://github.com/mjj4791
+[@mletenay]: https://github.com/mletenay
+[@piitaya]: https://github.com/piitaya
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
 
 ## Need help? Join the community!
 
