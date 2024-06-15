@@ -40,11 +40,11 @@ _Consumption sensors require your Envoy to be properly configured with consumpti
 
 For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
 
-- Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
 - Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
 - Disabled sensors for:
   
-  - Phase net production and net consumption.
+  - Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
+  - Phase net production and net consumption, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
   - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
   - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
   - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
@@ -91,9 +91,11 @@ When the relay mode is set to battery level, the relays will turn on and off bas
 
 The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the service using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
-## Credentials update
+## Credentials or device IP address update
 
-This integration supports updating configuration by re-adding the integration and specifying the same or new IP address, username, and password. Use this method if your Enlighten credentials or the device's IP address has changed and needs to be updated.
+This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated. 
+
+Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
 
 ## Energy dashboard
 

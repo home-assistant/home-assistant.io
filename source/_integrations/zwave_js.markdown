@@ -59,7 +59,7 @@ To run a Z-Wave network, you need the following elements:
 
 ### Setting up a Z-Wave JS server
 
-If you are running Home Assistant Operating System or Home Assistant Supervised, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
+If you are running {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %}, the easiest way to get started is by using the built-in Z-Wave JS add-on in Home Assistant.
 
 For other ways to setup a Z-Wave server, refer to the [advanced installation instructions](#advanced-installation-instructions).
 
@@ -726,13 +726,13 @@ The chart below illustrates Options 1 and 2, which are available for Home Assist
 
 **Option 1: The official Z-Wave JS add-on, as described above**
 
-_This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
 
 This add-on can only be configured via the built-in Z-Wave control panel in Home Assistant. If you followed the standard [installation procedure](#setting-up-a-z-wave-js-server), this is how you are running the Z-Wave JS server.
 
 **Option 2: The Z-Wave JS UI add-on installed from the community add-on store**
 
-_This option is only available for Home Assistant OS (the recommended installation type) and Home Assistant Supervised installations._
+_This option is only available for {% term "Home Assistant Operating System" %} (the recommended installation type) and {% term "Home Assistant Supervised" %} installations._
 
 This add-on includes the Z-Wave JS Server as part of the Z-Wave JS UI application. The Z-Wave network can be configured via the built-in Z-Wave control panel in Home Assistant and alternatively via the Z-Wave control panel built into Z-Wave JS UI. It provides you with a full-fledged, attractive, and feature-complete UI to manage your Z-Wave nodes and settings, which may support more advanced use cases as development continues on the Z-Wave control panel.
 
@@ -815,13 +815,15 @@ Switching does not require renaming your devices.
 
 2. Note your network security keys from the official add-on.
 
-3. Install and configure the Z-Wave JS UI add-on, including setting the location of your Z-Wave device and the network security keys.
+3. Install and start the Z-Wave JS UI add-on.
 
-4. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
+4. Configure the Z-Wave JS UI add-on with the added control panel, including setting the location of your Z-Wave device and the network security keys.
 
-5. Uninstall the official Z-Wave JS add-on.
+5. Add the Z-Wave integration again (even though it is still installed), and uncheck the "Use the Z-Wave JS Supervisor add-on". Enter the correct address for the community add-on in the URL field in the next step.
 
-6. Enable the Z-Wave integration.
+6. Uninstall the official Z-Wave JS add-on.
+
+7. Enable the Z-Wave integration.
 
 ### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
 

@@ -1,9 +1,12 @@
 ---
 title: microBees
 description: Instructions on how to integrate microBees devices into Home Assistant.
-ha_category:  
+ha_category:
+  - Switch
+  - Climate
   - Cover
   - Button
+  - Cover
   - Light
   - Sensor
   - Switch
@@ -15,9 +18,11 @@ ha_domain: microbees
 ha_iot_class: Cloud Polling
 ha_platforms:
   - switch
+  - climate
   - cover
   - binary_sensor
   - button
+  - cover
   - light
   - sensor
   - switch
@@ -31,6 +36,7 @@ To retrieve the OAuth2 Client ID and Client Secret go to [microBees Developer Da
 
 There is currently support for the following device types within Home Assistant:
 - **Switch**
+- **Climate**
 - **Cover**
 - **Binary sensors**
 - **Button**

@@ -1,5 +1,5 @@
 ---
-title: Integration - Riemann sum integral
+title: Integral
 description: Instructions on how to integrate Integration Sensor into Home Assistant.
 ha_category:
   - Energy
@@ -22,10 +22,8 @@ This integrations provides the [Riemann sum](https://en.wikipedia.org/wiki/Riema
 of the values provided by a source sensor. The Riemann sum is an approximation
 of an **integral** by a finite sum.
 
-The integration sensors are updated upon changes of the **source**. Fast
-sampling source sensors provide more accurate results. In this implementation, the
-default is the Trapezoidal method, but Left and Right methods can optionally
-be used.
+The integration sensors are updated whenever the source changes and, optionally, based on a predefined
+time interval. Source sensors with higher sampling frequency provide more accurate results.
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -41,6 +39,9 @@ Metric prefix:
   description: Metric unit to prefix the integration result.
 Integration time:
   description: SI unit of time to integrate over.
+Max sub-interval:
+  description: Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0.
+
 {% endconfiguration_basic %}
 
 
@@ -48,7 +49,7 @@ Integration time:
 
 Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -91,17 +92,19 @@ method:
   required: false
   type: string
   default: trapezoidal
+max_sub_interval:
+  description: "Applies time-based integration if the source did not change for this duration. This implies that at least every `max sub-interval`, the integral is updated. If you don't want time-based updates, enter 0."
+  required: false
+  type: time
 {% endconfiguration %}
-
-In case you expect that your source sensor will provide several subsequent values that are equal, you should opt for the `left` method to get accurate readings.
 
 The unit of `source` together with `unit_prefix` and `unit_time` is used to generate a unit for the integral product (e.g. a source in `W` with prefix `k` and time `h` would result in `kWh`). Note that `unit_prefix` and `unit_time` are _also_ relevant to the Riemann sum calculation. 
 
 ## Integration method
 
-Riemann Sum is a approximation of an integral by a finite sum and is therefore intrinsically inaccurate, nonetheless, depending on the method used, values can be more or less accurate.
+The Riemann Sum is an approximation of an integral by a finite sum and is therefore intrinsically inaccurate. Nonetheless, depending on the method used, values can be more or less accurate.
 
-Regardless of the method used the integration will be more accurate if the source updates more often. If your source is not updated, neither will the Riemann Sum sensor, as all this integration does is calculate the next step in the event of a source update.
+The integration method defines how to calculate the area under the source sensor when it changes. Regardless of the method used, the integration will be more accurate if the source updates more often. The config `max_sub_interval` can be used to trigger integration when the source sensor is constant.
 
 ### Trapezoidal
 
@@ -128,6 +131,8 @@ sensor:
     name: energy_spent
     unit_prefix: k
     round: 2
+    max_sub_interval:
+      minutes: 5
 ```
 
 This configuration will provide you with `sensor.energy_spent` which will have your energy in kWh, as a `device_class` of `energy`.

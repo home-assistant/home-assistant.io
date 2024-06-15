@@ -91,4 +91,4 @@ Learn more about blueprints by [reading our tutorial on creating a blueprint](/d
 
 ## Troubleshooting missing automations
 
-When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
+When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.

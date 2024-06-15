@@ -3,6 +3,11 @@ type: card
 title: "Energy cards"
 sidebar_label: Energy cards
 description: "An overview of the energy cards that are available."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
@@ -229,8 +234,3 @@ The following example limits the number of shown devices to 5:
 type: energy-devices-detail-graph
 max_devices: 5
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

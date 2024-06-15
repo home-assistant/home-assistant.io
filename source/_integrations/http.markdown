@@ -86,6 +86,11 @@ ssl_profile:
   required: false
   type: string
   default: modern
+strict_connection:
+  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `guard_page` or `drop_connection`.
+  required: false
+  type: string
+  default: disabled
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -131,7 +136,7 @@ The `http` platforms are not real platforms within the meaning of the terminolog
 
 To use those kind of [sensors](#sensor) or [binary sensors](#binary-sensor) in your installation no configuration in Home Assistant is needed. All configuration is done on the devices themselves. This means that you must be able to edit the target URL or endpoint and the payload. The entity will be created after the first message has arrived.
 
-Create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI at the bottom of your profile if you want to use HTTP sensors.
+If you want to use HTTP sensors, create a [Long-Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token) in the Home Assistant UI in the **Security** section of your {% my profile title="**User profile**" %} page.
 
 All [requests](https://developers.home-assistant.io/docs/api/rest#post-apistatesentity_id) need to be sent to the endpoint of the device and must be **POST**.
 

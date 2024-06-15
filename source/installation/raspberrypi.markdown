@@ -60,7 +60,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
 3. Connect the power supply to start up the device.
 
 ### Access Home Assistant
@@ -86,6 +86,7 @@ Congratulations! You finished the Raspberry Pi setup!
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
+
 
 {% include installation/container.md %}
 {% include installation/core.md %}
@@ -135,3 +136,4 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
     <i>We get commissions for purchases made through links in this post.</i></p>
 </div>
 
+{% include common-tasks/enable_i2c.md %}

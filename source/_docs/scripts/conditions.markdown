@@ -165,7 +165,7 @@ condition:
 
 ## Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
+This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
 If both `below` and `above` are specified, both tests have to pass.
 
@@ -711,3 +711,37 @@ condition:
   entity_id: sun.sun
   state: "above_horizon"
 ```
+
+Conditions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+    input_number:
+      name: Number
+      selector:
+        number:
+          min: 0
+          max: 100
+
+  trigger_variables:
+    _enable_number: !input input_number
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: "above_horizon"
+      enabled: !input input_boolean
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+      enabled: "{{ _enable_number < 50 }}"
+```
+
+{% endraw %}

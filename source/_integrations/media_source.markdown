@@ -42,7 +42,7 @@ for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where your `configuration.yaml` is located).
+`media` under the configuration path (where your {% term "`configuration.yaml`" %} is located).
 
 Files served from `media` are protected by Home Assistant authentication
 unlike those served from `www`.
@@ -64,7 +64,7 @@ homeassistant:
 
 <div class='note'>
 
-  If you want to use media from a network storage, the network storage must first be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+  If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
 
   The media from the network storage is then automatically added to the local media browser.
 
@@ -99,4 +99,4 @@ data:
   media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 
-[basic-configuration]: /docs/configuration/basic/#media_dirs
+[basic-configuration]: /integrations/homeassistant/#media_dirs

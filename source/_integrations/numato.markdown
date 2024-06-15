@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `numato` integration is the base for all related GPIO platforms of the

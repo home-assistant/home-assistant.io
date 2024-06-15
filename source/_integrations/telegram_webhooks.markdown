@@ -10,14 +10,14 @@ ha_domain: telegram_bot
 
 Telegram chatbot webhooks implementation as described in the Telegram [documentation](https://core.telegram.org/bots/webhooks).
 
-By default this integration sets your bot's webhook URL automatically to `https://<external_url>/api/telegram_webhooks` with the external_url of your Home Assistant [configuration](/docs/configuration/basic/) using Telegrams `setWebhook` method.
+By default this integration sets your bot's webhook URL automatically to `https://<external_url>/api/telegram_webhooks` with the external_url of your Home Assistant [configuration](/integrations/homeassistant/#external_url) using Telegrams `setWebhook` method.
 
 This is one of two bot implementations supported by Telegram. Described by Telegram as the preferred implementation but requires your Home Assistant instance to be exposed to the internet.
 The other implementation method is [Telegram polling](/integrations/telegram_polling/), for which your Home Assistant instance does not have to be exposed to the internet.
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate this into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +48,7 @@ proxy_url:
   required: false
   type: string
 url:
-  description: Allow to overwrite the external URL from the Home Assistant [configuration](/docs/configuration/basic/) for different setups (`https://<public_url>:<port>`).
+  description: Allow to overwrite the external URL from the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml) for different setups (`https://<public_url>:<port>`).
   required: false
   type: string
 trusted_networks:

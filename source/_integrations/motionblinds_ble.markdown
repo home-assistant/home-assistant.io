@@ -14,7 +14,7 @@ ha_platforms:
   - button
   - cover
   - select
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 This {% term integration %} adds support for [Motionblinds](https://motionblinds.com/) Bluetooth motors. Want to motorize your existing blinds? This can be done with Motionblinds motor CMD-03. Made-to-measure window coverings with Motionblinds are available through a worldwide reseller network.

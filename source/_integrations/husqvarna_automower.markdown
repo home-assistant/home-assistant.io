@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Device tracker
   - Lawn Mower
+  - Number
   - Select
   - Sensor
   - Switch
@@ -16,7 +17,9 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - diagnostics
   - lawn_mower
+  - number
   - select
   - sensor
   - switch
@@ -108,6 +111,17 @@ The integration will create a lawn mower entity to control the mower. This entit
 - Pause mowing
 - Park until next schedule
 
+### Number (if available)
+
+#### Cutting height
+
+The integration will create a number entity for changing the cutting height of the mower. This entity is disabled by default. You have to enable it manually. It can't be detected with the API if the mower has the capability to change the cutting height remotely. Before enabling this function, refer to the mower documentation. Depending on the mower, it is possible that you can use this entity only passively as a sensor and not actively to change the cutting height.
+Possible values are 1 (grass stays short) to 9 (grass stays high).
+
+#### Cutting height for work areas
+
+The integration will create a number entity for changing the cutting height for each work area of the mower if your mower supports work areas. Possible values for the cutting heights are 0% (grass stays short) to 100% (grass stays high) of the default cutting height. Note: It's not yet possible to change the default cutting height with Home Assistant.
+
 ### Select (if available)
 
 The integration will create a select entity for selecting the headlight mode of the mower.
@@ -129,7 +143,14 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 ### Switch
 
+#### Enable schedule
+
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
+
+#### Avoid (if available)
+
+The integration will create a switch for each stay-out zone defined for your mower. When the switch is on, the mower avoids the corresponding zone. When the switch is off, the mower enters the corresponding zone.

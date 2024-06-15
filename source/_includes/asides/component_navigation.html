@@ -75,3 +75,39 @@
   </div>
   {%- endif -%}
 </section>
+
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title delta">Code owners</h1>
+    {% if page.ha_codeowners %}
+        {% assign ha_project = false %}
+        {% for codeowner in page.ha_codeowners %}
+            {% if codeowner contains "@home-assistant/" %}
+                {% assign ha_project = true %}
+            {% endif %}
+        {% endfor %}
+        
+          {% if ha_project %}
+          <div class="section">
+            This integration is being maintained by the Home Assistant project.
+          </div>
+        {% else %}
+          <div class="section">
+            We are incredibly grateful to the following contributors who currently maintain this integration:<br />
+          </div>
+          <div class="section">
+            {%- for codeowner in page.ha_codeowners -%}
+            {%- assign clean_codeowner = codeowner | replace: "@", "" -%}
+            <a href="https://github.com/{{ clean_codeowner }}" target="_blank"><i class="icon-github"></i> {{ codeowner }}</a><br />
+            {%- endfor -%}
+          </div>
+        {% endif %}
+    {% else %}
+      <div class="section">
+        This integration is community maintained.<br />
+        If you are a developer and would like to help, feel free to contribute!
+      </div>
+    {% endif %}
+  </div>
+</section>
+

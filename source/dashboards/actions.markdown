@@ -1,6 +1,23 @@
 ---
 title: "Actions"
 description: "Define what an object does when interacted with."
+related:
+  - docs: /dashboards/button/
+    title: Button card
+  - docs: /dashboards/entities/
+    title: Entities card
+  - docs: /dashboards/glance/
+    title: Glance card
+  - docs: /dashboards/light/
+    title: Light card
+  - docs: /dashboards/picture/
+    title: Picture card
+  - docs: /dashboards/picture-elements/
+    title: Picture element card
+  - docs: /dashboards/picture-entity/
+    title: Picture entity card
+  - docs: /dashboards/picture-glance/
+    title: Picture glance card
 ---
 
 Some cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
@@ -9,12 +26,15 @@ Actions can be enabled on the following cards:
 
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
+- [Gauge](/dashboards/gauge/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
 - [Picture element](/dashboards/picture-elements/)
 - [Picture entity](/dashboards/picture-entity/)
 - [Picture glance](/dashboards/picture-glance/)
+- [Tile](/dashboards/tile/)
+- [Weather forecast](/dashboards/weather-forecast/)
 
 ## Tap action
 
@@ -264,14 +284,3 @@ hold_action:
 ## Limitations
 
 It is not possible to use templates for actions. But calling a [script](/docs/scripts/) is a good alternative.
-
-## Related topics
-
-- [Button card](/dashboards/button/)
-- [Entities card](/dashboards/entities/)
-- [Glance card](/dashboards/glance/)
-- [Light card](/dashboards/light/)
-- [Picture card](/dashboards/picture/)
-- [Picture element card](/dashboards/picture-elements/)
-- [Picture entity card](/dashboards/picture-entity/)
-- [Picture glance card](/dashboards/picture-glance/)

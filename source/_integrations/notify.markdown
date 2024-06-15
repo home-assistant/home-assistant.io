@@ -19,7 +19,7 @@ If you want to send notifications to the Home Assistant web interface, you may u
 
 ## Service
 
-Once loaded, the `notify` platform will expose a service that can be called to send notifications.
+The legacy `notify` platform will expose a generic `notify` service that can be called to send notifications.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -34,7 +34,18 @@ The different **Notify** integrations you have set up will each show up as a dif
 
 One notification integration is automatically included, the Persistent Notifications which creates a notification in the sidebar of the web interface of Home Assistant. This can be chosen with the action named "Notifications: Send a persistent notification" which uses the service `notify.persistent_notification`.
 
-Another common notification integration is via the companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name" which uses the service `notify.mobile_app_your_phone_name`. See the [companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
+## Notify entity service
+
+Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify service in time. There is an entity platform service `send_message` which allows you to send notification messages to multiple notify entities.
+
+| Service data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `message`              |       no | Body of the notification.
+| `title`                |      yes | Title of the notification.
+
+## Companion app notifications
+
+A common notification integration is via the Home Assistant Companion app for Android or iPhone. This can be chosen with the action "Send a notification via mobile_app_your_phone_name", which uses the service `notify.mobile_app_your_phone_name`. Refer to the [Companion app documentation](https://companion.home-assistant.io/docs/notifications/notifications-basic) for lots of customization options.
 
 With any of these integrations, the `message` data input in the automation editor is the main text that will be sent. Other fields are optional, and some integrations support additional `data` or `target` information to customize the action. For more details, refer to their integration documentation.
 
@@ -46,7 +57,41 @@ Notifications can also be sent using [Notify groups](https://www.home-assistant.
 
 After you setup a [notifier](/integrations/#notifications), a simple way to test if you have set up your notify platform correctly is to open {% my developer_services title="**Developer tools** > **Services**" %}** tab from the sidebar. Choose your service from the **Service** dropdown menu depending on the integration you want to test, such as **Notifications: Send a persistent notification** or **Notifications: Send a notification via mobile_app_your_phone_name**. Enter your message into the **message** field, and select the **CALL SERVICE** button.
 
-### Examples
+To test the entity platform service, select the `notify.send_message` service, and select one or more of `entity`, `device`, `area`, or `label`. Then, supply a `message`.
+
+### Example with the entity platform notify service
+
+Under {% my developer_services title="**Developer Tools** > **Services**" %}, select the **Notifications: Send a notification message** action. Select some target entity's using the entity selectors, enter a message and test sending it.
+
+If you switch to view the YAML data under **Developer Tools**, it will appear as below. The same {% term action %} can be chosen in {% term automation %}. The YAML will appear the same:
+
+{% raw %}
+
+```yaml
+service: notify.send_message
+data:
+  entity_id: notify.my_direct_message_notifier
+  message: "You have an update!"
+  title: "Status changed"
+```
+
+{% endraw %}
+
+The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
+
+{% raw %}
+
+```yaml
+action:
+  service: notify.send_message
+  data:
+    entity_id: notify.my_direct_message_notifier
+    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
+```
+
+{% endraw %}
+
+### Examples with the legacy notify service
 
 In the **Developer Tools**, on the **Services** tab, select the **Notifications: Send a persistent notification** action. Enter a message and test sending it.
 
@@ -61,8 +106,6 @@ data:
 ```
 
 {% endraw %}
-
-
 
 The notify integration supports specifying [templates](/docs/configuration/templating/). This will allow you to use the current state of entities in Home Assistant in your notifications, or use more complex logic to decide the message that is sent.
 
@@ -87,5 +130,3 @@ action:
 ```
 
 {% endraw %}
-
-

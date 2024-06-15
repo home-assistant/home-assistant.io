@@ -16,6 +16,13 @@ ha_platforms:
   - camera
   - sensor
 ha_dhcp: true
+related:
+  - url: https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_302608
+    title: PrusaLink documentation
+  - url: https://help.prusa3d.com/guide/prusalink-and-prusa-connect-setup-mk3-s-_221744
+    title: PrusaLink installation guide for Prusa MK3 with Raspberry Pi Zero W
+  - url: https://help.prusa3d.com/guide/prusalink-prusa-connect-with-rpi-3-4-usb-mk2-5-s-mk3-s-_469341
+    title: Sentence trigger
 ---
 
 The **PrusaLink** {% term integration %} allows you to monitor your [Prusa 3D printer](https://www.prusa3d.com) and its progress with your Home Assistant installation. This integration works with Prusa MINI/MINI+, Prusa MK3.9/MK4, Prusa XL, and with the older Raspberry Pi-based Prusa MK2.5/MK3.
@@ -43,9 +50,3 @@ Firmware update guides can be found here:
  - Use the **username** and **password** you entered during the initial PrusaLink setup (not the API key).
 
 {% include integrations/config_flow.md %}
-
-## Related topics
-
-- [PrusaLink documentation](https://help.prusa3d.com/article/prusa-connect-and-prusalink-explained_302608)
-- [PrusaLink installation guide for Prusa MK3 with Raspberry Pi Zero W](https://help.prusa3d.com/guide/prusalink-and-prusa-connect-setup-mk3-s-_221744)
-- [PrusaLink installation guide for Prusa MK2.5/MK3 with Raspberry Pi 3/4](https://help.prusa3d.com/guide/prusalink-prusa-connect-with-rpi-3-4-usb-mk2-5-s-mk3-s-_469341)

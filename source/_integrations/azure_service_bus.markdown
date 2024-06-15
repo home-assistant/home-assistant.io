@@ -11,6 +11,9 @@ ha_domain: azure_service_bus
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/products/service-bus/) from within Home Assistant.
@@ -33,7 +36,8 @@ The queue or topic that you are sending to needs to exists with the service bus 
 
 ## Configuration
 
-Add the following lines to your `configuration.yaml` file:
+Add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -12,6 +12,18 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /integrations/calendar
+    title: Calendar
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
@@ -38,7 +50,8 @@ This integration was tested against the following systems, but any other complyi
 
 ## Manual configuration
 
-You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
+You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your {% term "`configuration.yaml`" %} file. This method does not support to-do lists. 
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% details Manual configuration examples %}
 
@@ -203,13 +216,3 @@ to generate a new password for use by Home Assistant to avoid sharing your iClou
 password.
 
 {% enddetails %}
-
-## Related topics
-
-- [Calendar](/integrations/calendar)
-
-### To-do list
-
-- [To-do list integration documentation](/integrations/todo)
-- [List of to-do list integrations](/integrations/#to-do-list)
-- [To-do list card](/dashboards/todo-list/)

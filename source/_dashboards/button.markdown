@@ -3,6 +3,15 @@ type: card
 title: "Button card"
 sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The button card allows you to add buttons to perform tasks.
@@ -136,10 +145,3 @@ tap_action:
 <img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
 Screenshot of the button card with script service.
 </p>
-
-## Related topics
-
-- [Card actions](/dashboards/actions/)
-- [Scripts](/docs/scripts/)
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

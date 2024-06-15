@@ -9,9 +9,12 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `sendgrid` notification platform sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
+The `sendgrid` notification {% term integration %} sends email notifications via [SendGrid](https://sendgrid.com/), a proven cloud-based email platform.
 
 ## Setup
 
@@ -19,7 +22,8 @@ You need an [API key](https://app.sendgrid.com/settings/api_keys) from SendGrid.
 
 ## Configuration
 
-To enable notification emails via SendGrid in your installation, add the following to your `configuration.yaml` file:
+To enable notification emails via SendGrid in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
