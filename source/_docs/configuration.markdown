@@ -87,4 +87,4 @@ For configuration changes to become effective, the configuration must be reloade
 
 ## Troubleshooting the configuration
 
-If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/) and the [`configuration.yaml` examples](/examples/#example-configurationyaml).
+If you run into trouble while configuring Home Assistant, refer to the [configuration troubleshooting page](/docs/configuration/troubleshooting/).

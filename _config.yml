@@ -67,8 +67,6 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
-  examples:
-    output: true
   docs:
     output: true
   addons:

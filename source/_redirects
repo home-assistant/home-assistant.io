@@ -391,6 +391,7 @@ layout: null
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
+/examples /
 
 # Moved marketing pages / rebranding
 /skyconnect /connectzbt1
