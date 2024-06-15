@@ -6,6 +6,7 @@ ha_category:
   - Energy
   - Sensor
   - Switch
+  - Number
 ha_release: 0.59
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_platforms:
   - climate
   - sensor
   - switch
+  - number
 ha_integration_type: integration
 ---
 
@@ -33,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Number](#number)
 
 ## Supported hardware
 
@@ -145,6 +148,16 @@ Zones with the name `-` will be ignored, just as the AirBase application is work
 A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
 
 Additionally the Daikin Streamer (air purifier) function can be toggled on supported devices using a switch. Note that it isn't currently possible to reliably detect whether a specific device has streamer support, so the switch may appear in the UI even if the functionality isn't actually supported.
+
+## Number
+
+On supported devices, some AirBase units expose zone temperatures (typically rooms) that can be adjusted individually.
+
+<div class='note'>
+
+Zones with the name `-` will be ignored, just as the AirBase application is working.
+
+</div>
 
 ## Region changing
 
