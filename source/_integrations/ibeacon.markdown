@@ -75,7 +75,6 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 - [Blue Charm Beacons BC08-MultiBeacon](https://bluecharmbeacons.com/product/blue-charm-beacons-bluetooth-ble-ibeacon-bc08-multibeacon-w-motion-sensor-and-button-trigger-ble-5-0/)
 - Blue Charm Beacons BC037G-GeoPattern-iBeacon (discontinued)
 - Blue Charm Beacons BC037S-SmoothPattern-iBeacon (discontinued)
-- [Chipolo ONE Spot](https://chipolo.net/de/products/chipolo-one-spot)
 - [Blue SLIM ID](https://elainnovation.com/en/product/blue-slim-id-en/)
 - [Feasycom FSC-BP103B](https://www.feasycom.com/bluetooth-ibeacon-da14531)
 - [Feasycom FSC-BP104D](https://www.feasycom.com/dialog-da14531-bluetooth-low-energy-beacon)
