@@ -15,7 +15,7 @@ ha_homekit: true
 ha_integration_type: integration
 ---
 
-The **Bryant Evolution** {% term integration %} lets you control Bryant Evolution HVAC systems. 
+The **Bryant Evolution** {% term integration %} lets you control Bryant Evolution HVAC systems.
 
 It requires that a System Access Module be connected to the HVAC system (e.g., a Bryant SYSTXBBRCT01).
 
