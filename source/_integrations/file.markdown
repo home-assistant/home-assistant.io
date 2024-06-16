@@ -20,8 +20,8 @@ related:
 ha_config_flow: true
 ---
 
-The File integration allows to store notifications to a file or to set up a sensor based on a file's content.
-
+The File integration allows storing notifications in a file or setting up a sensor based on a file's content.
+  
 {% include integrations/config_flow.md %}
 
 ## Notifications
@@ -43,7 +43,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 #### Entries as JSON
 
-Assuming that the log file contains multiple values formatted as JSON like shown below:
+Assuming that the log file contains multiple values formatted as JSON as shown below:
 
 ```text
 [...]
@@ -51,7 +51,7 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 {"temperature": 22, "humidity": 36}
 ```
 
-This would require the following settings extract the temperature:
+This would require the following settings to extract the temperature:
 
 - Name: `Temperature`
 - File path: `/home/user/.homeassistant/sensor.json`
@@ -60,7 +60,7 @@ This would require the following settings extract the temperature:
 
 #### Entries as CSV
 
-Assuming the log file contains multiple values formatted as CSV like shown below:
+Assuming the log file contains multiple values formatted as CSV as shown below:
 
 ```text
 timestamp,temperature,humidity
