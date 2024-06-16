@@ -22,5 +22,5 @@ It requires that a System Access Module be connected to the HVAC system (e.g., a
 To install:
 
 1. Connect the System Access Module to a computer using an RS-485-to-USB adapter.
-1. Download https://github.com/danielsmyers/evolutionhttp. Build and run the server binary, passing --device=/dev/ttyUSB0 (or whatever device your adapter is connected to).
+1. Download [evolutionhttp](https://github.com/danielsmyers/evolutionhttp). Build and run the server binary, passing --device=/dev/ttyUSB0 (or whatever device your adapter is connected to).
 1. Install the bryant_evolution integration in Home Assistant, passing the IP or hostname of the computer to which the System Access Module is connected.
