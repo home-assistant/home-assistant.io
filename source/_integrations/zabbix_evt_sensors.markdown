@@ -25,15 +25,21 @@ This {% term integration %} imports Zabbix [service checks](https://www.zabbix.c
 
 Additionally Zabbix [problems](https://www.zabbix.com/documentation/7.0/en/manual/config/triggers) can be imported in Home Assistant as Sensors. Only problems matching tags with values specified during Home Assistant Config Flow setup will be imported. If a tag / value combination matches multiple problems the state of the sensor will be set to the most severe problem.
 
+## Zabbix Configuration
+
+You need to set up an API User in Zabbix (Users > API tokens > Create API token) so that Home Assistant can retrieve Zabbix events via the Zabbix API. Copy the API token, you will need it when setting up the {% term integration %}.
+
 {% include integrations/config_flow.md %}
 
 ## Entity Naming
+
 A sensor prefix is specified in the config flow. The sensor entities are created according to this naming scheme:
 
 - sensor.\<prefix\>\_\<zabbix_service_name\>
 - sensor.\<prefix\>\_\<zabbix_problem_tag_name\>\_\<zabbix_problem_tag_value\>
 
 ## Entity States
+
 | Numeric State | Problem |
 | ------------- | ------- |
 | -1 | OK |
