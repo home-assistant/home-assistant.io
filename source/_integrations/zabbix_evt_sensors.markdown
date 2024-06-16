@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Zabbix is an IT monitoring solution. It will check items on monitored hosts and will trigger an event if the result of the item check does not pass a check condition. If the event is related to a single trigger it is called a problem. Problems can also be grouped and correlated resulting in a service check.
+[Zabbix](https://www.zabbix.com/) is an IT monitoring solution. It will check items on monitored hosts and will trigger an event if the result of the item check does not pass a check condition. If the event is related to a single trigger it is called a problem. Problems can also be grouped and correlated resulting in a service check.
 
-The **Zabbix Event Sensors** {% term integration %} is used to import the states of [Zabbix](https://www.zabbix.com/) problems and services as sensors into Home Assistant via the Zabbix API.
+The **Zabbix Event Sensors** {% term integration %} is used to import the states of Zabbix problems and services as sensors into Home Assistant via the Zabbix API.
 
 There is [another Zabbix integration](/integrations/zabbix/) for Home Assistant but its focus is on publishing Home Assistant states to Zabbix. It also can import Zabbix states to Home Assistant sensors, but you need to configure the Zabbix host id in HA for this and it is limited to importing Zabbix problems on this host.
 
