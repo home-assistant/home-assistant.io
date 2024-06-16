@@ -26,9 +26,10 @@ The File integration allows to store notifications to a file or to set up a sens
 
 ## Notifications
 
-Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
+Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist, but make sure the folder exists. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config/file_notifications`) to save the file there. Setting `timestamp` to `true` adds a timestamp to every logged entry.
+After creating a config entry you can change the entry name, the name of notify entity or the entity_id, if you prefer so.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+To use notifications in automations or scripts, see the [getting started with automation page](/getting-started/automation/).
 
 Use the `notify.send_message` entity service to store notification messages.
 
