@@ -263,7 +263,7 @@ Payload: `1707294116`
 To set the state of the sensor manually:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 p 1883 -u username -P some_password -t pump/timestamp_on -m '1707294116'
+mosquitto_pub -h 127.0.0.1 -p 1883 -u username -P some_password -t pump/timestamp_on -m '1707294116'
 ```
 
 Make sure the IP address of your MQTT broker is used and that user credentials have been set up correctly.
