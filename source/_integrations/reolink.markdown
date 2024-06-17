@@ -292,7 +292,7 @@ The following models have been tested and confirmed to work:
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
-**These models do not have HTTP/HTTPS ports open by default. You must use the Windows or Mac Client to enable one of them before configuring in Home Assitant.
+**These models do not have HTTP/HTTPS ports open by default. You must use the Windows or Mac Client to enable one of them before configuring in Home Assistant.
 
 Battery-powered cameras are not yet supported.
 
