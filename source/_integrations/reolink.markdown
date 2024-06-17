@@ -288,9 +288,11 @@ The following models have been tested and confirmed to work:
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
-- Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
+- Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/)) **
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
+
+**These models do not have HTTP/HTTPS ports open by default. You must use the Windows or Mac Client to enable one of them before configuring in Home Assitant.
 
 Battery-powered cameras are not yet supported.
 
@@ -303,17 +305,15 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial setup
 
-A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
-There are several ways to achieve this.
+### 1. Intializing and configuring camera credentials.
 
-### Connecting Reolink via app/client
+There are several ways to achieve this:
 
-The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
+#### Connecting Reolink via app/client
 
-1. Follow the on-screen instructions.  
-2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/), and follow the on-screen instructions.
 
-### Connecting Reolink via a web browser
+#### Connecting Reolink via a web browser
 
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
@@ -326,7 +326,7 @@ When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
       - After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
    5. Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
-### QR code
+#### QR code
 
 You can also connect a Wi-Fi camera using a self-made QR code. Once connected, follow the instructions under **Web browser**.
 Create a QR code using ISO-8859-1 character encoding (not UTF-8) with the following XML string:
@@ -339,6 +339,14 @@ Normally, the digits are printed directly under the QR code. Alternatively, you 
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
 
+### 2. Enabling HTTP/HTTPS ports
+
+Test if you can access the cameara by its IP address in your browser. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure either HTTP and/or HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+
+### 3. Add integration in Home Assistant
+
+Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
+
 ## Showing the camera in the dashboard
 
 1. One way to show the camera in the dashboard is by using the picture glance card.
@@ -347,7 +355,6 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
-- Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under **Settings** > **Network** > **Advanced** > **Port Settings**, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.
