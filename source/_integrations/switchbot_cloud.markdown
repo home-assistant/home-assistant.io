@@ -7,6 +7,7 @@ ha_category:
   - Remote
   - Switch
   - Sensor
+  - Lock
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -17,6 +18,7 @@ ha_platforms:
   - climate
   - switch
   - sensor
+  - lock
 ha_config_flow: true
 ha_integration_type: integration
 ---
@@ -41,6 +43,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Meter
 - MeterPlus
 - Outdoor Meter
+- Lock
 
 ## Important considerations
 
