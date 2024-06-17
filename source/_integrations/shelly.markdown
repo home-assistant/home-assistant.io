@@ -292,13 +292,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in a future version of Home Assistant.
-
-<div class="note">
-
-The `switch` entity in Home Assistant does not support transition states. For this reason, the `opening` state of the valve maps to the `on` (opened) state of the entity and the `closing` state of the valve maps to the `off` (closed) state of the entity.
-
-</div>
+If you have Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `valve` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
 
 ## CoAP port (generation 1)
 
