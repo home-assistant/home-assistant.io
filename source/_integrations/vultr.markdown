@@ -35,7 +35,7 @@ Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#set
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
 </div>
 
-To integrate your Vultr instances with Home Assistant, Add the device types to your {% term "`configuration.yaml`" %} file. Each device type requires an API key.
+To integrate your Vultr instances with Home Assistant, add the device types to your {% term "`configuration.yaml`" %} file. Each device type requires an API key.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 
@@ -107,7 +107,7 @@ api_key:
 name:
   description: The name to give this sensor.
   required: false
-  default: "Vultr {Vultr subscription label} {monitored condition name}"
+  default: "Vultr {Vultr instance label} {monitored condition name}"
   type: string
 monitored_conditions:
   description: List of items you want to monitor for each account.
@@ -178,7 +178,7 @@ instance:
 name:
   description: The name you want to give this switch.
   required: false
-  default: "Vultr {subscription label}"
+  default: "Vultr {instance label}"
   type: string
 {% endconfiguration %}
 
