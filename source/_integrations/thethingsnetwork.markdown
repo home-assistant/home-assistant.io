@@ -21,7 +21,7 @@ The Things Network supports various integrations to make the data available:
 
 | The Things Network Integration | Home Assistant platform |
 |---|---|
-| [MQTT](https://www.thethingsindustries.com/docs/integrations/mqtt) | [`MQTT`](integrations/mqtt) |
+| [MQTT](https://www.thethingsindustries.com/docs/integrations/mqtt) | [`MQTT`](/integrations/mqtt) |
 | [Storage](https://www.thethingsindustries.com/docs/integrations/storage) | [`thethingsnetwork`](#setup) |
 | [HTTP](https://www.thethingsindustries.com/docs/integrations/webhooks) | |
 
