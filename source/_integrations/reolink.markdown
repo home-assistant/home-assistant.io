@@ -303,7 +303,7 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial setup
 
-### 1. Intializing and configuring camera credentials.
+### 1. Initializing and configuring camera credentials.
 
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
 There are several ways to achieve this:
