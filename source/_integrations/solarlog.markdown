@@ -74,5 +74,5 @@ The following sensors are available in the library:
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
 <div class='note'>
-The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
+The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
 </div>
