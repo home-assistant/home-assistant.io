@@ -94,6 +94,6 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
 | `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
 | `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |
-| `wind_speed`             | Wind speed, metre/sec.                                                                                                            |
+| `wind_speed`             | Wind speed, meter/sec.                                                                                                            |
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
