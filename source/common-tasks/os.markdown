@@ -83,7 +83,7 @@ You can manually define that the previous boot slot is used. This can be useful 
 {% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
 
-## Home Assistant Versions
+## Home Assistant versions
 
 {% include common-tasks/specific_version.md %}
 {% include common-tasks/beta_version.md %}
