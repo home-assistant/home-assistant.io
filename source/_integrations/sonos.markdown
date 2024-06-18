@@ -248,6 +248,30 @@ data:
   enqueue: play
 ```
 
+Play all albums by a genre.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: genre
+  media_content_id: "A:GENRE/Classic%20Rock/"
+  enqueue: play
+```
+
+Play an imported playlist by using its title.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: playlist
+  media_content_id: S:/MyPlaylist
+  enqueue: play
+```
+
 ## Services
 
 The Sonos integration makes various custom services available in addition to the [standard media player services](/integrations/media_player/#services).

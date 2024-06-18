@@ -3,7 +3,7 @@ layout: post
 title: "Z-Wave is not dead"
 description: "Z-Wave is alive and well, partly due to a strong community that is building new open-source resources."
 date: 2024-05-08 00:00:01
-date_formatted: "May 08, 2024"
+date_formatted: "May 8, 2024"
 author: Paulus Schoutsen
 comments: true
 categories: Z-Wave

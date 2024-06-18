@@ -36,7 +36,7 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 <div class='note warning'>
-As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, and there is no ETA for when they will be allowed again. Existing developers are not affected.
+As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function. 
 </div>
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).

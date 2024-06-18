@@ -12,6 +12,7 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.
