@@ -85,6 +85,8 @@ You can manually define that the previous boot slot is used. This can be useful 
 
 ## Home Assistant versions
 
+To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
+
 {% include common-tasks/specific_version.md %}
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
