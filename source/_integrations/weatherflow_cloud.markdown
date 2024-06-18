@@ -40,15 +40,6 @@ The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_c
 | Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
 | Wind chill | The lowering of body temperature due to the passing-flow of lower-temperature air. |
 
-### Wind Sensors
-
-| Sensor | Description |
-| --- | --- |
-| Wind direction | The direction from which the wind is coming. |
-| Wind direction (cardinal) | The cardinal direction from which the wind is coming. |
-| Wind gust | A brief increase in the speed of the wind. |
-| Wind lull | The lowest speed during a specified time period. |
-
 ### Air Sensors
 
 | Sensor | Description |
