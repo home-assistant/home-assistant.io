@@ -339,7 +339,7 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 
 ### 2. Enabling HTTP/HTTPS ports
 
-Test if you can access the cameara by its IP address in your browser. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
 
 ### 3. Add integration in Home Assistant
 
