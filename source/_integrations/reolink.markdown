@@ -303,17 +303,16 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial setup
 
+### 1. Initializing and configuring camera credentials.
+
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
-There are several ways to achieve this.
+There are several ways to achieve this:
 
-### Connecting Reolink via app/client
+#### Connecting Reolink via app/client
 
-The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/), and follow the on-screen instructions.
 
-1. Follow the on-screen instructions.  
-2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
-
-### Connecting Reolink via a web browser
+#### Connecting Reolink via a web browser
 
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
@@ -324,9 +323,8 @@ When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
       - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
         - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
       - After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
-   5. Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
-### QR code
+#### QR code
 
 You can also connect a Wi-Fi camera using a self-made QR code. Once connected, follow the instructions under **Web browser**.
 Create a QR code using ISO-8859-1 character encoding (not UTF-8) with the following XML string:
@@ -338,6 +336,14 @@ The `last4` are the last 4 digits of the QR code which is printed (on the unders
 Normally, the digits are printed directly under the QR code. Alternatively, you could scan the QR code and grab the last 4 digits.
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
+
+### 2. Enabling HTTP/HTTPS ports
+
+Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+
+### 3. Add integration in Home Assistant
+
+Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
 ## Showing the camera in the dashboard
 
