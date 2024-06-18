@@ -19,9 +19,9 @@ This blog post will show you ways to export data for reporting, visualization, o
 
 In this blog post I use the temperature of the [Aare](https://en.wikipedia.org/wiki/Aare) river close to where I live as a show case. The temperatures were recorded with the [Swiss Hydrological Data sensor](/integrations/swiss_hydrological_data) and the name of the sensor is `sensor.aare`.
 
-The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
+The database is stored at `<path to config dir>/.homeassistant/home-assistant_v2.db` as [SQLite database](https://www.sqlite.org/index.html). In all examples we are going to use the path: `/home/ha/.homeassistant/home-assistant_v2.db`
 
-If you are just curious what's stored in your database then you can use the `sqlite3` command-line tool or a graphical one like [DB Browser for SQLite](http://sqlitebrowser.org/).
+If you are just curious what's stored in your database then you can use the `sqlite3` command-line tool or a graphical one like [DB Browser for SQLite](https://sqlitebrowser.org/).
 
 The table that is holding the states is called `states`. The `events` tables is responsible for storing the events which occurred. So, we will first check how many entries there are in the `states` table. `sqlite3` needs to know where the databases is located. To work with your database make sure that Home Assistant is not running or create a copy of the existing database. It's recommended to work with a copy.
 
@@ -72,7 +72,7 @@ After the import a graph can be created over the existing data.
   Graph in LibreOffice
 </p>
 
-You can also use [matplotlib](http://matplotlib.org/) to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.
+You can also use [matplotlib](https://matplotlib.org/) to generate graphs as an alternative to a spreadsheet application. This is a powerful Python 2D plotting library. With the built-in support for SQLite in Python it will only take a couple lines of code to visualize your data.
 
 ```python
 import sqlite3

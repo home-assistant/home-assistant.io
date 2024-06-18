@@ -2,9 +2,11 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Presence Detection
-  - Binary Sensor
+  - Binary sensor
+  - Image
+  - Presence detection
   - Sensor
+  - Update
 ha_release: '0.10'
 ha_domain: fritz
 ha_config_flow: true
@@ -12,13 +14,19 @@ ha_codeowners:
   - '@mammuth'
   - '@AaronDavidSchneider'
   - '@chemelli74'
+  - '@mib1185'
 ha_iot_class: Local Polling
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
+  - diagnostics
+  - image
   - sensor
   - switch
+  - update
 ha_ssdp: true
+ha_integration_type: integration
 ---
 
 The AVM FRITZ!Box Tools integration allows you to control your [AVM FRITZ!Box](https://en.avm.de/products/fritzbox/) based router.
@@ -27,13 +35,15 @@ There is support for the following platform types within Home Assistant:
 
 - **Device tracker** - presence detection by looking at connected devices.
 - **Binary sensor** - connectivity status.
+- **Image** - QR code for Guest Wi-Fi.
+- **Button** - reboot, reconnect, firmware_update.
 - **Sensor** - external IP address, uptime and network monitors.
 - **Switch** - call deflection, port forward, parental control and Wi-Fi networks.
-
+- **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
 <div class='note'>
-TR-064 needs to be enabled in the FRITZ!Box network settings for Home Assistant to login and read device info.
+Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
 </div>
 
 ## Username
@@ -42,38 +52,27 @@ The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the
 
 ## Services
 
-Currently supported services are Platform specific:
+Available {% term services %}: `set_guest_wifi_password`
 
-- `fritz.reconnect`
-- `fritz.reboot`
+### Service `set_guest_wifi_password`
 
-### Platform Services
-
-#### Service `fritz.reboot`
-
-Reboot the router.
-
-</div>
+Set a new password for the guest wifi.
+The password must be between 8 and 63 characters long.
+If no password is given, it will be auto-generated.
 
 | Service data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
+| `device_id`            | no       | Only act on a specific  router                                                                                 |
+| `password`             | yes      | New password for the guest wifi                                                                                |
+| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
 
-#### Service `fritz.reconnect`
-
-Disconnect and reconnect the router to the Internet.
-If you have a dynamic IP address, most likely it will change.
-
-| Service data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific  router                                                                                 |
-
-## Integration Options
+## Integration options
 
 It is possible to change some behaviors through the integration options.
-These can be changed at **AVM FRITZ!Box Tools** -> **Configure** on the Integrations page.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
+- **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
 
 ## Additional info
 
@@ -83,13 +82,11 @@ Parental control switches can be used to enable and disable internet access of i
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
-### Device Tracker
+### Device tracker
 
-**Note 1**: All devices to be tracked, even the new detected, are disabled by default. You need to enable the wanted entities manually.
+**Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-**Note 2**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
-
-### Port Forward
+### Port forward
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
 As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
@@ -100,48 +97,48 @@ As a result, this integration will create entities only for rules that have your
 
 ## Example Automations and Scripts
 
+### Script: Reconnect / get new IP
 
-**Script: Reconnect / get new IP**
-
-The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritzbox_tools.reboot` instead.
+The following script can be used to easily add a reconnect button to your UI. If you want to reboot your FRITZ!Box, you can use `fritz.reboot` instead.
 
 ```yaml
 fritz_box_reconnect:
   alias: "Reconnect FRITZ!Box"
   sequence:
-    - service: fritz.reconnect
+    - service: button.press
       target:
-        entity_id: binary_sensor.fritz_box_7530_connectivity
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
-**Automation: Reconnect / get new IP every night**
+
+### Automation: Reconnect / get new IP every night
 
 ```yaml
 automation:
-- alias: "System: Reconnect FRITZ!Box"
+- alias: "Reconnect FRITZ!Box"
   trigger:
     - platform: time
       at: "05:00:00"
   action:
-    - service: fritz.reconnect
+    - service: button.press
       target:
-        entity_id: binary_sensor.fritzbox_x_connectivity
+        entity_id: button.fritzbox_7530_reconnect
 
 ```
 
-**Automation: Phone notification with wifi credentials when guest wifi is created**
+### Automation: Phone notification with Wi-Fi credentials when guest Wi-Fi is created
 
 ```yaml
 automation:
-  - alias: "Guests Wifi Turned On -> Send Password To Phone"
+  - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
     trigger:
       - platform: state
-        entity_id: switch.fritzbox_x_wifi_x
+        entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
     action:
       - service: notify.notify
         data:
-          title: "Guest wifi is enabled"
+          title: "Guest Wi-Fi is enabled"
           message: "Password: ..."
 
 ```

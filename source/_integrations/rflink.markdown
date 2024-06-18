@@ -14,27 +14,32 @@ ha_platforms:
   - switch
 ha_codeowners:
   - '@javicalle'
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](http://www.rflink.nl/blog2/download), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/nl/21-rflink-gateway). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](http://www.rflink.nl/blog2/) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
+RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
 <div class='note'>
 Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
 </div>
 
-A complete list of devices supported by RFLink can be found [here](http://www.rflink.nl/blog2/devlist).
+A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-This integration is tested with the following hardware/software:
+This {% term integration %} is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
 ## Configuration
 
-To enable RFLink in your installation, add the following to your `configuration.yaml` file:
+To enable RFLink in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +74,7 @@ tcp_keepalive_idle_timer:
   description: Time in seconds to wait since last data packet was seen before a TCP KEEPALIVE is sent. Value of 0 will disable this feature.
   required: false
   default: 3600
-  type: integer 
+  type: integer
 {% endconfiguration %}
 
 ### Full example
@@ -88,10 +93,12 @@ rflink:
 
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
-To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
+The following command can be used to expose the USB/serial interface over TCP on a different host (Linux). The arguments are separated by spaces, further info on all arguments can be found for example [on the Debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
+- `/dev/ttyACM0,b57600,rawer` specifies the device location, a `b57600` 57600 baud rate, and `rawer` causes socat to ignore control sequences sent via the port (for example, it makes socat pass all information 'rawest form', rather than picking up control characters such as control-C which would close socat).
+- `TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16` listens on IPV4 on the specified port (1234, change as suits your needs), the details behind the `reuseaddr` option [are fairly complex](https://stackoverflow.com/a/3233022/1049701) but it allows faster reconnects from the client (Home Assistant) in case of connection drops. An important security option is `range=192.168.0.0/16`, which specifies that socat should only accept connections from a certain range of IP addresses - the /16 subnet mask specifies a range from 192.168.0.0 to 192.168.255.255. Change this as required for your LAN network.
 
 ```bash
-socat /dev/ttyACM0,b57600 TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
@@ -100,7 +107,7 @@ Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-
 
 <div class='note warning'>
 
-Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://www.aliexpress.com/item/8CH-IIC-I2C-Logic-Level-Converter-Bi-Directional-Module-DC-DC-5V-to-3-3V-Setp/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
+Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://aliexpress.com/item/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
 
 </div>
 
@@ -154,13 +161,33 @@ rflink:
 
 This configuration will ignore the button `1` of the `newkaku` device with ID `000001`, all devices of the `digitech` protocol and all switches of the `kaku` protocol device with codewheel ID `1`.
 
+### Invert cover
+
+Devices can be configure to work in inverted mode by adding option in {% term "`configuration.yaml`" %}:
+
+```yaml
+# Example configuration.yaml entry for inverted RTS cover
+cover:
+  - platform: rflink
+    devices:
+      # Rfloader created remote control which is used by Home Assistant
+      RTS_0a0a0a_1:
+        name: "Blind office"
+        aliases: 
+          - rts_0f1f2f_01 # ID of the remote control (Somfy smove in this case)
+        type: inverted
+ ```
+
+This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
+
+
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
 
 ### Device Incorrectly Identified
 
-If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](http://www.rflink.nl/blog2/faq#RFFind)
+If you find a device is recognized differently, with different protocols or the ON OFF is swapped or detected as two ON commands, it can  be overcome with the RFLink 'RF Signal Learning' mechanism from RFLink Rev 46 (11 March 2017). [Link to further detail.](https://www.rflink.nl/faq.php#RFFind)
 
 ### Technical Overview
 

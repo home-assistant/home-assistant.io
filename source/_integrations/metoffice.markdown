@@ -7,14 +7,20 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@MrHarcombe'
+  - '@avee87'
 ha_domain: metoffice
 ha_config_flow: true
 ha_platforms:
   - sensor
   - weather
+ha_integration_type: integration
 ---
 
-The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data.
+The `metoffice` weather platform uses the Met Office's [DataPoint API](https://www.metoffice.gov.uk/datapoint) for weather data. 
+## Getting started
+Their website is not as straightforward so check the [getting started](https://www.metoffice.gov.uk/services/data/datapoint/getting-started).
+1. Register for a [Met Office account](https://register.metoffice.gov.uk/WaveRegistrationClient/public/register.do?service=datapoint). 
+2. After registration and verification of your account, [login](https://register.metoffice.gov.uk/MyAccountClient/account/view) to retrieve your API key.
 
 {% include integrations/config_flow.md %}
 

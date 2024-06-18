@@ -2,7 +2,7 @@
 title: Sony PlayStation 4
 description: Instructions on how to integrate a Sony PlayStation 4 into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.89
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: ps4
 ha_platforms:
   - media_player
+ha_integration_type: integration
 ---
 
 The `ps4` integration allows you to control a
@@ -29,11 +30,14 @@ The `ps4` integration allows you to control a
   Read the section "Granting Port Access" below before continuing.
 </div>
 
-2. Navigate to `Configuration -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
+2. Navigate to `Settings -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
 3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
-4. Pair Home Assistant to your PlayStation 4 by filling in the fields.
+4. On the PS4, go to Settings / Mobile App Connection Settings / Add Device, a PIN will be displayed.
+
+5. Pair Home Assistant to your PlayStation 4 by filling in the fields using the PIN from the above step.
+
 - **Note:** To find your correct region refer to the section [Regions](#regions)
 
 ## Granting Port Access
@@ -77,7 +81,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](/integrations/system_health/) integration to your `configuration.yaml`. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
+- Add the [System Health](/integrations/system_health/) integration to your {% term "`configuration.yaml`" %}. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
 
   ```bash
   whereis python<version>
@@ -133,7 +137,7 @@ Occasionally, the integration may fail to get the data at all, or may get incorr
   
 ### Formatting
 
-When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
+When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your {% term "`configuration.yaml`" %} file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
   
 ```json
 {
@@ -152,12 +156,12 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 }
 ```
 
-| Field | Value | Description |
-| ----- | ----- | ----------- |
-| `locked`             | boolean | Must be `true` or `false`
-| `media_content_type` | string  | Must be `game` or `app`
-| `media_image_url`    | string  | Any valid URL for an image
-| `media_title`        | string  | The title of the game or app
+| Field                | Value   | Description                  |
+| -------------------- | ------- | ---------------------------- |
+| `locked`             | boolean | Must be `true` or `false`    |
+| `media_content_type` | string  | Must be `game` or `app`      |
+| `media_image_url`    | string  | Any valid URL for an image   |
+| `media_title`        | string  | The title of the game or app |
 
 The data in the example shows 2 entries.
 
@@ -178,10 +182,10 @@ To edit, simply open the file in a text editor, find the game or app you would l
 
 Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
 
-| Service data attribute | Optional | Example                    | Description                           |
-| ---------------------- | -------- | -------------------------- | ------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4. |
-| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable.|
+| Service data attribute | Optional | Example                    | Description                                                                                                 |
+| ---------------------- | -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4.                                                                       |
+| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable. |
 
 ### Service `send_command`
 

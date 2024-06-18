@@ -1,15 +1,16 @@
 ---
 title: Simulated
-description: Component for simulating a numerical sensor.
+description: Integration for simulating a numerical sensor.
 ha_category:
-  - Utility
   - Sensor
+  - Utility
 ha_iot_class: Local Polling
 ha_release: 0.65
 ha_quality_scale: internal
 ha_domain: simulated
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
@@ -32,7 +33,7 @@ The output will be limited to 3 decimals.
 
 ## Configuration
 
-To add a simulated sensor to your installation, add the following to your `configuration.yaml` file:
+To add a simulated sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

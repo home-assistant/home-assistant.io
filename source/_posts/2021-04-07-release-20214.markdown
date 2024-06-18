@@ -11,7 +11,6 @@ categories:
 - Release-Notes
 - Core
 og_image: /images/blog/2021-04/social.png
-feedback: true
 ---
 
 <a href='/integrations/#version/2021.4'><img src='/images/blog/2021-04/social.png' style='border: 0;box-shadow: none;'></a>
@@ -51,7 +50,7 @@ Enjoy the release!
 - [Release 2021.4.5 - April 16](#release-202145---april-16)
 - [Release 2021.4.6 - April 19](#release-202146---april-19)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -112,7 +111,7 @@ Today we introduce: Home Assistant Analytics. Opt-in, privacy-aware, public
 and open source. Just as it all should be for our project.
 
 [@ludeeus] did a fantastic job writing this new integration. You decide if you
-turn it on or not; however, we guarantee its privacy-aware. Doubt it? Review it!
+turn it on or not; however, we guarantee it's privacy-aware. Doubt it? Review it!
 Everything is open source!
 
 Not open enough for you? We are publishing the result for everybody to see:
@@ -219,7 +218,7 @@ filter the automation list with just the ones that touch your thermostat.
 
 So before we talk about The nice new things in Z-Wave JS, there are breaking
 changes in this release for the Z-Wave JS integration that could affect your
-existing automations. Be sure to read the [breaking changes](#breaking-changes)
+existing automations. Be sure to read the [backward-incompatible changes](#backward-incompatible-changes)
 section for more info.
 
 Alright, now the fun stuff! You can now configure each Z-Wave device straight
@@ -620,7 +619,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -1033,7 +1032,7 @@ modbus:
 The `reporting` and `include_used_components` configuration options have now
 been deprecated, the `updater` integration will no longer report any analytics.
 
-The analytics has moved to it's own integration.
+The analytics has moved to its own integration.
 See the [`analytics` integration](/integrations/analytics) for more details on
 how to configure it.
 

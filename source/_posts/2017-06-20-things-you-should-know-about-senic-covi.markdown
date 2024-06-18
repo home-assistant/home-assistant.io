@@ -49,7 +49,7 @@ Founder, Home Assistant
 **Robbie Trencheny**<br>
 Core Developer, Home Assistant
 
-[Senic]: https://www.senic.com/en/
+[Senic]: https://www.senic.com/
 [kickstarter]: https://www.kickstarter.com/projects/802159142/1793705123?token=03dc08b4#
 [ks-backup]: /images/blog/2017-06-senic-covi/covi-kickstarter-screenshot.png
 [email-backup]: /images/blog/2017-06-senic-covi/email-senic.png

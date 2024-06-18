@@ -5,138 +5,57 @@ ha_category:
   - Hub
   - Sensor
 ha_release: 0.55
-ha_iot_class: Local Push
+ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@fabaff'
+  - '@angelnu'
 ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
+ha_integration_type: hub
+ha_config_flow: true
 ---
 
-<div class='note warning'>
-  This integration only supports TTNv2.
-</div>
+The `thethingsnetwork` {% term integration%} allows you to interact with the [The Things Network](https://www.thethingsnetwork.org) from within Home Assistant. This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long-range (~5 to 15 km) communication with low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfer the received data from the sensors to The Things Network.
 
-The `thethingsnetwork` integration allows one to interact with the [The Things Network](https://www.thethingsnetwork.org). This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long range (~5 to 15 km) communication with a low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfers the received data from the sensors to the The Things Network.
-
-The Things network support various integrations to make the data available:
+The Things Network supports various integrations to make the data available:
 
 | The Things Network Integration | Home Assistant platform |
 |---|---|
-| [MQTT](https://www.thethingsnetwork.org/docs/applications/mqtt/) | |
-| [Storage](https://www.thethingsnetwork.org/docs/applications/storage/) | [`thethingsnetwork`](#sensor) |
-| [HTTP](https://www.thethingsnetwork.org/docs/applications/http/) | |
+| [MQTT](https://www.thethingsindustries.com/docs/integrations/mqtt) | [`MQTT`](/integrations/mqtt) |
+| [Storage](https://www.thethingsindustries.com/docs/integrations/storage) | [`thethingsnetwork`](#setup) |
+| [HTTP](https://www.thethingsindustries.com/docs/integrations/webhooks) | |
 
 There is currently support for the following device types within Home Assistant:
 
+- [Prerequisites](#prerequisites)
 - [Sensor](#sensor)
 
-## Setup
 
-Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
+## Prerequisites
 
-The **Application ID** is used to identify the scope of your data.
 
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/applications.png' />
-Application overview
-</p>
+1. Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
+   - The **Application ID** is used to identify the scope of your data.
 
-You need an access key to be able to read the data from your application.
+   ![Application overview](/images/integrations/thethingsnetwork/applications.png)
 
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/access_key.png' />
-Access keys
-</p>
+2. Under the integrations menu, enable the storage integration:
 
-## Configuration
+   ![Storage Integration](/images/integrations/thethingsnetwork/storage_integration.png)
 
-To enable this component, add the following lines to your `configuration.yaml`:
+3. Ensure you have an [Uplink Payload Formatter](https://www.thethingsindustries.com/docs/integrations/payload-formatters/) for your device.
 
-```yaml
-# Example configuration.yaml entry
-thethingsnetwork:
-  app_id: sensor-123
-  access_key: ttn-account-v2.xxxxxxxxxxx_yyyyyyyyyyy
-```
+   ![Payload Formatters](/images/integrations/thethingsnetwork/payload_formatters.png)
 
-{% configuration %}
-app_id:
-  description: The Application ID.
-  required: true
-  type: string
-access_key:
-  description: The access key.
-  required: true
-  type: string
-{% endconfiguration %}
+4. You need an API key to be able to read the data from your application. 
+   - The minimum required rights are `Read Application Traffic (uplink and downlink)`.
+
+   ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
+
+
+{% include integrations/config_flow.md %}
+
 
 ## Sensor
 
-The `thethingsnetwork` sensor platform allows you to get data from a [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/).
-
-This platform requires that the [The Things Network component](#configuration) is set up and the [The Things Network Storage Integration](https://www.thethingsnetwork.org/docs/applications/storage/) as well.
-
-### Prerequisites
-
-Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications** and go to **Integrations**.
-
-Add a new integration.
-
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/add_integration.png' />
-Add a The Things Network integration
-</p>
-
-Select **Data Storage**.
-
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/choose_integration.png' />
-Choose a The Things Network integration
-</p>
-
-Click **Add integration** to finish the process.
-
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/confirm_integration.png' />
-Add a The Things Network Data Storage integration
-</p>
-
-When done, the status of the integration should be **Running**. You could check the output after clicking on **go to platform** in an interactive web interface.
-
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/storage_integration.png' />
-Add a The Things Network integration
-</p>
-
-Select **Devices** to get the ID of your device that you want to use.
-
-<p class='img'>
-<img src='/images/integrations/thethingsnetwork/devices.png' />
-Devices overview
-</p>
-
-### Configuration
-
-To enable this platform, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: thethingsnetwork
-    device_id: ha-demo
-    values:
-      current: ampere
-      voltage: V
-```
-
-{% configuration %}
-  device_id:
-    description: The ID of the device.
-    required: true
-    type: string
-  values:
-    description: The sensor values with their unit of measurement
-    required: true
-    type: list
-{% endconfiguration %}
+All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. Each field in `decoded_payload` will be added as a Home Assistant sensor entity.

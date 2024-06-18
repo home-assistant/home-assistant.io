@@ -2,7 +2,7 @@
 title: Cisco IOS
 description: Instructions on how to integrate Cisco IOS routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.33
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -10,6 +10,10 @@ ha_codeowners:
 ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
@@ -44,11 +48,12 @@ copy running-config startup-config
 
 <div class='note warning'>
 
-If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://supportforums.cisco.com/discussion/10169296/arp-timeout) to learn more.
+If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://community.cisco.com/t5/switching/arp-timeout/td-p/839027) to learn more.
 
 </div>
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

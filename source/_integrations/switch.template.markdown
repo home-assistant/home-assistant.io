@@ -17,7 +17,7 @@ This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
-To enable Template Switches in your installation, add the following to your `configuration.yaml` file:
+To enable Template Switches in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -60,16 +60,16 @@ switch:
         type: template
         default: optimistic
       availability_template:
-        description: Defines a template to get the `available` state of the component. If the template returns `true`, the device is `available`. If the template returns any other value, the device will be `unavailable`. If `availability_template` is not configured, the component will always be `available`.
+        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
         default: true
       turn_on:
-        description: Defines an action to run when the switch is turned on.
+        description: Defines an action or list of actions to run when the switch is turned on.
         required: true
         type: action
       turn_off:
-        description: Defines an action to run when the switch is turned off.
+        description: Defines an action or list of actions to run when the switch is turned off.
         required: true
         type: action
       icon_template:
@@ -81,6 +81,10 @@ switch:
         required: false
         type: template
 {% endconfiguration %}
+
+### Template and action variables
+
+State-based template entities have the special template variable `this` available in their templates and actions. The `this` variable aids [self-referencing](/integrations/template#self-referencing) of an entity's state and attribute in templates and actions.
 
 ## Considerations
 
@@ -199,7 +203,7 @@ switch:
 
 ### Change The Icon
 
-This example shows how to change the icon based on the day/night cycle.
+This example shows how to change the icon based on the state of the garage door.
 
 {% raw %}
 
@@ -208,7 +212,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:
@@ -238,7 +242,7 @@ switch:
   - platform: template
     switches:
       garage:
-        value_template: "{{ is_state('cover.garage_door', 'on') }}"
+        value_template: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           service: cover.open_cover
           target:

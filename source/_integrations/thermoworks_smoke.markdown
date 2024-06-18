@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_domain: thermoworks_smoke
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The `thermoworks_smoke` sensor platform pulls data for your [ThermoWorks Smoke Thermometer](https://www.thermoworks.com/Smoke).
@@ -18,7 +19,7 @@ the email and password you used to in the configuration for this sensor in order
 
 ## Configuration
 
-To add the sensors to your installation, add the following to your `configuration.yaml` file:
+To add the sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

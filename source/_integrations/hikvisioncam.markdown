@@ -10,15 +10,20 @@ ha_codeowners:
 ha_domain: hikvisioncam
 ha_platforms:
   - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This `hikvisioncam` switch platform allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
+This `hikvisioncam` switch {% term integration %} allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
 
 <div class='note warning'>
 Currently works using default https port only.
 </div>
 
-To use your Hikvision cam in your installation, add the following to your `configuration.yaml` file:
+To use your Hikvision cam in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

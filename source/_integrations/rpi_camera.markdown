@@ -8,9 +8,13 @@ ha_release: 0.17
 ha_domain: rpi_camera
 ha_platforms:
   - camera
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `rpi_camera` integration allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
+The `rpi_camera` {% term integration %} allows you to integrate the Raspberry Pi camera into Home Assistant. This integration uses the application [`raspistill`](https://www.raspberrypi.org/documentation/usage/camera/raspicam/raspistill.md) to store the image from camera.
 
 <div class='note'>
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
@@ -18,7 +22,8 @@ This integration is only available on Home Assistant Core installation types. Un
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,7 +80,7 @@ overlay_metadata:
   type: integer
   default: none
 overlay_timestamp:
-  description: Helper to add date/time onto the picture. Format as used by [`strftime`](http://man7.org/linux/man-pages/man3/strftime.3.html).
+  description: Helper to add date/time onto the picture. Format as used by [`strftime`](https://man7.org/linux/man-pages/man3/strftime.3.html).
   required: false
   type: string
   default: none
@@ -86,4 +91,4 @@ file_path:
   default: A temporary file is used.
 {% endconfiguration %}
 
-The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/docs/configuration/basic/).
+The given **file_path** must be an existing file because the camera platform setup performs a writeable check on it. Also, keep in mind that the path should be [whitelisted](/integrations/homeassistant/#allowlist_external_dirs).

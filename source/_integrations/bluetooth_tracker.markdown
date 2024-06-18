@@ -2,12 +2,13 @@
 title: Bluetooth Tracker
 description: Instructions for integrating Bluetooth tracking within Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Local Polling
 ha_release: 0.18
 ha_domain: bluetooth_tracker
 ha_platforms:
   - device_tracker
+ha_integration_type: integration
 ---
 
 This tracker discovers new devices on boot and tracks Bluetooth devices periodically based on `interval_seconds` value. It is not required to pair the devices with each other! Devices discovered are stored with 'bt_' as the prefix for device MAC addresses in `known_devices.yaml`.
@@ -22,7 +23,8 @@ sudo apt install bluetooth libbluetooth-dev
 
 {% enddetails %}
 
-To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
+To use the Bluetooth tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

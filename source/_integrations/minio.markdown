@@ -1,22 +1,24 @@
 ---
 title: Minio
 description: Integration for interacting with Minio object storage.
-ha_category: Utility
+ha_category:
+  - Utility
 ha_iot_class: Cloud Push
 ha_release: 0.98
 ha_codeowners:
   - '@tkislan'
 ha_domain: minio
+ha_integration_type: integration
 ---
 
 This integration adds interaction with [Minio](https://min.io).
 It also enables listening for bucket notifications: [see documentation](https://docs.min.io/docs/minio-client-complete-guide.html#watch)
 
-To download or upload files, folders must be added to [allowlist_external_dirs](/docs/configuration/basic/).
+To download or upload files, folders must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
 
 ## Configuration
 
-To enable the Minio integration in your installation, add the following to your `configuration.yaml` file:
+To enable the Minio integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 minio:
@@ -119,7 +121,7 @@ automation:
 
 {% endraw %}
 
-## Platform Services
+## Platform services
 
 These services are provided:
 
@@ -131,27 +133,27 @@ These services are provided:
 
 Download file.
 
-| Service data attribute    | Required | Description                                       |
-|---------------------------|----------|---------------------------------------------------|
-| `bucket`                  |      yes | Bucket to use                                     |
-| `key`                     |      yes | Object key of the file                            |
-| `file_path`               |      yes | File path on the local file system                |
+| Service data attribute | Required | Description                        |
+| ---------------------- | -------- | ---------------------------------- |
+| `bucket`               | yes      | Bucket to use                      |
+| `key`                  | yes      | Object key of the file             |
+| `file_path`            | yes      | File path on the local file system |
 
 ### Service `minio.put`
 
 Upload file.
 
-| Service data attribute    | Required | Description                                       |
-|---------------------------|----------|---------------------------------------------------|
-| `bucket`                  |      yes | Bucket to use                                     |
-| `key`                     |      yes | Object key of the file                            |
-| `file_path`               |      yes | File path on the local file system                |
+| Service data attribute | Required | Description                        |
+| ---------------------- | -------- | ---------------------------------- |
+| `bucket`               | yes      | Bucket to use                      |
+| `key`                  | yes      | Object key of the file             |
+| `file_path`            | yes      | File path on the local file system |
 
 ### Service `minio.remove`
 
 Delete file.
 
-| Service data attribute    | Required | Description                                       |
-|---------------------------|----------|---------------------------------------------------|
-| `bucket`                  |      yes | Bucket to use                                     |
-| `key`                     |      yes | Object key of the file                            |
+| Service data attribute | Required | Description            |
+| ---------------------- | -------- | ---------------------- |
+| `bucket`               | yes      | Bucket to use          |
+| `key`                  | yes      | Object key of the file |

@@ -2,13 +2,17 @@
 title: Dlib Face Identify
 description: Instructions on how to integrate Dlib Face Identify into Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Local Push
 ha_release: 0.44
 ha_domain: dlib_face_identify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `dlib_face_identify` image processing platform allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire an event with identify persons.
+The `dlib_face_identify` image processing {% term integration %} allows you to use the [Dlib](http://www.dlib.net/) through Home Assistant. This platform allow you to identify persons on camera and fire an event with identify persons.
 
 For using the result inside an automation rule, take a look at the [integration](/integrations/image_processing/) page.
 
@@ -17,6 +21,9 @@ This integration is only available on Home Assistant Core installation types. Un
 </div>
 
 ## Configuration
+
+To enable Dlib Face Identify, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

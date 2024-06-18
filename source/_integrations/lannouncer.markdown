@@ -8,11 +8,16 @@ ha_release: 0.36
 ha_domain: lannouncer
 ha_platforms:
   - notify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
+The `lannouncer` notification {% term integration %} allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
-To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Lannouncer notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,7 +50,7 @@ You need to install the Lannouncer app and enable the *Network (TCP) Listener* a
 
 Lannouncer uses the default Android TTS voice. You can tweak that in the Android configuration, or you can install a different TTS engine from the Play Store. You might want to raise the volume in the app settings since that depends on the actual hardware device.
 
-More information can be found [here](https://www.keybounce.com/lannouncer/configuring-lannouncer/).
+More information can be found [here](https://web.archive.org/web/20200928053944/https://www.keybounce.com/lannouncer/configuring-lannouncer/) (archived website).
 
 ### Sending messages
 

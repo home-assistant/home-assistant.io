@@ -2,7 +2,7 @@
 title: Jandy iAqualink
 description: Instructions on how to configure Jandy iAqualink integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Light
   - Sensor
@@ -19,13 +19,14 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [iAqualink](https://www.iaqualink.com/) by [Jandy](https://www.jandy.com/) allows you to control your pool anytime, anywhere.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Light
 - Sensor

@@ -8,13 +8,32 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: cover
+ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Home Assistant can give you an interface to control covers such as rollershutters, blinds, and garage doors.
 
-## Device Class
+{% include integrations/building_block_integration.md %}
 
-The way these sensors are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/). The following device classes are supported for covers:
+## Device class
+
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for covers:
+
+<p class='img'>
+<img src='/images/screenshots/cover_classes_icons.png' />
+List of cover examples.
+</p>
+
+Example of various device classes icons in `open` and `closed` state. The open image in this example has `state_color: true` specified in the Entities card configuration to receive the icon coloring.
+
+The following device classes are supported for covers.
 
 - **None**: Generic cover. This is the default and doesn't need to be set.
 - **awning**: Control of an awning, such as an exterior retractable window, door, or patio cover.
@@ -34,20 +53,33 @@ The way these sensors are displayed in the frontend can be modified in the [cust
 
 Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+
+#### Automation example
+
+```yaml
+automation:
+  trigger:
+    platform: time
+    at: "07:15:00"
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.demo
+```
 
 ### Service `cover.set_cover_position`
 
 Set cover position of one or multiple covers.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
-| `position` | no | Integer between 0 and 100.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `position`             | no       | Integer between 0 and 100.                                                                           |
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:
@@ -66,12 +98,12 @@ automation:
 
 Set cover tilt position of one or multiple covers.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all.
-| `tilt_position` | no | Integer between 0 and 100.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `tilt_position`        | no       | Integer between 0 and 100.                                                                           |
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:

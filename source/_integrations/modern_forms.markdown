@@ -2,7 +2,7 @@
 title: Modern Forms
 description: Instructions on how to integrate a Modern Forms Smart Fan with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Light
   - Sensor
@@ -20,6 +20,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+ha_integration_type: integration
 ---
 
 [Modern Forms](https://modernforms.com/) has a line of smart Wi-Fi-connected fans that allow for cloud or local control of the fan and light. There is support for individual sleep timers for the fan and light that can be set and cleared independently.

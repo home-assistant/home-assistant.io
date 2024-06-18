@@ -8,11 +8,16 @@ ha_iot_class: Local Polling
 ha_domain: edimax
 ha_platforms:
   - switch
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This `edimax` switch platform allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.
+This `edimax` switch {% term integration %} allows you to control the state of your [Edimax](https://www.edimax.com/edimax/merchandise/merchandise_list/data/edimax/global/home_automation_smart_plug/) switches.
 
-To use your Edimax switch in your installation, add the following to your `configuration.yaml` file:
+To use your Edimax switch in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,17 +55,15 @@ Starting with [version 2 of the firmware](https://www.edimax.com/edimax/download
 {% raw %}
 
 ```yaml
-  - platform: template
-    sensors:
-      edimax_current_power:
-        friendly_name: Edimax Current power consumption
-        unit_of_measurement: "W"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'current_power_w') | replace('None', 0) }}"
-
-      edimax_total_power:
-        friendly_name: Edimax Accumulated daily power consumption
-        unit_of_measurement: "kWh"
-        value_template: "{{ state_attr('switch.edimax_smart_plug',  'today_energy_kwh') | replace('None', 0) }}"
+template:
+  - sensor:
+    - name: Edimax Current power consumption
+      unit_of_measurement: "W"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'current_power_w') | default(0, true) }}"
+      
+    - name: Edimax Accumulated daily power consumption
+      unit_of_measurement: "kWh"
+      state: "{{ state_attr('switch.edimax_smart_plug', 'today_energy_kwh') | default(0, true) }}"
 ```
 
 {% endraw %}

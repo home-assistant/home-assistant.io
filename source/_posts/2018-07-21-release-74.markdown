@@ -32,7 +32,7 @@ To try it out today, [read these instructions](https://developers.home-assistant
 
 We keep seeing [great examples](https://twitter.com/home_assistant/status/1019579208622845953) of UIs built with Lovelace. Follow us on social media ([FB](https://www.facebook.com/homeassistantio/?ref=bookmarks), [Twitter](https://twitter.com/home_assistant)) where we will keep sharing great examples.
 
-For the Lovelace changes in this release, check out the [changelog](/lovelace/changelog/). To help our development and design teams, we've also introduced a [Lovelace card gallery](https://www.awesome-ha.com/).
+To help our development and design teams, we've also introduced a [Lovelace card gallery](https://www.awesome-ha.com/).
 
 Thanks to [@c727], [@jeradM] and [@ciotlosm] for leading this effort ❤️
 
@@ -63,7 +63,7 @@ I'm happy to announce that this release introduces support for Tuya thanks to [@
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Fixer.io has changed their API and now requires an API key. (fixes #14911) ([@fabaff] - [#15279]) ([sensor.fixer docs]) (breaking change)
 - Add support to use HTTPS URLs to SynologyDSM and make it the default ([@tchellomello] - [#15270]) ([sensor.synologydsm docs]) (breaking change)

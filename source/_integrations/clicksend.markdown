@@ -8,6 +8,10 @@ ha_domain: clicksend
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `clicksend` platform uses [ClickSend](https://clicksend.com) to deliver notifications from Home Assistant.
@@ -18,7 +22,8 @@ Go to your [ClickSend Dashboard](https://dashboard.clicksend.com) section and cr
 
 ## Configuration
 
-To add ClickSend to your installation, add the following to your Home Assistant `configuration.yaml` file:
+To add ClickSend to your installation, add the following to your Home Assistant {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -59,7 +64,7 @@ sender:
   description: The name or number of the sender. (Limited to 11 characters.)
   required: false
   type: string
-  default: "hass"
+  default: "`hass`"
 {% endconfiguration %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

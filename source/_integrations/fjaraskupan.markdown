@@ -2,7 +2,7 @@
 title: Fjäråskupan
 description: Instructions on how to configure fjäråskupan integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Light
 ha_release: 2021.9
@@ -15,14 +15,16 @@ ha_platforms:
   - binary_sensor
   - fan
   - light
+  - number
   - sensor
+ha_integration_type: integration
 ---
 
 [Fjäråskupan](https://fjaraskupan.se/) allows you to control your Bluetooth equipped kitchen fan.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Fan
 - Light
 

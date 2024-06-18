@@ -27,7 +27,7 @@ This means, it is now over a year ago that Lovelace was officially introduced as
 
 If you are not using Lovelace yet, we advise you to switch to it today. Lovelace is, by default, almost the same as old states UI with the bonus of a lot of flexibility, if you want it.
 
-In addition to this, all configuration options for the States UI are deprecated as well. Please be sure to read the [breaking changes](#breaking-changes) to see if you have options that need to be removed from your configuration.
+In addition to this, all configuration options for the States UI are deprecated as well. Please be sure to read the [backward-incompatible changes](#backward-incompatible-changes) to see if you have options that need to be removed from your configuration.
 
 ## Safe mode
 
@@ -107,7 +107,7 @@ Screen recording of the zones editor.
 </p>
 
 The new editor will only work for zones that are created in the UI, zones that are set up in `configuration.yaml` are read-only.
-Additionally, if you define zones in your YAML configuration, please be aware that setting a [`name` is now required](#breaking-changes).
+Additionally, if you define zones in your YAML configuration, please be aware that setting a [`name` is now required](#backward-incompatible-changes).
 
 As an extra added bonus, a new service was added: `zone.reload`. This service allows you to reload your zone configuration without restarting Home Assistant.
 
@@ -141,7 +141,7 @@ So if you have a light named "Living room lights" that is in the area "Living ro
 - We added many accessibility features to Lovelace; you can navigate almost everything with the tab key.
 We will continue to work on this so that people with disabilities can also enjoy Home Assistant.
 
-For a full list of changes, see the [Lovelace changelog](/lovelace/changelog/).
+For a full list of changes, see the Lovelace changelog.
 
 Even more frontend improvements:
 
@@ -184,7 +184,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Safe Mode__ - `--demo-mode` has been removed. A new safe mode has now been introduced, which loads the bare minimum necessary to load the Home Assistant frontend and allows for managing the configuration. This is not yet perfect. An invalid core configuration can still cause Home Assistant to refuse to start up. ([@balloob] - [#30723]) ([frontend docs]) ([http docs]) ([safe_mode docs])
 

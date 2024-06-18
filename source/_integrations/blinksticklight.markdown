@@ -8,6 +8,10 @@ ha_iot_class: Local Polling
 ha_domain: blinksticklight
 ha_platforms:
   - light
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `blinkstick` platform lets you control your [Blinkstick](https://www.blinkstick.com/) lights from within Home Assistant.
@@ -22,7 +26,8 @@ sudo blinkstick --add-udev-rule
 
 ## Configuration
 
-To add a Blinkstick to your installation, add the following to your `configuration.yaml` file:
+To add a Blinkstick to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,19 +1,21 @@
 <section class="sharing aside-module grid__item one-whole lap-one-half">
   <h1 class="title delta">Share this post</h1>
+  <ul class="divided">
   {% if site.twitter_tweet_button %}
-  <a href="//twitter.com/share"
-     class="twitter-share-button"
-     data-via="{{ site.social.twitter.account }}"
-     data-related="{{ site.social.twitter.account }}"
-     data-url="{{ page.url | canonical_url }}"
-     data-counturl="{{ page.url | canonical_url }}" >Tweet</a>
+    <li>
+      <a
+        target="_blank"
+        href="https://twitter.com/intent/tweet?url={{ page.url | canonical_url | url_encode }}&text={{ page.title | append: ' via @home_assistant' | url_encode }}"
+      >Tweet</a>
+    </li>
   {% endif %}
   {% if site.facebook_like %}
-    <div class="fb-share-button" style='top: -6px;'
-         data-href="{{ page.url | canonical_url }}"
-         data-layout="button_count">
-    </div>
+    <li>
+      <a
+        target="_blank"
+        href="https://www.facebook.com/sharer.php?u={{ page.url | canonical_url | url_encode }}"
+      >Share on Facebook</a>
+    </li>
   {% endif %}
+  </ul>
 </section>
-
-<script src="https://apis.google.com/js/platform.js" async defer></script>

@@ -11,9 +11,16 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - humidifier
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `generic_hygrostat` humidifier integration is a virtual hygrostat implemented in Home Assistant. It uses a sensor and a switch connected to a humidifier or dehumidifier under the hood. When in humidifier mode, if the measured humidity is less than the target humidity, the humidifier will be turned on and turned off when the required humidity is reached. When in dehumidifier mode, if the measured humidity is greater than the target humidity, the dehumidifier will be turned on and turned off when required humidity is reached. One Generic Hygrostat entity can only control one switch. If you need to activate two switches, one for a humidifier and one for a dehumidifier, you will need two Generic Hygrostat entities.
+The `generic_hygrostat` humidifier {% term integration %} is a virtual hygrostat implemented in Home Assistant. It uses a sensor and a switch connected to a humidifier or dehumidifier under the hood. When in humidifier mode, if the measured humidity is less than the target humidity, the humidifier will be turned on and turned off when the required humidity is reached. When in dehumidifier mode, if the measured humidity is greater than the target humidity, the dehumidifier will be turned on and turned off when required humidity is reached. One Generic Hygrostat entity can only control one switch. If you need to activate two switches, one for a humidifier and one for a dehumidifier, you will need two Generic Hygrostat entities.
+
+To enable the {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -29,6 +36,10 @@ name:
   required: true
   default: Generic Hygrostat
   type: string
+unique_id:
+  description: An ID that uniquely identifies this humidifier. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 humidifier:
   description: "`entity_id` for humidifier or dehumidifier switch, must be a toggle device."
   required: true
@@ -41,16 +52,16 @@ min_humidity:
   description: Set minimum set point available.
   required: false
   default: 0
-  type: integer
+  type: float
 max_humidity:
   description: Set maximum set point available.
   required: false
   default: 100
-  type: integer
+  type: float
 target_humidity:
   description: Set initial target humidity. This value will be used as a fallback when the previous setpoint is not available.
   required: false
-  type: integer
+  type: float
 device_class:
   description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
   required: false
@@ -61,12 +72,12 @@ min_cycle_duration:
   required: false
   type: [time, integer]
 dry_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization or manual operation.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` service.
   required: false
   default: 3
   type: float
 wet_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization or manual operation.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` service.
   required: false
   default: 3
   type: float

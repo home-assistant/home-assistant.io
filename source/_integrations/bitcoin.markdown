@@ -5,16 +5,19 @@ ha_category:
   - Finance
 ha_release: pre 0.7
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@fabaff'
 ha_domain: bitcoin
 ha_platforms:
   - sensor
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `bitcoin` sensor platform displays various details about the [Bitcoin](https://bitcoin.org) network.
 
-To add the Bitcoin sensor to your installation, add a selection of the available display options to your `configuration.yaml` file:
+To add the Bitcoin sensor to your installation, add a selection of the available display options to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

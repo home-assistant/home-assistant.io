@@ -2,22 +2,26 @@
 title: Growatt
 description: Instructions on how to integrate your Growatt server solar inverter within Home Assistant.
 ha_category:
-  - Sensor
   - Energy
+  - Sensor
 ha_release: 0.99
 ha_iot_class: Cloud Polling
-ha_codeowners:
-  - '@indykoning'
-  - '@muppet3000'
-  - '@JasperPlant'
 ha_domain: growatt_server
 ha_platforms:
   - sensor
 ha_config_flow: true
+ha_integration_type: integration
 ---
 
-This is a sensor to collect information from your Growatt inverters using [Growatt server](https://server.growatt.com/) by default. It is possible to specify an alternative endpoint server at configuration time e.g., [SMTEN](http://server.smten.com/).
+This sensor is designed to gather data from Growatt inverters, offering users a choice of various alternative endpoint servers during setup. Available options include:
 
-This will log into your Growatt account and grab the first "Plant", after which it collects the inverters on this plant and creates sensors for these inverters as well as total sensors.
+- For users in China, the Chinese server at https://openapi-cn.growatt.com/.
+- For users in North America, the North American server at https://openapi-us.growatt.com/.
+- For users in other regions, a general server at https://openapi.growatt.com/.
+- Additionally, the SMTEN server at http://server.smten.com/ serves as another alternative.
+
+Users keen to explore all current supported servers and configuration possibilities can do so by integrating this feature in Home Assistant. This integration ensures global users can select the optimal server for their Growatt inverters, boosting both the efficiency and dependability of data collection.
+
+Once integrated, the sensor logs into the user's Growatt account and accesses the first "Plant." It then retrieves the inverters associated with this plant and generates sensors for these inverters, as well as overall plant sensors.
 
 {% include integrations/config_flow.md %}

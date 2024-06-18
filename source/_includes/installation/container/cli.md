@@ -10,8 +10,9 @@
       --restart=unless-stopped \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
+      -v /run/dbus:/run/dbus:ro \
       --network=host \
-      {{ include.image | default: site.installation.container.base }}:{{ include.tag | default: 'stable' }}
+      {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```
 
 - title: Update
@@ -19,7 +20,7 @@
 
     ```bash
     # if this returns "Image is up to date" then you can stop here
-    docker pull {{ include.image | default: site.installation.container.base }}:{{ include.tag | default: 'stable' }}
+    docker pull {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```
 
     ```bash
@@ -40,8 +41,9 @@
       --privileged \
       -e TZ=MY_TIME_ZONE \
       -v /PATH_TO_YOUR_CONFIG:/config \
+      -v /run/dbus:/run/dbus:ro \
       --network=host \
-      {{ include.image | default: site.installation.container.base }}:{{ include.tag | default: 'stable' }}
+      {{ site.installation.container }}:{{ include.tag | default: 'stable' }}
     ```
 
 {% endtabbed_block %}

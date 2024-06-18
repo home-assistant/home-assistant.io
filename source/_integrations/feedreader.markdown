@@ -6,11 +6,16 @@ ha_category:
 ha_release: 0.18
 ha_iot_class: Cloud Polling
 ha_domain: feedreader
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
 
-To use RSS feeds in your installation, add the following to your `configuration.yaml` file:
+To use RSS feeds in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -74,6 +79,8 @@ automation:
     trigger:
       platform: event
       event_type: feedreader
+      event_data:
+        feed_url: "https://hasspodcast.io/feed/podcast"
     action:
       service: persistent_notification.create
       data:
@@ -86,6 +93,11 @@ automation:
 
 Any field under the `<entry>` tag in the feed can be used for example `trigger.event.data.content` will get the body of the feed entry.
 
+### Video tutorial
+This video tutorial explains how to set up the feedreader and show the latest news feed item on your dashboard in Home Assistant.
+
+<lite-youtube videoid="Va4JOKbesi0" videotitle="How to view RSS feeds on your Dashboard in Home Assistant" posterquality="maxresdefault"></lite-youtube>
+
 For more advanced use cases, a custom integration registering to the `feedreader` event type could be used instead:
 
 ```python
@@ -93,6 +105,6 @@ EVENT_FEEDREADER = "feedreader"
 hass.bus.listen(EVENT_FEEDREADER, event_listener)
 ```
 
-To get started developing custom components, please refer to the [developers](/developers) documentation
+To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
 For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).

@@ -10,8 +10,10 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: p1_monitor
 ha_platforms:
+  - diagnostics
   - sensor
 ha_quality_scale: platinum
+ha_integration_type: integration
 ---
 
 The P1 Monitor integration integrates the [P1 Monitor](https://www.ztatz.nl/p1-monitor/)
@@ -35,7 +37,7 @@ Read out what your meter readings are for energy consumption/yield, see what you
 - Gas Consumption (m3)
 - Power Consumption / Production (W)
 - Energy Consumption Low/High (kWh)
-- Energy Production Low/High (kwH)
+- Energy Production Low/High (kWh)
 - Energy Tariff Period (low / high)
 
 ### Phases
@@ -46,6 +48,20 @@ See per phase what your voltage, current and power consumption/production is.
 - Current Phases L1/2/3 (A)
 - Power consumed phases L1/2/3 (W)
 - Power Produced phases L1/2/3 (W)
+
+### WaterMeter
+
+<div class='note'>
+
+You need to run at least version **1.1.0** of P1 Monitor, to use a water meter.
+
+</div>
+
+See how much water you consume per day, in total and the number of counted pulses.
+
+- Water Consumption - day (liters)
+- Water Consumption - total (m3)
+- Pulse Count
 
 ### Settings
 

@@ -11,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The SRP Energy integration shows information from SRP hourly energy usage report for their customers.

@@ -10,15 +10,20 @@ ha_codeowners:
 ha_domain: yeelightsunflower
 ha_platforms:
   - light
+ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `yeelightsunflower` light platform allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
+The `yeelightsunflower` {% term integration %} allows you to control your Yeelight Sunflower light bulbs with Home Assistant.
 
 <div class='note warning'>
 The "Yeelight Sunflower" bulbs are not the same as the "Yeelight WiFi" bulbs.
 </div>
 
-To enable your lights, add the following lines to your `configuration.yaml` file:
+To enable your lights, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -36,8 +41,4 @@ host:
 
 <div class='note'>
 When the hub is loaded, your lights will appear as devices with their Zigbee IDs as part of the entity name.
-</div>
-
-<div class='note warning'>
-The Yeelight Sunflower hub supports SSDP discovery, but that has not been built into the platform. Let the developer know if that would be helpful to you.
 </div>

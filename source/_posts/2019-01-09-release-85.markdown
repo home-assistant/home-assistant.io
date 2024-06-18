@@ -78,7 +78,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Targeting all entities in a domain by not sending an entity_id to a service is now deprecated. Instead, send `entity_id: all` if you want to target all. The old method will work for a couple of releases more, but will print a warning. Please migrate. ([@balloob] - [#19006]) (breaking change)
 - The default interval of the weather component was aligned with the sensor component and is now 30 seconds instead of 15 seconds. ([@fabaff] - [#19186]) ([weather docs]) (breaking change)
