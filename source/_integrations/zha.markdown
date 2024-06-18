@@ -219,6 +219,18 @@ Some devices can be auto-discovered, which can simplify the ZHA setup process. T
 
 Additional devices in the [Known working Zigbee radio modules](#known-working-zigbee-radio-modules) list may be discoverable, however, only devices that have been confirmed discoverable are listed above.
 
+### OTA updates of Zigbee device firmware
+
+The ZHA integration has the ability to perform OTA (over-the-air) firmware updates of Zigbee devices. This feature is enabled by default. As it uses standard [Update](/integrations/update/) entities in Home Assistant, users will get a UI notification if and when an OTA firmware update is available for a specific device, with an option to initiate the update or ignore that specific update for the device.
+
+To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
+
+<div class="note warning">
+
+Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
+
+</div>
+
 ## Configuration - YAML
 
 For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
@@ -239,45 +251,25 @@ custom_quirks_path:
   type: string
 {% endconfiguration %}
 
-### OTA firmware updates
+### Advanced OTA configuration
 
-The ZHA {% term integration %} has the ability to automatically download and perform OTA (Over-The-Air) firmware updates of Zigbee devices if the OTA firmware provider source URL for updates is available. OTA firmware updating is set to disabled (`false`) in the configuration by default.
+The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
 
-Online OTA providers for firmware updates are currently only available for IKEA, LEDVANCE/OSRAM, SALUS/Computime, and INOVELLI devices. Support for OTA updates from other manufacturers could be supported in the future if they publish their firmware images publicly.
+Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
 
-To enable OTA firmware updates for the ZHA {% term integration %} you need to add the following configuration to your {% term "`configuration.yaml`" %} and restart Home Assistant:
+However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
 
 ```yaml
 zha:
   zigpy_config:
     ota:
-      ikea_provider: true                        # Auto update Trådfri devices
-      ledvance_provider: true                    # Auto update LEDVANCE/OSRAM devices
-      salus_provider: true                       # Auto update SALUS/Computime devices
-      inovelli_provider: true                    # Auto update INOVELLI devices
-      thirdreality_provider: true                # Auto update 3REALITY devices
-      #otau_directory: /path/to/your/ota/folder  # Utilize .ota files to update everything else
+      ikea_provider: false                       # Disable OTA update downloads for Trådfri devices
+      inovelli_provider: false                   # Disable OTA update downloads for INOVELLI devices
+      ledvance_provider: false                   # Disable OTA update downloads for LEDVANCE/OSRAM devices
+      salus_provider: false                      # Disable OTA update downloads for SALUS/Computime devices
+      sonoff_provider: false                     # Disable OTA update downloads for Sonoff (ITead) devices
+      thirdreality_provider: false               # Disable OTA update downloads for 3REALITY devices
 ```
-
-You can choose if the IKEA, LEDVANCE, SALUS, INOVELLI or THIRDREALITY provider should be set to enabled (`true`) or disabled (`false`) individually. After the OTA firmware upgrades are finished, you can set these to `false` again if you do not want ZHA to automatically download and perform OTA firmware upgrades in the future.
-
-Note that the `otau_directory` setting is optional and can be used for any firmware files you have downloaded yourself, for any device type and manufacturer. For example, Philips Hue firmwares manually downloaded from [here](https://github.com/Koenkk/zigbee-OTA/blob/master/index.json) and/or [here](https://github.com/dresden-elektronik/deconz-rest-plugin/wiki/OTA-Image-Types---Firmware-versions) added to the `otau_directory` can be flashed, although a manual `zha.issue_zigbee_cluster_command` command currently (as of 2021.3.3) must be issued against the IEEE of the Philips Hue device under Developer Tools->Services, e.g.:
-
-```yaml
-service: zha.issue_zigbee_cluster_command
-data:
-  ieee: "xx:xx:xx:xx:xx:xx:xx:xx"
-  endpoint_id: 1
-  cluster_id: 25
-  cluster_type: out
-  command: 0
-  command_type: client
-  args:
-    - 0
-    - 100
-```
-
-Note: `cluster_id: 25` may also be `cluster_id: 0x0019`. The two are synonymous.
 
 ### Defining Zigbee channel to use
 
