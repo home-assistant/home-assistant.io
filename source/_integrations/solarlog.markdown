@@ -66,6 +66,7 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
+| self_consumption_year | kWh    | Accumulated total self-consumption. |
 | installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
