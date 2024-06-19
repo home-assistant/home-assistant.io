@@ -12,6 +12,8 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: airgradient
 ha_platforms:
+  - button
+  - select
   - sensor
 ha_integration_type: device
 ha_zeroconf: true
@@ -57,3 +59,5 @@ The settings are only applied to the device when the configuration source is set
 The following entities are supported:
 
 - Display temperature unit
+- Requesting co2 calibration
+- Requesting led bar test
