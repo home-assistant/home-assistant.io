@@ -103,7 +103,8 @@ The integration will create the following binary sensors:
 
 ### Button (if available)
 
-The integration will create a button entity for confirming minor errors of the mower. This entity is disabled by default. You have to enable it manually. It can't be detected with the API if the mower has the capability to confirm minor errors remotely. Before enabling this function, refer to the mower documentation.
+The integration will create a button entity for confirming minor mower errors. This entity is disabled by default; you have to enable it manually. The API can't detect if the mower has the capability to confirm minor errors remotely. Before enabling this function, refer to the mower documentation.
+
 ### Device tracker (if available)
 
 The integration will create a device tracker entity to show the position of the mower.
