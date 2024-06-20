@@ -27,6 +27,7 @@ There is currently support for the following device types within Home Assistant:
 
 - **Binary sensor** - Allows you to view the status of your [Rachio irrigation system](https://rachio.com/).
 - [**Switch**](#switch)
+- [**Calendar**](#calendar)
 
 They will be automatically added if the Rachio integration is loaded.
 
@@ -71,6 +72,10 @@ panel_iframe:
 The `rachio` switch platform allows you to toggle zones, valves, and schedules connected to your [Rachio irrigation system](https://rachio.com/) on and off.
 
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch for each smart hose timer valve and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24-hour rain delay on the device.
+
+## Calendar
+
+A [calendar](https://www.home-assistant.io/integrations/calendar/) entity will be added for each smart hose timer base station on the account, which will show past and future events for all enabled schedules. An upcoming event can be deleted from the calendar, which will trigger a skip of that event.
 
 ## Services
 
