@@ -68,7 +68,7 @@ The following controls are available:
 
 The following notify entities that can be passed to `notify.send_message` service are available:
 
-- Text to speech
+- Text-to-speech
 - Overlay message
 
 <div class='note warning'>
