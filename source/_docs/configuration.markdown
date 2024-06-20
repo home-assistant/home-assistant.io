@@ -34,6 +34,7 @@ How you edit your `configuration.yaml` file depends on your editor preferences a
 1. [Set up file access](#to-set-up-access-to-the-files-and-prepare-an-editor).
 2. [Locate the config directory](#to-find-the-configuration-directory).
 3. Edit your `configuration.yaml` file.
+4. Save your changes and [reload the configuration](#reloading-the-configuration-to-apply-changes) to apply the changes.
 
 ### To set up access to the files and prepare an editor
 
