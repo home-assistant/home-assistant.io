@@ -295,13 +295,15 @@ The following models have been tested and confirmed to work with a direct link t
 
 ### Tested battery-powered models
 
-Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as bridge between the battery powered cameras and Home Assistant, conserving the battery life. All features of the battery powered cameras will be available just like regular powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore ensure you do not use the camera stream on a dashboard that is constantly beeing vieuwed, like a wallpanel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not beeing actively used.
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as bridge between the battery powered cameras and Home Assistant, conserving the battery life. All features of the battery powered cameras will be available just like regular powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore ensure you do not use the camera stream on a dashboard that is constantly being vieuwed, like a wallpanel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
 
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
+
+Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
 
 ### Models only compatible using a NVR/Home Hub
 
