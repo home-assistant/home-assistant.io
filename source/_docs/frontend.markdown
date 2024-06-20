@@ -30,7 +30,7 @@ To learn how to organize and filter your data on an existing dashboard, refer to
 - [Grouping](/docs/organizing/) into [areas](/docs/organizing/areas/), [floors](/docs/organizing/floors/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/)
 - [Filtering](/docs/organizing/filtering)
 
-## User or browser dependent settings, general settings
+## User- or browser-dependent settings, general settings
 
 ### User- or browser-dependent settings
 
@@ -49,7 +49,7 @@ Themes can be set per browser. In the {% my profile title="**User profile**" %},
 
 Some of the settings, such as location and currency, were defined during the onboarding process. They can be changed under {% my general title="**Settings** > **System** > **General**" %}. Refer to the documentation on [setup basic information](/docs/configuration/basic/).
 
-## Frontend for Android and iOS
+## Apps for Android and iOS
 
 If you are looking for information on Home Assistant for Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
 
