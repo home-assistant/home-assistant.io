@@ -32,7 +32,7 @@ To learn how to organize and filter your data on an existing dashboard, refer to
 
 ## User or browser dependent settings, general settings
 
-### User or browser dependent settings
+### User- or browser-dependent settings
 
 Some of the frontend settings depend on the user. Other settings can be set by client. This allows you for example to have different languages per user, and a different theme depending on the device that is used to display Home Assistant.
 
