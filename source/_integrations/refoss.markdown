@@ -4,7 +4,7 @@ description: Integrate Refoss devices
 ha_category:
   - Sensor
   - Switch
-ha_release: 2024.6
+ha_release: 2024.1
 ha_codeowners:
   - '@ashionky'
 ha_iot_class: Local Polling
