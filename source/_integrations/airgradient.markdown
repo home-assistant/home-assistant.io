@@ -59,5 +59,5 @@ The settings are only applied to the device when the configuration source is set
 The following entities are supported:
 
 - Display temperature unit
-- Requesting co2 calibration
-- Requesting led bar test
+- Requesting CO2 calibration
+- Requesting LED bar test
