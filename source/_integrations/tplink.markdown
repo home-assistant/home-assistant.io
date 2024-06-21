@@ -4,6 +4,7 @@ description: Instructions on integrating TP-Link Smart Home Devices to Home Assi
 ha_category:
   - Hub
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 0.89
@@ -18,6 +19,7 @@ ha_domain: tplink
 ha_platforms:
   - diagnostics
   - light
+  - number
   - sensor
   - switch
 ha_dhcp: true
