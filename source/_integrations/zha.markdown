@@ -444,7 +444,7 @@ The group should consist of products of the same device type (e.g. all lights, s
 
 Binding is an on-device feature for Zigbee devices. It provides a mechanism for attaching an endpoint of one Zigbee device to an endpoint of another Zigbee device or to a Zigbee group.
 
-For example, binding a "target destination" Zigbee device like a remote to a Zigbee light bulb, switch or group of light bulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA. This means that the remote can control the light bulb or group even when ZHA is not active.```
+For example, binding a "target destination" Zigbee device like a remote to a Zigbee light bulb, switch or group of light bulbs allows direct control of the "target" device (light, switch, shade) from the "remote" Zigbee device, bypassing ZHA. This means that the remote can control the light bulb or group even when ZHA is not active.
 
 Note that not all devices support binding. By default, ZHA binds remotes to the coordinator, so click events are forwarded to HA. As some remotes can only be bound to a single destination, you might need to unbind the remote from the coordinator before binding it to another device or group.
 
