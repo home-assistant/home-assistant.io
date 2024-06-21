@@ -821,11 +821,11 @@ every Friday.
 - Always create a new HomeAssistant object when falling back to recovery mode ([@emontnemery] - [#119969])
 - Fix Hydrawise volume unit bug ([@thomaskistler] - [#119988])
 - Fix songpal crash for soundbars without sound modes ([@BestPig] - [#119999])
-- Make UniFi services handle unloaded config entry ([@Kane610] - [#120028])
 - Bump env-canada to 0.6.3 ([@gwww] - [#120035])
 - Bump aioimaplib to 1.1.0 ([@jbouwh] - [#120045])
 - Update AEMET-OpenData to v0.5.2 ([@Noltari] - [#120065])
 - Bump intents to 2024.6.21 ([@synesthesiam] - [#120106])
+- Update pydrawise to 2024.6.4 ([@thomaskistler] - [#119868])
 
 [#117695]: https://github.com/home-assistant/core/pull/117695
 [#118400]: https://github.com/home-assistant/core/pull/118400
@@ -839,6 +839,7 @@ every Friday.
 [#119793]: https://github.com/home-assistant/core/pull/119793
 [#119815]: https://github.com/home-assistant/core/pull/119815
 [#119845]: https://github.com/home-assistant/core/pull/119845
+[#119868]: https://github.com/home-assistant/core/pull/119868
 [#119870]: https://github.com/home-assistant/core/pull/119870
 [#119887]: https://github.com/home-assistant/core/pull/119887
 [#119889]: https://github.com/home-assistant/core/pull/119889
