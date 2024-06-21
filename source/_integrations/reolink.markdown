@@ -295,7 +295,7 @@ The following models have been tested and confirmed to work with a direct link t
 
 ### Tested battery-powered models
 
-Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as bridge between the battery powered cameras and Home Assistant, conserving the battery life. All features of the battery powered cameras will be available just like regular powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore ensure you do not use the camera stream on a dashboard that is constantly being vieuwed, like a wallpanel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
 
