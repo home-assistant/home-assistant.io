@@ -24,7 +24,7 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 </div>
 
 {% include integrations/config_flow.md %}
- 
+
 ## Troubleshooting
 If you see the below attached screen instead of the login page, please ensure that your
 configuration.yaml file includes either a `default_config:` or `cloud:` section.
