@@ -1,4 +1,4 @@
----
+https://github.com/home-assistant/core/pulls---
 title: Teslemetry
 description: Instructions on how to integrate Teslemetry within Home Assistant.
 ha_category:
@@ -21,6 +21,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
