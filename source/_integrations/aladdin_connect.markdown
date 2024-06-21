@@ -24,9 +24,9 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 </div>
 
 {% include integrations/config_flow.md %}
-
+ 
 ## Troubleshooting
-If you see the below attached screen instead of the login page, please make sure that your
+If you see the below attached screen instead of the login page, please ensure that your
 configuration.yaml file includes either a `default_config:` or `cloud:` section.
 
 ![image](https://github.com/home-assistant/home-assistant.io/assets/45437888/bd8c6eae-53b2-4d13-9cd3-1787707905b4)
