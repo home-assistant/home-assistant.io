@@ -38,9 +38,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Configuration options
-
-- Number of digits in PIN code for locks
+{% include integrations/option_flow.md %}
 
 ## Alarm control panel
 
@@ -102,4 +100,4 @@ Some users have reported that this integration currently doesn't work in the fol
 
 ## Troubleshooting
 
-If you get an error message stating something like *"The code for lock.XXX doesn't match pattern `^\d{0}$`."*, make sure the number of digits for your code matches the number defined in the [configuration options](#configuration-options).
+If you get an error message stating something like *"The code for lock.XXX doesn't match pattern `^\d{0}$`."*, make sure the number of digits for your code matches the number defined in the [configuration options](#options).
