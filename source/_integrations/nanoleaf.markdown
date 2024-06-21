@@ -4,6 +4,7 @@ description: Instructions how to integrate Nanoleaf Panels into Home Assistant.
 ha_category:
   - Button
   - Light
+  - Event
 ha_codeowners:
   - '@milanmeu'
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_domain: nanoleaf
 ha_platforms:
   - button
   - diagnostics
+  - event
   - light
 ha_zeroconf: true
 ha_ssdp: true
