@@ -1,6 +1,15 @@
 ---
 title: "Icons"
 description: "Material Design Icons in the Home Assistant frontend"
+related:
+  - docs: /docs/frontend/
+    title: Frontend
+  - docs: /dashboards/cards/
+    title: Dashboard cards
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing entities
+  - docs: https://pictogrammers.com/library/mdi/
+    title: Material Design Icons
 ---
 
 <p class='img'>
@@ -11,13 +20,13 @@ Home Assistant utilizes the community-driven [Material Design Icons](https://pic
 
 ## Default icons
 
-Every entity in Home Assistant has a default icon assigned to it. There are way too many to list out here, but you'll see them in your dashboard. You can [customize any of your entities](/docs/configuration/customizing-devices/#icon) to change the icons displayed to you.
+Every entity in Home Assistant has a default icon assigned to it. There are way too many to list out here, but you'll see them in your dashboard. You can [customize any of your entities](/docs/configuration/customizing-devices/) to change the icons displayed to you.
 
 ## Finding icons
 
 ### Icon picker
 
-The most common way you can find icons is by using the icon picker built right into Home Assistant. Select the "Icon" field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
+The most common way you can find icons is by using the icon picker built right into Home Assistant. Select the **Icon** field when customizing an entity and start typing. The list will filter to icons that match your search criteria. You can also scroll through all available icons when the field is empty.
 
 <p class='img'>
   <img src='/images/screenshots/icon-picker.png' alt='Icon Picker in Home Assistant' />
@@ -28,6 +37,8 @@ The most common way you can find icons is by using the icon picker built right i
   The icon picker will filter by icon name and by aliases applied to the icon by the MDI project. For example, typing "user" will show you most "account"-named icons.
 
 </div>
+
+For more detailed steps on customizing entities, including their icon, refer to [customizing entities](/docs/configuration/customizing-devices/).
 
 ### Material design icons picker browser extension
 
@@ -71,7 +82,7 @@ If you have an idea for an icon that isn't currently in the library, but are not
 
 If you want to contribute a new icon to the library, familiarize yourself with the [System icons guidelines](https://material.io/design/iconography/system-icons.html#design-principles) in the Material Design system. Then create your icon and [submit it to the Pictogrammers team for review](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Icon+Request%2CContribution&template=2_contribution.yml).
 
-#### Tips for Creating New Icons
+#### Tips for creating new icons
 
 - Really pay attention to [Material Design guidelines](https://material.io/design/iconography/system-icons.html#design-principles).
 - Keep in mind that icons are meant to be contextual, not literal.
@@ -79,6 +90,6 @@ If you want to contribute a new icon to the library, familiarize yourself with t
 - If you're unsure, open an issue on their GitHub. They're more than happy to help you!
 - Not all icons make it into the library and that is okay!
 
-### Suggesting an Icon Alias
+### Suggesting an icon alias
 
 Sometimes an icon exists, but you aren't able to find it with the terms you were searching for. If this has ever happened to you, please [open an issue with the Pictogrammers team to suggest new aliases](https://github.com/Templarian/MaterialDesign/issues/new?assignees=&labels=Alias&template=4_alias.yml) that can be added to existing icons.
