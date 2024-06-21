@@ -20,7 +20,8 @@ The Mealie integration will fetch data from your [Mealie instance](https://meali
 
 ## Available calendars
 
-The integration will create a calendar for every type of mealplan:
+The integration will create a calendar for every type of meal plan:
+
 - Breakfast
 - Lunch
 - Dinner
