@@ -69,7 +69,6 @@ The following controls are available:
 - Play and stop media files
 - Set device volume
 
-
 The following is available as camera entity:
 
 - Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**. 
