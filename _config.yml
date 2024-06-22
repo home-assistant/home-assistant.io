@@ -177,6 +177,12 @@ defaults:
     values:
       sitemap: false
 
+  - scope:
+      path: "blueprints/**/*.yaml"
+    values:
+      render_with_liquid: false
+      layout: none
+
 # Support for files Jekyll will normally exclude
 include:
   - "_headers"
