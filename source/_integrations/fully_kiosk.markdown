@@ -4,6 +4,7 @@ description: Instructions on how to integrate Fully Kiosk Browser with Home Assi
 ha_category:
   - Binary sensor
   - Camera
+  - Notifications
   - Sensor
   - Switch
 ha_release: 2022.9
@@ -18,6 +19,7 @@ ha_platforms:
   - camera
   - diagnostics
   - media_player
+  - notify
   - number
   - sensor
   - switch
@@ -69,6 +71,11 @@ The following controls are available:
 The following is available as cameras:
 
 - Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**. 
+
+The following notify entities that can be passed to `notify.send_message` service are available:
+
+- Text-to-speech
+- Overlay message
 
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.

@@ -5,8 +5,8 @@ ha_category:
   - Hub
   - Plug
   - Remote
-  - Switch
   - Sensor
+  - Switch
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -15,10 +15,10 @@ ha_codeowners:
 ha_domain: switchbot_cloud
 ha_platforms:
   - climate
-  - switch
   - sensor
+  - switch
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The SwitchBot Cloud integration allows you to control SwitchBot [devices](https://www.switch-bot.com/) connected through the SwitchBot hub.
