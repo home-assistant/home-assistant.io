@@ -52,7 +52,3 @@ Some of the settings, such as location and currency, were defined during the onb
 ## Apps for Android and iOS
 
 If you are looking for information on Home Assistant for Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
-
-## Frontend development
-
-The frontend is built with [Polymer](https://www.polymer-project.org/). If you're looking to contribute to the frontend, please refer to the [Frontend Development documentation](/developers/frontend/).
