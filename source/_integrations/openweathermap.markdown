@@ -16,9 +16,12 @@ ha_platforms:
   - sensor
   - weather
 ha_integration_type: integration
+related:
+  - docs: /common-tasks/general/#defining-a-custom-polling-interval
+    title: Defining a custom polling interval
 ---
 
-The OpenWeatherMap weather integrations uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
+The OpenWeatherMap weather integration uses [OpenWeatherMap](https://openweathermap.org/) as a source for current meteorological data for your location.
 
 There is currently support for the following device types within Home Assistant:
 

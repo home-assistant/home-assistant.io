@@ -96,7 +96,6 @@ In order to use Zigbee or other integrations that require access to devices, you
   content: |
 
     ```yaml
-    version: '3'
     services:
       homeassistant:
         ...
@@ -125,7 +124,6 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
   content: |
 
     ```yaml
-    version: '3'
     services:
       homeassistant:
       ...

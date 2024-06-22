@@ -39,7 +39,7 @@ The Tessie integration exposes various commands and sensors from the Tesla vehic
 
 ## Prerequisites
 
-You must have a [Tessie](https://my.tessie.com/) account and [access token](https://my.tessie.com/settings/api).
+You must have a [Tessie](https://my.tessie.com/) account, generate a [Tessie Access Token](https://my.tessie.com/settings/api) and grant Tessie access to your Tesla vehicle by generating a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
 
 {% include integrations/config_flow.md %}
 
