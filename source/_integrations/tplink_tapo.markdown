@@ -2,6 +2,7 @@
 title: Tapo
 description: Connect and control your Tapo devices using the TP-Link Smart Home integration
 ha_category:
+  - Button
   - Hub
   - Light
   - Sensor
@@ -18,6 +19,7 @@ ha_codeowners:
   - '@sdb9696'
 ha_config_flow: true
 ha_platforms:
+  - button
   - diagnostics
   - light
   - sensor

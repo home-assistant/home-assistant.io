@@ -2,6 +2,7 @@
 title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
+  - Button
   - Hub
   - Light
   - Sensor
@@ -16,6 +17,7 @@ ha_codeowners:
   - '@sdb9696'
 ha_domain: tplink
 ha_platforms:
+  - button
   - diagnostics
   - light
   - sensor
