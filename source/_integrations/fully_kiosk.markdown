@@ -67,7 +67,7 @@ The following controls are available:
 - Play and stop media files
 - Set device volume
 
-The following is available as image entities:
+The following is available as image entity:
 
 - Screenshot
 
