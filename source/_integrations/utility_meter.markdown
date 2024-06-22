@@ -12,6 +12,7 @@ ha_codeowners:
   - '@dgomes'
 ha_domain: utility_meter
 ha_platforms:
+  - diagnostics
   - select
   - sensor
 ha_integration_type: helper

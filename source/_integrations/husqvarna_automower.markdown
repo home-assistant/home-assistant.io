@@ -3,6 +3,7 @@ title: Husqvarna Automower
 description: Instructions on how to integrate Husqvarna Automower lawn mowers into Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Device tracker
   - Lawn Mower
   - Number
@@ -16,6 +17,7 @@ ha_codeowners:
   - '@Thomas55555'
 ha_platforms:
   - binary_sensor
+  - button
   - device_tracker
   - diagnostics
   - lawn_mower
@@ -99,6 +101,10 @@ The integration will create the following binary sensors:
 - Returning to dock  
   *The mower is on its way home to the charging station.*
 
+### Button (if available)
+
+The integration will create a button entity for confirming minor mower errors. This entity is disabled by default. You have to enable it manually. The API can't detect if the mower has the capability to confirm minor errors remotely. Before enabling this function, refer to the mower documentation.
+
 ### Device tracker (if available)
 
 The integration will create a device tracker entity to show the position of the mower.
@@ -143,6 +149,7 @@ The integration will create the following sensors:
 - Total drive distance
 - Total running time
 - Total searching time
+- Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
 ### Switch
 

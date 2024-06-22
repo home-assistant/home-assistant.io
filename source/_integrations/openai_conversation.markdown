@@ -12,6 +12,15 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+related:
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing entities to Assist
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Create an AI personality
+  - url: https://platform.openai.com/account/api-keys
+    title: OpenAI API key
+  - url: https://www.openai.com
+    title: OpenAI
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -39,7 +48,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant
+  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
@@ -51,7 +60,7 @@ If you choose to not use the recommended settings, you can configure the followi
 {% configuration_basic %}
 
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3), [OpenAI GPT-3.5 Documentation](https://platform.openai.com/docs/models/gpt-3-5), or [OpenAI GPT-4 and GPT-4 Turbo Documentation](https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo). The default is "gpt-3.5-turbo".
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
 
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
@@ -66,7 +75,7 @@ Top P:
 
 ## Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
+You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
 ## Services
 
