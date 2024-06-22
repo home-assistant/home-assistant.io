@@ -38,7 +38,7 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
-If Developer Options is missing from Settings then select My Fire TV and press the button seven times on About.
+If Developer Options is missing from Settings, then select My Fire TV and press the button seven times on About. Note that on some Fire TV devices, such as the Insignia F30 series, it is not possible to enable Developer Options until you have signed in to an Amazon account on the device.
 
 {% include integrations/config_flow.md %}
 
