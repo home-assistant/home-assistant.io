@@ -18,6 +18,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - image
   - media_player
   - notify
   - number
@@ -68,9 +69,14 @@ The following controls are available:
 - Play and stop media files
 - Set device volume
 
+
 The following is available as camera entity:
 
 - Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**. 
+
+The following is available as image entity:
+
+- Screenshot
 
 The following notify entities that can be passed to `notify.send_message` service are available:
 
