@@ -4,6 +4,7 @@ description: Connect and control your Tapo devices using the TP-Link Smart Home 
 ha_category:
   - Hub
   - Light
+  - Select
   - Sensor
   - Switch
 ha_domain: tplink_tapo
@@ -20,6 +21,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - light
+  - select
   - sensor
   - switch
 ha_iot_class: Local Polling
