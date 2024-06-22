@@ -35,7 +35,7 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 ## Notifications
 
-Tibber can send a notification by calling the [`notify` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
+Tibber can send a notification by calling the [`notify.send_message` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -43,8 +43,9 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.tibber
+  service: notify.send_message
   data:
+    entity_id: notify.tibber
     title: Your title
     message: This is a message for you!
 ```
@@ -81,6 +82,54 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 - Time of max hour consumption
 
 </div>
+
+## Services
+
+The hourly prices are exposed using [service calls](/docs/scripts/service-calls/). The services populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+
+### Service `tibber.get_prices`
+
+Fetches hourly energy prices including price level.
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | --------|
+| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2024-01-01 00:00:00 |
+| `end` | yes | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
+
+#### Response data
+
+The response data is a dictionary with the energy prices for each Home. `start_time` is returned in local time from the API.
+
+```json
+{
+  "prices": {
+    "Nickname_Home":[
+      {
+        "start_time": "2023-12-09 03:00:00+02:00",
+        "price": 0.46914,
+        "level": "VERY_EXPENSIVE"
+      },
+      {
+        "start_time": "2023-12-09 04:00:00+02:00",
+        "price": 0.46914,
+        "level": "VERY_EXPENSIVE"
+      }
+    ],
+    "Nickname_Home_2":[
+      {
+        "start_time": "2023-12-09 03:00:00+02:00",
+        "price": 0.46914,
+        "level": "VERY_EXPENSIVE"
+      },
+      {
+        "start_time": "2023-12-09 04:00:00+02:00",
+        "price": 0.46914,
+        "level": "VERY_EXPENSIVE"
+      }
+    ]
+  }
+}
+```
 
 ## Examples
 

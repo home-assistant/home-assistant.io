@@ -13,9 +13,12 @@ ha_homekit: true
 ha_platforms:
   - climate
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `iZone` integration allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
+The `iZone` {% term integration %} allows access of control of a local [iZone](https://izone.com.au/) ducted reverse-cycle climate control devices. These are largely available in Australia.
 
 ## Supported hardware
 
@@ -23,12 +26,12 @@ Any current iZone unit with ducted reverse cycle air-conditioning, and the CB wi
 
 {% include integrations/config_flow.md %}
 
-
 ## Manual configuration
 
 Alternatively, the iZone integration can be configured manually via the
-`configuration.yaml` file if there is more than one iZone system on the local
-network and one or more must be excluded use manual configuration:
+{% term "`configuration.yaml`" %} file if there is more than one iZone system on the local
+network and one or more must be excluded use manual configuration.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Full manual example configuration.yaml entry
@@ -68,7 +71,7 @@ In this mode the current control zone that has been selected is reported, as is 
 zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
-You can add configure to read these values into sensors (in `configuration.yaml`), 
+You can add configure to read these values into sensors (in {% term "`configuration.yaml`" %}), 
 along with the supply temperature (use the ID of your unit):
 
 {% raw %}
@@ -126,16 +129,16 @@ This will help you to find network connection issues etc.
 
 Set the minimum airflow for a particular zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
-| `airflow` | no | Airflow percent in 5% increments
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`              | no       | Airflow percent in 5% increments               |
 
 ### Service `izone.airflow_max`
 
 Set the maximum airflow for a particular zone.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | izone Zone entity. For example `climate.bed_2`
-| `airflow` | no | Airflow percent in 5% increments
+| Service data attribute | Optional | Description                                    |
+| ---------------------- | -------- | ---------------------------------------------- |
+| `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
+| `airflow`              | no       | Airflow percent in 5% increments               |

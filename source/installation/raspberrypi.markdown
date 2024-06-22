@@ -60,7 +60,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
 3. Connect the power supply to start up the device.
 
 ### Access Home Assistant
@@ -87,6 +87,7 @@ With the Home Assistant Operating System installed and accessible, you can now c
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
+
 {% include installation/container.md %}
 {% include installation/core.md %}
 
@@ -98,7 +99,7 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 
 3. Download the image to your computer.
-   - Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+   - Copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}
@@ -135,3 +136,4 @@ _Select and copy the URL or use the "copy" button that appear when you hover it.
     <i>We get commissions for purchases made through links in this post.</i></p>
 </div>
 
+{% include common-tasks/enable_i2c.md %}

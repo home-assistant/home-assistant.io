@@ -3,22 +3,22 @@
   "description": "Home Assistant Website & Documentation",
   "version": "1.0.0",
   "devDependencies": {
-    "remark-cli": "^12.0.0",
+    "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
-    "remark-lint": "^9.1.2",
-    "remark-lint-fenced-code-flag": "^3.1.2",
-    "remark-lint-heading-increment": "^3.1.2",
-    "remark-lint-heading-style": "^3.1.2",
-    "remark-lint-no-shell-dollars": "^3.1.2",
-    "remark-lint-ordered-list-marker-style": "^3.1.2",
-    "remark-lint-ordered-list-marker-value": "^3.1.2",
+    "remark-lint": "^10.0.0",
+    "remark-lint-fenced-code-flag": "^4.0.0",
+    "remark-lint-heading-increment": "^4.0.0",
+    "remark-lint-heading-style": "^4.0.0",
+    "remark-lint-no-shell-dollars": "^4.0.0",
+    "remark-lint-ordered-list-marker-style": "^4.0.0",
+    "remark-lint-ordered-list-marker-value": "^4.0.0",
     "remark-lint-prohibited-strings": "^4.0.0",
-    "remark-lint-unordered-list-marker-style": "^3.1.2",
+    "remark-lint-unordered-list-marker-style": "^4.0.0",
     "remark-stringify": "^11.0.0",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-terminology": "^4.0.1"
+    "textlint-rule-terminology": "^5.0.13"
   },
   "resolutions": {
     "minimist": ">=1.2.5"
@@ -26,6 +26,6 @@
   "scripts": {
     "markdown:lint": "remark --quiet --frail .",
     "textlint:all": "textlint source",
-    "textlint": "textlint source/_examples source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
+    "textlint": "textlint source/_docs source/_faq source/_integrations source/_dashboards source/cloud source/getting-started source/hassio source/dashboards"
   }
 }

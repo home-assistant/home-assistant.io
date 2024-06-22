@@ -81,8 +81,10 @@ All {% term events %} have the fields:
 | `date` | The date of the event in the format `MM/DD/YYYY`. |
 | `time` | The time of the event in the format `HH:MM AM`. |
 
-There is a unique list of known event_codes that can be found
-[here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
+There is a unique list of known event_codes are defined in
+[events.csv](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/events.csv)
+and the inferred groups and their ranges of event codes are defined in
+[timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
 ## Services
 
@@ -92,7 +94,7 @@ Available {% term services %}: `change_setting`, `capture_image`, `trigger_autom
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
-[AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
+[`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

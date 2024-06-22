@@ -14,78 +14,28 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_config_flow: true
 ---
 
-There is currently support for the following device types within Home Assistant:
-
-- [Notifications](#notifications)
-- [Sensor](#sensor)
+The File integration allows storing notifications in a file or setting up a sensor based on a file's content.
+  
+{% include integrations/config_flow.md %}
 
 ## Notifications
 
-The `file` platform allows you to store notifications from Home Assistant as a file.
+Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist, but make sure the folder exists. Add the path of your [configuration](/docs/configuration/) folder (for example, `/config/file_notifications`) to save the file there. Setting `timestamp` to `true` adds a timestamp to every logged entry.
+After creating a config entry, you can change the entry name, the name of the notify entity, or the entity ID, if you prefer.
 
-To enable file notifications in your installation, add the following to your `configuration.yaml` file:
+To use notifications in automations or scripts, see the [getting started with automation page](/getting-started/automation/).
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: file
-    filename: FILENAME
-```
-
-{% configuration %}
-name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
-  required: false
-  default: notify
-  type: string
-filename:
-  description: Name of the file to use. The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there.
-  required: true
-  type: string
-timestamp:
-  description: Setting `timestamp` to `true` adds a timestamp to every entry.
-  required: false
-  default: false
-  type: boolean
-{% endconfiguration %}
-
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+Use the `notify.send_message` entity service to store notification messages.
 
 ## Sensor
 
-The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/docs/configuration/basic/).
-
-To enable the `file` sensor, add the following lines to your `configuration.yaml`:
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: file
-    file_path: /home/user/.homeassistant/sensor-data.txt
-```
-
-{% configuration %}
-file_path:
-  description: Path to file that stores the sensor data.
-  required: true
-  type: string
-name:
-  description: Name of the sensor to use in the frontend.
-  required: false
-  default: file name
-  type: string
-unit_of_measurement:
-  description: Defines the units of measurement of the sensor, if any.
-  required: false
-  type: string
-value_template:
-  description: Defines a [template](/docs/configuration/templating/#processing-incoming-data) to extract a value from the payload.
-  required: false
-  type: template
-{% endconfiguration %}
+The `file` sensor platform reads the entries from a plain-text file and shows the found value. Only the last line of the file is used. This is similar to do `$ tail -n 1 sensor.txt` on the command-line. Note that file paths must be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs).
 
 ### Examples
 
@@ -93,7 +43,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 #### Entries as JSON
 
-Assuming that the log file contains multiple values formatted as JSON like shown below:
+Assuming that the log file contains multiple values formatted as JSON as shown below:
 
 ```text
 [...]
@@ -101,25 +51,16 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 {"temperature": 22, "humidity": 36}
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following settings to extract the temperature:
 
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: file
-    name: Temperature
-    file_path: /home/user/.homeassistant/sensor.json
-    value_template: '{{ value_json.temperature }}'
-    unit_of_measurement: "°C"
-```
-
-{% endraw %}
+- Name: `Temperature`
+- File path: `/home/user/.homeassistant/sensor.json`
+- Value template: {% raw %}`'{{ value_json.temperature }}'`{% endraw %}
+- Unit of measurement: `"°C"`
 
 #### Entries as CSV
 
-Assuming the log file contains multiple values formatted as CSV like shown below:
+Assuming the log file contains multiple values formatted as CSV as shown below:
 
 ```text
 timestamp,temperature,humidity
@@ -127,18 +68,9 @@ timestamp,temperature,humidity
 1631472949,22,36
 ```
 
-This would require the following entry in the `configuration.yaml` file to extract the temperature:
+This would require the following settings to extract the temperature:
 
-{% raw %}
-
-```yaml
-# Example configuration.yaml entry
-sensor:
-  - platform: file
-    name: Temperature
-    file_path: /home/user/.homeassistant/sensor.csv
-    value_template: '{{ value.split(",")[1] }}'
-    unit_of_measurement: "°C"
-```
-
-{% endraw %}
+- Name: `Temperature`
+- File path: `/home/user/.homeassistant/sensor.csv`
+- Value template: {% raw %}`'{{ value.split(",")[1] }}'`{% endraw %}
+- Unit of measurement: `"°C"`

@@ -9,6 +9,9 @@ ha_domain: aquostv
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
@@ -17,7 +20,8 @@ When the TV is first connected, you will need to accept Home Assistant on the TV
 
 ## Configuration
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To add a TV to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

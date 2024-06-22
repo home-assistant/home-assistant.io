@@ -24,6 +24,11 @@ ha_platforms:
   - update
 ha_integration_type: integration
 ha_dhcp: true
+related:
+  - docs: /dashboards/picture-glance/#creating-a-card-to-control-the-camera
+    title: Controlling the camera from the dashboard
+  - url: https://reolink.com/
+    title: Reolink product page
 ---
 
 The integration allows you to control [Reolink](https://reolink.com/) NVRs or cameras.
@@ -60,16 +65,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection
-- Visitor (Doorbell presses)
-- AI person detection
-- AI vehicle detection
-- AI pet detection
-- AI animal detection
-- AI face detection
-- AI package detection
+- Motion detection+
+- Visitor+ (Doorbell presses)
+- AI person detection+
+- AI vehicle detection+
+- AI pet detection+
+- AI animal detection+
+- AI face detection+
+- AI package detection+
+- Sleep status
 
-These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\+ These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
@@ -86,6 +92,7 @@ Depending on the supported features of the camera, number entities are added for
 - Volume
 - Guard return time
 - Motion sensitivity
+- PIR sensitivity
 - AI face sensitivity
 - AI person sensitivity
 - AI vehicle sensitivity
@@ -144,10 +151,10 @@ Depending on the supported features of the camera, button entities are added for
 
 Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                              |
-| ---------------------- | -------- | -----------------------------------------------------------------------------------------|
-| `entity_id`            |      no  | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
-| `speed`                |      no  | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                         |
+| Service data attribute | Optional | Description                                                                                                                         |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
+| `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
 
 ## Select entities
 
@@ -159,7 +166,7 @@ Depending on the supported features of the camera, select entities are added for
 - Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
-- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
+- Doorbell LED (Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -185,10 +192,13 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
+- Manual record
 - Push notifications
 - Buzzer on event
 - Email on event
 - FTP upload
+- PIR enabled*
+- PIR reduce false alarm*
 - HDR*
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
@@ -220,6 +230,9 @@ Depending on the supported features of the camera, the following sensor entities
 - PTZ pan position
 - Wi-Fi signal*
 - HDD/SD storage*
+- Battery percentage
+- Battery temperature*
+- Battery state* (discharging, charging, charge complete)
 
 ## Update entity
 
@@ -266,6 +279,7 @@ The following models have been tested and confirmed to work:
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
@@ -291,17 +305,16 @@ However, these cameras can work with this integration through an NVR in which th
 
 ## Initial setup
 
+### 1. Initializing and configuring camera credentials.
+
 A brand new Reolink camera first needs to be connected to the network and initialized. During initialization, the credentials for the camera need to be set.
-There are several ways to achieve this.
+There are several ways to achieve this:
 
-### Connecting Reolink via app/client
+#### Connecting Reolink via app/client
 
-The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/).
+The recommended way is to use the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/), and follow the on-screen instructions.
 
-1. Follow the on-screen instructions.  
-2. In Home Assistant, use the credentials you just configured in the Reolink app/client.
-
-### Connecting Reolink via a web browser
+#### Connecting Reolink via a web browser
 
 When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
 
@@ -312,9 +325,8 @@ When your camera has a LAN port (most Wi-Fi cameras also have a LAN port):
       - Go to **settings** (gear icon) > **Network** and fill in your Wi-Fi SSID and password.
         - If you have both a 2.4 GHz and 5 GHz network, check your camera's user guide to see which operating frequency is supported.
       - After that you can disconnect the LAN cable and the camera will automatically switch to the Wi-Fi connection.
-   5. Now set up the Reolink Home Assistant integration using the credentials you just specified.
 
-### QR code
+#### QR code
 
 You can also connect a Wi-Fi camera using a self-made QR code. Once connected, follow the instructions under **Web browser**.
 Create a QR code using ISO-8859-1 character encoding (not UTF-8) with the following XML string:
@@ -326,6 +338,14 @@ The `last4` are the last 4 digits of the QR code which is printed (on the unders
 Normally, the digits are printed directly under the QR code. Alternatively, you could scan the QR code and grab the last 4 digits.
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
+
+### 2. Enabling HTTP/HTTPS ports
+
+Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+
+### 3. Add integration in Home Assistant
+
+Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
 ## Showing the camera in the dashboard
 
@@ -358,8 +378,3 @@ Therefore, ensure no Global SSL certificate is configured in the [`configuration
 An SSL certificate can still be enforced for external connections, by, for instance, using the [NGINX add-on](https://github.com/home-assistant/addons/tree/master/nginx_proxy) or [NGINX Proxy Manager add-on](https://github.com/hassio-addons/addon-nginx-proxy-manager) instead of a globally enforced SSL certificate.
 
 To see if a Reolink integration is currently using `ONVIF push`, `ONVIF long polling` or `Fast polling`, [download the diagnostics text file](/docs/configuration/troubleshooting/#download-diagnostics) and find the `"event connection": "ONVIF push"\"ONVIF long polling"\"Fast polling"` in the txt file.
-
-## Related topics
-
-- [Controlling the camera from the dashboard](/dashboards/picture-glance/#creating-a-card-to-control-the-camera)
-- [Reolink product page](https://reolink.com/)
