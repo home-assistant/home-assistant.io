@@ -3,7 +3,7 @@ layout: post
 title: "Music Assistant 2.0: Your Music, Your Players"
 description: "Connecting multiple music libraries to almost any smart speaker."
 date: 2024-05-09 00:00:01
-date_formatted: "May 09, 2024"
+date_formatted: "May 9, 2024"
 author: Marcel van der Veldt
 comments: true
 categories: Music-Assistant

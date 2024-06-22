@@ -6,14 +6,14 @@ ha_category:
   - Button
   - Car
   - Climate
-  - Device tracker
   - Cover
+  - Device tracker
   - Lock
   - Media player
   - Number
+  - Select
   - Sensor
   - Switch
-  - Select
   - Update
 ha_release: 2024.2
 ha_iot_class: Cloud Polling
@@ -21,13 +21,14 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
   - climate
   - cover
-  - diagnostics
   - device_tracker
+  - diagnostics
   - lock
   - media_player
   - number
