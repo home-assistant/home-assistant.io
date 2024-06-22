@@ -3,6 +3,7 @@ title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
   - Binary sensor
+  - Notifications
   - Sensor
   - Switch
 ha_release: 2022.9
@@ -16,6 +17,7 @@ ha_platforms:
   - button
   - diagnostics
   - media_player
+  - notify
   - number
   - sensor
   - switch
@@ -63,6 +65,11 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+
+The following notify entities that can be passed to `notify.send_message` service are available:
+
+- Text-to-speech
+- Overlay message
 
 <div class='note warning'>
   The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
