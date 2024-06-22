@@ -29,4 +29,4 @@ Only doors that are owned by your Aladdin Connect account will be available. Doo
 If you see the below attached screen instead of the login page, please ensure that your
 {% term "`configuration.yaml`" %} file includes either a [`default_config:`](/integrations/default_config/) or [`cloud:`](/integrations/cloud/) section.
 
-![OAuth Error Screen](source/images/integrations/aladdin_connect/oauth-screenshot.png)
+![OAuth Error Screen](/images/integrations/aladdin_connect/oauth-screenshot.png)
