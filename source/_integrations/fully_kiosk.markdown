@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - button
   - diagnostics
+  - image
   - media_player
   - notify
   - number
@@ -65,6 +66,10 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+
+The following is available as image entity:
+
+- Screenshot
 
 The following notify entities that can be passed to `notify.send_message` service are available:
 
