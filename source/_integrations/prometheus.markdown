@@ -122,6 +122,9 @@ prometheus:
 
 {% include common-tasks/filters.md %}
 
+> [!TIP]
+> Metrics are exported only for certain domains. To find out which ones are supported you can search for `def _handle_` in the [source](https://github.com/home-assistant/core/blob/dev/homeassistant/components/prometheus/__init__.py).
+
 ## Full Example
 
 Advanced configuration example:
