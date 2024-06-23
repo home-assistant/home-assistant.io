@@ -71,7 +71,7 @@ The following controls are available:
 
 The following is available as camera entity:
 
-- Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**. 
+- Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**).
 
 The following is available as image entity:
 
