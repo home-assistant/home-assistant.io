@@ -209,23 +209,4 @@ For example:
 
 Metrics are exported only for the following domains:
 
-- automation
-- binary_sensor
-- climate
-- cover
-- counter
-- device_tracker
-- fan
-- humidifier
-- input_boolean
-- input_number
-- light
-- lock
-- number
-- person
-- sensor
-- update
-- switch
-<!-- textlint-disable -->
-- zwave
-<!-- textlint-enable -->
+`automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `update`, `switch`, `zwave`
