@@ -226,4 +226,6 @@ Metrics are exported only for the following domains:
 - sensor
 - update
 - switch
+<!-- textlint-disable -->
 - zwave
+<!-- textlint-enable -->
