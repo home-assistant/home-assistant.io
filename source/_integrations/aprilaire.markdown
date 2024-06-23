@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_platforms:
   - climate
   - select
+  - sensor
 ha_integration_type: device
 ---
 
