@@ -308,5 +308,5 @@ If you get errors while authenticating or fetching data for `NvrError... 404 - R
 Similarly, a `502 Bad Gateway` also means that your UniFi Protect application may not be running.
 
 ```log
-pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
+uiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
 ```
