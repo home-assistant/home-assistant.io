@@ -457,6 +457,12 @@ The same thing can also be expressed as a test:
 {{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
 
+```text
+{{ config_entry_attr(config_entry_id('sensor.sony'), 'title') }}  # Sony Bravia TV
+```
+
+
+
 {% endraw %}
 
 ### Floors
