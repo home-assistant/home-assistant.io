@@ -447,6 +447,7 @@ The same thing can also be expressed as a test:
 ### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+- `config_entry_attr(attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
@@ -455,6 +456,12 @@ The same thing can also be expressed as a test:
 ```text
 {{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
+
+```text
+{{ config_entry_attr(config_entry_id('sensor.sony'), 'title') }}  # Sony Bravia TV
+```
+
+
 
 {% endraw %}
 
@@ -558,7 +565,7 @@ The same thing can also be expressed as a test:
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
 - `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
 
-If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration.
 
 #### Integrations examples
 
