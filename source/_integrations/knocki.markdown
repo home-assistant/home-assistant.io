@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Knocki integration can receive events for the triggers set up from your [Knocki devices](https://knocki.com/).
+The **Knocki** {% term integration %} can receive events for the triggers set up from your [Knocki devices](https://knocki.com/).
 
 ## Prerequisites
 In order to use the Knocki integration you need to have a Knocki account.
