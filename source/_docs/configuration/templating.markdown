@@ -553,12 +553,14 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Entities for an integration
+### Entities or devices for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
 - `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+- `integration_devices(integration)` returns a list of devices that are associated with a given integration, such as `hue` or `zwave_js`.
+- `integration_devices(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
 
-If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
+If there is more than one entry with the same title, the devices/entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for devices/entities of an untitled integration. 
 
 #### Integrations examples
 
@@ -570,6 +572,14 @@ If there is more than one entry with the same title, the entities for all the ma
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+```text
+{{ integration_devices('hue') }}  # ['feebdaedfeebdaedfeebdaedfeebdaed', 'deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ integration_devices('Hue bridge downstairs') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
 ```
 
 {% endraw %}
