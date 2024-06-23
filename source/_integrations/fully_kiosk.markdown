@@ -3,6 +3,7 @@ title: Fully Kiosk Browser
 description: Instructions on how to integrate Fully Kiosk Browser with Home Assistant
 ha_category:
   - Binary sensor
+  - Camera
   - Notifications
   - Sensor
   - Switch
@@ -15,6 +16,7 @@ ha_domain: fully_kiosk
 ha_platforms:
   - binary_sensor
   - button
+  - camera
   - diagnostics
   - image
   - media_player
@@ -66,6 +68,10 @@ The following controls are available:
 - Screen brightness
 - Play and stop media files
 - Set device volume
+
+The following is available as camera entity:
+
+- Camera (the camera only works in Fully Kiosk if the **Motion detection** is set to **On**).
 
 The following is available as image entity:
 
