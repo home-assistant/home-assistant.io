@@ -122,8 +122,6 @@ prometheus:
 
 {% include common-tasks/filters.md %}
 
-> Note: Metrics are exported only for certain domains. For details, see the `def _handle_` functions in the [Prometheus integration source code](https://github.com/home-assistant/core/blob/dev/homeassistant/components/prometheus/__init__.py).
-
 ## Full Example
 
 Advanced configuration example:
@@ -206,3 +204,26 @@ For example:
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
 ```
+
+## Supported metrics
+
+Metrics are exported only for the following domains:
+
+- automation
+- binary_sensor
+- climate
+- cover
+- counter
+- device_tracker
+- fan
+- humidifier
+- input_boolean
+- input_number
+- light
+- lock
+- number
+- person
+- sensor
+- update
+- switch
+- zwave
