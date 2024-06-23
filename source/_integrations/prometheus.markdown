@@ -122,9 +122,7 @@ prometheus:
 
 {% include common-tasks/filters.md %}
 
-<div class='note'>
-Metrics are exported only for certain domains. For details, see the `def _handle_` functions in the [Prometheus integration source code](https://github.com/home-assistant/core/blob/dev/homeassistant/components/prometheus/__init__.py).
-</div>
+> Note: Metrics are exported only for certain domains. For details, see the `def _handle_` functions in the [Prometheus integration source code](https://github.com/home-assistant/core/blob/dev/homeassistant/components/prometheus/__init__.py).
 
 ## Full Example
 
