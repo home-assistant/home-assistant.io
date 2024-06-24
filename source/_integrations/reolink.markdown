@@ -249,7 +249,7 @@ Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
 
-The following models have been tested and confirmed to work:
+The following models have been tested and confirmed to work with a direct link to Home Assistant:
 
 - C1 Pro*
 - C2 Pro*
@@ -289,15 +289,28 @@ The following models have been tested and confirmed to work:
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
-Battery-powered cameras are not yet supported.
+### Tested battery-powered models
+
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+
+The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
+
+- [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
+- [Argus Track](https://reolink.com/product/argus-track/)
+- [Reolink Doorbell Battery](https://reolink.com/roadmap/)
+
+Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
+
+### Models only compatible using a NVR/Home Hub
 
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
-However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
+However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
 - E1 Pro
 - E1

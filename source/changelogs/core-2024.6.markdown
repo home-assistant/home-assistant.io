@@ -1421,6 +1421,82 @@ For a summary in a more readable format:
 [@starkillerOG]: https://github.com/starkillerOG
 [@tronikos]: https://github.com/tronikos
 
+## Release 2024.6.4 - June 21
+
+- UniFi temp fix to handle runtime data ([@Kane610] - [#120031])
+- Fix for Synology DSM shared images ([@lodesmets] - [#117695])
+- Fix Jewish Calendar unique id migration ([@tsvi] - [#119683])
+- Fix model import in Spotify ([@jjlawren] - [#119747])
+- Add Kasa Dimmer to Matter TRANSITION_BLOCKLIST ([@dubstomp] - [#119751])
+- Bump py-canary to v0.5.4 ([@0bmay] - [#119793])
+- Pin tenacity to 8.3.0 ([@cdce8p] - [#119815])
+- Bump aiozoneinfo to 0.2.0 ([@bdraco] - [#119845])
+- Fix up ecobee windspeed unit ([@bjpetit] - [#119870])
+- Bump hdate to 0.10.9 ([@tsvi] - [#119887])
+- Bump weatherflow4py to 0.2.21 ([@jeeftor] - [#119889])
+- Bump babel to 2.15.0 ([@gjohansson-ST] - [#119006])
+- Bump python-holidays to 0.51 ([@gjohansson-ST] - [#119918])
+- Fix Onkyo zone volume ([@arturpragacz] - [#119949])
+- Bump plugwise to v0.37.4.1 ([@bouwew] - [#119963])
+- Always create a new HomeAssistant object when falling back to recovery mode ([@emontnemery] - [#119969])
+- Fix Hydrawise volume unit bug ([@thomaskistler] - [#119988])
+- Fix songpal crash for soundbars without sound modes ([@BestPig] - [#119999])
+- Bump env-canada to 0.6.3 ([@gwww] - [#120035])
+- Bump aioimaplib to 1.1.0 ([@jbouwh] - [#120045])
+- Update AEMET-OpenData to v0.5.2 ([@Noltari] - [#120065])
+- Bump intents to 2024.6.21 ([@synesthesiam] - [#120106])
+- Update pydrawise to 2024.6.4 ([@thomaskistler] - [#119868])
+
+[#117695]: https://github.com/home-assistant/core/pull/117695
+[#118400]: https://github.com/home-assistant/core/pull/118400
+[#119006]: https://github.com/home-assistant/core/pull/119006
+[#119096]: https://github.com/home-assistant/core/pull/119096
+[#119376]: https://github.com/home-assistant/core/pull/119376
+[#119683]: https://github.com/home-assistant/core/pull/119683
+[#119742]: https://github.com/home-assistant/core/pull/119742
+[#119747]: https://github.com/home-assistant/core/pull/119747
+[#119751]: https://github.com/home-assistant/core/pull/119751
+[#119793]: https://github.com/home-assistant/core/pull/119793
+[#119815]: https://github.com/home-assistant/core/pull/119815
+[#119845]: https://github.com/home-assistant/core/pull/119845
+[#119868]: https://github.com/home-assistant/core/pull/119868
+[#119870]: https://github.com/home-assistant/core/pull/119870
+[#119887]: https://github.com/home-assistant/core/pull/119887
+[#119889]: https://github.com/home-assistant/core/pull/119889
+[#119918]: https://github.com/home-assistant/core/pull/119918
+[#119949]: https://github.com/home-assistant/core/pull/119949
+[#119963]: https://github.com/home-assistant/core/pull/119963
+[#119969]: https://github.com/home-assistant/core/pull/119969
+[#119988]: https://github.com/home-assistant/core/pull/119988
+[#119999]: https://github.com/home-assistant/core/pull/119999
+[#120028]: https://github.com/home-assistant/core/pull/120028
+[#120031]: https://github.com/home-assistant/core/pull/120031
+[#120035]: https://github.com/home-assistant/core/pull/120035
+[#120045]: https://github.com/home-assistant/core/pull/120045
+[#120065]: https://github.com/home-assistant/core/pull/120065
+[#120106]: https://github.com/home-assistant/core/pull/120106
+[@0bmay]: https://github.com/0bmay
+[@BestPig]: https://github.com/BestPig
+[@Kane610]: https://github.com/Kane610
+[@Noltari]: https://github.com/Noltari
+[@arturpragacz]: https://github.com/arturpragacz
+[@bdraco]: https://github.com/bdraco
+[@bjpetit]: https://github.com/bjpetit
+[@bouwew]: https://github.com/bouwew
+[@cdce8p]: https://github.com/cdce8p
+[@dubstomp]: https://github.com/dubstomp
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gwww]: https://github.com/gwww
+[@jbouwh]: https://github.com/jbouwh
+[@jeeftor]: https://github.com/jeeftor
+[@jjlawren]: https://github.com/jjlawren
+[@lodesmets]: https://github.com/lodesmets
+[@synesthesiam]: https://github.com/synesthesiam
+[@thomaskistler]: https://github.com/thomaskistler
+[@tsvi]: https://github.com/tsvi
+
 [#101731]: https://github.com/home-assistant/core/pull/101731
 [#101786]: https://github.com/home-assistant/core/pull/101786
 [#103844]: https://github.com/home-assistant/core/pull/103844

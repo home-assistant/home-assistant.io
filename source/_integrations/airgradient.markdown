@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: airgradient
 ha_platforms:
   - button
+  - number
   - select
   - sensor
 ha_integration_type: device
@@ -20,12 +21,6 @@ ha_zeroconf: true
 ---
 
 The AirGradient integration will fetch data from your [AirGradient devices](https://www.airgradient.com/).
-
-<div class='note'>
-
-In order for the device to be set up or discovered by Home Assistant, the firmware version should be at least 3.1.1.
-
-</div>
 
 <div class='note'>
 
@@ -55,9 +50,11 @@ The integration will fetch data from each device. The following sensors are supp
 ## Available configuration entities
 
 The integration provides a few configuration entities to customize the device experience.
-The settings are only applied to the device when the configuration source is set to local.
+The settings are only available when the configuration source is set to local.
 The following entities are supported:
 
 - Display temperature unit
+- Display brightness
+- LED bar brightness
 - Requesting CO2 calibration
 - Requesting LED bar test
