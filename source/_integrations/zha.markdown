@@ -136,7 +136,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 
 <div class="note warning">
 
-Be aware that it is not recommended to use a Zigbee Coordinator via a Serial-Proxy-Server (also known as Serial-to-IP bridge or Ser2Net remote adapter) over a WiFi, WAN, or VPN connection.
+Be aware that using a Zigbee Coordinator via a Serial-Proxy-Server (also known as Serial-to-IP bridge or Ser2Net remote adapter) over a Wi-Fi, WAN, or VPN connection is not recommended.
 
 Serial protocols used by Zigbee Coordinator do not have enough robustness, resilience, or fault-tolerance to handle packet loss and latency delays that can occur over unstable connections.
 
