@@ -13,6 +13,14 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `pyload` {% term integration %} allows you to monitor your downloads with [pyLoad](https://pyload.net/) from within Home Assistant and setup automation based on the information.
+The [**pyLoad**](https://pyload.net/) {% term integration %} allows you to monitor your downloads from within Home Assistant. This integration provides various sensors to keep track of your download activities and allows creating automations based on the sensor information.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+- **Speed:** Monitors the current download speed.
+- **Active downloads:** Indicate the number of files pyLoad is actively downloading
+- **Downloads in queue:** Shows the number of downloads currently in the queue.
+- **Total downloads:** Indicates the number of completed downloads.
+- **Free space:** Shows the available disk space in the download directory.
