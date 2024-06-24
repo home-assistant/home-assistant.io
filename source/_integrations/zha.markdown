@@ -132,7 +132,7 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
   - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
-#### Warning about using Zigbee Coordinator over WiFi/WAN/VPN
+#### Warning about using Zigbee Coordinator over Wi-Fi/WAN/VPN
 
 <div class="note warning">
 
