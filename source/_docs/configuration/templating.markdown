@@ -447,7 +447,7 @@ The same thing can also be expressed as a test:
 ### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
-- `config_entry_attr(attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
+- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
