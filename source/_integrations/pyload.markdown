@@ -10,10 +10,11 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_platforms:
   - sensor
+  - button
 ha_integration_type: integration
 ---
 
-The [**pyLoad**](https://pyload.net/) {% term integration %} allows you to monitor your downloads from within Home Assistant. This integration provides various sensors to keep track of your download activities and allows creating automations based on the sensor information.
+The [**pyLoad**](https://pyload.net/) {% term integration %} allows you to monitor your downloads from within Home Assistant. This integration provides various sensors to keep track of your download activities and allows creating automations based on the sensor information, alongside buttons for performing specific tasks such as aborting downloads and managing file restarts.
 
 {% include integrations/config_flow.md %}
 
@@ -24,3 +25,10 @@ The [**pyLoad**](https://pyload.net/) {% term integration %} allows you to monit
 - **Downloads in queue:** Shows the number of downloads currently in the queue.
 - **Total downloads:** Indicates the number of completed downloads.
 - **Free space:** Shows the available disk space in the download directory.
+
+## Buttons
+
+- **Abort all running downloads:** Aborts all currently running downloads.
+- **Delete finished files/packages:** Deletes all finished files and packages.
+- **Restart all failed files/packages:** Restarts all failed downloads.
+- **Restart pyLoad core**: Restarts the pyLoad core.
