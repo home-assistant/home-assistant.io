@@ -12,9 +12,10 @@ ha_codeowners:
   - '@joostlek'
 ha_domain: airgradient
 ha_platforms:
+  - button
   - number
-  - sensor
   - select
+  - sensor
 ha_integration_type: device
 ha_zeroconf: true
 ---
@@ -55,3 +56,5 @@ The following entities are supported:
 - Display temperature unit
 - Display brightness
 - LED bar brightness
+- Requesting CO2 calibration
+- Requesting LED bar test
