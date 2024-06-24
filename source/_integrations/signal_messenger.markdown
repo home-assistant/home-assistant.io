@@ -19,17 +19,17 @@ related:
 The `signal_messenger` {% term integration %} uses the [Signal Messenger REST API](https://github.com/bbernhard/signal-cli-rest-api) to deliver notifications from Home Assistant to your Android or iOS device.
 
 ## Setup
-
-### Requirements
-
+ 
 The requirements are:
 
-- You need to set up the Signal Messenger REST API.
-- You need a spare phone number to register with the Signal Messenger service.
+- You need to set up the Signal Messenger REST API. 
+- You need a spare phone number to register with the Signal Messenger service. 
 
-Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API.
 
-### Configuration Options
+Please follow those [instructions](https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md), to set up the Signal Messenger REST API. 
+
+
+## Configuration
 
 To send Signal Messenger notifications with Home Assistant, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -45,6 +45,10 @@ notify:
       - "RECIPIENT1"
 ```
 
+Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
+
+To obtain the Signal Messenger group ids, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
+
 {% configuration %}
 name:
   description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
@@ -52,26 +56,19 @@ name:
   type: string
   default: notify
 url:
-  description: The URL where the Signal Messenger REST API listens for incoming requests.
+  description: The URL where the Signal Messenger REST API listens for incoming requests. 
   required: true
   type: string
 number:
-  description: The sender number. [See Sender/recipient formats](#senderrecipient-formats).
+  description: The sender number.
   required: true
   type: string
 recipients:
-  description: A list of recipients (either phone numbers or Signal Messenger group IDs [see Sender/recipient formats](#senderrecipient-formats)).
+  description: A list of recipients (either phone numbers or Signal Messenger group ids).
   required: true
-  type: list
+  type: string
 {% endconfiguration %}
 
-### Sender/recipient formats
-
-Both phone numbers and Signal Messenger groups can be added to the `recipients`list. However, it's not possible to mix phone numbers and Signal Messenger groups in a single notifier. If you would like to send messages to individual phone numbers and Signal Messenger groups, separate notifiers need to be created.
-
-Phone numbers shall include the international code "+XX" format.
-
-To obtain the Signal Messenger group IDs, follow [this guide]( https://github.com/bbernhard/signal-cli-rest-api/blob/master/doc/HOMEASSISTANT.md).
 
 ## Notification Service
 
@@ -144,7 +141,7 @@ action:
 
 - There is a 50MB size limit for attachments retrieved via URLs.
 
-## Triggering events based on Signal message reception
+## Sending messages to Signal to trigger events
 
 You can use the Signal Messenger REST API as a Home Assistant trigger. In this example, we will make a simple chatbot. If you write anything to your Signal account linked to Signal Messenger REST API, the automation gets triggered, with the condition that the number (attribute source) is correct, to take action by sending a Signal notification back with a "Message received!".
 
