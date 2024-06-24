@@ -140,7 +140,9 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 ### Method 2: Installing HAOS directly from a boot medium
 
+<div class='note warning'>
 Use this method only if Method 1 does not work for you.
+</div>
 
 #### Required material
 
@@ -205,15 +207,16 @@ Use this method only if Method 1 does not work for you.
 *Select and copy the URL or use the "copy" button that appear when you hover it.*
 
 5. Paste the URL into your browser to start the download.
-6. Select **Flash from file** and select the image you just downloaded.
+6. Extract the file you just downloaded.
+7. Select **Flash from file** and select the image you just extracted.
    - Do not use **Flash from URL**. It does not work on some systems.
 
   ![Screenshot of the Etcher software showing flash from URL selected.](/images/installation/etcher1_file.png)
-7. **Select target**.
+8. **Select target**.
 ![Screenshot of the Etcher software showing the select target button highlighted.](/images/installation/etcher3.png)
-8. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
+9. Select the boot medium ({{site.installation.types[page.installation_type].installation_media}}) you want to use for your installation.
 ![Screenshot of the Etcher software showing the targets available.](/images/installation/etcher4.png)
-9. Select **Flash!** to start writing the image.
+10. Select **Flash!** to start writing the image.
    - If the operation fails, decompress the .xz file and try again.
 ![Screenshot of the Etcher software showing the Flash button highlighted.](/images/installation/etcher5.png)
    - When Balena Etcher has finished writing the image, you will see a confirmation.
@@ -227,7 +230,8 @@ Use this method only if Method 1 does not work for you.
 
 - If you used method 2 for the installation, install the boot medium into your x86-64 hardware.
 
-1. Plug in an Ethernet cable that is connected to the network.
+1. Plug in an Ethernet cable that is connected to the network and to the internet.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
 <div class="note">
@@ -254,7 +258,8 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 {% else %}
 
 1. Insert the boot medium ({{ site.installation.types[page.installation_type].installation_media }}) you just created.
-2. Plug in an Ethernet cable that is connected to the network and power the system on.
+2. Plug in an Ethernet cable that is connected to the network and to the internet and power the system on.
+   - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 
 {% endif %}
 
@@ -368,7 +373,7 @@ Minimum recommended assignments:
   content: |
 
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi
+    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi
     ```
 
     <div class="note info">
@@ -389,7 +394,7 @@ Minimum recommended assignments:
     You can recognize the Sonoff dongle at `Bus 003 Device 003`. So the command to install the VM will become:
 
     ```bash
-    virt-install --name hass --description "Home Assistant OS" --os-variant=generic --ram=2048 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=sata --import --graphics none --boot uefi --hostdev 003.003
+    virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi --hostdev 003.003
     ```
 
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.

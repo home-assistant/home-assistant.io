@@ -86,6 +86,11 @@ ssl_profile:
   required: false
   type: string
   default: modern
+strict_connection:
+  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `guard_page` or `drop_connection`.
+  required: false
+  type: string
+  default: disabled
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -208,6 +213,13 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     "last_updated": "16:45:51 05-02-2016",
     "state": "off"
 }
+```
+
+To delete the sensor, send DELETE request with curl
+
+```bash
+$ curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       http://localhost:8123/api/states/binary_sensor.radio
 ```
 
 ### Examples

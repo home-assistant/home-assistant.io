@@ -8,6 +8,11 @@ ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 An update {% term entity %} is an entity that indicates if an update is available for a
@@ -49,10 +54,11 @@ information on the update state:
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
 
-## Device classes
+## Device class
 
-The way these update entities are displayed in the frontend depend on their
-device classes. The following device classes are supported for switches:
+{% include integrations/device_class_intro.md %}
+
+The following device classes are supported for update entities:
 
 - **`None`**: A generic software update. This is the default and doesn't need
   to be set.
@@ -73,11 +79,16 @@ this capability. Additionally, if allowed by the {% term integration %}, the ser
 provides for installing a specific version and even could make a
 backup before installing the update.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`.
-| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the {% term integration %}.
-| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}.
+#### Service data attributes
+
+{% configuration_basic %}
+entity_id (required):
+  description: "String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`."
+version:
+  description: "A specific update version to install, if not provided, the latest available update will be installed. Availability of this attribute is dependent on the {% term integration %}."
+backup:
+  description: "If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}."
+{% endconfiguration_basic %}
 
 Example service call:
 

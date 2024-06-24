@@ -13,7 +13,7 @@ ha_integration_type: integration
 
 The SMTP platform allows you to deliver notifications from Home Assistant to an email recipient.
 
-To enable notification by email in your installation, add the following to your `configuration.yaml` file:
+To enable notification by email in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,7 +105,7 @@ A notify integration will be created using the name without spaces. In the above
   mode: single
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, morning@example.com.
+The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
 
 Another example attaching images stored locally in a script:
 

@@ -5,8 +5,10 @@ ha_category:
   - Binary sensor
   - Climate
   - Cover
+  - Fan
   - Light
   - Lock
+  - Number
   - Sensor
   - Switch
 ha_release: '2022.12'
@@ -21,8 +23,10 @@ ha_platforms:
   - cover
   - diagnostics
   - event
+  - fan
   - light
   - lock
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -33,6 +37,7 @@ related:
     title: HomeKit
   - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
     title: Adding an Apple HomeKit device through Thread
+ha_zeroconf: true
 ---
 
 The Matter integration allows you to control Matter devices on your local Wi-Fi or {% term Thread %} network.
@@ -114,6 +119,7 @@ Make sure you have all these components ready before trying to add a Matter devi
   - When prompted to **Select the connection method**:
     - If you run Home Assistant OS in a regular setup: select **Submit**.
       - This will install the official Matter server add-on.
+      - Note that the official Matter server add-on is not supported on 32-bit platforms.
     - If you are already running the Matter server in another add-on, in or a custom container:
       - Deselect the checkbox, then select **Submit**.
       - In the next step, provide the URL to your Matter server.

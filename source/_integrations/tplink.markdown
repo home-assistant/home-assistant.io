@@ -105,6 +105,7 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 - EP25 (Hardware version >= 2.6)
 - KP125M
 - P110
+- P115
 - HS100 (UK Hardware version 4.1 with firmware 1.1.0)
 
 #### Wall switches

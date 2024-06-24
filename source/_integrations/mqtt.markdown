@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
   - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -28,6 +29,7 @@ ha_platforms:
   - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -35,13 +37,14 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - update
   - vacuum
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -66,6 +69,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -98,6 +102,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -148,7 +153,7 @@ If you experience an error message like `Failed to connect due to exception: [SS
 
 ### Advanced broker configuration
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
+Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
 <div class='note info'>
 
@@ -166,7 +171,7 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure the broker certificate should be validated. If your broker uses a trusted certificate then choose `Auto`. This will allow validation against certifite CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM encoded CA-certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
@@ -212,7 +217,7 @@ MQTT Birth and Last Will messages can be customized or disabled from the UI. To 
 
 ## Testing your setup
 
-The `mosquitto` broker package ships commandline tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost` check the example below:
+The `mosquitto` broker package ships command line tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost`, to can use [`mosquitto_pub`](https://mosquitto.org/man/mosquitto_pub-1.html), check the example below:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
@@ -306,7 +311,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -996,7 +1001,7 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 

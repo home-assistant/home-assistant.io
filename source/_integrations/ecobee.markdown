@@ -8,6 +8,7 @@ ha_category:
   - Notifications
   - Number
   - Sensor
+  - Switch
   - Weather
 featured: true
 ha_release: 0.9
@@ -21,6 +22,7 @@ ha_platforms:
   - notify
   - number
   - sensor
+  - switch
   - weather
 ha_zeroconf: true
 ha_homekit: true
@@ -34,7 +36,7 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 <div class='note warning'>
-As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, and there is no ETA for when they will be allowed again. Existing developers are not affected.
+As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function. 
 </div>
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
@@ -64,7 +66,8 @@ Your new application will now appear on the left. Upon clicking on the applicati
 
 ## Manual configuration
 
-If you prefer to set up the integration in [`configuration.yaml`](/docs/configuration/), add your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** panel):
+If you prefer to set up the integration in your {% term "`configuration.yaml`" %} file, add your API key (and optional parameters) as follows (however, you must still complete authorization via the **Integrations** panel).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,15 +91,15 @@ You must [restart Home Assistant](/docs/configuration/#reloading-changes) for th
 
 ## Notifications
 
-The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. The `target` parameter of the service call is required to specify the index of the recipient thermostat. The index values assigned to the thermostats are consecutive integers, starting at 0.
+The `ecobee` notify platform allows you to send notifications to an ecobee thermostat. For each thermostat found, a `notify` entity will be added.
 
 Example service call:
 
 ```yaml
-service: notify.ecobee
+service: notify.send_message
 data:
   message: "Hello, this is your thermostat."
-  target: 0
+  entity_id: notify.ecobee
 ```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
@@ -121,7 +124,7 @@ The _HVAC mode_ of the device is the currently active operational modes that the
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
-When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+On a thermostat configured with auxiliary heat, an aux_heat_only switch will be present. When this switch is turned on, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Turning off the aux_heat_only switch will change the thermostat back to the last active HVAC mode (heat, auto, etc).
 
 ### Attributes
 
@@ -139,6 +142,12 @@ The ecobee climate entity has some extra attributes to represent the state of th
 ### Concepts
 
 The ecobee thermostat supports the addition of an accessory. If you have an air exchanger (ventilator, HRV, or ERV), you can control it via the min time home and min time away numbers.
+
+### Switch
+
+The `ventilator 20 min` switch is behaving like the switch in the physical ecobee device. When switched on, the ventilator turns on for 20 min. When turned off, it stops the ventilator.
+
+*Note: this does not interact with the `ventilator min time`*
 
 ### Number
 
@@ -189,44 +198,44 @@ Delete a vacation on the selected ecobee thermostat.
 
 Resumes the standard active schedule of presets. This cancels any manual temperature settings or selected preset. This will not cancel vacation events, use `delete_vacation`.
 
-| Service data attribute | Optional | Description                                                                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Service data attribute | Optional | Description                                                                                                                |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`s of climate devices to control. Omit to target all ecobee thermostats. |
-| `resume_all`           | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often. |
+| `resume_all`           | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often.       |
 
 ### Service `ecobee.set_fan_min_on_time`
 
 Sets the minimum amount of time that the fan will run per hour.
 
-| Service data attribute | Optional | Description                                                                                                              |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Service data attribute | Optional | Description                                                                                                                 |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Omit to target all ecobee thermostats. |
-| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                       |
+| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                          |
 
 ### Service `ecobee.set_dst_mode`
 
 Enable/disable automatic daylight savings time.
 
-| Service data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode. Omit to target all ecobee thermostats. |
-| `dst_enabled`          | no       | true or false                                                |
+| `dst_enabled`          | no       | true or false                                                                                        |
 
 ### Service `ecobee.set_mic_mode`
 
 Enable/disable Alexa mic (only for ecobee 4).
 
-| Service data attribute | Optional | Description                                    |
-| ---------------------- | -------- | ---------------------------------------------- |
+| Service data attribute | Optional | Description                                                                            |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set the mic mode. Omit to target all ecobee thermostats. |
-| `mic_enabled`          | no       | true or false                                  |
+| `mic_enabled`          | no       | true or false                                                                          |
 
 ### Service `ecobee.set_occupancy_modes`
 
 Enable/disable Smart Home/Away and Follow Me modes.
 
-| Service data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
+| Service data attribute | Optional | Description                                                                               |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
-| `auto_away`            | yes      | true or false                                     |
-| `follow_me`            | yes      | true or false                                     |
+| `auto_away`            | yes      | true or false                                                                             |
+| `follow_me`            | yes      | true or false                                                                             |

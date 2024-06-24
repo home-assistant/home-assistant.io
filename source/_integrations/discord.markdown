@@ -63,7 +63,29 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 {% include integrations/config_flow.md %}
 
-When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+When adding the Discord integration, you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+
+## Set Message entry
+
+The `message` field treats all input as literal text, including quotation marks.
+
+For example: `message: Hello, world!` will appear exactly as is, while `message: "Hello, world!"` will include the quotation marks in the message.
+
+## Set Channel IDs as necessary
+
+The `target` field is for the channel IDs where the message should be sent. Accepted data type is `string` for a single channel or `string[]` for multiple channels.
+
+For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
+
+## Pinging users, roles, or linking to other channels in the same server
+
+You can use standard Discord methods to ping users, roles, and channels within the server.
+
+| Type      | Format         |
+| --------- | -------------- |
+| `User`    | `<@userID>`    |
+| `Role`    | `<@&roleID>`   |
+| `Channel` | `<#channelID>` |
 
 ## Discord service data
 
@@ -158,7 +180,7 @@ Note that `verify_ssl` defaults to `True`, and that any remote hosts will need t
 
 ## Notes
 
-You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
+You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the username to copy the ID like you did for the channel ID up above.
 
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 

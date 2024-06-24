@@ -447,6 +447,7 @@ The same thing can also be expressed as a test:
 ### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
@@ -455,6 +456,12 @@ The same thing can also be expressed as a test:
 ```text
 {{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
 ```
+
+```text
+{{ config_entry_attr(config_entry_id('sensor.sony'), 'title') }}  # Sony Bravia TV
+```
+
+
 
 {% endraw %}
 
@@ -558,7 +565,7 @@ The same thing can also be expressed as a test:
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
 - `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
 
-If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration. 
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration.
 
 #### Integrations examples
 
@@ -732,12 +739,16 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
-- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g., if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
-  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
+- `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the future, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
+- `time_until(datetime, precision)` converts a datetime object into a human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the past, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
   {% raw %}
@@ -896,7 +907,7 @@ Examples:
 
 Not supported in [limited templates](#limited-templates).
 
-- `distance()` will measure the distance in kilometers between home, entity, coordinates.
+- `distance()` measures the distance between home, an entity, or coordinates. The unit of measurement (kilometers or miles) depends on the system's configuration settings.
 - `closest()` will find the closest entity.
 
 #### Distance examples
@@ -1063,6 +1074,8 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
 - Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `multiply(arg)` will convert the input to a number and multiply it by `arg`. Useful in list operations in conjunction with `map`.
+- Filter `add(arg)` will convert the input to a number and add it to `arg`. Useful in list operations in conjunction with `map`.
 
 ### Complex type checking
 
@@ -1115,6 +1128,21 @@ Some examples:
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
+
+<div class='note'>
+
+Some examples:
+{% raw %}
+
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+
+{% endraw %}
+
+</div>
 
 ### Regular expressions
 

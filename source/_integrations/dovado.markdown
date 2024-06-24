@@ -12,16 +12,20 @@ ha_platforms:
   - notify
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `dovado` integration manages communication with the [Dovado](https://www.dovado.com/) router.
+The **Dovado** {% term integration %} manages communication with the [Dovado](https://www.dovado.com/) router.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](/integrations/dovado/#notifications)
 - [Sensor](/integrations/dovado/#sensor)
 
-To add a Dovado integration to your installation, add the following to your `configuration.yaml` file:
+To add a Dovado {% term integration %} to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,7 +59,8 @@ port:
 
 The `dovado` notify platform allows you to send SMS from your [Dovado](https://www.dovado.com/) router, if it supports it.
 
-To add the Dovado notify platform to your installation, add the following to your `configuration.yaml` file:
+To add the Dovado {% term integration %} to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,7 +90,7 @@ automation:
 
 The `dovado` sensor platform let you monitor your [Dovado](https://www.dovado.com/) router.
 
-To add a Dovado sensor to your installation, add the following to your `configuration.yaml` file:
+To add a Dovado sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

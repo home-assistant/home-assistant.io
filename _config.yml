@@ -67,8 +67,6 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
-  examples:
-    output: true
   docs:
     output: true
   addons:
@@ -109,9 +107,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2024
-current_minor_version: 4
+current_minor_version: 6
 current_patch_version: 4
-date_released: 2024-04-23
+date_released: 2024-06-21
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -178,6 +176,12 @@ defaults:
       path: "static/mdi-demo.html"
     values:
       sitemap: false
+
+  - scope:
+      path: "blueprints/**/*.yaml"
+    values:
+      render_with_liquid: false
+      layout: none
 
 # Support for files Jekyll will normally exclude
 include:

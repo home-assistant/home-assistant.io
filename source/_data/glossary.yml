@@ -140,6 +140,13 @@
   link: /docs/scripts/conditions/
   aliases:
     - conditions
+- term: Configuration file
+  aliases:
+    - configuration.yaml
+    - "`configuration.yaml`"
+  definition: >-
+    The configuration.yaml file is the main configuration file for Home Assistant. It lists the integrations to be loaded and their specific configurations. In some cases, the configuration needs to be edited manually directly in the configuration.yaml file. Most integrations can be configured in the UI.
+  link: /docs/configuration/
 - term: Cover
   definition: >-
     Covers are devices such as blinds, garage doors, etc that can be opened and
@@ -555,7 +562,7 @@
     uses its radio frequency (RF) radio to communicate with the Thread mesh
     network. In case of Matter, the data that is forwarded is encrypted.
     Examples of Thread border routers are the Nest Hub (2nd gen), the HomePod
-    mini, and the Home Assistant SkyConnect together with the OpenThread Border
+    mini, and the Home Assistant Connect&nbsp;ZBT-1 together with the OpenThread Border
     Router add-on.
   link: /integrations/thread/#about-thread-border-routers
   aliases:

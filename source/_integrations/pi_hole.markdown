@@ -10,7 +10,6 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_release: 0.28
 ha_codeowners:
-  - '@johnluetke'
   - '@shenxn'
 ha_domain: pi_hole
 ha_platforms:

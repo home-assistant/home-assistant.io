@@ -53,7 +53,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ## Advanced configuration
 
-OwnTracks allows the user to set advanced configuration by adding a section to your `configuration.yaml`.
+OwnTracks allows the user to set advanced configuration by adding a section to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,7 +71,7 @@ waypoints:
   default: true
   type: boolean
 waypoint_whitelist:
-  description: "A list of user names (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
+  description: "A list of usernames (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
   required: false
   default: All users who are connected to Home Assistant via OwnTracks.
   type: list
