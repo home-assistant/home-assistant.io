@@ -133,12 +133,15 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
   - [ZiGate-Ethernet (Ethernet gateway board for PiZiGate)](https://zigate.fr/produit/zigate-ethernet/)
   - [ZiGate + WiFi Pack](https://zigate.fr/produit/zigatev2-pack-wifi/)
 
-#### Warning about Wi-Fi-based Zigbee-to-Serial bridges/gateways
+#### Warning about using Zigbee Coordinator over Wi-Fi/WAN/VPN
 
 <div class="note warning">
 
-The **EZSP** protocol requires a stable connection to the serial port. With _ITEAD Sonoff ZBBridge_ connecting over the WiFi network
-it is expected to see `NCP entered failed state. Requesting APP controller restart` in the logs. This is a normal part of the operation and indicates there was a drop in communication between ZHA and Sonoff bridge.
+Be aware that using a Zigbee Coordinator via a Serial-Proxy-Server (also known as Serial-to-IP bridge or Ser2Net remote adapter) over a Wi-Fi, WAN, or VPN connection is not recommended.
+
+Serial protocols used by the Zigbee Coordinator do not have enough robustness, resilience, or fault tolerance to handle packet loss and latency delays that can occur over unstable connections.
+
+A Zigbee Coordinator requires a stable local connection to its serial port interface with no drops in communication between it and the Zigbee gateway application running on the host computer.
 
 </div>
 
@@ -724,3 +727,11 @@ services:
     restart: always
     network_mode: host
 ```
+
+### EZSP error and other log messages
+
+#### NCP entered failed state
+
+When you see `NCP entered failed state. Requesting APP controller restart` in logs during normal operation, it indicates a drop in communication between ZHA and the serial interface of the Silabs EmberZNet Zigbee Coordinator.
+
+The EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs EmberZNet Zigbee Coordinator adapters requires a stable connection to the serial port; therefore, it is not recommended to use a connection over Wi-Fi, WAN, VPN, etc.
