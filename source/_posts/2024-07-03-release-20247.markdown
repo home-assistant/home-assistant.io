@@ -1,0 +1,799 @@
+---
+layout: post
+title: "2024.7: Beta release notes"
+description: "Beta release notes for Home Assistant 2024.7"
+date: 2024-06-25 00:00:00
+date_formatted: "July 3, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-07/social.png
+---
+
+<a href='/integrations/#version/2024.7'><img src='/images/blog/2024-07/social.png' style='border: 0;box-shadow: none;'></a>
+
+<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+<div class='note'>
+
+**Welcome to the beta release notes for Home Assistant 2024.7** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/121)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/677)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/128)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+</div>
+
+<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
+
+Home Assistant 2024.7! 🎉
+
+Thanks for helping out testing the beta! ❤️
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Resize the cards on your Dashboard](#resize-the-cards-on-your-dashboard)
+- [Data tables improvements](#data-tables-improvements)
+- [Take full control over Blueprint automations](#take-full-control-over-blueprint-automations)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Integrations reaching platinum quality level](#integrations-reaching-platinum-quality-level)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
+- [ESPHome update entities for ready-made projects](#esphome-update-entities-for-ready-made-projects)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [Link your template entity to an existing device](#link-your-template-entity-to-an-existing-device)
+  - [Change the radius of your home zone](#change-the-radius-of-your-home-zone)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Snk6oslMQFc)
+3 July 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="Snk6oslMQFc" videotitle="Home Assistant 2024.7 Release Party"></lite-youtube>
+
+## Resize the cards on your Dashboard 
+
+As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
+continued making the dashboard customization and organization easier and more
+intuitive. This month, we add the ability to resize the cards on your dashboard!
+
+<p class='img'>
+    <img src="https://github.com/home-assistant/frontend/assets/5878303/1ed75c96-6db5-4d4a-ae61-e454791d7fd1" alt="Screenshot of..."/>
+    Temporary screenshot, image needs to be replaced by an actual screenshot.
+</p>
+
+_TODO: Write more about this feature, supported cards, etc._
+
+## Data tables improvements
+
+Like the [last release](/blog/2024/06/05/release-20246/#data-tables-improvements),
+and the [release before that](/blog/2024/05/01/release-20245/#more-features-for-our-data-tables),
+we keep improving our data tables.
+
+With this release, we add the final big piece of the puzzle: The ability to
+customize the columns shown! 😎
+
+<p class='img'>
+    <img src="/images/blog/2024-07/datatables-customize-columns.png" alt="Screenshot of..."/>
+    Temporary mockup, image needs to be replaced by an actual screenshot.
+</p>
+
+Not only can you now customize the columns shown, but you can also change the
+order of the columns by dragging them around. Making it even easier to get the
+data you want, in the order you want it.
+
+You customized columns and view, is stored in your browser, so you only have to
+set it up once, and it will be remembered for the next time you visit the page.
+
+## Take full control over Blueprint automations
+
+{% term Blueprints %} are amazing, it allows you to use {% term automations %}
+created and shared by other awesome Home Assistant users. Most are easy to use
+and set up, but what if that great blueprint you've been using just needs a
+little tweak? Just that tiny change to make it perfect for your home?
+
+Well, now you can! 🎉
+
+You can now take full control over the automations created from a blueprint.
+By taking control, Home Assistant will fully convert the blueprint automation
+into a regular, stand-alone, automation, allowing you to make any tweak you
+want, without having to fully re-invent the wheel.
+
+_TODO: Insert screenshot or screen recording_
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Aquacell]**, added by [@Jordi1990]<br />
+  Monitor your AquaCell water-softner from Home Assistant.
+- **[ista EcoTrend]**, added by [@tr4nt0r]<br />
+  The ista EcoTrend integration allows you to import your monthly heating,
+  hot water and water consumption and costs from the ista EcoTrend service.
+- **[Mealie]**, added by [@joostlek]<br />
+  Mealie is a self-hosted recipe manager and meal planner, this integration
+  will pull in your meal plan as calendars in Home Assistant.
+- **[Knocki]**, added by [@joostlek]<br />
+  Knocki is a smart device that turns any surface into a remote control,
+  which you can now use in Home Assistant to trigger {% term automations %}.
+
+[@joostlek]: https://github.com/joostlek
+[@Jordi1990]: https://github.com/Jordi1990
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Aquacell]: /integrations/aquacell
+[ista EcoTrend]: /integrations/ista_ecotrend
+[Knocki]: /integrations/knocki
+[Mealie]: /integrations/mealie
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that are added; existing
+integrations are also constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- The **[AndroidTV]** integration now supports remote entities, allowing you
+  to remotely control your Android TV, thanks [@ollo69]!
+- [@tronikos] added support for pulling in the camera from the tablet running
+  **[Fully Kiosk Browser]**, and for taking screenshots and sending
+  notifications to the tablet. Nice!
+- We've seen a lot of improvements to the **[UniFi Protect]** integration,
+  thanks to [@bdraco]. [@wfltaylor] chipped in as well, adding support for
+  animal detection sensors. 🐶🐱🐰
+- The **[Reolink]** integration has seen a lot of improvements, thanks to
+  [@starkillerOG]. They added support for manual recording, software updates
+  for more cameras, and playback of the auto track lens. 🎥
+
+
+[@bdraco]: https://github.com/bdraco
+[@ollo69]: https://github.com/ollo69
+[@starkillerOG]: https://github.com/starkillerOG
+[@tronikos]: https://github.com/tronikos
+[@wfltaylor]: https://github.com/wfltaylor
+[AndroidTV]: /integrations/androidtv
+[Fully Kiosk Browser]: /integrations/fully_kiosk
+[Reolink]: /integrations/reolink
+[UniFi Protect]: /integrations/unifiprotect
+
+{% details "Candidates to process" %}
+
+- Bang & Olufsen add overlay/announce play_media functionality ([@mj23000] - [#113434]) ([bang_olufsen docs])
+- Add Tidal play_media support to Bang & Olufsen ([@mj23000] - [#119838]) ([bang_olufsen docs])
+
+- Add event entity to Nanoleaf ([@joostlek] - [#120013]) ([nanoleaf docs]) (new-platform)
+
+- Add support for Switchbot Lock Pro ([@szclsya] - [#119326]) ([switchbot docs]) (noteworthy)
+- Add price service call to Tibber ([@basbruss] - [#117366]) ([tibber docs])
+
+- Introduce incomfort boiler entity ([@joostlek] - [#118861]) ([incomfort docs])
+- Add state and device class to incomfort ([@joostlek] - [#118877]) ([incomfort docs])
+- Add entity translations to incomfort ([@joostlek] - [#118876]) ([incomfort docs])
+
+- Add support for the DS18B20 temperature sensor to Nettigo Air Monitor integration ([@bieniu] - [#118601]) ([nam docs])
+- Add HDR type attribute to Kodi ([@starkillerOG] - [#109603]) ([kodi docs])
+- Add new sensors to blebox ([@swistakm] - [#118837]) ([blebox docs]) (noteworthy)
+- Add photovoltaic sensors to ViCare integration ([@CFenner] - [#113664]) ([vicare docs])
+- Add button platform to Husqvarna Automower ([@Thomas55555] - [#119856]) ([husqvarna_automower docs]) (new-platform)
+- Add extra sensor to the Jewish Calendar integration ([@gedaliahknizhnik] - [#116734]) ([jewish_calendar docs])
+- Add Sensor for Refoss Integration ([@ashionky] - [#116965]) ([refoss docs]) (new-platform)
+- Add sensors to Motionblinds BLE integration ([@LennP] - [#114226]) ([motionblinds_ble docs]) (new-platform)
+- Add valve entity to gardena ([@elupus] - [#120160]) ([gardena_bluetooth docs])
+- Add tado climate swings and fan level ([@EtienneSOU] - [#117378]) ([tado docs])
+- Add device trackers to tplink_omada ([@MarkGodwin] - [#115601]) ([tplink_omada docs]) (new-platform)
+
+{% enddetails %}
+
+### Integrations reaching platinum quality level
+
+The following {% term integration %} reached the platinum 🏆 level on our
+[integration quality scale](/docs/quality_scale). These integrations are
+the best of the best and give you an excellent out-of-the-box experience.
+
+- **[Teslemetry]**, done by [@Bre77]
+
+Congratulations to all the developers who worked on this integration!
+
+[Teslemetry]: /integrations/teslemetry
+[@Bre77]: https://github.com/Bre77
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Feedreader]**, done by [@mib1185]
+- **[Generic Hygrostat]**, done by [@elupus]
+- **[Generic Thermostat]**, done by [@elupus]
+- **[Intergas InComfort/Intouch Lan2RF gateway]**, done by [@jbouwh]
+- **[Music Player Daemon (MPD)]**, done by [@joostlek]
+- **[One-Time Password (OTP)]**, done by [@tr4nt0r]
+
+[@elupus]: https://github.com/elupus
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
+[Feedreader]: /integrations/feedreader
+[Generic Hygrostat]: /integrations/generic_hygrostat
+[Generic Thermostat]: /integrations/generic_thermostat
+[Intergas InComfort/Intouch Lan2RF gateway]: /integrations/incomfort
+[Music Player Daemon (MPD)]: /integrations/mpd
+[One-Time Password (OTP)]: /integrations/otp
+
+### Farewell to the following
+
+The following {% term integrations %} are also no longer available as
+of this release:
+
+- **Unify Circuit** was deprecated in Home Assistant 2024.5 and has now been
+  removed.
+
+## ESPHome update entities for ready-made projects
+
+Our sister project, [ESPHome] received a brand new logo this month! 🎉
+
+<img class="no-shadow" src='https://esphome.io/_static/logo-text-on-light.svg' alt='Logo of ESPHome'>
+
+<br /><br />
+
+Looks familiar, right? 😃 That is because ESPHome has [been donated] to the
+[Open Home Foundation] by [Nabu Casa]. The same foundation that the Home
+Assistant project is part of.
+
+But besides the new logo, ESPHome has added a new feature that works in
+conjunction this release of Home Assistant: The ability for makers of
+[ready-made devices, or projects] running on ESPHome, to [provide updates]
+for their devices directly to Home Assistant.
+
+This means that if you have a device that is powered-by or [Made for ESPHome],
+and the maker of that device provides updates for it, you can now update that
+device directly from Home Assistant; without the need for you to build, adopt,
+or set up the the ESPHome software yourself! 😎
+
+[been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
+[ESPHome]: https://esphome.io
+[Made for ESPHome]: https://esphome.io/guides/made_for_esphome
+[Nabu Casa]: https://www.nabucasa.com
+[Open Home Foundation]: https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/
+[provide updates]: https://esphome.io/changelog/2024.6.0.html#update-entities
+[ready-made devices, or projects]: https://esphome.io/projects/
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- Home Assistant will now raise a repair issue if an automation can't be set up
+  (for example, because of YAML syntax errors). Thanks [@emontnemery]!
+- We now show additional entity categories on the device page, grouping
+  [notification] entities in a "Notification" category. Furthermore and all
+  [Assist] related entities, like [conversation agents and text-to-speech]
+  entities, are now grouped in an "Assist" category. Thanks [@balloob]!
+- [Trend helpers] are now automatically linked to the same device as the source
+  entity it is based on. Thanks [@dougiteixeira]!
+- The [generic thermostat] and [generic hygrostat] are now available via the
+  UI, allowing you to create a thermostat or hygrostat based on existing
+  switches and sensors. Thanks [@elupus]!
+
+[@balloob]: https://github.com/balloob
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[Assist]: /voice_control/
+[conversation agents and text-to-speech]: /integrations/#voice
+[generic hygrostat]: /integrations/generic_hygrostat
+[generic thermostat]: /integrations/generic_thermostat
+[notification]: /integrations/notify
+[Trend helpers]: /integrations/trend
+
+{% details "Candidates to process" %}
+
+_Note: Processed up to #120172_
+
+- Add time based integration trigger to Riemann sum integral helper sensor ([@ronweikamp] - [#110685])
+- Add previous track intent ([@OzGav] - [#113222])
+- Add code_format_template to template locks ([@chammp] - [#106947])
+
+- Add open state support to matter lock ([@piitaya] - [#119682])
+- Add number platform to Matter integration ([@jvmahon] - [#119770])
+
+{% enddetails %}
+
+### Link your template entity to an existing device
+
+[Template entities] are an advanced and powerful way to create your own
+{% term entities %} in Home Assistant based on any calculation or logic you
+can imagine.
+
+One of the [most requested features] for {% term template %} entities is the
+ability to assign and link them to an existing {% term device %}. Thanks
+to [@dougiteixeira], you can now do just that! 🎉
+
+_TODO: insert screenshot_
+
+Assigning a template entity to an existing device can be very useful if you have
+a template that calculates an additional sensor value for a device.
+This feature is available not only from the UI but also for those who prefer to
+use {% term "Configuration file" "YAML configuration" %}.
+
+[Template entities]: /integrations/template
+[@dougiteixeira]: https://github.com/dougiteixeira
+[most requested features]: https://community.home-assistant.io/t/why-cant-we-add-template-entities-to-existing-devices/467149
+
+### Change the radius of your home zone
+
+{% term Zones %} in Home Assistant are a great way to define locations on your
+map, such as your work, and trigger automations based on your location. The most
+powerful zone is undoubtedly the home zone, which you can use to determine
+if someone is home, coming home, or leaving.
+
+Until now, the radius of the home zone was fixed at 100 meters, which was not
+always ideal for everyone. Although it could be changed using YAML, as of this
+release, you can now change the radius of your home zone directly from the
+Home Assistant user interface!
+
+<img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screenrecording of how you can now change the radius of the home zone.'>
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Authentication" %}
+
+The in Home Assistant 2023.12 deprecated legacy API password
+(`legacy_api_password`) authentication provider has been removed.
+
+([@edenhaus] - [#119976]) ([documentation](/integrations/auth))
+
+[@edenhaus]: https://github.com/edenhaus
+[#119976]: https://github.com/home-assistant/core/pull/119976
+
+{% enddetails %}
+
+{% details "Azure DevOps" %}
+
+All attributes of the "latest build" sensor are now deprecated; each now has
+a dedicated sensor entity available. If you use these attributes in your
+automations or scripts, you need to adjust these to use one of the
+new sensors instead.
+
+([@timmo001] - [#114948]) ([documentation](/integrations/azure_devops))
+
+[@timmo001]: https://github.com/timmo001
+[#114948]: https://github.com/home-assistant/core/pull/114948
+
+{% enddetails %}
+
+{% details "Blink" %}
+
+The previously deprecated Blink update service has now been removed.
+
+([@gjohansson-ST] - [#119919]) ([documentation](/integrations/blink))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119919]: https://github.com/home-assistant/core/pull/119919
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+The charging mode and charging status sensors have been updated to use lowercase
+state values. If you use these sensors in your automations or scripts,
+you must update them to use the new lowercase values.
+
+([@rikroe] - [#118751]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#118751]: https://github.com/home-assistant/core/pull/118751
+
+{% enddetails %}
+
+{% details "Calendar" %}
+
+Calendar service `list_events` was deprecated in favor of `get_events` in 
+Home Assistant 2023.12 and has now been removed.
+
+Use the new `get_events` service to retrieve events from `calendar` entities
+instead.
+
+([@gjohansson-ST] - [#118663]) ([documentation](/integrations/calendar))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#118663]: https://github.com/home-assistant/core/pull/118663
+
+{% enddetails %}
+
+{% details "ComEd Hourly Pricing" %}
+
+The unit of measurement for the ComEd Hourly Pricing integration has been
+corrected from `c` to `¢/kWh`.
+
+([@themaxgross] - [#115594]) ([documentation](/integrations/comed_hourly_pricing))
+
+[@themaxgross]: https://github.com/themaxgross
+[#115594]: https://github.com/home-assistant/core/pull/115594
+
+{% enddetails %}
+
+{% details "DNS IP" %}
+
+The attribute names `Resolver` and `Querytype` have been renamed to
+`resolver` and `querytype`. If ause these in any automation or script,
+you need to update them to use the new lowercase names.
+
+([@gjohansson-ST] - [#119727]) ([documentation](/integrations/dnsip))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119727]: https://github.com/home-assistant/core/pull/119727
+
+---
+
+The attributes `resolver`, `querytype`, and `ip_addresses` for the DNS IP
+sensor are excluded from the recorder and no longer stored in history.
+
+([@gjohansson-ST] - [#119726]) ([documentation](/integrations/dnsip))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119726]: https://github.com/home-assistant/core/pull/119726
+
+{% enddetails %}
+
+{% details "Fast.com" %}
+
+The previously deprecated `speedtest` service from `fastdotcom` has been removed.
+Use the [`homeassistant.update_entity` service](/common-tasks/general/#defining-a-custom-polling-interval)
+to refresh and run a speedtest manually instead.
+
+([@gjohansson-ST] - [#119780]) ([documentation](/integrations/fastdotcom))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#119780]: https://github.com/home-assistant/core/pull/119780
+
+{% enddetails %}
+
+{% details "Intergas InComfort/Intouch Lan2RF gateway" %}
+
+Based on the boiler display code or fault code, the boiler status
+has been refactored to be signified and unique, so we can start supporting
+localization.
+
+Depending on the old status texts, automations or scripts might break.
+You need to ensure your automations and scripts are updated to use the new
+status values.
+
+The new display codes are:
+
+-	0: `opentherm`
+-	15: `boiler_ext`
+-	24: `frost`
+-	37: `central_heating_rf`
+-	51: `tapwater_int`
+-	85: `sensortest`
+-	102: `central_heating`
+-	126: `standby`
+-	153: `postrun_boiler`
+-	170: `service`
+-	204: `tapwater`
+-	231: `postrun_ch`
+-	240: `boiler_int`
+-	255: `buffer`
+
+The new fault codes are:
+
+- 0: `sensor_fault_after_self_check`
+- 1: `cv_temperature_too_high`
+- 2: `s1_and_s2_interchanged`
+- 4: `no_flame_signal`
+- 5: `poor_flame_signal`
+- 6: `flame_detection_fault`
+- 8: `incorrect_fan_speed`
+- 10: `sensor_fault_s1`
+- 11: `sensor_fault_s1`
+- 12: `sensor_fault_s1`
+- 13: `sensor_fault_s1`
+- 14: `sensor_fault_s1`
+- 20: `sensor_fault_s2`
+- 21: `sensor_fault_s2`
+- 22: `sensor_fault_s2`
+- 23: `sensor_fault_s2`
+- 24: `sensor_fault_s2`
+- 27: `shortcut_outside_sensor_temperature`
+- 29: `gas_valve_relay_faulty`
+- 30: `gas_valve_relay_faulty`
+
+([@jbouwh] - [#119207]) ([documentation](/integrations/incomfort))
+
+[@jbouwh]: https://github.com/jbouwh
+[#119207]: https://github.com/home-assistant/core/pull/119207
+
+{% enddetails %}
+
+{% details "La Marzocco" %}
+
+On March 19th, 2024, La Marzocco released a machine firmware update, v3.5-rc5,
+together with a new version of the La Marzocco Home App.
+ 
+Once the app update is installed, the previous scheduling functionality is
+removed from the app, and a new scheduling mode is shown. This mode is disabled
+until the machine's firmware has also been updated.
+
+Similarly, if the machine's firmware is updated before the app, the previous
+scheduling functionality does not work.
+
+The previous calendar and auto on/off switches are replaced with calendars
+and switches per schedule.
+
+([@zweckj] - [#113935]) ([documentation](/integrations/lamarzocco))
+
+[@zweckj]: https://github.com/zweckj
+[#113935]: https://github.com/home-assistant/core/pull/113935
+
+{% enddetails %}
+
+{% details "Logitech Harmony Hub" %}
+
+The harmony switch entities that were deprecated since Home Assistant 2024.1,
+have now been removed.
+
+([@joostlek] - [#119206]) ([documentation](/integrations/harmony))
+
+[@joostlek]: https://github.com/joostlek
+[#119206]: https://github.com/home-assistant/core/pull/119206
+
+{% enddetails %}
+
+{% details "OpenWeatherMap" %}
+
+The now obsolete forecast sensors have been removed. They have been
+fully replaced by `weather.get_forecasts` service.
+
+([@freekode] - [#119922]) ([documentation](/integrations/openweathermap))
+
+[@freekode]: https://github.com/freekode
+[#119922]: https://github.com/home-assistant/core/pull/119922
+
+{% enddetails %}
+
+{% details "Shelly" %}
+
+The switch entity for controlling a Shelly Gas Valve Add-on has been removed,
+and a valve entity has taken its place. If you use the switch entity
+in your automations or scripts, you must  update them to use the new
+valve entity.
+
+([@bieniu] - [#119817]) ([documentation](/integrations/shelly))
+
+[@bieniu]: https://github.com/bieniu
+[#119817]: https://github.com/home-assistant/core/pull/119817
+
+{% enddetails %}
+
+{% details "SimpliSafe" %}
+
+SimpliSafe no longer contains functionality to set a code for use within Home
+Assistant. This was a virtual code that was not used by the SimpliSafe system.
+
+([@bachya] - [#118759]) ([documentation](/integrations/simplisafe))
+
+[@bachya]: https://github.com/bachya
+[#118759]: https://github.com/home-assistant/core/pull/118759
+
+{% enddetails %}
+
+{% details "SQL" %}
+
+An SQL query generating several columns output was putting the additional
+attributes on the SQL sensor.
+
+From now on these are still shown as state attributes but are no longer
+recorded in the database as attributes on this particular sensor
+(as the data for these attributes are already present in the database
+from where they come).
+
+([@gjohansson-ST] - [#120170]) ([documentation](/integrations/sql))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#120170]: https://github.com/home-assistant/core/pull/120170
+
+{% enddetails %}
+
+{% details "Sun WEG" %}
+
+The new API version this integration now uses doesn't provide the kWh per kWP
+information, so that sensor is no longer available.
+
+([@rokam] - [#118435]) ([documentation](/integrations/sunweg))
+
+[@rokam]: https://github.com/rokam
+[#118435]: https://github.com/home-assistant/core/pull/118435
+
+{% enddetails %}
+
+{% details "Swiss public transport" %}
+
+Swiss public transport does not provide additional state attributes anymore;
+all information has been moved to dedicated individual sensors since the
+release of Home Assistant 2023.12.
+
+([@miaucl] - [#120256]) ([documentation](/integrations/swiss_public_transport))
+
+[@miaucl]: https://github.com/miaucl
+[#120256]: https://github.com/home-assistant/core/pull/120256
+
+{% enddetails %}
+
+{% details "Tami4 Edge / Edge+" %}
+
+Due tue upstream API changes, the UV & filter's last replaced date has been
+removed.
+
+Additionally, `uv_status` & `filter_status` sensor entities have been changed
+to `uv_installed` and `filter_installed`.
+
+([@Guy293] - [#119158]) ([documentation](/integrations/tami4))
+
+[@Guy293]: https://github.com/Guy293
+[#119158]: https://github.com/home-assistant/core/pull/119158
+
+{% enddetails %}
+
+{% details "UniFi Protect" %}
+
+UI has removed this functionality in UI Protect 4.x.
+
+It is still possible to set a custom message using the other services
+(`unifiprotect.add_doorbell_text` and `unifiprotect.remove_doorbell_text`,
+and setting it via the `select` entity), but there is no longer a default.
+
+([@bdraco] - [#119695]) ([documentation](/integrations/unifiprotect))
+
+[@bdraco]: https://github.com/bdraco
+[#119695]: https://github.com/home-assistant/core/pull/119695
+
+{% enddetails %}
+
+{% details "Utility Meter" %}
+
+The source entity, period, and CRON pattern entity state attributes have been
+removed from the sensor entity and moved to the integration diagnostics.
+
+Note that these values are constant throughout the lifetime of a utility meter.
+
+([@dgomes] - [#118637]) ([documentation](/integrations/utility_meter))
+
+[@dgomes]: https://github.com/dgomes
+[#118637]: https://github.com/home-assistant/core/pull/118637
+
+{% enddetails %}
+
+{% details "Weather" %}
+
+Weather service `get_forecast` was deprecated in favor of `get_forecasts` in
+Home Assistant 2023.12, and has now been removed.
+
+Use the new `get_forecasts` service to retrieve forecast information
+from `weather` entities instead.
+
+([@gjohansson-ST] - [#118664]) ([documentation](/integrations/weather))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#118664]: https://github.com/home-assistant/core/pull/118664
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The previously deprecated firmware binary sensor has been removed.
+Use the provided update entity for your WLED device instead.
+
+([@frenck] - [#119984]) ([documentation](/integrations/wled))
+
+[@frenck]: https://github.com/frenck
+[#119984]: https://github.com/home-assistant/core/pull/119984
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+
+You must use `zwave-js-server` 1.36.0 or greater (schema 36).
+- If you use the Z-Wave JS add-on, you need at least version 0.6.0.
+- If you use the Z-Wave JS UI add-on, you need at least version [3.8.2](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.8.2).
+- If you use the Z-Wave JS UI Docker container, you need at least version [9.14.2](https://github.com/zwave-js/zwave-js-ui/releases/tag/v9.14.2).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least 1.36.0.
+
+([@raman325]) ([documentation](/integrations/zwave_js))
+
+[@raman325]: https://github.com/raman325
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Excluding all state attributes from recording using MATCH_ALL](https://developers.home-assistant.io/blog/2024/06/22/excluding-state-attributes-from-recording-match-all)
+- [Forwarding setup to config entry platforms](https://developers.home-assistant.io/blog/2024/06/12/async_forward_entry_setups/)
+- [Making http path registration async safe with `async_register_static_paths`](https://developers.home-assistant.io/blog/2024/06/18/async_register_static_paths)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.7](/changelogs/core-2024.7)
