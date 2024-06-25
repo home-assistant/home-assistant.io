@@ -65,7 +65,7 @@ For a summary in a more readable format:
 - Refactor incomfort platform attributes ([@jbouwh] - [#118667])
 - Add type hints for pytest.LogCaptureFixture in test fixtures ([@epenet] - [#118687])
 - Add type hints for MqttMockHAClient in test fixtures ([@epenet] - [#118683])
-- Bump github/codeql-action from 3.25.6 to 3.25.7 ([@dependabot[bot]] - [#118680])
+- Bump github/codeql-action from 3.25.6 to 3.25.7 (@dependabot - [#118680])
 - Add error message to device registry helper ([@epenet] - [#118676])
 - Add type hints for FrozenDateTimeFactory in test fixtures ([@epenet] - [#118690])
 - Add type hints for AiohttpClientMocker in test fixtures ([@epenet] - [#118691])
@@ -99,7 +99,7 @@ For a summary in a more readable format:
 - Add ista EcoTrend integration ([@tr4nt0r] - [#118360])
 - Azure DevOps build sensor attributes to new sensors ([@timmo001] - [#114948])
 - Remove duplicate code in emoncms ([@alexandrecuer] - [#118610])
-- Bump dawidd6/action-download-artifact from 3.1.4 to 4 ([@dependabot[bot]] - [#118772])
+- Bump dawidd6/action-download-artifact from 3.1.4 to 4 (@dependabot - [#118772])
 - Deduplicate light services.yaml ([@emontnemery] - [#118738])
 - Cleanup unused FixtureRequest in tests ([@epenet] - [#118780])
 - Move entity_registry_enabled_by_default to decorator [q-z] ([@epenet] - [#118793])
@@ -123,7 +123,7 @@ For a summary in a more readable format:
 - Ensure config entries are not unloaded while their platforms are setting up ([@bdraco] - [#118767])
 - Add Reolink serial number to device info of IPC camera ([@starkillerOG] - [#118834])
 - Add diagnostic to V2C ([@dgomes] - [#118823])
-- Bump github/codeql-action from 3.25.7 to 3.25.8 ([@dependabot[bot]] - [#118850])
+- Bump github/codeql-action from 3.25.7 to 3.25.8 (@dependabot - [#118850])
 - Add more typing to DSMR Reader ([@erwindouna] - [#118852])
 - Move enable_custom_integrations fixture to decorator ([@epenet] - [#118844])
 - Move enable_bluetooth fixture to decorator ([@epenet] - [#118849])
@@ -196,7 +196,7 @@ For a summary in a more readable format:
 - Improve type hints in motionblinds_ble tests ([@epenet] - [#119049])
 - Improve type hints in kaleidescape tests ([@epenet] - [#119040])
 - Improve type hints in azure_event_hub tests ([@epenet] - [#119047])
-- Bump dawidd6/action-download-artifact from 4 to 5 ([@dependabot[bot]] - [#118851])
+- Bump dawidd6/action-download-artifact from 4 to 5 (@dependabot - [#118851])
 - Enable retrieving sensor data from WoHub2 device and update pySwitchbot to 0.47.2 ([@huyuwei1996] - [#118567])
 - Align weatherflow_cloud weather conditions with Home Assistant supported conditions ([@jeeftor] - [#114497])
 - Improve type hints in homekit_controller tests ([@epenet] - [#119053])
@@ -417,11 +417,11 @@ For a summary in a more readable format:
 - Fix dangerous-default-value in nest tests ([@epenet] - [#119561])
 - Fix dangerous-default-value in zha tests ([@epenet] - [#119560])
 - Ensure asyncio blocking checks are undone after tests run ([@bdraco] - [#119542])
-- Bump dawidd6/action-download-artifact from 5 to 6 ([@dependabot[bot]] - [#119565])
-- Bump github/codeql-action from 3.25.8 to 3.25.9 ([@dependabot[bot]] - [#119567])
+- Bump dawidd6/action-download-artifact from 5 to 6 (@dependabot - [#119565])
+- Bump github/codeql-action from 3.25.8 to 3.25.9 (@dependabot - [#119567])
 - Fix unnecessary-lambda warnings in tests ([@epenet] - [#119563])
 - Store runtime data inside the config entry in Tautulli ([@tkdrob] - [#119552])
-- Bump actions/checkout from 4.1.6 to 4.1.7 ([@dependabot[bot]] - [#119566])
+- Bump actions/checkout from 4.1.6 to 4.1.7 (@dependabot - [#119566])
 - Fix dangerous-default-value warnings in switchbot tests ([@epenet] - [#119575])
 - Fix dangerous-default-value warnings in integration tests ([@epenet] - [#119574])
 - Fix dangerous-default-value warnings in version tests ([@epenet] - [#119577])
@@ -483,8 +483,8 @@ For a summary in a more readable format:
 - Add missing argument type hints to recorder tests ([@epenet] - [#119672])
 - Add missing argument type hints to component tests ([@epenet] - [#119671])
 - Force full CI on all root test files ([@epenet] - [#119673])
-- Bump github/codeql-action from 3.25.9 to 3.25.10 ([@dependabot[bot]] - [#119669])
-- Bump codecov/codecov-action from 4.4.1 to 4.5.0 ([@dependabot[bot]] - [#119668])
+- Bump github/codeql-action from 3.25.9 to 3.25.10 (@dependabot - [#119669])
+- Bump codecov/codecov-action from 4.4.1 to 4.5.0 (@dependabot - [#119668])
 - Move fixtures to decorators in core tests ([@epenet] - [#119675])
 - Add firmware update entities for Reolink IPC channel cameras ([@starkillerOG] - [#119637])
 - Split binary sensor classes in unifiprotect ([@bdraco] - [#119696])
@@ -636,7 +636,7 @@ For a summary in a more readable format:
 - Disable generic unifiprotect object sensors by default ([@bdraco] - [#120059])
 - Make preset list indicate whether the current mount position matches a preset in Vogel's Motionmount ([@RJPoelstra] - [#118731])
 - Add Bang olufsen init testing ([@mj23000] - [#119834])
-- Bump actions/checkout from 4.1.6 to 4.1.7 ([@dependabot[bot]] - [#120063])
+- Bump actions/checkout from 4.1.6 to 4.1.7 (@dependabot - [#120063])
 - Fix translation key in config flow of One-Time Password (OTP) integration ([@tr4nt0r] - [#120053])
 - Bump zwave-js-server-python to 0.57.0 ([@raman325] - [#120047])
 - Update pydantic to 1.10.17 ([@cdce8p] - [#119430])
@@ -1878,7 +1878,6 @@ For a summary in a more readable format:
 [@davet2001]: https://github.com/davet2001
 [@david1024pl]: https://github.com/david1024pl
 [@dbrgn]: https://github.com/dbrgn
-[@dependabot[bot]]: https://github.com/apps/dependabot
 [@dgomes]: https://github.com/dgomes
 [@dknowles2]: https://github.com/dknowles2
 [@dkrahmer]: https://github.com/dkrahmer
