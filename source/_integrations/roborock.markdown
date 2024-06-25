@@ -15,7 +15,6 @@ ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
-  - '@humbertogontijo'
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
