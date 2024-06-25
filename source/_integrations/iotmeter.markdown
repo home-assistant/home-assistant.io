@@ -22,16 +22,16 @@ The **IoTMeter** {% term integration %} allows you to monitor and manage your Io
 
 The {% term integration %} adds the following sensors:
 
-- Total Power (unit: kW)
+- Total power (unit: kW)
   This sensor measures the total power being consumed at any given time. It is useful for monitoring overall power usage and identifying peak consumption periods.
 
-- Total Consumption Energy (unit: kWh)
+- Total consumption energy (unit: kWh)
   This sensor tracks the total amount of energy consumed since the start of the measurement period. It helps in understanding long-term energy usage patterns and can be used for energy management and optimization.
 
-- Total Generation Energy (unit: kWh)
+- Total generation energy (unit: kWh)
   This sensor measures the total amount of energy generated since the start of the measurement period. It is particularly useful for systems that include renewable energy sources, such as solar panels, and helps in tracking the efficiency and output of these systems.
 
-- EVSE Status
+- EVSE status
   This sensor provides the current status of the Electric Vehicle Supply Equipment (EVSE). The possible statuses are:
   - EVSE not connected: Indicates that no electric vehicle is connected to the charger.
   - EVSE ready: Indicates that the EVSE is ready and waiting for a vehicle to be connected.
