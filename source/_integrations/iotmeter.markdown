@@ -18,24 +18,17 @@ The **IoTMeter** {% term integration %} allows you to monitor and manage your Io
 
 {% include integrations/config_flow.md %}
 
-## Prerequisites
+## Sensors
 
-To set up this integration, you will need:
+The {% term integration %} adds the following sensors:
 
-- An active IoTMeter account
-- The IoTMeter credentials (username and password)
-- The IDs of the meters you want to monitor
+- Total power
+- Total consumption energy
+- Total generation energy
+- EVSE status
 
-## Configuration
+## Number
 
-To configure the IoTMeter integration, add the following to your `configuration.yaml` file:
+The {% term integration %} adds the following number entities:
 
-```yaml
-iotmeter:
-  username: YOUR_USERNAME
-  password: YOUR_PASSWORD
-  meters:
-    - id: METER_ID_1
-      name: "Living Room Meter"
-    - id: METER_ID_2
-      name: "Kitchen Meter"
+- Max charging current (Only for SmartModule)
