@@ -36,3 +36,38 @@ To change the general settings that were defined during onboarding, follow these
     ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
 5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
+
+## Changing a person's display name
+
+The display name is the name that is shown in Home Assistant. It can differ from the user name, which is the name used to log in.
+
+### Prerequisites
+
+- You need administrator rights to change a display name.
+
+## To change a display name
+
+1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
+2. Change the display name and select **Update** to save the change.
+
+## Changing a user name
+
+The user name is the name that is used to log in. It can differ from the display name.
+
+### Prerequisites
+
+- You need owner rights to change a user name.
+
+### To change a user name
+
+1. To edit the user name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
+2. Change the user name and select **Update** to save the change.
+   - The log in is case-sensitive.
+
+## Changing authentication settings
+
+To learn how to edit authentication settings such as password or multi-factor authentication, refer to the following topics:
+
+- [Authentication](/docs/authentication/)
+- [multi-factor authentication](/docs/authentication/multi-factor-auth/)
+- [Help, I'm locked out](/docs/locked_out/)

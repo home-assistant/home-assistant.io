@@ -53,6 +53,10 @@ _Make sure to choose a secure password!_ At some time in the future, you will pr
 
 As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
+## Changing person or user name
+
+To learn how to change person or user names, refer to [setting up basic information](/docs/configuration/basic/).
+
 ## Other authentication techniques
 
 Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.
