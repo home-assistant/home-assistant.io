@@ -535,7 +535,7 @@ Note that submitting a new "device support request" does not guarantee that some
 
 ### Best practices to avoid pairing/connection difficulties
 
-If you are having problems pairing a device to then ZHA integratuon then it is recommomended to verify that you try to follow recommended best practices to avoid pairing and/or connection issues:
+If you experience problems pairing a device, verify that you follow best practices to avoid pairing/connection issues:
 
 - Check that your setup and environment are optimized to avoid interference.
   - As interference avoidance is an extremely important topic on its own, please read and follow the tips in the separate section below about Zigbee interference avoidance and network range/coverage optimization.
