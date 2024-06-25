@@ -15,8 +15,6 @@ og_image: /images/blog/2024-07/social.png
 
 <a href='/integrations/#version/2024.7'><img src='/images/blog/2024-07/social.png' style='border: 0;box-shadow: none;'></a>
 
-<!-- BELOW NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 <div class='note'>
 
 **Welcome to the beta release notes for Home Assistant 2024.7** 🎉
@@ -62,8 +60,6 @@ Issues introduced in the beta are processed with priority. 🔝
 
 </div>
 
-<!-- ABOVE NEEDS TO BE REMOVED BEFORE THE RELEASE -->
-
 Home Assistant 2024.7! 🎉
 
 Thanks for helping out testing the beta! ❤️
@@ -98,9 +94,10 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## Resize the cards on your Dashboard 
 
-As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
-continued making the dashboard customization and organization easier and more
-intuitive. This month, we add the ability to resize the cards on your dashboard!
+As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
+keeping up the work on making dashboard organization and and organization easier
+and more intuitive. This month, we add the ability to resize the cards on
+your dashboard!
 
 <p class='img'>
     <img src="https://github.com/home-assistant/frontend/assets/5878303/1ed75c96-6db5-4d4a-ae61-e454791d7fd1" alt="Screenshot of..."/>
@@ -127,12 +124,12 @@ Not only can you now customize the columns shown, but you can also change the
 order of the columns by dragging them around. Making it even easier to get the
 data you want, in the order you want it.
 
-You customized columns and view, is stored in your browser, so you only have to
+Your customized columns and view are stored in your browser, so you only have to
 set it up once, and it will be remembered for the next time you visit the page.
 
 ## Take full control over Blueprint automations
 
-{% term Blueprints %} are amazing, it allows you to use {% term automations %}
+{% term Blueprints %} are amazing; they allow you to use {% term automations %}
 created and shared by other awesome Home Assistant users. Most are easy to use
 and set up, but what if that great blueprint you've been using just needs a
 little tweak? Just that tiny change to make it perfect for your home?
@@ -159,7 +156,7 @@ We welcome the following new integrations in this release:
   Monitor your AquaCell water-softner from Home Assistant.
 - **[ista EcoTrend]**, added by [@tr4nt0r]<br />
   The ista EcoTrend integration allows you to import your monthly heating,
-  hot water and water consumption and costs from the ista EcoTrend service.
+  hot water, and water consumption and costs from the ista EcoTrend service.
 - **[Mealie]**, added by [@joostlek]<br />
   Mealie is a self-hosted recipe manager and meal planner, this integration
   will pull in your meal plan as calendars in Home Assistant.
