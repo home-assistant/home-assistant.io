@@ -14,7 +14,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The **IoTMeter** {% term integration %} allows you to monitor and manage your IoT meters within Home Assistant. This integration provides real-time data and control over your connected devices.
+The **IoTMeter** {% term integration %} allows you to monitor and manage your [IoT meters](http://evracing.cz/iotmeter/iotmeter_EN.pdf) within Home Assistant. This integration provides real-time data and control over your connected devices.
 
 {% include integrations/config_flow.md %}
 
