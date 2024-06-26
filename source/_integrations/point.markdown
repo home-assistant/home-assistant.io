@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_codeowners:
   - '@fredrike'
 ha_domain: point

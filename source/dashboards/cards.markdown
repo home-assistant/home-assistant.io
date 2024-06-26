@@ -87,6 +87,8 @@ This method is useful if you are on the **Device** page and want to create a car
 You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
+   - Don't see a **Visibility** tab? It is not available on nested cards:
+     - vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.

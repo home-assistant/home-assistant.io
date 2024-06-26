@@ -186,6 +186,8 @@ Here are two example JSON payloads resulting in the same task:
 
 - **content** (*Required*): The name of the task you want to create.
 
+- **description** (*Optional*): A description of the task.
+
 - **project** (*Optional*): The project to put the task in.
 
 - **labels** (*Optional*): Any labels you want to add to the task, separated by commas.

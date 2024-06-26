@@ -6,12 +6,12 @@ ha_category:
 ha_release: 2024.6
 ha_iot_class: Cloud Polling
 ha_codeowners:
-  - '@JakeMartin-ICL'
+  - '@jakemartin-icl'
 ha_config_flow: true
 ha_domain: monzo
-ha_homekit: true
 ha_platforms:
   - sensor
+ha_integration_type: integration
 ---
 
 The **Monzo** {% term integration %} allows you to connect your Monzo bank accounts to Home Assistant.

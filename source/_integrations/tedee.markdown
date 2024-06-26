@@ -18,6 +18,7 @@ ha_codeowners:
   - '@patrickhilker'
   - '@zweckj'
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 This integration interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.

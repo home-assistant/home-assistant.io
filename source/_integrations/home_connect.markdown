@@ -42,6 +42,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+- Go to `https://my.home-assistant.io/` and make sure that your Home Assistant URL is set there. For example: `http://homeassistant:8123/` or `http://homeassistant.local:8123`
 
 *Important*:
  - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.

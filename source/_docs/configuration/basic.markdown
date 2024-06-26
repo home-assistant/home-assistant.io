@@ -19,7 +19,13 @@ The general settings described here are managed by the [Home Assistant Core inte
 
 To change the general settings that were defined during onboarding, follow these steps:
 
-1. Go to {% my general title="**Settings** > **System** > **General**" %} and make your changes.
+1. Go to {% my general title="**Settings** > **System** > **General**" %}.
+   - Make your changes.
+   - To change location or radius, under **Edit location**, select edit.
+   - Then, adjust location and radius.
+      <img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screencast showing how to zoom and pan to change location and radius on the Edit home page'>
+   - To add a new zone, select **Add zone**.
+   - To save your changes, select **Update**.
 2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
 3. If some of the settings are not visible, you may need to enable **Advanced mode**.
    - In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
