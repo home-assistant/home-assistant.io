@@ -19,17 +19,6 @@ ha_integration_type: integration
 
 ## Description
 
-Instructions on how to connect your Iskra energy meters to Home Assistant.
-
-- **Home Assistant Release:** 2024.6
-- **Categories:** Energy, Sensor
-- **Code Owners:** [@iskrakranj](https://github.com/iskrakranj)
-- **Config Flow:** True
-- **Domain:** iskra
-- **IoT Class:** Local Polling
-- **Platforms:** Sensor
-- **Integration Type:** Integration
-
 The [Iskra](https://www.iskra.eu/) {% term integration %} provides data from Iskra's energy meters and power quality analyzers. It polls data using Modbus TCP or Iskra smartgateway's REST API.
 
 ## Supported devices
