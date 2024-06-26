@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automation, for example, to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffees over a day gets too high.
 
 The statistics sensor updates with every update of the source sensor, for which the numeric `sensor` and `binary_sensor` are supported. The time period and/or number of recent state changes, which should be considered, must be given in configuration. Check the configuration section below for details.
 
@@ -30,7 +30,7 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 {% include integrations/config_flow.md %}
 
-Further information about these configuration options can be read in the [YAML configuration](#yaml-configuration)
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
 
 {% configuration_basic %}
 Name:
