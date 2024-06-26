@@ -612,12 +612,11 @@ The exact method in which these values are reported depends on the Zigbee networ
 
 #### Why some links are missing in Zigbee network topology maps
 
-Missing links between Zigbee End Devices (i.e. battery-powered devices) in the Zigbee network visualization map is usually nothing to worry about, that is common occurance and is genrally not a problem or fault if the device is still reporting in  on state changes. This happens with sleepy Zigbee End Devices and does not mean that the device is no longer connected.
+Missing links between Zigbee End Devices (i.e., battery-powered devices) in the Zigbee network visualization map are usually nothing to worry about. This is a common occurrence and is generally not a problem or fault if the device is still reporting state changes. This happens with sleepy Zigbee End Devices and does not mean that the device is no longer connected.
 
-The reason for this is that some end devices (e.g. Xiaomi door sensor) sleep for a too long time which causes the parent Zigbee Router to remove it from its child table via a feature called router child ageing, (and since using child ageing and removing it from the child table is a Zigbee 3.0 feature so this does not always happen because all Zigbee Router devices do not use child ageing).
+The reason for this is that some end devices (e.g., Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child ageing. Since using child ageing and removing it from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee Router devices use child ageing.
 
-This is what causes devices to show with a missing link. So even though the device is not in the child table anymore, the end device can still communicate via the parent Zigbee Router.
-
+This is what causes devices to show with a missing link. Even though the device is not in the child table anymore, the end device can still communicate via the parent Zigbee Router.
 #### How to interpret RSSI and LQI values
 
 Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
