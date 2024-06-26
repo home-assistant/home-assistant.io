@@ -9,8 +9,6 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_platforms:
-  - event
 ha_integration_type: integration
 ---
 

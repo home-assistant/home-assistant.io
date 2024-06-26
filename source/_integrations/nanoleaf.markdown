@@ -3,10 +3,11 @@ title: Nanoleaf
 description: Instructions how to integrate Nanoleaf Panels into Home Assistant.
 ha_category:
   - Button
-  - Light
   - Event
+  - Light
 ha_codeowners:
   - '@milanmeu'
+  - '@joostlek'
 ha_config_flow: true
 ha_homekit: true
 ha_iot_class: Local Push

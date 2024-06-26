@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: mealie
 ha_platforms:
   - calendar
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).

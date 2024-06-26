@@ -11,6 +11,7 @@ ha_domain: lamarzocco
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - diagnostics
   - number
   - select
