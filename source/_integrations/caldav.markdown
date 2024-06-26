@@ -21,7 +21,6 @@ related:
     title: To-do list card
   - docs: /integrations/calendar
     title: Calendar
-related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
