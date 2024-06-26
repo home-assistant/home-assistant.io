@@ -725,10 +725,22 @@ services:
     network_mode: host
 ```
 
-### EZSP error and other log messages
+### Common error codes in ZHA logs and other log messages
 
-#### NCP entered failed state
+#### EZSP error - NCP entered failed state
 
-When you see `NCP entered failed state. Requesting APP controller restart` in logs during normal operation, it indicates a drop in communication between ZHA and the serial interface of the Silabs EmberZNet Zigbee Coordinator.
+When you see `NCP entered failed state. Requesting APP controller restart` in ZHA logs during normal operation, that indicates was or is a drop in communication between ZHA and the serial interface of the Silabs EmberZNet Zigbee Coordinator (EZSP).
 
-The EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs EmberZNet Zigbee Coordinator adapters requires a stable connection to the serial port; therefore, it is not recommended to use a connection over Wi-Fi, WAN, VPN, etc.
+The root cause is lost serial connection and correlated symptoms for reset connections include freezes and device non-responsiveness. The solution is to make sure to always have a stable end-to-end serial connection to the Zigbee Coordinator adapter.
+
+The reason is EZSP (EmberZNet Serial Protocol) interface used by Silicon Labs Zigbee Coordinator adapter via bellows requires a stable connection to the serial port, (it is therefore not recommended to use a connection over Wi-Fi, WAN, VPN, etc.).
+
+#### MAC CHANNEL ACCESS FAILURE
+
+The radio error code `MAC_CHANNEL_ACCESS_FAILURE` is common in ZHA logs and means the radio refuses to transmit. This happens when the wireless spectrum is too occupied and that mostly occurs when there is too much EMI/RMI interference, like from EMF sources or when a WiFi network uses the same radio frequency range as the Zigbee channel your Zigbee network in ZHA uses.
+
+If see this often then resolve it by following the suggested actions and tips in the above section about Zigbee interference avoidance and network range/coverage optimization, as well as consider changing either to a different Zigbee channel in ZHA or better yet, try changing your WiFi access point(s) to non-overlapping WiFi channels.
+
+##### NWK TABLE FULL
+
+`NWK_TABLE_FULL` has the same root cause and solutions as the above `MAC_CHANNEL_ACCESS_FAILURE` error.
