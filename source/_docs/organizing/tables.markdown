@@ -1,5 +1,5 @@
 ---
-title: "Filtering your assets"
+title: "Working with tables"
 description: "Filter for items in tables."
 related:
   - docs: /docs/organizing/floors/
@@ -34,6 +34,8 @@ When working with tables, you can select multiple items to apply an action. If y
 
 You can filter a table so that only items matching certain criteria are shown.
 
+To filter items in a table, follow these steps:
+
 1. In the top left corner above the table, select the **Filters** button.
 
     ![Select the filter button](/images/organizing/filters_01.png)
@@ -48,6 +50,8 @@ You can filter a table so that only items matching certain criteria are shown.
 
 You can group items in a table according to certain criteria. The number of shown items stays the same. No items will be hidden.
 
+To group items in a table, follow these steps:
+
 1. In the top right above the table, select the **Group by** button.
 2. The items will be grouped according to the criteria you chose.
    - The list of available criteria depends on the type of table.
@@ -60,3 +64,15 @@ You can group items in a table according to certain criteria. The number of show
 4. To get a better overview, you can collapse groups in the list.
 
     ![Collapse groups](/images/organizing/table_group_collapse.png)
+
+## Customizing columns
+
+You can show or hide columns and change the order. Your customized columns are stored in your browser, so you only have to set it up once, and it will be remembered for the next time you visit the page.
+
+To customize columns, follow these steps:
+
+1. In the top right corner of the table, select the cog wheel.
+2. To hide a column, deselect it.
+3. To rearrange the order, grab the column and move it to its new position.
+
+   ![Screencast showing how to show, hide, and rearrange columns](/images/organizing/customize_columns.webp)
