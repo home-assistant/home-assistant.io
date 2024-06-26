@@ -14,4 +14,4 @@ Some entities are disabled by default. To enable them, follow these steps:
 
 - [Enable multiselect](/docs/organizing/filtering)
 - [Grouping your assets](/docs/organizing/)
-- [Filtering your assets](/docs/organizing/filtering)
+- [Working with tables](/docs/organizing/filtering)
