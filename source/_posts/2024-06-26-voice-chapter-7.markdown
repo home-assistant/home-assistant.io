@@ -112,7 +112,7 @@ Assist can now control media players with simple commands like "pause", "resume"
 
 <p class='img'><lite-youtube videoid="pFmwY-k5IcU" videotitle="Demo of media player commands of Home Assistant Assist"></lite-youtube>Media control in action</p>
 
-Media players can be targeted by name ("pause TV") or in an area ("resume music in the kitchen"). When not provided, the area and floor of the voice satellite is used to determine which media player(s) to target. So "pause" will look for media players that are playing in the current area, followed by the current floor.
+Media players can be targeted by name ("pause TV") or by area ("resume music in the kitchen"). When not provided, the area and floor of the voice satellite are used to determine which media player(s) to target. So "pause" will look for media players that are playing in the current area, followed by the current floor.
 
 ## Easier updates for your voice assistant
 
