@@ -19,6 +19,7 @@ ha_supporting_domain: tplink
 ha_supporting_integration: TP-Link Smart Home
 ha_codeowners:
   - '@rytilahti'
+  - '@thegardenmonkey'
   - '@bdraco'
   - '@sdb9696'
 ha_config_flow: true
