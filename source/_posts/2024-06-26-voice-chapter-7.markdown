@@ -108,7 +108,7 @@ For example, telling an LLM conversation agent that you're leaving the house may
 
 ## Enhanced Media Control
 
-Assist can now control media players with simple commands like "pause", "resume","next", and "set volume to 100%". While simple on the surface, a lot of complexity is hidden underneath. Consider a living room with two media players: a smart speaker that is paused and a TV that is playing. If the user says "pause", the TV will be paused since it is the only media player that is currently playing. However, if the user then says "resume", Assist will only resume the TV because it was the last media player paused.
+Assist can now control media players with simple commands like "pause", "resume", "next", and "set volume to 100%". While simple on the surface, a lot of complexity is hidden underneath. Consider a living room with two media players: a smart speaker that is paused and a TV that is playing. If the user says "pause", the TV will be paused since it is the only media player that is currently playing. However, if the user then says "resume", Assist will only resume the TV because it was the last media player paused.
 
 <p class='img'><lite-youtube videoid="pFmwY-k5IcU" videotitle="Demo of media player commands of Home Assistant Assist"></lite-youtube>Media control in action</p>
 
