@@ -20,9 +20,6 @@ ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
-ha_codeowners:
-  - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor

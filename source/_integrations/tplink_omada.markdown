@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: tplink_omada
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - switch
   - update
 ha_integration_type: hub
