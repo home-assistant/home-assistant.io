@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Voice Chapter 7 - Supercharged wake words and timers"
-description: "MicroWakeWord v2 brings with huge improvements, along with advanced timers."
+description: "MicroWakeWord v2 brings huge improvements, and we introduce advanced timers."
 date: 2024-06-26 00:00:01
 date_formatted: "June 26, 2024"
 author: Mike Hansen
