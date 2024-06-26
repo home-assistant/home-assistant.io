@@ -38,7 +38,7 @@ Name:
 Entity:
   description: The entity that provides the input. Numeric `sensor` and `binary_sensor` are supported.
 State_characteristic:
-  description: List of staticical characteristics to choose from.
+  description: List of statistical characteristics to choose from.
 Sampling size:
   description: Maximum number of source sensor measurements stored.
 Max age:
