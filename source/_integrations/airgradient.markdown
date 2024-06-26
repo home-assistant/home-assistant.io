@@ -16,6 +16,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - switch
 ha_integration_type: device
 ha_zeroconf: true
 ---
@@ -58,3 +59,4 @@ The following entities are supported:
 - LED bar brightness
 - Requesting CO2 calibration
 - Requesting LED bar test
+- Toggling sharing metrics with AirGradient
