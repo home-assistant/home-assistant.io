@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@dknowles2'
+  - '@thomaskistler'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor

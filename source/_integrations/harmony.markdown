@@ -16,7 +16,6 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-  - switch
 ha_integration_type: integration
 ---
 

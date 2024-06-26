@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - '@jbouwh'
 ha_domain: incomfort
 ha_platforms:
   - binary_sensor

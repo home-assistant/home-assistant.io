@@ -10,7 +10,7 @@ ha_platforms:
   - tts
 ha_integration_type: integration
 ha_codeowners:
- - '@jschlyter'
+  - '@jschlyter'
 related:
   - docs: /docs/configuration/
     title: Configuration file

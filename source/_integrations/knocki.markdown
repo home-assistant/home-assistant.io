@@ -7,12 +7,12 @@ ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Cloud Push
 ha_codeowners:
-  - '@jgatto'
   - '@joostlek'
+  - '@jgatto1'
 ha_domain: knocki
 ha_platforms:
   - event
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The **Knocki** {% term integration %} can receive events for the triggers set up from your [Knocki devices](https://knocki.com/).
