@@ -3,6 +3,7 @@ title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
   - Binary Sensor
+  - Button
   - Climate
   - Number
   - Select
@@ -19,6 +20,7 @@ ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - number
@@ -34,6 +36,7 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna and Lisa products, or a single Tom)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
  - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
@@ -82,7 +85,21 @@ script:
           entity_id: climate.anna
 ```
 
+#### Reboot the Plugwisegateway
+
+Service: `button.press`
+
 #### Set HVAC mode (limited to schedule active / not active)
+
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.adam_reboot
+```
 
 Service: `climate.set_hvac_mode`
 
