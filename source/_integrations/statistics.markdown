@@ -10,12 +10,13 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@ThomDietrich'
 ha_domain: statistics
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
 
-The `statistics` sensor platform observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
 
 The statistics sensor updates with every update of the source sensor, for which the numeric `sensor` and `binary_sensor` are supported. The time period and/or number of recent state changes, which should be considered, must be given in configuration. Check the configuration section below for details.
 
@@ -26,6 +27,29 @@ Assuming the [`recorder`](/integrations/recorder/) integration is running, histo
 The `statistics` integration is different to [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
 
 </div>
+
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be read in the [YAML configuration](#configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input. Numeric `sensor` and `binary_sensor` are supported.
+State_characteristic:
+  description: List of staticical characteristics to choose from.
+Sampling size:
+  description: Maximum number of source sensor measurements stored.
+Max age:
+  description: Maximum age of source sensor measurements stored.
+Keep last sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the "Max age" setting.
+Percentile:
+  description: Only relevant in combination with the percentile characteristic. Must be a value between 1 and 99.
+Precision:
+  description: Defines the number of decimal places of the calculated sensor value.
+{% endconfiguration_basic %}
 
 ## Characteristics
 
