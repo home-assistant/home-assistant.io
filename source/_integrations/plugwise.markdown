@@ -85,7 +85,7 @@ script:
           entity_id: climate.anna
 ```
 
-#### Reboot the Plugwisegateway
+#### Reboot the Plugwise gateway
 
 Service: `button.press`
 
