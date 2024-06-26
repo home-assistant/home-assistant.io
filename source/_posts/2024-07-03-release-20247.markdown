@@ -95,7 +95,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## Resize the cards on your Dashboard 
 
 As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
-keeping up the work on making dashboard organization and and organization easier
+keeping up the work on making dashboard organization and customization easier
 and more intuitive. This month, we add the ability to resize the cards on
 your dashboard!
 
@@ -138,7 +138,7 @@ your home?
 Well, now you can! 🎉
 
 <p class='img'>
-    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e9" alt="Screenshot of..."/>
+    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e95" alt="Screenshot of..."/>
     Temporary screenshot, image needs to be replaced by an actual screenshot.
 </p>
 
@@ -200,7 +200,7 @@ changes to existing integrations:
 - The **[Reolink]** integration has seen a lot of improvements, thanks to
   [@starkillerOG]. They added support for manual recording, software updates
   for more cameras, and playback of the auto track lens. 🎥
-- The [Bang & Olufsen] integration now supports announcements and support
+- The **[Bang & Olufsen]** integration now supports announcements and support
   for Tidal has been added too! Nice work [@mj23000]!
 - [@joostlek] added the event entity to the **[Nanoleaf]** integration, allowing
   you to trigger automations you touch your Nanoleaf panels. Nice!
