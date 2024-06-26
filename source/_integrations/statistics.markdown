@@ -30,7 +30,7 @@ The `statistics` integration is different to [Long-term Statistics](https://deve
 
 {% include integrations/config_flow.md %}
 
-Further information about these configuration options can be read in the [YAML configuration](#configuration)
+Further information about these configuration options can be read in the [YAML configuration](#yaml-configuration)
 
 {% configuration_basic %}
 Name:
@@ -114,7 +114,7 @@ A statistics sensor presents the following attributes for context about its inte
 | `buffer_usage_ratio` | Only when `sampling_size` is defined. Ratio (0.0-1.0) of the configured buffer size used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents a full buffer, value 0 stands for an empty one.
 | `source_value_valid` | True/false indication whether the source sensor supplies valid values to the statistics sensor (judged by the last value received).
 
-## Configuration
+## YAML configuration
 
 Define a statistics sensor by adding lines similar to the following examples to your `configuration.yaml`:
 
