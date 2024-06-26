@@ -2,7 +2,7 @@
 layout: post
 title: "2024.7: Beta release notes"
 description: "Beta release notes for Home Assistant 2024.7"
-date: 2024-06-25 00:00:00
+date: 2024-06-26 00:00:00
 date_formatted: "July 3, 2024"
 author: Franck Nijhof
 author_twitter: frenck
@@ -72,7 +72,7 @@ Enjoy the (beta) release!
 
 - [Resize the cards on your Dashboard](#resize-the-cards-on-your-dashboard)
 - [Data tables improvements](#data-tables-improvements)
-- [Take full control over Blueprint automations](#take-full-control-over-blueprint-automations)
+- [Take control over a blueprint-based automation or script](#take-control-over-a-blueprint-based-automation-or-script)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -101,7 +101,7 @@ your dashboard!
 
 <p class='img'>
     <img src="https://github.com/home-assistant/frontend/assets/5878303/1ed75c96-6db5-4d4a-ae61-e454791d7fd1" alt="Screenshot of..."/>
-    Temporary screenshot, image needs to be replaced by an actual screenshot.
+    Temporary screenshot, image needs to be replaced.
 </p>
 
 _TODO: Write more about this feature, supported cards, etc._
@@ -116,8 +116,8 @@ With this release, we add the final big piece of the puzzle: The ability to
 customize the columns shown! 😎
 
 <p class='img'>
-    <img src="/images/blog/2024-07/datatables-customize-columns.png" alt="Screenshot of..."/>
-    Temporary mockup, image needs to be replaced by an actual screenshot.
+    <img src="https://github.com/home-assistant/frontend/assets/5662298/d968b845-c327-41d1-9240-ddf393088277" alt="Screenshot of..."/>
+    Temporary screenshot, image needs to be replaced.
 </p>
 
 Not only can you now customize the columns shown, but you can also change the
@@ -127,21 +127,30 @@ data you want, in the order you want it.
 Your customized columns and view are stored in your browser, so you only have to
 set it up once, and it will be remembered for the next time you visit the page.
 
-## Take full control over Blueprint automations
+## Take control over a blueprint-based automation or script
 
 {% term Blueprints %} are amazing; they allow you to use {% term automations %}
-created and shared by other awesome Home Assistant users. Most are easy to use
-and set up, but what if that great blueprint you've been using just needs a
-little tweak? Just that tiny change to make it perfect for your home?
+and {% term scripts %} created and shared by other awesome Home Assistant users.
+Most are easy to use and set up, but what if that great blueprint you've been
+using just needs a little tweak? Just that tiny change to make it perfect for
+your home?
 
 Well, now you can! 🎉
+
+<p class='img'>
+    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e9" alt="Screenshot of..."/>
+    Temporary screenshot, image needs to be replaced by an actual screenshot.
+</p>
 
 You can now take full control over the automations created from a blueprint.
 By taking control, Home Assistant will fully convert the blueprint automation
 into a regular, stand-alone, automation, allowing you to make any tweak you
 want, without having to fully re-invent the wheel.
 
-_TODO: Insert screenshot or screen recording_
+<lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
+
+Looking for some inspiration for your next automation? 💡 Check out the
+[Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
 
 ## Integrations
 
@@ -178,6 +187,8 @@ It is not just new {% term integrations %} that are added; existing
 integrations are also constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
+- The **[Matter]** integration now provide number entities that allow you to
+  configure the behavior of your Matter lights, thanks [@jvmahon]!
 - The **[AndroidTV]** integration now supports remote entities, allowing you
   to remotely control your Android TV, thanks [@ollo69]!
 - [@tronikos] added support for pulling in the camera from the tablet running
@@ -189,58 +200,62 @@ changes to existing integrations:
 - The **[Reolink]** integration has seen a lot of improvements, thanks to
   [@starkillerOG]. They added support for manual recording, software updates
   for more cameras, and playback of the auto track lens. 🎥
-
+- The [Bang & Olufsen] integration now supports announcements and support
+  for Tidal has been added too! Nice work [@mj23000]!
+- [@joostlek] added the event entity to the **[Nanoleaf]** integration, allowing
+  you to trigger automations you touch your Nanoleaf panels. Nice!
 
 [@bdraco]: https://github.com/bdraco
+[@joostlek]: https://github.com/joostlek
+[@jvmahon]: https://github.com/jvmahon
+[@mj23000]: https://github.com/mj23000
 [@ollo69]: https://github.com/ollo69
 [@starkillerOG]: https://github.com/starkillerOG
 [@tronikos]: https://github.com/tronikos
 [@wfltaylor]: https://github.com/wfltaylor
 [AndroidTV]: /integrations/androidtv
+[Bang & Olufsen]: /integrations/bang_olufsen
 [Fully Kiosk Browser]: /integrations/fully_kiosk
+[Matter]: /integrations/matter
+[Nanoleaf]: /integrations/nanoleaf
 [Reolink]: /integrations/reolink
 [UniFi Protect]: /integrations/unifiprotect
 
 {% details "Candidates to process" %}
 
-- Bang & Olufsen add overlay/announce play_media functionality ([@mj23000] - [#113434]) ([bang_olufsen docs])
-- Add Tidal play_media support to Bang & Olufsen ([@mj23000] - [#119838]) ([bang_olufsen docs])
+_Note: Processed up to #120172_
 
-- Add event entity to Nanoleaf ([@joostlek] - [#120013]) ([nanoleaf docs]) (new-platform)
-
+- Upgrade tplink with new platforms, features and device support ([@rytilahti] - [#120060]) ([tplink docs]) (noteworthy)
+- Add support for Dyad vacuums to Roborock #115331
+- Add time based integration trigger to Riemann sum integral helper sensor ([@ronweikamp] - [#110685])
 - Add support for Switchbot Lock Pro ([@szclsya] - [#119326]) ([switchbot docs]) (noteworthy)
-- Add price service call to Tibber ([@basbruss] - [#117366]) ([tibber docs])
-
 - Introduce incomfort boiler entity ([@joostlek] - [#118861]) ([incomfort docs])
 - Add state and device class to incomfort ([@joostlek] - [#118877]) ([incomfort docs])
 - Add entity translations to incomfort ([@joostlek] - [#118876]) ([incomfort docs])
-
-- Add support for the DS18B20 temperature sensor to Nettigo Air Monitor integration ([@bieniu] - [#118601]) ([nam docs])
-- Add HDR type attribute to Kodi ([@starkillerOG] - [#109603]) ([kodi docs])
 - Add new sensors to blebox ([@swistakm] - [#118837]) ([blebox docs]) (noteworthy)
 - Add photovoltaic sensors to ViCare integration ([@CFenner] - [#113664]) ([vicare docs])
-- Add button platform to Husqvarna Automower ([@Thomas55555] - [#119856]) ([husqvarna_automower docs]) (new-platform)
-- Add extra sensor to the Jewish Calendar integration ([@gedaliahknizhnik] - [#116734]) ([jewish_calendar docs])
 - Add Sensor for Refoss Integration ([@ashionky] - [#116965]) ([refoss docs]) (new-platform)
 - Add sensors to Motionblinds BLE integration ([@LennP] - [#114226]) ([motionblinds_ble docs]) (new-platform)
 - Add valve entity to gardena ([@elupus] - [#120160]) ([gardena_bluetooth docs])
-- Add tado climate swings and fan level ([@EtienneSOU] - [#117378]) ([tado docs])
 - Add device trackers to tplink_omada ([@MarkGodwin] - [#115601]) ([tplink_omada docs]) (new-platform)
 
 {% enddetails %}
 
 ### Integrations reaching platinum quality level
 
-The following {% term integration %} reached the platinum 🏆 level on our
+The following {% term integrations %} reached the platinum 🏆 level on our
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
+- **[pyLoad]**, done by [@tr4nt0r]
 - **[Teslemetry]**, done by [@Bre77]
 
-Congratulations to all the developers who worked on this integration!
+Congratulations to all the developers who worked on these integrations!
 
-[Teslemetry]: /integrations/teslemetry
 [@Bre77]: https://github.com/Bre77
+[@tr4nt0r]: https://github.com/tr4nt0r
+[pyLoad]: /integrations/pyload
+[Teslemetry]: /integrations/teslemetry
 
 ### Now available to set up from the UI
 
@@ -257,11 +272,15 @@ The following integrations are now available via the Home Assistant UI:
 - **[Intergas InComfort/Intouch Lan2RF gateway]**, done by [@jbouwh]
 - **[Music Player Daemon (MPD)]**, done by [@joostlek]
 - **[One-Time Password (OTP)]**, done by [@tr4nt0r]
+- **[pyLoad]**, done by [@tr4nt0r]
+- **[Statistics]**, done by [@gjohansson-ST]
 
 [@elupus]: https://github.com/elupus
+[@gjohansson-ST]: https://github.com/gjohansson-ST
 [@jbouwh]: https://github.com/jbouwh
 [@joostlek]: https://github.com/joostlek
 [@mib1185]: https://github.com/mib1185
+[@tr4nt0r]: https://github.com/tr4nt0r
 [@tr4nt0r]: https://github.com/tr4nt0r
 [Feedreader]: /integrations/feedreader
 [Generic Hygrostat]: /integrations/generic_hygrostat
@@ -269,6 +288,8 @@ The following integrations are now available via the Home Assistant UI:
 [Intergas InComfort/Intouch Lan2RF gateway]: /integrations/incomfort
 [Music Player Daemon (MPD)]: /integrations/mpd
 [One-Time Password (OTP)]: /integrations/otp
+[pyLoad]: /integrations/pyload
+[Statistics]: /integrations/statistics
 
 ### Farewell to the following
 
@@ -313,6 +334,8 @@ or set up the the ESPHome software yourself! 😎
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
+- It is now actually possible to change the username of your Home Assistant
+  account, thanks [@edenhaus] & [@bramkragten]!
 - Home Assistant will now raise a repair issue if an automation can't be set up
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - We now show additional entity categories on the device page, grouping
@@ -326,7 +349,9 @@ noteworthy changes this release:
   switches and sensors. Thanks [@elupus]!
 
 [@balloob]: https://github.com/balloob
+[@bramkragten]: https://github.com/bramkragten
 [@dougiteixeira]: https://github.com/dougiteixeira
+[@edenhaus]: https://github.com/edenhaus
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
 [Assist]: /voice_control/
@@ -335,19 +360,6 @@ noteworthy changes this release:
 [generic thermostat]: /integrations/generic_thermostat
 [notification]: /integrations/notify
 [Trend helpers]: /integrations/trend
-
-{% details "Candidates to process" %}
-
-_Note: Processed up to #120172_
-
-- Add time based integration trigger to Riemann sum integral helper sensor ([@ronweikamp] - [#110685])
-- Add previous track intent ([@OzGav] - [#113222])
-- Add code_format_template to template locks ([@chammp] - [#106947])
-
-- Add open state support to matter lock ([@piitaya] - [#119682])
-- Add number platform to Matter integration ([@jvmahon] - [#119770])
-
-{% enddetails %}
 
 ### Link your template entity to an existing device
 
