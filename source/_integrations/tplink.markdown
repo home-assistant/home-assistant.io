@@ -47,7 +47,7 @@ If you have an older device that does not currently require authentication, you 
 
 ## Supported Devices
 
-See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list that includes hardware and firmware versions.
+See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/stable/SUPPORTED.html) for an up to date list that includes hardware and firmware versions.
 
 Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
