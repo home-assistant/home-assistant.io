@@ -30,7 +30,7 @@ Instructions on how to connect your Iskra energy meters to Home Assistant.
 - **Platforms:** Sensor
 - **Integration Type:** Integration
 
-The [Iskra](https://www.iskra.eu/) {% term integration %} provides data from Iskra's energy meters and power quality analyzers. It polls data using Modbus TCP or Iskra smartgateway's RestAPI.
+The [Iskra](https://www.iskra.eu/) {% term integration %} provides data from Iskra's energy meters and power quality analyzers. It polls data using Modbus TCP or Iskra smartgateway's REST API.
 
 ## Supported devices
 
@@ -51,7 +51,7 @@ These usually support ethernet connection, so Modbus TCP is used to poll measure
 ## Prerequisites
 
 - Set a static IP or assign a static DHCP lease for the power quality analyzer or smart gateway device.
-- If using Iskra's Smart Gateway, select the Rest API connection type, and all connected devices will be automatically added.
+- If using Iskra's Smart Gateway, select the REST API connection type, and all connected devices will be automatically added.
 
 {% include integrations/config_flow.md %}
 
