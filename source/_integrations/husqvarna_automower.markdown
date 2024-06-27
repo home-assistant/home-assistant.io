@@ -198,5 +198,5 @@ data:
     days: 1
     hours: 12
     minutes: 30
-  work_area_id: 0
+  work_area_id: 123456 ### Work area ID for the "Front lawn" from the example above.
 ```
