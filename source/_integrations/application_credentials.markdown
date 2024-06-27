@@ -27,7 +27,7 @@ Some integrations like [Google Calendar](/integrations/google/) will automatical
 
 ## Manual setup
 
-Some integrations do not support cloud linking. They will prompt you to setup Application Credentials
+Some integrations do not support cloud linking. They will prompt you to set up Application Credentials
 when setting up for the first time. You may also manually enter credentials with the following steps:
 
 1. Obtain an OAuth *Client ID* and *Client Secret* from the cloud provider. The integration should have specific instructions for this.
@@ -38,11 +38,11 @@ when setting up for the first time. You may also manually enter credentials with
 
     ![Manual setup](/images/integrations/application_credentials/application-credential-setup.png)
 
-6. You may then visit **Integrations** and setup the integration.
+6. You may then visit **Integrations** and set up the integration.
 
 ## Deleting application credentials
 
-To delete an application credential, for example, because you created a new one, follow these steps:
+To delete an application credential, for example because you created a new one, follow these steps:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 
