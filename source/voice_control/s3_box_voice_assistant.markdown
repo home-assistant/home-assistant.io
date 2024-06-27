@@ -18,7 +18,7 @@ related:
     title: ESPHome projects page
 ---
 
-This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP32-S3-BOX-Light into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX may be used to refer to any of the 3 product variants.
+This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP32-S3-BOX-Lite into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX may be used to refer to any of the 3 product variants.
 
 <lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
