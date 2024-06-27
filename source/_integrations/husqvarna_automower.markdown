@@ -84,6 +84,10 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 {% include integrations/config_flow.md %}
 
+## Troubleshooting
+
+If you have an error with your credentials, you can delete them on the [application credentials](/integrations/application_credentials/) page.
+
 ## Entities
 
 Once you have enabled the Husqvarna Automower integration, you should see the following entities:
