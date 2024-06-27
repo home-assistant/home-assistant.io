@@ -89,8 +89,8 @@ This method is useful if you are on the **Device** page and want to create a car
 You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
-   - Don't see a **Visibility** tab? It is not available on nested cards:
-     - vertical stack, horizontal stack, and grid card
+   - Don't see a **Visibility** tab?
+     - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
 2. Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
@@ -101,7 +101,9 @@ You can choose to show or hide certain cards based on different conditions. The 
 In [sections view](/dashboards/sections/), you can resize cards. Follow these steps:
 
 1. On the **Layout** tab, move the sliders to adjust the card size.
-    - Don't see a **Layout** tab? The picture elements card does not support that yet.
+    - Don't see a **Layout** tab?
+      - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
+      - It is not available on the picture elements card.
   ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
 
 2. Select **Save**.
