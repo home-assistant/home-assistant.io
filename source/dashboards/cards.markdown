@@ -106,7 +106,7 @@ In [sections view](/dashboards/sections/), you can resize cards. Follow these st
       - It is not available on the picture elements card.
   ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
 
-1. Select **Save**.
+2. Select **Save**.
 
 ## Card actions, features, header and footer widgets
 
