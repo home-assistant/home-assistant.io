@@ -191,9 +191,10 @@ changes to existing integrations:
   configure the behavior of your Matter lights, thanks [@jvmahon]!
 - The **[AndroidTV]** integration now supports remote entities, allowing you
   to remotely control your Android TV, thanks [@ollo69]!
-- [@tronikos] added support for pulling in the camera from the tablet running
-  **[Fully Kiosk Browser]**, and for taking screenshots and sending
-  notifications to the tablet. Nice!
+- [@tronikos] has added support for integrating the camera from the tablet
+  running **[Fully Kiosk Browser]**. Furthermore, there's now an image entity
+  for taking screenshots, the ability to send notifications and text-to-speech
+  messages to the tablet, and the media player can now play videos! Nice!
 - We've seen a lot of improvements to the **[UniFi Protect]** integration,
   thanks to [@bdraco]. [@wfltaylor] chipped in as well, adding support for
   animal detection sensors. 🐶🐱🐰
@@ -339,7 +340,7 @@ noteworthy changes this release:
 - Home Assistant will now raise a repair issue if an automation can't be set up
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - We now show additional entity categories on the device page, grouping
-  [notification] entities in a "Notification" category. Furthermore and all
+  [notification] entities in a "Notification" category. Furthermore all
   [Assist] related entities, like [conversation agents and text-to-speech]
   entities, are now grouped in an "Assist" category. Thanks [@balloob]!
 - [Trend helpers] are now automatically linked to the same device as the source
@@ -722,7 +723,8 @@ to `uv_installed` and `filter_installed`.
 
 {% details "UniFi Protect" %}
 
-UI has removed this functionality in UI Protect 4.x.
+The set default doorbell text service (`set_default_doorbell_text`) has been
+removed. UI has removed this functionality in UI Protect 4.x.
 
 It is still possible to set a custom message using the other services
 (`unifiprotect.add_doorbell_text` and `unifiprotect.remove_doorbell_text`,
