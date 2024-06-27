@@ -248,6 +248,7 @@ The following {% term integrations %} reached the platinum 🏆 level on our
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
+- **[ESPHome]**, done by [@jesserockz] & [@bdraco]
 - **[pyLoad]**, done by [@tr4nt0r]
 - **[Teslemetry]**, done by [@Bre77]
 
@@ -322,6 +323,9 @@ and the maker of that device provides updates for it, you can now update that
 device directly from Home Assistant; without the need for you to build, adopt,
 or set up the the ESPHome software yourself! 😎
 
+Finally, the ESPHome integration now also reached the platinum integration
+quality level! 🏆
+
 [been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
 [ESPHome]: https://esphome.io
 [Made for ESPHome]: https://esphome.io/guides/made_for_esphome
@@ -376,8 +380,9 @@ _TODO: insert screenshot_
 
 Assigning a template entity to an existing device can be very useful if you have
 a template that calculates an additional sensor value for a device.
-This feature is available not only from the UI but also for those who prefer to
-use {% term "Configuration file" "YAML configuration" %}.
+
+_Note: This feature is only available for template entities that are created
+from the UI._
 
 [Template entities]: /integrations/template
 [@dougiteixeira]: https://github.com/dougiteixeira
