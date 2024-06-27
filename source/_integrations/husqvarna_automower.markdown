@@ -86,7 +86,7 @@ The My Home Assistant redirect feature needs to be setup to redirect to your Hom
 
 ## Troubleshooting
 
-If you have an error with your credentials, you can delete them in the [application credentials](/integrations/application_credentials/) user interface.
+If you have an error with your credentials, you can delete them on the [application credentials](/integrations/application_credentials/) page.
 
 ## Entities
 
