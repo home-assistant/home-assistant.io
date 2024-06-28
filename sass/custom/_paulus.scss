@@ -462,18 +462,11 @@ h4:hover a.title-link,
 h5:hover a.title-link,
 h6:hover a.title-link,
 dt:hover a.title-link {
-  position: relative;
-
+  text-decoration: none;
   &::before {
-    position: absolute;
-    top: 5px;
-    left: -25px;
-    padding-right: 10px;
-    padding-left: 5px;
-    font-family: "FontAwesome";
-    font-size: 15px;
+    margin-left: 4px;
     color: #999;
-    content: "\f0c1";
+    content: "\00B6"; /* pilcrow */
   }
 }
 
@@ -624,9 +617,7 @@ div.note {
   }
 
   &::before {
-    font-family: "FontAwesome", "Instrument Sans", sans-serif;
-    content: "\f05a"" Note " attr(data-title);
-    // background-color: #6ab0de;
+    content: "ℹ"" Note " attr(data-title);
     color: #6ab0de;
     font-weight: bold;
 
@@ -647,7 +638,7 @@ div.note {
 
     &::before {
       color: rgb(187, 185, 13);
-      content: "\f071"" Warning " attr(data-title);
+      content: "⚠"" Warning " attr(data-title);
     }
   }
 }
@@ -665,20 +656,10 @@ div.note {
       height: 120px;
     }
 
-    i {
+    iconify-icon {
       font-size: 2em;
-      padding: 0 5px;
-    }
-
-    .icons {
-      display: flex;
-      align-items: center;
-
-      svg {
-        height: 48px;
-        padding: 10px 4px;
-        fill: currentColor;
-      }
+      margin-top: 12px;
+      padding-right: 4px;
     }
   }
 
@@ -836,16 +817,14 @@ div.config-vars {
   .config-vars-label {
     padding-bottom: 4px;
     position: relative;
-
+    
+    a.title-link {
+      text-decoration: none;
+    }
     &:hover a.title-link::before {
-      position: absolute;
-      top: 5px;
-      left: -25px;
-      padding-right: 40px;
-      font-family: "FontAwesome";
-      font-size: 15px;
+      margin-left: 4px;
       color: #999;
-      content: "";
+      content: "\00B6"; /* pilcrow */
     }
   }
 

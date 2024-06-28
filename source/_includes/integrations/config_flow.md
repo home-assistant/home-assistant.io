@@ -22,7 +22,7 @@ manually:
 {% endif %}
 
 - Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
 {% if page.ha_integration_type == 'helper' %}
 - At the top of the screen, select the tab: **{% my helpers %}**.
 - In the bottom right corner, select the

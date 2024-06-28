@@ -15,7 +15,7 @@ module Jekyll
 
       result << vars.map do |key, attr|
         markup = Array.new
-        markup << "<div class='config-vars-item'><div class='config-vars-label'><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a> <span class='config-vars-label-name'>#{key}</span></div><div class='config-vars-description-and-children'>"
+        markup << "<div class='config-vars-item'><div class='config-vars-label'><span class='config-vars-label-name'>#{key}</span><a name='#{slug(key)}' class='title-link' href='\##{slug(key)}'></a></div><div class='config-vars-description-and-children'>"
 
         if attr.key? 'description'
           markup << "<span class='config-vars-description'>#{converter.convert(attr['description'].to_s)}</span>"

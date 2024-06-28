@@ -183,14 +183,13 @@ header .grid {
     @include border-radius(2px);
     @include box-sizing(border-box);
     @include transition(all 0.5s linear);
-    font-family: "FontAwesome";
-    content: "\f0c9";
+    content: "☰";
     display: inline-block;
     width: 100%;
     padding: 10px 15px;
     background: $primary-color;
     text-align: center;
-    font-size: 12px;
+    font-size: 16px;
     color: $white;
     white-space: nowrap;
   }

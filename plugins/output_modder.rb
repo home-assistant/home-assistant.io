@@ -39,7 +39,7 @@ module Jekyll
 
                 title = header.content
                 slug = title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
-                header.children = "<a class='title-link' name='#{slug}' href='\##{slug}'></a> #{title}"
+                header.children = "#{title} <a class='title-link' name='#{slug}' href='\##{slug}'></a>"
             end
 
             dom.to_s

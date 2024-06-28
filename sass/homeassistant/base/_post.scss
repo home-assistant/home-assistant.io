@@ -81,8 +81,7 @@ article {
     }
 
     .comments::before {
-      content: "\f075";
-      font-family: "FontAwesome";
+      content: "💬";
       padding-right: 3px;
     }
   }
