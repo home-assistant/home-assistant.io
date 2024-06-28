@@ -168,9 +168,9 @@ module Jekyll
 
       <<~MARKUP
         <div class="config-vars">
-          <h3>
+          <h4>
             Configuration Variables <a class="title-link" name="configuration-variables" href="#configuration-variables"></a>
-          </h3>
+          </h4>
           <div class="configuration-link">
             <a href="/docs/configuration/" target="_blank">Looking for your configuration file?</a>
           </div>
