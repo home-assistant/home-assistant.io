@@ -5,7 +5,7 @@ div.details-block {
 
   .details-block-item {
     background-color: #f8f8f8;
-    padding: 4px 16px;
+    padding: 4px 24px;
     margin: 8px 0;
     border: 1px solid rgba(0, 0, 0, .12);
     // box-shadow: rgba(0,0,0,0.06) 0 0 10px;
@@ -23,9 +23,10 @@ div.details-block {
       background-color: #f8f8f8;
       border: 0px;
       width: 100%;
+      padding: 0;
     }
     .details-block-content {
-      margin: 4px 32px 12px 0;
+      margin: 4px 0 12px 0;
     }
   }
 }
