@@ -9,11 +9,29 @@ body, html {
   height: 100%;
 }
 
+.page-content {
+  display: inline-block;
+  height: 100%;
+  margin-top: 0;
+  overflow-y: scroll;
+  padding-top: 100px;
+  width: 100%;
+}
+
 a {
   color: $link-color;
   text-decoration: none;
   .menu & {
     color: $link-color;
+  }
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+
+  th,td {
+      word-wrap: break-word;
   }
 }
 

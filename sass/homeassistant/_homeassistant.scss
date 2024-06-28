@@ -17,6 +17,7 @@
 @import "plugins/details";
 @import "plugins/tabbed_block";
 @import "plugins/terminology_tooltip";
+@import "plugins/integration_alert";
 
 @import "base/sidebar";
 @import "aside/recent_posts";
@@ -34,3 +35,5 @@
 
 @import "helpers/classes";
 @import "helpers/grid-fix";
+
+@import "external/search";

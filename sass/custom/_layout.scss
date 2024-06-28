@@ -1,15 +1,6 @@
 // Here you can easily change your sites's layout.
 // To give it a try, uncomment some of the lines below, make changes, rebuild your blog, and see how it works.
 
-.page-content {
-    display: inline-block;
-    height: 100%;
-    margin-top: 0;
-    overflow-y: scroll;
-    padding-top: 100px;
-    width: 100%;
-}
-
 #sidebar {
     .grid {
         position: fixed;
@@ -26,16 +17,6 @@
     width: 100%;
     z-index: 999;
 }
-
-table {
-    table-layout: fixed;
-    width: 100%;
-
-    th,td {
-        word-wrap: break-word;
-    }
-}
-
 
 @media only screen and (max-width: $lap-end) {
     #sidebar {
