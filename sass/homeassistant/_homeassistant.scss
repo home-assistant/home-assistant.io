@@ -9,9 +9,14 @@
 @import "base/header";
 @import "base/navigation";
 @import "base/footer";
+@import "base/syntax";
 @import "base/post";
 @import "base/archive_list";
-@import "base/solarized";
+@import "base/print";
+
+@import "plugins/details";
+@import "plugins/tabbed_block";
+@import "plugins/terminology_tooltip";
 
 @import "base/sidebar";
 @import "aside/recent_posts";
@@ -21,6 +26,11 @@
 
 @import "homepage/home";
 @import "homepage/hero_unit";
+@import "homepage/features";
+
+@import "pages/landingpage";
+@import "pages/component_page";
+@import "pages/getting_started";
 
 @import "helpers/classes";
 @import "helpers/grid-fix";
