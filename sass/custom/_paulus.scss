@@ -2,6 +2,71 @@
 
 $primary-color: #1abcf2;
 
+// Typography fixes
+p,li {
+  letter-spacing: .005em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-family: $heading-font;
+  font-weight: 650;
+  letter-spacing: -.005em;
+}
+h1 {font-weight: 800;}
+h3, h4 {font-weight: 700;}
+.page h1.title.indent {
+  font-size: 56px;
+}
+h1.title.delta {
+  border-bottom: none;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+}
+
+.title.indent {
+  &::before {
+    content: "";
+    color: $primary-color;
+  }
+}
+
+// Rounded background for numbered lists
+article> {
+  ol {
+    counter-reset: my-awesome-counter;
+    list-style: none;
+  }
+  ol>li {
+    margin-left: -0.25rem;
+    counter-increment: my-awesome-counter;
+    position: relative;
+  }
+  ol>li::before {
+    content: counter(my-awesome-counter);
+    color: $white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    position: absolute;
+    left: -2.75rem;
+    line-height: 2rem;
+    width: 2rem;
+    height: 2rem;
+    top: 0;
+    background: $primary-color;
+    border-radius: 50%;
+    text-align: center;
+  }
+}
+
+
+article.post,
+article.page,
+article.listing {
+  img {
+    border-radius: 16px !important;
+  }
+}
+
 .site-header {
   position: relative;
 

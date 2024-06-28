@@ -6,26 +6,6 @@ body, html {
   height: 100%;
 }
 
-p,li {
-  letter-spacing: .005em;
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-family: $heading-font;
-  font-weight: 650;
-  letter-spacing: -.005em;
-}
-h1 {font-weight: 800;}
-h3, h4 {font-weight: 700;}
-.page h1.title.indent {
-  font-size: 56px;
-}
-h1.title.delta {
-  border-bottom: none;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-}
-
 a {
   color: $link-color;
   text-decoration: none;
@@ -45,35 +25,8 @@ a {
     }
   }
   &::before {
-    // content: "// ";
+    content: "// ";
     color: $primary-color;
-  }
-}
-
-article> {
-  ol {
-    counter-reset: my-awesome-counter;
-    list-style: none;
-  }
-  ol>li {
-    margin-left: -0.25rem;
-    counter-increment: my-awesome-counter;
-    position: relative;
-  }
-  ol>li::before {
-    content: counter(my-awesome-counter);
-    color: $white;
-    font-size: 1.25rem;
-    font-weight: 600;
-    position: absolute;
-    left: -2.75rem;
-    line-height: 2rem;
-    width: 2rem;
-    height: 2rem;
-    top: 0;
-    background: $primary-color;
-    border-radius: 50%;
-    text-align: center;
   }
 }
 
@@ -89,7 +42,7 @@ article.page,
 article.listing {
   img {
     border: 5px solid #fff;
-    border-radius: 8px;
+    border-radius: 3px;
     box-shadow: 0 0 3px rgba(0, 0, 0, 0.25);
     &.right {
       float: right;
