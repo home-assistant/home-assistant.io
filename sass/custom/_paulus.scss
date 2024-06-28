@@ -59,6 +59,36 @@ article> {
   }
 }
 
+
+// Better looking menu
+
+.menu li a {
+  @include box-sizing(border-box);
+  display: block;
+  padding: 27px 0px;
+  margin: 0 12px;
+  text-decoration: none;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.menu > li > a {
+  font-family: $heading-font;
+  font-weight: 500;
+  // text-transform: uppercase;
+}
+
+.menu > li > a:hover,
+.menu > li > a:focus {
+  background: $site-background;
+  box-shadow: inset 0px -5px $primary-color;
+  color: $navigation-color;
+  padding-bottom: 12px;
+  margin-bottom: 32px;
+}
+
+
+
 .site-header {
   position: relative;
 
@@ -73,7 +103,7 @@ article> {
   .DocSearch-Button {
     padding: 0px;
     margin-top: 16px;
-    margin-left: 0px;
+    margin-left: 8px;
     margin-right: 0px;
     background: none;
     &:hover {
@@ -88,7 +118,7 @@ article> {
   }
   .DocSearch-Search-Icon {
     margin-right: 8px;
-    color: $primary-color;
+    color: $link-color;
   }
 }
 
