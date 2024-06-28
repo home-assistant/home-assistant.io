@@ -31,11 +31,13 @@ We have worked with creator [Marcel Zuidwijk](https://www.zuidwijk.com) to devel
 
 ![Photo of SlimmeLezer attached to a smart electricity meter](/images/docs/energy/slimmelezer.jpg)
 
-#### Connect via Zigbee Energy Profile
+#### Connect to devices that uses Zigbee Smart Energy Standard
 
-The Zigbee Energy Profile is a wireless energy standard to provide real-time information about electricity usage. This standard is available in some meters in the US, UK and Australia. This is not "normal" Zigbee as implemented by Home Assistant but requires special certified hardware.
+[Zigbee Smart Energy Standard](https://csa-iot.org/all-solutions/smart-energy/) is a wireless protocol designed by the CSA (Connectivity Standards Alliance, formerly the Zigbee Alliance) to specifically target industrial and commercial utilities to enable real-time monitoring of energy consumption and actively managing energy consumption at the end-user level. This wireless protocol is supported by some utility meters for monitoring electricity, gas, and water consumption in the US, EU, UK, and Australia.
 
-We are not currently aware of a device that implements this which supports a local API and is compatible with Home Assistant.
+It is also [referred to “Zigbee SE” or "ZSE" profile in the specification](https://zigbeealliance.org/wp-content/uploads/2019/11/docs-07-5356-19-0zse-zigbee-smart-energy-profile-specification.pdf), and note that it should not be confused with other Zigbee profiles, because Zigbee Smart Energy Profile is not part of the common "Zigbee 3.0" suite of profiles that are supported tHome Assistant's native Zigbee Home Automation integration, (as the Home Assistant's ZHA integration currently only have implemented support for other Zigbee profiles that are specifically made for home automation, lighting or occupancy, and not devices that just use the Zigbee Smart Energy" Profile).
+
+Currently, the only solution we are aware of that can use devices that only support the "Zigbee Smart Energy" profile is Rainforest Automation's EAGLE gateway appliances that can be used via the Rainforest Eagle integration for Home Assistant, (those third-party gateways/bridges/hubs made for reading Australian electricity meters, though it abstracts and translates that protocol to present the data via their custom local API, and is as such not a native Zigbee Smart Energy" integration).
 
 #### Reading the meter via a pulse counter
 
