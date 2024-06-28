@@ -15,10 +15,15 @@
 }
 
 @media only screen and (max-width: $palm-end) {
+  .hass-option-cards {
+    .option-card {
+      width: calc(100% - 24px) !important;
+    }
+  }
   #components-page {
     .hass-option-cards {
       .option-card {
-        width: 100%;
+        width: calc(50% - 24px);
       }
     }
   }

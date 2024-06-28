@@ -29,6 +29,18 @@ h1.title.delta {
     color: $primary-color;
   }
 }
+@media only screen and (max-width: $menu-collapse) {
+  html {
+    font-size: .95em;
+  }
+  .page h1.title.indent {
+    font-size: 46px;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  
+
+}
 
 // Rounded background for numbered lists
 article> {
