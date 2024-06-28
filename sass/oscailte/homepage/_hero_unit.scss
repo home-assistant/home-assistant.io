@@ -55,9 +55,10 @@
   }
 
   h1 {
-    font-size: 3.5em;
+    font-size: 5em;
     line-height: 1em;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
+    text-transform: uppercase;
+    // text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.75);
   }
 
   hr {
@@ -66,7 +67,7 @@
   }
 
   p {
-    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
+    // text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.75);
     small {
       color: $grayLighter;
       font-size: .65em;

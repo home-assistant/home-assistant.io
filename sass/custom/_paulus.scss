@@ -79,7 +79,8 @@ a.integration-alert {
 }
 
 .hero {
-  background-color: #038fc7;
+  background: rgb(24,188,242);
+  background: linear-gradient(0deg, rgba(24,188,242,1) 0%, rgba(24,188,242,.8) 100%);
   padding-bottom: 0;
 
   .lead {
@@ -87,11 +88,19 @@ a.integration-alert {
   }
 
   .hero-buttons a {
+    font-family: $heading-font;
     color: white;
     text-transform: uppercase;
     white-space: nowrap;
     display: inline-block;
-    font-weight: 500;
+    font-weight: 600;
+    padding: 8px 16px;
+    margin: 0 4px 0 0;
+    border-radius: 24px;
+    &.primary {
+      background-color: $link-color;
+      font-weight: 700;
+    }
   }
 
   img {
