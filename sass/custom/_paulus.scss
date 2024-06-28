@@ -58,12 +58,11 @@ article> {
   }
 }
 
-
 article.post,
 article.page,
 article.listing {
   img {
-    border-radius: 16px !important;
+    border-radius: 16px;
   }
 }
 
@@ -174,13 +173,13 @@ a.integration-alert {
 }
 
 .material-card {
-  background-color: #fefefe;
-  border-radius: 8px;
+  background-color: $white;
+  border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, .12);
-  box-shadow: rgba(0,0,0,0.06) 0 0 10px;
+  // box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
   h1 {
-    font-family: Roboto, Noto, sans-serif;
+    font-family: $heading-font;
     -webkit-font-smoothing: antialiased;
     font-size: 24px;
     font-weight: 400;
@@ -193,7 +192,7 @@ a.integration-alert {
   }
 
   &.text {
-    padding: 16px;
+    padding: 16px 16px 16px 24px;
 
     h1 {
       padding: 4px 0px 12px;
@@ -651,9 +650,10 @@ div.note {
 
   background: #e7f2fa;
 
-  padding: 40px 12px 6px 12px;
+  padding: 48px 16px 12px 16px;
   margin-bottom: 24px;
-  box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+  border-radius: 16px;
+  // box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
 
   p {
     margin-bottom: 0px;
@@ -662,13 +662,13 @@ div.note {
   &::before {
     font-family: "FontAwesome", sans-serif;
     content: "\f05a"" Note " attr(data-title);
-    background-color: #6ab0de;
-    color: white;
+    // background-color: #6ab0de;
+    color: #6ab0de;
     font-weight: bold;
 
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    padding: 6px 14px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    padding: 12px 16px;
 
     line-height: 1.5em;
 
@@ -682,7 +682,7 @@ div.note {
     background-color: #f7f9e1;
 
     &::before {
-      background-color: rgb(187, 185, 13);
+      color: rgb(187, 185, 13);
       content: "\f071"" Warning " attr(data-title);
     }
   }
