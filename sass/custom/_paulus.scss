@@ -233,10 +233,14 @@ a.integration-alert {
   }
 
   &.text {
-    padding: 16px 16px 16px 24px;
+    padding: 24px;
 
     h1 {
       padding: 4px 0px 12px;
+    }
+    &>svg {
+      margin-top: -8px;
+      margin-right: -8px;
     }
   }
 
