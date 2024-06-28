@@ -100,6 +100,22 @@ ul, ol, dd {
 }
 
 
+// Page breadcrumbs
+
+header .breadcrumbs {
+  color: $grayLight;
+  font-size: .9rem;
+  padding-bottom: 24px;
+
+  a {
+    color: $grayLight;
+    text-decoration: none !important;
+    font-weight: 600;
+  }
+}
+
+
+
 @media only screen and (max-width: $menu-collapse) {
   .feedback {
     margin-bottom: 32px;
