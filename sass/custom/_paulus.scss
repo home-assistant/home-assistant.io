@@ -786,9 +786,10 @@ div.note {
     margin-top: 50px;
     display: grid;
     justify-items: center;
+    padding: 12px 16px 0;
 
     img {
-      max-height: 67px;
+      max-height: 64px;
     }
 
     a.my img {

@@ -90,7 +90,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: flex-start;
-  margin: -4px; // grid trick, has to match option-card's margin
+  margin: -10px; // grid trick, has to match option-card's margin
 
   p.note {
     width: 100%;
@@ -98,23 +98,24 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 210px;
-    height: 142px;
+    width: 200px;
+    height: 200px;
     display: inline-block;
     background-color: #f8f8f8;
-    margin: 4px;
+    margin: 11px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, .12);
     // box-shadow: rgba(0,0,0,0.06) 0 0 10px;
     padding: 8px;
     text-align: center;
     text-decoration: none;
+    align-content: center;
 
     .img-container {
-      height: 50px;
+      height: 64px;
       margin: 12px 16px;
       font: 0/0 a;
-      border-radius: 0 !important;
+      border-radius: 0;
 
       &:before {
         /* create a full-height inline block pseudo=element */
@@ -126,9 +127,10 @@
 
       img {
         max-width: 100%;
-        max-height: 50px;
+        max-height: 64px;
         box-shadow: none;
         border: none;
+        border-radius: 0;
         vertical-align: middle;
       }
     }
@@ -140,11 +142,12 @@
       overflow: hidden;
 
       text-decoration: none;
-      font-size: 18px;
+      font-size: 16px;
       color: #000;
-      line-height: 1.3em;
-      height: 2.6em;
+      line-height: 1.25em;
+      height: 40px;
       margin-top: 20px;
+      padding: 0 8px;
     }
   }
 
