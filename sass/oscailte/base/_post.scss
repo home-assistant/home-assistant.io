@@ -5,7 +5,7 @@ article {
     @extend .clearfix;
     border-left: 2px solid $primary-color;
     color: lighten($text-color, 15%);
-    font-family: $serif;
+    font-family: $sans-serif;
     font-size: 1.25em;
     font-style: italic;
     padding-left: 15px;
@@ -35,7 +35,7 @@ article {
     color: $primary-color;
     content: "\201C"attr(data-pullquote) "\201D";
     float: right;
-    font-family: $serif;
+    font-family: $sans-serif;
     font-size: 1.4em;
     font-style: italic;
     line-height: 1.45em;
