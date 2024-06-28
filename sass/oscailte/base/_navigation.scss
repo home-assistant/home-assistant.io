@@ -76,6 +76,7 @@ $menu-collapse: 1024px;
 /* support for submenus */
 ul.menu li {
   position: relative;
+  margin: 0;
 
   &:hover ul {
     display: block;
@@ -90,6 +91,8 @@ ul.menu li {
 
     margin-left: 0;
     background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 0 1px rgba(0,0,0,.5), 0 32px 64px rgba(0,0,0,.1);
 
     li {
       white-space: nowrap;
@@ -97,8 +100,10 @@ ul.menu li {
 
       a {
         display: block;
-        padding: 20px 10px;
+        padding: 16px 16px;
         min-width: 150px;
+        margin: 8px;
+        border-radius: 8px;
 
         &:hover,
         &:focus {
