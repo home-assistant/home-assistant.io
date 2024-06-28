@@ -91,14 +91,14 @@ article {
   &.listing {
     margin-bottom: 20px;
     h1 {
-      margin-bottom: 0;
+      margin-bottom: .5em;
       a {
         color: $title-color;
         text-decoration: none;
       }
     }
     .entry-content {
-      margin: 10px 0;
+      margin: 1em 0;
     }
     + hr {
       border: none;
@@ -114,11 +114,11 @@ article {
       }
     }
     h1 {
-      margin-bottom: 0;
+      margin-bottom: 0.5em;
     }
     .meta {
-      border-bottom: 1px solid $primary-color;
-      margin-bottom: 20px;
+      // border-bottom: 1px solid $primary-color;
+      margin-bottom: 3em;
     }
   }
 }

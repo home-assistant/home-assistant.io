@@ -5,7 +5,8 @@ $use-gridfix:       true;
 
 // Fonts & Font Families
 $serif: Georgia, 'Times New Roman', Times, serif !default;
-$sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$sans-serif: "Instrument Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+$heading-font: "Figtree", "Helvetica Neue", Arial, sans-serif !default;
 
 // Grays
 // -------------------------
@@ -58,7 +59,7 @@ $header-background: $white;
 $footer-background: $header-background;
 $text-color:        $grayDarker;
 $title-color:       $primary-color;
-$link-color:        $primary-color;
+$link-color:        #007fa8;
 $button-color:      $primary-color;
 $button-text:       $white;
 $navigation-color:  $link-color;

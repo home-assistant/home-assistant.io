@@ -134,7 +134,7 @@ header .grid {
 .menu > li > a:hover,
 .menu > li > a:focus {
   background: $site-background;
-  box-shadow: inset 0px 5px $navigation-color;
+  box-shadow: inset 0px 5px $primary-color;
   color: $navigation-color;
   padding-bottom: 32px;
 }
@@ -146,8 +146,8 @@ header .grid {
 @media only screen and (max-width: $menu-collapse) {
   .menu {
     background: $white;
-    border-top: 1px solid $navigation-color;
-    border-bottom: 4px solid $navigation-color;
+    border-top: 1px solid $primary-color;
+    border-bottom: 4px solid $primary-color;
   }
 
   .menu,
@@ -163,7 +163,7 @@ header .grid {
   .menu li a:hover,
   .menu li a:focus {
     background: $grayLighter;
-    box-shadow: inset 5px 0px $navigation-color;
+    box-shadow: inset 5px 0px $primary-color;
     padding: 15px 15px 15px 25px;
   }
 
@@ -182,7 +182,7 @@ header .grid {
     display: inline-block;
     width: 100%;
     padding: 10px 15px;
-    background: $navigation-color;
+    background: $primary-color;
     text-align: center;
     font-size: 12px;
     color: $white;
@@ -190,7 +190,7 @@ header .grid {
   }
 
   .toggle:hover::after {
-    background: darken($navigation-color, 7%);
+    background: darken($primary-color, 7%);
   }
 
   #toggle:checked + .toggle::after {
