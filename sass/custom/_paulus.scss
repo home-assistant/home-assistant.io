@@ -35,6 +35,7 @@ article> {
   ol {
     counter-reset: my-awesome-counter;
     list-style: none;
+    margin-left: 3rem;
   }
   ol>li {
     margin-left: -0.25rem;
@@ -48,15 +49,18 @@ article> {
     font-weight: 600;
     position: absolute;
     left: -2.75rem;
+    top: -.1rem;
     line-height: 2rem;
     width: 2rem;
     height: 2rem;
-    top: 0;
     background: $primary-color;
     // background: rgba(26, 188, 242,.2);
     border-radius: 50%;
     text-align: center;
   }
+}
+ul, ol, dd {
+  margin-left: 2rem;
 }
 
 
@@ -681,7 +685,7 @@ div.note {
   }
 
   &::before {
-    font-family: "FontAwesome", sans-serif;
+    font-family: "FontAwesome", "Instrument Sans", sans-serif;
     content: "\f05a"" Note " attr(data-title);
     // background-color: #6ab0de;
     color: #6ab0de;
