@@ -43,7 +43,7 @@ article> {
   }
   ol>li::before {
     content: counter(my-awesome-counter);
-    color: $link-color;
+    color: white;
     font-size: 1.25rem;
     font-weight: 600;
     position: absolute;
@@ -52,7 +52,8 @@ article> {
     width: 2rem;
     height: 2rem;
     top: 0;
-    background: rgba(26, 188, 242,.2);
+    background: $primary-color;
+    // background: rgba(26, 188, 242,.2);
     border-radius: 50%;
     text-align: center;
   }
