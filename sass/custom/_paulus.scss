@@ -639,33 +639,23 @@ article.listing {
   h1 {}
 
   h2 {
-    font-size: 1.5em;
+    // font-size: 1.5em;
     margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
-    //
-    // border: 0;
-    // border-top: 1px solid $primary-color;
-    // padding-top: 1.4rem;
   }
 
   h3 {
     text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    font-size: 1.2rem;
+    letter-spacing: 0.05rem;
+    font-size: 1.5rem;
     margin-top: 2em;
-
-    // Future re-design
-    // margin: 2em 0 1rem;
   }
 
   h4 {
-    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: 1.25rem;
     margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
+    color: $gray;
   }
 
   details {
