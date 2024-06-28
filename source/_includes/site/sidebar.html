@@ -30,14 +30,13 @@
   {% elsif root == 'conference' %}
     {% include asides/conference_navigation.html %}
   {% else %}
-    {% include asides/about.html %}
-
     {% if page.blog_index %}
       {% include asides/categories.html %}
     {% else %}
       {% include post/sharing.html %}
       {% include asides/recent_posts.html %}
     {% endif %}
+    {% include asides/about.html %}
   {% endif %}
   {% if page.toc %}
     {%- unless page.no_toc -%}
