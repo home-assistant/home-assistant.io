@@ -18,6 +18,19 @@ body, html {
   width: 100%;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font;
+  font-weight: 650;
+  letter-spacing: -.005em;
+}
+
+h1 {font-weight: 800;}
+h3, h4 {font-weight: 700;}
+
+p, li {
+  letter-spacing: .005em;
+}
+
 a {
   color: $link-color;
   text-decoration: none;

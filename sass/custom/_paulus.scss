@@ -1,17 +1,5 @@
 @charset "UTF-8";
 
-// Typography fixes
-p,li {
-  letter-spacing: .005em;
-}
-
-h1,h2,h3,h4,h5,h6 {
-  font-family: $heading-font;
-  font-weight: 650;
-  letter-spacing: -.005em;
-}
-h1 {font-weight: 800;}
-h3, h4 {font-weight: 700;}
 .page h1.title.indent {
   font-size: 56px;
 }
@@ -997,4 +985,10 @@ a.my {
   position: relative;
   top: -100px;
   visibility: hidden;
+}
+
+.site-header {
+  position: fixed;
+  width: 100%;
+  z-index: 999;
 }
