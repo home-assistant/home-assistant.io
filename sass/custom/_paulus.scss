@@ -43,7 +43,7 @@ article> {
   }
   ol>li::before {
     content: counter(my-awesome-counter);
-    color: $white;
+    color: $link-color;
     font-size: 1.25rem;
     font-weight: 600;
     position: absolute;
@@ -52,17 +52,9 @@ article> {
     width: 2rem;
     height: 2rem;
     top: 0;
-    background: $primary-color;
+    background: rgba(26, 188, 242,.2);
     border-radius: 50%;
     text-align: center;
-  }
-}
-
-article.post,
-article.page,
-article.listing {
-  img {
-    border-radius: 16px;
   }
 }
 
@@ -553,8 +545,8 @@ article.listing {
 
   img,
   table {
-    border-radius: 3px;
-    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
     vertical-align: middle;
   }
 
@@ -574,11 +566,13 @@ article.listing {
 
   p.img {
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 8px;
+    border-width: 8px;
     text-align: center;
     padding-bottom: 3px;
     font-size: 0.9rem;
-    box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 1px;
+    border: 0;
 
     img {
       display: block;
@@ -588,7 +582,8 @@ article.listing {
   }
 
   li {
-    margin-bottom: 10px;
+    margin-top: 4px;
+    margin-bottom: 8px;
 
     &>p:last-child {
       margin-bottom: 0;
@@ -597,6 +592,9 @@ article.listing {
     &:last-child {
       margin-bottom: 0;
     }
+  }
+  &>ol>li {
+    margin-bottom: 16px;
   }
 
   a {
