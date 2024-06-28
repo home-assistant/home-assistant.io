@@ -2,6 +2,18 @@
 
 $primary-color: #1abcf2;
 
+body, html {
+  font-family: "Instrument Sans", system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.01rem;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4 {
+  font-family: Figtree, system, -apple-system, ".SFNSText-Regular", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", sans-serif;
+  font-weight: 600;
+}
+
 .site-header {
   position: relative;
 
@@ -475,8 +487,6 @@ dt:hover a.title-link {
 article.post,
 article.page,
 article.listing {
-  font-size: 1.125em;
-  line-height: 1.6;
 
   img,
   table {
@@ -534,36 +544,8 @@ article.listing {
     }
   }
 
-  h1 {}
-
-  h2 {
-    font-size: 1.5em;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
-    //
-    // border: 0;
-    // border-top: 1px solid $primary-color;
-    // padding-top: 1.4rem;
-  }
-
-  h3 {
-    text-transform: uppercase;
-    letter-spacing: 0.125rem;
-    font-size: 1.2rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 2em 0 1rem;
-  }
-
-  h4 {
-    font-size: 1.1rem;
-    margin-top: 2em;
-
-    // Future re-design
-    // margin: 1.5em 0 1rem;
+  h2, h3, h4 {
+    margin-top: 1.2em;
   }
 
   details {
