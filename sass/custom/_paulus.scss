@@ -3,10 +3,12 @@
 .page h1.title.indent {
   font-size: 56px;
 }
-h1.title.delta {
+h1.title.delta, h1.title.epsilon {
   border-bottom: none;
+  margin-bottom: .75rem;
   text-transform: uppercase;
   letter-spacing: .05em;
+  color: $gray;
 }
 
 .title.indent {

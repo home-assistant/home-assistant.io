@@ -42,7 +42,7 @@
     {%- unless page.no_toc -%}
       <section class="aside-module grid__item one-whole lap-one-half">
         <div class='section'>
-          <h1 class="title delta">On this page</h1>
+          <h1 class="title epsilon">On this page</h1>
           {{ content | toc_only }}
         </div>
       </section>
@@ -52,7 +52,7 @@
   {%- if page.ha_category.first -%}
     <section class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
-        <h1 class="title delta">Categories</h1>
+        <h1 class="title epsilon">Categories</h1>
         <ul class='divided'>
         {%- for category in page.ha_category -%}
           <li>
