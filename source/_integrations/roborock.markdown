@@ -15,7 +15,6 @@ ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
-  - '@humbertogontijo'
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
@@ -41,7 +40,7 @@ Once you log in with your Roborock account, the integration will automatically d
 {% include integrations/config_flow.md %}
 
 
-## Entities
+## Robovac entities
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
@@ -133,6 +132,25 @@ Reset air filter - The air filter is expected to be replaced every 150 hours.
 You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
+## Dyad entities
+
+Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'drying' or 'charging'.
+
+Battery - The current charge of your device.
+
+Filter time left - how long until Roborock recommends cleaning/replacing your filter.
+
+Brush time left - how long until Roborock recommends cleaning/replacing your brush.
+
+Error - the current error of the device - if one exists - "None" otherwise.
+
+Total cleaning time - how long you have cleaned with your wet/dry vacuum.
+
+
 ## FAQ
 
 ### Can I use the Mi home app with this integration?
@@ -156,7 +174,7 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Services** > **Roborock: Get maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
 You will get a response like this:
 ```json
 vacuum.s7_roborock:

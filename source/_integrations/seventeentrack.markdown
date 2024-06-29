@@ -88,7 +88,7 @@ The `seventeentrack.get_packages` service allows you to query the 17track API fo
 | `package_state`        | yes      | A list of the package states.                |
 
 ```yaml
-# Example automation action to add a product to the cart by name.
+# Example automation action to retrieve packages with specific states from 17Track
 - service: seventeentrack.get_packages
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991

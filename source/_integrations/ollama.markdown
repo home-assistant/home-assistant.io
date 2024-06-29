@@ -15,6 +15,8 @@ related:
     title: Home Assistant Templating
   - docs: /docs/automation/trigger/#sentence-trigger
     title: Sentence trigger
+ha_platforms:
+  - conversation
 ---
 
 The **Ollama** {% term integration %} adds a conversation agent in Home Assistant powered by a local [Ollama](https://ollama.com/) server.

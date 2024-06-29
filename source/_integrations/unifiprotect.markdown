@@ -225,15 +225,6 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Services
 
-### Service unifiprotect.set_default_doorbell_text
-
-Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
-
-| Service data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                     |
-
 ### Service unifiprotect.add_doorbell_text
 
 Adds a new custom message for Doorbells.
@@ -308,5 +299,5 @@ If you get errors while authenticating or fetching data for `NvrError... 404 - R
 Similarly, a `502 Bad Gateway` also means that your UniFi Protect application may not be running.
 
 ```log
-pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
+uiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
 ```
