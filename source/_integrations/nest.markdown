@@ -297,7 +297,7 @@ The Nest integration provides [device triggers](/docs/automation/trigger/#device
 
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-{% details "Example Device Trigger / Event payload %}
+{% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
 
@@ -378,7 +378,7 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
-{% details "Example Action: Clip Preview (mp4) attachment for iOS %}
+{% details "Example Action: Clip Preview (mp4) attachment for iOS" %}
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
@@ -401,7 +401,7 @@ mode: single
 
 {% enddetails %}
 
-{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS %}
+{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
 
@@ -421,7 +421,7 @@ data:
 
 {% enddetails %}
 
-{% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
+{% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
@@ -455,7 +455,7 @@ This feature is enabled by the following permissions:
 
 To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
 
-{% details "Reconfigure the integration %}
+{% details "Reconfigure the integration" %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
 2. Go to **{% my integrations title="Settings > Devices & Services" %}**.

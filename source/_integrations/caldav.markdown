@@ -53,7 +53,7 @@ This integration was tested against the following systems, but any other complyi
 You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your {% term "`configuration.yaml`" %} file. This method does not support to-do lists. 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% details Manual configuration examples %}
+{% details "Manual configuration examples" %}
 
 ```yaml
 # Example configuration.yaml entry for baikal
