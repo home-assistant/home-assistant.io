@@ -6,6 +6,7 @@
       letter-spacing: .005em;
       color: $gray;
       text-transform: uppercase;
+      padding-top: 8px;
     }
   }
   .component-search {
@@ -185,7 +186,7 @@
 
       .btn {
         display: inline-block;
-        margin-right: 8px;
+        margin-right: 4px;
         margin-bottom: 0;
         padding: 4px 16px;
         font-size: 1rem;
@@ -193,9 +194,8 @@
         box-shadow: none;
         color: $link-color;
 
-        &.current {
-          background-color: #3a5561;
-          background-image: linear-gradient(to bottom, #3a5561, #3f6b7d);
+        &.active {
+          font-weight: bold;
         }
       }
     }
