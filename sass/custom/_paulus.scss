@@ -128,11 +128,13 @@ header .breadcrumbs {
   padding-bottom: 0;
 
   .lead {
-    margin-bottom: 16px;
+    font-size: 1.25rem;
+    margin-bottom: 24px;
   }
 
   .hero-buttons a {
     font-family: $heading-font;
+    font-size: 1.1rem;
     color: white;
     text-transform: uppercase;
     white-space: nowrap;
@@ -144,6 +146,7 @@ header .breadcrumbs {
     &.primary {
       background-color: $link-color;
       font-weight: 700;
+      padding: 8px 20px;
     }
   }
 
