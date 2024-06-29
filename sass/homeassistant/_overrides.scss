@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .page h1.title.indent {
-  font-size: 56px;
+  font-size: 48px;
 }
 .title.delta, .title.epsilon {
   border-bottom: none;
@@ -756,7 +756,7 @@ div.note {
   }
 
   &::before {
-    content: "ℹ"" Note " attr(data-title);
+    content: "ℹ️"" Note " attr(data-title);
     color: #6ab0de;
     font-weight: bold;
 
@@ -777,7 +777,7 @@ div.note {
 
     &::before {
       color: rgb(187, 185, 13);
-      content: "⚠"" Warning " attr(data-title);
+      content: "⚠️"" Warning " attr(data-title);
     }
   }
 }
