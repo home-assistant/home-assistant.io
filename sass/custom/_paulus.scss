@@ -134,10 +134,12 @@ header .breadcrumbs {
 
 // Integrations page filter
 
-#components-page {
-  .filter-button-group {
-    max-height: calc(100vh - 200px);
-    overflow: auto;
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+    .filter-button-group {
+      max-height: calc(100vh - 200px);
+      overflow: auto;
+    }
   }
 }
 

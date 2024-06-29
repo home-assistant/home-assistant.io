@@ -1,4 +1,13 @@
 #components-page {
+  .filter-button-group {
+    label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .005em;
+      color: $gray;
+      text-transform: uppercase;
+    }
+  }
   .component-search {
     margin-bottom: 24px;
 
@@ -7,95 +16,40 @@
       padding: 10px;
 
       background-color: #fefefe;
-      border-radius: 2px;
+      border-radius: 8px;
       border: 1px solid;
       border-color: #7c7c7c #c3c3c3 #ddd;
     }
   }
-}
-
-@media only screen and (max-width: $palm-end) {
-  .hass-option-cards {
-    .option-card {
-      width: calc(100% - 24px) !important;
-    }
+  select {
+    font-family: $sans-serif;
+    border: 0;
+    background-color: $grayLighter;
+    border-radius: 16px;
+    padding: 4px 16px;
   }
-  #components-page {
-    .hass-option-cards {
-      .option-card {
-        width: calc(50% - 24px);
-      }
-    }
+  .category_select {
+    display: none;
   }
 }
 
-@media only screen and (max-width: $lap-end) {
-  #components-page {
-    .filter-button-group {
-      margin-bottom: 16px;
-
-      .btn {
-        display: inline-block;
-        margin-right: 8px;
-        margin-bottom: 8px;
-
-        &.current {
-          background-color: #3a5561;
-          background-image: linear-gradient(to bottom, #3a5561, #3f6b7d);
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (min-width: $desk-start) {
-  #components-page {
-    .filter-button-group {
-      .active {
-        font-weight: bold;
-      }
-
-      .featured {
-        margin: 12px 0;
-      }
-
-      .version_select {
-        margin: 12px 0 12px 0;
-      }
-
-      .version_select > select {
-        width: 100%;
-      }
-
-      .btn {
-        display: block;
-        background: 0;
-        color: black;
-        box-shadow: none;
-        text-shadow: none;
-        padding: 2px;
-        border-radius: 0;
-
-        &.current {
-          font-weight: bold;
-        }
-      }
-    }
-  }
-}
 
 // styles for the cards
 .hass-option-cards {
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flexbox;
-  display: -webkit-flex;
-  display: flex;
+  // display: -ms-flexbox;
+  // display: -webkit-box;
+  // display: -webkit-flexbox;
+  // display: -webkit-flex;
+  // display: flex;
 
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // justify-content: flex-start;
+  // align-items: flex-start;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
+
   margin: -10px; // grid trick, has to match option-card's margin
 
   p.note {
@@ -104,7 +58,7 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 192px;
+    min-width: 192px;
     height: 192px;
     display: inline-block;
     background-color: #f8f8f8;
@@ -172,6 +126,122 @@
       cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
     animation: removed-item-animation 0.2s cubic-bezier(0.55, -0.04, 0.91, 0.94)
       forwards;
+  }
+}
+
+
+@media only screen and (max-width: $palm-end) {
+  .hass-option-cards {
+    .option-card {
+      width: calc(100% - 24px) !important;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      height: 80px;
+      margin: 8px;
+
+      .img-container {
+        margin: 8px;
+
+        img {
+          max-width: 48px;
+          max-height: 48px;
+        }  
+      }
+
+      .title {
+        height: auto;
+        margin: 8px;
+      }
+    }
+  }
+  #components-page {
+    .hass-option-cards {
+      grid-template-columns: 1fr;
+      .option-card {
+        width: calc(50% - 24px);
+      }
+    }
+    .category_select {
+      display: block;
+    }
+    .category_list {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $lap-end) {
+  #components-page {
+    .filter-button-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: flex-end;
+
+      &>div {
+        margin-right: 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-right: 8px;
+        margin-bottom: 0;
+        padding: 4px 16px;
+        font-size: 1rem;
+        background: $grayLighter;
+        box-shadow: none;
+        color: $link-color;
+
+        &.current {
+          background-color: #3a5561;
+          background-image: linear-gradient(to bottom, #3a5561, #3f6b7d);
+        }
+      }
+    }
+    .category_select {
+      display: block;
+    }  
+    .category_list {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+
+    .filter-button-group {
+      .active {
+        font-weight: bold;
+      }
+
+      .featured {
+        margin: 12px 0;
+      }
+
+      .version_select {
+        margin: 12px 0 12px 0;
+      }
+
+      .version_select > select {
+        width: 100%;
+      }
+
+      .btn {
+        display: block;
+        background: 0;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        padding: 2px;
+        border-radius: 0;
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
   }
 }
 
