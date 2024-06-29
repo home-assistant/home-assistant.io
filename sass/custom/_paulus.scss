@@ -51,10 +51,17 @@ article> {
     line-height: 2rem;
     width: 2rem;
     height: 2rem;
-    background: $primary-color;
+    background: $grayLight;
     // background: rgba(26, 188, 242,.2);
     border-radius: 50%;
     text-align: center;
+    transition: background 1s;
+  }
+  ol:hover>li::before {
+    background: $link-color;
+  }
+  ol:hover>li:hover::before {
+    background: $primary-color;
   }
 }
 ul, ol, dd {
