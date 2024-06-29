@@ -17,8 +17,7 @@ related:
     title: Configuration file
 ---
 
-[Emoncms](https://github.com/emoncms/emoncms) produces an unique identifier starting from version 11.5.7
-
+[Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
 If you upgrade your existing Emoncms installation to a version shipping a unique identifier, you have to migrate your Emoncms database before restarting Home Assistant:
 
 - Login to Emoncms and navigate to Setup > Admin > Update
