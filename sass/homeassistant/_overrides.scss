@@ -82,6 +82,7 @@ ul, ol, dd {
   iconify-icon {
     height: 14px;
     margin-top: -2px;
+    padding-right: 8px;
   }
 }
 
@@ -91,7 +92,7 @@ ul, ol, dd {
 
 .menu > li > a:hover,
 .menu > li > a:focus {
-  background: $site-background;
+  background: none;
   box-shadow: inset 0px -5px $primary-color;
   color: $navigation-color;
   padding-bottom: 12px;
