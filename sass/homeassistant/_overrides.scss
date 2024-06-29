@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .page h1.title.indent {
-  font-size: 48px;
+  font-size: 3.125em;
 }
 .title.delta, .title.epsilon {
   border-bottom: none;
@@ -22,7 +22,7 @@
     font-size: .95em;
   }
   .page h1.title.indent {
-    font-size: 46px;
+    font-size: 2.875em;
     overflow-wrap: break-word;
     hyphens: auto;
   }
@@ -649,6 +649,9 @@ dt:hover a.title-link {
   }
 }
 
+
+// Article formatting
+
 article.post,
 article.page,
 article.listing {
@@ -724,14 +727,14 @@ article.listing {
   h3 {
     text-transform: uppercase;
     letter-spacing: 0.05rem;
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin-top: 2em;
   }
 
   h4 {
     text-transform: uppercase;
     letter-spacing: 0.05rem;
-    font-size: 1.25rem;
+    font-size: 1.1875rem;
     margin-top: 2em;
     color: $gray;
   }
