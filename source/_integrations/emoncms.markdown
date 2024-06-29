@@ -26,7 +26,7 @@ If you upgrade your existing Emoncms installation to a version shipping a unique
 
 Then click on 'Apply Changes':
 
-The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
+The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud-based version of [Emoncms](https://emoncms.org).
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file. It will list all feeds as a sensor.
 {% include integrations/restart_ha_after_config_inclusion.md %}
