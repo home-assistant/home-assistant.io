@@ -810,15 +810,22 @@ div.note {
 
       li.toc-entry {
         list-style-type: none;
+        border-top: 1px solid #eee;
+        padding: 7px 0;
 
         li {
-          list-style-type: circle;
-          margin-left: 1em;
+          list-style-type: disc;
+          margin-left: .5em;
         }
 
         ul {
-          margin-left: 1em;
+          margin: 7px 0 -7px 1em;
         }
+      }
+
+      &>li.toc-entry:first-child{
+        border-top: 0;
+        padding-top: 0;
       }
     }
 
