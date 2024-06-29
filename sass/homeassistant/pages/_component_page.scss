@@ -132,7 +132,7 @@
 
 @for $i from 1 through 40 {
   .option-card:nth-child(#{$i}) {
-    animation-delay: #{$i * 0.025}s !important;
+    animation-delay: #{$i * 0.04}s !important;
   }
 }
 
