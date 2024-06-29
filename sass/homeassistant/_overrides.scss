@@ -70,19 +70,28 @@ ul, ol, dd {
 
 // Better looking menu
 
-.menu li a {
-  @include box-sizing(border-box);
-  display: block;
-  padding: 29px 0px 12px;
-  margin: 0 14px 27px;
-  text-decoration: none;
-  font-size: 14px;
-  line-height: 1;
+.menu li {
+  a {
+    @include box-sizing(border-box);
+    display: block;
+    padding: 29px 0px 12px;
+    margin: 0 14px 27px;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1;
+  }
 
   iconify-icon {
     height: 14px;
     margin-top: -2px;
-    padding-right: 8px;
+  }
+
+  ul {
+    iconify-icon {
+      height: 16px;
+      padding-top: 2px;
+      padding-right: 8px;
+    }
   }
 }
 
