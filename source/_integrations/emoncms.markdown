@@ -18,13 +18,13 @@ related:
 ---
 
 [Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
+
 If you upgrade your existing Emoncms installation to a version shipping a unique identifier, you have to migrate your Emoncms database before restarting Home Assistant:
 
 - Login to Emoncms and navigate to Setup > Admin > Update
-- To update the database click on ‘UPDATE DATABASE ONLY’
+- Click on `Update Database`
 ![update in admin module](/images/integrations/emoncms/emoncms_update.png)
-
-Then click on 'Apply Changes':
+- Then click on `Apply Changes`:
 ![migrate_database_to_uuid](/images/integrations/emoncms/migrate_database_to_uuid.png)
 
 The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud-based version of [Emoncms](https://emoncms.org).
