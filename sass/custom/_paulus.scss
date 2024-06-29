@@ -52,7 +52,6 @@ article> {
     width: 2rem;
     height: 2rem;
     background: $grayLight;
-    // background: rgba(26, 188, 242,.2);
     border-radius: 50%;
     text-align: center;
     transition: background 1s;
@@ -87,9 +86,7 @@ ul, ol, dd {
 }
 
 .menu > li > a {
-  // font-family: $heading-font;
   font-weight: 500;
-  // text-transform: uppercase;
 }
 
 .menu > li > a:hover,
@@ -207,7 +204,6 @@ header .breadcrumbs {
     }
 
     .socials {
-      // text-align: right;
       .icons {
         margin: -16px 0 16px 0;
         iconify-icon {
@@ -291,7 +287,6 @@ header .breadcrumbs {
   background-color: $white;
   border-radius: 16px;
   border: 1px solid rgba(0, 0, 0, .12);
-  // box-shadow: rgba(0,0,0,0.06) 0 0 10px;
 
   h1 {
     font-family: $heading-font;
@@ -390,7 +385,6 @@ header .breadcrumbs {
   text-decoration: none !important;
   border-radius: 24px;
   margin: 8px 0;
-  // box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
   
   &::before {
     content: " ";
@@ -605,8 +599,6 @@ header .breadcrumbs {
 }
 
 
-// https://fortawesome.github.io/Font-Awesome/3.2.1/icons/
-
 h1:hover a.title-link,
 h2:hover a.title-link,
 h3:hover a.title-link,
@@ -726,10 +718,7 @@ article.listing {
     }
   }
 
-  h1 {}
-
   h2 {
-    // font-size: 1.5em;
     margin-top: 2.5em;
   }
 
@@ -762,7 +751,6 @@ div.note {
   padding: 54px 24px 20px 24px;
   margin-bottom: 24px;
   border-radius: 16px;
-  // box-shadow: rgba(0, 0, 0, 0.06) 0 0 10px;
 
   p {
     margin-bottom: 0px;

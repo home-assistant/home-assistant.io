@@ -37,17 +37,6 @@
 
 // styles for the cards
 .hass-option-cards {
-  // display: -ms-flexbox;
-  // display: -webkit-box;
-  // display: -webkit-flexbox;
-  // display: -webkit-flex;
-  // display: flex;
-
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // justify-content: flex-start;
-  // align-items: flex-start;
-
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
 
@@ -255,10 +244,6 @@
 @keyframes new-item-animation {
   from {
     opacity: 0;
-    // -webkit-transform: scale(0.8);
-    // -ms-transform: scale(0.8);
-    // -o-transform: scale(0.8);
-    // transform: scale(0.8);
   }
   to {
     opacity: 1;
@@ -271,8 +256,6 @@
 @-webkit-keyframes new-item-animation {
   from {
     opacity: 0;
-    // -webkit-transform: scale(0.8);
-    // transform: scale(0.8);
   }
   to {
     opacity: 1;
@@ -283,8 +266,6 @@
 @-o-keyframes new-item-animation {
   from {
     opacity: 0;
-    // -o-transform: scale(0.8);
-    // transform: scale(0.8);
   }
   to {
     opacity: 1;
@@ -321,10 +302,6 @@
     transform: scale(1);
   }
   to {
-    // -webkit-transform: scale(0.8);
-    // -ms-transform: scale(0.80);
-    // -o-transform: scale(0.8);
-    // transform: scale(0.8);
     opacity: 0;
   }
 }
@@ -335,8 +312,6 @@
     transform: scale(1);
   }
   to {
-    // -webkit-transform: scale(0.8);
-    // transform: scale(0.8);
     opacity: 0;
   }
 }
@@ -347,8 +322,6 @@
     transform: scale(1);
   }
   to {
-    // -o-transform: scale(0.8);
-    // transform: scale(0.8);
     opacity: 0;
   }
 }
