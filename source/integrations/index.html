@@ -25,15 +25,17 @@ regenerate: false
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 
 <div class="grid">
-  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
+  <div class="grid__item one-fifth lap-one-whole palm-one-whole">
 
     <div class="filter-button-group">
-      <a href='#all' class="btn">All ({{tot}})</a>
+      <a href='#all' class="btn">All <span class="count">{{tot}}</span></a>
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
         <a href='#works-with-home-assistant' class="btn">Partner brands</a>
       </div>
-      <div class="version_select">Added in: <select id="versions" name="versions">
+      <div class="version_select">
+        <h5 class="title epsilon">By release</h5>
+        <select id="versions" name="versions">
           <option value="#"></option>
           {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
@@ -44,6 +46,7 @@ regenerate: false
           </optgroup>
           {%- endfor -%}
         </select></div>
+      <h5 class="title epsilon">By Categories</h5>
       {%- for category in categories -%}
         {%- assign category_name = "" -%}
         {%- assign components_count = 0 -%}
@@ -65,14 +68,14 @@ regenerate: false
           {%- if category_name == "" -%}
             {%- assign category_name = category | capitalize -%}
           {%- endif -%}
-          <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} ({{ components_count }})</a>
+          <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} <span class="count">{{ components_count }}</span></a>
         {%- endif -%}
       {%- endfor -%}
 
       <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
     </div>
   </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item four-fifths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />

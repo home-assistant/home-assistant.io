@@ -74,6 +74,7 @@
         box-shadow: none;
         text-shadow: none;
         padding: 2px;
+        border-radius: 0;
 
         &.current {
           font-weight: bold;
@@ -103,11 +104,11 @@
 
   .option-card {
     flex: 0 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 192px;
+    height: 192px;
     display: inline-block;
     background-color: #f8f8f8;
-    margin: 11px;
+    margin: 10px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, .12);
     padding: 8px;

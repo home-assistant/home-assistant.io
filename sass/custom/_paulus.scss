@@ -3,7 +3,7 @@
 .page h1.title.indent {
   font-size: 56px;
 }
-h1.title.delta, h1.title.epsilon {
+.title.delta, .title.epsilon {
   border-bottom: none;
   margin-bottom: .75rem;
   text-transform: uppercase;
@@ -117,7 +117,6 @@ ul, ol, dd {
 }
 
 
-
 // Page breadcrumbs
 
 header .breadcrumbs {
@@ -130,6 +129,24 @@ header .breadcrumbs {
     text-decoration: none !important;
     font-weight: 600;
   }
+}
+
+
+// Integrations page filter
+
+#components-page {
+  .filter-button-group {
+    max-height: calc(100vh - 200px);
+    overflow: auto;
+  }
+}
+
+.count {
+  font-size: .8rem;
+  background: $grayLighter;
+  color: $gray;
+  padding: 1px 4px;
+  border-radius: 8px;
 }
 
 
