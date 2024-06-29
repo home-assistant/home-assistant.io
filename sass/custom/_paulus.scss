@@ -164,21 +164,20 @@ header .breadcrumbs {
   h1 {
     font-family: $heading-font;
     -webkit-font-smoothing: antialiased;
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 1.33rem;
+    font-weight: 600;
     letter-spacing: -0.012em;
     line-height: 40px;
     color: #212121;
-    padding: 20px 16px 12px;
     text-transform: capitalize;
-    margin: 0;
+    margin: -8px 0 0;
   }
 
   &.text {
     padding: 24px;
 
     h1 {
-      padding: 4px 0px 12px;
+      padding: 0px 0px 12px;
     }
     &>svg {
       margin-top: -8px;
@@ -187,15 +186,21 @@ header .breadcrumbs {
   }
 
   .links {
-    margin-top: 8px;
-    margin-left: -8px;
+    margin-top: 12px;
+    margin-right: -8px;
+    font-size: .9rem;
+    text-align: right;
 
     a {
+      background: #e8edf0; 
+      font-family: $heading-font;
       text-decoration: none;
-      font-weight: 500;
+      font-weight: 650;
       text-transform: uppercase;
       display: inline-block;
-      margin: 0 8px;
+      margin: 4px;
+      padding: 6px 16px;
+      border-radius: 16px;
     }
   }
 
@@ -241,17 +246,19 @@ header .breadcrumbs {
 
 
 .button {
-    position: relative;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 8px 28px;
-    color: #fff;
-    background-color: #03a9f4;
-    border: none;
-    text-decoration: none !important;
-    border-radius: 4px;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
+  position: relative;
+  cursor: pointer;
+  font-family: $heading-font;
+  font-size: 1.1rem;
+  font-weight: 650;
+  padding: 12px 24px;
+  color: $link-color;
+  background-color: #e8edf0;
+  border: none;
+  text-decoration: none !important;
+  border-radius: 24px;
+  margin: 8px 0;
+  // box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
   
   &::before {
     content: " ";
@@ -264,7 +271,7 @@ header .breadcrumbs {
     border-radius: 4px;
   }
   &:hover {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2);
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,.14), 0 1px 7px 0 rgba(0,0,0,.12), 0 3px 1px -1px rgba(0,0,0,.2);
   }
   &:hover::before {
     background-color: rgba(255,255,255,.8);
