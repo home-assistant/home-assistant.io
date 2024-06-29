@@ -179,7 +179,7 @@ header .breadcrumbs {
   }
 
   .footer-nav {
-    padding: 32px 0;
+    padding: 40px 0;
     margin: 0 -24px;
     text-align: left;
 
@@ -217,8 +217,17 @@ header .breadcrumbs {
         }
       }
 
-      .web-notice {
-        text-align: right;
+      @media only screen and (min-width: $desk-start) {
+        .web-notice {
+          text-align: right;
+
+          p {
+            color: $gray;
+            font-size: .8rem;
+            line-height: 1.25;
+            margin-bottom: 16px;
+          }
+        }
       }
     }
 
