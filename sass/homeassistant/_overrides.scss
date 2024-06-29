@@ -117,17 +117,6 @@ ul, ol, dd {
     font-weight: normal;
   }
 
-  .release-date {
-    font-size: 10px;
-    margin: 30px 0 0;
-    padding: 0 4px 0 4px;
-    background: #e8edf0;
-    height: fit-content;
-    color: $link-color;
-    font-weight: 500;
-    border-radius: 4px;
-    letter-spacing: .025rem;
-  }
 }
 
 
@@ -261,6 +250,12 @@ header .breadcrumbs {
   background: rgb(24,188,242);
   background: linear-gradient(0deg, rgba(24,188,242,1) 0%, rgba(24,188,242,.8) 100%);
   padding-bottom: 0;
+  margin-top: -100px;
+  padding-top: 100px;
+  overflow: hidden;
+  // height: calc(100vh - 64px);
+  // max-height: 1080px;
+  // scroll-snap-align: end;
 
   .lead {
     font-size: 1.25rem;
@@ -287,6 +282,7 @@ header .breadcrumbs {
 
   img {
     display: block;
+    box-shadow: 16px 64px 64px hsla(212, 100%,33%,.8);
   }
 }
 
@@ -620,22 +616,6 @@ dt:hover a.title-link {
     margin-left: 4px;
     color: #999;
     content: "\00B6"; /* pilcrow */
-  }
-}
-
-.ha-title {
-  display: inline-flex;
-  height: 100%;
-  white-space: nowrap;
-
-  img {
-    border-radius: 3px;
-    height: 36px;
-    margin-right: 10px;
-  }
-
-  a>* {
-    vertical-align: middle;
   }
 }
 
