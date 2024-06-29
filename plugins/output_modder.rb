@@ -21,6 +21,16 @@ module Jekyll
                 # All external links start with 'http', skip when this one does not
                 next unless link.get_attribute('href') =~ /\Ahttp/i
 
+                # Append an external link icon, if there isn't an icon already
+                next if link.get_attribute('href') =~ /\Ahttps?:\/\/\w*.?home-assistant.io/i
+                next if link.css('iconify-icon').any?
+
+                icon = Nokogiri::XML::Node.new('iconify-icon', dom)
+                icon['inline'] = true
+                icon['icon'] = 'tabler:external-link'
+                icon['class'] = 'external-link'
+                link.add_child(icon)
+
                 # Play nice with our own links
                 next if link.get_attribute('href') =~ /\Ahttps?:\/\/(?:\w+\.)?(?:home-assistant\.io|esphome\.io|nabucasa\.com|openhomefoundation\.org)/i
 
@@ -29,15 +39,6 @@ module Jekyll
 
                 # Add rel attribute to link
                 link.set_attribute('rel', rel.join(' ').strip)
-
-                # Append an external link icon, if there isn't an icon already
-                next if link.css('iconify-icon').any?
-
-                icon = Nokogiri::XML::Node.new('iconify-icon', dom)
-                icon['inline'] = true
-                icon['icon'] = 'tabler:external-link'
-                icon['class'] = 'external-link'
-                link.add_child(icon)
             end
 
             # Find all headers, make them linkable
