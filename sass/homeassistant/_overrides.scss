@@ -734,48 +734,6 @@ article.listing {
   }
 }
 
-p.note,
-div.note {
-  position: relative;
-
-  background: #e7f2fa;
-
-  padding: 54px 24px 20px 24px;
-  margin-bottom: 24px;
-  border-radius: 16px;
-
-  p {
-    margin-bottom: 0px;
-  }
-
-  &::before {
-    content: "ℹ️"" Note " attr(data-title);
-    color: #6ab0de;
-    font-weight: bold;
-
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
-    padding: 16px 24px;
-
-    line-height: 1.5em;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-  }
-
-  &.warning {
-    background-color: #f7f9e1;
-
-    &::before {
-      color: rgb(187, 185, 13);
-      content: "⚠️"" Warning " attr(data-title);
-    }
-  }
-}
-
-
 .aside-module {
   background: white;
   border-radius: 16px;

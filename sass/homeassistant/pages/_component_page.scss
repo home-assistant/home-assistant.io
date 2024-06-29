@@ -42,7 +42,7 @@
 
   margin: -10px; // grid trick, has to match option-card's margin
 
-  p.note {
+  div.alert, p.alert-content {
     width: 100%;
   }
 
