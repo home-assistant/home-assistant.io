@@ -152,6 +152,73 @@ header .breadcrumbs {
 }
 
 
+// Footer
+footer {
+  margin-top: 194px !important;
+
+  .skyline.grid{
+    position: relative;
+
+    .grid__item {
+      background-image: url(/images/footer-skyline.svg);
+      background-repeat: no-repeat;
+      background-size: 740px auto;
+      background-position-x: 24px;
+      position: absolute;
+      top: -130px;
+      height: 130px;
+      width: calc(100% + 24px);
+    }
+  }
+
+  .footer-nav {
+    padding: 32px 0;
+    margin: 0 -24px;
+    text-align: left;
+
+    h4 {
+      text-transform: uppercase;
+      font-size: .9rem;
+      letter-spacing: 0.005em;
+      margin-bottom: 8px;
+    }
+    ul {
+      padding-bottom: 24px;
+    }
+
+    .company {
+      .title {
+        font-size: 1.5em;
+        padding-bottom: 24px;
+      }
+
+      img {
+        vertical-align: middle;
+        height: 72px;
+      }
+    }
+
+    .socials {
+      iconify-icon {
+        font-size: 2em;
+        margin-top: 12px;
+        padding-right: 8px;
+      }
+    }
+
+    ul {
+      margin: 0;
+      list-style: none;
+
+      li {
+        padding-bottom: 4px;
+      }
+    }
+  }
+}
+
+
+// Front page hero section
 
 @media only screen and (max-width: $menu-collapse) {
   .feedback {
@@ -191,6 +258,9 @@ header .breadcrumbs {
     display: block;
   }
 }
+
+
+// Material Card
 
 .material-card {
   background-color: $white;
@@ -706,31 +776,6 @@ div.note {
   }
 }
 
-.copyright {
-  text-align: left;
-
-  .company {
-    .title {
-      font-size: 1.5em;
-    }
-
-    img {
-      vertical-align: middle;
-      height: 120px;
-    }
-
-    iconify-icon {
-      font-size: 2em;
-      margin-top: 12px;
-      padding-right: 4px;
-    }
-  }
-
-  ul {
-    margin: 0;
-    list-style: none;
-  }
-}
 
 .aside-module {
   background: white;
