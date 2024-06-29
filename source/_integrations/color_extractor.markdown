@@ -28,11 +28,9 @@ Passing the key `color_extract_url` to the {% term service %} call will download
 | `color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                 |
 | `entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                   |
 
-<div class="note">
-  
-  Please ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/docs/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
-  
-</div>
+{% important %}
+Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/docs/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
+{% endimportant %}
 
 ### URL Service Call
 

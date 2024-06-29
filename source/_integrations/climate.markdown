@@ -21,11 +21,9 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
 
-<div class='note'>
-
+{% tip %}
 Not all climate {% term services %}  may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
-
-</div>
+{% endtip %}
 
 ### Service `climate.set_aux_heat`
 

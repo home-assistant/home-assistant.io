@@ -177,11 +177,9 @@ See [Calendar Automations](/integrations/calendar#automation) for an overview, a
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
-<div class='note'>
-
+{% tip %}
 Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
-
-</div>
+{% endtip %}
 
 - **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting `!! -10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`. This attribute is not available when configured from the UI.
 - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
