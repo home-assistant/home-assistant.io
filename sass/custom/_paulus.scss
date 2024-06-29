@@ -67,11 +67,16 @@ ul, ol, dd {
 .menu li a {
   @include box-sizing(border-box);
   display: block;
-  padding: 27px 0px 12px;
+  padding: 29px 0px 12px;
   margin: 0 14px 27px;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1;
+
+  iconify-icon {
+    height: 14px;
+    margin-top: -2px;
+  }
 }
 
 .menu > li > a {
