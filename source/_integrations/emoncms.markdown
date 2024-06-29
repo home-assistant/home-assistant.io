@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: emoncms
 ha_codeowners:
   - '@borpin'
+  - '@alexandrecuer'
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -15,6 +16,19 @@ related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
+
+[Emoncms](https://github.com/emoncms/emoncms) produces an unique identifier starting from version 11.5.7
+
+If you upgrade your existing Emoncms installation to a version shipping an unique identifier, you have to migrate your Emoncms database before restarting home assistant:
+
+- Login to Emoncms and navigate to Setup > Admin > Update
+- To update the database click on ‘UPDATE DATABASE ONLY’
+
+![update in admin module](/images/integrations/emoncms/emoncms_update.png)
+
+Then click on ‘Apply Changes‘ :
+
+![migrate database](/images/integrations/emoncms/migrate_database_to_uuid.png)
 
 The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
 
