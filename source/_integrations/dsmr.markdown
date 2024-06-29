@@ -44,9 +44,9 @@ To configure options for DSMR integration go to **Settings** -> **Devices & Serv
 
 Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
 
-<div class='note warning'>
+{% important %}
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
-</div>
+{% endimportant %}
 
 ### Supported meters
 

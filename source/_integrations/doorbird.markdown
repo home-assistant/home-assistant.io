@@ -50,9 +50,9 @@ Event names will be prefixed by `doorbird_devicename`. For example, the example 
 
 See [Automation Example](#automation-example) section below for details on how to use the event names in an automation.
 
-<div class="note info">
+{% important %}
 Events will not be received in Home Assistant until a schedule is defined via the DoorBird app.
-</div>
+{% endimportant %}
 
 ### Clearing registered events
 
@@ -77,9 +77,9 @@ The following keys are available on `event_data`:
 - `rtsp_live_video_url`
 - `html5_viewer_url`
 
-<div class="note">
+{% note %}
 The URLs on the event will be based on the configuration used to connect to your DoorBird device. The ability to connect from outside your network will depend on your configuration.
-</div>
+{% endnote %}
 
 ## Schedules
 
