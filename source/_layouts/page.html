@@ -5,7 +5,7 @@ layout: default
 <article class="page">
   {% if page.title and page.show_title != false and page.layout != "landingpage"  %}
   <header>
-    {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+    {% assign crumbs = page.url | split: '/' %}
     {% if crumbs.size > 2 %}
       <div class="breadcrumbs">
         <a href="/">Home</a>
@@ -13,14 +13,14 @@ layout: default
           {% if forloop.last %}
             ▸ 
           {% else %}
-            ▸ <a href="{% assign crumb_limit = forloop.index | plus: 1 %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' | replace:'without-plugin/','without-plugins/' }}{% endfor %}">{{ crumb | replace:'-',' ' | remove:'.html' | capitalize }}</a>
+            {% assign crumb_limit = forloop.index | plus: 1 %}
+            ▸ <a href="{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}">{{ crumb | replace:'docs','documentation' | replace:'-',' ' | replace:'_',' ' | capitalize }}</a>
           {% endif %}
         {% endfor %}
       </div>
     {% endif %}
     <h1 class="title indent">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title
-      }}{% endif %}
+      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
     </h1>
   </header>
   {% if page.collection == "integrations" %}
