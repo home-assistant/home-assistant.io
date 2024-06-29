@@ -44,6 +44,12 @@ a {
   }
 }
 
+a.external-link iconify-icon,
+iconify-icon.external-link {
+  font-size: 1.0rem;
+  vertical-align: text-top;
+}
+
 table {
   table-layout: fixed;
   width: 100%;
