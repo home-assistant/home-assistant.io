@@ -97,7 +97,20 @@ ul, ol, dd {
     align-items: center;
     font-weight: normal;
   }
+
+  .release-date {
+    font-size: 10px;
+    margin: 30px 0 0;
+    padding: 0 4px 0 4px;
+    background: #e8edf0;
+    height: fit-content;
+    color: $link-color;
+    font-weight: 500;
+    border-radius: 4px;
+    letter-spacing: .025rem;
+  }
 }
+
 
 
 // Page breadcrumbs

@@ -1,3 +1,5 @@
+{% assign recent_release_post = site.categories['Core'].first %}
+
 <div class="grid-wrapper">
   <div class="grid">
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
@@ -7,6 +9,11 @@
           height="36"
           alt="Home Assistant"
         />
+      </a>
+      <a class="release-date" href="{{ recent_release_post.url }}" title="Latest version {{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }} released {{ site.date_released | date: "%B %e, %Y" }}">
+        {{ site.current_major_version }}.{{
+          site.current_minor_version }}.{{ site.current_patch_version }}
       </a>
     </div>
 
