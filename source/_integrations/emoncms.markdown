@@ -25,9 +25,7 @@ If you upgrade your existing Emoncms installation to a version shipping a unique
 - To update the database click on ‘UPDATE DATABASE ONLY’
 ![update in admin module](/images/integrations/emoncms/emoncms_update.png)
 
-Then click on ‘Apply Changes‘ :
-
-![migrate database](/images/integrations/emoncms/migrate_database_to_uuid.png)
+Then click on 'Apply Changes':
 
 The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
 
