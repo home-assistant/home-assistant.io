@@ -36,17 +36,13 @@ Cameras and doorbells use [Automation and device triggers](#automation-and-devic
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
-<div class='note'>
-
+{% caution %}
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+{% endcaution %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 The Google Nest integration uses a Cloud Pub/Sub subscription with a 15-minute retention period by default. The Google Cloud Pub/Sub billing changes, effective June 30, 2024, do not apply. The billing changes only apply to subscriptions with a 24-hour retention period. See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions if you previously created one manually.
-
-</div>
+{% endnote %}
 
 <lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
@@ -165,9 +161,9 @@ Now that you have authentication configured, you will create a Nest Device Acces
 2. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
     ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
 
-    <div class='note'>
-    It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
-    </div>
+{% note %}
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+{% endnote %}
 
 3. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
 
@@ -228,13 +224,13 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
+{% endnote %}
 
 ## Sensor
 
@@ -245,16 +241,16 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
-<div class='note'>
+{% endnote %}
+{% note %}
 Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
-</div>
+{% endnote %}
 
 
 ## Camera
@@ -264,14 +260,14 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to see and display your camera’s livestream*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
 
 All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
@@ -322,14 +318,14 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 
 Continue reading below to *Media Source Attachments* to see how to use media with notification actions.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
 - *Other permissions and notification settings in the Nest or Google Home apps*.
-</div>
+{% endnote %}
 
 ### Google Home App Notification Settings
 
@@ -441,7 +437,7 @@ data:
 
 {% enddetails %}
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
@@ -449,7 +445,7 @@ This feature is enabled by the following permissions:
 - *Based on the events you've selected to share from this device, allow Home Assistant to access camera snapshots*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
 ## Deprecated App Auth Credentials
 
