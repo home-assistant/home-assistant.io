@@ -70,6 +70,20 @@ These sentences allow you, for example, to:
 - **Control the vacuum**
     - *"return rover to base"*
     - *"start rover"*
+- **Use timers**
+  - *“Create a timer for 5 minutes”*
+  - *“Create a 15-minute timer for pizza”*
+  - *“Cancel my timer”*
+  - *“Pause my timer”*
+  - *“Resume my timer”*
+  - *“Add 2 minutes to my 5-minute timer”*
+  - *“Remove 3 minutes from my pizza timer”*
+- **Combine timers and device control to add a delay**
+Unlike regular voice timers, delayed commands cannot be canceled or modified.
+  - *“Turn off the lights in the living room in 5 minutes”*
+  - *“Pause TV in 10 minutes”*
+  - *“Open the blinds in 5 minutes”*
+
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
