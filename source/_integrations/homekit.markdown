@@ -160,7 +160,7 @@ homekit:
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
@@ -434,6 +434,7 @@ The following integrations are currently supported:
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| valve                                                         | Valve                 | All `valve` devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 # Device triggers
 

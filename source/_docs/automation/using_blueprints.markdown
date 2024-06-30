@@ -41,6 +41,21 @@ Home Assistant can import blueprints from the Home Assistant forums, GitHub, and
 
 The blueprint can now be used for creating automations.
 
+## Editing an imported blueprint
+
+If you want, you can tweak an imported Blueprint by "taking control" of this blueprint. Home Assistant then converts the blueprint automation into a regular, stand-alone, automation, allowing you to make any tweak you want, without having to fully re-invent the wheel.
+
+To edit an imported blueprint, follow these steps:
+
+1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+2. Select the blueprint from the list.
+3. Select the three dots menu and select **Take control**.
+ 
+   ![Screencast showing how to take control of a blueprint](/images/blueprints/blueprint_take_control.webp)
+
+4. Under **Take control of automation?**, select **OK**
+   - **Info**: By taking control, the blueprint is converted into an automation. You won't be able to convert this back into a blueprint.
+
 ## Re-importing a blueprint
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
@@ -53,7 +68,7 @@ The quickest way to get these changes is by re-importing the blueprint. This wil
 2. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
 3. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
 
-## Updating an imported blueprint manually
+## Updating an imported blueprint in YAML
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
 the community provides feedback, and new functionality is added.

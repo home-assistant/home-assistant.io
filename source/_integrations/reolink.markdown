@@ -65,16 +65,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection
-- Visitor (Doorbell presses)
-- AI person detection
-- AI vehicle detection
-- AI pet detection
-- AI animal detection
-- AI face detection
-- AI package detection
+- Motion detection+
+- Visitor+ (Doorbell presses)
+- AI person detection+
+- AI vehicle detection+
+- AI pet detection+
+- AI animal detection+
+- AI face detection+
+- AI package detection+
+- Sleep status
 
-These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\+ These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
@@ -165,7 +166,7 @@ Depending on the supported features of the camera, select entities are added for
 - Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
-- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
+- Doorbell LED (Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -191,6 +192,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
+- Manual record
 - Push notifications
 - Buzzer on event
 - Email on event

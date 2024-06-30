@@ -8,6 +8,7 @@ ha_category:
   - Fan
   - Light
   - Lock
+  - Number
   - Sensor
   - Switch
 ha_release: '2022.12'
@@ -25,6 +26,7 @@ ha_platforms:
   - fan
   - light
   - lock
+  - number
   - sensor
   - switch
 ha_integration_type: integration
