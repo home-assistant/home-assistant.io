@@ -17,17 +17,9 @@ related:
     title: Configuration file
 ---
 
-[Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
-
-If you upgrade your existing Emoncms installation to a version shipping a unique identifier, you have to migrate your Emoncms database before restarting Home Assistant:
-
-- Login to Emoncms and navigate to Setup > Admin > Update
-- Click on `Update Database`
-![update in admin module](/images/integrations/emoncms/emoncms_update.png)
-- Then click on `Apply Changes`:
-![migrate_database_to_uuid](/images/integrations/emoncms/migrate_database_to_uuid.png)
-
 The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud-based version of [Emoncms](https://emoncms.org).
+
+
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file. It will list all feeds as a sensor.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -42,6 +34,16 @@ sensor:
 ```
 
 As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.
+
+As of July 2024, [Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
+
+If you upgrade your existing Emoncms installation to a version shipping a unique identifier, you have to migrate your Emoncms database before restarting Home Assistant:
+
+- Login to Emoncms and navigate to Setup > Admin > Update
+- Click on `Update Database`
+![update in admin module](/images/integrations/emoncms/emoncms_update.png)
+- Then click on `Apply Changes`:
+![migrate_database_to_uuid](/images/integrations/emoncms/migrate_database_to_uuid.png)
 
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
