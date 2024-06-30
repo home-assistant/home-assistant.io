@@ -20,7 +20,7 @@ The `foscam` platform allows you to watch the live stream of your [Foscam](https
 
 {% note %}
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-{% note %}
+{% endnote %}
 
 ### Streams
 
