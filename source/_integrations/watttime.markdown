@@ -38,9 +38,9 @@ Note that the `org` value can be anything you like – it doesn't need to repres
 
 ## Sensors
 
-<div class='note info'>
+{% note %}
 The sensors available to you will depend on the type of WattTime subscription you have. You can reach out to WattTime to upgrade your subscription via [their website](https://www.watttime.org/contact/).
-</div>
+{% endnote %}
 
 | Name                                  | Subscription Level | Meaning                                                                                                     |
 | ------------------------------------- | ------------------ | ----------------------------------------------------------------------------------------------------------- |
