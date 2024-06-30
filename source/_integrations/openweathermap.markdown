@@ -45,13 +45,11 @@ To continue using the service:
 
 For more details, set limits on your usage to avoid charges at [OpenWeatherMap Subscriptions](https://home.openweathermap.org/subscriptions).
 
-<div class='note'>
-
+{% important %}
 If you register an new API key with OpenWeatherMap, it will be activated automatically, this typically takes between 10 minutes and 2 hours
 after your successful registration. Keep in mind when configuring this integration, that you new API key might
 not be activated yet. Recent policy changes limit the API access for new registered users with a free plan, they should select the `hourly` mode. The other modes require a paid subscription plan. Invalid API-key errors might occur if your API key is used with the other modes.
-
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -70,11 +68,9 @@ A `sensor` entity will be created for each supported condition. Their ids will f
 
 Sensors provide data in the language that was selected when configuring the integration.
 
-<div class='note'>
-
+{% note %}
 The Weather entity provides data only in English. Home Assistant automatically translates it to the language configured for the frontend.
-
-</div>
+{% endnote %}
 
 ## Supported Weather Conditions
 
