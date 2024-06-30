@@ -19,8 +19,6 @@ related:
 
 The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud-based version of [Emoncms](https://emoncms.org).
 
-
-
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file. It will list all feeds as a sensor.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
@@ -37,13 +35,7 @@ As of Feb 2020, the integration will discover all sensors from Emoncms and will 
 
 As of July 2024, [Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
 
-If you upgrade your existing Emoncms installation to a version shipping a unique identifier, you have to migrate your Emoncms database before restarting Home Assistant:
-
-- Login to Emoncms and navigate to Setup > Admin > Update
-- Click on `Update Database`
-![update in admin module](/images/integrations/emoncms/emoncms_update.png)
-- Then click on `Apply Changes`:
-![migrate_database_to_uuid](/images/integrations/emoncms/migrate_database_to_uuid.png)
+If you upgrade your existing Emoncms installation to a version shipping a unique identifier, please sure to migrate your Emoncms database before restarting Home Assistant.
 
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
