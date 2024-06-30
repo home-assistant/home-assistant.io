@@ -484,7 +484,7 @@ a.material-card:hover {
     border: none;
 
     .caption {
-      padding: 16px 12px 12px;
+      padding: 8px 12px 12px;
       background-color: rgba(0, 0, 0, 0.54);
       color: white;
       border-bottom-left-radius: 8px;
@@ -496,9 +496,12 @@ a.material-card:hover {
       .title {
         font-size: 20px;
         font-weight: 400;
+        line-height: 1.2em;
       }
 
       .subtitle {
+        margin-top: 4px;
+        line-height: 1.4em;
         font-size: 12px;
         font-weight: initial;
       }
