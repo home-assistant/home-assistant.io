@@ -28,6 +28,10 @@
   scrollbar-width: none;
   border-radius: 16px;
 
+  .aside-module:last-child {
+    margin-bottom: 0;
+  }
+
   .grid {
     position: fixed;
     width: 350px;
