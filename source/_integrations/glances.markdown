@@ -18,11 +18,9 @@ The `glances` integration allows you to monitor the system information provided 
 
 ## Setup
 
-<div class='note warning'>
-
-  Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
-
-</div>
+{% important %}
+Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
+{% endimportant %}
 
 These sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
 
