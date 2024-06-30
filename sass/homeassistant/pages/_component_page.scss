@@ -59,6 +59,8 @@
     text-align: center;
     text-decoration: none;
     align-content: center;
+    transition: box-shadow .33s;
+
 
     .img-container {
       height: 64px;
@@ -117,6 +119,11 @@
     animation: removed-item-animation 0.2s cubic-bezier(0.55, -0.04, 0.91, 0.94)
       forwards;
   }
+}
+
+a.option-card:hover {
+  z-index: 2;
+  box-shadow: 0 -2px 4px hsla(180, 100%, 50%, .05), 0 12px 24px hsla(207, 100%, 10%, 0.25);
 }
 
 @for $i from 1 through 40 {
