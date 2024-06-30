@@ -16,9 +16,9 @@ related:
 
 The `yandextts` text-to-speech {% term integration %} uses [Yandex SpeechKit](https://tech.yandex.com/speechkit/) text-to-speech engine to read a text with natural sounding voices.
 
-<div class='note warning'>
+{% important %}
 This integration is working only with old API keys. For the new API keys, this integration cannot be used.
-</div>
+{% endimportant %}
 
 ## Configuration
 
