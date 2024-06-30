@@ -10,7 +10,9 @@ related:
     title: Labels
 ---
 
-Categories let you group and filter items in a table. Like labels, categories allow grouping irrespective of the items physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+Categories let you group and filter items in a table. Like labels, categories allow grouping irrespective of the items physical location.
+
+For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
 
 ## Creating a category
 
