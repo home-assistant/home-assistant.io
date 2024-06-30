@@ -257,12 +257,14 @@ header .breadcrumbs {
   background: linear-gradient(0deg, rgba(24,188,242,1) 0%, rgba(24,188,242,.8) 100%);
   padding-bottom: 0;
   margin-top: -88px;
-  padding-top: 88px;
+  padding-top: 88px; 
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  // height: calc(100vh - 64px);
-  // max-height: 1080px;
-  // scroll-snap-align: end;
+  max-height: 1080px;
+  height: 100vh;
+  align-content: center;
+  min-height: 720px;
+  scroll-snap-align: start;
 
   .lead {
     font-size: 1.25rem;
@@ -299,16 +301,23 @@ header .breadcrumbs {
 
   #HAdemo {
     width: 100%;
-    height: 640px;
-    border-radius: 48px 48px 0 0;
+    height: 800px;
+    border-radius: 48px;
     border: 12px double white;
-    border-bottom: 0;
     box-shadow: 24px 64px 64px hsla(220, 100%, 25%, .5);
-    margin-bottom: -8px;
     // animation-name: box-shadow-color;
     // animation-duration: 3s;
     // animation-iteration-count: infinite;
     // animation-direction: alternate;
+        
+    @media only screen and (max-height: 720px) {
+      border-bottom: 0;
+      margin-bottom: -8px;
+      border-radius: 48px 48px 0 0;
+      height: 640px;
+
+    }
+
   }
 }
 
