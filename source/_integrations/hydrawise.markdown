@@ -73,3 +73,33 @@ When `manual_watering` is `on` the zone will run for 15 minutes.
 {% note %}
 Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
 {% endnote %}
+
+## Services
+
+The Hydrawise integration makes various custom services available.
+
+### Service `hydrawise.start_watering`
+
+Start a watering cycle in an irrigation zone.
+
+| Service data attribute | Optional | Description                                                                                                                                                                        |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | The irrigation zone to start.                                                                                                                                                      |
+| `duration`             | yes      | The length of time to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
+
+### Service `hydrawise.suspend`
+
+Suspend automatic watering in an irrigation zone until a specified date.
+
+| Service data attribute | Optional | Description                                                |
+| ---------------------- | -------- | ---------------------------------------------------------- |
+| `entity_id`            | no       | The irrigation zone to suspend.                            |
+| `until`                | no       | The date & time when automatic watering should be resumed. |
+
+### Service `hydrawise.resume`
+
+Resume automatic watering in an irrigation zone.
+
+| Service data attribute | Optional | Description                    |
+| ---------------------- | -------- | ------------------------------ |
+| `entity_id`            | no       | The irrigation zone to resume. |
