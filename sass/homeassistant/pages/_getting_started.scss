@@ -127,17 +127,29 @@
               .button {
                 display: flex;
                 padding-right: 20px;
+                border-radius: 32px;
+                
                 &:not(:first-child) {
                   margin-top: 12px;
                 }
 
-                &.accent {
-                  background-color: #34b155;
+                iconify-icon.external-link {
+                  padding-top: 4px;
                 }
+
                 svg {
-                  fill: white;
+                  fill: $link-color;
                   height: 24px;
                   min-width: 24px;
+                }
+
+                &.accent {
+                  background-color: #34b155;
+                  color: white;
+
+                  svg {
+                    fill: white;
+                  }
                 }
               }
             }
