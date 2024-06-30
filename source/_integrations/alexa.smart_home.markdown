@@ -86,6 +86,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
+  - [Remote](#remote)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -940,6 +941,19 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 {% note %}
 Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+{% endnote %}
+
+### Remote
+
+Supports changing the Remote `activity` from the given `activity_list`
+
+- _"Alexa, change the TV to PlayStation."_
+- _"Alexa, change the input on the TV to PlayStation."_
+
+{% note %}
+Alexa does not allow the following words to be used as activity names:
+
+`alarm`, `alarms`, `all alarms`, `away mode`, `bass`, `camera`, `date`, `date today`, `day`, `do not disturb`, `drop in`, `music`, `night light`, `notification`, `playing`, `sleep sounds`, `time`, `timer`, `today in music`, `treble`, `volume`, `way f. m.`
 {% endnote %}
 
 ### Scene
