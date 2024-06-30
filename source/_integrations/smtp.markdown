@@ -132,11 +132,9 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
 
 The optional `images` field adds image attachments to the email. If `html` is defined, the images need to be added to the message in-line as described above (and as shown in the example below). If `html` is not defined, images will be added as separate attachments.
 
-<div class='note info'>
-
+{% important %}
 When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
-
-</div>
+{% endimportant %}
 
 ```yaml
 burglar:
