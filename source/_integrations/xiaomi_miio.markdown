@@ -57,11 +57,9 @@ and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for t
 
 Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
 
-<div class='note'>
-
+{% note %}
 For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -917,9 +915,9 @@ These models use newer MiOT communication protocol.
 | Clean Mode | Turn on/off the clean mode |
 | Dry Mode   | Turn on/off the dry mode   |
 
-<div class='note'>
+{% note %}
 Clean mode and Motor speed can only be set when the device is turned on.
-</div>
+{% endnote %}
 
 ### Air Humidifier CB (zhimi.humidifier.cb1)
 
@@ -1687,10 +1685,10 @@ Water Shortage\*\*:
 
 {% endconfiguration_basic %}
 
-<div class="note">
+{% note %}
 * Needs to be manually enabled once the {% term integration %} has been added. <br>
 ** Only enabled if the vacuum has a mop.
-</div>
+{% endnote %}
 
 ### Attributes
 
@@ -2066,7 +2064,7 @@ If you are on a Windows or macOS device, you can use the [Get MiHome devices tok
 
 ### Alternative methods
 
-<div class='note'>
+{% note %}
 
 If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 <br/> <br/>
@@ -2078,7 +2076,7 @@ These instructions are written for the Mi Home app - not for the new RoboRock ap
 <br/> <br/>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
 
-</div>
+{% endnote %}
 
 ### Android (not rooted)
 
