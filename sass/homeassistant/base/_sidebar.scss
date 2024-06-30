@@ -44,6 +44,8 @@
 
 @media only screen and (max-width: $lap-end) {
   #sidebar {
+    max-height: fit-content;
+    
     .grid {
       position: initial;
       width: 100%;
