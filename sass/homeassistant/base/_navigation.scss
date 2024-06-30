@@ -151,8 +151,9 @@ header .grid {
 @media only screen and (max-width: $menu-collapse) {
   .menu {
     background: $white;
-    border-top: 1px solid $primary-color;
-    border-bottom: 4px solid $primary-color;
+    box-shadow: 0px 64px 32px rgba(0,0,0,.1);
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
   .menu,
@@ -175,27 +176,29 @@ header .grid {
 
   .toggle {
     position: absolute;
-    top: 15px;
-    right: 10px;
+    top: 17px;
+    right: 17px;
   }
 
   .toggle::after {
-    @include border-radius(2px);
     @include box-sizing(border-box);
     @include transition(all 0.5s linear);
     content: "☰";
     display: inline-block;
-    width: 100%;
-    padding: 10px 15px;
+    width: 32px;
+    height: 32px;
+    padding: 4px 9px;
     background: $primary-color;
     text-align: center;
+    font-family: $sans-serif;
     font-size: 16px;
     color: $white;
     white-space: nowrap;
+    border-radius: 24px;
   }
 
   .toggle:hover::after {
-    background: darken($primary-color, 7%);
+    background: darken($primary-color, 25%);
   }
 
   #toggle:checked + .toggle::after {

@@ -27,8 +27,10 @@ body > header {
     backdrop-filter: none;
     // transition: background-color 1s;
 
-    .menu>li>a, .docsearch .DocSearch-Search-Icon {
-      color: $white;
+    @media only screen and (min-width: $desk-start) {
+      .menu>li>a, .docsearch .DocSearch-Search-Icon {
+        color: $white;
+      }
     }
 
     .ha-title {
@@ -37,7 +39,6 @@ body > header {
       }
     }
   }
-
 }
 
 

@@ -1,10 +1,19 @@
 .docsearch {
   .DocSearch-Button {
-    padding: 0px;
-    margin-top: 16px;
-    margin-left: 8px;
-    margin-right: 0px;
+    @media only screen and (max-width: $lap-end) {
+      padding: 0px;
+      margin: 8px 24px;
+    }
+
+    @media only screen and (min-width: $desk-start) {
+      padding: 0px;
+      margin-top: 16px;
+      margin-left: 8px;
+      margin-right: 0px;
+    }
+
     background: none;
+
     &:hover {
       box-shadow: none;
     }
