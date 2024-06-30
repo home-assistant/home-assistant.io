@@ -4,7 +4,7 @@
 .hero {
   position: relative;
   background: rgb(24,188,242);
-  background: linear-gradient(0deg, rgba(24,188,242,1) 0%, rgba(24,188,242,.8) 100%);
+  background: linear-gradient(0deg, hsl(195, 89%, 52%) 0%, hsla(195, 89%, 52%, 0.8) 100%);
   padding-bottom: 0;
   margin-top: -88px;
   margin-bottom: 24px;
@@ -15,7 +15,7 @@
   height: 100vh;
   align-content: center;
   min-height: 720px;
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   color: $white;
 
   > .grid-wrapper {
