@@ -24,7 +24,7 @@ The [**pyLoad**](https://pyload.net/) {% term integration %} enables monitoring 
 - **Speed:** Monitors the current download speed.
 - **Active downloads:** Indicates the number of files pyLoad is actively downloading
 - **Downloads in queue:** Shows the number of downloads currently in the queue.
-- **Total downloads:** Indicates the number of completed downloads.
+- **Finished downloads:** Indicates the number of completed downloads.
 - **Free space:** Shows the available disk space in the download directory.
 
 ## Buttons
