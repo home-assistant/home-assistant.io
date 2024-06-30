@@ -15,7 +15,7 @@ og_image: /images/blog/2024-07/social.png
 
 <a href='/integrations/#version/2024.7'><img src='/images/blog/2024-07/social.png' style='border: 0;box-shadow: none;'></a>
 
-<div class='note'>
+{% note %}
 
 **Welcome to the beta release notes for Home Assistant 2024.7** 🎉
 
@@ -58,7 +58,7 @@ issue correctly. Read more about [reporting issues here](/help/reporting_issues/
 
 Issues introduced in the beta are processed with priority. 🔝
 
-</div>
+{% endnote %}
 
 Home Assistant 2024.7! 🎉
 
