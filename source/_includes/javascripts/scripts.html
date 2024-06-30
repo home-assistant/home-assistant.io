@@ -21,10 +21,9 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
 {% if page.hero_unit %}
 <script type="text/javascript">
   const changeNavColor = () => {
-    const scrollPosition = document.querySelector(".page-content").scrollTop;
-    console.log(scrollPosition)
+    const scrollPosition = document.querySelector("body").scrollTop;
     const nav = document.querySelector("header");
-    if (scrollPosition <= 100) {
+    if (scrollPosition <= 10) {
       nav.classList.add("dark");
     } else {
       nav.classList.remove("dark");
@@ -32,6 +31,6 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
   }
   
   window.addEventListener("load", () => changeNavColor());
-  document.querySelector(".page-content").addEventListener("scroll", () => changeNavColor());
+  document.querySelector("body").addEventListener("scroll", () => changeNavColor());
 </script>
 {% endif %}
