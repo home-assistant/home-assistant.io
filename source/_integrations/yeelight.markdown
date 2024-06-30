@@ -156,7 +156,7 @@ Per default, the bulb limits the number of requests per minute to 60, a limitati
 
 ### Initial setup
 
-<div class='note'>
+{% important %}
 
 Before trying to control your light through Home Assistant, you have to set up your bulb using the Yeelight app. ( [Android](https://play.google.com/store/apps/details?id=com.yeelight.cherry&hl=fr), [IOS](https://itunes.apple.com/us/app/yeelight/id977125608?mt=8) ).
 In the bulb property, you have to enable "LAN Control" (previously called "Developer mode"). LAN Control may only be available with the latest firmware installed on your bulb.  Firmware can be updated in the application after connecting the bulb.
@@ -165,13 +165,13 @@ Currently, there is no official way to change LAN mode. However, some methods mi
 - [Desktop app](https://community.home-assistant.io/t/the-easiest-method-to-enable-lan-developer-mode-on-xiaomi-bulb/727360)
 - CLI using the python-miio library: [1](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-easy-steps/312174), [2](https://community.home-assistant.io/t/integrate-mi-smart-led-bulb-warm-white-xmbgdp01ylk/290404)
 
-</div>
+{% endimportant %}
 
 ### Supported models
 
-<div class='note warning'>
+{% note %}
 This {% term integration %} is tested to work with the following models. If you have a different model and it is working, please let us know.
-</div>
+{% endnote %}
 
 | Model ID   | Model number | Product name                                     |
 |------------|--------------|--------------------------------------------------|

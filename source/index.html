@@ -12,25 +12,9 @@ feedback: false
 <div class="frontpage">
   <div class="grid">
     <div class="grid__item one-third lap-one-third palm-one-whole">
-      <div class="current-version material-card text">
-        <h1>
-          Current Version: {{ site.current_major_version }}.{{
-          site.current_minor_version }}.{{ site.current_patch_version }}
-        </h1>
-        Released:
-        <span class="release-date"
-          >{{ site.date_released | date: "%B %e, %Y" }}</span
-        >
-
-        <div class="links">
-          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}"
-            >Release notes</a
-          >
-        </div>
-      </div>
 
       <div class="recent-posts material-card text">
-        <h1>Recent Blog Posts</h1>
+        <h1><iconify-icon inline icon="mdi:newspaper-variant-multiple"></iconify-icon> Recent Blog Posts</h1>
 
         {% for post in site.posts limit: 4 %}
         <li class="post" style="display: grid; font-size: 16px">
@@ -41,13 +25,14 @@ feedback: false
       </div>
 
       <div class="join-community material-card text">
-        <h1>Join The Community</h1>
-        We love to help with &amp; talk about home automation.
+        <h1><iconify-icon inline icon="mdi:people-group-outline"></iconify-icon> Join The Community</h1>
+
+        Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
 
         <div class="links">
-          <a href="https://community.home-assistant.io">Forums</a>
-          <a href="/join-chat/">Chat</a>
-          <a href="/newsletter/">Newsletter</a>
+          <a href="https://community.home-assistant.io"><iconify-icon inline icon="simple-icons:discourse"></iconify-icon> Forums</a>
+          <a href="/join-chat/"><iconify-icon inline icon="simple-icons:discord"></iconify-icon> Chat</a>
+          <a href="/newsletter/"><iconify-icon inline icon="mdi:email-newsletter"></iconify-icon> Newsletter</a>
         </div>
       </div>
 
@@ -56,11 +41,11 @@ feedback: false
         href="/blog/2016/01/19/perfect-home-automation/"
       >
         Read our founder's vision for the perfect home automation
-        <i class="icon-arrow-right"></i>
+        <iconify-icon icon="mdi:arrow-right-thick"></iconify-icon>
       </a>
 
       <div class="material-card text">
-        <h1>Alexa, turn on the lights</h1>
+        <h1><iconify-icon inline icon="simple-icons:amazonalexa"></iconify-icon> Alexa, turn on the lights</h1>
         Use Alexa to control Home Assistant.
 
         <div class="links">
@@ -72,7 +57,7 @@ feedback: false
         </div>
       </div>
       <div class="material-card text">
-        <h1>Ok Google, turn on the AC</h1>
+        <h1><iconify-icon inline icon="simple-icons:googleassistant"></iconify-icon> Ok Google, turn off the AC</h1>
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
@@ -224,7 +209,7 @@ feedback: false
     {% include custom/features.html %}
     <div class="grid sponsors-and-press">
       <div class="sponsored-by grid__item one-half lap-one-half palm-one-whole">
-        <div class="material-card">
+        <div class="material-card text">
           <h1>Home Assistant is sponsored by</h1>
 
           <a href="https://www.nabucasa.com"
@@ -233,7 +218,7 @@ feedback: false
         </div>
       </div>
       <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
-        <div class="material-card">
+        <div class="material-card text">
           <h1>Home Assistant in the press</h1>
 
           <a

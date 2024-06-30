@@ -20,9 +20,9 @@ The sensor value shows the number of packages that are not in `Delivered` state.
 
 To use this sensor, you need an [AfterShip Account](https://accounts.aftership.com/register) and set up an API Key. To set up an API Key go to [AfterShip API](https://admin.aftership.com/settings/api-keys) page, and copy existing key or generate a new one.
 
-<div class='note info'>
+{% important %}
 AfterShip removed the Tracking API functionality from the Forever Free plan, and also no longer offers it in the Essentials plan. Using this integration now requires at least the [Pro](https://www.aftership.com/pricing/tracking) plan.
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -45,6 +45,6 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 | `tracking_number` | `True` | string | Tracking number
 | `slug` | `True` | string | Carrier e.g.,  `fedex`
 
-<div class='note info'>
+{% note %}
 This integration retrieves data from AfterShip public REST API, but the integration is not affiliated with AfterShip.
-</div>
+{% endnote %}

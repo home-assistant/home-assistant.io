@@ -92,11 +92,9 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 
 ### Service `google_generative_ai_conversation.generate_content`
 
-<div class='note info'>
-
-  This service isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` service.
-
-</div>
+{% tip %}
+This service isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` service.
+{% endtip %}
 
 Allows you to ask Gemini Pro or Gemini Pro Vision to generate content from a prompt consisting of text and optionally images.
 This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with the generated content.

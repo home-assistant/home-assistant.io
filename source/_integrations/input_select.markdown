@@ -63,11 +63,9 @@ input_select:
         type: icon
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
-
-</div>
+{% endnote %}
 
 ### Restore state
 

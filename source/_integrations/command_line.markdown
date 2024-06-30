@@ -26,11 +26,9 @@ related:
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
-<div class='note'>
-
+{% tip %}
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
-
-</div>
+{% endtip %}
 
 {% configuration %}
 command_line:
@@ -373,7 +371,7 @@ command_line:
 ```
 {% endraw%}
 
-<div class='note'>
+{% note %}
 
 A note on `name` for `cover` and `switch`:
   
@@ -381,17 +379,17 @@ The use of `friendly_name` and `object_id` has been deprecated and the slugified
 
 Use `unique_id` to enable changing the name from the UI and if required, use the slugified `name` as identifier.
 
-</div>
+{% endnote %}
 
 ## Execution
 
 The `command` is executed within the [configuration directory](/docs/configuration/).
 
-<div class='note'>
+{% note %}
 
 If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
 
-</div>
+{% endnote %}
 
 With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the sensors value is not updated.
 
@@ -691,9 +689,9 @@ Given this example, in the UI one would see the `friendly_name` of
 
 This switch will shutdown your system that is hosting Home Assistant.
 
-<div class='note warning'>
+{% warning %}
 This switch will shutdown your host immediately, there will be no confirmation.
-</div>
+{% endwarning %}
 
 {% raw %}
 ```yaml

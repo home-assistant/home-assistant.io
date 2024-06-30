@@ -21,11 +21,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Notifications](#notifications)
 
-<div class='note'>
-
+{% note %}
 The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
-
-</div>
+{% endnote %}
 
 ## Prerequisites
 
@@ -139,8 +137,6 @@ action:
 
 - `target`: Pushbullet device to receive the notification.
 
-<div class='note'>
-
+{% important %}
 Don't forget to [allowlist external directories](/integrations/homeassistant/#allowlist_external_dirs), so Home Assistant has access to them.
-
-</div>
+{% endimportant %}

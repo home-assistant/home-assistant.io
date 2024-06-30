@@ -160,11 +160,9 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `location` | yes | The location of the event. | Bowling center
 
 
-<div class='note'>
-
+{% note %}
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-
-</div>
+{% endnote %}
 
 This is a full example of a {% term service %} call in YAML:
 
@@ -204,11 +202,9 @@ with calendar events within a date range. It can return events from multiple cal
 | `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with `duration`. You must specify either `end_date_time` or `duration`.| 2019-03-10 23:00:00
 | `duration` | yes | Return active events from `start_date_time` until the specified duration. Cannot be used with `end_date_time`. You must specify either `duration` or `end_date_time`. | `days: 2`
 
-<div class='note'>
-
+{% note %}
 Use only one of `end_date_time` or `duration`.
-
-</div>
+{% endnote %}
 
 ```yaml
 service: calendar.get_events

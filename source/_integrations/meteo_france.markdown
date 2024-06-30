@@ -61,13 +61,13 @@ To enable an entity disabled by default, go in **Settings** -> **Devices & Servi
 
 ### About `next_rain` condition sensor
 
-<div class='note warning'>
+{% note %}
 
-  The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
+The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
   
-  ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
+![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
-</div>
+{% endnote %}
 
 The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals:
 
@@ -99,9 +99,9 @@ forecast_time_ref: '2020-08-20T19:25:00+00:00'
 
 ### About `weather_alert` sensor
 
-<div class='note warning'>
-  The weather alert is available for the metropolitan France and Andorre.
-</div>
+{% note %}
+The weather alert is available for the metropolitan France and Andorre.
+{% endnote %}
 
 The `weather_alert` sensor state give the current weather alert status for the department linked to the city. Only one entity by department is created.
 

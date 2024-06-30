@@ -38,9 +38,9 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-<div class='note'>
+{% important %}
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-</div>
+{% endimportant %}
 
 You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
 Automations can also be created using an automation action:

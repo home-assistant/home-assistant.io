@@ -25,11 +25,11 @@ The FireServiceRota integration provides you real-time information about inciden
 
 You will need a FireServiceRota or BrandweerRooster account.
 
-<div class='note'>
+{% caution %}
 
 A word of caution: Do not solely rely on this integration for your emergency calls!
 
-</div>
+{% endcaution %}
 
 This integration provides the following platforms:
 

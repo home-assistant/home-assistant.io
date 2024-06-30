@@ -93,9 +93,9 @@ Password:
   description: SwitchBot account password
 {% endconfiguration_basic %}
 
-<div class='note warning'>
+{% important %}
 This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
-</div>
+{% endimportant %}
 
 ### Enter the lock encryption key manually
 

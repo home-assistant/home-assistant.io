@@ -29,11 +29,9 @@ You also need to specify the `room_id` that you wish to post messages into. The 
     - select the room (or create a new room),
     - then copying the room ID from the URL.
 
-<div class='note'>
-
+{% important %}
 You must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.
-
-</div>
+{% endimportant %}
 
 To enable this platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

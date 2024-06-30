@@ -31,9 +31,9 @@ There is currently support for the following device types within Home Assistant:
 
 Obtain your API key from your [Vultr Account](https://my.vultr.com/settings/#settingsapi).
 
-<div class='note'>
+{% important %}
 Ensure you allow the public IP of Home Assistant under the Access Control heading.
-</div>
+{% endimportant %}
 
 To integrate your Vultr subscriptions with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -59,11 +59,9 @@ The `vultr` binary sensor platform allows you to monitor your [Vultr](https://ww
 
 To use this binary sensor, you first have to set up your Vultr hub.
 
-<div class='note'>
-
+{% note %}
 The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
-
-</div>
+{% endnote %}
 
 Minimal `configuration.yaml` (produces `binary_sensor.vultr_web_server`):
 
@@ -103,11 +101,9 @@ The `vultr` sensor platform will allow you to view current bandwidth usage and p
 
 To use this sensor, you must set up your Vultr hub.
 
-<div class='note'>
-
+{% note %}
 The following examples assume a subscription that has an ID of `123456` and a label of `Web Server`
-
-</div>
+{% endnote %}
 
 Minimal {% term "`configuration.yaml`" %} (produces `sensor.vultr_web_server_current_bandwidth_used` and `sensor.vultr_web_server_pending_charges`):
 

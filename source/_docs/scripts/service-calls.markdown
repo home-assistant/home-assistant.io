@@ -9,9 +9,9 @@ The configuration options to call a configuration are the same between all integ
 
 Examples on this page will be given as part of an automation integration configuration but different approaches can be used for other integrations too.
 
-<div class='note'>
+{% tip %}
 Use the "Services" tab under Developer Tools to discover available services.
-</div>
+{% endtip %}
 
 ### The basics
 
@@ -153,9 +153,9 @@ You may then use the response data in the variable `agenda` in another action
 in the same script. The example below sends a notification using the response
 data.
 
-<div class='note'>
+{% important %}
 Which data fields can be used in a service call depends on the type of notification service that is used.
-</div>
+{% endimportant %}
 
 {% raw %}
 

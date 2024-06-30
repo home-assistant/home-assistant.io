@@ -74,19 +74,15 @@ region:
   default: "`eastus`"
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 Not all Azure regions support high-quality neural voices. Use [this overview](https://learn.microsoft.com/azure/cognitive-services/speech-service/regions) to determine the availability of standard and neural voices by region/endpoint.
  
 New users ([any newly created Azure Speech resource after August 31st, 2021](https://learn.microsoft.com/azure/cognitive-services/speech-service/text-to-speech#more-about-neural-text-to-speech-features)) can only use neural voices. Existing resources can continue using standard voices through August 31st, 2024.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% important %}
 If you set the language to anything other than the default `en-us`, you will need to specify a matching voice type as well.
-
-</div> 
+{% endimportant %}
  
 ## Full configuration example
 

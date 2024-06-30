@@ -211,11 +211,9 @@ For a list of the supported device classes, refer to the documentation of the pl
 
 ### Manual customization
 
-<div class='note'>
-
+{% important %}
 If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
-
-</div>
+{% endimportant %}
 
 ```yaml
 homeassistant:

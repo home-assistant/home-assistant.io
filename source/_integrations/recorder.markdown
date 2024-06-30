@@ -14,11 +14,9 @@ ha_integration_type: system
 
 This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
-<div class='note'>
-
+{% important %}
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
-
-</div>
+{% endimportant %}
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use a number of database solutions.
 
@@ -32,11 +30,9 @@ Although SQLAlchemy supports database solutions in addition to the ones supporte
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
-<div class='note'>
-
+{% caution %}
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
-
-</div>
+{% endcaution %}
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
@@ -252,13 +248,11 @@ Call the service `recorder.enable` to start again saving events and states to th
 
 ## Custom database engines
 
-<div class='note'>
-
+{% warning %}
 SQLite is the most tested, and newer version of Home Assistant are highly optimized to perform well when using SQLite.
 
 When choosing another option, you should be comfortable in the role of the database administrator, including making backups of the external database.
-
-</div>
+{% endwarning %}
 
 Here are examples to use with the [`db_url`](#db_url) configuration option.
 
@@ -302,31 +296,23 @@ PostgreSQL (Custom socket dir):
     `postgresql://@/DB_NAME?host=/path/to/dir`
 {% endconfiguration_basic %}
 
-<div class='note'>
-
+{% note %}
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
 
 When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% tip %}
 Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
+{% endtip %}
 
-</div>
-
-<div class='note warning'>
-
+{% note %}
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
-
-</div>
+{% endnote %}
 
 ### Database startup
 
@@ -357,9 +343,9 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
-<div class='note warning'>
+{% warning %}
 MariaDB versions before 10.5.17, 10.6.9, 10.7.5, and 10.8.4 suffer from a performance regression which can result in the system becoming overloaded while querying history data or purging the database.
-</div>
+{% endwarning %}
 
 Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.
