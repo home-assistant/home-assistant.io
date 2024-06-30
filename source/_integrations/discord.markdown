@@ -28,10 +28,9 @@ Once the application is ready, create a [bot](https://discordapp.com/developers/
 
 Retrieve the **Application ID** from the 'General Information' section and the (hidden) **Token** of your bot for later.
 
-<div class='note'>
-  
+{% note %}
 The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
-</div>
+{% endnote %}
 
 ### Setting up the bot
 

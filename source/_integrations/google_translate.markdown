@@ -131,11 +131,9 @@ data:
 
 ## Service say (legacy)
 
-<div class='note'>
-
+{% tip %}
 The `google_translate_say` service can be used when configuring the legacy `google_translate` text-to-speech platform in `configuration.yaml`. We recommend new users to instead set up the integration in the UI and use the `tts.speak` service with the corresponding Google Translate text-to-speech entity as target.
-
-</div>
+{% endtip %}
 
 The `google_translate_say` service supports `language` and also `options` for setting `tld`. The text for speech is set with `message`. Since release 0.92, the service name can be defined in the configuration `service_name` option.
 

@@ -19,11 +19,9 @@ related:
     title: Using automation blueprints
 ---
 
-<div class='note'>
-
+{% tip %}
 While the tutorial only shows how to create an automation blueprint, {% term scripts %} also support blueprints in the same way.
-
-</div>
+{% endtip %}
 
 ## Creating an automation blueprint
 
@@ -256,9 +254,9 @@ action:
 1. To configure your blueprint via the UI, go to {% my blueprints title="**Settings** > **Automations & Scenes** > **Blueprints**" %}.
 2. Find the **Motion Light Tutorial** blueprint and select **Create Automation**.
 
-<div class='note'>
+{% important %}
 Don't forget to reload automations after you make changes to your blueprint to have the UI and the automation integration pick up the latest blueprint changes.
-</div>
+{% endimportant %}
 
 ![Screenshot of the blueprint UI](/images/blueprints/tutorial-ui.png)
 

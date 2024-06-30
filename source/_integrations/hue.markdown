@@ -67,11 +67,9 @@ You can use this service for example if you'd like to start/stop Dynamic Mode.
 
 Hue remotes such as the Dimmer Switch are stateless devices, meaning that they do not have a on/off state like regular entities in Home Assistant. Instead, such devices emit the event `hue_event` when a button is pressed. You can test what events come in using the event {% my developer_events title="developer tools in Home Assistant" %} and subscribe to the `hue_event`. Once you know what the event data looks like, you can use this to create automations.
 
-<div class='note warning'>
-
+{% note %}
 At the time of writing, there's a limitation on the Hue API that each device can only send one event per second. This means that button events are rate-limited to 1 per second. This is brought to the attention of Signify and it will hopefully be fixed soon.
-
-</div>
+{% endnote %}
 
 ## Support for legacy (V1) Hue bridges
 

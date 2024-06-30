@@ -55,10 +55,10 @@ Sample service data:
 }
 ```
 
-<div class='note'>
+{% note %}
 This usually only works if the target device is connected to the same network. Routing the magic packet to a different subnet requires a special configuration on your router or may not be possible.
 The service to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
-</div>
+{% endnote %}
 
 ## Switch
 

@@ -1,0 +1,20 @@
+#page-wrap {
+  min-height: 100%;
+  margin-bottom: -$footer-height;
+  &::after {
+    content: "";
+    display: block;
+    height: $footer-height;
+  }
+}
+
+body > footer, .page-content > footer {
+  background-color: $footer-background;
+  margin-top: 3em;
+}
+
+.copyright {
+  margin: 0;
+  padding: 20px 0;
+  text-align: center;
+}

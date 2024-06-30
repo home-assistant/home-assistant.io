@@ -162,11 +162,9 @@ The KNX integration provides its own trigger platform which can be used in autom
 
 The `knx.telegram` trigger can be used to trigger automations on incoming or outgoing KNX telegrams.
 
-<div class='note'>
-
+{% note %}
 This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI, but doesn't support setting a specific <abbr title="data point type">DPT</abbr> (`type`) to decode the payload as it always relies on project data.
-
-</div>
+{% endnote %}
 
 {% configuration %}
 destination:
@@ -284,11 +282,9 @@ context: null
 
 ## Events
 
-<div class='note'>
-
+{% tip %}
 For automation triggers, it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
-
-</div>
+{% endtip %}
 
 ```yaml
 knx:
@@ -431,11 +427,9 @@ remove:
 KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
 It is also possible to expose the current time and date. These are sent to the bus every hour.
 
-<div class='note'>
-
+{% tip %}
 Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
-
-</div>
+{% endtip %}
 
 {% raw %}
 
@@ -656,11 +650,9 @@ action:
 
 The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
-<div class='note'>
-
+{% tip %}
 Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
-
-</div>
+{% endtip %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -678,12 +670,10 @@ knx:
       type: temperature
 ```
 
-<div class='note'>
-
+{% important %}
 When `type` is used `value` is required, `payload` is invalid.
 When `payload_length` is used `value` is invalid.
-
-</div>
+{% endimportant %}
 
 {% configuration %}
 name:
@@ -968,13 +958,11 @@ entity_category:
 
 The KNX cover platform is used as an interface to KNX covers.
 
-<div class='note'>
-
+{% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
-
-</div>
+{% endnote %}
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -1066,19 +1054,15 @@ entity_category:
 
 The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Dates that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1136,20 +1120,16 @@ entity_category:
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 DateTimes that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 System timezone is used as DPT 19.001 doesn't provide timezone information.
 Year values outside of the range 1900 to 2155 are invalid.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1538,13 +1518,11 @@ data:
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Numbers that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1650,13 +1628,11 @@ entity_category:
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Selects that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -2064,13 +2040,11 @@ Switches that have a `state_address` configured request their current state from
 
 The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Texts that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -2126,19 +2100,15 @@ entity_category:
 
 The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Times that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 The `day` field of the time telegram will always be set to 0 (`no day`).
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -18,13 +18,13 @@ When you start Home Assistant for the first time, the _owner_ user account is cr
 - Create and manage other user accounts.
 - Configure integrations and other settings (coming soon).
 
-<div class='note'>
+{% warning %}
 For the moment, other user accounts will have the same access as the owner account. In the future, non-owner accounts will be able to have restrictions applied.
-</div>
+{% endwarning %}
 
-<div class="note">
+{% note %}
 If you want to manage users and you're an owner but you do not see "Users" in your main configuration menu, make sure that **Advanced Mode** is enabled for your user in your profile.
-</div>
+{% endnote %}
 
 ### Your account profile
 
@@ -41,11 +41,9 @@ You can:
 - Define language and other locale settings.
 - Log out of Home Assistant.
 
-<div class="note">
-
+{% note %}
 Unused refresh tokens will be automatically removed. A refresh token is considered unused if it has not been used for a login within 90 days. If you need a permanent token, then we recommend using [Long Lived Access Tokens](https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token).
-
-</div>
+{% endnote %}
 
 ### Securing your login
 

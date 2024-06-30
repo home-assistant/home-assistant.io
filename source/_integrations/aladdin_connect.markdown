@@ -17,9 +17,9 @@ ha_config_flow: true
 
 The Aladdin Connect integration lets you control Genie Aladdin Connect garage doors through Home Assistant.
 
-<div class='note'>
+{% note %}
 Only doors that are owned by your Aladdin Connect account will be available. Doors that your account has been granted shared access to are not yet supported.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

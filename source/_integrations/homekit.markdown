@@ -23,13 +23,11 @@ Please make sure that you have read the [considerations](#considerations) listed
 some trouble later. However, if you do encounter issues, check out the
 [troubleshooting](#troubleshooting) section.
 
-<div class="note">
-
-  If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
-  which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
-
-</div>
+{% tip %}
+If you want to control HomeKit-only devices with Home Assistant,
+check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
+which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 

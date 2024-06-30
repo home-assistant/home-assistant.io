@@ -114,11 +114,9 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
-<div class="note">
-
-  `/local/` in this context refers to the `.homeassistant/www/` folder.
-
-</div>
+{% note %}
+`/local/` in this context refers to the `.homeassistant/www/` folder.
+{% endnote %}
 
 ### Create a persistent notification
 

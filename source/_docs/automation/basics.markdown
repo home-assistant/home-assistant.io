@@ -21,9 +21,9 @@ The second part is the [condition](/docs/automation/condition/). Conditions are 
 
 The third part is the [action](/docs/automation/action/), which will be performed when a rule is triggered and all conditions are met. For example, it can turn a light on, set the temperature on your thermostat or activate a scene.
 
-<div class='note'>
+{% note %}
 The difference between a condition and a trigger can be confusing as they are very similar. Triggers look at the actions, while conditions look at the current state: turning a light on versus a light being on.
-</div>
+{% endnote %}
 
 ## Exploring the internal state
 

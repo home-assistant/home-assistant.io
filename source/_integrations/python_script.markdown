@@ -27,11 +27,9 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 [hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
-<div class='note'>
-
+{% note %}
 It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
-
-</div>
+{% endnote %}
 
 ## Writing your first script, reading input and logging the activity
 
@@ -65,7 +63,7 @@ data:
   name: "Input-Text"
 ```
 
-<div class='note'>
+{% tip %}
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
@@ -76,7 +74,7 @@ logger:
   default: info
 ```
   
-</div>
+{% endtip %}
 
 ## Triggering events
 

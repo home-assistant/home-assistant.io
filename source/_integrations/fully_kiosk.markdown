@@ -82,9 +82,9 @@ The following notify entities that can be passed to `notify.send_message` servic
 - Text-to-speech
 - Overlay message
 
-<div class='note warning'>
-  The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
-</div>
+{% note %}
+The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
+{% endnote %}
 
 ## Services
 

@@ -21,14 +21,14 @@ It takes considerable effort to configure. Your Home Assistant instance must be 
 
 The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
-<div class='note'>
+{% note %}
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-</div>
+{% endnote %}
 
 Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
@@ -244,9 +244,10 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 
     Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
 
-<div class="note">
-    Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
-</div>
+{% important %}
+You must use a valid/trusted SSL certificate for account linking to work.
+Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
+{% endimportant %}
 
 - `Client ID`:
   - `https://pitangui.amazon.com/` if you are in US
@@ -452,9 +453,9 @@ light.kitchen_light:
   display_categories: LIGHT,SWITCH
 ```
 
-<div class='note info'>
+{% note %}
 Devices such as cameras, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
-</div>
+{% endnote %}
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
 
@@ -479,12 +480,10 @@ The alarm control panel state must be in the `disarmed` state before arming. Ale
 
 The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
-<div class="note">
-
+{% note %}
 Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
 The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
-
-</div>
+{% endnote %}
 
 #### Disarming
 
@@ -594,11 +593,9 @@ alexa:
 
 Alexa will announce on all echo devices _"Person detected at [entity name]"_.
 
-<div class="note">
-
+{% important %}
 Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturb feature turned off.
-
-</div>
+{% endimportant %}
 
  <p class='img'>
    <a href='/images/integrations/alexa/alexa_app_person_detection.png' target='_blank'>
@@ -727,9 +724,9 @@ Requires [Proactive Events](#proactive-events) enabled.
 Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
 Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
 
-<div class='note info'>
+{% note %}
 Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
-</div>
+{% endnote %}
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
@@ -810,11 +807,9 @@ Alexa will announce on all echo devices _"Person detected at [entity name]"_.
    <img height='460' src='/images/integrations/alexa/alexa_app_person_detection.png' alt='Screenshot: Alexa App Person Detection Notification'/></a>
  </p>
 
-<div class='note'>
-
+{% note %}
 Display category will default to `CAMERA` to enable presence detected notification settings in the Alexa App. Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturbed feature turned off.
-
-</div>
+{% endnote %}
 
 ### Input Number and Number
 
@@ -943,9 +938,9 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-<div class='note info'>
+{% note %}
 Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
-</div>
+{% endnote %}
 
 ### Scene
 
@@ -1007,9 +1002,9 @@ Pause and Restart Timer entities in Home Assistant.
 - _"Alexa, hold the sous vide."_
 - _"Alexa, restart the microwave."_
 
-<div class="note">
+{% important %}
 To avoid issues with Alexa's built-in timer functionality, the timer entity should not include the word "timer" in its friendly name.
-</div>
+{% endimportant %}
 
 ### Vacuum
 

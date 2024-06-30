@@ -187,12 +187,10 @@ Service to manually register and unregister the webhook.
 The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station),
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
-<div class='note warning'>
-
+{% warning %}
 Netatmo webhook events have known issues with Home Assistant Cloud Link.
 It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
-
-</div>
+{% endwarning %}
 
 To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#allowlist_external_urls).
 
@@ -302,11 +300,9 @@ to declare a new application in the [Netatmo Developer Page](https://dev.netatmo
 
 Sign in using your username and password from your regular Netatmo account.
 
-<div class='note warning'>
- 
+{% important %}
 In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
-  
-</div>
+{% endimportant %}
 
 See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 

@@ -60,11 +60,11 @@ The initial process can be a bit time consuming and tedious, but it only has to 
 
 Send a command on the Dynalite network asking an area to report its currently selected preset. Normally, channel 1 (default) is used, but in some implementation, specific areas will need other channels.
 
-<div class='note'>
+{% note %}
 
 This does not return the area preset. It sends a network command asking the area to report its preset. Once it reports, that will be caught and handled by the system.
 
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description                                                                               |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
@@ -76,11 +76,11 @@ This does not return the area preset. It sends a network command asking the area
 
 Send a command on the Dynalite network asking a specific channel in an area to report its current level.
 
-<div class='note'>
+{% note %}
 
 This does not return the channel level. It sends a network command asking the channel to report its level. Once it reports, that will be caught and handled by the system.
 
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description                                                                               |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------- |

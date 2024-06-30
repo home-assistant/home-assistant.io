@@ -142,10 +142,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Data Explorer.
-</div>
-
+{% endwarning %}
 
 ### Configuring a filter
 
