@@ -186,8 +186,6 @@ binary_sensor:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
-
-</div>
+{% endimportant %}
