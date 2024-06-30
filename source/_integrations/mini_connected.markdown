@@ -1,6 +1,6 @@
 ---
 title: MINI Connected
-description: Get the status and control your MINI vehicle  using the BMW Connected Drive integration
+description: Get the status and control your MINI vehicle, using the BMW Connected Drive integration
 ha_category:
   - Binary sensor
   - Button
