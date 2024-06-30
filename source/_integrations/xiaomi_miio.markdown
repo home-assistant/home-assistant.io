@@ -1686,8 +1686,8 @@ Water Shortage\*\*:
 {% endconfiguration_basic %}
 
 {% note %}
-* Needs to be manually enabled once the {% term integration %} has been added. <br>
-** Only enabled if the vacuum has a mop.
+\* Needs to be manually enabled once the {% term integration %} has been added. <br>
+\*\* Only enabled if the vacuum has a mop.
 {% endnote %}
 
 ### Attributes
