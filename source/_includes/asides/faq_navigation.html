@@ -11,7 +11,7 @@
         <ul>
   {% for entry in faq %}
     {% if entry.ha_category == category %}
-<li><a href='/faq#{{ entry.title | slugify }}'>{{ entry.title}}</a></li>
+<li class="faq-entry"><a href='/faq#{{ entry.title | slugify }}'>{{ entry.title}}</a></li>
     {% endif %}
   {% endfor %}
         </ul>

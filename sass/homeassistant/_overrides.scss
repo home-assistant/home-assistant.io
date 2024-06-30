@@ -763,12 +763,18 @@ article.listing {
   .section {
     margin-bottom: 10px;
 
-    ul.section-nav {
+    &>ul {
       margin-left: 0px;
 
-      li.toc-entry {
+      &>li.toc-entry:first-child{
+        padding-top: 0;
+      }  
+    
+      &>li.toc-entry {
         list-style-type: none;
-        // border-top: 1px solid #eee;
+      }
+
+      li.toc-entry, li.faq-entry {
         padding: 3px 0;
         font-size: .85rem;
 
@@ -781,13 +787,7 @@ article.listing {
           margin: 3px 0 -3px 1em;
         }
       }
-
-      &>li.toc-entry:first-child{
-        // border-top: 0;
-        padding-top: 0;
-      }
     }
-
   }
 
   .brand-logo-container {
