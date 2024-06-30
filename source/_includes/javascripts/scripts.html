@@ -21,7 +21,7 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
 {% if page.hero_unit %}
 <script type="text/javascript">
   const changeNavColor = () => {
-    const scrollPosition = document.querySelector("body").scrollTop;
+    const scrollPosition = document.documentElement.scrollTop;
     const nav = document.querySelector("header");
     if (scrollPosition <= 10) {
       nav.classList.add("dark");
@@ -31,6 +31,6 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
   }
   
   window.addEventListener("load", () => changeNavColor());
-  document.querySelector("body").addEventListener("scroll", () => changeNavColor());
+  window.addEventListener("scroll", () => changeNavColor());
 </script>
 {% endif %}
