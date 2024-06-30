@@ -256,9 +256,10 @@ header .breadcrumbs {
   background: rgb(24,188,242);
   background: linear-gradient(0deg, rgba(24,188,242,1) 0%, rgba(24,188,242,.8) 100%);
   padding-bottom: 0;
-  margin-top: -100px;
-  padding-top: 100px;
+  margin-top: -88px;
+  padding-top: 88px;
   overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   // height: calc(100vh - 64px);
   // max-height: 1080px;
   // scroll-snap-align: end;
@@ -276,19 +277,59 @@ header .breadcrumbs {
     white-space: nowrap;
     display: inline-block;
     font-weight: 600;
-    padding: 8px 16px;
+    padding: 8px 24px 8px 0;
     margin: 0 4px 0 0;
-    border-radius: 24px;
+    border-radius: 32px;
+
     &.primary {
       background-color: $link-color;
+      font-size: 2rem;
       font-weight: 700;
-      padding: 8px 20px;
+      padding: 8px 24px;
+      margin-bottom: 16px;
     }
   }
 
-  img {
-    display: block;
-    box-shadow: 16px 64px 64px hsla(212, 100%,33%,.8);
+  #HAdemoScreenshot {
+    display: none;
+    img {
+      display: block;
+    }
+  }
+
+  #HAdemo {
+    width: 100%;
+    height: 640px;
+    border-radius: 48px 48px 0 0;
+    border: 12px double white;
+    border-bottom: 0;
+    box-shadow: 24px 64px 64px hsla(220, 100%, 25%, .5);
+    margin-bottom: -8px;
+    // animation-name: box-shadow-color;
+    // animation-duration: 3s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate;
+  }
+}
+
+@keyframes box-shadow-color {
+  from {
+    box-shadow: 24px 64px 64px hsla(240, 100%, 25%, .5);
+  }
+  to {
+    box-shadow: 24px 64px 64px hsla(200, 100%, 25%, .5);
+  }
+}
+
+@media only screen and (max-width: $palm-end) {
+  .hero {
+    #HAdemo {
+      display: none;
+    }
+  
+    #HAdemoScreenshot {
+      display: block;
+    }
   }
 }
 
