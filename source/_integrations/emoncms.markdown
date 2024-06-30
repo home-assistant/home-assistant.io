@@ -35,7 +35,7 @@ As of Feb 2020, the integration will discover all sensors from Emoncms and will 
 
 As of July 2024, [Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
 
-If you upgrade your existing Emoncms installation to a version shipping a unique identifier, please sure to migrate your Emoncms database before restarting Home Assistant.
+If you upgrade your existing Emoncms installation to a version shipping a unique identifier, please migrate your Emoncms database before restarting Home Assistant.
 
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
