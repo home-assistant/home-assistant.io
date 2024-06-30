@@ -982,6 +982,9 @@ code {
   border-radius: 16px;
   padding: 0.1em 0.4em;
 }
+pre[class*="language-"]:before, pre[class*="language-"]:after {
+  box-shadow: none;
+}
 
 @media only screen and (max-width: $menu-collapse) {
 
