@@ -22,11 +22,9 @@ The statistics sensor updates with every update of the source sensor, for which 
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
-<div class='note tip'>
-
+{% tip %}
 The `statistics` integration is different to [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
-
-</div>
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 

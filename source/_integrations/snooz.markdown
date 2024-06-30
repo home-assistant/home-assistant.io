@@ -46,9 +46,9 @@ Devices are exposed as Fan entities with a persistent connection to the device.
 
 Fan speed percentage is mapped to the device volume level.
 
-<div class='note'>
+{% note %}
 Speed percentages less than 10 have no effect - they all map to a value of 1 on the device.
-</div>
+{% endnote %}
 
 ## Services
 
@@ -83,9 +83,9 @@ automation:
 
 Transition the volume level to the lowest setting over the specified duration, then power off the device.
 
-<div class='note'>
+{% note %}
 Once the transition completes, the volume level is restored to the value before the transition started.
-</div>
+{% endnote %}
 
 {% my developer_call_service badge service="snooz.transition_off" %}
 

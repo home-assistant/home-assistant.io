@@ -78,10 +78,9 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
 
-<div class='note'>
-
+{% note %}
 Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
-</div>
+{% endnote %}
 
 ## Icons
 

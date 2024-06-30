@@ -29,9 +29,9 @@ The easiest way to get started with tags is to use NFC tags ([stickers](https://
 
 <lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
-<div class='note' data-title='for iPhone users'>
+{% important %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
-</div>
+{% endimportant %}
 
 <lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
 

@@ -39,11 +39,12 @@ Integrates [Sensibo](https://sensibo.com) devices into Home Assistant.
 ## Prerequisites
 
 Please click [here](https://home.sensibo.com/me/api) and register to obtain the API key.
-<div class="note">
+
+{% tip %}
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
-</div>
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 

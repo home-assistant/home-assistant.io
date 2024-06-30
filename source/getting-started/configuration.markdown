@@ -5,11 +5,9 @@ description: "Instructions to get Home Assistant configured."
 
 The onboarding process takes care of the initial setup for Home Assistant, such as naming your home and selecting your location. After initial onboarding, these options can be changed in the user interface by clicking on Configuration in the sidebar and clicking on General, or by manually editing them in the Home Assistant configuration file called `configuration.yaml`. This section will explain how to do the latter.
 
-<div class='note'>
-
+{% note %}
 The steps below do not apply to Home Assistant Core & Container installations, for those types of installations, [see here](/docs/configuration/).
-
-</div>
+{% endnote %}
 
 We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, go to {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
 
@@ -34,11 +32,11 @@ Now let's make a change using the file editor: we are going to change the name, 
        unit_system: us_customary
        time_zone: America/Chicago
   ```
-<div class='note'>
+{% note %}
  
-  Valid options for `unit_system` are `us_customary` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
+Valid options for `unit_system` are `us_customary` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
 
-</div>
+{% endnote %}
 
  - Click the save icon in the top right to commit changes.
  - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools > YAML" %} and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable **Advanced Mode** on your user profile.
@@ -46,11 +44,11 @@ Now let's make a change using the file editor: we are going to change the name, 
 
 ![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
 
-<div class='note'>
+{% note %}
 
-  If you have watched any videos about setting up Home Assistant using `configuration.yaml` (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
+If you have watched any videos about setting up Home Assistant using `configuration.yaml` (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
 
-</div>
+{% endnote %}
 
 ### Editing configuration via Samba/Windows Networking
 

@@ -24,9 +24,9 @@ From a user perspective, utility meters operate in cycles (usually monthly) for 
 
 Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new {% term entity %} will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
 
-<div class='note'>
+{% note %}
 Sensors created with this {% term integration %} are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the {% term integration %} was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -137,9 +137,9 @@ always_available:
   type: boolean
 {% endconfiguration %}
 
-<p class='note warning'>
+{% important %}
 When using the `offset` configuration parameter, the defined period must not be longer than 28 days.
-</p>
+{% endimportant %}
 
 ### Time period dictionary example
 

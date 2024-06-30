@@ -31,11 +31,9 @@ Integration for the [HomeWizard Energy](https://www.homewizard.com) platform. It
 - [Wi-Fi Watermeter](https://www.homewizard.com/watermeter): Sensors for active and total water usage (model: `HWE-WTR`)
 - [Wi-Fi kWh Meter](https://www.homewizard.com/kwh-meter): Sensors for power import/export and energy consumption. (Models: `HWE-KWH1`, `HWE-KWH3`, `SDM230-wifi`, and `SDM630-wifi`)
 
-<div class='note'>
-
+{% note %}
 The Watermeter can be powered via a USB-C cable and with batteries. When using batteries they only connect to Wi-Fi every couple of hours. Because of this, the API can only be used when powered via the USB-C cable. It is not possible to use this integration when the water meter is powered by batteries.
-
-</div>
+{% endnote %}
 
 ## Enable the API
 

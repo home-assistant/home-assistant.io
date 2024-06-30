@@ -44,9 +44,9 @@ The Matter integration allows you to control Matter devices on your local Wi-Fi 
 
 For communicating with Matter devices, the Home Assistant integration runs its own "Matter controller" as add-on. This Matter Server add-on runs the controller software as a separate process and connects your Matter network (called Fabric in technical terms) and Home Assistant. The Home Assistant Matter integration connects to this server via a WebSocket connection.
 
-<div class='note warning'>
+{% warning %}
 The integration is marked BETA: Both the Matter standard itself and its implementation within Home Assistant are in an early stage. You may run into compatibility issues and/or other bugs.
-</div>
+{% endwarning %}
 
 # Introduction - What is Matter?
 
@@ -82,9 +82,9 @@ Don't assume Matter support when you see a Thread logo on a device. Always look 
 
 Most (if not all) Matter-compliant devices have a Bluetooth chip onboard to ease {% term commissioning %}. Bluetooth is not used to control but to pair a device after unboxing or after factory resetting. The Home Assistant controller uses the Home Assistant Companion app for {% term commissioning %}. During commissioning, you need to bring your phone close to the device. The controller then sends your network credentials to your device over Bluetooth. Once that is done, the device communicates over its native interface: Wi-Fi or Thread.
 
-<div class='note'>
+{% note %}
 Although your Home Assistant server might have a Bluetooth adapter on board that the controller can use to {% term commission %} devices, Home Assistant does not utilize that adapter. Mainly to prevent issues with the built-in Bluetooth integration but also because it is easier to bring your mobile devices close to the Matter device than bringing the device near your server.
-</div>
+{% endnote %}
 
 ## Multi fabric: join to multiple controllers
 

@@ -28,11 +28,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-
+{% important %}
 You need to enable telnet on your router if you choose to use `protocol: telnet`.
-
-</div>
+{% endimportant %}
 
 ### Sensors configuration
 
@@ -62,11 +60,9 @@ Require IP:
   description: If devices must have IP (this option is available only for access point mode).
 {% endconfiguration_basic %}
 
-<div class='note'>
-
+{% note %}
 If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
-
-</div>
+{% endnote %}
 
 ## Padavan custom firmware (The rt-n56u project)
 

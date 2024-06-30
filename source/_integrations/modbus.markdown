@@ -1392,11 +1392,9 @@ sensors:
       type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
-
-</div>
+{% endnote %}
 
 ### Example: sensor configuration
 

@@ -400,9 +400,9 @@ Note that if only `before` key is used, the condition will be true _from midnigh
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-<div class='note warning'>
+{% tip %}
 The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone. In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-</div>
+{% endtip %}
 
 This is an example of 1 hour offset before sunset:
 ```yaml
@@ -557,11 +557,9 @@ Note that if only `before` key is used, the condition will be `true` *from midni
 If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
 
-<div class='note tip'>
-
+{% tip %}
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
-
-</div>
+{% endtip %}
 
 For the `after` and `before` options a time helper (`input_datetime` entity)
 or another `sensor` entity containing a timestamp with the "timestamp" device
@@ -578,13 +576,11 @@ condition:
     after: sensor.groceries_delivery_time
 ```
 
-<div class='note warning'>
-
-Please note that the time condition only takes the time into account. If
+{% note %}
+Note that the time condition only takes the time into account. If
 a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
-
-</div>
+{% endnote %}
 
 ## Trigger condition
 

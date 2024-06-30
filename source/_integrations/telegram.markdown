@@ -118,9 +118,9 @@ $ python3
 123456789
 ```
 
-<div class='note'>
+{% tip %}
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</div>
+{% endtip %}
 
 
 **Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already, you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
@@ -267,7 +267,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/integrations/homeassistant/#allowlist_external_dirs) of the file you want to include in the notification.
 
@@ -280,7 +280,7 @@ homeassistant:
     - /home/kenji/data
 ```
 
-</div>
+{% endimportant %}
 
 ### Video support
 
