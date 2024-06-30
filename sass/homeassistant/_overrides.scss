@@ -620,6 +620,7 @@ article.page,
 article.listing {
   font-size: 1.125em;
   line-height: 1.6;
+  overflow-x: hidden;
 
   img,
   table {
@@ -677,6 +678,7 @@ article.listing {
 
   a {
     text-decoration: underline;
+    overflow-wrap: break-word;
 
     &.btn {
       text-decoration: none;
