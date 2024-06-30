@@ -286,11 +286,12 @@ header .breadcrumbs {
   .links {
     margin-top: 12px;
     margin-right: -8px;
+    margin-bottom: -8px;
     font-size: .9rem;
     text-align: right;
 
     a {
-      background: #e8edf0; 
+      background: #e8edf0;
       font-family: $heading-font;
       text-decoration: none;
       font-weight: 650;
@@ -363,7 +364,7 @@ a.material-card:hover {
   border-radius: 24px;
   margin: 8px 0;
   transition: box-shadow .33s;
-  
+
   &::before {
     content: " ";
     position: absolute;
@@ -727,8 +728,8 @@ article.listing {
 
       &>li.toc-entry:first-child{
         padding-top: 0;
-      }  
-    
+      }
+
       &>li.toc-entry {
         list-style-type: none;
       }
@@ -894,7 +895,7 @@ div.config-vars {
   .config-vars-label {
     padding-bottom: 4px;
     position: relative;
-    
+
     a.title-link {
       text-decoration: none;
     }
