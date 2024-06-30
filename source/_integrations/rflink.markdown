@@ -27,7 +27,7 @@ The 433 MHz spectrum is used by many manufacturers mostly using their own protoc
 RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
 {% note %}
-Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
+Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1 and MySensors devices.
 {% endnote %}
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).

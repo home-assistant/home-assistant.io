@@ -36,7 +36,7 @@ Raspbian users: Don't forget to install `ffmpeg` support on your platform, other
 {% endimportant %}
 
 {% note %}
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
+The live stream writing by the camera is not a supported format when Home Assistant reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
 {% endnote %}
 
 {% tip %}

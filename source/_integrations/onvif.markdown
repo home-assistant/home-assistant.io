@@ -30,7 +30,7 @@ It is recommended that you create a user on your device specifically for Home As
 {% endtip %}
 
 {% note %}
-If running Home Assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
+If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
 {% endnote %}
 
 ### Configuration notes

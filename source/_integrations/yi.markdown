@@ -40,7 +40,7 @@ If you use a version higher than 0.1.4-beta2, you can simply solve the FTP issue
 {% endtip %}
 
 {% important %}
-Raspbian users: don't forget to install ffmpeg support on your platform, otherwise, you'll not see video.
+Raspbian users: don't forget to install FFmpeg support on your platform, otherwise, you'll not see video.
 {% endimportant %}
 
 {% tip %}

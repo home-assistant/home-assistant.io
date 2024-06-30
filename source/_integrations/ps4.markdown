@@ -168,7 +168,7 @@ The `media_image_url` value can be any valid URL. This includes the `local direc
 ### Editing with Text Editor
 
 {% warning %}
-Backup a copy of your <b>.ps4-games.json</b> file before continuing. If there are errors in the formatting, your file may be deleted.
+Backup a copy of your `.ps4-games.json` file before continuing. If there are errors in the formatting, your file may be deleted.
 {% endwarning %}
 
 To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
