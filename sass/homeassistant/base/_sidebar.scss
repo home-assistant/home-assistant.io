@@ -21,6 +21,13 @@
 }
 
 #sidebar {
+  position: sticky;
+  top: 88px;
+  max-height: calc(100vh - 104px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  border-radius: 16px;
+
   .grid {
     position: fixed;
     width: 350px;

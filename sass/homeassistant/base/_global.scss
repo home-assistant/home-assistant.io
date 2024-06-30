@@ -7,16 +7,16 @@ body, html {
   color: $text-color;
   font-family: $sans-serif;
   height: 100%;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
 }
 
 .page-content {
   display: inline-block;
   height: 100%;
   margin-top: 0;
-  overflow-y: scroll;
-  padding-top: 100px;
+  padding-top: 88px;
   width: 100%;
-  scroll-snap-type: y mandatory;
 }
 
 h1, h2, h3, h4, h5, h6 {
