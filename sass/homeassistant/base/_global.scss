@@ -1,5 +1,6 @@
 html {
-  overflow-y: hidden;
+  overflow-y: auto;
+  scroll-snap-type: y proximity;
 }
 
 body, html {
@@ -7,8 +8,6 @@ body, html {
   color: $text-color;
   font-family: $sans-serif;
   height: 100%;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
 }
 
 .page-content {
