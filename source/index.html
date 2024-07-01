@@ -69,6 +69,27 @@ feedback: false
         </div>
       </div>
 
+      <a
+        class="material-card picture-promo"
+        href="/blog/2019/08/06/home-assistant-cast/"
+        style="background-image: url(/images/frontpage/cast-frontpage.png)"
+      >
+        <div class="caption">
+          <div>
+            <div class="title">
+              Take over all the screens
+            </div>
+            <div class="subtitle">
+              Home Assistant Cast makes every TV a display.
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
     </div>
     <!-- Left sidebar ends -->
 
@@ -84,6 +105,33 @@ feedback: false
           padding-top: 55%;
         "
       ></a>
+
+      <a
+        class="material-card picture-promo"
+        href="/voice_control/"
+        style="
+          background-image: url(/images/frontpage/assist_wake_word.png);
+          background-size: cover;
+          padding-top: 35%;
+        "
+      >
+        <div class="caption">
+          <div>
+            <div class="title">
+              Control your home with Assist
+            </div>
+            <div class="subtitle">
+              Our private, insanely fast, voice assistant running on affordable
+              hardware. Now supporting wake words.
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
 
       {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
       page in pages_by_date %} {% if page.layout == "landingpage" and
@@ -112,6 +160,62 @@ feedback: false
         </div>
       </a>
       {% endif %} {% endfor %}
+      <!-- Tutorial: setup private voice assistant over phone -->
+      <a
+        href="/voice_control/worlds-most-private-voice-assistant/"
+        target="_blank"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/promo-private-voice-assistant.png);
+          background-size: cover;
+          padding-top: 45%;
+        "
+      ></a>
+      <a
+        class="material-card picture-promo"
+        href="/blog/2020/09/15/home-assistant-tags/"
+        style="
+          background-image: url(/images/blog/2020-09-15-home-assistant-tags/tag-reader.jpg);
+        "
+      >
+        <div class="caption">
+          <div>
+            <div class="title">
+              Home Assistant Tags
+            </div>
+            <div class="subtitle">
+              Use NFC to bring music to your life or automate the mundane.
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
+
+      <a
+        class="material-card picture-promo"
+        href="https://home-assistant-store.creator-spring.com/"
+        style="background-image: url(/images/merchandise/shirt-frontpage.png)"
+      >
+        <div class="caption">
+          <div>
+            <div class="title">
+              Join the Home Assistant t-shirt revolution!
+            </div>
+            <div class="subtitle">
+              Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
+            </div>
+          </div>
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+            />
+          </svg>
+        </div>
+      </a>
     </div>
     <!-- Right content ends -->
 
