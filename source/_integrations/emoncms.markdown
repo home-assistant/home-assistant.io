@@ -31,11 +31,10 @@ sensor:
     id: 1
 ```
 
+**As of July 2024, Emoncms produces a unique identifier starting from version 11.5.7.**
+If you upgrade your existing Emoncms installation to a version shipping a unique identifier, please [migrate your Emoncms database](https://docs.openenergymonitor.org/emoncms/update.html#upgrading-to-a-version-producing-a-unique-identifier) before restarting Home Assistant.
+
 As of Feb 2020, the integration will discover all sensors from Emoncms and will use the unit of measurement specified in the Feed from Emoncms, in preference to the one set in the configuration. Tested with [Emoncms](https://github.com/emoncms/emoncms) V10.1.13 - `unit` was added to the API around version V9.9.1.
-
-As of July 2024, [Emoncms](https://github.com/emoncms/emoncms) produces a unique identifier starting from version 11.5.7
-
-If you upgrade your existing Emoncms installation to a version shipping a unique identifier, please migrate your Emoncms database before restarting Home Assistant.
 
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
