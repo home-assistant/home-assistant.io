@@ -33,7 +33,7 @@ To learn how to create a backup of your Home Assistant installation, refer to th
 
 ## Editing the configuration.yaml and configuring file access
 
-While you can configure most of Home Assistant from the user interface, for some integrations, you will need to [edit the configuration.yaml file](/docs/configuration/). This file contains integrations to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality. For starters, there is no need to edit the configuration.yaml file. You will be pointed to the documentation when this is needed.
+While you can configure most of Home Assistant from the user interface, for some integrations, you will need to [edit the `configuration.yaml` file](/docs/configuration/). This file contains integrations to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality. For starters, there is no need to edit the `configuration.yaml` file. You will be pointed to the documentation when this is needed.
 
 ## Setting up network storage
 
