@@ -8,7 +8,6 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
-  - '@OverloadUT'
   - '@mib1185'
   - '@edenhaus'
   - '@Augar'
