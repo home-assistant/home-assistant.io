@@ -30,8 +30,8 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
 - One of the three Espressif ESP32-S3-BOX variants:
-  - [ESP32-S3-BOX-3](https://www.aliexpress.us/item/1005005920207976.html?gatewayAdapt=4itemAdapt)
-  - ESP32-S3-BOX or ESP32-S3-BOX-Lite (not currently on the market)
+  - ESP32-S3-BOX-3B
+  - ESP32-S3-BOX-3, ESP32-S3-BOX, or ESP32-S3-BOX-Lite (not currently on the market)
 - USB-C cable to connect the ESP32-S3-BOX
 
 ## Installing the software onto the ESP32-S3-BOX
@@ -77,10 +77,10 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
         - Your ESP32-S3-BOX is connected to Home Assistant over Wi-Fi. You can now move it to any place in your home with a USB power supply.
 
-- title: Using the ESP32-S3-BOX-3
+- title: Using the ESP32-S3-BOX-3(B)
   content: |
 
-    1. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
+    1. These steps apply both to the ESP32-S3-BOX-3 and the ESP32-S3-BOX-3B. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
        - Select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet. We want to see the list of available USB devices first, so that it is easier to recognize the ESP device afterwards.
        - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
