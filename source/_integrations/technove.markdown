@@ -50,4 +50,6 @@ The {% term integration %} adds the following sensors:
 
 The {% term integration %} adds the following switch:
 
-- Auto-charge mode
+| Name             | Description                                                                                                                                                                                                                                                                  |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auto-charge mode | When enabled, vehicles will start charging automatically when plugged in. When turned off, charging will need to be manually started each time a vehicle is plugged in. Turning auto-charge off when a car is already plugged in will not stop the current charging session. |
