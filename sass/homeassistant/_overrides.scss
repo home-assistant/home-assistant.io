@@ -577,6 +577,18 @@ a.material-card:hover {
       border-radius: 50%;
     }
   }
+
+  .sponsored-by {
+    text-align: center;
+
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 24px;
+      max-height: 160px;
+    }
+  }
 }
 
 @media screen and (max-width: 700px) {
