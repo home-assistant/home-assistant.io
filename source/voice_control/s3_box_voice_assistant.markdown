@@ -82,7 +82,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
     1. These steps apply both to the ESP32-S3-BOX-3 and the ESP32-S3-BOX-3B. Make sure this page is opened in a Chromium-based browser on a **desktop**. The software installation does not work with a tablet or phone.
 
-       - Select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet. We want to see the list of available USB devices first, so that it is easier to recognize the ESP device afterwards.
+       - Select the **Connect** button below to display a list of available USB devices. Do not connect the ESP32-S3-BOX-3 yet. We want to see the list of available USB devices first, so that it is easier to recognize the ESP device afterward.
        - If your browser does not support web serial, you will see a warning message indicating this instead of a button.
 
            <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
