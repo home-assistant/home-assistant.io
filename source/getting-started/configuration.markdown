@@ -20,7 +20,7 @@ The onboarding process takes you through the initial setup for Home Assistant, s
 
 ## Changing the basic settings
 
-To change basic settings such as location, unit system, and language, refer to [Changing basic settings](/docs/configuration/basic/).
+To change basic settings such as location, unit system and language, refer to [Changing basic settings](/docs/configuration/basic/).
 
 ## Creating a backup
 
