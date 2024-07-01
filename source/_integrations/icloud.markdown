@@ -38,7 +38,7 @@ To prevent excessive battery drainage, a dynamic interval is used for each indiv
 
 ## Two Factor Authentication
 
-By Default, all users should use [App-Specific Passwords](https://support.apple.com/102654) to prevent reoccuring MFA prompts. If using the Account Password, and if two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
+By default, all users should use [App-Specific Passwords](https://support.apple.com/102654) to prevent recurring MFA prompts. If using the Account Password, and if two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask you to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account periodically.
 
 ## In case of troubleshooting
 
