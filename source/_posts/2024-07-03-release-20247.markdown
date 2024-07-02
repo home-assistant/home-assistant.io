@@ -95,7 +95,7 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## Resize the cards on your Dashboard 
 
 As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
-keeping up the work on making dashboard organization and customization easier
+continuing to make dashboard organization and customization easier
 and more intuitive. This month, we add the ability to resize the cards on
 your dashboard!
 
@@ -104,13 +104,17 @@ your dashboard!
     Temporary screenshot, image needs to be replaced.
 </p>
 
-_TODO: Write more about this feature, supported cards, etc._
+Resizing is done with a very nice slider interface, found in the card editing menu under the new _Layout_ tab, where you can preview your changes. Make small 1x1 buttons or give a map the space it needs. This is only available on our experimental [sections view]([url](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view)), which was recently released with drag-and-drop. 
+
+<img src='/images/blog/2024-07/resize-cards.jpg' style='border: 0;box-shadow: none;'>
+
+It works with every card, which gives users a lot of freedom. Most cards have been given a built-in minimum and maximum size, to make it easier to get your layouts just right.  If you mess up the look of a card, luckily we have included a revert button in the top left corner 😉.
 
 ## Data tables improvements
 
 Like the [last release](/blog/2024/06/05/release-20246/#data-tables-improvements),
 and the [release before that](/blog/2024/05/01/release-20245/#more-features-for-our-data-tables),
-we keep improving our data tables.
+we keep improving our data tables. Data tables are how we organize information in our settings pages, including our devices and automations pages.
 
 With this release, we add the final big piece of the puzzle: The ability to
 customize the columns shown! 😎
@@ -121,13 +125,13 @@ customize the columns shown! 😎
 </p>
 
 Not only can you now customize the columns shown, but you can also change the
-order of the columns by dragging them around. Making it even easier to get the
+order of the columns by dragging them around. Making it even easier to show the
 data you want, in the order you want it.
 
 Your customized columns and view are stored in your browser, so you only have to
-set it up once, and it will be remembered for the next time you visit the page.
+set it up once, and it will be remembered the next time you visit the page.
 
-## Take control over a blueprint-based automation or script
+## Take control of blueprint-based automations or scripts
 
 {% term Blueprints %} are amazing; they allow you to use {% term automations %}
 and {% term scripts %} created and shared by other awesome Home Assistant users.
@@ -144,7 +148,7 @@ Well, now you can! 🎉
 
 You can now take full control over the automations created from a blueprint.
 By taking control, Home Assistant will fully convert the blueprint automation
-into a regular, stand-alone, automation, allowing you to make any tweak you
+into a regular, stand-alone automation. This allows you to make any tweak you
 want, without having to fully re-invent the wheel.
 
 <lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
@@ -162,12 +166,12 @@ and improvements to existing ones! You’re all awesome 🥰
 We welcome the following new integrations in this release:
 
 - **[Aquacell]**, added by [@Jordi1990]<br />
-  Monitor your AquaCell water-softner from Home Assistant.
+  Monitor your AquaCell water-softener from Home Assistant.
 - **[ista EcoTrend]**, added by [@tr4nt0r]<br />
   The ista EcoTrend integration allows you to import your monthly heating,
   hot water, and water consumption and costs from the ista EcoTrend service.
 - **[Mealie]**, added by [@joostlek]<br />
-  Mealie is a self-hosted recipe manager and meal planner, this integration
+  Mealie is a self-hosted recipe manager and meal planner. This integration
   will pull in your meal plan as calendars in Home Assistant.
 - **[Knocki]**, added by [@joostlek]<br />
   Knocki is a smart device that turns any surface into a remote control,
@@ -183,8 +187,8 @@ We welcome the following new integrations in this release:
 
 ### Noteworthy improvements to existing integrations
 
-It is not just new {% term integrations %} that are added; existing
-integrations are also constantly improved. Here are some of the noteworthy
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
 - The **[Matter]** integration now provide number entities that allow you to
@@ -201,10 +205,10 @@ changes to existing integrations:
 - The **[Reolink]** integration has seen a lot of improvements, thanks to
   [@starkillerOG]. They added support for manual recording, software updates
   for more cameras, and playback of the auto track lens. 🎥
-- The **[Bang & Olufsen]** integration now supports announcements and support
+- The **[Bang & Olufsen]** integration now supports announcements, and support
   for Tidal has been added too! Nice work [@mj23000]!
 - [@joostlek] added the event entity to the **[Nanoleaf]** integration, allowing
-  you to trigger automations you touch your Nanoleaf panels. Nice!
+  you to trigger automations when you touch your Nanoleaf panels. Nice!
 
 [@bdraco]: https://github.com/bdraco
 [@joostlek]: https://github.com/joostlek
@@ -244,7 +248,7 @@ _Note: Processed up to #120172_
 
 ### Integrations reaching platinum quality level
 
-The following {% term integrations %} reached the platinum 🏆 level on our
+The following {% term integrations %} have reached the platinum 🏆 level on our
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
@@ -313,8 +317,7 @@ Looks familiar, right? 😃 That is because ESPHome has [been donated] to the
 [Open Home Foundation] by [Nabu Casa]. The same foundation that the Home
 Assistant project is part of.
 
-But besides the new logo, ESPHome has added a new feature that works in
-conjunction this release of Home Assistant: The ability for makers of
+Besides the new logo, ESPHome has added a new feature that works with this release of Home Assistant: The ability for makers of
 [ready-made devices, or projects] running on ESPHome, to [provide updates]
 for their devices directly to Home Assistant.
 
@@ -323,8 +326,7 @@ and the maker of that device provides updates for it, you can now update that
 device directly from Home Assistant; without the need for you to build, adopt,
 or set up the the ESPHome software yourself! 😎
 
-Finally, the ESPHome integration now also reached the platinum integration
-quality level! 🏆
+This new update ability, along with the ESPHome integration reaching the platinum quality level 🏆, will make it easier for new users, along with creators to use this powerful platform to build a more Open Home.
 
 [been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
 [ESPHome]: https://esphome.io
@@ -344,7 +346,7 @@ noteworthy changes this release:
 - Home Assistant will now raise a repair issue if an automation can't be set up
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - We now show additional entity categories on the device page, grouping
-  [notification] entities in a "Notification" category. Furthermore all
+  [notification] entities in a "Notification" category. Furthermore, all
   [Assist] related entities, like [conversation agents and text-to-speech]
   entities, are now grouped in an "Assist" category. Thanks [@balloob]!
 - [Trend helpers] are now automatically linked to the same device as the source
