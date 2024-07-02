@@ -25,7 +25,7 @@ There are several things you can do to free up some space:
 
 The Home Assistant database can get huge!
 
-Luckily there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
+Luckily, there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
 
 You can [filter](/integrations/recorder/#configure-filter) what you send to
 the database, and even change how long it stores the data
@@ -43,7 +43,7 @@ Previous backups are not included when you create a new one. But they do take up
 
 ### Storing backups outside of Home Assistant
 
-Storing backups outside of Home Assistant makes sure they don't use space on Hoe Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) in case you have an issue with your current installation.
+Storing backups outside of Home Assistant makes sure they don't use space on Home Assistant to begin with. It also makes sure you can [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) in case you have an issue with your current installation.
 
 1. Go to {% my backup title="**Settings** > **System** > **Backups**" %}, and from the list of backups, select the backup you want to keep.
 2. In the dialog, select the checkbox for each component, in the three-dots menu, select **Download backup**.
@@ -55,7 +55,7 @@ Storing backups outside of Home Assistant makes sure they don't use space on Hoe
 Add-ons can take a lot of space, not just the add-on itself but also their data.
 
 1. Go to {% my supervisor title="**Settings** > **Add-ons**" %}.
-2. Look at the all your installed add-ons and identify the ones you no longer use.
+2. Look at your installed add-ons and identify the ones you no longer use.
 3. To remove the add-on, select the add-on and select **Uninstall**.
 
 ## Expanding storage
@@ -66,7 +66,7 @@ If the above steps to free up space did not help, you need to expand your storag
 
 When you are running {% term "Home Assistant Operating System" %}, you can use the following options to expand your storage:
 
-- Replace your current storage medium, for example the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) on the new SD card.
+- Replace your current storage medium, for example, the SD card, with a bigger one. Use a backup to [restore Home Assistant from backup](/common-tasks/os/#restoring-a-backup) on the new SD card.
 - [Use an external data disk](/common-tasks/os/#using-external-data-disk)
 
 ### Expanding storage on VM
