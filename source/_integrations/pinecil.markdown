@@ -14,6 +14,6 @@ ha_platforms:
   - sensor
 ---
 
-The **Pinecil** {% term integration %} seamlessly connects Home Assistant to Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power and various other settings and diagnostical information.
+The **Pinecil** {% term integration %} seamlessly connects Home Assistant to Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
 
 {% include integrations/config_flow.md %}
