@@ -104,11 +104,11 @@ your dashboard!
     Temporary screenshot, image needs to be replaced.
 </p>
 
-Resizing is done with a very nice slider interface, found in the card editing menu under the new _Layout_ tab, where you can preview your changes. Make small 1x1 buttons or give a map the space it needs. This is only available on our experimental [sections view]([url](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view)), which was recently released with drag-and-drop. 
+Resizing is done with a very nice slider interface, found in the card editing menu under the new _Layout_ tab, where you can preview your changes. Make small 1x1 buttons or give a map the space it needs. This is only available on our experimental [sections view](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view), which was recently released with drag-and-drop.
 
 <img src='/images/blog/2024-07/resize-cards.jpg' style='border: 0;box-shadow: none;'>
 
-It works with every card, which gives users a lot of freedom. Most cards have been given a built-in minimum and maximum size, to make it easier to get your layouts just right.  If you mess up the look of a card, luckily we have included a revert button in the top left corner 😉.
+It works with every card, which gives users a lot of freedom. Most cards have been given a built-in minimum and maximum size, to make it easier to get your layouts just right. If you mess up the look of a card, luckily we have included a revert button in the top left corner 😉.
 
 ## Data tables improvements
 
