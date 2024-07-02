@@ -493,8 +493,8 @@ a.material-card:hover {
       padding: 8px 12px 12px;
       background-color: rgba(0, 0, 0, 0.54);
       color: white;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -542,26 +542,37 @@ a.material-card:hover {
     margin-top: 24px;
   }
 
-  .sponsored-by {
-    img {
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 15px;
-      max-width: 40%;
-      max-height: 80px;
+  .seen-press {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    column-gap: 24px;
+    row-gap: 24px;
+    margin: 48px 0;
+
+    h2 {
+      grid-column: 1/-1;
+      margin: 0;
+      text-align: center;
     }
 
-  }
-
-  .seen-press {
+    a {
+      aspect-ratio: 1;
+    }
 
     img {
       border: 0;
       box-shadow: none;
-      margin: 15px;
-      max-width: 40%;
-      max-height: 70px;
+      margin: 24px;
+      width: calc(100% - 48px);
+      max-height: 128px;
+      border-radius: 0;
+    }
+
+    .material-card {
+      height: 100%;
+      align-content: center;
+      text-align: center;
+      margin: 0;
     }
 
     .square {
@@ -570,6 +581,18 @@ a.material-card:hover {
 
     .round {
       border-radius: 50%;
+    }
+  }
+
+  .sponsored-by {
+    text-align: center;
+
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 24px;
+      max-height: 160px;
     }
   }
 }
