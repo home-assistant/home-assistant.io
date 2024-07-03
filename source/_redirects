@@ -490,6 +490,7 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
