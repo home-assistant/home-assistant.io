@@ -466,7 +466,13 @@ always ideal for everyone. Although it could be changed using YAML, as of this
 release, you can now change the radius of your home zone directly from the
 Home Assistant user interface!
 
-<img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screenrecording of how you can now change the radius of the home zone.'>
+<img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screenrecording of how you can now change the radius of the home zone.'><br/>
+
+{% important %}
+If you have currently configured and overridden your home zone using YAML
+configuration, this new feature will not be available to you. You can remove
+the YAML configuration and restart Home Assistant to enable UI control.
+{% endimportant %}
 
 ## Need help? Join the community!
 
