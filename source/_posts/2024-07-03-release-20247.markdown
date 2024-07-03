@@ -101,14 +101,14 @@ As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
 continuing to make dashboard organization and customization easier and more
 intuitive. This month, we add the ability to resize the cards on your dashboard!
 
-<img src='/images/blog/2024-07/dashboard-resize-cards-example.png' style='border: 0;box-shadow: none;' alt='Screenshot showing several cards at different sizes'>
+<img src='/images/blog/2024-07/dashboard-resize-cards-example.png' style='border: 0;box-shadow: none;' alt='Screenshot showing several cards at different sizes.'>
 
 Resizing is done with a very nice slider interface, found in the card editing
 menu under the new **Layout** tab, where you can preview your changes. Make
 small 1x1 buttons or give a map the space it needs. This is only available on
 our experimental [sections view], which was recently released with drag-and-drop.
 
-<img src='/images/blog/2024-07/dashboard-resize-card.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the card edit diaglog, with the new layout tag and its card resize capabilities'>
+<img src='/images/blog/2024-07/dashboard-resize-card.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the card edit diaglog, with the new layout tag and its card resize capabilities.'>
 
 It works with every card, which gives users a lot of freedom. Most cards have
 been given a built-in minimum and maximum size, to make it easier to get your
@@ -121,24 +121,31 @@ top left corner 😉.
 
 ## Data tables improvements
 
-Like the [last release](/blog/2024/06/05/release-20246/#data-tables-improvements),
-and the [release before that](/blog/2024/05/01/release-20245/#more-features-for-our-data-tables),
-we keep improving our data tables. Data tables are how we organize information in our settings pages, including our devices and automations pages.
+Like the , and the , we keep improving our
+data tables. Data tables are how we organize information in our settings pages,
+including our devices and automations pages.
+
+Like the [last release] and [release before that], we keep improving our data
+tables. We use data tables to organize information in our settings pages,
+including our devices and automations pages.
 
 With this release, we add the final big piece of the puzzle: The ability to
 customize the columns shown! 😎
 
-<p class='img'>
-    <img src="https://github.com/home-assistant/frontend/assets/5662298/d968b845-c327-41d1-9240-ddf393088277" alt="Screenshot of..."/>
-    Temporary screenshot, image needs to be replaced.
-</p>
+<img src='/images/blog/2024-07/data-tables-customize-columns.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the dialog that allow customizing the order and visibility of data table columns available on the device page.'>
 
-Not only can you now customize the columns shown, but you can also change the
-order of the columns by dragging them around. Making it even easier to show the
-data you want, in the order you want it.
+By selecting the cog <iconify-icon inline icon="mdi:cog"></iconify-icon> in
+the top right, you can not only customize the columns shown by toggling
+visibility <iconify-icon inline icon="mdi:eye"></iconify-icon>, but you
+can also change the order of the columns by
+dragging <iconify-icon inline icon="mdi:drag"></iconify-icon> them around.
+Making it even easier to show the data you want, in the order you want it.
 
-Your customized columns and view are stored in your browser, so you only have to
-set it up once, and it will be remembered the next time you visit the page.
+Your customized columns and view are stored in your browser, so you only have 
+o set them up once. They will be remembered the next time you visit the page.
+
+[last release]: /blog/2024/06/05/release-20246/#data-tables-improvements
+[release before that]: /blog/2024/05/01/release-20245/#more-features-for-our-data-tables
 
 ## Take control of blueprint-based automations or scripts
 
