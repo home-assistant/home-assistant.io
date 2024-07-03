@@ -121,10 +121,6 @@ top left corner 😉.
 
 ## Data tables improvements
 
-Like the , and the , we keep improving our
-data tables. Data tables are how we organize information in our settings pages,
-including our devices and automations pages.
-
 Like the [last release] and [release before that], we keep improving our data
 tables. We use data tables to organize information in our settings pages,
 including our devices and automations pages.
