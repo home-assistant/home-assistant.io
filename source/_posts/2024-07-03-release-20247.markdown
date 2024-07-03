@@ -355,6 +355,8 @@ The following integrations are now available via the Home Assistant UI:
 The following {% term integrations %} are also no longer available as
 of this release:
 
+- **Aladdin Connect** has been removed, as the upstream library cannot be used
+  by Home Assistant at this time.
 - **Unify Circuit** was deprecated in Home Assistant 2024.5 and has now been
   removed.
 
