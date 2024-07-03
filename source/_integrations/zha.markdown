@@ -614,7 +614,7 @@ The exact method in which these values are reported depends on the Zigbee networ
 
 Missing links between Zigbee end devices (often battery-powered devices) in the Zigbee network visualization map are common. They are generally not a sign of a faulty device if the device is still reporting state changes. This happens with sleepy Zigbee end devices and does not mean that the device is no longer connected.
 
-The reason for this is that some end devices (e.g., Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child ageing. Since using child ageing and removing it from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee Router devices use child ageing.
+Some end devices (for example, Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child aging. Since using child aging and removing them from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee router devices use child aging.
 
 This is what causes devices to show with a missing link. Even though the device is not in the child table anymore, the end device can still communicate via the parent Zigbee Router.
 #### How to interpret RSSI and LQI values
