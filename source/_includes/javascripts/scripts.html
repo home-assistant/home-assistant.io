@@ -23,7 +23,7 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
   const changeNavColor = () => {
     const scrollPosition = document.documentElement.scrollTop;
     const nav = document.querySelector("header");
-    if (scrollPosition <= 10) {
+    if (scrollPosition <= 1) {
       nav.classList.add("dark");
     } else {
       nav.classList.remove("dark");

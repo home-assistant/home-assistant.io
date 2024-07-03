@@ -29,7 +29,11 @@ related:
     title: Configuration file
 ---
 
-The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
+The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
+
+The manufacturer's app is required in order to connect new devices to the network.
+
+The following devices are supported:
 
 - Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`

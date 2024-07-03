@@ -15,4 +15,4 @@ show_title: true
 {% include getting-started/next_step.html step="Automation" link="/getting-started/automation/" icon="mdi:robot-happy" %}
 {% include getting-started/next_step.html step="Presence detection" link="/getting-started/presence-detection/" icon="mdi:motion-detector" %}
 {% include getting-started/next_step.html step="Join the community" link="/getting-started/join-the-community/" icon="mdi:people-group-outline" %}
-{% include getting-started/next_step.html step="Advanced Configuration" link="/getting-started/configuration/" icon="mdi:cog" %}
+{% include getting-started/next_step.html step="Next steps" link="/getting-started/configuration/" icon="mdi:cog" %}
