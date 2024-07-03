@@ -299,6 +299,7 @@ Battery-powered Reolink cameras can be used with Home Assistant with the help of
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
 
+- [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
