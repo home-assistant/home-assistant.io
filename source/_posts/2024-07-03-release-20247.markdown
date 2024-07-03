@@ -314,14 +314,16 @@ The following {% term integrations %} have reached the platinum 🏆 level on ou
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
-- **[ESPHome]**, done by [@jesserockz] & [@bdraco]
+- **[ESPHome][esphome-integration]**, done by [@jesserockz] & [@bdraco]
 - **[pyLoad]**, done by [@tr4nt0r]
 - **[Teslemetry]**, done by [@Bre77]
 
 Congratulations to all the developers who worked on these integrations!
 
 [@Bre77]: https://github.com/Bre77
+[@jesserockz]: https://github.com/jesserockz
 [@tr4nt0r]: https://github.com/tr4nt0r
+[esphome-integration]: /integrations/esphome
 [pyLoad]: /integrations/pyload
 [Teslemetry]: /integrations/teslemetry
 
