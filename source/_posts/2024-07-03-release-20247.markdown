@@ -72,7 +72,10 @@ Enjoy the (beta) release!
 
 - [Resize the cards on your Dashboard](#resize-the-cards-on-your-dashboard)
 - [Data tables improvements](#data-tables-improvements)
-- [Take control over a blueprint-based automation or script](#take-control-over-a-blueprint-based-automation-or-script)
+- [Take control of blueprint-based automations or scripts](#take-control-of-blueprint-based-automations-or-scripts)
+- [Voice \& Assist](#voice--assist)
+  - [Timers are here!](#timers-are-here)
+  - [Expand an LLM using your scripts](#expand-an-llm-using-your-scripts)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -155,6 +158,56 @@ want, without having to fully re-invent the wheel.
 
 Looking for some inspiration for your next automation? 💡 Check out the
 [Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
+
+## Voice & Assist
+
+This month, we're thrilled to bring more enhancements to Assist's out-of-the-box
+capabilities. We've added support for timers ⏲️ — our third most requested
+feature for voice control — and the powerful ability to expose your scrips
+to LLMs (like [ChatGPT] and [Google Gemini]) as well! 💪
+
+If you missed it, be sure to check out our recent Voice - Chapter 7 livestream
+from June 26th, where we showcased all these exciting developments. You can
+[read more in our blog post here] and [watch the full livestream on YouTube]. 🎙️
+
+[ChatGPT]: /integrations/openai_conversation/
+[Google Gemini]: /integrations/google_generative_ai_conversation
+[read more in our blog post here]: /blog/2024/06/26/voice-chapter-7/
+[watch the full livestream on YouTube]: https://www.youtube.com/watch?v=nLLO4u2Tbbo
+
+### Timers are here!
+
+You asked, and we listened! As of this release, timers are available. This
+feature allows you to create, cancel, pause, resume, and adjust timers using
+your voice, making everyday tasks like cooking much easier. And yes, you can
+set multiple timers at once! 🎉
+
+<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
+
+[Read more about timers in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#timers-are-here).
+
+{% note %}
+Timers are available today on [ESPHome] and [Wyoming voice satellites].
+To take advantage of this new feature, update these devices to the latest
+version.
+{% endnote %}
+
+[ESPHome]: https://esphome.io/projects/
+[Wyoming voice satellites]: https://github.com/rhasspy/wyoming-satellite
+
+### Expand an LLM using your scripts
+
+You can now expand LLM capabilities by allowing them to access to (your choice)
+of your scripts. This feature lets you precisely control what the LLM does in
+specific situations, while still benefiting from the flexibility and natural
+language processing that AIs excel at.
+
+For example, you can create a _"leaving home"_ script that performs the actions
+you want and expose it to Assist. This ensures that commands like
+_"I'm heading out for a couple of minutes"_ will run your predefined script,
+such as locking the door without turning off the air conditioning.
+
+[Read more about expanding LLMs with script in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#expand-an-llm-with-scripts).
 
 ## Integrations
 
