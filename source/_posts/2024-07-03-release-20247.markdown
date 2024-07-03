@@ -373,24 +373,25 @@ of this release:
 
 Our sister project, [ESPHome] received a brand new logo this month! 🎉
 
-<img class="no-shadow" src='https://esphome.io/_static/logo-text-on-light.svg' alt='Logo of ESPHome'>
-
-<br /><br />
+<img style='border: 0;box-shadow: none; padding-bottom: 16px' src='https://esphome.io/_static/logo-text-on-light.svg' alt='Logo of ESPHome'>
 
 Looks familiar, right? 😃 That is because ESPHome has [been donated] to the
 [Open Home Foundation] by [Nabu Casa]. The same foundation that the Home
 Assistant project is part of.
 
-Besides the new logo, ESPHome has added a new feature that works with this release of Home Assistant: The ability for makers of
-[ready-made devices, or projects] running on ESPHome, to [provide updates]
+Besides the new logo, ESPHome has added a new feature that works with this
+release of Home Assistant: The ability for makers of
+[ready-made devices or projects] running on ESPHome, to [provide updates]
 for their devices directly to Home Assistant.
 
 This means that if you have a device that is powered-by or [Made for ESPHome],
 and the maker of that device provides updates for it, you can now update that
-device directly from Home Assistant; without the need for you to build, adopt,
+device directly from Home Assistant; without the need for you to build, adopt
 or set up the ESPHome software yourself! 😎
 
-This new update ability, along with the ESPHome integration reaching the platinum quality level 🏆, will make it easier for new users, along with creators to use this powerful platform to build a more Open Home.
+This new update ability, along with the ESPHome integration reaching the
+platinum quality level 🏆, will make it easier for new users, along with
+creators to use this powerful platform to build a more Open Home.
 
 [been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
 [ESPHome]: https://esphome.io
