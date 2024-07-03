@@ -442,13 +442,17 @@ One of the [most requested features] for {% term template %} entities is the
 ability to assign and link them to an existing {% term device %}. Thanks
 to [@dougiteixeira], you can now do just that! 🎉
 
-_TODO: insert screenshot_
+<img src='/images/blog/2024-07/templates-link-to-device.png' style='border: 0;box-shadow: none;' alt='Screenshot showing you can select a device the template can be linked to, when adding a new template helper.'>
 
 Assigning a template entity to an existing device can be very useful if you have
-a template that calculates an additional sensor value for a device.
+a template that calculates an additional sensor value for a device. For example,
+in the screenshot above, a template helper calculates the sum of two sensors
+and is linked to the device that has those sensors.
 
-_Note: This feature is only available for template entities that are created
-from the UI._
+{% note %}
+This feature is only available for template entities that are created
+from the UI.
+{% endnote %}
 
 [Template entities]: /integrations/template
 [@dougiteixeira]: https://github.com/dougiteixeira
