@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2024.7: Beta release notes"
-description: "Beta release notes for Home Assistant 2024.7"
-date: 2024-06-26 00:00:00
+title: "2024.7: Time to resize your cards!"
+description: "Home Assistant 2024.7! With timers support for Assist, resize cards on your dashboard, expose scripts to OpenAI ChatGPT and Google Gemini, taking control of blueprint-based automations, and much more."
+date: 2024-07-03 00:00:00
 date_formatted: "July 3, 2024"
 author: Franck Nijhof
 author_twitter: frenck
@@ -14,51 +14,6 @@ og_image: /images/blog/2024-07/social.png
 ---
 
 <a href='/integrations/#version/2024.7'><img src='/images/blog/2024-07/social.png' style='border: 0;box-shadow: none;'></a>
-
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2024.7** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/121)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/677)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/128)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
 
 Home Assistant 2024.7! 🎉
 
