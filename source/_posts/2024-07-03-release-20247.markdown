@@ -62,11 +62,34 @@ Issues introduced in the beta are processed with priority. 🔝
 
 Home Assistant 2024.7! 🎉
 
-Thanks for helping out testing the beta! ❤️
+Get ready for a really nice release with something interesting for everyone! 🤗
 
-Enjoy the (beta) release!
+And not just that, I bring you these release notes from our refreshed website 🤩
+that [Madelena] and [yours truly] have been spontaneously working on over the
+past few days. We hope you like it! ❤️
+
+We have some fantastic additions to [Assist](/voice_control): Timers!
+and the ability to expose your scripts to LLMs. In case you missed it,
+it has been covered and demonstrated live in our recent
+[Voice - Chapter 7 livestream!](https://www.youtube.com/watch?v=nLLO4u2Tbbo)
+which you definitely should watch. 📺
+
+The [sections view](/dashboards/sections/) becomes more feature-rich with
+every release, and this time, the [ability to resize cards](#resize-the-cards-on-your-dashboard)
+is added. Absolutely the highlight of the release for me!
+
+However, my second favorite highlight for this release is the ability to
+[take control of blueprint-based automations](#take-control-of-blueprint-based-automations).
+There are so many [amazing blueprints out there](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly),
+and many are perfect, but sometimes they fit 90% of what you need. Being able
+to take control of that last 10% is just amazing!
+
+Enjoy the release!
 
 ../Frenck
+
+[yours truly]: https://github.com/frenck
+[Madelena]: https://github.com/Madelena
 
 <!--more-->
 
