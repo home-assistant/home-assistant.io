@@ -68,7 +68,7 @@ And not just that, I bring you these release notes from our refreshed website �
 that [Madelena] and [yours truly] have been spontaneously working on over the
 past few days. We hope you like it! ❤️
 
-We have some fantastic additions to [Assist](/voice_control): Timers!
+Some fantastic additions to [Assist](/voice_control): Timers!
 and the ability to expose your scripts to LLMs. In case you missed it,
 it has been covered and demonstrated live in our recent
 [Voice - Chapter 7 livestream!](https://www.youtube.com/watch?v=nLLO4u2Tbbo)
@@ -78,7 +78,7 @@ The [sections view](/dashboards/sections/) becomes more feature-rich with
 every release, and this time, the [ability to resize cards](#resize-the-cards-on-your-dashboard)
 is added. Absolutely the highlight of the release for me!
 
-However, my second favorite highlight for this release is the ability to
+My second favorite highlight for this release is the ability to
 [take control of blueprint-based automations](#take-control-of-blueprint-based-automations).
 There are so many [amazing blueprints out there](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly),
 and many are perfect, but sometimes they fit 90% of what you need. Being able
@@ -238,9 +238,9 @@ Well, now you can! 🎉
     Temporary screenshot, image needs to be replaced by an actual screenshot.
 </p>
 
-You can now take full control over the automations created from a blueprint.
+You can now [take full control over the automations created from a blueprint](/docs/automation/using_blueprints/#editing-an-imported-blueprint).
 By taking control, Home Assistant will fully convert the blueprint automation
-into a regular, stand-alone automation. This allows you to make any tweak you
+into an regular, stand-alone, automation. This allows you to make any tweak you
 want, without having to fully re-invent the wheel.
 
 <lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
