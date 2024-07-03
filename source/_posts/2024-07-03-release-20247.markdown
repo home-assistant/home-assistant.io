@@ -233,20 +233,24 @@ your home?
 
 Well, now you can! 🎉
 
-<p class='img'>
-    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e95" alt="Screenshot of..."/>
-    Temporary screenshot, image needs to be replaced by an actual screenshot.
-</p>
+<img src='/images/blog/2024-07/blueprint-automation-take-control.png' style='border: 0;box-shadow: none;' alt='Screenshot showing a blueprint-based automation that can be taken of using the "Take control" option in the three-dotted menu.'>
 
 You can now [take full control over the automations created from a blueprint](/docs/automation/using_blueprints/#editing-an-imported-blueprint).
-By taking control, Home Assistant will fully convert the blueprint automation
-into an regular, stand-alone, automation. This allows you to make any tweak you
-want, without having to fully re-invent the wheel.
+By taking control <iconify-icon inline icon="mdi:file-edit"></iconify-icon>,
+Home Assistant will convert the blueprint automation into an regular,
+stand-alone, automation. This allows you to make any tweak you want,
+without having to re-invent the wheel.
 
-<lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
+<img src='/images/blog/2024-07/blueprint-automation-preview.png' style='border: 0;box-shadow: none;' alt='Screenshot showing a preview of how a converted blueprint automation would look like before you take control.'>
 
-Looking for some inspiration for your next automation? 💡 Check out the
-[Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
+The cool thing is that it shows you a preview of how the converted automation
+would look like before you take over. This way, you can see what you are getting
+into before you actually do it.
+
+{% tip %}
+Looking for some inspiration for your next automation?<br />
+Check out the [Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
+{% endtip %}
 
 ## Integrations
 
