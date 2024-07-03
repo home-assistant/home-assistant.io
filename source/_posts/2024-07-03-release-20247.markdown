@@ -253,60 +253,63 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- The **[Matter]** integration now provide number entities that allow you to
+- The **[Matter]** integration now provides number entities that allow you to
   configure the behavior of your Matter lights, thanks [@jvmahon]!
-- The **[AndroidTV]** integration now supports remote entities, allowing you
-  to remotely control your Android TV, thanks [@ollo69]!
+- The **[TP-Link Smart Home]** integration has been fully modernized by
+  [@rytilahti], [@sdb9696], and [@bdraco]! It adds support for many new devices
+  (like hubs) and unlocks many new features in Home Assistant, including
+  light effects and presets, firmware updates, and so much more!
 - [@tronikos] has added support for integrating the camera from the tablet
   running **[Fully Kiosk Browser]**. Furthermore, there's now an image entity
   for taking screenshots, the ability to send notifications and text-to-speech
   messages to the tablet, and the media player can now play videos! Nice!
+- The **[Android TV Remote]** integration now supports browsing your apps
+  directly from the media browser, thanks [@tronikos]!
 - We've seen a lot of improvements to the **[UniFi Protect]** integration,
   thanks to [@bdraco]. [@wfltaylor] chipped in as well, adding support for
   animal detection sensors. 🐶🐱🐰
+- The **[Android Debug Bridge]** integration now supports remote entities,
+  allowing you to remotely control your Android TV. Thanks [@ollo69]!
 - The **[Reolink]** integration has seen a lot of improvements, thanks to
-  [@starkillerOG]. They added support for manual recording, software updates
-  for more cameras, and playback of the auto track lens. 🎥
+  [@starkillerOG]. Added support for manual recording, software updates
+  for more cameras, playback of the auto track lens, and support for
+  their battery-powered cameras through the [Reolink Home Hub]. 🎥
 - The **[Bang & Olufsen]** integration now supports announcements, and support
   for Tidal has been added too! Nice work [@mj23000]!
 - [@joostlek] added the event entity to the **[Nanoleaf]** integration, allowing
-  you to trigger automations when you touch your Nanoleaf panels. Nice!
+  you to trigger automations when you touch your [Nanoleaf panels]. Nice!
+- If you have a [Roborock Dyad] vacuum, you are in luck as they are now
+  supported by the **[Roborock]** integration. Awesome [@Lash-L]!
+- The **[SwitchBot]** integration added support for the [SwitchBot Lock Pro].
+  Good work [@szclsya]!
 
 [@bdraco]: https://github.com/bdraco
 [@joostlek]: https://github.com/joostlek
 [@jvmahon]: https://github.com/jvmahon
+[@Lash-L]: https://github.com/Lash-L
 [@mj23000]: https://github.com/mj23000
 [@ollo69]: https://github.com/ollo69
+[@rytilahti]: https://github.com/rytilahti
+[@sdb9696]: https://github.com/sdb9696
 [@starkillerOG]: https://github.com/starkillerOG
+[@szclsya]: https://github.com/szclsya
 [@tronikos]: https://github.com/tronikos
 [@wfltaylor]: https://github.com/wfltaylor
-[AndroidTV]: /integrations/androidtv
+[Android Debug Bridge]: /integrations/androidtv
+[Android TV Remote]: /integrations/androidtv_remote
 [Bang & Olufsen]: /integrations/bang_olufsen
 [Fully Kiosk Browser]: /integrations/fully_kiosk
 [Matter]: /integrations/matter
+[Nanoleaf panels]: https://nanoleaf.me
 [Nanoleaf]: /integrations/nanoleaf
+[Reolink Home Hub]: https://reolink.com/product/reolink-home-hub/
 [Reolink]: /integrations/reolink
+[Roborock Dyad]: https://global.roborock.com/pages/roborock-dyad-pro-combo
+[Roborock]: /integrations/roborock
+[SwitchBot Lock Pro]: https://www.switch-bot.com/products/switchbot-lock-pro
+[SwitchBot]: /integrations/switchbot
+[TP-Link Smart Home]: /integrations/tplink
 [UniFi Protect]: /integrations/unifiprotect
-
-{% details "Candidates to process" %}
-
-_Note: Processed up to #120172_
-
-- Upgrade tplink with new platforms, features and device support ([@rytilahti] - [#120060]) ([tplink docs]) (noteworthy)
-- Add support for Dyad vacuums to Roborock #115331
-- Add time based integration trigger to Riemann sum integral helper sensor ([@ronweikamp] - [#110685])
-- Add support for Switchbot Lock Pro ([@szclsya] - [#119326]) ([switchbot docs]) (noteworthy)
-- Introduce incomfort boiler entity ([@joostlek] - [#118861]) ([incomfort docs])
-- Add state and device class to incomfort ([@joostlek] - [#118877]) ([incomfort docs])
-- Add entity translations to incomfort ([@joostlek] - [#118876]) ([incomfort docs])
-- Add new sensors to blebox ([@swistakm] - [#118837]) ([blebox docs]) (noteworthy)
-- Add photovoltaic sensors to ViCare integration ([@CFenner] - [#113664]) ([vicare docs])
-- Add Sensor for Refoss Integration ([@ashionky] - [#116965]) ([refoss docs]) (new-platform)
-- Add sensors to Motionblinds BLE integration ([@LennP] - [#114226]) ([motionblinds_ble docs]) (new-platform)
-- Add valve entity to gardena ([@elupus] - [#120160]) ([gardena_bluetooth docs])
-- Add device trackers to tplink_omada ([@MarkGodwin] - [#115601]) ([tplink_omada docs]) (new-platform)
-
-{% enddetails %}
 
 ### Integrations reaching platinum quality level
 
