@@ -171,9 +171,9 @@ feature allows you to create, cancel, pause, resume, and adjust timers using
 your voice, making everyday tasks like cooking much easier. And yes, you can
 set multiple timers at once! 🎉
 
-<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
-
 [Read more about timers in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#timers-are-here).
+
+<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
 
 {% note %}
 Timers are available today on [ESPHome] and [Wyoming voice satellites].
