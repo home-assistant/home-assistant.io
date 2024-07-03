@@ -573,7 +573,7 @@ corrected from `c` to `¢/kWh`.
 {% details "DNS IP" %}
 
 The attribute names `Resolver` and `Querytype` have been renamed to
-`resolver` and `querytype`. If ause these in any automation or script,
+`resolver` and `querytype`. If you use these in any automations or scripts,
 you need to update them to use the new lowercase names.
 
 ([@gjohansson-ST] - [#119727]) ([documentation](/integrations/dnsip))
@@ -609,7 +609,7 @@ to refresh and run a speedtest manually instead.
 {% details "Intergas InComfort/Intouch Lan2RF gateway" %}
 
 Based on the boiler display code or fault code, the boiler status
-has been refactored to be signified and unique, so we can start supporting
+has been refactored to be signified and unique so we can start supporting
 localization.
 
 Depending on the old status texts, automations or scripts might break.
@@ -740,7 +740,7 @@ Assistant. This was a virtual code that was not used by the SimpliSafe system.
 An SQL query generating several columns output was putting the additional
 attributes on the SQL sensor.
 
-From now on these are still shown as state attributes but are no longer
+From now on, these are still shown as state attributes but are no longer
 recorded in the database as attributes on this particular sensor
 (as the data for these attributes are already present in the database
 from where they come).
@@ -766,9 +766,9 @@ information, so that sensor is no longer available.
 
 {% details "Swiss public transport" %}
 
-Swiss public transport does not provide additional state attributes anymore;
-all information has been moved to dedicated individual sensors since the
-release of Home Assistant 2023.12.
+Swiss public transport no longer provides additional state attributes; since
+the release of Home Assistant 2023.12, all information has been moved to
+dedicated individual sensors.
 
 ([@miaucl] - [#120256]) ([documentation](/integrations/swiss_public_transport))
 
@@ -779,7 +779,7 @@ release of Home Assistant 2023.12.
 
 {% details "Tami4 Edge / Edge+" %}
 
-Due tue upstream API changes, the UV & filter's last replaced date has been
+Due to upstream API changes, the UV & filter's last replaced date has been
 removed.
 
 Additionally, `uv_status` & `filter_status` sensor entities have been changed
@@ -825,7 +825,7 @@ Note that these values are constant throughout the lifetime of a utility meter.
 {% details "Weather" %}
 
 Weather service `get_forecast` was deprecated in favor of `get_forecasts` in
-Home Assistant 2023.12, and has now been removed.
+Home Assistant 2023.12 and has now been removed.
 
 Use the new `get_forecasts` service to retrieve forecast information
 from `weather` entities instead.
