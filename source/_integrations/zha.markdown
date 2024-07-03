@@ -616,7 +616,7 @@ Missing links between Zigbee end devices (often battery-powered devices) in the 
 
 Some end devices (for example, Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child aging. Since using child aging and removing them from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee router devices use child aging.
 
-This is what causes devices to show with a missing link. Even though the device is not in the child table anymore, the end device can still communicate via the parent Zigbee Router.
+This is what causes devices to show a missing link. Even though the device is no longer in the child table, the end device can still communicate via the parent Zigbee router.
 #### How to interpret RSSI and LQI values
 
 Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
