@@ -120,7 +120,7 @@ dragging <iconify-icon inline icon="mdi:drag"></iconify-icon> them around.
 Making it even easier to show the data you want, in the order you want it.
 
 Your customized columns and view are stored in your browser, so you only have 
-o set them up once. They will be remembered the next time you visit the page.
+to set them up once. They will be remembered the next time you visit the page.
 
 [last release]: /blog/2024/06/05/release-20246/#data-tables-improvements
 [release before that]: /blog/2024/05/01/release-20245/#more-features-for-our-data-tables
@@ -164,7 +164,7 @@ version.
 
 ### Expand an LLM using your scripts
 
-You can now expand LLM capabilities by allowing them to access to (your choice)
+You can now expand LLM capabilities by allowing them access to (your choice)
 of your {% term scripts %}. This feature lets you precisely control what the
 LLM does in specific situations, while still benefiting from the flexibility
 and natural language processing that AIs excel at.
@@ -192,7 +192,7 @@ Well, now you can! 🎉
 
 You can now [take full control over the automations created from a blueprint](/docs/automation/using_blueprints/#editing-an-imported-blueprint).
 By taking control <iconify-icon inline icon="mdi:file-edit"></iconify-icon>,
-Home Assistant will convert the blueprint automation into an regular,
+Home Assistant will convert the blueprint automation into a regular,
 stand-alone, automation. This allows you to make any tweak you want,
 without having to re-invent the wheel.
 
@@ -358,7 +358,7 @@ The following integrations are now available via the Home Assistant UI:
 
 ### Farewell to the following
 
-The following {% term integrations %} are also no longer available as
+The following {% term integrations %} are no longer available as
 of this release:
 
 - **Aladdin Connect** has been removed, as Home Assistant cannot use the
@@ -383,12 +383,12 @@ for their devices directly to Home Assistant.
 
 This means that if you have a device that is powered-by or [Made for ESPHome],
 and the maker of that device provides updates for it, you can now update that
-device directly from Home Assistant; without the need for you to build, adopt
+device directly from Home Assistant; without the need for you to build, adopt,
 or set up the ESPHome software yourself! 😎
 
-This new update ability, along with the ESPHome integration reaching the
-platinum quality level 🏆, will make it easier for new users, along with
-creators to use this powerful platform to build a more Open Home.
+These two new features&mdash;updating from Home Assistant, and the ESPHome
+integration reaching the platinum quality level 🏆&mdash;make it easier for new
+users and creators to use this powerful platform to build a more Open Home.
 
 [been donated]: https://esphome.io/changelog/2024.6.0.html#esphome-branding
 [ESPHome]: https://esphome.io
@@ -507,8 +507,8 @@ possible for you. This release has the following backward-incompatible changes:
 
 {% details "Authentication" %}
 
-The in Home Assistant 2023.12 deprecated legacy API password
-(`legacy_api_password`) authentication provider has been removed.
+The legacy API password (`legacy_api_password`) authentication provider that
+was deprecated in Home Assistant 2023.12, has been removed.
 
 ([@edenhaus] - [#119976]) ([documentation](/integrations/auth))
 
