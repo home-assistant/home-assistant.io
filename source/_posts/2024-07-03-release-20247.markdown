@@ -75,7 +75,7 @@ Enjoy the (beta) release!
 - [Voice \& Assist](#voice--assist)
   - [Timers are here!](#timers-are-here)
   - [Expand an LLM using your scripts](#expand-an-llm-using-your-scripts)
-- [Take control of blueprint-based automations or scripts](#take-control-of-blueprint-based-automations-or-scripts)
+- [Take control of blueprint-based automations](#take-control-of-blueprint-based-automations)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -99,24 +99,28 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
 continuing to make dashboard organization and customization easier and more
-intuitive. This month, we add the ability to resize the cards on your dashboard!
+intuitive. This month, we add the ability to [resize the cards] on your
+dashboard!
 
 <img src='/images/blog/2024-07/dashboard-resize-cards-example.png' style='border: 0;box-shadow: none;' alt='Screenshot showing several cards at different sizes.'>
 
 Resizing is done with a very nice slider interface, found in the card editing
 menu under the new **Layout** tab, where you can preview your changes. Make
-small 1x1 buttons or give a map the space it needs. This is only available on
+small 1x1 buttons or give a [map] the space it needs. This is only available on
 our experimental [sections view], which was recently released with drag-and-drop.
 
 <img src='/images/blog/2024-07/dashboard-resize-card.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the card edit diaglog, with the new layout tag and its card resize capabilities.'>
 
-It works with every card, which gives users a lot of freedom. Most cards have
+It works with [every card], which gives users a lot of freedom. Most cards have
 been given a built-in minimum and maximum size, to make it easier to get your
 layouts just right. If you mess up the look of a card, luckily we have included
 a revert button <iconify-icon inline icon="mdi:restore"></iconify-icon> in the
 top left corner 😉.
 
+[every card]: /dashboards/cards/
+[map]: /dashboards/map/
 [part of our roadmap]: /blog/2024/06/12/roadmap-2024h1/#dashboards
+[resize the cards]: /dashboards/cards/#resizing-a-card
 [sections view]: /blog/2024/03/06/release-20243/#a-new-experimental-sections-view
 
 ## Data tables improvements
@@ -145,15 +149,16 @@ o set them up once. They will be remembered the next time you visit the page.
 
 ## Voice & Assist
 
-This month, we're thrilled to bring more enhancements to Assist's out-of-the-box
+This month, we're thrilled to bring more enhancements to [Assist's] out-of-the-box
 capabilities. We've added support for timers ⏲️ — our third most requested
-feature for voice control — and the powerful ability to expose your scrips
-to LLMs (like [ChatGPT] and [Google Gemini]) as well! 💪
+feature for voice control — and the powerful ability to expose your
+{% term scripts %} to LLMs (like [ChatGPT] and [Google Gemini]) as well! 💪
 
 If you missed it, be sure to check out our recent Voice - Chapter 7 livestream
 from June 26th, where we showcased all these exciting developments. You can
 [read more in our blog post here] and [watch the full livestream on YouTube]. 🎙️
 
+[Assist's]: /voice_control/
 [ChatGPT]: /integrations/openai_conversation/
 [Google Gemini]: /integrations/google_generative_ai_conversation
 [read more in our blog post here]: /blog/2024/06/26/voice-chapter-7/
@@ -182,18 +187,20 @@ version.
 ### Expand an LLM using your scripts
 
 You can now expand LLM capabilities by allowing them to access to (your choice)
-of your scripts. This feature lets you precisely control what the LLM does in
-specific situations, while still benefiting from the flexibility and natural
-language processing that AIs excel at.
+of your {% term scripts %}. This feature lets you precisely control what the
+LLM does in specific situations, while still benefiting from the flexibility
+and natural language processing that AIs excel at.
 
 For example, you can create a _"leaving home"_ script that performs the actions
-you want and expose it to Assist. This ensures that commands like
+you want and [expose it to Assist]. This ensures that commands like
 _"I'm heading out for a couple of minutes"_ will run your predefined script,
 such as locking the door without turning off the air conditioning.
 
 [Read more about expanding LLMs with script in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#expand-an-llm-with-scripts).
 
-## Take control of blueprint-based automations or scripts
+[expose it to Assist]: /voice_control/voice_remote_expose_devices/
+
+## Take control of blueprint-based automations
 
 {% term Blueprints %} are amazing; they allow you to use {% term automations %}
 and {% term scripts %} created and shared by other awesome Home Assistant users.
@@ -228,24 +235,27 @@ and improvements to existing ones! You’re all awesome 🥰
 We welcome the following new integrations in this release:
 
 - **[Aquacell]**, added by [@Jordi1990]  
-  Monitor your AquaCell water-softener from Home Assistant.
+  Monitor your [AquaCell water-softener] from Home Assistant.
 - **[ista EcoTrend]**, added by [@tr4nt0r]  
   The ista EcoTrend integration allows you to import your monthly heating,
   hot water, and water consumption and costs from the ista EcoTrend service.
 - **[Mealie]**, added by [@joostlek]  
-  Mealie is a self-hosted recipe manager and meal planner. This integration
+  Mealie is a [self-hosted recipe manager] and meal planner. This integration
   will pull in your meal plan as calendars in Home Assistant.
 - **[Knocki]**, added by [@joostlek]  
-  Knocki is a smart device that turns any surface into a remote control,
-  which you can now use in Home Assistant to trigger {% term automations %}.
+  [Knocki](https://knocki.com/) is a smart device that turns any surface into a
+  remote control, which you can now use in Home Assistant to trigger
+  {% term automations %}.
 
 [@joostlek]: https://github.com/joostlek
 [@Jordi1990]: https://github.com/Jordi1990
 [@tr4nt0r]: https://github.com/tr4nt0r
+[AquaCell water-softener]: https://www.aquacell-waterontharder.nl/aquacell
 [Aquacell]: /integrations/aquacell
 [ista EcoTrend]: /integrations/ista_ecotrend
 [Knocki]: /integrations/knocki
 [Mealie]: /integrations/mealie
+[self-hosted recipe manager]: https://mealie.io/
 
 ### Noteworthy improvements to existing integrations
 
@@ -404,7 +414,7 @@ creators to use this powerful platform to build a more Open Home.
 [Nabu Casa]: https://www.nabucasa.com
 [Open Home Foundation]: https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/
 [provide updates]: https://esphome.io/changelog/2024.6.0.html#update-entities
-[ready-made devices, or projects]: https://esphome.io/projects/
+[ready-made devices or projects]: https://esphome.io/projects/
 
 ## Other noteworthy changes
 
