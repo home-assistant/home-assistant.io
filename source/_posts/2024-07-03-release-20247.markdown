@@ -218,15 +218,15 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Aquacell]**, added by [@Jordi1990]<br />
+- **[Aquacell]**, added by [@Jordi1990]  
   Monitor your AquaCell water-softener from Home Assistant.
-- **[ista EcoTrend]**, added by [@tr4nt0r]<br />
+- **[ista EcoTrend]**, added by [@tr4nt0r]  
   The ista EcoTrend integration allows you to import your monthly heating,
   hot water, and water consumption and costs from the ista EcoTrend service.
-- **[Mealie]**, added by [@joostlek]<br />
+- **[Mealie]**, added by [@joostlek]  
   Mealie is a self-hosted recipe manager and meal planner. This integration
   will pull in your meal plan as calendars in Home Assistant.
-- **[Knocki]**, added by [@joostlek]<br />
+- **[Knocki]**, added by [@joostlek]  
   Knocki is a smart device that turns any surface into a remote control,
   which you can now use in Home Assistant to trigger {% term automations %}.
 
