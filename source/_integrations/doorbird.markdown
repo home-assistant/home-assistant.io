@@ -128,4 +128,4 @@ The `doorbird` button platform allows you to power connected relays and trigger 
 
 ## Event
 
-An event entity will be created for each doorbell or motion event with a configured http call in the [schedule](#schedules).
+An event entity will be created for each doorbell or motion event with a configured HTTP(s) call in the [schedule](#schedules).
