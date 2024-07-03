@@ -72,10 +72,10 @@ Enjoy the (beta) release!
 
 - [Resize the cards on your dashboard](#resize-the-cards-on-your-dashboard)
 - [Data tables improvements](#data-tables-improvements)
-- [Take control of blueprint-based automations or scripts](#take-control-of-blueprint-based-automations-or-scripts)
 - [Voice \& Assist](#voice--assist)
   - [Timers are here!](#timers-are-here)
   - [Expand an LLM using your scripts](#expand-an-llm-using-your-scripts)
+- [Take control of blueprint-based automations or scripts](#take-control-of-blueprint-based-automations-or-scripts)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
@@ -143,31 +143,6 @@ o set them up once. They will be remembered the next time you visit the page.
 [last release]: /blog/2024/06/05/release-20246/#data-tables-improvements
 [release before that]: /blog/2024/05/01/release-20245/#more-features-for-our-data-tables
 
-## Take control of blueprint-based automations or scripts
-
-{% term Blueprints %} are amazing; they allow you to use {% term automations %}
-and {% term scripts %} created and shared by other awesome Home Assistant users.
-Most are easy to use and set up, but what if that great blueprint you've been
-using just needs a little tweak? Just that tiny change to make it perfect for
-your home?
-
-Well, now you can! 🎉
-
-<p class='img'>
-    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e95" alt="Screenshot of..."/>
-    Temporary screenshot, image needs to be replaced by an actual screenshot.
-</p>
-
-You can now take full control over the automations created from a blueprint.
-By taking control, Home Assistant will fully convert the blueprint automation
-into a regular, stand-alone automation. This allows you to make any tweak you
-want, without having to fully re-invent the wheel.
-
-<lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
-
-Looking for some inspiration for your next automation? 💡 Check out the
-[Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
-
 ## Voice & Assist
 
 This month, we're thrilled to bring more enhancements to Assist's out-of-the-box
@@ -217,6 +192,31 @@ _"I'm heading out for a couple of minutes"_ will run your predefined script,
 such as locking the door without turning off the air conditioning.
 
 [Read more about expanding LLMs with script in the Chapter 7 blog post](/blog/2024/06/26/voice-chapter-7/#expand-an-llm-with-scripts).
+
+## Take control of blueprint-based automations or scripts
+
+{% term Blueprints %} are amazing; they allow you to use {% term automations %}
+and {% term scripts %} created and shared by other awesome Home Assistant users.
+Most are easy to use and set up, but what if that great blueprint you've been
+using just needs a little tweak? Just that tiny change to make it perfect for
+your home?
+
+Well, now you can! 🎉
+
+<p class='img'>
+    <img src="https://github.com/home-assistant/frontend/assets/5878303/94870e02-d426-439f-bad7-fb72ba758e95" alt="Screenshot of..."/>
+    Temporary screenshot, image needs to be replaced by an actual screenshot.
+</p>
+
+You can now take full control over the automations created from a blueprint.
+By taking control, Home Assistant will fully convert the blueprint automation
+into a regular, stand-alone automation. This allows you to make any tweak you
+want, without having to fully re-invent the wheel.
+
+<lite-youtube videoid="gSm9I4Ru2bs" videotitle="Temporary screenrecording"></lite-youtube>
+
+Looking for some inspiration for your next automation? 💡 Check out the
+[Blueprint exchange on the Home Assistant Community Forum](https://community.home-assistant.io/c/blueprints-exchange/53/l/top?period=yearly).
 
 ## Integrations
 
