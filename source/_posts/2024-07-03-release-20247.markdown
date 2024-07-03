@@ -70,7 +70,7 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Resize the cards on your Dashboard](#resize-the-cards-on-your-dashboard)
+- [Resize the cards on your dashboard](#resize-the-cards-on-your-dashboard)
 - [Data tables improvements](#data-tables-improvements)
 - [Take control of blueprint-based automations or scripts](#take-control-of-blueprint-based-automations-or-scripts)
 - [Voice \& Assist](#voice--assist)
@@ -95,23 +95,29 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 <lite-youtube videoid="Snk6oslMQFc" videotitle="Home Assistant 2024.7 Release Party"></lite-youtube>
 
-## Resize the cards on your Dashboard 
+## Resize the cards on your dashboard 
 
 As [part of our roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), we're
-continuing to make dashboard organization and customization easier
-and more intuitive. This month, we add the ability to resize the cards on
-your dashboard!
+continuing to make dashboard organization and customization easier and more
+intuitive. This month, we add the ability to resize the cards on your dashboard!
 
-<img src='/images/blog/2024-07/resize-cards.png' style='border: 0;box-shadow: none;' alt='Screenshot of card resizing'>
+<img src='/images/blog/2024-07/dashboard-resize-cards-example.png' style='border: 0;box-shadow: none;' alt='Screenshot showing several cards at different sizes'>
 
-Resizing is done with a very nice slider interface, found in the card editing menu under the new _Layout_ tab, where you can preview your changes. Make small 1x1 buttons or give a map the space it needs. This is only available on our experimental [sections view](/blog/2024/03/06/release-20243/#a-new-experimental-sections-view), which was recently released with drag-and-drop.
+Resizing is done with a very nice slider interface, found in the card editing
+menu under the new **Layout** tab, where you can preview your changes. Make
+small 1x1 buttons or give a map the space it needs. This is only available on
+our experimental [sections view], which was recently released with drag-and-drop.
 
-<p class='img'>
-    <img src="https://github.com/home-assistant/frontend/assets/5878303/1ed75c96-6db5-4d4a-ae61-e454791d7fd1" alt="Screenshot of layout tab"/>
-    Temporary screenshot, image needs to be replaced.
-</p>
+<img src='/images/blog/2024-07/dashboard-resize-card.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the card edit diaglog, with the new layout tag and its card resize capabilities'>
 
-It works with every card, which gives users a lot of freedom. Most cards have been given a built-in minimum and maximum size, to make it easier to get your layouts just right. If you mess up the look of a card, luckily we have included a revert button in the top left corner 😉.
+It works with every card, which gives users a lot of freedom. Most cards have
+been given a built-in minimum and maximum size, to make it easier to get your
+layouts just right. If you mess up the look of a card, luckily we have included
+a revert button <iconify-icon inline icon="mdi:restore"></iconify-icon> in the
+top left corner 😉.
+
+[part of our roadmap]: /blog/2024/06/12/roadmap-2024h1/#dashboards
+[sections view]: /blog/2024/03/06/release-20243/#a-new-experimental-sections-view
 
 ## Data tables improvements
 
