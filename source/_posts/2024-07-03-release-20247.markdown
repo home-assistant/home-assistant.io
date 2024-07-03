@@ -411,10 +411,12 @@ noteworthy changes this release:
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - We now show additional entity categories on the device page, grouping
   [notification] entities in a "Notification" category. Furthermore, all
-  [Assist] related entities, like [conversation agents and text-to-speech]
+  [Assist]-related entities, like [conversation agents and text-to-speech]
   entities, are now grouped in an "Assist" category. Thanks [@balloob]!
+- [Assist] now has _"Previous"_ media player intent, adding to the list
+  of new intents we [added last release]. Nice [@OzGav]!
 - [Trend helpers] are now automatically linked to the same device as the source
-  entity it is based on. Thanks [@dougiteixeira]!
+  entity they are based on. Thanks [@dougiteixeira]!
 - The [generic thermostat] and [generic hygrostat] are now available via the
   UI, allowing you to create a thermostat or hygrostat based on existing
   switches and sensors. Thanks [@elupus]!
@@ -425,6 +427,8 @@ noteworthy changes this release:
 [@edenhaus]: https://github.com/edenhaus
 [@elupus]: https://github.com/elupus
 [@emontnemery]: https://github.com/emontnemery
+[@OzGav]: https://github.com/OzGav
+[added last release]: /blog/2024/06/05/release-20246/#improved-media-player-commands
 [Assist]: /voice_control/
 [conversation agents and text-to-speech]: /integrations/#voice
 [generic hygrostat]: /integrations/generic_hygrostat
