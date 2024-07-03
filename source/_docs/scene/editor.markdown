@@ -77,6 +77,6 @@ For example:
       brightness: 200
 ```
 
-<div class='note'>
+{% note %}
 Any comments in the YAML file will be lost and templates will be reformatted when you update a scene via the editor.
-</div>
+{% endnote %}

@@ -21,11 +21,9 @@ related:
 
 The `nissan_leaf` {% term integration %} offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings.
 
-<div class='note info'>
-
+{% important %}
 Please be aware that the `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
-
-</div>
+{% endimportant %}
 
 The {% term integration %} offers offers:
 

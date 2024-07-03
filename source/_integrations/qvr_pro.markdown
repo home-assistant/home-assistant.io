@@ -64,6 +64,6 @@ Enabling the QVR Pro camera platform will add all QVR Pro channels by
 default. Please see `exclude_channels` if you would like to exclude
 specific channels from showing up in Home Assistant.
 
-<p class="note warning">
+{% important %}
 The QVR Pro user must have Surveillance Management permission.
-</p>
+{% endimportant %}

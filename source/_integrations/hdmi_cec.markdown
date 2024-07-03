@@ -53,12 +53,10 @@ ln -s /usr/local/lib/python*/dist-packages/cec.py /srv/homeassistant/lib/python*
 ln -s /usr/local/lib/python*/dist-packages/_cec.so /srv/homeassistant/lib/python*/site-packages
 ```
 
-<div class='note'>
-
+{% note %}
 If after symlinking and adding `hdmi_cec:` to your configuration you are getting the following error in your logs,
 `* failed to open vchiq instance` you will also need to add the user account Home Assistant runs under, to the `video` group. To add the Home Assistant user account to the `video` group, run the following command. `$ usermod -a -G video <hass_user_account>`
-
-</div>
+{% endnote %}
 
 ## Testing your installation
 
@@ -93,11 +91,9 @@ power status:  on
 language:      ???
 ```
 
-<div class='note'>
-
+{% note %}
 `address:` entry above this will be used to configure Home Assistant, this address is represented below as 3: BlueRay player.
-
-</div>
+{% endnote %}
 
 ## Configuration Example
 

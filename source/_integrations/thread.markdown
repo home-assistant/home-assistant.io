@@ -220,11 +220,9 @@ Home Assistant discovers all Thread border routers in your network because they 
 
 The intention of the **Preferred network** in Home Assistant is that it will be used as the default network when adding Thread⁻based devices.
 
-<div class="note">
-
+{% note %}
 The **preferred network** function isn't completely implemented yet. In particular, when adding {% term Matter %} devices through the companion apps, the preferred network of the mobile device is being used.
-
-</div>
+{% endnote %}
 
 #### Making a network your preferred network
 

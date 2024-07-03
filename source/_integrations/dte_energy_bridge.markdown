@@ -19,7 +19,7 @@ A sensor {% term integration %} for [DTE](https://www.newlook.dteenergy.com/) us
  - If the status LED is on the top, you have a v1.
  - If the status LED is on the front, you have a v2.
 
-<div class='note'>
+{% warning %}
 
 The firmware of the DTE v2 bridges that started shipping circa mid-2020 will not work with this integration. This includes the model containing integrated Wi-Fi.
 
@@ -28,7 +28,7 @@ you get a response.
 
 Later model DTE Energy Bridge hardware uses [MQTT](https://www.home-assistant.io/integrations/mqtt/) to communicate your energy data with Home Assistant.
 
-</div>
+{% endwarning %}
 
 To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

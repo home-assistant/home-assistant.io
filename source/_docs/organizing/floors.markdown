@@ -13,8 +13,9 @@ related:
     title: Using floor alias for voice assistants
 ---
 
-A floor in Home Assistant is a logical grouping of areas meant to match your home's physical floors. Devices and entities
-cannot be assigned to floors directly but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+A floor in Home Assistant is a logical grouping of areas meant to match your home's physical floors.
+
+Devices and entities cannot be assigned to floors directly but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
 
 ## Creating a floor
 

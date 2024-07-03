@@ -26,11 +26,9 @@ water_heater:
 
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
-<div class='note'>
-
+{% tip %}
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
-
-</div>
+{% endtip %}
 
 ### Service `water_heater.set_temperature`
 

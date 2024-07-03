@@ -82,11 +82,9 @@ After completing the prerequisite steps above, you are ready to setup the integr
    4. Select **Close Window** or close it manually.
 5. Back in Home Assistant select **Finish**.
 
-<div class='note info'>
-
+{% note %}
 If you want to integrate additional SmartThings accounts or locations, repeat the steps above.
-
-</div>
+{% endnote %}
 
 ## Removal instructions
 

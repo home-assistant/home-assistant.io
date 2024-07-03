@@ -1,28 +1,22 @@
 ## Using external data disk
 
-{% term "Home Assistant Operating System" %} supports storing most data on an external storage medium, such as an USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor, etc.). This means a fast data disk will make the system overall much faster.
+{% term "Home Assistant Operating System" %} supports storing data on a secondary storage medium. For example, this can be a second internal SSD or HDD or a USB attached SSD or HDD. This data disk contains not only user data but also most of the Home Assistant software as well (Core, Supervisor, etc.). This means a fast data disk will make the system overall much faster.
 
 ![Graphics showing the architecture of the data disk feature](/images/haos/usb-data-disk.png)
 
 The data disk feature can be used on an existing installation without losing data: The system will move existing data to the external data disk automatically. However, it is recommended to create and download a full <a href="#backups">Backup</a> before proceeding!
 
-<div class='note warning'>
+{% caution %}
+All data on the target disk will be overwritten!
+{% endcaution %}
 
-  All data on the target disk will be overwritten!
+{% important %}
+The storage ca  pacity of the external data disk must be larger than the storage capacity of the existing (boot) disk.
+{% endimportant %}
 
-</div>
-
-<div class='note'>
-
-  The storage capacity of the external data disk must be larger than the storage capacity of the existing (boot) disk.
-
-</div>
-
-<div class='note'>
-
-  If you have been using a data disk previously with {% term "Home Assistant Operating System" %}, you need to use your host computer to delete all partitions *before* using it as a data disk again.
-
-</div>
+{% important %}
+If you have been using a data disk previously with {% term "Home Assistant Operating System" %}, you need to use your host computer to delete all partitions *before* using it as a data disk again.
+{% endimportant %}
 
 ### Using UI to move the data partition
 
@@ -59,11 +53,9 @@ ha os datadisk move /dev/sdx
 
 The system will prepare the data disk and immediately reboot. The reboot will take 10 minutes or more depending on the speed of the new data disk; please be patient!
 
-<div class='note'>
-
+{% warning %}
 Using an USB attached SSD can draw quite some power. For instance on Raspberry Pi 3 the official Raspberry Pi power supply (PSU) only provides 2.5A which can be too tight. Use a more powerful power supply if you experience issues. Alternatively use a powered USB hub. Connect the Hub to one of the USB slots of your Raspberry Pi, and connect the SSD to the Hub. In this setup the power supply of the Hub will power the attached device(s).
-
-</div>
+{% endwarning %}
 
 ### Migrating an external data disk to another system
 

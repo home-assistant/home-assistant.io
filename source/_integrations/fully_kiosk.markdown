@@ -64,9 +64,9 @@ The following controls are available:
 - Play and stop media files
 - Set device volume
 
-<div class='note warning'>
-  The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
-</div>
+{% note %}
+The Fully Kiosk Browser app does not provide feedback on the device volume or media playback status, so we are unable to display the current volume level or playback status.
+{% endnote %}
 
 ## Services
 

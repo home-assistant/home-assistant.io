@@ -11,7 +11,7 @@ og_image: /images/blog/2024-05-music-assistant/art.jpg
 ---
 <p><img src='/images/blog/2024-05-music-assistant/art.jpg' class='no-shadow' /></p>
 
-Today, exactly five years ago, I, Marcel, started working on [Music Assistant <i class="icon-external-link"></i>](https://music-assistant.io/). What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.
+Today, exactly five years ago, I, Marcel, started working on [Music Assistant](https://music-assistant.io/). What began as a quick script, to sync my playlists so I could switch between streaming providers, grew into a beast on its own.
 
 Music Assistant is what I’d like to call a “music library manager” – it gives you full control of playing YOUR music on your players. Just like Home Assistant centralizes all your devices and services to work together, Music Assistant does the same with your music sources and smart audio-playing devices.
 
@@ -28,9 +28,9 @@ To just play with Music Assistant without reading what it is (yes, we know you!)
 <p class="img"><img src='/images/blog/2024-05-music-assistant/how-it-works.jpg'/>From source to Music Assistant to speaker</p>
 
 #### Connect and play anywhere
-Music Assistant allows you to quickly connect some of the <a href="https://music-assistant.io/music-providers/">most popular streaming providers <i class="icon-external-link"></i></a> like Spotify and Tidal, with your local media files. Importing your liked tracks, artists, albums, and playlists, all displayed with the correct artwork.
+Music Assistant allows you to quickly connect some of the <a href="https://music-assistant.io/music-providers/">most popular streaming providers</a> like Spotify and Tidal, with your local media files. Importing your liked tracks, artists, albums, and playlists, all displayed with the correct artwork.
 
-It supports the most ubiquitous <a href="https://music-assistant.io/player-support/">streaming protocols and devices <i class="icon-external-link"></i></a> like Airplay, Cast and DLNA, letting you play media on almost any device - if an old speaker doesn’t support new services, Music Assistant can bring it back to life.
+It supports the most ubiquitous <a href="https://music-assistant.io/player-support/">streaming protocols and devices</a> like Airplay, Cast and DLNA, letting you play media on almost any device - if an old speaker doesn’t support new services, Music Assistant can bring it back to life.
 
 [Read more...](#freedom-of-choice)
 
@@ -53,11 +53,11 @@ After many years of development and testing with the amazing community, we can f
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/start-me-up.png'/></p>
 
-Even though Music Assistant is an HA Add-on, it can be installed from start to finish via [HACS <i class="icon-external-link"></i>](https://hacs.xyz/). You simply install the integration, which will automatically install and manage the add-on for you. The integration allows you to control your devices with automations and voice control.
+Even though Music Assistant is an HA Add-on, it can be installed from start to finish via [HACS](https://hacs.xyz/). You simply install the integration, which will automatically install and manage the add-on for you. The integration allows you to control your devices with automations and voice control.
 
 {% my supervisor_addon badge addon="d5369777_music_assistant" repository_url="https://github.com/music-assistant/home-assistant-addon" %}
 
-_Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. To install it as a Docker container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions <i class="icon-external-link"></i></a>._
+_Music Assistant is distributed as a <a href="https://www.home-assistant.io/addons">Home Assistant add-on</a> – our way to easily extend your Home Assistant installation with third party applications. To install it as a Docker container, follow the <a href="https://music-assistant.io/installation/#tertiary-installation-method-docker-image">MA installation instructions</a>._
 
 ## Fight the power
 <h3 style="margin-top: -1em; opacity: .67;">Why Music Assistant?</h3>
@@ -103,7 +103,7 @@ When you search in Music Assistant, it searches all your libraries. Every stream
 ## We are family
 <h3 style="margin-top: -1em; opacity: .67;">Built for Home Assistant</h3>
 
-Music Assistant has always been closely linked to Home Assistant (more on that below). I now even work for [Nabu Casa <i class="icon-external-link"></i>](https://www.nabucasa.com/), partly because of my work on Music Assistant (but now I’m the Matter guy). 
+Music Assistant has always been closely linked to Home Assistant (more on that below). I now even work for [Nabu Casa](https://www.nabucasa.com/), partly because of my work on Music Assistant (but now I’m the Matter guy). 
 
 <p class="img"><img src='/images/blog/2024-05-music-assistant/we-are-family.png'/></p>
 
@@ -111,9 +111,9 @@ Because of this strong link, Home Assistant seamlessly links with Music Assistan
 
 ## Liner notes
 
-So, I started working on Music Assistant [exactly five years ago <i class="icon-external-link"></i>](<https://github.com/music-assistant/server/commit/75adea9721fa1f1b7225515087c81edd979fcc8f>), at first for my own personal use. It started as a learning exercise - thanks to it, I learned asyncio Python programming as well as the Vue frontend framework. I had the project on GitHub just to host the code, but it was not really meant to be used by others.
+So, I started working on Music Assistant [exactly five years ago](<https://github.com/music-assistant/server/commit/75adea9721fa1f1b7225515087c81edd979fcc8f>), at first for my own personal use. It started as a learning exercise - thanks to it, I learned asyncio Python programming as well as the Vue frontend framework. I had the project on GitHub just to host the code, but it was not really meant to be used by others.
 
-At some point, it became clear to me that there was a real demand, and I posted some info on how to install it, which gained a little attention. In June 2022, we released the 1.0 version of Music Assistant, and it was still in rough shape but already suitable for many users. We even organized a Livestream, “[Let’s get Loud <i class="icon-external-link"></i>](https://www.youtube.com/watch?v=SEH-DxOsywg)” hosted by Home Assistant, to promote [audio support for ESPHome <i class="icon-external-link"></i>](https://esphome.io/components/media_player/i2s_audio.html) and the super cool things you can build when you combine these three open-source projects.
+At some point, it became clear to me that there was a real demand, and I posted some info on how to install it, which gained a little attention. In June 2022, we released the 1.0 version of Music Assistant, and it was still in rough shape but already suitable for many users. We even organized a Livestream, “[Let’s get Loud](https://www.youtube.com/watch?v=SEH-DxOsywg)” hosted by Home Assistant, to promote [audio support for ESPHome](https://esphome.io/components/media_player/i2s_audio.html) and the super cool things you can build when you combine these three open-source projects.
 
 Version 1.0 was not everything we hoped it would be. It had some structural bugs, specifically running as a custom component in Home Assistant. HA was created to give you the best experience for automating your home; it was never optimized for real-time audio streaming. On top of that, at some point, the dependencies of both projects got so conflicted that Music Assistant stopped working completely in the March 2023 release of HA.
 
@@ -121,6 +121,6 @@ Six months after its initial version 1.0 launch, the project was beginning to lo
 
 So, the Music Assistant Server was born. It is a standalone application that you can run in docker (or Home Assistant add-on), all connected to HA via a HACS integration. The project was split up into multiple self-contained parts. 
 
-Music Assistant Server has its own web interface, a modern interface written in Vue. Thanks to HA's add-on system, this web interface can be securely accessed from HA. The web interface is a Progressive Web App (PWA), so you can also visit it directly and [install it on your device <i class="icon-external-link"></i>](https://support.google.com/chrome/answer/9658361?hl=en-GB&co=GENIE.Platform=Desktop). We also have an (experimental) [desktop app <i class="icon-external-link"></i>](https://music-assistant.io/companion-app/).
+Music Assistant Server has its own web interface, a modern interface written in Vue. Thanks to HA's add-on system, this web interface can be securely accessed from HA. The web interface is a Progressive Web App (PWA), so you can also visit it directly and [install it on your device](https://support.google.com/chrome/answer/9658361?hl=en-GB&co=GENIE.Platform=Desktop). We also have an (experimental) [desktop app](https://music-assistant.io/companion-app/).
 
 Over the past year, we have been iterating on this with an impressive number of beta testers. So, while technically this is a 2.0 release, to me personally this is the first real release, as this is finally something that feels good and has the right foundation. What is also super is that we attracted contributors to the project, folks helping create and maintain music integrations while providing support or translations. Even more exciting there are some really big features and streaming services on the horizon. My sincere thanks to everyone who has helped bring this release home.

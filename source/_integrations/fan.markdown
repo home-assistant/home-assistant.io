@@ -22,11 +22,11 @@ The fan integration allows you to control and monitor fan devices.
 Available services:
 `fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
 
-<div class='note'>
+{% note %}
 
 Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** > **Services**.
 
-</div>
+{% endnote %}
 
 ### Service `fan.set_percentage`
 

@@ -66,9 +66,9 @@ ifttt:
 
 Once you have added your key to your {% term "`configuration.yaml`" %} file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
-<div class='note'>
+{% important %}
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</div>
+{% endimportant %}
 
 ### Multiple IFTTT keys
 

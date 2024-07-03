@@ -75,10 +75,8 @@ article.page h3 {
   text-transform: unset;
 }
 
-@media only screen and (max-width: 480px) {
-  #landingpage .page-content {
-    padding-top: 68px;
-  }
+#landingpage .page-content {
+  padding-top: 68px;
 }
 
 .exploded-view-animation {

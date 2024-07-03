@@ -86,8 +86,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<div class='note info'>
+{% note %}
 The free version only supports one additional soundfile.
-</div>
+{% endnote %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

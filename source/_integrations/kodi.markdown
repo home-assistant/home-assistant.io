@@ -220,11 +220,9 @@ script:
             command: standby
 ```
 
-<div class='note'>
-
+{% important %}
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
-
-</div>
+{% endimportant %}
 
 ### Kodi services samples
 
