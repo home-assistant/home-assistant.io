@@ -249,7 +249,7 @@ To allow Home Assistant to control the Matter device that has already been added
 
 For some ecosystems, you can add some of their non-Matter devices into Home Assistant via a *Matter bridge*. Examples of Matter bridges are the SwitchBot&nbsp;Hub&nbsp;2, Aqara&nbsp;Hub&nbsp;M2, Ikea&nbsp;Dirigera, or the Philips Hue Bridge. Using a bridge allows you to keep controlling these devices via their native App, while having them available in Home Assistant at the same time. The Aquara Hub, for example, uses a cloud-based integration. By bridging it into Home Assistant via Matter (instead of using their cloud-based integration), you can make it use local communication.
 
-Home Assistant, as a Matter controller, only supports **control** of Matter devices. Home Assistant is not a bridge itself and it cannot turn existing devices within Home Assistant into Matter compatible devices.
+If you want to turn existing devices within Home Assistant into Matter-compatible devices, this can be achieved using the Matter Bridge Add-On [Matterbridge](https://github.com/t0bst4r/matterbridge-home-assistant).
 
 #### How to add a Matter bridge to Home Assistant
 
