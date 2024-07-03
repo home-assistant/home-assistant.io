@@ -168,7 +168,7 @@ homekit:
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
