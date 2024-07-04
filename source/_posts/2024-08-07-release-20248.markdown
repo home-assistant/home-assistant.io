@@ -132,6 +132,15 @@ changes to existing integrations:
 [@frenck]: https://github.com/frenck
 [Lorem]: /integrations/ipsum
 
+{% details "Potential changes to process" icon="mdi:scale-balance" %}
+
+Processed up to _#121068.
+
+- Add event platform to unifiprotect ([@bdraco] - [#120681]) ([unifiprotect docs]) (new-platform)
+- Add event platform to doorbird ([@bdraco] - [#121114]) ([doorbird docs]) (new-platform)
+
+{% enddetails %}
+
 ### Integrations reaching platinum quality level
 
 The following {% term integrations %} have reached the platinum 🏆 level on our
@@ -182,6 +191,12 @@ noteworthy changes this release:
 - It is now possible to ipsum the lorem, thanks [@frenck]!
 
 [@frenck]: https://github.com/frenck
+
+{% details "Potential changes to process" icon="mdi:scale-balance" %}
+
+- Add support for the Select platform in Matter ([@jvmahon] - [#119769]) ([matter docs]) (new-platform)
+
+{% enddetails %}
 
 ### Lorem ipsum
 
