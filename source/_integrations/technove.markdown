@@ -35,7 +35,7 @@ The {% term integration %} adds the following binary sensors:
 
 ## Number
 
-The {% term integration %} adds the following number entities:
+The {% term integration %} adds the following number entity:
 
 | Name        | Description                                                                                                                                                             |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
