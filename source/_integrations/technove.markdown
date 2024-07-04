@@ -39,7 +39,7 @@ The {% term integration %} adds the following number entities:
 
 | Name        | Description                                                                                                                                                             |
 | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Max current | Determines the maximum current limit that the charging station can provide to the vehicle. Note: this value can only be set when the power sharing mode is not enabled. |
+| max current | Determines the maximum current limit that the charging station can provide to the vehicle. Note: this value can only be set when the power-sharing mode is not enabled. |
 
 ## Sensors
 
