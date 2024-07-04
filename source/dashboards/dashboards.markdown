@@ -124,7 +124,7 @@ A good way to start this file is to copy and paste the "Raw configuration" from 
 - Select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu and select **Raw configuration editor**.
 - There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
-Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
+Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore, and new entities will not automatically be added to your UI.
 
 When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
 
