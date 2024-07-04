@@ -31,7 +31,7 @@ Follow these steps to create a new category.
 
 1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
 2. To assign a category to a single item:
-   - Find the item in the list and select the three dots menu.
+   - Find the item in the list and select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Assign category** and select the category from the list.
    - If the category is not in the list, select **Add new category** and make a new one.
 3. To assign a category to multiple items:
