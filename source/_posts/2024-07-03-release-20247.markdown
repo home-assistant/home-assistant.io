@@ -92,7 +92,7 @@ our experimental [sections view], which was recently released with drag-and-drop
 It works with [every card], which gives users a lot of freedom. Most cards have
 been given a built-in minimum and maximum size, to make it easier to get your
 layouts just right. If you mess up the look of a card, luckily we have included
-a revert button <iconify-icon inline icon="mdi:restore"></iconify-icon> in the
+a revert button {% icon "mdi:restore" %} in the
 top left corner 😉.
 
 [every card]: /dashboards/cards/
@@ -112,11 +112,11 @@ customize the columns shown! 😎
 
 <img src='/images/blog/2024-07/data-tables-customize-columns.png' style='border: 0;box-shadow: none;' alt='Screenshot showing the dialog that allow customizing the order and visibility of data table columns available on the device page.'>
 
-By selecting the cog <iconify-icon inline icon="mdi:cog"></iconify-icon> in
+By selecting the cog {% icon "mdi:cog" %} in
 the top right, you can not only customize the columns shown by toggling
-visibility <iconify-icon inline icon="mdi:eye"></iconify-icon>, but you
+visibility {% icon "mdi:eye" %}, but you
 can also change the order of the columns by
-dragging <iconify-icon inline icon="mdi:drag"></iconify-icon> them around.
+dragging {% icon "mdi:drag" %} them around.
 Making it even easier to show the data you want, in the order you want it.
 
 Your customized columns and view are stored in your browser, so you only have 
@@ -191,7 +191,7 @@ Well, now you can! 🎉
 <img src='/images/blog/2024-07/blueprint-automation-take-control.png' style='border: 0;box-shadow: none;' alt='Screenshot showing a blueprint-based automation that can be taken of using the "Take control" option in the three-dotted menu.'>
 
 You can now [take full control over the automations created from a blueprint](/docs/automation/using_blueprints/#editing-an-imported-blueprint).
-By taking control <iconify-icon inline icon="mdi:file-edit"></iconify-icon>,
+By taking control {% icon "mdi:file-edit" %},
 Home Assistant will convert the blueprint automation into a regular,
 stand-alone, automation. This allows you to make any tweak you want,
 without having to re-invent the wheel.

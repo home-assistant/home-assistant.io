@@ -53,7 +53,7 @@ Typically, updates are shown at the top of the **Settings** page. If you don't s
 
 ### Resolution
 
-1. On the **System** page, in the top-right corner, select the three dots menu and select **Check for updates**.
+1. On the **System** page, in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
 2. Go to {% my updates title="**System** > **Updates**" %}.
     - Select the update notification.
-    - Select the cogwheel, then set **Visible** to active.
+    - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
