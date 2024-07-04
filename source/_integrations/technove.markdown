@@ -12,6 +12,7 @@ ha_codeowners:
   - '@Moustachauve'
 ha_platforms:
   - binary_sensor
+  - number
   - sensor
   - switch
 ha_integration_type: device
@@ -31,6 +32,14 @@ The {% term integration %} adds the following binary sensors:
 - Power sharing mode - On / Off
 - Static IP - Connected / Not Connected
 - Update - Up-to-date / Update available
+
+## Number
+
+The {% term integration %} adds the following number entities:
+
+| Name        | Description                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Max current | Determines the maximum current limit that the charging station can provide to the vehicle. Note: this value can only be set when the power sharing mode is not enabled. |
 
 ## Sensors
 
