@@ -205,14 +205,20 @@ it is inevitable.
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
-{% details "Lorem" %}
+{% details "MQTT" %}
 
-The lorem ipsum slipsum is not backward compatibel with slipsum.
+The `schema` option has been removed from the mqtt vacuum schema. YAML configs
+still containing this option will break after 6 months of deprecation. Users
+have been warned with with a repair. Discovery configs will not break if the
+schema options is still in the config, but it will simple be ignored and an
+error message will be logged to notice.
 
-([@frenck] - [#12345]) ([documentation](/integrations/ipsum))
+([@jbouwh] - [#121093]) ([documentation](/integrations/mqtt))
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
+[@jbouwh]: https://github.com/jbouwh
+[#121093]: https://github.com/home-assistant/core/pull/121093
+
+- Remove schema option for mqtt vacuum configs ([@jbouwh] - [#121093]) ([mqtt docs]) (breaking-change)
 
 {% enddetails %}
 
