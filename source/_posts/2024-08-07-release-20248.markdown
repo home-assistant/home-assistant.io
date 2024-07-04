@@ -104,11 +104,21 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Lorem]**, added by [@frenck]  
-  Does some lorem ipsum stuff.
+- **[Dio Chacon]**, added by [@cnico]  
+  Connect your [Dio Chacon devices](https://chacon.com/en/) via RF 433 Mhz or Wi-Fi.
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/ipsum
+[@cnico]: https://github.com/cnico
+[Dio Chacon]: /integrations/chacon_dio
+
+This release also has a new virtual integration. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. This one is new:
+
+- **[MINI Connected]** provided by [BMW Connected Drive], added by [@rikroe]
+
+[MINI Connected]: /integrations/mini_connected
+[BMW Connected Drive]: /integrations/bmw_connected_drive
+[@rikroe]: https://github.com/rikroe
 
 ### Noteworthy improvements to existing integrations
 
