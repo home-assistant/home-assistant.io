@@ -13,7 +13,7 @@ module Jekyll
             #{args}
 
             Valid syntax:
-              {% icon "<icon>" %}
+              {% icon "<icon-set>:<icon-name>" %}
           MSG
         end
       end
@@ -24,7 +24,7 @@ module Jekyll
 
       private
 
-      SYNTAX = %r!^"(.+?)"$!.freeze
+      SYNTAX = %r!^"([a-z0-9]+(?:-[a-z0-9]+)*:[a-z0-9]+(?:-[a-z0-9]+)*)"$!.freeze
     end
   end
 end

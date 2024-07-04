@@ -112,7 +112,7 @@ In [sections view](/dashboards/sections/), you can resize cards. Follow these st
 
 If you previously [resized](#resizing-a-card) a card in the [sections view](/dashboards/sections/), and you don't like the new size, you can revert back to the card's default size. Follow these steps:
 
-1. On the **Layout** tab, select the {% icon "mdi-restore" %} icon.
+1. On the **Layout** tab, select the {% icon "mdi:restore" %} icon.
    ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
 
 2. Select **Save**.
