@@ -9,6 +9,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Select
   - Sensor
   - Switch
 ha_release: '2022.12'
@@ -27,6 +28,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
