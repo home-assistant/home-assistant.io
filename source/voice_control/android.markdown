@@ -27,7 +27,7 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 2. Under **Digital assistant app**, select **Default digital assistant app**.
    - On some Android versions, this might be under **Digital & voice input** > **Default digital assistant app** > **Voice Assistant**.
 3. Select **Home Assistant**.
-   - On some Android versions, you might be able to change the assistants language settings here by selecting the cogwheel.
+   - On some Android versions, you might be able to change the assistants language settings here by selecting the cogwheel <iconify-icon inline icon="mdi:cog-outline"></iconify-icon>.
 4. Go back one step. The **Default digital assistant app** should now show *Home Assistant* as the default.
 5. Leave the **Settings**.
 6. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
@@ -120,7 +120,7 @@ This procedure was written using Wear OS version 3.5. The exact steps may vary d
 
 To define Home Assistant Assist as default assistant app, follow these steps:
 
-1. On the watch, navigate to the **Apps screen** and select the cogwheel.
+1. On the watch, navigate to the **Apps screen** and select the cogwheel <iconify-icon inline icon="mdi:cog-outline"></iconify-icon>.
 2. Go to **Apps** > **Choose default apps** > **Digital assistant app**.
 3. From the list, select **Home Assistant**.
 4. When you go back one step, under **Default app**, it now says **HA: Assist**.

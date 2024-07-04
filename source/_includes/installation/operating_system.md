@@ -120,7 +120,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 6. In Ubuntu, in the bottom left corner, select **Show Applications**.
 7. In the applications, search and open **Disks** and start restoring the HAOS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
-   2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
+   2. On top of the screen, select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
    3. Select the image you just downloaded.
       ![Restore disk image: select image](/images/installation/select_haos.png)

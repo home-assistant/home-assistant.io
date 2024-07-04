@@ -6,7 +6,7 @@ Some entities are disabled by default. To enable them, follow these steps:
    - To enable or disable entities, go to {% my entities title="**Settings** > **Devices & Services** > **Entities**" %}.
    - To enable or disable automations, go to {% my automations title="**Settings** > **Automations & Scenes**" %}.
 2. [Enable multiselect](/docs/organizing/tables) and select all the entities you want to enable or disable.
-3. In the top right corner, select the three dots menu, then select **Enable** or **Disable**.
+3. In the top right corner, select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu, then select **Enable** or **Disable**.
 
    ![Screenshot showing how to enable or disable multiple automations](/images/organizing/enable_disable.png)
 
