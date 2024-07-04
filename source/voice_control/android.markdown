@@ -27,7 +27,7 @@ To define Home Assistant Assist as default assistant app, follow these steps:
 2. Under **Digital assistant app**, select **Default digital assistant app**.
    - On some Android versions, this might be under **Digital & voice input** > **Default digital assistant app** > **Voice Assistant**.
 3. Select **Home Assistant**.
-   - On some Android versions, you might be able to change the assistants language settings here by selecting the cogwheel <iconify-icon inline icon="mdi:cog-outline"></iconify-icon>.
+   - On some Android versions, you might be able to change the assistant's language settings here by selecting the cogwheel <iconify-icon inline icon="mdi:cog-outline"></iconify-icon>.
 4. Go back one step. The **Default digital assistant app** should now show *Home Assistant* as the default.
 5. Leave the **Settings**.
 6. Start Assist using the gesture to start an assistant. The gesture may differ depending on the version.
