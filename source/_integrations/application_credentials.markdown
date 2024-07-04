@@ -19,7 +19,7 @@ Some integrations like [Google Calendar](/integrations/google/) will automatical
 ## To view stored application credentials
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. In the top right corner, select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu and select **Application credentials**.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
 
     ![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
 
@@ -32,7 +32,7 @@ when setting up for the first time. You may also manually enter credentials with
 
 1. Obtain an OAuth *Client ID* and *Client Secret* from the cloud provider. The integration should have specific instructions for this.
 2. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-3. In the top right corner, select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu and select **Application credentials**.
+3. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
 4. Select the integration, enter a *Name* and your OAuth *Client ID* and *Client Secret*.
 5. Save the credentials.
 
@@ -48,7 +48,7 @@ To delete an application credential, for example because you created a new one, 
 
     ![Devices and services overflow menu](/images/integrations/application_credentials/devices-and-services-menu.png)
 
-2. In the top right corner, select the three dots <iconify-icon inline icon="mdi:dots-vertical"></iconify-icon> menu and select **Application credentials**.
+2. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Application credentials**.
 3. Select the credential from the list, select the three-dots menu and select **Delete**.
 
     ![Application credential list](/images/integrations/application_credentials/application-credential_delete.png)

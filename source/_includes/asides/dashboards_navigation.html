@@ -32,7 +32,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title epsilon"><iconify-icon inline icon="mdi:card-multiple-outline"></iconify-icon> Card types</h1>
+    <h1 class="title epsilon">{% icon "mdi:card-multiple-outline" %} Card types</h1>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "card" %}
@@ -43,7 +43,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title epsilon"><iconify-icon inline icon="mdi:cog"></iconify-icon> Advanced</h1>
+    <h1 class="title epsilon">{% icon "mdi:cog" %} Advanced</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/features/ Features %}</li>
       <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
@@ -53,7 +53,7 @@
           class="external-link" 
           href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
           >Developing custom cards
-          <iconify-icon inline icon="tabler:external-link"></iconify-icon>
+          {% icon "tabler:external-link" %}
         </a>
       </li>
     </ul>
