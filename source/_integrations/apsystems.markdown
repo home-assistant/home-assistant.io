@@ -8,8 +8,8 @@ ha_category:
   - Energy
 ha_domain: apsystems
 ha_platforms:
-  - sensor
   - number
+  - sensor
 ha_integration_type: device
 ha_codeowners:
   - '@mawoka-myblock'

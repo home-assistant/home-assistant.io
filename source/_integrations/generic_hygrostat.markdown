@@ -2,6 +2,7 @@
 title: Generic hygrostat
 description: Virtual hygrostat device
 ha_category:
+  - Helper
   - Humidifier
 ha_release: 2021.8
 ha_domain: generic_hygrostat

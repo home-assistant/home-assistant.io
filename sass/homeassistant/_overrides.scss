@@ -286,11 +286,12 @@ header .breadcrumbs {
   .links {
     margin-top: 12px;
     margin-right: -8px;
+    margin-bottom: -8px;
     font-size: .9rem;
     text-align: right;
 
     a {
-      background: #e8edf0; 
+      background: #e8edf0;
       font-family: $heading-font;
       text-decoration: none;
       font-weight: 650;
@@ -363,7 +364,7 @@ a.material-card:hover {
   border-radius: 24px;
   margin: 8px 0;
   transition: box-shadow .33s;
-  
+
   &::before {
     content: " ";
     position: absolute;
@@ -401,7 +402,13 @@ a.material-card:hover {
   }
 }
 
+/* not contained inside frontpage class */
+.hero {
+  display: flex;
+}
+
 .frontpage {
+
   .material-card {
     margin-bottom: 24px;
   }
@@ -483,11 +490,11 @@ a.material-card:hover {
     border: none;
 
     .caption {
-      padding: 16px 12px 12px;
+      padding: 8px 12px 12px;
       background-color: rgba(0, 0, 0, 0.54);
       color: white;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 16px;
+      border-bottom-right-radius: 16px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -495,9 +502,12 @@ a.material-card:hover {
       .title {
         font-size: 20px;
         font-weight: 400;
+        line-height: 1.2em;
       }
 
       .subtitle {
+        margin-top: 4px;
+        line-height: 1.4em;
         font-size: 12px;
         font-weight: initial;
       }
@@ -532,26 +542,37 @@ a.material-card:hover {
     margin-top: 24px;
   }
 
-  .sponsored-by {
-    img {
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      margin: 15px;
-      max-width: 40%;
-      max-height: 80px;
+  .seen-press {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    column-gap: 24px;
+    row-gap: 24px;
+    margin: 48px 0;
+
+    h2 {
+      grid-column: 1/-1;
+      margin: 0;
+      text-align: center;
     }
 
-  }
-
-  .seen-press {
+    a {
+      aspect-ratio: 1;
+    }
 
     img {
       border: 0;
       box-shadow: none;
-      margin: 15px;
-      max-width: 40%;
-      max-height: 70px;
+      margin: 24px;
+      width: calc(100% - 48px);
+      max-height: 128px;
+      border-radius: 0;
+    }
+
+    .material-card {
+      height: 100%;
+      align-content: center;
+      text-align: center;
+      margin: 0;
     }
 
     .square {
@@ -560,6 +581,18 @@ a.material-card:hover {
 
     .round {
       border-radius: 50%;
+    }
+  }
+
+  .sponsored-by {
+    text-align: center;
+
+    img {
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      margin: 24px;
+      max-height: 160px;
     }
   }
 }
@@ -620,7 +653,6 @@ article.page,
 article.listing {
   font-size: 1.125em;
   line-height: 1.6;
-  overflow: hidden;
 
   img,
   table {
@@ -681,6 +713,7 @@ article.listing {
     overflow-wrap: break-word;
 
     &.btn {
+      font-size: 1.1em;
       text-decoration: none;
       transition: box-shadow .33;
 
@@ -728,8 +761,8 @@ article.listing {
 
       &>li.toc-entry:first-child{
         padding-top: 0;
-      }  
-    
+      }
+
       &>li.toc-entry {
         list-style-type: none;
       }
@@ -895,7 +928,7 @@ div.config-vars {
   .config-vars-label {
     padding-bottom: 4px;
     position: relative;
-    
+
     a.title-link {
       text-decoration: none;
     }
