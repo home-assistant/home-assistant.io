@@ -23,7 +23,7 @@ Instruction on how to install and use TRIGGERcmd itself can be found [here](http
 {% include integrations/config_flow.md %}
 
 ## Prerequisites
-
+To use TRIGGERcmd, you need:
 In order to use TRIGGERcmd you need the following:
 
 - A [TRIGGERcmd account](https://www.triggercmd.com/user/auth/signup)
