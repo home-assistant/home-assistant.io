@@ -8,6 +8,7 @@ ha_category:
   - Energy
 ha_domain: apsystems
 ha_platforms:
+  - number
   - sensor
 ha_integration_type: device
 ha_codeowners:
@@ -15,12 +16,16 @@ ha_codeowners:
   - '@SonnenladenGmbH'
 ---
 
-The **APsystems** {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter.
+The **APsystems** {% term integration %} allows you to read the data from your [APsystems EZ1](https://emea.apsystems.com/diy/ez1/) microinverter. It also allows you to set the output limit to any number between 30 and 800 watts.
 The following data is provided by the integration:
 
 - Lifetime production (Per input and in total)
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
+
+The following data can be set by the integration:
+
+- Maximal output in watts
 
 ## Prerequisites
 

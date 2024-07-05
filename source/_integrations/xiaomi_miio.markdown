@@ -220,6 +220,8 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2   |              |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | AC-M6-SC     |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3   |              |
+| Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
+| Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
 | Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
 | Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
 | Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
@@ -452,6 +454,45 @@ Supported devices:
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
+  - `use_time`
+- Number entities
+
+| Number         | Description            |
+| -------------- | ---------------------- |
+| Fan Level      | Set the fan level      |
+| Favorite Level | Set the favorite level |
+
+- Select entities
+
+| Select         | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+
+- Sensor entities
+
+| Sensor                    | Description                                                   | Enabled by default |
+| ------------------------- | ------------------------------------------------------------- | ------------------ |
+| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
+| Filter Use                | Filter usage time in hours                                    | True               |
+| Humidity                  | The current humidity measured                                 | True               |
+| Motor Speed               | The current motor speed measured in rpm                       | True               |
+| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
+| Purify Volume             | The volume of purified air in qubic meter                     | False              |
+| Temperature               | The current temperature measured                              | True               |
+| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+
+- Switch entities
+
+| Switch     | Description                |
+| ---------- | -------------------------- |
+| Buzzer     | Turn on/off the buzzer     |
+| Child Lock | Turn on/off the child lock |
+
+### Air Purifier Pro H/Pro H EU (zhimi.airpurifier.va1/zhimi.airpurifier.vb2)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)

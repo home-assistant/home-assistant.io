@@ -4,7 +4,7 @@ description: Instructions on how to integrate Onkyo and some Pioneer receivers i
 ha_category:
   - Media player
 ha_release: 0.17
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: onkyo
 ha_platforms:
   - media_player
@@ -12,6 +12,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@arturpragacz'
 ---
 
 The `onkyo` {% term integration %} allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
