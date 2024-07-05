@@ -134,7 +134,7 @@ You can see all the maps within your Roborock account. Keep in mind that they ar
 
 ## Dyad entities
 
-Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
+Roborock wet/dry vacuums currently expose some entities through a MQTT connection - it is currently cloud dependent.
 
 ### Sensor
 
@@ -150,6 +150,20 @@ Error - the current error of the device - if one exists - "None" otherwise.
 
 Total cleaning time - how long you have cleaned with your wet/dry vacuum.
 
+
+## Zeo Entities
+
+Roborock Zeo One currecntly expose some entities through a MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+State - The current state of your washing machine. For example 'washing' or 'rinsing'.
+
+Countdown - Countdown for how long until the machine starts.
+
+Washing left - The amount of time until your machine is done washing.
+
+Error - The current error of the Zeo if one exists.
 
 ## FAQ
 
