@@ -1189,6 +1189,77 @@ For a summary in a more readable format:
 - Bump gcal_sync to 6.1.4 ([@allenporter] - [#120941])
 - Bump inkbird-ble to 0.5.7 ([@bdraco] - [#121039])
 
+## Release 2024.7.1 - July 5
+
+- Improve redaction for stream error messages ([@allenporter] - [#120867])
+- Add device class translations in Random ([@dougiteixeira] - [#120890])
+- Fix locking/unlocking transition state in Matter lock platform ([@marcelveldt] - [#121099])
+- Fix HmIP-ESI GAS sensor DeviceClass ([@ChristophCaina] - [#121106])
+- Starline: Fix "Error updating SLNet token" message in Log ([@Chupaka] - [#121122])
+- Bump inkbird-ble to 0.5.8 ([@bdraco] - [#121134])
+- Fix broken pathlib import in august integration ([@mweinelt] - [#121135])
+- Bump velbusaio to 2024.7.5 ([@Cereal2nd] - [#121156])
+- Fix `pulse counter frequency` sensors for Shelly Plus Uni ([@bieniu] - [#121178])
+- Bump youless library version 2.1.2 ([@gjong] - [#121181])
+- Bump python-kasa to 0.7.0.3 ([@sdb9696] - [#121183])
+- Fix Matter light discovery schema for DimmerSwitch ([@marcelveldt] - [#121185])
+- Listen for attribute changes of OnOff cluster in appliances ([@marcelveldt] - [#121198])
+- Bump anova-wifi to 0.15.0 ([@Lash-L] - [#121222])
+- Fix work area sensor in Husqvarna Automower ([@Thomas55555] - [#121228])
+- Revert Homematic IP Cloud unique ID changes ([@hahn-th] - [#121231])
+- Bump deebot-client to 8.1.1 ([@edenhaus] - [#121241])
+- Fix WebOS TV media player status when OFF after IDLE ([@thecode] - [#121251])
+- Bump aioaquacell to 0.1.8 ([@Jordi1990] - [#121253])
+- Bump aiowebostv to 0.4.2 ([@thecode] - [#121258])
+- Bump python-holidays to 0.52 ([@gjohansson-ST] - [#121283])
+- Fix tplink light effect behaviour when activating a scene ([@sdb9696] - [#121288])
+- Update frontend to 20240705.0 ([@bramkragten] - [#121295])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#120867]: https://github.com/home-assistant/core/pull/120867
+[#120890]: https://github.com/home-assistant/core/pull/120890
+[#121099]: https://github.com/home-assistant/core/pull/121099
+[#121106]: https://github.com/home-assistant/core/pull/121106
+[#121122]: https://github.com/home-assistant/core/pull/121122
+[#121134]: https://github.com/home-assistant/core/pull/121134
+[#121135]: https://github.com/home-assistant/core/pull/121135
+[#121156]: https://github.com/home-assistant/core/pull/121156
+[#121178]: https://github.com/home-assistant/core/pull/121178
+[#121181]: https://github.com/home-assistant/core/pull/121181
+[#121183]: https://github.com/home-assistant/core/pull/121183
+[#121185]: https://github.com/home-assistant/core/pull/121185
+[#121198]: https://github.com/home-assistant/core/pull/121198
+[#121222]: https://github.com/home-assistant/core/pull/121222
+[#121228]: https://github.com/home-assistant/core/pull/121228
+[#121231]: https://github.com/home-assistant/core/pull/121231
+[#121241]: https://github.com/home-assistant/core/pull/121241
+[#121251]: https://github.com/home-assistant/core/pull/121251
+[#121253]: https://github.com/home-assistant/core/pull/121253
+[#121258]: https://github.com/home-assistant/core/pull/121258
+[#121283]: https://github.com/home-assistant/core/pull/121283
+[#121288]: https://github.com/home-assistant/core/pull/121288
+[#121295]: https://github.com/home-assistant/core/pull/121295
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@ChristophCaina]: https://github.com/ChristophCaina
+[@Chupaka]: https://github.com/Chupaka
+[@Jordi1990]: https://github.com/Jordi1990
+[@Lash-L]: https://github.com/Lash-L
+[@Thomas55555]: https://github.com/Thomas55555
+[@allenporter]: https://github.com/allenporter
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@bramkragten]: https://github.com/bramkragten
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@gjong]: https://github.com/gjong
+[@hahn-th]: https://github.com/hahn-th
+[@marcelveldt]: https://github.com/marcelveldt
+[@mweinelt]: https://github.com/mweinelt
+[@sdb9696]: https://github.com/sdb9696
+[@thecode]: https://github.com/thecode
+
 [#103496]: https://github.com/home-assistant/core/pull/103496
 [#104345]: https://github.com/home-assistant/core/pull/104345
 [#105134]: https://github.com/home-assistant/core/pull/105134
