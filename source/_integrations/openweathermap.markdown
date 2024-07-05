@@ -62,7 +62,7 @@ not be activated yet. Recent policy changes limit the API access for new registe
 | Mode      | API version, `v2.5` (deprecated), `v3.0` new API version. |
 | Language  | Language for receiving data (only for `sensor`)           |
 
-A `sensor` entity will be created for each supported condition. Their ids will follow the format:
+A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
 
 `sensor.<integration name>_<monitored condition>`
 
@@ -93,21 +93,6 @@ The Weather entity provides data only in English. Home Assistant automatically t
 | `weather`                | A human-readable description of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2). |
 | `weather_code`           | ID of the [weather condition](https://openweathermap.org/weather-conditions#Weather-Condition-Codes-2).                           |
 | `wind_bearing`           | Wind direction, degrees (meteorological).                                                                                         |
-| `wind_speed`             | Wind speed, metre/sec.                                                                                                            |
-
-### Forecast Weather Conditions
-
-| Condition                            | Description                                                                                                                                                    |
-| :----------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `forecast_cloud_coverage`            | Cloudiness, %.                                                                                                                                                 |
-| `forecast_condition`                 | [Weather condition](https://developers.home-assistant.io/docs/core/entity/weather/#recommended-values-for-state-and-condition) for the forecast's time period. |
-| `forecast_precipitation`             | Combined Rain and Snow volume for the forecast's time period, mm.                                                                                              |
-| `forecast_precipitation_probability` | Probability of precipitation for the forecast's time period.                                                                                                   |
-| `forecast_pressure`                  | Atmospheric pressure at sea level for the forecast's time period, hPa.                                                                                         |
-| `forecast_temperature`               | Maximum temperature for the day.                                                                                                                               |
-| `forecast_temperature_low`           | Minimum temperature for the day.                                                                                                                               |
-| `forecast_time`                      | Time of the forecasted data.                                                                                                                                   |
-| `forecast_wind_bearing`              | Wind direction for the forecast's time period, degrees (meteorological).                                                                                       |
-| `forecast_wind_speed`                | Wind speed for the forecast's time period, metre/sec.                                                                                                          |
+| `wind_speed`             | Wind speed, meter/sec.                                                                                                            |
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).

@@ -19,7 +19,7 @@ Testing with complex triggers, conditions, and variables can be difficult. Note 
 
 ### Running individual actions or conditions
 
-In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Select the three dots menu, then the **Test** button.
+In the automation editor UI, each {% term condition %} and {% term action %} can be tested individually. Select the three dots {% icon "mdi:dots-vertical" %} menu, then the **Test** button.
 
 - Testing a condition will highlight it to show whether the condition passed at the moment it was tested. If all conditions pass, then the automation will run when triggered. Testing building blocks like an **and** condition will report whether the whole block registers as true or false, or you can test individual conditions within the building block.
 
