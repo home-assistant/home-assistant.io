@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
 ha_release: 0.54
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_zeroconf: true
 ha_platforms:
   - button
   - camera
+  - event
 ha_integration_type: integration
 ---
 
@@ -123,3 +125,7 @@ The `doorbird` implementation allows you to view the live video, the last doorbe
 ## Button
 
 The `doorbird` button platform allows you to power connected relays and trigger the low-light/dark Infra-Red (IR) array on your [DoorBird](https://www.doorbird.com/) video doorbell device.
+
+## Event
+
+An event entity will be created for each doorbell or motion event with a configured HTTP(s) call in the [schedule](#schedules).
