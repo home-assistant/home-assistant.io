@@ -1,6 +1,6 @@
 ---
-title: TRIGGERcmd
-description: Instructions on how to integrate TRIGGERcmd with Home Assistant.
+title: TRIGGERcmd Integration
+description: How to integrate TRIGGERcmd with Home Assistant.
 ha_category:
   - Switch
   - Automation
