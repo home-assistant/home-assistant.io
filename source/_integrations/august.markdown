@@ -58,9 +58,9 @@ There is currently support for the following device types within Home Assistant:
 - Camera
 - Lock
 
-<div class='note'>
+{% note %}
 Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
-</div>
+{% endnote %}
 
 ## Known issues with battery reporting
 

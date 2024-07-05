@@ -22,9 +22,9 @@ Type these from anywhere in the application to launch the dialog.
 | Command Palette | `c` | Remove `>` from start of input to switch to entity filter.
 | Create [`my`](/integrations/my) link | `m` | Open a new tab to create a my link to the page you are on.
 
-<div class='note'>
-  The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
-</div>
+{% important %}
+The application must have focus for the hotkey to register. If the dialog doesn't launch, try clicking into an empty part of the main content area of Home Assistant and type it again.
+{% endimportant %}
 
 ## Entity filter
 

@@ -13,6 +13,9 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@HarvsG'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `bayesian` binary sensor platform observes the state from multiple sensors. It uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event is occurring given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on`; otherwise, it is `off`.
@@ -38,7 +41,8 @@ In the configuration use the probability of the observation (the sensor state in
 
 ## Configuration
 
-To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
+To enable the Bayesian sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

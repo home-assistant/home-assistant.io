@@ -64,11 +64,11 @@ ifttt:
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
 ![Property screen of the Maker Channel.](/images/integrations/ifttt/finding_key.png)
 
-Once you have added your key to your `configuration.yaml` file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
+Once you have added your key to your {% term "`configuration.yaml`" %} file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
-<div class='note'>
+{% important %}
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</div>
+{% endimportant %}
 
 ### Multiple IFTTT keys
 
@@ -108,7 +108,7 @@ value3:
 When your screen looks like this, click the 'call service' button.
 ![Testing service.](/images/integrations/ifttt/testing_service.png)
 
-By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
+By default, the trigger is sent to all the API keys from {% term "`configuration.yaml`" %}. If you
 want to send the trigger to a specific key use the `target` field:
 
 | Field        | Value                                                                         |

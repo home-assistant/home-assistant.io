@@ -131,11 +131,9 @@ sequence:
 
 While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. For documentation on the many different conditions refer to the [conditions page].
 
-<div class='note'>
-
+{% note %}
 The `condition` {% term action %} only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the {% term actions %} within that `choose` will stop.
-
-</div>
+{% endnote %}
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -186,6 +184,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Supports milliseconds, seconds, minutes, hours, days
 # Can be used in combination, at least one required
+# When using milliseconds, consider that delay as *at least* X milliseconds. It won´t be exact.
 # Waits 1 minute
 - delay:
     minutes: 1
@@ -753,6 +752,48 @@ automation:
 
 {% endraw %}
 
+## Grouping actions
+
+The `sequence` {% term action %} allows you to group multiple {% term actions %}
+together. Each action will be executed in order, meaning the next action will
+only be executed after the previous action has been completed.
+
+Grouping actions in a sequence can be useful when you want to be able to
+collapse related groups in the user interface for organizational purposes.
+
+Combined with the [`parallel`](#parallelizing-actions) action, it can also be
+used to run multiple groups of actions in a sequence in parallel.
+
+In the example below, two separate groups of actions are executed in sequence,
+one for turning on devices, the other for sending notifications. Each group of
+actions is executed in order, this includes the actions in each group and the
+groups themselves. In total, four actions are executed, one after the other.
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - alias: "Turn on devices"
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.ceiling
+          - service: siren.turn_on
+            target:
+              entity_id: siren.noise_maker
+      - alias: "Send notifications"
+        sequence:
+          - service: notify.person1
+            data:
+              message: "The motion sensor was triggered!"
+          - service: notify.person2
+            data:
+              message: "Oh oh, someone triggered the motion sensor..."
+```
+
 ## Parallelizing actions
 
 By default, all sequences of {% term actions %} in Home Assistant run sequentially. This
@@ -802,8 +843,7 @@ script:
               message: "I am sent immediately and do not await the above action!"
 ```
 
-<div class='note'>
-
+{% warning %}
 Running {% term actions %} in parallel can be helpful in many cases, but use it with
 caution and only if you need it.
 
@@ -811,8 +851,7 @@ There are some caveats (see below) when using parallel actions.
 
 While it sounds attractive to parallelize, most of the time, just the regular
 sequential {% term actions %} will work just fine.
-
-</div>
+{% endwarning %}
 
 Some of the caveats of running {% term actions %} in parallel:
 
@@ -915,6 +954,25 @@ script:
         target:
           entity_id: light.ceiling
 ```
+
+Actions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+
+  action:
+    - delay: 0:35
+      enabled: !input input_boolean
+```
+
+{% endraw %}
 
 ## Respond to a conversation
 

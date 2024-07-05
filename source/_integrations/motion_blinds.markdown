@@ -34,6 +34,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
 - [Krispol](https://krispol.eu/en/drives/)
+- [Linx](https://linxautomation.com.au/)
 - [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
 - [Motionblinds](https://motionblinds.com/)
@@ -54,6 +55,9 @@ The following bridges are reported to work with this integration:
 - D1554 Brel Home USB plug
 - Brel HUB-03
 - Acomax FX-I 620 Bridge Maxi
+- Linx Hub
+- Linx Hub Mini
+- Linx Hub USB
 
 {% include integrations/config_flow.md %}
 

@@ -14,9 +14,12 @@ ha_domain: sql
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `sql` sensor platform enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
+The `sql` sensor {% term integration %} enables you to use values from an [SQL](https://en.wikipedia.org/wiki/SQL) database supported by the [sqlalchemy](https://www.sqlalchemy.org) library, to populate a sensor state (and attributes).
 This can be used to present statistics about Home Assistant sensors if used with the `recorder` integration database. It can also be used with an external data source.
 
 **This integration can be configured using both config flow and by YAML.**
@@ -25,9 +28,10 @@ This can be used to present statistics about Home Assistant sensors if used with
 
 ## Configuration by YAML
 
-To configure this sensor, define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query.
+To configure this sensor, define the sensor connection variables and a list of queries to your {% term "`configuration.yaml`" %} file. A sensor will be created for each query.
 
-To enable it, add the following lines to your `configuration.yaml` file (example by required fields):
+To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 ```yaml
@@ -268,11 +272,11 @@ Use the same Database URL as for the `recorder` integration. Change `DB_NAME` to
 
 Example Database URL: `"mssql+pyodbc://username:password@SERVER_IP:1433/DB_NAME?charset=utf8&driver=FreeTDS"`
 
-<div class='note info'>
+{% note %}
 Connecting with MSSQL requires "pyodbc" to be installed on your system, which can only be done on systems using the Home Assistant Core installation type to be able to install the necessary dependencies.
   
 "pyodbc" has special requirements which need to be pre-installed before installation, see the ["pyodbc" wiki](https://github.com/mkleehammer/pyodbc/wiki/Install) for installation instructions
-</div>
+{% endnote %}
 
 ```sql
 SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';

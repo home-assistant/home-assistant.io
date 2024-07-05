@@ -19,6 +19,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `zoneminder` integration sets up Home Assistant with your [ZoneMinder](https://www.zoneminder.com) instance.
@@ -31,6 +34,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 
 ## Configuration
+
+To add the {% term integration %} to your installation, add it to the {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,7 +98,7 @@ zoneminder:
 Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 
 | Service data attribute | Optional | Description                       |
-|:-----------------------|:---------|:----------------------------------|
+| :--------------------- | :------- | :-------------------------------- |
 | `id`                   | no       | Host of the ZoneMinder instance.  |
 | `name`                 | no       | Name of the new run state to set. |
 
@@ -118,7 +124,7 @@ The `zoneminder` camera platform lets you monitor the current stream of your [Zo
 
 ### Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -130,7 +136,7 @@ camera:
 
 The `zoneminder` sensor platform lets you monitor the current state of your [ZoneMinder](https://www.zoneminder.com) install including the number of events, the current state of the cameras and ZoneMinder's current run state.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -166,13 +172,11 @@ monitored_conditions:
 
 The `zoneminder` switch platform allows you to toggle the current function of all cameras attached to your [ZoneMinder](https://www.zoneminder.com) instance.
 
-<div class='note'>
-
+{% important %}
 You must have the [ZoneMinder integration](/integrations/zoneminder/) configured to use this and if ZoneMinder authentication is enabled the account specified in the integration configuration must have "Edit" permission for "System".
+{% endimportant %}
 
-</div>
-
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -193,6 +197,6 @@ command_off:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 The default functions installed by ZoneMinder are: None, Monitor, Modect, Record, Mocord, Nodect.
-</div>
+{% endnote %}

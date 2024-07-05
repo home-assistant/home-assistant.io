@@ -24,11 +24,9 @@ If `zeroconf` discovery is enabled, your device will get discovered automaticall
 
 ### Install `pyvizio` locally
 
-<div class='note'>
-
+{% note %}
 If the `pip3` command is not found, try `pip` instead
-
-</div>
+{% endnote %}
 
 - To install, run `pip3 install pyvizio` in your terminal.
 - If `pyvizio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade pyvizio` in your terminal.
@@ -104,7 +102,7 @@ You will need the authentication token returned by this command to configure Hom
 
 ## Configuration
 
-To add your VIZIO TV to your installation, add the following to your `configuration.yaml` file:
+To add your VIZIO TV to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -204,7 +202,7 @@ vizio:
 
 ### Obtaining an app configuration
 
-If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in `configuration.yaml`. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
+If there is an app you want to be able to launch from Home Assistant that isn't detected by default, you will need to specify the app configuration in {% term "`configuration.yaml`" %}. This configuration can be obtained from the `app_id` state attribute when an unknown app is running on your device.
 
 ### Obtaining a list of valid apps to include or exclude
 

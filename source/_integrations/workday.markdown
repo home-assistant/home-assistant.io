@@ -29,14 +29,11 @@ Check the [country list](https://github.com/dr-prodigy/python-holidays#available
 
 {% include integrations/config_flow.md %}
 
-Days are specified as follows: `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
-The keyword `holiday` is used for public holidays identified by the holidays module and holidays added by the `add_holidays` configuration option.
+The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
 
-<div class='note warning'>
-
-Take note of the `holiday` keyword. Your first instinct might be to add it to the `exclude` configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude `holiday` and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your `Excludes` configuration _other_ than `holiday`.
-
-</div>
+{% important %}
+Take note of the "Holidays" keyword. Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
+{% endimportant %}
 
 ## Specific field information
 

@@ -4,17 +4,15 @@ description: "Splitting the configuration.yaml into several files."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
-  - docs: /examples/#example-configurationyaml
-    title: Example configuration files by the community
   - docs: /docs/configuration/packages
     title: Using packages to organize configuration files
 ---
 
-So you've been using Home Assistant for a while now and your `configuration.yaml` file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the `configuration.yaml` into more manageable (read: human-readable) pieces.
+So you've been using Home Assistant for a while now and your {% term "`configuration.yaml`" %} file brings people to tears because it has become so large. Or, you simply want to start off with the distributed approach. Here's how to split the {% term "`configuration.yaml`" %} into more manageable (read: human-readable) pieces.
 
 ## Example configuration files for inspiration
 
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example files here](/examples/#example-configurationyaml).
+First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
 
@@ -22,7 +20,7 @@ As commenting code doesn't always happen, please read on to learn in detail how 
 
 In this section, we are going use some example configuration files and look at their structure and format in more detail.
 
-Now you might think that the `configuration.yaml` will be replaced during the splitting process. However, it will in fact remain, albeit in a much less cluttered form.
+Now you might think that the {% term "`configuration.yaml`" %} will be replaced during the splitting process. However, it will in fact remain, albeit in a much less cluttered form.
 
 ### The core configuration file
 

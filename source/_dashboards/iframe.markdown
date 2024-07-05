@@ -24,9 +24,10 @@ The webpage card is used on the [Webpage dashboard](/dashboards/dashboards/#webp
 All options for this card can be configured via the user interface.
 
 Note that not every webpage can be embedded due to security restrictions that some sites have in place. These restrictions are enforced by your browser and prevent embedding them into a Home Assistant dashboard.
-<div class='note warning'>
+
+{% important %}
 You can't embed sites using HTTP if you are using HTTPS for your Home Assistant.
-</div>
+{% endimportant %}
 
 ## YAML configuration
 
@@ -55,6 +56,11 @@ title:
   required: false
   description: The card title.
   type: string
+allow:
+  required: false
+  description: The [Permissions Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Permissions-Policy#iframes) of the iframe, that is, the value of the [`allow`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe#allow) attribute.
+  type: string
+  default: "fullscreen"
 {% endconfiguration %}
 
 ### Examples

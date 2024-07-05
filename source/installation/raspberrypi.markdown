@@ -10,11 +10,9 @@ Included section for this page is located under source/_includes/installation
 {% assign board = "Raspberry Pi" %}
 {% assign installation_media = "SD card" %}
 
-<div class='note warning'>
-
-Please remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) with your Raspberry Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
-
-</div>
+{% note %}
+Remember to ensure you're using an [appropriate power supply](https://www.raspberrypi.com/documentation/computers/raspberry-pi.html#power-supply) with your Raspberry Pi. Mobile chargers may not be suitable, since some are designed to only provide the full power with that manufacturer's handsets. USB ports on your computer also will not supply enough power and must not be used.
+{% endnote %}
 
 Before installing Home Assistant, you might want to <a href="/installation#compare-installation-methods">compare installation methods</a>. Most notably, 
 <a href="/addons">add-ons</a> are only available with the Home Assistant Operating System.
@@ -60,7 +58,7 @@ If Raspberry Pi Imager is not supported by your platform, you can use [Balena Et
 ### Start up your Raspberry Pi
 
 1. Insert the SD card into your Raspberry Pi.
-2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer.
+2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
 3. Connect the power supply to start up the device.
 
 ### Access Home Assistant
@@ -69,9 +67,9 @@ Within a few minutes after connecting the Raspberry Pi, you will be able to reac
 
 - In the browser of your desktop system, enter <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
  
-    <div class="note">
-    If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
-    </div>
+{% note %}
+If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your Raspberry Pi’s IP address).
+{% endnote %}
 
 - The time it takes for this page to become available depends on your hardware. On a Raspberry Pi 4 or 5, this page should be available within a minute.
   - If it does not show up after 5 minutes on a Pi 4 or 5, maybe the image was not written properly.
@@ -99,7 +97,7 @@ Use this procedure if Raspberry Pi Imager is not supported by your platform.
 2. Download and start <a href="https://www.balena.io/etcher" target="_blank">Balena Etcher</a>. You may need to run it with administrator privileges on Windows.
 
 3. Download the image to your computer.
-   - Copy the correct URL for the Raspberry Pi 3 or 4 (Note: there are 2 different links below!):
+   - Copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
 
 {% tabbed_block %}
 {% for variant in site.installation.types[page.installation_type].variants %}

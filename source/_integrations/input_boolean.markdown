@@ -25,12 +25,12 @@ in which they are known as Toggle Helpers. To add one, go to
 next choose the **{% my config_flow_start domain="input_boolean" title="Toggle" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
-`default_config:` in your `configuration.yaml`, it should already be there by
+`default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by
 default unless you removed it. If you removed `default_config:` from your
-configuration, you must add `input_boolean:` to your `configuration.yaml` first,
+configuration, you must add `input_boolean:` to your {% term "`configuration.yaml`" %} first,
 then you can use the UI.
 
-Input booleans can also be configured via `configuration.yaml`:
+Input booleans can also be configured via {% term "`configuration.yaml`" %}:
 
 {% configuration %}
   input_boolean:

@@ -23,13 +23,11 @@ Please make sure that you have read the [considerations](#considerations) listed
 some trouble later. However, if you do encounter issues, check out the
 [troubleshooting](#troubleshooting) section.
 
-<div class="note">
-
-  If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
-  which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
-
-</div>
+{% tip %}
+If you want to control HomeKit-only devices with Home Assistant,
+check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
+which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -38,7 +36,7 @@ some trouble later. However, if you do encounter issues, check out the
 If you want make specific changes to the way entities are published to HomeKit, override the
 IP address the HomeKit integration uses to communicate with your network or change the
 IP address the HomeKit uses to advertise itself to the network, then you will need to configure the
-HomeKit integration using an entry in your `configuration.yaml` file.
+HomeKit integration using an entry in your {% term "`configuration.yaml`" %} file.
 
 This is an example entry of how that would look:
 
@@ -74,6 +72,10 @@ homekit:
         type: outlet
       camera.back_porch:
         support_audio: True
+      sensor.some_co_sensor:
+        co_threshold: 1000
+      sensor.some_co2_sensor:
+        co2_threshold: 1000
   - name: HASS Bridge 2
     port: 21065
     filter:
@@ -269,6 +271,16 @@ homekit:
               type: string
               default: libopus
               available options: copy, libopus
+            co_threshold:
+              description: Only for `sensor` entities with `device_class` `carbon_monoxide` or `co` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              required: false
+              type: integer
+              default: 25
+            co2_threshold:
+              description: Only for `sensor` entities with `device_class` `carbon_dioxide` or `co2` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              required: false
+              type: integer
+              default: 1000
     devices:
       description: Include device triggers for all matching device ids. Configuration in the UI via Options is recommended instead.
       required: false
@@ -318,7 +330,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the `configuration.yaml` file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -391,37 +403,37 @@ If you have a firewall configured on your Home Assistant system, make sure you o
 
 The following integrations are currently supported:
 
-| Integration | Type Name | Description |
-| --------- | --------- | ----------- |
-| alarm_control_panel | SecuritySystem | All security systems. |
-| automation / input_boolean / remote / scene / script / vacuum | Switch | All represented as switches. |
-| input_select / select | Switch | Represented as a power strip with buttons for each option. |
-| binary_sensor | Sensor | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else. |
-| camera | Camera | All camera devices. **HomeKit Secure Video is not supported at this time.** |
-| climate | Thermostat | All climate devices. |
-| cover | GarageDoorOpener | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`. |
-| cover | WindowCovering | All covers that support `set_cover_position`. |
-| cover | Door | All covers that support `set_cover_position` and have `door` as their `device_class`. |
-| cover | WindowCovering | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`) |
-| cover | WindowCovering | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between) |
-| device_tracker / person | Sensor | Support for `occupancy` device class. |
-| fan | Fan | Support for `on / off`, `direction` and `oscillating`. |
-| fan | Fan | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
-| humidifier | HumidifierDehumidifier | Humidifier and Dehumidifier devices. |
-| light | Light | Support for `on / off`, `brightness` and `rgb_color`. |
-| lock | DoorLock | Support for `lock / unlock`. |
-| media_player | MediaPlayer | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`. |
-| media_player | TelevisionMediaPlayer | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
-| media_player | ReceiverMediaPlayer | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later. |
-| sensor | TemperatureSensor | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`. |
-| sensor | HumiditySensor | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`. |
-| sensor | AirQualitySensor | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization). |
-| sensor | CarbonMonoxideSensor | All sensors that have `co` as their `device_class` |
-| sensor | CarbonDioxideSensor | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class` |
-| sensor | LightSensor | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class` |
-| switch | Switch | Represented as a switch by default but can be changed by using `type` within `entity_config`. |
-| water_heater | WaterHeater | All `water_heater` devices. |
-| device_automation | DeviceTriggerAccessory | All devices that support triggers. |
+| Integration                                                   | Type Name              | Description                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| alarm_control_panel                                           | SecuritySystem         | All security systems.                                                                                                                                                                                                                                                                                                                                                                                                                        |
+| automation / input_boolean / remote / scene / script / vacuum | Switch                 | All represented as switches.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| input_select / select                                         | Switch                 | Represented as a power strip with buttons for each option.                                                                                                                                                                                                                                                                                                                                                                                   |
+| binary_sensor                                                 | Sensor                 | Support for `co2`, `door`, `garage_door`, `gas`, `moisture`, `motion`, `occupancy`, `opening`, `smoke` and `window` device classes. Defaults to the `occupancy` device class for everything else.                                                                                                                                                                                                                                            |
+| camera                                                        | Camera                 | All camera devices. **HomeKit Secure Video is not supported at this time.**                                                                                                                                                                                                                                                                                                                                                                  |
+| climate                                                       | Thermostat             | All climate devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| cover                                                         | GarageDoorOpener       | All covers that support `open` and `close` and have `garage` or `gate` as their `device_class`.                                                                                                                                                                                                                                                                                                                                              |
+| cover                                                         | WindowCovering         | All covers that support `set_cover_position`.                                                                                                                                                                                                                                                                                                                                                                                                |
+| cover                                                         | Door                   | All covers that support `set_cover_position` and have `door` as their `device_class`.                                                                                                                                                                                                                                                                                                                                                        |
+| cover                                                         | WindowCovering         | All covers that support `open_cover` and `close_cover` through value mapping. (`open` -> `>=50`; `close` -> `<50`)                                                                                                                                                                                                                                                                                                                           |
+| cover                                                         | WindowCovering         | All covers that support `open_cover`, `stop_cover` and `close_cover` through value mapping. (`open` -> `>70`; `close` -> `<30`; `stop` -> every value in between)                                                                                                                                                                                                                                                                            |
+| device_tracker / person                                       | Sensor                 | Support for `occupancy` device class.                                                                                                                                                                                                                                                                                                                                                                                                        |
+| fan                                                           | Fan                    | Support for `on / off`, `direction` and `oscillating`.                                                                                                                                                                                                                                                                                                                                                                                       |
+| fan                                                           | Fan                    | All fans that support `speed` and `speed_list` through value mapping: `speed_list` is assumed to contain values in ascending order. The numeric ranges of HomeKit map to a corresponding entry of `speed_list`. The first entry of `speed_list` should be equivalent to `off` to match HomeKit's concept of fan speeds. (Example: `speed_list` = [`off`, `low`, `high`]; `off` -> `<= 33`; `low` -> between `33` and `66`; `high` -> `> 66`) |
+| humidifier                                                    | HumidifierDehumidifier | Humidifier and Dehumidifier devices.                                                                                                                                                                                                                                                                                                                                                                                                         |
+| light                                                         | Light                  | Support for `on / off`, `brightness` and `rgb_color`.                                                                                                                                                                                                                                                                                                                                                                                        |
+| lock                                                          | DoorLock               | Support for `lock / unlock`.                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| media_player                                                  | MediaPlayer            | Represented as a series of switches which control `on / off`, `play / pause`, `play / stop`, or `mute` depending on `supported_features` of entity and the `mode` list specified in `entity_config`.                                                                                                                                                                                                                                         |
+| media_player                                                  | TelevisionMediaPlayer  | All media players that have `tv` as their `device_class`.  Represented as Television and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                       |
+| media_player                                                  | ReceiverMediaPlayer    | All media players that have `receiver` as their `device_class`.  Represented as Receiver and Remote accessories in HomeKit to control `on / off`, `play / pause`, `select source`, or `volume increase / decrease`, depending on `supported_features` of entity. Requires iOS 12.2/macOS 10.14.4 or later.                                                                                                                                   |
+| sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
+| sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
+| sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
+| sensor                                                        | CarbonMonoxideSensor   | All sensors that have `co` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
+| sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
+| sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
+| switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
+| water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
 
 # Device triggers
 
@@ -511,7 +523,7 @@ The following home hubs have been reported to have trouble with a large number o
 
 ### Errors during pairing
 
-If you encounter any issues during pairing, make sure to add the following to your `configuration.yaml` to try and identify the issue(s).
+If you encounter any issues during pairing, make sure to add the following to your {% term "`configuration.yaml`" %} to try and identify the issue(s).
 
 ```yaml
 logger:

@@ -50,7 +50,7 @@ RTS Record: 14 Address: FFFFFF RC: FFFF
 RTS Record: 15 Address: FFFFFF RC: FFFF
 ```
 
-After configuring the RFLink Somfy RTS you have to add the cover to the `configuration.yaml` file like any other RFlink device.
+After configuring the RFLink Somfy RTS you have to add the cover to the {% term "`configuration.yaml`" %} file like any other RFlink device.
 
 RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
 

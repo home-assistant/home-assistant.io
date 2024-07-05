@@ -53,7 +53,7 @@ By default, the integration listens for incoming messages from OwnTracks via HTT
 
 ## Advanced configuration
 
-OwnTracks allows the user to set advanced configuration by adding a section to your `configuration.yaml`.
+OwnTracks allows the user to set advanced configuration by adding a section to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,7 +71,7 @@ waypoints:
   default: true
   type: boolean
 waypoint_whitelist:
-  description: "A list of user names (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
+  description: "A list of usernames (as defined for [OwnTracks](/integrations/owntracks)) who can export their waypoints from OwnTracks to Home Assistant. This would be the `username` portion of the Base Topic Name, (e.g., owntracks/username/iPhone)."
   required: false
   default: All users who are connected to Home Assistant via OwnTracks.
   type: list
@@ -122,9 +122,9 @@ When you exit a zone, Home Assistant will start using location updates to track 
 
 ## Using OwnTracks regions - forcing OwnTracks to update using iBeaconsOwntracks
 
-<div class='note'>
+{% note %}
 OwnTracks v2.0.0 removes support for iBeacons on Android.
-</div>
+{% endnote %}
 
 When run in the usual *significant changes mode* (which is kind to your phone battery), OwnTracks sometimes doesn't update your location as quickly as you'd like when you arrive at a zone. This can be annoying if you want to trigger an automation when you get home. You can improve the situation using iBeacons.
 

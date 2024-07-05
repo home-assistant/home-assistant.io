@@ -64,11 +64,9 @@ See [calendar automations](/integrations/calendar#automation) for an overview, a
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
-<div class='note'>
-
+{% tip %}
 Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
-
-</div>
+{% endtip %}
 
 
 {% details "Attributes" %}
@@ -88,11 +86,9 @@ You can use the service `google.create_event` to create a new calendar event in 
 
 {% details "Create Event Service details" %}
 
-<div class='note'>
-
+{% note %}
 This will only be available if you have given Home Assistant `read-write` access in configuration options.
-
-</div>
+{% endnote %}
 
 A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
@@ -107,11 +103,9 @@ A calendar `target` is selected with a [Target Selector](/docs/blueprint/selecto
 | `in`                   | yes      | Days or weeks that you want to create the event in. | "days": 2           |
 | `location`             | yes      | The location of the event.                          | Bowling center      |
 
-<div class='note'>
-
+{% important %}
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-
-</div>
+{% endimportant %}
 
 This is a full example of service call in YAML:
 
@@ -132,11 +126,11 @@ data:
 
 {% details "More Configuration" %}
 
-<div class='note warning'>
+{% warning %}
 It is not recommended to new users to use these settings as they are not
 compatible with other Home Assistant features, but this documentation is available
 for existing users.
-</div>
+{% endwarning %}
 
 The integration supports additional configuration from a file `google_calendars.yaml` which is available for existing users before version `2022.06`. This file is no longer automatically populated.
 

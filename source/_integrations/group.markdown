@@ -109,7 +109,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ### Sensor groups
 
-- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product or sum of the collected states.
+- The group state is combined / calculated based on `type` selected to determine the minimum, maximum, latest (last), mean, median, range, product, standard deviation, or sum of the collected states.
 - Members can be any `sensor`, `number` or `input_number` holding numeric states.
 - The group state is `unavailable` if all group members are `unavailable`.
 - If `ignore_non_numeric` is `false` then group state will be `unavailable` if one member is `unavailable` or does not have a numeric state.
@@ -129,7 +129,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 ## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
-instead. Here are example of how to configure groups when using the `configuration.yaml` file.
+instead. Here are example of how to configure groups when using the {% term "`configuration.yaml`" %} file.
 
 Example YAML configuration of a binary sensor group:
 
@@ -262,7 +262,7 @@ all:
   type: boolean
   default: false
 type:
-  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product` or `sum`."
+  description: "Only available for `sensor` group. The type of sensor: `min`, `max`, `last`, `mean`, `median`, `range`, `product`, `stdev`, or `sum`."
   type: string
   required: true
 ignore_non_numeric:
@@ -378,22 +378,31 @@ icon:
 
 Old style groups can calculate group state with entities from the following domains:
 
+- `alert`
 - `alarm_control_panel`
+- `automation`
 - `binary_sensor`
+- `calendar`
 - `climate`
 - `cover`
 - `device_tracker`
 - `fan`
 - `humidifier`
+- `input_boolean`
 - `light`
 - `lock`
 - `media_player`
 - `person`
 - `plant`
 - `remote`
+- `script`
 - `switch`
 - `vacuum`
 - `water_heater`
+
+{% note %}
+Platform domains other than these are not supported to be used with old style groups, nor will other domains be supported in the future.
+{% endnote %}
 
 When member entities all have a single `on` and `off` state, the group state will be calculated as follows:
 

@@ -24,7 +24,9 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - diagnostics
+  - event
   - fan
   - light
   - lock
@@ -36,8 +38,10 @@ ha_platforms:
   - text
   - time
   - update
+  - valve
 ha_integration_type: device
 ha_dhcp: true
+ha_quality_scale: platinum
 works_with:
   - local
 ---
@@ -54,7 +58,7 @@ ESPHome devices can make service calls to any [Home Assistant service](https://e
 
 ## Entity naming and IDs
 
-ESPHome uses different naming and entity ID rules based on the configuration of the ESPHome device. It is recommended to set a `friendly_name` in the ESPHome `configuration.yaml` to take advantage of the newer naming structure, which is consistent with Home Assistant naming standards and makes it much easier to tell similar devices apart. The legacy naming rules apply when the `friendly_name` is not set in the `configuration.yaml`.
+ESPHome uses different naming and entity ID rules based on the configuration of the ESPHome device. It is recommended to set a `friendly_name` in the ESPHome {% term "`configuration.yaml`" %} to take advantage of the newer naming structure, which is consistent with Home Assistant naming standards and makes it much easier to tell similar devices apart. The legacy naming rules apply when the `friendly_name` is not set in the {% term "`configuration.yaml`" %}.
 
 ### Friendly naming
 

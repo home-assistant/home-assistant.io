@@ -18,9 +18,9 @@ related:
   - docs: /docs/configuration/customizing-devices/
 ---
 
-The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on`.
+The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` service.
 
-## Editing the general settings in YAML
+## Editing the General Settings in YAML
 
 The Home Assistant Core integration is also responsible for the general settings. These settings are defined during onboarding, but you can change them later under {% my general title="**Settings** > **System** > **General**" %}. For the detailed steps, refer to [Basic settings](/docs/configuration/basic/).
 
@@ -56,6 +56,7 @@ To get started with the general settings in YAML, follow these steps:
       media_dirs:
         media: "/media"
         recordings: "/mnt/recordings"
+      debug: false
     ```
 
 2. Edit each entry to fit your home.
@@ -103,15 +104,15 @@ internal_url:
   required: false
   type: string
 customize:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) entities."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities."
   required: false
   type: string
 customize_domain:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) all entities in a domain."
+  description: "[Customize](#editing-entity-settings-in-yaml) all entities in a domain."
   required: false
   type: string
 customize_glob:
-  description: "[Customize](#editing-the-entity-settings-in-yaml) entities matching a pattern."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities matching a pattern."
   required: false
   type: string
 allowlist_external_dirs:
@@ -135,14 +136,19 @@ country:
   description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
   required: false
   type: string
+debug:
+  description: Enable Home Assistant's built-in debug, which can help locate misbehaving integrations by enabling run-time checks for implementation errors. It can block many unsafe thread operations from crashing the system. Enabling debug has a slight performance impact on the system and is not recommended for long-term use.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
-## Editing the entity settings in YAML
+## Editing entity settings in YAML
 
-The Home Assistant Core integration is also responsible for the entity settings.
+The Home Assistant Core integration is also responsible for entity settings.
 By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
 
-Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entites](/docs/configuration/customizing-devices/).
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
 
 If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
 
@@ -185,24 +191,29 @@ initial_state:
 
 ### Device class
 
+Devices classes categorize certain entities and influence how these are shown in the dashboard. Some device classes categorize by measurement type, such as sensors or binary sensors. Other device classes categorize into more specific types. For example, a cover can be a blind or a curtain. For a given platform, the device class influences what is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+
 Device class is currently supported by the following platforms:
 
-- [Binary sensor](/integrations/binary_sensor/)
-- [Button](/integrations/button/)
-- [Cover](/integrations/cover/)
-- [Humidifier](/integrations/humidifier/)
-- [Media player](/integrations/media_player/)
-- [Number](/integrations/number/)
-- [Sensor](/integrations/sensor/)
-- [Switch](/integrations/switch/)
+- [Binary sensor](/integrations/binary_sensor/#device-class)
+- [Button](/integrations/button/#device-class)
+- [Cover](/integrations/cover/#device-class)
+- [Event](/integrations/event/#device-class)
+- [Humidifier](/integrations/humidifier/#device-class)
+- [Media player](/integrations/media_player/#device-class)
+- [Number](/integrations/number/#device-class)
+- [Sensor](/integrations/sensor#device-class)
+- [Switch](/integrations/switch/#device-class)
+- [Update](/integrations/update/#device-class)
+- [Valve](/integrations/valve/#device-class)
+
+For a list of the supported device classes, refer to the documentation of the platform.
 
 ### Manual customization
 
-<div class='note'>
-
+{% important %}
 If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
-
-</div>
+{% endimportant %}
 
 ```yaml
 homeassistant:

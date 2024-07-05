@@ -14,11 +14,9 @@ ha_integration_type: system
 
 This integration is by default enabled as dependency of the [`history`](/integrations/history/) integration.
 
-<div class='note'>
-
+{% important %}
 This integration constantly saves data. If you use the default configuration, the data will be saved on the media Home Assistant is installed on. In case of Raspberry Pi with an SD card, it might affect your system's reaction time and life expectancy of the storage medium (the SD card). It is therefore recommended to set the [commit_interval](/integrations/recorder#commit_interval) to higher value, e.g. 30s, limit the amount of stored data (e.g., by excluding devices) or store the data elsewhere (e.g., another system).
-
-</div>
+{% endimportant %}
 
 Home Assistant uses [SQLAlchemy](https://www.sqlalchemy.org/), which is an Object Relational Mapper (ORM). This makes it possible to use a number of database solutions.
 
@@ -32,13 +30,11 @@ Although SQLAlchemy supports database solutions in addition to the ones supporte
 
 The default, and recommended, database engine is [SQLite](https://www.sqlite.org/) which does not require any configuration. The database is stored in your Home Assistant configuration directory ('/config/') and is named `home-assistant_v2.db`.
 
-<div class='note'>
-
+{% caution %}
 Changing database used by the recorder may result in losing your existing history. Migrating data is not supported.
+{% endcaution %}
 
-</div>
-
-To change the defaults for the `recorder` integration in your installation, add the following to your `configuration.yaml` file:
+To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -208,24 +204,22 @@ recorder:
 Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
 Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                              |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                    |
+| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
-| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size. |
+| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
 ### Service `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains` and `entity_globs` fields. Leaving all three parameters empty will result in all entities being selected for purging.
+Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                              |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes<sup>*</sup>      | A list of entity_ids that should be purged from the recorder database. |
-| `domains`               | yes      | A list of domains that should be purged from the recorder database. |
-| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database. |
+| Service data attribute | Optional | Description                                                                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
+| `domains`              | yes      | A list of domains that should be purged from the recorder database.                                                   |
+| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database.                             |
 | `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
-
-Note: The `entity_id` is only optional when used in `automations.yaml` or `scripts.yaml`. When using the UI to call this service then it is mandatory to specify at least one `entity_id` using the Target Picker or via YAML mode.
 
 #### Example automation to remove data rows for specific entities
 
@@ -240,7 +234,6 @@ action:
   - service: recorder.purge_entities
     data:
       keep_days: 5
-    target:
       entity_id: sensor.power_sensor_0
 mode: single
 ```
@@ -255,13 +248,11 @@ Call the service `recorder.enable` to start again saving events and states to th
 
 ## Custom database engines
 
-<div class='note'>
-
+{% warning %}
 SQLite is the most tested, and newer version of Home Assistant are highly optimized to perform well when using SQLite.
 
 When choosing another option, you should be comfortable in the role of the database administrator, including making backups of the external database.
-
-</div>
+{% endwarning %}
 
 Here are examples to use with the [`db_url`](#db_url) configuration option.
 
@@ -305,31 +296,23 @@ PostgreSQL (Custom socket dir):
     `postgresql://@/DB_NAME?host=/path/to/dir`
 {% endconfiguration_basic %}
 
-<div class='note'>
-
+{% note %}
 Some installations of MariaDB/MySQL may require an ALTERNATE_PORT (3rd-party hosting providers or parallel installations) to be added to the SERVER_IP, e.g., `mysql://user:password@SERVER_IP:ALTERNATE_PORT/DB_NAME?charset=utf8mb4`.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 When using a MariaDB or MySQL server, adding `+pymysql` to the URL will use the pure Python MySQL library, which is slower but may be required if the C MySQL library is not available. 
 
 When using the official Docker image, the C MySQL library will always be available. `pymysql` is most commonly used with `venv` where the C MySQL library is not installed.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% tip %}
 Unix Socket connections always bring performance advantages over TCP, if the database is on the same host as the `recorder` instance (i.e., `localhost`).
+{% endtip %}
 
-</div>
-
-<div class='note warning'>
-
+{% note %}
 If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.conf`. See [PostgreSQL](#postgresql)
-
-</div>
+{% endnote %}
 
 ### Database startup
 
@@ -360,9 +343,9 @@ Not all Python bindings for the chosen database engine can be installed directly
 
 ### MariaDB and MySQL
 
-<div class='note warning'>
+{% warning %}
 MariaDB versions before 10.5.17, 10.6.9, 10.7.5, and 10.8.4 suffer from a performance regression which can result in the system becoming overloaded while querying history data or purging the database.
-</div>
+{% endwarning %}
 
 Make sure the default character set of your database server is set to `utf8mb4` (see [MariaDB documentation](https://mariadb.com/kb/en/setting-character-sets-and-collations/#example-changing-the-default-character-set-to-utf-8)).
 If you are in a virtual environment, don't forget to activate it before installing the `mysqlclient` Python package described below.

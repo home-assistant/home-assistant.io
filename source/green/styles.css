@@ -43,7 +43,6 @@ html {
 }
 
 #landingpage .page-content {
-  padding-top: unset;
   background-color: #f2f4f9;
 }
 
@@ -75,10 +74,8 @@ article.page h3 {
   text-transform: unset;
 }
 
-@media only screen and (max-width: 480px) {
-  #landingpage .page-content {
-    padding-top: 68px;
-  }
+#landingpage .page-content {
+  padding-top: 68px;
 }
 
 .exploded-view-animation {

@@ -26,9 +26,9 @@ The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/categor
 
 {% include integrations/config_flow.md %}
 
-<div class='note info'>
+{% note %}
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</div>
+{% endnote %}
 
 ## Services
 
@@ -41,10 +41,10 @@ username: "example@example.com"
 password: "password"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `username`             | no       | The username or email of the HEOS account.
-| `password`             | no       | The password of the HEOS account.
+| Service data attribute | Optional | Description                                |
+| ---------------------- | -------- | ------------------------------------------ |
+| `username`             | no       | The username or email of the HEOS account. |
+| `password`             | no       | The password of the HEOS account.          |
 
 ### Service `heos.sign_out`
 
@@ -62,11 +62,11 @@ media_content_type: "favorite"
 media_content_id: "1"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      |  `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `favorite`
-| `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
+| Service data attribute | Optional | Description                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)                                        |
+| `media_content_type`   | no       | Set to the value `favorite`                                         |
+| `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite |
 
 #### Play playlist
 
@@ -78,11 +78,11 @@ media_content_type: "playlist"
 media_content_id: "Awesome Music"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `playlist`
-| `media_content_id`     | no       | The name of the HEOS playlist
+| Service data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `playlist`   |
+| `media_content_id`     | no       | The name of the HEOS playlist |
 
 #### Play Quick Select
 
@@ -94,11 +94,11 @@ media_content_type: "quick_select"
 media_content_id": "1"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `quick_select`
-| `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`)
+| Service data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)                                         |
+| `media_content_type`   | no       | Set to the value `quick_select`                                      |
+| `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`) |
 
 #### Play URL
 
@@ -110,11 +110,11 @@ media_content_type: "url"
 media_content_id: "http://path.to/stream.mp3"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL
-| `media_content_type`   | no       | Set to the value `url`
-| `media_content_id`     | no       | The full URL to the stream
+| Service data attribute | Optional | Description                                  |
+| ---------------------- | -------- | -------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL |
+| `media_content_type`   | no       | Set to the value `url`                       |
+| `media_content_id`     | no       | The full URL to the stream                   |
 
 ### Service `media_player.join`
 
@@ -127,19 +127,19 @@ group_members:
   - media_player.bathroom
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`.
-| `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.
+| Service data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
+| `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
 
 ### Service `media_player.unjoin`
 
 For removing a HEOS player from a group you can use the `media_player.unjoin` service.
 
-| Service data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |      yes | Unjoin this media player from any player groups.     |
+| Service data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | yes      | Unjoin this media player from any player groups. |
 
 ## Notes
 
@@ -150,7 +150,7 @@ For removing a HEOS player from a group you can use the `media_player.unjoin` se
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %} to enable debug logging:
 
 ```yaml
 logger:

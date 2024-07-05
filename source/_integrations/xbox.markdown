@@ -28,11 +28,9 @@ Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assist
 
 Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
 
-<div class='note'>
-
-Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`.
-
-</div>
+{% important %}
+Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your {% term "`configuration.yaml`" %}.
+{% endimportant %}
 
 ## Media player
 
@@ -271,15 +269,15 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 
 The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
 
-<div class="note">
+{% important %}
 It can take up to a couple of days for newly installed applications to appear in the media browser.
-</div>
+{% endimportant %}
 
 ## Manual configuration
 
-<div class="note">
+{% warning %}
 These steps are not required, nor will they be supported if issues are encountered.
-</div>
+{% endwarning %}
 
 If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation if your instance is exposed externally over HTTPS using the following steps:
 

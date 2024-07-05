@@ -1,6 +1,6 @@
 ---
-title: Squeezebox (Logitech Media Server)
-description: Instructions on how to integrate a Logitech Squeezebox player into Home Assistant.
+title: Squeezebox (Lyrion Music Server)
+description: Instructions on how to integrate a Squeezebox player into Home Assistant.
 ha_category:
   - Media player
 ha_release: pre 0.7
@@ -15,17 +15,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control a [Logitech Squeezebox](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29) music player from Home Assistant. This lets you control Squeezebox hardware like the Classic, Transporter, Duet, Boom, Radio and Touch and of software players like [Squeezelite](https://github.com/ralph-irving/squeezelite), [SoftSqueeze](http://softsqueeze.sourceforge.net/), [SqueezePlayer](https://play.google.com/store/apps/details?id=de.bluegaspode.squeezeplayer) and [SqueezeSlave](https://forums.slimdevices.com/showthread.php?93607-ANNOUNCE-Squeezeslave-1-2-released).
+The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was previously known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+
+The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-This platform uses the web interface of the Logitech Media Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
-</div>
+{% note %}
+This platform uses the web interface of the Lyrion Music Server (LMS) to send commands. The default port of the web interface is 9000. It is the same port that you use to access the LMS through your web browser.
+{% endnote %}
 
-<div class='note'>
-The integration now supports Logitech Media Servers behind an HTTPS reverse proxy. Please note that Logitech Media Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
-</div>
+{% note %}
+The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
+{% endnote %}
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
 
@@ -48,13 +50,13 @@ transporter_toslink:
 
 Call a custom Squeezebox JSON-RPC API.
 
-See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
+See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Logitech Media Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).
+| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
+| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
 
 This service can be used to integrate any Squeezebox action to an automation.
 
@@ -72,13 +74,13 @@ This can work with title search and basically any thing. The same wouldn't have 
 
 Call a custom Squeezebox JSON-RPC API. The result of the query will be stored in the 'query_result' attribute of the player.
 
-See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Logitech Media Server.
+See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Name(s) of the Squeezebox entities where to run the API method.
-| `command` | no | Command to pass to Logitech Media Server (p0 in the CLI documentation).
-| `parameters` | yes | Array of additional parameters to pass to Logitech Media Server (p1, ..., pN in the CLI documentation).
+| `command` | no | Command to pass to Lyrion Music Server (p0 in the CLI documentation).
+| `parameters` | yes | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation).
 
 This service can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
 `hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`

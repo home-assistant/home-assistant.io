@@ -9,13 +9,19 @@ ha_domain: kwb
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `kwb` integration integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (https://www.kwb.net/produkte/) into Home Assistant.
+The `kwb` {% term integration %} integrates the sensors of KWB Easyfire pellet central heating units with the Comfort3 controller (https://www.kwb.net/produkte/) into Home Assistant.
 
 Direct connection via serial (RS485) or via telnet terminal server is supported. The serial cable has to be attached to the control unit port 25 (which is normally used for detached control terminals).
 
 Since this serial protocol is proprietary and closed, only most temperature sensors and a few control relays are supported, the rest is still WIP (see <https://www.mikrocontroller.net/topic/274137>).
+
+To enable the KWB Easyfire {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 Direct connection via serial port:
 

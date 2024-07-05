@@ -3,6 +3,7 @@ title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
   - Media player
+  - Remote
 ha_release: 0.7.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -13,16 +14,15 @@ ha_domain: androidtv
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
 The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
-<div class='note'>
-
+{% important %}
 When setting up this {% term integration %}, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
-
-</div>
+{% endimportant %}
 
 ## Device preparation
 
@@ -38,7 +38,7 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
-If Developer Options is missing from Settings then select My Fire TV and press the button seven times on About.
+If Developer Options is missing from Settings, then select My Fire TV and press the button seven times on About. Note that on some Fire TV devices, such as the Insignia F30 series, it is not possible to enable Developer Options until you have signed in to an Amazon account on the device.
 
 {% include integrations/config_flow.md %}
 
@@ -64,21 +64,17 @@ Configure State Detection Rules:
 
 This integration works by sending ADB commands to your Android / Fire TV device. There are two ways to accomplish this.
 
-<div class='note'>
-
+{% important %}
 When connecting to your device for the first time, a dialog will appear on your Android / Fire TV asking you to approve the connection. Check the box that says "always allow connections from this device" and hit OK.
-
-</div>
+{% endimportant %}
 
 ### 1. Python ADB Implementation
 
 The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
 
-<div class='note'>
-
+{% important %}
 To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-
-</div>
+{% endimportant %}
 
 Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
 
@@ -86,11 +82,9 @@ Prior to Home Assistant 0.101, this approach did not work well for newer devices
 
 The second option is to use an ADB server to connect to your Android and Fire TV devices.
 
-<div class='note'>
-
+{% important %}
 To configure ADB server on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-
-</div>
+{% endimportant %}
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 
@@ -243,3 +237,99 @@ The solution to this problem is the `state_detection_rules` configuration parame
 - `'audio_state'` = try to use the `audio_state` property to determine the state
 
 To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
+
+## Remote
+
+The integration supports the `remote` platform. The remote allows you to send commands to your device with the `remote.send_command` service. You can send either keys or ADB shell commands to your Android / Fire TV device. The supported keys vary between Android models and version.
+
+{% details "Full keycodes list" %}
+
+**Power Keys**
+Key|Description
+---|-----------
+"POWER"|Power toggle
+"SLEEP"|Sleep mode
+"RESUME"|Resume
+"SUSPEND"|Suspend mode
+"WAKEUP"|Wake up
+____________
+
+**Input Keys**
+Key|Description
+---|-----------
+"COMPONENT1"|Component 1
+"COMPONENT2"|Component 2
+"COMPOSITE1"|Composite 1
+"COMPOSITE2"|Composite 2
+"HDMI1"|HDMI output port 1
+"HDMI2"|HDMI output port 2
+"HDMI3"|HDMI output port 3
+"HDMI4"|HDMI output port 4
+"INPUT"|Change input
+"SAT"|Satellite
+"VGA"|VGA
+_____________
+
+**Volume Keys**
+Key|Description
+---|-----------
+"VOLUME_DOWN"|Volume down
+"VOLUME_UP"|Volume up
+"MUTE"|Volume mute
+________________
+
+**Color Keys**
+Key|Description
+---|-----------
+"BLUE"|Blue
+"GREEN"Green
+"YELLOW"|Yellow
+"RED"|Red
+_____________
+
+**Other Keys**
+Key|Description
+---|-----------
+"BACK"|Back
+"CENTER"|Center
+"DOWN"|Down
+"END"|End
+"ENTER"|Enter
+"ESCAPE"|Escape
+"FAST_FORWARD"|Fast forward
+"HOME"|Home
+"LEFT"|Left
+"MENU"|Menu
+"MOVE_HOME"|Move home
+"PAIRING"|Pairing
+"REWIND"|Rewind
+"RIGHT"|Right
+"SEARCH"|Search
+"SETTINGS"|Settings
+"SYSDOWN"|Sysdown
+"SYSLEFT"|Sysleft
+"SYSRIGHT"|Sysright
+"SYSUP"|Sysup
+"TEXT"|Text
+"TOP"|Top
+"UP"|Up
+
+{% enddetails %}
+
+You can also send other Android keys using the syntax `input keyevent {key}`, replacing `{key}` with the Android numeric key event. Refer to [Android TV KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) for details.
+
+**Example to send sequence of commands:**
+
+```yaml
+service: remote.send_command
+target:
+  device_id: 12345f9b4c9863e28ddd52c87dcebe05
+data:
+  command:
+    - MENU
+    - RIGHT
+    - UP
+    - UP
+    - ENTER
+
+```

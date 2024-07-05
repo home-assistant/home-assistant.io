@@ -14,13 +14,13 @@ ha_integration_type: system
 
 Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automation setups.
 
-Zones can be added and managed through the user interface at **{% my zones title="Settings -> Areas & Zones" %}**.
+Zones can be added and managed through the user interface at {% my zones title="**Settings** > **Areas, labels & zones**" %}.
 
 ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
 
 You can add a zone in the user interface by specifying the GPS coordinates or dragging the icon on the map. You can adjust the zone radius (except for the Home zone) by changing the size of the zone circle.
 
-Zones can also be configured via `configuration.yaml`:
+Zones can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,10 +78,9 @@ To find the latitude/longitude of a certain place you can use [Google Maps](http
 
 If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
 
-<div class='note'>
-
+{% note %}
 Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
-</div>
+{% endnote %}
 
 ## Icons
 

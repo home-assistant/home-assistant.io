@@ -1,12 +1,15 @@
+{% assign recent_release_post = site.categories['Core'].first %}
+
 <div class="grid-wrapper">
   <div class="grid">
     <div class="grid__item three-tenths lap-two-sixths palm-one-whole ha-title">
       <a href="/" class="site-title">
-        <img
-          src="/images/home-assistant-logo.svg"
-          height="36"
-          alt="Home Assistant"
-        />
+        <div class="logo"></div>
+      </a>
+      <a class="release-date" href="{{ recent_release_post.url }}" title="Latest version {{ site.current_major_version }}.{{
+        site.current_minor_version }}.{{ site.current_patch_version }} released {{ site.date_released | date: "%B %e, %Y" }}">
+        {{ site.current_major_version }}.{{
+          site.current_minor_version }}.{{ site.current_patch_version }}
       </a>
     </div>
 
@@ -17,35 +20,34 @@
           for="toggle"
           class="toggle"
           data-open="Main Menu"
-          data-close="Close Menu"
+          data-close="⨉"
         ></label>
         <ul class="menu pull-right">
           <li><a href="/getting-started/">Getting started</a></li>
           <li>
             <a href="/docs/"
-              >Documentation <i class="icon icon-caret-down"></i
+              >Documentation {% icon "mdi:chevron-down" %}</i
             ></a>
             <ul>
-              <li><a href="/installation/">Installation</a></li>
+              <li><a href="/installation/">{% icon "simple-icons:homeassistant" %} Installation</a></li>
               <li>
-                <a href="/docs/configuration/">Configuration</a>
+                <a href="/docs/configuration/">{% icon "mdi:cog" %} Configuration</a>
               </li>
               <li>
-                <a href="/docs/automation/">Automation</a>
+                <a href="/docs/automation/">{% icon "mdi:robot-happy" %} Automation</a>
               </li>
               <li>
-                <a href="/docs/scripts/">Scripting</a>
+                <a href="/docs/scripts/">{% icon "mdi:script-text" %} Scripting</a>
               </li>
               <li>
-                <a href="/dashboards/">Dashboards</a>
+                <a href="/dashboards/">{% icon "mdi:view-dashboard" %} Dashboards</a>
               </li>
               <li>
-                <a href="/voice_control/">Voice assistant</a>
+                <a href="/voice_control/">{% icon "mdi:comment-processing-outline" %} Voice assistant</a>
               </li>
             </ul>
           </li>
           <li><a href="/integrations/">Integrations</a></li>
-          <li><a href="/examples/">Examples</a></li>
           <li><a href="/blog/">Blog</a></li>
           <li><a href="/help/">Need help?</a></li>
           <li>

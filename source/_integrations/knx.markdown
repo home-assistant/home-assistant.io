@@ -34,6 +34,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - diagnostics
   - fan
   - light
@@ -81,7 +82,8 @@ As a Home Assistant KNX user, you can start a FREE KNX online training and get a
 
 ## Basic configuration
 
-In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main `configuration.yaml` file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
+In order to make use of the various platforms that KNX offers you will need to add the relevant configuration sections to your setup. This could either all be in the Home Assistant main {% term "`configuration.yaml`" %} file, or in a separate YAML file that you include in the main file or even be split into multiple dedicated files. See [Splitting up the configuration](/docs/configuration/splitting_configuration/).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 knx:
@@ -152,7 +154,137 @@ The user password can be obtained almost the same way as seen in the below scree
 
 ![Obtain the user password in ETS](/images/integrations/knx/user_password.png)
 
+## Triggers
+
+The KNX integration provides its own trigger platform which can be used in automations.
+
+### Telegram trigger
+
+The `knx.telegram` trigger can be used to trigger automations on incoming or outgoing KNX telegrams.
+
+{% note %}
+This trigger is also provided as a device trigger by the `KNX Interface` device. It supports setting the options in the automation builder UI, but doesn't support setting a specific <abbr title="data point type">DPT</abbr> (`type`) to decode the payload as it always relies on project data.
+{% endnote %}
+
+{% configuration %}
+destination:
+  description: A group address or a list of group addresses the trigger should listen on. If not set, or an empty list, the trigger will listen on all group addresses.
+  type: [string, list]
+  required: false
+type:
+  description: If set, the payload will be decoded as given DPT in the trigger data. When not set, the DPT is sourced from project data. KNX sensor types are valid values [KNX Sensor](#sensor) (e.g., "2byte_float" or "percent").
+  type: [string, integer]
+  required: false
+group_value_write:
+  description: If set to `false`, the trigger will not fire on GroupValueWrite telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_response:
+  description: If set to `false`, the trigger will not fire on GroupValueResponse telegrams.
+  type: boolean
+  default: true
+  required: false
+group_value_read:
+  description: If set to `false`, the trigger will not fire on GroupValueRead telegrams.
+  type: boolean
+  default: true
+  required: false
+incoming:
+  description: If set to `false`, the trigger will not fire on incoming telegrams.
+  type: boolean
+  default: true
+  required: false
+outgoing:
+  description: If set to `false`, the trigger will not fire on outgoing telegrams.
+  type: boolean
+  default: true
+  required: false
+{% endconfiguration %}
+
+#### Available trigger data
+
+In addition to the [standard automation trigger data](/docs/automation/templating/#all), the `knx.telegram` trigger platform has additional trigger data available for use.
+
+- `trigger.destination` Destination group address
+- `trigger.destination_name` Destination group address name
+- `trigger.direction` Telegram direction
+- `trigger.dpt_main` Destination group address main datapoint type number
+- `trigger.dpt_sub` Destination group address sub datapoint type number
+- `trigger.dpt_name` DPT value type name - see Sensor value types
+- `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
+- `telegram.source` Source individual address
+- `telegram.source_name` Source name
+- `telegram.telegramtype` APCI type of telegram
+- `telegram.timestamp` Timestamp
+- `telegram.unit` Unit according to group address DPT
+- `telegram.value` Decoded telegram payload according to DPT
+
+| Template variable          | Type                        | Project data required |
+|----------------------------|-----------------------------|-----------------------|
+| `trigger.destination`      | string                      | no                    |
+| `trigger.destination_name` | string                      | yes                   |
+| `trigger.direction`        | string                      | no                    |
+| `trigger.dpt_main`         | integer                     | yes                   |
+| `trigger.dpt_sub`          | integer                     | yes                   |
+| `trigger.dpt_name`         | string                      | yes                   |
+| `trigger.payload`          | integer or list of integers | no                    |
+| `telegram.source`          | string                      | no                    |
+| `telegram.source_name`     | string                      | yes                   |
+| `telegram.telegramtype`    | string                      | no                    |
+| `telegram.timestamp`       | timestamp                   | no                    |
+| `telegram.unit`            | string                      | yes                   |
+| `telegram.value`           | any                         | yes                   |
+
+For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
+
+#### Examples
+
+Example automation configuration
+
+```yaml
+- alias: Single group address trigger
+  description: ''
+  trigger:
+  - platform: knx.telegram
+    destination: 1/2/3
+    group_value_read: false
+    outgoing: false
+  condition: []
+  action: []
+  mode: single
+```
+
+Example trigger data
+
+```yaml
+variables:
+  trigger:
+    id: "0"
+    idx: "0"
+    alias: null
+    destination: 1/2/3
+    destination_name: Light office brightness
+    direction: Incoming
+    dpt_main: 5
+    dpt_sub: 1
+    dpt_name: percent
+    payload:
+      - 255
+    source: 1.0.51
+    source_name: Dimming actuator 1
+    telegramtype: GroupValueWrite
+    timestamp: "2024-01-09T10:38:28.447487+01:00"
+    unit: "%"
+    value: 100
+context: null
+```
+
 ## Events
+
+{% tip %}
+For automation triggers, it is recommended to use the [knx.telegram](#telegram-trigger) trigger instead of `knx_event`.
+{% endtip %}
 
 ```yaml
 knx:
@@ -219,7 +351,7 @@ response:
 ### Read
 
 You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests use the `knx.read` service. The response can be used from `knx_event` and will be processed in KNX entities.
+To manually send GroupValueRead requests, use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
 
 ```txt
 Domain: knx
@@ -237,11 +369,9 @@ address:
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
   - trigger:
-      - platform: event
-        event_type: knx_event
-        event_data:
-          # Cover move trigger
-          destination: "0/4/20"
+      - platform: knx.telegram
+        # Cover move trigger
+        destination: "0/4/20"
     action:
       - delay: 0:0:10
       - service: knx.read
@@ -258,10 +388,6 @@ automation:
         data:
           # Cover move trigger
           address: "0/4/20"
-      - service: knx.read
-        data:
-          # Cover position address
-          address: "0/4/21"
 ```
 
 ### Register event
@@ -301,16 +427,20 @@ remove:
 KNX integration is able to expose entity states or attributes to KNX bus. The integration will broadcast any change of the exposed value to the KNX bus and answer read requests to the specified group address.
 It is also possible to expose the current time and date. These are sent to the bus every hour.
 
-<div class='note'>
-
+{% tip %}
 Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+{% endtip %}
 
-</div>
+{% raw %}
 
 ```yaml
 # Example configuration.yaml entry
 knx:
   expose:
+    # time and date exposures
+    - type: time
+      address: "0/0/1"
+    # entitiy exposures
     - type: temperature
       entity_id: sensor.owm_temperature
       address: "0/0/2"
@@ -330,11 +460,19 @@ knx:
       attribute: brightness
       default: 0
       address: "0/3/1"
-    - type: time
-      address: "0/0/1"
-    - type: datetime
-      address: "0/0/23"
+    - type: percent
+      address: "1/1/1"
+      entity_id: cover.office
+      attribute: current_position
+      value_template: "{{ 100 - value }}"  # invert the value
+    - type: percent
+      address: "2/2/2"
+      entity_id: media_player.kitchen
+      attribute: volume_level
+      value_template: "{{ value * 100 }}"  # convert from 0..1 to percent
 ```
+
+{% endraw %}
 
 {% configuration %}
 address:
@@ -361,6 +499,11 @@ default:
   type: [boolean, string, integer, float]
   default: None
   required: false
+value_template:
+  description: A template to process the value before sending it to the KNX bus. The template has access to the entity state or attribute value as `value`.
+  required: false
+  default: None
+  type: template
 cooldown:
   description: Minimum time in seconds between two sent telegrams. This can be used to avoid flooding the KNX bus when exposing frequently changing states. If the state changes multiple times within the cooldown period the most recent value will be sent.
   type: float
@@ -507,11 +650,9 @@ action:
 
 The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
-<div class='note'>
-
-Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use `knx_event` if you want to automate on a specific payload received on a group address.
-
-</div>
+{% tip %}
+Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
+{% endtip %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -529,12 +670,10 @@ knx:
       type: temperature
 ```
 
-<div class='note'>
-
+{% important %}
 When `type` is used `value` is required, `payload` is invalid.
 When `payload_length` is used `value` is invalid.
-
-</div>
+{% endimportant %}
 
 {% configuration %}
 name:
@@ -819,13 +958,11 @@ entity_category:
 
 The KNX cover platform is used as an interface to KNX covers.
 
-<div class='note'>
-
+{% note %}
 Unlike most KNX devices, Home Assistant defines 0% as closed and 100% as fully open in regards to covers. The corresponding value inversion is done internally by the KNX integration.
 
 Home Assistant will, by default, `close` a cover by moving it in the `DOWN` direction in the KNX nomenclature, and `open` a cover by moving it in the `UP` direction.
-
-</div>
+{% endnote %}
 
 To use your KNX covers in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
 
@@ -917,19 +1054,15 @@ entity_category:
 
 The KNX date platform allows to send date values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Dates that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 DPT 11.001 covers the range 1990 to 2089. Year values outside of this range are not allowed.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -987,20 +1120,16 @@ entity_category:
 
 The KNX datetime platform allows to send datetime values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Date entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 DateTimes that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 System timezone is used as DPT 19.001 doesn't provide timezone information.
 Year values outside of the range 1900 to 2155 are invalid.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1357,7 +1486,7 @@ knx:
 
 {% configuration %}
 address:
-  description: KNX group address of the notification. *DPT 16.000*
+  description: KNX group address the notification will be sent to. *DPT 16*
   required: true
   type: [string, list]
 name:
@@ -1369,19 +1498,31 @@ type:
   required: false
   default: "latin_1"
   type: string
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
+
+### Example service call
+
+```yaml
+service: notify.send_message
+data:
+  message: "Hello from HA!"
+  entity_id: notify.alarm
+```
 
 ## Number
 
 The KNX number platform allows to send generic numeric values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Number entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Numbers that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1487,13 +1628,11 @@ entity_category:
 
 The KNX select platform allows the user to define a list of values that can be selected via the frontend and can be used within conditions of automation. When a user selects a new item, the assigned generic raw payload is sent to the KNX bus. A received telegram updates the state of the select entity. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Select entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Selects that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1901,13 +2040,11 @@ Switches that have a `state_address` configured request their current state from
 
 The KNX text platform allows to send text values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Text entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Texts that have a `state_address` configured request their current state from the KNX bus.
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1963,19 +2100,15 @@ entity_category:
 
 The KNX time platform allows to send time values to the KNX bus and update its state from received telegrams. It can optionally respond to read requests from the KNX bus.
 
-<div class='note'>
-
+{% note %}
 Time entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 
 Times that have a `state_address` configured request their current state from the KNX bus.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 The `day` field of the time telegram will always be set to 0 (`no day`).
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry

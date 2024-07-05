@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_codeowners:
-  - '@skgsergio'
   - '@krmarien'
 ha_domain: foscam
 ha_config_flow: true
@@ -19,9 +18,9 @@ The `foscam` platform allows you to watch the live stream of your [Foscam](https
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-</div>
+{% endnote %}
 
 ### Streams
 

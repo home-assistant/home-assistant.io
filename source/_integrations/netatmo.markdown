@@ -2,6 +2,7 @@
 title: Netatmo
 description: Instructions on how to integrate Netatmo integration into Home Assistant.
 ha_category:
+  - Binary sensor
   - Camera
   - Climate
   - Cover
@@ -21,6 +22,7 @@ ha_config_flow: true
 ha_domain: netatmo
 ha_homekit: true
 ha_platforms:
+  - binary_sensor
   - camera
   - climate
   - cover
@@ -37,6 +39,7 @@ The Netatmo integration platform is the main integration to integrate all Netatm
 
 There is currently support for the following device types within Home Assistant:
 
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Climate](#climate)
 - [Cover](#cover)
@@ -55,6 +58,10 @@ Configuration of Netatmo public weather stations is offered from the front end. 
 In the dialog, it is possible to create, edit and remove public weather sensors. For each area a unique name has to be set along with an area to be covered and whether to display average or maximum values.
 
 To edit an existing area, enter its name and follow the dialog.
+
+## Binary sensor
+
+The `netatmo` binary sensor platform is showing the connectivity for the [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station).
 
 ## Camera
 
@@ -180,12 +187,10 @@ Service to manually register and unregister the webhook.
 The Netatmo backend sends instant events to Home Assistant by using webhooks which unlocks improved responsiveness of most devices with the exception of [Netatmo Smart Home Weather Station](https://www.netatmo.com/smart-weather-station),
 [Netatmo Smart Indoor Air Quality Monitor](https://www.netatmo.com/smart-indoor-air-quality-monitor) or [Netatmo Public Weather Stations](https://weathermap.netatmo.com/).
 
-<div class='note warning'>
-
+{% warning %}
 Netatmo webhook events have known issues with Home Assistant Cloud Link.
 It is therefore recommended to use [an individual development account](#development--testing-with-your-own-client-id).
-
-</div>
+{% endwarning %}
 
 To be able to receive events from [Netatmo](https://www.netatmo.com/), your Home Assistant instance needs to be accessible from the web over port `443`. To achieve this you can either use your Nabu Casa account or for example Duck DNS ([Home Assistant instructions](/addons/duckdns/)). You also need to have the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#allowlist_external_urls).
 
@@ -295,11 +300,9 @@ to declare a new application in the [Netatmo Developer Page](https://dev.netatmo
 
 Sign in using your username and password from your regular Netatmo account.
 
-<div class='note warning'>
- 
+{% important %}
 In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'webhook URI'.  The 'webhook URI' is automatically registered by this integration based on the external URL configured in the Home Assistant [configuration](/integrations/homeassistant/#editing-the-general-settings-in-yaml).
-  
-</div>
+{% endimportant %}
 
 See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 

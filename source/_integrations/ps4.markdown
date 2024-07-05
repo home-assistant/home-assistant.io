@@ -26,17 +26,17 @@ The `ps4` integration allows you to control a
 
 1. Download the Second Screen App and make sure that you can find and control your PlayStation 4 normally.
 
-<div class='note'>
-  Read the section "Granting Port Access" below before continuing.
-</div>
+{% important %}
+Read the section "Granting Port Access" below before continuing.
+{% endimportant %}
 
-2. Navigate to `Settings -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
+1. Navigate to `Settings -> Integrations` and press the plus button in the bottom right corner. Select `PlayStation 4` from the list of integrations.
 
-3. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
+2. Follow instructions displayed to generate user credentials. You will know this step is completed when a form with fields appears.
 
-4. On the PS4, go to Settings / Mobile App Connection Settings / Add Device, a PIN will be displayed.
+3. On the PS4, go to Settings / Mobile App Connection Settings / Add Device, a PIN will be displayed.
 
-5. Pair Home Assistant to your PlayStation 4 by filling in the fields using the PIN from the above step.
+4. Pair Home Assistant to your PlayStation 4 by filling in the fields using the PIN from the above step.
 
 - **Note:** To find your correct region refer to the section [Regions](#regions)
 
@@ -44,17 +44,15 @@ The `ps4` integration allows you to control a
 
 The PlayStation 4 integration requires the use of privileged ports during configuration to work correctly, specifically UDP port 987 and TCP port 997. Depending on your OS of your Home Assistant instance, you may need to allow usage of privileged ports manually.
 
-<div class='note warning'>
-  Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
-</div>
+{% warning %}
+Do not run your <b>Home Assistant Core</b> instance itself as <b>root</b> or with <b>root/sudo privileges</b> to accomplish this. This would create a security risk for your host system.
+{% endwarning %}
 
 There are varying methods to perform this, dependent on your OS that is running Home Assistant. Specifically, your *Python Interpreter*, which runs your Home Assistant instance, needs access to the mentioned ports.
 
-<div class='note'>
-
+{% note %}
 Additional configuration is only required for Home Assistant Core users **not** running on Docker.
-
-</div>
+{% endnote %}
 
 ### Debian-based
 
@@ -81,7 +79,7 @@ sudo setcap 'cap_net_bind_service=+ep' /usr/bin/python3.5
 
 To find your system Python path:
 
-- Add the [System Health](/integrations/system_health/) integration to your `configuration.yaml`. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
+- Add the [System Health](/integrations/system_health/) integration to your {% term "`configuration.yaml`" %}. In a web browser, access your frontend and navigate to the about/logs page "http://<yourhomeassistanturl>/developer-tools/info). In the System Health box, locate the item **python_version** and note the value that is displayed. Then in a terminal run:
 
   ```bash
   whereis python<version>
@@ -114,20 +112,18 @@ When running Home Assistant using Docker, make sure that the Home Assistant cont
 
 ## Configuration
 
-<div class='note'>
-
-  The PlayStation 4 integration does not use entries from `configuration.yaml`. You must configure this integration by using `Integrations`
-
-</div>
+{% note %}
+The PlayStation 4 integration does not use entries from `configuration.yaml`. You must configure this integration by using `Integrations`
+{% endnote %}
 
 ## Regions
 
 Some titles will have different SKUs in the PlayStation Store database, depending on your [region](https://www.playstation.com/country-selector/index.html). You must select your specific region in the setup in order to retrieve the cover art for such titles correctly. The integration will attempt to search other databases for the correct title if it cannot be found.
 
-<div class='note'>
-  The following regions have no database and can not be used by the integration:
-  China, Philippines, Serbia, Vietnam.
-</div>
+{% important %}
+The following regions have no database and can not be used by the integration:
+China, Philippines, Serbia, Vietnam.
+{% endimportant %}
 
 ## Media Data
 
@@ -137,7 +133,7 @@ Occasionally, the integration may fail to get the data at all, or may get incorr
   
 ### Formatting
 
-When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your `configuration.yaml` file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
+When the integration retrieves data from the PlayStation Store, it stores it in a JSON file named `.ps4-games.json` in the same directory as where your {% term "`configuration.yaml`" %} file is located. The first line in the file will be `{` and the last line will be `}`. Between these lines, there will be indented entries for each game or app the integration finds. See the following example and table:
   
 ```json
 {
@@ -156,12 +152,12 @@ When the integration retrieves data from the PlayStation Store, it stores it in 
 }
 ```
 
-| Field | Value | Description |
-| ----- | ----- | ----------- |
-| `locked`             | boolean | Must be `true` or `false`
-| `media_content_type` | string  | Must be `game` or `app`
-| `media_image_url`    | string  | Any valid URL for an image
-| `media_title`        | string  | The title of the game or app
+| Field                | Value   | Description                  |
+| -------------------- | ------- | ---------------------------- |
+| `locked`             | boolean | Must be `true` or `false`    |
+| `media_content_type` | string  | Must be `game` or `app`      |
+| `media_image_url`    | string  | Any valid URL for an image   |
+| `media_title`        | string  | The title of the game or app |
 
 The data in the example shows 2 entries.
 
@@ -170,9 +166,10 @@ Each entry will begin with the SKU ID of the title, e.g., `CUSA00000` and will h
 The `media_image_url` value can be any valid URL. This includes the `local directory` of your Home Assistant instance. The first entry in the example directs to a file named `image.jpg` located in the `config/www/` directory.
   
 ### Editing with Text Editor
-<div class='note'>
-  Backup a copy of your <b>.ps4-games.json</b> file before continuing. If there are errors in the formatting, your file may be deleted.
-</div>
+
+{% warning %}
+Backup a copy of your `.ps4-games.json` file before continuing. If there are errors in the formatting, your file may be deleted.
+{% endwarning %}
 
 To edit, simply open the file in a text editor, find the game or app you would like to edit, and edit the value(s) you wish to change and then save the file. The changes will appear the next time you play the game or app on your console. 
 
@@ -182,10 +179,10 @@ To edit, simply open the file in a text editor, find the game or app you would l
 
 Opens new application/game and closes currently running application/game. The game/app must be in the entity's source list. Games will be added automatically when you open them normally.
 
-| Service data attribute | Optional | Example                    | Description                           |
-| ---------------------- | -------- | -------------------------- | ------------------------------------- |
-| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4. |
-| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable.|
+| Service data attribute | Optional | Example                    | Description                                                                                                 |
+| ---------------------- | -------- | -------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | No       | `media_player.ps4`         | The entity id for your PlayStation 4.                                                                       |
+| `source`               | No       | `Some Game` or `CUSA00123` | The game/app you want to open. You can use the title or SKU ID. Using the SKU ID will be the most reliable. |
 
 ### Service `send_command`
 

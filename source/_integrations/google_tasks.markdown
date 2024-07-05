@@ -28,11 +28,9 @@ related:
 The **Google Tasks** integration allows you to connect your [Google Tasks](https://support.google.com/tasks/answer/7675772) to Home Assistant. The integration adds a [to-do list entity](/integrations/todo) for
 each task list, allowing you to create, update, or delete items on the list from the **To-do list** dashboard.
 
-<div class='note'>
-
+{% note %}
 The Google Tasks public API does not support viewing or setting the due time of tasks, only the due date.
-
-</div>
+{% endnote %}
 
 ## Prerequisites
 

@@ -41,22 +41,46 @@ Home Assistant can import blueprints from the Home Assistant forums, GitHub, and
 
 The blueprint can now be used for creating automations.
 
+## Editing an imported blueprint
+
+You can tweak an imported blueprint by "taking control" of this blueprint. Home Assistant then converts the blueprint automation into a regular automation, allowing you to make any tweak without having to fully re-invent the wheel.
+
+To edit an imported blueprint, follow these steps:
+
+1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+2. Select the blueprint from the list.
+3. Select the {% icon "mdi:dots-vertical" %} and select **Take control**.
+4. A preview of the automation is shown.
+   - **Info**: By taking control, the blueprint is converted into an automation. You won't be able to convert this back into a blueprint.
+   - To convert it into an automation and take control, select **Yes**.
+   - If you change your mind and want to keep the blueprint, select **No**.
+
+   ![Screencast showing how to take control of a blueprint](/images/blueprints/blueprint_take_control.webp)
+
 ## Re-importing a blueprint
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
-the community provides feedback, and new functionality is added.
+the community provides feedback, new functionality is added.
 
-The quickest way to get these changes is by re-importing the blueprint. This will overwrite the blueprint you currently have.
+The quickest way to get these changes, is by re-importing the blueprint. This will overwrite the blueprint you currently have.
 
-1. **Before you do this**: If the re-imported blueprint is not compatible, it can break your automations.
-   - In this case, you will need to manually adjust your automations.
-2. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
-3. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
+{% caution %}
 
-## Updating an imported blueprint manually
+**Before you do this**: If the re-imported blueprint is not compatible, it can break your automations.
+
+- In this case, you will need to manually adjust your automations.
+
+{% endcaution%}
+
+### To re-import a blueprint
+
+1. Go to **{% my blueprints title="Settings > Automations & Scenes > Blueprints" %}**.
+2. On the blueprint that you want to re-import, select the three-dot menu, and select **Re-import blueprint**.
+
+## Updating an imported blueprint in YAML
 
 Blueprints created by the community may go through multiple revisions. Sometimes a user creates a blueprint,
-the community provides feedback, and new functionality is added.
+the community provides feedback, new functionality is added.
 
 If you do not want to [re-import the blueprint](/docs/automation/using_blueprints/#re-importing-a-blueprint) for some reason, you can manually edit
 its YAML content to keep it up to date:
@@ -91,4 +115,4 @@ Learn more about blueprints by [reading our tutorial on creating a blueprint](/d
 
 ## Troubleshooting missing automations
 
-When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
+When you're creating automations using blueprints and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.

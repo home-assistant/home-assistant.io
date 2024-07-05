@@ -14,22 +14,20 @@ The `timer` integration aims to simplify automations based on (dynamic) duration
 
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restarts the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
-<div class='note'>
-  
+{% note %}
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
 However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
-
-</div>
+{% endnote %}
 
 ## Configuration
 
 The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
-To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
+To be able to add Helpers via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
 Timers can also be configured via configuration.yaml:
-To add a timer to your installation, add the following to your `configuration.yaml` file:
+To add a timer to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

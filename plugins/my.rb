@@ -65,10 +65,10 @@ module Jekyll
             raise ArgumentError, "No default icon for redirect #{@redirect}" \
             if !!options[:icon] == options[:icon] and ! DEFAULT_ICONS.include?(@redirect)
               icon = !!options[:icon] == options[:icon] ? DEFAULT_ICONS[@redirect] : @options[:icon]
-            icon = "<i class='#{icon}' /> "
+            icon = "<iconify-icon inline icon='#{icon}'></iconify-icon> "
           end
 
-          "#{icon}<a href='#{uri}' class='my' target='_blank'>#{title}</a>"
+          "<a href='#{uri}' class='my' target='_blank'>#{icon}#{title}</a>"
         end
       end
 
@@ -79,8 +79,9 @@ module Jekyll
 
       # Default icons when used in in-line text
       DEFAULT_ICONS = {
-        "config_flow_start" => "icon-plus-sign",
-        "config" => "icon-cog",
+        "config_flow_start" => "mdi:plus",
+        "config" => "mdi:cog",
+        "integrations" => "mdi:devices",
       }
 
       # Default title used for in-line text

@@ -46,7 +46,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -177,9 +177,9 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
-<div class='note warning'>
+{% important %}
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
+{% endimportant %}
 
 #### Off delay
 

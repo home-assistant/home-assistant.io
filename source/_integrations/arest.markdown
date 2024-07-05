@@ -14,6 +14,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -26,7 +29,8 @@ There is currently support for the following device types within Home Assistant:
 
 The `arest` binary sensor platform allows you to get all data from your devices (like Arduinos with an ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
-To use your aREST binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your aREST binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,15 +73,15 @@ binary_sensor:
     name: Office
 ```
 
-<div class='note'>
+{% note %}
 This sensor is not suitable for fast state changes because there is a high possibility that the change took place between two update cycle.
-</div>
+{% endnote %}
 
 ## Sensor
 
 The `arest` sensor platform allows you to get all data from your devices (like Arduinos with a Ethernet/Wi-Fi connection, the ESP8266, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
-To use your aREST enabled device in your installation, add the following to your `configuration.yaml` file:
+To use your aREST enabled device in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -180,7 +184,7 @@ The root will give you a JSON response that contains all variables and their cur
 
 The `arest` switch platform allows you to toggle pins of your devices (like Arduino boards with an Ethernet/Wi-Fi connection, ESP8266 based devices, and the Raspberry Pi) running the [aREST](https://arest.io/) RESTful framework.
 
-To use your aREST enabled device with pins in your installation, add the following to your `configuration.yaml` file:
+To use your aREST enabled device with pins in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -195,7 +199,7 @@ switch:
         invert: true
 ```
 
-If you want to use custom functions, then add the following to your `configuration.yaml` file:
+If you want to use custom functions, then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

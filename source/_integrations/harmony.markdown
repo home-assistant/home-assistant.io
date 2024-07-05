@@ -8,7 +8,6 @@ ha_release: 0.34
 ha_config_flow: true
 ha_codeowners:
   - '@ehendrix23'
-  - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
   - '@Aohzan'
@@ -17,7 +16,6 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-  - switch
 ha_integration_type: integration
 ---
 
@@ -51,18 +49,18 @@ This file will be overwritten whenever the Harmony HUB has a new configuration, 
 
 Turn off all devices that were switched on from the start of the current activity.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
+| Service data attribute | Optional | Description          |
+| ---------------------- | -------- | -------------------- |
+| `entity_id`            | no       | Entity ID to target. |
 
 ### Service `remote.turn_on`
 
-Start an activity. Will start the default `activity` from `configuration.yaml` if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
+Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `activity`             |      yes | Activity ID or Activity Name to start.
+| Service data attribute | Optional | Description                            |
+| ---------------------- | -------- | -------------------------------------- |
+| `entity_id`            | no       | Entity ID to target.                   |
+| `activity`             | yes      | Activity ID or Activity Name to start. |
 
 #### Example
 
@@ -94,13 +92,13 @@ action:
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `device`               |       no | Device ID or Device Name to send the command to.
-| `command`              |       no | A single command or a list of commands to send.
-| `num_repeats`          |      yes | The number of times to repeat the command(s).
-| `delay_secs`           |      yes | The number of seconds between sending each command.
+| Service data attribute | Optional | Description                                         |
+| ---------------------- | -------- | --------------------------------------------------- |
+| `entity_id`            | no       | Entity ID to target.                                |
+| `device`               | no       | Device ID or Device Name to send the command to.    |
+| `command`              | no       | A single command or a list of commands to send.     |
+| `num_repeats`          | yes      | The number of times to repeat the command(s).       |
+| `delay_secs`           | yes      | The number of seconds between sending each command. |
 
 In the file 'harmony_REMOTENAME.conf' you can find the available devices and commands, for example:
 
@@ -158,10 +156,10 @@ data:
 
 Sends the change channel command to the Harmony HUB
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
-| `channel`              |       no | Channel number to change to
+| Service data attribute | Optional | Description                 |
+| ---------------------- | -------- | --------------------------- |
+| `entity_id`            | no       | Entity ID to target.        |
+| `channel`              | no       | Channel number to change to |
 
 A typical service call for changing the channel would be::
 
@@ -177,9 +175,9 @@ data:
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |       no | Entity ID to target.
+| Service data attribute | Optional | Description          |
+| ---------------------- | -------- | -------------------- |
+| `entity_id`            | no       | Entity ID to target. |
 
 ### Examples
 

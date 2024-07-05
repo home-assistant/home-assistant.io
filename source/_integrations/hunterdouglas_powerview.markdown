@@ -53,11 +53,11 @@ Generation 1 and 2 Pebble remotes use proprietary Bluetooth Low Energy (PLE) and
 
 This will result in the shade positioning displayed within Home Assistant being incorrect.
 
-<div class="note">
+{% note %}
 Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.
 
 [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain the batteries for these devices.
-</div>
+{% endnote %}
 
 ### Generation 3
 
@@ -67,9 +67,9 @@ Generation 3 shades report position changes back to the hub automatically. They 
 
 ## Shades
 
-<div class="note">
+{% note %}
 Your shades may still make work even if not listed. If you encounter issues, please raise a feature request on the community forum.
-</div>
+{% endnote %}
 
 | Name (Type)                               | Capabilities                    |
 | :---------------------------------------- | :------------------------------ |
@@ -181,9 +181,9 @@ Three different entities that will be created for each blind: Front, Rear and Co
 
 ### Calibrate
 
-<div class="note">
+{% important %}
 Gen 1 and Gen 2 Only.
-</div>
+{% endimportant %}
 Initiate a calibration of the shade position. Calibration is a common requirement with Duette-type shades with a string drop that lowers and raises the blind and less so with roller types.
 
 ### Identify
@@ -192,27 +192,30 @@ Identify will 'jog' the shade position as a diagnostic tool to ensure the shade 
 
 ### Favorite
 
-<div class="note">
+{% important %}
 Gen 1 and Gen 2 Only.
-</div>
+{% endimportant %}
+
 Move the shade to the favorite position as programmed physically on the device. This will perform the same move as the heart on the pebble remote.
 
 ## Selection Entities
 
 ### Power Source
 
-<div class="note">
+{% important %}
 Gen 1 and Gen 2 Only.
-</div>
+{% endimportant %}
+
 Set the type for connected power source. Available options are Hardwired Power Supply, Battery Wand and Rechargeable Battery
 
 ## Number entities
 
 ### Velocity
 
-<div class="note">
+{% important %}
 Gen 3 Only.
-</div>
+{% endimportant %}
+
 Velocity controls the speed of the shade. The default speed from Hunter Douglas is 0; setting this higher will increase the speed of the shade.
 
 ## Example Automations

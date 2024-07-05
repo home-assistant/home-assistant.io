@@ -18,12 +18,12 @@ templates.
 
 The preferred way to configure input datetime is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}** option.
 
-To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
 If you removed `default_config:` from your configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
 
 `input_datetime` can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
-add the following lines to your `configuration.yaml`:
+add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,12 +78,12 @@ input_datetime:
 A datetime input entity's state exports several attributes that can be useful in
 automations and templates.
 
-| Attribute | Description |
-| ----- | ----- |
-| `has_time` | `true` if this entity has a time.
-| `has_date` | `true` if this entity has a date.
-| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)
-| `timestamp` | A timestamp representing the time held in the input.<br>(only available if `has_time: true`)
+| Attribute                  | Description                                                                                  |
+| -------------------------- | -------------------------------------------------------------------------------------------- |
+| `has_time`                 | `true` if this entity has a time.                                                            |
+| `has_date`                 | `true` if this entity has a date.                                                            |
+| `year`<br>`month`<br>`day` | The year, month and day of the date.<br>(only available if `has_date: true`)                 |
+| `timestamp`                | A timestamp representing the time held in the input.<br>(only available if `has_time: true`) |
 
 ### Restore state
 
@@ -95,12 +95,12 @@ Available service: `input_datetime.set_datetime` and `input_datetime.reload`.
 
 #### input_datetime.set_datetime
 
-Service data attribute | Format String | Description
--|-|-
-`date` | `%Y-%m-%d` | This can be used to dynamically set the date.
-`time` | `%H:%M:%S` | This can be used to dynamically set the time.
-`datetime` | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.
-`timestamp` | N/A | This can be used to dynamically set both the date & time using a UNIX timestamp.
+| Service data attribute | Format String       | Description                                                                      |
+| ---------------------- | ------------------- | -------------------------------------------------------------------------------- |
+| `date`                 | `%Y-%m-%d`          | This can be used to dynamically set the date.                                    |
+| `time`                 | `%H:%M:%S`          | This can be used to dynamically set the time.                                    |
+| `datetime`             | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.                        |
+| `timestamp`            | N/A                 | This can be used to dynamically set both the date & time using a UNIX timestamp. |
 
 To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
 

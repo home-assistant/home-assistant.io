@@ -9,6 +9,9 @@ ha_domain: aws
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aws` integration provides a single place to interact with [Amazon Web Services](https://aws.amazon.com/). Currently it provides a notification platform that can send a message to [AWS SQS](https://aws.amazon.com/sqs/), [AWS SNS](https://aws.amazon.com/sns/), or invoke [AWS Lambda](https://aws.amazon.com/lambda/) functions.
@@ -23,7 +26,8 @@ The `aws` integration is using [botocore](https://botocore.amazonaws.com/v1/docu
 
 ## Configuration
 
-To use the `aws` integration and the `notify` platform in your installation, add the following to your `configuration.yaml` file:
+To use the `aws` integration and the `notify` platform in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -142,11 +146,11 @@ If one exists, the SNS Subject will be set to the title. All attributes from the
 - On the left-hand side, select "Users" then click "Create New Users". Enter a name here and then click "Create".
 - You can either download the credentials or click the arrow to display them one time.
 
-<div class='note warning'>
+{% warning %}
 If you do not download them, you will lose them and will have to recreate a new user.
-</div>
+{% endwarning %}
 
-- Copy/Paste the two keys that are shown here in your `configuration.yaml` file.
+- Copy/Paste the two keys that are shown here in your {% term "`configuration.yaml`" %} file.
 - On the left-hand side of the screen go back to "Users" and select the user you just created. On the "Permissions" tab click the "Attach Policy" icon. Search for "SNS" and attach the policy "AmazonSNSFullAccess".
 - Back to the AWS Console you now need to find "SNS" and click in to that service. It is under the Mobile Services group.
 - On the left-hand side, select "Topics" then "Create new topic".

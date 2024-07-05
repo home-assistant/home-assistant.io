@@ -28,9 +28,9 @@ ha_integration_type: integration
 
 The **Blink** {% term integration %}  lets you view camera images and motion events from [Blink](https://blinkforhome.com/) camera and security systems.
 
-<p class='note'>
+{% important %}
 This integration does NOT allow for live viewing of your Blink camera within Home Assistant.
-</p>
+{% endimportant %}
 
 ## Setup
 
@@ -62,17 +62,21 @@ Please note that each camera reports two different states: one as `sensor.blink_
 
 Any sequential calls to {% term services %} relating to blink should have a minimum of a 5 second delay in between them to prevent the calls from being throttled and ignored. The services that act on a camera needs a target parameter.
 
+### `blink.record`
+
+Trigger a camera to record a new video clip.
+
 ### `blink.trigger_camera`
 
 Trigger a camera to take a new still image.
 
 ### `blink.save_video`
 
-Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file (see example below).
+Save the last recorded video of a camera to a local file. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file (see example below).
 
-| Service Data Attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `filename`             | no       | Location of save file.                   |
+| Service Data Attribute | Optional | Description            |
+| ---------------------- | -------- | ---------------------- |
+| `filename`             | no       | Location of save file. |
 
 ```yaml
 homeassistant:
@@ -82,11 +86,11 @@ homeassistant:
 ```
 ### `blink.save_recent_clips`
 
-Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your `configuration.yaml` file.
+Save the recent video clips of a camera to a local file in the pattern `%Y%m%d_%H%M%S_{name}.mp4`. Note that in most cases, Home Assistant will need to know that the directory is writable via the `allowlist_external_dirs` in your {% term "`configuration.yaml`" %} file.
 
-| Service Data Attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `file_path`            | no       | Location of save files.                  |
+| Service Data Attribute | Optional | Description             |
+| ---------------------- | -------- | ----------------------- |
+| `file_path`            | no       | Location of save files. |
 
 ### `blink.send_pin`
 
