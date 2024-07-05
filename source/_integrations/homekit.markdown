@@ -678,7 +678,7 @@ The accessory will behave as if it's the first time the accessory has been set u
 
 #### Air Quality Sensor Entities
 
-HomeKit provides five different values to represent air quality: Excellent, Good, Fair, Inferior, and Poor. For PM2.5 sensor entities in Home Assistant, the raw density value (µg/m3) is used to determine the corresponding value based on the [2024 US AQI](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf) standard. The mapping is as follows:
+HomeKit provides five values to represent air quality: Excellent, Good, Fair, Inferior, and Poor. For PM2.5 sensor entities in Home Assistant, the raw density value (µg/m3) is used to determine the corresponding value based on the [2024 US AQI](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf) standard. The mapping is as follows:
 
 | HomeKit   | US AQI                                   | PM2.5 µg/m3   |
 |-----------|------------------------------------------|---------------|
