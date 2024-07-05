@@ -61,7 +61,6 @@
     align-content: center;
     transition: box-shadow .33s;
 
-
     .img-container {
       height: 64px;
       margin: 12px 16px;
@@ -128,10 +127,12 @@ a.option-card:hover {
 
 @for $i from 1 through 40 {
   .option-card:nth-child(#{$i}) {
-    animation-delay: #{$i * 0.04}s !important;
+    animation-delay: #{$i * 0.025}s !important;
+    @media only screen and (max-width: $palm-end) {
+      animation-delay: #{$i * 0.05}s !important;
+    }
   }
 }
-
 
 @media only screen and (max-width: $palm-end) {
   .hass-option-cards {
