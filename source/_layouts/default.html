@@ -12,12 +12,25 @@
 
       <div class="grid-wrapper">
         <div class="grid grid-center">
+          {% assign url_parts = page.url | split: '/' %}
+          {% assign root = url_parts[1] %}
+
+          {% unless page.sidebar == false or page.layout == "landingpage"  %}
+            {% if root == 'integrations' %}                
+              <aside id="left-sidebar" class="grid__item desk-wide-one-sixth">
+            {% else %}
+              <aside id="left-sidebar" class="grid__item desk-wide-one-quarter">
+            {% endif %}
+            {% include site/left_sidebar.html %}
+          </aside>
+          {% endunless %}
+
           {% if page.is_post and page.sidebar == false %}
           <div class="grid__item four-fifths lap-one-whole palm-one-whole">
           {% elsif page.is_homepage or page.layout == "landingpage" %}
           <div class="grid__item one-whole">
           {% else %}
-          <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+          <div class="grid__item two-thirds desk-wide-seven-twelfths lap-one-whole palm-one-whole">
           {% endif %}
 
             {% if page.is_homepage or page.layout == "landingpage"  %}
@@ -28,7 +41,11 @@
           </div>
 
           {% unless page.sidebar == false or page.layout == "landingpage"  %}
-          <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
+            {% if root == 'integrations' %}                
+              <aside id="sidebar" class="grid__item one-third desk-wide-one-quarter lap-one-whole palm-one-whole">
+              {% else %}
+              <aside id="sidebar" class="grid__item one-third desk-wide-one-sixth lap-one-whole palm-one-whole">
+            {% endif %}
             {% include site/sidebar.html %}
           </aside>
           {% endunless %}

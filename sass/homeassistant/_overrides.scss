@@ -27,11 +27,38 @@
     hyphens: auto;
   }
 }
+
+
 // Wider page width
 .grid-wrapper {
   padding: 0 24px;
 
+  #left-sidebar {
+    display: none;
+  }
+
+  @media only screen and (min-width: $desk-start) {
+    padding: 0 48px;
+  }
+
+  @media only screen and (min-width: $desk-wide-start) {
+    #left-sidebar {
+      display: inline-block;
+
+      .vertical-nav, .recent-posts {
+        background: none;
+        padding: 0;
+        margin-top: -16px;
+        border-radius: 0;
+      }
+    }
+    #sidebar .vertical-nav, #sidebar .recent-posts {
+      display: none;
+    }
+  }
 }
+
+
 
 // Rounded background for numbered lists
 article> {
