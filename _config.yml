@@ -139,6 +139,7 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+      toc: true
   # Enable table of contents for integrations and installations
   #
   # To set toc as a default value, we need to set the scope with an empty path
@@ -147,14 +148,23 @@ defaults:
   #
   - scope:
       path: ""
+      type: dashboards
+    values:
+      toc: true
+  - scope:
+      path: ""
       type: integrations
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: docs
     values:
       toc: true
   - scope:
       path: "installation/*"
     values:
       toc: true
-      no_toc: true
   - scope:
       path: "common-tasks/*"
     values:
