@@ -29,7 +29,7 @@ It does require that your devices are registered with the [Find My](https://www.
 {% include integrations/config_flow.md %}
 
 {% warning %}
-You may receive recurring emails and notifications from Apple stating that someone has logged into your account if the integration is improperly configured.
+You may receive recurring emails and notifications from Apple stating that someone has logged into your account if the integration is improperly configured. If this occurs, select `Don't Allow` on your iOS device and reconfigure the Integration Credentials when prompted.
 
 For the notification, press "Allow", then "OK".
 {% endwarning %}
