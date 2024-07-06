@@ -26,9 +26,9 @@ Before doing anything, you have to activate the SMS API option in your Free Mobi
 
 This API only sends classic SMS messages and only to the cell phone of the account owner. So you only have to provide a text message in your payload.
 
-<div class='note warning'>
+{% note %}
 If you disable and re-enable the SMS API option, please be sure to update your token in your configuration.
-</div>
+{% endnote %}
 
 ## Configuration
 

@@ -43,7 +43,7 @@ You must have a [Tessie](https://my.tessie.com/) account, generate a [Tessie Acc
 
 {% include integrations/config_flow.md %}
 
-## Entities
+## Vehicle entities
 
 ### Binary sensor
 
@@ -206,7 +206,31 @@ The integration will show vehicle software updates and their installation progre
 
 ## Energy entities
 
+### Binary sensor
+
+- Backup capable
+- Grid services enabled
+- Grid services active
+
 ### Select
 
 - Allow export
 - Operation mode
+
+### Sensor
+
+- Battery power
+- Energy left
+- Generator power
+- Grid power
+- Grid services power
+- Load power
+- Percentage charged
+- Solar power
+- Total pack energy
+- Version
+- Vehicle
+- <abbr title="Virtual power plant">VPP</abbr> backup reserve
+- Fault state code
+- Power
+- State code

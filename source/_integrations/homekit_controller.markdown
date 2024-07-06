@@ -205,11 +205,9 @@ There is currently support for the following device types (also called *domains*
 - Humidifier (HomeKit humidifiers and dehumidifiers)
 - Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
-<div class='note'>
-
-  If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
-
-</div>
+{% note %}
+If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
+{% endnote %}
 
 The integration will enable push updates. Devices that connect through Wi-Fi or Ethernet may fall back to only polling if the connection is unstable.
 

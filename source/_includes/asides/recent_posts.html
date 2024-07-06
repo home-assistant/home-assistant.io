@@ -1,5 +1,5 @@
 <section id="recent-posts" class="aside-module grid__item one-whole lap-one-half">
-  <h1 class="title delta">Recent Posts</h1>
+  <h1 class="title epsilon">{% icon "mdi:newspaper-variant-multiple" %} Recent Posts</h1>
   <ul class="divided">
     {% for post in site.posts limit: site.recent_posts %}
       {% if post.url != page.url  %}

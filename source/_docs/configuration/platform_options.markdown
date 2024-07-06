@@ -3,9 +3,9 @@ title: "Entity integration platform options"
 description: "Shows how to customize polling interval for any integration via configuration.yaml."
 ---
 
-<div class='note info'>
+{% important %}
 These options are being phased out and are only available for single platform integrations.
-</div>
+{% endimportant %}
 
 Some integrations or platforms (those that are based on the [entity](https://github.com/home-assistant/home-assistant/blob/dev/homeassistant/helpers/entity.py) class) allow various extra options to be set.
 

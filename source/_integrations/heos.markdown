@@ -26,9 +26,9 @@ The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/categor
 
 {% include integrations/config_flow.md %}
 
-<div class='note info'>
+{% note %}
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</div>
+{% endnote %}
 
 ## Services
 

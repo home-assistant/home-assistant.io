@@ -135,15 +135,13 @@ Some other Zigbee coordinator hardware may not support a firmware that is capabl
 
 #### Warning about using Zigbee Coordinator over Wi-Fi/WAN/VPN
 
-<div class="note warning">
-
+{% caution %}
 Be aware that using a Zigbee Coordinator via a Serial-Proxy-Server (also known as Serial-to-IP bridge or Ser2Net remote adapter) over a Wi-Fi, WAN, or VPN connection is not recommended.
 
 Serial protocols used by the Zigbee Coordinator do not have enough robustness, resilience, or fault tolerance to handle packet loss and latency delays that can occur over unstable connections.
 
 A Zigbee Coordinator requires a stable local connection to its serial port interface with no drops in communication between it and the Zigbee gateway application running on the host computer.
-
-</div>
+{% endcaution %}
 
 ## Configuration - GUI
 
@@ -231,11 +229,9 @@ The ZHA integration has the ability to perform OTA (over-the-air) firmware updat
 
 To see OTA updates for a device, it's required that it both supports OTA updates and that firmware images for the device are publicly provided by the manufacturer. For this reason, ZHA currently only includes OTA providers for a few manufacturers that provide these updates publicly. This includes IKEA, Inovelli, Ledvacnce/OSRAM, SALUS/Computime, Sonoff/iTead, and Third Reality.
 
-<div class="note warning">
-
+{% warning %}
 Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
-
-</div>
+{% endwarning %}
 
 ## Configuration - YAML
 
@@ -337,15 +333,14 @@ from the same group:
 | `install_code` | install_code    | Install Code of the joining device. Use with `src_ieee`             |
 | `qr_code`      | qr_code         | QR code containing IEEE and Install Code of the joining ZB3 device  |
 
-<div class='note'>
+{% note %}
   Currently `qr_code` supports QR Install Codes from:
 
   - Aqara
   - Bosch
   - Consciot
   - Embrighten
-
-</div>
+{% endnote %}
 
 ### Service `zha.remove`
 
@@ -428,9 +423,9 @@ ZHA supports Zigbee groups and binding devices to each other. These features can
 
 A Zigbee group enables the grouping of multiple Zigbee lights, switches, and fans. This allows you to control those devices with only one command/entity.
 
-<div class='note'>
-Note that while using a native Zigbee group instead of Home Assistant's [Group](/integrations/group/) integration can improve the visual responsiveness, the broadcast commands issued can flood the Zigbee network if issued repeatedly.
-</div>
+{% note %}
+While using a native Zigbee group instead of Home Assistant's [Group](/integrations/group/) integration can improve the visual responsiveness, the broadcast commands issued can flood the Zigbee network if issued repeatedly.
+{% endnote %}
 
 To create a Zigbee Group, press the "Configure" button on the ZHA integration config page. At the top, choose "Groups" and select "Create Group". Set a group name and choose which devices to include in the group.
 

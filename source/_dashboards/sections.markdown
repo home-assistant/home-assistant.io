@@ -27,9 +27,10 @@ You can group cards without using horizontal or vertical stack cards.
     A fully populated dashboard in Sections view layout
 </p>
 
-<div class='note notice'>
-    <p>The sections view was released beginning of March 2024 and is experimental! Do not build your daily dashboard on top of it yet! We are still collecting feedback.</p><br><p>It is not possible to migrate dashboards into sections view.</p>
-</div>
+{% note %}
+The sections view was released beginning of March 2024 and is experimental! Do not build your daily dashboard on top of it yet! We are still collecting feedback.<br>
+It is not possible to migrate dashboards into sections view.
+{% endnote %}
 
 ## Creating a sections view
 

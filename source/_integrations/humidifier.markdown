@@ -43,11 +43,9 @@ The following device classes are supported for humidifiers:
 
 Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
 
-<div class='note'>
-
+{% tip %}
 Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
-
-</div>
+{% endtip %}
 
 ### Service `humidifier.set_mode`
 

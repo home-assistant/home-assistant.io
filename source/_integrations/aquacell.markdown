@@ -1,5 +1,5 @@
 ---
-title: AquaCell
+title: Aquacell
 description: Instructions on how to integrate AquaCell with Home Assistant.
 ha_category:
   - Sensor
@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: aquacell
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 AquaCell is a water-softening device. The **AquaCell** {% term integration %} allows you to monitor your AquaCell device in Home Assistant.

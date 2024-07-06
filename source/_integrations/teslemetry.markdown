@@ -180,6 +180,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Select|Allow export|Yes|
+|Select|Operation mode|Yes|
 |Switch|Allow charging from grid|Yes|
 |Switch|Storm watch|Yes|
 

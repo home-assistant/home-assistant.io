@@ -46,11 +46,9 @@ Any service data passed into the service call to activate the shell command will
 
 The `command` is executed within the [configuration directory](/docs/configuration/).
 
-<div class='note'>
-
+{% tip %}
 If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
-
-</div>
+{% endtip %}
 
 A `0` exit code means the commands completed successfully without error. In case a command results in a non `0` exit code or is terminated after a timeout of 60 seconds, the result is logged to Home Assistant log.
 

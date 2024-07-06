@@ -62,12 +62,9 @@ Below is an example for setting up the integration to connect to your Microsoft 
 - Password: Your password
 - Charset: `US-ASCII`
 
-<div class="note">
-
+{% important %}
 Yahoo also requires the character set `US-ASCII`.
-
-</div>
-
+{% endimportant %}
 
 ### Selecting message data to include in the IMAP event (advanced mode)
 
@@ -81,21 +78,17 @@ The SSL cipher list option allows you to select the list of SSL ciphers to be ac
 
 If you are using self signed certificates, you can turn off SSL verification.
 
-<div class='note info'>
-
+{% important %}
 The SSL cipher list and verify SSL are advanced settings. The options are available only when advanced mode is enabled (see user settings).
-
-</div>
+{% endimportant %}
 
 ### Enable IMAP-Push
 
 IMAP-Push is enabled by default if your IMAP server supports it. If you use an unreliable IMAP service that periodically drops the connection and causes issues, you might consider turning off IMAP-Push. This will fall back to polling the IMAP server.
 
-<div class='note info'>
-
+{% important %}
 The enforce polling option is an advanced setting. The option is available only when advanced mode is enabled (see user settings).
-
-</div>
+{% endimportant %}
 
 ### Troubleshooting
 
@@ -110,11 +103,9 @@ The table below shows what attributes come with `trigger.event.data`. The data i
 
 The attributes shown in the table are also available as variables for the custom event data template. The [example](/integrations/imap/#example---custom-event-data-template) shows how to use this as an event filter.
 
-<div class='note info'>
-
+{% important %}
 The custom event data template is an advanced feature. The option is available only when advanced mode is enabled (see user settings). The `text` attribute is not size limited when used as a variable in the template.
-
-</div>
+{% endimportant %}
 
 {% configuration_basic %}
 server:
@@ -148,11 +139,9 @@ The `event_type` for the custom event should be set to `imap_content`. The confi
 
 If the default maximum message size (2048 bytes) to be used in events is too small for your needs, then this maximum size setting can be increased. You need to have your profile set to _advanced_ mode to do this.
 
-<div class='note warning'>
-
+{% warning %}
 Increasing the default maximum message size (2048 bytes) could have a negative impact on performance as event data is also logged by the `recorder`. If the total event data size exceeds the maximum event size (32168 bytes), the event will be skipped.
-
-</div>
+{% endwarning %}
 
 {% raw %}
 
@@ -196,11 +185,9 @@ Available services are:
 - `delete`: Delete the message.
 - `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
 
-<div class='note warning'>
-
+{% caution %}
 When these services are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these services unless you know what you are doing.
-
-</div>
+{% endcaution %}
 
 ## Example - post-processing
 

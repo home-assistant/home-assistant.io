@@ -62,9 +62,9 @@ The integration exposes the different round trip times milliseconds as entities:
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
 
-<div class='note'>
+{% note %}
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-</div>
+{% endnote %}
 
 ## Presence detection
 
@@ -72,8 +72,8 @@ The `ping` device tracker platform offers presence detection by using `ping` to 
 
 The device tracker is disabled by default and can be enabled in the UI.
 
-<div class='note'>
-  Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</div>
+{% note %}
+Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
+{% endnote %}
 
 See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.

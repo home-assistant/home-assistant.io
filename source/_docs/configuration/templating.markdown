@@ -121,11 +121,9 @@ Not supported in [limited templates](#limited-templates).
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
 - `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
-<div class='note warning'>
-
+{% warning %}
 Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
-
-</div>
+{% endwarning %}
 
 #### States examples
 
@@ -706,15 +704,13 @@ Examples using `iif`:
 {{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
-<div class='note warning'>
+{% endraw %}
 
+{% warning %}
 The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
 
 For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
-
-</div>
-
-{% endraw %}
+{% endwarning%}
 
 ### Time
 
@@ -775,14 +771,11 @@ A precision of 0 returns all available units, default is 1.
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
-<div class='note'>
-
+{% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
+{% endtip %}
 
-</div>
-
-<div class='note warning'>
-
+{% important %}
 If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
 
 {% raw %}
@@ -799,7 +792,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% endraw %}
 
-</div>
+{% endimportant %}
 
 {% raw %}
 
@@ -1024,7 +1017,7 @@ Some examples:
 
 Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
-<div class='note'>
+{% note %}
 
 The numeric functions and filters raise an error if the input is not a valid number, optionally a default value can be specified which will be returned instead. The `is_number` function and filter can be used to check if a value is a valid number. Errors can be caught by the `default` filter.
 
@@ -1037,7 +1030,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 {% endraw %}
 
-</div>
+{% endnote %}
 
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `float(default)` filter will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
@@ -1109,7 +1102,7 @@ See: [Python struct library documentation](https://docs.python.org/3/library/str
 - Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
 - Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
 
-<div class='note'>
+{% note %}
 
 Some examples:
 {% raw %}
@@ -1121,7 +1114,7 @@ Some examples:
 
 {% endraw %}
 
-</div>
+{% endnote %}
 
 ### String filters
 
@@ -1269,7 +1262,7 @@ The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templat
 For incoming data a value template translates incoming JSON or raw data to a valid payload.
 Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
 
-<div class='note'>
+{% note %}
 
 Example value template:
 
@@ -1283,13 +1276,13 @@ Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders 
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
- </div>
+{% endnote %}
 
 #### Using command templates with MQTT
 
 For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
 
-<div class='note'>
+{% note %}
 
 Example command template:
 
@@ -1303,7 +1296,7 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
-</div>
+{% endnote %}
 
 ## Some more things to keep in mind
 
