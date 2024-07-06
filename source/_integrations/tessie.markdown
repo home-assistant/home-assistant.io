@@ -217,6 +217,11 @@ The integration will show vehicle software updates and their installation progre
 - Backup reserve
 - Off grid reserve
 
+### Select
+
+- Allow export
+- Operation mode
+
 ### Sensor
 
 - Battery power
