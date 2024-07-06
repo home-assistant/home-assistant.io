@@ -729,7 +729,7 @@ services:
 
 #### EZSP error - NCP entered failed state
 
-When you see `NCP entered failed state. Requesting APP controller restart` in ZHA logs during normal operation, that indicates was or is a drop in communication between ZHA and the serial interface of the Silabs EmberZNet Zigbee Coordinator (EZSP).
+When you see `NCP entered failed state. Requesting APP controller restart` in ZHA logs during normal operation,  there was drop in communication between ZHA and the coordinator.
 
 The root cause is lost serial connection and correlated symptoms for reset connections include freezes and device non-responsiveness. The solution is to make sure to always have a stable end-to-end serial connection to the Zigbee Coordinator adapter.
 
