@@ -39,7 +39,7 @@ To prevent excessive battery drainage, a dynamic interval is used for each indiv
 ## Two Factor Authentication
 
 {% important %}
-You need to use should use a [app-specific passwords](https://support.apple.com/102654) for setting up this integration.
+You need to use should use a [app-specific passwords](https://support.apple.com/102654) to set up this integration.
 {% endimportant %}
 
 ## In case of troubleshooting
