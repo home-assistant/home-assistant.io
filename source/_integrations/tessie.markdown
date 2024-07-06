@@ -206,7 +206,7 @@ The integration will show vehicle software updates and their installation progre
 
 ## Energy entities
 
-### Binary Sensor
+### Binary sensor
 
 - Backup capable
 - Grid services enabled
