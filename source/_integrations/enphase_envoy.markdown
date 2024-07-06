@@ -111,6 +111,12 @@ This integration provides several values suitable for the energy dashboard:
 
 [^5]: Only applies when using  Envoy S Metered / IQ Gateway Metered / IQ Combiner with installed and configured storage / battery <abbr title="current transformers">CT</abbr>.
 
+## Configure
+
+The integration provides a `configure` menu to configure following options:
+
+- Collect test fixture data in [diagnostics report](#diagnostics) - No/Yes
+
 ## Debug logs and diagnostics
 
 This integration provides debug logs and diagnostics reports as described in the [Home Assistant troubleshooting pages](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
@@ -144,7 +150,11 @@ The end of a collection cycle is marked by:
 
 ### Diagnostics
 
-The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
+The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has upto 6 major subsections which reflects how the integration is setup and data is used. 
+
+When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. It may happen you are requested to provide data for such test fixtures. The diagnostics report can provide the needed information to build such test fixtures. By default the diagnostics report does not include this data. To include the test fixture data, enable this option in the integration [configure](#configure) menu. When this option is enabled, the creation of the diagnostic report may take longer as it will perform a scan of the Envoy. When done creating the report, clear the option to prevent this delay the next time a diagnostic report is created. The option has no impact on the integrations performance, only on the time it takes to create the report.
+
+Below the 6 subsections, each collapsed.
 
 [^4]: Use of a JSON-aware viewer is not required but makes inspecting the file easier.
 
@@ -159,7 +169,9 @@ The diagnostics file is a JSON file and includes a `data` section with the detai
     "envoy_model_data": { ...
     },
     "envoy_entities_by_device": [ ...
-    ]
+    ],
+    "fixtures" : { ...
+    }
   }
 }    
 ```
@@ -183,3 +195,7 @@ Shows the data of the Envoy extracted from the raw_data into Envoy class data us
 #### Envoy entities by device
 
 Shows all entities created by the integration based on the findings of the initial scan, grouped by device. Entity state based on the last data collection cycle is included. State values here come from the Envoy model data and are the values visible in the dashboards.
+
+#### Fixtures
+
+The data to build test fixtures from. This section is only available when the option to provide this, is enabled in the integration [configuration](#configure). Information is collected from the envoy in a scan for known and needed endpoints. Data is collected to enable the developers to build test fixtures from it.
