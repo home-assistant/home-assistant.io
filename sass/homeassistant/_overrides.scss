@@ -59,6 +59,97 @@
 }
 
 
+// Documentation index
+
+.docs-index {
+  margin: 0;
+
+  &>li {
+    list-style-type: none;
+    // font-family: $heading-font;
+    font-size: 1.5rem;
+    font-weight: 600;
+    // text-transform: uppercase;
+
+    &>iconify-icon {
+      margin: 2px 8px 0 0;
+      transform-origin: left;
+      transform: scale(1) translateY(10px);
+      background: #007fa8;
+      color: white;
+      padding: 10px;
+      border-radius: 32px;
+    }
+
+    &>a {
+      text-decoration: none !important;
+
+      &::after {
+        content: '▸';
+      }
+    }
+
+    &>ul {
+      font-family: $sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: none;
+
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      column-gap: 24px;
+      margin: 0 0 0 28px;
+
+      margin: 16px 0 48px !important;
+      padding: 20px 24px;
+      background: rgba(0, 0, 0, .01);
+      border-radius: 16px;
+      border: 1px solid rgba(0, 0, 0, .1);
+
+      a {
+        text-decoration: none !important;
+      }
+      
+      &>li {
+        list-style-type: none;
+
+        &>ul {
+          margin-left: 20px;
+          font-size: .85rem;
+          font-weight: normal;
+      
+          &>li {
+            margin: 4px 0;
+
+            &:first-child {
+              margin-top: 8px;
+            }
+
+            &:nth-child(1n+7) {
+              display: none;
+            }
+
+            &:nth-child(6) {
+              &::before {
+                content: 'More...';
+              }
+              &>a {
+                display: none;
+              }
+            }
+
+            &:last-child {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
 
 // Rounded background for numbered lists
 article> {

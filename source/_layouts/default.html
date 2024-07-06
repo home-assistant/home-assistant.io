@@ -15,7 +15,7 @@
           {% assign url_parts = page.url | split: '/' %}
           {% assign root = url_parts[1] %}
 
-          {% unless page.sidebar == false or page.layout == "landingpage"  %}
+          {% unless page.left_sidebar == false or page.layout == "landingpage"  %}
             {% if root == 'integrations' %}                
               <aside id="left-sidebar" class="grid__item desk-wide-one-sixth">
             {% else %}
@@ -26,7 +26,9 @@
           {% endunless %}
 
           {% if page.is_post and page.sidebar == false %}
-          <div class="grid__item four-fifths lap-one-whole palm-one-whole">
+          <div class="grid__item four-fifths desk-wide-three-quarters lap-one-whole palm-one-whole">
+          {% elsif page.sidebar == false %}
+          <div class="grid__item one-whole desk-wide-three-quarters">  
           {% elsif page.is_homepage or page.layout == "landingpage" %}
           <div class="grid__item one-whole">
           {% else %}
