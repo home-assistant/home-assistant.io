@@ -239,3 +239,8 @@ The integration will show vehicle software updates and their installation progre
 - Fault state code
 - Power
 - State code
+
+### Switch
+
+- Allow charging from grid
+- Storm watch
