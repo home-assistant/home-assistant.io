@@ -53,6 +53,11 @@
     }
   }
 
+  #sidebar .vertical-nav {
+    background: none;
+    padding: 0 16px 0 0;
+  }
+
   .blog-post {
     .grid-wrapper>.grid.grid-center {
       display: flex;
@@ -152,6 +157,30 @@
             }
           }
         }
+      }
+    }
+  }
+}
+
+
+// Vertical Nav
+
+.vertical-nav {
+  .divided.sidebar-menu {
+    &>li {
+      iconify-icon {
+        margin-right: 8px;
+      }
+
+      ul {
+        list-style-type: none;
+        margin: 16px 0 16px 28px;
+
+        li {
+          margin: 8px 0;
+
+        }
+
       }
     }
   }
