@@ -212,6 +212,11 @@ The integration will show vehicle software updates and their installation progre
 - Grid services enabled
 - Grid services active
 
+### Select
+
+- Allow export
+- Operation mode
+
 ### Sensor
 
 - Battery power
