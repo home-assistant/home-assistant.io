@@ -3,7 +3,7 @@
 
   {% if page.toc %}
     {%- unless page.no_toc -%}
-      <section class="aside-module grid__item one-whole lap-one-half">
+      <section id="toc-module" class="aside-module grid__item one-whole lap-one-half">
         <div class='section'>
           <h1 class="title epsilon">{% icon "mdi:toc" %} On this page</h1>
           {{ content | toc_only }}
@@ -13,7 +13,7 @@
   {% endif %} 
 
   {%- if page.ha_category.first -%}
-    <section class="aside-module grid__item one-whole lap-one-half">
+    <section id="category-module" class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
         <h1 class="title epsilon">{% icon "mdi:category" %} Categories</h1>
         <ul class='divided'>

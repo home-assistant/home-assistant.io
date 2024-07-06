@@ -33,27 +33,36 @@
 .grid-wrapper {
   padding: 0 24px;
 
-  #left-sidebar {
-    display: none;
-  }
-
   @media only screen and (min-width: $desk-start) {
     padding: 0 48px;
   }
 
   @media only screen and (min-width: $desk-wide-start) {
-    #left-sidebar {
-      display: inline-block;
-
-      .vertical-nav, .recent-posts {
-        background: none;
-        padding: 0;
-        margin-top: -16px;
-        border-radius: 0;
-      }
-    }
-    #sidebar .vertical-nav, #sidebar .recent-posts {
+    #toc-module {
       display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-wide-start) {
+  .integration-page, .documentation-page {
+    .grid-wrapper>.grid.grid-center {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-end;
+    }
+  }
+
+  .blog-post {
+    .grid-wrapper>.grid.grid-center {
+      display: flex;
+      justify-content: flex-start;
+    }
+    #toc-bar {
+      order: 1;
+    }
+    #sidebar {
+      order: 2;
     }
   }
 }
@@ -146,9 +155,36 @@
       }
     }
   }
-
-
 }
+
+
+// Table of Contents
+
+#toc-bar {
+  display: none;
+  position: sticky;
+  margin-top: 40px;
+  top: 80px;
+  
+  .aside-module {
+    background: none;
+    padding: 0;
+  }
+}
+
+@media only screen and (min-width: $desk-wide-start) {
+  #toc-bar {
+    display: inline-block;
+  }
+  #integration-sidebar #toc-module {
+    display: none;
+  }
+  #sidebar #toc-module {
+    background: none;
+    padding: 0;
+  }
+}
+
 
 
 // Rounded background for numbered lists
