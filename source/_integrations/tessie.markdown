@@ -206,6 +206,11 @@ The integration will show vehicle software updates and their installation progre
 
 ## Energy entities
 
+### Number
+
+- Backup reserve
+- Off grid reserve
+
 ### Sensor
 
 - Battery power
