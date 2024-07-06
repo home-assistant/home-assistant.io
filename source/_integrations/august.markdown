@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Lock
   - Sensor
 ha_release: 0.64
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - lock
   - sensor
 ha_integration_type: integration
@@ -91,6 +93,15 @@ If you have an August Smart Lock with DoorSense, once you have enabled the Augus
 ## Button
 
 Buttons are created to wake locks from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
+
+## Event
+
+If you have an August doorbell or lock that has a built-in doorbell, once you have enabled the August integration, you should see the following event entities:
+
+- Doorbell
+- Motion
+
+Not all models include motion sensors and support for locks with built-in doorbells, which is limited to the Yale Doorman model and may not be available in your country.
 
 ## Camera
 
