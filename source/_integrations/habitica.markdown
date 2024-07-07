@@ -26,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Player data
 
-allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Player's name
 - Player's health points
@@ -48,7 +48,7 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Tasks 
 
-allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+Allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Habits
 - Rewards
