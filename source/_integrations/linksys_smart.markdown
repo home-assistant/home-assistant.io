@@ -9,9 +9,12 @@ ha_domain: linksys_smart
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `linksys_smart` platform offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.
+The `linksys_smart` {% term integration %} offers presence detection by looking at connected devices to a Linksys Smart Wi-Fi based router.
 
 Tested routers:
 
@@ -22,11 +25,12 @@ Tested routers:
 
 ## Setup
 
-For this platform to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page. If "Access via wireless" is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
+For this {% term integration %} to work correctly, it is necessary to disable the "Access via wireless" feature in the Local Management Access section of the router administration page. If "Access via wireless" is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
 
 ## Configuration
 
-To use a Linksys Smart Wi-Fi Router in your Home Assistant installation, add the following to your `configuration.yaml` file:
+To use a Linksys Smart Wi-Fi Router in your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

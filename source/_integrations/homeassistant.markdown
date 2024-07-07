@@ -15,11 +15,12 @@ related:
   - docs: /docs/configuration/basic/
     title: Basic information
   - docs: /docs/configuration/
+  - docs: /docs/configuration/customizing-devices/
 ---
 
-The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on`.
+The **Home Assistant Core** {% term integration %} provides generic implementations like the generic `homeassistant.turn_on` service.
 
-## Editing the general settings in YAML
+## Editing the General Settings in YAML
 
 The Home Assistant Core integration is also responsible for the general settings. These settings are defined during onboarding, but you can change them later under {% my general title="**Settings** > **System** > **General**" %}. For the detailed steps, refer to [Basic settings](/docs/configuration/basic/).
 
@@ -103,15 +104,15 @@ internal_url:
   required: false
   type: string
 customize:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities."
   required: false
   type: string
 customize_domain:
-  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
+  description: "[Customize](#editing-entity-settings-in-yaml) all entities in a domain."
   required: false
   type: string
 customize_glob:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
+  description: "[Customize](#editing-entity-settings-in-yaml) entities matching a pattern."
   required: false
   type: string
 allowlist_external_dirs:
@@ -141,6 +142,114 @@ debug:
   type: boolean
   default: false
 {% endconfiguration %}
+
+## Editing entity settings in YAML
+
+The Home Assistant Core integration is also responsible for entity settings.
+By default, all of your devices will be visible and have a default icon determined by their domain. You can customize the look and feel of your front page by altering some of these parameters. This can be done by overriding attributes of specific entities.
+
+Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
+
+If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
+
+### Possible values
+
+{% configuration customize %}
+friendly_name:
+  description: Name of the entity as displayed in the UI.
+  required: false
+  type: string
+entity_picture:
+  description: URL to use as picture for entity.
+  required: false
+  type: string
+icon:
+  description: "Any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix name with `mdi:`, ie `mdi:home`. Note: Newer icons may not yet be available in the current Home Assistant release."
+  required: false
+  type: string
+assumed_state:
+  description: For switches with an assumed state two buttons are shown (turn off, turn on) instead of a switch. By setting `assumed_state` to `false` you will get the default switch icon.
+  required: false
+  type: boolean
+  default: true
+device_class:
+  description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
+  required: false
+  type: device_class
+  default: None
+unit_of_measurement:
+  description: Defines the units of measurement, if any. This will also influence the graphical presentation in the history visualization as continuous value. Sensors with missing `unit_of_measurement` are showing as discrete values.
+  required: false
+  type: string
+  default: None
+initial_state:
+  description: Sets the initial state for automations, `on` or `off`.
+  required: false
+  type: boolean
+  default: None
+{% endconfiguration %}
+
+### Device class
+
+Devices classes categorize certain entities and influence how these are shown in the dashboard. Some device classes categorize by measurement type, such as sensors or binary sensors. Other device classes categorize into more specific types. For example, a cover can be a blind or a curtain. For a given platform, the device class influences what is shown in the user interface. For example: humidifier has two device classes, humidifier and dehumidifier. If the device class is set to `humidifier`, the UI shows **Humidifying**. If it is set to `dehumidifier`, it shows **Drying**.
+
+Device class is currently supported by the following platforms:
+
+- [Binary sensor](/integrations/binary_sensor/#device-class)
+- [Button](/integrations/button/#device-class)
+- [Cover](/integrations/cover/#device-class)
+- [Event](/integrations/event/#device-class)
+- [Humidifier](/integrations/humidifier/#device-class)
+- [Media player](/integrations/media_player/#device-class)
+- [Number](/integrations/number/#device-class)
+- [Sensor](/integrations/sensor#device-class)
+- [Switch](/integrations/switch/#device-class)
+- [Update](/integrations/update/#device-class)
+- [Valve](/integrations/valve/#device-class)
+
+For a list of the supported device classes, refer to the documentation of the platform.
+
+### Manual customization
+
+{% important %}
+If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
+{% endimportant %}
+
+```yaml
+homeassistant:
+  name: Home
+  unit_system: metric
+  # etc
+
+  customize:
+    # Add an entry for each entity that you want to overwrite.
+    thermostat.family_room:
+      entity_picture: https://example.com/images/nest.jpg
+      friendly_name: Nest
+    switch.wemo_switch_1:
+      friendly_name: Toaster
+      entity_picture: /local/toaster.jpg
+    switch.wemo_switch_2:
+      friendly_name: Kitchen kettle
+      icon: mdi:kettle
+    switch.rfxtrx_switch:
+      assumed_state: false
+    media_player.my_media_player:
+      source_list:
+        - Channel/input from my available sources
+  # Customize all entities in a domain
+  customize_domain:
+    light:
+      icon: mdi:home
+    automation:
+      initial_state: "on"
+  # Customize entities matching a pattern
+  customize_glob:
+    "light.kitchen_*":
+      icon: mdi:description
+    "scene.month_*_colors":
+      icon: mdi:other
+```
 
 ## Services
 

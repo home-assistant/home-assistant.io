@@ -3,7 +3,9 @@ title: "Automation actions"
 description: "Automations result in action."
 ---
 
-The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via services or events. For {% term services %}, you can specify the entity_id that it should apply to and optional service parameters (to specify for example the brightness).
+The action of an automation rule is what is being executed when a rule fires. The action part follows the [script syntax](/docs/scripts/) which can be used to interact with anything via services or events.
+
+For {% term services %}, you can specify the `entity_id` that it should apply to and optional service parameters (to specify for example the brightness).
 
 You can also call the {% term service %} to activate [a scene](/integrations/scene/) which will allow you to define how you want your devices to be and have Home Assistant call the right services.
 

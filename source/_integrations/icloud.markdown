@@ -28,11 +28,11 @@ It does require that your devices are registered with the [Find My](https://www.
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
+{% warning %}
 You may receive an email and a notification from Apple saying that someone has logged into your account.
 
 For the notification, press "Allow", then "OK".
-</div>
+{% endwarning %}
 
 To prevent excessive battery drainage, a dynamic interval is used for each individual device instead of a fixed interval for all devices linked to one account. The dynamic interval is based on the current zone of a device, the distance towards home and the battery level of the device.
 

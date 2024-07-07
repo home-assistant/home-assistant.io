@@ -53,10 +53,10 @@ write an automation to turn off Safe Search after the kids' bedtime.
 The "AdGuard Protection" switch is a master switch. It will turn off and
 bypass all AdGuard features, regardless of whether they are switched on or not.
 
-<div class="note">
+{% important %}
 Turning off Query Log will result in all sensors not receiving updates anymore.
 AdGuard relies on Query Log to provide stats.
-</div>
+{% endimportant %}
 
 ## Services
 

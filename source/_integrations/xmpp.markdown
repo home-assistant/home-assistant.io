@@ -12,13 +12,17 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `xmpp` notification platform allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
+The `xmpp` notification {% term integration %} allows you to deliver notifications from Home Assistant to a [Jabber (XMPP)](https://xmpp.org/) account.
 
 ## Configuration
 
-To enable Jabber notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Jabber notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,13 +75,10 @@ room:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
-  Pre Home Assistant 0.81 `sleekxmpp` was used to connect to XMPP servers. `sleekxmpp` as of version 1.3.2, does not support > TLS v1. If you are running your own XMPP server (e.g., Prosody, ejabberd) make sure to allow using TLS v1.
-
-  Home Assistant after 0.81 uses `slixmpp`, which also supports TLS v1.1 and TLS v1.2.
-
-</div>
+{% note %}
+Pre Home Assistant 0.81 `sleekxmpp` was used to connect to XMPP servers. `sleekxmpp` as of version 1.3.2, does not support > TLS v1. If you are running your own XMPP server (e.g., Prosody, ejabberd) make sure to allow using TLS v1.
+Home Assistant after 0.81 uses `slixmpp`, which also supports TLS v1.1 and TLS v1.2.
+{% endnote %}
 
 All Jabber IDs (JID) must include the domain. Make sure that the password matches the account provided as sender.
 
@@ -106,13 +107,11 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
 You can send images or files from locally stored files or remote web locations via Jabber's HTTP Upload feature.
 To send files and images, your jabber server must support [XEP_0363](https://xmpp.org/extensions/xep-0363.html).
 
-<div class='note'>
-
+{% note %}
 Be aware that images are uploaded onto the Jabber server of your provider. They reside there un-encrypted and could be accessed by the server admins. Usually images are deleted after a few days.<br>
 <br>
 Home Assistant supports TLS encryption to ensure transport encryption. TLS is enforced by default. You can disable it  with the [`tls`](#tls) flag -- which is not recommended.
-
-</div>
+{% endnote %}
 
 Number 2 sends only an image, retrieved from the URL. The TLS connection to get the image is also not verified (use with caution).
 

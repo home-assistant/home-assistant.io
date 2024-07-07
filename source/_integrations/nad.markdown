@@ -9,16 +9,20 @@ ha_domain: nad
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `nad` platform allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
+The `nad` {% term integration %} allows you to control a [NAD receiver](https://nadelectronics.com/) through RS232, TCP and Telnet from Home Assistant.
 
 Please note that the RS232 interface is only tested with the NAD T748v2, but it should work with other NAD receivers.
 The Telnet interface has been tested with the NAD T787 and the NAD C658.
 
 ## Configuration
 
-To add a NAD receiver to your installation, add the following to your `configuration.yaml` file:
+To add a NAD receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for RS232 configuration
@@ -91,13 +95,11 @@ volume_step:
 
 The `min_volume` and `max_volume` options are there to protect you against misclicks on the slider so you will not blow up your speakers when you go from -92dB to +20dB. You can still force higher or lower volumes than the values set by using the plus and minus buttons.
 
-<div class='note warning'>
-
+{% important %}
 On Linux the user running Home Assistant needs `dialout` permissions to access the serial port.
 This can be added to the user by doing `sudo usermod -a -G dialout <username>`.
 Be aware that the user might need to logout and logon again to activate these permissions.
-
-</div>
+{% endimportant %}
 
 An example of a full configuration:
 

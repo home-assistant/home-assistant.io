@@ -12,7 +12,7 @@ The `rest` switch platform allows you to control a given endpoint that supports 
 
 ## Configuration
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,9 +98,9 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 Make sure that the URL matches exactly your endpoint or resource.
-</div>
+{% endimportant %}
 
 ## Example
 

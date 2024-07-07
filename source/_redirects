@@ -9,7 +9,7 @@ layout: null
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://building.open-home.io/
+/newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /merch https://home-assistant-store.creator-spring.com
@@ -253,9 +253,12 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+/skyconnect /connectzbt1#from-skyconnect
+
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
+
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
@@ -263,6 +266,11 @@ layout: null
 /draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
+/docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
+/docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
+/docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
+/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
+/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -383,6 +391,10 @@ layout: null
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
+/examples /
+
+# Moved marketing pages / rebranding
+/skyconnect /connectzbt1
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -478,6 +490,7 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
@@ -505,6 +518,7 @@ layout: null
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301

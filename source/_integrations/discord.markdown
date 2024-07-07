@@ -28,10 +28,9 @@ Once the application is ready, create a [bot](https://discordapp.com/developers/
 
 Retrieve the **Application ID** from the 'General Information' section and the (hidden) **Token** of your bot for later.
 
-<div class='note'>
-  
+{% note %}
 The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
-</div>
+{% endnote %}
 
 ### Setting up the bot
 
@@ -63,32 +62,54 @@ This channel or a user ID has to be used as the target when calling the notifica
 
 {% include integrations/config_flow.md %}
 
-When adding the Discord integration you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+When adding the Discord integration, you will be asked for an API Key. Enter the hidden **Token** of your bot to link your Discord integration to the bot you created and allow Home Assistant to send messages as that bot.
+
+## Set Message entry
+
+The `message` field treats all input as literal text, including quotation marks.
+
+For example: `message: Hello, world!` will appear exactly as is, while `message: "Hello, world!"` will include the quotation marks in the message.
+
+## Set Channel IDs as necessary
+
+The `target` field is for the channel IDs where the message should be sent. Accepted data type is `string` for a single channel or `string[]` for multiple channels.
+
+For example: `"someChannelID"` or `["someChannelID", "anotherChannelID"]`
+
+## Pinging users, roles, or linking to other channels in the same server
+
+You can use standard Discord methods to ping users, roles, and channels within the server.
+
+| Type      | Format         |
+| --------- | -------------- |
+| `User`    | `<@userID>`    |
+| `Role`    | `<@&roleID>`   |
+| `Channel` | `<#channelID>` |
 
 ## Discord service data
 
 The following attributes can be placed inside the `data` key of the service call for extended functionality:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `images`               |      yes | The file(s) to attach to message.
-| `urls`                 |      yes | The file(s) to download from a remote URL and attach to message.
-| `verify_ssl`           |      yes | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.
-| `embed`                |      yes | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required.
+| Attribute    | Optional | Description                                                                                                                                  |
+| ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `images`     | yes      | The file(s) to attach to message.                                                                                                            |
+| `urls`       | yes      | The file(s) to download from a remote URL and attach to message.                                                                             |
+| `verify_ssl` | yes      | A boolean to determine if SSL certs should be verified when calling the remote URLs in the `url` attribute. Defaults to `True`.              |
+| `embed`      | yes      | Array of [Discord embeds](https://discordpy.readthedocs.io/en/latest/api.html#embed). *NOTE*: if using `embed`, `message` is still required. |
 
 To include messages with embedding, use these attributes underneath the `embed` key:
 
-| Attribute              | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `title`                    |      yes  | Title of the embed.
-| `description`               |      yes | Description of the embed.
-| `color`                    |      yes  | Color code of the embed.  This value is an *int*.
-| `url`               |      yes | URL of the embed.
-| `author`                    |      yes  | Sets the footer for the embed content.
-| `footer`               |      yes | Sets the footer for the embed content.
-| `thumbnail`               |      yes | Sets the thumbnail for the embed content.
-| `image`               |      yes | Sets the image for the embed content.
-| `fields`               |      yes | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default.
+| Attribute     | Optional | Description                                                                                          |
+| ------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `title`       | yes      | Title of the embed.                                                                                  |
+| `description` | yes      | Description of the embed.                                                                            |
+| `color`       | yes      | Color code of the embed.  This value is an *int*.                                                    |
+| `url`         | yes      | URL of the embed.                                                                                    |
+| `author`      | yes      | Sets the footer for the embed content.                                                               |
+| `footer`      | yes      | Sets the footer for the embed content.                                                               |
+| `thumbnail`   | yes      | Sets the thumbnail for the embed content.                                                            |
+| `image`       | yes      | Sets the image for the embed content.                                                                |
+| `fields`      | yes      | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default. |
 
 ### Example service call
 
@@ -117,7 +138,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "https://example.com/video.mp4"
 ```
 
-Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/docs/configuration/basic/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
+Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
 
 ### Example embed service call
 
@@ -158,7 +179,7 @@ Note that `verify_ssl` defaults to `True`, and that any remote hosts will need t
 
 ## Notes
 
-You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the user name to copy the ID like you did for the channel ID up above.
+You can tag any user inside a channel by using their user ID in the message like so: `<@userid>` replacing `userid` with the ID you copied. To get the user ID right click on the username to copy the ID like you did for the channel ID up above.
 
 For more information about creating and authorizing bots, visit the [OAuth2 information page](https://discordapp.com/developers/docs/topics/oauth2)
 

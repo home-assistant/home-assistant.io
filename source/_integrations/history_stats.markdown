@@ -1,5 +1,5 @@
 ---
-title: History Stats
+title: History stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
   - Sensor
@@ -11,11 +11,14 @@ ha_domain: history_stats
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
+The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
-It can track how long the integration has been in a specific state, in a custom time period.
+It can track how long the {% term integration %} has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
@@ -25,7 +28,8 @@ Examples of what you can track:
 
 ## Configuration
 
-To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
+To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 
@@ -80,13 +84,13 @@ duration:
   type: time
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 
   You have to provide **exactly 2** of `start`, `end` and `duration`.
 <br/>
   You can use [template extensions](/docs/configuration/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
 
-</div>
+{% endnote %}
 
 ## Sensor type
 
@@ -127,11 +131,9 @@ duration:
   minutes: 30
 ```
 
-<div class='note'>
-
-  If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
-
-</div>
+{% note %}
+If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+{% endnote %}
 
 ### Video tutorial
 This video tutorial explains how you can use history stats. It also shows how you can create a daily bar chart graph to visualize things such as occupancy, or how long the lights are on in a particular room.
@@ -140,7 +142,7 @@ This video tutorial explains how you can use history stats. It also shows how yo
 
 ### Examples
 
-Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
+Here are some examples of periods you could work with, and what to write in your {% term "`configuration.yaml`" %}:
 
 **Today**: starts at 00:00 of the current day and ends right now.
 
@@ -247,8 +249,6 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 
 {% endraw %}
 
-<div class='note'>
-
-  The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
-
-</div>
+{% tip %}
+The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+{% endtip %}

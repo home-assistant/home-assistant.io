@@ -9,11 +9,9 @@ ha_iot_class: Local Push
 ha_integration_type: integration
 ---
 
-<div class='note warning'>
-  
+{% warning %}
 The Snips Console no longer available due to acquisition by Sonos. For more details, read the [announcement on the Snips forum](http://web.archive.org/web/20200109164247/https://forum.snips.ai/t/important-message-regarding-the-snips-console/4145).
-
-</div>
+{% endwarning %}
 
 The [Snips Voice Platform](https://www.snips.ai) allows users to add powerful voice assistants to their Raspberry Pi devices without compromising on privacy. It runs 100% on-device, and does not require an internet connection. It features Hotword Detection, Automatic Speech Recognition (ASR), Natural Language Understanding (NLU) and Dialog Management.
 
@@ -95,7 +93,7 @@ followed by a command, e.g.
 
 _Set the lights to green in the living room_
 
-As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in `configuration.yaml` file, as explained below.
+As the Snips Platform parses this query into an intent, it will be published on MQTT, on the `hermes/intent/<intentName>` topic. The Snips Home Assistant integration subscribes to this topic, and handles the intent according to the rules defined in {% term "`configuration.yaml`" %} file, as explained below.
 
 #### Optional: specifying an external MQTT broker
 
@@ -121,7 +119,7 @@ probability_threshold:
 
 ### Specifying the MQTT broker
 
-Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the `configuration.yaml` file:
+Messages between Snips and Home Assistant are passed via MQTT. We can either point Snips to the MQTT broker used by Home Assistant, as explained above, or tell Home Assistant which [MQTT broker](/integrations/mqtt) to use by adding the following entry to the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 mqtt:

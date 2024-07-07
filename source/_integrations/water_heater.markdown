@@ -12,7 +12,7 @@ ha_integration_type: entity
 
 The **Water heater** {% term integration %} is built for the controlling and monitoring of hot water heaters.
 
-To enable this {% term integration %}, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this {% term integration %}, pick one of the platforms, and add it to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,11 +26,9 @@ water_heater:
 
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
-<div class='note'>
-
+{% tip %}
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
-
-</div>
+{% endtip %}
 
 ### Service `water_heater.set_temperature`
 

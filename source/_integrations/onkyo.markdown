@@ -4,20 +4,26 @@ description: Instructions on how to integrate Onkyo and some Pioneer receivers i
 ha_category:
   - Media player
 ha_release: 0.17
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_domain: onkyo
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_codeowners:
+  - '@arturpragacz'
 ---
 
-The `onkyo` platform allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
+The `onkyo` {% term integration %} allows you to control a [Onkyo](https://www.onkyo.com), [Integra](http://www.integrahometheater.com)
 and some recent [Pioneer](https://www.pioneerelectronics.com) receivers from Home Assistant.
 Please be aware that you need to enable "Network Standby" for this integration to work in your Hardware.
 
 ## Configuration
 
-To add an Onkyo or Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
+To add an Onkyo or Pioneer receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -105,10 +111,10 @@ unknown-model: master-volume = 191
 
 Changes HDMI output of your receiver
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | no | String or list of a single `entity_id` that will change output.
-| `hdmi_output` | no | The desired output code.
+| Service data attribute | Optional | Description                                                     |
+| ---------------------- | -------- | --------------------------------------------------------------- |
+| `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
+| `hdmi_output`          | no       | The desired output code.                                        |
 
 Accepted values are:
 'no', 'analog', 'yes', 'out', 'out-sub', 'sub', 'hdbaset', 'both', 'up'

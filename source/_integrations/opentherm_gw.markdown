@@ -29,9 +29,9 @@ The following device types are currently supported within Home Assistant:
 
 This integration will add a single `climate` entity to Home Assistant for each configured gateway. Each gateway also has a collection of `sensor` and `binary_sensor` entities, which are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
 
-<div class='note'>
+{% note %}
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -46,13 +46,13 @@ id:
   description: "The `gateway_id` for this OpenTherm Gateway. This is used to identify this specific gateway in service calls and to generate the entity IDs for the entities related to this gateway. The entered value will be slugified, i.e. all spaces and special characters will be converted to underscores and any accents will be removed from their characters. The default value is the slugified version of the `name` given above.<br/>Examples: `thermostat`, `living_room`"
 {% endconfiguration_basic %}
 
-<div class='note warning'>
+{% important %}
 Please make sure no other device or application is connected to the OpenTherm Gateway at the same time as Home Assistant. This is not a supported scenario and may lead to unexpected results.
-</div>
+{% endimportant %}
 
-<div class='note'>
+{% note %}
 The precision and floor_temperature settings that were supported in configuration.yaml entries have been lost upon import of the `configuration.yaml` entry into the Integrations panel. You can now configure them as per the following Options paragraph.
-</div>
+{% endnote %}
 
 # Options
 
@@ -92,11 +92,9 @@ To return control of the central heating to the thermostat, call the [set_contro
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                      |
 | `ch_override`          | no       | The desired value for the central heating override. Use `0` to disable or `1` to enable. |
 
-<div class='note'>
-
+{% warning %}
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-
-</div>
+{% endwarning %}
 
 ### Service `opentherm_gw.set_clock`
 
@@ -110,9 +108,9 @@ Provide the time and day of week to the OpenTherm Gateway. The value provided he
 
 ### Service `opentherm_gw.set_control_setpoint`
 
-<div class='note warning'>
+{% caution %}
 Improper use of this service may continuously keep your central heating system active, resulting in an overheated house and a significant increase in gas and/or electricity consumption.
-</div>
+{% endcaution %}
 
 Set the central heating control setpoint override on the OpenTherm Gateway.
 In a normal situation, the thermostat will calculate and control the central heating setpoint on the boiler. Setting this to any value other than 0 will enable the override and allow the OpenTherm Gateway to control this setting. While the override is active, the OpenTherm Gateway will also request your boiler to activate the central heating circuit. For your boiler's actual maximum and minimum supported setpoint value, please see the `slave_ch_max_setp` and `slave_ch_min_setp` [sensors](#sensors). Due to the potential consequences of leaving this setting enabled for prolonged periods, the override will be disabled when Home Assistant is shut down or restarted.
@@ -123,11 +121,9 @@ In a normal situation, the thermostat will calculate and control the central hea
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                                                                             |
 | `temperature`          | no       | The central heating setpoint. Values between `0.0` and `90.0` are accepted, but your boiler may not support the full range. Set to `0` to disable the override. |
 
-<div class='note'>
-
+{% warning %}
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-
-</div>
+{% endwarning %}
 
 ### Service `opentherm_gw.set_hot_water_ovrd`
 
@@ -175,9 +171,9 @@ For a list of possible modes with explanation, see [LED modes](#led-modes)
 
 ### Service `opentherm_gw.set_max_modulation`
 
-<div class='note warning'>
+{% warning %}
 Improper use of this service may impair the performance of your central heating system.
-</div>
+{% endwarning %}
 
 Set the maximum modulation level override on the OpenTherm Gateway.
 In a normal situation, the thermostat will control the maximum modulation level on the boiler. Setting this to any value other than `-1` will enable the override and allow the OpenTherm Gateway to control this setting. Due to the potential consequences of leaving this setting enabled, the override will be disabled when Home Assistant is shut down or restarted.
@@ -188,11 +184,9 @@ In a normal situation, the thermostat will control the maximum modulation level 
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                                                        |
 | `level`                | no       | The maximum modulation level. Accepted values are `-1` through `100`. Set to `-1` to disable the override. |
 
-<div class='note'>
-
+{% warning %}
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to write your own software thermostat.
-
-</div>
+{% endwarning %}
 
 ### Service `opentherm_gw.set_outside_temperature`
 
@@ -214,12 +208,26 @@ The value you provide here will be used with the GPIO `home` (5) and `away` (6) 
 | `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
 | `temperature`          | no       | The setback temperature. Accepted values are `0.0` through `30.0`. |
 
+### Service `opentherm_gw.send_transparent_command`
+
+<div class='note warning'>
+Improper use of this service may impair the performance of your central heating system.
+</div>
+
+Send a transparent [command](https://otgw.tclcode.com/firmware.html) to the OpenTherm Gateway.
+
+| Service data attribute | Optional | Description                                                        |
+| ---------------------- | -------- | ------------------------------------------------------------------ |
+| `gateway_id`           | no       | The `gateway_id` as specified during configuration.                |
+| `transp_cmd`           | no       | The serial command to be sent to the OpenTherm Gateway.            |
+| `transp_arg`           | no       | The serial command argument to be sent to the OpenTherm Gateway.   |
+
 ## Sensors
 
 The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
-<p class='note'>
+{% note %}
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
-</p>
+{% endnote %}
 
 - **burner_hours**
   Boiler flame on time.
@@ -417,9 +425,9 @@ Not all boilers and thermostats properly support all OpenTherm features, so not 
 ## Binary sensors
 
 The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
-<p class='note'>
+{% note %}
 Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
-</p>
+{% endnote %}
 
 - **master_ch2_enabled**
   Thermostat requests central heating 2 on.

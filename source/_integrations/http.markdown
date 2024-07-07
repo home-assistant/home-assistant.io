@@ -19,11 +19,9 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<div class='note'>
-
+{% warning %}
 The option `server_host` should only be used on a Home Assistant Core installation!
-
-</div>
+{% endwarning %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -86,11 +84,6 @@ ssl_profile:
   required: false
   type: string
   default: modern
-strict_connection:
-  description: Specifies the strict connection mode. Please read the section ["Strict connection mode"](#strict-connection-mode) before changing this value. Can be one of `disabled`, `guard_page` or `drop_connection`.
-  required: false
-  type: string
-  default: disabled
 {% endconfiguration %}
 
 The sample below shows a configuration entry with possible values:
@@ -126,33 +119,6 @@ http:
     - 172.30.33.0/24  # You may also provide the subnet mask
 ```
 
-## Strict connection mode
-
-The strict connection mode specifies how the Home Assistant instance should react to unauthenticated requests to endpoints that don't require authentication.
- **Requests from private networks are always allowed.** Make sure to set up the reverse proxy correctly; otherwise, this feature will be useless.
-
-The following modes are supported:
-- `disabled`: Strict connection mode is disabled, and all unauthenticated requests are allowed (Same as before `2024.5`).
-- `guard_page`: Home Assistant will answer any unauthenticated requests with a guard page, informing the user about the strict connection mode.
-- `drop_connection`: Home Assistant will drop/close the connection for any unauthenticated requests, similar to when no Home Assistant instance is running.
-
-If activated, Home Assistant will not even show the login page. To log in on a new device, the user needs to ask the instance admin for a temporary link. The instance admin can generate the link by calling the service `http.create_temporary_strict_connection_url`.
-
-### Service `http.create_temporary_strict_connection_url`
-
-This service can be used to generate a temporary link with a validity of one hour to log in on a new device when strict connection is enabled.
-It has no arguments and can only be called by admins.
-
-This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with two URLs described in detail below. 
-
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `url` | Temporary URL pointing to `login.home-assistant.io` | `https://login.home-assistant.io?u=https...`
-| `direct_url` | Temporary URL pointing directly to your instance | `https://example.com/auth/strict...`
-
-We recommend using the `url` response value so the user gets a generic help page when, for example, the token is expired. Especially when the mode is set to `drop_connection`, the user will get no feedback and will not know if there is a general problem or if, for example, the token is expired.
-
 ## APIs
 
 On top of the `http` integration is a [REST API](https://developers.home-assistant.io/docs/api/rest/), [Python API](https://developers.home-assistant.io/docs/api_lib_index/) and [WebSocket API](https://developers.home-assistant.io/docs/api/websocket/) available.
@@ -182,17 +148,13 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<div class='note'>
+{% important %}
+If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% endimportant %}
 
-  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
-
-</div>
-
-<div class='note warning'>
-
-  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
-
-</div>
+{% caution %}
+Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+{% endcaution %}
 
 ## Binary sensor
 
@@ -206,9 +168,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -240,6 +202,13 @@ $ curl -X GET -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
     "last_updated": "16:45:51 05-02-2016",
     "state": "off"
 }
+```
+
+To delete the sensor, send DELETE request with curl
+
+```bash
+$ curl -X DELETE -H "Authorization: Bearer LONG_LIVED_ACCESS_TOKEN" \
+       http://localhost:8123/api/states/binary_sensor.radio
 ```
 
 ### Examples
@@ -284,9 +253,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 

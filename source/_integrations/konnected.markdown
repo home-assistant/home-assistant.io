@@ -22,19 +22,16 @@ ha_integration_type: integration
 
 The `konnected` integration lets you connect wired sensors and switches to a Konnected Alarm Panel, or NodeMCU ESP8226 based device running the [open source Konnected software](https://github.com/konnected-io/konnected-security). Reuse the wired sensors and siren from an old or pre-wired alarm system installation and integrate them directly into Home Assistant.
 
-<div class='note warning'>
-  
-This integration is deprecated in favor of [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. If you are getting started with a Konnected device, do not use this integration. Instead, flash your device with ESPHome-based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant).
+{% warning %}
 
-</div>
+This integration is deprecated in favor of [Konnected's ESPHome firmware](https://support.konnected.io/add-a-konnected-device-to-home-assistant-with-esphome) and will not receive updates. ESPHome connects locally and natively to Home Assistant and doesn't need this custom integration. If you are getting started with a Konnected device, do not use this integration. Instead, flash your device with ESPHome-based firmware for the [Konnected Alarm Panel](https://install.konnected.io/esphome) and [Garage Door Opener](https://support.konnected.io/installing-the-garage-door-opener-with-home-assistant).
+{% endwarning %}
 
 Visit the [Konnected.io website](https://konnected.io) for more information about the Konnected Alarm Panel board and compatible hardware.
 
-<div class='note info'>
-
+{% important %}
 Always ensure your panel is running the [latest firmware](https://help.konnected.io/support/solutions/folders/32000035066) before connecting it to Home Assistant.
-
-</div>
+{% endimportant %}
 
 The integration currently supports the following device types in Home Assistant:
 
@@ -44,11 +41,9 @@ The integration currently supports the following device types in Home Assistant:
 
 This integration uses the [SSDP](/integrations/ssdp) integration, which must be enabled for device discovery to work. If you don't want to use SSDP you'll need to manually provide the IP and Port information for each Konnected Panel. The IP/Port info can be found using the Konnected mobile app.
 
-<div class='note info'>
-
+{% note %}
 Konnected devices communicate with Home Assistant over your local LAN -- there is no cloud component! For best performance we recommend allowing unsecured HTTP API traffic between Konnected devices and Home Assistant on your LAN. This means that you should not use the `http` integration to serve SSL/TLS certificates. Instead, use a proxy like NGINX or Caddy to serve SSL/TLS. [Read more.](https://help.konnected.io/support/solutions/articles/32000023964-set-up-hass-io-with-secure-remote-access-using-duckdns-and-nginx-proxy)
-
-</div>
+{% endnote %}
 
 ## Configuration
 
@@ -58,13 +53,11 @@ Starting with 0.106.0 Home Assistant requires UI based configuration of Konnecte
 
 Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
-<div class='note info'>
-
+{% note %}
 If you have an existing `configuration.yaml` completing the UI configuration will do a one time import of the settings contained in `configuration.yaml`. Once the import creates a **Configured** integration the Konnected section of the `configuration.yaml` is no longer used - it is recommended to remove the `konnected` section of `configuration.yaml` and after the import occurs. Any future changes to settings should occur via the settings provided in the Home Assistant web interface.
 
 If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Settings** -> **Devices & Services** -> **Configured** and repeat the UI configuration for that device.
-
-</div>  
+{% endnote %}
 
 Once configuration is completed you'll see a Konnected.io entry in **Settings** -> **Devices & Services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
@@ -111,7 +104,7 @@ Once all zones are configured you'll be presented with the configuration for add
 
 **Blink panel LED on when sending state change:** The desired LED behavior for the panel.
 
-**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API. If this value is unchecked the panel will default postbacks using the URL [configured](/docs/configuration/basic) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
+**Override default Home Assistant API host panel URL:** The Konnected Alarm Panel post sensor states back to the Home Assistant API. If this value is unchecked the panel will default postbacks using the URL [configured](/integrations/homeassistant/#allowlist_external_urls) in Home Assistant. By default, the integration will use the internal URL. However, if you check this field and set the **Override API host URL** to your _local_ IP address and port (e.g., `http://192.168.1.101:8123`), it will be used instead of the internal URL.
 
 **Override API host URL (optional):** The host info to use if you checked **Override default Home Assistant API host panel URL** in the step above. This is ignored if **Override default Home Assistant API host panel URL** is unchecked.
 

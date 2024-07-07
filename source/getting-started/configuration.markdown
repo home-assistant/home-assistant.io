@@ -1,61 +1,48 @@
 ---
-title: "Advanced Configuration"
-description: "Instructions to get Home Assistant configured."
+title: "Next steps"
+description: "Next steps in configuring your Home Assistant"
+related:
+  - docs: configuration/basic/
+    title: Changing basic settings
+  - docs: /docs/configuration/
+    title: configuration.yaml file
+  - docs: /common-tasks/os/#network-storage
+    title: Network storage
+  - docs: /common-tasks/os/#backups
+    title: Backups
+  - docs: /voice_control/
+    title: Voice control
+  - url: https://companion.home-assistant.io/
+    title: Home Assistant on Android and iOS
 ---
 
-The onboarding process takes care of the initial setup for Home Assistant, such as naming your home and selecting your location. After initial onboarding, these options can be changed in the user interface by clicking on Configuration in the sidebar and clicking on General, or by manually editing them in the Home Assistant configuration file called `configuration.yaml`. This section will explain how to do the latter.
+The onboarding process takes you through the initial setup for Home Assistant, such as getting the system up and running, naming your home and selecting your location. This section points you to further documentation helping you with the next steps.
 
-<div class='note'>
+## Changing the basic settings
 
-The steps below do not apply to Home Assistant Core & Container installations, for those types of installations, [see here](/docs/configuration/).
+To change basic settings such as location, unit system and language, refer to [Changing basic settings](/docs/configuration/basic/).
 
-</div>
+## Creating a backup
 
-We are going to help you make your first changes to `configuration.yaml`. To do this, we are going to install an add-on from the Home Assistant add-on store: the File editor. To get to the add-on store, go to {% my supervisor title="Settings > Add-ons" %}. On the new page, open the add-on store tab.
+You can back up your Home Assistant, add-on data, and configuration. Backups are used to restore a system or parts of it if a rollback is needed, or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
-![Add-on store.](/images/hassio/screenshots/dashboard.png)
+To learn how to create a backup of your Home Assistant installation, refer to the following topics:
 
-Under the **Official add-ons** section, you will find the **File editor** add-on.
+- {% term "Home Assistant Operating System" %}: [Creating a backup from OS](/common-tasks/os/#backups)
+- {% term "Home Assistant Supervised" %}: [Creating a backup from Supervised](/common-tasks/supervised/#backups)
 
- - Click on **File editor** and click on **Install**. When the installation is complete, the UI will go to the add-on details page for the file editor.
- - Now start the add-on by clicking on **Start**.
- - Open the user interface by clicking on **Open Web UI**.
+## Editing the configuration.yaml and configuring file access
 
-Now let's make a change using the file editor: we are going to change the name, location, unit system, and time zone of your Home Assistant installation.
+While you can configure most of Home Assistant from the user interface, for some integrations, you will need to [edit the `configuration.yaml` file](/docs/configuration/). This file contains integrations to be loaded along with their configurations. Throughout the documentation, you will find snippets that you can add to your configuration file to enable specific functionality. For starters, there is no need to edit the `configuration.yaml` file. You will be pointed to the documentation when this is needed.
 
- - Click the folder icon in the top left of the file editor window to open the file browser sidebar.
- - Click the `configuration.yaml` file (in the `/config/` folder) to load it into the main file editor window.
- - Add the following to this file (preferably at the very top, but it ultimately doesn't matter):
- ```yaml
-     homeassistant:
-       name: Home
-       latitude: xx.xxxx
-       longitude: xx.xxxx
-       unit_system: us_customary
-       time_zone: America/Chicago
-  ```
-<div class='note'>
- 
-  Valid options for `unit_system` are `us_customary` or `metric`. See [here](https://timezonedb.com/time-zones) for a list of valid time zones. Enter the appropriate option found under the Time Zone column at that page.
+## Setting up network storage
 
-</div>
+If you need more space to store data, you can configure a [network storage](/common-tasks/os/#network-storage), for example to store backups or to access media.
 
- - Click the save icon in the top right to commit changes.
- - Most changes in `configuration.yaml` require Home Assistant to be restarted to see the changes. You can verify that your changes are acceptable by running a configuration check. Do this by navigating to {% my server_controls title="Developer Tools > YAML" %} and then clicking on the **Check configuration** button. When it's valid, it will show the text "Configuration valid!". In order for the **Check Configuration**" button to be visible, you must enable **Advanced Mode** on your user profile.
- - Now restart Home Assistant. You can do so by either using the **Restart** option in the ⚙ menu of the File Editor UI or by navigating to {% my system_dashboard title="Settings > System" %} and then clicking on the **Restart** button on the top right of the page.
+## Getting started with voice assistant
 
-![Screenshot of the "General" page in the configuration panel.](/images/screenshots/configuration-validation.png)
+If you want to get started with a voice assistant, refer to the documentation on [Assist](/voice_control/).
 
-<div class='note'>
+## Apps for Android and iOS
 
-  If you have watched any videos about setting up Home Assistant using `configuration.yaml` (particularly ones that are old), you might notice your default configuration file is much smaller than what the videos show. Don't be concerned, you haven't done anything wrong. Many items in the default configuration files shown in those old videos are now included in the `default_config:` line that you see in your configuration file. [See here](/integrations/default_config/) for more information on what's included in that line.
-
-</div>
-
-### Editing configuration via Samba/Windows Networking
-
-Maybe you are not a big fan of our web editor and want to use a text editor on your computer instead. This is possible by sharing the configuration over the network using the Samba add-on, which can also be installed from the Home Assistant add-on store. This will make your configuration accessible via the network tab on your computer.
-
-Go to the add-on store and look for Samba in the core section. After you have installed the add-on, click on **Start**. Home Assistant should now be available in the networking tab on your computer.
-
-We suggest that to edit `configuration.yaml`, you use the free text editor [Visual Studio Code](https://code.visualstudio.com/) in combination with the [Home Assistant Configuration Helper extension](https://marketplace.visualstudio.com/items?itemName=keesschollaart.vscode-home-assistant).
+If you are looking for information on Home Assistant for Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).

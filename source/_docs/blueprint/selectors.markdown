@@ -1365,7 +1365,7 @@ entity:
       required: false
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
 Targets are meant to be used with the `target` property of a service call in
 a script sequence. For example:
@@ -1376,7 +1376,7 @@ action:
     target: !input lights
 ```
 
-</div>
+{% endimportant %}
 
 ### Example target selectors <!-- omit from toc -->
 

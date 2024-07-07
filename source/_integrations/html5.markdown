@@ -9,19 +9,21 @@ ha_domain: html5
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
+The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
-<div class='note'>
-
+{% important %}
 HTML5 push notifications **do not** work on iOS versions below 16.4.
-
-</div>
+{% endimportant %}
 
 ## Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this platform, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

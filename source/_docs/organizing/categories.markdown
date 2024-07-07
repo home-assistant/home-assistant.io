@@ -10,7 +10,9 @@ related:
     title: Labels
 ---
 
-Categories let you group and filter items in a table. Like labels, categories allow grouping irrespective of the items physical location. For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
+Categories let you group and filter items in a table. Like labels, categories allow grouping irrespective of the items physical location.
+
+For example, on the automations page, you can create the categories “Notifications” or “NFC tags” to view your automations grouped or filtered. These categories group automations on the automation page, but have no effect anywhere else. Categories are unique for each table. The automations page can have different categories than the scene, scripts, or helpers settings page.
 
 ## Creating a category
 
@@ -29,7 +31,7 @@ Follow these steps to create a new category.
 
 1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
 2. To assign a category to a single item:
-   - Find the item in the list and select the three dots menu.
+   - Find the item in the list and select the three dots {% icon "mdi:dots-vertical" %} menu.
    - Select **Assign category** and select the category from the list.
    - If the category is not in the list, select **Add new category** and make a new one.
 3. To assign a category to multiple items:
@@ -41,3 +43,16 @@ Follow these steps to create a new category.
    - The example shows 2 categories: Coffee and housekeeping.
 
     ![Group table items by category](/images/organizing/category_02.png)
+
+## Editing or deleting a category
+
+To rename or delete a category, follow these steps:
+
+1. Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
+2. In the top left, select the **Filters** button.
+
+    ![Select the filter button](/images/organizing/filters_01.png)
+3. In the list, find the category you want to edit and select the three dot menu next to it.
+4. Select **Edit category** or **Delete category**.
+
+    ![Screenshot showing the edit and delete buttons for categories](/images/organizing/edit-delete-category.png)

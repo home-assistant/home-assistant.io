@@ -9,13 +9,17 @@ ha_domain: russound_rio
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `russound_rio` platform allows you to control Russound devices that make use of the RIO protocol.
+The `russound_rio` {% term integration %} allows you to control Russound devices that make use of the RIO protocol.
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information is supported if the selected source reports it.
 
-To add a device to your installation, add the following to your `configuration.yaml` file:
+To add a device to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

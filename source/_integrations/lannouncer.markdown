@@ -9,11 +9,15 @@ ha_domain: lannouncer
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `lannouncer` notification platform allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
+The `lannouncer` notification {% term integration %} allows you to play spoken messages (TTS) or sounds on an Android device running [Lannouncer](https://play.google.com/store/apps/details?id=com.keybounce.lannouncer&hl=en_US). This can be useful when you have a wall mounted Android tablet, or an Android device that is permanently powered and turned on and want to use that to play notifications.
 
-To enable Lannouncer notifications in your installation, add the following to your `configuration.yaml` file:
+To enable Lannouncer notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,8 +86,8 @@ You can also request to play a configured additional soundfiles (`FILE1`, `FILE2
 }
 ```
 
-<div class='note info'>
+{% note %}
 The free version only supports one additional soundfile.
-</div>
+{% endnote %}
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).

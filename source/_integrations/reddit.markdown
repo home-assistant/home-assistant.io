@@ -9,6 +9,9 @@ ha_domain: reddit
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor your favorite subreddits.
@@ -17,13 +20,14 @@ The Reddit sensor integrates data from [Reddit](https://reddit.com/) to monitor 
 
 To set up this sensor, you will need to generate a `client_id` and `client_secret` for the user account you will use to connect. Follow the first steps in [this Wiki page](https://github.com/reddit-archive/reddit/wiki/OAuth2-Quick-Start-Example).
 
-<div class='note'>
+{% important %}
 This integration does not support Reddit's two-factor authentication. If you use two-factor authentication for your Reddit account, create a separate Reddit account without two-factor authentication for use with Home Assistant.
-</div>
+{% endimportant %}
 
 ## Configuration
 
-To enable this platform, add the following to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

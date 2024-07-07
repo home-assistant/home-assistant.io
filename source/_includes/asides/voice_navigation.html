@@ -2,7 +2,7 @@
   {% assign elements = site.dashboards | sort_natural: 'title' %}
 
   <div class="section">
-    <h1 class="title delta">Devices</h1>
+    <h1 class="title epsilon"><iconify-icon icon="mdi:devices"></iconify-icon> Devices</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /voice_control/android/ Assist for Android %}</li>
       <li>{% active_link /voice_control/apple/ Assist for Apple %}</li>
@@ -11,7 +11,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">{% active_link /voice_control/ Voice assistants %}</h1>
+    <h1 class="title epsilon">{% icon "mdi:comment-processing-outline" %} {% active_link /voice_control/ Voice assistants %}</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /voice_control/voice_remote_local_assistant/ Configuring a local assistant %}</li>
       <li>{% active_link /voice_control/voice_remote_cloud_assistant/ Configuring a cloud assistant %}</li>
@@ -22,12 +22,12 @@
       <li>{% active_link /voice_control/custom_sentences/ Custom sentences %}</li>
       <li>{% active_link /voice_control/aliases/ Using aliases %}</li>
       <li>{% active_link /voice_control/using_tts_in_automation/ Using Piper TTS in automations %}</li>
-      <li>{% active_link /voice_control/assist_create_open_ai_personality/ Creating a personality with OpenAI %}</li>
+      <li>{% active_link /voice_control/assist_create_open_ai_personality/ Creating a personality with AI %}</li>
     </ul>
   </div>
 
   <div class="section">
-    <h1 class="title delta">Projects</h1>
+    <h1 class="title epsilon">{% icon "mdi:checkbox-marked" %} Projects</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /voice_control/s3_box_voice_assistant/ Tutorial: ESP32-S3-BOX voice assistant %}</li>
       <li>{% active_link /voice_control/s3-box-customize/ Tutorial: Customize the S3-BOX %}</li>
@@ -38,7 +38,7 @@
     </ul>
   </div>
   <div class="section">
-    <h1 class="title delta">Troubleshooting</h1>
+    <h1 class="title epsilon">{% icon "mdi:account-help" %} Troubleshooting</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /voice_control/troubleshooting/ Troubleshooting Assist %}</li>
       <li>{% active_link /voice_control/troubleshooting_the_s3_box/ Troubleshooting the ESP32-S3-BOX %}</li>

@@ -17,7 +17,7 @@ This can simplify the GUI and make it easier to write automations.
 
 ## Configuration
 
-To enable Template Switches in your installation, add the following to your `configuration.yaml` file:
+To enable Template Switches in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

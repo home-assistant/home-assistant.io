@@ -42,9 +42,9 @@ There is support for the following platform types within Home Assistant:
 - **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% important %}
 Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
-</div>
+{% endimportant %}
 
 ## Username
 
@@ -52,22 +52,9 @@ The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the
 
 ## Services
 
-Currently supported services are Platform specific:
+Available {% term services %}: `set_guest_wifi_password`
 
-- `fritz.cleanup`
-
-### Platform services
-
-#### Service `fritz.cleanup`
-
-Remove all stale devices from Home Assistant.
-A device is identified as stale when it's still present on Home Assistant but not on the FRITZ!Box.
-
-| Service data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | Only act on a specific  router                                                                                 |
-
-#### Service `fritz.set_guest_wifi_password`
+### Service `set_guest_wifi_password`
 
 Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.

@@ -21,11 +21,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensors)
 - [Notifications](#notifications)
 
-<div class='note'>
-
+{% note %}
 The free tier is [limited](https://docs.pushbullet.com/#push-limit) to 500 pushes per month.
-
-</div>
+{% endnote %}
 
 ## Prerequisites
 
@@ -60,12 +58,12 @@ The Pushbullet notification platform sends messages to [Pushbullet](https://www.
 
 Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
-Type | Prefix | Suffix | Example
----- | ------ | ------ | -------
-Device | `device/` | Device nickname | `device/iphone`
-Channel | `channel/` | Channel tag | `channel/my_home`
-Email | `email/` | Contact's email address | `email/email@example.com`
-SMS | `sms/` | Contact's phone number | `sms/0612345678`
+| Type    | Prefix     | Suffix                  | Example                   |
+| ------- | ---------- | ----------------------- | ------------------------- |
+| Device  | `device/`  | Device nickname         | `device/iphone`           |
+| Channel | `channel/` | Channel tag             | `channel/my_home`         |
+| Email   | `email/`   | Contact's email address | `email/email@example.com` |
+| SMS     | `sms/`     | Contact's phone number  | `sms/0612345678`          |
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
@@ -139,8 +137,6 @@ action:
 
 - `target`: Pushbullet device to receive the notification.
 
-<div class='note'>
-
-Don't forget to [allowlist external directories](/docs/configuration/basic/), so Home Assistant has access to them.
-
-</div>
+{% important %}
+Don't forget to [allowlist external directories](/integrations/homeassistant/#allowlist_external_dirs), so Home Assistant has access to them.
+{% endimportant %}

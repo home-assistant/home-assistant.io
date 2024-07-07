@@ -38,6 +38,8 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+
 ## Alarm control panel
 
 The Verisure alarm control panel platform allows you to control your [Verisure](https://www.verisure.com/) Alarms.
@@ -73,6 +75,10 @@ automation:
 | enable_autolock | Enables autolock function for a specific lock. |
 | smartcam_capture | Capture a new image from a specific smartcam. |
 
+## Binary sensor
+
+- Ethernet status
+
 ## Lock
 
 | method state attribute | Description |
@@ -89,5 +95,9 @@ Some users have reported that this integration currently doesn't work in the fol
 
 - France
 - Ireland
-- Italy 
+- Italy
 - Sweden
+
+## Troubleshooting
+
+If you get an error message stating something like *"The code for lock.XXX doesn't match pattern `^\d{0}$`."*, make sure the number of digits for your code matches the number defined in the [configuration options](#options).

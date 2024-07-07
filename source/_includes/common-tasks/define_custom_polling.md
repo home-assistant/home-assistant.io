@@ -5,7 +5,7 @@ If you want to define a specific interval at which your device is being polled f
 To add the automation:
 
 1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}, and select your integration.
-2. On the integration entry, select the three dots.
+2. On the integration entry, select the {% icon "mdi:dots-vertical" %}.
    - Then, select **System options** and toggle the button to disable polling.
    ![Disable polling for updates](/images/screenshots/custom_polling_01.png)
 3. To define your custom polling interval, create an automation.

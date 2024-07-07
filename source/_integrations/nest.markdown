@@ -36,17 +36,13 @@ Cameras and doorbells use [Automation and device triggers](#automation-and-devic
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
-<div class='note'>
-
+{% caution %}
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+{% endcaution %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 The Google Nest integration uses a Cloud Pub/Sub subscription with a 15-minute retention period by default. The Google Cloud Pub/Sub billing changes, effective June 30, 2024, do not apply. The billing changes only apply to subscriptions with a 24-hour retention period. See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions if you previously created one manually.
-
-</div>
+{% endnote %}
 
 <lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
@@ -165,9 +161,9 @@ Now that you have authentication configured, you will create a Nest Device Acces
 2. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
     ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
 
-    <div class='note'>
-    It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
-    </div>
+{% note %}
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+{% endnote %}
 
 3. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
 
@@ -228,13 +224,13 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
+{% endnote %}
 
 ## Sensor
 
@@ -245,16 +241,16 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
-<div class='note'>
+{% endnote %}
+{% note %}
 Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
-</div>
+{% endnote %}
 
 
 ## Camera
@@ -264,14 +260,14 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to see and display your camera’s livestream*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
 
 All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
@@ -297,7 +293,7 @@ The Nest integration provides [device triggers](/docs/automation/trigger/#device
 
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-{% details "Example Device Trigger / Event payload %}
+{% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
 
@@ -322,14 +318,14 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 
 Continue reading below to *Media Source Attachments* to see how to use media with notification actions.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
 - *Other permissions and notification settings in the Nest or Google Home apps*.
-</div>
+{% endnote %}
 
 ### Google Home App Notification Settings
 
@@ -351,12 +347,12 @@ If you are still not getting notifications, you can read this [troubleshooting g
 {% details "Google Home App Notification Settings" %}
 
 
-| Google Home App Setting  | Notes                                                                                 |
-| ------------------------ | :-----------------------------------------------------------------------------------: |
-| Notifications: Push      | Required for any detection event to be published                                      |
-| Notifications: Away-Only | Events will only be published when a user is detected as away from home                 |
-| Seen: Motion             | Required for `Motion` events to be published                                          |
-| Seen: Person             | Required for `Person` events to be published                                          |
+| Google Home App Setting  |                                  Notes                                  |
+| ------------------------ | :---------------------------------------------------------------------: |
+| Notifications: Push      |            Required for any detection event to be published             |
+| Notifications: Away-Only | Events will only be published when a user is detected as away from home |
+| Seen: Motion             |              Required for `Motion` events to be published               |
+| Seen: Person             |              Required for `Person` events to be published               |
 
 ![Screenshot of Google Home App Notification Settings](/images/integrations/nest/google_home_notification_settings.png)
 
@@ -378,7 +374,7 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
-{% details "Example Action: Clip Preview (mp4) attachment for iOS %}
+{% details "Example Action: Clip Preview (mp4) attachment for iOS" %}
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
@@ -401,7 +397,7 @@ mode: single
 
 {% enddetails %}
 
-{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS %}
+{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
 
@@ -421,7 +417,7 @@ data:
 
 {% enddetails %}
 
-{% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
+{% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
@@ -441,7 +437,7 @@ data:
 
 {% enddetails %}
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
@@ -449,13 +445,13 @@ This feature is enabled by the following permissions:
 - *Based on the events you've selected to share from this device, allow Home Assistant to access camera snapshots*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
 ## Deprecated App Auth Credentials
 
 To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
 
-{% details "Reconfigure the integration %}
+{% details "Reconfigure the integration" %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
 2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
@@ -586,13 +582,13 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - *Error: invalid_client no application name* means the [OAuth Consent Screen](https://console.developers.google.com/apis/credentials/consent) has not been fully configured for the project. Enter the required fields (App Name, Support Email, Developer Email) and leave everything else as default.
 
-- *Subscriber error* means that `configuration.yaml` has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
+- *Subscriber error* means that {% term "`configuration.yaml`" %} has an incorrect `subscriber_id` or the subscription is misconfigured. It is recommended to delete this from the configuration, then delete and re-add the integration to let it create a subscription for you.
 
 - *Not receiving updates* typically means a problem with the subscriber configuration. Make sure to check the logs for any error messages. Changes for things like sensors or thermostat temperature set points should be instantly published to a topic and received by the Home Assistant subscriber when everything is configured correctly.
 
 - You can see stats about your subscriber in the [Cloud Console](https://console.cloud.google.com/cloudpubsub/subscription/list) which includes counts of messages published by your devices, and how many have been acknowledged by your Home Assistant subscriber. You can also `View Messages` to see examples of published. Many old unacknowledged messages indicate the subscriber is not receiving the messages and working properly or not connected at all.
 
-- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your `configuration.yaml` depending on where you are having trouble:
+- To aid in diagnosing subscriber problems or camera stream issues it may help to turn up verbose logging by adding some or all of these to your {% term "`configuration.yaml`" %} depending on where you are having trouble:
 
 ```yaml
 

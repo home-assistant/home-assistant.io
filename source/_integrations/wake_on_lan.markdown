@@ -12,6 +12,9 @@ ha_platforms:
 ha_codeowners:
   - '@ntilley905'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Wake on LAN** {% term integration %} enables the ability to send _magic packets_ to [Wake on LAN](https://en.wikipedia.org/wiki/Wake-on-LAN) capable devices to turn them on.
@@ -22,7 +25,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use this {% term integration %} in your installation, add the following to your `configuration.yaml` file:
+To use this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -37,11 +41,11 @@ Available services: `send_magic_packet`.
 
 Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
-| Service data attribute    | Optional | Description                                             |
-|---------------------------|----------|---------------------------------------------------------|
-| `mac`                     |       no | MAC address of the device to wake up.                   |
-| `broadcast_address`       |      yes | Optional broadcast IP where to send the magic packet.   |
-| `broadcast_port`          |      yes | Optional port where to send the magic packet.           |
+| Service data attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `mac`                  | no       | MAC address of the device to wake up.                 |
+| `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
+| `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
 
 Sample service data:
 
@@ -51,10 +55,10 @@ Sample service data:
 }
 ```
 
-<div class='note'>
+{% note %}
 This usually only works if the target device is connected to the same network. Routing the magic packet to a different subnet requires a special configuration on your router or may not be possible.
 The service to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
-</div>
+{% endnote %}
 
 ## Switch
 
@@ -66,7 +70,7 @@ The WOL switch can only turn on your computer and monitor the state. There is no
 
 It's required that the binary `ping` is in your `$PATH`.
 
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -115,7 +119,7 @@ from Home Assistant running on another Linux computer (the **server**).
 
 1. On the **server**, log in as the user account Home Assistant is running under. In this example it's `hass`.
 2. On the **server**, create SSH keys by running `ssh-keygen`. Just press enter on all questions.
-3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same user name as on the server. If you do, you can leave out `hass@` in the SSH commands below.
+3. On the **target**, create a new account that Home Assistant can ssh into: `sudo adduser hass`. Just press enter on all questions except password. It's recommended using the same username as on the server. If you do, you can leave out `hass@` in the SSH commands below.
 4. On the **server**, transfer your public SSH key by `ssh-copy-id hass@TARGET` where TARGET is your target machine's name or IP address. Enter the password you created in step 3.
 5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
 6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.

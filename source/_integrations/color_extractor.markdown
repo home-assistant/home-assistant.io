@@ -22,17 +22,15 @@ Because `color_extractor.turn_on` will then call `light.turn_on`, you can pass a
 
 Passing the key `color_extract_url` to the {% term service %} call will download the linked image and extract the predominant color from it. Passing the key `color_extract_path` to the service call will process the image file from local storage instead. `color_extract_url` and `color_extract_path` are exclusive and cannot be used together.
 
-|Key                  | Example                               | Description                                                                   |
-|---------------------|---------------------------------------|-------------------------------------------------------------------------------|
-|`color_extract_url`  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process|
-|`color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                |
-|`entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                  |
+| Key                  | Example                               | Description                                                                    |
+| -------------------- | ------------------------------------- | ------------------------------------------------------------------------------ |
+| `color_extract_url`  | `https://example.com/images/logo.png` | The full URL (including schema, `http://`, `https://`) of the image to process |
+| `color_extract_path` | `/tmp/album.png`                      | The full path to the image file on local storage we'll process                 |
+| `entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                   |
 
-<div class="note">
-  
-  Please ensure any [external URLs](/docs/configuration/basic/#allowlist_external_urls) or [external files](/docs/configuration/basic/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
-  
-</div>
+{% important %}
+Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/docs/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
+{% endimportant %}
 
 ### URL Service Call
 

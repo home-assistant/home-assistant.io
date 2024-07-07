@@ -9,13 +9,17 @@ ha_domain: london_air
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `london_air` integration [queries](https://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json) the London air quality [data feed](https://www.londonair.org.uk/LondonAir/API/) provided by Kings College London. A single sensor will be added for each `location` ([local authority district or borough](https://en.wikipedia.org/wiki/List_of_London_boroughs)) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.
+The `london_air` {% term integration %} [queries](https://api.erg.kcl.ac.uk/AirQuality/Hourly/MonitoringIndex/GroupName=London/Json) the London air quality [data feed](https://www.londonair.org.uk/LondonAir/API/) provided by Kings College London. A single sensor will be added for each `location` ([local authority district or borough](https://en.wikipedia.org/wiki/List_of_London_boroughs)) specified in the configuration file. The state of each sensor is the overall air quality in that borough. Note that only 28 of the 32 boroughs have data available.
 
 Boroughs can have multiple monitoring sites at different geographical positions within the borough, and each of those sites can monitor up to six different kinds of pollutant. The pollutants are described [here](https://api.erg.kcl.ac.uk/AirQuality/Information/Species/Json) and are Carbon Monoxide ([CO](https://www.londonair.org.uk/LondonAir/guide/WhatIsCO.aspx)), Nitrogen Dioxide ([NO2](https://www.londonair.org.uk/LondonAir/guide/WhatIsNO2.aspx)), Ozone ([O3](https://www.londonair.org.uk/LondonAir/guide/WhatIsO3.aspx)), Sulfur Dioxide ([SO2](https://www.londonair.org.uk/LondonAir/guide/WhatIsSO2.aspx)), PM2.5 & PM10 [particulates](https://www.londonair.org.uk/LondonAir/guide/WhatIsPM.aspx). The `latitude` and `longitude` of each site is accessible through a `data` attribute of the sensor, as are details about the pollutants monitored at that site. The `sites` attribute of a sensor displays how many monitoring sites that sensor covers. The `updated` attribute of a sensor states when the data was last published. Nominally data is published hourly, but in my experience this can vary. To limit the number of requests made by the sensor, a single API request is made every 30 minutes.
 
-To add sensors to Home Assistant for all possible areas/boroughs add the following to your `configuration.yaml` file:
+To add sensors to Home Assistant for all possible areas/boroughs add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for a single sensor

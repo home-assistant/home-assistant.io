@@ -46,21 +46,19 @@ cast_downstairs_on_kitchen:
       service: cast.show_lovelace_view
 ```
 
-<div class='note'>
-
-Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/docs/configuration/basic).
-
-</div>
+{% important %}
+Home Assistant Cast requires your Home Assistant installation to be accessible via `https://`. If you're using Home Assistant Cloud, you don't need to do anything. Otherwise you must make sure that you have configured the `external_url` in your [configuration](/integrations/homeassistant/#configuration-variables).
+{% endimportant %}
 
 ## Playing media
 
-<div class='note'>
+{% note %}
 
 Chromecasts generally ignore DNS servers from DHCP and will instead use Google's DNS servers, 8.8.8.8 and 8.8.4.4. This means media URLs must either be specifying the IP-address of the server directly, e.g. `http://192.168.1.1:8123/movie.mp4`, or be publicly resolvable, e.g. `http://homeassistant.internal.mydomain.com:8123/movie.mp4` where `homeassistant.internal.mydomain.com` resolves to `192.168.1.1`. A hostname which can't be publicly resolved, e.g. `http://homeassistant.local:8123/movie.mp4` will fail to play.
 
-This is important when casting TTS or local media sources; the cast integration will cast such media from the `external_url` if [configured](/docs/configuration/basic), otherwise from the Home Assistant Cloud if configured, otherwise from the [`internal_url`](/docs/configuration/basic). Note that the Home Assistant Cloud will not be used if an `external_url` is configured.
+This is important when casting TTS or local media sources; the cast integration will cast such media from the `external_url` if [configured](/integrations/homeassistant/#editing-the-general-settings-in-yaml), otherwise from the Home Assistant Cloud if configured, otherwise from the [`internal_url`](/integrations/homeassistant/#editing-the-general-settings-in-yaml). Note that the Home Assistant Cloud will not be used if an `external_url` is configured.
 
-</div>
+{% endnote %}
 
 ### Using the built in media player app (Default Media Receiver)
 
@@ -138,10 +136,10 @@ This app doesn't retrieve its own metadata, so if you want the cast interface or
 
 Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing video. E.g., [this episode](https://www.bbc.co.uk/iplayer/episode/b09w7fd9/bitz-bob-series-1-1-castle-makeover) shows:
 
-|     |     |
-| --- | --- |
+|          |                                 |
+| -------- | ------------------------------- |
 | 2908kbps | dash (mf_cloudfront_dash_https) |
-| b09w70r2 | 960x540 |
+| b09w70r2 | 960x540                         |
 
 With b09w70r2 being the `media_id`
 
@@ -343,10 +341,10 @@ To cast media directly from a configured Plex server, set the fields [as documen
 
 Note: Media ID is NOT the 8 digit alphanumeric in the URL, it can be found by right-clicking the playing audio clip. E.g., [this episode](https://www.bbc.co.uk/sounds/play/p009ycqy) shows:
 
-|     |     |
-| --- | --- |
-| 128bps | dash (mf_cloudfront_nonbidi_dash_https) |
-| p009ycqz |  |
+|          |                                         |
+| -------- | --------------------------------------- |
+| 128bps   | dash (mf_cloudfront_nonbidi_dash_https) |
+| p009ycqz |                                         |
 
 With p009ycqz being the `media_id`
 

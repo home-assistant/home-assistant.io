@@ -11,15 +11,15 @@ ha_integration_type: integration
 
 This integration allows you to write Python scripts that are exposed as services in Home Assistant. Each Python file created in the `<config>/python_scripts/` folder will be exposed as a service. The content is not cached so you can easily develop: edit file, save changes, call service. The scripts are run in a sandboxed environment. The following variables are available in the sandbox:
 
-| Name | Description |
-| ---- | ----------- |
-| `hass` | The Home Assistant object. Access is only allowed to call services, set/remove states and fire events. [API reference][hass-api]
-| `data` | The data passed to the Python Script service call.
-| `logger` | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]
-| `time` | The stdlib `time` available as limited access.
-| `datetime` | The stdlib `datetime` available as limited access.
-| `dt_util` | The ` homeassistant.util.dt` module.
-| `output` | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+| Name       | Description                                                                                                                                |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `hass`     | The Home Assistant object. Access is only allowed to call services, set/remove states and fire events. [API reference][hass-api]           |
+| `data`     | The data passed to the Python Script service call.                                                                                         |
+| `logger`   | A logger to allow you to log messages: `logger.info()`, `logger.warning()`, `logger.error()`. [API reference][logger-api]                  |
+| `time`     | The stdlib `time` available as limited access.                                                                                             |
+| `datetime` | The stdlib `datetime` available as limited access.                                                                                         |
+| `dt_util`  | The ` homeassistant.util.dt` module.                                                                                                       |
+| `output`   | An empty dictionary. Add items to return data as [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data). |
 
 Other imports like `min`, `max` are available as builtins. See the [python_script](https://github.com/home-assistant/core/blob/dev/homeassistant/components/python_script/__init__.py) source code for up-to-date information on the available objects inside the script.
   
@@ -27,11 +27,9 @@ Other imports like `min`, `max` are available as builtins. See the [python_scrip
 [hass-api]: https://developers.home-assistant.io/docs/dev_101_hass/
 [logger-api]: https://docs.python.org/3.7/library/logging.html#logger-objects
 
-<div class='note'>
-
+{% note %}
 It is not possible to use Python imports with this integration. If you want to do more advanced scripts, you can take a look at [AppDaemon](https://appdaemon.readthedocs.io/en/latest/) or [pyscript](https://github.com/custom-components/pyscript)
-
-</div>
+{% endnote %}
 
 ## Writing your first script, reading input and logging the activity
 
@@ -45,7 +43,7 @@ It is created as a first step, to help with:
 
 Start by enabling the Python Scripts integration and create the first script.
 
-- Add to `configuration.yaml`: `python_script:`
+- Add to {% term "`configuration.yaml`" %}: `python_script:`
 - Create the folder `<config>/python_scripts`
 - Create a file `<config>/python_scripts/hello_world.py` in the folder and give it this content:
 
@@ -65,18 +63,18 @@ data:
   name: "Input-Text"
 ```
 
-<div class='note'>
+{% tip %}
 
 Running this script show absolutely no output on the screen, but it logs with level `info`. You must have the [Logger](/integrations/logger/) enabled at least for level `info`.
 
- Your `configuration.yaml` should include something like this.
+ Your {% term "`configuration.yaml`" %} should include something like this.
  
 ```yaml
 logger:
   default: info
 ```
   
-</div>
+{% endtip %}
 
 ## Triggering events
 
@@ -129,7 +127,7 @@ The above `python_script` can be called using the following YAML as an input.
     rgb_color: [255, 0, 0]
 ```
 
-Services can also respond with data. Retrieving this data in your Python script can be done by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. This is shown in the example below, in this case, retrieving the weather forecast and putting it into a variable:
+Services can also respond with data. Retrieve this data in your Python script by setting the `blocking` and `return_response` arguments of the `hass.services.call` function to `True`. The example below retrieves the weather forecast and assigns it to the `current_forecast` variable:
 
 ```python
 # get_forecast.py

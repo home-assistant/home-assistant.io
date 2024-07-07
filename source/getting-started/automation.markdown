@@ -3,7 +3,9 @@ title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
 ---
 
-Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}. We're going to create a simple automation to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
+Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}.
+
+We're going to create a simple automation to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
 
 ## Automatically turn on the lights before sunset
 

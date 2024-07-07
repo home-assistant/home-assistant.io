@@ -70,8 +70,44 @@
 
   {% if page.ha_domain %}
   <div class='section'>
-    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ domain }}" target="_blank"><i class="icon-github"></i> View source on GitHub</a><br />
-    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ domain }}%22" target="_blank"><i class="icon-bug"></i> View known issues</a>
+    <a href="https://github.com/home-assistant/core/tree/dev/homeassistant/components/{{ domain }}" target="_blank">{% icon "simple-icons:github" %} View source on GitHub</a><br />
+    <a href="https://github.com/home-assistant/core/issues?q=is%3Aissue+is%3Aopen+label%3A%22integration%3A+{{ domain }}%22" target="_blank">{% icon "mdi:bug" %} View known issues</a>
   </div>
   {%- endif -%}
 </section>
+
+<section class="aside-module grid__item one-whole lap-one-half">
+  <div class='section'>
+    <h1 class="title epsilon">{% icon "mdi:person-heart" %} Integration owners</h1>
+    {% if page.ha_codeowners %}
+        {% assign ha_project = false %}
+        {% for codeowner in page.ha_codeowners %}
+            {% if codeowner contains "@home-assistant/" %}
+                {% assign ha_project = true %}
+            {% endif %}
+        {% endfor %}
+        
+          {% if ha_project %}
+          <div class="section">
+            This integration is being maintained by the Home Assistant project.
+          </div>
+        {% else %}
+          <div class="section">
+            We are incredibly grateful to the following contributors who currently maintain this integration:<br />
+          </div>
+          <div class="section">
+            {%- for codeowner in page.ha_codeowners -%}
+            {%- assign clean_codeowner = codeowner | replace: "@", "" -%}
+            <a href="https://github.com/{{ clean_codeowner }}" target="_blank"><img class="codeowner-avatar" src="https://avatars.githubusercontent.com/{{ codeowner | replace: "@", "" }}?size=96" alt="{{ codeowner }}"/> {{ codeowner }}</a><br />
+            {%- endfor -%}
+          </div>
+        {% endif %}
+    {% else %}
+      <div class="section">
+        This integration is community maintained.<br />
+        If you are a developer and would like to help, feel free to contribute!
+      </div>
+    {% endif %}
+  </div>
+</section>
+

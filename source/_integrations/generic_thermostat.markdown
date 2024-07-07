@@ -1,17 +1,30 @@
 ---
-title: Generic thermostat
+title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
 ha_category:
   - Climate
+  - Helper
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: generic_thermostat
 ha_platforms:
   - climate
-ha_integration_type: integration
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_config_flow: true
 ---
 
-The `generic_thermostat` climate platform is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
+The `generic_thermostat` climate {% term integration %} is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
+
+{% include integrations/config_flow.md %}
+
+## YAML configuration
+
+Alternatively, this integration can be configured and set up manually via YAML
+as well. To enable the {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -123,7 +136,7 @@ Currently the `generic_thermostat` climate platform supports 'heat', 'cool' and 
 
 Please note that when changing the preset mode to away, you will force a target temperature change as well that will get restored once the preset mode is set to none again.
 
-## Full configuration example
+## Full YAML configuration example
 
 ```yaml
 climate:

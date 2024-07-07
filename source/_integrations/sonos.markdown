@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: sonos
 ha_codeowners:
   - '@jjlawren'
+  - '@peterager'
 ha_ssdp: true
 ha_platforms:
   - binary_sensor
@@ -50,11 +51,9 @@ Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` device
 
 For each speaker with a battery, a `sensor` showing the current battery charge level and a `binary_sensor` showing the power state of the speaker are created. The `binary_sensor` reports if the speaker is currently powered by an external source and its `power_source` attribute shows which specific source is providing the current power. This source attribute can be one of `BATTERY`, `SONOS_CHARGING_RING` if using wireless charging, or `USB_POWER` if charging via USB cable. Note that the Roam will report `SONOS_CHARGING_RING` even when using a generic Qi charger.
 
-<div class='note'>
-
+{% note %}
 The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use). 
-
-</div>
+{% endnote %}
 
 ### Alarm support notes
 
@@ -70,7 +69,7 @@ The favorites sensor provides the names and `media_content_id` values for each o
 
 When calling the `media_player.play_media` service, the `media_content_type` must be set to "favorite_item_id" and the `media_content_id` must be set to just the key portion of the favorite item. 
 
-Example service call:
+Example service call using the item id:
 
 ```yaml
 service: media_player.play_media
@@ -79,6 +78,17 @@ target:
 data:
   media_content_type: "favorite_item_id"
   media_content_id: "FV:2/31"
+```
+
+Example using the Sonos playlist name:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos_speaker1
+data:
+  media_content_type: playlist
+  media_content_id: stevie_wonder
 ```
 
 Example templates:
@@ -103,12 +113,9 @@ Example templates:
 
 {% endraw %}
 
-<div class='note'>
-
+{% tip %}
 The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
-  
-</div>
-
+{% endtip %}
 
 ## Playing media
 
@@ -118,7 +125,7 @@ Music services which require an account (e.g., Spotify) must first be configured
 
 Playing TTS (text-to-speech) or audio files as alerts (e.g., a doorbell or alarm) is possible by setting the `announce` argument to `true`. Using `announce` will play the provided media URL as an overlay, gently lowering the current music volume and automatically restoring to the original level when finished. An optional `volume` argument can also be provided in the `extra` dictionary to play the alert at a specific volume level. Note that older Sonos hardware or legacy firmware versions ("S1") may not fully support these features. Additionally, see [Network Requirements](#network-requirements) for use in restricted networking environments.
 
-An optional `enqueue` argument can be added to the service call. If `true`, the media will be appended to the end of the playback queue. If not provided or `false` then the queue will be replaced.
+An optional `enqueue` argument can be added to the service call. If `replace` or not provided then the queue will be replaced and the item will be replaced. If `add` the item will be appended to the queue. If `next` the item will be added into the queue to play next. If `play`, the item will be added into the queue and played immediately.
 
 ### Examples:
 
@@ -185,6 +192,81 @@ data:
     plex://{ "library_name": "Music", "artist_name": "M83", "album_name": "Hurry Up, We're Dreaming" }
 ```
 
+#### Sonos Music Library
+
+If you have configured a Sonos music library; you can play music from it.
+
+Play all albums by the Beatles.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: album
+  media_content_id: A:ALBUMARTIST/Beatles
+```
+
+Play a specific album:
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos
+data:
+  media_content_type: album
+  media_content_id: A:ALBUM/The Wall
+  enqueue: replace
+```
+
+Or add a specific album by a specific artist to the queue.  This is useful in case you have multiple albums with the same name.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.sonos      
+data:
+  media_content_type: album
+  media_content_id: A:ALBUMARTIST/Neil Young/Greatest Hits
+  enqueue: add
+```
+
+Play all albums by a composer.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: composer
+  media_content_id: A:COMPOSER/Carlos Santana
+  enqueue: play
+```
+
+Play all albums by a genre.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: genre
+  media_content_id: "A:GENRE/Classic%20Rock/"
+  enqueue: play
+```
+
+Play an imported playlist by using its title.
+
+```yaml
+service: media_player.play_media
+target:
+  entity_id: media_player.porch
+data:
+  media_content_type: playlist
+  media_content_id: S:/MyPlaylist
+  enqueue: play
+```
+
 ## Services
 
 The Sonos integration makes various custom services available in addition to the [standard media player services](/integrations/media_player/#services).
@@ -193,11 +275,9 @@ The Sonos integration makes various custom services available in addition to the
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
-<div class='note'>
-
+{% note %}
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
-
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -208,15 +288,13 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 Restore a previously taken snapshot of one or more speakers.
 
-<div class='note'>
-
+{% note %}
 The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
+{% endnote %}
 
-</div>
-
-<div class='note'>
+{% note %}
 A cloud queue cannot be restarted. This includes queues started from within Spotify and queues controlled by Amazon Alexa.
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
