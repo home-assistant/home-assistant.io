@@ -678,6 +678,22 @@ Use of the `for` option will not survive Home Assistant restart or the reload of
 If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 {% endimportant %}
 
+### Render on any template update
+
+Template triggers can optionally trigger on each template change.  To achieve this result, set the `render` option to `true`.
+
+{% raw %}
+
+```yaml
+automation:
+  trigger:
+    - platform: template
+      value_template: "{{ label_entities('living_room') | select('is_state', 'on') | list }}"
+      render: true
+```
+
+{% endraw %}
+
 ## Time trigger
 
 The time trigger is configured to fire once a day at a specific time, or at a specific time on a specific date. There are three allowed formats:

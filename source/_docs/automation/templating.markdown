@@ -136,6 +136,7 @@ These are the properties available for a [Template trigger](/docs/automation/tri
 | `trigger.from_state` | Previous [state object] of entity that caused change.
 | `trigger.to_state` | New [state object] of entity that caused template to change.
 | `trigger.for` | Timedelta object how long state has been to state, if any.
+| `trigger.value` | Rendered value from the `value_template` template.
 
 ### Time
 
