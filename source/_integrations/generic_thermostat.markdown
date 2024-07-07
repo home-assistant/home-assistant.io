@@ -20,6 +20,10 @@ The `generic_thermostat` climate {% term integration %} is a thermostat implemen
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+Configuration via UI is simplified, to use all features see the [YAML configuration section](#yaml-configuration).
+{% endnote %}
+
 ## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
