@@ -101,7 +101,7 @@ If you have an August doorbell or lock that has a built-in doorbell, once you ha
 - Doorbell
 - Motion
 
-Not all models include motion sensors and support for locks with built-in doorbells, which is limited to the Yale Doorman model and may not be available in your country.
+Not all models include motion sensors and support for locks with built-in doorbells is limited to Yale Doorman models type 7 and 10.
 
 ## Camera
 
