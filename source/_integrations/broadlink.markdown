@@ -22,6 +22,7 @@ ha_platforms:
   - remote
   - sensor
   - switch
+  - time
 ha_dhcp: true
 ha_integration_type: integration
 related:
@@ -58,6 +59,7 @@ The {% term entities %} are divided into four subdomains:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+- [Time](#time)
 
 ## Climate
 
@@ -348,6 +350,10 @@ The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These e
 ## Light
 
 The `light` {% term entities %} allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
+
+## Time
+
+The `time` {% term entities %} allow you to control the time of Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Switch
 
