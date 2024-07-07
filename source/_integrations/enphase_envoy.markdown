@@ -75,6 +75,8 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 
 The load shedding and on/off-grid functions marked (*) are only available with the Enpower/IQ System Controller installed. In battery installations without off-grid functionality, used in many EU countries, these off-grid related sensors and switches are not available.
 
+In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
+
 In multi-phase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase. As if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the 2 phases the net result is zero. The Envoy multiphase consumption CTs however, will report the amounts on both phases resulting too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
 
 ## Envoy authentication requirements
