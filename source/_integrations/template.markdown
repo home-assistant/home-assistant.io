@@ -61,6 +61,10 @@ Sensor template and binary sensor template can be configured using the user inte
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
 
+{% note %}
+Configuration via UI is simplified, to use all features see the [YAML configuration section](#yaml-configuration).
+{% endnote %}
+
 ## YAML configuration
 
 ### State-based template binary sensors, buttons, images, numbers, selects and sensors
