@@ -52,7 +52,7 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
   - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
   - Count of meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
 
-[^1]: For multi-phase systems, the Envoy sums the voltages of the phases. May be valid for split-phase, but for 3-phase systems use the individual phases rather than the summed value.
+[^1]: For multiphase systems, the Envoy sums the voltages of the phases. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
 [^2]: If this value is non-zero, consult the diagnostic report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
 
 ### With Batteries
