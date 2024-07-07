@@ -20,9 +20,11 @@ ha_integration_type: integration
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 There is currently support for the following device types within Home Assistant:
 
-### Player data
+## Player data
 
 allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
@@ -37,21 +39,21 @@ allows you to view and monitor your player data from [Habitica](https://habitica
 - Player's gold pieces
 - Player's class
 
-### To-do lists
+## To-do lists
 
 The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks 
 
 - To-do's
 - Dailies
 
-### Tasks 
+## Tasks 
 
 allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Habits
 - Rewards
 
-{% include integrations/config_flow.md %}
+## API Service 
 
 At runtime you will be able to use API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
