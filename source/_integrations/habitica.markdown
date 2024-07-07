@@ -9,6 +9,7 @@ ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
   - sensor
+  - todo
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
@@ -19,9 +20,13 @@ ha_integration_type: integration
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 There is currently support for the following device types within Home Assistant:
 
-Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+## Player data
+
+Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Player's name
 - Player's health points
@@ -34,16 +39,23 @@ Player data: allows you to view and monitor your player data from [Habitica](htt
 - Player's gold pieces
 - Player's class
 
-Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+## To-do lists
+
+The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
+
+- To-do's
+- Dailies
+
+## Tasks
+
+Allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Habits
-- Daily tasks
-- Todo tasks
 - Rewards
 
-{% include integrations/config_flow.md %}
+## API Service
 
-At runtime you will be able to use API for each respective user by their Habitica's username.
+At runtime, you will be able to use the API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
 
