@@ -400,11 +400,9 @@ Old style groups can calculate group state with entities from the following doma
 - `vacuum`
 - `water_heater`
 
-<div class='note info'>
-
+{% note %}
 Platform domains other than these are not supported to be used with old style groups, nor will other domains be supported in the future.
-
-</div>
+{% endnote %}
 
 When member entities all have a single `on` and `off` state, the group state will be calculated as follows:
 

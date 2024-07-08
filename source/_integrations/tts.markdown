@@ -131,11 +131,9 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
 
 ## Troubleshooting
 
-<div class='note'>
-
+{% important %}
 Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/integrations/homeassistant/#external_url).
-
-</div>
+{% endimportant %}
 
 The following sections describe some of the problems encountered with media devices.
 

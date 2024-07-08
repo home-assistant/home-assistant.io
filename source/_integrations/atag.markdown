@@ -57,10 +57,10 @@ This integration supports the following services (see [Climate](/integrations/cl
   - `away` enable the vacation mode for 1 day or until another preset is activated
   - `boost` enable fireplace mode
 
-<div class='note'>
+{% note %}
 `HVAC mode Auto` (Weather based) should not be confused with `Preset mode Auto` (Scheduled, thermostat mode).
 Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
-</div>
+{% endnote %}
 
 ## Water heater
 

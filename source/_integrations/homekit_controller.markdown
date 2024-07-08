@@ -137,9 +137,9 @@ This section describes how to add it via Home Assistant's preferred {% term Thre
 - **Thread network**: In order to use HomeKit over Thread, you need a working border router.
   - Make sure your Home Assistant device is on the same network (LAN) as the border router.
   - Make sure the {% term Thread %} network you'd like to use is known by Home Assistant and marked as **Preferred network** in the {% term Thread %} configuration.
-  - If you have a Home Assistant Yellow or SkyConnect, you can enable multiprotocol to set up an Open Thread border router and with that a {% term Thread %} network.
-    - Documentation on [enabling multiprotocol on Yellow](https://yellow.home-assistant.io/guides/enable-multiprotocol/)
-    - Documentation on [enabling multiprotocol on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-multiprotocol/)
+  - If you have a Home Assistant Yellow or Connect ZBT-1, you can enable Thread to set up an Open Thread border router and with that a {% term Thread %} network.
+    - Documentation on [enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
+    - Documentation on [enabling Thread on Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/)
 
 #### To add a HomeKit device to a Thread network via Home Assistant
 
@@ -205,11 +205,9 @@ There is currently support for the following device types (also called *domains*
 - Humidifier (HomeKit humidifiers and dehumidifiers)
 - Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
-<div class='note'>
-
-  If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
-
-</div>
+{% note %}
+If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
+{% endnote %}
 
 The integration will enable push updates. Devices that connect through Wi-Fi or Ethernet may fall back to only polling if the connection is unstable.
 

@@ -20,9 +20,6 @@ ha_ssdp: true
 ha_release: 2022.2
 ha_iot_class: Local Push
 ha_config_flow: true
-ha_quality_scale: platinum
-ha_codeowners:
-  - '@bdraco'
 ha_domain: unifiprotect
 ha_platforms:
   - binary_sensor
@@ -58,13 +55,11 @@ UCKP with Firmware v1.x **do NOT run UniFi OS**, you must upgrade to firmware [`
 
 The absolute **minimal** software version is [`v1.20.0`](https://community.ui.com/releases/UniFi-Protect-Application-1-20-0/d43c0905-3fb4-456b-a7ca-73aa830cb011) for UniFi Protect. If you have an older version, you will get errors trying to set up the integration. However, the general advice is the latest 2 minor versions of UniFi Protect and hardware supported by those are supported.
 
-<div class='note warning'>
-
+{% important %}
 **Early Access and Release Candidate versions are not supported by Home Assistant.**
 
 Using Early Access Release Candidate versions of UniFi Protect or UniFi OS will likely cause your UniFi Protect {% term integration %} to break unexpectedly. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
-
-</div>
+{% endimportant %}
 
 ### Local user
 
@@ -102,26 +97,22 @@ check that this is done. To check and enable the feature:
 All known UniFi Protect devices should be supported. Each UniFi Protect device will get a variety of entities added for
 each of the different {% term entity %} platforms.
 
-<div class='note'>
-
+{% note %}
 **Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
 write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
 and in many cases, get a read-only sensor instead of an editable switch/select/number {% term entity %}.
-
-</div>
+{% endnote %}
 
 ### UniFi Protect cameras
 
-<div class='note'>
-
+{% note %}
 **Smart Detections**: The following cameras have Smart Detections:
 
 - All "AI" series cameras. This includes the [AI 360](https://store.ui.com/collections/unifi-protect/products/unifi-protect-ai-360) and the [AI Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-ai-bullet).
 - All "G4" series cameras. This includes the [G4 Doorbell](https://store.ui.com/collections/unifi-protect/products/uvc-g4-doorbell), [G4 Bullet](https://store.ui.com/collections/unifi-protect/products/uvc-g4-bullet), [G4 Pro](https://store.ui.com/collections/unifi-protect/products/uvc-g4-pro) and [G4 Instant](https://store.ui.com/collections/unifi-protect/products/camera-g4-instant).
 
 G3 Series cameras do _not_ have Smart detections.
-
-</div>
+{% endnote %}
 
 Each UniFi Protect camera will get a device in Home Assistant with the following:
 
@@ -225,15 +216,6 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 
 ## Services
 
-### Service unifiprotect.set_default_doorbell_text
-
-Sets the default doorbell message. This will be the message that is automatically selected when a message "expires".
-
-| Service data attribute | Optional | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
-| `message`              | No       | The default message for your Doorbell. Must be less than 30 characters.                                     |
-
 ### Service unifiprotect.add_doorbell_text
 
 Adds a new custom message for Doorbells.
@@ -308,5 +290,5 @@ If you get errors while authenticating or fetching data for `NvrError... 404 - R
 Similarly, a `502 Bad Gateway` also means that your UniFi Protect application may not be running.
 
 ```log
-pyunifiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
+uiprotect.NvrError: Fetching Camera List failed: 404 - Reason: Not Found
 ```

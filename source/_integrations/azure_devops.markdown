@@ -33,4 +33,4 @@ This integration provides a sensor for Azure DevOps:
 - Latest build queue time - How long the latest build was queued.
 - Latest build start time - The time when the latest build actually started.
 - Latest build finish time - The time when the latest build finished.
-- Latest build URL - The URL to the latest build. 
+- Latest build URL - The URL to the latest build.

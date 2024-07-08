@@ -18,11 +18,9 @@ ha_integration_type: device
 
 The **Android Debug Bridge** {% term integration %} allows you to control an Android device or [Amazon Fire TV](https://www.amazon.com/b/?node=8521791011) device.
 
-<div class='note'>
-
+{% important %}
 When setting up this {% term integration %}, it is recommended that you do NOT use an ADB server and instead use the built-in Python ADB implementation. This simplifies the setup and makes it easier to troubleshoot issues. If there are stability issues with this approach, then you may wish to try using an ADB server. See the [ADB Setup](#adb-setup) section for more information.
-
-</div>
+{% endimportant %}
 
 ## Device preparation
 
@@ -38,7 +36,7 @@ For Fire TV devices, the instructions are as follows:
   - From the main (Launcher) screen, select Settings.
   - Select My Fire TV > About > Network.
 
-If Developer Options is missing from Settings then select My Fire TV and press the button seven times on About.
+If Developer Options is missing from Settings, then select My Fire TV and press the button seven times on About. Note that on some Fire TV devices, such as the Insignia F30 series, it is not possible to enable Developer Options until you have signed in to an Amazon account on the device.
 
 {% include integrations/config_flow.md %}
 
@@ -64,21 +62,17 @@ Configure State Detection Rules:
 
 This integration works by sending ADB commands to your Android / Fire TV device. There are two ways to accomplish this.
 
-<div class='note'>
-
+{% important %}
 When connecting to your device for the first time, a dialog will appear on your Android / Fire TV asking you to approve the connection. Check the box that says "always allow connections from this device" and hit OK.
-
-</div>
+{% endimportant %}
 
 ### 1. Python ADB Implementation
 
 The default approach is to connect to your device using the `adb-shell` Python package. As of Home Assistant 0.101, if a key is needed for authentication and it is not provided by the `ADB Key` setup option, then Home Assistant will generate a key for you.
 
-<div class='note'>
-
+{% important %}
 To be able to provide `ADB Key` on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-
-</div>
+{% endimportant %}
 
 Prior to Home Assistant 0.101, this approach did not work well for newer devices. Efforts have been made to resolve these issues, but if you experience problems then you should use the ADB server option.
 
@@ -86,11 +80,9 @@ Prior to Home Assistant 0.101, this approach did not work well for newer devices
 
 The second option is to use an ADB server to connect to your Android and Fire TV devices.
 
-<div class='note'>
-
+{% important %}
 To configure ADB server on integration setup, you need to enable [advanced mode](/blog/2019/07/17/release-96/#advanced-mode).
-
-</div>
+{% endimportant %}
 
 Using this approach, Home Assistant will send the ADB commands to the server, which will then send them to the Android / Fire TV device and report back to Home Assistant. To use this option, add the `adb_server_ip` option to your configuration. If you are running the server on the same machine as Home Assistant, you can use `127.0.0.1` for this value.
 

@@ -98,9 +98,9 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 Make sure that the URL matches exactly your endpoint or resource.
-</div>
+{% endimportant %}
 
 ## Example
 

@@ -9,6 +9,8 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - tts
 ha_integration_type: integration
+ha_codeowners:
+  - '@jschlyter'
 related:
   - docs: /docs/configuration/
     title: Configuration file

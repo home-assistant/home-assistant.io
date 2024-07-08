@@ -89,11 +89,9 @@ commands:
       default: empty
 {% endconfiguration %}
 
-<div class="note">
-
+{% warning %}
 In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
-
-</div>
+{% endwarning %}
 
 ### Event data
 
@@ -222,8 +220,7 @@ action:
         - /path/to/picture.jpg
 ```
 
-<div class='note'>
-
+{% important %}
 If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/integrations/homeassistant/#allowlist_external_dirs).
 
 ```yaml
@@ -233,5 +230,4 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
-
-</div>
+{% endimportant %}

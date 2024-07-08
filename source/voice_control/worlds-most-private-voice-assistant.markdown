@@ -5,6 +5,8 @@ related:
     title: Creating a Cloud assistant
   - docs: /voice_control/voice_remote_local_assistant/
     title: Creating a local assistant
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Creating an assistant personality with AI
   - url: https://amzn.to/40k7mRa
     title: Grandstream HT801
   - url: https://www.nabucasa.com
@@ -122,7 +124,7 @@ The [debug information](/voice_control/troubleshooting#view-debug-information) s
 
 ## Other troubleshooting steps
 
-Are things still not working as expected? 
+Are things still not working as expected?
 
 - Checkout the [general troubleshooting section for Assist](/voice_control/troubleshooting).
 

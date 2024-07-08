@@ -125,12 +125,10 @@ While public MQTT brokers are available, the easiest and most private option is 
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
-<div class='note warning'>
-
+{% warning %}
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
-
-</div>
+{% endwarning %}
 
 ## Broker configuration
 
@@ -142,24 +140,17 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 
-<div class='note'>
-<p>
-
+{% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
-
-
-</p>
-</div>
+{% endimportant %}
 
 ### Advanced broker configuration
 
 Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
-<div class='note info'>
-
+{% tip %}
 Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
-
-</div>
+{% endtip %}
 
 #### Alternative client ID
 
@@ -187,11 +178,9 @@ With a secure broker connection it is possible to use a client certificate for a
 You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
 To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
-<div class='note'>
-
+{% note %}
 A configured client certificate will only be active if broker certificate validation is enabled.
-
-</div>
+{% endnote %}
 
 ## Configure MQTT options
 
@@ -217,7 +206,7 @@ MQTT Birth and Last Will messages can be customized or disabled from the UI. To 
 
 ## Testing your setup
 
-The `mosquitto` broker package ships commandline tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost` check the example below:
+The `mosquitto` broker package ships command line tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost`, to can use [`mosquitto_pub`](https://mosquitto.org/man/mosquitto_pub-1.html), check the example below:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
@@ -284,11 +273,9 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
 
-<div class='note info'>
-
+{% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
-
-</div>
+{% endnote %}
 
 ### Discovery messages
 
@@ -650,15 +637,13 @@ This can also be done by publishing `retained` messages. As soon as a config is 
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
-<div class='note warning'>
-
+{% warning %}
 A disadvantage of using retained messages is that these messages retain at the broker,
 even when the device or service stops working. They are retained even after the system or broker has been restarted.
 Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
-
-</div>
+{% endwarning %}
 
 ### Using Availability topics
 
@@ -865,9 +850,9 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 
 The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
 
-<p class='note info'>
+{% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
-</p>
+{% endnote %}
 
 A common state payload that can be parsed with the `value_template` in the sensor configs:
 
@@ -1034,11 +1019,9 @@ mqtt:
 
 If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-<div class='note info'>
-
+{% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
-
-</div>
+{% endnote %}
 
 ## Using Templates
 
@@ -1130,14 +1113,9 @@ The MQTT integration will register the service `mqtt.publish` which allows publi
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 
-<div class='note'>
-<p>
-
+{% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-
-
-</p>
-</div>
+{% endimportant %}
 
 
 ```yaml

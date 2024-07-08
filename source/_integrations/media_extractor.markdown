@@ -13,13 +13,14 @@ ha_codeowners:
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The Media extractor {% term integration %} gets a stream URL and sends it to a media player entity. This integration can extract entity specific streams if configured accordingly.
 
-<div class='note'>
+{% note %}
 Media extractor doesn't transcode streams, it just tries to find a stream that matches the requested query.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

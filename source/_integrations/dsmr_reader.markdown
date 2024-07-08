@@ -11,6 +11,7 @@ ha_release: 0.103
 ha_codeowners:
   - '@sorted-bits'
   - '@glodenox'
+  - '@erwindouna'
 ha_domain: dsmr_reader
 ha_platforms:
   - diagnostics

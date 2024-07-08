@@ -88,9 +88,9 @@ Contents of `sensors.yaml`:
   ...
 ```
 
-<div class='note'>
+{% note %}
 Whenever you report an issue, be aware that we are volunteers who do not have access to every single device in the world nor unlimited time to fix every problem out there.
-</div>
+{% endnote %}
 
 ### Entity names
 

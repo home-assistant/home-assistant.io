@@ -26,9 +26,9 @@ The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/categor
 
 {% include integrations/config_flow.md %}
 
-<div class='note info'>
+{% note %}
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</div>
+{% endnote %}
 
 ## Services
 
@@ -37,8 +37,10 @@ A connection to a single device enables control for all devices on the network. 
 Use the sign-in service (go to Developer Tools -> Services and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
 
 ```yaml
-username: "example@example.com"
-password: "password"
+service: heos.sign_in
+data:
+  username: "example@example.com"
+  password: "password"
 ```
 
 | Service data attribute | Optional | Description                                |
@@ -57,9 +59,11 @@ Use the sign-out service to sign the connected controller out of a HEOS account.
 You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "favorite"
-media_content_id: "1"
+service: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "favorite"
+  media_content_id: "1"
 ```
 
 | Service data attribute | Optional | Description                                                         |
@@ -73,9 +77,11 @@ media_content_id: "1"
 You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "playlist"
-media_content_id: "Awesome Music"
+service: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "playlist"
+  media_content_id: "Awesome Music"
 ```
 
 | Service data attribute | Optional | Description                   |
@@ -89,9 +95,11 @@ media_content_id: "Awesome Music"
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` service. Example service data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "quick_select"
-media_content_id": "1"
+service: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "quick_select"
+  media_content_id": "1"
 ```
 
 | Service data attribute | Optional | Description                                                          |
@@ -105,9 +113,11 @@ media_content_id": "1"
 You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "url"
-media_content_id: "http://path.to/stream.mp3"
+service: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "url"
+  media_content_id: "http://path.to/stream.mp3"
 ```
 
 | Service data attribute | Optional | Description                                  |
@@ -121,10 +131,12 @@ media_content_id: "http://path.to/stream.mp3"
 For grouping HEOS media players together for synchronous playback you can use the `media_player.join` service. With the example service data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
 
 ```yaml
-entity_id: media_player.office
-group_members:
-  - media_player.kitchen
-  - media_player.bathroom
+service: media_player.join
+data:
+  entity_id: media_player.office
+  group_members:
+    - media_player.kitchen
+    - media_player.bathroom
 ```
 
 | Service data attribute | Optional | Description                                                                                          |
@@ -137,6 +149,12 @@ group_members:
 
 For removing a HEOS player from a group you can use the `media_player.unjoin` service.
 
+```yaml
+service: media_player.unjoin
+data:
+  entity_id: media_player.office
+```
+
 | Service data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | yes      | Unjoin this media player from any player groups. |
@@ -146,7 +164,7 @@ For removing a HEOS player from a group you can use the `media_player.unjoin` se
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
 - [Denon AVR](/integrations/denonar/) and HEOS media players can be combined into a [Universal Media Player](/integrations/universal/#denon-avr--heos)
 
-## Troubleshooing
+## Troubleshooting
 
 ### Debugging
 

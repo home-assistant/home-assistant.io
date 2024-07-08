@@ -13,7 +13,9 @@ related:
     title: Using areas in template
 ---
 
-An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home. For example, the "Living room" area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.
+An area in Home Assistant is a logical grouping of {% term devices %} and {% term entities %} that are meant to match areas (or rooms) in the physical world of your home.
+
+For example, the "Living room" area groups devices and entities in your living room. Areas allow you to target an entire group of devices with a service call. For example, turning off all the lights in the living room.
 Areas can be assigned to floors. Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
 
 ## Creating an area
@@ -52,7 +54,7 @@ You can assign an area to multiple items at once in the automation, scene, scrip
 1. Depending on what you want to assign, go to one of the following pages:
    - For automations, scripts, or scenes {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
    - For devices, go to {% my devices title="**Settings** > **Devices & services** > **Devices**" %}.
-2. In the list, [select all the items](/docs/organizing/filtering#selecting-multiple-items-in-a-table) you want to assign to an area.
+2. In the list, [select all the items](/docs/organizing/tables#selecting-multiple-items-in-a-table) you want to assign to an area.
 
     ![Screenshot showing how to assign multiple devices to an area](/images/organizing/area_assign_devices.png)
 

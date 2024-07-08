@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: emoncms
 ha_codeowners:
   - '@borpin'
+  - '@alexandrecuer'
 ha_platforms:
   - sensor
 ha_integration_type: integration

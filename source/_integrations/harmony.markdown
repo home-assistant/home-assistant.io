@@ -8,7 +8,6 @@ ha_release: 0.34
 ha_config_flow: true
 ha_codeowners:
   - '@ehendrix23'
-  - '@bramkragten'
   - '@bdraco'
   - '@mkeesey'
   - '@Aohzan'
@@ -17,7 +16,6 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-  - switch
 ha_integration_type: integration
 ---
 

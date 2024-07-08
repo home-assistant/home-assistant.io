@@ -36,11 +36,9 @@ script:
 
 {% endraw %}
 
-<div class='note'>
-
+{% important %}
 Script names (e.g., `message_temperature` in the example above) are not allowed to contain capital letters, or dash (minus) characters, i.e., `-`. The preferred way to separate words for better readability is to use underscore (`_`) characters.
-
-</div>
+{% endimportant %}
 
 {% configuration %}
 alias:
@@ -215,14 +213,14 @@ automation:
 
 
 
-<div class='note'>
+{% note %}
 
 Script variables that may be used by templates include the following: 
 - those provided from the configuration as fields
 - those that are passed as data when started from a service, 
 - the `this` variable the value of which is a dictionary of the current script's state.
 
-</div>
+{% endnote %}
 
 ### Waiting for Script to Complete
 

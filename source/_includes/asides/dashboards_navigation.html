@@ -2,7 +2,7 @@
   {% assign elements = site.dashboards | sort_natural: 'title' %}
 
   <div class="section">
-    <h1 class="title delta">Dashboards</h1>
+    <h1 class="title epsilon"><iconify-icon icon="mdi:view-dashboard"></iconify-icon> Dashboards</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/ Introduction %}</li>
       <li>
@@ -21,7 +21,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">View types</h1>
+    <h1 class="title epsilon"><iconify-icon icon="mdi:about-circle-outline"></iconify-icon> View types</h1>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "view" %}
@@ -32,7 +32,7 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">Card types</h1>
+    <h1 class="title epsilon">{% icon "mdi:card-multiple-outline" %} Card types</h1>
     <ul class="divided sidebar-menu">
       {% for element in elements %}
         {% if element.type == "card" %}
@@ -43,16 +43,17 @@
   </div>
 
   <div class="section">
-    <h1 class="title delta">Advanced</h1>
+    <h1 class="title epsilon">{% icon "mdi:cog" %} Advanced</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/features/ Features %}</li>
       <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
       <li>{% active_link /dashboards/actions/ Actions %}</li>
       <li>
         <a
+          class="external-link" 
           href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
           >Developing custom cards
-          <i class="icon-external-link"></i>
+          {% icon "tabler:external-link" %}
         </a>
       </li>
     </ul>

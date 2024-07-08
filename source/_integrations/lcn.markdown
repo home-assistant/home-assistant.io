@@ -41,13 +41,11 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 
-<div class='note'>
-
-  The implemented platforms do not cover the whole functionality of the LCN system.
-  Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [service calls](#services).
-  They are ideal to be used in automation scripts or for the `template` platforms.
-
-</div>
+{% note %}
+The implemented platforms do not cover the whole functionality of the LCN system.
+Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [service calls](#services).
+They are ideal to be used in automation scripts or for the `template` platforms.
+{% endnote %}
 
 ## Configuration
 
@@ -438,11 +436,9 @@ This platform depends on the correct configuration of the module's regulators, w
 You need to specify at least the variable for the current temperature and a setpoint variable for the target temperature.
 If the control is set lockable, the regulator can be turned on/off.
 
-<div class='note'>
-
+{% tip %}
 If you intend to leave the regulation to Home Assistant, you should consider using the [Generic Thermostat](/integrations/generic_thermostat/) in conjunction with [LCN Sensor](#sensor) and [LCN Switch](#switch).
-
-</div>
+{% endtip %}
 
 ### Cover
 
@@ -453,11 +449,10 @@ The configuration allows the optional definition of reverse time. This is the ti
 The reverse time should only be defined when using the [MOTOR_PORT](#ports) value `OUTPUTS`. For all other configuration, the reverse time has to be defined in the LCN Pro software.
 For the reverse time, you may choose one of the following constants: `RT70` (70ms), `RT600` (600ms), `RT1200` (1,2s).
 
-<p class='note'>
+{% important %}
 If you are using the module's output ports for motor control, ensure that you have configured the output ports as motor controllers in the LCN Pro software!
 Otherwise, the output ports are not mutually interlocked and you run the risk of destroying the motor.
-</p>
-
+{% endimportant %}
 
 ### Light
 
@@ -483,12 +478,10 @@ The `lcn` sensor platform allows the monitoring of the following [LCN](https://w
 
 The sensor can be used in automation scripts or in conjunction with `template` platforms.
 
-<div class='note'>
-
-  Ensure that the LCN module is configured properly to provide the requested value.
-  Otherwise, the module might show unexpected behavior or return error messages.
-
-</div>
+{% important %}
+Ensure that the LCN module is configured properly to provide the requested value.
+Otherwise, the module might show unexpected behavior or return error messages.
+{% endimportant %}
 
 ### Switch
 
@@ -556,24 +549,20 @@ Alternatively, you can use the corresponding [device triggers](#device-triggers)
 
 Examples can be found in the [event section](#events).
 
-<div class='note'>
-
-  Only commands sent from physical buttons of a module are evaluated. The "Test command" button in the LCN-PRO software
-  is not evaluated and therefore cannot be used for testing purposes.
-
-</div>
+{% note %}
+Only commands sent from physical buttons of a module are evaluated. The "Test command" button in the LCN-PRO software
+is not evaluated and therefore cannot be used for testing purposes.
+{% endnote %}
 
 ## Events
 
 There are several functionalities of the LCN system which are not exposed as regular entities by the integration, but as events.
 Examples are button presses from remote controls (transmitters), transponder findings, fingerprint sensors and so called *send keys* events.
 
-<div class='note'>
-
-  If you find it difficult to deal with events in scripted automations, you can also use [device triggers](#device-triggers)
-  which offer automation design via the UI.
-
-</div>
+{% tip %}
+If you find it difficult to deal with events in scripted automations, you can also use [device triggers](#device-triggers)
+which offer automation design via the UI.
+{% endtip %}
 
 All events have some common attributes in their `event_data` which identify the sending LCN hardware module (e.g., the module the transponder is connected to):
 
@@ -846,10 +835,10 @@ data:
   unit_of_measurement: %
 ```
 
-<div class='note'>
-  Ensure that the LCN module is configured properly to provide access to the defined variable.
-  Otherwise the module might show unexpected behaviors or return error messages.
-</div>
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable.
+Otherwise the module might show unexpected behaviors or return error messages.
+{% endimportant %}
 
 ### Service: `var_rel`
 
@@ -875,10 +864,10 @@ data:
   unit_of_measurement: %
 ```
 
-<div class='note'>
-  Ensure that the LCN module is configured properly to provide access to the defined variable.
-  Otherwise the module might show unexpected behavior or return error messages.
-</div>
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable.
+Otherwise the module might show unexpected behavior or return error messages.
+{% endimportant %}
 
 ### Service: `var_reset`
 
@@ -898,10 +887,10 @@ data:
   variable: var1
 ```
 
-<div class='note'>
-  Ensure that the LCN module is configured properly to provide access to the defined variable.
-  Otherwise the module might show unexpected behavior or return error messages.
-</div>
+{% important %}
+Ensure that the LCN module is configured properly to provide access to the defined variable.
+Otherwise the module might show unexpected behavior or return error messages.
+{% endimportant %}
 
 ### Service: `lock_regulator`
 

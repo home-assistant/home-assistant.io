@@ -16,11 +16,9 @@ related:
 
 The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
-<div class='note'>
-
+{% important %}
 HTML5 push notifications **do not** work on iOS versions below 16.4.
-
-</div>
+{% endimportant %}
 
 ## Configuration
 

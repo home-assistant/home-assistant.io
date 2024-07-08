@@ -74,9 +74,9 @@ Generation 2 and 3 devices use the `RPC` protocol to communicate with the integr
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
 
-<div class="note">
+{% note %}
 Integration is communicating directly with the device; cloud connection is not needed.
-</div>
+{% endnote %}
 
 ## Bluetooth Support
 
@@ -226,11 +226,9 @@ You can also create automations using YAML, for example:
 
 Generation 2 and 3 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
-<div class="note">
-
+{% note %}
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
-
-</div>
+{% endnote %}
 
 ## Appliance type (generation 1)
 
@@ -251,11 +249,9 @@ Shelly lights supporting light transition:
 - Shelly RGBW2
 - Shelly Vintage
 
-<div class="note">
-
+{% note %}
 The firmware limits the transition time to 5 seconds.
-
-</div>
+{% endnote %}
 
 ## Device services
 
@@ -292,13 +288,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in a future version of Home Assistant.
-
-<div class="note">
-
-The `switch` entity in Home Assistant does not support transition states. For this reason, the `opening` state of the valve maps to the `on` (opened) state of the entity and the `closing` state of the valve maps to the `off` (closed) state of the entity.
-
-</div>
+If you have the Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `valve` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
 
 ## CoAP port (generation 1)
 

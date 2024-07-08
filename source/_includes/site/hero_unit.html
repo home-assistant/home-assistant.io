@@ -1,13 +1,17 @@
 <div class="hero">
   <div class="grid-wrapper">
     <div class="grid flex">
-      <div class="grid__item flex__item two-fifths palm-one-whole">
-        <a href='https://demo.home-assistant.io/' target='_blank'>
+      <div class="grid__item flex__item three-fifths lap-one-whole palm-one-whole">
+      {% include custom/welcome.html %}
+      </div>
+      <div class="grid__item flex__item two-fifths lap-one-whole palm-one-whole">
+        <iframe id="HAdemo" title="Home Assistant Demo"
+          src="https://demo.home-assistant.io/?frontpage">
+        </iframe>
+
+        <a id="HAdemoScreenshot" href='https://demo.home-assistant.io/' target='_blank'>
           <img src="/images/hero_screenshot.png" alt="Home Assistant screenshot">
         </a>
-      </div>
-      <div class="grid__item flex__item three-fifths palm-one-whole">
-      {% include custom/welcome.html %}
       </div>
     </div>
   </div>

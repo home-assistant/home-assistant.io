@@ -35,9 +35,9 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
-<div class='note warning'>
-As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, and there is no ETA for when they will be allowed again. Existing developers are not affected.
-</div>
+{% warning %}
+As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function. 
+{% endwarning %}
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
 2. Log in with your ecobee credentials. (Make sure multifactor authentication is disabled to meet the developer login form's limits. If you've already enabled MFA, the web portal doesn't support disabling it. The iOS and Android apps do under Account > Account Security. You can re-enable MFA after becoming a developer.)
@@ -124,7 +124,7 @@ The _HVAC mode_ of the device is the currently active operational modes that the
 
 The _target humidity_ is the humidity set point of the thermostat when a humidifier is connected and in manual control or "On" mode.
 
-When enabling the auxiliary heat toggle, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Disabling auxiliary heat will change the thermostat back to last active HVAC mode (heat, auto, etc).
+On a thermostat configured with auxiliary heat, an aux_heat_only switch will be present. When this switch is turned on, the ecobee thermostat HVAC mode will be changed to "Aux". However, Home Assistant will reflect that the thermostat is in "heat" mode. Turning off the aux_heat_only switch will change the thermostat back to the last active HVAC mode (heat, auto, etc).
 
 ### Attributes
 

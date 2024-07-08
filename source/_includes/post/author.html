@@ -5,4 +5,4 @@
 {% else %}
   {% assign author = site.author %}
 {% endif %}
-{% if author %}<span class="byline author vcard"><i class='icon-user'></i> {{ author }}</span>{% endif %}
+{% if author %}<span class="byline author vcard">{% icon "mdi:person" %} {{ author }}</span>{% endif %}

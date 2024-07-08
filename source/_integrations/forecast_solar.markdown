@@ -118,7 +118,8 @@ the results a bit.
 
 The **damping** factor allows you to adjust and "damp" the results of your solar
 predictions in the morning and evening a bit and is a great method to make
-results less optimistic and more tuned to your reality.
+results less optimistic and more tuned to your reality. More details on damping can
+be found [here](https://doc.forecast.solar/damping).
 
 The **inverter** size can be used in a situation where the maximum power of your
 inverter is lower than the total power of all your solar panels (as entered under
