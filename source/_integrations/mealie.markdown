@@ -63,4 +63,4 @@ Get the recipe for a specified recipe ID or slug.
 | Service data attribute | Optional | Description                                         |
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
-| `recipe_id`            | No       | The ID of the recipe to get.                        |
+| `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
