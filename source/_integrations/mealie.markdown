@@ -38,3 +38,19 @@ The integration will create a calendar for every type of meal plan:
 - Lunch
 - Dinner
 - Side
+
+## Services
+
+The Mealie integration has the following services:
+
+- `mealie.get_mealplan`
+
+### Service `mealie.get_mealplan`
+
+Get the meal plan for a specified range.
+
+| Service data attribute | Optional | Description                                              |
+|------------------------|----------|----------------------------------------------------------|
+| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.      |
+| `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
+| `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |

@@ -151,6 +151,20 @@ Error - the current error of the device - if one exists - "None" otherwise.
 Total cleaning time - how long you have cleaned with your wet/dry vacuum.
 
 
+## Zeo Entities
+
+Roborock Zeo One currently exposes some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+State - The current state of your washing machine. For example, 'washing' or 'rinsing'.
+
+Countdown - Countdown for how long until the machine starts.
+
+Washing left - The amount of time until your machine is done washing.
+
+Error - The current error of the Zeo, if one exists.
+
 ## FAQ
 
 ### Can I use the Mi home app with this integration?

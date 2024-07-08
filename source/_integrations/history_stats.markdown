@@ -8,6 +8,7 @@ ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -26,7 +27,28 @@ Examples of what you can track:
 - How long the lights were ON yesterday
 - How long you watched TV today
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information and examples about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input.
+State:
+  description: Which states of the input entity is counted in the statistics.
+Type:
+  description: Any of `time`, `ratio` or `count`.
+Start:
+  description: When to start the measure (timestamp or datetime). Can be a template.
+End:
+  description: When to stop the measure (timestamp or datetime). Can be a template.
+Duration:
+  description: Duration of the measure.
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
