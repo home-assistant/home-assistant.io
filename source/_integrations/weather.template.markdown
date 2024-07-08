@@ -6,7 +6,7 @@ ha_category:
   - Helper
 ha_release: 2021.3
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
+ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: template
