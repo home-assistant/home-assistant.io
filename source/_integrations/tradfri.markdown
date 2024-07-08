@@ -34,9 +34,9 @@ If you see an "Unable to connect" message, restart the gateway and try again. Do
 {% endtip %}
 
 {% note %}
-There is currently no dedicated core integration for the Dirigera hub released in October, 2022.
+There is currently no dedicated core integration for the Dirigera hub released in October 2022.
 
-The Dirigera hub can however be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration. This configuration even provides events for motion sensors and buttons, which the original integration lacks.
+The Dirigera hub can, however, be integrated directly via the [HomeKit device](/integrations/homekit_controller/) integration. This configuration even provides events for motion sensors and buttons, which the original integration lacks.
 {% endnote %}
 
 
