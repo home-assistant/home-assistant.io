@@ -251,8 +251,7 @@ Replace `dsmrreader` with the correct name of your database.
 {% note %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
-
-Set the state class to `Data size` so you can use UI unit conversion.
+Set the device class to `Data size` so you can use UI unit conversion.
 {% endnote %}
 
 #### MariaDB/MySQL
@@ -267,8 +266,7 @@ Use `value` as column for value.
 {% note %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
-
-Set the state class to `Data size` so you can use UI unit conversion.
+Set the device class to `Data size` so you can use UI unit conversion.
 {% endnote %}
 
 #### SQLite
@@ -283,8 +281,7 @@ Use `size` as column for value.
 {% note %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
-
-Set the state class to `Data size` so you can use UI unit conversion.
+Set the device class to `Data size` so you can use UI unit conversion.
 {% endnote %}
 
 #### MS SQL
@@ -307,6 +304,5 @@ Use `size` as column for value.
 {% note %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
-
-Set the state class to `Data size` so you can use UI unit conversion.
+Set the device class to `Data size` so you can use UI unit conversion.
 {% endnote %}
