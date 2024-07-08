@@ -54,7 +54,7 @@ The Google Cloud integration allows you to use [Google Cloud Platform](https://c
 
 ### Pricing
 
-The Cloud text-to-speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service. For up-to-date pricing see [here](https://cloud.google.com/text-to-speech/pricing).
+The Cloud text-to-speech API is priced monthly based on the number of characters to synthesize into audio sent to the service. For up-to-date pricing, see [here](https://cloud.google.com/text-to-speech/pricing).
 
 ### Text-to-speech configuration
 
