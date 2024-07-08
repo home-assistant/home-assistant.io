@@ -64,4 +64,5 @@ Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf
 ## Known limitations
 
 - The TRÅDFRI Shortcut button, Remotes and motion sensor only send information about their battery status, no events, to Home Assistant and thus can't be used to automate with. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/), or [HomeKit device](/integrations/homekit_controller) as mentioned above.
++ The TRÅDFRI Shortcut button, Remotes, and motion sensor only send information about their battery status, not events, to Home Assistant and thus can't be used for automation. If you want to automate with these devices, you need to use something like [ZHA](/integrations/zha/), or the [HomeKit device](/integrations/homekit_controller) integration as mentioned above.
 - The groups you find in the app are not imported into Home Assistant as they are known to cause stability issues. We recommend that you use the native [light groups](/integrations/light.group/) instead.
