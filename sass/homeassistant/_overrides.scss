@@ -194,8 +194,9 @@ h1.title.indent {
 #toc-bar {
   display: none;
   position: sticky;
-  margin-top: 40px;
+  // margin-top: 40px;
   top: 80px;
+  padding-left: 32px;
   
   .aside-module {
     background: none;
@@ -504,6 +505,63 @@ a.material-card:hover {
   z-index: 2;
   box-shadow: 0 0 1px rgba(0,0,0,.5), 0 -4px 8px hsla(180, 100%, 50%, .10), 0 32px 64px hsla(207, 100%, 10%, 0.5);
 }
+
+
+// Blog archive material cards
+
+#archive-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+
+  h2 {
+    grid-column: 1/-1;
+    margin: 16px 0 0;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .material-card {
+    .img {
+      background-color: $grayLighter;
+      width: calc(100%-8px);
+      aspect-ratio: 120/63;
+      background-size: cover;
+      background-position: center;
+      border-radius: 8px;
+      margin: 4px;
+    }
+
+    .caption {
+      padding: 8px 16px 12px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-size: 1rem;
+
+      .title {
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      .subtitle{
+        font-size: .85em;
+        color: $gray;
+      }
+    }
+
+    svg {
+      min-width: 24px;
+      height: 24px;
+    }
+  }
+
+}
+
 
 
 .feedback {
