@@ -9,6 +9,8 @@
     {% include asides/common_tasks_navigation.html %}
   {% elsif root == 'dashboards' %}
     {% include asides/dashboards_navigation.html %}
+  {% elsif root == 'docs' and url_parts[2] == "organizing" %}
+    {% include asides/organizing_navigation.html %}
   {% elsif root == 'developers' or root == 'help' %}
     {% include asides/help_navigation.html %}
   {% elsif root == 'getting-started' %}
@@ -28,20 +30,19 @@
   {% elsif root == 'conference' %}
     {% include asides/conference_navigation.html %}
   {% else %}
-    {% include asides/about.html %}
-
     {% if page.blog_index %}
       {% include asides/categories.html %}
     {% else %}
       {% include post/sharing.html %}
       {% include asides/recent_posts.html %}
     {% endif %}
+    {% include asides/about.html %}
   {% endif %}
   {% if page.toc %}
     {%- unless page.no_toc -%}
       <section class="aside-module grid__item one-whole lap-one-half">
         <div class='section'>
-          <h1 class="title delta">On this page</h1>
+          <h1 class="title epsilon">{% icon "mdi:toc" %} On this page</h1>
           {{ content | toc_only }}
         </div>
       </section>
@@ -51,7 +52,7 @@
   {%- if page.ha_category.first -%}
     <section class="aside-module grid__item one-whole lap-one-half">
       <div class='section'>
-        <h1 class="title delta">Categories</h1>
+        <h1 class="title epsilon">{% icon "mdi:category" %} Categories</h1>
         <ul class='divided'>
         {%- for category in page.ha_category -%}
           <li>

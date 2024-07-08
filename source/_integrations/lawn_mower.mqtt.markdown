@@ -1,8 +1,8 @@
 ---
-title: "MQTT Lawn Mower"
+title: "MQTT lawn mower"
 description: "Instructions on how to integrate MQTT lawn mowers into Home Assistant."
 ha_category:
-  - Lawn Mower
+  - Lawn mower
 ha_release: 2023.9
 ha_iot_class: Configurable
 ha_domain: mqtt
@@ -12,7 +12,7 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT Lawn Mower in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT lawn mower in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,7 +77,7 @@ device:
       required: false
       type: string
     connections:
-      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example, the MAC address of a network interface: `"connections": ["mac", "02:5b:26:a8:dc:12"]`.'
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
       type: list
     hw_version:
@@ -98,6 +98,10 @@ device:
       type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -134,7 +138,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -174,7 +177,7 @@ qos:
   type: integer
   default: 0
 start_mowing_template:
-  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `dock_command_topic`. The `value` parameter in the template will be set to `dock`.
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `start_mowing_command_topic`. The `value` parameter in the template will be set to `start_mowing`.
   required: false
   type: template
 start_mowing_command_topic:
@@ -192,11 +195,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Example
 
@@ -207,7 +208,7 @@ The example below shows how to use a single command topic with a command templat
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  - alarm_control_panel:
+  - lawn_mower:
       name: "Lawn Mower Plus"
       activity_state_topic: "lawn_mower_plus/state"
       activity_value_template: "{{ value_json.activity }}" 

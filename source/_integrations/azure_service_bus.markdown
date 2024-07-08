@@ -11,6 +11,9 @@ ha_domain: azure_service_bus
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `Azure Service Bus` integration allows you to send messages to [Azure Service Bus](https://azure.microsoft.com/products/service-bus/) from within Home Assistant.
@@ -25,15 +28,14 @@ You must then create a Shared Access Policy for the Service Bus with `Send` clai
 
 Once you have the connection string with `Send` policy, you can set up the integration itself.
 
-<div class='note warning'>
-
+{% important %}
 The queue or topic that you are sending to needs to exists with the service bus namespace before you use it within Home Assistant. See [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-portal) for how to set up a queue and [here](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) for setting up a topic and subscriptions.
-
-</div>
+{% endimportant %}
 
 ## Configuration
 
-Add the following lines to your `configuration.yaml` file:
+Add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,11 +68,9 @@ topic:
   type: string
 {% endconfiguration %}
 
-<div class="note">
-
+{% tip %}
 If you plan to send all state changes from one or more entities within Home Assistant, you should consider using the [Azure Event Hub](/integrations/azure_event_hub/) integration instead.
-
-</div>
+{% endtip %}
 
 ## Usage
 

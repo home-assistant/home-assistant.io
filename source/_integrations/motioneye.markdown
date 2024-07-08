@@ -3,7 +3,7 @@ title: motionEye
 description: Instructions on how to integrate motionEye into Home Assistant.
 ha_category:
   - Camera
-  - Media Source
+  - Media source
 ha_release: 2021.5
 ha_iot_class: Local Polling
 ha_domain: motioneye
@@ -405,7 +405,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 ### Debug Logging
 
 To enable debug logging for both the integration and the underlying client library,
-enable the following in your `configuration.yaml` and then restart:
+enable the following in your {% term "`configuration.yaml`" %} and then restart:
 
 ```yaml
 logger:

@@ -12,7 +12,7 @@ The `rest` sensor platform is consuming a given endpoint which is exposed by a [
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-To enable this sensor, add the following lines to your `configuration.yaml` file for a GET request:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -151,11 +151,9 @@ verify_ssl:
   default: True
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
-
-</div>
+{% endimportant %}
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](https://arest.io/).
 
@@ -411,7 +409,7 @@ rest:
 
 {% endraw %}
 
-The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create a switch and multiple sensors without having to poll the endpoint numerous times.
+The example below shows how to extract multiple values from a dictionary from the XML file of a Steamist Steambath Wi-Fi interface. The values are used to create multiple sensors without having to poll the endpoint numerous times.
 
 {% raw %}
 
@@ -423,39 +421,13 @@ rest:
   
     sensor:
       - name: "Steam Temp"
-        value_template: "{{ json_value['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
+        value_template: "{{ value_json['response']['temp0'] | regex_findall_index('([0-9]+)XF') }}"
         unit_of_measurement: "°F"
 
        steam_time_remaining:
       - name: "Steam Time Remaining"
-        value_template: "{{ json_value['response']['time0'] }}"
+        value_template: "{{ value_json['response']['time0'] }}"
         unit_of_measurement: "minutes"
-
-    switch:
-      - name: "Steam"
-        value_template: "{{ json_value['response']['usr0'] | int >= 1 }}"
-        turn_on:
-          - service: rest_command.set_steam_led
-            data:
-               led: 6
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-        turn_off:
-          - service: rest_command.set_steam_led
-            data:
-               led: 7
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
-          - delay: 00:00:15
-          - service: homeassistant.update_entity
-            target:
-               entity_id: sensor.steam_system_data
 
 rest_command:  
   set_steam_led:

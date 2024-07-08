@@ -2,7 +2,7 @@
 title: Thomson
 description: Instructions on how to integrate Thomson routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_domain: thomson
 ha_iot_class: Local Polling
@@ -15,7 +15,7 @@ Thomson produced networking equipment (under the brand name SpeedTouch) till 201
 
 This platform allows you to detect presence by looking at connected devices to a [Thomson](https://www.technicolor.com/) device.
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

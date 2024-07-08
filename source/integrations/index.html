@@ -22,13 +22,10 @@ regenerate: false
 
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
-{%- assign categories = components | map: 'ha_category' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 {%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
 {%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
 
-<p class='note'>
-  Support for these integrations is provided by the Home Assistant community.
-</p>
 <div class="grid">
   <div class="grid-filters">
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
@@ -37,16 +34,42 @@ regenerate: false
           <select class="ha_category" name="category" data-id="cat">
             <option value="#">All</option>
             <option value="featured">Featured</option>
-      
-            {%- for category in categories -%}
-            {%- assign components_count = components | where: 'ha_category', category | size -%}
-            {%- if category and category != 'Other' and components_count != 0 -%}
-            <option value='{{ category | slugify }}'>{{ category }}</option>
+            <option value="wwha">Partner brands</option>
+
+            <!-- {%- for category in categories -%} -->
+            <!-- {%- assign components_count = components | where: 'ha_category', category | size -%} -->
+            <!-- {%- if category and category != 'Other' and components_count != 0 -%} -->
+            <!-- <option value='{{ category | slugify }}'>{{ category }}</option> -->
+            <!-- {%- endif -%} -->
+            <!-- {%- endfor -%} -->
+
+             {%- for category in categories -%}
+          {%- assign category_name = "" -%}
+          {%- assign components_count = 0 -%}
+          {%- for comp in components -%}
+            {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+            {%- if comp_categories contains category -%}
+              {%- if category_name == "" -%}
+                {%- for cat in comp.ha_category -%}
+                  {%- assign lower_cat = cat | downcase -%}
+                  {%- if lower_cat == category -%}
+                    {%- assign category_name = cat -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%}
+              {%- assign components_count = components_count | plus: 1 -%}
             {%- endif -%}
-            {%- endfor -%}
-      
+          {%- endfor -%}
+          {%- if category != 'other' and components_count != 0 -%}
+            {%- if category_name == "" -%}
+              {%- assign category_name = category | capitalize -%}
+            {%- endif -%}
+            <option value='{{ category | slugify }}'>{{ category_name }}</option>
+          {%- endif -%}
+        {%- endfor -%}
+
             <option value='other'>Other</option>
-      
+
           </select>
         </div>
     </div>
@@ -112,32 +135,6 @@ regenerate: false
   </div>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-  crossorigin="anonymous"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"
-    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"
-    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa"
-    crossorigin="anonymous"></script>
-{% raw %}
-<script id="component-template" type="text/x-custom-template">
-  {{#components}}
-  <a href="{{url}}" class="option-card">
-    <div class="img-container">{{{image}}}</div>
-    <div class='title'>{{title}}</div>
-  </a>
-{{/components}}
-{{^components}}
-  <p class='note'>Nothing found!</p>
-{{/components}}
-</script>
-{% endraw %}
-
 <script type="text/javascript">
 // This object contains all components we have
 const integrations = [
@@ -160,6 +157,7 @@ const integrations = [
         logo: "{{component.logo}}",
         domain: "{{component.ha_domain}}",
         ha_brand: "{{component.ha_brand}}",
+        wwha: {% if component.works_with %}true{% else %}false{% endif %},
         iot_class: "{{component.ha_iot_class | slugify }}",
         quality_scale: "{{component.ha_quality_scale}}"
       },
@@ -172,11 +170,12 @@ integrations.pop(); // remove placeholder element at the end
 
 <script type="text/javascript">
   (function () {
-    var template = $('#component-template').html();
-    Mustache.parse(template); // make future calls to render faster
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
-    const $integrationFilters = $('.integration_filter select');
+    const $integrationFilters = [...document.querySelectorAll('.integration_filter select')];
+
+    const searchInputEl = document.querySelector('.component-search input');
+    const componentContainerEl = document.querySelector('#componentContainer');
 
     function init() {
       let queryParams = new URLSearchParams(document.location.search);
@@ -186,9 +185,7 @@ integrations.pop(); // remove placeholder element at the end
         domain = integrations[i].domain;
         iot_class = integrations[i].iot_class;
         quality_scale = integrations[i].quality_scale;
-        title_normalized = title
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "");
+        title_normalized = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         title_dedashed = title.replace(/[-_]/g, " ");
         title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
 
@@ -202,11 +199,11 @@ integrations.pop(); // remove placeholder element at the end
       });
 
       //add these to the window for dynamic grabbing in matchSelectToURL()
-      window.$catFilter = $('.integration_filter select[data-id="cat"]');
-      window.$versionFilter = $('.integration_filter select[data-id="version"]');
-      window.$iot_classFilter = $('.integration_filter select[data-id="iot_class"]');
-      window.$quality_scaleFilter = $('.integration_filter select[data-id="quality_scale"]');
-      window.$searchFilter = $('.component-search input');
+      window.$catFilter = document.querySelector('.integration_filter select[data-id="cat"]');
+      window.$versionFilter = document.querySelector('.integration_filter select[data-id="version"]');
+      window.$iot_classFilter = document.querySelector('.integration_filter select[data-id="iot_class"]');
+      window.$quality_scaleFilter = document.querySelector('.integration_filter select[data-id="quality_scale"]');
+      window.$searchFilter = document.querySelector('.component-search input');
 
       //listen for changes in the hash / user clicking back or forward button in browser
       window.addEventListener('hashchange', applyFilter);
@@ -219,10 +216,8 @@ integrations.pop(); // remove placeholder element at the end
       }
       applyFilter();
 
-      // add focus to the search field - even on IE
-      setTimeout(function () {
-        $('.component-search input').focus();
-      }, 1);
+      // add focus to the search field
+      setTimeout(() => searchInputEl.focus(), 1);
     }
     init();
 
@@ -260,25 +255,31 @@ integrations.pop(); // remove placeholder element at the end
         queryFilter.cat = 'featured';
       }
 
+       if (hash.startsWith('#works-with-home-assistant') || queryParams.get('cat') === 'wwha') {
+        // only show those with featured = true
+        queryFilter.cat = 'wwha';
+      }
+
       if (hash.startsWith('#search/') || queryParams.has('search')) {
         let query = getQueryValue('search');
         queryFilter.search = query;
       } else {
         // reset search box when not searching
-        $searchFilter.val(null);
+        $searchFilter.value = '';
       }
-      
+
       if (hash.startsWith('#version/') || queryParams.has('version')) {
         // filter by a version
         let query = getQueryValue('version');
         queryFilter.version = query;
-      } 
+      }
 
       if (
           // check for categories that are not featured or all
-          (hash.startsWith('#') || queryParams.has("cat")) 
-          && !(hash.startsWith('#all') || queryParams.get("cat") === 'all') 
+          (hash.startsWith('#') || queryParams.has("cat"))
+          && !(hash.startsWith('#all') || queryParams.get("cat") === 'all')
           && !(hash.startsWith('#featured') || queryParams.get("cat") === 'featured')
+          && !(hash.startsWith('#works-with-home-assistant') || queryParams.get("cat") === 'wwha')
           && !(hash.startsWith('#search'))
           && !(hash.startsWith('#version'))
           && !(hash.startsWith('#iot_class'))
@@ -305,19 +306,12 @@ integrations.pop(); // remove placeholder element at the end
 
     // filter all components, based on the locations hash/search and render them into the component box
     function applyFilter() {
-      var logoLazyLoad = new LazyLoad({
-        elements_selector: ".option-card img"
-      });
-
       var data = {
-        components: [],
-        image: function () {
-          return `<img src="https://brands.home-assistant.io/${this.ha_brand ? "brands": "_"}/${this.domain}/logo.png" srcset="https://brands.home-assistant.io/${this.ha_brand ? "brands ": "_"}/${this.domain}/logo@2x.png 2x" loading="lazy">`;
-        }
+        components: []
       };
 
       // fade-out css effect on the old elements. This is actually not visible on fast browsers
-      $('#componentContainer').addClass('remove-items');
+      componentContainerEl.classList.add('remove-items');
 
       let query = buildQueryFromURL();
 
@@ -335,20 +329,26 @@ integrations.pop(); // remove placeholder element at the end
             }
           }
 
+          if (query[key] === 'works with home assistant' || 'wwha') {
+            if (integration.wwha) {
+              integration['cat'].push('wwha')
+            }
+          }
+
           // compare against search string and categories in integration
           if (key === 'search') {
             if (
-              integration[key].indexOf(query[key]) === -1 
+              integration[key].indexOf(query[key]) === -1
               && integration.cat.find((c) => c.includes(query[key])) == undefined
             ) {
               return false;
-            } 
+            }
           }
 
           // add 'all' into integration category array // enables filtration by all
           integration['cat'].push('all');
 
-          // check for matching categories in integation's category array 
+          // check for matching categories in integation's category array
           if (key === 'cat') {
             if (!integration[key].includes(query[key])) return false;
           }
@@ -357,7 +357,7 @@ integrations.pop(); // remove placeholder element at the end
           if (!(key === 'cat' || key === 'search')) {
             if (
               integration[key] == undefined // match doesn't exist
-              || integration[key] != query[key] // strings dont match 
+              || integration[key] != query[key] // strings dont match
             ) {
               return false;
             }
@@ -367,11 +367,26 @@ integrations.pop(); // remove placeholder element at the end
         return true;
       });
 
-      let rendered = Mustache.render(template, data);
+      // let rendered = Mustache.render(template, data);
+      let rendered;
+      if (data.components.length > 0) {
+        // Note: Assumes all data has already been sanitized
+        rendered = data.components.map(component => `
+          <a href="${component.url}" class="option-card">
+            <div class="img-container">${buildImageEl(component)}</div>
+            <div class='title'>${component.title}</div>
+          </a>
+          `).join('\n');
+      } else {
+        rendered = '<div class="alert alert-note"><p class="alert-content">Nothing found!</p></div>';
+      }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
-      $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
-      logoLazyLoad.update();
+      componentContainerEl.innerHTML = '';
+      componentContainerEl.classList.remove('show-items');
+      componentContainerEl.classList.remove('remove-items');
+      componentContainerEl.innerHTML = rendered;
+      componentContainerEl.classList.add('show-items');
     }
 
     // update the browser location search. This enables users to use the browser-history
@@ -401,7 +416,7 @@ integrations.pop(); // remove placeholder element at the end
       //make sure search input keeps text after url is adjusted
       if (queryParams.has('search')) {
         let searchText = queryParams.get('search');
-        $searchFilter.val(searchText);
+        $searchFilter.value = searchText;
       }
     }
 
@@ -423,7 +438,7 @@ integrations.pop(); // remove placeholder element at the end
           newURL = location.href.match(baseHashRegex)[0];
         }
       }
-      
+
       if ('pushState' in history) {
         history.pushState('', '', newURL);
       } else {
@@ -435,19 +450,19 @@ integrations.pop(); // remove placeholder element at the end
     function matchFilterToURL(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
-      let options = [...$filterElement[0].querySelectorAll('option')]
+      let options = [...$filterElement.querySelectorAll('option')]
 
       //set the value of select dropdown if it doesn't currently match the query in the url
-      if ($filterElement.val() !== query) {
+      if ($filterElement.value !== query) {
         // set value of search input
         if (id === 'search') {
-          $filterElement.val(query);
+          $filterElement.value = query;
         }
 
         // only change the select dropdown if it matches an available dropdown value
         options.forEach(option => {
           if (option.value === query) {
-            $filterElement.val(query);
+            $filterElement.value = query;
           }
         })
       }
@@ -487,42 +502,38 @@ integrations.pop(); // remove placeholder element at the end
       }
     }
 
-    // filter button name cleanup. used inupdateFilterButtons()
-    function getButtonText(id) {
-      let text;
+    // filter button name cleanup. used in updateFilterButtons()
+    function getButtonText(id, key) {
+      let category;
       switch(id) {
         case 'cat':
-          text = 'Category';
+          category = 'Category';
           break;
         case 'iot_class':
-          text = 'IoT class';
+          category = 'IoT class';
           break;
         case 'quality_scale':
-          text = 'Quality scale';
+          category = 'Quality scale';
           break;
         default:
-          text = id;
+          category = id;
       }
-      return text;
-    }
 
-    function removeHyphens(string) {
-      //keep hyphen values in this list
-      const dontUpdateList = ['text-to-speech'];
-      let newString = string;
-      dontUpdateList.forEach(item => {
-        if (item !== string) {
-          newString = string.replace(/-/g, " ");
-        }
-      });
-      return newString;
+      if (id !== 'search') {
+        let $filterElement = window[`$${id}Filter`];
+        let options = [...$filterElement.querySelectorAll('option')]
+        let filteredOption = options.filter(option => option.value === key)[0];
+        return `${category}: ${filteredOption.innerText}`;
+      } else {
+        return `${category}: ${key}`;
+      }
     }
 
     // update all filter buttons to match current obj filter
     function updateFilterButtons(queryFilter) {
       let filterButtonParent = document.querySelector('.component-search');
       let currentFilterButtons = [...document.querySelectorAll('.component-search .active-filter')];
-      
+
       // remove buttons if there's more than the current queryFilter
       if (currentFilterButtons.length > Object.keys(queryFilter).length) {
         // filter out buttons that dont match query obj
@@ -543,7 +554,7 @@ integrations.pop(); // remove placeholder element at the end
               // check for mismatched filter value
                if (button.dataset.filter !== queryFilter[key]) {
                  button.dataset.filter = queryFilter[key];
-                 button.innerHTML = `<span>${getButtonText(key)}: ${removeHyphens(queryFilter[key])} <i class="icon-plus-sign"></i></span>`;
+                 button.innerHTML = `<span>${getButtonText(key, queryFilter[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
                }
              }
           }
@@ -553,7 +564,7 @@ integrations.pop(); // remove placeholder element at the end
         for (key in queryFilter) {
           if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
             let button = document.createElement('button');
-            button.innerHTML = `<span>${getButtonText(key)}: ${removeHyphens(queryFilter[key])} <i class="icon-plus-sign"></i></span>`;
+            button.innerHTML = `<span>${getButtonText(key, queryFilter[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
             button.classList.add('active-filter');
             button.dataset.id = key;
             button.dataset.filter = queryFilter[key]
@@ -571,10 +582,21 @@ integrations.pop(); // remove placeholder element at the end
       }
     }
 
+    function buildImageEl(component) {
+      const urlBase = [
+        'https://brands.home-assistant.io',
+        component.ha_brand ? 'brands' : '_',
+        component.domain,
+        'icon'
+      ].join('/');
+
+      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
+    }
+
     // update view on select change
-    $integrationFilters.change(function () {
-      let id = this.dataset.id;
-      let value = this.value;
+    $integrationFilters.forEach(select => select.addEventListener("change", () => {
+      let id = select.dataset.id;
+      let value = select.value;
 
       if (value !== '#') {
 
@@ -587,32 +609,22 @@ integrations.pop(); // remove placeholder element at the end
       }
 
       return false;
-    });
+    }));
 
-    // Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
-    function debounce(func, wait, immediate) {
-      var timeout;
-      return function () {
-        var context = this,
-          args = arguments;
-        var later = function () {
-          timeout = null;
-          if (!immediate) {
-            func.apply(context, args);
-          }
-        };
-        var callNow = immediate && !timeout;
+    /**
+     * Simple debounce implementation
+     */
+    function debounce(func, wait) {
+      let timeout;
+      return () => {
         clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) {
-          func.apply(context, args);
-        }
+        timeout = setTimeout(func, wait);
       };
     };
 
     // update view by search text
-    $searchFilter.keyup(debounce(function () {
-      let value = $(this).val();
+    searchInputEl.addEventListener('keyup', debounce(() => {
+      let value = searchInputEl.value;
       // sanitize input
       value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
       if (typeof value === "string" && value.length >= 1) {

@@ -12,11 +12,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel).
+[IFTTT](https://ifttt.com) is a web service that allows users to create chains of simple conditional statements, so-called "Applets". With the IFTTT integration, you can trigger applets through the **"Webhooks"** service (which was previously the **"Maker"** channel). This requires the [Pro plan](https://ifttt.com/plans) or higher.
 
 ## Prerequisites
 
-To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic), or use your Nabu Casa account's webhook URL from the IFTTT integration.
+To be able to receive events from IFTTT, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls), or use your Nabu Casa account's webhook URL from the IFTTT integration.
 
 {% include integrations/config_flow.md %}
 
@@ -64,11 +64,11 @@ ifttt:
 `key` is your API key which can be obtained by viewing the **Settings** of the [Webhooks applet](https://ifttt.com/maker_webhooks/settings). It's the last part of the URL (e.g., https://maker.ifttt.com/use/MYAPIKEY) you will find under **My Applets** > **Webhooks** > **Settings**.
 ![Property screen of the Maker Channel.](/images/integrations/ifttt/finding_key.png)
 
-Once you have added your key to your `configuration.yaml` file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
+Once you have added your key to your {% term "`configuration.yaml`" %} file, restart your Home Assistant instance. This will load up the IFTTT integration and make a service available to trigger events in IFTTT.
 
-<div class='note'>
+{% important %}
 After restarting the server, be sure to watch the console for any logging errors that show up in red, white or yellow.
-</div>
+{% endimportant %}
 
 ### Multiple IFTTT keys
 
@@ -108,14 +108,14 @@ value3:
 When your screen looks like this, click the 'call service' button.
 ![Testing service.](/images/integrations/ifttt/testing_service.png)
 
-By default, the trigger is sent to all the API keys from `configuration.yaml`. If you
+By default, the trigger is sent to all the API keys from {% term "`configuration.yaml`" %}. If you
 want to send the trigger to a specific key use the `target` field:
 
-Field | Value
------ | -----
-domain | `ifttt`
-service | `trigger`
-Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}`
+| Field        | Value                                                                         |
+| ------------ | ----------------------------------------------------------------------------- |
+| domain       | `ifttt`                                                                       |
+| service      | `trigger`                                                                     |
+| Service Data | `{"event": "EventName", "value1": "Hello World", "target": "YOUR_KEY_NAME1"}` |
 
 The `target` field can contain a single key name or a list of key names.
 

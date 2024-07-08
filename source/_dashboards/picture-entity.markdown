@@ -1,22 +1,29 @@
 ---
 type: card
-title: Picture Entity Card
-sidebar_label: Picture Entity
-description: The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
+title: Picture entity card
+sidebar_label: Picture entity
+description: The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of camera entities.
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Picture Entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
+The picture entity card displays an entity in the form of an image. Instead of images from URL, it can also show the picture of `camera` entities.
 
 <p class='img'>
   <img src='/images/dashboards/picture_entity.gif' alt='Picture entity card'>
   Background changes according to the entity state.
 </p>
 
-To add the Picture Entity card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/add_picture_to_card.md %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -137,4 +144,5 @@ tap_action:
 
 {% endraw %}
 
-The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/docs/configuration/basic/)).
+The filename needs to be a path that is writable by Home Assistant in your system. You may need to configure `allowlist_external_dirs` ([documentation](/integrations/homeassistant/#allowlist_external_dirs)).
+

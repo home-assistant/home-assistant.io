@@ -2,13 +2,13 @@
 title: BMW Connected Drive
 description: Instructions on how to setup your BMW Connected Drive account with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Button
   - Car
   - Lock
   - Notifications
   - Number
-  - Presence Detection
+  - Presence detection
   - Select
   - Sensor
   - Switch
@@ -33,19 +33,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `bmw_connected_drive` integration lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
+The **BMW Connected Drive** {% term integration %} lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
 
-The `bmw_connected_drive` integration also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
+The **BMW Connected Drive** {% term integration %} also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
 
-<div class='note'>
-The entities available in Home Assistant heavily depend on your vehicle's capabilities (model year, headunit, etc.). The integration will make sure all available car attributes are added as entities.
-</div>
+{% note %}
+The {% term entities %} available in Home Assistant heavily depend on your vehicle's capabilities (model year, headunit, etc.). The integration will make sure all available car attributes are added as entities.
+{% endnote %}
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/bimmerconnected/bimmer_connected) on GitHub.
 
 This integration provides the following platforms:
 
-- Binary Sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
+- Binary sensors: Doors, windows, condition based services, check control messages, parking lights, door lock state, charging status (electric cars) and connections status (electric cars).
 - Device tracker: The location of your car.
 - [Lock](/integrations/bmw_connected_drive/#lock): Control the lock of your car.
 - Sensors: Mileage, remaining range, remaining fuel, charging time remaining (electric cars), charging status (electric cars), remaining range electric (electric cars).
@@ -59,11 +59,9 @@ This integration provides the following platforms:
 
 Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
 
-<div class='note'>
-
-  For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
-
-</div>
+{% note %}
+For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
+{% endnote %}
 
 After connecting to your account, you can set the following settings in the integration's options:
 
@@ -122,18 +120,14 @@ The `button.<your_vehicle>_light_flash` button flashes the lights of the vehicle
 
 The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update the GPS location. This can be used for older vehicles which don't automatically send the updated GPS location.
 
-<div class="note warning">
+{% warning %}
+Using this service will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
+If you do not want this, trigger the `vehicle_finder` service from your phone and it should update in Home Assistant within 5 minutes.
+{% endwarning %}
 
-  Using this service will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
-  If you do not want this, trigger the `vehicle_finder` service from your phone and it should update in Home Assistant within 5 minutes.
-
-</div>
-
-<div class="note">
-
-  On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
-
-</div>
+{% note %}
+On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
+{% endnote %}
 
 ## Selects
 

@@ -1,5 +1,5 @@
 ---
-title: Water Heater
+title: Water heater
 description: Instructions on how to setup water heater devices within Home Assistant.
 ha_release: 0.81
 ha_domain: water_heater
@@ -10,9 +10,9 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The `water_heater` integration is built for the controlling and monitoring of hot water heaters.
+The **Water heater** {% term integration %} is built for the controlling and monitoring of hot water heaters.
 
-To enable this integration, pick one of the platforms, and add it to your `configuration.yaml`:
+To enable this {% term integration %}, pick one of the platforms, and add it to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,11 +26,9 @@ water_heater:
 
 Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
-<div class='note'>
-
+{% tip %}
 Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
-
-</div>
+{% endtip %}
 
 ### Service `water_heater.set_temperature`
 
@@ -40,9 +38,9 @@ Sets target temperature of water heater device.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | New target temperature for water heater
-| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly. For a list of possible modes, refer to the integration documentation.
+| `operation_mode` | yes | Operation mode to set the temperature to. This defaults to current_operation mode if not set, or set incorrectly. For a list of possible modes, refer to the {% term integration %} documentation.
 
-#### Automation example 
+#### Automation example
 
 ```yaml
 automation:

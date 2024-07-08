@@ -7,7 +7,7 @@ ha_category:
   - Health
   - Hub
   - Light
-  - Presence Detection
+  - Presence detection
   - Remote
   - Vacuum
 ha_iot_class: Local Polling
@@ -38,7 +38,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Xiaomi Miio integration supports the following devices:
+The **Xiaomi Miio** {% term integration %} supports the following devices:
 
 - [Xiaomi Gateway](#xiaomi-gateway)
 - [Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)](#xiaomi-device-tracker-xiaomi-mi-wifi-repeater-2)
@@ -57,11 +57,9 @@ and [Xiaomi IR Remote](#xiaomi-ir-remote). Please read the linked sections for t
 
 Devices need to be set up using the Mi Home app and not vendor-specific apps (e.g. Roborock).
 
-<div class='note'>
-
+{% note %}
 For more complex network setups (e.g. VLANs), reference the [following documentation](https://python-miio.readthedocs.io/en/latest/troubleshooting.html#discover-devices-across-subnets) for additional information.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -82,7 +80,7 @@ The most common problems are:
 
 ## Xiaomi Gateway
 
-The `xiaomi_miio` gateway integration allows you to control the gateway and its connected subdevices.
+The `xiaomi_miio` gateway {% term integration %} allows you to control the gateway and its connected subdevices.
 
 ### Supported Xiaomi gateway models:
 
@@ -96,9 +94,9 @@ The `xiaomi_miio` gateway integration allows you to control the gateway and its 
 | Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                       |
 | Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                            |
 
-Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the integration, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway integration). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
+Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway {% term integration %}). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
 
-### Gateway Features
+### Gateway features
 
 - Gateway alarm control (Turn on/off; see status `armed_away`, `disarmed`, `arming`)
 - Gateway light control (Turn on/off; change brightness; change color; see status)
@@ -179,7 +177,7 @@ The `xiaomi_miio` device tracker platform is observing your Xiaomi Mi WiFi Repea
 
 Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token.
 
-To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your `configuration.yaml` file:
+To add a Xiaomi Mi WiFi Repeater device tracker to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 device_tracker:
@@ -222,6 +220,8 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2   |              |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | AC-M6-SC     |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3   |              |
+| Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
+| Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
 | Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
 | Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
 | Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
@@ -454,6 +454,45 @@ Supported devices:
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
+  - `use_time`
+- Number entities
+
+| Number         | Description            |
+| -------------- | ---------------------- |
+| Fan Level      | Set the fan level      |
+| Favorite Level | Set the favorite level |
+
+- Select entities
+
+| Select         | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+
+- Sensor entities
+
+| Sensor                    | Description                                                   | Enabled by default |
+| ------------------------- | ------------------------------------------------------------- | ------------------ |
+| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
+| Filter Use                | Filter usage time in hours                                    | True               |
+| Humidity                  | The current humidity measured                                 | True               |
+| Motor Speed               | The current motor speed measured in rpm                       | True               |
+| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
+| Purify Volume             | The volume of purified air in qubic meter                     | False              |
+| Temperature               | The current temperature measured                              | True               |
+| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+
+- Switch entities
+
+| Switch     | Description                |
+| ---------- | -------------------------- |
+| Buzzer     | Turn on/off the buzzer     |
+| Child Lock | Turn on/off the child lock |
+
+### Air Purifier Pro H/Pro H EU (zhimi.airpurifier.va1/zhimi.airpurifier.vb2)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
@@ -917,9 +956,9 @@ These models use newer MiOT communication protocol.
 | Clean Mode | Turn on/off the clean mode |
 | Dry Mode   | Turn on/off the dry mode   |
 
-<div class='note'>
+{% note %}
 Clean mode and Motor speed can only be set when the device is turned on.
-</div>
+{% endnote %}
 
 ### Air Humidifier CB (zhimi.humidifier.cb1)
 
@@ -1232,11 +1271,11 @@ The `xiaomi miio` remote platform allows you to send IR commands from your Xiaom
 
 ### Setup
 
-Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
+Please follow the instructions on [Retrieving the Access Token](/integrations/xiaomi_miio/#retrieving-the-access-token) to get the API token to use in the {% term "`configuration.yaml`" %} file.
 
 ### Configuring the Platform
 
-To add a Xiaomi IR Remote to your installation, add the following to your `configuration.yaml` file:
+To add a Xiaomi IR Remote to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 remote:
@@ -1432,7 +1471,7 @@ Currently supported services are:
 
 ### Platform Services
 
-In addition to all of the services provided by the `vacuum` integration (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the services provided by the `vacuum` {% term integration %} (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
 
 - `xiaomi_miio.vacuum_clean_zone`
 - `xiaomi_miio.vacuum_clean_segment`
@@ -1687,10 +1726,10 @@ Water Shortage\*\*:
 
 {% endconfiguration_basic %}
 
-<div class="note">
-* Needs to be manually enabled once the integration has been added. <br>
-** Only enabled if the vacuum has a mop.
-</div>
+{% note %}
+\* Needs to be manually enabled once the {% term integration %} has been added. <br>
+\*\* Only enabled if the vacuum has a mop.
+{% endnote %}
 
 ### Attributes
 
@@ -2042,7 +2081,7 @@ pip3 install pycryptodome pybase64 requests
 python3 token_extractor.py
 ```
 
-3. Provide e-mail address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
+3. Provide email address or username for Xiaomi's account, password and country of the account (most used: CN - China Mainland, DE - Germany etc.)
 4. Script will print out all devices connected to the account with their IP address and tokens for use in Home Assistant.
 
 ### Xiaomi Home app (Xiaomi Aqara Gateway, Android & iOS)
@@ -2066,7 +2105,7 @@ If you are on a Windows or macOS device, you can use the [Get MiHome devices tok
 
 ### Alternative methods
 
-<div class='note'>
+{% note %}
 
 If using an Android device to retrieve the Access Token only `v5.4.49` of Mi Home is confirmed working (December 2019). Use `v5.4.49` of Mi Home locate a text file under the `Smarthome/logs` folder where the 32 character token is stored. There will likely be several text files in this directory, search all of them for the word 'token' and you should find it there. Be advised that the latest version of Mi Home does not store the token in clear text.
 <br/> <br/>
@@ -2078,7 +2117,7 @@ These instructions are written for the Mi Home app - not for the new RoboRock ap
 <br/> <br/>
 This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum, Mi Robot 2 (Roborock) Vacuum, Xiaomi Philips Lights and Xiaomi IR Remote.
 
-</div>
+{% endnote %}
 
 ### Android (not rooted)
 

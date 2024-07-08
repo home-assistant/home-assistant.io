@@ -9,10 +9,15 @@ ha_domain: button
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
-A button entity is an entity that can fire an event / trigger an action towards
-a device or service but remains stateless from the Home Assistant perspective.
+A button {% term entity %} is an entity that can fire an {% term event %} / trigger an {% term action %} towards
+a {% term device %} or {% term service %} but remains stateless from the Home Assistant perspective.
 
 It can be compared to a real live momentary switch, push-button, or some other
 form of a stateless switch.
@@ -21,14 +26,14 @@ form of a stateless switch.
 
 ## The state of a button
 
-The button entity is stateless, as in, it cannot have a state like the `on` or
+The button {% term entity %} is stateless, as in, it cannot have a state like the `on` or
 `off` state that, for example, a normal switch entity has.
 
 Every button entity does keep track of the timestamp of when the last time
 the button entity has been pressed in the Home Assistant UI or pressed via
 a service call.
 
-Because the state of a button entity in Home Assistant is a timestamp, it
+Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 
 ```yaml
@@ -43,7 +48,7 @@ action:
 
 ## Services
 
-The button entities exposes a single service: {% my developer_call_service service="button.press" %}
+The button entities exposes a single {% term service %}: {% my developer_call_service service="button.press" %}
 
 This service can be called to trigger a button press for that entity.
 
@@ -53,15 +58,18 @@ This service can be called to trigger a button press for that entity.
     entity_id: button.my_button
 ```
 
-## Device Class
+## Device class
 
-The way these buttons are displayed in the frontend can be modified in the [customize section](/docs/configuration/customizing-devices/).
-The following device classes are supported for buttons:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for buttons:
 
 <p class='img'>
 <img src='/images/screenshots/button_classes_icons.png' />
 Example of device class icons.
 </p>
+
+The following device classes are supported for buttons:
 
 - **None**: Generic button. This is the default and doesn't need to be set.
 - **identify**: The button is used to identify a device.

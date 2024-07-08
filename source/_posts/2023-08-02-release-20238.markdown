@@ -57,7 +57,7 @@ Enjoy the release!
 - [Release 2023.8.3 - August 18](#release-202383---august-18)
 - [Release 2023.8.4 - August 24](#release-202384---august-24)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -737,7 +737,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking changes
+## Backward-incompatible changes
 
 {% details "Python 3.10 support has been removed" %}
 
@@ -926,7 +926,7 @@ changes and new features available for your integration: Be sure to follow our
 The following integrations are also no longer available as of this release:
 
 - **Discovery** has been removed. This is the old legacy discovery integration.
-  See the breaking changes above for more information.  
+  See the backward-incompatible changes above for more information.  
   ([@frenck] - [#96856])
 - **Mi Flora** has been removed. This integration was replaced by the
   [Xiaomi BLE] integration a long time ago and was in a non-functional state.  

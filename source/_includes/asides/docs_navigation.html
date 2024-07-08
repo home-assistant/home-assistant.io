@@ -1,6 +1,6 @@
 <section class="aside-module grid__item one-whole lap-one-half">
   <div class="section">
-    <h1 class="title delta">Topics</h1>
+    <h1 class="title epsilon">Topics</h1>
     <ul class="divided sidebar-menu">
       <li>
         <b>{% active_link /faq/ FAQ %}</b>
@@ -8,20 +8,33 @@
         <b>{% active_link /docs/glossary/ Glossary %}</b>
       </li>
       <li>
-        <b>{% active_link /getting-started Getting Started %}</b>
+        <b>{% icon "mdi:rocket-launch-outline" %} Getting started</b>
         <ul>
           <li>{% active_link /installation Installation %}</li>
-          <li>{% active_link /common-tasks/os/ Common Tasks %}</li>
+          <li>{% active_link /getting-started Getting started & onboarding %}</li>
+          <li>{% active_link /common-tasks/os/ Common tasks %}</li>
           <li>
-            {% active_link /docs/troubleshooting/ Troubleshooting
+            {% active_link /docs/troubleshooting/ Troubleshooting installation
             %}
+          </li>
+          <li>
+            {% active_link /docs/troubleshooting_general/ General troubleshooting %}
           </li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/configuration/ Configuration.yaml %}</b>
+        <b>{% icon "mdi:view-dashboard" %} {% active_link /docs/frontend/ Frontend %}</b>
         <ul>
-          <li>{% active_link /docs/configuration/yaml/ YAML %}</li>
+          <li>{% active_link /dashboards Dashboards, views, cards %}</li>
+          <li>{% active_link /docs/organizing/ Organizing: areas, floors, labels, categories, ... %}</li>
+          <li>{% active_link /docs/frontend/icons/ Icons%}</li>
+        </ul>
+      </li>
+      <li>
+        <b>{% icon "mdi:cog" %} Configuration</b>
+        <ul>
+          <li>{% active_link /docs/configuration/ Configuration.yaml %}</li>
+          <li>{% active_link /docs/configuration/yaml/ YAML syntax%}</li>
           <li>
             {% active_link /docs/configuration/basic/ Basic information %}
           </li>
@@ -30,26 +43,25 @@
             entities %}
           </li>
           <li>
-            {% active_link /docs/configuration/troubleshooting/ Troubleshooting
-            %}
+            {% active_link /docs/configuration/troubleshooting/ Troubleshooting configuration %}
           </li>
           <li>
-            {% active_link /docs/configuration/securing/ Security Check Points
+            {% active_link /docs/configuration/securing/ Security check points
             %}
           </li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/energy/ Home Energy Management %}</b>
+        <b>{% icon "mdi:solar-power-variant" %} {% active_link /docs/energy/ Home Energy Management %}</b>
         <ul>
-          <li>{% active_link /docs/energy/electricity-grid/ Electricity Grid %}</li>
-          <li>{% active_link /docs/energy/solar-panels/ Solar Panels %}</li>
-          <li>{% active_link /docs/energy/individual-devices/ Individual Devices %}</li>
+          <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
+          <li>{% active_link /docs/energy/solar-panels/ Solar panels %}</li>
+          <li>{% active_link /docs/energy/individual-devices/ Individual devices %}</li>
           <li>{% active_link /docs/energy/faq/ FAQ %}</li>
         </ul>
       </li>
       <li>
-        Advanced Configuration
+        {% icon "fa-solid:cogs" %} Advanced configuration
         <ul>
           <li>{% active_link /docs/configuration/remote/ Remote access %}</li>
           <li>
@@ -58,7 +70,7 @@
           </li>
           <li>{% active_link /docs/configuration/packages/ Packages %}</li>
           <li>
-            {% active_link /docs/configuration/secrets/ Storing Secrets %}
+            {% active_link /docs/configuration/secrets/ Storing secrets %}
           </li>
           <li>{% active_link /docs/configuration/templating/ Templating %}</li>
           <li>
@@ -68,46 +80,49 @@
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/authentication/ Authentication %}</b>
+        <b>{% icon "mdi:account-security" %} {% active_link /docs/authentication/ Authentication %}</b>
         <ul>
           <li>
-            {% active_link /docs/authentication/providers/ Auth Providers %}
+            {% active_link /docs/authentication/providers/ Auth providers %}
           </li>
           <li>
-            {% active_link /docs/authentication/multi-factor-auth/ Multi Factor
-            Auth %}
+            {% active_link /docs/authentication/multi-factor-auth/ Multi factor
+            auth %}
+          </li>
+          <li>
+            {% active_link /docs/locked_out/ I'm locked out %}
           </li>
         </ul>
       </li>
       <li>
-        Core objects
+        {% icon "clarity:objects-solid" %} Core objects
         <ul>
           <li>{% active_link /docs/configuration/events/ Events %}</li>
           <li>
-            {% active_link /docs/configuration/state_object/ State Objects %}
+            {% active_link /docs/configuration/state_object/ State objects %}
           </li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/automation/ Automation %}</b>
+        <b><iconify-icon icon="mdi:robot-happy"></iconify-icon> {% active_link /docs/automation/ Automation %}</b>
         <ul>
-          <li>{% active_link /docs/automation/using_blueprints/ Using Automation Blueprints %}</li>
-          <li>{% active_link /docs/automation/basics/ Automation Basics %}</li>
+          <li>{% active_link /docs/automation/using_blueprints/ Using automation blueprints %}</li>
+          <li>{% active_link /docs/automation/basics/ Automation basics %}</li>
           <li>{% active_link /docs/automation/editor/ Editor %}</li>
           <li>{% active_link /docs/automation/trigger/ Triggers %}</li>
           <li>{% active_link /docs/automation/condition/ Conditions %}</li>
           <li>{% active_link /docs/automation/action/ Actions %}</li>
-          <li>{% active_link /docs/automation/modes/ Run Modes %}</li>
+          <li>{% active_link /docs/automation/modes/ Run modes %}</li>
           <li>{% active_link /docs/automation/services/ Services %}</li>
           <li>{% active_link /docs/automation/templating/ Templates %}</li>
           <li>{% active_link /docs/automation/yaml/ YAML %}</li>
           <li>
-            {% active_link /docs/automation/troubleshooting/ Troubleshooting %}
+            {% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}
           </li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/blueprint/ Blueprints %}</b>
+        <b>{% icon "carbon:floorplan" %} {% active_link /docs/blueprint/ Blueprints %}</b>
         <ul>
           <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
           <li>{% active_link /docs/blueprint/schema/ Blueprint schema %}</li>
@@ -115,45 +130,35 @@
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/frontend/ Frontend %}</b>
-        <ul>
-          <li>
-            {% active_link /docs/frontend/browsers/ Browser Compatibility List %}
-          </li>
-          <li>{% active_link /dashboards Dashboards %}</li>
-          <li>{% active_link /docs/frontend/icons/ Icons%}</li>
-        </ul>
-      </li>
-      <li>
-        <b>{% active_link /docs/backend/ Backend %}</b>
+        <b>{% icon "mdi:database" %} {% active_link /docs/backend/ Backend %}</b>
         <ul>
           <li>{% active_link /docs/backend/database/ Database %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/scripts/ Scripts %}</b>
+        <b>{% icon "mdi:script-text" %} {% active_link /docs/scripts/ Scripts %}</b>
         <ul>
-          <li>{% active_link /docs/scripts/service-calls/ Service Calls %}</li>
+          <li>{% active_link /docs/scripts/service-calls/ Service calls %}</li>
           <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/scene/ Scenes %}</b>
+        <b>{% icon "mdi:script-text" %} {% active_link /docs/scene/ Scenes %}</b>
         <ul>
           <li>{% active_link /docs/scene/editor/ Editor %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /docs/tools/ Tools and Helpers %}</b>
+        <b>{% icon "mdi:palette" %} {% active_link /docs/tools/ Tools and helpers %}</b>
         <ul>
-          <li>{% active_link /docs/tools/dev-tools/ Developer Tools %}</li>
-          <li>{% active_link /docs/tools/quick-bar/ Quick Bar %}</li>
+          <li>{% active_link /docs/tools/dev-tools/ Developer tools %}</li>
+          <li>{% active_link /docs/tools/quick-bar/ Quick bar %}</li>
           <li>{% active_link /docs/tools/hass/ hass %}</li>
           <li>{% active_link /docs/tools/check_config/ check_config %}</li>
         </ul>
       </li>
       <li>
-        <b>{% active_link /integrations/mqtt MQTT %}</b>
+        <b>{% icon "simple-icons:mqtt" %} {% active_link /integrations/mqtt MQTT %}</b>
         <ul>
           <li>{% active_link /integrations/mqtt/#broker-configuration Broker %}</li>
           <li>{% active_link /integrations/mqtt/#advanced-broker-configuration Certificate %}</li>
@@ -167,7 +172,7 @@
         </ul>
       </li>
       <li>
-        <b>Hardware</b>
+        <b>{% icon "bitcoin-icons:node-hardware-filled" %} Hardware</b>
         <ul>
           <li>
             <a href="https://green.home-assistant.io/">Home Assistant Green</a>
@@ -176,7 +181,7 @@
             <a href="https://yellow.home-assistant.io/">Home Assistant Yellow</a>
           </li>
           <li>
-            <a href="https://skyconnect.home-assistant.io/">Home Assistant SkyConnect</a>
+            <a href="https://connectzbt1.home-assistant.io/">Home Assistant Connect ZBT-1</a>
           </li>
         </ul>
       </li>

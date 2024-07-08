@@ -22,11 +22,11 @@ The fan integration allows you to control and monitor fan devices.
 Available services:
 `fan.set_percentage`, `fan.set_preset_mode`, `fan.set_direction`, `fan.oscillate`, `fan.turn_on`, `fan.turn_off`, `fan.toggle`, `fan.increase_speed`, `fan.decrease_speed`
 
-<div class='note'>
+{% note %}
 
 Not all fan services may be available for your platform. You can check which services are available for your fan(s) under **Developer Tools** > **Services**.
 
-</div>
+{% endnote %}
 
 ### Service `fan.set_percentage`
 
@@ -126,7 +126,7 @@ automation:
 
 ### Service `fan.turn_on`
 
-Turn fan device on. This is only supported if the fan device supports being turned off.
+Turn fan device on. This is only supported if the fan device supports being turned off. See a similar example under `fan.turn_off`.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -151,7 +151,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: fan.set_speed
+    - service: fan.turn_off
       target:
         entity_id: fan.kitchen
       data:

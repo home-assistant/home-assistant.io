@@ -10,11 +10,32 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
 
 {% include integrations/building_block_integration.md %}
+
+## Device class
+
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different text and UI for different device classes for humidifiers:
+
+<p class='img'>
+<img src='/images/screenshots/humidifier_device_class.png' />
+Humidifier device classes.
+</p>
+
+The following device classes are supported for humidifiers:
+
+- **Humidifier**: Adds humidity to the air around it.
+- **Dehumidifier**: Removes humidity from the air around it.
 
 ## Services
 
@@ -22,11 +43,9 @@ The `humidifier` integration is built for the controlling and monitoring of humi
 
 Available services: `humidifier.set_mode`, `humidifier.set_humidity`, `humidifier.turn_on`, `humidifier.turn_off`, `humidifier.toggle`
 
-<div class='note'>
-
+{% tip %}
 Not all humidifier services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking the Services page in the [Developer Tools](/docs/tools/dev-tools/).
-
-</div>
+{% endtip %}
 
 ### Service `humidifier.set_mode`
 

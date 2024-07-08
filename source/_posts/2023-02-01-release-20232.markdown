@@ -54,7 +54,7 @@ _PS: Just a reminder that valentine's day is coming up. Be sure to share the lov
 - [Release 2023.2.4 - February 13](#release-202324---february-13)
 - [Release 2023.2.5 - February 15](#release-202325---february-15)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -733,7 +733,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 {% details "Python 3.9 support has been removed" %}
 

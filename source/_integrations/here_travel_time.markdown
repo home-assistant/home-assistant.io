@@ -30,7 +30,7 @@ Notes:
 
 {% include integrations/option_flow.md %}
 
-## Dynamic Configuration
+## Dynamic configuration
 
 Tracking can be set up to track entities of type `device_tracker`, `zone`, `sensor`, `input_select`, `input_text` and `person`. If an entity is placed in the origin or destination then each time the platform updates, it will use the latest location of that entity. This means it will directly use its location if possible or try to resolve entity values until it finds a valid set of coordinates. You can put several destinations as options of an `input_select` and define that as the destination.
 

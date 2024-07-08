@@ -21,7 +21,7 @@ The `gogogate2` cover platform lets you control Gogogate2 and iSmartGate enabled
 
 {% include integrations/config_flow.md %}
 
-### Supported Devices
+### Supported devices
 
 - Gogogate 2
 - ismartgate PRO

@@ -44,9 +44,9 @@ To configure options for DSMR integration go to **Settings** -> **Devices & Serv
 
 Typically the smart meter sends new data every 5-10 seconds. This value defines the minimum time between entity updates in seconds. Setting this value to 0 will update entities each time data is received from the smart meter.
 
-<div class='note warning'>
+{% important %}
 Reducing the default time between updates will increase the amount of events generated and can potentially flood the system with events.
-</div>
+{% endimportant %}
 
 ### Supported meters
 
@@ -63,6 +63,12 @@ This integration is known to work for:
 - Sagemcom T211 
 - Ziv E0058 ESMR5
 - EasyMeter Q3D
+
+### M-Bus support
+
+A smart meter can have multiple subdevices, also known as [M-Bus](https://m-bus.com/) devices.
+For the <abbr title="Dutch smart meter requirement">DSMR</abbr> version 5B, support was added for water and gas M-Bus devices. This means you can have up to 4 subdevices on your <abbr title="Dutch smart meter requirement">DSMR</abbr> meter.
+While previously only 1 gas meter was supported, there is now support for multiple gas and water meters.
 
 ### Connecting to the meter
 
@@ -86,7 +92,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [ser2net](https://ser2net.sourceforge.net)
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
-- [esp8266 espeasy (Poluket)](https://www.domohab.be/produit/kit-complet-passerelle-compteur/) (create for Sagemcom T211 model in Belgium)
+- [esp8266 SmartMeter (Poluket)](https://www.domohab.be/categorie-produit/passerelle/) (create for DSMR5 / ESMR5 Meter)
 
 DIY solutions (ESP8266 based):
 

@@ -138,7 +138,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 -  __http.api_password__ - __Deprecated__ - Users who are still using api_password for authentication will need to move its configuration under auth_providers. Please see the [updated documentation](/docs/authentication/providers/#legacy-api-password) for further details. Those who don't make this change will see an INFO level reminder in the Home Assistant logs until the fix is made for a time, but please note, __api_password authentication will eventually be removed completely__ and we advise users to change to use one of the [other authentication methods](/docs/authentication/providers/#available-auth-providers). If you manually specify auth providers in your `configuration.yaml`, you will need to migrate your API Password from the http section to the auth provider section to continue using it. ([@awarecan] - [#21884]) ([api docs]) ([frontend docs]) ([hassio docs]) ([http docs]) ([mqtt docs]) ([websocket_api docs]) ([zeroconf docs]) ([camera.proxy docs])
 - __Default Config__ - Default config no longer contains the discovery component. That is now part of the initial written configuration.yaml. If you rely on default config and want to use discovery, add `discovery:` back to your configuration.yaml.

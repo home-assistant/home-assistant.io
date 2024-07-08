@@ -6,14 +6,15 @@ ha_category:
 ha_release: 0.106
 ha_iot_class: Cloud Polling
 ha_config_flow: true
-ha_codeowners:
-  - '@vilppuvuorinen'
 ha_domain: melcloud
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration
+ha_codeowners:
+  - '@erwindouna'
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.

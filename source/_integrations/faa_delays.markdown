@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The FAA Delays integration collects and displays information about delays at US Airports based on the
+The **FAA Delays** {% term integration %} collects and displays information about delays at US Airports based on the
 [FAA's National Airspace System Status](https://nasstatus.faa.gov/).
 
 Data measured includes:
@@ -26,13 +26,13 @@ Data measured includes:
 
 {% include integrations/config_flow.md %}
 
-## Supported Airports
+## Supported airports
 
 The airport entered must be a valid IATA
 airport code for an airport in the US. You can find this by looking up the 
 FAA Identifier at [Airnav](https://airnav.com/airports/).
 
-## Additional Delay Information
+## Additional delay information
 
 Each airport added will expose 5 binary sensors, one for each type of delay. Within each sensor there is additional
 information listed as attributes, which depends on the type of delay it is. Each delay type has the attributes

@@ -1,22 +1,42 @@
 ---
 title: "Actions"
 description: "Define what an object does when interacted with."
+related:
+  - docs: /dashboards/button/
+    title: Button card
+  - docs: /dashboards/entities/
+    title: Entities card
+  - docs: /dashboards/glance/
+    title: Glance card
+  - docs: /dashboards/light/
+    title: Light card
+  - docs: /dashboards/picture/
+    title: Picture card
+  - docs: /dashboards/picture-elements/
+    title: Picture element card
+  - docs: /dashboards/picture-entity/
+    title: Picture entity card
+  - docs: /dashboards/picture-glance/
+    title: Picture glance card
 ---
 
 Some cards have support for tap actions. These actions define what will happen when you tap or hold on an object within a card.
 
-Actions can be enabled on:
+Actions can be enabled on the following cards:
 
 - [Button](/dashboards/button/)
 - [Entities](/dashboards/entities/)
+- [Gauge](/dashboards/gauge/)
 - [Glance](/dashboards/glance/)
 - [Light](/dashboards/light/)
 - [Picture](/dashboards/picture/)
-- [Picture Element](/dashboards/picture-elements/)
-- [Picture Entity](/dashboards/picture-entity/)
-- [Picture Glance](/dashboards/picture-glance/)
+- [Picture element](/dashboards/picture-elements/)
+- [Picture entity](/dashboards/picture-entity/)
+- [Picture glance](/dashboards/picture-glance/)
+- [Tile](/dashboards/tile/)
+- [Weather forecast](/dashboards/weather-forecast/)
 
-## Tap-Action
+## Tap action
 
 Action that will be performed when an object on a card is tapped.
 
@@ -40,6 +60,11 @@ tap_action:
       required: false
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
+      default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
       default: none
     url_path:
       required: false
@@ -73,7 +98,7 @@ tap_action:
       default: none
 {% endconfiguration %}
 
-## Hold Action
+## Hold action
 
 Action that will be performed when an object on a card is tapped, held for at least half a second and then released. Action will only be triggered once, not continuously during hold.
 
@@ -98,6 +123,11 @@ hold_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -130,7 +160,7 @@ hold_action:
       default: none
 {% endconfiguration %}
 
-## Double-Tap Action
+## Double tap action
 
 Action that will be performed when an object on a card is double-tapped.
 
@@ -155,6 +185,11 @@ double_tap_action:
       description: "Path to navigate to (e.g., `/lovelace/0/`) when the `action` is defined as `navigate`"
       type: string
       default: none
+    navigation_replace:
+      required: false
+      description: "Whether to replace the current page in the the history with the new URL when the `action` is defined as `navigate`"
+      type: boolean
+      default: none
     url_path:
       required: false
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
@@ -187,7 +222,7 @@ double_tap_action:
       default: none
 {% endconfiguration %}
 
-## Options For Confirmation
+## Options for confirmation
 
 If you define confirmation as an object instead of boolean, you can add more customization and configurations.
 
@@ -214,7 +249,7 @@ exemptions:
   type: list
 {% endconfiguration %}
 
-## Options For Exemptions
+## Options for exemptions
 
 {% configuration exemptions %}
 user:

@@ -11,9 +11,9 @@ categories:
 og_image: /images/blog/2018-08-0.76/components.png
 ---
 
-<div class='note'>
+{% note %}
 This release has a migration, initial startup can take ~20 minutes (depends on size DB)
-</div>
+{% endnote %}
 
 This release includes a database migration to allow us to store context in the database. This will make it possible in the future to introduce attribution. For example, we'll be able to say which user opened the garage door or which automation triggered the party mode at 3am.
 
@@ -88,14 +88,14 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Keenetic NDMS: user needs to have access to the TelNet interface ([@foxel] - [#15511]) ([device_tracker docs]) (breaking change)
 - openweathermap: wind speed is now correctly in km/h (fixes #15710) ([@fabaff] - [#15740]) ([weather.openweathermap docs]) (breaking change)
 - Remove Telstra notifiy component: This API has been decommissioned on the 31st of May 2018 by Telstra ([@dgomes] - [#15757]) ([notify docs]) (breaking change)
 - deCONZ - support for power plugs. Power plugs that are of type "On/Off plug-in unit" and "Smart plug" (Osram and Innr among others) will now be switches instead of lights. Entities will be found as switch.entity_id instead of light.entity_id. ([@Kane610] - [#15752]) ([deconz docs]) ([light.deconz docs]) ([switch.deconz docs]) (breaking change) (new-platform)
 - HTTP: Make sure use_x_forward_for and trusted_proxies must be configured together ([@awarecan] - [#15804]) ([http docs]) (breaking change)
-- Velbus: Breaking changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
+- Velbus: Backward-incompatible changes include auto-discovery support so that you don't need to specify modules manually anymore in the configuration file, but just load the velbus component which will automatically load the switch and binary_sensor platforms. In addition, the fan and light platforms are removed since these should be modeled with template platform based on velbus switches. ([@thomasdelaet] - [#13742]) ([velbus docs]) ([binary_sensor.velbus docs]) ([switch.velbus docs]) (breaking change)
 - Facebox: Events are no longer fired when a face is taught, as these are unnecessary and the info they convey is already in the logs. ([@robmarkcole] - [#15439]) ([image_processing.facebox docs]) (breaking change)
 - AMCrest switch: Fix for multiple camera switches naming of entity. May change switch entity_id. Please check your automation and update the identity-id if you have previously assigned a name to your camera as it appends the name of the camera to the switch id. ([@rafale77] - [#14028]) ([switch.amcrest docs]) (breaking change)
 - MQTT embedded broker will no longer rely on HTTP API password to automatically configure itself. You need to set own password. ([@awarecan] - [#15929]) ([mqtt docs]) (breaking change) (beta fix)

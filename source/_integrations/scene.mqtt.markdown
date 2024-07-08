@@ -12,9 +12,7 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To enable a MQTT scene in your installation, add the following to your `configuration.yaml` file:
+To enable a MQTT scene in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,6 +95,10 @@ device:
       description: The name of the device.
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -118,7 +120,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 encoding:
   description: The encoding of the published messages.
   required: false
@@ -176,11 +177,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

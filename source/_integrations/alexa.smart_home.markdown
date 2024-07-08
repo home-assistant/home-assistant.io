@@ -7,6 +7,7 @@ ha_release: "0.54"
 ha_codeowners:
   - '@home-assistant/cloud'
   - '@ochlocracy'
+  - '@jbouwh'
 ha_domain: alexa
 ---
 
@@ -20,14 +21,14 @@ It takes considerable effort to configure. Your Home Assistant instance must be 
 
 The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
-<div class='note'>
+{% note %}
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-</div>
+{% endnote %}
 
 Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
@@ -38,18 +39,18 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
   - [Add Code to the Lambda Function](#add-code-to-the-lambda-function)
   - [Test the Lambda Function](#test-the-lambda-function)
 - [Configure the Smart Home Service Endpoint](#configure-the-smart-home-service-endpoint)
-- [Account Linking](#account-linking)
+- [Account linking](#account-linking)
 - [Alexa Smart Home Integration Configuration](#alexa-smart-home-integration-configuration)
-- [Supported Platforms](#supported-platforms)
-  - [Alarm Control Panel](#alarm-control-panel)
+- [Supported platforms](#supported-platforms)
+  - [Alarm control panel](#alarm-control-panel)
     - [Arming](#arming)
     - [Disarming](#disarming)
   - [Alert, Automation, Group](#alert-automation-group)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
     - [Routines](#routines)
   - [Button, Input Button](#button-input-button)
     - [Routines](#routines-1)
-    - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
+    - [Doorbell announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
     - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
   - [Camera](#camera)
   - [Climate](#climate)
@@ -59,11 +60,11 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Open/Close/Raise/Lower](#opencloseraiselower)
     - [Set Cover Position](#set-cover-position)
     - [Set Cover Tilt](#set-cover-tilt)
-    - [Garage Doors](#garage-doors)
+    - [Garage doors](#garage-doors)
   - [Event entities](#event-entities)
-    - [Doorbell Events](#doorbell-events)
+    - [Doorbell events](#doorbell-events)
   - [Fan](#fan)
-    - [Fan Speed](#fan-speed)
+    - [Fan speed](#fan-speed)
     - [Fan Preset Mode](#fan-preset-mode)
     - [Fan Direction](#fan-direction)
     - [Fan Oscillation](#fan-oscillation)
@@ -92,13 +93,19 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Routines](#routines-2)
   - [Timer](#timer)
   - [Vacuum](#vacuum)
-- [Alexa Web-Based App](#alexa-web-based-app)
+  - [Valve](#valve)
+    - [Open/close](#openclose)
+    - [Set valve position](#set-valve-position)
+    - [Stop the valve](#stop-the-valve)
+  - [Water heater](#water-heater)
+    - [Set target temperature](#set-target-temperature)
+    - [Operation Mode](#operation-mode)
 - [Troubleshooting](#troubleshooting)
 - [Debugging](#debugging)
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will not work, but a public trusted certificate or a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) should work. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - An Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
@@ -171,7 +178,7 @@ Next you need create a Lambda function.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your {% term "`configuration.yaml`" %} file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
@@ -221,7 +228,7 @@ Now remove the long-lived access token (if you want), copy the ARN of your Lambd
 - Click `SMART HOME` in the left navigation bar of build page.
 - Fill in `Default endpoint` under `2. Smart Home service endpoint` using the `ARN` you copied from your Lambda function configuration.
 
-## Account Linking
+## Account linking
 
 Alexa needs to link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are able to access your home's devices. In order to link the account, you have to make sure your Home Assistant can be accessed from Internet at port 443.
 
@@ -233,13 +240,14 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
 
-    It is also possible to use a different port by appending `:1443` or a similar port number, make sure your firewall is forwarding the correct port:
-  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]:1443/auth/authorize`
-  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]:1433/auth/token`
+    Although it is possible to assign a different port, Alexa requires you use port 443, so make sure your firewall/proxy is forwarding via port 443.
 
-<div class="note">
-    Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
-</div>
+    Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
+
+{% important %}
+You must use a valid/trusted SSL certificate for account linking to work.
+Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
+{% endimportant %}
 
 - `Client ID`:
   - `https://pitangui.amazon.com/` if you are in US
@@ -258,9 +266,8 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
 </p>
 
 - Click `Save` button in the top right corner.
-- Next, you will use the Alexa Mobile App or the [Alexa web-based app](#alexa-web-based-app) to link your account.
+- Next, you will use the Alexa Mobile App to link your account.
   - In the Alexa app, navigate to `More` -> `Skills & Games` -> `Your Skills` -> `Dev`
-  - Or In the Alexa web app, navigate to `Skills` -> `Your Skills` in the top right -> `Dev Skill`
   - Click the Smart Home skill you just created.
   - Click `Enable to use`.
   - A new window will open to direct you to your Home Assistant's login screen.
@@ -383,7 +390,7 @@ alexa:
                   type: string
 {% endconfiguration %}
 
-### Alexa Locale <!-- omit in toc -->
+### Alexa locale <!-- omit in toc -->
 
 The `locale` should match the location and language used for your Amazon echo devices.
 
@@ -407,7 +414,7 @@ The supported locales are:
 
 See [List of Capability Interfaces and Supported Locales][alexa-supported-locales].
 
-### Proactive Events <!-- omit in toc -->
+### Proactive events <!-- omit in toc -->
 
 The `endpoint`, `client_id` and `client_secret` are optional, and are only required if you want to enable Alexa's proactive mode (i.e., "Send Alexa Events" enabled). Please note the following if you want to enable proactive mode:
 
@@ -415,7 +422,7 @@ The `endpoint`, `client_id` and `client_secret` are optional, and are only requi
 - The `client_id` and `client_secret` are not the ones used by the skill that have been set up using "Login with Amazon" (in the [Alexa Developer Console][alexa-dev-console]: Build > Account Linking), but rather from the "Alexa Skill Messaging" (in the Alexa Developer Console: Build > Permissions > Alexa Skill Messaging). To get them, you need to enable the "Send Alexa Events" permission.
 - If the "Send Alexa Events" permission was not enabled previously, you need to unlink and relink the skill using the Alexa App, or else Home Assistant will show the following error: "Token invalid and no refresh token available. Also, you need to restart your Home Assistant after each disabling/enabling the skill in Alexa."
 
-### Configure Filter <!-- omit in toc -->
+### Configure filter <!-- omit in toc -->
 
 By default, no entity will be excluded. To limit which entities are being exposed to Alexa, you can use the `filter` parameter. Keep in mind that only [supported platforms](#supported-platforms) can be added.
 
@@ -446,73 +453,21 @@ light.kitchen_light:
   display_categories: LIGHT,SWITCH
 ```
 
-<div class='note info'>
+{% note %}
 Devices such as cameras, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
-</div>
+{% endnote %}
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
 
-## Supported Platforms
+## Supported platforms
 
 Home Assistant supports the following integrations through Alexa using a Smart Home Skill. For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-The following platforms are currently supported:
+The following paragraphs explain the features of the platforms that are currently supported.
 
-- [Alarm Control Panel](#alarm-control-panel)
-  - [Arming](#arming)
-  - [Disarming](#disarming)
-- [Alert, Automation, Group](#alert-automation-group)
-- [Binary Sensor](#binary-sensor)
-  - [Routines](#routines)
-- [Button, Input Button](#button-input-button)
-  - [Routines](#routines-1)
-  - [Doorbell Announcement with binary\_sensor](#doorbell-announcement-with-binary_sensor)
-  - [Presence Detection with Binary Sensor](#presence-detection-with-binary-sensor)
-- [Camera](#camera)
-- [Climate](#climate)
-  - [Set Thermostat Temperature](#set-thermostat-temperature)
-  - [Thermostat Mode](#thermostat-mode)
-- [Cover](#cover)
-  - [Open/Close/Raise/Lower](#opencloseraiselower)
-  - [Set Cover Position](#set-cover-position)
-  - [Set Cover Tilt](#set-cover-tilt)
-  - [Garage Doors](#garage-doors)
-- [Event entities](#event-entities)
-  - [Doorbell Events](#doorbell-events)
-- [Fan](#fan)
-  - [Fan Speed](#fan-speed)
-  - [Fan Preset Mode](#fan-preset-mode)
-  - [Fan Direction](#fan-direction)
-  - [Fan Oscillation](#fan-oscillation)
-- [Humidifier](#humidifier)
-  - [Humidifier target humidity](#humidifier-target-humidity)
-  - [Humidifier Mode](#humidifier-mode)
-- [Image Processing](#image-processing)
-  - [Presence Detection Notification](#presence-detection-notification)
-- [Input Number and Number](#input-number-and-number)
-- [Light](#light)
-  - [Brightness](#brightness)
-  - [Color Temperature](#color-temperature)
-  - [Color](#color)
-- [Lock](#lock)
-  - [Unlocking](#unlocking)
-- [Media Player](#media-player)
-  - [Change Channel](#change-channel)
-  - [Speaker Volume](#speaker-volume)
-  - [Equalizer Mode](#equalizer-mode)
-  - [Inputs](#inputs)
-  - [Playback State](#playback-state)
-- [Scene](#scene)
-- [Script](#script)
-- [Sensor](#sensor)
-- [Switch, Input Boolean](#switch-input-boolean)
-  - [Routines](#routines-2)
-- [Timer](#timer)
-- [Vacuum](#vacuum)
+### Alarm control panel
 
-### Alarm Control Panel
-
-Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alarm Control Panel entity.
+Arm and disarm Alarm control panel entities. Ask Alexa for the state of the alarm control panel entity.
 
 - _"Alexa, arm my home in away mode."_
 - _"Alexa, arm my home."_
@@ -521,27 +476,25 @@ Arm and disarm Alarm Control Panel entities. Ask Alexa for the state of the Alar
 
 #### Arming
 
-The Alarm Control Panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming, e.g., switching from `armed_home` to `armed_night`.
+The alarm control panel state must be in the `disarmed` state before arming. Alexa does not support switching from an armed state without first disarming, e.g., switching from `armed_home` to `armed_night`.
 
-The Alarm Control Panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
+The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
-<div class="note">
-
-Alexa does not support arming with voice PIN at this time. Therefore if the Alarm Control Panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
-The Alarm Control Panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [Entity Customization Tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the Alarm Control Panel during discovery.
-
-</div>
+{% note %}
+Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
+The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
+{% endnote %}
 
 #### Disarming
 
-Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the Alarm Control Panel.
+Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will require a 4 digit voice personal identification number (PIN) for disarming. Configure a 4 digit PIN in the Alexa app, or use an existing 4 digit PIN code configured for the alarm control panel.
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_security_system_pin.png' target='_blank'>
   <img height='460' src='/images/integrations/alexa/alexa_app_security_system_pin.png' alt='Screenshot: Alexa App Security System PIN'/></a>
 </p>
 
-To use the existing code configured for the Alarm Control Panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
+To use the existing code configured for the alarm control panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
 The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
@@ -553,7 +506,7 @@ Turn on and off Alert, Automation, and Group entities as switches.
 - _"Alexa, turn off energy saving automations."_
 - _"Alexa, Downstairs to on."_
 
-### Binary Sensor
+### Binary sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -600,7 +553,7 @@ In order to enable this, buttons will appear to have "presence detection" capabi
   <img height='460' src='/images/integrations/alexa/alexa_app_button_trigger.png' alt='Screenshot: Alexa App Button Routine Trigger'/></a>
 </p>
 
-#### Doorbell Announcement with binary_sensor
+#### Doorbell announcement with binary_sensor
 
 Requires [Proactive Events](#proactive-events) enabled.
 
@@ -640,11 +593,9 @@ alexa:
 
 Alexa will announce on all echo devices _"Person detected at [entity name]"_.
 
-<div class="note">
-
+{% important %}
 Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturb feature turned off.
-
-</div>
+{% endimportant %}
 
  <p class='img'>
    <a href='/images/integrations/alexa/alexa_app_person_detection.png' target='_blank'>
@@ -755,7 +706,7 @@ Covers that support tilt position can be controlled using percentages.
 
 Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
 
-#### Garage Doors
+#### Garage doors
 
 Covers with a `device_class` of `garage` support the Open by Voice PIN feature in the Alexa app. Configure a 4 digit PIN code to open the garage door in the Alexa app.
 
@@ -768,14 +719,14 @@ Covers with a `device_class` of `garage` support the Open by Voice PIN feature i
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-#### Doorbell Events
+#### Doorbell events
 
 Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
 Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
 
-<div class='note info'>
+{% note %}
 Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
-</div>
+{% endnote %}
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
@@ -786,7 +737,7 @@ Each Amazon Echo device will need the communication and announcements setting en
 
 Control fan speed, direction, and oscillation.
 
-#### Fan Speed
+#### Fan speed
 
 The fan device must support percentage based speeds with the `percentage` attribute.
 
@@ -856,11 +807,9 @@ Alexa will announce on all echo devices _"Person detected at [entity name]"_.
    <img height='460' src='/images/integrations/alexa/alexa_app_person_detection.png' alt='Screenshot: Alexa App Person Detection Notification'/></a>
  </p>
 
-<div class='note'>
-
+{% note %}
 Display category will default to `CAMERA` to enable presence detected notification settings in the Alexa App. Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturbed feature turned off.
-
-</div>
+{% endnote %}
 
 ### Input Number and Number
 
@@ -915,13 +864,13 @@ Adjust lights that support color temperature using the following friendly names:
 
 The following table lists the possible friendly name synonyms available to lights that support color temperature.
 
-| Color Temperature in Kelvin | Friendly Name Synonyms  |
-| -----| ---------------------------------------------- |
-| 2200 | _"warm"_, _"warm white"_                       |
-| 2700 | _"incandescent"_, _"soft white"_               |
-| 4000 | _"white"_                                      |
-| 5500 | _"daylight"_, _"daylight white"_               |
-| 7000 | _"cool"_, _"cool white"_                       |
+| Color Temperature in Kelvin | Friendly Name Synonyms           |
+| --------------------------- | -------------------------------- |
+| 2200                        | _"warm"_, _"warm white"_         |
+| 2700                        | _"incandescent"_, _"soft white"_ |
+| 4000                        | _"white"_                        |
+| 5500                        | _"daylight"_, _"daylight white"_ |
+| 7000                        | _"cool"_, _"cool white"_         |
 
 Use _"warmer"_, _"softer"_, _"cooler_, _"whiter"_ utterances to adjust color temperature by 50 `mired` (approximately 300-500 degree kelvin change).
 
@@ -989,9 +938,9 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-<div class='note info'>
+{% note %}
 Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
-</div>
+{% endnote %}
 
 ### Scene
 
@@ -1016,7 +965,6 @@ Only temperature sensors are configured at this time.
 
 - _"Alexa, what's the temperature in the kitchen?"_
 - _"Alexa, what's the upstairs temperature?"_
-- _"Alexa, what's the temperature of my ex-girlfriend's heart?"_
 
 ### Switch, Input Boolean
 
@@ -1054,9 +1002,9 @@ Pause and Restart Timer entities in Home Assistant.
 - _"Alexa, hold the sous vide."_
 - _"Alexa, restart the microwave."_
 
-<div class="note">
-To avoid issues with Alexa built in timer functionality. The timer entity can not include the word "timer" in the friendly name.
-</div>
+{% important %}
+To avoid issues with Alexa's built-in timer functionality, the timer entity should not include the word "timer" in its friendly name.
+{% endimportant %}
 
 ### Vacuum
 
@@ -1066,20 +1014,62 @@ Support _"turn on"_ and _"turn off"_ utterances. Pause and Resume
 - _"Alexa, pause the vacuum."_
 - _"Alexa, restart the vacuum."_
 
-## Alexa Web-Based App
+### Valve
 
-The following is a list of regions and the corresponding URL for the web-based Alexa app:
+Valves are not supported natively within Alexa. So within Alexa, they are represented as a device of an unknown type. 
 
-- United States: `https://alexa.amazon.com`
-- United Kingdom: `https://alexa.amazon.co.uk`
-- Germany: `https://alexa.amazon.de`
-- Japan: `https://alexa.amazon.co.jp`
-- Canada: `https://alexa.amazon.ca`
-- Australia: `https://alexa.amazon.com.au`
-- India: `https://alexa.amazon.in`
-- Spain: `https://alexa.amazon.es`
-- France: `https://alexa.amazon.fr`
-- Italy: `https://alexa.amazon.it`
+#### Open/close
+
+Home Assistant configures valves with semantics that provide  _"open"_ and _"close"_ utterances.
+
+- _"Alexa, open the water valve."_
+- _"Alexa, close the gas valve."_
+
+#### Set valve position
+
+Valves that support a set position can be controlled using percentages.
+
+- _"Alexa, set the [entity name] position to thirty percent."_
+- _"Alexa, increase [entity name] position by ten percent."_
+- _"Alexa, decrease [entity name] position by twenty percent."_
+
+| Locale  | Friendly Name Synonyms    |
+| ------- | ------------------------- |
+| `en-US` | _"position"_, _"opening"_ |
+
+Currently, Alexa only supports friendly name synonyms for the `en-US` locale.
+
+#### Stop the valve
+
+Valves that support `stop` closing or opening will have an extra toggle control that allows to stop the valve closing or opening operation.
+
+### Water heater
+
+Single, double, and triple set-point thermostats are supported. The temperature value from the thermostat will also be exposed at a separate [temperature sensor](#sensor).
+
+#### Set target temperature
+
+- _"Alexa, set the boiler's target temperature to 50."_
+
+You can ask Alexa about the current temperature and current target temperature.
+
+- _"Alexa, what is the boiler's target temperature?"_
+- _"Alexa, what is the boiler's current temperature?"_
+
+#### Operation Mode
+
+The operation mode can be set from the UI. All Home Assistant operation modes can be set (English only).
+
+- _"Alexa, set main boiler to eco."_
+
+To change the water heater's mode, the exact utterance must be used:
+
+- _"Alexa, set [entity name] to [mode utterance]."_
+
+If the water heater entity supports on/off, use _"turn on"_ and _"turn off"_ utterances with the entity name or the mode utterance.
+
+- _"Alexa, turn on the [mode utterance]."_
+- _"Alexa, turn off the [entity name]."_
 
 ## Troubleshooting
 
@@ -1095,7 +1085,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 ## Debugging
 
-The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
+The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %}:
 
 If using Alexa with an Alexa Smart Home Skill and Lambda function such as haaska:
 

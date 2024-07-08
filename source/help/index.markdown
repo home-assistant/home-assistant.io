@@ -9,6 +9,7 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
+- Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
 - Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
@@ -88,6 +89,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Home Assistant – Open Source Python Home Automation Platform](https://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
 [forum]: https://community.home-assistant.io/
+[mastodon]: https://fosstodon.org/@homeassistant
 [x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant

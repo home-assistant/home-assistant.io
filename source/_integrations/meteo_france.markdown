@@ -32,9 +32,7 @@ It displays the current weather along with a 5 days forecast and create sensors,
 
 ## Weather platform
 
-To be used with the weather dashboard card to access current condition, today and next four days forecast.
-
-The weather platform can be configured in the frontend to decide if the forecast is given daily (default) or hourly. To change the setting go in **Settings** -> **Devices & Services**, click on the city name in **Météo-France** box and click on **Options**. You can update the `Forecast mode` by choosing between `daily` or `hourly`.
+To be used with the weather dashboard card to access current condition, today and next four days (default) or hours forecast.
 
 ## Sensor platforms
 
@@ -63,13 +61,13 @@ To enable an entity disabled by default, go in **Settings** -> **Devices & Servi
 
 ### About `next_rain` condition sensor
 
-<div class='note warning'>
+{% note %}
 
-  The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
+The 1 hour rain forecast is supported for more than 75 % of metropolitan France.<br/>
   
-  ![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
+![Rain coverage map](/images/integrations/meteo_france/carte-couverture-du-service.png)
 
-</div>
+{% endnote %}
 
 The attributes allow to have a forecast of the rain type by 5 to 10 minutes intervals:
 
@@ -101,9 +99,9 @@ forecast_time_ref: '2020-08-20T19:25:00+00:00'
 
 ### About `weather_alert` sensor
 
-<div class='note warning'>
-  The weather alert is available for the metropolitan France and Andorre.
-</div>
+{% note %}
+The weather alert is available for the metropolitan France and Andorre.
+{% endnote %}
 
 The `weather_alert` sensor state give the current weather alert status for the department linked to the city. Only one entity by department is created.
 

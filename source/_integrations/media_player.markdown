@@ -1,14 +1,19 @@
 ---
-title: Media Player
+title: Media player
 description: Instructions on how to setup your media players with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.7
 ha_quality_scale: internal
 ha_domain: media_player
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Interacts with media players on your network.
@@ -178,10 +183,19 @@ Allows to group media players together for synchronous playback. Only works on s
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-### Device Class
+### Device class
 
-The way media players are displayed in the frontend can be modified in the [customize section](/getting-started/customizing-devices/). The following device classes are supported for media players:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing device classes of the media player entity:
+
+<p class='img'>
+<img src='/images/screenshots/device_class_media_player_icons.png' alt='Screenshot showing different icons representing device classes of the media player entity' />
+Example of different icons representing device classes of the media player entity.
+</p>
+
+The following device classes are supported for media players:
 
 - `tv`: Device is a television type device.
-- `speaker`: Device is speaker or stereo type device.
-- `receiver`: Device is audio video receiver type device taking audio and outputting to speakers and video to some display.
+- `speaker`: Device is a speaker or stereo type device.
+- `receiver`: Device is an audio/video receiver type device taking audio and outputting to speakers and video to displays.

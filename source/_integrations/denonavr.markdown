@@ -2,7 +2,7 @@
 title: Denon AVR Network Receivers
 description: Instructions on how to integrate Denon AVR Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_iot_class: Local Push
 ha_release: 0.7.2
 ha_domain: denonavr
@@ -28,6 +28,7 @@ Known supported devices:
 - Denon AVR-X1500H
 - Denon AVR-X1600H
 - Denon AVR-X1700H
+- Denon AVR-X1800H
 - Denon AVR-X2000
 - Denon AVR-X2100W
 - Denon AVR-X2200W
@@ -36,6 +37,7 @@ Known supported devices:
 - Denon AVR-X2500H
 - Denon AVR-X2600H
 - Denon AVR-X2700H
+- Denon AVR-X2800H
 - Denon AVR-X3000
 - Denon AVR-X3200W
 - Denon AVR-X3300W
@@ -43,6 +45,7 @@ Known supported devices:
 - Denon AVR-X3500H
 - Denon AVR-X3600H
 - Denon AVR-X3700H
+- Denon AVC-X3800H
 - Denon AVR-X4100W
 - Denon AVR-X4300H
 - Denon AVR-X4400H
@@ -67,13 +70,16 @@ Known supported devices:
 - Denon AVR-S740H
 - Denon AVR-S750H
 - Denon AVR-S760H
+- Denon AVR-S770H
 - Denon AVR-S940H
 - Denon AVR-S950H
 - Denon AVR-S960H
 - Denon DN-500AV
+- Denon DRA-800H
 - Marantz AV7702
 - Marantz AV7703
 - Marantz AV7704
+- Marantz AV8802A
 - Marantz CINEMA 50
 - Marantz CINEMA 70s
 - Marantz M-CR510
@@ -107,9 +113,11 @@ Known supported devices:
 
 If your model is not on the list then give it a test, if everything works correctly then add it to the list by clicking on the **Edit** link at the bottom of this page.
 
-<div class='note warning'>
+If you are using VLANs, Home Assistant needs access to the following ports on the AVR: 23, 8080, and 60006 (all TCP).
+
+{% warning %}
 If you have something else using the IP controller for your Denon AVR 3808CI, such as your URC controller, it will not work! There is either a bug or security issue with some models where only one device could be controlling the IP functionality.
-</div>
+{% endwarning %}
 
 {% include integrations/config_flow.md %}
 
@@ -157,11 +165,11 @@ To use these commands, call the `denonavr.get_command` service and append the sp
 
 So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will switch the HDMI to output 2 (if your receiver supports it). Sending an IR code works the same, so the command `/goform/formiPhoneAppDirect.xml?RCKSK0410370` will toggle muting.
 
-<div class='note'>
+{% tip %}
 
 The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the service `media_player.turn_on` is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
 
-</div>
+{% endtip %}
 
 #### Service `denonavr.set_dynamic_eq`
 

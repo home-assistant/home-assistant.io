@@ -1,15 +1,16 @@
 ## Install Home Assistant Container
 
 {% if page.installation_type != 'alternative' %}
-These below instructions are for an installation of Home Assistant Container running in your own container environment, which you manage yourself. Any [OCI](https://opencontainers.org/) compatible runtime can be used, however this guide will focus on installing it with Docker.
+These below instructions are for an installation of {% term "Home Assistant Container" %} running in your own container environment, which you manage yourself. Any [OCI](https://opencontainers.org/) compatible runtime can be used, however this guide will focus on installing it with Docker.
 
-<div class='note'>
-<b>Prerequisites</b>
+{% important %}
 
+<bPrerequisites</b>
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
   
 If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
-</div>
+
+{% endimportant %}
 
 ### Platform installation
 
@@ -17,6 +18,7 @@ Installation with Docker is straightforward. Adjust the following command so tha
 
 - `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration and run it. Make sure that you keep the `:/config` part.
 - `MY_TIME_ZONE` is a [tz database name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones), like `TZ=America/Los_Angeles`.
+- D-Bus is optional but required if you plan to use the [Bluetooth integration](/integrations/bluetooth).
 
 {% endif %}
 
@@ -58,11 +60,9 @@ If you change the configuration, you have to restart the server. To do that you 
 
 ### Docker compose
 
-<div class="note tip">
-   
-  `docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
-
-</div>
+{% tip %}
+`docker compose` should [already be installed](https://www.docker.com/blog/announcing-compose-v2-general-availability/) on your system. If not, you can [manually](https://docs.docker.com/compose/install/linux/) install it.
+{% endtip %}
 
 As the Docker command becomes more complex, switching to `docker compose` can be preferable and support automatically restarting on failure or system restart. Create a `compose.yml` file:
 
@@ -95,7 +95,6 @@ In order to use Zigbee or other integrations that require access to devices, you
   content: |
 
     ```yaml
-    version: '3'
     services:
       homeassistant:
         ...
@@ -124,12 +123,11 @@ As jemalloc can cause issues on certain hardware, it can be disabled by passing 
   content: |
 
     ```yaml
-    version: '3'
     services:
       homeassistant:
       ...
-      environment:
-        - DISABLE_JEMALLOC: true
+        environment:
+          DISABLE_JEMALLOC: true
     ```
 
 {% endtabbed_block %}

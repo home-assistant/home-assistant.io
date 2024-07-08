@@ -11,7 +11,6 @@ ha_iot_class: Cloud Polling
 ha_release: 0.33
 ha_config_flow: true
 ha_codeowners:
-  - '@dshokouhi'
   - '@Santobert'
 ha_domain: neato
 ha_platforms:
@@ -37,7 +36,7 @@ There is support for the following platform types within Home Assistant:
 
 Visit [the Neato Developer Network](https://developers.neatorobotics.com/applications) and create a new app.
 
-<div class='note'>
+{% important %}
 
 You will have to enter a name, a description, and the redirect URI:
 
@@ -48,7 +47,7 @@ You will have to enter a name, a description, and the redirect URI:
 - **Privacy Policy URL**: leave blank
 
 You have to select all three scopes (`public_profile`, `control_robots` and `maps`).
-</div>
+{% endimportant %}
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -70,11 +69,9 @@ instance does not need to be exposed to the Internet.
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-<div class='note'>
-
+{% note %}
 After the update to firmware 4.0 (which adds cleaning maps) there is also support for displaying the maps of the Botvac D3 Connected and Botvac D5 Connected robots. More information on how to update can be found [here](https://support.neatorobotics.com/hc/en-us/articles/115004320694-Software-Update-4-0-for-Neato-Botvac-Connected-D3-D5-).
-
-</div>
+{% endnote %}
 
 ## Button
 
@@ -100,18 +97,16 @@ And a specific Platform Service:
 
 - `neato.custom_cleaning`
 
-### Platform Services
+### Platform services
 
 #### Service `neato.custom_cleaning`
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
-<div class='note'>
-
+{% note %}
 Not all Botvac models support all the attributes. Only the Neato Botvac D7 supports the `zone` attribute.
 Some information about the capabilities might be found on the [Neato Developer Portal](https://developers.neatorobotics.com/api/robot-remote-protocol/housecleaning).
-
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description                                                                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

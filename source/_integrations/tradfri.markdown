@@ -23,19 +23,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your `configuration.yaml` file.
+The IKEA TRÅDFRI integration allows you to connect your IKEA Trådfri Gateway to Home Assistant. The gateway can control compatible Zigbee-based lights (certified Zigbee Light Link products) connected to it. Home Assistant will automatically discover the gateway's presence on your local network if `discovery:` is present in your {% term "`configuration.yaml`" %} file.
 
 {% include integrations/config_flow.md %}
 
 You will be prompted to configure the gateway through the Home Assistant interface. The configuration process is very simple: when prompted, enter the security key printed on the sticker on the bottom of the IKEA Trådfri Gateway, then click *configure*.
 
-<div class='note'>
+{% tip %}
 If you see an "Unable to connect" message, restart the gateway and try again. Don't forget to assign a permanent IP address to your IKEA Trådfri Gateway on your router or DHCP server.
-</div>
+{% endtip %}
 
-<div class='note'>
-  There is currently no native support for the Dirigera hub released in October, 2022.
-</div>
+{% note %}
+There is currently no native support for the Dirigera hub released in October, 2022.
+{% endnote %}
 
 
 ## Troubleshooting
@@ -53,9 +53,9 @@ Then restart Home Assistant. When prompted, enter the security key and click *co
 
 ### Compilation issues
 
-<div class='note'>
-  This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
-</div>
+{% note %}
+This does not apply to Home Assistant running in Docker Containers, including the default Home Assistant install.
+{% endnote %}
 
 Please make sure you have `autoconf` installed (`$ sudo apt-get install autoconf`) if you want to use this integration. Also, installing some dependencies might take considerable time (more than one hour) on slow devices.
 

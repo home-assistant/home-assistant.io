@@ -9,92 +9,64 @@ ha_config_flow: true
 ha_domain: google
 ha_platforms:
   - calendar
+  - diagnostics
 ha_codeowners:
   - '@allenporter'
 ha_integration_type: integration
-google_dev_console_link: https://console.developers.google.com/start/api?id=calendar
-api: Google Calendar
-api_link: https://console.cloud.google.com/apis/credentials
+google_dev_console_link: https://console.developers.google.com/apis/credentials
+api: Google Calendar API
+api_link: https://console.cloud.google.com/apis/library/calendar-json.googleapis.com
 ---
 
 The *Google Calendar* integration allows you to connect your [Google Calendar](https://calendar.google.com) to Home Assistant. The integration adds calendar entities that are shown on the *Calendar* dashboard, and can be used for automations based on any event, or limited to specific matching criteria.
 
 ## Prerequisites
 
-You need to configure developer credentials to allow Home Assistant to access your Google Account.
+You need to configure developer credentials to allow Home Assistant to access your Google Account. The current recommended approach is to create *Web Auth* credentials for Google Calendar since
+the same credentials work for all Google integrations. Previously, this integration only supported
+*Device Auth* and those credentials are no longer recommended. You can continue to use *Device Auth*
+credentials but they will only work with Google Calendar.
 
 {% include integrations/google_client_secret.md %}
 
 {% include integrations/config_flow.md %}
 
-The integration setup will next give you instructions to enter the [Application Credentials](/integrations/application_credentials/) (OAuth Client ID and Client Secret) and authorize Home Assistant to access your account and Calendars.
-
-{% details "OAuth and Device Authorization steps" %}
-
-1. The first step shows a link and a code.
-
-    ![Screenshot of Link Account](/images/integrations/google/link_account.png)
-
-2. Click on the link [https://www.google.com/device](https://www.google.com/device) to open a Google website which should open a new window where you can enter the code.
-
-3. Home Assistant will wait for a short time while you complete the authorization steps, checking in the background for the authorization to be completed.
-
-    ![Screenshot of Enter Code](/images/integrations/google/enter_code.png)
-
-4. Continue through the steps of selecting the account you used when creating the credentials in the Google Developer Console.
-
-5. **NOTE**: You may get a message telling you that the app has not been verified and you will need to acknowledge that in
-order to proceed.
-
-6. Depending on your `configuration.yaml`, you will either be granting Home Assistant *read only* or *read write* access
-to all the Google Calendars available to your linked account.
-
-7. You should then see a *Success!* message from Google.
-
-    ![Screenshot of Device Connected](/images/integrations/google/device_connected.png)
-
-8. You may close the window, and return back to Home Assistant where you should see a *Success!* message from Home Assistant.
-
-    ![Screenshot of Success](/images/integrations/google/success.png)
-
-{% enddetails %}
+{% include integrations/google_oauth.md %}
 
 ## Troubleshooting
 
 If the setup process fails and you see an error message such as *Authentication code expired, please try again* you may want to try the flow again. You may also check the logs for additional error messages that may indicate a misconfiguration such as an invalid client id or secret.
 
-If you have an error with your credentials, you can delete them in the [Application Credentials](/integrations/application_credentials/) user interface.
+If you have an error with your credentials, you can delete them in the [application credentials](/integrations/application_credentials/) user interface.
 
-### Video Tutorial
+### Video tutorial
 This video tutorial explains how to set up Google Calendar in Home Assistant and how you can trigger an automation based on a calendar event.
 
 <lite-youtube videoid="r2WbpxKDOD4" videotitle="How To Use Calendar Events in Home Assistant - Tutorial" posterquality="maxresdefault"></lite-youtube>
 
-## Calendar Entities
+## Calendar entities
 
 Each Google Calendar from *My Calendars* ([more info](https://support.google.com/calendar/answer/37095)) is represented as a [calendar](/integrations/calendar) entity in Home Assistant.
 
 For example, your calendar named *Personal* is created as entity `calendar.personal`. You may rename an entity, or disable any entities which you don't need.
 
-## Calendar Event Automations
+## Calendar event automations
 
-Individual Calendar *Events* are what powering automations such as:
+Individual Calendar *Events* are what is powering automations such as:
 
 - Turn on a light at the *start* of the event named *Front Yard Light*
 - Send a notification *5 minutes before the start of any event*
 - Stop the media player *30 minutes after* the *end* of the event named *Exercise*.
 
-See [Calendar Automations](/integrations/calendar#automation) for an overview, and read more about [Calendar Trigger Variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
+See [calendar automations](/integrations/calendar#automation) for an overview, and read more about [calendar trigger variables](/docs/automation/templating/#calendar) for the available information you can use in a condition or action such as the event `summary`, `description`, `location` and more.
 
-## Calendar Entity Attributes
+## Calendar entity attributes
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
-<div class='note'>
-
+{% tip %}
 Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
-
-</div>
+{% endtip %}
 
 
 {% details "Attributes" %}
@@ -114,11 +86,9 @@ You can use the service `google.create_event` to create a new calendar event in 
 
 {% details "Create Event Service details" %}
 
-<div class='note'>
-
+{% note %}
 This will only be available if you have given Home Assistant `read-write` access in configuration options.
-
-</div>
+{% endnote %}
 
 A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
@@ -133,11 +103,9 @@ A calendar `target` is selected with a [Target Selector](/docs/blueprint/selecto
 | `in`                   | yes      | Days or weeks that you want to create the event in. | "days": 2           |
 | `location`             | yes      | The location of the event.                          | Bowling center      |
 
-<div class='note'>
-
+{% important %}
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-
-</div>
+{% endimportant %}
 
 This is a full example of service call in YAML:
 
@@ -153,16 +121,16 @@ data:
 
 {% enddetails %}
 
-## More Configuration
+## More configuration
 
 
 {% details "More Configuration" %}
 
-<div class='note warning'>
+{% warning %}
 It is not recommended to new users to use these settings as they are not
 compatible with other Home Assistant features, but this documentation is available
 for existing users.
-</div>
+{% endwarning %}
 
 The integration supports additional configuration from a file `google_calendars.yaml` which is available for existing users before version `2022.06`. This file is no longer automatically populated.
 

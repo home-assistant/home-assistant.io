@@ -46,7 +46,7 @@ script:
 
 {% endraw %}
 
-### Important Template Rules
+### Important template rules
 
 There are a few very important rules to remember when adding templates to YAML:
 
@@ -57,7 +57,7 @@ There are a few very important rules to remember when adding templates to YAML:
 
 Remembering these simple rules will help save you from many headaches and endless hours of frustration when using automation templates.
 
-### Enabled Jinja Extensions
+### Enabled Jinja extensions
 
 Jinja supports a set of language extensions that add new functionality to the language.
 To improve the experience of writing Jinja templates, we have enabled the following
@@ -65,7 +65,7 @@ extensions:
 
 - [Loop Controls](https://jinja.palletsprojects.com/en/3.0.x/extensions/#loop-controls) (`break` and `continue`)
 
-### Reusing Templates
+### Reusing templates
 
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
@@ -102,7 +102,7 @@ In your automations, you could then reuse this macro by importing it:
 
 Extensions allow templates to access all of the Home Assistant specific states and adds other convenience functions and filters.
 
-### Limited Templates
+### Limited templates
 
 Templates for some [triggers](/docs/automation/trigger/) as well as `trigger_variables` only support a subset of the Home Assistant template extensions. This subset is referred to as "Limited Templates".
 
@@ -115,17 +115,15 @@ Not supported in [limited templates](#limited-templates).
 - `states.sensor.temperature` returns the state object for `sensor.temperature` (avoid when possible, see note below).
 - `states` can also be used as a function, `states(entity_id, rounded=False, with_unit=False)`, which returns the state string (not the state object) of the given entity, `unknown` if it doesn't exist, and `unavailable` if the object exists but is not available.
   - The optional arguments `rounded` and `with_unit` control the formatting of sensor state strings, please see the [examples](#formatting-sensor-states) below.
-- `states.sensor.temperature.state_with_unit` formats the state string in the same was is if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
+- `states.sensor.temperature.state_with_unit` formats the state string in the same way as if calling `states('sensor.temperature', rounded=True, with_unit=True)`.
 - `is_state` compares an entity's state with a specified state or list of states and returns `True` or `False`. `is_state('device_tracker.paulus', 'home')` will test if the given entity is the specified state. `is_state('device_tracker.paulus', ['home', 'work'])` will test if the given entity is any of the states in the list.
 - `state_attr('device_tracker.paulus', 'battery')` will return the value of the attribute or None if it doesn't exist.
 - `is_state_attr('device_tracker.paulus', 'battery', 40)` will test if the given entity attribute is the specified state (in this case, a numeric value). Note that the attribute can be `None` and you want to check if it is `None`, you need to use `state_attr('sensor.my_sensor', 'attr') is none` or `state_attr('sensor.my_sensor', 'attr') == None` (note the difference in the capitalization of none in both versions).
 - `has_value('sensor.my_sensor')` will test if the given entity is not unknown or unavailable. Can be used as a filter or a test.
 
-<div class='note warning'>
-
+{% warning %}
 Avoid using `states.sensor.temperature.state`, instead use `states('sensor.temperature')`. It is strongly advised to use the `states()`, `is_state()`, `state_attr()` and `is_state_attr()` as much as possible, to avoid errors and error message when the entity isn't ready yet (e.g., during Home Assistant startup).
-
-</div>
+{% endwarning %}
 
 #### States examples
 
@@ -325,7 +323,33 @@ List of lights that are on with a brightness of 255:
 
 {% endraw %}
 
-### Working with Groups
+
+### State translated
+
+Not supported in [limited templates](#limited-templates).
+
+The `state_translated` function returns a translated state of an entity using a language that is currently configured in the [general settings](https://my.home-assistant.io/redirect/general/).
+
+#### State translated examples
+
+{% raw %}
+
+```text
+{{ states("sun.sun") }}             # below_horizon
+{{ state_translated("sun.sun") }}   # Below horizon
+{{ "sun.sun" | state_translated }}  # Below horizon
+```
+
+```text
+{{ states("binary_sensor.movement_backyard") }}             # on
+{{ state_translated("binary_sensor.movement_backyard") }}   # Detected
+{{ "binary_sensor.movement_backyard" | state_translated }}  # Detected
+```
+
+{% endraw %}
+
+
+### Working with groups
 
 Not supported in [limited templates](#limited-templates).
 
@@ -418,9 +442,10 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Config Entries
+### Config entries
 
 - `config_entry_id(entity_id)` returns the config entry ID for a given entity ID. Can also be used as a filter.
+- `config_entry_attr(config_entry_id, attr)` returns the value of `attr` for the config entry of the given entity ID. Can also be used as a filter. The following attributes are allowed: `domain`, `title`, `state`, `source`, `disabled_by`. Not supported in [limited templates](#limited-templates).
 
 #### Config entries examples
 
@@ -428,6 +453,57 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ config_entry_id('sensor.sony') }}  # deadbeefdeadbeefdeadbeefdeadbeef
+```
+
+```text
+{{ config_entry_attr(config_entry_id('sensor.sony'), 'title') }}  # Sony Bravia TV
+```
+
+
+
+{% endraw %}
+
+### Floors
+
+- `floors()` returns the full list of floor IDs.
+- `floor_id(lookup_value)` returns the floor ID for a given device ID, entity ID, area ID, or area name. Can also be used as a filter.
+- `floor_name(lookup_value)` returns the floor name for a given device ID, entity ID, area ID, or floor ID. Can also be used as a filter.
+- `floor_areas(floor_name_or_id)` returns the list of area IDs tied to a given floor ID or name. Can also be used as a filter.
+
+#### Floors examples
+
+{% raw %}
+
+```text
+{{ floors() }}  # ['floor_id']
+```
+
+```text
+{{ floor_id('First floor') }}  # 'first_floor'
+```
+
+```text
+{{ floor_id('my_device_id') }}  # 'second_floor'
+```
+
+```text
+{{ floor_id('sensor.sony') }}  # 'first_floor'
+```
+
+```text
+{{ floor_name('first_floor') }}  # 'First floor'
+```
+
+```text
+{{ floor_name('my_device_id') }}  # 'Second floor'
+```
+
+```text
+{{ floor_name('sensor.sony') }}  # 'First floor'
+```
+
+```text
+{{ floor_areas('first_floor') }}  # ['living_room', 'kitchen']
 ```
 
 {% endraw %}
@@ -482,10 +558,12 @@ The same thing can also be expressed as a test:
 
 {% endraw %}
 
-### Integrations
+### Entities for an integration
 
 - `integration_entities(integration)` returns a list of entities that are associated with a given integration, such as `hue` or `zwave_js`.
-- `integration_entities(title)` if you have multiple instances set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific device bridge.
+- `integration_entities(config_entry_title)` if you have multiple entries set-up for an integration, you can also use the title you've set for the integration in case you only want to target a specific entry.
+
+If there is more than one entry with the same title, the entities for all the matching entries will be returned, even if the entries are for different integrations. It's not possible to search for entities of an untitled integration.
 
 #### Integrations examples
 
@@ -497,6 +575,78 @@ The same thing can also be expressed as a test:
 
 ```text
 {{ integration_entities('Hue bridge downstairs') }}  # ['light.hue_light_downstairs']
+```
+
+{% endraw %}
+
+### Labels
+
+- `labels()` returns the full list of label IDs, or those for a given area ID, device ID, or entity ID.
+- `label_id(lookup_value)` returns the label ID for a given label name.
+- `label_name(lookup_value)` returns the label name for a given label ID.
+- `label_areas(label_name_or_id)` returns the list of area IDs tied to a given label ID or name.
+- `label_devices(label_name_or_id)` returns the list of device IDs tied to a given label ID or name.
+- `label_entities(label_name_or_id)` returns the list of entity IDs tied to a given label ID or name.
+
+Each of the label template functions can also be used as a filter.
+
+#### Labels examples
+
+{% raw %}
+
+```text
+{{ labels() }}  # ['christmas_decorations', 'energy_saver', 'security']
+```
+
+```text
+{{ labels("living_room") }}  # ['christmas_decorations', 'energy_saver']
+```
+
+```text
+{{ labels("my_device_id") }}  # ['security']
+```
+
+```text
+{{ labels("light.christmas_tree") }}  # ['christmas_decorations']
+```
+
+```text
+{{ label_id('Energy saver') }}  # 'energy_saver'
+```
+
+```text
+{{ label_name('energy_saver') }}  # 'Energy saver'
+```
+
+```text
+{{ label_areas('security') }}  # ['driveway', 'garden', 'porch']
+```
+
+```text
+{{ label_devices('energy_saver') }}  # ['deadbeefdeadbeefdeadbeefdeadbeef']
+```
+
+```text
+{{ label_entities('security') }}  # ['camera.driveway', 'binary_sensor.motion_garden', 'camera.porch']
+```
+
+{% endraw %}
+
+### Issues
+
+- `issues()` returns all open issues as a mapping of (domain, issue_id) tuples to the issue object.
+- `issue(domain, issue_id)` returns a specific issue for the provided domain and issue_id.
+
+#### Issues examples
+
+{% raw %}
+
+```text
+{{ issues() }}  # { ("homeassistant", "deprecated_yaml_ping"): {...}, ("cloud", "legacy_subscription"): {...} }
+```
+
+```text
+{{ issue('homeassistant', 'python_version') }}  # {"breaks_in_ha_version": "2024.4", "domain": "homeassistant", "issue_id": "python_version", "is_persistent": False, ...}
 ```
 
 {% endraw %}
@@ -554,15 +704,13 @@ Examples using `iif`:
 {{ (states('light.kitchen') == 'on') | iif('Yes', 'No') }}
 ```
 
-<div class='note warning'>
+{% endraw %}
 
+{% warning %}
 The immediate if filter does not short-circuit like you might expect with a typical conditional statement. The `if_true`, `if_false` and `if_none` expressions will all be evaluated and the filter will simply return one of the resulting values. This means you cannot use this filter to prevent executing an expression which would result in an error.
 
 For example, if you wanted to select a field from `trigger` in an automation based on the platform you might go to make this template: `trigger.platform == 'event' | iif(trigger.event.data.message, trigger.to_state.state)`. This won't work because both expressions will be evaluated and one will fail since the field doesn't exist. Instead you have to do this `trigger.event.data.message if trigger.platform == 'event' else trigger.to_state.state`. This form of the expression short-circuits so if the platform is `event` the expression `trigger.to_state.state` will never be evaluated and won't cause an error.
-
-</div>
-
-{% endraw %}
+{% endwarning%}
 
 ### Time
 
@@ -587,12 +735,16 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 
   {% endraw %}
 
-- `as_datetime()` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object.
+- `as_datetime(value, default)` converts a string containing a timestamp, or valid UNIX timestamp, to a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error. When the input is already a datetime object it will be returned as is. in case the input is a datetime.date object, midnight will be added as time. This function can also be used as a filter.
 - `as_timestamp(value, default)` converts datetime object or string to UNIX timestamp. If that fails, returns the `default` value, or if omitted raises an error. This function can also be used as a filter.
 - `as_local()` converts datetime object to local time. This function can also be used as a filter.
 - `strptime(string, format, default)` parses a string based on a [format](https://docs.python.org/3.10/library/datetime.html#strftime-and-strptime-behavior) and returns a datetime object. If that fails, it returns the `default` value or, if omitted, raises an error.
-- `relative_time` converts datetime object to its human-friendly "age" string. The age can be in second, minute, hour, day, month or year (but only the biggest unit is considered, e.g., if it's 2 days and 3 hours, "2 days" will be returned). Note that it only works for dates _in the past_.
-  - Using `relative_time()` will cause templates to be refreshed at the start of every new minute.
+- `time_since(datetime, precision)` converts a datetime object into its human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the future, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
+- `time_until(datetime, precision)` converts a datetime object into a human-readable time string. The time string can be in seconds, minutes, hours, days, months, and years. `precision` takes an integer (full number) and indicates the number of units returned.  The last unit is rounded. For example: `precision = 1` could return "2 years" while `precision = 2` could return "1 year 11 months". This function can also be used as a filter.
+If the datetime is in the past, returns 0 seconds.
+A precision of 0 returns all available units, default is 1.
 - `timedelta` returns a timedelta object and accepts the same arguments as the Python `datetime.timedelta` function -- days, seconds, microseconds, milliseconds, minutes, hours, weeks.
 
   {% raw %}
@@ -619,14 +771,11 @@ For example, if you wanted to select a field from `trigger` in an automation bas
 - Filter `timestamp_utc(default)` converts a UNIX timestamp to the ISO format string representation representation as date/time in UTC timezone. If that fails, returns the `default` value, or if omitted raises an error. If a custom string format is needed in the string, use `timestamp_custom` instead.
 - Filter `timestamp_custom(format_string, local=True, default)` converts an UNIX timestamp to its string representation based on a custom format, the use of a local timezone is the default. If that fails, returns the `default` value, or if omitted raises an error. Supports the standard [Python time formatting options](https://docs.python.org/3/library/time.html#time.strftime).
 
-<div class='note'>
-
+{% tip %}
 [UNIX timestamp](https://en.wikipedia.org/wiki/Unix_time) is the number of seconds that have elapsed since 00:00:00 UTC on 1 January 1970. Therefore, if used as a function's argument, it can be substituted with a numeric value (`int` or `float`).
+{% endtip %}
 
-</div>
-
-<div class='note warning'>
-
+{% important %}
 If your template is returning a timestamp that should be displayed in the frontend (e.g., as a sensor entity with `device_class: timestamp`), you have to ensure that it is the ISO 8601 format (meaning it has the "T" separator between the date and time portion). Otherwise, frontend rendering on macOS and iOS devices will show an error. The following value template would result in such an error:
 
 {% raw %}
@@ -643,7 +792,7 @@ To fix it, enforce the ISO conversion via `isoformat()`:
 
 {% endraw %}
 
-</div>
+{% endimportant %}
 
 {% raw %}
 
@@ -751,7 +900,7 @@ Examples:
 
 Not supported in [limited templates](#limited-templates).
 
-- `distance()` will measure the distance in kilometers between home, entity, coordinates.
+- `distance()` measures the distance between home, an entity, or coordinates. The unit of measurement (kilometers or miles) depends on the system's configuration settings.
 - `closest()` will find the closest entity.
 
 #### Distance examples
@@ -868,7 +1017,7 @@ Some examples:
 
 Some of these functions can also be used in a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). This means they can act as a normal function like this `sqrt(2)`, or as part of a filter like this `2|sqrt`.
 
-<div class='note'>
+{% note %}
 
 The numeric functions and filters raise an error if the input is not a valid number, optionally a default value can be specified which will be returned instead. The `is_number` function and filter can be used to check if a value is a valid number. Errors can be caught by the `default` filter.
 
@@ -881,7 +1030,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 {% endraw %}
 
-</div>
+{% endnote %}
 
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `float(default)` filter will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
@@ -905,6 +1054,8 @@ The numeric functions and filters raise an error if the input is not a valid num
 - `max([x, y, ...])` will obtain the largest item in a sequence. Uses the same parameters as the built-in [max](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.max) filter.
 - `min([x, y, ...])` will obtain the smallest item in a sequence. Uses the same parameters as the built-in [min](https://jinja.palletsprojects.com/en/latest/templates/#jinja-filters.min) filter.
 - `average([x, y, ...], default)` will return the average value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `median([x, y, ...], default)` will return the median value of the sequence. If list is empty or contains non-numeric value, returns the `default` value, or if omitted raises an error. Can be used as a filter.
+- `statistical_mode([x, y, ...], default)` will return the statistical mode value (most frequent occurrence) of the sequence. If the list is empty, it returns the `default` value, or if omitted raises an error. It can be used as a filter.
 - `e` mathematical constant, approximately 2.71828.
 - `pi` mathematical constant, approximately 3.14159.
 - `tau` mathematical constant, approximately 6.28318.
@@ -914,7 +1065,31 @@ The numeric functions and filters raise an error if the input is not a valid num
   - `round(1, "half", default)` will always round to the nearest .5 value. `precision` should be 1 for this mode
 - Filter `value_one|bitwise_and(value_two)` perform a bitwise and(&) operation with two values.
 - Filter `value_one|bitwise_or(value_two)` perform a bitwise or(\|) operation with two values.
+- Filter `value_one|bitwise_xor(value_two)` perform a bitwise xor(\^) operation with two values.
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
+- Filter `multiply(arg)` will convert the input to a number and multiply it by `arg`. Useful in list operations in conjunction with `map`.
+- Filter `add(arg)` will convert the input to a number and add it to `arg`. Useful in list operations in conjunction with `map`.
+
+### Complex type checking
+
+In addition to strings and numbers, Python (and Jinja) supports lists, sets, and dictionaries. To help you with testing these types, you can use the following tests:
+
+- `x is list` will return whether `x` is a `list` or not (e.g. `[1, 2] is list` will return `True`).
+- `x is set` will return whether `x` is a `set` or not (e.g. `{1, 2} is set` will return `True`).
+- `x is tuple` will return whether `x` is a `tuple` or not (e.g. `(1, 2) is tuple` will return `True`).
+- `x is datetime` will return whether `x` is a `datetime` or not (e.g. `datetime(2020, 1, 1, 0, 0, 0) is datetime` will return `True`).
+- `x is string_like` will return whether `x` is a string, bytes, or bytearray object.
+
+Note that, in Home Assistant, Jinja has built-in tests for `boolean` (`True`/`False`), `callable` (any function), `float` (a number with a decimal), `integer` (a number without a decimal), `iterable` (a value that can be iterated over such as a `list`, `set`, `string`, or generator), `mapping` (mainly `dict` but also supports other dictionary like types), `number` (`float` or `int`), `sequence` (a value that can be iterated over and indexed such as `list` and `string`), and `string`.
+
+### Type conversions
+
+While Jinja natively supports the conversion of an iterable to a `list`, it does not support conversion to a `tuple` or `set`. To help you with using these types, you can use the following functions:
+
+- `set(x)` will convert any iterable `x` to a `set` (e.g. `set([1, 2]) == {1, 2}`)
+- `tuple(x)` will convert any iterable `x` to a `tuple` (e.g. `tuple("abc") == ("a", "b", "c")`)
+
+Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
 ### Functions and filters to process raw data
 
@@ -927,7 +1102,7 @@ See: [Python struct library documentation](https://docs.python.org/3/library/str
 - Filter `value | unpack(format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the filter `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
 - Function `unpack(value, format_string, offset=0)` will try to convert a `bytes` object into a native Python object. The `offset` parameter defines the offset position in bytes from the start of the input `bytes` based buffer. This will call function `struct.unpack_from(format_string, value, offset=offset)`. Returns `None` if an error occurs or when `format_string` is invalid. Note that the function `unpack` will only return the first `bytes` object, despite the function `struct.unpack_from` supporting to return multiple objects (e.g. with `format_string` being `">hh"`.
 
-<div class='note'>
+{% note %}
 
 Some examples:
 {% raw %}
@@ -939,13 +1114,28 @@ Some examples:
 
 {% endraw %}
 
-</div>
+{% endnote %}
 
 ### String filters
 
 - Filter `urlencode` will convert an object to a percent-encoded ASCII text string (e.g., for HTTP requests using `application/x-www-form-urlencoded`).
 - Filter `slugify(separator="_")` will convert a given string into a "slug".
 - Filter `ordinal` will convert an integer into a number defining a position in a series (e.g., `1st`, `2nd`, `3rd`, `4th`, etc).
+- Filter `value | base64_decode` Decodes a base 64 string to a string, by default utf-8 encoding is used.
+- Filter `value | base64_decode("ascii")` Decodes a base 64 string to a string, using ascii encoding.
+- Filter `value | base64_decode(None)` Decodes a base 64 string to raw bytes.
+
+<div class='note'>
+
+Some examples:
+{% raw %}
+
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode }}` - renders as `homeassistant`
+- `{{ "aG9tZWFzc2lzdGFudA==" | base64_decode(None) }}` - renders as `b'homeassistant'`
+
+{% endraw %}
+
+</div>
 
 ### Regular expressions
 
@@ -1045,7 +1235,7 @@ The following overview contains a couple of options to get the needed values:
 
 {% endraw %}
 
-To evaluate a response, go to **{% my developer_template title="Developer Tools -> Template" %}**, create your output in "Template editor", and check the result.
+To evaluate a response, go to **{% my developer_template title="Developer Tools > Template" %}**, create your output in "Template editor", and check the result.
 
 {% raw %}
 
@@ -1072,7 +1262,7 @@ The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templat
 For incoming data a value template translates incoming JSON or raw data to a valid payload.
 Incoming payloads are rendered with possible JSON values, so when rendering the `value_json` can be used access the attributes in a JSON based payload.
 
-<div class='note'>
+{% note %}
 
 Example value template:
 
@@ -1086,13 +1276,13 @@ Template {% raw %}`{{ value_json.temperature | round(1) }}`{% endraw %} renders 
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
- </div>
+{% endnote %}
 
 #### Using command templates with MQTT
 
 For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
 
-<div class='note'>
+{% note %}
 
 Example command template:
 
@@ -1106,7 +1296,7 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
-</div>
+{% endnote %}
 
 ## Some more things to keep in mind
 

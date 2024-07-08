@@ -2,9 +2,9 @@
 title: AVM FRITZ!Box Tools
 description: Instructions on how to integrate AVM FRITZ!Box based routers into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Image
-  - Presence Detection
+  - Presence detection
   - Sensor
   - Update
 ha_release: '0.10'
@@ -42,9 +42,9 @@ There is support for the following platform types within Home Assistant:
 - **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% important %}
 Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
-</div>
+{% endimportant %}
 
 ## Username
 
@@ -52,22 +52,9 @@ The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the
 
 ## Services
 
-Currently supported services are Platform specific:
+Available {% term services %}: `set_guest_wifi_password`
 
-- `fritz.cleanup`
-
-### Platform Services
-
-#### Service `fritz.cleanup`
-
-Remove all stale devices from Home Assistant.
-A device is identified as stale when it's still present on Home Assistant but not on the FRITZ!Box.
-
-| Service data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | Only act on a specific  router                                                                                 |
-
-#### Service `fritz.set_guest_wifi_password`
+### Service `set_guest_wifi_password`
 
 Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.
@@ -95,11 +82,11 @@ Parental control switches can be used to enable and disable internet access of i
 
 Parental control switches are designed for advanced users, thus they are disabled by default. You need to enable the wanted entities manually.
 
-### Device Tracker
+### Device tracker
 
 **Note**: If you don't want to automatically track newly detected devices, disable the integration system option `Enable new added entities`.
 
-### Port Forward
+### Port forward
 
 Due to security reasons, AVM implemented the ability to enable/disable a port forward rule only from the host involved in the rule.
 As a result, this integration will create entities only for rules that have your Home Assistant host as a destination.
@@ -139,11 +126,11 @@ automation:
 
 ```
 
-### Automation: Phone notification with Wi-fi credentials when guest Wi-fi is created
+### Automation: Phone notification with Wi-Fi credentials when guest Wi-Fi is created
 
 ```yaml
 automation:
-  - alias: "Guests Wi-fi Turned On -> Send Password To Phone"
+  - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
     trigger:
       - platform: state
         entity_id: switch.fritzbox_7530_wifi_myssid

@@ -21,9 +21,7 @@ Optimistic mode can be forced, even if state topic is available. Try to enable i
 It's mandatory for locks to support `lock` and `unlock`. A lock may optionally support `open`, (e.g. to open the bolt in addition to the latch), in this case, `payload_open` is required in the configuration. If the lock is in optimistic mode, it will change states to `unlocked` when handling the `open` command.
 
 An MQTT lock can also report the intermediate states `unlocking`, `locking` or `jammed` if the motor reports a jammed state.
-<a id='new_format'></a>
-
-To enable MQTT locks in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT locks in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -114,6 +112,10 @@ device:
       description: 'The name of the device.'
       required: false
       type: string
+    serial_number:
+      description: "The serial number of the device."
+      required: false
+      type: string
     suggested_area:
       description: 'Suggest an area if the device isn’t in one yet.'
       required: false
@@ -140,7 +142,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -191,7 +192,6 @@ payload_open:
   description: The payload sent to the lock to open it.
   required: false
   type: string
-  default: OPEN
 payload_reset:
   description: A special payload that resets the state to `unknown` when received on the `state_topic`.
   required: false
@@ -223,7 +223,7 @@ state_locking:
   type: string
   default: LOCKING
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`.
+  description: The MQTT topic subscribed to receive state updates. It accepts states configured with `state_jammed`, `state_locked`, `state_unlocked`, `state_locking` or `state_unlocking`. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_unlocked:
@@ -246,11 +246,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

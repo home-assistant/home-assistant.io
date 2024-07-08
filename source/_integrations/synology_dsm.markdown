@@ -3,8 +3,8 @@ title: Synology DSM
 description: Instructions on how to integrate the Synology DSM sensor within Home Assistant.
 ha_category:
   - Camera
-  - Media Source
-  - System Monitor
+  - Media source
+  - System monitor
   - Update
 ha_release: 0.32
 ha_iot_class: Local Polling
@@ -31,26 +31,21 @@ The Synology DSM integration provides access to various statistics from your [Sy
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-
+{% warning %}
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
 You can change the scan interval within the configuration options (default is 15 min).
 
-Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetch as frequently.
+Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetched as frequently.
+{% endwarning %}
 
-</div>
-
-<div class='note'>
-
-If you have two or more NICs with different IP addresses from the same subnet and SSDP is activated, this leads to problems with this integration, as the NAS is detected several times with different IPs and the integration always adopts the new "detected" IP address in its configuration and then reloads it.
-In this case, it is recommended to use NIC bonding instead or to deactivate SSDP.
-
-</div>
+{% important %}
+When SSDP is activated on a NAS with two or more NICs with different IP addresses on the same subnet an adoption loop will occur. The NAS will be detected several times with different IP addresses and the integration will adopt the "newly" detected IP causing a reload. To resolve this either <a href="https://kb.synology.com/en-id/DSM/help/DSM/AdminCenter/file_service_advanced_introduction?version=7" target="_blank">deactivate SSDP on the NAS</a> or use NIC bonding so that only one IP address is present.
+{% endimportant %}
 
 ## Separate User Configuration
 
-Due to the nature of the Synology DSM API, it is required to grant the user admin rights. This is related to the fact that utilization information is stored in the core module.
+You must grant the user admin rights in order to access utilization information since it's stored in the core module.
 
 When creating the user, it is possible to deny access to all locations and applications. By doing this, the user will not be able to login to the web interface or view any of the files on the Synology NAS. It is still able to read the utilization and storage information using the API.
 
@@ -58,25 +53,25 @@ If you want to add cameras from [Surveillance Station](https://www.synology.com/
 
 ### If you utilize 2-Step Verification or Two Factor Authentication (2FA) with your Synology NAS
 
-If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > Security > Account > 2-Factor Authentication**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant. 
+If you have the "Enforce 2-step verification for the following users" option checked under **Control Panel > Security > Account > 2-Factor Authentication**, you'll need to configure the 2-step verification/one-time password (OTP) for the user you just created before the credentials for this user will work with Home Assistant.
 
-Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen. 
+Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
 
-<div class='note'>
+{% note %}
 If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
-</div>
+{% endnote %}
 
 ## Sensors
 
-### CPU Utilisation sensors
+### CPU utilization sensors
 
-Entities reporting the current and combined CPU utilization of the NAS. There are sensors the report the current CPU load, separated by User, System and others. By default, only the User sensor is enabled.
+Entities reporting the current and combined CPU utilization of the NAS. There are sensors that report the current CPU load separated by User, System, and others. By default only the User sensor is enabled.
 
 There are also combined CPU load sensors. These report the total CPU load for the entire NAS. Available as current, 1min, 5min and 15min load sensors. By default the 1min load sensor is disabled.
 
-### Memory Utilisation sensors
+### Memory utilization sensors
 
-Entities reporting the current and combined memory and swap utilization of the NAS. These sensors include the total installed amount, the currently free amount and the % of memory used. 
+Entities reporting the current and combined memory and swap utilization of the NAS. These sensors include the total installed amount, the currently free amount, and the % of memory used.
 
 ### Network sensors
 
@@ -100,11 +95,9 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 Entity reporting the security status of the NAS.
 
-<div class='note'>
-
+{% note %}
 The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
-
-</div>
+{% endnote %}
 
 ### Disk sensors
 
@@ -116,7 +109,7 @@ A switch is available to enable/disable the [Surveillance Station](https://www.s
 
 ## Cameras
 
-For each camera added in [Surveillance Station](https://www.synology.com/surveillance), a camera will be created in Home Assistant.
+For each camera added in [Surveillance Station](https://www.synology.com/surveillance) a camera will be created in Home Assistant.
 
 ## Buttons
 
@@ -128,13 +121,13 @@ Reboot the NAS.
 
 Shutdown the NAS.
 
-## Media Source
+## Media source
 
 A media source is provided for your [Synology Photos](https://www.synology.com/en-global/dsm/feature/photos).
 
 The media source URIs will look like `media-source://synology_dsm/<unique_id>/<album_id>/<image>`.
 
-This media browser supports multiple Synology Photos instances. `<unique_id>` is the Home Assistant ID for the NAS (_usually the serial number of the NAS_). You can find this id when using the media browser, when you hover over the NAS name, you get shown the simple name followed by the unique id ex: `192.168.0.100:5001 - 18C0PEN253705`. 
+This media browser supports multiple Synology Photos instances. `<unique_id>` is the Home Assistant ID for the NAS (_usually the serial number of the NAS_). You can find this id when using the media browser by hovering over the NAS name. It will show the simple name followed by the unique id ex: `192.168.0.100:5001 - 18C0PEN253705`.
 
 To find the `<album_id>` you need to go to the album in your photos instance, and the id will be in the URL ex: `https://192.168.0.100:5001/#/album/19`, where 19 is the album id. An `<album_id>` of 0 will contain all images.
 

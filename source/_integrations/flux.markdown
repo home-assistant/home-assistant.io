@@ -10,11 +10,14 @@ ha_iot_class: Calculated
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `flux` switch platform will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
+The `flux` switch {% term integration %} will change the temperature of your lights similar to the way flux works on your computer, using circadian rhythm. They will be bright during the day, and gradually fade to a red/orange at night. The `flux` switch restores its last state after startup.
 
-The integration will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
+The {% term integration %} will update your lights based on the time of day. It will only affect lights that are turned on and listed in the flux configuration.
 
 During the day (in between `start_time` and `sunset_time`), it will fade the lights from the `start_colortemp` to the `sunset_colortemp`. After sunset (between `sunset_time` and `stop_time`), the lights will fade from the `sunset_colortemp` to the `stop_colortemp`. If the lights are still on after the `stop_time` it will continue to change the light to the `stop_colortemp` until the light is turned off. The fade effect is created by updating the lights periodically.
 
@@ -24,7 +27,8 @@ The color temperature is specified in kelvin, and accepted values are between 10
 
 If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 
-To use the Flux switch in your installation, add the following to your `configuration.yaml` file:
+To use the Flux switch in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,6 +96,10 @@ interval:
   required: false
   default: 30
   type: integer
+unique_id:
+  description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 {% endconfiguration %}
 
 Full example:

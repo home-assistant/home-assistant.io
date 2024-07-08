@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The Date/Time integration is built for the controlling and monitoring of timestamps on devices.
+The **Date/Time** {% term integration %} is built for the controlling and monitoring of timestamps on devices.
 
 {% include integrations/building_block_integration.md %}
 
@@ -21,11 +21,11 @@ If you are looking for a way to create a Date/Time entity, please take a look at
 
 ### datetime services
 
-Available services: `datetime.set_value`
+Available {% term services %}: `datetime.set_value`
 
 ### Service `datetime.set_value`
 
-Set a new value for the datetime entity.
+Set a new value for the datetime {% term entity %}.
 
 | Service data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |

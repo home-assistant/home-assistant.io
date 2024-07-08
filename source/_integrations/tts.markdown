@@ -2,22 +2,34 @@
 title: Text-to-speech (TTS)
 description: Instructions on how to set up text-to-speech (TTS) with Home Assistant.
 ha_category:
-  - Media Source
+  - Media source
   - Text-to-speech
 ha_release: 0.35
 ha_codeowners:
   - '@home-assistant/core'
-  - '@pvizeli'
 ha_domain: tts
 ha_quality_scale: internal
 ha_platforms:
   - notify
 ha_integration_type: entity
+related:
+  - url: https://www.home-assistant.io/integrations/#text-to-speech
+    title: List of integrations using the TTS integration
+  - url: https://www.nabucasa.com/config/tts/
+    title: TTS with Home Assistant Cloud
+  - url: https://www.home-assistant.io/integrations/google_translate/
+    title: Google Translate TTS
+  - url: https://www.home-assistant.io/integrations/microsoft/
+    title: Microsoft TTS
+  - url: https://www.home-assistant.io/voice_control/
+    title: Home Assistant Assist
 ---
 
 Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 {% include integrations/building_block_integration.md %}
+
+See all [TTS integrations](https://www.home-assistant.io/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant, [Assist](https://www.home-assistant.io/voice_control/), Assist is using TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/). 
 
 ## Services
 
@@ -29,7 +41,8 @@ The `tts.speak` service supports `language` and on some platforms also `options`
 
 ```yaml
 service: tts.speak
-target: tts.example
+target:
+  entity_id: tts.example
 data:
   media_player_entity_id: media_player.kitchen
   message: "May the force be with you."
@@ -118,11 +131,9 @@ $ curl -X POST -H "Authorization: Bearer <ACCESS TOKEN>" \
 
 ## Troubleshooting
 
-<div class='note'>
-
-Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/docs/configuration/basic/).
-
-</div>
+{% important %}
+Depending on your setup, you might need to set an external URL (`external_url`) inside the [configuration](/integrations/homeassistant/#external_url).
+{% endimportant %}
 
 The following sections describe some of the problems encountered with media devices.
 

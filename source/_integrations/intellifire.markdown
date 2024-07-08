@@ -2,7 +2,7 @@
 title: IntelliFire
 description: Instructions on the IntelliFire Fireplace integration for Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Fan
   - Light
@@ -70,9 +70,9 @@ The integration uses a Number entity to control flame height. Valid flame height
 
 ### Sensor Types
 
-The following sensors are available as either a **Binary Sensor** when dealing with on/off.
+The following sensors are available as a **binary sensor** when dealing with on/off.
 
-### Binary Sensors
+### Binary sensors
 
 - **Flame Sensor**: Whether the fire is on.
 - **Pilot Light Sensor**: Whether the pilot light is turned on.
@@ -121,7 +121,7 @@ The IFT module can suffer a variety of issues that will render it inoperable. So
 
 #### Enabling Debugging
 
-To turn on debug logging modify your `configuration.yaml` file in the `/config` directory and add the following:
+To turn on debug logging modify your {% term "`configuration.yaml`" %} file in the `/config` directory and add the following:
 
 
 ```yaml

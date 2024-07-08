@@ -3,7 +3,7 @@ title: FiveM
 description: Instructions on how to integrate a FiveM server into Home Assistant.
 ha_release: 2022.3
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Local Polling
 ha_config_flow: true
