@@ -5,7 +5,7 @@ ha_category:
   - Remote
   - Binary Sensor
   - Sensor
-ha_release: '2023.6'
+ha_release: '2024.8'
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -28,7 +28,7 @@ This integration supports all current madVR Envy models.
 
 ## Remote
 
-The madVR Envy remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
+The madVR Envy remote platform will create a [remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
 
 The command structure uses the same keywords as the [official documentation](https://madvrenvy.com/wp-content/uploads/EnvyIpControl.pdf?r=113a) and simply sends the corresponding command to the device. Please refer to the official documentation for more details and usage.
 
