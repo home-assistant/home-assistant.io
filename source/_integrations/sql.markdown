@@ -248,11 +248,11 @@ SELECT pg_database_size('dsmrreader')/1024/1024 as db_size;
 Use `db_size` as column for value.
 Replace `dsmrreader` with the correct name of your database.
 
-{% note %}
+{% tip %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
 Set the device class to `Data size` so you can use UI unit conversion.
-{% endnote %}
+{% endtip %}
 
 #### MariaDB/MySQL
 
@@ -263,11 +263,11 @@ SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(10
 ```
 Use `value` as column for value.
 
-{% note %}
+{% tip %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
 Set the device class to `Data size` so you can use UI unit conversion.
-{% endnote %}
+{% endtip %}
 
 #### SQLite
 
@@ -278,11 +278,11 @@ SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_c
 ```
 Use `size` as column for value.
 
-{% note %}
+{% tip %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
 Set the device class to `Data size` so you can use UI unit conversion.
-{% endnote %}
+{% endtip %}
 
 #### MS SQL
 
@@ -301,8 +301,8 @@ SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN s
 ```
 Use `size` as column for value.
 
-{% note %}
+{% tip %}
 The unit of measurement returned by the above query is `MiB`, please configure this correctly.
 
 Set the device class to `Data size` so you can use UI unit conversion.
-{% endnote %}
+{% endtip %}
