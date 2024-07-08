@@ -163,7 +163,7 @@ tts:
 
 ### Pricing
 
-Speech-to-Text is priced based on the amount of audio successfully processed by the service each month, measured in increments of one second. For up-to-date pricing, see [here](https://cloud.google.com/speech-to-text/pricing) under the Speech-to-Text v1 API.
+Speech-to-text is priced based on the amount of audio successfully processed by the service each month, measured in increments of one second. For up-to-date pricing, see [here](https://cloud.google.com/speech-to-text/pricing) under the Speech-to-text v1 API.
 
 ### Speech-to-text configuration
 
