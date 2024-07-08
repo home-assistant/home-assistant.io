@@ -33,7 +33,7 @@
       {% endif %}
     </li>
     <li>
-      {% icon "mdi:script-text" %} {% active_link /docs/scene/ Scenes %}
+      {% icon "mdi:palette" %} {% active_link /docs/scene/ Scenes %}
       {% if doc == 'scene' or include.docs_index %}
       <ul>
         <li>{% active_link /docs/scene/editor/ Editor %}</li>
@@ -41,7 +41,7 @@
       {% endif %}
     </li>
     <li>
-      {% icon "carbon:floorplan" %} {% active_link /docs/blueprint/ Blueprints %}
+      {% icon "mdi:palette-swatch" %} {% active_link /docs/blueprint/ Blueprints %}
       {% if doc == 'blueprint' or include.docs_index %}
       <ul>
         <li>{% active_link /docs/blueprint/tutorial/ Tutorial %}</li>
@@ -167,7 +167,7 @@
 </li>
 
 <li>
-  {% icon "mdi:view-grid" %} {% active_link /docs/organizing/ Organization %}
+  {% icon "mdi:category" %} {% active_link /docs/organizing/ Organization %}
   {% if doc == 'organizing' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/organizing/ Grouping your assets %}</li>
