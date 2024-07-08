@@ -44,6 +44,7 @@ The integration will create a calendar for every type of meal plan:
 The Mealie integration has the following services:
 
 - `mealie.get_mealplan`
+- `mealie.get_recipe`
 
 ### Service `mealie.get_mealplan`
 
@@ -54,3 +55,12 @@ Get the meal plan for a specified range.
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.      |
 | `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
 | `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
+
+### Service `mealie.get_recipe`
+
+Get the recipe for a specified recipe ID or slug.
+
+| Service data attribute | Optional | Description                                         |
+|------------------------|----------|-----------------------------------------------------|
+| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
+| `recipe_id`            | No       | The ID of the recipe to get.                        |
