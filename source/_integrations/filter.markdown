@@ -39,22 +39,22 @@ Further information about these configuration options can be found under the [YA
 Name:
   description: The name the sensor should have.
 Entity:
-  description: The entity that provides the input. Numeric `sensor` and `binary_sensor` are supported.
-filter:
+  description: The entity that provides the input. Only `sensor` entities are supported.
+Filter:
   description: Algorithm to be used to filter data. Available filters are  "Lowpass", "outlier", "Range", "Throttle", "Time throttle" and "Time simply moving average".
-precision:
+Precision:
   description: Defines the precision of the filtered state.
-window_size:
+Window size:
   description: Size of the window of previous states. Time based filters requires a time period, while other filters requires an integer.
-time_constant:
+Time constant:
   description: Loosely relates to the amount of time it takes for a state to influence the output.
-radius:
+Radius:
   description: Band radius from median of previous states.
-type:
+Type:
   description: Defines the type of Simple Moving Average.
-lower_bound:
+Lower bound:
   description: Lower bound for filter range.
-upper_bound:
+Upper bound:
   description: Upper bound for filter range.
 {% endconfiguration_basic %}
 
