@@ -21,9 +21,12 @@ related:
     title: Home Assistant Operating System- Restoring a backup
 ---
 
-The **Backup** {% term integration %} is used for {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations to create and download backups. This backup file can be used if you migrate to {% term "Home Assistant Operating System" %}.
+The **Backup** {% term integration %} is used for {% term "Home Assistant Core" %} and {% term "Home Assistant Container" %} installations to create and download backups, which are stored in a subdirectory `backups`, located in your [configuration directory](/docs/configuration/#editing-configurationyaml).
+This backup file can be used if you migrate to {% term "Home Assistant Operating System" %}.
 
-Note: If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %} installation, this page is not for you. Instead, refer to the documentation on using the [built-in back up](/common-tasks/os/#backups).
+{% important %}
+If you use {% term "Home Assistant Operating System" %} or {% term "Home Assistant Supervised" %} installation, this page is not for you. Instead, refer to the documentation on using the [built-in back up](/common-tasks/os/#backups).
+{% endimportant %}
 
 ## Services
 
@@ -60,9 +63,6 @@ automation:
 ```
 
 ## Restoring a backup
-
-Backups created via the **Backup** integration are in a subdirectory `backups`, located in your [configuration directory](/docs/configuration/#editing-configurationyaml).
-The {% term "Home Assistant Container" %} installation typically mounts this directory via `docker-compose.yml` or `docker run` to a directory of your choice.
 
 The steps on recovering from a backup depend on the installation type and use case. Follow one of these steps:
 
