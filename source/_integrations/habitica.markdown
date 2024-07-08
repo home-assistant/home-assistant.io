@@ -8,9 +8,10 @@ ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
-  - sensor
-  - todo
   - button
+  - sensor
+  - switch
+  - todo
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
