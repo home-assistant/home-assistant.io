@@ -45,7 +45,7 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .integration-page, .documentation-page {
+  .integration-page, .documentation-page, .blog-post {
     .grid-wrapper>.grid.grid-center {
       display: flex;
       flex-direction: row-reverse;
@@ -53,23 +53,25 @@ h1.title.indent {
     }
   }
 
-  #sidebar .vertical-nav {
-    background: none;
-    padding: 0 16px 0 0;
+  #sidebar {
+    .vertical-nav, .recent-categories, .recent-posts, .categories {
+      background: none;
+      padding: 0 16px 0 0;
+    }
   }
 
-  .blog-post {
-    .grid-wrapper>.grid.grid-center {
-      display: flex;
-      justify-content: flex-start;
-    }
-    #toc-bar {
-      order: 1;
-    }
-    #sidebar {
-      order: 2;
-    }
-  }
+  // .blog-post {
+  //   .grid-wrapper>.grid.grid-center {
+  //     display: flex;
+  //     justify-content: flex-start;
+  //   }
+  //   #toc-bar {
+  //     order: 1;
+  //   }
+  //   #sidebar {
+  //     order: 2;
+  //   }
+  // }
 }
 
 
