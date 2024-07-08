@@ -10,6 +10,7 @@ ha_domain: habitica
 ha_platforms:
   - sensor
   - todo
+  - button
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
