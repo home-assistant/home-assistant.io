@@ -170,6 +170,18 @@ defaults:
     values:
       toc: true
   - scope:
+      path: "getting-started/*"
+    values:
+      toc: true
+  - scope:
+      path: "more-info/*"
+    values:
+      toc: true
+  - scope:
+      path: "voice_control/*"
+    values:
+      toc: true
+  - scope:
       path: "hassio/*"
     values:
       toc: true
