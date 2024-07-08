@@ -2,13 +2,16 @@
 title: Google Cloud Platform
 description: Google Cloud Platform integration.
 ha_category:
+  - Speech-to-text
   - Text-to-speech
+  - Voice
 ha_release: 0.95
 ha_iot_class: Cloud Push
 ha_codeowners:
   - '@lufton'
 ha_domain: google_cloud
 ha_platforms:
+  - stt
   - tts
 ha_integration_type: integration
 ---
@@ -153,3 +156,20 @@ tts:
       - telephony-class-application
       - wearable-class-device
 ```
+
+## Google Cloud speech-to-text
+
+[Google Cloud speech-to-text](https://cloud.google.com/speech-to-text) converts audio into text transcriptions for [125 languages and variants](https://cloud.google.com/speech-to-text/docs/speech-to-text-supported-languages).
+
+### Pricing
+
+Speech-to-Text is priced based on the amount of audio successfully processed by the service each month, measured in increments of one second. For up-to-date pricing, see [here](https://cloud.google.com/speech-to-text/pricing) under the Speech-to-Text v1 API.
+
+### Speech-to-text configuration
+
+{% configuration %}
+stt_model:
+  description: "One of the transcription models [here](https://cloud.google.com/speech-to-text/docs/transcription-model). Defaults to `latest_short`."
+  required: false
+  type: string
+{% endconfiguration %}
