@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-.page h1.title.indent {
-  font-size: 3.125em;
+h1.title.indent {
+  font-size: 3.5rem;
 }
 .title.delta, .title.epsilon {
   border-bottom: none;
@@ -19,10 +19,10 @@
 }
 @media only screen and (max-width: $menu-collapse) {
   html {
-    font-size: .95em;
+    font-size: .95rem;
   }
-  .page h1.title.indent {
-    font-size: 2.875em;
+  h1.title.indent {
+    font-size: 3rem;
     overflow-wrap: break-word;
     hyphens: auto;
   }
