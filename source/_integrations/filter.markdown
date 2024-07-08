@@ -29,6 +29,10 @@ The `filter` {% term integration %} enables sensors that process the states of o
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+The UI configuration only supports setting one filter. For more advanced configurations where multiplpe filters are needed please use the YAML configuration option to configure your filter sensor.
+{% endnote %}
+
 Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
 
 {% configuration_basic %}
