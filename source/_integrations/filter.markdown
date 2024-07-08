@@ -10,6 +10,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@dgomes'
 ha_domain: filter
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -26,7 +27,34 @@ The `filter` {% term integration %} enables sensors that process the states of o
   <img src='/images/screenshots/filter-sensor.png' />
 </p>
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input. Numeric `sensor` and `binary_sensor` are supported.
+filter:
+  description: Algorithm to be used to filter data. Available filters are  "Lowpass", "outlier", "Range", "Throttle", "Time throttle" and "Time simply moving average".
+precision:
+  description: Defines the precision of the filtered state.
+window_size:
+  description: Size of the window of previous states. Time based filters requires a time period, while other filters requires an integer.
+time_constant:
+  description: Loosely relates to the amount of time it takes for a state to influence the output.
+radius:
+  description: Band radius from median of previous states.
+type:
+  description: Defines the type of Simple Moving Average.
+lower_bound:
+  description: Lower bound for filter range.
+upper_bound:
+  description: Upper bound for filter range.
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To enable Filter Sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
