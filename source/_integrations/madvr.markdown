@@ -4,7 +4,6 @@ description: Instructions on how to integrate a madVR Envy into Home Assistant.
 ha_category:
   - Remote
   - Binary Sensor
-  - Sensor
 ha_release: '2024.8'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -14,7 +13,6 @@ ha_domain: madvr
 ha_platforms:
   - binary_sensor
   - remote
-  - sensor
 ha_integration_type: device
 ---
 
@@ -67,8 +65,8 @@ These are commands that have parameters with a comma separating them.
 
 The integration creates the following binary sensors:
 
-- `Power State` is True when the device is physically on.
-- `Signal State` is True when the device is receiving a signal from the source.
-- `HDR Flag` is True when the device is receiving an HDR signal. This is useful to trigger automations based on the HDR flag, such as changing projector settings.
-- `Outgoing HDR Flag` is True when the device is sending an HDR signal.
+- `Power state` is True when the device is physically on.
+- `Signal state` is True when the device is receiving a signal from the source.
+- `HDR flag` is True when the device is receiving an HDR signal. This is useful to trigger automations based on the HDR flag, such as changing projector settings.
+- `Outgoing HDR flag` is True when the device is sending an HDR signal.
 These can be used for various purposes, such as triggering your masking system based on the detected aspect ratio.
