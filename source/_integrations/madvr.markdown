@@ -65,8 +65,8 @@ These are commands that have parameters with a comma separating them.
 
 The integration creates the following binary sensors:
 
-- `Power state` is True when the device is physically on.
-- `Signal state` is True when the device is receiving a signal from the source.
-- `HDR flag` is True when the device is receiving an HDR signal. This is useful to trigger automations based on the HDR flag, such as changing projector settings.
-- `Outgoing HDR flag` is True when the device is sending an HDR signal.
+- `Power state` is on when the device is turned on.
+- `Signal state` is on when the device is receiving a signal from the source.
+- `HDR flag` is on when the device is receiving an HDR signal. This is useful to trigger automations based on the HDR flag, such as changing projector settings.
+- `Outgoing HDR flag` is on when the device is sending an HDR signal.
 These can be used for various purposes, such as triggering your masking system based on the detected aspect ratio.
