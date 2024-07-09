@@ -54,8 +54,10 @@ h1.title.indent {
     }
   }
 
-  .documentation-page #sidebar #toc-module {
+  .documentation-page, .blog-post {
+    #sidebar #toc-module {
     display: none;
+    }
   }
 
   // .blog-post {
@@ -203,7 +205,7 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .documentation-page #toc-bar, .integration-page #toc-bar {
+  .documentation-page #toc-bar, .integration-page #toc-bar, .blog-post #toc-bar {
     display: inline-block;
   }
   #integration-sidebar #toc-module {
