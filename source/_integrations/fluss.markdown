@@ -36,15 +36,8 @@ To enable Fluss+ in your installation, add the following to your `configuration.
 
 ```yaml
 # Example configuration.yaml entry for Fluss+ with additional options
-    {% configuration %}
-    fluss:
-    description: Configuration for the Fluss+ integration.
-    required: true
-    type: map
-    keys:
-        api_key:
-        description: The API key for your Fluss+ account.
-        required: true
-        type: string
-    {% endconfiguration %}
+```yaml
+# Example configuration.yaml entry
+fluss:
+  api_key: YOUR_API_KEY
 {% enddetails %}
