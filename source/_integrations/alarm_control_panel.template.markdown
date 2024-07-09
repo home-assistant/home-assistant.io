@@ -16,8 +16,6 @@ ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
-  - docs: /integrations/template
-    docs: Template
 ---
 
 The `template` {% term integration %} creates alarm control panels that combine integrations or adds preprocessing logic to actions.
