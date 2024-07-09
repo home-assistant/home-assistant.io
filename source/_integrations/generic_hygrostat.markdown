@@ -21,10 +21,13 @@ ha_config_flow: true
 
 The `generic_hygrostat` humidifier {% term integration %} is a virtual hygrostat implemented in Home Assistant. It uses a sensor and a switch connected to a humidifier or dehumidifier under the hood. When in humidifier mode, if the measured humidity is less than the target humidity, the humidifier will be turned on and turned off when the required humidity is reached. When in dehumidifier mode, if the measured humidity is greater than the target humidity, the dehumidifier will be turned on and turned off when required humidity is reached. One Generic Hygrostat entity can only control one switch. If you need to activate two switches, one for a humidifier and one for a dehumidifier, you will need two Generic Hygrostat entities.
 
-To enable the {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
-
 {% include integrations/config_flow.md %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 
