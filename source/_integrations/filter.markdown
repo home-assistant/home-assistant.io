@@ -30,7 +30,7 @@ The `filter` {% term integration %} enables sensors that process the states of o
 {% include integrations/config_flow.md %}
 
 {% note %}
-The UI configuration only supports setting one filter. For more advanced configurations where multiplpe filters are needed please use the YAML configuration option to configure your filter sensor.
+The UI configuration only supports setting one filter. For more advanced configurations where multiple filters are needed, please use the YAML configuration option to configure your filter sensor.
 {% endnote %}
 
 Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
@@ -41,7 +41,7 @@ Name:
 Entity:
   description: The entity that provides the input. Only `sensor` entities are supported.
 Filter:
-  description: Algorithm to be used to filter data. Available filters are  "Lowpass", "outlier", "Range", "Throttle", "Time throttle" and "Time simply moving average".
+  description: Algorithm to be used to filter data. Available filters are  "Lowpass", "Outlier", "Range", "Throttle", "Time throttle" and "Moving Average (Time based)".
 Precision:
   description: Defines the precision of the filtered state.
 Window size:
