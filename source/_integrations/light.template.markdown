@@ -14,8 +14,6 @@ ha_platforms:
   - switch
 ha_integration_type: helper
 related:
-  - docs: /integrations/template
-    title: Template
   - docs: /docs/configuration/
     title: Configuration file
 ---
