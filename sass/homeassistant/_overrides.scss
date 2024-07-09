@@ -920,7 +920,25 @@ article.listing {
 
   &>table,
   &>.entry-content>table {
-    background-color: #f3fcf5;
+    background-color: #fff;
+    table-layout: auto;
+
+    &>thead {
+      background-color: rgba(0, 0, 0, .025);
+      // border: 1px solid rgba(0, 0, 0, .1);
+      border-radius: 16px 16px 0 0;
+      font-size: .85em;
+    }
+
+    &>tbody {
+      tr {
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+      }
+    }
   }
 
   p.img {
