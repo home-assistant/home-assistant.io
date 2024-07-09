@@ -45,6 +45,7 @@ The Mealie integration has the following services:
 
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
+- `mealie.import_recipe`
 
 ### Service `mealie.get_mealplan`
 
@@ -64,3 +65,13 @@ Get the recipe for a specified recipe ID or slug.
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
 | `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
+
+### Service `mealie.import_recipe`
+
+Import the recipe into Mealie from an URL.
+
+| Service data attribute | Optional | Description                                                     |
+|------------------------|----------|-----------------------------------------------------------------|
+| `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
+| `url`                  | No       | The URL of the recipe.                                          |
+| `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
