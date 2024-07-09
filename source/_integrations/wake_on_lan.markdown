@@ -37,7 +37,7 @@ broadcast_address:
   description: The IP address of the host to send the magic packet to.
 broadcast_port:
   description: The port to send the magic packet to.
-{% configuration_basic %}
+{% endconfiguration_basic %}
 
 ### Integration services
 
