@@ -11,7 +11,7 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: template
 ha_platforms:
-  - switch
+  - weather
 ha_integration_type: helper
 related:
   - docs: /docs/configuration/
