@@ -56,7 +56,7 @@ h1.title.indent {
 
   .documentation-page, .blog-post {
     #sidebar #toc-module {
-    display: none;
+      display: none;
     }
   }
 
@@ -565,6 +565,7 @@ a.material-card:hover {
 
 
 .feedback {
+  margin-top: 64px;
   h4 {
     margin: 0 0 8px !important;
 
