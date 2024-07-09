@@ -57,14 +57,6 @@
       {%- endif -%}{%- if page.ha_quality_scale or page.ha_iot_class %}.{%- endif -%}
     {% endif %}
   </div>
-
-  <div class='section'>  
-    {% if page.ha_quality_scale == "silver" %}🥈 This is a great integration.{%- endif -%}
-    {% if page.ha_quality_scale == "gold" %}🥇 This is a solid integration.{%- endif -%}
-    {% if page.ha_quality_scale == "platinum" %}🏆 Best of the best.{%- endif -%}
-    {% if page.ha_quality_scale == "internal" %}🏠{%- endif -%}
-    It scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
-  </div>
   
   {% if page.works_with %}
     {%- for type in page.works_with -%}
