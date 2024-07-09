@@ -42,10 +42,9 @@ The integration will create a calendar for every type of meal plan:
 - Dinner
 - Side
 
-## Shopping lists
+## Shopping Lists
 
-The integration will create a todo list for every Mealie shopping list.
-
+The integration will create a to-do list for every Mealie shopping list.
 ## Services
 
 The Mealie integration has the following services:
