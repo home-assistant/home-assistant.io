@@ -3,14 +3,17 @@ title: Mealie
 description: Instructions on how to setup Mealie devices in Home Assistant.
 ha_category:
   - Calendar
+  - To-do list
 ha_config_flow: true
 ha_release: 2024.7
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@joostlek'
+  - '@andrew-codechimp'
 ha_domain: mealie
 ha_platforms:
   - calendar
+  - todo
 ha_integration_type: service
 ---
 
@@ -38,6 +41,10 @@ The integration will create a calendar for every type of meal plan:
 - Lunch
 - Dinner
 - Side
+
+## Shopping Lists
+
+The integration will create a to-do list for every Mealie shopping list.
 
 ## Services
 
