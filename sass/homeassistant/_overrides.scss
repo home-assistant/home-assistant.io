@@ -180,9 +180,11 @@ h1.title.indent {
 
         li {
           margin: 8px 0;
-
         }
+      }
 
+      &>ul {
+        margin: 16px 0 8px 28px;
       }
     }
   }
@@ -298,6 +300,10 @@ ul, ol, dd {
   color: $navigation-color;
   padding-bottom: 12px;
   margin-bottom: 27px;
+}
+
+.menu > li > a.active {
+  font-weight: bold;
 }
 
 .dark .menu > li > a:hover,
@@ -1125,6 +1131,9 @@ ul.sidebar-menu {
   a.active {
     color: #000;
     font-weight: bold;
+    border-left: 4px solid $primary-color;
+    padding: 0 8px;
+    display: inline-block;
   }
 
   ul {

@@ -1,4 +1,6 @@
 {% assign recent_release_post = site.categories['Core'].first %}
+{% assign url_parts = page.url | split: '/' %}
+{% assign root = url_parts[1] %}
 
 <div class="grid-wrapper">
   <div class="grid">
@@ -23,11 +25,9 @@
           data-close="⨉"
         ></label>
         <ul class="menu pull-right">
-          <li><a href="/getting-started/">Getting started</a></li>
+          <li><a {% if root == 'getting-started' or root == 'installation' %}class="active"{% endif %} href="/getting-started/">Getting started</a></li>
           <li>
-            <a href="/docs/"
-              >Documentation {% icon "mdi:chevron-down" %}</i
-            ></a>
+            <a {% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'common-tasks' %}class="active"{% endif %} href="/docs/">Documentation {% icon "mdi:chevron-down" %}</a>
             <ul>
               <li><a href="/installation/">{% icon "simple-icons:homeassistant" %} Installation</a></li>
               <li><a href="/docs/automation/">{% icon "mdi:robot-happy" %} Automations</a></li>
@@ -38,9 +38,9 @@
               <li><a href="/docs/configuration/">{% icon "mdi:cog" %} Advanced configuration</a></li>
             </ul>
           </li>
-          <li><a href="/integrations/">Integrations</a></li>
-          <li><a href="/blog/">Blog</a></li>
-          <li><a href="/help/">Need help?</a></li>
+          <li><a {% if root == 'integrations' %}class="active"{% endif %} href="/integrations/">Integrations</a></li>
+          <li><a {% if root == 'blog' %}class="active"{% endif %} href="/blog/">Blog</a></li>
+          <li><a {% if root == 'help' %}class="active"{% endif %} href="/help/">Need help?</a></li>
           <li>
             <div class="docsearch" id="docsearch"></div>
           </li>
