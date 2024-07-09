@@ -92,6 +92,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
+|Cover|Sunroof|No|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
 |Lock|Charge cable lock|Yes|
