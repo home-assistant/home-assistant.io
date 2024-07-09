@@ -27,15 +27,15 @@ There is currently support for the following device types within Home Assistant:
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-mac:
-  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
-host:
+Mac address:
+  description: "The MAC address to send the wake up command to, e.g., `00:01:02:03:04:05`."
+Host:
   description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
-turn_off:
+Turn off action:
   description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
-broadcast_address:
+Broadcast address:
   description: The IP address of the host to send the magic packet to.
-broadcast_port:
+Broadcast port:
   description: The port to send the magic packet to.
 {% endconfiguration_basic %}
 
