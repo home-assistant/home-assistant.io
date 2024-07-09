@@ -44,7 +44,16 @@
       {% endif %}
 
       {%- if page.ha_iot_class %}
-        <br />Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}.</a>
+      <div class='section'>
+        <iconify-icon icon='mdi:
+          {% if page.ha_iot_class == "Assumed State" %}circle-half-full{%- endif -%}
+          {% if page.ha_iot_class == "Cloud Polling" %}cloud-upload{%- endif -%}
+          {% if page.ha_iot_class == "Cloud Push" %}cloud-download{%- endif -%}
+          {% if page.ha_iot_class == "Local Polling" %}download-network-outline{%- endif -%}
+          {% if page.ha_iot_class == "Local Push" %}upload-network-outline{%- endif -%}
+        '></iconify-icon>
+        Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}.</a>
+      </div>
       {%- endif -%}
     {% endif %}
   </div>
