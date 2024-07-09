@@ -45,7 +45,7 @@ Filter:
 Precision:
   description: Defines the precision of the filtered state.
 Window size:
-  description: Size of the window of previous states. Time based filters requires a time period, while other filters requires an integer.
+  description: Size of the window of previous states. Time-based filters require a time period, while other filters require an integer.
 Time constant:
   description: Loosely relates to the amount of time it takes for a state to influence the output.
 Radius:
