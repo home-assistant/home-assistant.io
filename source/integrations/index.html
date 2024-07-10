@@ -27,22 +27,30 @@ regenerate: false
 {%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
 
 <div class="grid">
+
+    <div class="grid__item six-sixths lap-one-whole palm-one-whole">
+      <fieldset class="integration-filter integration-filter-radio">
+        <div class="filter-button">
+          <input type="radio" id="brandsAll" name="brands" value="all" data-id="brands" checked="checked" />
+          <label for="brandsAll">All</label>
+        </div>
+        <div class="filter-button">
+          <input type="radio" id="brandsFeatured" name="brands" value="featured" data-id="brands" />
+          <label for="brandsFeatured">Featured</label>
+        </div>
+        <div class="filter-button">
+          <input type="radio" id="brandsPartners" name="brands" value="partners" data-id="brands" />
+          <label for="brandsPartners">Partners</label>
+        </div>
+      </fieldset>
+    </div>
+
   <div class="grid-filters">
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-        <div class="integration_filter">
+        <div class="integration-filter integration-filter-select">
           <h3 class="filter-title">Category</h3>
           <select class="ha_category" name="category" data-id="cat">
             <option value="#">All</option>
-            <option value="featured">Featured</option>
-            <option value="wwha">Partner brands</option>
-
-            <!-- {%- for category in categories -%} -->
-            <!-- {%- assign components_count = components | where: 'ha_category', category | size -%} -->
-            <!-- {%- if category and category != 'Other' and components_count != 0 -%} -->
-            <!-- <option value='{{ category | slugify }}'>{{ category }}</option> -->
-            <!-- {%- endif -%} -->
-            <!-- {%- endfor -%} -->
-
              {%- for category in categories -%}
           {%- assign category_name = "" -%}
           {%- assign components_count = 0 -%}
@@ -75,7 +83,7 @@ regenerate: false
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-      <div class="integration_filter">
+      <div class="integration-filter integration-filter-select">
         <h3 class="filter-title">Version</h3>
         <select class="ha_category" name="versions" data-id="version">
           <option value="#">All</option>
@@ -91,7 +99,7 @@ regenerate: false
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-      <div class="integration_filter">
+      <div class="integration-filter integration-filter-select">
         <h3 class="filter-title">IoT Class</h3>
         <select class="ha_category" name="iot_classes" data-id="iot_class">
           <option value="#">All</option>
@@ -106,7 +114,7 @@ regenerate: false
     </div>
 
     <div class="grid__item one-quarter lap-one-whole palm-one-whole">
-      <div class="integration_filter">
+      <div class="integration-filter integration-filter-select">
         <h3 class="filter-title">Quality Scale</h3>
         <select class="ha_category" name="quality_scales" data-id="quality_scale">
           <option value="#">All</option>
@@ -172,10 +180,11 @@ integrations.pop(); // remove placeholder element at the end
   (function () {
     let filteredComponents = {};
     const baseHashRegex = /(^.*)(?=\?)/;
-    const $integrationFilters = [...document.querySelectorAll('.integration_filter select')];
-
+    const integrationSelectFilterElements = [...document.querySelectorAll('.integration-filter select')];
+    const integrationRadioFilterElements = [...document.querySelectorAll('.integration-filter input[name="brands"]')];
     const searchInputEl = document.querySelector('.component-search input');
     const componentContainerEl = document.querySelector('#componentContainer');
+    let searchInputDirty = false;
 
     function init() {
       let queryParams = new URLSearchParams(document.location.search);
@@ -199,11 +208,12 @@ integrations.pop(); // remove placeholder element at the end
       });
 
       //add these to the window for dynamic grabbing in matchSelectToURL()
-      window.$catFilter = document.querySelector('.integration_filter select[data-id="cat"]');
-      window.$versionFilter = document.querySelector('.integration_filter select[data-id="version"]');
-      window.$iot_classFilter = document.querySelector('.integration_filter select[data-id="iot_class"]');
-      window.$quality_scaleFilter = document.querySelector('.integration_filter select[data-id="quality_scale"]');
+      window.$catFilter = document.querySelector('.integration-filter select[data-id="cat"]');
+      window.$versionFilter = document.querySelector('.integration-filter select[data-id="version"]');
+      window.$iot_classFilter = document.querySelector('.integration-filter select[data-id="iot_class"]');
+      window.$quality_scaleFilter = document.querySelector('.integration-filter select[data-id="quality_scale"]');
       window.$searchFilter = document.querySelector('.component-search input');
+      window.$brandsFilter = [...document.querySelectorAll('.integration-filter input[name="brands"]')]
 
       //listen for changes in the hash / user clicking back or forward button in browser
       window.addEventListener('hashchange', applyFilter);
@@ -211,8 +221,13 @@ integrations.pop(); // remove placeholder element at the end
 
       //on initial page load, if there's no active filters set the default to featured
       let query = buildQueryFromURL();
-      if (Object.keys(query).length === 0) {
-        updateQueryURL('cat', 'featured');
+
+      if (query !== null) {
+        if (Object.keys(query).length === 0) {
+          updateQueryURL('brands', 'featured');
+        } else {
+          searchInputDirty = true;
+        }
       }
       applyFilter();
 
@@ -224,7 +239,7 @@ integrations.pop(); // remove placeholder element at the end
     // get query value pair that matches provided id from url. // for buildQueryFromURL()
     function getQueryValue(id) {
       let index = id.length + 2; // id + '#' and '/' => '#search/'
-      if (id === 'cat') {
+      if (id === 'cat' || id === 'brands') {
         index = 1;
       }
 
@@ -237,6 +252,11 @@ integrations.pop(); // remove placeholder element at the end
         query = queryParams.get(id);
       }
 
+      // adjust query for wwha # url
+      if (query === 'works-with-home-assistant') {
+        query = 'partners';
+      }
+
       return query;
     }
 
@@ -246,18 +266,16 @@ integrations.pop(); // remove placeholder element at the end
       let hash = location.hash || '';
       let queryParams = new URLSearchParams(location.search);
 
-      if (hash.startsWith('#all') || queryParams.get('cat') === 'all') {
-        queryFilter.cat = 'all';
+      if (hash.startsWith('#featured') || queryParams.get('brands') === 'featured') {
+        // only show those with featured = true
+        let query = getQueryValue('brands');
+        queryFilter.brands = query;
       }
 
-      if (hash.startsWith('#featured') || queryParams.get('cat') === 'featured') {
-        // only show those with featured = true
-        queryFilter.cat = 'featured';
-      }
-
-       if (hash.startsWith('#works-with-home-assistant') || queryParams.get('cat') === 'wwha') {
-        // only show those with featured = true
-        queryFilter.cat = 'wwha';
+       if (hash.startsWith('#works-with-home-assistant') || queryParams.get('brands') === 'partners') {
+        // only show those with partners = true
+        let query = getQueryValue('brands');
+        queryFilter.brands = query;
       }
 
       if (hash.startsWith('#search/') || queryParams.has('search')) {
@@ -275,11 +293,11 @@ integrations.pop(); // remove placeholder element at the end
       }
 
       if (
-          // check for categories that are not featured or all
+          // check for old # categories urls
           (hash.startsWith('#') || queryParams.has("cat"))
-          && !(hash.startsWith('#all') || queryParams.get("cat") === 'all')
-          && !(hash.startsWith('#featured') || queryParams.get("cat") === 'featured')
-          && !(hash.startsWith('#works-with-home-assistant') || queryParams.get("cat") === 'wwha')
+          && !(hash.startsWith('#all'))
+          && !(hash.startsWith('#featured'))
+          && !(hash.startsWith('#works-with-home-assistant'))
           && !(hash.startsWith('#search'))
           && !(hash.startsWith('#version'))
           && !(hash.startsWith('#iot_class'))
@@ -298,6 +316,10 @@ integrations.pop(); // remove placeholder element at the end
       if (hash.startsWith('#quality_scale/') || queryParams.has('quality_scale')) {
         let query = getQueryValue('quality_scale');
         queryFilter.quality_scale = query;
+      }
+
+      if (hash.startsWith('#all')) {
+        queryFilter = null;
       }
 
       // filter all components by comparing against query object
@@ -319,22 +341,8 @@ integrations.pop(); // remove placeholder element at the end
       updateFilterButtons(query);
       updateFilterElements(query);
 
-      data.components = integrations.filter(function(integration) {
+      data.components = integrations.filter(integration => {
         for (let key in query) {
-          // add 'featured' into integration category array // enables filtration by featured
-          // also allows search of 'featured' since this is added before search is checked
-          if (query[key] === 'featured') {
-            if (integration.featured) {
-              integration['cat'].push('featured')
-            }
-          }
-
-          if (query[key] === 'works with home assistant' || 'wwha') {
-            if (integration.wwha) {
-              integration['cat'].push('wwha')
-            }
-          }
-
           // compare against search string and categories in integration
           if (key === 'search') {
             if (
@@ -345,16 +353,23 @@ integrations.pop(); // remove placeholder element at the end
             }
           }
 
-          // add 'all' into integration category array // enables filtration by all
-          integration['cat'].push('all');
-
-          // check for matching categories in integation's category array
+          // check for matching categories in integration's category array
           if (key === 'cat') {
             if (!integration[key].includes(query[key])) return false;
           }
 
+          // check for matching featured brands in integration
+          if (key === 'brands' && query[key] === 'featured') {
+            if (!(integration['featured'] ) ) return false;
+          }
+
+          // check for matching partner brands in integration
+          if (key === 'brands' && query[key] === 'partners') {
+            if (!integration['wwha']) return false;
+          }
+
           // check for version / iot / quality matches
-          if (!(key === 'cat' || key === 'search')) {
+          if (!(key === 'cat' || key === 'search' || key === 'brands')) {
             if (
               integration[key] == undefined // match doesn't exist
               || integration[key] != query[key] // strings dont match
@@ -396,16 +411,19 @@ integrations.pop(); // remove placeholder element at the end
       let queryParams = new URLSearchParams(location.search);
       let query = buildQueryFromURL();
 
-        // append url to query
-        if (hashExists) {
-          location.hash = '';
+      // append url to query
+      if (hashExists) {
+        location.hash = '';
+
+        if (query !== null) {
           let currentId = Object.keys(query)[0];
           let currentVal = Object.values(query)[0];
           queryParams.set(currentId, currentVal);
         }
+      }
 
-        queryParams.set(id, value);
-        newURL = `?${queryParams.toString()}`;
+      queryParams.set(id, value);
+      newURL = `?${queryParams.toString()}`;
 
       if ('pushState' in history) {
             history.pushState('', '', newURL);
@@ -424,7 +442,6 @@ integrations.pop(); // remove placeholder element at the end
     function removeQueryFromURL(queryId) {
       const hashExists = location.hash !== '';
       let newURL;
-      const baseHashRegex = /(^.*)(?=\?)/;
       const queryParams = new URLSearchParams(location.search);
 
       if (hashExists) {
@@ -432,10 +449,10 @@ integrations.pop(); // remove placeholder element at the end
       } else {
         queryParams.delete(queryId);
         if (queryParams.toString() !== '') {
-          let baseURL = location.href.match(baseHashRegex)[0];
+          let baseURL = getCleanURL();
           newURL = `${baseURL}?${queryParams.toString()}`
         } else {
-          newURL = location.href.match(baseHashRegex)[0];
+          newURL = getCleanURL();
         }
       }
 
@@ -446,32 +463,64 @@ integrations.pop(); // remove placeholder element at the end
       }
     }
 
-    //update a specific filter dropdown / search. used in updateFilterElements()
+    function getCleanURL() {
+      const baseUrlRegex = /(^.*)(?=[\?#])/;
+      let url = '';
+      let urlMatch = location.href.match(baseUrlRegex);
+
+      if (urlMatch !== null) {
+        url = urlMatch[0];
+      }
+
+      return url;
+    }
+
+    function clearURL() {
+      history.pushState({}, '', window.location.pathname);
+    }
+
+    //update a specific filter radio / dropdown / search. used in updateFilterElements()
     function matchFilterToURL(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
-      let options = [...$filterElement.querySelectorAll('option')]
-
-      //set the value of select dropdown if it doesn't currently match the query in the url
-      if ($filterElement.value !== query) {
-        // set value of search input
-        if (id === 'search') {
+      if (id === 'search') {
+        if ($filterElement.value !== query) {
+          // set value of search input
           $filterElement.value = query;
         }
-
-        // only change the select dropdown if it matches an available dropdown value
-        options.forEach(option => {
-          if (option.value === query) {
-            $filterElement.value = query;
+      } else if (id === 'brands') {
+        $filterElement.forEach(option => {
+          if (option.value.trim() === query.trim() && !option.checked) {
+            option.click();
           }
-        })
+        });
+      } else {
+        let options = [...$filterElement.querySelectorAll('option')];
+        //set the value of select dropdown if it doesn't currently match the query in the url
+        if ($filterElement.value !== query) {
+
+          // only change the select dropdown if it matches an available dropdown value
+          options.forEach(option => {
+            if (option.value === query) {
+              $filterElement.value = query;
+            }
+          })
+        }
       }
     }
 
     // update all filter elements to match current filter obj
     function updateFilterElements(queryFilter) {
-      let filterElements = [...document.querySelectorAll('.integration_filter select, input.search')];
-      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === ''));
+
+      let filterElements = [...document.querySelectorAll('.integration-filter select, input.search, .integration-filter input')];
+      let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || el.checked === false));
+
+      if (queryFilter === null) {
+        clearURL();
+        // resetFilterElements will match elements to querystring in url
+        resetFilterElements(activeFilterElements);
+        return;
+      }
 
       // clear filters if there's more than the current queryFilter
       if (activeFilterElements.length > Object.keys(queryFilter).length) {
@@ -484,14 +533,7 @@ integrations.pop(); // remove placeholder element at the end
         });
 
         // reset filter elements to default empty value
-        filtersToClear.forEach(filter => {
-          let queryId = filter.getAttribute('data-id');
-          if (queryId !== 'search') {
-            matchFilterToURL(queryId, '#');
-          } else {
-            matchFilterToURL(queryId, '');
-          }
-        });
+        resetFilterElements(filtersToClear);
       } else {
          // update new filters
          if (Object.keys(queryFilter).length) {
@@ -500,6 +542,24 @@ integrations.pop(); // remove placeholder element at the end
           }
         }
       }
+    }
+
+    function resetFilterElements(elementArray) {
+      elementArray.forEach(element => {
+        let queryId = element.getAttribute('data-id');
+        if (queryId === 'search') {
+          matchFilterToURL(queryId, '');
+        } else if (queryId === 'brands') {
+          matchFilterToURL(queryId, 'all');
+        } else {
+          matchFilterToURL(queryId, '#');
+        }
+      });
+    }
+
+    function resetAllFilters() {
+      updateFilterElements(null);
+      updateFilterButtons(null)
     }
 
     // filter button name cleanup. used in updateFilterButtons()
@@ -519,11 +579,17 @@ integrations.pop(); // remove placeholder element at the end
           category = id;
       }
 
-      if (id !== 'search') {
+      if (id !== 'search' && id !== 'brands') {
         let $filterElement = window[`$${id}Filter`];
         let options = [...$filterElement.querySelectorAll('option')]
         let filteredOption = options.filter(option => option.value === key)[0];
-        return `${category}: ${filteredOption.innerText}`;
+
+        if (filteredOption) {
+          return `${category}: ${filteredOption.innerText}`;
+        } else {
+          return `${category}: Not Found`;
+        }
+
       } else {
         return `${category}: ${key}`;
       }
@@ -534,14 +600,19 @@ integrations.pop(); // remove placeholder element at the end
       let filterButtonParent = document.querySelector('.component-search');
       let currentFilterButtons = [...document.querySelectorAll('.component-search .active-filter')];
 
+      if (queryFilter === null) {
+        currentFilterButtons.forEach(button => button.remove());
+        return;
+      }
+
       // remove buttons if there's more than the current queryFilter
       if (currentFilterButtons.length > Object.keys(queryFilter).length) {
         // filter out buttons that dont match query obj
         let buttonsToRemove = currentFilterButtons.filter(button => {
           for (key in queryFilter) {
-             if (button.dataset.id === key) {
-               return false;
-             }
+            if (button.dataset.id === key) {
+              return false;
+            }
           }
           return true;
         });
@@ -594,23 +665,38 @@ integrations.pop(); // remove placeholder element at the end
     }
 
     // update view on select change
-    $integrationFilters.forEach(select => select.addEventListener("change", () => {
+    integrationSelectFilterElements.forEach(select => select.addEventListener("change", () => {
       let id = select.dataset.id;
       let value = select.value;
 
       if (value !== '#') {
-
         updateQueryURL(id, value);
-        applyFilter();
       } else {
         // clear current filter
         removeQueryFromURL(id);
-        applyFilter();
       }
+
+      applyFilter();
 
       return false;
     }));
 
+    // update view on radio change
+    integrationRadioFilterElements.forEach(radioInput => radioInput.addEventListener("change", () => {
+      let id = radioInput.name;
+      let value = radioInput.value;
+
+      if (radioInput.checked && value !== 'all') {
+          updateQueryURL(id, value);
+      } else if (radioInput.checked && value === 'all') {
+        // clear current filter
+        removeQueryFromURL(id);
+      }
+
+      applyFilter();
+
+      return false;
+    }))
     /**
      * Simple debounce implementation
      */
@@ -628,6 +714,11 @@ integrations.pop(); // remove placeholder element at the end
       // sanitize input
       value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
       if (typeof value === "string" && value.length >= 1) {
+        if (!searchInputDirty) {
+          resetAllFilters();
+          searchInputDirty = true;
+        }
+
         updateQueryURL('search', value);
         applyFilter();
       }
