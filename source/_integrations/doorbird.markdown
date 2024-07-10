@@ -27,7 +27,7 @@ The **DoorBird** {% term integration %} allows you to integrate your [DoorBird](
 There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
-- [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorties.
+- [Button](#button) - Enable control of relays and camera low-light/night vision (IR) and resetting favorites.
 
 ## Setup
 
