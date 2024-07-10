@@ -138,6 +138,10 @@ The integration will create number entities to control:
 
 The integration will create a select entity to control each of the seat heaters. It allows you to set each seat heater to Off, Low, Medium, or High.
 
+For vehicles equipped with cooled (ventilated) seats, a select entity will also be added to control each cooled seat.
+
+Heated seats:
+
 - Front left
 - Front right
 - Rear center (if installed)
@@ -145,6 +149,11 @@ The integration will create a select entity to control each of the seat heaters.
 - Rear right (if installed)
 - Third row left (if installed)
 - Third row right (if installed)
+
+Cooled seats:
+
+- Front left
+- Front right
 
 ### Sensor
 
