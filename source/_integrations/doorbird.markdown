@@ -50,7 +50,7 @@ Events can be defined for each configured DoorBird device independently. These e
 For new installs, a `doorbell` and `motion` event will automatically be created and configured. If you do not need any additional events, you can skip configuring schedules.
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
-Event names will be prefixed by `doorbird_devicename`. For example, the example event `doorbell` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_devicename_doorbell`. This is to prevent conflicts with other events.
+Event names will be prefixed by `doorbird_devicename`. For example, the sample event `doorbell` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_devicename_doorbell`. This is to prevent conflicts with other events.
 
 See [Automation Example](#automation-example) section below for details on how to use the event names in an automation.
 
