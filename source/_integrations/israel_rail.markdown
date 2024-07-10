@@ -24,9 +24,9 @@ from:
   required: true
   type: string
 to:
-Description: The name of the end station.
-required: true
-type: string
+  description: The name of the end station.
+  required: true
+  type: string
 {% endconfiguration %}
 
 The public timetables are coming from [Israel rail](https://www.rail.co.il).
