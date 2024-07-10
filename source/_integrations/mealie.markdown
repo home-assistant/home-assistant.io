@@ -75,7 +75,7 @@ Get the recipe for a specified recipe ID or slug.
 
 ### Service `mealie.import_recipe`
 
-Import the recipe into Mealie from an URL.
+Import the recipe into Mealie from a URL.
 
 | Service data attribute | Optional | Description                                                     |
 |------------------------|----------|-----------------------------------------------------------------|
