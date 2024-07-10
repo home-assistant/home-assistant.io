@@ -53,9 +53,9 @@ You can use the service `google_sheets.append_sheet` to add rows of data to the 
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use.
-| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
-| `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5}
+| `config_entry` | no | Config entry to use. |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
 
 {% raw %}
 
