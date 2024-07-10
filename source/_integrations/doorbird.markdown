@@ -60,9 +60,7 @@ Events will not be received in Home Assistant until a schedule is defined via th
 
 Events can be cleared from DoorBird devices by pressing the `Reset favorites` button.
 
-<br><br>
 Please note that clearing device events will require configuration steps above to be taken again. It could also affect other third-party applications you may use with your DoorBird device. It will not break the official mobile app in any way, so mobile push notifications will still work.
-<br><br>
 
 ### Event data
 
