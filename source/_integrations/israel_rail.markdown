@@ -20,9 +20,9 @@ The Israel rail integration will give you the next three departure times from a 
 
 {% configuration %}
 from:
-Description: The name of the start station.
-required: true
-type: string
+  description: The name of the start station.
+  required: true
+  type: string
 to:
 Description: The name of the end station.
 required: true
