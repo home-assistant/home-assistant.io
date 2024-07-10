@@ -92,3 +92,23 @@ The `seventeentrack.get_packages` service allows you to query the 17track API fo
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]
 ```
+
+
+### Service `seventeentrack.add_package`
+
+The `seventeentrack.add_package` service allows you to add a package to your account through the 17track API.
+
+| Service data attribute | Optional | Description                                 |
+|------------------------|----------|---------------------------------------------|
+| `config_entry_id`      | No       | The ID of the 17Track service config entry. |
+| `tracking_number`      | No       | The tracking number of the package.         |
+| `title`                | Yes      | Friendly name for the package.              |
+
+```yaml
+# Example automation action to add a new package to 17Track
+- service: seventeentrack.get_packages
+  data:
+    config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
+    tracking_number: "123457Ahds8"
+    title: "Cool new hardware"
+```
