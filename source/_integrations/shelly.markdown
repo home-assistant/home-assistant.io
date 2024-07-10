@@ -302,6 +302,15 @@ shelly:
   coap_port: 12345
 ```
 
+## Virtual components
+
+Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
+
+The integration supports the following virtual components:
+
+- `boolean` in `toggle` mode, for which a `switch` platform entity is created
+- `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
