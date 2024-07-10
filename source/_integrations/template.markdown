@@ -57,7 +57,7 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 ## UI configuration
 
-Sensor template, binary sensor template and button template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+Sensor template, binary sensor template, button template and image template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
 
