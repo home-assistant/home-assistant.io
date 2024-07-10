@@ -28,7 +28,7 @@ You also need to specify the `room_id` that you wish to post messages into. The 
 2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
     - select the room (or create a new room),
     - then copying the room ID from the URL.
-3. Within the Webex Client, press Control+Shift+K (Windows) or Command+Shift+K (macOS), which will automatically copy the space information to your clipboard, which you 
+3. Within the Webex Client, press Control+Shift+K (Windows) or Command+Shift+K (macOS), which will automatically copy the space information to your clipboard, which you
    can paste to a notepad, and will contain your space ID.
 
 {% important %}
