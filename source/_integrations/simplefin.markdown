@@ -4,7 +4,7 @@ description: Instructions on the SimpleFIN Integration for personal finance.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: 2024.2
+ha_release: 2024.8
 ha_codeowners:
   - '@jeeftor'
   - '@scottg489'
