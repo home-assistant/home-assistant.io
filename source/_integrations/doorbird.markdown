@@ -28,6 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Camera](#camera) - View live and historical event based images.
 - [Button](#button) - Enable control of relays and camera low-light/night vision (IR).
+- [Event](#event) - Monitor doorbell ring and motion events.
 
 ## Setup
 
@@ -46,14 +47,16 @@ To setup a new account for Home Assistant, open the DoorBird App by selecting **
 
 Events can be defined for each configured DoorBird device independently. These events will be registered on the device and can be attached to a schedule via the DoorBird app.
 
+For new installs, a `doorbell` and `motion` event will automaticlly be created, and configured. If you do not need any additional events, you can skip configuring schedules.
+
 See [Schedules](#schedules) section below for details on how to configure schedules.
 
-Event names will be prefixed by `doorbird_devicename`. For example, the example event `somebody_pressed_the_button` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_driveway_gate_somebody_pressed_the_button`. This is to prevent conflicts with other events.
+Event names will be prefixed by `doorbird_devicename`. For example, the example event `doorbell` for the device 'Driveway Gate' will be seen in Home Assistant as `doorbird_devicename_doorbell`. This is to prevent conflicts with other events.
 
 See [Automation Example](#automation-example) section below for details on how to use the event names in an automation.
 
 {% important %}
-Events will not be received in Home Assistant until a schedule is defined via the DoorBird app.
+Events other than `doorbell` and `motion` will not be received in Home Assistant until a schedule is defined via the DoorBird app.
 {% endimportant %}
 
 ### Clearing registered events
