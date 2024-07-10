@@ -93,7 +93,6 @@ The `seventeentrack.get_packages` service allows you to query the 17track API fo
     package_state: ["Delivered", "In transit"]
 ```
 
-
 ### Service `seventeentrack.add_package`
 
 The `seventeentrack.add_package` service allows you to add a package to your account through the 17track API.
@@ -106,7 +105,7 @@ The `seventeentrack.add_package` service allows you to add a package to your acc
 
 ```yaml
 # Example automation action to add a new package to 17Track
-- service: seventeentrack.get_packages
+- service: seventeentrack.add_package
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     tracking_number: "123457Ahds8"
