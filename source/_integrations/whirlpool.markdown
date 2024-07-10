@@ -32,17 +32,18 @@ The following appliances are confirmed to be working, but other models that use 
 
 Climate:
 
-- SPIW309A2WF/SPIW312A2WF
-- SPIW409A2WF
+- Whirlpool SPIW309A2WF / SPIW312A2WF
+- Whirlpool SPIW409A2WF
 
 Washer:
 
-- WTW6120HW2
-- MHW8630HW0
+- Whirlpool WTW6120HW2
+- Whirlpool WTW8127LW1
+- Maytag MHW8630HW0
 
 Dryer:
 
-- Not confirmed
+- Whirlpool WGD8127LW3
 
 {% include integrations/config_flow.md %}
 

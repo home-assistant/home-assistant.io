@@ -3,10 +3,19 @@ title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
 ha_category:
   - Light
+  - Helper
 ha_release: 0.46
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - light
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates lights that combine integrations and provides the

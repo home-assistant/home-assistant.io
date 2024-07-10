@@ -34,6 +34,9 @@ ha_platforms:
   - weather
 ha_integration_type: helper
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -57,9 +60,19 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 ## UI configuration
 
-Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. 
 
+{% include integrations/config_flow.md %}
+
+{% important %}
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 
