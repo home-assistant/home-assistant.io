@@ -160,7 +160,7 @@ homekit:
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
@@ -168,7 +168,7 @@ homekit:
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
@@ -434,6 +434,7 @@ The following integrations are currently supported:
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| valve                                                         | Valve                 | All `valve` devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 # Device triggers
 
@@ -674,3 +675,15 @@ With either strategy, the accessory will behave as if it's the first time the ac
 The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` service will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
 
 The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
+
+#### Air Quality Sensor Entities
+
+HomeKit provides five values to represent air quality: Excellent, Good, Fair, Inferior, and Poor. For PM2.5 sensor entities in Home Assistant, the raw density value (µg/m3) is used to determine the corresponding value based on the [2024 US AQI](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf) standard. The mapping is as follows:
+
+| HomeKit   | US AQI                                   | PM2.5 µg/m³   |
+|-----------|------------------------------------------|---------------|
+| Excellent | Good (0-50)                              | 0.0 to 9.0    |
+| Good      | Moderate (51-100)                        | 9.1 to 35.4   |
+| Fair      | Unhealthy for Sensitive Groups (101-150) | 35.5 to 55.4  |
+| Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
+| Poor      | Very Unhealthy (201+)                    | 125.5+        |

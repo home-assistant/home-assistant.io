@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Hub
   - Light
   - Lock
@@ -26,6 +27,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - light
   - lock
   - media_player
