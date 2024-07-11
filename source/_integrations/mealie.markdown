@@ -64,6 +64,7 @@ Get the meal plan for a specified range.
 | `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
 | `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
 
+
 ### Service `mealie.get_recipe`
 
 Get the recipe for a specified recipe ID or slug.
@@ -82,3 +83,44 @@ Import the recipe into Mealie from a URL.
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
 | `url`                  | No       | The URL of the recipe.                                          |
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
+
+{% tip %}
+You can get your `config_entry_id` by using Services within [Developer Tools](/docs/tools/dev-tools/), using one of the above services and viewing the YAML.
+{% endtip %}
+
+## Examples
+
+{% details "Example template sensor using get_mealplan" %}
+
+Example template sensor that contains today's dinner meal plan entries.
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: mealie.get_mealplan
+        data:
+          config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
+        response_variable: result
+    sensor:
+      - name: Dinner Today
+        unique_id: mealie_dinner_today
+        state: >
+          {% for meal in result.mealplan -%}
+          {% if meal.entry_type == "dinner" -%}
+          {% if meal.recipe -%}
+          {{ meal.recipe.name }}{{ ", " if not loop.last }}
+          {%- else -%}
+          {{ meal.title }}{{ ", " if not loop.last }}
+          {% endif %}
+          {%- endif %}
+          {%- endfor %}
+```
+
+{% endraw %}
+
+{% enddetails %}
