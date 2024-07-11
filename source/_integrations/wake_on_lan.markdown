@@ -77,7 +77,7 @@ The service to route the packet is most likely named "IP Helper". It may support
 The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
 
 The WOL button can only turn on your computer.
-It will send a magic packet to the mac-address specified in the configuration and as a button it is state-less meaning it can not monitor if the WOL enabled computer has actually recieved the wake-up call and has started.
+It will send a magic packet to the mac-address specified in the configuration and as a button it is state-less meaning it can not monitor if the WOL enabled computer has actually received the wake-up call and has started.
 
 ## Switch
 
