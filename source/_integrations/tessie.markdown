@@ -109,7 +109,8 @@ The integration will create a cover entity to control various aspects of your ve
 - Open/Close trunk
 - Open/Close charge port
 - Open frunk
-- Vent/Closing windows
+- Vent/Close windows
+- Vent/Close sunroof
 
 ### Device tracker
 
