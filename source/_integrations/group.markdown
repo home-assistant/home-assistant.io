@@ -65,7 +65,7 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 
 ### Button groups
 
-In short, the group state is the last time the grouped button was pressed.
+The group state is the last time the grouped button was pressed.
 
 - The group state is `unavailable` if all group members are `unavailable`.
 - Otherwise, the group state is the last time the grouped button was pressed.
