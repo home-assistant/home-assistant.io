@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - light
   - remote
+  - select
   - sensor
   - switch
   - time
@@ -56,6 +57,7 @@ The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
 - [Remote](#remote)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
@@ -342,6 +344,10 @@ script:
             - source
             - menu
 ```
+
+## Select
+
+The `select` {% term entities %} allow you to control the weekday of Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Sensor
 
