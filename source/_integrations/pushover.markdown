@@ -97,3 +97,20 @@ alexa:
 ```
 
 {% endraw %}
+
+It is also possible to set a TTL per message using the `ttl` parameter as specified per the Pushover [API documentation](https://pushover.net/api#ttl). This parameter sets the number of seconds a message will have to live before being automatically deleted from the receiver devices. This can be useful for unimportant messages that have limited usefulness after a short amount of time. 
+
+An example of a message using `ttl`, where the message will be deleted from devices after 30 seconds:
+
+{% raw %}
+
+```yaml
+- service: notify.entity_id
+  data:
+    message: "This is the message"
+    title: "Title of the message"
+    data:
+	  ttl: 30
+```
+
+{% endraw %}
