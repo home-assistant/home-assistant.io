@@ -33,7 +33,7 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3(B), or an E
   - ESP32-S3-BOX-3B
   - ESP32-S3-BOX-3, ESP32-S3-BOX, or ESP32-S3-BOX-Lite (not currently on the market)
 - USB-C cable to connect the ESP32-S3-BOX
-- This procedure assumes that this is the first time you are installing ESPHome firmware on it. If you have previously done this tutorial and now want to install the latest software version, follow the steps on [updating the software on the S3-BOX](#updating-the-software-on-the-s3-box).
+This procedure assumes that this is the first time you are installing ESPHome firmware on the device. If you have previously completed this tutorial and now want to install the latest software version, follow the steps on [updating the software on the S3-BOX](#updating-the-software-on-the-s3-box).
 
 ## Installing the software onto the ESP32-S3-BOX
 
