@@ -799,9 +799,8 @@ a.material-card:hover {
 
   .seen-press {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    column-gap: 24px;
-    row-gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
     margin: 48px 0;
 
     h2 {
@@ -837,6 +836,16 @@ a.material-card:hover {
     .round {
       border-radius: 50%;
     }
+          
+    @media only screen and (max-width: $lap-end) {
+      grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
+      gap: 16px;
+
+      img {
+        max-height: 96px;
+      }
+    }
+
   }
 
   .sponsored-by {
@@ -852,7 +861,7 @@ a.material-card:hover {
   }
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: $lap-end) {
   .frontpage .events .event {
     .caption {
       padding-top: 4px;
