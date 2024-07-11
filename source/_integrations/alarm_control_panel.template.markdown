@@ -3,10 +3,16 @@ title: "Template Alarm control panel"
 description: "Instructions on how to integrate template alarm control panels into Home Assistant."
 ha_category: 
   - Alarm
+  - Helper
 ha_release: 0.105
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - alarm_control_panel
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
