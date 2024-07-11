@@ -28,7 +28,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% configuration_basic %}
 Mac address:
-  description: "The MAC address to send the wake up command to, e.g., `00:01:02:03:04:05`."
+  description: "The MAC address to send the wake-up command to. For example, `00:01:02:03:04:05`."
 Host:
   description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
 Turn off action:
