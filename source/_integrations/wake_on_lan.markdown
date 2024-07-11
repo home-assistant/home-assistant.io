@@ -2,6 +2,7 @@
 title: Wake on LAN
 description: Instructions on how to setup the Wake on LAN integration in Home Assistant.
 ha_category:
+  - Button
   - Network
   - Switch
 ha_release: 0.49
@@ -9,6 +10,7 @@ ha_iot_class: Local Push
 ha_domain: wake_on_lan
 ha_config_flow: true
 ha_platforms:
+  - button
   - switch
 ha_codeowners:
   - '@ntilley905'
@@ -22,17 +24,14 @@ The **Wake on LAN** {% term integration %} enables the ability to send _magic pa
 
 There is currently support for the following device types within Home Assistant:
 
-- [Switch](#switch)
+- [Button](#button) enabled from the UI
+- [Switch](#switch) enabled from YAML configuration
 
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
 Mac address:
   description: "The MAC address to send the wake-up command to. For example, `00:01:02:03:04:05`."
-Host:
-  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
-Turn off action:
-  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
 Broadcast address:
   description: The IP address of the host to send the magic packet to.
 Broadcast port:
@@ -42,6 +41,13 @@ Broadcast port:
 ### Integration services
 
 Available services: `send_magic_packet`.
+
+To only use this service, add the following to your {% term "`configuration.yaml`" %} file
+
+```yaml
+# Example configuration.yaml entry
+wake_on_lan:
+```
 
 #### Service `wake_on_lan.send_magic_packet`
 
@@ -66,6 +72,13 @@ This usually only works if the target device is connected to the same network. R
 The service to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
 {% endnote %}
 
+## Button
+
+The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
+
+The WOL button can only turn on your computer.
+It will send a magic packet to the mac-address specified in the configuration and as a button it is state-less meaning it can not monitor if the WOL enabled computer has actually recieved the wake-up call and has started.
+
 ## Switch
 
 The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [WOL](https://en.wikipedia.org/wiki/Wake-on-LAN) enabled computer.
@@ -73,6 +86,44 @@ The `wake_on_lan` (WOL) switch {% term integration %} allows you to turn on a [W
 The WOL switch can only turn on your computer and monitor the state. There is no universal way to turn off a computer remotely. The `turn_off` variable is there to help you call a script when you have figured out how to remotely turn off your computer. See below for suggestions on how to do this.
 
 It's required that the binary `ping` is in your `$PATH`.
+
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: wake_on_lan
+    mac: MAC_ADDRESS
+```
+
+{% configuration %}
+mac:
+  description: "The MAC address to send the wake up command to, e.g, `00:01:02:03:04:05`."
+  required: true
+  type: string
+name:
+  description: The name of the switch.
+  required: false
+  default: Wake on LAN
+  type: string
+host:
+  description: The IP address or hostname to check the state of the device (on/off). If this is not provided, the state of the switch will be assumed based on the last action that was taken.
+  required: false
+  type: string
+turn_off:
+  description: Defines an [action](/getting-started/automation/) to run when the switch is turned off.
+  required: false
+  type: string
+broadcast_address:
+  description: The IP address of the host to send the magic packet to.
+  required: false
+  default: 255.255.255.255
+  type: string
+broadcast_port:
+  description: The port to send the magic packet to.
+  required: false
+  type: integer
+{% endconfiguration %}
 
 ### Examples
 
