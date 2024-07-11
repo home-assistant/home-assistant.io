@@ -710,7 +710,7 @@ integrations.pop(); // remove placeholder element at the end
 
     // update view by search text
     searchInputEl.addEventListener('keyup', debounce(() => {
-      let value = searchInputEl.value;
+      let value = searchInputEl.value.toLowerCase();
       // sanitize input
       value = value.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
       if (typeof value === "string" && value.length >= 1) {
