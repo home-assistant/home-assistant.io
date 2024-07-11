@@ -33,3 +33,10 @@ Gain insight into how much solar energy you produce per site linked to your acco
 - Energy production today (kWh)
 - Energy production this month (kWh)
 - Energy production total (kWh)
+
+### Inverters
+
+Gain insight into how much energy each inverter produces, that is linked to a site.
+
+- AC output power (W)
+- AC output energy total (kWh)
