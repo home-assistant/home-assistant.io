@@ -18,17 +18,6 @@ The Israel rail integration will give you the next three departure times from a 
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
-from:
-  description: The name of the start station.
-  required: true
-  type: string
-to:
-  description: The name of the end station.
-  required: true
-  type: string
-{% endconfiguration %}
-
 The public timetables are coming from [Israel rail](https://www.rail.co.il).
 
 ### Defining a custom polling interval
