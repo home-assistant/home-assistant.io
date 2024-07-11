@@ -44,4 +44,7 @@ Max history messages:
 Keep alive:
   description: Duration in seconds for the Ollama host to keep the model in memory after receiving a message (-1 = no limit, 0 = no retention). Default value is -1.
 
+Context tokens:
+  description: Number of context tokens to use in conversation with the model.  Default value is 2048 — using this value ensures that the default context token size of the model is used.
+
 {% endconfiguration_basic %}
