@@ -141,10 +141,16 @@ from Home Assistant running on another Linux computer (the **server**).
 5. On the **server**, verify that you can reach your target machine without password by `ssh TARGET`.
 6. On the **target**, we need to let the `hass` user execute the program needed to suspend/shut down the target computer. Here is it `pm-suspend`, use `poweroff` to turn off the computer. First, get the full path: `which pm-suspend`. On my system, this is `/usr/sbin/pm-suspend`.
 7. On the **target**, using an account with sudo access (typically your main account), `sudo visudo`. Add this line last in the file: `hass ALL=NOPASSWD:/usr/sbin/pm-suspend`, where you replace `hass` with the name of your user on the target, if different, and `/usr/sbin/pm-suspend` with the command of your choice, if different.
-8. On the **server**, add the below YAML to your configuration, replacing TARGET with the target's name.
-9. Create a Wake on LAN config entry and as action select the newly created `shell_command.turn_off_TARGET`.
+8. On the **server**, add the following to your configuration, replacing TARGET with the target's name:
 
 ```yaml
+switch:	
+  - platform: wake_on_lan	
+    name: "TARGET"	
+    ...	
+    turn_off:	
+      service: shell_command.turn_off_TARGET
+
 shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
 ```
