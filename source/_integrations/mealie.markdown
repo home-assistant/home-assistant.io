@@ -64,7 +64,6 @@ Get the meal plan for a specified range.
 | `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
 | `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
 
-
 ### Service `mealie.get_recipe`
 
 Get the recipe for a specified recipe ID or slug.
