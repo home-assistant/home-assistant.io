@@ -213,6 +213,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 To update the software on your S3-BOX, follow the steps below that reflect your setup.
 
 - **Option 1**: You have Home Assistant 2024.7 or later, and not manually altered your ESPHome configuration for the S3-BOX:
++ **Option 1**: You have Home Assistant 2024.7 or later, and have not manually altered your ESPHome configuration for the S3-BOX:
   - Once an update is available, you will receive an update notification, just like any other update.
   - To install the precompiled new firmware directly on your box, make sure the S3-BOX is connected to your network, and under **ESP32 S3 BOX...Firmware**, select **Install**.
 - **Option 2**: You have Home Assistant 2024.6 or older, and have not manually altered your ESPHome configuration for the S3-BOX:
