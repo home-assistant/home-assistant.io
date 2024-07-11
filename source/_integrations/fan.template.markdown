@@ -3,10 +3,19 @@ title: "Template fan"
 description: "Instructions how to setup the template fans within Home Assistant."
 ha_category:
   - Fan
+  - Helper
 ha_release: 0.69
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - fan
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Template** {% term integration %} creates fans that combine integrations and provides the
