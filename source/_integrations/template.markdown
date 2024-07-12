@@ -49,19 +49,24 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button and image can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+Entities can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
 
-Number and select template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+{% include integrations/config_flow.md %}
 
-_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
-
-## UI configuration
-
-Sensor template, binary sensor template, button template and image template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
-
+{% important %}
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
+
+Entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+
+_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 ### State-based template binary sensors, buttons, images, numbers, selects and sensors
 
