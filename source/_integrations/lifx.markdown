@@ -189,25 +189,25 @@ The device will be powered on by default, but this can be overridden by setting 
 
 ### Service `lifx.effect_sky`
 
-Run a hardware-based effect on LIFX Ceiling devices that animates a sky scene across the device. There are three types of sky types provided by the effect: Sunrise, Sunset and Clouds.
+Run a hardware-based effect on LIFX Ceiling devices that animates a sky scene across the device. There are three different types of sky emulated by the effect: Sunrise, Sunset and Clouds.
 The default values and palette used by each sky type match those used by the LIFX smartphone app.
 
-| Service data attribute | Description |
-| ---------------------- | ----------- |
-| `entity_id` | String or list of strings containing the `entity_id` of one or more Ceiling devices |
-| `speed` | Duration in seconds for the effect to complete (optional, min: 1s, max: 86400s, default: 50s) |
-| `palette` | A list of 6 colors to use for this effect (optional, see below for details) |
-| `power_on` | Whether to turn the light on before starting the effect (optional, default: true) |
-| `sky_type` | Either "Sunrise", "Sunset" or "Clouds" |
-| `cloud_saturation_min` | The minimum cloud saturation for the Cloud sky type (optional, default: 50) |
-| `cloud_saturation_max` | The maximum cloud saturation for the Cloud sky type (optional, default: 180) |
+| Service data attribute | Description                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| `entity_id`            | String or list of strings containing the `entity_id` of one or more Ceiling devices |
+| `speed` | Duration in seconds for the effect to complete (optional, min: 1s, max: 86400s, default: 50s)      |
+| `palette` | A list of 6 colors to use for this effect (optional, see below for details)                      |
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)               |
+| `sky_type` | Either "Sunrise", "Sunset" or "Clouds"                                                          |
+| `cloud_saturation_min` | The minimum cloud saturation for the Cloud sky type (optional, default: 50)         |
+| `cloud_saturation_max` | The maximum cloud saturation for the Cloud sky type (optional, default: 180)        |
 
 The palette for the Sky effect is shared between all three sky types. To use a custom palette, you must specify all six color values as hue (0-360), saturation (0-100), brightness (0-100) and kelvin (1500-9000) in the following order to modify the effect:
 
 1. Sky: The color of the background sky when the Clouds sky type is used. All pixels on the light are given this color, and the "clouds" are made by applying a range of saturation values to the pixels.
 2. Night sky: The starting (or finishing) color of the sky when no sun is visible for Sunrise or Sunset sky type. The Sunrise sky type starts with the light completely this color, then fades to a lighter color before starting to bring up the "sun". The Sunset sky type is the Sunrise sky type but in reverse.
 3. Dawn sky: The color of the sky just as the sun appears. This is the color that the light fades to after starting at the "night sky" color.
-4. Dawn sun: The color of the sun just as the sun appears. The background is still the "dawn sky" above, but now the sun is starting to rise and it starts on a warm color.
+4. Dawn sun: The color of the sun just as the sun appears. The background is still the "dawn sky" above, but now the sun is starting to rise with a warm color.
 5. Full sun: The color of the sun as it covers the whole light. As the sun rises, it fades from the "dawn sun" color to this "full sun" color. The background stays at "dawn sky" but does get washed out by the bright sun colors.
 6. Final sun: The color of the full sun at the end of the effect. After the sun has risen by covering the whole light, there is a phase where it fades to a cooler, bright daylight. This is the "final sun" color.
 
