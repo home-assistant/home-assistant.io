@@ -9,14 +9,40 @@ ha_release: '2021.5'
 ha_codeowners:
   - '@Petro31'
 ha_domain: compensation
+ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 ---
 
 The **Compensation** {% term integration %} consumes the {% term state %} from other {% term sensors %}. It exports the compensated value as state in a separate {% term entity %} and the following values as attributes: `entity_id` and `coefficients`. A single polynomial, linear by default, is fit to all data points provided.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input.
+Data points:
+  description: "The collection of data point conversions with the format `uncompensated_value, compensated_value`.  e.g., `1.0, 2.1`.
+attribute:
+  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
+degree:
+  description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
+precision:
+  description: Defines the precision of the calculated values, through the argument of round().
+unit_of_measurement:
+  description: Defines the units of measurement of the sensor, if any.
+lower_limit:
+  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`.
+upper_limit:
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`.
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To enable the compensation sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
