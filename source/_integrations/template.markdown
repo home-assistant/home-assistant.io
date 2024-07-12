@@ -531,6 +531,27 @@ template:
         state: "true"
 ```
 
+### Using conditions with triggers to control status updates
+
+This example shows how to store the last valid value of a temperature sensor. It will update as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state will remain unchanged. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      platform: state
+      entity_id: sensor.outside_temperature
+    condition:
+      - condition: template
+        value_template: "{{ is_number(states('sensor.outside_temperature')) }}"
+    sensor:
+      - name: Outside Temperature last known value
+        state: "{{ states('sensor.outside_temperature') }}"
+```
+
+{% endraw %}
+
 ### State based sensor exposing sun angle
 
 This example shows the sun angle in the frontend.
