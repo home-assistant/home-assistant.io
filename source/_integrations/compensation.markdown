@@ -27,19 +27,19 @@ Name:
 Entity:
   description: The entity that provides the input.
 Data points:
-  description: "The collection of data point conversions with the format `uncompensated_value, compensated_value`.  e.g., `1.0, 2.1`.
-attribute:
+  description: "The collection of data point conversions with the format `uncompensated_value, compensated_value`.  e.g., `1.0, 2.1`."
+Attribute:
   description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
-degree:
+Degree:
   description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
-precision:
+Precision:
   description: Defines the precision of the calculated values, through the argument of round().
-unit_of_measurement:
+Unit of measurement:
   description: Defines the units of measurement of the sensor, if any.
-lower_limit:
-  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`.
-upper_limit:
-  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`.
+Lower limit:
+  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`."
+Upper limit:
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`."
 {% endconfiguration_basic %}
 
 ## YAML Configuration
