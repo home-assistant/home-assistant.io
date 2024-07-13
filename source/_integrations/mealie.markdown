@@ -89,7 +89,7 @@ You can get your `config_entry_id` by using services within [Developer Tools](/d
 
 ## Examples
 
-{% details "Example template sensor using `get_mealplan`" %}
+{% details "Example template sensor using get_mealplan" %}
 
 Example template sensor that contains today's dinner meal plan entries:
 
