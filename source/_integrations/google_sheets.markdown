@@ -47,15 +47,15 @@ This video tutorial explains how to set up the Google Sheets integration and how
 
 ### Service `google_sheets.append_sheet`
 
-You can use the service `google_sheets.append_sheet` to add a row of data to the Sheets document created at setup.
+You can use the service `google_sheets.append_sheet` to add rows of data to the Sheets document created at setup.
 
 {% details "Create Event Service details" %}
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use.
-| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1
-| `data` | no | Data to be appended to the worksheet. This puts the data on a new row, one value per column. | {"hello": world, "cool": True, "count": 5}
+| `config_entry` | no | Config entry to use. |
+| `worksheet` | yes | Name of the worksheet. Defaults to the first one in the document. | Sheet1 |
+| `data` | no | Data to be appended to the worksheet. This puts the data on new rows, one value per column. | {"hello": world, "cool": True, "count": 5} |
 
 {% raw %}
 
@@ -69,6 +69,17 @@ data:
     Date: "{{ now().strftime('%-d-%b-%y') }}"
     KWh: "{{ states('input_number.car_charging_kwh')|float(0) }}"
     Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
+
+# Example service call multiple rows
+service: google_sheets.append_sheet
+data:
+  config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
+  worksheet: "Car Charging"
+  data:
+    - Item: "Car 1 cost"
+      Cost: "{{ states('input_number.car_1_charging_cost')|float(0) }}"
+    - Item: "Car 2 cost"
+      Cost: "{{ states('input_number.car_2_charging_cost')|float(0) }}"
 ```
 
 {% endraw %}
