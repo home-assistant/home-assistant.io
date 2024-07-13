@@ -691,7 +691,7 @@ climates:
     hvac_onoff_register_write_type:
       description: "Register (write) type of On/Off state. Valid options: `write_register`, `write_registers` and `write_coil`.
         When set, this value will override the default value for controlling the On/Off state.
-        When not set, the default value will be either `write_register` or  `write_registers` (depending on the global boolean `write_registers` setting)
+        When not set, the default value will be either `write_register` or  `write_registers` (depending on the global boolean `write_registers` setting).
       required: false
       type: string
     swing_mode_register:
