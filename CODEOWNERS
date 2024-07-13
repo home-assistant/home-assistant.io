@@ -710,6 +710,7 @@ source/_integrations/sensor.markdown @home-assistant/core
 source/_integrations/sensorblue.markdown @bdraco
 source/_integrations/sensorpro.markdown @bdraco
 source/_integrations/sensorpush.markdown @bdraco
+source/_integrations/sensorpush_cloud.markdown @sstallion
 source/_integrations/sentry.markdown @dcramer @frenck
 source/_integrations/senz.markdown @milanmeu
 source/_integrations/serial.markdown @fabaff
