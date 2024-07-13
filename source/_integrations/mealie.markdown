@@ -110,7 +110,8 @@ template:
         unique_id: mealie_dinner_today
         state: >
           {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
-          {{ meal.recipe['name'] if meal.recipe is not none else meal.title }}{{ ", " if not loop.last }}
+          {{ meal.recipe['name'] if meal.recipe is not none else meal.title }}
+          {{ ", " if not loop.last }}
           {%- endfor %}
 ```
 
