@@ -88,7 +88,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Enabling updates
 
-If you want to make sure your device is up-to-date, you can [install the Esphome addon](https://my.home-assistant.io/redirect/supervisor_addon/?addon=esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhassio). Once Esphome is running, click "Open Web UI." On the next screen, you should see a prompt to adopt the Atom Echo into Esphome. Do so to be notified when new versions of firmware release. Note that in order to apply the update, the Atom Echo will need to be plugged into your PC.
+If you want to make sure your device is up-to-date, you can [install the ESPHome addon](https://my.home-assistant.io/redirect/supervisor_addon/?addon=esphome&repository_url=https%3A%2F%2Fgithub.com%2Fesphome%2Fhassio). Once Esphome is running, click "Open Web UI." On the next screen, you should see a prompt to adopt the Atom Echo into Esphome. Do so to be notified when new versions of firmware release. Note that in order to apply the update, the Atom Echo will need to be plugged into your PC.
 
 You can also update the Atom Echo wirelessly by clicking "edit" and adding the following to your config file:
 
