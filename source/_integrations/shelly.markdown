@@ -312,6 +312,9 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `number` in `field` mode, for which a `number` platform entity in `box` mode is created
+- `number` in `slider` mode, for which a `number` platform entity in `slider` mode is created
+- `number` in `label` mode, for which a `sensor` platform entity is created
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
 
