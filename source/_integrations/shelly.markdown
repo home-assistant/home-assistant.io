@@ -11,6 +11,7 @@ ha_category:
   - Number
   - Sensor
   - Switch
+  - Text
   - Update
   - Valve
 ha_release: 0.115
@@ -36,6 +37,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - text
   - update
   - valve
 ha_integration_type: device
@@ -310,6 +312,8 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `text` in `field` mode, for which a `text` platform entity is created
+- `text` in `label` mode, for which a `sensor` platform entity is created
 
 ## Additional info
 
