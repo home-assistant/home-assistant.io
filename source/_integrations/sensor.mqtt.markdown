@@ -351,7 +351,7 @@ mqtt:
 
 {% endraw %}
 
-If `json_attributes_topic` and `state_topic` share the same topic, a state update will will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
+If `json_attributes_topic` and `state_topic` share the same topic, a state update will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
 
 {% warning %s}
 Setting up MQTT sensor's with extra state attributes that contain values that change at every update, like timestamps, or enabling the `force_update` option, is discouraged, as this will trigger state writes for every update. This can have a serious impact on the total system performance. A better option is creating separate sensors instead.
