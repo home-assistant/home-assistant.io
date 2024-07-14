@@ -48,10 +48,10 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 This service lists all the available devices for the SwitchBot API.
 
-| Field name | Description |
-| --- | --- | --- |
-| unique_id | Id of the device used by SwitchBot. |
-| device_name | Name set in the SwitchBot application. |
+| Field name  | Description                                |
+| ----------- | ------------------------------------------ |
+| unique_id   | Id of the device used by SwitchBot.        |
+| device_name | Name set in the SwitchBot application.     |
 | device_type | Type of the device according to SwitchBot. |
 
 
@@ -59,12 +59,12 @@ This service lists all the available devices for the SwitchBot API.
 
 This service allows to send control command to devices as specified in [SwitchBot API documentation](https://github.com/OpenWonderLabs/SwitchBotAPI?tab=readme-ov-file#send-device-control-commands)
 
-| Service Data Attribute | Required | Description |
-| --- | --- | --- |
-| unique_id | yes | SwitchBot unique id. |
-| command_type | yes | Command type to set (usually "command"). |
-| command | yes | Command to use. |
-| parameter | no | Command parameter to set (usually "default"). |
+| Service Data Attribute | Required | Description                                   |
+| ---------------------- | -------- | --------------------------------------------- |
+| unique_id              | yes      | SwitchBot unique id.                          |
+| command_type           | yes      | Command type to set (usually "command").      |
+| command                | yes      | Command to use.                               |
+| parameter              | no       | Command parameter to set (usually "default"). |
 
 ## Important considerations
 
