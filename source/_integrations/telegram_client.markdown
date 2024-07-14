@@ -6,10 +6,9 @@ ha_category:
   - Sensor
   - Notifications
 ha_release: 2024.8.0
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Pull
 ha_domain: telegram_client
 ha_platforms:
-  - binary_sensor
   - sensor
 ha_config_flow: true
 ha_codeowners:
