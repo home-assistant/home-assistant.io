@@ -54,7 +54,6 @@ This service lists all the available devices for the SwitchBot API.
 | device_name | Name set in the SwitchBot application.     |
 | device_type | Type of the device according to SwitchBot. |
 
-
 ### switchbot_cloud.send_command
 
 This service allows sending control command to devices as specified in [SwitchBot API documentation](https://github.com/OpenWonderLabs/SwitchBotAPI?tab=readme-ov-file#send-device-control-commands)
