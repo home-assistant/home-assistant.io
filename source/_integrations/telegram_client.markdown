@@ -1,6 +1,6 @@
 ---
 title: Telegram client
-description: Instructions on how to add Telegram client to Home Assistant.
+description: Instructions on how to add the Telegram client to Home Assistant.
 ha_category:
   - Social
   - Sensor
@@ -19,7 +19,7 @@ The `telegram_client` {% term integration %} uses [Telethon library](https://doc
 
 ## Two client types
 
-This integration allows you to authorize either [as a user](#user-config-flow) or [as a bot](#bot-config-flow). Depending on your needs, you can pick witch one is more preferable to you. Each type of client has its own benefits and limitations. For example `User` can send messages to any other user (depends on privacy setting), whereas `Bot` can't. But `Bot` can send messages with keyboards, whereas `User` can't.
+This integration allows you to authorize either [as a user](#user-config-flow) or [as a bot](#bot-config-flow). Depending on your needs, you can pick which one is preferable to you. Each type of client has its own benefits and limitations. For example `User` can send messages to any other user (depends on privacy setting), whereas `Bot` can't. But `Bot` can send messages with keyboards, whereas `User` can't.
 But don't worry, you can create several instances of Telegram client with different types and get benefits of both.
 
 ## Obtaining Telegram `api_id` and `api_hash`
@@ -60,7 +60,7 @@ To register Telegram app you need to have active account.
 
 ## Options flow
 
-Telegram client integration supports options on events that are going to propagate to Home Assistant event bus via **Configure** button on [this page](https://my.home-assistant.io/redirect/integration/?domain=telegram_client). You can select witch kinds of [events](#events) you want to be able to listen for.
+Telegram client integration supports options on events that are going to propagate to Home Assistant event bus via **Configure** button on [this page](https://my.home-assistant.io/redirect/integration/?domain=telegram_client). You can select which kinds of [events](#events) you want to be able to listen for.
 Each event has its own set of settings. Please refer to [Telethon events documentation page](https://docs.telethon.dev/en/stable/modules/events.html) for full explanation.
 
 ## Services
@@ -133,7 +133,7 @@ Edits text of a previously sent message to user, group, channel or bot.
 * `telegram_client_message_deleted` – [Message deleted event](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.messagedeleted.MessageDeleted.Event)
 * `telegram_client_callback_query` – [Callback query event](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.callbackquery.CallbackQuery.Event)
 * `telegram_client_inline_query` – [Inline query event](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.inlinequery.InlineQuery.Event)
-* `telegram_client_chat_action` – [Chat action client](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.chataction.ChatAction.Event)
+* `telegram_client_chat_action` – [Chat action event](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.chataction.ChatAction.Event)
 * `telegram_client_user_update` – [User update event](https://docs.telethon.dev/en/stable/modules/events.html#telethon.events.userupdate.UserUpdate.Event)
 
 ## Sensors
