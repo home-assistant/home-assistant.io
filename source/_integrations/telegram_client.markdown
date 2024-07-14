@@ -65,9 +65,9 @@ Each event has its own set of settings. Please refer to [Telethon events documen
 
 ## Services
 
-* [telegram_client.send_messages](#service-telegram_clientsend_messages) – Send message(s)
-* [telegram_client.edit_message](#service-telegram-clientedit-message) – Edit message
-* [telegram_client.delete_messages](#service-telegram-clientdelete-messages) – Delete message(s)
+* [telegram_client.send_messages](/#service-telegram-clientsend-messages) – Send message(s)
+* [telegram_client.edit_message](/#service-telegram-clientedit-message) – Edit message
+* [telegram_client.delete_messages](/#service-telegram-clientdelete-messages) – Delete message(s)
 
 ### Service `telegram_client.send_messages`
 
@@ -218,9 +218,24 @@ mode: restart
 
 ```
 
-### Respond to a callback query
+### Send response when user in specific chat clicks inline button
 
-
+```yaml
+alias: Respond to callback query
+trigger:
+  - platform: event
+    event_type: telegram_client_callback_query
+    event_data:
+      sender_id: POKER_PLANNING_CHAT_ID
+action:
+  - service: telegram_client.send_messages
+    data:
+      config_entry_id: "{{ trigger.event.data.config_entry_id }}"
+      target_id: "{{ trigger.event.data.chat_id }}"
+      message: >-
+        {{ trigger.event.data.sender.first_name }}, thanks for selecting "{{ trigger.event.data.data }}"!
+      reply_to: "{{ trigger.event.data.message_id }}"
+```
 
 ### Send message when user joins specific group
 
@@ -260,25 +275,6 @@ action:
   - delay:
       seconds: 30
 mode: restart
-```
-
-### Send response when user in specific chat clicks inline button
-
-```yaml
-alias: Respond to callback query
-trigger:
-  - platform: event
-    event_type: telegram_client_callback_query
-    event_data:
-      sender_id: POKER_PLANNING_CHAT_ID
-action:
-  - service: telegram_client.send_messages
-    data:
-      config_entry_id: "{{ trigger.event.data.config_entry_id }}"
-      target_id: "{{ trigger.event.data.chat_id }}"
-      message: >-
-        {{ trigger.event.data.sender.first_name }}, thanks for selecting "{{ trigger.event.data.data }}"!
-      reply_to: "{{ trigger.event.data.message_id }}"
 ```
 
 ## Side note
