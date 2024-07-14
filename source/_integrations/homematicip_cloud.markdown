@@ -219,7 +219,8 @@ Executable by all users:
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
-
+- `homematicip_cloud.set_cooling`: Enable or disable cooling for the home.
+- 
 Executable by administrators or within the context of an automation:
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 - `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
@@ -318,6 +319,16 @@ action:
     entity_id: switch.livingroom
 ```
 
+Enable the Cooling Mode for your home.
+
+```yaml
+...
+action:
+  service: homematicip_cloud.set_cooling
+  data:
+    cooling: True
+    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
 
 ## Additional info
 
