@@ -19,7 +19,7 @@ The `telegram_client` {% term integration %} uses [Telethon library](https://doc
 
 ## Two client types
 
-This integration allows you to authorize either [as a user](#user-config-flow) or [as a bot](#bot-config-flow). Depending on your needs you can pick witch one is more preferable to you. Each type of client has its own benefits and limitations. For example `User` can send messages to any other user (depends on privacy setting), whereas `Bot` can't. But `Bot` can send messages with keyboards, whereas `User` can't.
+This integration allows you to authorize either [as a user](#user-config-flow) or [as a bot](#bot-config-flow). Depending on your needs, you can pick witch one is more preferable to you. Each type of client has its own benefits and limitations. For example `User` can send messages to any other user (depends on privacy setting), whereas `Bot` can't. But `Bot` can send messages with keyboards, whereas `User` can't.
 But don't worry, you can create several instances of Telegram client with different types and get benefits of both.
 
 ## Obtaining Telegram `api_id` and `api_hash`
@@ -65,9 +65,9 @@ Each event has its own set of settings. Please refer to [Telethon events documen
 
 ## Services
 
-* [telegram_client.send_messages](/#service-telegram-clientsend-messages) – Send message(s)
-* [telegram_client.edit_message](/#service-telegram-clientedit-message) – Edit message
-* [telegram_client.delete_messages](/#service-telegram-clientdelete-messages) – Delete message(s)
+* [telegram_client.send_messages](#service-telegram_clientsend_messages) – Send message(s)
+* [telegram_client.edit_message](#service-telegram_clientedit_message) – Edit message
+* [telegram_client.delete_messages](#service-telegram_clientdelete_messages) – Delete message(s)
 
 ### Service `telegram_client.send_messages`
 
