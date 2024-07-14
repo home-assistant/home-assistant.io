@@ -29,7 +29,7 @@ the key on the right of the settings dialog.
 
 {% include integrations/config_flow.md %}
   
-## Integration Entities
+## Integration entities
 
 The Syncthing integration adds one sensor per syncing folder:
 

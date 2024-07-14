@@ -12,11 +12,11 @@ ha_codeowners:
 
 The `eafm` integration offers integration with the [UK Environment Agency Flood Monitoring](https://flood-warning-information.service.gov.uk/) API to provide sensors for nearby water levels. Combined with Home Assistant notifications, you could give yourself a warning if a nearby river was likely to flood your local cycle path or the only road out of your village.
 
-<div class='note warning'>
+{% important %}
 
 The UK Environment Agency Flood Monitoring only provides data for England - Northern Ireland, Scotland and Wales have their own flood agencies. 
 
-</div>
+{% endimportant %}
 
 ## Configuration
 

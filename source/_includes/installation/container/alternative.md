@@ -26,15 +26,13 @@ To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extr
 <https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
 
 
-<div class='note'>
-
+{% tip %}
 [See this page for accessing the Terminal via SSH](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General_Setup/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet)
-
-</div>
+{% endtip %}
 
 Adjust the following Terminal command as follows :
 
-- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
+- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration -  make sure that you keep the `:/config` part
 - Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
 - Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
@@ -61,11 +59,11 @@ Remark: to restart your Home Assistant within Synology NAS, you just have to do 
 - Go to the "Container Manager"-app and move to "Container"-section
 - Right-click on it and select "Action"->"Restart".
 
-<div class='note'>
+{% note %}
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne.
 
-</div>
+{% endnote %}
 
 ### QNAP NAS
 

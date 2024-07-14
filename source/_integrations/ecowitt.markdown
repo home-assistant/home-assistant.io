@@ -2,7 +2,7 @@
 title: Ecowitt
 description: Instructions on how to integrate Ecowitt Weather Station within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 2022.9
 ha_iot_class: Local Push

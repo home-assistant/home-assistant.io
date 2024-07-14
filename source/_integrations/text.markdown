@@ -13,7 +13,9 @@ ha_integration_type: entity
 
 The Text integration is built for the controlling and monitoring of text values on devices.
 
-Text entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
+{% include integrations/building_block_integration.md %}
+
+If you are looking for a way to create a text entity, please take a look at the [Text helper](/integrations/input_text).
 
 ## Services
 

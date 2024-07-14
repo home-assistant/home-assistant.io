@@ -1,22 +1,31 @@
 ---
 type: card
-title: "Button Card"
+title: "Button card"
 sidebar_label: Button
 description: "The Button card allows you to add buttons to perform tasks."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /docs/scripts/
+    title: Scripts
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Button card allows you to add buttons to perform tasks.
+The button card allows you to add buttons to perform tasks.
 
 <p class='img'>
-<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three Button Cards'>
-Screenshot of three Button Cards.
+<img src='/images/dashboards/entity_button_card.png' alt='Screenshot of three button cards'>
+Screenshot of three button cards.
 </p>
 
-To add the Button card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the **Add Card** button in the bottom right corner and select from the card picker.
+{% include dashboard/edit_dashboard.md %}
 
 All options for this card can be configured via the user interface.
 
-## Card Settings
+## Card settings
 
 {% configuration_basic %}
 Entity:
@@ -39,9 +48,9 @@ Hold Action:
   description: The action taken on card tap and hold. For more information, see the [action documentation](/dashboards/actions/#hold-action).
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
-The following YAML options are available when you use YAML mode or just prefer to use YAML in the Code Editor in the UI.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -119,7 +128,12 @@ type: button
 entity: light.living_room
 ```
 
-Button Card with a button name and a script that runs when card is tapped:
+Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
+
+<p class='img'>
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
+Screenshot of the button card with script service.
+</p>
 
 ```yaml
 type: button
@@ -132,7 +146,60 @@ tap_action:
     entity_id: script.turn_off_lights
 ```
 
+Example of 4 buttons on a vertical stack card:
+
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with Script Service'>
-Screenshot of the Button card with Script Service.
+<img src='/images/dashboards/buttons_on_vertical_stack_card.png' alt='Screenshot of a vertical stack card with 4 buttons and an entity selector'>
+Screenshot of a vertical stack card with 4 buttons and an entity selector.
 </p>
+
+The image shows a vertical stack card with 4 buttons arranged in a horizontal stack card and an entity selector. The buttons use the toggle action to run a script, for example, the Netflix script, which starts up the TV and opens Netflix. To learn how to create scripts, refer to [scripts](/docs/scripts/).
+
+```yaml
+cards:
+  - entities:
+      - entity: input_select.living_room_scene
+        name: Scene
+    show_header_toggle: false
+    type: entities
+  - type: horizontal-stack
+    cards:
+      - name: Watch Netflix
+        entity: script.netflix
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Watch YouTube
+        entity: script.youtube
+        type: button
+        tap_action:
+          action: toggle
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+      - name: Wake PC
+        entity: script.wake_on_lan
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:desktop-tower
+        show_name: true
+        show_icon: true
+        show_state: false
+      - name: Go to sleep
+        entity: script.sleep
+        type: button
+        tap_action:
+          action: toggle
+        icon: mdi:sleep
+        hold_action:
+          action: more-info
+        show_name: true
+        show_icon: true
+type: vertical-stack
+```

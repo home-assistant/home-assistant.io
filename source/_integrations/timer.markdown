@@ -14,25 +14,20 @@ The `timer` integration aims to simplify automations based on (dynamic) duration
 
 When a timer finishes or gets canceled the corresponding events are fired. This allows you to differentiate if a timer has switched from `active` to `idle` because the given duration has elapsed or it has been canceled. To control timers in your automations you can use the services mentioned below. When calling the `start` service on a timer that is already running, it resets the duration it will need to finish and restarts the timer without triggering a canceled or finished event. This, for example, makes it easy to create timed lights that get triggered by motion. Starting a timer triggers a started event unless the timer is paused, in that case, it triggers a restarted event.
 
-<div class='note'>
-  
+{% note %}
 Timers will be restored to their correct state and time on Home Assistant startup and restarts when configured with the `restore` option.
 
 However, automations using the `timer.finished` event **will not** trigger if the timer expires when Home Assistant is not running.
-
-</div>
+{% endnote %}
 
 ## Configuration
-The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=timer title="Timer" %} option.
 
-You can also click the following button to be redirected to the Helpers page of your Home Assistant instance.
+The preferred way to configure timer helpers is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button; next choose the {% my config_flow_start domain=page.ha_domain title=page.title %} option.
 
-{% my helpers badge %}
-
-To be able to add Helpers via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
+To be able to add Helpers via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it. If you removed `default_config:` from your configuration, you must add `timer:` to your `configuration.yaml` first, then you can use the UI.
 
 Timers can also be configured via configuration.yaml:
-To add a timer to your installation, add the following to your `configuration.yaml` file:
+To add a timer to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +64,7 @@ timer:
 
 Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your timer and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance`, or  `mdi:motorbike`.
 
-## Possible States
+## Possible states
 
 | State | Description |
 | ----- | ----------- |
@@ -91,7 +86,7 @@ Pick an icon from [Material Design Icons](https://pictogrammers.com/library/mdi/
 
 ### Service `timer.start`
 
-Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the new default for the timer until Home Assistant is restarted (which loads your default values). The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
+Starts or restarts a timer with the provided duration. If no duration is given, it will either restart with its initial value, or continue a paused timer with the remaining duration. If a new duration is provided, this will be the duration for the timer until it finishes or is canceled, which then will reset the duration back to the original configured value. The duration can be specified as a number of seconds or the easier to read `01:23:45` format.  
 You can also use `entity_id: all` and all active timers will be started.
 
 | Service data attribute | Optional | Description |
@@ -110,7 +105,7 @@ Change an active timer. This changes the duration of the timer with the duration
 
 ### Service `timer.pause`
 
-Pause a running timer. This will retain the remaining duration for later continuation. You can also use `entity_id: all` and all active timers will be paused.
+Pause a running timer. This will retain the remaining duration for later continuation. To resume a timer use the `timer.start` service without passing a duration. You can also use `entity_id: all` and all active timers will be paused. 
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

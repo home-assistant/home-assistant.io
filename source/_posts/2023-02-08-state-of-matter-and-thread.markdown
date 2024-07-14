@@ -91,7 +91,7 @@ Home Assistant is about choice. You’re not limited to running it on official h
 We created the [Home Assistant SkyConnect][skyconnect] to provide the missing smart home connectivity. It contains a chip from the same family as the Home Assistant Yellow. It is set out of the box to provide Zigbee. With the latest Home Assistant 2023.2 and when using Home Assistant OS, it is possible to turn your Home Assistant SkyConnect into a Thread border router. This can be done by enabling our experimental multiprotocol support in {% my hardware title="Settings -> Hardware" %} and by clicking Configure.
 
 <p class='img'>
-<img src='/images/skyconnect/skyconnect_isometric.png' alt='Picture of a Home Assistant SkyConnect.'>
+<img src='/images/connectzbt1/connectzbt1_isometric.png' alt='Picture of a Home Assistant SkyConnect.'>
 </p>
 
 Home Assistant SkyConnect was introduced at the end of 2022 via our distributor network (hit “buy” on [our website][skyconnect]). Many distributors sold out right away but most should be receiving new stock soon.
@@ -100,7 +100,7 @@ Together with today’s blog post, we’ve pushed a big update to [the SkyConnec
 
 ## SiLabs multi-flasher & SL Web Tools
 
-It’s our mission to build the Open Home: a smart home that offers privacy, choice, and durability. Part of our efforts is to build tooling that helps other creators to make projects and products to help further the Open Home cause.
+It’s our mission to build the Open Home: a smart home that offers privacy, choice, and sustainability. Part of our efforts is to build tooling that helps other creators to make projects and products to help further the Open Home cause.
 
 As part of this effort, two years ago, we built ESP Web Tools. It revolutionized the DIY firmware world by allowing any ESP32/ESP8266 project to offer an easy web installer on their homepage, allowing users to get started directly from their browser. It has been adopted by all the great projects, including [Tasmota], [WLED], and [ESPresense]. Ever since the introduction of ESP Web Tools, we have wanted to expand this to more devices.
 

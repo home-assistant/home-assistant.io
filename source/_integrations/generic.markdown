@@ -3,7 +3,6 @@ title: Generic Camera
 description: Instructions on how to integrate IP cameras within Home Assistant.
 ha_category:
   - Camera
-logo: home-assistant.png
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_domain: generic
@@ -13,7 +12,7 @@ ha_platforms:
 ha_codeowners:
   - '@davet2001'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The `generic` camera platform allows you to integrate any IP camera or other URL into Home Assistant. Templates can be used to generate the URLs on the fly.
@@ -64,7 +63,7 @@ In this section, you find some real-life examples of how to use this camera plat
 
 - Still Image URL: `https://www.yr.no/en/content/1-72837/meteogram.svg`
 
-Instructions on how to locate the SVG for your location are available at [developer.yr.no](https://developer.yr.no/doc/guides/deprecating-old-widgets/)
+Instructions on how to locate the SVG for your location are available at [developer.yr.no](https://developer.yr.no/doc/guides/available-widgets/)
 
 ### Local image
 

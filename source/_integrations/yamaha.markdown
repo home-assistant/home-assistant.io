@@ -2,16 +2,19 @@
 title: Yamaha Network Receivers
 description: Instructions on how to integrate Yamaha Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.16
 ha_iot_class: Local Polling
 ha_domain: yamaha
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `yamaha` platform allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
+The `yamaha` {% term integration %} allows you to control [Yamaha Network Receivers](https://usa.yamaha.com/products/audio-visual/av-receivers-amps/rx) from Home Assistant.
 
 Supported devices:
 
@@ -20,12 +23,13 @@ Supported devices:
 - [RX-V573](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v573/specs.html)
 - [RX-V585](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
 - [RX-V673](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v673/specs.html)
-- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v585_u/specs.html)
+- [RX-V685](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v685_u/specs.html)
 - [RX-V773](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v773/specs.html)
 - [RX-V3067](https://ca.yamaha.com/en/products/audio_visual/av_receivers_amps/rx-v3067/specs.html)
 - And more
 
-To add a Yamaha Network Receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Yamaha Network Receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,6 +73,7 @@ zone_names:
 - The `play_media` service is implemented for `NET RADIO` source
   only. The `media_id` is a `>` separated string of the menu path on
   the vtuner service. For instance `Bookmarks>Internet>WAMC 90.3 FM`.
+  MusicCast devices use the path `Radio>Favorites>WAMC 90.3 FM`.
 
 ### Example configuration
 
@@ -126,26 +131,26 @@ script:
 
 Enable or disable an output port (HDMI) on the receiver.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `port` | no | Port to enable or disable, e.g., `hdmi1`.
-| `enabled` | no | To enable set true, otherwise set to false.
+| Service data attribute | Optional | Description                                                               |
+| ---------------------- | -------- | ------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers. |
+| `port`                 | no       | Port to enable or disable, e.g., `hdmi1`.                                 |
+| `enabled`              | no       | To enable set true, otherwise set to false.                               |
 
 ### Service `menu_cursor`
 
 Control the menu cursor.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `cursor` | no | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return`
+| Service data attribute | Optional | Description                                                                        |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.          |
+| `cursor`               | no       | Name of the cursor key to press: `up`, `down`, `left`, `right`, `select`, `return` |
 
 ### Service `select_scene`
 
 Select a scene on the receiver.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`s of Yamaha receivers.
-| `scene` | no | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`.
+| Service data attribute | Optional | Description                                                                                              |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of Yamaha receivers.                                |
+| `scene`                | no       | Scene to select, e.g., `BD/DVD Movie Viewing`, `TV Viewing`, `NET Audio Listening` or `Radio Listening`. |

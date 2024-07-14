@@ -1,8 +1,8 @@
 ---
-title: RSS Feed Template
+title: RSS feed template
 description: Use this integration to generate RSS feeds showing your latest data.
 ha_category:
-  - Front End
+  - Front end
 ha_iot_class: Local Push
 ha_release: 0.44
 ha_quality_scale: internal
@@ -12,7 +12,7 @@ ha_codeowners:
 ha_integration_type: integration
 ---
 
-The `rss_feed_template` integration can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
+The `rss_feed_template` {% term integration %} can export any information from Home Assistant as a static RSS feed. This can be used to display that information on many types of devices using an RSS reader. While native apps for Home Assistant are not widely available, native RSS readers exist for almost any platform.
 
 For example, on Android, the app "Simple RSS Widget" can be used to display temperatures on the home screen.
 

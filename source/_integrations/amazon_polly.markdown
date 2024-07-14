@@ -9,6 +9,11 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - tts
 ha_integration_type: integration
+ha_codeowners:
+  - '@jschlyter'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -22,7 +27,8 @@ Available voices are listed in the [Amazon Documentation](https://docs.aws.amazo
 
 ## Configuration
 
-To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
+To get started, add the following lines to your {% term "`configuration.yaml`" %} file (example for Amazon Polly).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -120,4 +126,26 @@ Say with break:
           <break time=".9s" />
           Amazon Polly
       </speak>
+```
+## Advanced usage
+Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
+
+```yaml
+  - platform: amazon_polly
+    ...
+    text_type: ssml
+    ...
+```
+
+Note: You now need to enclose all new and previous TTS input within the `<speak></speak>` tags. To use SSML in automation, you can follow these steps, for instance:
+
+```yaml
+service: tts.amazon_polly_say
+data:
+  cache: true
+  entity_id: media_player.mpd
+  message: >-
+    <speak> <prosody rate="75%">나는  <prosody rate="75%">천천히</prosody> <lang
+    xml:lang="fr-FR">parle</lang>.하고 있다식기세척!</speak>
+  language: ko-KR
 ```

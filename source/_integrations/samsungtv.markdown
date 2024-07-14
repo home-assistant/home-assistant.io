@@ -2,7 +2,7 @@
 title: Samsung Smart TV
 description: Instructions on how to integrate a Samsung Smart TV into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.13
 ha_iot_class: Local Push
@@ -333,6 +333,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**
@@ -451,6 +452,6 @@ Some televisions from the H and J series use an encrypted protocol and require m
 
 #### Samsung TV keeps asking for permission
 
-The default setting on newer televisions is to ask for permission on ever connection attempt.
+The default setting on newer televisions is to ask for permission on every connection attempt.
 To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
 It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`

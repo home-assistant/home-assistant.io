@@ -13,7 +13,9 @@ ha_integration_type: entity
 
 The Time integration is built for the controlling and monitoring of times on devices.
 
-Time entities cannot be implemented manually, but can be provided by other integrations. If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
+{% include integrations/building_block_integration.md %}
+
+If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
 ## Services
 

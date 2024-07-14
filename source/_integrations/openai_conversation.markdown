@@ -10,11 +10,24 @@ ha_codeowners:
   - '@balloob'
 ha_domain: openai_conversation
 ha_integration_type: service
+ha_platforms:
+  - conversation
+related:
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing entities to Assist
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Create an AI personality
+  - url: https://platform.openai.com/account/api-keys
+    title: OpenAI API key
+  - url: https://www.openai.com
+    title: OpenAI
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
 
-This conversation agent is unable to control your house. The OpenAI conversation agent can be used in automations, but not as a [sentence trigger](/docs/automation/trigger/#sentence-trigger). It can only query information that has been provided by Home Assistant. To be able to answer questions about your house, Home Assistant will need to provide OpenAI with the details of your house, which include areas, devices and their states. 
+Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI is able to provide you information about your devices and control them.
+
+This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
 This integration requires an API key to use, [which you can generate here.](https://platform.openai.com/account/api-keys). This is a paid service, we advise you to monitor your costs in the [OpenAI portal](https://platform.openai.com/account) closely and configure [usage limits](https://platform.openai.com/account/billing/limits) to avoid unwanted costs associated with using the service.
 
@@ -31,11 +44,23 @@ The OpenAI key is used to authenticate requests to the OpenAI API. To generate a
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
-Prompt Template:
-  description: The starting text for the AI language model to generate new text from. This text can include information about your Home Assistant instance, devices, and areas and is written using [Home Assistant Templating](/docs/configuration/templating/).
+Instructions:
+  description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
-Completion Model:
-  description: The GPT-3 language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3).
+Control Home Assistant:
+  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
+
+Recommended settings:
+  description: If enabled, the recommended model and settings are chosen.
+
+{% endconfiguration_basic %}
+
+If you choose to not use the recommended settings, you can configure the following options:
+
+{% configuration_basic %}
+
+Model:
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
 
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
@@ -50,7 +75,7 @@ Top P:
 
 ## Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
+You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
 ## Services
 
@@ -64,20 +89,24 @@ with the requested image.
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
-| `size`                 | yes      | Size of the returned (square) image in pixels, defaults to 512. | 512              |
+| `size`                 | yes      | Size of the returned image in pixels. Must be one of `1024x1024`, `1792x1024`, or `1024x1792`, defaults to `1024x1024`. | 1024x1024        |
+| `quality`              | yes      | The quality of the image that will be generated. `hd` creates images with finer details and greater consistency across the image. | standard         |
+| `style`                | yes      | The style of the generated images. Must be one of `vivid` or `natural`. Vivid causes the model to lean towards generating hyper-real and dramatic images. Natural causes the model to produce more natural, less hyper-real looking images. | vivid            |
 
 {% raw %}
 ```yaml
 service: openai_conversation.generate_image
 data:
-  config_entry: f29e6b8696a15e107b4bd843de722249
+  config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
-  size: 1024
+  size: 1024x1024
+  quality: standard
+  style: vivid
 response_variable: generated_image
 ```
 {% endraw %}
 
-The response data field `url` will contain a URL to the generated image.
+The response data field `url` will contain a URL to the generated image and `revised_prompt` will contain the updated prompt used.
 
 #### Example using a generated image entity
 
@@ -109,7 +138,7 @@ automation:
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249
-          size: "512"
+          size: "1024x1024"
           prompt: >-
             New York when the weather is {{ states("weather.home") }}"
 

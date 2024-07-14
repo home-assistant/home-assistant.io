@@ -2,14 +2,13 @@
 title: Kodi
 description: Instructions on how to integrate Kodi into Home Assistant.
 ha_category:
-  - Media Player
-  - Media Source
+  - Media player
+  - Media source
   - Notifications
 ha_release: pre 0.7
 ha_iot_class: Local Push
 ha_codeowners:
   - '@OnFreund'
-  - '@cgtobi'
 ha_domain: kodi
 ha_config_flow: true
 ha_zeroconf: true
@@ -25,12 +24,12 @@ The preferred way to set up the Kodi platform is through discovery, which requir
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#configuration)
+- [Media player](#configuration)
 - [Notifications](#notifications)
 
 {% include integrations/config_flow.md %}
 
-If you previously had Kodi configured through `configuration.yaml`, it's advisable to remove it, and configure from the UI.
+If you previously had Kodi configured through {% term "`configuration.yaml`" %}, it's advisable to remove it, and configure from the UI.
 If you do not remove it, your configuration will be imported with the following limitations:
 - Your turn on/off actions will not be imported. This functionality is now available through device triggers.
 - You may have duplicate entities.
@@ -40,7 +39,7 @@ If you do not remove it, your configuration will be imported with the following 
 
 You can customize your turn on and off actions through automations. Simply use the relevant Kodi device triggers and your automation will be called to perform the `turn_on` or `turn_off` sequence; see the [Kodi turn on/off samples](#kodi-turn-onoff-samples) section for scripts that can be used.
 
-These automations can be configured through the UI (see [Device Triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
+These automations can be configured through the UI (see [device triggers](/docs/automation/trigger/#device-triggers) for automations).  If you prefer YAML, you'll need to get the device ID from the UI automation editor.  Automations would be of the form:
 
 ```yaml
 automation:
@@ -108,7 +107,7 @@ The following scripts can be used in automations for turning on/off your Kodi in
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your `configuration.yaml`.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 script:
@@ -221,11 +220,9 @@ script:
             command: standby
 ```
 
-<div class='note'>
-
+{% important %}
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
-
-</div>
+{% endimportant %}
 
 ### Kodi services samples
 
@@ -308,7 +305,7 @@ script:
 
 The `kodi` notifications platform allows you to send messages to your [Kodi](https://kodi.tv/) multimedia system from Home Assistant.
 
-To add Kodi to your installation, add the following to your `configuration.yaml` file:
+To add Kodi to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

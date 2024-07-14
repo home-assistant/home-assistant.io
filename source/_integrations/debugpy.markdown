@@ -1,6 +1,6 @@
 ---
 title: Remote Python Debugger
-description: Remote Python Debugger (debugpy) for Visual Studio Code
+description: Remote Python debugger (debugpy) for Visual Studio Code
 ha_category:
   - Utility
 ha_release: 0.112
@@ -10,9 +10,12 @@ ha_domain: debugpy
 ha_quality_scale: internal
 ha_iot_class: Local Push
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The remote Python debugger integration allows you to use the Visual Studio Code
+The **Remote Python debugger** {% term integration %} allows you to use the Visual Studio Code
 Python debug tooling with a remote Home Assistant instance.
 
 It uses Microsoft's `debugpy` library which is the successor of `ptvsd`, and
@@ -27,7 +30,8 @@ performance when not injected.
 ## Configuration
 
 To enable the remote Python debugger integration add the following to
-your `configuration.yaml` file:
+your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -69,7 +73,7 @@ Home Assistant instance, which is very unsafe.
 If the Home Assistant instance is behind your firewall with only the http(s) port
 exposed, then this is safe from outside connections.
 
-## Performance and Memory Use
+## Performance and memory use
 
 Using the debugger (even when not attached), increases memory usage and
 decreases performance. It is not recommended to configure the debugger on a

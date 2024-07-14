@@ -2,6 +2,7 @@
 title: Generic hygrostat
 description: Virtual hygrostat device
 ha_category:
+  - Helper
   - Humidifier
 ha_release: 2021.8
 ha_domain: generic_hygrostat
@@ -11,10 +12,25 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - humidifier
-ha_integration_type: integration
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+ha_config_flow: true
 ---
 
-The `generic_hygrostat` humidifier integration is a virtual hygrostat implemented in Home Assistant. It uses a sensor and a switch connected to a humidifier or dehumidifier under the hood. When in humidifier mode, if the measured humidity is less than the target humidity, the humidifier will be turned on and turned off when the required humidity is reached. When in dehumidifier mode, if the measured humidity is greater than the target humidity, the dehumidifier will be turned on and turned off when required humidity is reached. One Generic Hygrostat entity can only control one switch. If you need to activate two switches, one for a humidifier and one for a dehumidifier, you will need two Generic Hygrostat entities.
+The `generic_hygrostat` humidifier {% term integration %} is a virtual hygrostat implemented in Home Assistant. It uses a sensor and a switch connected to a humidifier or dehumidifier under the hood. When in humidifier mode, if the measured humidity is less than the target humidity, the humidifier will be turned on and turned off when the required humidity is reached. When in dehumidifier mode, if the measured humidity is greater than the target humidity, the dehumidifier will be turned on and turned off when required humidity is reached. One Generic Hygrostat entity can only control one switch. If you need to activate two switches, one for a humidifier and one for a dehumidifier, you will need two Generic Hygrostat entities.
+
+To enable the {% term integration %}, you need to add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
+
+{% include integrations/config_flow.md %}
+
+## YAML configuration
+
+Alternatively, this integration can be configured and set up manually via YAML
+as well. To enable the generic hygrostat in your installation, add the
+following to your `configuration.yaml` file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -30,6 +46,10 @@ name:
   required: true
   default: Generic Hygrostat
   type: string
+unique_id:
+  description: An ID that uniquely identifies this humidifier. Set this to a unique value to allow customization through the UI.
+  required: false
+  type: string
 humidifier:
   description: "`entity_id` for humidifier or dehumidifier switch, must be a toggle device."
   required: true
@@ -42,16 +62,16 @@ min_humidity:
   description: Set minimum set point available.
   required: false
   default: 0
-  type: integer
+  type: float
 max_humidity:
   description: Set maximum set point available.
   required: false
   default: 100
-  type: integer
+  type: float
 target_humidity:
   description: Set initial target humidity. This value will be used as a fallback when the previous setpoint is not available.
   required: false
-  type: integer
+  type: float
 device_class:
   description: Whether the switch specified in the *humidifier* option to be treated as a humidifier or a dehumidifier device. Must be either "humidifier" or "dehumidifier"
   required: false
@@ -97,7 +117,7 @@ sensor_stale_duration:
 
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
 
-## Full configuration example
+## Full YAML configuration example
 
 ```yaml
 generic_hygrostat:

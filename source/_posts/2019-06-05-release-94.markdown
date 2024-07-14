@@ -184,7 +184,7 @@ Because of this, we changed how packages are installed when running Home Assista
 
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Sun__ - Inspired by a [reddit](https://www.reddit.com/r/homeassistant/comments/bm62hl/sunsun_chatty_sensor_psa/) report, the sun.sun sensor has been tuned so that it doesn't update nearly as frequently. Previously the sun.sun sensor was updating every 30 seconds, day and night. Now it updates dependent on the solar elevation. This could possibly be a breaking change for some users as it updates less frequently. ([@Swamp-Ig] - [#23832]) ([sun docs])
 - __Doorbird__ -_Refactored_- This change cleans up the code for the component quite a bit. Schedule manipulation has been removed and HTTP views have been consolidated. The configuration changes should result in an overall easier experience for setting up a Doorbird in HA and allow for new Doorbird events to be utilized without having to update the component as often. No changes for switches or camera integrations of this component. ([@oblogic7] - [#23892]) ([doorbird docs])

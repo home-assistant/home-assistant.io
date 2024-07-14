@@ -27,16 +27,16 @@ There are two versions of the shortcut. The normal shortcut works better with Si
 
 ### Adjusting the language
 
-Shortcuts triggerd via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
+Shortcuts triggered via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
 
 Open the shortcuts app, and edit the Button Assist shortcut. The text in quotes will be shown in the language of your device.
 
 - Use the arrow to expand the _"Dictate text"_ action options, and select your language
 - Use the arrow to expand the _"Assist with `Provided Input`"_ options, and select your language.
 
-<p class='note'>
+{% important %}
 You can import the button shortcut multiple times to create versions for different languages, when asked if you would like to replace your Shortcut, choose "Keep Both".
-</p>
+{% endimportant %}
 
 ## Multiple servers
 

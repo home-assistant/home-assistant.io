@@ -3,7 +3,9 @@ title: "Events"
 description: "Describes all there is to know about events in Home Assistant."
 ---
 
-The core of Home Assistant is the event bus. The event bus allows any integration to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
+The core of Home Assistant is the event bus. The event bus allows any integration to fire or listen for events. It is the core of everything.
+
+For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
 
 Home Assistant contains a few built-in events that are used to coordinate between various integrations.
 

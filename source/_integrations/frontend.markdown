@@ -1,5 +1,5 @@
 ---
-title: Home Assistant Frontend
+title: Home Assistant frontend
 description: Offers a frontend to Home Assistant.
 ha_category:
   - Other
@@ -42,12 +42,12 @@ frontend:
     required: false
     type: list
   development_repo:
-    description: Allows you to point to a directory containing frontend files instead of taking them from a pre-built PyPI package. Useful for Frontend development.
+    description: Allows you to point to a directory containing frontend files instead of taking them from a prebuilt PyPI package. Useful for Frontend development.
     required: false
     type: string
 {% endconfiguration %}
 
-## Defining Themes
+## Defining themes
 
 ### Theme format
 
@@ -94,7 +94,7 @@ Note that the variables will be used in the listed order, so if multiple match y
 frontend:
   themes:
     my_theme:
-      state-cover-garage_door-open-color: "#ff0000"
+      state-cover-garage-open-color: "#ff0000"
       state-media_player-inactive-color: "#795548"
 ```
 
@@ -145,7 +145,7 @@ Theme `day_and_night`: This theme has both a `light` and a `dark` mode section. 
 
 As with all configuration, you can either:
 
-- Directly specify the themes inside your `configuration.yaml` file.
+- Directly specify the themes inside your {% term "`configuration.yaml`" %} file.
 - Put them into a separate file (e.g., `themes.yaml`) and include that in your configuration (`themes: !include themes.yaml`).
 - Create a dedicated folder (e.g., `my_themes`) and include all files from within this folder (`themes: !include_dir_merge_named my_themes`).
 
@@ -153,11 +153,11 @@ For more details about splitting up the configuration into multiple files, see [
 
 Check our [community forums](https://community.home-assistant.io/c/projects/themes) to find themes to use.
 
-## Setting Themes
+## Setting themes
 
 There are two themes-related services:
 
-- `frontend.reload_themes`: Reloads theme configuration from your `configuration.yaml` file.
+- `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
 ### Service `set_theme`
@@ -165,14 +165,14 @@ There are two themes-related services:
 | Service data attribute | Description                                                                                         |
 | ---------------------- | --------------------------------------------------------------------------------------------------- |
 | `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`).  |
+| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
 
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.
 
-### Manual Theme Selection
+### Manual theme selection
 
-When themes are enabled in the `configuration.yaml` file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
+When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
 This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
 
 <p class='img'>
@@ -200,7 +200,7 @@ For other devices (`es5` mode) you can use `extra_js_url_es5`, this will be load
 
 The ES5 and module version will never both be loaded, depending on if the device supports `import` the module of ES5 version will be loaded.
 
-### Manual Language Selection
+### Manual language selection
 
 The browser language is automatically detected. To use a different language, go to the user profile page (accessed by clicking your user account initials at the bottom of the sidebar) and select one. It will be applied immediately.
 

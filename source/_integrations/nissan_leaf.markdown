@@ -14,18 +14,28 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `nissan_leaf` integration offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings. It offers:
+The `nissan_leaf` {% term integration %} offers integration with the [NissanConnect EV](https://www.nissan.co.uk/dashboard.html) cloud service. NissanConnect EV was previously known as Nissan Carwings.
 
-- sensors for the battery status, range and charging status
-- a switch to start and stop the climate control
+{% important %}
+Please be aware that the `nissan_leaf` {% term integration %} only works with Nissan vehicles from before 2019. Newer vehicles will not work with this integration.
+{% endimportant %}
+
+The {% term integration %} offers offers:
+
+- sensors for the battery status, range and charging status.
+- a switch to start and stop the climate control.
 - a button to request the car starts charging.
 - service to request updates from the car.
 
 ## Configuration
 
-To use Nissan Leaf in your installation, add the following to your `configuration.yaml` file:
+To use Nissan Leaf in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

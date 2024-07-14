@@ -2,7 +2,7 @@
 title: Sentry
 description: Record errors to Sentry.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Cloud Polling
 ha_release: 0.104
 ha_config_flow: true
@@ -13,11 +13,9 @@ ha_domain: sentry
 ha_integration_type: service
 ---
 
-<div class='note warning'>
-  
-  The free Sentry account allows 5000 events per month. Depending on the amount of events sent to Sentry, you will either have to upgrade your Sentry account or have a period without data flowing from Home Assistant to Sentry.
-  
-</div>
+{% important %}
+The free Sentry account allows 5000 events per month. Depending on the amount of events sent to Sentry, you will either have to upgrade your Sentry account or have a period without data flowing from Home Assistant to Sentry.
+{% endimportant %}
 
 The Sentry integration in Home Assistant integrates with [Sentry](https://sentry.io/) to capture both logged errors as well as unhandled exceptions in Home Assistant.
 

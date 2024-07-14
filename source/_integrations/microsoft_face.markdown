@@ -2,14 +2,14 @@
 title: Microsoft Face
 description: Instructions on how to integrate Microsoft Face integration into Home Assistant.
 ha_category:
-  - Image Processing
+  - Image processing
 ha_iot_class: Cloud Push
 ha_release: 0.37
 ha_domain: microsoft_face
 ha_integration_type: integration
 ---
 
-The `microsoft_face` integration platform is the main integration for Microsoft
+The `microsoft_face` integration {% term integration %} is the main integration for Microsoft
 Azure Cognitive service
 [Face](https://azure.microsoft.com/products/cognitive-services/vision-services).
 All data are stored in your own private instance in the Azure cloud.
@@ -26,8 +26,8 @@ Please note that all keys on cognitive services must be recreated every 90 days.
 
 ## Configuration
 
-To enable the Microsoft Face integration,
-add the following to your `configuration.yaml` file:
+To enable the Microsoft Face {% term integration %},
+add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

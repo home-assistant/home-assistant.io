@@ -17,16 +17,16 @@ The Counter integration allows one to count occurrences fired by automations.
 ## Configuration
 
 The preferred way to configure counter helpers is via the user interface. To add one, go to
-**{% my helpers title="Settings -> Devices & Services -> Helpers" %}** and click the add button;
-next choose the **{% my config_flow_start domain=counter title="Counter" %}** option.
+**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+next choose the **{% my config_flow_start domain=page.ha_domain title=page.title %}** option.
 
 To be able to add **Helpers** via the user interface you should have
-`default_config:` in your `configuration.yaml`, it should already be there by
+`default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by
 default unless you removed it. If you removed `default_config:` from your
-configuration, you must add `counter:` to your `configuration.yaml` first,
+configuration, you must add `counter:` to your {% term "`configuration.yaml`" %} first,
 then you can use the UI.
 
-Counters can also be configured via `configuration.yaml`:
+Counters can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,7 +77,7 @@ counter:
 
 Pick an icon that from [Material Design Icons](https://pictogrammers.com/library/mdi/) to use for your input and prefix the name with `mdi:`. For example `mdi:car`, `mdi:ambulance` or `mdi:motorbike`.
 
-### Restore State
+### Restore state
 
 This integration will automatically restore the state it had prior to Home Assistant stopping as long as your entity has `restore` set to `true`, which is the default. To disable this feature, set `restore` to `false`.
 
@@ -91,34 +91,34 @@ Available services: `increment`, `decrement`, `reset`, and `set_value`.
 
 Increments the counter with 1 or the given value for the steps.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 ### Service `counter.decrement`
 
 Decrements the counter with 1 or the given value for the steps.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 ### Service `counter.reset`
 
 With this service the counter is reset to its initial value.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
 
 ### Service `counter.set_value`
 
 This service allows setting the counter to a specific value.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
-| `value`                |     yes  | Set the counter to the given value. |
+| Service data attribute | Optional | Description                                                           |
+| ---------------------- | -------- | --------------------------------------------------------------------- |
+| `entity_id`            | no       | Name of the entity to take action, e.g., `counter.my_custom_counter`. |
+| `value`                | yes      | Set the counter to the given value.                                   |
 
 ### Use the service
 
@@ -134,7 +134,7 @@ Select the **Services** tab from within **Developer Tools**. Choose **counter** 
 
 ### Counting Home Assistant errors
 
-To use a counter to count errors as caught by Home Assistant, you need to add `fire_event: true` to your `configuration.yaml`, like so:
+To use a counter to count errors as caught by Home Assistant, you need to add `fire_event: true` to your {% term "`configuration.yaml`" %}, like so:
 
 ```yaml
 # Example configuration.yaml entry

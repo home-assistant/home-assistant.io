@@ -2,7 +2,7 @@
 title: OpenUV
 description: Instructions on how to integrate OpenUV within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Health
   - Sensor
 ha_release: 0.76
@@ -20,11 +20,11 @@ ha_integration_type: service
 
 The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
-<div class='note warning'>
+{% warning %}
 The guidelines within this documentation constitute estimates which are intended to help
 informed decision making. They should not replace analysis, advice, or diagnosis from a
 trained medical professional.
-</div>
+{% endwarning %}
 
 ## Generating an API Key
 
@@ -40,7 +40,7 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 | Current UV Index               | Sensor        | UV Index (numerical value)                                                                                                  |
 | Current UV Level               | Sensor        | UV Level (as literal)                                                                                                       |
 | Max UV Index                   | Sensor        | max UV Index for the day (at solar noon)                                                                                    |
-| Protection Window              | Binary Sensor | whether sunblock protection should be used                                                                                  |
+| Protection window              | Binary sensor | whether sunblock protection should be used                                                                                  |
 | Skin Type 1 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 1](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 2 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 2](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 3 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 3](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
@@ -48,12 +48,12 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 | Skin Type 5 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 5](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 | Skin Type 6 Safe Exposure Time | Sensor        | the amount of time [Fitzpatrick skin type 6](https://en.wikipedia.org/wiki/Fitzpatrick_scale) can be in the sun unprotected |
 
-## Updating Data
+## Updating data
 
-<div class='note warning'>
+{% important %}
 OpenUV does _not_ automatically update data for its entities! Users must manually
 update data via the `homeassistant.update_entity` service.
-</div>
+{% endimportant %}
 
 Beginning February 1, 2019, the "Limited" plan (which is what new users are given by
 default) is limited to 50 API requests per day. Because different API plans and
@@ -80,7 +80,7 @@ _all_ of these entities.
 To protect against possible API call waste, all calls to `homeassistant.update_entity`
 that reference an OpenUV entity are throttled to a minimum of 15 minutes between calls.
 
-### Protection Window
+### Protection window
 
 The Protection Window binary sensor will be `on` when sunblock protection should be used.
 

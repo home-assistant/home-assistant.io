@@ -2,7 +2,7 @@
 title: RESTful
 description: Instructions on how to integrate REST sensors and binary sensors into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_release: 0.7.4
 ha_iot_class: Local Polling
@@ -13,8 +13,6 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
-ha_codeowners:
-  - '@epenet'
 ---
 
 The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
@@ -129,6 +127,10 @@ payload:
   description: The payload to send with a POST request. Depends on the service, but usually formed as JSON.
   required: false
   type: string
+payload_template:
+  description: The payload to send with a POST request with template support. Depends on the service, but usually formed as JSON.
+  required: false
+  type: template
 verify_ssl:
   description: Verify the SSL certificate of the endpoint.
   required: false
@@ -184,8 +186,6 @@ binary_sensor:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
-
-</div>
+{% endimportant %}

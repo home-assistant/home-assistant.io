@@ -50,5 +50,5 @@ Example values include:
 | Particulate (<= 2.5 μm) | PM2.5  | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)             |
 | Particulate (<= 10 μm)  | PM10   | [EPA: Particulate Matter (PM) Pollution](https://www.epa.gov/pm-pollution)             |
 | Ozone                   | O      | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)                            |
-| Sulpher Dioxide         | SO2    | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)               |
+| Sulfur Dioxide         | SO2    | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)               |
 | Carbon Monoxide         | CO     | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution) |

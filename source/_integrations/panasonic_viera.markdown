@@ -2,7 +2,7 @@
 title: Panasonic Viera
 description: Instructions on how to integrate a Panasonic Viera TV with Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Remote
 ha_release: 0.17
 ha_iot_class: Local Polling
@@ -12,13 +12,16 @@ ha_platforms:
   - media_player
   - remote
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Panasonic Viera integration allows you to control a Panasonic Viera TV.
+The Panasonic Viera {% term integration %} allows you to control a Panasonic Viera TV.
 
 There is currently support for the following device types within Home Assistant:
 
-- Media Player
+- Media player
 - [Remote](#remote)
 
 {% include integrations/config_flow.md %}
@@ -30,6 +33,8 @@ To allow your TV to be turned on or controlled while off, enable `Powered On By 
 ## Manual configuration
 
 If you prefer to use YAML to set up your Panasonic Viera TV, you can still do it. It also allows for some extra settings.
+To enable the integration via YAML, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -161,5 +166,6 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-P50GT30Y
 - TX-P50GT60E
 - TX-65HZ1000W
+- TX-65HZ1500
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).

@@ -28,17 +28,17 @@ Entities are generated, updated and removed automatically with each update from 
 
 The data is updated every 5 minutes.
 
-<div class='note'>
+{% note %}
 
 The material used by this integration is provided by the [Global Disaster Alert and Coordination System (GDACS)](https://www.gdacs.org/) - a cooperation framework between the United Nations and the European Commission - under the [Creative Commons Attribution 4.0 International (CC BY 4.0) license](https://creativecommons.org/licenses/by/4.0/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer and terms of use notice](https://www.gdacs.org/About/termofuse.aspx) for more information.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to the standard ones:
 
@@ -84,7 +84,7 @@ from the feed.
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry
