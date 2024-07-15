@@ -347,7 +347,7 @@ script:
 
 ## Select
 
-The `select` {% term entities %} allow you to control the weekday of Broadlink devices. These entities are created automatically when you configure supported devices.
+The `select` {% term entities %} allow you to control the weekday of your Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Sensor
 
