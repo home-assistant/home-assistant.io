@@ -26,15 +26,15 @@ The [Iskra](https://www.iskra.eu/) {% term integration %} allows you to connect 
 ### Energy meters
 
 Most Iskra's DIN rail mountable energy meters support Modbus RTU over RS485 and IR. To integrate them, you will need a Modbus TCP gateway or Iskra's Smart Gateway:
-- Impact series (IE38XX/IE14XX)
-- WM series (WM3XX/WM1XX)
+- Impact series ([IE38XX / IE14XX](https://www.iskra.eu/en/Iskra-Energy-meters/))
+- WM series ([WM3XX / WM1XX](https://www.iskra.eu/en/Iskra-Energy-meters/))
 
 ### Power quality analyzers
 
 These devices typically support Ethernet connections and use Modbus TCP for data polling:
 
-- iMT/MT series (MTXXX/iMTXXX)
-- iMC/MC series (MCXXX/iMCXXX)
+- iMT/MT series ([MTXXX / iMTXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
+- iMC/MC series ([MCXXX / iMCXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
 - 
 ## Configuration Options
 
@@ -42,18 +42,18 @@ There are two ways to configure your devices with Home Assistant:
 
 ### Smart Gateway with REST API
 
-If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gateway to connect them via REST API:
+If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gateway to connect them via the REST API:
 
-- **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to Smart Gateway's configuration. It's also recommended to set static IP on your smart gateway.
-- **Home Assistant**: Add iskra integration, enter Smart Gateway's **IP address** and select **RestAPI** If authentication is required Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
+- **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to the Smart Gateway's configuration. It's also recommended to set static IP on your smart gateway.
+- **Home Assistant**: Add the iskra integration, enter Smart Gateway's **IP address** and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
 
 
 ### Modbus TCP Connection
 
 If your device supports a direct internet connection, such as PQ meters (iMC/MC series/ iMT/MT series usually), you can use Modbus TCP:
 
-- **Device**: Find your device using [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it so it uses static IP.
-- **Home Assistant**: Add iskra integration, enter the devices's **IP address** and select **Modbus TCP**. Home Assistant will prompt you to enter Modbus TCP port and Modbus address of your device.
+- **Device**: Find your device using the [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it to use static IP.
+- **Home Assistant**: Add the iskra integration, enter the devices's **IP address** and select **Modbus TCP** as the connection type within the Home Assistant integration. Home Assistant will prompt you to enter Modbus TCP port and Modbus address of your device.
 
 {% include integrations/config_flow.md %}
 
