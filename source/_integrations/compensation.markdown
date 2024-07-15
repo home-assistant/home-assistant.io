@@ -19,7 +19,7 @@ The **Compensation** {% term integration %} consumes the {% term state %} from o
 
 {% include integrations/config_flow.md %}
 
-Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration) section.
 
 {% configuration_basic %}
 Name:
@@ -31,15 +31,15 @@ Data points:
 Attribute:
   description: Attribute from the source to monitor/compensate. When omitted, the state value of the source will be used.
 Degree:
-  description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
+  description: "The degree of a polynomial. For example, Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
 Precision:
   description: Defines the precision of the calculated values, through the argument of round().
 Unit of measurement:
   description: Defines the units of measurement of the sensor, if any.
 Lower limit:
-  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collections (`data_points`) lowest `uncompensated_value`."
+  description: "Enables a lower limit for the sensor. The lower limit is defined by the data collection's (`data_points`) lowest `uncompensated_value`."
 Upper limit:
-  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collections (`data_points`) greatest `uncompensated_value`."
+  description: "Enables an upper limit for the sensor. The upper limit is defined by the data collection's (`data_points`) greatest `uncompensated_value`."
 {% endconfiguration_basic %}
 
 ## YAML Configuration
