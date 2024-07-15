@@ -29,7 +29,7 @@ Entity:
 Data points:
   description: "The collection of data point conversions with the format `uncompensated_value, compensated_value`.  e.g., `1.0, 2.1`."
 Attribute:
-  description: Attribute from the source to monitor/compensate. When omitted the state value of the source will be used.
+  description: Attribute from the source to monitor/compensate. When omitted, the state value of the source will be used.
 Degree:
   description: "The degree of a polynomial. e.g., Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
 Precision:
