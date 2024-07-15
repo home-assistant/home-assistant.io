@@ -219,4 +219,6 @@ To update the software on your S3-BOX, follow the steps below that reflect your 
   - Follow steps 1-3 of the procedure on [installing the software onto the S3-BOX](#installing-the-software-onto-the-esp32-s3-box).
     - This installs the latest, precompiled firmware for your S3-BOX.
 - **Option 3**: You have manually changed the configuration file for your S3-BOX:
-  - You need to compile your firmware. Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line).
+  - You need to compile your own firmware. To do so, either:
+    - Use the ESPHome dashboard add-on within Home Assistant. While the easiest option, it tends to be the slowest and may fail, particularly on older systems or on systems with limited memory/CPU resources.
+    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.
