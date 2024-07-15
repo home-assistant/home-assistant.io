@@ -38,7 +38,7 @@ This integration will offer various sensors depending on the configuration of yo
 
 _Consumption sensors require your Envoy to be properly configured with consumption <abbr title="current transformers">CT</abbr> sensors installed._
 
-### With Current Transformers
+### With current transformers
 
 For Envoy S Metered / IQ Gateway Metered with installed and configured current transformers (CT), additional features are available:
 
@@ -55,7 +55,7 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
 [^1]: For multiphase systems, the Envoy sums the voltages of the phases. This may be valid for split-phase, but for 3-phase systems, use the individual phases rather than the summed value.
 [^2]: If this value is non-zero, consult the diagnostic report of the Envoy and look for `raw_data` - `/ivp/meters` - `statusFlags` for set flags (`production-imbalance` | `negative-production` | `power-on-unused-phase` | `negative-total-consumption`).
 
-### With Batteries
+### With batteries
 
 For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/IQ Batteries installed, additional features are available:
 
@@ -63,7 +63,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - Sensors for grid status (*)
 - Sensors for the state of the Enpower's four load-shedding relays (*)
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid. (*)
-- A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid. (*)
+- A switch allowing you to enable or disable charging the Encharge/IQ batteries from the power grid. (*)
 - Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
 - If a storage <abbr title="current transformers">CT</abbr> is installed:
   - Sensors for battery storage energy charged and discharged and current active power discharge/charge
@@ -74,8 +74,6 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
     - Count of meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
 
 The load shedding and on/off-grid functions marked (*) are only available with the Enpower/IQ System Controller installed. In battery installations without off-grid functionality, used in many EU countries, these off-grid related sensors and switches are not available.
-
-In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
 
