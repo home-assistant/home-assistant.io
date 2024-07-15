@@ -22,7 +22,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
 4. Enter the trigger conditions:
    - Define the sensor: Under **Entity**, enter "sensor.random_sensor".
-   - If the value of the sensor is greater than 10, then the automation should trigger.
+   - If the sensor value is above 10, we want the automation to trigger.
      - In the **Above**, field, enter "10".
 
     ![Automation trigger](/images/docs/automation-editor/new-trigger.png)
