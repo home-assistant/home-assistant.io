@@ -1,6 +1,9 @@
 ---
 title: "Automation editor"
 description: "Instructions on how to use the automation editor."
+related:
+  - docs: /getting-started/automation/
+    title: Automating Home Assistant
 ---
 
 The automation editor is an easy way of creating and editing automations from the UI.
@@ -48,7 +51,8 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
     ![New automation editor](/images/docs/automation-editor/new-automation.png)
 
-Automations created or edited via the user interface are activated immediately after saving the automation. Read the documentation for [Automating Home Assistant](/getting-started/automation/) to learn more about automations.
+    - **Result**: Automations created or edited via the user interface are activated immediately after saving the automation.
+    - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
 ## Troubleshooting missing automations
 
