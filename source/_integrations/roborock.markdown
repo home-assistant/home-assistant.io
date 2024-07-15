@@ -175,13 +175,12 @@ We are working on adding a lot of features to the core integration. We have reve
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
 2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Services** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. Your request should look like:
-```yaml
-service: roborock.get_maps
-target:
-  entity_id: vacuum.s7_roborock
-data: {}
-```
-4. If you don't see the rooms you expect, you should select the other map through your app or through the `load_multi_map` service.
+
+  ```yaml
+  service: roborock.get_maps
+  target:
+    entity_id: vacuum.s7_roborock
+  data: {}
 You will get a response like this:
 ```json
 vacuum.s7_roborock:
