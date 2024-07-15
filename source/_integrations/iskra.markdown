@@ -35,7 +35,7 @@ These devices typically support Ethernet connections and use Modbus TCP for data
 
 - iMT/MT series ([MTXXX / iMTXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
 - iMC/MC series ([MCXXX / iMCXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
-- 
+
 ## Configuration Options
 
 There are two ways to configure your devices with Home Assistant:
