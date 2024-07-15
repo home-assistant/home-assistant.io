@@ -38,7 +38,7 @@ ha_config_flow: true
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page, they can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page, they can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
 
 For other types, please see the specific pages:
 
