@@ -174,27 +174,33 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Services** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map. Your request should look like:
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Services** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
 
-    ```yaml
-    service: roborock.get_maps
-    target:
-      entity_id: vacuum.s7_roborock
-    data: {}
-    
-You will get a response like this:
-```json
-vacuum.s7_roborock:
-  maps:
-    - flag: 0
-      name: Downstairs
-      rooms:
-        "16": Kitchen
-        "17": Living room
-```
+   - **Request**: Your request should look like:
+
+      ```yaml
+      service: roborock.get_maps
+      target:
+        entity_id: vacuum.s7_roborock
+      data: {}
+      ```
+
+   - **Result**: You will get a response like this:
+
+      ```json
+      vacuum.s7_roborock:
+        maps:
+          - flag: 0
+            name: Downstairs
+            rooms:
+              "16": Kitchen
+              "17": Living room
+      ```
+
 3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
+
 ```yaml
 service: vacuum.send_command
 data:
