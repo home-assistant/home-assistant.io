@@ -70,7 +70,7 @@
     {% assign elements = site.dashboards | sort_natural: 'title' %}
 
     <li>
-      <iconify-icon icon="mdi:about-circle"></iconify-icon> Dashboard Basics
+      <iconify-icon icon="mdi:about-circle"></iconify-icon> Dashboard basics
       <ul>
         <li>{% active_link /dashboards/ Introduction %}</li>
         <li>{% active_link /dashboards/dashboards/ Multiple dashboards %}</li>
@@ -122,7 +122,7 @@
 </li>
 
 <li>
-  {% icon "mdi:microphone" %} {% active_link /voice_control/ Voice Assistants %}
+  {% icon "mdi:microphone" %} {% active_link /voice_control/ Voice assistants %}
   {% if root == 'voice_control' or include.docs_index %}
   <ul>
     <li><iconify-icon icon="mdi:devices"></iconify-icon> Devices
@@ -182,7 +182,7 @@
 </li>
 
 <li>
-  {% icon "mdi:solar-power-variant" %} {% active_link /docs/energy/ Home Energy Management %}
+  {% icon "mdi:solar-power-variant" %} {% active_link /docs/energy/ Home energy management %}
   {% if doc == 'energy' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/energy/electricity-grid/ Electricity grid %}</li>
@@ -194,7 +194,7 @@
 </li>
 
 <li>
-  {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced Configuration %}
+  {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/configuration/yaml/ YAML syntax %}</li>
@@ -215,7 +215,7 @@
 </li>
 
 <li>
-  {% icon "mdi:update" %} {% active_link /common-tasks/os/ Common Tasks %}
+  {% icon "mdi:update" %} {% active_link /common-tasks/os/ Common tasks %}
   {% if root == 'common-tasks' or include.docs_index %}
   <ul>
     <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
@@ -233,7 +233,7 @@
   {% if doc == 'authentication' or include.docs_index %}
   <ul>
     <li>{% active_link /docs/authentication/providers/ Auth providers %}</li>
-    <li>{% active_link /docs/authentication/multi-factor-auth/ Multi factor auth %}</li>
+    <li>{% active_link /docs/authentication/multi-factor-auth/ Multi-factor authentication %}</li>
     <li>{% active_link /docs/locked_out/ I'm locked out %}</li>
   </ul>
   {% endif %}
@@ -243,7 +243,7 @@
   {% icon "mdi:database" %} {% active_link /docs/backend/ Backend %}
   {% if doc == 'backend' or include.docs_index %}
   <ul>
-    <li>{% active_link /docs/frontend/ User Interface %}</li>
+    <li>{% active_link /docs/frontend/ User interface %}</li>
     <li>{% active_link /docs/backend/database/ Database %}</li>
   </ul>
   {% endif %}
@@ -262,7 +262,7 @@
 </li>
 
 <li>
-  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android Apps {% icon "tabler:external-link" %}</a>
+  {% icon "mdi:cellphone" %} <a href="https://companion.home-assistant.io/docs">iOS and Android apps {% icon "tabler:external-link" %}</a>
 </li>
 
 <li>
@@ -281,7 +281,7 @@
 </li>
 
 <li>
-  {% icon "bitcoin-icons:node-hardware-filled" %} Official Hardware
+  {% icon "bitcoin-icons:node-hardware-filled" %} Official hardware
   <ul>
     <li><a href="https://green.home-assistant.io/">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
     <li><a href="https://yellow.home-assistant.io/">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>

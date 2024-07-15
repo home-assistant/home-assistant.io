@@ -2,7 +2,7 @@
 {% assign recent_categories = recent_categories | split: ", " | uniq | compact %}
 
 <section class="recent-categories aside-module grid__item one-whole lap-one-half">
-  <h1 class="title epsilon">{% icon "mdi:category" %}  Recent Categories</h1>
+  <h1 class="title epsilon">{% icon "mdi:category" %}  Recent categories</h1>
   <ul class="divided">
     {% for category in recent_categories limit: 10 %}
       {% assign category_link = category | downcase %}
