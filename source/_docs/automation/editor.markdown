@@ -15,7 +15,7 @@ This tutorial uses the [Random sensor](/integrations/random#sensor) because it g
 
     ![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
 
-3. Select **Add Trigger**, and in the **Search trigger** field, type "num". and 
+3. Select **Add Trigger**, and in the **Search trigger** field, type "num".
    - Select **Numeric state**.
 
     ![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
