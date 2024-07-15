@@ -9,6 +9,7 @@ ha_category:
   - Event
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
   - Text
@@ -35,6 +36,7 @@ ha_platforms:
   - event
   - light
   - number
+  - select
   - sensor
   - switch
   - text
@@ -312,6 +314,8 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `enum` in `dropdown` mode, for which a `select` platform entity is created
+- `enum` in `label` mode, for which a `sensor` platform entity is created
 - `number` in `field` mode, for which a `number` platform entity in `box` mode is created
 - `number` in `slider` mode, for which a `number` platform entity in `slider` mode is created
 - `number` in `label` mode, for which a `sensor` platform entity is created
