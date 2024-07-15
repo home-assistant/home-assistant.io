@@ -198,4 +198,4 @@ Shows all entities created by the integration based on the findings of the initi
 
 #### Fixtures
 
-The data to build test fixtures from. This section is only available when the option to provide this, is enabled in the integration [configuration](#configure). Information is collected from the envoy in a scan for known and needed endpoints. Data is collected to enable the developers to build test fixtures from it.
+The data to build test fixtures from. This section is only available when the option to provide this is enabled in the integration [configuration](#configure). Information is collected from the envoy in a scan for known and needed endpoints. Data is collected to enable the developers to build test fixtures from it.
