@@ -53,7 +53,7 @@ If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gate
 If your device supports a direct internet connection, such as PQ meters (iMC/MC series/ iMT/MT series usually), you can use Modbus TCP:
 
 - **Device**: Find your device using [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it so it uses static IP.
-- **Home Assistant**: Add iskra integration, enter Devices's **IP address** and select **Modbus TCP**. Home assistant will prompt you to enter Modbus TCP port and Modbus address of your device.
+- **Home Assistant**: Add iskra integration, enter Devices's **IP address** and select **Modbus TCP**. Home Assistant will prompt you to enter Modbus TCP port and Modbus address of your device.
 
 {% include integrations/config_flow.md %}
 
