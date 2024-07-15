@@ -62,7 +62,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - A switch allowing you to enable or disable charging the Encharge/IQ Batteries from the power grid.
 - Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages.
 - If a storage <abbr title="current transformers">CT</abbr> is installed:
-  - Sensors for battery storage energy charged and discharged and current active power discharge/charge 
+  - Sensors for battery storage energy charged and discharged and current active power discharge/charge
   - Disabled sensors for:
     - Phase battery storage energy charged and discharged and current power discharge/charge
     - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase)
@@ -93,7 +93,7 @@ The default polling interval is 60 seconds. To customize the polling interval, r
 
 ## Credentials or device IP address update
 
-This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated. 
+This integration supports updating the Envoy configuration through a `reconfigure` menu option. The reconfiguration allows for changing the Envoy IP address, username, and/or password. Use this menu option if your Enlighten credentials or the device's IP address has changed and needs to be manually updated. The latter is typically automatically detected and updated.
 
 Use this menu option also when an Envoy firmware upgrade requires a switch from local Envoy username/password to token-based authentication with Enlighten username/password (refer to [authentication requirements](#envoy-authentication-requirements)).
 
@@ -110,6 +110,12 @@ This integration provides several values suitable for the energy dashboard:
 [^3]: Only applies when using  Envoy S Metered / IQ Gateway Metered with installed and configured <abbr title="current transformers">CT</abbr>.
 
 [^5]: Only applies when using  Envoy S Metered / IQ Gateway Metered / IQ Combiner with installed and configured storage / battery <abbr title="current transformers">CT</abbr>.
+
+## Configure
+
+The integration provides a `configure` menu to configure the following options:
+
+- Collect test fixture data in [diagnostics report](#diagnostics) - No/Yes
 
 ## Debug logs and diagnostics
 
@@ -144,7 +150,11 @@ The end of a collection cycle is marked by:
 
 ### Diagnostics
 
-The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has 5 major subsections which reflects how the integration is setup and data is used. Below the 5 subsections, each collapsed.
+The diagnostics file is a JSON file and includes a `data` section with the details for this integration. The file can be viewed with any text editor[^4]. The data section has up to 6 major subsections which reflect how the integration is set up and data is used.
+
+When new features are requested or firmware is upgraded, it can happen that existing test fixtures no longer cover all test cases and new ones are needed. It may happen, you are requested to provide data for such test fixtures. The diagnostics report can provide the needed information to build such test fixtures. By default, the diagnostics report does not include this data. To include the test fixture data, enable this option in the integration [configure](#configure) menu. When this option is enabled, the creation of the diagnostic report may take longer as it will perform a scan of the Envoy. When done creating the report, clear the option to prevent this delay the next time a diagnostic report is created. The option has no impact on the integration's performance, only on the time it takes to create the report.
+
+Below the 6 subsections, each collapsed.
 
 [^4]: Use of a JSON-aware viewer is not required but makes inspecting the file easier.
 
@@ -159,7 +169,9 @@ The diagnostics file is a JSON file and includes a `data` section with the detai
     "envoy_model_data": { ...
     },
     "envoy_entities_by_device": [ ...
-    ]
+    ],
+    "fixtures" : { ...
+    }
   }
 }    
 ```
@@ -183,3 +195,7 @@ Shows the data of the Envoy extracted from the raw_data into Envoy class data us
 #### Envoy entities by device
 
 Shows all entities created by the integration based on the findings of the initial scan, grouped by device. Entity state based on the last data collection cycle is included. State values here come from the Envoy model data and are the values visible in the dashboards.
+
+#### Fixtures
+
+The data to build test fixtures from. This section is only available when the option to provide this is enabled in the integration [configuration](#configure). Information is collected from the envoy in a scan for known and needed endpoints. Data is collected to enable the developers to build test fixtures from it.
