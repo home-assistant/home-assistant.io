@@ -107,11 +107,11 @@ onkyo --host 192.168.0.100 volume=query
 unknown-model: master-volume = 191
 ```
 
-### Service `onkyo_select_hdmi_output`
+### Action `onkyo_select_hdmi_output`
 
 Changes HDMI output of your receiver
 
-| Service data attribute | Optional | Description                                                     |
+| Data attribute | Optional | Description                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------- |
 | `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
 | `hdmi_output`          | no       | The desired output code.                                        |
