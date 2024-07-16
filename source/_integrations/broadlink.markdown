@@ -20,8 +20,10 @@ ha_platforms:
   - climate
   - light
   - remote
+  - select
   - sensor
   - switch
+  - time
 ha_dhcp: true
 ha_integration_type: integration
 related:
@@ -55,9 +57,11 @@ The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
 - [Remote](#remote)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+- [Time](#time)
 
 ## Climate
 
@@ -341,6 +345,10 @@ script:
             - menu
 ```
 
+## Select
+
+The `select` {% term entities %} allow you to control the weekday of your Broadlink devices. These entities are created automatically when you configure supported devices.
+
 ## Sensor
 
 The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
@@ -348,6 +356,10 @@ The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These e
 ## Light
 
 The `light` {% term entities %} allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
+
+## Time
+
+The `time` {% term entities %} allow you to control the time of Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Switch
 

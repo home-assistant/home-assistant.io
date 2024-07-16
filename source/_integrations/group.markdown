@@ -3,6 +3,7 @@ title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Event
   - Fan
@@ -61,6 +62,13 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Button groups
+
+The group state is the last time the grouped button was pressed.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is the last time the grouped button was pressed.
 
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
@@ -142,6 +150,19 @@ binary_sensor:
     entities:
       - binary_sensor.door_left_contact
       - binary_sensor.door_right_contact
+```
+
+Example YAML configuration of a button group:
+
+```yaml
+# Example configuration.yaml entry
+button:
+  - platform: group
+    name: "Restart all ESPHome devices"
+    device_class: opening
+    entities:
+      - button.device_1_restart
+      - button.device_2_restart
 ```
 
 Example YAML configuration of a cover group:
