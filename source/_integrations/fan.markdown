@@ -24,7 +24,7 @@ Available actions:
 
 {% note %}
 
-Not all fan actions may be available for your platform. You can check which action are available for your fan(s) under **Developer Tools** > **Actions**.
+Not all fan actions may be available for your platform. You can check which actions are available for your fan(s) under **Developer Tools** > **Actions**.
 
 {% endnote %}
 

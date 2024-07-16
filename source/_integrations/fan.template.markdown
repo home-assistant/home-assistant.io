@@ -154,7 +154,7 @@ When converting a fan with 3 speeds from the old fan entity model, the following
 ### Helper fan
 
 This example uses an input_boolean and an input_number to mimic a fan, and 
-the example shows multiple action for `set_percentage`.
+the example shows multiple actions for `set_percentage`.
 
 {% raw %}
 
