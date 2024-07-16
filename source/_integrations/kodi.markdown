@@ -66,13 +66,13 @@ automation:
       - service: script.kodi_turn_off
 ```
 
-### Services
+### Actions
 
-#### Service `kodi.add_to_playlist`
+#### Action `kodi.add_to_playlist`
 
 Add music to the default playlist (i.e., playlistid=0).
 
-| Service data attribute | Optional | Description                                                                                                                                              |
+| Data attribute | Optional | Description                                                                                                                                              |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Name(s) of the Kodi entities where to add the media.                                                                                                     |
 | `media_type`           | yes      | Media type identifier. It must be one of SONG or ALBUM.                                                                                                  |
@@ -80,11 +80,11 @@ Add music to the default playlist (i.e., playlistid=0).
 | `media_name`           | no       | Optional media name for filtering media. Can be 'ALL' when `media_type` is 'ALBUM' and `artist_name` is specified, to add all songs from one artist.     |
 | `artist_name`          | no       | Optional artist name for filtering media.                                                                                                                |
 
-#### Service `kodi.call_method`
+#### Action `kodi.call_method`
 
 Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with optional parameters. Results of the Kodi API call will be redirected in a Home Assistant event: `kodi_call_method_result`.
 
-| Service data attribute | Optional | Description                                               |
+| Data attribute | Optional | Description                                               |
 | ---------------------- | -------- | --------------------------------------------------------- |
 | `entity_id`            | no       | Name(s) of the Kodi entities where to run the API method. |
 | `method`               | yes      | Name of the Kodi JSON-RPC API method to be called.        |
@@ -92,12 +92,12 @@ Call a [Kodi JSON-RPC API](https://kodi.wiki/?title=JSON-RPC_API) method with op
 
 ### Event triggering
 
-When calling the `kodi.call_method` service, if the Kodi JSON-RPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
+When calling the `kodi.call_method` action, if the Kodi JSON-RPC API returns data, when received by Home Assistant it will fire a `kodi_call_method_result` event on the event bus with the following `event_data`:
 
 ```yaml
 entity_id: "<Kodi media_player entity_id>"
 result_ok: <boolean>
-input: <input parameters of the service call>
+input: <input parameters of the action>
 result: <data received from the Kodi API>
 ```
 
@@ -107,7 +107,7 @@ The following scripts can be used in automations for turning on/off your Kodi in
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this service, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this action, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 script:
@@ -224,7 +224,7 @@ script:
 This example and the following requires to have the [script.json-cec](https://github.com/joshjowen/script.json-cec) plugin installed on your Kodi player. It'll also expose the endpoints standby, toggle and activate without authentication on your Kodi player. Use this with caution.
 {% endimportant %}
 
-### Kodi services samples
+### Kodi action samples
 
 #### Simple script to turn on the PVR in some channel as a time function
 
