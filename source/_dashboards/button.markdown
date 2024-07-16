@@ -131,8 +131,8 @@ entity: light.living_room
 Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
 
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
-Screenshot of the button card with script service.
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
+Screenshot of the button card with script action.
 </p>
 
 ```yaml
