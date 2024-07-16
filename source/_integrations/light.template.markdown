@@ -19,7 +19,7 @@ related:
 ---
 
 The `template` platform creates lights that combine integrations and provides the
-ability to run scripts or invoke services for each of the on, off, and
+ability to run scripts or invoke actions for each of the on, off, and
 brightness commands of a light.
 
 To enable Template Lights in your installation, add the following to your
@@ -218,7 +218,7 @@ result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts.
 Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called.
-If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
+If only brightness is passed to `light.turn_on` action, then `set_level` script is called.
 
 ## Examples
 
