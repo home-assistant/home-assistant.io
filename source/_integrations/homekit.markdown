@@ -330,7 +330,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -672,7 +672,7 @@ With either strategy, the accessory will behave as if it's the first time the ac
 
 #### Unpairing and Re-pairing
 
-The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
 
 The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
 

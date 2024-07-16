@@ -63,7 +63,7 @@ If you are hosting your own instance of Habitica, you can specify a URL to it in
 
 ### API Service Parameters
 
-The API is exposed to Home Assistant as a action called `habitica.api_call`. To call it you should specify this keys in the data:
+The API is exposed to Home Assistant as an action called `habitica.api_call`. To call it, you should specify these keys in the data:
 
 | Data attribute | Required | Type     | Description                                                                                                       |
 | ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
