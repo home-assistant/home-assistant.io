@@ -21,6 +21,10 @@ The Tesla Fleet API integration exposes various sensors from Tesla vehicles and 
 
 You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector.
 
+## Setup
+
+When connecting your Tesla account to Home Assistant you **must** select the `Vehicle Information` or `Energy Product Information` scope. It is recommended you select all scopes for full functionality.
+
 {% include integrations/config_flow.md %}
 
 ## Entities
@@ -103,4 +107,4 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 ## Vehicle sleep
 
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
