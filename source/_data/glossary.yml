@@ -532,7 +532,7 @@
 - term: Template
   definition: >-
     A template is an automation definition that can include variables for the
-    service or data from the trigger values. This allows automations to generate
+    action or data from the trigger values. This allows automations to generate
     dynamic actions.
   link: /docs/automation/templating/
   aliases:
