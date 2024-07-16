@@ -142,7 +142,7 @@ automation:
 ## Actions
 
 Some calendar {% term integrations %} allow Home Assistant to manage your calendars
-directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [action](/docs/scripts/service-calls/).
+directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/service-calls/).
 
 ### Action `calendar.create_event`
 
