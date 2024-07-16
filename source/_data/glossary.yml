@@ -12,14 +12,17 @@
   definition: |-
     Actions are used in several places in Home Assistant. As part of a script or
     automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. Actions use service
-    calls and/or scenes to interact with entities and cause these entities to do
+    activated. In scripts, an action is called *sequence*. An action is a **software
+    function that interacts with targets to make something happen**. Actions can use other actions
+    and/or scenes to interact with entities and cause these entities to do
     something. Actions can also include conditions and a delay. An action can
-    call multiple services at the same time. For example, if your presence is
-    detected in a room, an action may call one service to turn on a light and
-    call another service to start playing music after a delay. Actions are also
+    perform multiple actions at the same time. For example, if your presence is
+    detected in a room, an action may perform one action to turn on a light and
+    perform another action to start playing music after a delay. Actions are also
     used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action calls a service.
+    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
+    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
+    `homeassistant.reload`.
   aliases:
     - actions
   link: /docs/automation/action/
@@ -481,26 +484,11 @@
     - selectors
 - term: Service
   definition: |-
-    The term service has 2 meanings in Home Assistant: **The information
-    service** For example, the municipal waste management service that provides
+    The term "service" in Home Assistant is used in the sense of an **information
+    service**. For example, the municipal waste management service that provides
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
-    confusion, as it does not come with a piece of hardware. **The software
-    function that interacts with targets to make something happen** A service
-    carries out one specific task, for example: turning on the light in the
-    living room or sending a notification to a mobile phone. A service has
-    targets and data. Service targets are: areas, devices, and entities. Service
-    data carries the information required to define the desired state change in
-    the target. For example, the target, together with brightness 150 and RGB
-    color `[255,0,0]`, or the message “Your coffee is ready”. Services can be
-    used in, for example, automation, scripts, dashboards, or voice commands to
-    control your home. Home Assistant provides a series of predefined services,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
-  excerpt: >
-    A service carries out one specific task, for example: turn on the light in
-    the living room. A service has targets and data and can be called by
-    actions, a dashboard, or via voice command.
+    confusion, as it does not come with a piece of hardware.
   link: /docs/scripts/service-calls/
   aliases:
     - services
