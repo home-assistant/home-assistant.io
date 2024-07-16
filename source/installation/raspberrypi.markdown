@@ -27,7 +27,7 @@ Remember to ensure you're using an [appropriate power supply](https://www.raspbe
 
 This guide shows how to install the Home Assistant Operating system onto your Raspberry Pi using Raspberry Pi Imager.
 
-If Raspberry Pi Imager is not supported by your platform, you can use [Balena Etcher](#writing-the-image-with-balena-etcher) instead.
+If Raspberry Pi Imager is not supported by your platform, you can use Balena Etcher instead.
 
 ### Write the image to your SD card
 
