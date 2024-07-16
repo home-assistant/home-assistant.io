@@ -21,11 +21,11 @@ The Tesla Fleet API integration exposes various sensors from Tesla vehicles and 
 
 You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector.
 
-## Setup
+{% include integrations/config_flow.md %}
+
+## Scopes
 
 When connecting your Tesla account to Home Assistant you **must** select the `Vehicle Information` or `Energy Product Information` scope. It is recommended you select all scopes for full functionality.
-
-{% include integrations/config_flow.md %}
 
 ## Entities
 
