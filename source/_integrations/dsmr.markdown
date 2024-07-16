@@ -1,5 +1,5 @@
 ---
-title: DSMR Smart Meter (Serial)
+title: DSMR Smart Meter
 description: Instructions on how to integrate DSMR smart meter within Home Assistant.
 ha_category:
   - Energy
