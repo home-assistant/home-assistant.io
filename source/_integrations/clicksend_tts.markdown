@@ -27,7 +27,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action".
+  description: "Setting the optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   default: clicksend_tts
   type: string
