@@ -115,7 +115,7 @@ The **Alarm Decoder** {% term integration %} gives you access to several {% term
 
 ### Examples
 
-Using a combination of the available {% term services %} and attributes, you can create switch templates.
+Using a combination of the available {% term actions %} and attributes, you can create switch templates.
 
 ### Chime status and control
 

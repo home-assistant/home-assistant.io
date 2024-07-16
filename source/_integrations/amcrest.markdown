@@ -208,7 +208,7 @@ Available {% term actions %}:
 
 These {% term actions %} enable or disable the camera's audio stream.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
@@ -216,7 +216,7 @@ These {% term actions %} enable or disable the camera's audio stream.
 
 These {% term actions %} enable or disable the camera to record a clip to its configured storage location when motion is detected.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
@@ -224,7 +224,7 @@ These {% term actions %} enable or disable the camera to record a clip to its co
 
 These actions enable or disable the camera to continuously record to its configured storage location.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
@@ -232,7 +232,7 @@ These actions enable or disable the camera to continuously record to its configu
 
 This action will cause the camera to move to one of the <abbr title="pan, tilt, and zoom">PTZ</abbr> locations configured within the camera.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 | `preset`               | no       | Preset number, starting from 1.                                                                                              |
@@ -241,16 +241,16 @@ This action will cause the camera to move to one of the <abbr title="pan, tilt, 
 
 This action will set the color mode of the camera.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 | `color_bw`             | no       | One of `auto`, `bw` or `color`.                                                                                              |
 
 ### Action `start_tour`/`stop_tour`
 
-These services start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
+These actions start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ</abbr> tour function.
 
-| Service data attribute | Optional | Description                                                                                                                  |
+| Data attribute | Optional | Description                                                                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`. |
 
@@ -258,7 +258,7 @@ These services start or stop the camera's <abbr title="pan, tilt, and zoom">PTZ<
 
 If your Amcrest or Dahua camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.  
 
-| Service data attribute | Optional | Description                                                                                                                                        |
+| Data attribute | Optional | Description                                                                                                                                        |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The entity ID of the camera to control. May be a list of multiple entity IDs. To target all cameras, set entity ID to `all`.                       |
 | `movement`             | no       | Direction of the movement. Allowed values: `zoom_in`, `zoom_out`, `up`, `down`, `left`, `right`, `right_up`, `right_down`, `left_up`,  `left_down` |

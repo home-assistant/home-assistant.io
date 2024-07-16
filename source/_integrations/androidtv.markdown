@@ -134,7 +134,7 @@ stop_netflix:
 
 The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 | `command`              |       no | Either a key command or an ADB shell command.
@@ -173,7 +173,7 @@ A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e
 
 When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 
@@ -207,7 +207,7 @@ to this:
 
 You can use the `androidtv.download` action to download a file from your Android / Fire TV device to your Home Assistant instance.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name of Android / Fire TV entity.
 | `device_path`          |       no | The filepath on the Android / Fire TV device.
@@ -215,7 +215,7 @@ You can use the `androidtv.download` action to download a file from your Android
 
 Similarly, you can use the `androidtv.upload` action to upload a file from Home Assistant instance to Android / Fire TV devices.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 | `device_path`          |       no | The filepath on the Android / Fire TV device.

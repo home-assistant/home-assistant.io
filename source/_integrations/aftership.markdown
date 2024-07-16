@@ -30,7 +30,7 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 
  You can use the `aftership.add_tracking` action to add trackings to AfterShip.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
 | `slug` | `False` | string | Carrier e.g.,  `fedex`
@@ -40,7 +40,7 @@ AfterShip removed the Tracking API functionality from the Forever Free plan, and
 
  You can use the `aftership.remove_tracking` action to remove trackings from AfterShip.
 
-| Service data attribute | Required | Type | Description |
+| Data attribute | Required | Type | Description |
 | ---------------------- | -------- | -------- | ----------- |
 | `tracking_number` | `True` | string | Tracking number
 | `slug` | `True` | string | Carrier e.g.,  `fedex`

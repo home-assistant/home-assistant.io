@@ -71,7 +71,7 @@ during the day and releases them during the evening.
 
 Add a new filter subscription to AdGuard Home.
 
-| Service data attribute | Optional | Description                                                  |
+| Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
@@ -80,7 +80,7 @@ Add a new filter subscription to AdGuard Home.
 
 Removes a filter subscription from AdGuard Home.
 
-| Service data attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove. |
 
@@ -88,7 +88,7 @@ Removes a filter subscription from AdGuard Home.
 
 Enables a filter subscription in AdGuard Home.
 
-| Service data attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to enable. |
 
@@ -96,7 +96,7 @@ Enables a filter subscription in AdGuard Home.
 
 Disables a filter subscription in AdGuard Home.
 
-| Service data attribute | Optional | Description                             |
+| Data attribute | Optional | Description                             |
 | ---------------------- | -------- | --------------------------------------- |
 | `url`                  | No       | The filter subscription URL to disable. |
 
@@ -104,7 +104,7 @@ Disables a filter subscription in AdGuard Home.
 
 Refresh all filter subscriptions in AdGuard Home.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `force`                | Yes      | Force update (bypasses AdGuard Home throttling).  |
 

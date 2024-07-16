@@ -91,7 +91,7 @@ With MyLights or MyPlace, light entities will be created for each light.
 
 Set the On/Off Timer using the relevant sensor entity.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | `sensor.[name]_time_to_on` or `sensor.[name]_time_to_off`
 | `minutes` | no | Number of minutes between `0` and `720`.

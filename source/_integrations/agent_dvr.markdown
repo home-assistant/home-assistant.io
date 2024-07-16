@@ -43,7 +43,7 @@ Available actions:
 
 These actions enable or disable the device's alert events within Agent DVR.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
@@ -51,7 +51,7 @@ Service data attribute | Optional | Description
 
 These actions start or stop the device recording.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
@@ -59,7 +59,7 @@ Service data attribute | Optional | Description
 
 These actions turn on, off or toggle the device enabled state within Agent DVR
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 

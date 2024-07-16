@@ -96,7 +96,7 @@ Change settings on your Abode system.
 For a full list of settings and valid values, consult the
 [`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `setting` | No | The setting you wish to change. |
 | `value` | No | The value you wish to change the setting to. |
@@ -105,7 +105,7 @@ For a full list of settings and valid values, consult the
 
 Request a new still image from your Abode camera.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
@@ -113,6 +113,6 @@ Request a new still image from your Abode camera.
 
 Trigger an automation on your Abode system.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations. |
