@@ -29,7 +29,7 @@ When connecting your Tesla account to Home Assistant you **must** select the `Ve
 
 ## Entities
 
-These are the entities available in the Teslemetry integration. Not all entities are enabled by default, and not all values are always available.
+These are the entities available in the Tesla Fleet integration. Not all entities are enabled by default, and not all values are always available.
 
 ### Vehicles
 
