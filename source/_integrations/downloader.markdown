@@ -12,7 +12,7 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The **Downloader** {% term integration %} provides a action to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The **Downloader** {% term integration %} provides an action to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user who is running Home Assistant.
 
 {% include integrations/config_flow.md %}
 

@@ -89,7 +89,7 @@ If you are having issues and want to report a problem, always start with making 
 
 If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
-## Device actuibs
+## Device actions
 
 Available actions: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
