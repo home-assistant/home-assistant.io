@@ -62,12 +62,12 @@ recorder:
       default: 3
       type: integer 
     auto_purge:
-      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
+      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically.
       required: false
       default: true
       type: boolean
     auto_repack:
-      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
       required: false
       default: true
       type: boolean
@@ -164,7 +164,7 @@ recorder:
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sun.sun # Don't record sun data
     event_types:
-      - call_service # Don't record service calls
+      - call_service # Don't record actions
 ```
 
 Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
@@ -197,29 +197,29 @@ recorder:
       - sensor.weather_*
 ```
 
-## Services
+## Actions
 
-### Service `purge`
+### Action `purge`
 
-Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
+Perform the action `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` action data.
 Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
-| `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
-| `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `keep_days`    | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
+| `repack`       | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
+| `apply_filter` | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
-### Service `purge_entities`
+### Action `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
+Perform the action `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
-| Service data attribute | Optional | Description                                                                                                           |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
-| `domains`              | yes      | A list of domains that should be purged from the recorder database.                                                   |
-| `entity_globs`         | yes      | A list of regular expressions that identify entities to purge from the recorder database.                             |
-| `keep_days`            | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
+| Data attribute | Optional | Description                                                                                                           |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
+| `domains`      | yes      | A list of domains that should be purged from the recorder database.                                                   |
+| `entity_globs` | yes      | A list of regular expressions that identify entities to purge from the recorder database.                             |
+| `keep_days`    | yes      | Number of history days to keep in the database of matching rows. The default of 0 days will remove all matching rows. |
 
 #### Example automation to remove data rows for specific entities
 
@@ -238,13 +238,13 @@ action:
 mode: single
 ```
 
-### Service `disable`
+### Action `disable`
 
-Call the service `recorder.disable` to stop saving events and states to the database.
+Perform the action `recorder.disable` to stop saving events and states to the database.
 
-### Service `enable`
+### Action `enable`
 
-Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
 ## Custom database engines
 
