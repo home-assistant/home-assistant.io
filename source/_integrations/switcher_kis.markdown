@@ -59,28 +59,28 @@ For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switche
 
 *Currently not supported for Switcher Power Plug
   
-## Services
+## Actions
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 
-### Service: `switcher_kis.set_auto_off`
+### Action: `switcher_kis.set_auto_off`
 
-You can use the `switcher_kis.set_auto_off` service to set the auto-off configuration setting for the device.
+You can use the `switcher_kis.set_auto_off` action to set the auto-off configuration setting for the device.
 
 Meaning the device will turn itself off when reaching the auto-off configuration limit.
 
-| Service Field | Mandatory | Description                                                                            | Example                    |
+| Data attribute | Mandatory | Description                                                                            | Example                    |
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
 
-### Service: `switcher_kis.turn_on_with_timer`
+### Action: `switcher_kis.turn_on_with_timer`
 
-You can use the `switcher_kis.turn_on_with_timer` service to turn on the switcher device with timer.
+You can use the `switcher_kis.turn_on_with_timer` action to turn on the switcher device with timer.
 
 Meaning the device will turn itself off when timer ends.
 Note: This does not affect the auto off timer.
-| Service Field | Mandatory | Description                                                                            | Example                    |
+| Data attribute | Mandatory | Description                                                                            | Example                    |
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
