@@ -316,14 +316,14 @@ If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.co
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this action starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
 To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 ```
 
-and add the service for the database, for example, PostgreSQL:
+and add the action for the database, for example, PostgreSQL:
 
 ```txt
 [Unit]
