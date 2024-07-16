@@ -317,7 +317,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Name displayed in the frontend. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
 host:
