@@ -107,7 +107,7 @@ ul.menu li {
 
         &:hover,
         &:focus {
-          background: $grayLighter;
+          background: rgba($primary-color, .1);
         }
       }
     }
@@ -169,7 +169,7 @@ header .grid {
 
   .menu li a:hover,
   .menu li a:focus {
-    background: $grayLighter;
+    background: rgba($primary-color, .1);
     box-shadow: inset 5px 0px $primary-color;
     padding: 15px 15px 15px 25px;
   }
