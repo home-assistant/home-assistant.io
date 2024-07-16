@@ -111,13 +111,13 @@ The frequency when the test will be automatically triggered can be adjusted by s
 
 Parallel streams can help in some situations. As TCP attempts to be fair and conservative, you may consider increasing the `parallel` attribute. Use this value with careful and refer to Iperf3 man page for more information.
 
-You can use the `sensor.iperf3_update` action to trigger a manual speed test for all sensors. Iperf3 has its own action that allow to perform a speed test on a particular entity.
+You can use the `sensor.iperf3_update` action to trigger a manual speed test for all sensors. Iperf3 has its own action that allows performing a speed test on a particular entity.
 
 ## Action
 
 Once loaded, the `iperf3` integration will expose an action (`iperf3.speedtest`) that can be called to run a speed test on demand. This can be useful if you have enabled manual mode.
 
-| Data attributeiption |
+| Data attribute | Description |
 | `host` | String that point at a configured `host` from `configuration.yaml`. Otherwise, tests will be run against all configured hosts.
 
 Example action data:

@@ -64,7 +64,7 @@ input_boolean:
 ## Actions
 
 This integration provides the following {% term actions %} to modify the state of the
-`input_boolean` and a action to reload the configuration without restarting
+`input_boolean` and an action to reload the configuration without restarting
 Home Assistant itself.
 
 | Action     | Data                           | Description                                                 |
