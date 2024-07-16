@@ -107,7 +107,7 @@ The following scripts can be used in automations for turning on/off your Kodi in
 
 #### Turn on Kodi with Wake on LAN
 
-With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this action, first you need to configuration the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
+With this configuration, when calling `media_player/turn_on` on the Kodi device, a _magic packet_ will be sent to the specified MAC address. To use this action, first you need to configure the [`wake_on_lan`](/integrations/wake_on_lan) integration in Home Assistant, which is achieved simply by adding `wake_on_lan:` to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 script:

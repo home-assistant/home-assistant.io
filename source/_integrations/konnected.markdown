@@ -49,7 +49,7 @@ Konnected devices communicate with Home Assistant over your local LAN -- there i
 
 ### Web Interface
 
-Starting with 0.106.0 Home Assistant requires UI based configuration of Konnected via **Settings** -> **Devices & services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
+Starting with 0.106.0 Home Assistant requires UI-based configuration of Konnected via **Settings** -> **Devices & services** in the Home Assistant (web) frontend. If you have Konnected Alarm Panels on your LAN, or in your configuration.yaml, you will see one or more **Konnected.io** entries appear in the **Discovered** integrations list.
 
 Selecting one of these discovered panels will guide you through connecting and configuring the panel. If your panel was discovered via SSDP, you shouldn't need any information to complete configuration - simply confirm that the information displayed is correct. If the UI prompts you for IP/Port, you'll need to enter it. IP/Port info can be found using the Konnected mobile app.
 
@@ -59,7 +59,7 @@ If you have an existing `configuration.yaml` completing the UI configuration wil
 If you want to retain `configuration.yaml` and need to re-import any changes or updates you will need to delete the entry in **Settings** -> **Devices & services** -> **Configured** and repeat the UI configuration for that device.
 {% endnote %}
 
-Once configuration is completed you'll see a Konnected.io entry in **Settings** -> **Devices & services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
+Once configuration is completed, you'll see a Konnected.io entry in **Settings** -> **Devices & services** -> **Configured**.  If you imported settings from `configuration.yaml` you are now done! If you are setting up a new Konnected Alarm Panel or modifying settings, you'll need to utilize the settings UI to configure zone behavior.
 
 #### Using Settings UI to Configure Zone Behavior
 
