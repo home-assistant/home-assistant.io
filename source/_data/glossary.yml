@@ -185,12 +185,12 @@
 - term: Domain
   definition: >-
     Each integration in Home Assistant has a unique identifier: a domain. All of
-    the entities and services available in Home Assistant are provided by
+    the entities and actions available in Home Assistant are provided by
     integrations and thus belong to such a domain. The first part of the entity
-    or service, before the `.` shows the domain they belong to. For example
+    or action, before the `.` shows the domain they belong to. For example
     `light.kitchen` is an entity in the `light` domain from the [light
     integration](/integrations/light), while `hue.activate_scene` is the
-    `activate_scene` service for the `hue` domain which belongs to the [Hue
+    `activate_scene` action for the `hue` domain which belongs to the [Hue
     integration](/integrations/hue).
   excerpt: >
     Each integration in Home Assistant has a unique identifier: The domain. It
