@@ -63,23 +63,23 @@ If you are hosting your own instance of Habitica, you can specify a URL to it in
 
 ### API Service Parameters
 
-The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
+The API is exposed to Home Assistant as a action called `habitica.api_call`. To call it you should specify this keys in the data:
 
-| Service data attribute | Required | Type     | Description                                                                                                       |
+| Data attribute | Required | Type     | Description                                                                                                       |
 | ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
 | `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
 | `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
 
-A successful call to this service will fire an event `habitica_api_call_success`.
+A successful run of this action will fire an event `habitica_api_call_success`.
 
 | Event data attribute | Type     | Description                                                                                                                                                           |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from service data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from service data attribute.                                                                                                                                   |
+| `name`               | string   | Copied from Data attribute.                                                                                                                                   |
+| `path`               | [string] | Copied from Data attribute.                                                                                                                                   |
 | `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
 
-#### Let's consider some examples on how to call the service.
+#### Let's consider some examples on how to use the action
 
 For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
 Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.

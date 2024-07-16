@@ -89,9 +89,9 @@ Assuming the previous test completed successfully and your browser was registere
 
 {% my developer_services badge %}
 
-1. Click on the My button above, or open Home Assistant in Chrome or Firefox, open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
-2. From the Services dropdown, search for your HTML5 notify service (notify.html5) and select it.
-3. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
+1. Click on the My button above.
+2. From the **Actions** dropdown, search for your HTML5 notify action (`notify.html5`) and select it.
+3. In the data text box enter: `{"message":"hello world"}`, then select the **Perform action** button.
 4. If everything worked you should see a popup notification.
 
 ### Usage
@@ -208,7 +208,7 @@ data:
 
 ### Dismiss
 
-You can dismiss notifications by using service html5.dismiss like so:
+You can dismiss notifications by using `html5.dismiss` action like so:
 
 ```yaml
 target: ['my phone']
