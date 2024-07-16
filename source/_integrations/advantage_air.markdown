@@ -59,7 +59,7 @@ With MyPlace, any blinds and/or garage doors will be created as cover entities.
 The integration will create sensor entities for a variety of aspects:
 
 - The air filter sensor shows if it needs to be replaced.
-- Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` service to change these.
+- Two sensor entities will be created for the 'time to on' and 'time to off' features. Use the `advantage_air.set_time_to` action to change these.
 - Each zone that is temperature-controlled will have a sensor to show the temperature (disabled by default), and how open the damper is.
 - Each zone with a wireless temperature or motion sensor will have a sensor that reports its wireless RSSI.
 
@@ -85,9 +85,9 @@ The update platform shows if the controller app requires an update.
 
 With MyLights or MyPlace, light entities will be created for each light.
 
-## Services
+## Actions
 
-### Service `advantage_air.set_time_to`
+### Action `advantage_air.set_time_to`
 
 Set the On/Off Timer using the relevant sensor entity.
 

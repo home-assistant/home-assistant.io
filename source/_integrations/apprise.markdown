@@ -55,7 +55,7 @@ notify:
 
 {% configuration %}
 name:
-  description: The notifier will bind to the service `notify.NAME`.
+  description: The notifier will bind to the action `notify.NAME`.
   required: false
   type: string
   default: notify
@@ -69,7 +69,7 @@ config:
   type: string
 {% endconfiguration %}
 
-## Example service call
+## Example action
 
 ```yaml
 - service: notify.NOTIFIER_NAME

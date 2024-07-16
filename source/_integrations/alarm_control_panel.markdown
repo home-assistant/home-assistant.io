@@ -17,9 +17,9 @@ Please see [manual alarm](/integrations/manual) or [template alarm](/integration
 
 {% include integrations/building_block_integration.md %}
 
-### Services
+### Actions
 
-Depending on features supported by a specific integration alarm may expose the following services:
+Depending on features supported by a specific integration alarm may expose the following actions:
 
 | Service | Data | Description |
 | ------- | ---- | ----------- |

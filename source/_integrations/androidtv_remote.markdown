@@ -38,7 +38,7 @@ Configure Applications List:
 
 This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` {% term service %}, you can launch applications, switch channels, and start activities via `Deep Links`. Only `app`, `url` and `channel` media types are supported.
+Using the `media_player.play_media` {% term action %}, you can launch applications, switch channels, and start activities via `Deep Links`. Only `app`, `url` and `channel` media types are supported.
 
 ### Launching apps
 
@@ -157,9 +157,9 @@ media_player:
 
 ## Remote
 
-The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
+The remote allows you to send key commands to your Android TV device with the `remote.send_command` action.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
-You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` service to launch that app.
+You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` action to launch that app.
 
 {% details "List of the most common commands" %}
 
@@ -245,7 +245,7 @@ Other:
 
 If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
-Examples of service calls:
+Example actions:
 
 ```yaml
 # Open the currently selected item on the Android TV

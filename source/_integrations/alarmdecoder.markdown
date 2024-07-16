@@ -87,7 +87,7 @@ The settings for {% term zone %} are described below:
 There are several attributes available on the alarm panel to give you more information about your alarm.
 
 - `ac_power`: Set to `true` if your system has AC power supplying it.
-- `alarm_event_occurred`: Set to `true` if your system was recently triggered. When `alarm_event_occurred` is `true`, it must be cleared by entering your code + 1 (or calling the `alarm_control_panel.alarm_disarm` service) before attempting to arm your alarm.
+- `alarm_event_occurred`: Set to `true` if your system was recently triggered. When `alarm_event_occurred` is `true`, it must be cleared by entering your code + 1 (or calling the `alarm_control_panel.alarm_disarm` action) before attempting to arm your alarm.
 - `backlight_on`: Set to `true` if your keypad's backlight is on.
 - `battery_low`: Set to `true` if your system's back-up battery is low.
 - `check_zone`: Set to `true` if your system detects a problem with a zone.
@@ -98,9 +98,9 @@ There are several attributes available on the alarm panel to give you more infor
 - `zone_bypassed`: Set to `true` if your system is currently bypassing a zone.
 - `code_arm_required`: Set to the value specified in your AlarmDecoder options.
 
-## Services
+## Actions
 
-The **Alarm Decoder** {% term integration %} gives you access to several {% term services %} for you to control your alarm with.
+The **Alarm Decoder** {% term integration %} gives you access to several {% term actions %} for you to control your alarm with.
 
 - `alarm_arm_away`: Arms the alarm in away mode; all faults will trigger the alarm.
 - `alarm_arm_home`: Arms the alarm in stay mode; faults to the doors or windows will trigger the alarm.
@@ -110,7 +110,7 @@ The **Alarm Decoder** {% term integration %} gives you access to several {% term
 - `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
 
 {% note %}
-`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
+`alarm_arm_custom_bypass` and `alarm_trigger`, while available in the actions list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
 {% endnote %}
 
 ### Examples
