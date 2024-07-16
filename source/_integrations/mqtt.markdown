@@ -1029,7 +1029,7 @@ The MQTT integration supports templating. Read more [about using templates with 
 
 ## MQTT Notifications
 
-The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is a action. This means you need to provide more details when calling the action.
+The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is an action. This means you need to provide more details when calling the action.
 
 **Perform action** section from **Developer Tools** -> **Actions** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of available actions, and enter something like the sample below into the **data** field and select **Perform action**.
 
