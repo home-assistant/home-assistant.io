@@ -37,7 +37,7 @@ Available actions: `browser/browse_url`.
 
 ### Usage
 
-To use this {% term action %}, select the **Actions** tab from the **Developer Tools**. Choose the action *browser/browse_url* from the list of **Available actions:** and enter the URL into the **Action Data** field and select **Perform action**.
+To use this {% term action %}, select the **Actions** tab from the **Developer Tools**. Choose the action *browser/browse_url* from the list of **Actions:** and enter the URL into the **data** field and select **Perform action**.
 
 ```json
 {"url": "http://www.google.com"}
