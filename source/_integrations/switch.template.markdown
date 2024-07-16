@@ -8,7 +8,7 @@ ha_release: 0.13
 ha_iot_class: Local Push
 ha_quality_scale: internal
 ha_codeowners:
-  - '@home-assistant/core'
+ - '@home-assistant/core'
 ha_domain: template
 
 ha_config_flow: true
