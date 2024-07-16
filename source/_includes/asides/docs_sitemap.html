@@ -181,6 +181,20 @@
 </li>
 
 <li>
+  {% icon "mdi:update" %} {% active_link /common-tasks/os/ Common tasks %}
+  {% if root == 'common-tasks' or include.docs_index %}
+  <ul>
+    <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
+    <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
+    <li>{% active_link /common-tasks/core/ Home Assistant Core %}</li>
+    <li>{% active_link /common-tasks/supervised/ Home Assistant Supervised %}</li>
+    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
+    <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
+  </ul>
+  {% endif %}
+</li>
+
+<li>
   {% icon "mdi:cogs" %} {% active_link /docs/configuration/ Advanced configuration %}
   {% if doc == 'configuration' or include.docs_index %}
   <ul>
@@ -197,20 +211,6 @@
     <li>{% active_link /docs/configuration/state_object/ State objects %}</li>
     <li>{% active_link /docs/configuration/templating/ Templating %}</li>
     <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
-  </ul>
-  {% endif %}
-</li>
-
-<li>
-  {% icon "mdi:update" %} {% active_link /common-tasks/os/ Common tasks %}
-  {% if root == 'common-tasks' or include.docs_index %}
-  <ul>
-    <li>{% active_link /common-tasks/os/ Home Assistant Operating System %}</li>
-    <li>{% active_link /common-tasks/container/ Home Assistant Container %}</li>
-    <li>{% active_link /common-tasks/core/ Home Assistant Core %}</li>
-    <li>{% active_link /common-tasks/supervised/ Home Assistant Supervised %}</li>
-    <li>{% active_link /common-tasks/general/ Installation independent %}</li>
-    <li>{% active_link /docs/troubleshooting_general/ General troubleshooting %}</li>
   </ul>
   {% endif %}
 </li>
