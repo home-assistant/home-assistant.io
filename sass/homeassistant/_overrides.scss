@@ -59,19 +59,6 @@ h1.title.indent {
       display: none;
     }
   }
-
-  // .blog-post {
-  //   .grid-wrapper>.grid.grid-center {
-  //     display: flex;
-  //     justify-content: flex-start;
-  //   }
-  //   #toc-bar {
-  //     order: 1;
-  //   }
-  //   #sidebar {
-  //     order: 2;
-  //   }
-  // }
 }
 
 
@@ -82,10 +69,8 @@ h1.title.indent {
 
   &>li {
     list-style-type: none;
-    // font-family: $heading-font;
     font-size: 1.5rem;
     font-weight: 600;
-    // text-transform: uppercase;
 
     &>iconify-icon {
       margin: 2px 8px 0 0;
@@ -196,7 +181,6 @@ h1.title.indent {
 #toc-bar {
   display: none;
   position: sticky;
-  // margin-top: 40px;
   top: 80px;
   padding-left: 32px;
   
