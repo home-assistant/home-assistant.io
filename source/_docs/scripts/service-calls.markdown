@@ -57,7 +57,7 @@ data:
   rgb_color: [255, 0, 0]
 ```
 
-A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/integrations/light/#service-lightturn_on).
+A full list of the parameters for an action can be found on the documentation page of each integration, in the same way as it's done for the `light.turn_on` [action](/integrations/light/#action-lightturn_on).
 
 ### Use templates to decide which action to perform
 
@@ -184,10 +184,10 @@ There are four `homeassistant` actions that aren't tied to any single domain, th
 - `homeassistant.toggle` - Turns off an entity that is on, or turns on an entity that is off (that supports being turned on and off)
 - `homeassistant.update_entity` - Request the update of an entity, rather than waiting for the next scheduled update, for example [Google travel time] sensor, a [template sensor], or a [light]
 
-Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-services] page.
+Complete action details and examples can be found on the [Home Assistant integration][homeassistant-integration-actions] page.
 
 [templating]: /docs/configuration/templating/
 [google travel time]: /integrations/google_travel_time/
 [template sensor]: /integrations/template/
 [light]: /integrations/light/
-[homeassistant-integration-services]: /integrations/homeassistant#services
+[homeassistant-integration-actions]: /integrations/homeassistant#actions

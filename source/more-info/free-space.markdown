@@ -2,7 +2,7 @@
 title: "Clear up storage"
 description: "More information on how to clear up storage in Home Assistant."
 related:
-  - docs: /integrations/recorder/#service-purge
+  - docs: /integrations/recorder/#action-purge
     title: purge the contents of the database
   - docs: /common-tasks/os/#network-storage
     title: Add network storage
@@ -25,7 +25,7 @@ There are several things you can do to free up some space:
 
 The Home Assistant database can get huge!
 
-Luckily, there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
+Luckily, there is a tool you can use to [purge the contents of the database](/integrations/recorder/#action-purge)
 
 You can [filter](/integrations/recorder/#configure-filter) what you send to
 the database, and even change how long it stores the data
