@@ -133,7 +133,7 @@ Reload `timer`'s configuration without restarting Home Assistant itself. This ac
 
 ### Using the action
 
-Navigate to **Developer Tools** -> **Actions** and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
+Navigate to **Developer Tools** > **Actions** and select the `timer.start` action, then click the **Fill Example Data** button. Now change the `entity_id` and `duration` and select **Perform action** button.
 
 ## Examples
 
