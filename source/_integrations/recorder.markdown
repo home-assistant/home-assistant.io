@@ -36,6 +36,18 @@ Changing database used by the recorder may result in losing your existing histor
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
+## Disk space requirements
+
+A bare minimum requirement is to have at least as much free temporary space available as the size of your database at all times. A table rebuild, repair, or repack may happen at any time, which can result in a copy of the data on disk during the operation. Meeting the bare minimum requirement is essential during a version upgrade, where the schema may change, as this operation almost always requires making a temporary copy of part of the database.
+
+For example, if your database is 1.5GiB on disk, you must always have at least 1.5GiB free.
+
+## Handling disk corruption and hardware failures
+
+When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database should be an infrequent operation and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
+
+## Advanced configuration
+
 ```yaml
 # Example configuration.yaml entry
 recorder:
