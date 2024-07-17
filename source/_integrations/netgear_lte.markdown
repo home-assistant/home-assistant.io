@@ -72,7 +72,7 @@ This action asks the modem to close its LTE connection.
 
 ### Action `netgear_lte.delete_sms`
 
-The integration makes a action available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
+The integration makes an action available to delete messages from the modem inbox. This can be used to clean up after incoming SMS events.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
