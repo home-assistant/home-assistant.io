@@ -95,7 +95,7 @@ When the Home Assistant Roku integration is enabled and a Roku device has been c
 
 ## Source Automation
 
-the `media_player.select_source` action may be used to launch specific applications/streaming channels on your Roku device.
+The `media_player.select_source` action may be used to launch specific applications/streaming channels on your Roku device.
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
