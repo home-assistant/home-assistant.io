@@ -1099,7 +1099,7 @@ script:
 
 ## Publish & Dump actions
 
-The MQTT integration will register the `mqtt.publish` action which allows publishing messages to MQTT topics.
+The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
 ### Action `mqtt.publish`
 
