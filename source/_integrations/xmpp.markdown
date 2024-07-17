@@ -38,7 +38,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  description: "Setting the optional parameter `name` allows multiple notifiers to be created. The default value is `notify`. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify
