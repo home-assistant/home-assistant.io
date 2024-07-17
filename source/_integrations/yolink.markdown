@@ -108,3 +108,4 @@ The integration is tested and verified for the following devices from YoLink:
 - YS5006-UC (FlowSmart Control)
 - YS5007-UC (FlowSmart Meter)
 - YS5008-UC (FlowSmart All-in-One)
+- YS8017-UC (Thermometer)
