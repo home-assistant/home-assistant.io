@@ -34,10 +34,10 @@ automation 2:
       event: sunset
       offset: -00:30
   variables:
-    notification_service: notify.paulus_iphone
+    notification_action: notify.paulus_iphone
   action:
     # Actions are scripts so can also be a list of actions
-    - service: "{{ notification_service }}"
+    - service: "{{ notification_action }}"
       data:
         message: "Beautiful sunset!"
     - delay: 0:35

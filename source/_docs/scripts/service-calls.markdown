@@ -129,7 +129,7 @@ data: >
 
 Some actions may respond with data that can be used in automation. This data is called _action response data_. Action response data
 is typically used for data that is dynamic or large and which may not be suited for use in entity state.
-Examples of service response data are upcoming calendar events for the next week or detailed driving directions.
+Examples of action response data are upcoming calendar events for the next week or detailed driving directions.
 
 Templates can also be used for handling response data. The action can specify
 a `response_variable`. This is the [variable](/docs/scripts/#variables)
