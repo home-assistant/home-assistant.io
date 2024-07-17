@@ -46,38 +46,38 @@ The integration will create a calendar for every type of meal plan:
 
 The integration will create a to-do list for every Mealie shopping list.
 
-## Services
+## Actions
 
-The Mealie integration has the following services:
+The Mealie integration has the following actions:
 
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
 - `mealie.import_recipe`
 
-### Service `mealie.get_mealplan`
+### Action `mealie.get_mealplan`
 
 Get the meal plan for a specified range.
 
-| Service data attribute | Optional | Description                                              |
+| Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.      |
 | `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
 | `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
 
-### Service `mealie.get_recipe`
+### Action `mealie.get_recipe`
 
 Get the recipe for a specified recipe ID or slug.
 
-| Service data attribute | Optional | Description                                         |
+| Data attribute | Optional | Description                                         |
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
 | `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
 
-### Service `mealie.import_recipe`
+### Action `mealie.import_recipe`
 
 Import the recipe into Mealie from a URL.
 
-| Service data attribute | Optional | Description                                                     |
+| Data attribute | Optional | Description                                                     |
 |------------------------|----------|-----------------------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
 | `url`                  | No       | The URL of the recipe.                                          |

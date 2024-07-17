@@ -17,17 +17,17 @@ The **Date** {% term integration %} is built for the controlling and monitoring 
 
 If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Services
+## Actions
 
-### Date services
+### Date actions
 
-Available {% term services %}: `date.set_value`
+Available {% term actions %}: `date.set_value`
 
-### Service `date.set_value`
+### Action`date.set_value`
 
 Set a new value for the date {% term entity %}.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of dates to control.
 | `date` | no | New date value to set.

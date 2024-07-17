@@ -58,8 +58,8 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
-7. Test the service:
-   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+7. Test the action:
+   - Go to [**Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
    - Paste this into the YAML file:
    - Replace the `service` and the `message` with your data.
   
@@ -68,7 +68,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
       data:
         message: "Yay! A message from Home Assistant."
       ```
-   - Select **Call service**. You should now get a message.
+   - Select **Perform action**. You should now get a message.
 
 8. You can do more with this. Check out the configuration descriptions and examples below.
 
@@ -160,7 +160,7 @@ Refer to the platforms mentioned in the
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string

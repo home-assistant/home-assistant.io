@@ -192,7 +192,7 @@ Using the entity state and attributes is more error prone and less flexible than
 
 The todo entity is the number of incomplete items on the to-do list. See the
 [todo integration](/integrations/todo) documentation for details and available
-services that can be used in automations.
+actions that can be used in automations.
 
 ## Troubleshooting
 
