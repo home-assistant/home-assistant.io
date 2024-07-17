@@ -75,8 +75,8 @@ A successful run of this action will fire an event `habitica_api_call_success`.
 
 | Event data attribute | Type     | Description                                                                                                                                                           |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from Data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from Data attribute.                                                                                                                                   |
+| `name`               | string   | Copied from the data attribute.                                                                                                                                   |
+| `path`               | [string] | Copied from the data attribute.                                                                                                                                   |
 | `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
 
 #### Let's consider some examples on how to use the action
