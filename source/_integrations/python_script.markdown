@@ -190,4 +190,4 @@ Use this when creating a new Python script, or after updating the `<config>/pyth
 
 You don't have to call this service when you change an existing Python script.
 
-This service takes no Data attributes.
+This service takes no data attributes.
