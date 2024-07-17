@@ -60,7 +60,7 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 ## UI configuration
 
-Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 {% include integrations/config_flow.md %}
 
@@ -138,7 +138,7 @@ unique_id:
   required: false
   type: string
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 sensor:
@@ -466,7 +466,7 @@ template:
 
 {% endraw %}
 
-If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
+If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
 
 ### Considerations
 
@@ -744,7 +744,7 @@ template:
 
 ### State based select - Control Day/Night mode of a camera
 
-This show how a state based template select can be used to call a service.
+This show how a state based template select can be used to perform an action.
 
 {% raw %}
 
@@ -784,9 +784,9 @@ template:
 
 {% endraw %}
 
-### Trigger based handling of service response data
+### Trigger based handling of action response data
 
-This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
 and use the response in a template.
 
 {% raw %}
