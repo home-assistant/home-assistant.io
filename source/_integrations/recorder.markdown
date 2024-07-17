@@ -44,7 +44,7 @@ For example, if your database is 1.5GiB on disk, you must always have at least 1
 
 ## Handling disk corruption and hardware failures
 
-When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database should be an infrequent operation and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
+When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database is the system's last resort recovery option and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
 
 ## Advanced configuration
 
