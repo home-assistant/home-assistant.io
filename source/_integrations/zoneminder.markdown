@@ -93,11 +93,11 @@ zoneminder:
     password: YOUR_PASSWORD
 ```
 
-### Service
+### Action
 
-Once loaded, the `zoneminder` platform will expose a service (`set_run_state`) that can be used to change the current run state of ZoneMinder.
+Once loaded, the `zoneminder` platform will expose an action (`set_run_state`) that can be used to change the current run state of ZoneMinder.
 
-| Service data attribute | Optional | Description                       |
+| Data attribute | Optional | Description                       |
 | :--------------------- | :------- | :-------------------------------- |
 | `id`                   | no       | Host of the ZoneMinder instance.  |
 | `name`                 | no       | Name of the new run state to set. |
