@@ -27,7 +27,7 @@ water_heater:
 Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
 {% tip %}
-Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** -> **Actions**.
+Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
 {% endtip %}
 
 ### Action `water_heater.set_temperature`
