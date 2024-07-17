@@ -84,7 +84,7 @@ Import the recipe into Mealie from a URL.
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
 
 {% tip %}
-You can get your `config_entry_id` by using services within [Developer Tools](/docs/tools/dev-tools/), using one of the above services and viewing the YAML.
+You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
 
 ## Examples
