@@ -306,7 +306,7 @@ In your Netatmo Application configuration, do not enter a 'redirect URI' or a 'w
 
 See [Application Credentials](/integrations/application_credentials) for instructions on how to configure your *Client ID* and *Client Secret*, then enable Netatmo through the integrations page.
 
-Menu: **Settings** -> **Devices & services**.
+Menu: **Settings** > **Devices & services**.
 
 Click on the `+` sign to add an integration and click on **Netatmo**.
 After completing the configuration flow, the Netatmo integration will be available.
