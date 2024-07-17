@@ -132,7 +132,7 @@ Alternatively, you can make a manual HTTP request (GET) to `http://ROKU_IP:8060/
 
 ## TV Channel Tuning
 
-the `media_player.play_media` action may be used to tune to specific channels on your Roku TV device with OTA antenna.
+The `media_player.play_media` action may be used to tune to specific channels on your Roku TV device with OTA antenna.
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
