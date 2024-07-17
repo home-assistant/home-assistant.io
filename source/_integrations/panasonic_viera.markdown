@@ -63,7 +63,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & Services** to type the PIN code that will be displayed on it and finish the setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & services** to type the PIN code that will be displayed on it and finish the setup.
 
 ### Example `turn_on_action`
 
@@ -110,7 +110,7 @@ script:
 
 ### Remote
 
-When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` action.
 
 Some of the known valid key values are:
 
