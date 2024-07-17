@@ -74,9 +74,9 @@ There are several actions which can be used for automations and control of the I
 
 | Action | Description |
 | --------- | ----------- |
-| `turn_off` | Calling this action will turn the pause switch off, enabling watering switch (`entity_id` is required).
-| `turn_on` | Calling this action will turn the pause switch on, disabling watering switch (`entity_id` is required).
-| `set_pause_time` | Calling this action sets the pause time (`entity_id` and `pause_time` are required parameters), `pause_time` must be in the range 1-24 hours.
+| `turn_off` | Performing this action will turn the pause switch off, enabling watering switch (`entity_id` is required).
+| `turn_on` | Performing this action will turn the pause switch on, disabling watering switch (`entity_id` is required).
+| `set_pause_time` | Performing this action sets the pause time (`entity_id` and `pause_time` are required parameters), `pause_time` must be in the range 1-24 hours.
 
 Trigger rules:
 - String with 8 decimal characters ("0" to "9").
