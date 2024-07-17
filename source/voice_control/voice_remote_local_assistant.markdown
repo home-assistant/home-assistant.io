@@ -32,7 +32,7 @@ For the quickest way to get your local Assist pipeline started, follow these ste
      ![Install the Whisper and Piper add-ons](/images/assist/piper-whisper-install-01.png)
    - If you want to use a wake word, also install the {% my supervisor_addon addon="core_openwakeword" title="**openWakeWord**" %} add-on.
    - Start the add-ons.
-   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & Services**" %}.
+   - Once the add-ons are started, head over to the integrations under {% my integrations title="**Settings** > **Devices & services**" %}.
      - You should now see Piper and Whisper being discovered by the [Wyoming integration](/integrations/wyoming/).
        ![Whisper and Piper integrations](/images/assist/piper-whisper-install-new-02.png)
    - For each integration, select **Configure**.

@@ -68,14 +68,14 @@ Before you can use this device with Home Assistant, you need to install a bit of
 3. Your command is not supported? Add your own commands using [a sentence trigger](/voice_control/custom_sentences/).
 4. You find ATOM Echo takes too long to start processing your command?
    - Adjust the silence detection settings. This setting defines how much silence is needed for Assist to find you're done speaking and it can start processing your command.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
    ![Open My link](/images/assist/esp32-atom_silence_detection_01.png)
 
 ## Disabling wake word and use push-to-talk
 
 1. If you do not want to use a wake word, but prefer to use the microphone by pressing a button, you can disable the wake word.
-2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
 3. Disable **Use wake word**.
 

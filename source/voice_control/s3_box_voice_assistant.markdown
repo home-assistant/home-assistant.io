@@ -195,14 +195,14 @@ Before you can use this device with Home Assistant, you need to install a bit of
 ## Turning off microphone or screen
 
 1. If you do not want to Assist to listen for a while, you can turn off the microphone.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
       - Under **ESP32-S3-BOX-3**, select **1 device**.
       - Enable **Mute**.
       - The screen of the ESP32-S3-BOX-3 will turn off, too.
 
       ![Toggle to enable/disable Mute](/images/assist/wake_word_disable.png)
 2. If you want to just use the wake word, but do not want to use the screen, you can turn it off.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX-3**, select **1 device**.
      - Disable **LCD Backlight**.
 

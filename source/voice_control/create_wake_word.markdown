@@ -70,7 +70,7 @@ Depending on the word, training a model on your own wake word may take a few ite
    - Then, select your own personal wake word.
    - If there is no **Wake word** option, make sure you have the add-on installed and successfully completed the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/) tutorial.
 6. Enable this new assistant on your ATOM Echo device.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
       - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Configuration**, make sure **Use wake word** is enabled.
    - Select the assistant with your wake word.
@@ -85,7 +85,7 @@ Depending on the word, training a model on your own wake word may take a few ite
 ### Troubleshooting wake word recognition
 
 1. If the ATOM Echo does not start blinking blue when you say the wake word, there are a few things you can try.
-2. Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
+2. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **ESPHome** integration.
    - Under **M5Stack ATOM Echo**, select **1 device**.
    - Under **Controls**, make sure **Use wake word** is enabled.
 3. If this was not the issue, you may need to tweak the wake word model.

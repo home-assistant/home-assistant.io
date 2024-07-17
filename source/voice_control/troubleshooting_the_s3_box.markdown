@@ -74,7 +74,7 @@ This message indicates that the device could connect to the Wi-Fi, but is unable
    - In this case, there is nothing you need to do. It is expected that the device temporarily stops communicating.
 2. Make sure your device is on the same network as Home Assistant.
    - If you have a complex network setup with VLAN, make sure it is in the same VLAN.
-3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+3. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - If the device is shown as **Discovered**, select **Configure**.
      ![ESP32-S3-BOX-3 open config file](/images/assist/esp32-discovered.png)
    - If it was not discovered, select [**Add integration** > **ESPHome**](https://my.home-assistant.io/redirect/config_flow_start/?domain=esphome).
