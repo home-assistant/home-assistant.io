@@ -70,22 +70,22 @@ The `rachio` switch platform allows you to toggle zones, valves, and schedules c
 
 Once configured, a switch will be added for every zone that is enabled on every controller in the account provided, as well as a switch for each smart hose timer valve and a switch to start or stop every schedule on a controller. There will also be a switch to toggle each controller's standby mode, as well as to activate a 24-hour rain delay on the device.
 
-## Services
+## Actions
 
-### Service `rachio.start_watering`
+### Action `rachio.start_watering`
 
-Allows starting one zone on a sprinkler controller, any number of smart hose timer valves, or a schedule. To sequentially start multiple zones on a sprinkler controller, use the `start_multiple_zone_schedule` service below.
+Allows starting one zone on a sprinkler controller, any number of smart hose timer valves, or a schedule. To sequentially start multiple zones on a sprinkler controller, use the `start_multiple_zone_schedule` action below.
 
-Service data attribute | Optional | Description |
+Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | Individual zone, schedule, or multiple smart hose timer valves to run. A smart hose timer base station device can also be selected to run all valves on the given base.
 | `duration` | yes | Duration in minutes to run the zone or valves. Leave empty for schedules.
 
 {% note %}
-The services below only apply to sprinkler controllers and will not be shown if only smart hose timers are on the account.
+The actions below only apply to sprinkler controllers and will not be shown if only smart hose timers are on the account.
 {% endnote %}
 
-### Service `rachio.start_multiple_zone_schedule`
+### Action `rachio.start_multiple_zone_schedule`
 
 Allows a list of zones to be passed with a corresponding list of durations to create a custom schedule directly from Home Assistant.
 
@@ -93,7 +93,7 @@ Allows a list of zones to be passed with a corresponding list of durations to cr
 It is not currently possible to have zones from multiple controllers in the same custom schedule.
 {% endnote %}
 
- Service data attribute | Optional | Description |
+ Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | List of zones to run. Will be run in the order listed.
 | `duration` | no | Duration in minutes to run the zones. If a list of durations is provided, each duration will apply to the corresponding zone listed above. Alternatively, one duration can be provided and will be used for all zones.
@@ -130,43 +130,43 @@ script:
           duration: 20
 ```
 
-### Service `rachio.set_zone_moisture_percent`
+### Action `rachio.set_zone_moisture_percent`
 
 Set the zone moisture percentage for a zone or group of zones.
 
-Rachio allows for setting the moisture percentage of a zone or group of zones. As Rachio only uses moisture levels for zones in a Flex Daily schedule, this service is only available when at least one zone is part of a Flex Daily schedule.
+Rachio allows for setting the moisture percentage of a zone or group of zones. As Rachio only uses moisture levels for zones in a Flex Daily schedule, this action is only available when at least one zone is part of a Flex Daily schedule.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String, list or group of zones to set moisture percentage.
 | `percent` | no | Integer of the desired moisture percentage. Accepts 0-100.
 
-### Service `rachio.pause_watering`
+### Action `rachio.pause_watering`
 
 Pause a currently running schedule.
 
-This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+This action will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `devices` | yes | Name of the controller(s) to pause. If not given, will pause all running controllers on the account.
 | `duration` | yes | Duration in minutes to pause. Accepts 1-60. Defaults to 60 minutes if not specified.
 
-### Service `rachio.resume_watering`
+### Action `rachio.resume_watering`
 
 Resume a currently paused schedule.
 
-This service will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
+This action will not be available if only a Generation 1 controller is on the account, as these controllers do not support pause or resume.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `devices` | yes | Name of the controller(s) to resume. If not given, will resume all paused controllers on the account.
 
-### Service `rachio.stop_watering`
+### Action `rachio.stop_watering`
 
 Stops all currently running schedules.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `devices` | yes | Name of the controller(s) to stop. If not given, will stop all running controllers on the account.
 
