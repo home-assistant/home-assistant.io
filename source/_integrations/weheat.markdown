@@ -32,7 +32,7 @@ To add the Weheat Integration, follow these steps:
 3. Go to **Devices & Services**.
 4. Click the **+ Add Integration** button.
 5. Search for **Weheat**.
-6. You will be prompted to input your Client ID and secret. These are provided by Weheat.
-7. Fill in your username and password.
-8. Your device will automatically be added. In case you have more than 1 device, select them from the dropdown menu.
+6. You will be prompted to input the **Client ID** and **secret**. These are provided by Weheat.
+7. Fill in your **username** and **password**.
+8. Your device will automatically be added. In case you have more than 1 device, select a device from the dropdown menu.
 9. You are all set and ready to go!
