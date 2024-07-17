@@ -80,7 +80,7 @@ There are several different element types that can be added to a Picture Element
 - [State badge](#state-badge)
 - [State Icon](#state-icon)
 - [State Label](#state-label)
-- [Service Call Button](#service-call-button)
+- [Perform action button](#perform-action-button)
 - [Icon](#icon-element)
 - [Image](#image-element)
 - [Conditional](#conditional-element)
@@ -215,9 +215,9 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service call button
+### Perform action button
 
-This entity creates a button (with arbitrary text) that can be used to call a service.
+This entity creates a button (with arbitrary text) that can be used to perform a service.
 
 {% configuration %}
 type:
@@ -234,7 +234,7 @@ service:
   type: string
 service_data:
   required: false
-  description: The service data to use.
+  description: The data to use.
   type: map
 style:
   required: true
@@ -540,7 +540,7 @@ elements:
       width: 10%
       border: 2px solid red
       border-radius: 10%
-  # Single image, state_filter - call-service on click
+  # Single image, state_filter - perform action on click
   - type: image
     entity: media_player.living_room
     tap_action:
