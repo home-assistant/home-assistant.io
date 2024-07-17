@@ -154,7 +154,7 @@ action:
 
 ## Content Deeplinking
 
-the `media_player.play_media` action may be used to deep link to content within an application.
+The `media_player.play_media` action may be used to deep-link to content within an application.
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
