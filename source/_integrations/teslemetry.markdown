@@ -197,11 +197,11 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 ## Vehicle sleep
 
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` action to force polling the API, which will reset the timer.
 
-## Services
+## Actions
 
-Teslemetry provides various custom services to interact with the Tesla Fleet API directly.
+Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
 
 ### Navigate to coordinates
 

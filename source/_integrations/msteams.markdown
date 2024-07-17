@@ -32,7 +32,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting this parameter allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: "notify"
@@ -46,7 +46,7 @@ url:
 
 The following attributes can be placed inside `data` for extended functionality.
 
-| Service data attribute | Optional | Description                     |
+| Data attribute | Optional | Description                     |
 | ---------------------- | -------- | ------------------------------- |
 | `image_url`            | yes      | Attach an image to the message. |
 

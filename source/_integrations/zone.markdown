@@ -66,7 +66,7 @@ icon:
   required: false
   type: string
 passive:
-  description: To only use the zone for automation and hide it from the frontend and not use the zone for device tracker name.
+  description: To only use the zone for automation and hide it from the frontend and not use the zone for device tracker state.
   required: false
   type: boolean
   default: false

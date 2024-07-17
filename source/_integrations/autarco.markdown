@@ -27,9 +27,16 @@ The Autarco platform mainly provides sensors that you can use in your [energy da
 
 ### Solar
 
-Gain insight into how much solar energy you produce per site linked to your account.
+Gain insight into how much solar energy your site produces.
 
 - Power production (W)
 - Energy production today (kWh)
 - Energy production this month (kWh)
 - Energy production total (kWh)
+
+### Inverters
+
+Gain insight into how much energy an inverter produces. The integration will create a device for each inverter linked to your account.
+
+- AC output power (W)
+- AC output energy total (kWh)

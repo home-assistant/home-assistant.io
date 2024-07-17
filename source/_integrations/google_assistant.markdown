@@ -338,11 +338,11 @@ Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT U
 
 #### 403 errors on request sync
 
-The `request_sync` service may fail with a 403 if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project.
+The `request_sync` action may fail with a 403 if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project.
 
 #### 404 errors on report state
 
-If you receive 404 errors linked to reporting state in your log, Home Assistant is reporting state for entities that were never synced to Google. Ask your Google Home to `Sync my devices` or run the service `google_assistant.request_sync`.
+If you receive 404 errors linked to reporting state in your log, Home Assistant is reporting state for entities that were never synced to Google. Ask your Google Home to `Sync my devices` or run the `google_assistant.request_sync` action.
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 
