@@ -57,7 +57,7 @@ The attribute filter supports separate filters for attribute names and values, s
 
 ## Actions tab
 
-This section is used to perform actions that are available in the ServiceRegistry.
+This section is used to perform actions that are available in Home Assistant.
 
 The list of actions in the **Actions** dropdown are automatically populated based on the integrations that are found in the configuration, automation and script files. If a desired action does not exist, it means either the integration is not configured properly or not defined in the configuration, automation or script files.
 
