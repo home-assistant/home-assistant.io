@@ -1106,7 +1106,7 @@ The MQTT integration will register the `mqtt.publish` action which allows publis
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | no      | Payload to publish.                                          |
+| `payload`              | no       | Payload to publish.                                          |
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
