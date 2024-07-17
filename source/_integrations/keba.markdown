@@ -29,7 +29,7 @@ This {% term integration %} provides the following platforms:
 - Binary sensors: Online state, plug state, charging state and failsafe mode state.
 - Lock: Authorization (like with the RFID card).
 - Sensors: current set by the user, target energy set by the user, charging power, charged energy of the current session and total energy charged.
-- Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found [here](#actions).
+- Actions: authorize, deauthorize, set energy target, set the maximum allowed current and manually update the states. More details can be found in the [actions](#actions) section.
 - Notify: Show a text on chargers with a built-in LED display.
 
 ## Configuration
