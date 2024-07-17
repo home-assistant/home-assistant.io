@@ -48,6 +48,6 @@ Type:
 
 ## **Change device type of a switch** from the existing entity
 
-Where compatible, **Change device type of a switch** will appear on entity properties. A list of entities can be found in **{% my entities title="Settings > Devices & Services > Entities" %}**.
+Where compatible, **Change device type of a switch** will appear on entity properties. A list of entities can be found in **{% my entities title="Settings > Devices & services > Entities" %}**.
 
 ![Entity properties example](/images/integrations/switch_as_x/Entities_Properties.png)

@@ -184,7 +184,7 @@ scrape:
 
 ### Available implementations
 
-Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & Services**" %}.
+Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% raw %}
 

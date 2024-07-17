@@ -28,7 +28,7 @@ If you enter your password and salt (as defined in the Simplepush app settings) 
 
 ## Notifications
 
-Simplepush can send a notification by calling the [`notify` service](/integrations/notify/).
+Simplepush can send a notification by calling the [`notify` action](/integrations/notify/).
 
 You can specify the `event` under the `data` key.
 Events can be used to customize the notification behavior.

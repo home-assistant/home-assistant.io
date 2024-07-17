@@ -167,7 +167,7 @@ switch:
 
 ### Multiple actions for turn_on or turn_off
 
-This example shows multiple service calls for turn_on and turn_off.
+This example shows multiple actions for turn_on and turn_off.
 
 {% raw %}
 

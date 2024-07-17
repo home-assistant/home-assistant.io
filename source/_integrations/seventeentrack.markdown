@@ -73,14 +73,14 @@ content: >
 
 {% endraw %}
 
-## Services
+## Actions
 
-### Service `seventeentrack.get_packages`
+### Action `seventeentrack.get_packages`
 
-The `seventeentrack.get_packages` service allows you to query the 17track API for the latest package data.
+The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
 
-| Service data attribute | Optional | Description                                 |
+| Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
 | `package_state`        | yes      | A list of the package states.                |
