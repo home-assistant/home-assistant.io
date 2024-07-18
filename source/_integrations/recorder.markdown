@@ -36,6 +36,14 @@ Changing database used by the recorder may result in losing your existing histor
 
 To change the defaults for the `recorder` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
+## Disk space requirements
+
+A bare minimum requirement is to have at least as much free temporary space available as the size of your database at all times. A table rebuild, repair, or repack may happen at any time, which can result in a copy of the data on disk during the operation. Meeting the bare minimum requirement is essential during a version upgrade, where the schema may change, as this operation almost always requires making a temporary copy of part of the database.
+
+For example, if your database is 1.5&nbsp;GiB on disk, you must always have at least 1.5&nbsp;GiB free.
+
+## Advanced configuration
+
 ```yaml
 # Example configuration.yaml entry
 recorder:
@@ -121,7 +129,7 @@ recorder:
           type: list
 {% endconfiguration %}
 
-## Configure filter
+### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `recorder`, you can use the `include` and `exclude` parameters.
 
@@ -143,7 +151,7 @@ recorder:
 
 If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
-### Common filtering examples
+#### Common filtering examples
 
 Defining domains and entities to `exclude` (i.e. blocklist) is convenient when you are basically happy with the information recorded, but just want to remove some entities or domains.
 
@@ -245,6 +253,12 @@ Call the service `recorder.disable` to stop saving events and states to the data
 ### Service `enable`
 
 Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+
+## Handling disk corruption and hardware failures
+
+When using SQLite, if the system encounters unrecoverable disk corruption, it will move the database aside and create a new database to keep the system online. In this case, having at least 2.5x the database size available in free disk space is essential. Starting a new database is the system's last resort recovery option and is usually caused by failing flash storage, an inadequate power supply, an unclean shutdown, or another hardware failure.
+
+In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html).
 
 ## Custom database engines
 
