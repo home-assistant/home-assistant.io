@@ -33,7 +33,7 @@ Attribute:
 Degree:
   description: "The degree of a polynomial. For example, Linear compensation (y = x + 3) has 1 degree, Quadratic compensation (y = x<sup>2</sup> + x + 3) has 2 degrees, etc."
 Precision:
-  description: Defines the precision of the calculated values, through the argument of round().
+  description: Defines the number of decimal places of the calculated sensor value.
 Unit of measurement:
   description: Defines the units of measurement of the sensor, if any.
 Lower limit:
