@@ -25,13 +25,13 @@ The ONVIF camera integration allows you to use an [ONVIF](https://www.onvif.org/
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
-</div>
+{% tip %}
+It is recommended that you create a user on your device specifically for Home Assistant. For all current functionality, it is enough to create a standard user.
+{% endtip %}
 
-<div class='note'>
-If running Home assistant Core in a venv, ensure that libxml2 and libxslt python interfaces are installed via your package manager.
-</div>
+{% note %}
+If running Home Assistant Core in a venv, ensure that libxml2 and libxslt Python interfaces are installed via your package manager.
+{% endnote %}
 
 ### Configuration notes
 
@@ -85,11 +85,11 @@ To help with development of this integration, enable `info` level logging for `h
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
-### Service `onvif.ptz`
+### Action `onvif.ptz`
 
 If your ONVIF camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE` |

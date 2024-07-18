@@ -69,7 +69,7 @@ Stream URL template:
 | `sensor` | An "action sensor" that shows the number of configured [actions](https://github.com/ccrisan/motioneye/wiki/Action-Buttons) for this device. The names of the available actions are viewable in the `actions`  attribute of the sensor entity. |
 
 **Note**:
-  - If the video streaming switch is turned off, the camera entity, and services that operate on that camera, will become unavailable. The rest of the integration will continue to function.
+  - If the video streaming switch is turned off, the camera entity, and actions that operate on that camera, will become unavailable. The rest of the integration will continue to function.
   - As cameras are added or removed to motionEye, devices/entities are automatically added or removed from Home Assistant.
 
 
@@ -221,9 +221,9 @@ in automations (etc).
 }
 ```
 
-## Services
+## Actions
 
-All services accept either an `entity_id` or `device_id`.
+All actions accept either an `entity_id` or `device_id`.
 
 ### motioneye.snapshot
 
@@ -266,7 +266,7 @@ Parameters:
 
 **Note**:
 
-- Calling this service triggers a reset of the motionEye cameras which will pause the
+- Calling this action triggers a reset of the motionEye cameras which will pause the
   stream / recordings / motion detection (etc).
 - Ensure the `Text Overlay` switch is turned on to actually display the configured text overlays.
 
@@ -299,7 +299,7 @@ correctly associate media with the camera from which that media was captured.
 
 ## Example Dashboard Card
 
-A dashboard card with icons that will call the `action` service to send action commands to motionEye.
+A dashboard card with icons that will call the `action` action to send action commands to motionEye.
 
 ```yaml
 - type: picture-glance
@@ -405,7 +405,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 ### Debug Logging
 
 To enable debug logging for both the integration and the underlying client library,
-enable the following in your `configuration.yaml` and then restart:
+enable the following in your {% term "`configuration.yaml`" %} and then restart:
 
 ```yaml
 logger:

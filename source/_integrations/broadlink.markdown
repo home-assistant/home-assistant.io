@@ -20,13 +20,22 @@ ha_platforms:
   - climate
   - light
   - remote
+  - select
   - sensor
   - switch
+  - time
 ha_dhcp: true
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors. The following devices are supported:
+The **Broadlink** {% term integration %} allows you to control and monitor Broadlink universal remotes, smart plugs, power strips, switches and sensors.
+
+The manufacturer's app is required in order to connect new devices to the network.
+
+The following devices are supported:
 
 - Thermostats: `Hysen HY02B05H` and `Floureon HY03WE`
 - Power Strips: `MP1-1K3S2U` and `MP1-1K4S`
@@ -48,9 +57,11 @@ The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
 - [Remote](#remote)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+- [Time](#time)
 
 ## Climate
 
@@ -62,9 +73,9 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` service later.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later.
 
-| Service data attribute | Optional | Description                           |
+| Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
 | `entity_id`            | no       | ID of the remote.                     |
 | `device`               | no       | Name of the device to be controlled.  |
@@ -115,7 +126,7 @@ When the LED blinks for the first time, press and hold the button to sweep the f
 
 The codes will be stored in the same way as the IR codes. You don't need to specify `command_type` to send them because this information is stored in the first byte of the code.
 
-_Tip:_ Click Notifications in the sidebar after calling the service and follow the instructions to make sure you are pressing the button at the right time.
+_Tip:_ Click Notifications in the sidebar after using the action and follow the instructions to make sure you are pressing the button at the right time.
 
 #### Learning a sequence of commands
 
@@ -138,7 +149,7 @@ script:
             - volume down
 ```
 
-After calling this service, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
+After using this action, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
 
 #### Learning an alternative code
 
@@ -170,9 +181,9 @@ The learned codes are stored in `/config/.storage/` in a JSON file called `broad
 
 ### Sending commands
 
-After learning IR and RF codes with the `remote.learn_command` service, you can use `remote.send_command` to send them. You can also use this service to send base64 codes taken from elsewhere.
+After learning IR and RF codes with the `remote.learn_command` action, you can use `remote.send_command` to send them. You can also use this action to send base64 codes taken from elsewhere.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | ID of the remote.                                                      |
 | `command`              | no       | Names of the commands to be sent or base64 codes prefixed with `b64:`. |
@@ -289,9 +300,9 @@ script:
 
 ### Deleting commands
 
-You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
+You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` action.
 
-| Service data attribute | Optional | Description                          |
+| Data attribute | Optional | Description                          |
 | ---------------------- | -------- | ------------------------------------ |
 | `entity_id`            | no       | ID of the remote.                    |
 | `device`               | no       | Name of the device.                  |
@@ -334,6 +345,10 @@ script:
             - menu
 ```
 
+## Select
+
+The `select` {% term entities %} allow you to control the weekday of your Broadlink devices. These entities are created automatically when you configure supported devices.
+
 ## Sensor
 
 The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These entities are created automatically when you configure a device that has sensors.
@@ -341,6 +356,10 @@ The `sensor` {% term entities %} allow you to monitor Broadlink sensors. These e
 ## Light
 
 The `light` {% term entities %} allow you to control Broadlink lights. You can turn them on and off, change brightness, adjust the color or set a color temperature. These entities are created automatically when you configure a device that has lights.
+
+## Time
+
+The `time` {% term entities %} allow you to control the time of Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Switch
 
@@ -350,7 +369,7 @@ You can also define custom IR/RF switches to be controlled with universal remote
 
 ### Setting up custom IR/RF switches
 
-The first step is to configure the device normally via the configuration flow. Then add these lines to your `configuration.yaml`:
+The first step is to configure the device normally via the configuration flow. Then add these lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -503,7 +522,7 @@ First get or learn all the remotes you want to add to Home Assistant in e-Contro
     [+] Dumping codes to TV.txt
     ```
 
-6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your `configuration.yaml` file (or wherever you have your switches).
+6. Now there should be a file with the name of the remote you chose in the same directory ending in `.txt`. Open that up and it will contain the Base64 code required for Home Assistant. To ensure these codes work correctly you may need to add `==` to the end of the code in your {% term "`configuration.yaml`" %} file (or wherever you have your switches).
 
 ### Using Windows to obtain codes with Broadlink Manager
 

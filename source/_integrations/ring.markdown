@@ -41,9 +41,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Light](#light)
 
-<p class='note'>
+{% note %}
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
-</p>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -57,9 +57,9 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Camera
 
-<div class='note'>
+{% important %}
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</div>
+{% endimportant %}
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
@@ -106,7 +106,7 @@ You may consider some modifications in the subdirectory and the filename to suit
 
 the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
-If you want to use `python_script`, enable it your `configuration.yaml` file first:
+If you want to use `python_script`, enable it your {% term "`configuration.yaml`" %} file first:
 
 ```yaml
 python_script:

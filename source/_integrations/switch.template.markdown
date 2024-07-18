@@ -3,10 +3,20 @@ title: "Template Switch"
 description: "Instructions on how to integrate Template Switches into Home Assistant."
 ha_category:
   - Switch
+  - Helper
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_config_flow: true
+ha_platforms:
+  - switch
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates switches that combines components.
@@ -15,9 +25,21 @@ For example, if you have a garage door with a toggle switch that operates the mo
 
 This can simplify the GUI and make it easier to write automations.
 
-## Configuration
+{% include integrations/config_flow.md %}
 
-To enable Template Switches in your installation, add the following to your `configuration.yaml` file:
+{% important %}
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
+
+## YAML Configuration
+
+To enable Template Switches in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -145,7 +167,7 @@ switch:
 
 ### Multiple actions for turn_on or turn_off
 
-This example shows multiple service calls for turn_on and turn_off.
+This example shows multiple actions for turn_on and turn_off.
 
 {% raw %}
 

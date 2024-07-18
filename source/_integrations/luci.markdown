@@ -21,7 +21,8 @@ Before this scanner can be used you have to install the luci RPC package on Open
 # opkg install luci-mod-rpc
 ```
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -61,9 +62,7 @@ See the [device tracker integration page](/integrations/device_tracker/) for ins
 
 This device tracker provides a number of additional attributes for each tracked device (if it is at home): `flags`, `ip`, `device`, and `host`. The first three attributes are taken from the ARP table returned by the luci RPC. The `host` attribute is taken from the platform configuration and can be used to distinguish in which router a device is logged in, if you are using multiple OpenWrt routers.
 
-<div class='note warning'>
-
+{% note %}
 Some installations have [a small bug](https://github.com/openwrt/luci/issues/576). The timeout for luci RPC calls is not set and this makes the call fail. 
 If you want to locally fix your OpenWrt installation, you can apply the change manually to `/usr/lib/lua/luci/controller/rpc.lua`, or simply set a fixed timeout. The default is 3600.
-
-</div>
+{% endnote %}

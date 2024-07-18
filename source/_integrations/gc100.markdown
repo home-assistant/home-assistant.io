@@ -12,6 +12,9 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The Global Caché GC-100 can be integrated into Home Assistant. GC-100 is a TCP-controllable
@@ -27,7 +30,8 @@ Currently, only relays and ports configured to be digital inputs are supported i
 
 ## Configuration
 
-To enable this device, add the following lines to your `configuration.yaml`:
+To enable this device, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -49,7 +53,7 @@ port:
 
 ## Binary sensor
 
-To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your `configuration.yaml` file:
+To enable this sensor, you first have to set up [gc100](#configuration), and add the following lines to your{% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +77,8 @@ ports:
 
 This allows you to control and monitor the relay state on your GC100.
 
-To enable this switch, you first have to set up [gc100](#configuration), and add the following lines to your `configuration.yaml` file:
+To enable this switch, you first have to set up [gc100](#configuration), and add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

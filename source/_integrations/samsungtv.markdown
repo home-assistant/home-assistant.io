@@ -53,7 +53,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 #### Changing channels
 
-Changing channels can be done by calling the `media_player.play_media` service
+Changing channels can be done by calling the `media_player.play_media` action
 with the following payload:
 
 ```yaml
@@ -69,7 +69,7 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` action. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
@@ -333,6 +333,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**

@@ -24,19 +24,22 @@ regenerate: false
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 
-<p class='note'>
-  Support for these integrations is provided by the Home Assistant community.
-</p>
 <div class="grid">
-  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
+  <div class="grid__item one-fifth lap-one-whole palm-one-whole">
 
     <div class="filter-button-group">
-      <a href='#all' class="btn">All ({{tot}})</a>
+      <div class="all">
+        <a href='#all' class="btn">All <span class="count">{{tot}}</span></a>
+      </div>
+
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
         <a href='#works-with-home-assistant' class="btn">Partner brands</a>
       </div>
-      <div class="version_select">Added in: <select name="versions">
+
+      <div class="version_select">
+        <label>By release</label>
+        <select id="versions" name="versions">
           <option value="#"></option>
           {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
@@ -46,36 +49,75 @@ regenerate: false
             {%- endfor -%}
           </optgroup>
           {%- endfor -%}
-        </select></div>
-      {%- for category in categories -%}
-        {%- assign category_name = "" -%}
-        {%- assign components_count = 0 -%}
-        {%- for comp in components -%}
-          {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
-          {%- if comp_categories contains category -%}
+        </select>
+      </div>
+
+      <div class="category_list">
+        <label>By Categories</label>
+        {%- for category in categories -%}
+          {%- assign category_name = "" -%}
+          {%- assign components_count = 0 -%}
+          {%- for comp in components -%}
+            {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+            {%- if comp_categories contains category -%}
+              {%- if category_name == "" -%}
+                {%- for cat in comp.ha_category -%}
+                  {%- assign lower_cat = cat | downcase -%}
+                  {%- if lower_cat == category -%}
+                    {%- assign category_name = cat -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%} 
+              {%- assign components_count = components_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if category != 'other' and components_count != 0 -%}
             {%- if category_name == "" -%}
-              {%- for cat in comp.ha_category -%}
-                {%- assign lower_cat = cat | downcase -%}
-                {%- if lower_cat == category -%}
-                  {%- assign category_name = cat -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endif -%} 
-            {%- assign components_count = components_count | plus: 1 -%}
+              {%- assign category_name = category | capitalize -%}
+            {%- endif -%}
+            <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} <span class="count">{{ components_count }}</span></a>
           {%- endif -%}
         {%- endfor -%}
-        {%- if category != 'other' and components_count != 0 -%}
-          {%- if category_name == "" -%}
-            {%- assign category_name = category | capitalize -%}
-          {%- endif -%}
-          <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} ({{ components_count }})</a>
-        {%- endif -%}
-      {%- endfor -%}
+        <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other <span class="count">{{ components | where: 'ha_category', 'Other' | size }}</span></a>
+      </div>
 
-      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      <div class="category_select">
+        <label>By Categories</label>
+        <select id="categories" name="categories">
+          <option value="#"></option>
+          {%- for category in categories -%}
+            {%- assign category_name = "" -%}
+            {%- assign components_count = 0 -%}
+            {%- for comp in components -%}
+              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+              {%- if comp_categories contains category -%}
+                {%- if category_name == "" -%}
+                  {%- for cat in comp.ha_category -%}
+                    {%- assign lower_cat = cat | downcase -%}
+                    {%- if lower_cat == category -%}
+                      {%- assign category_name = cat -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%} 
+                {%- assign components_count = components_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if category != 'other' and components_count != 0 -%}
+              {%- if category_name == "" -%}
+                {%- assign category_name = category | capitalize -%}
+              {%- endif -%}
+              <option value="#{{ category_name | slugify }}">{{ category_name }} ({{ components_count }})
+              </option>
+            {%- endif -%}
+          {%- endfor -%}
+          <option value="#other">Other ({{ components | where: 'ha_category', 'Other' | size }})
+          </option>
+        </select>
+      </div>
+
     </div>
   </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item four-fifths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
@@ -85,35 +127,9 @@ regenerate: false
   </div>
 </div>
 
-<script
-  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-  crossorigin="anonymous"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.min.js"
-    integrity="sha384-wlIoxluAn4R0ncWYWAibi4AATy1rxh4LzxfPhzhRfBwpYzbAQT7FDApW3TTf4KC+"
-    crossorigin="anonymous"></script>
-  <script
-    src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-lazyload/10.17.0/lazyload.min.js"
-    integrity="sha384-vJtpZDYI5wEvw5lJzoCEeYTiRzgoR1NmzkWtzy04p4AaQjHXAzxNqSEVlIsutpxa"
-    crossorigin="anonymous"></script>
-{% raw %}
-<script id="component-template" type="text/x-custom-template">
-  {{#components}}
-  <a href="{{url}}" class="option-card">
-    <div class="img-container">{{{image}}}</div>
-    <div class='title'>{{title}}</div>
-  </a>
-{{/components}}
-{{^components}}
-  <p class='note'>Nothing found!</p>
-{{/components}}
-</script>
-{% endraw %}
-
 <script type="text/javascript">
 // This object contains all components we have
-var allComponents = [
+const allComponents = [
   {%- for component in components -%}
     {%- if component.ha_category -%}
       {%- assign sliced_version = component.ha_release | split: '.' -%}
@@ -134,38 +150,38 @@ allComponents.pop(); // remove placeholder element at the end
 
 <script type="text/javascript">
   (function () {
-    var template = $('#component-template').html();
-    Mustache.parse(template); // make future calls to render faster
+    const SEARCH_PREFIX = '#search/';
+    const VERSION_PREFIX = '#version/';
+
+    const searchInputEl = document.querySelector('.component-search input');
+    const componentContainerEl = document.querySelector('#componentContainer');
 
     function init() {
       // do the lowerCase transformation once
-      for (i = 0; i < allComponents.length; i++) {
-        title = allComponents[i].title.toLowerCase();
-        domain = allComponents[i].domain;
-        title_normalized = title
+      for (let component of allComponents) {
+        const title = component.title.toLowerCase();
+        const domain = component.domain;
+        const titleNormalized = title
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "");
-        title_dedashed = title.replace(/[-_]/g, " ");
-        title_normalized_dedashed = title_normalized.replace(/[-_]/g, " ");
+        const titleDedashed = title.replace(/[-_]/g, " ");
+        const titleNormalizedDedashed = titleNormalized.replace(/[-_]/g, " ");
 
-        allComponents[i].titleLC = title;
-        allComponents[i].search = `${title} ${title_normalized} ${title_dedashed} ${title_normalized_dedashed} ${domain}`;
+        component.titleLC = title;
+        component.search = `${title} ${titleNormalized} ${titleDedashed} ${titleNormalizedDedashed} ${domain}`;
       }
 
       // sort the components alphabetically
-      allComponents.sort(function (a, b) {
-        return a.titleLC.localeCompare(b.titleLC);
-      });
+      allComponents.sort((a, b) => a.titleLC.localeCompare(b.titleLC));
 
-      if (location.hash !== '' && location.hash.indexOf('#search/') === 0) {
+      if (location.hash !== '' && location.hash.indexOf(SEARCH_PREFIX) === 0) {
         // set default value in search from URL
-        jQuery('.component-search input').val(decodeURIComponent(location.hash).substring(8));
+        const search = decodeURIComponent(location.hash).substring(SEARCH_PREFIX.length);
+        searchInputEl.value = search;
       }
 
-      // add focus to the search field - even on IE
-      setTimeout(function () {
-        jQuery('.component-search input').focus();
-      }, 1);
+      // add focus to the search field
+      setTimeout(() => searchInputEl.focus(), 1);
     }
     init();
 
@@ -173,152 +189,140 @@ allComponents.pop(); // remove placeholder element at the end
      * filter all components, based on the location's hash and render them into the component box
      */
     function applyFilter() {
-      var logoLazyLoad = new LazyLoad({
-        elements_selector: ".option-card img"
-      });
-      var rendered, i, filter, search;
-      var hash = location.hash || '';
-      var data = {
-        components: [],
-        image: function () {
-          return `<img src="https://brands.home-assistant.io/${this.ha_brand ? "brands": "_"}/${this.domain}/logo.png" srcset="https://brands.home-assistant.io/${this.ha_brand ? "brands ": "_"}/${this.domain}/logo@2x.png 2x" loading="lazy">`;
-        }
-      };
+      const hash = location.hash || '';
+      let components = [];
 
       // fade-out css effect on the old elements. This is actually not visible on fast browsers
-      $('#componentContainer').addClass('remove-items');
+      componentContainerEl.classList.add('remove-items');
 
       if (hash.indexOf('#search/') === -1) {
         // reset search box when not searching
-        jQuery('.component-search input').val(null);
+        searchInputEl.value = null;
       }
 
       if (hash === '#all') {
         // shortcut: no need to filter
-        data.components = allComponents;
+        components = allComponents;
       } else {
-        if (hash.indexOf('#search/') === 0) {
+        let filter, search;
+        if (hash.indexOf(SEARCH_PREFIX) === 0) {
           // search through title and category
-          search = decodeURIComponent(hash).substring(8).toLowerCase();
-          filter = function (comp) {
-            return (
-              comp.search.indexOf(search) !== -1 ||
-              comp.cat.find((c) => c.includes("#")) != undefined
-            );
-          };
+          search = decodeURIComponent(hash).substring(SEARCH_PREFIX.length).toLowerCase();
+          filter = comp => 
+            comp.search.indexOf(search) !== -1 ||
+            comp.cat.find((c) => c.includes("#")) != undefined;
 
         } else if (hash === '#featured' || hash === '') {
           // only show those with featured = true
-          filter = function (comp) {
-            return comp.featured;
-          };
+          filter = comp => comp.featured;
 
         } else if (hash === '#works-with-home-assistant') {
           // only show those partners of the Works with Home Assistant program
-          filter = function (comp) {
-            return comp.wwha;
-          };
+          filter = comp => comp.wwha;
 
-        } else if (hash.indexOf('#version/') === 0) {
+        } else if (hash.indexOf(VERSION_PREFIX) === 0) {
           // compare against a version
-          search = decodeURIComponent(hash).substring(9).toLowerCase();
-          filter = function (comp) {
-            // compare version string against version js
-            return comp.v === search;
-          };
+          search = decodeURIComponent(hash).substring(VERSION_PREFIX.length).toLowerCase();
+          // compare version string against version js
+          filter = comp => comp.v === search;
 
         } else {
           // regular filter categories
           search = hash.substring(1);
-          filter = function (comp) {
-            return comp.cat.includes(search);
-          };
+          filter = comp => comp.cat.includes(search);
         }
 
         // filter all components using the filter function
-        for (i = 0; i < (allComponents.length); i++) {
-          if (filter(allComponents[i])) {
-            data.components.push(allComponents[i]);
-          }
-        }
+        components = allComponents.filter(filter);
       }
 
-      rendered = Mustache.render(template, data);
+      let rendered;
+      if (components.length > 0) {
+        // Note: Assumes all data has already been sanitized
+        rendered = components.map(component => `
+          <a href="${component.url}" class="option-card">
+            <div class="img-container">${buildImageEl(component)}</div>
+            <div class='title'>${component.title}</div>
+          </a>
+          `).join('\n');
+      } else {
+        rendered = '<div class="alert alert-note"><p class="alert-content">Nothing found!</p></div>';
+      }
 
       // set active class on active menu item
-      jQuery('.filter-button-group a.active').removeClass('active');
-      jQuery(`.filter-button-group a[href="${hash}"]`).addClass('active');
+      document.querySelector('.filter-button-group a.active')?.classList?.remove?.('active');
+      document.querySelector(`.filter-button-group a[href="${hash}"]`)?.classList?.add?.('active');
       if (hash === "") {
-        jQuery('.filter-button-group a[href*="#featured"]').addClass('active');
+        document.querySelector('.filter-button-group a[href*="#featured"]').classList.add('active');
       }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
-      $('#componentContainer').html('').removeClass('show-items remove-items').html(rendered).addClass('show-items');
-      logoLazyLoad.update();
+      componentContainerEl.innerHTML = '';
+      componentContainerEl.classList.remove('show-items');
+      componentContainerEl.classList.remove('remove-items');
+      componentContainerEl.innerHTML = rendered;
+      componentContainerEl.classList.add('show-items');
     }
 
-    /**
-     * update the browser location hash. This enables users to use the browser-history
-     */
-    function updateHash(newHash) {
-      if ('pushState' in history) {
-        history.pushState('', '', newHash);
-      } else {
-        location.hash = newHash;
-      }
+    function buildImageEl(component) {
+      const urlBase = [
+        'https://brands.home-assistant.io',
+        component.ha_brand ? 'brands' : '_',
+        component.domain,
+        'icon'
+      ].join('/');
+
+      return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
     }
 
     // update view by filter selection
-    jQuery('.filter-button-group a').click(function () {
-      updateHash(this.getAttribute('href'));
-      applyFilter();
-
-      return false;
-    });
+    for (let filterLink of document.querySelectorAll('.filter-button-group a')) {
+      filterLink.addEventListener('click', () => {
+        history.pushState('', '', filterLink.getAttribute('href'));
+        applyFilter();
+        return false;
+      });
+    }
 
     // update view on select change
-    jQuery('select').change(function () {
-      updateHash(this.value);
+    const versionsEl = document.getElementById('versions');
+    versionsEl.addEventListener('change', () => {
+      history.pushState('', '', versionsEl.value);
       applyFilter();
+    });
 
-      return false;
+    const categoriesEl = document.getElementById('categories');
+    categoriesEl.addEventListener('change', () => {
+      history.pushState('', '', categoriesEl.value);
+      applyFilter();
     });
 
     /**
-     * Simple debounce implementation, based on http://davidwalsh.name/javascript-debounce-function
+     * Simple debounce implementation
      */
-    function debounce(func, wait, immediate) {
-      var timeout;
-      return function () {
-        var context = this,
-          args = arguments;
-        var later = function () {
-          timeout = null;
-          if (!immediate) {
-            func.apply(context, args);
-          }
-        };
-        var callNow = immediate && !timeout;
+    function debounce(func, wait) {
+      let timeout;
+      return () => {
         clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-        if (callNow) {
-          func.apply(context, args);
-        }
+        timeout = setTimeout(func, wait);
       };
     };
 
     // update view by search text
-    $('.component-search input').keyup(debounce(function () {
-      var text = $(this).val();
-      // sanitize input
-      text = text.replace(/[(\?|\&\{\}\(\))]/gi, '').trim();
-      if (typeof text === "string" && text.length >= 1) {
-        updateHash('#search/' + text);
+    searchInputEl.addEventListener('keyup', debounce(() => {
+      const text = searchInputEl.value
+        // sanitize input
+        .replace(/[(\?|\&\{\}\(\))]/gi, '')
+        .trim();
+      
+      let newHash = typeof text === "string" && text.length >= 1
+        ? SEARCH_PREFIX + text
+        : '#all';
+      // Only apply filter if hash has changed
+      if (newHash !== window.location.hash) {
+        history.pushState('', '', newHash);
+        applyFilter();
       }
-      else {
-        updateHash('#all');
-      }
-      applyFilter();
     }, 500));
 
     window.addEventListener('hashchange', applyFilter);

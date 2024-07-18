@@ -2,7 +2,7 @@
 type: card
 title: "Picture card"
 sidebar_label: Picture
-description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action."
 related:
   - docs: /dashboards/actions/
     title: Card actions
@@ -12,14 +12,14 @@ related:
     title: Dashboard cards
 ---
 
-The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action.
 
 <p class='img'>
 <img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 
@@ -70,7 +70,7 @@ tap_action:
 
 Check the [views](/dashboards/views/) setup on how to setup custom IDs.
 
-Toggle entity using a service:
+Toggle entity using an action:
 
 ```yaml
 type: picture

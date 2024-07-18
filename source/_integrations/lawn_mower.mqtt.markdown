@@ -12,7 +12,7 @@ The `mqtt` `lawn_mower` platform allows controlling a lawn mower over MQTT.
 
 ## Configuration
 
-To enable MQTT lawn mower in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT lawn mower in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -121,7 +121,7 @@ dock_command_template:
   required: false
   type: template
 dock_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.dock` service call is executed. The value `dock` is published when the service is called. Use a `dock_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.dock` action is performed. The value `dock` is published when the action is used. Use a `dock_command_template` to publish a custom format.
   required: false
   type: string
 enabled_by_default:
@@ -168,7 +168,7 @@ pause_command_template:
   required: false
   type: template
 pause_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.pause` service call is executed. The value `pause` is published when the service is called. Use a `pause_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.pause` action is performed. The value `pause` is published when the action is used. Use a `pause_command_template` to publish a custom format.
   required: false
   type: string
 qos:
@@ -181,7 +181,7 @@ start_mowing_template:
   required: false
   type: template
 start_mowing_command_topic:
-  description: The MQTT topic that publishes commands when the service `lawn_mower.start_mowing` service call is executed. The value `start_mowing` is published when the service is called. Use a `start_mowing_command_template` to publish a custom format.
+  description: The MQTT topic that publishes commands when the `lawn_mower.start_mowing` action is performed. The value `start_mowing` is published when the action used. Use a `start_mowing_command_template` to publish a custom format.
   required: false
   type: string
 retain:
@@ -195,11 +195,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Example
 

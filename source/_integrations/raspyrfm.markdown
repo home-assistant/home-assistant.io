@@ -9,15 +9,21 @@ ha_domain: raspyrfm
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `raspyrfm` integration adds support for cheap RC 433 MHz outlets via one of the supported gateways.
+The `raspyrfm` {% term integration %} adds support for cheap RC 433 MHz outlets via one of the supported gateways.
 
 Initially, this integration was created to support the Simple Solutions `ConnAir` gateway which has been discontinued. There are custom alternatives that reimplemented the protocol used by the ConnAir gateway like this [ConnAir emulator](https://github.com/Phunkafizer/RaspyRFM#connairpy) which can be used in conjunction with the [RaspyRFM-II](https://www.seegel-systeme.de/produkt/raspyrfm-ii) RC module for a Raspberry Pi.
 
 Other vendors of 433 MHz RC outlets have also created gateways that use a very similar protocol and can also be used with this integration like the Intertechno [ITGW-433 LAN Gateway](https://www.intertechno24.de/LAN-Gateway/Gateway-ITGW-433.html).
 
 ## Configuration
+
+To use the RaspyRFM {% term integration %} in your installation, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,11 +94,9 @@ Depending on the control unit the channel configuration can have varying formats
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend) the state is known and will be shown in the frontend.
 
-<div class='note warning'>
-
+{% note %}
 Note that due to the way those cheap RC units work it is **not possible to query their current state**. Therefore the only way to preserve a consistent state within Home Assistant is to only use Home Assistant as the controller.
-
-</div>
+{% endnote %}
 
 ## Full example
 

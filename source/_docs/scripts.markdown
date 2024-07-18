@@ -2,7 +2,6 @@
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
 toc: true
-no_toc: true
 ---
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
@@ -33,9 +32,9 @@ script:
 
 {{ page.content | markdownify | toc_only }}
 
-## Call a service
+## Perform an action
 
-The most important one is the action to call a {% term service %}. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
+Performing an action can be done in various ways. For all the different possibilities, have a look at the [actions page].
 
 ```yaml
 - alias: "Bedroom lights on"
@@ -48,7 +47,7 @@ The most important one is the action to call a {% term service %}. This can be d
 
 ### Activate a scene
 
-Scripts may also use a shortcut syntax for activating {% term scenes %} instead of calling the `scene.turn_on` service.
+Scripts may also use a shortcut syntax for activating {% term scenes %} instead of calling the `scene.turn_on` action.
 
 ```yaml
 - scene: scene.morning_living_room
@@ -131,11 +130,9 @@ sequence:
 
 While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. For documentation on the many different conditions refer to the [conditions page].
 
-<div class='note'>
-
+{% note %}
 The `condition` {% term action %} only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the {% term actions %} within that `choose` will stop.
-
-</div>
+{% endnote %}
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -186,6 +183,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Supports milliseconds, seconds, minutes, hours, days
 # Can be used in combination, at least one required
+# When using milliseconds, consider that delay as *at least* X milliseconds. It won´t be exact.
 # Waits 1 minute
 - delay:
     minutes: 1
@@ -281,11 +279,11 @@ Without `continue_on_timeout: false` the script will always continue since the d
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
-Variable | Description
--|-
-`wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise
-`wait.trigger` | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired
-`wait.remaining` | Timeout remaining, or `none` if a timeout was not specified
+| Variable         | Description                                                                                                                                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise                                                                                                                                                   |
+| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
+| `wait.remaining` | Timeout remaining, or `none` if a timeout was not specified                                                                                                                                                                             |
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
@@ -571,11 +569,11 @@ For example:
 A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
 
-field | description
--|-
-`first` | True during the first iteration of the repeat sequence
-`index` | The iteration number of the loop: 1, 2, 3, ...
-`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+| field   | description                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------- |
+| `first` | True during the first iteration of the repeat sequence                                       |
+| `index` | The iteration number of the loop: 1, 2, 3, ...                                               |
+| `last`  | True during the last iteration of the repeat sequence, which is only valid for counted loops |
 
 ## If-then
 
@@ -753,6 +751,48 @@ automation:
 
 {% endraw %}
 
+## Grouping actions
+
+The `sequence` {% term action %} allows you to group multiple {% term actions %}
+together. Each action will be executed in order, meaning the next action will
+only be executed after the previous action has been completed.
+
+Grouping actions in a sequence can be useful when you want to be able to
+collapse related groups in the user interface for organizational purposes.
+
+Combined with the [`parallel`](#parallelizing-actions) action, it can also be
+used to run multiple groups of actions in a sequence in parallel.
+
+In the example below, two separate groups of actions are executed in sequence,
+one for turning on devices, the other for sending notifications. Each group of
+actions is executed in order, this includes the actions in each group and the
+groups themselves. In total, four actions are executed, one after the other.
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - alias: "Turn on devices"
+        sequence:
+          - service: light.turn_on
+            target:
+              entity_id: light.ceiling
+          - service: siren.turn_on
+            target:
+              entity_id: siren.noise_maker
+      - alias: "Send notifications"
+        sequence:
+          - service: notify.person1
+            data:
+              message: "The motion sensor was triggered!"
+          - service: notify.person2
+            data:
+              message: "Oh oh, someone triggered the motion sensor..."
+```
+
 ## Parallelizing actions
 
 By default, all sequences of {% term actions %} in Home Assistant run sequentially. This
@@ -802,8 +842,7 @@ script:
               message: "I am sent immediately and do not await the above action!"
 ```
 
-<div class='note'>
-
+{% warning %}
 Running {% term actions %} in parallel can be helpful in many cases, but use it with
 caution and only if you need it.
 
@@ -811,8 +850,7 @@ There are some caveats (see below) when using parallel actions.
 
 While it sounds attractive to parallelize, most of the time, just the regular
 sequential {% term actions %} will work just fine.
-
-</div>
+{% endwarning %}
 
 Some of the caveats of running {% term actions %} in parallel:
 
@@ -863,8 +901,8 @@ By default, a sequence of {% term actions %} will be halted when one of the {% t
 that sequence encounters an error. The {% term automation %} or script will be halted,
 an error is logged, and the {% term automation %} or script run is marked as errored.
 
-Sometimes these errors are expected, for example, because you know the service
-you call can be problematic at times, and it doesn't matter if it fails.
+Sometimes these errors are expected, for example, because you know the action
+you perform can be problematic at times, and it doesn't matter if it fails.
 You can set `continue_on_error` for those cases on such an {% term action %}.
 
 The `continue_on_error` is available on all {% term actions %} and is set to
@@ -916,6 +954,25 @@ script:
           entity_id: light.ceiling
 ```
 
+Actions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+
+  action:
+    - delay: 0:35
+      enabled: !input input_boolean
+```
+
+{% endraw %}
+
 ## Respond to a conversation
 
 The `set_conversation_response` script {% term action %} allows returning a custom response
@@ -949,7 +1006,7 @@ will not be used by anything.
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[service calls page]: /docs/scripts/service-calls/
+[actions page]: /docs/scripts/service-calls/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

@@ -19,7 +19,7 @@ The picture glance card shows an image and lets you place small icons of entity 
   Picture glance card for a living room.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 
@@ -183,7 +183,7 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
 4. Select **Show code editor**.
 5. For each of the entities, specify an icon, as indicated in the YAML example.
 6. For the buttons to react on press (instead of bringing up the dialog):
-   - For each of the entities, under `tap_action`, call a `button.press` service.
+   - For each of the entities, under `tap_action`, use a `button.press` action.
 
     ```yaml
     camera_view: live

@@ -7,7 +7,7 @@ description: "Extended instructions how to setup Z-Wave."
 
 You need to have a compatible Z-Wave stick or module installed. The following devices have been confirmed to work with Z-Wave JS:
 
-<div class='note warning'>
+{% warning %}
 
 Until recently, 700 series Z-Wave Controllers had a bug that could cause the mesh to be flooded on some networks and the controller to become unresponsive. At present, all 700 series controllers share the same firmware and are subject to this bug. It appears that this bug is largely, if not completely, resolved as of firmware version 7.17.2.
 
@@ -18,10 +18,11 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 - [Upgrade instructions using Windows (Zooz)](https://www.support.getzooz.com/kb/article/931-how-to-perform-an-ota-firmware-update-on-your-zst10-700-z-wave-stick/)
 - [Upgrade instructions using Windows/Linux (Z-Wave.Me)](https://z-wave.me/support/uzbrazberry-firmwares/)
 
-</div>
+{% endwarning %}
 
 - 800 series controllers (with some caveats, see notes)
   - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+  - HomeSeer SmartStick G8
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
@@ -49,9 +50,9 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 
 If you are just starting out, we recommend that you purchase a 700 series controller or a Raspberry Pi module. The 700 series controllers are the more recent version (when compared to the 500 series). The 700 series controllers support SmartStart, which allows you to add a device by scanning a QR code.
 
-<div class='note'>
-  If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
-</div>
+{% tip %}
+If you're using Home Assistant OS, Supervised, or Container, it's recommended to use a USB stick, not a module. Passing a module through Docker is more complicated than passing a USB stick through.
+{% endtip %}
 
 ## Stick alternatives
 
@@ -70,11 +71,9 @@ Z-Wave JS does not support Z-Wave Long Range yet.
 
 ### Aeotec Z-Stick
 
-<div class='note'>
-
-There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using paired with a Pi 4.
-
-</div>
+{% note %}
+There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not connecting when plugged directly on the Raspberry Pi 4, and requiring a USB Hub to work. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using one paired with a Pi 4.
+{% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.
 
@@ -126,23 +125,17 @@ sudo systemctl disable hciuart
 
 You should also check the README for details on the overlays. You might find it in `/boot/overlays/README` on your SD-card. If it is not there you can find [the official version here](https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README).
 
-<div class='note'>
+{% note %}
+It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
+{% endnote %}
 
-  It is possible to keep a limited Bluetooth functionality while using Razberry Z-Wave. Check `boot/overlays/README` on `miniuart-bt`.
+{% note %}
+`disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
+{% endnote %}
 
-</div>
-
-<div class='note'>
-
-  `disable-bt` was previously known as `pi3-disable-bt`. If your OS is old, you might need to use this instead.
-
-</div>
-
-<div class='note'>
-
-  If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS instead of Z-Way, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`. Alternatively, you could use the [Z-Wave.Me](/integrations/zwave_me) integration.
-
-</div>
+{% note %}
+If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS instead of Z-Way, you'll need to ensure you disable it before you install Home Assistant, or you won't be able to access the board. Do this with `sudo /etc/init.d/z-way-server stop; sudo update-rc.d z-way-server disable`. Alternatively, you could use the [Z-Wave.Me](/integrations/zwave_me) integration.
+{% endnote %}
 
 #### Setting up a Raspberry Pi Z-Wave module on Home Assistant Yellow
 

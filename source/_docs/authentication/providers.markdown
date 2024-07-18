@@ -1,25 +1,28 @@
 ---
 title: "Authentication providers"
 description: "Guide on configuring different authentication providers."
+related:
+  - docs: /docs/configuration/
+    title: configuration.yaml file
 ---
 
-<div class='note warning'>
+{% caution %}
   This is an advanced feature.
-</div>
+{% endcaution %}
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
 ## Configuring auth providers
 
-<div class='note warning'>
+{% warning %}
 
-Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your `configuration.yaml` file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
+Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your {% term "`configuration.yaml`" %} file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
 If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider` with `type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
-</div>
+{% endwarning %}
 
-Authentication providers are configured in your `configuration.yaml` under the `homeassistant:` block. 
+Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
 If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
 
 
@@ -44,7 +47,7 @@ User details are stored in the `[your config]/.storage`  directory. All password
 
 Users can be managed in Home Assistant by the owner. Go to the configuration panel and click on _{% my users %}_.
 
-This is the entry in `configuration.yaml` for Home Assistant auth:
+This is the entry in {% term "`configuration.yaml`" %} for Home Assistant auth:
 
 ```yaml
 homeassistant:
@@ -52,7 +55,7 @@ homeassistant:
     - type: homeassistant
 ```
 
-If you don't specify any `auth_providers` section in the `configuration.yaml` file then this provider will be set up automatically.
+If you don't specify any `auth_providers` section in the {% term "`configuration.yaml`" %} file then this provider will be set up automatically.
 
 ### Trusted networks
 
@@ -60,19 +63,15 @@ The trusted networks auth provider defines a range of IP addresses for which no 
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
-<div class='note info'>
-
+{% note %}
 The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+{% endnote %}
 
-</div>
-
-<div class='note info'>
-
+{% important %}
 You cannot trust a network that you are using in any [trusted_proxies](/integrations/http/#reverse-proxies). The `trusted_networks` authentication will fail with the message: Your computer is not allowed
+{% endimportant %}
 
-</div>
-
-Here is an example in `configuration.yaml` to set up Trusted Networks:
+Here is an example in {% term "`configuration.yaml`" %} to set up Trusted Networks:
 
 ```yaml
 homeassistant:
@@ -188,10 +187,10 @@ Leading and trailing whitespace, as well as lines starting with `#` are ignored.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
-<div class='note'>
+{% note %}
 Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</div>
+{% endnote %}
