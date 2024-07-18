@@ -106,7 +106,7 @@ template:
           config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
         response_variable: result
     sensor:
-      - name: Dinner Today
+      - name: "Dinner today"
         unique_id: mealie_dinner_today
         state: >
           {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
