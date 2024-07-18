@@ -79,7 +79,7 @@ filters:
   type: list
   keys:
     filter:
-      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
+      description: Algorithm to be used to filter data. Available filters are  `lowpass`, `offset, ``outlier`, `range`, `throttle`, `time_throttle` and `time_simple_moving_average`.
       required: true
       type: string
     precision:
@@ -117,6 +117,11 @@ filters:
       required: false
       type: float
       default: positive infinity
+    offset:
+      description: See [_offset_](#offset) filter. Constant offset for filter to add.
+      required: false
+      type: float
+      default: 0
 {% endconfiguration %}
 
 {% warning %}
@@ -135,6 +140,14 @@ The included Low-pass filter is very basic and is based on [exponential smoothin
 B = 1.0 / time_constant
 A = 1.0 - B
 LowPass(state) = A * previous_state + B * state
+```
+
+### Offset
+
+The Offset filter (`offset`) is a very basic filter, as it adds a constant `offset` to the value.
+
+```python
+new_state = state + offset
 ```
 
 ### Outlier
