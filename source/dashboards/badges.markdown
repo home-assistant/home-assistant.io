@@ -12,7 +12,7 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 
 ## Entity Badge
 
-The Entity badge allows you to display the state of an entity on an badge. This badge supports [actions](/dashboards/actions/).
+The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
 
 ```yaml
 type: entity
