@@ -72,7 +72,7 @@ Z-Wave JS does not support Z-Wave Long Range yet.
 ### Aeotec Z-Stick
 
 {% note %}
-There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not working on the Raspberry Pi 4. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using paired with a Pi 4.
+There are [known compatibility issues](https://www.raspberrypi.org/forums/viewtopic.php?f=28&t=245031#p1502030) with older hardware versions of the Aeotec stick not connecting when plugged directly on the Raspberry Pi 4, and requiring a USB Hub to work. Aeotec has released a 2020 hardware revision ZW090-A/B/C Gen5+ with Pi 4 compatibility. Both hardware revisions are still being sold, make informed purchasing decisions if using one paired with a Pi 4.
 {% endnote %}
 
 It's totally normal for your Z-Wave stick to cycle through its LEDs (Yellow, Blue and Red) while plugged into your system.

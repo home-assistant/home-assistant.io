@@ -2,7 +2,6 @@
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
 toc: true
-no_toc: true
 ---
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
