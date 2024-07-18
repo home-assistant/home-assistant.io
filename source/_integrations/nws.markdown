@@ -51,10 +51,10 @@ The response data field is a mapping of called target entities, each containing 
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
-| `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00
-| `is_daytime` | Only set for `twice_daily` forecasts. | True
-| `detailed_description` | Only set for `twice_daily` forecasts. | 50% Chance of rain, otherwise partly cloudy with a high of 75F.
-| `short_description` | Short weather condition | Partly Sunny then Slight Chance Showers And Thunderstorms
+| `datetime` | The time of the forecasted conditions. | 2023-02-17T14:00:00+00:00 |
+| `is_daytime` | Only set for `twice_daily` forecasts. | True |
+| `detailed_description` | Only set for `twice_daily` forecasts. | 50% Chance of rain, otherwise partly cloudy with a high of 75F. |
+| `short_description` | Short weather condition | Partly Sunny then Slight Chance Showers And Thunderstorms |
 
 ## Details
 
