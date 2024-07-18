@@ -55,7 +55,7 @@ theme:
   type: string
 show_empty:
   required: false
-  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false`, hides that empty card instead.
+  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
   default: true
   type: boolean
 {% endconfiguration %}
