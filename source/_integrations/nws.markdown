@@ -34,7 +34,7 @@ One weather entity is created for each entry in the configuration. Hourly and da
 
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
-| `type` | no | The type of forecast, must be one of `twice_daily` or `hourly`. | `twice_daily`
+| `type` | no | The type of forecast, must be either `twice_daily` or `hourly`. | `twice_daily` |
 
 ```yaml
 service: nws.get_forecasts_extra
