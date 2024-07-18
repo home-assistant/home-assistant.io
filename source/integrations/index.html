@@ -23,8 +23,8 @@ regenerate: false
 {%- assign components = site.integrations | sort: 'title' -%}
 {%- assign components_by_version = site.integrations | group_components_by_release -%}
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
-{%- assign iot_classes = components | map: 'ha_iot_class' | join: ',' | join: ',' | split: ',' | uniq | sort -%}
-{%- assign quality_scales = components | map: 'ha_quality_scale' | join: ',' | join: ',' | split: ',' | uniq | sort  -%}
+{%- assign iot_classes = "Local Push,Local Polling,Cloud Push,Cloud Polling,Assumed State,Calculated,Configurable" | join: ',' | join: ',' | split: ',' -%}
+{%- assign quality_scales = "platinum,gold,silver,internal" | join: ',' | join: ',' | split: ',' -%}
 
 <div class="grid">
 
@@ -221,14 +221,14 @@ integrations.pop(); // remove placeholder element at the end
 
       //on initial page load, if there's no active filters set the default to featured
       let query = buildQueryFromURL();
-      console.log('init:', query);
 
       if (query !== null) {
         if (Object.keys(query).length === 0) {
-          console.log('setQueryURL');
           setQueryURL('brands', 'featured');
         } else {
-          searchInputDirty = true;
+          if (query['brands'] !== 'featured') {
+            searchInputDirty = true;
+          }
         }
       }
       applyFilter();
