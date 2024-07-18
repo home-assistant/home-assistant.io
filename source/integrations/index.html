@@ -221,10 +221,12 @@ integrations.pop(); // remove placeholder element at the end
 
       //on initial page load, if there's no active filters set the default to featured
       let query = buildQueryFromURL();
+      console.log('init:', query);
 
       if (query !== null) {
         if (Object.keys(query).length === 0) {
-          updateQueryURL('brands', 'featured');
+          console.log('setQueryURL');
+          setQueryURL('brands', 'featured');
         } else {
           searchInputDirty = true;
         }
@@ -326,8 +328,9 @@ integrations.pop(); // remove placeholder element at the end
       return queryFilter;
     }
 
-    // filter all components, based on the locations hash/search and render them into the component box
-    function applyFilter() {
+    // filter all components, based on the url hash/search query string and render them into the component box
+    // if a custom query is provided, this will override all current filters, and update the url / elements accordingly
+    function applyFilter(query = false) {
       var data = {
         components: []
       };
@@ -335,7 +338,13 @@ integrations.pop(); // remove placeholder element at the end
       // fade-out css effect on the old elements. This is actually not visible on fast browsers
       componentContainerEl.classList.add('remove-items');
 
-      let query = buildQueryFromURL();
+      // make sure no query exists and its not an event object being passed in
+      if (!query || query.target) {
+        query = buildQueryFromURL();
+      } else {
+        //set url to custom query filter
+        overrideQueryURL(query)
+      }
 
       // update dom elements to match new filters
       updateFilterButtons(query);
@@ -393,7 +402,7 @@ integrations.pop(); // remove placeholder element at the end
           </a>
           `).join('\n');
       } else {
-        rendered = '<div class="alert alert-note"><p class="alert-content">Nothing found!</p></div>';
+        rendered = '<div class="alert alert-note"><p class="alert-content">No results matching this filter</p></div>';
       }
 
       // remove previous elements and css classes, add the new stuff and then trigger the fade-in css animation
@@ -404,14 +413,13 @@ integrations.pop(); // remove placeholder element at the end
       componentContainerEl.classList.add('show-items');
     }
 
-    // update the browser location search. This enables users to use the browser-history
-    // used for adding / updating a filter in the url
-    function updateQueryURL(id, value) {
+    // add / update a filter in the url, upated # urls to query string urls
+    function setQueryURL(id, value) {
       const hashExists = location.hash !== '';
       let queryParams = new URLSearchParams(location.search);
       let query = buildQueryFromURL();
 
-      // append url to query
+      // append new query string
       if (hashExists) {
         location.hash = '';
 
@@ -463,6 +471,34 @@ integrations.pop(); // remove placeholder element at the end
       }
     }
 
+    //override current url filters with a new custom filter
+    function overrideQueryURL(query) {
+      const hashExists = location.hash !== '';
+      let newURL;
+      const newSearchParams = new URLSearchParams();
+
+      if (hashExists) {
+        location.hash = '';
+      }
+
+      Object.keys(query).forEach(key => {
+        newSearchParams.set(key, query[key])
+      })
+
+      if (newSearchParams.toString() !== '') {
+        let baseURL = getCleanURL();
+        newURL = `${baseURL}?${newSearchParams.toString()}`
+      } else {
+        newURL = getCleanURL();
+      }
+
+      if ('pushState' in history) {
+        history.pushState('', '', newURL);
+      } else {
+        location.href = newURL;
+      }
+    }
+
     function getCleanURL() {
       const baseUrlRegex = /(^.*)(?=[\?#])/;
       let url = '';
@@ -480,7 +516,7 @@ integrations.pop(); // remove placeholder element at the end
     }
 
     //update a specific filter radio / dropdown / search. used in updateFilterElements()
-    function matchFilterToURL(id, query) {
+    function matchFilterElementToQuery(id, query) {
       //dynamically grab select variables
       let $filterElement = window[`$${id}Filter`];
       if (id === 'search') {
@@ -491,7 +527,7 @@ integrations.pop(); // remove placeholder element at the end
       } else if (id === 'brands') {
         $filterElement.forEach(option => {
           if (option.value.trim() === query.trim() && !option.checked) {
-            option.click();
+            option.checked = true;
           }
         });
       } else {
@@ -516,8 +552,7 @@ integrations.pop(); // remove placeholder element at the end
       let activeFilterElements = filterElements.filter(el => !(el.value === '#' || el.value === '' || el.checked === false));
 
       if (queryFilter === null) {
-        clearURL();
-        // resetFilterElements will match elements to querystring in url
+        // resetFilterElements will match elements to query string filter in url
         resetFilterElements(activeFilterElements);
         return;
       }
@@ -525,20 +560,20 @@ integrations.pop(); // remove placeholder element at the end
       // clear filters if there's more than the current queryFilter
       if (activeFilterElements.length > Object.keys(queryFilter).length) {
         // filter out filter elements that don't match query object
-        let filtersToClear = activeFilterElements.filter(el => {
+        let filtersToReset = activeFilterElements.filter(el => {
           for (key in queryFilter) {
              if (el.getAttribute('data-id') === key) return false;
           }
           return true;
         });
 
-        // reset filter elements to default empty value
-        resetFilterElements(filtersToClear);
+        // set filter elements to default 'All' value
+        resetFilterElements(filtersToReset);
       } else {
          // update new filters
          if (Object.keys(queryFilter).length) {
           for (key in queryFilter) {
-            matchFilterToURL(key, queryFilter[key]);
+            matchFilterElementToQuery(key, queryFilter[key]);
           }
         }
       }
@@ -548,18 +583,18 @@ integrations.pop(); // remove placeholder element at the end
       elementArray.forEach(element => {
         let queryId = element.getAttribute('data-id');
         if (queryId === 'search') {
-          matchFilterToURL(queryId, '');
+          matchFilterElementToQuery(queryId, '');
         } else if (queryId === 'brands') {
-          matchFilterToURL(queryId, 'all');
+          matchFilterElementToQuery(queryId, 'all');
         } else {
-          matchFilterToURL(queryId, '#');
+          matchFilterElementToQuery(queryId, '#');
         }
       });
     }
 
     function resetAllFilters() {
-      updateFilterElements(null);
-      updateFilterButtons(null)
+      clearURL();
+      applyFilter()
     }
 
     // filter button name cleanup. used in updateFilterButtons()
@@ -605,41 +640,44 @@ integrations.pop(); // remove placeholder element at the end
         return;
       }
 
-      // remove buttons if there's more than the current queryFilter
-      if (currentFilterButtons.length > Object.keys(queryFilter).length) {
-        // filter out buttons that dont match query obj
-        let buttonsToRemove = currentFilterButtons.filter(button => {
-          for (key in queryFilter) {
-            if (button.dataset.id === key) {
-              return false;
+      // update text of buttons if filter value has changed
+      updateFilterButtonsText(currentFilterButtons, queryFilter);
+
+      // create a filter button if missing for current filter
+      createFilterButtons(filterButtonParent, queryFilter)
+
+      // remove buttons that don't match current filter
+      if (currentFilterButtons.length >= Object.keys(queryFilter).length) {
+      // filter out buttons that don't match query obj
+        removeFilterButtons(currentFilterButtons, queryFilter)
+      }
+    }
+
+    // update text of buttons if filter value has changed // used in updateFilterButtons
+    function updateFilterButtonsText(buttons, query) {
+      buttons.forEach(button => {
+        for (key in query) {
+          if (button.dataset.id === key) {
+            // check for mismatched filter value
+            if (button.dataset.filter !== query[key]) {
+              button.dataset.filter = query[key];
+              button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
             }
           }
-          return true;
-        });
-        buttonsToRemove.forEach(button => button.remove());
-      } else if (currentFilterButtons.length === Object.keys(queryFilter).length) {
-        // update text of buttons if changed
-        currentFilterButtons.forEach(button => {
-          for (key in queryFilter) {
-             if (button.dataset.id === key) {
-              // check for mismatched filter value
-               if (button.dataset.filter !== queryFilter[key]) {
-                 button.dataset.filter = queryFilter[key];
-                 button.innerHTML = `<span>${getButtonText(key, queryFilter[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
-               }
-             }
-          }
-        });
-      } else {
-        //create a filter button if one doesn't already exists
-        for (key in queryFilter) {
+        }
+      });
+    }
+
+    // create a filter button if it's missing from current applied filter // used in updateFilterButtons
+    function createFilterButtons(buttonParent, query) {
+      for (key in query) {
           if (document.querySelector(`.component-search .active-filter[data-id="${key}"]`) === null) {
             let button = document.createElement('button');
-            button.innerHTML = `<span>${getButtonText(key, queryFilter[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
+            button.innerHTML = `<span>${getButtonText(key, query[key])} <iconify-icon icon="mdi:close-circle"></iconify-icon></span>`;
             button.classList.add('active-filter');
             button.dataset.id = key;
-            button.dataset.filter = queryFilter[key]
-            //add click listener to button to remove filter
+            button.dataset.filter = query[key]
+            // add click listener to button to remove filter
             button.addEventListener('click', function() {
               removeQueryFromURL(this.dataset.id);
               applyFilter();
@@ -647,10 +685,22 @@ integrations.pop(); // remove placeholder element at the end
             }, {once:true});
 
             //add button to the dom
-            filterButtonParent.appendChild(button);
+            buttonParent.appendChild(button);
           }
         }
-      }
+    }
+
+    // remove buttons that don't match current filter // used in updateFilterButtons
+    function removeFilterButtons(buttons, query) {
+      let buttonsToRemove = buttons.filter(button => {
+          for (key in query) {
+            if (button.dataset.id === key) {
+              return false;
+            }
+          }
+          return true;
+        });
+        buttonsToRemove.forEach(button => button.remove());
     }
 
     function buildImageEl(component) {
@@ -670,7 +720,7 @@ integrations.pop(); // remove placeholder element at the end
       let value = select.value;
 
       if (value !== '#') {
-        updateQueryURL(id, value);
+        setQueryURL(id, value);
       } else {
         // clear current filter
         removeQueryFromURL(id);
@@ -682,18 +732,18 @@ integrations.pop(); // remove placeholder element at the end
     }));
 
     // update view on radio change
-    integrationRadioFilterElements.forEach(radioInput => radioInput.addEventListener("change", () => {
+    integrationRadioFilterElements.forEach(radioInput => radioInput.addEventListener("click", () => {
       let id = radioInput.name;
       let value = radioInput.value;
 
       if (radioInput.checked && value !== 'all') {
-          updateQueryURL(id, value);
+        //clear all current filters, append new brand filter selection
+        applyFilter({'brands': value});
       } else if (radioInput.checked && value === 'all') {
         // clear current filter
         removeQueryFromURL(id);
+        applyFilter();
       }
-
-      applyFilter();
 
       return false;
     }))
@@ -719,7 +769,7 @@ integrations.pop(); // remove placeholder element at the end
           searchInputDirty = true;
         }
 
-        updateQueryURL('search', value);
+        setQueryURL('search', value);
         applyFilter();
       }
       else {
