@@ -1,7 +1,7 @@
 ---
 title: iotty
 description: "Instructions on how to connect iotty Smart Devices to Home Assistant."
-ha_release: "0.38"
+ha_release: "2024.8"
 ha_category: "No score"
 ha_iot_class: "Cloud Polling"
 ha_quality_scale: no score
@@ -12,6 +12,8 @@ ha_domain: iotty
 ---
 
 The iotty family is focused on beautiful aesthetics and includes the Smart Switch for lights and gates, the Smart Shades Switch for blinds and shutters and the Smart Outlet. Install the iotty devices and enjoy your new Smart Home with ease!
+
+## Supported devices
 
 This integration currently supports the following iotty Devices:
 
