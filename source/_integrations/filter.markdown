@@ -13,9 +13,12 @@ ha_domain: filter
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `filter` platform enables sensors that process the states of other entities.
+The `filter` {% term integration %} enables sensors that process the states of other entities.
 
 `filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
@@ -25,7 +28,8 @@ The `filter` platform enables sensors that process the states of other entities.
 
 ## Configuration
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+To enable Filter Sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -115,11 +119,9 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
-<div class="note warning">
-
-When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance can to respond poorly during startup.
-
-</div>
+{% warning %}
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance to respond poorly during startup.
+{% endwarning %}
 
 ## Filters
 

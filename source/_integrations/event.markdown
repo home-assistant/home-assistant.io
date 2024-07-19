@@ -9,6 +9,11 @@ ha_domain: event
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed.
@@ -75,7 +80,16 @@ action:
 
 When creating automations in the automation editor in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember the different event types and can easily select them.
 
-## Device classes
+## Device class
+
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing device classes of the event entity:
+
+<p class='img'>
+<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing device classes of the event entity' />
+Example of different icons representing device classes of the event entity.
+</p>
 
 The following device classes are supported by event entities:
 
@@ -83,3 +97,9 @@ The following device classes are supported by event entities:
 - **button**: For remote control buttons.
 - **doorbell**: Specifically for buttons that are used as a doorbell.
 - **motion**: For motion events detected by a motion sensor.
+
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>

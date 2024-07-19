@@ -17,6 +17,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -26,7 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Lights and switches
 
-The myStrom integration allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
+The myStrom {% term integration %} allows you to control your [myStrom](https://mystrom.ch/) Wi-Fi Bulbs and Wi-Fi Switches. Make sure that you have enabled the REST API under **Advanced** in the web frontend of the switch.
 
 Supported devices are:
 
@@ -81,7 +84,8 @@ The buttons will give you feedback with its built-in LED:
 - white then green: Pattern was submitted successfully
 - white then red: There is a problem with the communication
 
-To use your myStrom WiFi Button in your installation, add the following to your `configuration.yaml` file:
+To use your myStrom WiFi Button in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,6 +93,6 @@ binary_sensor:
   - platform: mystrom
 ```
 
-<div class='note'>
+{% important %}
 The firmware version 2.56 doesn't support TLS/SSL. This means that you are only able to use the WiFi Buttons if you are using plain-text communication between Home Assistant and the clients/entities.
-</div>
+{% endimportant %}

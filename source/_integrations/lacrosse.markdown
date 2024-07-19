@@ -9,9 +9,12 @@ ha_domain: lacrosse
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `lacrosse` sensor platform is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
+The `lacrosse` sensor {% term integration %} is using the data provided by a [Jeelink](https://www.digitalsmarties.net/products/jeelink) USB dongle or this [Arduino sketch](https://svn.fhem.de/trac/browser/trunk/fhem/contrib/arduino/36_LaCrosse-LaCrosseITPlusReader.zip).
 
 ## Tested devices
 
@@ -41,7 +44,8 @@ For TX 29 DTH-IT sensors you can also read the ID from the display and calculate
 
 ## Configuration
 
-To use your `lacrosse` compatible sensor in your installation, add the following to your `configuration.yaml` file:
+To use your `lacrosse` compatible sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -106,7 +110,7 @@ sensor:
 
 ## Examples
 
-To setup a LaCrosse sensor with multiple sensors, add the following to your `configuration.yaml` file:
+To setup a LaCrosse sensor with multiple sensors, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

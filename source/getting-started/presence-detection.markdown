@@ -18,15 +18,15 @@ It's also possible to run an app on your phone to provide detailed location info
 
 During the setup of Home Assistant Companion on your mobile device, the app will ask for permission to allow the device's location to be provided to Home Assistant. Allowing this will create a `device_tracker` entity for that device which can be used in automations and conditions.
 
-
 ### Zones
+
 ![Map with zones](/images/screenshots/badges-zone.png)
 
 {% term Zones %} allow you to name areas on a map. These areas can then be used to name the location a tracked user is, or use entering/leaving a zone as an automation {% term trigger %} or {% term condition %}. See [Zones integration](/integrations/zone/) page for more details like creating zones.
 
-<div class='note'>
-The map view will hide all devices that are home.
-</div>
+{% note %}
+The <a href="/dashboards/map/">map dashboard</a> will hide all devices that are home.
+{% endnote %}
 
 [routers]: /integrations/#presence-detection
 [nmap]: /integrations/nmap_tracker
@@ -40,7 +40,6 @@ The map view will hide all devices that are home.
 [zone]: /integrations/zone/
 [trigger]: /getting-started/automation-trigger/#zone-trigger
 [condition]: /getting-started/automation-condition/#zone-condition
-[ha-map]: /integrations/map/
 [companion]: https://companion.home-assistant.io/
 
 {% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}

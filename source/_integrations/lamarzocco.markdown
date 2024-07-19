@@ -18,14 +18,17 @@ ha_platforms:
   - sensor
   - switch
   - update
+ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
 ---
 
-This integration interacts with [La Marzocco coffee machines](https://lamarzocco.com/it/en/) through calls to the LaMarzocco cloud API and (optionally) local API calls, which include a WebSocket connection for (near) real-time updates. 
+This integration interacts with [La Marzocco coffee machines](https://lamarzocco.com/it/en/) through calls to the LaMarzocco cloud API. Optionally, local API calls, which include a WebSocket connection for (near) real-time updates and a Bluetooth connection, can be utilized for local connections.
 
 To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first. Currently, only login with username & password is supported. If you are currently using a social login, you need to create a new LaMarzocco account and transfer your machine to it to be able to use this integration.
+
+If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
 
 
 {% include integrations/config_flow.md %}
@@ -71,7 +74,6 @@ Host:
 | Switch name | Description | Available for machines |
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
-| Auto on/off | Allows to enable/disable the auto on/off schedule | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
 
 ## Binary sensors
@@ -80,13 +82,14 @@ Host:
 |-------------|-------------| ---------------------- | ------- |
 | Water tank empty | Indicates whether the water tank needs a refill. | all | - |
 | Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
+| Backflush enabled | Is on if you started the backflushing process. | all | - |
 
 ## Sensors
 
 | Sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
 | Current coffee temperature | Current temperature of the coffee boiler | all | - |
-| Current steam temperature| Current temperature of the steam boiler | all | - |
+| Current steam temperature| Current temperature of the steam boiler | Linea Micra, GS3 AV, GS3 MP | - |
 | Total coffees made | Counter for total coffees made| all | - |
 | Total flushes made | Counter for total flushes done | all | - |
 | Shot timer | Time the current brew is running | all | Only available when the *Host* was set during component configuration. |
@@ -104,7 +107,3 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
-
-## Calendar
-
-The integration exposes a calendar for the auto on/off schedule set for the machine. The schedule will be displayed recurringly: If you set the machine to start up on Mondays at 8:00, and shut down at 9:00, you will get events for all Mondays in your calendar. On days when you have the auto on/off feature disabled, you won't get an event in the calendar. Also, if you have the auto on/off feature disabled globally (for example, through the switch "Auto on/off"), there will be no events in the calendar.

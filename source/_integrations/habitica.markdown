@@ -8,19 +8,27 @@ ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
 ha_platforms:
+  - button
   - sensor
+  - switch
+  - todo
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
+  - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
 ---
 
 This integration allows you to monitor and manage your Habitica profile. This integration exposes the [Habitica's API](https://habitica.com/apidoc/) as a Home Assistant service. It supports multiple users and allows you to automate checking out your habits and daily tasks or casting magics using Home Assistant.
 
+{% include integrations/config_flow.md %}
+
 There is currently support for the following device types within Home Assistant:
 
-Player data: allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+## Player data
+
+Allows you to view and monitor your player data from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Player's name
 - Player's health points
@@ -33,59 +41,45 @@ Player data: allows you to view and monitor your player data from [Habitica](htt
 - Player's gold pieces
 - Player's class
 
-Tasks: allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
+## To-do lists
+
+The following Habitica tasks are available as to-do lists in Home Assistant. You can add, delete, edit and check-off completed tasks
+
+- To-do's
+- Dailies
+
+## Tasks
+
+Allows you to view and monitor your tasks from [Habitica](https://habitica.com/) in Home Assistant. The following sensors will be available:
 
 - Habits
-- Daily tasks
-- Todo tasks
 - Rewards
 
-{% include integrations/config_flow.md %}
+## API Service
 
-At runtime you will be able to use API for each respective user by their Habitica's username.
+At runtime, you will be able to use the API for each respective user by their Habitica's username.
 You can override this by passing `name` key, this value will be used instead of the username.
 If you are hosting your own instance of Habitica, you can specify a URL to it in `url` key.
 
-{% configuration %}
-api_user:
-  description: "Habitica's API user ID. This value can be grabbed from [account setting](https://habitica.com/user/settings/api)"
-  required: true
-  type: string
-api_key:
-  description: "Habitica's API password (token). This value can be grabbed from [account setting](https://habitica.com/user/settings/api) by pressing 'Show API token'"
-  required: true
-  type: string
-name:
-  description: "Override for Habitica's username. Will be used for service calls"
-  required: false
-  type: string
-  default: Deduced at startup
-url:
-  description: "URL to your Habitica instance, if you are hosting your own"
-  required: false
-  type: string
-  default: https://habitica.com
-{% endconfiguration %}
-
 ### API Service Parameters
 
-The API is exposed to Home Assistant as a service called `habitica.api_call`. To call it you should specify this keys in service data:
+The API is exposed to Home Assistant as an action called `habitica.api_call`. To call it, you should specify these keys in the data:
 
-| Service data attribute | Required | Type     | Description                                                                                                       |
+| Data attribute | Required | Type     | Description                                                                                                       |
 | ---------------------- | -------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `name`                 | yes      | string   | Habitica's username as per `configuration.yaml` entry.                                                            |
 | `path`                 | yes      | [string] | Items from API URL in form of an array with method attached at the end. See the example below.                    |
 | `args`                 | no       | map      | Any additional JSON or URL parameter arguments. See the example below and [apidoc](https://habitica.com/apidoc/). |
 
-A successful call to this service will fire an event `habitica_api_call_success`.
+A successful run of this action will fire an event `habitica_api_call_success`.
 
 | Event data attribute | Type     | Description                                                                                                                                                           |
 | -------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `name`               | string   | Copied from service data attribute.                                                                                                                                   |
-| `path`               | [string] | Copied from service data attribute.                                                                                                                                   |
+| `name`               | string   | Copied from the data attribute.                                                                                                                                   |
+| `path`               | [string] | Copied from the data attribute.                                                                                                                                   |
 | `data`               | map      | Deserialized `data` field of JSON object Habitica's server returned in response to API call. For more info see the [API documentation](https://habitica.com/apidoc/). |
 
-#### Let's consider some examples on how to call the service.
+#### Let's consider some examples on how to use the action
 
 For example, let's say that there is a configured `habitica` platform for user `xxxNotAValidNickxxx` with their respective `api_user` and `api_key`.
 Let's create a new task (a todo) for this user via Home Assistant. There is an [API call](https://habitica.com/apidoc/#api-Task-CreateUserTasks) for this purpose.

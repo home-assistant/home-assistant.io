@@ -14,8 +14,8 @@ ha_ssdp: true
 ha_platforms:
   - camera
   - light
-  - switch
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 

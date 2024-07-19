@@ -2,7 +2,6 @@
 title: "Conditions"
 description: "Documentation about all available conditions."
 toc: true
-no_toc: true
 ---
 
 Conditions can be used within a {% term script %} or {% term automation %} to prevent further execution. When a condition evaluates true, the script or automation will be executed. If any other value is returned, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.
@@ -165,7 +164,7 @@ condition:
 
 ## Numeric state condition
 
-This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds.
+This type of condition attempts to parse the state of the specified entity or the attribute of an entity as a number, and triggers if the value matches the thresholds (strictly below/above, so equal excluded).
 
 If both `below` and `above` are specified, both tests have to pass.
 
@@ -218,8 +217,8 @@ condition:
   below: 25
 ```
 
-Number helpers (`input_number` entities), `number` and `sensor` entities that
-contain a numeric value, can be used in the `above` and `below`
+Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
+that contain a numeric value, can be used in the `above` and `below`
 options to make the condition more dynamic.
 
 ```yaml
@@ -400,9 +399,9 @@ Note that if only `before` key is used, the condition will be true _from midnigh
 
 [sun_trigger]: /docs/automation/trigger/#sun-trigger
 
-<div class='note warning'>
+{% tip %}
 The sunset/sunrise conditions do not work in locations inside the polar circles, and also not in locations with a highly skewed local time zone. In those cases it is advised to use conditions evaluating the solar elevation instead of the before/after sunset/sunrise conditions.
-</div>
+{% endtip %}
 
 This is an example of 1 hour offset before sunset:
 ```yaml
@@ -557,11 +556,9 @@ Note that if only `before` key is used, the condition will be `true` *from midni
 If only `after` key is used, the condition will be `true` from the specified time *until midnight*.
 Time condition windows can span across the midnight threshold if **both** `after` and `before` keys are used. In the example above, the condition window is from 3pm to 2am.
 
-<div class='note tip'>
-
+{% tip %}
 A better weekday condition could be by using the [Workday Binary Sensor](/integrations/workday/).
-
-</div>
+{% endtip %}
 
 For the `after` and `before` options a time helper (`input_datetime` entity)
 or another `sensor` entity containing a timestamp with the "timestamp" device
@@ -578,13 +575,11 @@ condition:
     after: sensor.groceries_delivery_time
 ```
 
-<div class='note warning'>
-
-Please note that the time condition only takes the time into account. If
+{% note %}
+Note that the time condition only takes the time into account. If
 a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
-
-</div>
+{% endnote %}
 
 ## Trigger condition
 
@@ -711,3 +706,37 @@ condition:
   entity_id: sun.sun
   state: "above_horizon"
 ```
+
+Conditions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+    input_number:
+      name: Number
+      selector:
+        number:
+          min: 0
+          max: 100
+
+  trigger_variables:
+    _enable_number: !input input_number
+
+  condition:
+    - condition: state
+      entity_id: sun.sun
+      state: "above_horizon"
+      enabled: !input input_boolean
+    - condition: state
+      entity_id: sun.sun
+      state: "below_horizon"
+      enabled: "{{ _enable_number < 50 }}"
+```
+
+{% endraw %}

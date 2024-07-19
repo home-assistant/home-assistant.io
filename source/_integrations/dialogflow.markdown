@@ -8,15 +8,20 @@ ha_config_flow: true
 ha_iot_class: Cloud Push
 ha_domain: dialogflow
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Dialogflow** {% term integration %} is designed to be used with the [webhook](https://cloud.google.com/dialogflow/es/docs/fulfillment-webhook) integration of [Dialogflow](https://cloud.google.com/dialogflow/docs/). After each phrase a user says, Dialogflow sends an action and parameters to the webhook.
 
-To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
+To be able to receive messages from Dialogflow, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#editing-the-general-settings-in-yaml). Dialogflow will return fallback answers if your server does not answer or takes too long (more than 5 seconds).
 
 Dialogflow could be [integrated](https://cloud.google.com/dialogflow/es/docs/integrations) with many popular messaging, virtual assistant and IoT platforms.
 
-<div class='note warning'> After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integreated with Google Assistant </div>
+{% note %}
+After the [Conversational Actions sunset on June 13, 2023](https://developers.google.com/assistant/ca-sunset), Dialogflow can no longer be integreated with Google Assistant.
+{% endnote %}
 
 Using Dialogflow will be easy to create conversations like:
 
@@ -54,11 +59,9 @@ To get the webhook URL, go to the integrations page in the configuration screen 
 - At the top right of the screen where it says "Try it now...", type, or say, the phrase you have previously defined and hit enter.
 - Dialogflow will now send a request to your Home Assistant instance and display the response.
 
-<div class='note warning'>
-
-  The V1 API will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents YAML configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
-
-</div>
+{% note %}
+The V1 API will be deprecated on October 23, 2019. If you are still using the V1 API, it is recommended to change your settings in Dialogflow to use the V2 API. No changes to your intents YAML configuration need to take place after upgrading to the V2 API. Change to the V2 API by clicking on the cog button [here](https://console.dialogflow.com/) and then select the V2 API.
+{% endnote %}
 
 Take a look to "Integrations", in the left menu, to configure third parties.
 

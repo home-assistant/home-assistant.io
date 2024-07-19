@@ -9,13 +9,17 @@ ha_domain: marytts
 ha_platforms:
   - tts
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `marytts` text-to-speech platform uses [MaryTTS](http://mary.dfki.de/) text-to-speech engine to read a text with natural sounding voices.
+The `marytts` text-to-speech {% term integration %} uses [MaryTTS](https://marytts.github.io/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 
-To enable text-to-speech with MaryTTS, add the following lines to your `configuration.yaml`:
+To enable text-to-speech with MaryTTS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,7 +59,7 @@ effect:
   type: map
 {% endconfiguration %}
 
-See [documentation](http://mary.dfki.de/documentation/index.html) for details.
+See [documentation](https://marytts.github.io/documentation/index.html) for details.
 
 ## Speech effects
 

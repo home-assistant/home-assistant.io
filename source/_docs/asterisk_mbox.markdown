@@ -14,9 +14,9 @@ Both parts are necessary for Asterisk voicemail integration.
 
 The server installation is documented below. The client is [integrated inside Home Assistant](/integrations/asterisk_mbox)
 
-<div class='note'>
+{% note %}
 Currently this module can only monitor a single Asterisk PBX mailbox.
-</div>
+{% endnote %}
 
 ### Prerequisites
 
@@ -99,8 +99,6 @@ Before beginning make sure that you have the following:
    WantedBy=multi-user.target
    ```
 
-<div class='note'>
-
+{% note %}
 This assumes that your Asterisk PBX server is using `systemd` for init handling. If not, you will need to create the appropriate configuration files yourself.
-
-</div>
+{% endnote %}

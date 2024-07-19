@@ -27,6 +27,7 @@ ha_platforms:
   - sensor
   - siren
   - switch
+  - valve
 ha_integration_type: integration
 ---
 
@@ -36,16 +37,16 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
 {% details "Using custom application credentials" %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, this service is provided for free and does not require a Nabu Casa subscription. The steps below are thus not required.
-If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
+If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
 
-## Services
+## Actions
 
 ### `Play on SpeakerHub`
 
-With this service, you can convert text to speech for playback on SpeakerHub.
+With this action, you can convert text to speech for playback on SpeakerHub.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `target_device` | no| SpeakerHub device ID for audio playback.
 `message` | no| Text for speech conversion.
@@ -78,6 +79,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS6704-UC (In-wall Outlet)
 - YS6801-UC (Smart Power Strip)
 - YS6802-UC (Smart Outdoor Power Strip)
+- YS6803-UC (Outdoor Energy Plug)
 - YS7103-UC (Siren Alarm)
 - YS7104-UC (Outdoor Alarm Controller)
 - YS7105-UC (X3 Outdoor Alarm Controller)
@@ -95,6 +97,7 @@ The integration is tested and verified for the following devices from YoLink:
 - YS7904-UC (Water Leak Sensor 2)
 - YS7906-UC (Water Leak Sensor 4)
 - YS7916-UC (Water Leak Sensor 4 MoveAlert)
+- YS7905-UC (WaterDepthSensor)
 - YS7A01-UC (Smart Smoke/CO Alarm)
 - YS8003-UC (Temperature Humidity Sensor)
 - YS8004-UC (Weatherproof Temperature Sensor)
@@ -102,4 +105,6 @@ The integration is tested and verified for the following devices from YoLink:
 - YS8006-UC (X3 Temperature & Humidity Sensor)
 - YS8014-UC (X3 Outdoor Temperature Sensor)
 - YS8015-UC (X3 Outdoor Temperature & Humidity Sensor)
-- YS7905-UC (WaterDepthSensor)
+- YS5006-UC (FlowSmart Control)
+- YS5007-UC (FlowSmart Meter)
+- YS5008-UC (FlowSmart All-in-One)

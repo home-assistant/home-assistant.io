@@ -8,6 +8,7 @@ ha_category:
   - Network
   - Sensor
   - Switch
+  - Time
 ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_config_flow: true
@@ -21,6 +22,7 @@ ha_platforms:
   - diagnostics
   - sensor
   - switch
+  - time
 ha_integration_type: integration
 ha_quality_scale: silver
 ---
@@ -61,7 +63,13 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 ### Switch
 
 - Stowed - Controls whether Dishy is stowed
+- Sleep schedule - Controls whether Starlink will enter a power-saving sleep mode at a predefined schedule
 
 ### Device tracker
 
-- Device location - Tracks the location of Dishy. Note you need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.
+- Device location - Tracks the latitude, longitude, and altitude of Dishy. You need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.
+
+### Time
+
+- Sleep start - The time at which Starlink will enter sleep mode, if "Sleep Schedule" is enabled
+- Sleep end - The time at which Starlink will exit sleep mode, if "Sleep Schedule" is enabled

@@ -8,32 +8,36 @@ ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: emulated_roku
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This integration integrates an emulated Roku API into Home Assistant,
+The **Emulated Roku** {% term integration %} integrates an emulated Roku API into Home Assistant,
 so remotes such as Harmony and Android apps can connect to it through Wi-Fi as if it were a Roku player.
 Home Assistant will see key presses and app launches as Events, which you can use as triggers for automations.
 Multiple Roku servers may be started if you run out of buttons by specifying multiple server entries.
 
-<div class='note'>
+{% note %}
 
 Windows is not supported because Home Assistant uses `ProactorEventLoop` which does not support UDP sockets.
 
-</div>
+{% endnote %}
 
-<div class='note warning'>
+{% caution %}
 
-This integration opens an unauthenticated API on the host, allowing anything on the local network to access
+This {% term integration %} opens an unauthenticated API on the host, allowing anything on the local network to access
 your Home Assistant instance through the automations you create with emulated Roku as the trigger.
 Using a proxy with whitelisted IP addresses is recommended. (set `advertise_ip` to the proxy's IP or DNS name)
 
-</div>
+{% endcaution %}
 
 {% include integrations/config_flow.md %}
 
 ## Manual configuration
 
-If you wish to configure advanced options, you can add the following entry in `configuration.yaml`.
+If you wish to configure advanced options, you can add the following entry in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -103,6 +107,7 @@ Available key codes |
 `BackSpace`
 `Search`
 `Enter`
+`PowerOff`
 
 ## Automations
 
@@ -123,6 +128,12 @@ The following is an example implementation of an automation:
     target:
       entity_id: media_player.amplifier
 ```
+
+### Video tutorial
+
+This comprehensive video tutorial explains how events work in Home Assistant and how you can set up Emulated Roku to control a media player using a physical remote control.
+
+<lite-youtube videoid="nDHh1OjyuMA" videotitle="Event Triggers Unveiled: Control the Home Assistant Media Player with Your Remote Control!" posterquality="maxresdefault"></lite-youtube>
 
 ## Troubleshooting
 

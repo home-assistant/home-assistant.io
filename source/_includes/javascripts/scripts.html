@@ -16,3 +16,21 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
   document.location.assign("https://design.home-assistant.io/#brand/logo")
 });
 </script>
+
+
+{% if page.hero_unit %}
+<script type="text/javascript">
+  const changeNavColor = () => {
+    const scrollPosition = document.documentElement.scrollTop;
+    const nav = document.querySelector("header");
+    if (scrollPosition <= 1) {
+      nav.classList.add("dark");
+    } else {
+      nav.classList.remove("dark");
+    }
+  }
+  
+  window.addEventListener("load", () => changeNavColor());
+  window.addEventListener("scroll", () => changeNavColor());
+</script>
+{% endif %}

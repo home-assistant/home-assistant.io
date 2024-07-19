@@ -13,15 +13,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `entur_public_transport` sensor gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
+The `entur_public_transport` {% term integration %} gives real-time departure information for the next departures from any bus stop, car ferry quay, train station, airport and person ferries quay in Norway.
 
 For each stop place given in the configuration, a sensor will be mounted for that stop place. It will give remaining minutes until the nearest departure in the state, but also next departures in the attributes. Information about if the departure is monitored in real-time or is from scheduled times, and how many minutes there is in delays, are included as well.
 
 Real-time data is fetched from [Entur](https://www.entur.no). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
-<div class='note'>
-Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
-</div>
+{% note %}
+Note that the underlying API is rate limited and to avoid getting your instance blocked from Entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
+{% endnote %}
 
 ## Configuration
 

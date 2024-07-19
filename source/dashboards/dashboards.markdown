@@ -1,11 +1,22 @@
 ---
 title: "Multiple dashboards"
 description: "Multiple powerful and configurable dashboards in Home Assistant."
+related:
+  - docs: /integrations/logbook/
+    title: Logbook integration
+  - docs: /integrations/history/
+    title: History integration
+  - docs: /integrations/todo/
+    title: To-do list integration
+  - docs: /dashboards/views/
+    title: Views
+  - docs: /dashboards/iframe/
+    title: Webpage card
 ---
 
 You can define multiple dashboards in Home Assistant. Each dashboard can be added to the sidebar. This makes it possible to create separate control dashboards for each individual part of your house.
 
-You can manage your dashboards via the user interface. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. Here you can see some of the defined dashboards and create new ones.
+Under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}, you can see your own dashboards and some of the predefined ones.
 
 <p class='img'>
 <img src='/images/dashboards/dashboard-manage-01.png' alt='Screenshot of the dashboard list'>
@@ -14,19 +25,24 @@ Screenshot of the Dashboard list.
 
 ## Home Assistant default dashboards
 
-Home Assistant ships with 5 predefined dashboards:
+Home Assistant ships with some dashboards out of the box:
 
 - Overview
 - Energy
-- Map
+- [Map](#map-dashboard)
 - Logbook
 - History
+- To-do lists
 
-Not all of predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. **Map**, **Logbook**, and **History**, are powered by their respective integrations.
+Not all of the predefined dashboards are listed under {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}. The **Logbook** and **History** dashboards are powered by their respective integrations.
 
 ### Map dashboard
 
-The predefined **Map** dashboard is powered by the [Map integration](/integrations/map/). If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
+The predefined **Map** dashboard is populated by the [Map card](/dashboards/map/). You can edit this dashboard like any other dashboard. For example, you can edit the [view](/dashboards/views/) to use the **Sidebar** instead of the default **Panel** view type if you like.
+
+#### Maps and presence detection
+
+If you see a [person](/integrations/person/) on the map, it means you have connected a device that allows [presence detection](/integrations/#presence-detection). This is the case for example if you have the [Home Assistant Companion App](https://companion.home-assistant.io/) on your phone and allowed location tracking.
 
 ### Logbook dashboard
 
@@ -34,7 +50,63 @@ The predefined **Logbook** dashboard is powered by the [Logbook integration](/in
 
 ### History dashboard
 
-The predefined **History** dashboard is powered by the [History integration](/integrations/logbook/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+The predefined **History** dashboard is powered by the [History integration](/integrations/history/). To learn about the data sources used and how to export data, refer to the documentation of the History integration.
+
+### To-do lists dashboard
+
+The predefined **To-do lists** dashboard is powered by the [To-do integration](/integrations/todo/). To learn how to use to-do and shopping lists, refer to the documentation of the to-do list integration.
+
+## Webpage dashboard
+
+Another available (but not default) dashboard is the webpage dashboard. The webpage dashboard allows you to add and embed a webpage to your dashboard.
+This could be a web page from the internet or a local web page from a local
+machine or device like your router or NAS. The webpage dashboard uses the [webpage card](/dashboards/iframe/).
+
+<img class="no-shadow" src='/images/blog/2024-04/dashboard-webpage.png' alt='Screenshots showing addition of a new webpage dashboard to Home Assistant, embedding the Home Assistant website.'>
+
+This dashboard replaces the old iFrame panel (`iframe_panel`). If you have
+existing panels configured in your YAML configuration, Home Assistant will
+automatically migrate them to the new webpage dashboard on upgrade.
+
+<img class="no-shadow" src='/images/blog/2024-04/embedded-home-assistant-website.png' alt='Screenshot showing the Home Assistant website embedded into the Home Assistant frontend using a webpage dashboard.'>
+
+Note that not every webpage can be embedded due to security restrictions that
+some sites have in place. These restrictions are enforced by your browser and prevent
+embedding them into a Home Assistant dashboard.
+
+## Creating a new dashboard
+
+The default **Overview** dashboard updates itself when you add new devices, as long as you do not edit the default dashboard. If you want a customized dashboard, it is recommended not to change the **Overview** dashboard, but to create a new dashboard instead.
+
+This will leave the default dashboard intact.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. Select **Add dashboard**.
+   ![Screenshot of the dashboard list](/images/dashboards/dashboard-manage-02.png)
+3. In the dialog, choose one of the options:
+   - If you want to start with a pre-populated dashboard, choose **Default dashboard**.
+   - If you want to start with a completely empty dashboard, choose **New dashboard from scratch**.
+4. In the **Add new dashboard** dialog, enter a name and select an icon.
+   - Define if this dashboard should be visible only to the admin user.
+   - Define if you want the dashboard to be listed in the sidebar.
+   - Select **Create**.
+   - **Result**: The dashboard is added.
+5. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
+6. If you chose **Default dashboard**, you need to take control before you can edit it:
+   - The **Edit dashboard** dialog appears.
+     - By editing the dashboard, you are taking over control of this dashboard.
+     - This means that it is no longer automatically updated when new dashboard elements become available.
+     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
+7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
+
+## Deleting a dashboard
+
+If you do not use one of the predefined dashboards, or created a dashboard you no longer need, you can delete that dashboard. It will then no longer show in the sidebar.
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. From the list of dashboards, select the dashboard you want to delete.
+3. In the dialog, select **Delete**.
+   ![Deleting a dashboard](/images/dashboards/delete_dashboard.png)
 
 ## Using YAML for the Overview dashboard
 
@@ -49,10 +121,10 @@ A good way to start this file is to copy and paste the "Raw configuration" from 
 
 - In your sidebar, select **Overview**.
 - In the top-right corner, select the pencil icon.
-- Select the three dots menu and select **Raw configuration editor**.
+- Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Raw configuration editor**.
 - There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
-Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
+Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore, and new entities will not automatically be added to your UI.
 
 When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
 
@@ -109,7 +181,7 @@ mode:
   type: string
 resources:
   required: false
-  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
+  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:
@@ -156,7 +228,6 @@ dashboards:
 As a super minimal example of a dashboard config, here's the bare minimum you will need for it to work:
 
 ```yaml
-title: My Awesome Home
 views:
     # View tab title.
   - title: Example
@@ -171,7 +242,6 @@ views:
 A slightly more advanced example:
 
 ```yaml
-title: My Awesome Home
 views:
     # View tab title.
   - title: Example
@@ -221,9 +291,3 @@ views:
         content: >
           Welcome to your **dashboard**.
 ```
-
-## Related topics
-
-- [Logbook integration](/integrations/logbook/)
-- [Map integration](/integrations/map/)
-- [History integration](/integrations/history/)

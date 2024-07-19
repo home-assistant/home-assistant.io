@@ -33,6 +33,11 @@ Before using this integration, your water heater must be connected to a Wi-Fi ne
 - HPS10-66H45DV
 - HPS10-80H45DV
 - HPSX-50-DHPT
+- HPSX-50-DHPT 2
+- HPSX-66-DHPT
+- HPSX-66-DHPT 2
+- HPSX-80-DHPT
+- HPSX-80-DHPT 2
 - HPTS-50
 - HPTS-66
 - HPTS-80
@@ -57,12 +62,12 @@ The water heater entity offers the following capabilities:
 
 This table shows the supported operation modes. The available modes will depend on your specific water heater model.
 
-| Mode displayed in A. O. Smith app  | Mode displayed in Home Assistant | Mode name for `water_heater.set_operation_mode` service |
-| ---------------------------------- | -------------------------------- | ------------------------------------------------------- |
-| Electric/Standard                  | Electric                         | `electric`                                              |
-| Hybrid                             | Eco                              | `eco`                                                   |
-| Heat Pump                          | Heat Pump                        | `heat_pump`                                             |
-| Vacation                           | N/A - use away mode              | N/A - use `water_heater.set_away_mode`                  |
+| Mode displayed in A. O. Smith app  | Mode displayed in Home Assistant | Mode name for `water_heater.set_operation_mode` action |
+| ---------------------------------- | -------------------------------- | ------------------------------------------------------ |
+| Electric/Standard                  | Electric                         | `electric`                                             |
+| Hybrid                             | Eco                              | `eco`                                                  |
+| Heat Pump                          | Heat Pump                        | `heat_pump`                                            |
+| Vacation                           | N/A - use away mode              | N/A - use `water_heater.set_away_mode`                 |
 
 ### Sensor
 

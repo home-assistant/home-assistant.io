@@ -38,6 +38,11 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5105 Hygrometer Thermometer
 - H5106 Hygrometer Thermometer and Air Quality Monitor
 - H5108 Hygrometer Thermometer
+- H5121 Motion Sensor - Only battery is supported
+- H5122 Mini Button - Only battery is supported
+- H5123 Window Sensor - Only battery is supported
+- H5125 2 Button Switch - Only battery is supported
+- H5126 6 Button Switch - Only battery is supported
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
 - H5174 Hygrometer Thermometer
 - [H5179 Hygrometer Thermometer](https://us.govee.com/products/wi-fi-temperature-humidity-sensor)
