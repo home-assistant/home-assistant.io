@@ -10,7 +10,7 @@ Badges are widgets that sit at the top of a panel, above all the cards.
   Badges at the top of a panel.
 </p>
 
-## Entity Badge
+## Entity badge
 
 The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
 
@@ -48,7 +48,7 @@ show_entity_picture:
   default: false
 display_type:
   required: false
-  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state) or `complete` (icon, state and name).
+  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state), or `complete` (icon, state, and name).
   type: string
   default: standard
 state_content:
@@ -70,9 +70,9 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## State Label Badge
+## State label badge
 
-The State Label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
+The state label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
 
 ```yaml
 type: state-label
