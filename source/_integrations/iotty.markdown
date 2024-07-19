@@ -17,6 +17,9 @@ ha_integration_type: hub
 
 The iotty family is focused on beautiful aesthetics and includes the Smart Switch for lights and gates, the Smart Shades Switch for blinds and shutters and the Smart Outlet. Install the iotty devices and enjoy your new Smart Home with ease!
 
+
+  {% include integrations/config_flow.md %}
+
 ## Supported devices
 
 This integration currently supports the following iotty Devices:
@@ -46,5 +49,3 @@ More integrations are coming soon:
   - https://iotty.fr/collections/frontpage/products/prise-intelligent-iotty
   - https://iotty.de/collections/frontpage/products/iotty-smart-steckdose
   - https://iotty.it/collections/frontpage/products/iotty-plus-presa-intelligente
-  
-  {% include integrations/config_flow.md %}
