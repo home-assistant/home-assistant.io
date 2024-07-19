@@ -321,8 +321,7 @@ This section provides a bit more information on some of the categories:
 
 ## Matter device updates
 
-The Matter standard supports OTA (Over-the-Air) updates optionally. Matter devices that support Matter updates will have an update entity. Furthermore, the CSA DCL (Distributed Compliance Ledger) stores firmware update information. Home Assistant reads firmware update information directly from the DCL to learn about available updates. By default. the integration checks every 12 hours for an update. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/) with the update entity as the target.
-
+The Matter standard supports OTA (Over-the-Air) updates optionally. Matter devices that support Matter updates will have an update entity. Furthermore, the CSA DCL (Distributed Compliance Ledger) stores firmware update information. Home Assistant reads firmware update information directly from the DCL to learn about available updates. By default, the integration checks every 12 hours for an update. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/) with the update entity as the target.
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
