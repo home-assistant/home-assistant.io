@@ -3,7 +3,7 @@ title: Haus-Bus
 description: Instructions on how to setup Haus-Bus devices from Haus-Bus.de within Home Assistant.
 ha_category:
   - Light
-ha_release: 2024.4
+ha_release: 2024.8
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
