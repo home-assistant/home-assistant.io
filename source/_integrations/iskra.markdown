@@ -15,9 +15,6 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-# Iskra Integration
-
-## Description
 
 The [Iskra](https://www.iskra.eu/) {% term integration %} allows you to connect Iskra energy meters and power quality analyzers to Home Assistant. Data is polled using Modbus TCP or the Iskra Smart Gateway's REST API.
 
@@ -36,7 +33,7 @@ These devices typically support Ethernet connections and use Modbus TCP for data
 - iMT/MT series ([MTXXX / iMTXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
 - iMC/MC series ([MCXXX / iMCXXX](https://www.iskra.eu/en/NEW_SERIES_Universal_measuring_devices_/))
 
-## Configuration Options
+## Configuration options
 
 There are two ways to configure your devices with Home Assistant:
 
@@ -45,19 +42,19 @@ There are two ways to configure your devices with Home Assistant:
 If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gateway to connect them via the REST API:
 
 - **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to the Smart Gateway's configuration. It's also recommended to set static IP on your smart gateway.
-- **Home Assistant**: Add the iskra integration, enter Smart Gateway's **IP address** and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
+- **Home Assistant**: Add the Iskra integration, enter Smart Gateway's **IP address**, and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required, Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
 
 
-### Modbus TCP Connection
+### Modbus TCP connection
 
 If your device supports a direct internet connection, such as PQ meters (iMC/MC series/ iMT/MT series usually), you can use Modbus TCP:
 
 - **Device**: Find your device using the [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it to use static IP.
-- **Home Assistant**: Add the iskra integration, enter the devices's **IP address** and select **Modbus TCP** as the connection type within the Home Assistant integration. Home Assistant will prompt you to enter Modbus TCP port and Modbus address of your device.
+- **Home Assistant**: Add the Iskra integration, enter the devices's **IP address**, and select **Modbus TCP** as the connection type within the Home Assistant integration. Home Assistant will prompt you to enter the Modbus TCP port and Modbus address of your device.
 
 {% include integrations/config_flow.md %}
 
-## Monitored Data
+## Monitored data
 
 The integration provides detailed information about power, current, and voltage for each phase, as well as energy counters. The data is updated every minute.
 
