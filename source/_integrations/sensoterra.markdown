@@ -15,9 +15,9 @@ ha_integration_type: integration
 ha_quality_scale: silver
 ---
 
-This integration communicates with your [Sensoterra](https://sensoterra.com) soil moisture probes using the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) via HTTPS.
+This {% term integration %} communicates with your [Sensoterra](https://sensoterra.com) soil moisture probes using the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) via HTTPS.
 
-## Pre-requisites
+## Prerequisites
 
 Soil moisture probes can be purchased at Sensoterra.com. Create a free account in the Sensoterra app and register your probes. The Sensoterra Home Assistant integration needs your credentials to obtain a token to access your probe data.
 
@@ -31,4 +31,4 @@ The integration provides the following sensors for each probe:
 - Battery level (100, 50 or 10% approximations)
 - Last seen timestamp
 
-Typically, soil moisture probes measure once an hour. The HA integration polls this data each 15 minutes.
+Typically, soil moisture probes measure once an hour. The Home Assistant integration polls this data every 15 minutes.
