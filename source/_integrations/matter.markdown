@@ -31,6 +31,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -317,6 +318,10 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Matter device updates
+
+The Matter standard supports OTA (Over-the-Air) updates optionally. Matter devices which support Matter updates will have an update entity. Furthermore, the CSA DCL (Distributed Compliance Ledger) stores firmware update information. Home Assistant reads firmware update information directly from the DCL to learn about available updates. By default the integration checks every 12 hours for an update. The `homeassistant.update_entity` service call with the update entity as target can be used to force an update check.
 
 ## Experiment with Matter using a ESP32 dev board
 
