@@ -23,10 +23,12 @@ related:
     title: TickTick
 ---
 
-The **TickTick** integration allows you to interact with your [TickTick](https://www.ticktick.com/) shopping lists within Home Assistant.
+The **TickTick** {% term integration %} allows you to interact with your [TickTick](https://www.ticktick.com/) shopping lists within Home Assistant.
+
+## Prerequisites
 
 For authentication, the integration requires the `email` and `password` you used for your TickTick account.
 
-Also, a developer.ticktick.com account is needed with a client_id and client_secret, and currently a pre-authenticated access token in JSON format.
+Also, a `developer.ticktick.com` account is needed with a `client_id` and `client_secret`, and currently a pre-authenticated access token in JSON format.
 
 {% include integrations/config_flow.md %}
