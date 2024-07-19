@@ -31,7 +31,7 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this {% 
 
 ## Enforing polling of data
 
-Some UPnP/IGD devices have a broken upnp implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
+Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
 
 ## Debugging integration
 
