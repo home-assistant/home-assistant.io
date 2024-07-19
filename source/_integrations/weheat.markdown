@@ -32,7 +32,7 @@ To add the Weheat integration, follow these steps:
 3. Go to **Devices & Services**.
 4. Click the **+ Add Integration** button.
 5. Search for **Weheat**.
-6. You will be prompted to fill in a **Name**, **Client ID**  and **Client Secret**. The name is arbitrary, the ID and secret are provided in the [knowledge base](https://support.weheat.nl/s/article/Is-er-een-offici%C3%ABle-Home-Assistant-integratie)
+6. You will be prompted to fill in a **Name**, **Client ID**  and **Client Secret**. The name is arbitrary, the ID and secret are provided in the [knowledge base](https://support.weheat.nl/s/article/Is-er-een-offici%C3%ABle-Home-Assistant-integratie).
 7. You are now redirected to the Weheat login provider. Log in using your **username** and **password**.
 8. After login, press **link account** to link your account.
 9. Your device will automatically be added. In case you have more than 1 device, select a device from the dropdown menu.
