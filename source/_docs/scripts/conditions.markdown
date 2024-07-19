@@ -2,7 +2,6 @@
 title: "Conditions"
 description: "Documentation about all available conditions."
 toc: true
-no_toc: true
 ---
 
 Conditions can be used within a {% term script %} or {% term automation %} to prevent further execution. When a condition evaluates true, the script or automation will be executed. If any other value is returned, the script or automation stops executing. A condition will look at the system at that moment. For example, a condition can test if a switch is currently turned on or off.

@@ -41,7 +41,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Ping** integration, then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Ping** integration, then select **Configure**.
 
 - **Ping count**: Number of echo requests to send to the target. The default is 5.
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).

@@ -1,8 +1,9 @@
 ---
-title: Generic thermostat
+title: Generic Thermostat
 description: Turn Home Assistant into a thermostat
 ha_category:
   - Climate
+  - Helper
 ha_release: pre 0.7
 ha_iot_class: Local Polling
 ha_domain: generic_thermostat
@@ -18,6 +19,12 @@ ha_config_flow: true
 The `generic_thermostat` climate {% term integration %} is a thermostat implemented in Home Assistant. It uses a sensor and a switch connected to a heater or air conditioning under the hood. When in heater mode, if the measured temperature is cooler than the target temperature, the heater will be turned on and turned off when the required temperature is reached. When in air conditioning mode, if the measured temperature is hotter than the target temperature, the air conditioning will be turned on and turned off when required temperature is reached. One Generic Thermostat entity can only control one switch. If you need to activate two switches, one for a heater and one for an air conditioner, you will need two Generic Thermostat entities.
 
 {% include integrations/config_flow.md %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 

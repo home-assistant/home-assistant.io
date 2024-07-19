@@ -66,7 +66,7 @@ automation:
 
 ## Notifications
 
-The Mailgun notification service allows you to send emails via Mailgun's REST API. It requires the [Mailgun component](#configuration) to be set up.
+The Mailgun notification action allows you to send emails via Mailgun's REST API. It requires the [Mailgun component](#configuration) to be set up.
 
 ### Notifications configuration
 
@@ -80,7 +80,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify

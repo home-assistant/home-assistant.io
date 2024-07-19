@@ -121,39 +121,39 @@ automation:
 
 {% endraw %}
 
-## Platform services
+## Actions
 
-These services are provided:
+These actions are provided:
 
 - `get`
 - `put`
 - `remove`
 
-### Service `minio.get`
+### Action `minio.get`
 
 Download file.
 
-| Service data attribute | Required | Description                        |
+| Data attribute | Required | Description                        |
 | ---------------------- | -------- | ---------------------------------- |
 | `bucket`               | yes      | Bucket to use                      |
 | `key`                  | yes      | Object key of the file             |
 | `file_path`            | yes      | File path on the local file system |
 
-### Service `minio.put`
+### Action `minio.put`
 
 Upload file.
 
-| Service data attribute | Required | Description                        |
+| Data attribute | Required | Description                        |
 | ---------------------- | -------- | ---------------------------------- |
 | `bucket`               | yes      | Bucket to use                      |
 | `key`                  | yes      | Object key of the file             |
 | `file_path`            | yes      | File path on the local file system |
 
-### Service `minio.remove`
+### Action `minio.remove`
 
 Delete file.
 
-| Service data attribute | Required | Description            |
+| Data attribute | Required | Description            |
 | ---------------------- | -------- | ---------------------- |
 | `bucket`               | yes      | Bucket to use          |
 | `key`                  | yes      | Object key of the file |

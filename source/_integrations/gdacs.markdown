@@ -83,16 +83,3 @@ from the feed.
 | created                | Number of entities that were created during last update (optional).  |
 | updated                | Number of entities that were updated during last update (optional).  |
 | removed                | Number of entities that were removed during last update (optional).  |
-
-## Full configuration
-
-```yaml
-# Example configuration.yaml entry
-gdacs:
-  categories:
-    - Drought
-    - Earthquake
-  radius: 1000
-  latitude: -41.2
-  longitude: 174.7
-```

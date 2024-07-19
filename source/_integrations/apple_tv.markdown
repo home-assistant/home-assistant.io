@@ -35,10 +35,10 @@ This entity will display the active app and playback controls.
 
 ### Launching apps
 
-You can launch apps using the `media_player.select_source` service, or using the
+You can launch apps using the `media_player.select_source` action, or using the
 “Apps” folder in the media browser.
 
-Using the `media_player.play_media` service, you can also use `Deep Links` to
+Using the `media_player.play_media` action, you can also use `Deep Links` to
 launch specific content in applications.
 
 Examples of some `Deep Links` for popular applications:
@@ -109,7 +109,7 @@ The following commands are currently available:
 
 **NOTE:** Not all commands are supported by all Apple TV versions.
 
-### Service `send_command`
+### Action `send_command`
 
 | Service data<br>attribute | Optional | Description                                                                                                                   |
 | ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |

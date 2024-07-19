@@ -3,10 +3,19 @@ title: "Template Lock"
 description: "Instructions on how to integrate Template Locks into Home Assistant."
 ha_category:
   - Lock
+  - Helper
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - lock
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates locks that combines components.

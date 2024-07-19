@@ -6,17 +6,20 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@dknowles2'
+  - '@thomaskistler'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor
   - sensor
   - switch
+  - valve
 ha_integration_type: integration
 ---
 
@@ -27,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Valve](#valve)
 
 ## Prerequisites
 
@@ -103,3 +107,10 @@ Resume automatic watering in an irrigation zone.
 | Data attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
 | `entity_id`            | no       | The irrigation zone in which to resume watering. |
+
+## Valve
+
+A valve is added for each zone allowing manual control of zone watering.
+
+When a zone's valve is opened through Home Assistant, it will have an automatic shutoff time set to the zone's default watering duration configured in the Hydrawise [mobile or web app](https://www.hydrawise.com).
+

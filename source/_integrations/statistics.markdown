@@ -2,6 +2,7 @@
 title: Statistics
 description: Instructions on how to integrate statistical sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
@@ -13,7 +14,8 @@ ha_domain: statistics
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
 The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automation, for example, to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffees over a day gets too high.

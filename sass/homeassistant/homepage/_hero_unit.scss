@@ -8,7 +8,7 @@
   padding-bottom: 0;
   margin-top: -88px;
   margin-bottom: 24px;
-  padding-top: 88px; 
+  padding-top: 88px;
   overflow: hidden;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   max-height: 1080px;
@@ -62,7 +62,7 @@
       background-color: $link-color;
       font-size: 2rem;
       font-weight: 700;
-      padding: 8px 24px;
+      padding: 8px 20px 8px 28px;
       margin-bottom: 16px;
     }
   }
@@ -76,6 +76,7 @@
 
   #HAdemo {
     width: 100%;
+    max-width: 400px;
     height: 800px;
     border-radius: 48px;
     border: 12px double white;
@@ -84,7 +85,7 @@
     // animation-duration: 3s;
     // animation-iteration-count: infinite;
     // animation-direction: alternate;
-        
+
     @media only screen and (max-height: 720px) {
       border-bottom: 0;
       margin-bottom: -8px;
@@ -114,7 +115,7 @@
     .lead {
       font-size: 1.15rem;
     }
-    
+
     .hero-buttons a {
       &.primary {
         font-size: 1.25rem;
@@ -123,15 +124,19 @@
   }
 }
 
-@media only screen and (max-width: $palm-end) {
+@media only screen and (max-width: 760px) {
   .hero {
-    
+    .flex {
+      flex-direction: column;
+    }
+
     #HAdemo {
       display: none;
     }
-  
+
     #HAdemoScreenshot {
       display: block;
     }
+
   }
 }

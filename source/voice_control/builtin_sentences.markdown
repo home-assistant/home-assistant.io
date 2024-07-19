@@ -78,6 +78,11 @@ These sentences allow you, for example, to:
   - *“Resume my timer”*
   - *“Add 2 minutes to my 5-minute timer”*
   - *“Remove 3 minutes from my pizza timer”*
+
+  <p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3-Box-3B, with countdown text and a loading bar!</p>
+
+To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_control/s3_box_voice_assistant/).
+
 - **Combine timers and device control to add a delay**
 Unlike regular voice timers, delayed commands cannot be canceled or modified.
   - *“Turn off the lights in the living room in 5 minutes”*

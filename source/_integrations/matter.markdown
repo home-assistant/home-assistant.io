@@ -9,6 +9,7 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Select
   - Sensor
   - Switch
 ha_release: '2022.12'
@@ -27,6 +28,7 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - switch
 ha_integration_type: integration
@@ -176,14 +178,14 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - Scan the QR code.
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
-4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
    - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
 6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
@@ -273,7 +275,7 @@ Follow these steps if you have added a Matter device to Home Assistant and you w
    - There is no need to press a hardware button on the device to set it to commissioning mode.
 4. To join the device to the other platform, in their app, scan the QR code or enter the sharing code.
 5. Follow the instructions in their app. Once the process is complete, you can see that the device is shared in Home Assistant:
-   - Next to the **Share device** button, select the three dots menu, then **Manage fabrics**.
+   - Next to the **Share device** button, select the three dots {% icon "mdi:dots-vertical" %} menu, then **Manage fabrics**.
    - In the list there, the new platform should be listed.
    - For example, if you shared it with Google Home, it lists **Google LLC**.
      ![image](/images/integrations/matter/matter_share-device-with-other-platform.png)

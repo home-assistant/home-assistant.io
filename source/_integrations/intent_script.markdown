@@ -116,7 +116,7 @@ intent_script:
         data_template:
           start_date_time: "{{ today_at('00:00') }}"
           duration: { "hours": 24 }
-        response_variable: result                     # get service response
+        response_variable: result                     # get action response
       - stop: ""
         response_variable: result                     # and return it
     speech:
