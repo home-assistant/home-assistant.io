@@ -14,12 +14,12 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[Dio Chacon devices](https://chacon.com/en/) are connected home devices that can be controlled via RF 433 Mhz or Wifi.
-This integration gives you access to the Wifi connection that allows in Home Assistant to list your devices and interact with them in real time like vendor's smartphone application does.
+[Dio Chacon devices](https://chacon.com/en/) are connected home devices that can be controlled via RF 433 MHz or Wi-Fi
+This {% term integrations %} gives you access to the Wi-Fi connection so that Home Assistant can list your Chacon Dio devices and interact with them in real time, the same way the vendor's smartphone application does.
 
 There is currently support for the following information within Home Assistant:
 
-- Cover devices (get statuses, moves up, down, stop and moves to a given percentage)
+- Cover devices (get statuses, move up, down, stop, and move to a given percentage)
 
 ## Prerequisites
 
