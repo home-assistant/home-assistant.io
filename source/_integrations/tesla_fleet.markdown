@@ -69,8 +69,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Time at arrival|Yes|
 |Sensor|Time at full charge|Yes|
 |Sensor|Time to arrival|Yes|
-|Sensor|Time to arrival|Yes|
-|Sensor|Time to full charge|Yes|
 |Sensor|Time to full charge|Yes|
 |Sensor|Tire pressure front left|No|
 |Sensor|Tire pressure front right|No|
