@@ -9,6 +9,9 @@ ha_config_flow: true
 ha_codeowners:
   - '@pburgio'
 ha_domain: iotty
+ha_platforms:
+  - switch
+ ha_integration_type: hub
 ---
 
 The iotty family is focused on beautiful aesthetics and includes the Smart Switch for lights and gates, the Smart Shades Switch for blinds and shutters and the Smart Outlet. Install the iotty devices and enjoy your new Smart Home with ease!
