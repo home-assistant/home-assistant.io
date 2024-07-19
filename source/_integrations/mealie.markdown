@@ -82,3 +82,39 @@ Import the recipe into Mealie from a URL.
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
 | `url`                  | No       | The URL of the recipe.                                          |
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
+
+{% tip %}
+You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
+{% endtip %}
+
+## Examples
+
+{% details "Example template sensor using get_mealplan" %}
+
+Example template sensor that contains today's dinner meal plan entries:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - service: mealie.get_mealplan
+        data:
+          config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
+        response_variable: result
+    sensor:
+      - name: "Dinner today"
+        unique_id: mealie_dinner_today
+        state: >
+          {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
+          {{ meal.recipe['name'] if meal.recipe is not none else meal.title }}
+          {{ ", " if not loop.last }}
+          {%- endfor %}
+```
+
+{% endraw %}
+
+{% enddetails %}
