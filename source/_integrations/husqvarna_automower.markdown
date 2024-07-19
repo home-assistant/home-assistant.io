@@ -184,9 +184,9 @@ data:
 
 ### Override schedule work area (if available)
 
-With this service, you can let your mower mow for a given time in a certain work area. You can enter the work area with the `work_area_id` attribute. You can get the `work_area_id` from the `Work area` sensor.
+With this action, you can let your mower mow for a given time in a certain work area. You can enter the work area with the `work_area_id` attribute. You can get the `work_area_id` from the `Work area` sensor.
 ![Work area sensor](/images/integrations/husqvarna_automower/work_area_sensor.png)
-This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
+This will override all your schedules during this time. The duration can be given in days, hours, and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
 
 ```yaml
 # Replace <name> with the name of your mower.
