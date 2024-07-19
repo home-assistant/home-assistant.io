@@ -2,7 +2,8 @@
 title: iotty
 description: "Instructions on how to connect iotty Smart Devices to Home Assistant."
 ha_release: "2024.8"
-ha_category: "No score"
+ha_category: 
+  - Switch
 ha_iot_class: "Cloud Polling"
 ha_quality_scale: no score
 ha_config_flow: true
