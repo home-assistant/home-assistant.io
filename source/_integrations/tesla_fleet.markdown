@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Tesla Fleet API integration exposes various sensors from Tesla vehicles and energy sites.
+The Tesla Fleet API {% term integration %} exposes various sensors from Tesla vehicles and energy sites.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ When connecting your Tesla account to Home Assistant, you **must** select the `V
 
 ## Rate limits
 
-Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will stop polling for vehicle updates when it hits this limit, and will wait the appropriate time specified in the Retry-After header.
+Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will stop polling for vehicle updates when it hits this limit, and will wait the appropriate time specified in the **Retry-After** header.
 
 ## Entities
 
@@ -81,7 +81,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Tire pressure rear left|No|
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
-|Sensor|Usable Battery level|No|
+|Sensor|Usable battery level|No|
 
 ### Energy sites
 
