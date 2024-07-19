@@ -28,7 +28,7 @@ The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_c
 
 {% include integrations/config_flow.md %}
 
-### Temperature Sensors
+### Temperature sensors
 
 | Sensor | Description |
 | --- | --- |
@@ -40,7 +40,7 @@ The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_c
 | Wet bulb temperature | The lowest temperature that can be reached under current ambient conditions by the evaporation of water only. |
 | Wind chill | The lowering of body temperature due to the passing-flow of lower-temperature air. |
 
-### Air Sensors
+### Air sensors
 
 | Sensor | Description |
 | --- | --- |
@@ -49,7 +49,7 @@ The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_c
 | Pressure sea level | The atmospheric pressure at mean sea level. |
 | Pressure station | The atmospheric pressure at the station level. |
 
-### Lightning Sensors
+### Lightning sensors
 
 | Sensor | Description |
 | --- | --- |
