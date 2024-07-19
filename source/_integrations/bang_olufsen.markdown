@@ -22,6 +22,7 @@ The Bang & Olufsen integration enables control of some of the features of certai
 
 Devices that have been tested and _should_ work without any trouble are:
 
+- [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core)
 - [Beolab 8](https://www.bang-olufsen.com/en/dk/speakers/beolab-8)
 - [Beolab 28](https://www.bang-olufsen.com/en/dk/speakers/beolab-28)
 - [Beosound 2 3rd gen](https://www.bang-olufsen.com/en/dk/speakers/beosound-2)
@@ -48,11 +49,11 @@ Device model:
 {% endconfiguration_basic %}
 
 
-## Services
+## Actions
 
-### play_media services
+### play_media actions
 
-The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
+The Bang & Olufsen integration supports different playback types in the `media_player.play_media` action: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 
 #### play_media examples
 
@@ -196,7 +197,7 @@ Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and a
 
 Extra keys available:
 
-| Service data attribute    | Optional | Description                                                                                       |
+| Data attribute    | Optional | Description                                                                                       |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                       |
 | `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                  |

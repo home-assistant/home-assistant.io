@@ -17,11 +17,11 @@ Please see [manual alarm](/integrations/manual) or [template alarm](/integration
 
 {% include integrations/building_block_integration.md %}
 
-### Services
+### Actions
 
-Depending on features supported by a specific integration alarm may expose the following services:
+Depending on features supported by a specific integration alarm may expose the following actions:
 
-| Service | Data | Description |
+| Action | Data | Description |
 | ------- | ---- | ----------- |
 | `alarm_arm_home` | `entity_id` <br> `code` (optional) | Arm the alarm in the home mode.
 | `alarm_arm_away` | `entity_id` <br> `code` (optional) | Arm the alarm in the away mode.

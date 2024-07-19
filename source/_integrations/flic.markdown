@@ -18,7 +18,7 @@ The `flic` {% term integration %} allows you to receive click events from [flic]
 
 The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
-## Service setup
+## Action setup
 
 If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 

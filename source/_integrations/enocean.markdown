@@ -65,8 +65,8 @@ Tested with:
 
 The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
-- F6-02-01 (Light and Blind Control - Application Style 2)
-- F6-02-02 (Light and Blind Control - Application Style 1)
+- F6-02-01 (Light and Blind Control - Application Style 1)
+- F6-02-02 (Light and Blind Control - Application Style 2)
 
 To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

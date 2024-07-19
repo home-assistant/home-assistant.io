@@ -8,5 +8,5 @@ To add the {{ title | downcase }} to your user interface:
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
-     - To continue, in the dialog, select the three dots menu, then select **Take control**.
+     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 2. [Add a card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.

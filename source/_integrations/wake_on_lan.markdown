@@ -33,21 +33,21 @@ To use this {% term integration %} in your installation, add the following to yo
 wake_on_lan:
 ```
 
-### Integration services
+### Actions
 
-Available services: `send_magic_packet`.
+Available actions: `send_magic_packet`.
 
-#### Service `wake_on_lan.send_magic_packet`
+#### Action `wake_on_lan.send_magic_packet`
 
 Send a _magic packet_ to wake up a device with 'Wake on LAN' capabilities.
 
-| Service data attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `mac`                  | no       | MAC address of the device to wake up.                 |
 | `broadcast_address`    | yes      | Optional broadcast IP where to send the magic packet. |
 | `broadcast_port`       | yes      | Optional port where to send the magic packet.         |
 
-Sample service data:
+Sample action data:
 
 ```json
 {
@@ -55,10 +55,10 @@ Sample service data:
 }
 ```
 
-<div class='note'>
+{% note %}
 This usually only works if the target device is connected to the same network. Routing the magic packet to a different subnet requires a special configuration on your router or may not be possible.
-The service to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
-</div>
+The action to route the packet is most likely named "IP Helper". It may support Wake on LAN, but not all routers support this.
+{% endnote %}
 
 ## Switch
 
@@ -143,7 +143,7 @@ shell_command:
 A switch defined with the `wake_on_lan` platform will render in the UI with both 'on' and 'off' clickable actions. If you don't intend to use the `turn_off` functionality, then using a virtual button & automation will look cleaner and less confusing. It will only have one action.
 
 1. First, define a new helper button. 
-    - Go to **{% my helpers title="Settings > Devices & Services > Helpers" %}** and select the **+ Create helper** button. Choose **Button** and give it a name. A button named "Wake PC" will render like this:
+    - Go to **{% my helpers title="Settings > Devices & services > Helpers" %}** and select the **+ Create helper** button. Choose **Button** and give it a name. A button named "Wake PC" will render like this:
 
     ![image](https://github.com/home-assistant/home-assistant.io/assets/252209/10e468a0-45c8-4ee7-b69d-596db3845b14)
 
@@ -157,7 +157,7 @@ A switch defined with the `wake_on_lan` platform will render in the UI with both
         - input_button.wake_pc
       ```
 
-3. For the action, select **Call service** and choose **Wake on LAN: Send magic packet**.
+3. For the action, select **Perform action** and choose **Wake on LAN: Send magic packet**.
 4. Type in the target MAC address.
     - Do not change the broadcast port unless you've configured your device to listen to a different port.
     - Continuing our example, the action YAML looks like this:

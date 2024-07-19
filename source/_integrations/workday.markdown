@@ -31,11 +31,9 @@ Check the [country list](https://github.com/dr-prodigy/python-holidays#available
 
 The keyword "Holidays" is used for public holidays identified by the holidays module and holidays added by the "Add holidays" configuration option.
 
-<div class='note warning'>
-
+{% important %}
 Take note of the "Holidays" keyword. Your first instinct might be to add it to the "Excludes" configuration, thinking it means skipping the holidays. But it is meant to exclude the days in the holiday list from the workdays. So, when you exclude "Holidays" and a workday falls on that day, that workday is excluded, and the sensor will be **off**. If you want every workday flagged with no regard to holidays, ensure that there is something in your "Excludes" configuration _other_ than "Holidays".
-
-</div>
+{% endimportant %}
 
 ## Specific field information
 
@@ -49,12 +47,12 @@ Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range format
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
-## Service `workday.check_date`
+## Action `workday.check_date`
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.
 
-| Service data attribute | Required | Description | Example |
+| Data attribute | Required | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `check_date` | yes | Date to test if workday or not. | 2022-03-10
 

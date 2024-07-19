@@ -11,6 +11,7 @@ ha_domain: lamarzocco
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - diagnostics
   - number
   - select
@@ -81,6 +82,7 @@ Host:
 |-------------|-------------| ---------------------- | ------- |
 | Water tank empty | Indicates whether the water tank needs a refill. | all | - |
 | Brewing active | Is on if you are in the process of making coffee. | all | Only available when the *Host* was set during component configuration. |
+| Backflush enabled | Is on if you started the backflushing process. | all | - |
 
 ## Sensors
 

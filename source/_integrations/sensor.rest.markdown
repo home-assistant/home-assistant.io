@@ -151,11 +151,9 @@ verify_ssl:
   default: True
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 Use either `resource` or `resource_template`.
-
-</div>
+{% endimportant %}
 
 `curl` can help you identify the variable you want to display in your Home Assistant frontend. The example below shows the JSON response of a device that is running with [aREST](https://arest.io/).
 

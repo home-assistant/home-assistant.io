@@ -147,11 +147,11 @@ Depending on the supported features of the camera, button entities are added for
 
 **Guard set current position** will set the current position as the new guard position.
 
-### Service reolink.ptz_move
+### Action reolink.ptz_move
 
-Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                                                                         |
+| Data attribute | Optional | Description                                                                                                                         |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
 | `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
@@ -175,9 +175,9 @@ Depending on the supported features of the camera, select entities are added for
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
-When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
-In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
 
 ## Switch entities
 
@@ -249,7 +249,7 @@ Recordings up to 1 month old can be viewed in Home Assistant.
 
 ## Tested models
 
-The following models have been tested and confirmed to work:
+The following models have been tested and confirmed to work with a direct link to Home Assistant:
 
 - C1 Pro*
 - C2 Pro*
@@ -278,6 +278,7 @@ The following models have been tested and confirmed to work:
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
+- [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
@@ -289,15 +290,30 @@ The following models have been tested and confirmed to work:
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
+- [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
-Battery-powered cameras are not yet supported.
+### Tested battery-powered models
+
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+
+The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
+
+- [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
+- [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
+- [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
+- [Argus Track](https://reolink.com/product/argus-track/)
+- [Reolink Doorbell Battery](https://reolink.com/roadmap/)
+
+Reolink provides [this larger list of battery camera models](https://support.reolink.com/hc/en-us/articles/32379509281561-Reolink-Home-Hub-Compatibility/) which are compatible with the Home Hub and should work with Home Assistant.
+
+### Models only compatible using a NVR/Home Hub
 
 The following models are lacking the HTTP web server API and can, therefore, not work directly with this integration.
-However, these cameras can work with this integration through an NVR in which the NVR is connected to Home Assistant.
+However, these cameras can work with this integration through an NVR or Home Hub in which the NVR/Home Hub is connected to Home Assistant.
 
 - E1 Pro
 - E1

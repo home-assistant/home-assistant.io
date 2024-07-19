@@ -79,7 +79,7 @@ The HomeKit Device integration automatically detects HomeKit [compatible devices
 
 ### To add a HomeKit device via Ethernet or Wi-Fi
 
-1. The device should have been discovered under **{% my integrations title="Settings > Devices & Services" %}**.
+1. The device should have been discovered under **{% my integrations title="Settings > Devices & services" %}**.
 2. On the HomeKit Device integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
@@ -105,7 +105,7 @@ You can add a HomeKit [compatible device](#supported-devices) to Home Assistant 
 ### To add a HomeKit device through Bluetooth
 
 1. Power up your HomeKit device.
-   - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & Services" %}**.
+   - If you have Bluetooth enabled, the device should be discovered under **{% my integrations title="Settings > Devices & services" %}**.
 2. On the HomeKit Bridge integration, select **Configure**.
      
      ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
@@ -174,7 +174,7 @@ This section describes how to add a HomeKit [compatible device](#supported-devic
    - This leaves the {% term Thread %} network details on the HomeKit device.
    - The device will be automatically discovered by the HomeKit controller integration in Home Assistant.
    - It will appear as a discovered device over {% term Thread %}.
-2. Under **{% my integrations title="Settings > Devices & Services" %}**, on the HomeKit integration, select **Configure**.
+2. Under **{% my integrations title="Settings > Devices & services" %}**, on the HomeKit integration, select **Configure**.
 
    ![HomeKit integration](/images/integrations/homekit_controller/homekit_controller_add_01.png)
 
@@ -205,11 +205,9 @@ There is currently support for the following device types (also called *domains*
 - Humidifier (HomeKit humidifiers and dehumidifiers)
 - Automation triggers (HomeKit 'stateless' accessories like buttons, remotes and doorbells)
 
-<div class='note'>
-
-  If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
-
-</div>
+{% note %}
+If your device is not on this list then you may still be able to pair it, and it will be visible in the Device Registry. But Home Assistant may not create entities for it.
+{% endnote %}
 
 The integration will enable push updates. Devices that connect through Wi-Fi or Ethernet may fall back to only polling if the connection is unstable.
 

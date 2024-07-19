@@ -9,8 +9,10 @@ ha_category:
   - Event
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
+  - Text
   - Update
   - Valve
 ha_release: 0.115
@@ -34,8 +36,10 @@ ha_platforms:
   - event
   - light
   - number
+  - select
   - sensor
   - switch
+  - text
   - update
   - valve
 ha_integration_type: device
@@ -74,9 +78,9 @@ Generation 2 and 3 devices use the `RPC` protocol to communicate with the integr
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
 
-<div class="note">
+{% note %}
 Integration is communicating directly with the device; cloud connection is not needed.
-</div>
+{% endnote %}
 
 ## Bluetooth Support
 
@@ -226,11 +230,9 @@ You can also create automations using YAML, for example:
 
 Generation 2 and 3 devices use the values `btn_down`, `btn_up`, `single_push`, `double_push`, `triple_push` and `long_push` as `click_type`.
 
-<div class="note">
-
+{% note %}
 Not all devices support all input events. You can check on [Shelly API Reference](https://shelly-api-docs.shelly.cloud/) website what types of Shelly input events your device supports.
-
-</div>
+{% endnote %}
 
 ## Appliance type (generation 1)
 
@@ -251,15 +253,13 @@ Shelly lights supporting light transition:
 - Shelly RGBW2
 - Shelly Vintage
 
-<div class="note">
-
+{% note %}
 The firmware limits the transition time to 5 seconds.
+{% endnote %}
 
-</div>
+## Device actions
 
-## Device services
-
-The integration offers device services which can be triggered by a configuration button.
+The integration offers device actions which can be triggered by a configuration button.
 
 ### OTA firmware update
 
@@ -306,6 +306,22 @@ shelly:
   coap_port: 12345
 ```
 
+## Virtual components
+
+Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
+
+The integration supports the following virtual components:
+
+- `boolean` in `toggle` mode, for which a `switch` platform entity is created
+- `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `enum` in `dropdown` mode, for which a `select` platform entity is created
+- `enum` in `label` mode, for which a `sensor` platform entity is created
+- `number` in `field` mode, for which a `number` platform entity in `box` mode is created
+- `number` in `slider` mode, for which a `number` platform entity in `slider` mode is created
+- `number` in `label` mode, for which a `sensor` platform entity is created
+- `text` in `field` mode, for which a `text` platform entity is created
+- `text` in `label` mode, for which a `sensor` platform entity is created
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
@@ -325,4 +341,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
-- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+- Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

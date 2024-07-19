@@ -14,9 +14,9 @@ The `ifttt` {% term integration %} allows you to integrate security systems that
 
 This {% term integration %} depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
-<div class='note'>
+{% note %}
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
-</div>
+{% endnote %}
 
 ## Configuration
 
@@ -79,17 +79,17 @@ optimistic:
   default: false
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 
-</div>
+{% endwarning %}
 
 ### Required IFTTT applets
 
 Next, you will need to set up the required IFTTT applets as listed below.
 
-This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered.
+This platform supports the `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night` actions. For each of these actions, an IFTTT webhook will be triggered.
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
 
