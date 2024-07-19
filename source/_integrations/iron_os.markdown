@@ -27,9 +27,9 @@ The **ironOS** {% term integration %} seamlessly connects Home Assistant with PI
 - **Last movement time:** Tracks the duration since the soldering iron was last in motion, useful for activity monitoring.
 - **Operating mode:** Indicates the current operational state of the soldering iron, such as idle, soldering, boost, sleeping, settings, or debug.
 - **Max tip temperature:** Indicates the maximum temperature that the currently inserted soldering iron tip supports.
-- **Power level:** Displays the current power level of the soldering iron.
+- **Power level:** Displays the duty cycle of the pulse-width modulation (PWM) in percent, indicating the current power output of the soldering iron (for example, "50%" for a 50% duty cycle).
 - **Power source:** Identifies the current power source used by the soldering iron, such as DC input, USB Quick Charge, USB Power Delivery or USB Power Delivery VBUS.
 - **Raw tip voltage:** Measures the raw voltage at the soldering iron tip.
-- **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (e.g., "6.2 Ω" for short tips, "8 Ω" for normal tips)
+- **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (for example, "6.2 Ω" for short tips, "8 Ω" for normal tips)
 - **Uptime:** Tracks the total operating time of the soldering iron since its last power-on.
 - **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://wiki.pine64.org/wiki/Pinecil_Hall_Effect_Sensor). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
