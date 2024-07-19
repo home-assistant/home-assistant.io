@@ -18,7 +18,7 @@ ha_integration_type: hub
 The iotty {% term integration%} lets you integrate iotty devices into Home Assistant. The iotty family includes the smart switch for lights and gates, the smart shades switch for blinds and shutters, and the smart outlet. 
 
 
-  {% include integrations/config_flow.md %}
+{% include integrations/config_flow.md %}
 
 ## Supported devices
 
