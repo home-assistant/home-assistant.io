@@ -139,11 +139,13 @@ Make sure you have all these components ready before trying to add a Matter devi
   - Android:
     - Have the Android version 8.1 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - iPhone
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
