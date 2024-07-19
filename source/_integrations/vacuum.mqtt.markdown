@@ -268,7 +268,7 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"

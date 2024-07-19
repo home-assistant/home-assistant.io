@@ -1,22 +1,14 @@
-<section class="aside-module grid__item one-whole lap-one-half">
+<section class="vertical-nav aside-module grid__item one-whole lap-one-half">
   {% assign elements = site.dashboards | sort_natural: 'title' %}
 
   <div class="section">
     <h1 class="title epsilon"><iconify-icon icon="mdi:view-dashboard"></iconify-icon> Dashboards</h1>
     <ul class="divided sidebar-menu">
       <li>{% active_link /dashboards/ Introduction %}</li>
-      <li>
-        {% active_link /dashboards/dashboards/ Multiple dashboards %}
-      </li>
-      <li>
-        {% active_link /dashboards/views/ Views %}
-      </li>
-      <li>
-        {% active_link /dashboards/cards/ Cards %}
-      </li>
-      <li>
-        {% active_link /dashboards/badges/ Badges %}
-      </li>
+      <li>{% active_link /dashboards/dashboards/ Multiple dashboards %}</li>
+      <li>{% active_link /dashboards/views/ Views %}</li>
+      <li>{% active_link /dashboards/cards/ Cards %}</li>
+      <li>{% active_link /dashboards/badges/ Badges %}</li>
     </ul>
   </div>
 
@@ -48,14 +40,12 @@
       <li>{% active_link /dashboards/features/ Features %}</li>
       <li>{% active_link /dashboards/header-footer/ Headers & footers %}</li>
       <li>{% active_link /dashboards/actions/ Actions %}</li>
-      <li>
-        <a
+      <li><a
           class="external-link" 
           href="https://developers.home-assistant.io/docs/frontend/custom-ui/custom-card/"
           >Developing custom cards
           {% icon "tabler:external-link" %}
-        </a>
-      </li>
+        </a></li>
     </ul>
   </div>
 </section>

@@ -173,7 +173,7 @@ script:
 
 
 {% important %}
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+When calling the `logbook.log` action without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
 {% endimportant %}
 
 {% note %}

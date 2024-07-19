@@ -33,7 +33,7 @@ There is support for the following device types within Home Assistant:
 
 ### Custom effects
 
-Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#service-lightturn_on) service.
+Custom effects can only be set up through YAML configuration. To turn on the effect you can use [light.turn_on](/integrations/light/#action-lightturn_on) action.
 
 Possible transitions are `RGBTransition`, `HSVTransition`, `TemperatureTransition`, `SleepTransition`.
 
@@ -210,84 +210,84 @@ This {% term integration %} is tested to work with the following models. If you 
 | ?, may be `ceilb` | YLXD013-C    | Yeelight Arwen Ceiling Light 550C         |
 | `ceilb`    | YLXD013      | Yeelight Arwen Ceiling Light 450S                |
 
-## Services
+## Actions
 
-### Service `yeelight.set_mode`
+### Action `yeelight.set_mode`
 
 Set an operation mode.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `mode`                    |       no | Operation mode. Valid values are 'last', 'normal', 'rgb', 'hsv', 'color_flow', 'moonlight'. |
 
-### Service `yeelight.start_flow`
+### Action `yeelight.start_flow`
 
 Start flow with specified transitions
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Service `yeelight.set_color_scene`
+### Action `yeelight.set_color_scene`
 
 Changes the light to the specified RGB color and brightness. If the light is off, it will be turned on.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `rgb_color`               |       no | A list containing three integers between 0 and 255 representing the RGB color you want the light to be. Three comma-separated integers that represent the color in RGB, within square brackets.|
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Service `yeelight.set_hsv_scene`
+### Action `yeelight.set_hsv_scene`
 
 Changes the light to the specified HSV color and brightness. If the light is off, it will be turned on.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `hs_color`                |       no | A list containing two floats representing the hue and saturation of the color you want the light to be. Hue is scaled 0-360, and saturation is scaled 0-100.    |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Service `yeelight.set_color_temp_scene`
+### Action `yeelight.set_color_temp_scene`
 
 Changes the light to the specified color temperature. If the light is off, it will be turned on.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `kelvin`                  |       no | Color temperature in Kelvin.                                                                |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Service `yeelight.set_color_flow_scene`
+### Action `yeelight.set_color_flow_scene`
 
-Starts a color flow. Difference between this and [yeelight.start_flow](#service-yeelightstart_flow), this service call uses different a Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
+Starts a color flow. Difference between this and [yeelight.start_flow](#action-yeelightstart_flow), this action uses different a Yeelight API call. If the light was off, it will be turned on. There might be some firmware differences in handling complex flows, etc.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `count`                   |      yes | The number of times to run this flow (0 to run forever).                                    |
 | `action`                  |      yes | The action to take after the flow stops. Can be 'recover', 'stay', 'off'. Default 'recover' |
 | `transitions`             |       no | Array of transitions. See [custom effects](#custom-effects).                                |
 
-### Service `yeelight.set_auto_delay_off_scene`
+### Action `yeelight.set_auto_delay_off_scene`
 
 Turns the light on to the specified brightness and sets a timer to turn it back off after the given number of minutes. If the light is off, it will be turned on.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `minutes`                 |       no | The minutes to wait before automatically turning the light off.                             |
 | `brightness`              |       no | The brightness value to set (1-100).                                                        |
 
-### Service `yeelight.set_music_mode`
+### Action `yeelight.set_music_mode`
 
 Enable or disable music_mode.
 
-| Service data attribute    | Optional | Description                                                                                 |
+| Data attribute    | Optional | Description                                                                                 |
 |---------------------------|----------|---------------------------------------------------------------------------------------------|
 | `entity_id`               |      yes | Only act on specific lights.                                                                |
 | `music_mode`              |       no | Use 'true' or 'false' to enable / disable music_mode.                                       |

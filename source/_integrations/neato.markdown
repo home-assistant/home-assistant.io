@@ -82,9 +82,9 @@ Each `neato` vacuum has a _Dismiss alert_ button. This allows to dismiss an aler
 The `neato` vacuum platform allows you to control your [Neato Botvac Connected][botvac-connected].
 The status will contain attributes on the robots last clean session.
 
-### Services
+### Actions
 
-Currently supported services are:
+Currently supported actions are:
 
 - `start`
 - `pause`
@@ -93,13 +93,11 @@ Currently supported services are:
 - `locate`
 - `clean_spot`
 
-And a specific Platform Service:
+And a specific integration-specific action:
 
 - `neato.custom_cleaning`
 
-### Platform services
-
-#### Service `neato.custom_cleaning`
+#### Action `neato.custom_cleaning`
 
 Starts a custom cleaning of your house. You can set the various options like in the mobile application (mode, map usage, navigation mode, zone).
 
@@ -108,7 +106,7 @@ Not all Botvac models support all the attributes. Only the Neato Botvac D7 suppo
 Some information about the capabilities might be found on the [Neato Developer Portal](https://developers.neatorobotics.com/api/robot-remote-protocol/housecleaning).
 {% endnote %}
 
-| Service data attribute | Optional | Description                                                                                                                                                                   |
+| Data attribute | Optional | Description                                                                                                                                                                   |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                                                                                                                                                  |
 | `mode`                 | yes      | Set the cleaning mode: 1 for eco and 2 for turbo. Defaults to turbo if not set.                                                                                               |
