@@ -24,11 +24,9 @@ You may see slight deviations between the values reported in Home Assistant and 
 
 ### Which integration should I use
 
-The [WeatherFlow](https://www.home-assistant.io/integrations/weatherflow) integration provides local communications with your weather station via UDP. It returns raw sensor data readings.
-The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_cloud) integration provides a data feed reflective of what is presented in the Tempest mobile application - including Forecast data. WeatherFlow explains the differences in their FAQ:
-
-> Can I access data from the hardware locally? To ensure access to the best data, all third-party applications and integrations should use the remote interfaces (REST & Websockets) as their primary source for data, even if they are running on the same network as the local Tempest device. There is also a local UDP interface available for those applications that require completely off-grid applications, but this should only be used as a backup to the remote interfaces.
-
+The [WeatherFlow](https://www.home-assistant.io/integrations/weatherflow) integration allows local communication through UDP, providing raw sensor data directly from your weather station.
+For a data feed that mirrors the Tempest mobile app, including forecast data, consider the [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_cloud) integration. WeatherFlow's FAQ notes:
+> "Local data access is possible; however, for the most accurate data, third-party applications and integrations should primarily use the remote interfaces (REST & Websockets), even if they operate on the same network as the Tempest device. The local UDP interface is available but should be reserved for use cases requiring complete independence from the internet."
 {% include integrations/config_flow.md %}
 
 ## Sensors
