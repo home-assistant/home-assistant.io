@@ -78,28 +78,28 @@ Due to changes in the Hydrawise API the status of the Auto Watering switches has
 
 The Hydrawise integration makes various custom {% term actions %} available.
 
-### Service `hydrawise.start_watering`
+### Action `hydrawise.start_watering`
 
 Start a watering cycle in an irrigation zone.
 
-| Service data attribute | Optional | Description                                                                                                                                                                        |
+| Data attribute | Optional | Description                                                                                                                                                                        |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | The irrigation zone in which to start watering.                                                                                                                                                      |
 | `duration`             | yes      | The length of time to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
 
-### Service `hydrawise.suspend`
+### Action `hydrawise.suspend`
 
 Suspend automatic watering in an irrigation zone until a specified date.
 
-| Service data attribute | Optional | Description                                                |
+| Data attribute | Optional | Description                                                |
 | ---------------------- | -------- | ---------------------------------------------------------- |
 | `entity_id`            | no       | The irrigation zone in which to suspend watering.                            |
 | `until`                | no       | The date & time when automatic watering should be resumed. |
 
-### Service `hydrawise.resume`
+### Action `hydrawise.resume`
 
 Resume automatic watering in an irrigation zone.
 
-| Service data attribute | Optional | Description                    |
+| Data attribute | Optional | Description                    |
 | ---------------------- | -------- | ------------------------------ |
 | `entity_id`            | no       | The irrigation zone in which to resume watering. |
