@@ -9,8 +9,8 @@
 
   {% unless post.meta == false %}
   <div class="meta clearfix">
-    {% include blog/post/date.html %}{{ time }}
     {% include post/author.html %}
+    {% include blog/post/date.html %}{{ time }}
     {% include blog/post/tags.html %}
     {% if page.comments != false and post.comments != false %}
       <a class='comments'
