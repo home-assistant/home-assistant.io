@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Tesla Fleet API within Home As
 ha_category:
   - Binary sensor
   - Car
+  - Device tracker
   - Sensor
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - device_tracker
   - diagnostics
   - sensor
 ha_integration_type: integration
@@ -65,6 +67,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
