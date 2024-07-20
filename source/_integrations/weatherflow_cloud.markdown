@@ -19,13 +19,13 @@ ha_integration_type: integration
 
 The **WeatherFlow Cloud** integration provides access to cloud provided Weather Forecast of a user's Tempest Weather Stations. In order to access the station, you will need to configure the integration with an [Api Key](https://weatherflow.github.io/Tempest/api/).
 
-### Which integration should I use
+### Which integration(s) should I use
 
-The [WeatherFlow](https://www.home-assistant.io/integrations/weatherflow) integration provides local communications with your weather station via UDP. It returns raw sensor data readings.
-The [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_cloud) integration provides a data feed reflective of what is presented in the Tempest mobile application - including Forecast data. WeatherFlow explains the differences in their FAQ:
+There are two integrations for WeatherFlow devices, and you are not limtied to selecting just one.
 
-> Can I access data from the hardware locally? To ensure access to the best data, all third-party applications and integrations should use the remote interfaces (REST & Websockets) as their primary source for data, even if they are running on the same network as the local Tempest device. There is also a local UDP interface available for those applications that require completely off-grid applications, but this should only be used as a backup to the remote interfaces.
+- [WeatherFlow](https://www.home-assistant.io/integrations/weatherflow) is a *local only* `UDP` based integration that will read data directly from the device. This integration does require the Home Assistant server and the WeatherFlow device to be on the same subnet.
 
+-  [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_cloud) is a *cloud* based integration that closely mirrors the data availabe via the Weatherflow Tempest mobile applications and is likely a good starting place for most users as it provides both **Forecast** and **Sensor** data. 
 {% include integrations/config_flow.md %}
 
 ### Temperature sensors
