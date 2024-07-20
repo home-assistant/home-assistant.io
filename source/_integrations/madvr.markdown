@@ -97,9 +97,9 @@ The following sensors are disabled by default:
 - `Aspect ratio integer`: The aspect ratio as an integer ratio.
 - `Aspect ratio name`: The name of the current aspect ratio.
 - `Aspect ratio resolution`: The resolution corresponding to the current aspect ratio.
-- `Cpu temperature`: The temperature of the CPU.
-- `Gpu temperature`: The temperature of the GPU.
-- `Hdmi temperature`: The temperature of the HDMI interface.
+- `CPU temperature`: The temperature of the CPU.
+- `GPU temperature`: The temperature of the GPU.
+- `HDMI temperature`: The temperature of the HDMI interface.
 - `Incoming aspect ratio`: The aspect ratio of the incoming video signal.
 - `Incoming signal type`: The type of the incoming signal (3D or 2D).
 - `Mainboard temperature`: The temperature of the mainboard.
