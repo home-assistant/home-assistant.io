@@ -2,6 +2,7 @@
 title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
 ha_category:
+  - Binary sensor
   - Car
   - Device tracker
   - Sensor
@@ -12,7 +13,9 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: tesla_fleet
 ha_platforms:
+  - binary_sensor
   - device_tracker
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
@@ -41,6 +44,29 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Battery heater|No|
+|Binary sensor|Cabin overheat protection actively cooling|No|
+|Binary sensor|Charge cable|Yes|
+|Binary sensor|Charger has multiple phases|No|
+|Binary sensor|Dashcam|No|
+|Binary sensor|Front driver door|Yes|
+|Binary sensor|Front driver window|Yes|
+|Binary sensor|Front passenger door|Yes|
+|Binary sensor|Front passenger window|Yes|
+|Binary sensor|Preconditioning enabled|No|
+|Binary sensor|Preconditioning|No|
+|Binary sensor|Rear driver door|Yes|
+|Binary sensor|Rear driver window|Yes|
+|Binary sensor|Rear passenger door|Yes|
+|Binary sensor|Rear passenger window|Yes|
+|Binary sensor|Scheduled charging pending|No|
+|Binary sensor|Status|Yes|
+|Binary sensor|Tire pressure warning front left|No|
+|Binary sensor|Tire pressure warning front right|No|
+|Binary sensor|Tire pressure warning rear left|No|
+|Binary sensor|Tire pressure warning rear right|No|
+|Binary sensor|Trip charging|No|
+|Binary sensor|User present|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
 |Sensor|Battery level|Yes|
@@ -89,6 +115,9 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Binary sensor|Backup capable|Yes|
+|Binary sensor|Grid services active|Yes|
+|Binary sensor|Grid services enabled|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
