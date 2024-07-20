@@ -3,6 +3,7 @@ title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
 ha_category:
   - Car
+  - Device tracker
   - Sensor
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
@@ -11,6 +12,7 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: tesla_fleet
 ha_platforms:
+  - device_tracker
   - sensor
 ha_integration_type: integration
 ---
