@@ -1079,6 +1079,18 @@ article.listing {
 }
 
 
+.author-avatar {
+  position: relative;
+  width: 36px;
+  height: 36px;
+  border-radius: 24px !important;
+  vertical-align: middle;
+  margin: 4px 8px 4px 0;
+  border: 2px solid rgba(0,0,0,.1) !important;
+  box-shadow: none !important;
+}
+
+
 lite-youtube {
   position: relative;
   display: block;
