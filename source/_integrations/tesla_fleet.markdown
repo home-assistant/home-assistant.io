@@ -39,6 +39,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 
 |Domain|Name|Enabled|
 |---|---|---|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
