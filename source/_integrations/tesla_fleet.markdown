@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Bre77'
 ha_domain: tesla_fleet
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
