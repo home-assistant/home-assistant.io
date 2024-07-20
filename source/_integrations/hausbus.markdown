@@ -15,16 +15,15 @@ ha_integration_type: hub
 ---
 
 [Haus-Bus.de](https://haus-bus.secure-stores.de/) is a manufacturer of smart home equipment based in Germany.
-This integration communicates to any of the Haus-Bus devices equipped with a LAN port.
-
+This integration communicates with any Haus-Bus devices equipped with a LAN port via LAN.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Light](#light)
+- Light
 
 ### Supported devices
 
-Currently only light based devices are supported, i.e. all dimmer channels on the devices [IO-Module](https://haus-bus.secure-stores.de/?showProduct=6), [8-channel 230V dimmer](https://haus-bus.secure-stores.de/?showProduct=14), [2-channel RGB dimmer](https://haus-bus.secure-stores.de/?showProduct=9).
+Currently, only light based devices are supported, i.e., all dimmer channels on the devices [IO-Module](https://haus-bus.secure-stores.de/?showProduct=6), [8-channel 230V dimmer](https://haus-bus.secure-stores.de/?showProduct=14), [2-channel RGB dimmer](https://haus-bus.secure-stores.de/?showProduct=9).
 
 The supported devices are automatically detected in the local network via UDP broadcast, upon loading the integration.
 
@@ -32,7 +31,7 @@ The supported devices are automatically detected in the local network via UDP br
 
 ## Debugging integration
 
-If you have problems with the Haus-Bus integration you can add debug prints to the log.
+If you have problems with the Haus-Bus integration, you can add debug prints to the log.
 
 ```yaml
 logger:
