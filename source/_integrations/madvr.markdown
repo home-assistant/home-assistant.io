@@ -5,6 +5,7 @@ ha_category:
   - Remote
   - Binary Sensor
   - Sensor
+  - Button
 ha_release: '2024.8'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -15,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - remote
   - sensor
+  - button
 ha_integration_type: device
 ---
 
@@ -103,3 +105,43 @@ The integration creates the following sensors:
 - `Masking resolution`: The resolution for the current masking setting.
 - `Masking decimal`: The masking ratio as a decimal value.
 - `Masking integer`: The masking ratio as an integer ratio.
+
+### Button
+
+The integration creates buttons which send commands to the device.
+
+These buttons are to control navigation and menus:
+
+- `Up`: Simulates pressing the up button on the remote.
+- `Down`: Simulates pressing the down button on the remote.
+- `Left`: Simulates pressing the left button on the remote.
+- `Right`: Simulates pressing the right button on the remote.
+- `OK`: Simulates pressing the OK button on the remote.
+- `Back`: Simulates pressing the back button on the remote.
+- `Red`: Simulates pressing the red button on the remote.
+- `Green`: Simulates pressing the green button on the remote.
+- `Blue`: Simulates pressing the blue button on the remote.
+- `Yellow`: Simulates pressing the yellow button on the remote.
+- `Magenta`: Simulates pressing the magenta button on the remote.
+- `Cyan`: Simulates pressing the cyan button on the remote.
+- `Open info menu`: Opens the info menu on the madVR Envy.
+- `Open settings menu`: Opens the settings menu on the madVR Envy.
+- `Open configuration menu`: Opens the configuration menu on the madVR Envy.
+- `Open profiles menu`: Opens the profiles menu on the madVR Envy.
+- `Open test patterns menu`: Opens the test patterns menu on the madVR Envy.
+
+These buttons are for debugging or demoing:
+
+- `Reset temporary`: Resets temporary settings to their default values.
+- `Toggle tone map`: Toggles the tone mapping feature on or off.
+- `Toggle highlight recovery`: Toggles the highlight recovery feature on or off.
+- `Toggle contrast recovery`: Toggles the contrast recovery feature on or off.
+- `Toggle shadow recovery`: Toggles the shadow recovery feature on or off.
+- `Toggle 3D LUT`: Toggles the 3D Look-Up Table (LUT) feature on or off.
+- `Toggle screen boundaries`: Toggles the display of screen boundaries.
+- `Toggle histogram`: Toggles the display of the video histogram.
+- `Toggle debug OSD`: Toggles the debug on-screen display.
+- `Refresh license info`: Refreshes the license information.
+- `Force 1080p60 output`: Forces the output to 1080p at 60Hz (basically safe mode).
+
+These buttons allow you to control various functions of the madVR Envy directly from Home Assistant.
