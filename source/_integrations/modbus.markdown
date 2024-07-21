@@ -571,7 +571,6 @@ climates:
       required: false
       type: integer
       default: 5
-
     # Current Temperature
     count:
       description: "Number of registers to read to fetch the current temperature.
@@ -625,7 +624,6 @@ climates:
       required: false
       type: float
       default: 0
-
     # Target temperature
     target_temp_register:
       description: "Register address for target temperature (Setpoint). Using a list, it is possible to define one register for each of the available HVAC Modes. The list has to have a fixed size of 7 registers corresponding to the 7 available HVAC Modes, as follows: Register **1: HVAC AUTO mode**; Register **2: HVAC Cool mode**; Register **3: HVAC Dry mode**; Register **4: HVAC Fan only mode**; Register **5: HVAC Heat mode**; Register **6: HVAC Heat Cool mode**; Register **7: HVAC OFF mode**. It is possible to set duplicated values for the modes where the devices has not a related register."
@@ -660,7 +658,6 @@ climates:
           description: "Swap word ABCD -> CDAB, **not valid with data types: `int16`, `uint16`**"
         word_byte:
           description: "Swap word ABCD -> DCBA, **not valid with data types: `int16`, `uint16`**"
-
     # HVAC mode
     hvac_mode_register:
       description: "Configuration of register for HVAC mode"
@@ -711,7 +708,6 @@ climates:
               description: "Value corresponding to HVAC Heat/Cool mode."
               required: false
               type: [integer, list]
-    
     # Fan mode
     fan_mode_register:
       description: "Configuration of register for Fan mode"
@@ -768,7 +764,6 @@ climates:
               description: "Value corresponding to Fan Diffuse mode."
               required: false
               type: integer
-
     # Swing mode  
     swing_mode_register:
       description: "Configuration of the register for swing mode"
@@ -804,7 +799,6 @@ climates:
               description: "Value corresponding to Swing mode both."
               required: false
               type: integer
-
     # On/Off state
     hvac_onoff_register:
       description: "Address of On/Off state.
