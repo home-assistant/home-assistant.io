@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: mealie
 ha_platforms:
   - calendar
+  - sensor
   - todo
 ha_integration_type: service
 ---
@@ -45,6 +46,10 @@ The integration will create a calendar for every type of meal plan:
 ## Shopping Lists
 
 The integration will create a to-do list for every Mealie shopping list.
+
+## Sensors
+
+The integration provides sensors for the statistics like the number of recipes, categories, tags, tools and users.
 
 ## Actions
 
