@@ -24,7 +24,7 @@ The **ironOS** {% term integration %} seamlessly connects Home Assistant with PI
 - **Handle temperature:** Displays the temperature of the soldering iron handle.
 - **Estimated power:** Shows the estimated power consumption of the soldering iron.
 - **DC input voltage:** Reports the voltage level being supplied to the soldering iron.
-- **Last movement time:** Tracks the duration since the soldering iron was last in motion, useful for activity monitoring.
+- **Last movement time:** Indicates when the soldering iron was last in motion (relative to the uptime of the device), useful for activity monitoring.
 - **Operating mode:** Indicates the current operational state of the soldering iron, such as idle, soldering, boost, sleeping, settings, or debug.
 - **Max tip temperature:** Indicates the maximum temperature that the currently inserted soldering iron tip supports.
 - **Power level:** Displays the duty cycle of the pulse-width modulation (PWM) in percent, indicating the current power output of the soldering iron (for example, "50%" for a 50% duty cycle).
