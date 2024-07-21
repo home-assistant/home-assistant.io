@@ -108,27 +108,27 @@ The integration creates the following sensors:
 
 ### Button
 
-The integration creates buttons which send commands to the device.
+The integration creates buttons which send commands to the device. You can add these buttons in the UI to build a virtual remote or add them in scripts/automations.
 
-These buttons are to control navigation and menus:
+These buttons control navigation and menus:
 
-- `Up`: Simulates pressing the up button on the remote.
-- `Down`: Simulates pressing the down button on the remote.
-- `Left`: Simulates pressing the left button on the remote.
-- `Right`: Simulates pressing the right button on the remote.
-- `OK`: Simulates pressing the OK button on the remote.
-- `Back`: Simulates pressing the back button on the remote.
-- `Red`: Simulates pressing the red button on the remote.
-- `Green`: Simulates pressing the green button on the remote.
-- `Blue`: Simulates pressing the blue button on the remote.
-- `Yellow`: Simulates pressing the yellow button on the remote.
-- `Magenta`: Simulates pressing the magenta button on the remote.
-- `Cyan`: Simulates pressing the cyan button on the remote.
-- `Open info menu`: Opens the info menu on the madVR Envy.
-- `Open settings menu`: Opens the settings menu on the madVR Envy.
-- `Open configuration menu`: Opens the configuration menu on the madVR Envy.
-- `Open profiles menu`: Opens the profiles menu on the madVR Envy.
-- `Open test patterns menu`: Opens the test patterns menu on the madVR Envy.
+- `Up`: Simulates pressing the up button.
+- `Down`: Simulates pressing the down button.
+- `Left`: Simulates pressing the left button.
+- `Right`: Simulates pressing the right button.
+- `OK`: Simulates pressing the OK button.
+- `Back`: Simulates pressing the back button.
+- `Red`: Simulates pressing the red button.
+- `Green`: Simulates pressing the green button.
+- `Blue`: Simulates pressing the blue button.
+- `Yellow`: Simulates pressing the yellow button.
+- `Magenta`: Simulates pressing the magenta button.
+- `Cyan`: Simulates pressing the cyan button.
+- `Open info menu`: Opens the info menu.
+- `Open settings menu`: Opens the settings menu.
+- `Open configuration menu`: Opens the configuration menu.
+- `Open profiles menu`: Opens the profiles menu.
+- `Open test patterns menu`: Opens the test patterns menu.
 
 These buttons are for debugging or demoing:
 
@@ -143,5 +143,3 @@ These buttons are for debugging or demoing:
 - `Toggle debug OSD`: Toggles the debug on-screen display.
 - `Refresh license info`: Refreshes the license information.
 - `Force 1080p60 output`: Forces the output to 1080p at 60Hz (basically safe mode).
-
-These buttons allow you to control various functions of the madVR Envy directly from Home Assistant.
