@@ -172,7 +172,13 @@ The `hive` sensor integration exposes Hive data as a sensor.
 
 The platform exposes the following sensors:
 
+- Availability for supported products
 - Battery level for supported products
+- Boost for supported products
+- Mode for supported products
+- State for supported products
+- Current temperature for supported products
+- Target temperature for supported products
   
 ### Switch
 
