@@ -83,6 +83,16 @@ Import the recipe into Mealie from a URL.
 | `url`                  | No       | The URL of the recipe.                                          |
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
 
+### Action `mealie.set_random_mealplan`
+
+Set a random mealplan on a specific date.
+
+| Data attribute    | Optional | Description                                         |
+|-------------------|----------|-----------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
+| `date`            | No       | The date that should be filled.                     |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner" or "side".    |
+
 {% tip %}
 You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
 {% endtip %}
