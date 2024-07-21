@@ -19,7 +19,7 @@ related:
 ---
 
 The `template` platform creates vacuums that combine integrations and provides the
-ability to run scripts or invoke services for each of the start, pause, stop,
+ability to run scripts or invoke actions for each of the start, pause, stop,
 return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 
 To enable Template Vacuums in your installation, add the following to your

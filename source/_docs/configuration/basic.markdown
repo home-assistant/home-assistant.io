@@ -13,7 +13,7 @@ As part of the default onboarding process, Home Assistant can detect your locati
     Screenshot showing the General settings page.
 </p>
 
-The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the services offered by this integration, check out the integration documentation.
+The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the actions offered by this integration, check out the integration documentation.
 
 ## Editing the general settings
 

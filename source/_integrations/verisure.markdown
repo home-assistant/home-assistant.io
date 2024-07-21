@@ -67,7 +67,7 @@ automation:
 
 {% endraw %}
 
-## Services
+## Actions
 
 | Service | Description |
 | ------- | ----------- |

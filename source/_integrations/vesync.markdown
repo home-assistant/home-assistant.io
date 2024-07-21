@@ -74,9 +74,9 @@ the configuration section below.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-| Service | Description |
+| Action | Description |
 |---------|-------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 

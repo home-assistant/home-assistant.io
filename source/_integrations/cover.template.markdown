@@ -19,7 +19,7 @@ related:
 ---
 
 The `template` platform can create covers that combine integrations and provides
-the ability to run scripts or invoke services for each of the open,
+the ability to run scripts or invoke actions for each of the open,
 close, stop, position and tilt commands of a cover.
 
 ## Configuration

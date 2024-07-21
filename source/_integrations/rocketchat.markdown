@@ -32,7 +32,7 @@ notify:
     room: YOUR_ROOM_NAME
 ```
 
-- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+- `name` (*Optional*): Name displayed in the frontend. The notifier will bind to the `notify.NOTIFIER_NAME` action.
 - `url` (*Required*): The URL of your Rocket.Chat instance.
 - `username` (*Required*): The Rocket.Chat username.
 - `password` (*Required*): The Rocker.Chat password.
