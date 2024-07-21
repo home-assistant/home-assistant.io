@@ -47,7 +47,10 @@ Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range format
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
+Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
+
 ## Action `workday.check_date`
+
 
 This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.

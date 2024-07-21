@@ -1099,16 +1099,14 @@ script:
 
 ## Publish & Dump actions
 
-The MQTT integration will register the `mqtt.publish` action which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
+The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
 ### Action `mqtt.publish`
 
 | Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `topic_template`       | no       | Template to render as topic to publish payload to.           |
-| `payload`              | yes      | Payload to publish.                                          |
-| `payload_template`     | yes      | Template to render as payload value.                         |
+| `payload`              | no       | Payload to publish.                                          |
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
