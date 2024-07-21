@@ -112,7 +112,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 ### Notify entity groups
 
 - The group state is `unavailable` if all group members are `unavailable`.
-- Otherwise, the group state is the last notification is sent to the group.
+- Otherwise, the group state is the last notification sent to the group.
 
 ### Media player groups
 
