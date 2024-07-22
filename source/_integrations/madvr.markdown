@@ -106,7 +106,7 @@ The integration creates the following sensors:
 - `Masking decimal`: The masking ratio as a decimal value.
 - `Masking integer`: The masking ratio as an integer ratio.
 
-### Button
+### Buttons
 
 The integration creates buttons which send commands to the device. You can add these buttons in the UI to build a virtual remote or add them in scripts/automations.
 
@@ -130,7 +130,7 @@ These buttons control navigation and menus:
 - `Open profiles menu`: Opens the profiles menu.
 - `Open test patterns menu`: Opens the test patterns menu.
 
-These buttons are for debugging or demoing:
+These buttons are for debugging or demonstrating:
 
 - `Reset temporary`: Resets temporary settings to their default values.
 - `Toggle tone map`: Toggles the tone mapping feature on or off.
