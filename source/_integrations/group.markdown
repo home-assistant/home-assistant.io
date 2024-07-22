@@ -46,7 +46,7 @@ Home Assistant can group multiple binary sensors, covers, events, fans, lights, 
 {% include integrations/config_flow.md %}
 
 {% note %}
-Notification entities can only be grouped via the UI. 
+Notification entities can only be grouped via the UI.
 The older notification services can only be grouped via YAML configuration.
 {% endnote %}
 
