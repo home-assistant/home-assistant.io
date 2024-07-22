@@ -38,7 +38,7 @@ You will need to obtain an API key from ecobee's [developer site](https://www.ec
 {% warning %}
 As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function.
 
-In the mean time, you can use the [HomeKit Device](https://www.home-assistant.io/integrations/homekit_controller/) integration as a fully functional alternative.
+In the meantime, you can use the [HomeKit Device](/integrations/homekit_controller/) integration as a fully functional alternative.
 {% endwarning %}
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
