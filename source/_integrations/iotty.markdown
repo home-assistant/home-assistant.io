@@ -20,32 +20,30 @@ The iotty {% term integration%} lets you integrate iotty devices into Home Assis
 
 {% include integrations/config_flow.md %}
 
+## Prerequisites
+
+In order to use this integration you must have a iotty account, and enter its credentials during account pairing.
+To create a iotty account, you need to get the App from the [App Store](https://apps.apple.com/it/app/iotty-smart-home/id1230937401) or [Play Store](https://play.google.com/store/apps/details?id=com.dynamicait.iotty&hl=en).
+
 ## Supported devices
 
 This integration currently supports the following iotty Devices:
 
 - iotty Smart Switch \
-  US version
-  - https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389
-  - https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925
-  - https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269
-  - https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901 \
-  
-  EU VERSION:
-  - https://iotty.uk/collections/frontpage/products/iotty-smart-switch
-  - https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082
-  - https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli
+  US version:
+  - [1-Switch Controller](https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389)
+  - [2-Switch Controller](https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925)
+  - [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
+  - [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
+  EU version:
+  - [iotty Smart Switch](https://iotty.uk/collections/frontpage/products/iotty-smart-switch)
+  - [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
+  - [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
 
+## Supported Entities
 
-More integrations are coming soon:
+Each iotty device gets mapped into one HomeAssistant device per gang, each with its own Switch entity.
 
-- iotty Shades Switch \
-  EU VERSION:
-  - https://iotty.uk/collections/frontpage/products/iotty-smart-shades-switch
-  - https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-tende-e-tapparelle
+### Switches
 
-- iotty Smart Outlet: \
-  EU VERSION:
-  - https://iotty.fr/collections/frontpage/products/prise-intelligent-iotty
-  - https://iotty.de/collections/frontpage/products/iotty-smart-steckdose
-  - https://iotty.it/collections/frontpage/products/iotty-plus-presa-intelligente
+The main, unnamed switch entity, controls the lightswitch, turning it on or off the gang related to it.
