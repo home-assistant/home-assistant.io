@@ -50,7 +50,7 @@ This action lists all the available devices for the SwitchBot API.
 
 | Field name  | Description                                |
 | ----------- | ------------------------------------------ |
-| unique_id   | Id of the device used by SwitchBot.        |
+| unique_id   | ID of the device used by SwitchBot.        |
 | device_name | Name set in the SwitchBot application.     |
 | device_type | Type of the device according to SwitchBot. |
 
