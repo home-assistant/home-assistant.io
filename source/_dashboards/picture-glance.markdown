@@ -44,11 +44,7 @@ image:
   type: string
 image_entity:
   required: false
-  description: Image entity to display.
-  type: string
-person_entity:
-  required: false
-  description: Person entity to display.
+  description: Image or person entity to display.
   type: string
 camera_image:
   required: false
