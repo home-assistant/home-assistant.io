@@ -56,7 +56,7 @@ This action lists all the available devices for the SwitchBot API.
 
 ### switchbot_cloud.send_command
 
-This service allows sending control command to devices as specified in [SwitchBot API documentation](https://github.com/OpenWonderLabs/SwitchBotAPI?tab=readme-ov-file#send-device-control-commands)
+This action allows sending control commands to devices as specified in [SwitchBot API documentation](https://github.com/OpenWonderLabs/SwitchBotAPI?tab=readme-ov-file#send-device-control-commands)
 
 | Service Data Attribute | Required | Description                                   |
 | ---------------------- | -------- | --------------------------------------------- |
