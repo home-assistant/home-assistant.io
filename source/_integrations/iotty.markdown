@@ -22,12 +22,12 @@ The iotty {% term integration%} lets you integrate iotty devices into Home Assis
 
 ## Prerequisites
 
-In order to use this integration you must have a iotty account, and enter its credentials during account pairing.
-To create a iotty account, you need to get the App from the [App Store](https://apps.apple.com/it/app/iotty-smart-home/id1230937401) or [Play Store](https://play.google.com/store/apps/details?id=com.dynamicait.iotty&hl=en).
+In order to use this integration, you must have an iotty account, and enter its credentials during account pairing.
+To create an iotty account, you need to get the App from the [App Store](https://apps.apple.com/it/app/iotty-smart-home/id1230937401) or [Play Store](https://play.google.com/store/apps/details?id=com.dynamicait.iotty&hl=en).
 
 ## Supported devices
 
-This integration currently supports the following iotty Devices:
+This integration currently supports the following iotty devices:
 
 - iotty Smart Switch \
   US version:
@@ -40,10 +40,10 @@ This integration currently supports the following iotty Devices:
   - [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
   - [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
 
-## Supported Entities
+## Supported entities
 
 Each iotty device gets mapped into one Home Assistant device per gang, each with its own Switch entity.
 
 ### Switches
 
-The main, unnamed switch entity, controls the lightswitch, turning it on or off the gang related to it.
+The main, unnamed, switch entity controls the light switch, turning it on or off the gang related to it.
