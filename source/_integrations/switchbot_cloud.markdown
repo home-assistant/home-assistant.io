@@ -46,7 +46,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 
 ### switchbot_cloud.list_devices
 
-This service lists all the available devices for the SwitchBot API.
+This action lists all the available devices for the SwitchBot API.
 
 | Field name  | Description                                |
 | ----------- | ------------------------------------------ |
