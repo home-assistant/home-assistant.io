@@ -803,7 +803,7 @@ climates:
       required: false
       type: integer
     write_registers:
-      description: "If `true` use `write_registers` to control the On/Off state (`hvac_onoff_register`), else use `write_register`."
+      description: "If `true` use `write_registers` to control the On/Off state (`hvac_onoff_register`), else use `write_register`.
       Note that is not yet possible to control the On/Off state via a coil."
       required: false
       type: boolean
