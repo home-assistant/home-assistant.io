@@ -1,8 +1,9 @@
 ---
 title: Mastodon
-description: Instructions on how to add Instapush notifications to Home Assistant.
+description: Instructions on how to add Mastodon notifications and sensors to Home Assistant.
 ha_category:
   - Notifications
+  - Sensor
 ha_release: 0.67
 ha_codeowners:
   - '@fabaff'
@@ -10,6 +11,7 @@ ha_domain: mastodon
 ha_iot_class: Cloud Push
 ha_platforms:
   - notify
+  - sensor
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -23,47 +25,17 @@ The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver no
 Go to **Preferences** in the Mastodon web interface, then to **Development** and create a new application.
 If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
-### Configuration
+{% include integrations/config_flow.md %}
 
-To add Mastodon to your installation, add the following to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+## Sensors
 
-```yaml
-# Example configuration.yaml entry
-notify:
-  - name: NOTIFIER_NAME
-    platform: mastodon
-    access_token: !secret mastodon_access_token
-    client_id: !secret mastodon_client_id
-    client_secret: !secret mastodon_client_secret
-```
+The integration will create  sensors for the Mastodon account showing current Followers, Following & Statuses.
 
-{% configuration %}
-name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
-  required: false
-  type: string
-  default: notify
-access_token:
-  description: Your Mastodon access token.
-  required: true
-  type: string
-client_id:
-  description: Your Mastodon client ID
-  required: true
-  type: string
-client_secret:
-  description: Your Mastodon client secret.
-  required: true
-  type: string
-base_url:
-  description: URL of the Mastodon instance to use.
-  required: false
-  type: string
-  default: https://mastodon.social
-{% endconfiguration %}
+## Notifications
 
-### Usage
+The integration will create a `notify` action matching the name of the integration entry.
+
+### Action Usage
 
 Mastodon is a notify platform, and can be used by calling notify action as described in the [notify documentation](/integrations/notify/). It will toot messages using 
 your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
