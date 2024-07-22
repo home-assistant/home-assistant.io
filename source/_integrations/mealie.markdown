@@ -49,7 +49,12 @@ The integration will create a to-do list for every Mealie shopping list.
 
 ## Sensors
 
-The integration provides sensors for the statistics like the number of recipes, categories, tags, tools and users.
+The integration provides the following sensors for the statistics:
+- number of recipes
+- categories (such as beverage, dessert, Italian, seafood)
+- tags (such as alcohol)
+- tools (such as instant pot, air fryer, or BBQ)
+- users
 
 ## Actions
 
