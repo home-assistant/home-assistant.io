@@ -60,7 +60,7 @@ This action allows sending control commands to devices as specified in [SwitchBo
 
 | Service Data Attribute | Required | Description                                   |
 | ---------------------- | -------- | --------------------------------------------- |
-| unique_id              | yes      | SwitchBot unique id.                          |
+| unique_id              | yes      | SwitchBot unique ID.                          |
 | command_type           | yes      | Command type to set (usually "command").      |
 | command                | yes      | Command to use.                               |
 | parameter              | no       | Command parameter to set (usually "default"). |
