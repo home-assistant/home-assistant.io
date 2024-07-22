@@ -42,7 +42,7 @@ This integration currently supports the following iotty Devices:
 
 ## Supported Entities
 
-Each iotty device gets mapped into one HomeAssistant device per gang, each with its own Switch entity.
+Each iotty device gets mapped into one Home Assistant device per gang, each with its own Switch entity.
 
 ### Switches
 
