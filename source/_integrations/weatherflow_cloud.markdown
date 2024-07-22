@@ -23,7 +23,7 @@ The **WeatherFlow Cloud** integration provides access to cloud provided Weather 
 
 There are two integrations for WeatherFlow devices, and you are not limited to selecting just one.
 
-- [WeatherFlow](https://www.home-assistant.io/integrations/weatherflow) is a *local only* `UDP`-based integration that will read data directly from the device. This integration does require the Home Assistant server and the WeatherFlow device to be on the same subnet.
+- [WeatherFlow](/integrations/weatherflow) is a *local only* `UDP`-based integration that will read data directly from the device. This integration does require the Home Assistant server and the WeatherFlow device to be on the same subnet.
 
 -  [WeatherFlow Cloud](https://www.home-assistant.io/integrations/weatherflow_cloud) is a *cloud*-based integration that closely mirrors the data available via the Weatherflow Tempest mobile applications and is likely a good starting place for most users as it provides both **Forecast** and **Sensor** data. 
 {% include integrations/config_flow.md %}
