@@ -19,7 +19,7 @@ related:
 ---
 
 The **Template** {% term integration %} creates fans that combine integrations and provides the
-ability to run scripts or invoke services for each of the `turn_on`, `turn_off`, `set_percentage`,
+ability to run scripts or invoke actions for each of the `turn_on`, `turn_off`, `set_percentage`,
 `set_preset_mode`, `set_oscillating`, and `set_direction` commands of a fan.
 
 ## Configuration
@@ -139,7 +139,7 @@ fan:
         type: [string, list]
         default: []
       speed_count:
-        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` services.
+        description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
         required: false
         type: integer
         default: 100
@@ -163,7 +163,7 @@ When converting a fan with 3 speeds from the old fan entity model, the following
 ### Helper fan
 
 This example uses an input_boolean and an input_number to mimic a fan, and 
-the example shows multiple service calls for set_percentage.  
+the example shows multiple actions for `set_percentage`.
 
 {% raw %}
 

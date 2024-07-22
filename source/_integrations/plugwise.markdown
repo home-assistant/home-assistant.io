@@ -69,11 +69,11 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
 
-### Services
+### Actions
 
 #### Update Smile data
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
 
 ```yaml
 # Example script change the temperature
@@ -133,7 +133,7 @@ script:
 
 Service: `climate.turn_off`, `climate.turn_on` (Adam only)
 
-These services will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+These actions will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
 `climate.turn_on` will activate the previously selected heating or cooling mode.
 
 Example:

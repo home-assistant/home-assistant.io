@@ -133,6 +133,6 @@ To adjust the configuration settings for your Forecast.Solar integration
 instance:
 
 1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
 4. Select **Configure**.

@@ -49,11 +49,11 @@ In the Hue concept you can create (dynamic) scenes for the lights within rooms a
 
 It is advised to use Hue scenes for controlling multiple lights at once for a smooth experience. If you individually control multiple lights and/or use Home Assistant scenes, each light command will be sent to each light one by one which doesn't give a very good user experience, while using a Hue scene sends commands to all lights at once in an optimized way, resulting in a smooth experience.
 
-### Service `hue.activate_scene`
+### Action `hue.activate_scene`
 
-To have more control over Hue scenes we've implemented a secondary, more advanced service to activate a Hue scene and set some properties at the same time, such as the Dynamic mode and/or brightness.
+To have more control over Hue scenes we've implemented a secondary, more advanced action to activate a Hue scene and set some properties at the same time, such as the Dynamic mode and/or brightness.
 
-| Service Data Attribute | Required | Description                                                                                   |
+| Data attribute | Required | Description                                                                                   |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Entity ID of the Hue Scene entity you want to activate.                                       |
 | `transition`           | no       | Transition duration (in seconds) it takes to bring devices to the state defined in the scene. |
@@ -61,7 +61,7 @@ To have more control over Hue scenes we've implemented a secondary, more advance
 | `speed`                | no       | Set the speed (of the dynamic palette) for this scene.                                        |
 | `brightness`           | no       | Set the brightness for this scene.                                                             |
 
-You can use this service for example if you'd like to start/stop Dynamic Mode.
+You can use this action for example if you'd like to start/stop Dynamic Mode.
 
 ## Hue remotes and switches
 
@@ -75,6 +75,6 @@ At the time of writing, there's a limitation on the Hue API that each device can
 
 Philips/Signify released a new version of their Hue bridge (square shape) and their legacy/V1 bridge (round shape) is now end of life and no longer supported by them. Home Assistant will continue to support the V1 Hue bridge as long as it is technically possible, although with a few limitations:
 
-- Scene entities are not automatically created for V1 bridges. To call a Hue scene on a V1 bridge from Home Assistant we provide a service call to call a Hue scene by name.
+- Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant we provide an action to active it the Hue scene by name.
 - State updates for devices/entities on a V1 bridges are not received instantly but polled on interval.
 - Light entities for Hue rooms are not automatically created for V1 bridges, you can opt-in for creating entities for rooms within the Integration's options.

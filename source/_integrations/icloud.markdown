@@ -56,27 +56,27 @@ The iCloud integration will track available devices on your iCloud account.
 
 The iCloud integration will add a battery sensor for each iCloud devices available on your iCloud account.
 
-## Services
+## Actions
 
-4 services are available:
+4 actions are available:
 
-### Service `icloud.update`
+### Action `icloud.update`
 
-This service can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door has been opened.
+This action can be used to ask an update of a certain iDevice or all devices linked to an iCloud account. Request will result in new Home Assistant [state_changed](/docs/configuration/events/#event-state_changed) event describing current iPhone location. It can be used in automations when a manual location update is needed, e.g., to check if anyone is home when a door has been opened.
 
-### Service `icloud.play_sound`
+### Action `icloud.play_sound`
 
-This service will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
+This action will play the Lost iPhone sound on your iDevice. It will still ring if you are on "Mute" or "Do not disturb" mode.
 
-| Service data attribute    | Optional | Description                                             |
+| Data attribute    | Optional | Description                                             |
 |---------------------------|----------|---------------------------------------------------------|
 | `account`                 |       no | Email address of the iCloud account                    |
 | `device_name`             |       no | Human Friendly device name like Bob's iPhone            |
 
-### Service `icloud.display_message`
+### Action `icloud.display_message`
 
-This service will display a message on your iDevice. It can also ring your device.
+This action will display a message on your iDevice. It can also ring your device.
 
-### Service `icloud.lost_device`
+### Action `icloud.lost_device`
 
-This service will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.
+This action will put your iDevice on "lost" mode (compatible devices only). You have to provide a phone number with a suffixed [country code](https://en.wikipedia.org/wiki/List_of_country_calling_codes) and a message.

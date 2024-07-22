@@ -11,6 +11,7 @@ ha_codeowners:
 ha_config_flow: true
 ha_platforms:
   - climate
+  - humidifier
   - select
   - sensor
 ha_integration_type: device

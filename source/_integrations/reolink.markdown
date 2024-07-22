@@ -147,11 +147,11 @@ Depending on the supported features of the camera, button entities are added for
 
 **Guard set current position** will set the current position as the new guard position.
 
-### Service reolink.ptz_move
+### Action reolink.ptz_move
 
-Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                                                                         |
+| Data attribute | Optional | Description                                                                                                                         |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
 | `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
@@ -175,9 +175,9 @@ Depending on the supported features of the camera, select entities are added for
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
-When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
-In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
 
 ## Switch entities
 
@@ -254,6 +254,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C1 Pro*
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
+- [CX810](https://reolink.com/product/cx810/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
