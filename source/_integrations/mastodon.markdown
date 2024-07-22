@@ -6,6 +6,7 @@ ha_category:
 ha_release: 0.67
 ha_codeowners:
   - '@fabaff'
+  - '@andrew-codechimp'
 ha_domain: mastodon
 ha_iot_class: Cloud Push
 ha_platforms:
