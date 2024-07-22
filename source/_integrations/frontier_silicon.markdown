@@ -15,7 +15,7 @@ ha_ssdp: true
 ha_config_flow: true
 ---
 
-This integration provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
+This {% term integration %} provides support for Internet Radios based on the [Frontier Silicon chipset]. Some of the manufacturers which offer products based on these chips include: Hama, Medion, Slivercrest, Auna, Technisat, Revo, Pinnel, etc. These devices will be usually controlled by the OKTIV or UNDOK apps.
 
 ## Supported models
 
@@ -23,7 +23,7 @@ Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-- Hama: [IR50], [IR110], [DIR3110]
+- Hama: [IR50], [IR110], [DIR3110], [DIR355BT]
 - Medion: [Medion Radios]
 - Silvercrest: [SIRD 14 C2 (archived website)]
 - Teufel: [Radio 3sixty (2019)]
@@ -31,13 +31,13 @@ Supported devices include, but are not limited to:
 - TechniSat: [DIGITRADIO 10 IR], and some other models
 - Some models from: Auna, Revo, Pinell, Como Audio
 
-This integration was developed and tested with a [Roberts Stream 94i].
+This {% term integration %} was developed and tested with a [Roberts Stream 94i].
 
 If your device is supported by the OKTIV or UNDOK apps, then it is also supported by this integration.
 
 ## Prerequisites
 
-The integration supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device IP-address. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
+The {% term integration %} supports automatic discovery of your Internet Radio. If you need to set up the device manually, please provide the device IP-address. Some models use a separate port (2244) for API access, this can be verified by visiting `http://[host]:[port]/device`.
 
 The default PIN for Frontier Silicon-based devices is 1234. You can set the PIN code of your device (depending on manufacturer) under:
 *MENU button > Main Menu > System setting > Network > NetRemote PIN setup*
@@ -74,13 +74,13 @@ Overview of the info dialog:
 
 ## Notes and Limitations
 
-<div class='note warning'>
+{% warning %}
 
-Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated. 
+Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated.
 
 This renders the usage of [UNDOK] almost impossible for these older devices, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session. In that case, you have to disable the integration if you want to use UNDOK.
 
-</div>
+{% endwarning %}
 
 [Frontier Silicon chipset]: https://www.frontiersmart.com/solution/solutions-for-digital-radio/
 [Medion Radios]: https://www.medion.com/de/shop/internetradios

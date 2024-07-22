@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - '@jbouwh'
 ha_domain: incomfort
 ha_platforms:
   - binary_sensor
@@ -17,9 +17,10 @@ ha_platforms:
   - sensor
   - water_heater
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-The `incomfort` integration links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
+The `incomfort` {% term integration %} links Home Assistant with your Intergas Lan2RF gateway, including the boiler and any room thermostats attached to it.
 
 It uses the [incomfort](https://pypi.org/project/incomfort-client/) client library.
 
@@ -35,48 +36,9 @@ In addition, there is a **Sensor** for each of CV pressure, CV temperature, and 
 
 Any room thermostats (there can be 0, 1 or 2) are represented as **Climate** devices. They will report the thermostat's `temperature` (setpoint, target temperature) and `current_temperature` and the setpoint can be changed.
 
-## Configuration
-
-To set up this integration, add one of the following to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
 The hub does not have to be in the same network as HA, but must be reachable via port 80/HTTP.
-
-### Older gateways
-
-Older gateways do not require user authentication:
-
-```yaml
-# Example configuration.yaml entry, older firmware with no user credentials
-incomfort:
-  host: IP_ADDRESS
-```
-
-### Newer gateways
-
-Alternatively, if a **username** & **password** is printed on the back of the gateway:
-
-```yaml
-# Example configuration.yaml entry, newer firmware with user credentials
-incomfort:
-  host: IP_ADDRESS
-  username: USERNAME
-  password: PASSWORD
-```
-
-{% configuration %}
-host:
-  description: The hostname/IP address of the Lan2RF gateway.
-  required: true
-  type: string
-username:
-  description: "The username of the Lan2RF gateway, if any. Most likely: `admin`."
-  required: inclusive
-  type: string
-password:
-  description: "The password of the Lan2RF gateway, if any. Most likely: `intergas`."
-  required: inclusive
-  type: string
-{% endconfiguration %}
 
 ## Automation
 

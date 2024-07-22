@@ -1,8 +1,15 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
 description: "The entities card is the most common type of card. It groups items together into lists."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.

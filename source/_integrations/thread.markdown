@@ -12,6 +12,23 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
 ha_zeroconf: true
+related:
+  - docs: /yellow/
+    title: Home Assistant Yellow - hub
+  - docs: /skyconnect/
+    title: Home Assistant Connect ZBT-1 - Zigbee/Thread USB stick
+  - docs: /integrations/matter/
+    title: Matter
+  - docs: /integrations/homekit_controller/
+    title: HomeKit
+  - docs: /integrations/matter/#adding-a-matter-device-to-home-assistant
+    title: Adding a Matter device to Home Assistant
+  - docs: /integrations/homekit_controller/#adding-a-homekit-device-through-thread
+    title: Adding an Apple HomeKit device through Thread
+  - url: https://connectzbt1.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on Connect ZBT-1
+  - url: https://yellow.home-assistant.io/procedures/enable-thread/
+    title: Enabling Thread on Yellow
 ---
 
 The Thread integration helps you track the different Thread networks in your home and store the Thread network credentials (similar to a Wi-Fi password). The Thread integration in Home Assistant is currently still a work in progress.
@@ -70,7 +87,7 @@ While Home Assistant can *use* any border router, it can *configure* and *contro
 
 ### List of Thread border router devices
 
-Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
+Home Assistant can act as a Thread border router. But it also supports third-party border routers. Often, Thread border routing is only an auxiliary functionality of a smart home device. For example, the Nest Hub (2nd gen) is a smart display, a Google Home controller, and a Chromecast target, but also has a Thread border router included.
 
 Currently, the following <abbr title="Thread border router">TBR</abbr> devices are known to work with Home Assistant.
 These border routers may require an iPhone or Android phone for onboarding. What the exact requirements are, depends on the home automation protocol ({% term Matter %} or Apple HomeKit) that your devices are using. Before buying a border router, check the prerequisites in the corresponding procedures:
@@ -80,10 +97,9 @@ These border routers may require an iPhone or Android phone for onboarding. What
 
 #### Home Assistant
 
-The Thread support on these devices is in experimental state. Out of the box, they run Zigbee, not Thread.
+Out of the box, Home Assistant Connect&nbsp;ZBT-1 and Yellow run Zigbee, not Thread. Currently, enabling Thread involves manual steps. The integration of the Home Assistant based Thread border router with Matter is work-in-progress.
 
-- [Home Assistant Yellow](/yellow/). Follow this procedure to [enable Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
-- [Home Assistant SkyConnect](/skyconnect/) USB stick. Follow this procedure to [enable Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/).
+- If you have a Home Assistant Yellow or Connect&nbsp;ZBT-1, you can use their Thread radio. Follow these steps to [turn Home Assistant into a Thread border router](#turning-home-assistant-into-a-thread-border-router).
 
 #### Google
 
@@ -98,6 +114,91 @@ The Thread support on these devices is in experimental state. Out of the box, th
 #### Others
 
 There are also other companies that provide devices with border router capability, such as Nanoleaf or Amazon.
+
+## Turning Home Assistant into a Thread border router
+
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio.
+
+Find out if you already have Thread networks:
+
+- Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+- If you do not see a **Thread** integration, add it.
+- Then, select **Configure** and check if you see any Thread networks on the overview page.
+- Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
+- Case 2: If you have existing networks, follow [Case 2: Create a HA border router when there is an existing network](#case-2-creating-a-ha-border-router-when-there-is-an-existing-network)
+
+### Case 1: Making Home Assistant your first Thread network
+
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last for digits are a network-specific identifier (PAN ID).
+
+#### Prerequisites
+
+- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, or another compatible radio
+- Android phone or iPhone
+- No third-party Thread networks present
+
+#### To make Home Assistant your first Thread network
+
+1. To enable Thread support on your Home Assistant Yellow or Connect&nbsp;ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/).
+
+2. Make sure the Home Assistant Thread network is defined as preferred network.
+   - This should happen automatically, but check to be sure.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+   - Then, select **Configure**.
+   - You should see the Home Assistant logo under **Preferred network**.
+
+     ![image](/images/integrations/thread/thread-preferred-network-ha-only.png)
+
+3. Before you can add Matter-based Thread devices, your phone needs to know the credentials of your newly created Thread network.
+   - To share the credentials with your Android phone, open the Home Assistant Companion app.
+     - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
+     - Follow the instructions on screen.
+     - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
+   - To share the credentials with your iPhone, open the Home Assistant Companion app.
+     - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+     - At the bottom of the preferred network box, select **Send credentials to phone**.
+4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
+
+### Case 2: Creating a HA border router when there is an existing network
+
+Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio but you already have third-party Thread networks present. These steps will join the Home Assistant Thread border router with the existing Thread network.
+
+![image](/images/integrations/thread/thread-no-preferred-network-but-third-party-present.png)
+
+If you have both Google and Apple Thread networks present, decide which one you would like add the Home Assistant border router to.
+
+#### Prerequisites
+
+- Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, or another compatible radio
+- Third-party Thread network listed
+- Android phone if you have a Google Thread network, iPhone if you have an Apple Thread network
+
+#### To create a HA border router when there is an existing network
+
+Note: the steps and images here show the process with a Google Thread network. But the process is very similar if you have an Apple Thread network with an iPhone.
+
+1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
+2. First you need to import the Thread credentials of your Google thread network.
+   - In the companion app, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+   - On Android, select **Configure** and **Import Credentials**.
+     - **Result**: You should see a notification that the credentials are imported.
+   - On iOS, select **Send credentials to Home Assistant**.
+3. Refresh the screen.
+   - You should now see an <img width="30px" src='/images/integrations/thread/information-outline.png'> icon, indicating that Home Assistant now has the credentials of that network.
+4. Select **Make preferred network**.
+   - **Result**: The selected network now shows as the preferred network.
+
+   ![image](/images/integrations/thread/thread-google-br.png)
+
+5. To enable Thread support on your Home Assistant Yellow or Connect ZBT-1, you need to install the **OpenThread Border Router** add-on. Follow the corresponding procedure:
+   - [Enable Thread on Home Assistant Yellow](https://yellow.home-assistant.io/procedures/enable-thread/).
+   - [Enable Thread on Home Assistant Connect ZBT-1](https://connectzbt1.home-assistant.io/procedures/enable-thread/).
+   - **Result**: The network now shows as the preferred network, joined with the third-party network.
+
+   ![image](/images/integrations/thread/thread-ha-preferred.png)
+   - 🎉 You successfully created a Home Assistant Thread network and joined it with a pre-existing third-party network.
 
 ## Understanding the Thread configuration page
 
@@ -121,11 +222,9 @@ Home Assistant discovers all Thread border routers in your network because they 
 
 The intention of the **Preferred network** in Home Assistant is that it will be used as the default network when adding Thread⁻based devices.
 
-<div class="note">
-
+{% note %}
 The **preferred network** function isn't completely implemented yet. In particular, when adding {% term Matter %} devices through the companion apps, the preferred network of the mobile device is being used.
-
-</div>
+{% endnote %}
 
 #### Making a network your preferred network
 
@@ -140,45 +239,6 @@ You can only set a Thread network as preferred if the credentials are known.
    - Importing the credentials allows a Google- or Apple-created Thread network to be the preferred network of Home Assistant.
    <img width="400" src='/images/integrations/thread/thread-preferred-network.png'>
 
-#### Using Home Assistant as a <abbr title="Thread border router">TBR</abbr> without setting up another vendor's TBR first
-
-This scenario currently only works in one particular case, under the following conditions:
-
-- Make sure there are no other Thread networks set up:
-  - For example: Make sure you do not have any Google <abbr title="Thread border routers">TBRs</abbr> set up yet (otherwise the Google <abbr title="Thread border router">TBR</abbr> will be the preferred Thread network, and Android APIs do not allow to change that currently).
-- You have the OpenThread Border Router add-on installed. If you have the experimental Silicon Labs Multiprotocol add-on installed, we recommend migrating to the pure Thread firmware, as especially Thread traffic appears to cause stability issues. For instructions on how to enable/migrate to a dedicated Thread setup on SkyConnect or Yellow, refer to the following guides:
-  - [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
-  - [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)
-- You have an Android phone and the Home Assistant Companion App. (Note: this does not work with the iOS Companion App).
-- The devices you want to add to the network support {% term Matter %}. For instructions on how to add Thread-based {% term Matter %} devices, refer to the section [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
-
-Which TBRs are supported mostly depends on (access to) the Thread credentials. And Thread credentials are required during on-boarding/commissioning, which is part of the smart home protocol.
-
 ### Combining Thread networks
 
 In the current implementation, having multiple <abbr title="Thread border routers">TBRs</abbr> from different vendors results in separate networks using different credentials. This prevents devices from roaming between the Thread networks. In theory, it would be better to join all Thread networks into a single network to increase the size of the mesh network. A dense mesh network should lead to better <abbr title="radio frequency">RF</abbr> coverage and better link quality, which lowers transmission latencies, making communication faster.
-
-<div class="warning">
-
-Currently, combining Thread networks seems to lead to instabilities. Therefore, we do not recommend combining networks in production just yet. This is especially true for our OpenThread Border Router in combination with Google or Apple Thread networks.
-
-</div>
-
-## Related topics
-
-### Related hardware
-
-- [Home Assistant Yellow](/yellow/) hub
-- [Home Assistant SkyConnect](/skyconnect/) Zigbee/Thread USB stick
-
-### Related integrations for smart home standards
-
-- [Matter](/integrations/matter/)
-- [HomeKit](/integrations/homekit_controller/)
-
-### Related guides
-
-- [Adding a Matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant)
-- [Adding an Apple HomeKit device through Thread](/integrations/homekit_controller/#adding-a-homekit-device-through-thread)
-- [Enabling Thread on SkyConnect](https://skyconnect.home-assistant.io/procedures/enable-thread/)
-- [Enabling Thread on Yellow](https://yellow.home-assistant.io/procedures/enable-thread/)

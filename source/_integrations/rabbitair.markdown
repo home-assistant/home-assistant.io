@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_zeroconf: true
 ha_platforms:
   - fan
+ha_integration_type: integration
 ---
 
 The Rabbit Air integration lets you control your air purifier over the local network. The following device models are currently supported:

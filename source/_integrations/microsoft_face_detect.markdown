@@ -7,9 +7,12 @@ ha_iot_class: Cloud Push
 ha_release: 0.38
 ha_domain: microsoft_face_detect
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `microsoft_face_detect` image processing platform allows you to use the
+The `microsoft_face_detect` image processing {% term integration %} allows you to use the
 [Microsoft Face Identify](https://azure.microsoft.com/products/cognitive-services/)
 API through Home Assistant. This platform enables you to detect face on camera
 and fire an event with attributes.
@@ -20,13 +23,14 @@ how to setup the API key.
 For using the result inside an automation rule,
 take a look at the [Image Processing integration](/integrations/image_processing/) page.
 
-<div class='note'>
-
+{% important %}
 The free version of the Microsoft Face identify API limits the number of requests possible per month. Therefore, it is strongly recommended that you limit the `scan_interval` when setting up an instance of this entity as detailed on the main [Image Processing integration](/integrations/image_processing/) page.
-
-</div>
+{% endimportant %}
 
 ### Configuration
+
+To enable the integration, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

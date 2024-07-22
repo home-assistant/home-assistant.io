@@ -11,6 +11,9 @@ ha_domain: qld_bushfire
 ha_platforms:
   - geo_location
 ha_integration_type: service
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `qld_bushfire` platform lets you integrate a 
@@ -30,18 +33,17 @@ of each entity.
 
 The data is updated every 5 minutes.
 
-<div class='note'>
-
+{% note %}
 The material used by this integration is provided under the [Creative Commons Attribution 4.0 license](https://creativecommons.org/licenses/by/4.0/legalcode).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's copyright notice](https://www.qfes.qld.gov.au/copyright) for more information.
-
-</div>
+{% endnote %}
 
 ## Configuration
 
 To integrate the Queensland Bushfire Alert feed, add the following lines to 
-your `configuration.yaml`.
+your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,16 +79,16 @@ longitude:
 The following state attributes are available for each entity in addition to 
 the standard ones:
 
-| Attribute        | Description |
-|------------------|-------------|
-| latitude         | Latitude of the bushfire alert. |
-| longitude        | Longitude of the bushfire alert. |
+| Attribute        | Description                                                                      |
+| ---------------- | -------------------------------------------------------------------------------- |
+| latitude         | Latitude of the bushfire alert.                                                  |
+| longitude        | Longitude of the bushfire alert.                                                 |
 | source           | `qld_bushfire` to be used in conjunction with `geo_location` automation trigger. |
-| external_id      | The external ID used in the feed to identify the bushfire alert in the feed. |
-| title            | Original title from the feed. |
-| publication_date | Date and time when this alert was first published. |
-| updated_date     | Date and time when this alert was last updated. |
-| status           | Status of the alert, for example, "Patrolled", "Going", "Contained" |
+| external_id      | The external ID used in the feed to identify the bushfire alert in the feed.     |
+| title            | Original title from the feed.                                                    |
+| publication_date | Date and time when this alert was first published.                               |
+| updated_date     | Date and time when this alert was last updated.                                  |
+| status           | Status of the alert, for example, "Patrolled", "Going", "Contained"              |
 
 ## Full configuration
 

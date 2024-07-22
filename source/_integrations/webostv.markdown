@@ -38,9 +38,9 @@ Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this f
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-<div class='note'>
+{% important %}
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-</div>
+{% endimportant %}
 
 You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
 Automations can also be created using an automation action:
@@ -66,9 +66,9 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the {% term integration %} card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 
-## Change channel through play_media service
+## Change channel through play_media action
 
-The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
+The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
  1. Channel number *(i.e., '1' or '6')*
  2. Exact channel name *(i.e., 'France 2' or 'CNN')*
@@ -102,29 +102,29 @@ The behavior of the next and previous buttons is different depending on the acti
 ### Sound output
 
 The current sound output of the TV can be found under the state attributes.
-To change the sound output, the following service is available:
+To change the sound output, the following action is available:
 
-#### Service `webostv.select_sound_output`
+#### Action `webostv.select_sound_output`
 
-| Service data attribute | Optional | Description                             |
+| Data attribute | Optional | Description                             |
 | ---------------------- | -------- | --------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player. |
 | `sound_output`         | no       | Name of the sound output to switch to.  |
 
 ### Generic commands and buttons
 
-Available services: `button`, `command`
+Available actions: `button`, `command`
 
-### Service `webostv.button`
+### Action `webostv.button`
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
 | `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
-### Service `webostv.command`
+### Action `webostv.command`
 
-| Service data attribute | Optional | Description                                                                                                                                                                          |
+| Data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
 | `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |

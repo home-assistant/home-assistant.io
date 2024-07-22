@@ -3,20 +3,29 @@ title: "Template cover"
 description: "Instructions on how to integrate template covers into Home Assistant."
 ha_category:
   - Cover
+  - Helper
 ha_release: 0.48
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - cover
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform can create covers that combine integrations and provides
-the ability to run scripts or invoke services for each of the open,
+the ability to run scripts or invoke actions for each of the open,
 close, stop, position and tilt commands of a cover.
 
 ## Configuration
 
 To enable Template Covers in your installation,
-add the following to your `configuration.yaml` file:
+add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -146,15 +155,15 @@ There is an equivalent mode for `tilt_position` that is enabled when
 
 If both a [`value_template`](#value_template) and a [`position_template`](#position_template) are specified only `opening` and `closing` states are set directly from the `value_template`, the `open` and `closed` states will instead be derived from the cover position.
 
-| value_template output | result |
-| ------------- |-------------|
-| open | state defined by `position_template` |
-| closed | state defined by `position_template` |
-| true | state defined by `position_template` |
-| false | state defined by `position_template` |
-| opening | state set to `opening` |
-| closing | state set to `closing` |
-| <any other output> | No change of state or position |
+| value_template output | result                               |
+| --------------------- | ------------------------------------ |
+| open                  | state defined by `position_template` |
+| closed                | state defined by `position_template` |
+| true                  | state defined by `position_template` |
+| false                 | state defined by `position_template` |
+| opening               | state set to `opening`               |
+| closing               | state set to `closing`               |
+| <any other output>    | No change of state or position       |
 
 ## Examples
 

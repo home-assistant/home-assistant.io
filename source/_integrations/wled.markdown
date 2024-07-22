@@ -15,7 +15,6 @@ ha_codeowners:
 ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
-  - binary_sensor
   - button
   - diagnostics
   - light
@@ -130,7 +129,7 @@ Keep Master Light:
 
 ### Activating random effect
 
-You can automate changing the effect using a service call like this:
+You can automate changing the effect using an action like this:
 
 {% raw %}
 
@@ -165,7 +164,7 @@ data:
 ### Activating a preset
 
 Activating a preset is an easy way to set a WLED light to a specific
-configuration. Here is an example service call to set a WLED light 
+configuration. Here is an example action to set a WLED light 
 to a preset called My Preset:
 
 ```yaml
@@ -183,8 +182,8 @@ to a preset called My Preset:
 
 An automation to turn on a WLED light and select a specific palette and
 set intensity, and speed can be created by first calling the `light.turn_on`
-service, then calling the `select.select_option` service to select the
-palette, then call the `number.set_value` service to set the intensity
+service, then calling the `select.select_option` action to select the
+palette, then call the `number.set_value` action to set the intensity
 and again to set the speed. 
 
 Here is an example of all of these put together into an automation:

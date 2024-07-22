@@ -1,5 +1,7 @@
 <script type="module" src="https://cdn.jsdelivr.net/npm/@justinribeiro/lite-youtube@1.3.1/lite-youtube.js"></script>
 
+<script src="{{ '/javascripts/terminology_tooltip.js' | cache_buster }}" type="text/javascript" defer></script>
+
 <script src="{{ '/javascripts/prism.js' | cache_buster }}" type="text/javascript" defer></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@docsearch/js@3/dist/umd/index.min.js"></script>
 <script type="text/javascript">
@@ -14,3 +16,21 @@ document.querySelector('.site-title').addEventListener('contextmenu', function(e
   document.location.assign("https://design.home-assistant.io/#brand/logo")
 });
 </script>
+
+
+{% if page.hero_unit %}
+<script type="text/javascript">
+  const changeNavColor = () => {
+    const scrollPosition = document.documentElement.scrollTop;
+    const nav = document.querySelector("header");
+    if (scrollPosition <= 1) {
+      nav.classList.add("dark");
+    } else {
+      nav.classList.remove("dark");
+    }
+  }
+  
+  window.addEventListener("load", () => changeNavColor());
+  window.addEventListener("scroll", () => changeNavColor());
+</script>
+{% endif %}

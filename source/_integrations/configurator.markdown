@@ -11,9 +11,9 @@ ha_domain: configurator
 ha_integration_type: system
 ---
 
-<div class='note'>
+{% caution %}
 This integration is intended for developers.
-</div>
+{% endcaution %}
 
 The **Configurator** {% term integration %} allows integrations to request information from the user. It is currently implemented as the minimum viable product:
 

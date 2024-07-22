@@ -48,7 +48,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-<div class='note'>
+{% note %}
 
 If you get an error looking like this:
 
@@ -68,4 +68,4 @@ Jun 20 19:41:18 androlapin hass[29588]: OSError: [Errno 8] Exec format error
 3. Then run `make all`
 4. Restart Home Assistant
 
-</div>
+{% endnote %}

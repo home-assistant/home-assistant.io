@@ -14,6 +14,7 @@ ha_ssdp: true
 ha_platforms:
   - camera
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -70,6 +71,10 @@ controls, for example.
 Please note that only the currently live Hyperion priority can be streamed, and only
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
+
+## Sensors
+
+A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
 
 ## Advanced entities
 
