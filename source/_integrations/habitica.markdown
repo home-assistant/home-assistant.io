@@ -26,7 +26,7 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 
 ## Sensors
 
-- **Class:** Indicates the class of your character (Warrior, Rogue, Healer or Mage).
+- **Class:** Indicates the class of your character (Warrior, Rogue, Healer, or Mage).
 - **Display name:**  Shows the character's display name.
 - **Experience:** Displays the current experience points of the character (for example, "144 XP").
 - **Gold:** Shows the amount of gold owned by your character (for example, "22.29 GP").
@@ -47,7 +47,7 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Button controls
 
-- **Start my day:** Initiates daily routine actions in Habitica, including resetting your dailies, deal damage from unfinished dailies and quest bosses, habits adjustment, buff expiration and mana regeneration based on completed dailies.
+- **Start my day:** Initiates daily routine actions in Habitica, including resetting your dailies, deal damage from unfinished dailies and quest bosses, habits adjustment, buff expiration, and mana regeneration based on completed dailies.
 - **Revive from death:** Allows your character to revive from death in Habitica. Upon revival, HP is fully restored, but your character will lose all gold, 1 level, all experience points, one stat point, and one piece of equipment.
 - **Buy a health potion:** Allows your character to purchase a health potion in Habitica. Instantly applies the potion upon purchase, healing 15 HP at a cost of 25 GP.
 - **Allocate all stat points**: Assigns all unallocated stat points based on the previously set automatic allocation method. If no method is set, all points are assigned to strength (STR).
@@ -144,7 +144,7 @@ Also an event `habitica_api_call_success` will be fired with the following data:
 
 ## Templating
 
-`sensor.habitica_USER_habits` and `sensor.habitica_USER_rewards` have state attributes listing the user's respective tasks. For example, you can see this information in **Developer Tools** -> **States** -> `sensor.habitica_USER_habits` -> **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
+`sensor.habitica_USER_habits` and `sensor.habitica_USER_rewards` have state attributes listing the user's respective tasks. For example, you can see this information in **{% my developer_states title="Developer Tools > States" %}** under `sensor.habitica_USER_habits` > **Attributes**, or by adding a [Markdown card](/dashboards/markdown/) to a dashboard with the following code:
 
 {% raw %}
 
