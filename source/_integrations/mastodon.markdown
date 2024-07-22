@@ -40,7 +40,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the service notify.NOTIFIER_NAME."
+  description: "The optional parameter name allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: false
   type: string
   default: notify
@@ -65,26 +65,26 @@ base_url:
 
 ### Usage
 
-Mastodon is a notify platform, and can be used by calling notify service as described in the [notify documentation](/integrations/notify/). It will toot messages using 
+Mastodon is a notify platform, and can be used by calling notify action as described in the [notify documentation](/integrations/notify/). It will toot messages using 
 your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
 
-| Service attribute      | Optional | Description |
+| Data attribute         | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification.
 | `target`               |      yes | If not used, will default to account setting. `public`: post will be public, `unlisted`: post will be public but not appear on the public timeline, `private`: post will only be visible to followers, and `direct`: post will only be visible to mentioned users. 
 | `data`                 |      yes | See below for extended functionality. 
 
-### Service data
+### Action data
 
 The following attributes can be placed inside `data` for extended functionality. 
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `media`                |      yes | Attach an image or video to the message.
 | `media_warning`        |      yes | If an image or video is attached, `True`: will marked the media as sensitive. `False` is default.
 | `content_warning`      |      yes | Text will be be shown as a warning before the text of the status. If not used, no warning will be displayed.
 
-### Example service call
+### Example action
 
 This will post a message to Mastodon. Visibility will default to your account's setting. 
 
@@ -93,7 +93,7 @@ This will post a message to Mastodon. Visibility will default to your account's 
   message: "A toot from Home Assistant"
 ```
 
-### Example service call - private
+### Example action - private
 
 This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
 
@@ -103,7 +103,7 @@ This will post a message to Mastodon, but visibility is marked as `private` so o
   target: private
 ```
 
-### Example service call - with media
+### Example action - with media
 
 This will post a message to Mastodon that includes an image.
 
@@ -114,7 +114,7 @@ This will post a message to Mastodon that includes an image.
     media: /config/www/funny_meme.png
 ```
 
-### Example service call - with media and content warning to hide post behind a warning
+### Example action - with media and content warning to hide post behind a warning
 
 This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
 

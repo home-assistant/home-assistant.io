@@ -82,6 +82,7 @@ You can manually define that the previous boot slot is used. This can be useful 
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
+{% include common-tasks/enable_i2c.md %}
 
 ## Home Assistant versions
 
@@ -92,3 +93,4 @@ To see which version your system is running, go to {% my info title="**Settings*
 {% include common-tasks/development_version.md %}
 
 {% include common-tasks/data_disk.md %}
+

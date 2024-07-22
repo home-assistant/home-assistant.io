@@ -29,6 +29,10 @@ Please note that UPnP or NAT-PMP needs to be enabled on your router for this {% 
 
 {% include integrations/config_flow.md %}
 
+## Enforcing polling of data
+
+Some UPnP/IGD devices have a broken UPnP implementation and will provide invalid data or no data at all. A configuration option is provided to fall back to polling of all data for the sensors. Please try this when you feel not all sensors which should be working are working.
+
 ## Debugging integration
 
 If you have problems with this {% term integration %} you can add debug prints to the log.

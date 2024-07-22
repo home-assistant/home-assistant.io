@@ -3,6 +3,7 @@ title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Event
   - Fan
@@ -62,6 +63,13 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
 
+### Button groups
+
+The group state is the last time the grouped button was pressed.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is the last time the grouped button was pressed.
+
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
 
@@ -116,7 +124,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -142,6 +150,19 @@ binary_sensor:
     entities:
       - binary_sensor.door_left_contact
       - binary_sensor.door_right_contact
+```
+
+Example YAML configuration of a button group:
+
+```yaml
+# Example configuration.yaml entry
+button:
+  - platform: group
+    name: "Restart all ESPHome devices"
+    device_class: opening
+    entities:
+      - button.device_1_restart
+      - button.device_2_restart
 ```
 
 Example YAML configuration of a cover group:
@@ -288,7 +309,7 @@ state_class:
 
 This group is a special case of groups currently only available via YAML configuration.
 
-Notify groups are used to combine multiple notification services into a single service. This allows you to send notification to multiple devices with a single call.
+Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
 
 ```yaml
 # Example configuration.yaml entry
@@ -308,12 +329,12 @@ name:
   required: true
   type: string
 services:
-  description: A list of all the services to be included in the group.
+  description: A list of all the actions to be included in the group.
   required: true
   type: list
   keys:
     service:
-      description: The service part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
+      description: The name part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification actions!
       required: true
       type: string
     data:
@@ -418,13 +439,13 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
+These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
-### Services
+### Actions
 
-This integration provides the following services to modify groups and a service to reload the configuration without restarting Home Assistant itself.
+This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
 
-| Service  | Data              | Description                                                                   |
+| Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |
 | `set`    | `Object ID`       | Group id and part of entity id.                                               |
 |          | `Name`            | Name of the group.                                                            |

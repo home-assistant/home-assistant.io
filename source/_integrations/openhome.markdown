@@ -44,12 +44,13 @@ action:
       media_content_type: music
 ```
 
-## Services
+## Actions
 
-### Media control services
-Available services: `invoke_pin`
+### Media control actions
 
-| Service data attribute | Optional | Description                                      |
+Available actions: `invoke_pin`
+
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            |     yes | The name of the openhome device to invoke the pin on.|
 | `pin`                  |      no | Which pin to invoke.                              |

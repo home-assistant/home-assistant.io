@@ -51,7 +51,7 @@ To obtain the Signal Messenger group ids, follow [this guide]( https://github.co
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: notify
@@ -70,7 +70,7 @@ recipients:
 {% endconfiguration %}
 
 
-## Notification Service
+## Notification action
 
 ### Examples
 

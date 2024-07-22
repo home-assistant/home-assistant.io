@@ -320,16 +320,16 @@ Every telegram that matches an address pattern with its destination field will b
 - `telegramtype` the APCI service of the telegram. "GroupValueWrite", "GroupValueRead" or "GroupValueResponse" generate a knx_event.
 - `value` contains the decoded payload value if `type` is configured for the address. Will be `None` for "GroupValueRead" telegrams.
 
-## Services
+## Actions
 
-In order to directly interact with the KNX bus, you can use the following services:
+In order to directly interact with the KNX bus, you can use the following actions:
 
 ### Send
 
 ```txt
 Domain: knx
-Service: send
-Service Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
+Action: send
+Data: {"address": "1/0/15", "payload": 0, "type": "temperature"}
 ```
 
 {% configuration %}
@@ -350,13 +350,13 @@ response:
 
 ### Read
 
-You can use the `homeassistant.update_entity` service call to issue GroupValueRead requests for all `*state_address` of an entity.
-To manually send GroupValueRead requests, use the `knx.read` service. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
+You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
+To manually send GroupValueRead requests, use the `knx.read` action. The response can be used in automations by the `knx.telegram` trigger and it will be processed in KNX entities.
 
 ```txt
 Domain: knx
-Service: read
-Service Data: {"address": "1/0/15"}
+Action: read
+Data: {"address": "1/0/15"}
 ```
 
 {% configuration %}
@@ -392,7 +392,7 @@ automation:
 
 ### Register event
 
-The `knx.event_register` service can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
+The `knx.event_register` action can be used to register (or unregister) group addresses to fire `knx_event` Events. Events for group addresses configured in the `event` key in `configuration.yaml` cannot be unregistered. See [knx_event](#events)
 
 {% configuration %}
 address:
@@ -412,7 +412,7 @@ type:
 
 ### Register exposure
 
-The `knx.exposure_register` service can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
+The `knx.exposure_register` action can be used to register (or unregister) exposures to the KNX bus. Exposures defined in `configuration.yaml` can not be unregistered. Per address only one exposure can be registered. See [expose](#exposing-entity-states-entity-attributes-or-time-to-knx-bus)
 
 {% configuration %}
 remove:
@@ -428,7 +428,7 @@ KNX integration is able to expose entity states or attributes to KNX bus. The in
 It is also possible to expose the current time and date. These are sent to the bus every hour.
 
 {% tip %}
-Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` service to send the value to the bus.
+Expose is only triggered on state changes. If you need periodical telegrams, use an automation with the `knx.send` action to send the value to the bus.
 {% endtip %}
 
 {% raw %}
@@ -648,7 +648,7 @@ action:
 
 ## Button
 
-The KNX button platform allows to send concurrent predefined values via the frontend or a platform service. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
+The KNX button platform allows to send concurrent predefined values via the frontend or an action. When a user presses the button, the assigned generic raw payload is sent to the KNX bus.
 
 {% tip %}
 Telegrams received on the KNX bus for the group address of a button are not reflected in a new button state. Use the `knx.telegram` trigger if you want to automate on a specific payload received on a group address.
@@ -1505,7 +1505,7 @@ entity_category:
   default: None
 {% endconfiguration %}
 
-### Example service call
+### Example action
 
 ```yaml
 service: notify.send_message
@@ -1729,7 +1729,7 @@ entity_category:
 
 The KNX sensor platform allows you to monitor [KNX](https://www.knx.org/) sensors.
 
-Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` service.
+Sensors are read-only. To write to the KNX bus configure a [Number](#number), an exposure [KNX Integration Expose](/integrations/knx/#exposing-entity-states-entity-attributes-or-time-to-knx-bus) or use the `knx.send` action.
 
 ```yaml
 # Example configuration.yaml entry
@@ -2296,7 +2296,7 @@ logger:
     xknx.state_updater: warning  # provides information about the state updater
 ```
 
-You can use the service `logger.set_level` to change the log level of a handler on a running instance.
+You can use the `logger.set_level` action to change the log level of a handler on a running instance.
 {% my developer_call_service badge service="logger.set_level" %}
 
 ### Group address can not be read

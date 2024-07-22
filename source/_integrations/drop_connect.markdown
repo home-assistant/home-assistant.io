@@ -55,7 +55,7 @@ Assistant.
 {% details "Manual configuration steps" %}
 
 - Browse to your Home Assistant instance.
-- Go to **{% my integrations title="Settings > Devices & Services" %}**.
+- Go to **{% my integrations title="Settings > Devices & services" %}**.
 - Set up the new discovered devices.
 
 {% enddetails %}
