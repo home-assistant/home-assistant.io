@@ -2,6 +2,7 @@
 title: Govee Bluetooth
 description: Instructions on how to integrate Govee BLE devices into Home Assistant.
 ha_category:
+  - Binary Sensor
   - Event
   - Sensor
 ha_bluetooth: true
@@ -13,6 +14,7 @@ ha_codeowners:
 ha_domain: govee_ble
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - event
   - sensor
 ha_integration_type: integration
@@ -42,7 +44,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5108 Hygrometer Thermometer
 - H5121 Motion Sensor
 - H5122 Mini Button
-- H5123 Window Sensor - Only battery is supported
+- H5123 Window Sensor
 - H5125 2 Button Switch
 - H5126 6 Button Switch
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
