@@ -4,7 +4,7 @@
 These below instructions are for an installation of {% term "Home Assistant Container" %} running in your own container environment, which you manage yourself. Any [OCI](https://opencontainers.org/) compatible runtime can be used, however this guide will focus on installing it with Docker.
 
 {% note %}
-This installation method does not have access to add-ons.
+This installation method **does not have access to add-ons**. If you want to use add-ons, you need to use another installation method. The recommended method is {% term "Home Assistant Operating System" %}. Checkout the [overview table of installation types](https://www.home-assistant.io/installation/#advanced-installation-methods) to see the differences.
 {% endnote %}
 
 {% important %}
