@@ -93,7 +93,7 @@ Set a mealplan on a specific date.
 |-------------------|----------|-----------------------------------------------------|
 | `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
 | `date`            | No       | The date that should be filled.                     |
-| `entry_type`      | No       | One of "breakfast", "lunch", "dinner" or "side".    |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", or "side".    |
 | `recipe_id`       | Yes      | The recipe to plan.                                 |
 | `note_title`      | Yes      | The title of the meal note.                         |
 | `note_text`       | Yes      | The description of the meal note.                   |
