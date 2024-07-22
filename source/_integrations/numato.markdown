@@ -15,7 +15,7 @@ ha_platforms:
   - binary_sensor
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The `numato` integration is the base for all related GPIO platforms of the
@@ -140,14 +140,12 @@ devices:
 The `numato` binary_sensor platform allows you to operate the GPIOs of your
 [Numato](https://numato.com) 32 port USB GPIO expander in binary input mode.
 
-<div class='note warning'>
-
+{% caution %}
 As the Numato devices do not have internal pull-up or pull-down circuitry,
 be careful not to destroy a port by creating a short circuit. Refer to the
 [Numato documentation](https://numato.com/docs/32-channel-usb-gpio-module-with-analog-inputs/#gpio-with-switches-8)
 on how to connect a switch to an input port, for example.
-
-</div>
+{% endcaution %}
 
 ## Sensor
 
@@ -211,7 +209,7 @@ Hint: It is a good practice to put sticky labels with the IDs onto the PCBs in
 order to avoid confusion of devices and their port configuration since this
 could easily destroy your device.
 
-<div class='note warning'>
+{% warning %}
 Numato devices used by Home Assistant are expected to be exclusive to Home
 Assistant and remain permanently connected.
-</div>
+{% endwarning %}

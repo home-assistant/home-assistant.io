@@ -12,6 +12,7 @@ ha_codeowners:
   - '@markperdue'
   - '@webdjoe'
   - '@thegardenmonkey'
+  - '@cdnninja'
 ha_domain: vesync
 ha_platforms:
   - diagnostics
@@ -61,6 +62,8 @@ This {% term integration %} supports devices controllable by the VeSync App.  Th
 - Core 300S: Smart True HEPA Air Purifier
 - Core 400S: Smart True HEPA Air Purifier
 - Core 600S: Smart True HEPA Air Purifier
+- Vital 100S Smart True HEPA Air Purifier (LAP-V102S-WUS) 
+- Vital 200S Smart True HEPA Air Purifier (LAP-V201S-WUS)
 - LEVOIT Smart Wifi Air Purifier (LV-PUR131S)
 
 ## Prerequisite
@@ -71,9 +74,9 @@ the configuration section below.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-| Service | Description |
+| Action | Description |
 |---------|-------------|
 | `update_devices` | Poll Vesync server to find and add any new devices |
 

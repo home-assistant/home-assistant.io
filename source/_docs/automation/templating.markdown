@@ -240,6 +240,29 @@ automation 3:
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
+
+automation 4:
+  trigger:
+    # When an NFC tag is scanned by Home Assistant...
+    - platform: event
+      event_type: tag_scanned
+      # ...By certain people
+      context:
+        user_id:
+          - 06cbf6deafc54cf0b2ffa49552a396ba
+          - 2df8a2a6e0be4d5d962aad2d39ed4c9c
+  condition:
+    # Check NFC tag (ID) is the one by the front door
+    - condition: template
+      value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
+  action:
+    # Turn off various lights
+    - service: light.turn_off
+      target:
+        entity_id:
+          - light.kitchen
+          - light.bedroom
+          - light.living_room
 ```
 
 {% endraw %}

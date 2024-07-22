@@ -27,9 +27,9 @@ The easiest way to get started with tags is to use NFC tags ([stickers](https://
 
 <lite-youtube videoid="Xc120lClUgA" videotitle="Writing a tag (iOS)" posterquality="maxresdefault"></lite-youtube>
 
-<div class='note' data-title='for iPhone users'>
+{% important %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
-</div>
+{% endimportant %}
 
 <lite-youtube videoid="xE7wm1bxRLs" videotitle="Writing a tag (Android)" posterquality="maxresdefault"></lite-youtube>
 
@@ -38,6 +38,17 @@ Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
 Home Assistant has a dedicated panel that allows you to manage your tags. You can add names, automate or delete them. If you open the tag dashboard from the mobile app, you can also write them directly to a tag.
 
 ![Tag user interface in Home Assistant](/images/blog/2020-09-15-home-assistant-tags/tag-ui.gif)
+
+## Entities
+
+Every card automatically creates an `tag` entity. This is useful for automations or for displaying on dashboards to see when the card was last scanned.
+
+State shows the time when the card was last scanned in datetime string format. For example, `2013-09-17T07:32:51.095+00:00`
+
+### Attributes
+
+- **Tag ID**: identification as set during creation of the tag.
+- **Last scanned by device ID**: Which device did scan the tag last time, useful in automations for doing different things depending on which device scanned the tag.
 
 ## Building an RFID jukebox
 

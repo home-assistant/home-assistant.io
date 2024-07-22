@@ -12,29 +12,47 @@ ha_platforms:
   - todo
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - docs: /integrations/calendar
+    title: Calendar
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The CalDAV integration allows you to connect your WebDAV calendar to Home Assistant
+The **CalDAV** integration allows you to connect your WebDAV calendar to Home Assistant
 as one of these entity types:
 
--  A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the the start or end of an event using criteria such as the event name or description.
+- A [calendar](/integrations/calendar) entity which can be used to trigger automations based on the start or end of an event using criteria such as the event name or description.
 - A [todo](/integrations/todo) entity which tracks the number of active items
 on the to-do list.
 
-The WebDAV entities are updated roughly every 15 minutes. 
+The WebDAV entities are updated roughly every 15 minutes.
 
 {% include integrations/config_flow.md %}
 
-During the configuraiton flow you will be asked for the CalDAV server and credentials
+During the configuration flow you will be asked for the CalDAV server and credentials
 for it. An example CalDAV URL is `https://caldav.icloud.com/`.
 
-This integration was tested against [iCloud Calendar](https://www.icloud.com/calendar/), [Nextcloud](https://nextcloud.com/), [Owncloud](https://owncloud.org/), [Baikal](https://sabre.io/baikal/). Any integration complying with the RFC4791 should work.
+This integration was tested against the following systems, but any other complying with the RFC4791 should work:
+
+- [Baikal](https://sabre.io/baikal/)
+- [iCloud Calendar](https://www.icloud.com/calendar/)
+- [Nextcloud](https://nextcloud.com/)
+- [Owncloud](https://owncloud.org/)
+- [Synology Calendar](https://www.synology.com/en-us/dsm/feature/calendar)
 
 ## Manual configuration
 
-You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your `configuration.yaml` file. This method does not support to-do lists.
+You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your {% term "`configuration.yaml`" %} file. This method does not support to-do lists. 
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% details Manual configuration examples %}
+{% details "Manual configuration examples" %}
 
 ```yaml
 # Example configuration.yaml entry for baikal
@@ -144,7 +162,6 @@ verify_ssl:
 
 {% enddetails %}
 
-
 ## Calendar Event Automations
 
 Individual Calendar *Events* can power automations such as:
@@ -159,11 +176,9 @@ See [Calendar Automations](/integrations/calendar#automation) for an overview, a
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
-<div class='note'>
-
+{% tip %}
 Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
-
-</div>
+{% endtip %}
 
 - **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting `!! -10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`. This attribute is not available when configured from the UI.
 - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
@@ -177,7 +192,7 @@ Using the entity state and attributes is more error prone and less flexible than
 
 The todo entity is the number of incomplete items on the to-do list. See the
 [todo integration](/integrations/todo) documentation for details and available
-services that can be used in automations.
+actions that can be used in automations.
 
 ## Troubleshooting
 

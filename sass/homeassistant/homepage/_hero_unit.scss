@@ -1,0 +1,142 @@
+
+// Front page hero section
+
+.hero {
+  position: relative;
+  background: rgb(24,188,242);
+  background: linear-gradient(0deg, hsl(195, 89%, 52%) 0%, hsla(195, 89%, 52%, 0.8) 100%);
+  padding-bottom: 0;
+  margin-top: -88px;
+  margin-bottom: 24px;
+  padding-top: 88px;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  max-height: 1080px;
+  height: 100vh;
+  align-content: center;
+  min-height: 720px;
+  // scroll-snap-align: start;
+  color: $white;
+
+  > .grid-wrapper {
+    position: relative;
+    z-index: 7;
+  }
+
+  h1 {
+    font-size: 6em;
+    line-height: .8;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 1) 0%, hsl(174.86, 100%, 75%) 100%);
+    background-clip: text;
+    color: transparent;
+
+    .line2 {
+      line-height: 1.25;
+    }
+  }
+
+  p {
+    small {
+      color: $grayLighter;
+      font-size: .65em;
+    }
+    .lead {
+      font-size: 1.25rem;
+      margin-bottom: 24px;
+    }
+  }
+
+  .hero-buttons a {
+    font-family: $heading-font;
+    font-size: 1.1rem;
+    color: white;
+    text-transform: uppercase;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: 600;
+    padding: 8px 24px 8px 0;
+    margin: 0 4px 0 0;
+    border-radius: 32px;
+
+    &.primary {
+      background-color: $link-color;
+      font-size: 2rem;
+      font-weight: 700;
+      padding: 8px 20px 8px 28px;
+      margin-bottom: 16px;
+    }
+  }
+
+  #HAdemoScreenshot {
+    display: none;
+    img {
+      display: block;
+    }
+  }
+
+  #HAdemo {
+    width: 100%;
+    max-width: 400px;
+    height: 800px;
+    border-radius: 48px;
+    border: 12px double white;
+    box-shadow: 24px 64px 64px hsla(220, 100%, 25%, .5);
+    // animation-name: box-shadow-color;
+    // animation-duration: 3s;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate;
+
+    @media only screen and (max-height: 720px) {
+      border-bottom: 0;
+      margin-bottom: -8px;
+      border-radius: 48px 48px 0 0;
+      height: 640px;
+
+    }
+
+  }
+}
+
+@keyframes box-shadow-color {
+  from {
+    box-shadow: 24px 64px 64px hsla(240, 100%, 25%, .5);
+  }
+  to {
+    box-shadow: 24px 64px 64px hsla(200, 100%, 25%, .5);
+  }
+}
+
+@media only screen and (max-width: $lap-end) {
+  .hero {
+    h1 {
+      font-size: 4rem;
+    }
+
+    .lead {
+      font-size: 1.15rem;
+    }
+
+    .hero-buttons a {
+      &.primary {
+        font-size: 1.25rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .hero {
+    .flex {
+      flex-direction: column;
+    }
+
+    #HAdemo {
+      display: none;
+    }
+
+    #HAdemoScreenshot {
+      display: block;
+    }
+
+  }
+}

@@ -9,13 +9,17 @@ ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The `prometheus` {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
 ## Configuration
 
-To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -200,3 +204,9 @@ For example:
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
 ```
+
+## Supported metrics
+
+Metrics are exported only for the following domains:
+
+`automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `update`, `switch`

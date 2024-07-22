@@ -3,14 +3,23 @@ title: "Template Light"
 description: "Instructions on how to integrate Template Lights into Home Assistant."
 ha_category:
   - Light
+  - Helper
 ha_release: 0.46
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - light
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates lights that combine integrations and provides the
-ability to run scripts or invoke services for each of the on, off, and
+ability to run scripts or invoke actions for each of the on, off, and
 brightness commands of a light.
 
 To enable Template Lights in your installation, add the following to your
@@ -53,7 +62,7 @@ light:
               value: "{{ s }}"
               entity_id: input_number.s_input
           - service: light.turn_on
-            data_template:
+            data:
               entity_id:
                 - light.led_strip
               transition: "{{ transition | float }}"
@@ -62,7 +71,7 @@ light:
                 - "{{ hs[1] }}"
         set_effect:
           - service: light.turn_on
-            data_template:
+            data:
               entity_id:
                 - light.led_strip
               effect: "{{ effect }}"
@@ -209,7 +218,7 @@ result:
 {% raw %}`{{ is_state('switch.source', 'on') }}`{% endraw %}
 Transition doesn't have its own script, it will instead be passed as a named parameter `transition` to the `turn_on`, `turn_off`, `brightness`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts.
 Brightness will be passed as a named parameter `brightness` to either of `turn_on`, `color_temp`, `effect`, `hs_color`, `rgb_color`, `rgbw_color` or `rgbww_color` scripts if the corresponding parameter is also in the call. In this case, the brightness script (`set_level`) will not be called.
-If only brightness is passed to `light.turn_on` service call then `set_level` script is called.
+If only brightness is passed to `light.turn_on` action, then `set_level` script is called.
 
 ## Examples
 
@@ -399,12 +408,12 @@ light:
         set_level:
           service: light.turn_on
           entity_id: light.wled_master
-          data_template:
+          data:
             brightness: "{{ brightness }}"
         set_rgbw:
           service: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
-          data_template:
+          data:
             rgbw_color:
               - "{{ r }}"
               - "{{ g }}"
@@ -414,7 +423,7 @@ light:
         set_effect:
           service: light.turn_on
           entity_id: light.wled_segment_0, light.wled_segment_1
-          data_template:
+          data:
             effect: "{{ effect }}"
 ```
 

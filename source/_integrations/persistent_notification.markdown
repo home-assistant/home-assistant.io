@@ -43,11 +43,11 @@ automation:
 See [Automation Trigger Variables: Persistent Notification](/docs/automation/templating/#persistent-notification) 
 for additional trigger data available for conditions or actions.
 
-### Service
+### Action
 
-The service `persistent_notification.create` takes in `message`, `title`, and `notification_id`.
+The `persistent_notification.create` action takes in `message`, `title`, and `notification_id`.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `message`              |       no | Body of the notification. Accepts [templates](/docs/configuration/templating/).
 | `title`                |      yes | Title of the notification. Accepts [templates](/docs/configuration/templating/).
@@ -78,13 +78,13 @@ action:
 
 {% endraw %}
 
-The service `persistent_notification.dismiss` requires a `notification_id`.
+The `persistent_notification.dismiss` action requires a `notification_id`.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `notification_id`      |      no  | the `notification_id` is required to identify the notification that should be removed.
 
-This service allows you to remove a notifications by script or automation.
+This action allows you to remove a notifications by script or automation.
 
 ```yaml
 action:
@@ -93,7 +93,7 @@ action:
     notification_id: "1234"
 ```
 
-The service `persistent_notification.dismiss_all` allows you to remove all notifications.
+The `persistent_notification.dismiss_all` action allows you to remove all notifications.
 
 ```yaml
 action:
@@ -114,15 +114,13 @@ The message attribute supports the [Markdown formatting syntax](https://daringfi
 | Link | `[Link](https://home-assistant.io/)` |
 | Image | `![image](/local/my_image.jpg)` |
 
-<div class="note">
-
-  `/local/` in this context refers to the `.homeassistant/www/` folder.
-
-</div>
+{% note %}
+`/local/` in this context refers to the `.homeassistant/www/` folder.
+{% endnote %}
 
 ### Create a persistent notification
 
-Choose the **{% my developer_services title="Services" %}** tab from the **Developer Tools** sidebar item, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} service from the "Service" dropdown. Enter something like the sample below into the **Service Data** field and press the **CALL SERVICE** button.
+Choose the **{% my developer_services title="Actions" %}** tab from the **Developer Tools** sidebar item, then select the {% my developer_services service="persistent_notification.create" title="`persistent_notification.create`" %} action from the **Action** dropdown. Enter something like the sample below into the **data** field and press the **Perform action** button.
 
 ```json
 {
@@ -139,6 +137,6 @@ Persistent notifications can also be used as a pre-configured notifier for the [
 
 The following attributes can be placed inside `data` for extended functionality.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |

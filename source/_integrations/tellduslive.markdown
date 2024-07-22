@@ -11,7 +11,7 @@ ha_category:
 ha_release: 0.11
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_codeowners:
   - '@fredrike'
 ha_domain: tellduslive
@@ -22,21 +22,23 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `tellduslive` integration let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
+The `tellduslive` {% term integration %} let you connect to the [Telldus Live](https://live.telldus.com) API. It's cloud platform that connects to your Tellstick Net or Tellstick ZNet connected gear at home.
 
-<div class='note'>
-
-Note that you need a [Telldus Premium](https://telldus.com/en/telldus-premium/) subscription to access the Cloud API (https://telldus.com/en/important-announcement-english/).
-
-</div>
+{% important %}
+You need a [Telldus Premium](https://telldus.com/en/telldus-premium/) subscription to access the Cloud API (https://telldus.com/en/important-announcement-english/).
+{% endimportant %}
 
 Local API supports only one device at this stage. Local API is only supported with the Znet Lite products, the older hardware (such as Tellstick Net) does not support local API.
 
 ## Configuration
 
-To manually integrate your Telldus Live with Home Assistant, e.g., if your device is on another network or in another location, add the following section to your `configuration.yaml` file:
+To manually integrate your Telldus Live with Home Assistant, e.g., if your device is on another network or in another location, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

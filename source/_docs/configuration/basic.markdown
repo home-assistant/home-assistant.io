@@ -1,123 +1,73 @@
 ---
 title: "Setup basic information"
 description: "Setting up the basic info of Home Assistant."
+related:
+  - docs: /integrations/homeassistant/
+  - docs: /docs/configuration/
 ---
 
-As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. You may adjust this during onboarding, or afterwards at {% my general title="Settings > System > General" %}, network related configuration is found under {% my network title="Settings > System > Network" %}.
+As part of the default onboarding process, Home Assistant can detect your location from IP address geolocation. Home Assistant will automatically select a unit system and time zone based on this location. If you didn't adjust this directly during onboarding, you can do it later.
 
-If you prefer YAML, you can add the following information to your `configuration.yaml`:
+<p class='img'>
+    <img class="no-shadow" src='/images/docs/configuration/general-settings.png' alt='Screenshot showing General settings page'>
+    Screenshot showing the General settings page.
+</p>
 
-```yaml
-homeassistant:
-  name: Home
-  latitude: 32.87336
-  longitude: 117.22743
-  elevation: 430
-  unit_system: metric
-  currency: USD
-  country: US
-  time_zone: "America/Los_Angeles"
-  external_url: "https://www.example.com"
-  internal_url: "http://homeassistant.local:8123"
-  allowlist_external_dirs:
-    - "/usr/var/dumping-ground"
-    - "/tmp"
-  allowlist_external_urls:
-    - "http://images.com/image1.png"
-  media_dirs:
-    media: "/media"
-    recordings: "/mnt/recordings"
-  legacy_templates: false
-```
+The general settings described here are managed by the [Home Assistant Core integration](/integrations/homeassistant/). If you are interested in the actions offered by this integration, check out the integration documentation.
 
-<div class='note'>
+## Editing the general settings
 
-  You will not be able to edit anything in {% my general title="Settings > System > General" %} in the UI if you are using YAML configuration for any of the following: name, latitude, longitude, elevation, unit_system, temperature_unit, time_zone, external_url, internal_url, country, currency. Additionally, some options are only visible after "Advanced Mode" is enabled on your {% my profile title="User Profile" %}.
+To change the general settings that were defined during onboarding, follow these steps:
 
-</div>
+1. Go to {% my general title="**Settings** > **System** > **General**" %}.
+   - Make your changes.
+   - To change location or radius, under **Edit location**, select edit.
+   - Then, adjust location and radius.
+      <img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screencast showing how to zoom and pan to change location and radius on the Edit home page'>
+   - To add a new zone, select **Add zone**.
+   - To save your changes, select **Update**.
+2. To change network-related configuration, such as the network name, go to {% my network title="**Settings** > **System** > **Network**" %}.
+3. If some of the settings are not visible, you may need to enable **Advanced mode**.
+   - In the bottom left, select your username to go to your {% my profile title="**User profile**" %}, and enable **Advanced mode**.
+4. **Troubleshooting**: If any of the settings are grayed out and can't be edited, this is because they are defined in the {% term "`configuration.yaml`" %} file.
+   - If you prefer editing the settings in the UI, you have to delete these entries from the {% term "`configuration.yaml`" %} file.
+   - For more information about the general settings in YAML, refer to the [Home Assistant Core integration documentation](/integrations/homeassistant/).
 
-{% configuration %}
-name:
-  description: Name of the location where Home Assistant is running.
-  required: false
-  type: string
-latitude:
-  description: Latitude of your location required to calculate the time the sun rises and sets.
-  required: false
-  type: float
-longitude:
-  description: Longitude of your location required to calculate the time the sun rises and sets.
-  required: false
-  type: float
-elevation:
-  description: Altitude above sea level in meters. Impacts sunrise data.
-  required: false
-  type: integer
-unit_system:
-  description: "`metric` for Metric, `us_customary` for US Customary. This also sets temperature_unit, Celsius for Metric and Fahrenheit for US Customary"
-  required: false
-  type: string
-temperature_unit:
-  description: "Override temperature unit set by unit_system. `C` for Celsius, `F` for Fahrenheit."
-  required: false
-  type: string
-time_zone:
-  description: "Pick your time zone from the column **TZ** of [Wikipedia's list of tz database time zones](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)"
-  required: false
-  type: string
-currency:
-  description: "Pick your currency code from the column **Code** of [Wikipedia's list of ISO 4217 active codes](https://en.wikipedia.org/wiki/ISO_4217#Active_codes)"
-  required: false
-  type: string
-  default: "EUR"
-external_url:
-  description: "The URL that Home Assistant is available on from the internet. For example: `https://example.duckdns.org:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
-  required: false
-  type: string
-internal_url:
-  description: "The URL that Home Assistant is available on from your local network. For example: `http://homeassistant.local:8123`. Note that this setting may only contain a protocol, hostname and port; using a path is not supported."
-  required: false
-  type: string
-customize:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities."
-  required: false
-  type: string
-customize_domain:
-  description: "[Customize](/docs/configuration/customizing-devices/) all entities in a domain."
-  required: false
-  type: string
-customize_glob:
-  description: "[Customize](/docs/configuration/customizing-devices/) entities matching a pattern."
-  required: false
-  type: string
-allowlist_external_dirs:
-  description: List of folders that can be used as sources for sending files.
-  required: false
-  type: list
-allowlist_external_urls:
-  description: List of external URLs that can be fetched. URLs can match specific resources (e.g., `http://10.10.10.12/images/image1.jpg`) or a relative path that allows access to resources within it (e.g., `http://10.10.10.12/images` would allow access to anything under that path)
-  required: false
-  type: list
-media_dirs:
-  description: A mapping of local media sources and their paths on disk.
-  required: false
-  type: map
-legacy_templates:
-  description: Enable this option to restore pre-0.117 template rendering. Which renders all templates to string, instead of native types.
-  required: false
-  type: boolean
-  default: false
-language:
-  description: "Default language used by Home Assistant. This may, for example, influence the language used by voice assistants. The language should be specified as an RFC 5646 language tag, and must be a language which Home Assistant is translated to."
-  required: false
-  type: string
-  default: "en"
-country:
-  description: "Country in which Home Assistant is running. This may, for example, influence radio settings to comply with local regulations. The country should be specified as an ISO 3166.1 alpha-2 code. Pick your country from the column **Code** of [Wikipedia's list of ISO 31661 alpha-2 officially assigned code codes](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2#Officially_assigned_code_elements)"
-  required: false
-  type: string
-{% endconfiguration %}
+    ![Setting fields are grayed out because the configuration settings stored in configuration.yaml file](/images/docs/configuration/general-settings-stored-in-config-yaml.png)
 
-## Reload core service
+5. To apply the changes, follow the steps on [reloading the configuration](/docs/configuration/#reloading-configuration-changes).
 
-Home Assistant offers a service to reload the core configuration while Home Assistant is running called {% my developer_call_service service="homeassistant.reload_core_config" %}. This allows you to change any of the above sections and see it being applied without having to restart Home Assistant. To call this service, go to the "{% my developer_services %}" tab under {% my developer_services title="Developer Tools" %}, select the {% my developer_call_service service="homeassistant.reload_core_config" %} service and click the "CALL SERVICE" button. Alternatively, you can press the "Location & Customizations" button under {% my server_controls title="Developer Tools > YAML" %}.
+## Changing a person's display name
+
+The display name is the name that is shown in Home Assistant. It can differ from the user name, which is the name used to log in.
+
+### Prerequisites
+
+- You need administrator rights to change a display name.
+
+## To change a display name
+
+1. To edit the display name of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
+2. Change the display name and select **Update** to save the change.
+
+## Changing a user name
+
+The user name is the name that is used to log in. It can differ from the display name.
+
+### Prerequisites
+
+- You need owner rights to change a user name.
+
+### To change a username
+
+1. To edit the username of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
+2. Change the username and select **Update** to save the change.
+   - The log in is case-sensitive.
+
+## Changing authentication settings
+
+To learn how to edit authentication settings such as password or multi-factor authentication, refer to the following topics:
+
+- [Authentication](/docs/authentication/)
+- [multi-factor authentication](/docs/authentication/multi-factor-auth/)
+- [Help, I'm locked out](/docs/locked_out/)

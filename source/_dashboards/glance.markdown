@@ -3,6 +3,13 @@ type: card
 title: "Glance card"
 sidebar_label: Glance
 description: "The glance card is useful to group multiple sensors in a compact overview."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The glance card is useful to group multiple sensors in a compact overview. Keep in mind that this can be used together with [entity-filter](/dashboards/entity-filter/) cards to create dynamic cards.

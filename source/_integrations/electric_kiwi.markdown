@@ -15,12 +15,12 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-[Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to show and select the hour of free power.
+[Electric Kiwi](https://www.electrickiwi.co.nz/) is an independent power and broadband company in New Zealand, offering variable rates for peak, shoulder, and off-peak pricing with a selectable hour of free power. 
+
+This integration uses the official [Electric Kiwi API](https://developer.electrickiwi.co.nz) to provide account information, including balances and savings, and to show and select your hour of free power.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
+{% note %}
 The configuration uses `client_id` and `client_secret` provided to Home Assistant, so all you need to do is install the integration and authenticate using your account credentials. 
-
-</div>
+{% endnote %}

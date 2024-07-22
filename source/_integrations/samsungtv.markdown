@@ -53,7 +53,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 #### Changing channels
 
-Changing channels can be done by calling the `media_player.play_media` service
+Changing channels can be done by calling the `media_player.play_media` action
 with the following payload:
 
 ```yaml
@@ -69,7 +69,7 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` action. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
@@ -333,6 +333,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**
@@ -451,6 +452,6 @@ Some televisions from the H and J series use an encrypted protocol and require m
 
 #### Samsung TV keeps asking for permission
 
-The default setting on newer televisions is to ask for permission on ever connection attempt.
+The default setting on newer televisions is to ask for permission on every connection attempt.
 To avoid this behavior, please ensure that you adjust this to `First time only` in the `Device connection manager > Access notification` settings of your television.
 It is also recommended to cleanup the previous attempts in `Device connection manager > Device list`

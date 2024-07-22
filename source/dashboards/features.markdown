@@ -1,6 +1,13 @@
 ---
 title: "Features for dashboard cards"
 description: "Decorate your dashboard cards with quick controls."
+related:
+  - docs: /dashboards/humidifier/
+    title: Humidifier card
+  - docs: /dashboards/thermostat/
+    title: Thermostat card
+  - docs: /dashboards/tile/
+    title: Tile card
 ---
 
 Some dashboard cards have support for features. These widgets add quick controls to the card. Supported features depend on the card and entity capabilities. Multiple features can be added to a single card.
@@ -8,6 +15,12 @@ Some dashboard cards have support for features. These widgets add quick controls
 <p class='img'><img src='/images/dashboards/features/screenshot-tile-feature-grid.png' alt="Screenshot of tile cards with features.">
 Screenshot of tile cards with features.
 </p>
+
+Features can be enabled on the following cards:
+
+- [Humidifier](/dashboards/humidifier/)
+- [Thermostat](/dashboards/thermostat/)
+- [Tile](/dashboards/tile/)
 
 ## Alarm modes
 
@@ -41,6 +54,42 @@ modes:
   type: list
 {% endconfiguration %}
 
+## Climate fan modes
+
+Widget that displays buttons or icons to control the fan mode for a [climate](/integrations/climate) device.
+
+<p class='img'>
+  <img src='/images/dashboards/features/climate_fan_modes.png' alt='Screenshot of the tile card with the climate fan modes feature'>
+  Screenshot of the tile card with the climate fan modes feature
+</p>
+
+```yaml
+features:
+  - type: "climate-fan-modes"
+    style: "icons"
+    fan_modes:
+      - "off"
+      - low
+      - medium
+      - high
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`climate-fan-modes`"
+  type: string
+style:
+  required: false
+  description: "How the fan modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+fan_modes:
+  required: true
+  description: List of fan modes to show on the card. The list can contain `on`, `off`, `auto`, `low`, `medium`, `high`, `middle`, `focus` and `diffuse` or any other custom fan mode.
+  type: list
+{% endconfiguration %}
+
 ## Climate HVAC modes
 
 Widget that displays buttons to control the HVAC mode for a [climate](/integrations/climate).
@@ -68,6 +117,11 @@ type:
   required: true
   description: "`climate-hvac-modes`"
   type: string
+style:
+  required: false
+  description: "How the modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: icons
 hvac_modes:
   required: true
   description: List of modes to show on the card. The list can contain `auto`, `heat_cool`, `heat`, `cool`, `dry`, `fan_only`, and `off`.
@@ -190,6 +244,42 @@ type:
   required: true
   description: "`cover-tilt-position`"
   type: string
+{% endconfiguration %}
+
+## Fan preset modes
+
+Widget that displays buttons or icons to control the preset mode for a [fan](/integrations/fan).
+
+<p class='img'>
+  <img src='/images/dashboards/features/fan_preset_modes.png' alt='Screenshot of the tile card with the fan preset modes feature'>
+  Screenshot of the tile card with the fan preset modes feature
+</p>
+
+```yaml
+features:
+  - type: "fan-preset-modes"
+    style: "icons"
+    preset_modes:
+      - auto
+      - smart
+      - sleep
+      - 'on'
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`fan-preset-modes`"
+  type: string
+style:
+  required: false
+  description: "How the preset modes should be displayed. It can be either `dropdown` or `icons`."
+  type: string
+  default: dropdown
+preset_modes:
+  required: true
+  description: List of preset modes to show on the card. The list can contain any supported preset modes.
+  type: list
 {% endconfiguration %}
 
 ## Fan speed
@@ -338,6 +428,48 @@ type:
   type: string
 {% endconfiguration %}
 
+## Lock commands
+
+Widget that displays buttons to lock or unlock a [lock](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_commands.png' alt='Screenshot of the tile card with the lock commands feature'>
+  Screenshot of the tile card with the lock commands feature
+</p>
+
+```yaml
+features:
+  - type: "lock-commands"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-commands`"
+  type: string
+{% endconfiguration %}
+
+## Lock open door
+
+Widget that displays a button to [open a door](/integrations/lock).
+
+<p class='img'>
+  <img src='/images/dashboards/features/lock_feature_open_door.png' alt='Screenshot of the tile card with the lock open door feature'>
+  Screenshot of the tile card with the lock open door feature
+</p>
+
+```yaml
+features:
+  - type: "lock-open-door"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`lock-open-door`"
+  type: string
+{% endconfiguration %}
+
 ## Numeric input
 
 Widget that displays a slider or buttons to set the value for a [number](/integrations/number) or [input number](/integrations/input_number).
@@ -407,6 +539,33 @@ type:
   type: string
 {% endconfiguration %}
 
+## Update actions
+
+Widget that displays actions to install or skip an [update](/integrations/update).
+
+<p class='img'>
+  <img src='/images/dashboards/features/update_actions.png' alt='Screenshot of the tile card with update actions feature'>
+  Screenshot of the tile card with update actions feature
+</p>
+
+```yaml
+features:
+  - type: "update-actions"
+    backup: "ask"
+```
+
+{% configuration features %}
+type:
+  required: true
+  description: "`update-actions`"
+  type: string
+backup:
+  required: false
+  description: Whether a backup should be done before updating. The value can be `ask`, `yes`, or `no`. `ask` will open a dialog to ask if a backup should be done.
+  type: list
+  default: ask
+{% endconfiguration %}
+
 ## Vacuum commands
 
 Widget that displays buttons to control a [vacuum](/integrations/vacuum).
@@ -470,3 +629,4 @@ operation_modes:
   description: List of modes to show on the card. The list can contain `electric`, `gas`, `heat_pump`, `eco`, `performance`, `high_demand`, and `off`.
   type: list
 {% endconfiguration %}
+
