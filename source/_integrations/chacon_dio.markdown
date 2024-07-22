@@ -32,5 +32,5 @@ You will need to use the standalone app for this device to register a username a
 
 ## Tips
 
-You can use the [group integration](https://www.home-assistant.io/integrations/group/) to group devices has the application proposes.
+You can use the [group integration](/integrations/group) to group devices as the application proposes.
 You can use any Cover card like the great custom [hass-shutter-card](https://github.com/Deejayfool/hass-shutter-card) to have a specific display of the covers.
