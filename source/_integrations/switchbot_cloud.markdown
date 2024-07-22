@@ -58,7 +58,7 @@ This action lists all the available devices for the SwitchBot API.
 
 This action allows sending control commands to devices as specified in [SwitchBot API documentation](https://github.com/OpenWonderLabs/SwitchBotAPI?tab=readme-ov-file#send-device-control-commands)
 
-| Service Data Attribute | Required | Description                                   |
+| Data attribute | Required | Description                                   |
 | ---------------------- | -------- | --------------------------------------------- |
 | unique_id              | yes      | SwitchBot unique ID.                          |
 | command_type           | yes      | Command type to set (usually "command").      |
