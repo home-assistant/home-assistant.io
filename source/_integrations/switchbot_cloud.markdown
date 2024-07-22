@@ -42,7 +42,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - MeterPlus
 - Outdoor Meter
 
-## Services
+## Actions
 
 ### switchbot_cloud.list_devices
 
