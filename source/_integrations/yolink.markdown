@@ -40,6 +40,13 @@ Home Assistant will use account linking provided by Nabu Casa for authenticating
 If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
 
+{% warning %}
+
+1. Integration requires an MQTT connection to be established via port 8003. If you are using a firewall, please allow communication via port 8003 in the firewall settings.  
+2. If you use a network proxy, such as a VPN, the integration may not be able to update the device status, please turn off the VPN.
+3. Please do not use UAC as credentials for HomeAssistant YoLink integration.
+{% endwarning %}
+
 ## Services
 
 ### `Play on SpeakerHub`
