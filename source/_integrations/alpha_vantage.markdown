@@ -79,7 +79,7 @@ foreign_exchange:
 
 ## API information
 
-Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day.
+Alpha Vantage offers two tiers of the API key, one free and one paid for. If you are using the free version, you will be limited to twenty-five queries per day. The sensor polls every 5 minutes, so you will only get data for the first two hours per day. This can be configured using the `scan_interval` variable.
 
 The paid version starts at 75 queries per minute, increasing ticker quantity quite a bit.
 
