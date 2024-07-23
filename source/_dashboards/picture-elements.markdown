@@ -36,6 +36,10 @@ image:
   required: true
   description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
   type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
+  type: string
 camera_image:
   required: false
   description: A camera entity.
