@@ -12,7 +12,7 @@ ha_domain: viam
 ha_integration_type: integration
 ---
 
-The Viam integration allows you to turn your smart home into a smart machine! Use images and data from your Home Assistant setup to train custom machine learning models that run on device as part of your automation workflow.
+The Viam integration allows you to turn your smart home into a smart machine! Use images and data from your Home Assistant setup to train custom machine learning models that run on the device as part of your automation workflow.
 
 ## Prerequisites
 
