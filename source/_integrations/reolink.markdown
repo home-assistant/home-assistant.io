@@ -167,6 +167,7 @@ Depending on the supported features of the camera, select entities are added for
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
+- HDR* (Off, On, Auto)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -199,7 +200,6 @@ Depending on the supported features of the camera, switch entities are added for
 - FTP upload
 - PIR enabled*
 - PIR reduce false alarm*
-- HDR*
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
