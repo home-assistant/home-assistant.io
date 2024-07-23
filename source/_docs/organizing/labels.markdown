@@ -42,14 +42,14 @@ Follow these steps to apply a label
    - Select one or more labels or select **Add new label** to create a new one.
 2. To apply a label to a device, entity, or helper:
    - Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.
-   - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+   - Select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list, select all the list entries to which you want to apply a label.
    - In the top right corner, select **Add label**. Then, select the labels from the list.
 
     ![Apply label](/images/organizing/labels_add_05.png)
 3. To apply a label to an automation, scene, or script:
    - Go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
-   - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+   - Select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list, select all the list entries to which you want to apply a label.
    - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Add label**. Then, select the labels from the list.
 
@@ -68,7 +68,7 @@ If you used this label in automations or script as targets, you need to adjust t
 1. Go to the data table that contains the element from which you want to remove the label:
    -  Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.
    -  Or, go to {% my automations title="**Settings** > **Automations & Scenes**" %} and open the respective tab.
-2. Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+2. Select the {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list, select all the items from which you want to remove a label.
    - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Add label**.
    - Then, deselect the checkbox for the label you want to remove.
