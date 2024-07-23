@@ -54,9 +54,33 @@ If your device supports a direct internet connection, such as PQ meters (iMC/MC 
 
 {% include integrations/config_flow.md %}
 
-## Monitored data
+## Sensors
 
 The integration provides detailed information about power, current, and voltage for each phase, as well as energy counters. The data is updated every minute.
+
+| Name                | Unit | Description                                                                 |
+| ------------------- | ---- | :-------------------------------------------------------------------------- |
+| total_active_power  | W    | Total active power.                                                         |
+| total_reactive_power| var  | Total reactive power.                                                       |
+| total_apparent_power| VA   | Total apparent power.                                                       |
+| phase1_power        | W    | Active power of phase 1.                                                    |
+| phase2_power        | W    | Active power of phase 2.                                                    |
+| phase3_power        | W    | Active power of phase 3.                                                    |
+| phase1_voltage      | V    | Voltage of phase 1.                                                         |
+| phase2_voltage      | V    | Voltage of phase 2.                                                         |
+| phase3_voltage      | V    | Voltage of phase 3.                                                         |
+| phase1_current      | A    | Current of phase 1.                                                         |
+| phase2_current      | A    | Current of phase 2.                                                         |
+| phase3_current      | A    | Current of phase 3.                                                         |
+| frequency           | Hz   | Frequency.                                                                  |
+| nresettable_counter1|    | Non-resettable counter 1.                                                   |
+| nresettable_counter2|    | Non-resettable counter 2.                                                   |
+| nresettable_counter3|    | Non-resettable counter 3.                                                   |
+| ...                 |    | ...                                                                         |
+| resettable_counter1 |    | Resettable counter 1.                                                       |
+| resettable_counter2 |    | Resettable counter 2.                                                       |
+| resettable_counter3 |    | Resettable counter 3.                                                       |
+| ...                 |    | ...                                                                         |
 
 ## Note
 
