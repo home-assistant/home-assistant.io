@@ -20,7 +20,7 @@ When working with tables, you can select multiple items to apply an action. If y
 
 ## Selecting multiple items in a table
 
-1. In your table, select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+1. In your table, select the {% icon "mdi:order-checkbox-ascending" %} button.
 
    ![Screenshots point out the enable selection mode button in the toolbar of the tables in Home Assistant](/images/blog/2024-04/enable-selection-mode.png)
 
