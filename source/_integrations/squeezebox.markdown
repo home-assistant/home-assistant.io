@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - media_player
-  - sensor
   - binary_sensor
 ha_integration_type: integration
 ---
@@ -31,10 +30,6 @@ This platform uses the web interface of the Lyrion Music Server (LMS) to send co
 
 {% note %}
 The integration now supports Lyrion Music Servers behind an HTTPS reverse proxy. Please note that Lyrion Music Server natively only supports HTTP traffic. Unless you have configured a reverse proxy, do not select the `https` option. If you have configured a reverse proxy, remember to update the port number.
-{% endnote %}
-
-{% note %}
-Redundant player devices can be removed by removing all entities and reloading the intergration.
 {% endnote %}
 
 The Logitech Transporter which have two digital inputs can be activated using a script. The following example turns on the Transporter and activates the toslink input interface:
