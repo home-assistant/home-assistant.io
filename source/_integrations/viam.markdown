@@ -24,7 +24,7 @@ To use the classification and detection services, you will need a configured [vi
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
 ### viam.capture_data
 
