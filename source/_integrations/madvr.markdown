@@ -65,6 +65,7 @@ These are commands that have parameters with a comma separating them.
 - `KeyHold (MENU | UP | DOWN | LEFT | RIGHT | OK | INPUT | SETTINGS | RED | GREEN | BLUE | YELLOW | POWER)`
 
 ### Usage Example
+
 `remote.send_command`: `KeyPress, MENU`
 
 ## Binary sensor
