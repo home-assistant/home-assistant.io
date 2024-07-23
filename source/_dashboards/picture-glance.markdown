@@ -42,6 +42,10 @@ image:
   required: false
   description: Background image URL.
   type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
+  type: string
 camera_image:
   required: false
   description: Camera entity as Background image.

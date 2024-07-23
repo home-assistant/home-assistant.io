@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: mealie
 ha_platforms:
   - calendar
+  - sensor
   - todo
 ha_integration_type: service
 ---
@@ -46,6 +47,15 @@ The integration will create a calendar for every type of meal plan:
 
 The integration will create a to-do list for every Mealie shopping list.
 
+## Sensors
+
+The integration provides the following sensors for the statistics:
+- number of recipes
+- categories (such as beverage, dessert, Italian, seafood)
+- tags (such as alcohol)
+- tools (such as instant pot, air fryer, or BBQ)
+- users
+
 ## Actions
 
 The Mealie integration has the following actions:
@@ -53,6 +63,8 @@ The Mealie integration has the following actions:
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
 - `mealie.import_recipe`
+- `mealie.set_mealplan`
+- `mealie.set_random_mealplan`
 
 ### Action `mealie.get_mealplan`
 
@@ -82,6 +94,19 @@ Import the recipe into Mealie from a URL.
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
 | `url`                  | No       | The URL of the recipe.                                          |
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
+
+### Action `mealie.set_mealplan`
+
+Set a mealplan on a specific date.
+
+| Data attribute    | Optional | Description                                         |
+|-------------------|----------|-----------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
+| `date`            | No       | The date that should be filled.                     |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", or "side".    |
+| `recipe_id`       | Yes      | The recipe to plan.                                 |
+| `note_title`      | Yes      | The title of the meal note.                         |
+| `note_text`       | Yes      | The description of the meal note.                   |
 
 ### Action `mealie.set_random_mealplan`
 
