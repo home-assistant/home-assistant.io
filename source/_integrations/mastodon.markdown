@@ -30,7 +30,7 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 The integration will create a `notify` action matching the name of the integration entry.
 
-### Action Usage
+### Action usage
 
 Mastodon is a notify platform, and can be used by calling notify action as described in the [notify documentation](/integrations/notify/). It will toot messages using 
 your account. An optional **target** parameter can be given to specify whether your toot will be public, private, unlisted, or direct. 
