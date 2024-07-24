@@ -11,11 +11,11 @@ It can happen that you run into trouble while installing and onboarding Home Ass
 
 When trying to access Home Assistant in the browser, the browser shows the message “This site can’t be reached”.
 
-#### Description
+### Description
 
 This means the browser can’t find your Home Assistant installation on the network.
 
-#### Resolution
+### Resolution
 
 To resolve this issue, try the following steps:
 
@@ -32,8 +32,9 @@ To resolve this issue, try the following steps:
    - For example, you might have 2 networks with the same name, but one is on 2.4&nbsp;GHz and the other on 5&nbsp;GHz.
    - One of your devices might default to another network. Make sure they are in the exact same network.
 4. Make sure you typed the address correctly.
-   - Typically, this is http://homeassistant.local:8123/.
-   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
+   - Especially if the message includes the error code “ERR_CONNECTION_REFUSED”, it is likely that there was a typo in the URL.
+   - Typically, the URL is http://homeassistant.local:8123/.
+   - If you are running an older Windows version or have a stricter network configuration, try http://homeassistant:8123 instead.
 5. The system might still be starting up. Wait for a couple of minutes and refresh the page.
    - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon or press CTRL+R or CTRL+SHIFT+R.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
@@ -42,27 +43,6 @@ To resolve this issue, try the following steps:
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
-
-### Symptom: “ERR_CONNECTION_REFUSED”
-
-When trying to access Home Assistant in the browser, the browser message includes the error code “ERR_CONNECTION_REFUSED”.
-
-#### Description
-
-If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there might be a typo in the URL.
-
-#### Resolution
-
-1. Make sure you typed the address correctly. Especially, make sure the port number is appended (`:8123`).
-   - Typically, this is http://homeassistant.local:8123/.
-   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
-2. The system might still be starting up. Wait for a couple of minutes and refresh the page.
-   - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon or press CTRL+R or CTRL+SHIFT+R.
-3. If you still get this error, then you might need to reinstall again.
-4. If you still can’t reach Home Assistant, connect a display to the device Home Assistant is running on to access the console to see where Home Assistant gets stuck.
-   - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
-   - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
-5. [Reach out to our community for help](https://www.home-assistant.io/help/).
 
 ## Stuck at "Preparing Home Assistant"
 
