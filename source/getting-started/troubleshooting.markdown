@@ -32,7 +32,7 @@ To resolve this issue, try the following steps:
    - One of your devices might default to another network. Make sure they are in the exact same network.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
-7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where the Home Assistant gets stuck.
+7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
@@ -52,7 +52,7 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
    - If you are running an older Windows version or have a stricter network configuration, you might need to use `homeassistant:8123`.
 2. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
 3. If you still get this error, then you might need to reinstall again.
-4. If you still can’t reach Home Assistant, connect a display to the device Home Assistant is running on to access the console to see where the Home Assistant gets stuck.
+4. If you still can’t reach Home Assistant, connect a display to the device Home Assistant is running on to access the console to see where Home Assistant gets stuck.
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 5. [Reach out to our community for help](https://www.home-assistant.io/help/).
