@@ -29,7 +29,7 @@ To resolve this issue, try the following steps:
        - github.com: to update metadata of the add-on store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
 3. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
-   - For example, if the system your Browser runs on is using Wi-Fi, make sure it is using the Wi-Fi which connects to the same network Home Assistant is connected to.
+   - For example, if the system your Browser runs on is using Wi-Fi, make sure it is using the same Wi-Fi Home Assistant is connected to.
 4. Make sure you typed the address correctly.
    - Especially if the message includes the error code “ERR_CONNECTION_REFUSED”, it is likely that there was a typo in the port part of the URL (`:8123`).
    - Typically, the URL is http://homeassistant.local:8123/.
