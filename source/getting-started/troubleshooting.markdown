@@ -29,7 +29,8 @@ To resolve this issue, try the following steps:
 4. Make sure you typed the address correctly.
    - Typically, this is http://homeassistant.local:8123/.
    - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
-5. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
+5. The system might still be starting up. Wait for a couple of minutes and refresh the page.
+   - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon or press CTRL+R or CTRL+SHIFT+R.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
@@ -50,7 +51,8 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
 1. Make sure you typed the address correctly. Especially, double check the port number is appended (`:8123`).
    - Typically, this is http://homeassistant.local:8123/.
    - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
-2. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
+2. The system might still be starting up. Wait for a couple of minutes and refresh the page.
+   - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon or press CTRL+R or CTRL+SHIFT+R.
 3. If you still get this error, then you might need to reinstall again.
 4. If you still can’t reach Home Assistant, connect a display to the device Home Assistant is running on to access the console to see where Home Assistant gets stuck.
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
