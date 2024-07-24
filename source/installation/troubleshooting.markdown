@@ -35,7 +35,7 @@ To resolve this issue, try the following steps:
    - Typically, the URL is [http://homeassistant.local:8123](http://homeassistant.local:8123).
    - If you are running an older Windows version or have a stricter network configuration, try [http://homeassistant:8123](http://homeassistant:8123) instead.
 5. The system might still be starting up. Wait for a couple of minutes and refresh the page.
-   - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon or press CTRL+R or CTRL+SHIFT+R.
+   - Refreshing might work differently depending on your browser. Look for the refresh {% icon "mdi:refresh" %} icon, or press CTRL+R or CTRL+SHIFT+R.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
