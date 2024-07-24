@@ -19,17 +19,17 @@ This means the browser can’t find your Home Assistant installation on the netw
 
 To resolve this issue, try the following steps:
 
-1. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
-2. Make sure you typed the address correctly.
-   - Typically, this is http://homeassistant.local:8123/.
-   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
-3. Make sure your Home Assistant device is powered up (LEDs are on).
-4. Make sure your Home Assistant installation is connected to the internet:
+1. Make sure your Home Assistant device is powered up (LEDs are on).
+2. Make sure your Home Assistant installation is connected to the internet:
    - Make sure the Ethernet cable is plugged-in to both Home Assistant and to your router or switch.
    - Make sure your network is up and running and your router has internet access.
-5. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
+3. Make sure the system on which you opened the browser to access Home Assistant is connected to the same network as Home Assistant.
    - For example, you might have 2 networks with the same name, but one is on 2.4&nbsp;GHz and the other on 5&nbsp;GHz.
    - One of your devices might default to another network. Make sure they are in the exact same network.
+4. Make sure you typed the address correctly.
+   - Typically, this is http://homeassistant.local:8123/.
+   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
+5. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
 6. Check your router's web interface to see what IP address is assigned to your Home Assistant installation.
    - Enter this IP address (`http://x.x.x.x:8123`) directly into your browser.
 7. If you still can’t reach Home Assistant, connect keyboard and monitor to the device Home Assistant is running on to access the console and see where Home Assistant gets stuck.
