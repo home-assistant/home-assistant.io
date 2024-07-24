@@ -64,7 +64,7 @@ These are commands that have parameters with a comma separating them.
 - `KeyPress (MENU | UP | DOWN | LEFT | RIGHT | OK | INPUT | SETTINGS | RED | GREEN | BLUE | YELLOW | POWER)`
 - `KeyHold (MENU | UP | DOWN | LEFT | RIGHT | OK | INPUT | SETTINGS | RED | GREEN | BLUE | YELLOW | POWER)`
 
-### Usage Example
+### Usage example
 
 `remote.send_command`: `KeyPress, MENU`
 
@@ -79,7 +79,7 @@ These can be used for various purposes, such as triggering your masking system b
 
 ## Sensor
 
-### Enabled By Default
+### Enabled by default
 
 - `Aspect ratio decimal`: The aspect ratio as a decimal value.
 - `Incoming bit depth`: The bit depth of the incoming video signal.
@@ -96,7 +96,7 @@ These can be used for various purposes, such as triggering your masking system b
 - `Outgoing frame rate`: The frame rate of the outgoing video signal.
 - `Outgoing resolution`: The resolution of the outgoing video signal.
 
-### Disabled By Default
+### Disabled by default
 
 - `Aspect ratio integer`: The aspect ratio as an integer ratio.
 - `Aspect ratio name`: The name of the current aspect ratio.
@@ -117,7 +117,7 @@ These sensors are disabled because their values are not commonly needed but they
 
 The integration creates buttons which send commands to the device. You can add these buttons in the UI to build a virtual remote or add them in scripts/automations.
 
-### Navigation & Menus
+### Navigation & menus
 
 - `Up`: Simulates pressing the up button.
 - `Down`: Simulates pressing the down button.
@@ -137,7 +137,7 @@ The integration creates buttons which send commands to the device. You can add t
 - `Open profiles menu`: Opens the profiles menu.
 - `Open test patterns menu`: Opens the test patterns menu.
 
-### Debugging & Demos
+### Debugging & demos
 
 - `Reset temporary` resets temporary settings to their default values.
 - `Toggle tone map` toggles the tone mapping feature on or off.
