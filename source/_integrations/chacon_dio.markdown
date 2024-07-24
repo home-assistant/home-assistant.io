@@ -3,6 +3,7 @@ title: Chacon Dio
 description: Instructions on how to integrate your Chacon Dio devices within Home Assistant.
 ha_category:
   - Cover
+  - Switch
 ha_release: 2024.8
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: chacon_dio
 ha_platforms:
   - cover
+  - switch
 ha_integration_type: integration
 ---
 
@@ -20,6 +22,7 @@ This {% term integrations %} gives you access to the Wi-Fi connection so that Ho
 There is currently support for the following information within Home Assistant:
 
 - Cover devices (get statuses, move up, down, stop, and move to a given percentage)
+- Switch devices that can be lights or plugs (get statuses, turn on and off)
 
 ## Prerequisites
 
