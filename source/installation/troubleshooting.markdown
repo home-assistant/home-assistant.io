@@ -47,7 +47,7 @@ To resolve this issue, try the following steps:
 
 ### Symptom: Onboarding seems stuck at "Preparing Home Assistant"
 
-You are in the onboarding procedure but the process seems stuck at the step **Preparing Home Assistant**.
+You are in the onboarding procedure, but the process seems stuck at the step **Preparing Home Assistant**.
 You are seeing this screenshot:
 
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
