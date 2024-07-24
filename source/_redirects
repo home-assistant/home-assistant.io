@@ -347,8 +347,6 @@ layout: null
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/troubleshooting
-/getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /integrations/zwave_js
