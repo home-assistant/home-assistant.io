@@ -31,6 +31,6 @@ Each zone has a cover entity to represent the state of the damper.
 
 {% note %}
 
-Manual damper adjustments are not recommended in a zone with a temperature sensor as the AirTouch 5 will automatically control the damper.
+Manual damper adjustments are not recommended in a zone with a temperature sensor, as the AirTouch 5 will automatically control the damper.
 
 {% endnote %}
