@@ -23,8 +23,8 @@ To resolve this issue, try the following steps:
 2. Make sure your Home Assistant installation is connected to the internet:
    - Make sure the Ethernet cable is plugged-in to both Home Assistant and to your router or switch.
    - Make sure your network has internet access.
-     - During first startup, time will be synchronized. Make sure the NTP is allowed in your network.
-     - During first startup Home Assistant completes the installation. It needs access to the following URLs:
+     - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
+     - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
        - github.com: to update metadata of the add-on store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
