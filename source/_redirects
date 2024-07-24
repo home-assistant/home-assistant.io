@@ -34,8 +34,9 @@ layout: null
 /yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
-# User research
+# Design & User research
 /join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
+/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
 
 # Older development pages
 /developers https://developers.home-assistant.io
