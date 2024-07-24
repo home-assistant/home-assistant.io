@@ -70,8 +70,8 @@ These are commands that have parameters with a comma separating them.
 
 ## Binary sensor
 
-- `Power state` is On when the device is turned on.
-- `Signal state` is On when the device is receiving a signal from the source.
+- `Power state`: Is `On` when the device is turned on.
+- `Signal state`: Is `On` when the device is receiving a signal from the source.
 - `HDR flag` is On when the device is receiving an HDR signal. This is useful to trigger automations based on the HDR flag, such as changing projector settings.
 - `Outgoing HDR flag` is On when the device is sending an HDR signal.
 
