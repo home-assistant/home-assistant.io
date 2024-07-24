@@ -283,6 +283,10 @@ The output of this selector is the name of the selected network storage. It may
 also be the value `/backup`, if the user chooses to use the local data disk option
 instead of one of the configured network storage locations.
 
+```yaml
+backup_location:
+```
+
 ## Boolean selector
 
 The boolean selector shows a toggle that allows the user to turn on or off
