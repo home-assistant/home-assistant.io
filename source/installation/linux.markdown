@@ -22,7 +22,7 @@ In newer Linux distributions, the access to a host is very limited. This means t
 
 To fix this, you will need to open your machine's firewall for TCP traffic to port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
 
-For UFW systems (Ubuntu, Debian, Raspberry Pi OS, etc.):
+For UFW systems (for example, Debian):
 
 ```bash
 sudo ufw allow 8123/tcp
