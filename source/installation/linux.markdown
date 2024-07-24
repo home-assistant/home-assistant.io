@@ -27,10 +27,3 @@ For UFW systems (for example, Debian):
 ```bash
 sudo ufw allow 8123/tcp
 ```
-
-For `iptables` systems (was the default for older distributions):
-
-```bash
-iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
-iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
-```
