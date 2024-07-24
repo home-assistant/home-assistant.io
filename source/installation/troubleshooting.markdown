@@ -22,7 +22,7 @@ To resolve this issue, try the following steps:
 1. Make sure your Home Assistant device is powered up (LEDs are on).
 2. Make sure your Home Assistant installation is connected to the internet:
    - Make sure the Ethernet cable is plugged-in to both Home Assistant and to your router or switch.
-   - Make sure your network is up and running and your router has internet access.
+   - Make sure your network has internet access.
      - During installation, Home Assistant needs access to the following URLs:
        - version.home-assistant.io: to fetch new version information.
        - github.com: to update metadata of the add-on store.
