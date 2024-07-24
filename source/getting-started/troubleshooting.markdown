@@ -47,7 +47,7 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
 
 #### Resolution
 
-1. Make sure you typed the address correctly.
+1. Make sure you typed the address correctly. Especially, double check the port number is appended (`:8123`).
    - Typically, this is `http://homeassistant.local:8123/`.
    - If you are running an older Windows version or have a stricter network configuration, you might need to use `homeassistant:8123`.
 2. Check the port number:
