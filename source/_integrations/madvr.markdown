@@ -149,4 +149,4 @@ The integration creates buttons which send commands to the device. You can add t
 - `Toggle histogram`: Toggles the display of the video histogram.
 - `Toggle debug OSD`: Toggles the debug on-screen display.
 - `Refresh license info`: Refreshes the license information.
-- `Force 1080p60 output`: Forces the output to 1080p at 60Hz (basically safe mode).
+- `Force 1080p60 output`: Forces the output to 1080p at 60&nbsp;Hz (basically safe mode).
