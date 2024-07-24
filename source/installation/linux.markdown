@@ -11,3 +11,26 @@ Included sections for this page is located under source/_includes/installation
 {% include installation/container.md %}
 {% include installation/core.md %}
 {% include installation/supervised.md %}
+
+## Troubleshooting
+
+### No access to the frontend
+
+Symptom: You cannot open the Home Assistant page in your browser. If you are not using {% term "Home Assistant Operating System" %}, the cause may be an access restriction.
+
+In newer Linux distributions, the access to a host is very limited. This means that you can't access the Home Assistant frontend that is running on a host outside of the host machine.
+
+To fix this, you will need to open your machine's firewall for TCP traffic to port 8123. The method for doing this will vary depending on your operating system and the firewall you have installed. Below are some suggestions to try. Google is your friend here.
+
+For UFW systems (Ubuntu, Debian, Raspberry Pi OS, etc.):
+
+```bash
+sudo ufw allow 8123/tcp
+```
+
+For `iptables` systems (was the default for older distributions):
+
+```bash
+iptables -I INPUT -p tcp --dport 8123 -j ACCEPT
+iptables-save > /etc/network/iptables.rules  # your rules may be saved elsewhere
+```
