@@ -56,3 +56,18 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 5. [Reach out to our community for help](https://www.home-assistant.io/help/).
+
+## Stuck at "Preparing Home Assistant"
+
+### Symptom: Onboarding seems stuck at "Preparing Home Assistant"
+
+You are in the onboarding procedure but the process seems stuck at the step **Preparing Home Assistant**.
+You are seeing this screenshot:
+
+![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
+
+### Resolution
+
+1. Select the pulsing blue dot to view the log files.
+   - The log files might provide more information on the current status.
+2. [Reach out to our community for help](https://www.home-assistant.io/help/).
