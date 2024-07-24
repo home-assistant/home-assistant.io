@@ -36,7 +36,6 @@ To resolve this issue, try the following steps:
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
-   - If you report an issue, follow the steps on [reporting issues](/help/reporting_issues/).
 
 ### Symptom: “ERR_CONNECTION_REFUSED”
 
@@ -59,4 +58,3 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
    - If you are using a Home Assistant Green, follow these steps [to access the console](https://green.home-assistant.io/guides/use-terminal/).
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 6. [Reach out to our community for help](https://www.home-assistant.io/help/).
-   - If you report an issue, follow the steps on [reporting issues](/help/reporting_issues/).
