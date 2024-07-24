@@ -22,7 +22,7 @@ To resolve this issue, try the following steps:
 1. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
 2. Make sure you typed the address correctly.
    - Typically, this is http://homeassistant.local:8123/.
-   - If you are running an older Windows version or have a stricter network configuration, you might need to use homeassistant:8123.
+   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
 3. Make sure your Home Assistant device is powered up (LEDs are on).
 4. Make sure your Home Assistant installation is connected to the internet:
    - Make sure the Ethernet cable is plugged-in to both Home Assistant and to your router or switch.
@@ -48,8 +48,8 @@ If you are using Chrome or Edge and ERR_CONNECTION_REFUSED is displayed, there m
 #### Resolution
 
 1. Make sure you typed the address correctly. Especially, double check the port number is appended (`:8123`).
-   - Typically, this is `http://homeassistant.local:8123/`.
-   - If you are running an older Windows version or have a stricter network configuration, you might need to use `homeassistant:8123`.
+   - Typically, this is http://homeassistant.local:8123/.
+   - If you are running an older Windows version or have a stricter network configuration, you might need to use http://homeassistant:8123.
 2. The system might still be starting up. Wait for a couple of minutes and refresh the browser.
 3. If you still get this error, then you might need to reinstall again.
 4. If you still can’t reach Home Assistant, connect a display to the device Home Assistant is running on to access the console to see where Home Assistant gets stuck.
