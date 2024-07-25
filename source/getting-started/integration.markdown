@@ -20,7 +20,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - Under **Discovered**, on the integration, select **Configure**.
    - Follow the steps in the UI, if additional configuration is required.
    - If you do not see any devices discovered, don't worry, we will add an integration in the next step.
-3. In the bottom right corner, select **Add integration**.
+3. In the bottom right-corner, select **Add integration**.
 4. Type `workd` and select the **Workday** integration.
 
    ![Screenshot of the add integrations dialog](/images/getting-started/add_workday_integration.png)
@@ -64,7 +64,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
 
    ![Screenshot of the entities list, filtered for workday](/images/getting-started/workday_entities_list.png)
 
-## Making changes to the integration
+## Modifying the integration
 
 1. To change the name, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Rename**.
 
@@ -75,7 +75,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - You can also add different sensors for different countries, for example if you want to know when your colleagues have a holiday.
 3. That's it! {% icon "mdi:party-popper" %}
    - {% icon "mdi:checkbox-outline" %} You now have an overview of the integration page, and know there to find the integration details page, the sensor info page, and the entities table.
-   - {% icon "mdi:checkbox-outline" %} You learned how to rename your integration, how to make changes to it and how to delete it.
+   - {% icon "mdi:checkbox-outline" %} You learned to rename, to modify, and how to delete an integration.
    - If you want to find more integrations, checkout the [integration documentation](/integrations/workday/).
    - We are now ready to use **Workday** in an automation.
 
