@@ -27,6 +27,7 @@ We will now create the owner's account of Home Assistant. This account is an adm
     - Ignore the rest of this procedure. The following steps describe how to create a new installation, not how to restore from backup.
 2. If this is your initial installation, select **Create my smart home**.
 3. Enter a name, username, and password.
+   - Make sure the username is lowercase and doesn't contain white space.
    - Store the name, username, and password in a password manager. There is no way to recover the owner credentials.
    - Select **Create account**.
 
