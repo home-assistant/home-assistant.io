@@ -6,7 +6,7 @@ description: "Instructions to get Home Assistant configured."
 After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to log in and see your devices.
 
 1. Enter the Home Assistant device's address in your browser's address bar, [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
-   - **Result**: You now see the, **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
+   - **Result**: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
      - Home Assistant downloads the latest version of {% term "Home Assistant Core" %} (about 700&nbsp;MB).
    - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
    - Once preparation is finished, the welcome screen is shown.
@@ -37,12 +37,12 @@ After Home Assistant has been [installed](/installation/) on your device, there 
 
 4. Select which information you are willing to share.
     - Sharing is disabled by default. However, we would like to encourage you to share some of this data.
-    - This information helps us to find out which platforms we need to support and where to focus our efforts.
+    - This information helps us find out which platforms we need to support and where to focus our efforts.
     - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/).
     - To confirm, select **Next**.
    ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-5. Checkout the {% term devices %} Home Assistant has discovered on your network.
+5. Check out the {% term devices %} Home Assistant has discovered on your network.
     - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
     - Select **Finish**.
     ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
