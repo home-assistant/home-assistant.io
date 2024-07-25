@@ -45,6 +45,7 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - H5121 Motion Sensor
 - H5122 Mini Button
 - H5123 Window Sensor
+- H5124 Vibration Sensor
 - H5125 2 Button Switch
 - H5126 6 Button Switch
 - [H5177/5178 Bluetooth Thermo-Hygrometer](https://us.govee.com/collections/thermo-hydrometer/products/bluetooth-thermo-hygrometer)
