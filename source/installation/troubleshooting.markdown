@@ -43,12 +43,29 @@ To resolve this issue, try the following steps:
    - If you are using a Home Assistant Yellow, follow these steps [to access the console from Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/), or [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
 8. [Reach out to our community for help](https://www.home-assistant.io/help/).
 
+## "Error installing Home Assistant"
+
+### Symptom: During onboarding, there is an "Error installing Home Assistant"
+
+You are in the onboarding procedure, but you get the message **Error installing Home Assistant**.
+
+![Error installing Home Assistant during onboarding](/images/getting-started/error_installing_ha.png)
+
+### Resolution
+
+1. Make sure your network has internet access.
+     - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
+     - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
+       - version.home-assistant.io: to fetch new version information.
+       - github.com: to update metadata of the add-on store.
+       - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
+2. [Reach out to our community for help](https://www.home-assistant.io/help/).
+
 ## Stuck at "Preparing Home Assistant"
 
 ### Symptom: Onboarding seems stuck at "Preparing Home Assistant"
 
 You are in the onboarding procedure, but the process seems stuck at the step **Preparing Home Assistant**.
-You are seeing this screenshot:
 
 ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01.png)
 
@@ -56,4 +73,10 @@ You are seeing this screenshot:
 
 1. Select the pulsing blue dot to view the log files.
    - The log files might provide more information on the current status.
-2. [Reach out to our community for help](https://www.home-assistant.io/help/).
+2. Make sure your network has internet access.
+     - During first startup, time will be synchronized. Ensure NTP is allowed in your network.
+     - During first startup, Home Assistant completes the installation. It needs access to the following URLs:
+       - version.home-assistant.io: to fetch new version information.
+       - github.com: to update metadata of the add-on store.
+       - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
+3. [Reach out to our community for help](https://www.home-assistant.io/help/).
