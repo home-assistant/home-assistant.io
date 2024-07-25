@@ -27,6 +27,8 @@ related:
 
 The Anthropic integration adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.
 
+Legal note: Anthropic currently limits the API usage to organizations only, more info here: [Can I use the Claude API for individual use?](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use)
+
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
