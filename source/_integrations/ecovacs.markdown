@@ -55,7 +55,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
   - `Clean count`: Set the number of times to clean the area.
-  - `Cut direction`: Set the mower cutting direction
+  - `Cut direction`: Set the mower cutting direction.
   - `Volume`: Set the volume.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
