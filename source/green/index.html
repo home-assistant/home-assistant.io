@@ -6,6 +6,7 @@ date: 2023-09-17
 og_image: /images/blog/2023-09-ha10/green-intro.png
 frontpage: true
 frontpage_image: /images/frontpage/green-frontpage.png
+dark_header: true
 ---
 
 <link rel="stylesheet" href="/green/styles.css" />
@@ -982,15 +983,15 @@ frontpage_image: /images/frontpage/green-frontpage.png
           class="grid-image-wrapper"
         >
           <img
-            src="/images/green/ha-skyconnect.jpg"
+            src="/images/green/ha-connect-zbt-1.jpg"
             loading="lazy"
             sizes="(max-width: 479px) 100vw, (max-width: 767px) 92vw, (max-width: 991px) 94vw, 95vw"
             srcset="
-              /images/green/ha-skyconnect-p-500.jpg   500w,
-              /images/green/ha-skyconnect-p-800.jpg   800w,
-              /images/green/ha-skyconnect-p-1080.jpg 1080w,
-              /images/green/ha-skyconnect-p-1600.jpg 1600w,
-              /images/green/ha-skyconnect.jpg        1984w
+              /images/green/ha-connect-zbt-1-p-500.jpg   500w,
+              /images/green/ha-connect-zbt-1-p-800.jpg   800w,
+              /images/green/ha-connect-zbt-1-p-1080.jpg 1080w,
+              /images/green/ha-connect-zbt-1-p-1600.jpg 1600w,
+              /images/green/ha-connect-zbt-1.jpg        1984w
             "
             alt=""
             class="cover-image"
@@ -1008,14 +1009,14 @@ frontpage_image: /images/frontpage/green-frontpage.png
             Expand compatibility as your home expands.
           </h3>
           <p>
-            You can add Home Assistant SkyConnect to connect Zigbee and Thread* devices, set up Home Assistant Cloud for voice assistants, and integrate third-party USB accessories to support other smart standards, such as Z-Wave or Bluetooth.
+            You can add Home Assistant Connect ZBT-1 to control Zigbee and Thread* devices, set up Home Assistant Cloud for voice assistants, and integrate third-party USB accessories to support other smart standards, such as Z-Wave or Bluetooth.
             <br>*Thread support is currently under development.
           </p>
           <a
-            href="/skyconnect"
+            href="/connectzbt1"
             target="_blank"
             class="button black w-inline-block"
-            ><div>Get SkyConnect</div>
+            ><div>Get Connect ZBT-1</div>
             <img
               src="/images/green/cta-arrow-white.svg"
               loading="lazy"
@@ -1143,7 +1144,7 @@ frontpage_image: /images/frontpage/green-frontpage.png
             <div>
               <h4 class="heading-small">USB 2.0 ports ×2</h4>
               <p class="paragraph-small">
-                for use with Home Assistant SkyConnect and more
+                for use with Home Assistant Connect ZBT-1 and more
               </p>
             </div>
           </div>
@@ -2174,14 +2175,14 @@ frontpage_image: /images/frontpage/green-frontpage.png
               through more complex installation steps.<br />
               <br />The other big difference is that Yellow comes with support
               for Zigbee 3.0 and Matter-over-Thread. But Green can also use
-              these protocols by adding a SkyConnect.
+              these protocols by adding a Connect ZBT-1.
             </p>
           </div>
         </div>
         <div class="faq-wrapper">
           <a href="#" class="faq-link w-inline-block"
             ><h3 class="heading-regular">
-              Do I need a Home Assistant SkyConnect?
+              Do I need a Home Assistant Connect ZBT-1?
             </h3>
             <div class="faq-icon">
               <img
@@ -2193,16 +2194,16 @@ frontpage_image: /images/frontpage/green-frontpage.png
           ></a>
           <div class="faq-container margin-bottom-small">
             <p class="main-paragraph-w">
-              If you want to connect Home Assistant Green to the hub of your existing smart home system that uses Zigbee or Thread to communicate, you can do so out-of-the-box for most popular brands. This will be the easiest way to connect your existing Zigbee or Matter devices and does not require a Home Assistant SkyConnect.
+              It is not strictly required, as most smart home devices and hubs work with Home Assistant Green out-of-the-box, but you should <a href="/integrations/">confirm compatibility</a>. For the best experience, pair Home Assistant Connect ZBT-1 with Home Assistant Green, making a single hub solution for your Zigbee or Thread powered smart home. 
             </p>
-            <p>You need a Home Assistant SkyConnect if you want to connect Zigbee or Thread* devices directly to Home Assistant Green.</p>
+            <p>Home Assistant Connect ZBT-1 allows Zigbee or Thread* devices to connect directly to Home Assistant Green.</p>
             <p>* Thread support is currently under development.</p>
           </div>
         </div>
         <div class="faq-wrapper">
           <a href="#" class="faq-link w-inline-block"
             ><h3 class="heading-regular">
-              Will Nabu Casa keep supporting the Home Assistant Green?
+              Will Nabu Casa keep supporting Home Assistant Green?
             </h3>
             <div class="faq-icon">
               <img
@@ -2222,7 +2223,7 @@ frontpage_image: /images/frontpage/green-frontpage.png
         <div class="faq-wrapper">
           <a href="#" class="faq-link w-inline-block"
             ><h3 class="heading-regular">
-              Will Nabu Casa keep supporting the Home Assistant Yellow?
+              Will Nabu Casa keep supporting Home Assistant Yellow?
             </h3>
             <div class="faq-icon">
               <img
@@ -2234,8 +2235,8 @@ frontpage_image: /images/frontpage/green-frontpage.png
           ></a>
           <div class="faq-container margin-bottom-small">
             <p class="main-paragraph-w">
-              Absolutely! We believe in the Home Assistant Yellow! Depending on
-              who you are and what your smart home looks like, the Home
+              Absolutely! We believe in Home Assistant Yellow! Depending on
+              who you are and what your smart home looks like, Home
               Assistant Yellow might be the better choice for you.
             </p>
           </div>
@@ -2308,339 +2309,461 @@ frontpage_image: /images/frontpage/green-frontpage.png
       </span>
     </div>
     <div class="distributors">
+      <details id="dist_america">
+        <summary class="region">Shipping to America</summary>
+        <div>
+          <a href="https://ameridroid.com/products/home-assistant-green" target="_blank">
+            <div class="distributor">
+              <div>
+                <div>🇺🇸</div>
+                <div>ameriDroid</div>
+                <div>Shipping from US</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a href="https://www.alza.cz/home-assistant-green-d7998187.htm" target="_blank">
-        <div class="distributor">
-          <div>
-            <div>🇨🇿</div>
-            <div>Alza.cz</div>
-            <div>Shipping from the Czech Republic</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a href="https://cloudfree.shop/product/home-assistant-green/" target="_blank">
+            <div class="distributor">
+              <div>
+                <div>🇺🇸</div>
+                <div>CloudFree</div>
+                <div>Shipping from US</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a href="https://ameridroid.com/products/home-assistant-green" target="_blank">
-        <div class="distributor">
-          <div>
-            <div>🇺🇸</div>
-            <div>ameriDroid</div>
-            <div>Shipping from US</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://botland.com.pl/centralki-i-bramki-sieciowe/24319-home-assistant-green-inteligentna-centralka-nabu-casa-nc-green-1175-794677011758.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇵🇱</div>
-            <div>Botland</div>
-            <div>Shipping from Poland</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
         </div>
-      </a>
+      </details>
+      <details id="dist_asia">
+        <summary class="region">Shipping to Asia</summary>
+        <div>
+          <a href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a href="https://cloudfree.shop/product/home-assistant-green/" target="_blank">
-        <div class="distributor">
-          <div>
-            <div>🇺🇸</div>
-            <div>CloudFree</div>
-            <div>Shipping from US</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
         </div>
-      </a>
+      </details>
+      <details id="dist_australia">
+        <summary class="region">Shipping to Australia</summary>
+        <div>
+          <a href="https://www.ozsmartthings.com.au/products/home-assistant-green-smart-hub"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇦🇺</div>
+                <div>Oz Smart Things</div>
+                <div>Shipping from Australia</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://shop.everythingsmart.io/products/home-assistant-green"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇬🇧</div>
-            <div>Everything Smart Technology</div>
-            <div>Shipping from the United Kingdom</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a href="https://smartguys.com.au/home-assistant-green.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇦🇺</div>
+                <div>Smart Guys</div>
+                <div>Shipping from Australia</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://ewelinkstore.com/product/home-assistant-green-hub/"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇭🇺</div>
-            <div>eWeLink device store</div>
-            <div>Shipping from Hungary</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a href="https://www.smarthome.com.au/product/home-assistant-green/"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇦🇺</div>
+                <div>SmartHome</div>
+                <div>Shipping from Australia</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-      href="https://mauser.pt/catalog/product_info.php?products_id=095-3152"
-      target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇵🇹</div>
-            <div>Mauser</div>
-            <div>Shipping from Portugal</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
         </div>
-      </a>
+      </details>
+      <details id="dist_europe">
+        <summary class="region">Shipping to Europe</summary>
+        <div>
+          <a href="https://www.alza.cz/home-assistant-green-d7998187.htm" target="_blank">
+            <div class="distributor">
+              <div>
+                <div>🇨🇿</div>
+                <div>Alza.cz</div>
+                <div>Shipping from the Czech Republic</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://mediarath.de/products/home-assistant-green-smart-home-hub-2x-usb-gigabit-lan-hmdi-microsd-slot"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇩🇪</div>
-            <div>mediarath</div>
-            <div>Shipping from Germany</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://botland.com.pl/centralki-i-bramki-sieciowe/24319-home-assistant-green-inteligentna-centralka-nabu-casa-nc-green-1175-794677011758.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇵🇱</div>
+                <div>Botland</div>
+                <div>Shipping from Poland</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://en.m.nu/controllers-smart-hubs/home-assistant-green"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇸🇪</div>
-            <div>m.nu</div>
-            <div>Shipping from Sweden</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://www.domadoo.fr/fr/box-domotique/7046-nabu-casa-box-domotique-home-assistant-green-0794677011758.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇫🇷</div>
+                <div>Domadoo</div>
+                <div>Shipping from France</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-green-hub/"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇭🇺</div>
-            <div>OkosOtthon Bolt</div>
-            <div>Shipping from Hungary</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://shop.everythingsmart.io/products/home-assistant-green"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇬🇧</div>
+                <div>Everything Smart Technology</div>
+                <div>Shipping from the United Kingdom</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://www.ozsmartthings.com.au/products/home-assistant-green-smart-hub"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇦🇺</div>
-            <div>Oz Smart Things</div>
-            <div>Shipping from Australia</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://ewelinkstore.com/product/home-assistant-green-hub/"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇭🇺</div>
+                <div>eWeLink device store</div>
+                <div>Shipping from Hungary</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://www.pi-shop.ch/home-assistant-green"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇨🇭</div>
-            <div>Pi-Shop.ch</div>
-            <div>Shipping from Switzerland</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://www.kjell.com/no/produkter/smarte-hjem/kontroller/nabu-casa-home-assistant-green-p88430"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇳🇴</div>
+                <div>Kjell</div>
+                <div>Shipping from Norway</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://raspberrypi.dk/en/product/home-assistant-green/"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇩🇰</div>
-            <div>RaspberryPi.dk</div>
-            <div>Shipping from Denmark</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+          href="https://mauser.pt/catalog/product_info.php?products_id=095-3152"
+          target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇵🇹</div>
+                <div>Mauser</div>
+                <div>Shipping from Portugal</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇨🇳</div>
-            <div>Seeed Studio</div>
-            <div>Shipping from China, US and Germany</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://mediarath.de/products/home-assistant-green-smart-home-hub-2x-usb-gigabit-lan-hmdi-microsd-slot"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇩🇪</div>
+                <div>mediarath</div>
+                <div>Shipping from Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://smarterhome.sk/controllers/home-assistant-green-smart-home-hub-1490.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇸🇰</div>
-            <div>SmarterHOME</div>
-            <div>Shipping from Slovakia</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://en.m.nu/controllers-smart-hubs/home-assistant-green"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇸🇪</div>
+                <div>m.nu</div>
+                <div>Shipping from Sweden</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://smartguys.com.au/home-assistant-green.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇦🇺</div>
-            <div>Smart Guys</div>
-            <div>Shipping from Australia</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://okosotthon.bolt.hu/webaruhaz/termek/home-assistant-green-hub/"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇭🇺</div>
+                <div>OkosOtthon Bolt</div>
+                <div>Shipping from Hungary</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://shop.swiss-domotique.ch/smarthome-hub/2295-nabu-casa-home-assistant-green.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇨🇭</div>
-            <div>Swiss-Domotique</div>
-            <div>Shipping from Switzerland</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://www.pi-shop.ch/home-assistant-green"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇭</div>
+                <div>Pi-Shop.ch</div>
+                <div>Shipping from Switzerland</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://thepihut.com/products/home-assistant-green"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇬🇧</div>
-            <div>The Pi Hut</div>
-            <div>Shipping from the United Kingdom</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
+          <a
+            href="https://raspberrypi.dk/en/product/home-assistant-green/"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇩🇰</div>
+                <div>RaspberryPi.dk</div>
+                <div>Shipping from Denmark</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
 
-      <a
-        href="https://www.wifishop.ro/home-assistant-45/home-assistant-green.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇷🇴</div>
-            <div>WIFIShop</div>
-            <div>Shipping from Romania</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
+          <a
+            href="https://www.seeedstudio.com/Home-Assistant-Green-p-5792.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://smarterhome.sk/controllers/home-assistant-green-smart-home-hub-1490.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇸🇰</div>
+                <div>SmarterHOME</div>
+                <div>Shipping from Slovakia</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://shop.swiss-domotique.ch/smarthome-hub/2295-nabu-casa-home-assistant-green.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇭</div>
+                <div>Swiss-Domotique</div>
+                <div>Shipping from Switzerland</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://thepihut.com/products/home-assistant-green"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇬🇧</div>
+                <div>The Pi Hut</div>
+                <div>Shipping from the United Kingdom</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://www.webhallen.com/se/product/364271-Nabu-Casa-Home-Assistant-Green"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇸🇪</div>
+                <div>Webhallen</div>
+                <div>Shipping from Sweden</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://www.wifishop.ro/en/homeassistant/home-assistant-green.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇷🇴</div>
+                <div>WIFIShop</div>
+                <div>Shipping from Romania</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
         </div>
-      </a>
+      </details>
     </div>
   </div>
 </div>

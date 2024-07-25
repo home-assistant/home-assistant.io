@@ -32,7 +32,7 @@ Some calendar integrations allow Home Assistant to manage your calendars
 directly from Home Assistant. In this case, you can add new events by selecting
 the **Add event** button in the lower right corner of the calendar dashboard.
 
-Also see [Services](#services) below.
+Also see [Actions](#actions) below.
 
 ## Automation
 
@@ -139,16 +139,16 @@ automation:
 
 {% enddetails %}
 
-## Services
+## Actions
 
 Some calendar {% term integrations %} allow Home Assistant to manage your calendars
-directly using {% term services %}. The services provided by some calendar {% term entity %} are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
+directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/service-calls/).
 
-### Service `calendar.create_event`
+### Action `calendar.create_event`
 
 Add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
@@ -160,11 +160,9 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `location` | yes | The location of the event. | Bowling center
 
 
-<div class='note'>
-
+{% note %}
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-
-</div>
+{% endnote %}
 
 This is a full example of a {% term service %} call in YAML:
 
@@ -193,22 +191,20 @@ data:
 {% endraw %}
 
 
-### Service `calendar.get_events`
+### Action `calendar.get_events`
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with calendar events within a date range. It can return events from multiple calendars.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
 | `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with `duration`. You must specify either `end_date_time` or `duration`.| 2019-03-10 23:00:00
 | `duration` | yes | Return active events from `start_date_time` until the specified duration. Cannot be used with `end_date_time`. You must specify either `duration` or `end_date_time`. | `days: 2`
 
-<div class='note'>
-
+{% note %}
 Use only one of `end_date_time` or `duration`.
-
-</div>
+{% endnote %}
 
 ```yaml
 service: calendar.get_events
@@ -233,7 +229,7 @@ Every calendar entity has a field `events` containing a list of events with thes
 | `end` | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00
 | `location` | The location of the event. | Bowling center
 
-This example uses a template with response data in another service call:
+This example uses a template with response data in another action:
 
 {% raw %}
 ```yaml

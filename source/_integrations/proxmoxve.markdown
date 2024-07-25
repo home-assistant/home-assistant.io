@@ -12,19 +12,23 @@ ha_domain: proxmoxve
 ha_platforms:
   - binary_sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [Proxmox VE](https://www.proxmox.com/en/) is an open-source server virtualization environment. This integration allows you to poll various data from your instance.
 
-After configuring this integration, the binary sensors automatically appear.
+After configuring this {% term integration %}, the binary sensors automatically appear.
 
 ## Configuration
 
-<div class='note'>
+{% important %}
 You should have at least one VM or container entry configured, else this integration won't do anything.
-</div>
+{% endimportant %}
 
-To use the `proxmoxve` integration, add the following configuration to your `configuration.yaml` file:
+To use the `proxmoxve` {% term integration %}, add the following configuration to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

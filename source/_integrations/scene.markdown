@@ -23,17 +23,17 @@ The scene entity is stateless, as in, it cannot have a state like the `on` or
 
 Every scene entity does keep track of the timestamp of when the last time
 the scene entity was called via the Home Assistant UI or called via
-a service call.
+an action.
 
 ## Scenes created by integrations
 
-Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as service calls. In this case, the integration provides the preferred states to restore.
+Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as an action. In this case, the integration provides the preferred states to restore.
 
 ## Creating a scene
 
 You can create scenes that capture the states you want certain entities to be. For example, a scene can specify that light A should be turned on and light B should be bright red.
 
-Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via `configuration.yaml`. Note that the entity data is not service call parameters, it's a representation of the wanted state:
+Scenes can be created and managed via the user interface using the [Scene Editor](/docs/scene/editor/). They can also be manually configured via {% term "`configuration.yaml`" %}. Note that entity data is not an action parameter; it's a representation of the wanted state:
 
 ```yaml
 # Example configuration.yaml entry
@@ -86,7 +86,7 @@ As you can see, there are two ways to define the states of each `entity_id`:
 - Define the `state` directly with the entity. Be aware, that `state` needs to be defined.
 - Define a complex state with its attributes. You can see all attributes available for a particular entity under `developer-tools -> state`.
 
-Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
+Scenes can be activated using the `scene.turn_on` action (there is no `scene.turn_off` action).
 
 ```yaml
 # Example automation
@@ -104,7 +104,7 @@ automation:
 
 ## Applying a scene without defining it
 
-With the `scene.apply` service you are able to apply a scene without first defining it via configuration. Instead, you pass the states as part of the service data. The format of the data is the same as the `entities` field in a configuration.
+With the `scene.apply` action you are able to apply a scene without first defining it via configuration. Instead, you pass the states as part of the action data. The format of the data is the same as the `entities` field in a configuration.
 
 ```yaml
 # Example automation
@@ -129,7 +129,7 @@ automation:
 
 ## Using scene transitions
 
-Both the `scene.apply` and `scene.turn_on` services support setting a transition,
+Both the `scene.apply` and `scene.turn_on` actions support setting a transition,
 which enables you to smoothen the transition to the scene.
 
 This is an example of an automation that sets a romantic scene, in which the
@@ -157,11 +157,11 @@ only lights to have a transition set.
 
 ## Reloading scenes
 
-Whenever you make a change to your scene configuration, you can call the `scene.reload` service to reload the scenes.
+Whenever you make a change to your scene configuration, you can call the `scene.reload` action to reload the scenes.
 
 ## Creating scenes on the fly
 
-Create a new scene without having to configure it by calling the `scene.create` service. This scene will be discarded after reloading the configuration.
+Create a new scene without having to configure it by calling the `scene.create` action. This scene will be discarded after reloading the configuration.
 
 You need to pass a `scene_id` in lowercase and with underscores instead of spaces. You also may want to specify the entities in the same format as when configuring the scene. You can also take a snapshot of the current state by using the `snapshot_entities` parameter. In this case, you have to specify the `entity_id` of all entities you want to take a snapshot of. `entities` and `snapshot_entities` can be combined but you have to use at least one of them.
 
@@ -194,11 +194,11 @@ automation:
 
 ## Deleting dynamically created scenes
 
-Any scene that you have created with the `scene.create` service can also be deleted on demand with the `scene.delete` service.
+Any scene that you have created with the `scene.create` action can also be deleted on demand with the `scene.delete` action.
 
 You will need to pass in the `entity_id` of such a scene. As opposed to the `scene_id` used for creation, the `entity_id` must also include the `scene` domain.
 
-If the scene was not previously created by `scene.create`, the service call will fail and an error will appear in the logs.
+If the scene was not previously created by `scene.create`, the action will fail and an error will appear in the logs.
 
 ```yaml
 # Example automation

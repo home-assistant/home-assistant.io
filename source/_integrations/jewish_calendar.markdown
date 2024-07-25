@@ -1,6 +1,6 @@
 ---
 title: Jewish Calendar
-description: Instructions on how to integrate the Jewish Calendar integration within Home Assistant.
+description: Instructions on integrating the Jewish Calendar integration within Home Assistant.
 ha_category:
   - Calendar
 ha_iot_class: Calculated
@@ -12,83 +12,67 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-The Jewish Calendar (`jewish_calendar`) integration displays a variety of information related to the Jewish Calendar as a variety of sensors.
+The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.
+{% include integrations/config_flow.md %}
 
-## Configuration
 
-To enable this integration in your installation, add the following to your `configuration.yaml` file:
+### Language
 
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-```
+Default: English
+Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
 
-{% configuration %}
-language:
-  required: false
-  default: english
-  description: Whether to represent the sensors in Hebrew (א' תשרי תשע"ט) or English characters (1 Tishrei 5779). Valid options are 'english' and 'hebrew'.
-  type: string
-latitude:
-  required: false
-  description: Latitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-longitude:
-  required: false
-  description: Longitude for time calculations of the sensor.
-  default: Home Assistant location
-  type: integer
-diaspora:
-  required: false
-  description: Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
-  default: false
-  type: string
-candle_lighting_minutes_before_sunset:
-  required: false
-  description: Number of minutes before sunset to report as candle lighting time.
-  default: 18
-  type: integer
-havdalah_minutes_after_sunset:
-  required: false
-  description: Number of minutes after sunset to report as havdalah time. If this is set to 0, uses the time that the sun is 8.5 degrees below the horizon (same as the `first_stars` sensor). If non-zero, this value is added as an offset to the time of sunset to report havdalah.
-  default: 0
-  type: integer
-{% endconfiguration %}
+### Diaspora
+
+Default: False
+Consider the location as diaspora (חוץ לארץ) for calculation of the weekly portion and holidays. By default it will consider the location as Israel (One day Yom Tov), setting it to true will show a second day Yom Tov.
+
+### Minutes before sunset for candle lighting
+
+Default: 18 minutes
+This defines how many minutes before sunset is considered candle-lighting time. In Israel, this is usually 20/30/40 depending on your location. Outside of Israel, you probably want to use 18/24.
+
+### Minutes after sunset for Havdalah
+
+By default havdalah time is considered the moment the sun is 8.5 degrees below the horizon. By specifying this offset, havdalah time will be calculated as a static offset pas the time of sunset.
+
+### Latitude, Longitude, Time Zone and Elevation
+
+Allows you to override the default location information provided by Home Assistant for the calculations.
 
 ## Sensor list
 
 ### Data sensors
 
 - `date`: Shows the hebrew date for today.
-- `weekly_portion`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
+- `parshat_hashavua`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
 - `holiday`: If it is a holiday, shows the name of the holiday _(see below for more info)_.
-- `omer_count`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
+- `day_of_the_omer`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 - `daf_yomi`: Shows the date's daf yomi page.
 
 ### Time sensors
 
-*Note: Due to the variety of rabbinic opinions on how to calculate the different times, we do not take any responsibility on your religious reliance upon these calculations.*
+*Note: Due to the variety of rabbinic opinions on calculating the different times, we do not take any responsibility for your religious reliance upon these calculations.*
 
 Time sensor states are represented as ISO8601 formatted *UTC time*.
 
-- `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
-- `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
-- `sunrise`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
-- `gra_end_shma`: Last time for reading of the Shma according to the Gr"a.
-- `mga_end_shma`: Last time for reading of the Shma according to the MG"A.
-- `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
-- `mga_end_tefilla`: Last time for full shacharit according to the MG"A.
-- `midday`: Half way through the day (Chatzot Hayom - חצות היום)
-- `big_mincha`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
-- `little_mincha`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
-- `plag_mincha`: Time of the Plag Hamincha (פלג המנחה)
-- `sunset`: Sunset (Shkiya - שקיעה)
-- `first_stars`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `alot_hashachar`: First light of dawn (Alot Hashachar - עלות השחר)
+- `talit_and_tefillin`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
+- `hanetz_hachama`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
+- `latest_time_for_shma_gr_a`: Last time for the reading of the Shma according to the Gr"a.
+- `latest_time_for_shma_mg_a`: Last time for the reading of the Shma according to the MG"A.
+- `latest_time_for_tefilla_gr_a`: Last time for full shacharit according to the Gr"a.
+- `latest_time_for_tefilla_mg_a`: Last time for full shacharit according to the MG"A.
+- `chatzot_hayom`: Half way through the day (Chatzot Hayom - חצות היום)
+- `mincha_gedola`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
+- `mincha_ketana`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
+- `plag_hamincha`: Time of the Plag Hamincha (פלג המנחה)
+- `shkia`: Sunset (Shkiya - שקיעה)
+- `t_set_hakochavim`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
 - `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
-- `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
+- `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if a holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
 - `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.
 - `upcoming_havdalah`: The time of havdalah for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the havdalah for Rosh Hashana on Wednesday night. To always get the Shabbat times, use the `upcoming_shabbat_havdalah` sensor.
 
@@ -100,7 +84,7 @@ Time sensor states are represented as ISO8601 formatted *UTC time*.
 
 ### Holiday sensor
 
-The holiday sensor includes 3 attributes: *type*, *type_id* and *id*.
+The holiday sensor includes 3 attributes: *type*, *type_id*, and *id*.
 The *type_id* is useful for cases to condition automations based on a range of types.
 
 The following is the list of holidays the sensor knows about with their selected type:
@@ -147,13 +131,3 @@ The following is the list of holidays the sensor knows about with their selected
 | memorial_day_unknown | Memorial day for fallen whose place of burial is unknown | יום הזיכרון לחללי מערכות ישראל שמקום קבורתם לא נודע | MEMORIAL_DAY | 8      |
 | rabin_memorial_day   | Yitzhak Rabin memorial day | יום הזכרון ליצחק רבין | MEMORIAL_DAY              | 8       |
 | zeev_zhabotinsky_day | Zeev Zhabotinsky day       | יום זאב ז'בוטינסקי    | MEMORIAL_DAY              | 8       |
-
-## Full configuration example
-
-```yaml
-# Example configuration.yaml entry
-jewish_calendar:
-  language: english
-  diaspora: true
-  havdalah_minutes_after_sunset: 50
-```

@@ -3,7 +3,9 @@ title: "Automating Home Assistant"
 description: "A quick intro on getting your first automation going."
 ---
 
-Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}. We're going to create a simple automation to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
+Once your {% term devices %} are set up, it's time to put the cherry on the pie: {% term automation %}.
+
+We're going to create a simple automation to turn on the lights when the sun sets. Of course, this assumes that you have set up an integration that provides a light at this point.
 
 ## Automatically turn on the lights before sunset
 
@@ -26,9 +28,8 @@ Once your {% term devices %} are set up, it's time to put the cherry on the pie:
 
 4. Once we have defined our trigger, we need to define what should happen.
    - Select **Add action**.
-   - Type `Ser` and select **Call service**
 5. Select **Light** > **Turn on** or directly enter `light.turn_on`.
-   - For this automation, we're going to turn on all lights in the living room, so let's select the **Area**.
+   - For this automation, we're going to turn on all lights in the living room, so under **Targets**, select the **Area**.
    - This only works if your lights are assigned to an {% term area %}.
 
    ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)

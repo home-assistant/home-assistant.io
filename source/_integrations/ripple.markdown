@@ -9,11 +9,15 @@ ha_domain: ripple
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `ripple` sensor platform displays Ripple wallet balances from [Ripple.com](https://ripple.com).
+The `ripple` sensor {% term integration %} displays Ripple wallet balances from [Ripple.com](https://ripple.com).
 
-To add the Ripple sensor to your installation, specify a ripple address to watch in the `configuration.yaml` file:
+To add the Ripple {% term integration %} to your installation, specify a ripple address to watch in the {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

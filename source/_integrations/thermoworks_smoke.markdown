@@ -19,7 +19,7 @@ the email and password you used to in the configuration for this sensor in order
 
 ## Configuration
 
-To add the sensors to your installation, add the following to your `configuration.yaml` file:
+To add the sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

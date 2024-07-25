@@ -23,7 +23,8 @@ sudo apt install bluetooth libbluetooth-dev
 
 {% enddetails %}
 
-To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
+To use the Bluetooth tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -46,10 +47,10 @@ device_id:
 
 In some cases it can be that your device is not discovered. In that case let your phone scan for Bluetooth devices while you restart Home Assistant. Just hit `Scan` on your phone all the time (or keep the Bluetooth device view open on an iOS device) until Home Assistant is fully restarted and the device should appear in `known_devices.yaml`.
 
-The integration will try to create an entity using the device name that is detected. If such an entity already exists (for example because you are already using the [Companion App](https://companion.home-assistant.io/) for this device) no entity will be created and the log file will show an error that the `The see service is not supported for this entity device_tracker.device` (as it is not a `device_tracker` entity). You can rename the other conflicting entity, next time the device is detected a new entity with the same name will be created.
+The integration will try to create an entity using the device name that is detected. If such an entity already exists (for example because you are already using the [Companion App](https://companion.home-assistant.io/) for this device) no entity will be created and the log file will show an error that the `The see action is not supported for this entity device_tracker.device` (as it is not a `device_tracker` entity). You can rename the other conflicting entity, next time the device is detected a new entity with the same name will be created.
 
 For additional configuration variables check the [Device tracker page](/integrations/device_tracker/).
 
-## `bluetooth_tracker.update` service
+## `bluetooth_tracker.update` action
 
-The `bluetooth_tracker.update` service can be used to manually trigger a Bluetooth scan. An example of when this service can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed.
+The `bluetooth_tracker.update` action can be used to manually trigger a Bluetooth scan. An example of when this action can be useful is to trigger scans based on other events like doors being opened, beacons are in range or buttons are pressed.

@@ -13,7 +13,7 @@ The `system_log` integration stores information about all logged errors and warn
 
 ## Configuration
 
-This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file:
+This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 system_log:
@@ -33,17 +33,17 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## Services
+## Actions
 
-### Service `clear`
+### Action `clear`
 
-To manually clear the system log, call this service.
+To manually clear the system log, use this action.
 
-### Service `write`
+### Action `write`
 
 Write a log entry
 
-| Service data attribute | Optional | Description                                                                    |
+| Data attribute | Optional | Description                                                                    |
 | ---------------------- | -------- | ------------------------------------------------------------------------------ |
 | `message`              | no       | Message to log                                                                 |
 | `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
@@ -103,24 +103,24 @@ automation:
 
 ### Conditional Messages
 
-This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
+This automation will create a persistent notification whenever an error or warning is logged that has the word "action" in the message:
 
 {% raw %}
 
 ```yaml
 automation:
-  - alias: "Create notifications for 'service' errors"
+  - alias: "Create notifications for 'action' errors"
     trigger:
       platform: event
       event_type: system_log_event
     condition:
       condition: template
-      value_template: '{{ "service" in trigger.event.data.message[0] }}'
+      value_template: '{{ "action" in trigger.event.data.message[0] }}'
     action:
       service: persistent_notification.create
       data:
         title: Something bad happened
-        message: "{{ trigger.event.data.message }}"
+        message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}

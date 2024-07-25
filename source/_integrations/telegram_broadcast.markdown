@@ -9,11 +9,11 @@ ha_domain: telegram_bot
 
 Telegram implementation to support **sending messages only**. Your Home Assistant instance does not have to be exposed to the internet and there is no polling to receive messages or commands sent to the bot.
 
-Information on how to send a message via the service `telegram_bot.send_message` can be found [here](/integrations/telegram_bot/#service-telegram_botsend_message).
+Information on how to send a message via the `telegram_bot.send_message` action can be found [here](/integrations/telegram_bot/#action-telegram_botsend_message).
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate this into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +27,7 @@ telegram_bot:
 
 {% configuration %}
 allowed_chat_ids:
-  description: A list of ids representing the users and group chats to which messages can be send. Default the message will be send to the first alllowed chat_id. By using the `target` service data attribute the message can be send to other chat_ids from the list.
+  description: A list of ids representing the users and group chats to which messages can be send. Default the message will be send to the first alllowed chat_id. By using the `target` action data attribute the message can be send to other chat_ids from the list.
   required: true
   type: list
 api_key:
@@ -40,11 +40,7 @@ parse_mode:
   type: string
   default: "`markdown`"
 proxy_url:
-  description: Proxy URL if working behind one (`socks5://proxy_ip:proxy_port`).
-  required: false
-  type: string
-proxy_params:
-  description: Proxy configuration parameters, as dict, if working behind a proxy (`username`, `password`, etc.).
+  description: Proxy URL if working behind one, optionally including username and password. (`socks5://username:password@proxy_ip:proxy_port`).
   required: false
   type: string
 {% endconfiguration %}

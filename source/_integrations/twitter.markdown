@@ -37,7 +37,7 @@ It does not matter for the integration what you enter as a callback or website U
 
 ## Configuration
 
-To add X to your installation, add the following to your `configuration.yaml` file:
+To add X to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,7 +52,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: "`notify`"
   type: string

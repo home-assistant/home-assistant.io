@@ -17,6 +17,7 @@ ha_platforms:
   - sensor
 ha_config_flow: true
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The `tankerkoenig` platform allows you to monitor the fuel prices with [tankerkoenig.de](https://www.tankerkoenig.de/) from within Home Assistant and setup automations based on the information.
@@ -24,6 +25,6 @@ To use this sensor you need an API key from tankerkoenig. Go to [tankerkoenig AP
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% important %}
 The Terms & Conditions of tankerkoenig.de specify that the API is not meant for massive data fetching, but it does not explicitly mention a limit. Having a maximum of 10 monitored fuel stations is recommended, and a warning will be issued otherwise.
-</div>
+{% endimportant %}

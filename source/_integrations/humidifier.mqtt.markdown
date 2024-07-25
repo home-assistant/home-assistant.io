@@ -18,7 +18,7 @@ When a `state_topic` is not available, the humidifier will work in optimistic mo
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect humidifier operation.
 
-To enable MQTT humidifiers in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT humidifiers in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -174,12 +174,12 @@ json_attributes_topic:
 max_humidity:
   description: The minimum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 100
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 0
 name:
   description: The name of the humidifier. Can be set to `null` if only the device name is relevant.
@@ -273,7 +273,7 @@ retain:
   type: boolean
   default: true
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:
@@ -286,11 +286,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

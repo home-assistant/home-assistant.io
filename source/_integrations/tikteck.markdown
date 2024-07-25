@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Support for the Bluetooth smart bulb from [Tikteck](https://www.tikteck.com/). To enable these lights, add the following lines to your `configuration.yaml` file:
+Support for the Bluetooth smart bulb from [Tikteck](https://www.tikteck.com/). To enable these lights, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

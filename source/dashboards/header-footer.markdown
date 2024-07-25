@@ -1,6 +1,15 @@
 ---
 title: "Headers & Footers for dashboard cards"
 description: "Decorate your dashboard cards with header and footer widgets."
+related:
+  - docs: /integrations/entity/
+    title: Entity
+  - docs: /integrations/entities/
+    title: Entities
+  - docs: /integrations/statistics/
+    title: Statistics
+  - docs: /integrations/actions/
+    title: Card actions
 ---
 
 Some dashboard cards have support for header and footer widgets. These widgets fill up the whole available space in a card.
@@ -8,6 +17,12 @@ Some dashboard cards have support for header and footer widgets. These widgets f
 <p class='img'><img src='/images/dashboards/header-footer/screenshot-picture-buttons.png' alt="Screenshot of an entities card with a picture header.">
 Screenshot of an entities card with a picture header and buttons footer.
 </p>
+
+Header and footer can be used on the following cards:
+
+- [Entity](/dashboards/entity/)
+- [Entities](/dashboards/entities/)
+- [Statistics](/dashboards/statistics/)
 
 ## Picture header & footer
 

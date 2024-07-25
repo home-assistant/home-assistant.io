@@ -7,9 +7,12 @@ ha_release: 0.88
 ha_iot_class: Cloud Push
 ha_domain: google_pubsub
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `google_pubsub` integration allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
+The `google_pubsub` {% term integration %} allows you to hook into the Home Assistant event bus and send events to [Google Cloud Pub/Sub](https://cloud.google.com/pubsub/docs/overview). The current [free tier](https://cloud.google.com/free/) of GCP should allow you to sync about 1 event every 2 seconds on average (2 million invocations per month).
 
 ## First time setup
 
@@ -26,7 +29,8 @@ This will download the Service Account JSON key to your machine. Do NOT share th
 
 ## Configuration
 
-Add the following lines to your `configuration.yaml` file:
+Add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,9 +84,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<div class='note warning'>
-  Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
-</div>
+{% important %}
+Not filtering domains or entities will send every event to Google PubSub, thus hitting the free tier limit very fast. Be sure to fill in this configuration parameter or have a paid subscription for Google Cloud.
+{% endimportant %}
 
 ### Configure filter
 

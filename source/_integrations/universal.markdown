@@ -10,13 +10,17 @@ ha_domain: universal
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 A universal media player can combine multiple existing entities in Home Assistant into a single media player {% term entity %}. This is used to create a single media player {% term entity %} that can control an entire media center.
 
 Multiple media player entities may be controlled from a universal media player. Additionally, the universal media player can enable volume and power commands to be directed to other Home Assistant entities. This enables the media player power and volume commands to control devices like a television, amplifier or audio receiver, for example.
 
-A universal media player is created in `configuration.yaml` as follows.
+To use a universal media player add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -80,7 +84,7 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Media player commands to be overridden. Almost all media player service commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Media player commands to be overridden. Almost all media player action commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
@@ -107,7 +111,7 @@ Using `active_child_template` will allow you to specify an active {% term entity
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
-It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term service %} should toggle the mute setting.
+It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term action %} should toggle the mute setting.
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
@@ -323,6 +327,61 @@ media_player:
           activity: "{{ source }}"
     device_class: tv
     unique_id: media_room_harmony_hub
+```
+
+{% endraw %}
+
+### Denon AVR & HEOS
+
+This media player combines the media players provided by the [Denon AVR](/integrations/denonavr/) and [HEOS](/integrations/heos/) integrations. 
+
+Features:
+- Volume control via Denon entity (might be more fine-granular than HEOS volume control)
+- ON/OFF button via Denon entity (not provided by HEOS media player)
+- Sound mode selector via Denon entity (not provided by HEOS media player)
+- Album art & Metadata via HEOS entity (not provided by Denon media player)
+
+The complete configuration is:
+
+{% raw %}
+
+```yaml
+media_player:
+  - platform: universal
+    name: Denon
+    unique_id: denon_universal_remote
+    device_class: receiver
+    children:
+      - media_player.denon_avr_x2700h       # Denon AVR Integration entity
+      - media_player.denon_avr_x2700h_heos  # Denon HEOS Integration entity
+    browse_media_entity: media_player.denon_avr_x2700h_heos
+    commands:
+      turn_off:
+        service: media_player.turn_off
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      turn_on:
+        service: media_player.turn_on
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      volume_up:
+        service: media_player.volume_up
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      volume_down:
+        service: media_player.volume_down
+        data:
+          entity_id: media_player.denon_avr_x2700h
+      select_sound_mode:
+        service: media_player.select_sound_mode
+        target:
+          entity_id: media_player.denon_avr_x2700h
+        data:
+          sound_mode: "{{ sound_mode }}"
+    attributes:
+      sound_mode: media_player.denon_avr_x2700h|sound_mode
+      sound_mode_raw: media_player.denon_avr_x2700h|sound_mode_raw
+      sound_mode_list: media_player.denon_avr_x2700h|sound_mode_list
 ```
 
 {% endraw %}

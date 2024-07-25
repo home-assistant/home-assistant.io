@@ -24,11 +24,11 @@ The GoodWe integration will poll a [GoodWe](http://www.goodwe.com/) solar invert
 
 It works with GoodWe ET, EH, BT, BH, ES, EM, DT, MS, D-NS, XS and BP families of inverters. Different inverter families/models expose different sets of sensors, the newer models have usually broader support.
 
-<div class='note'>
+{% note %}
 If you can't communicate with the inverter despite your model is listed above, it is possible you have an old ARM firmware version. You should ask manufacturer support to upgrade your ARM firmware (not just inverter firmware) to be able to communicate with the inverter via UDP.
 
 It may work on other inverter families as well, as long as they listen on UDP port 8899 and respond to one of the supported communication protocols. In general, if you can communicate with the inverter via an official mobile application (PvMaster, SolarGo), it is very likely the integration will work too.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -56,9 +56,9 @@ The integration will poll the inverter for new values every 10 seconds. If you w
         entity_id: sensor.ppv
 ```
 
-<div class='note'>
+{% note %}
 It has been observed in some rare situations that frequent polling conflicts with updates to the Goodwe SEMS cloud portal and do not receive any updates anymore. Reducing polling frequency to 30 seconds or 1 minute seems to help in such cases.
-</div>
+{% endnote %}
 
 For more detailed steps on how to define a custom polling interval, follow the procedure below.
 
