@@ -4,10 +4,9 @@ description: Connect and control your LinkPlay media players using the LinkPlay 
 ha_category:
   - Media player
 ha_domain: linkplay
-ha_ssdp: true
 ha_zeroconf: true
 ha_integration_type: integration
-ha_release: 2024.x
+ha_release: 2024.8
 ha_codeowners:
   - '@Velleman'
 ha_config_flow: true
