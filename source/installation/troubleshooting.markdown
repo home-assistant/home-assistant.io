@@ -59,7 +59,8 @@ You are in the onboarding procedure, but you get the message **Error installing 
        - version.home-assistant.io: to fetch new version information.
        - github.com: to update metadata of the add-on store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
-2. [Reach out to our community for help](https://www.home-assistant.io/help/).
+2. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
+3. [Reach out to our community for help](https://www.home-assistant.io/help/).
 
 ## Stuck at "Preparing Home Assistant"
 
@@ -79,4 +80,5 @@ You are in the onboarding procedure, but the process seems stuck at the step **P
        - version.home-assistant.io: to fetch new version information.
        - github.com: to update metadata of the add-on store.
        - ghcr.io: the GitHub container registry to fetch new Home Assistant updates.
-3. [Reach out to our community for help](https://www.home-assistant.io/help/).
+3. After changing your network environment, wait a few minutes. Home Assistant will try to reconnect.
+4. [Reach out to our community for help](https://www.home-assistant.io/help/).
