@@ -5,7 +5,7 @@ ha_category:
   - Energy
   - Sensor
 ha_release: 2024.8
-ha_domain: mercury
+ha_domain: mercury_nz
 ha_integration_type: virtual
 ha_supporting_domain: opower
 ha_supporting_integration: Opower
