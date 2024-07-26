@@ -34,7 +34,7 @@ When connecting your Tesla account to Home Assistant, you **must** select the `V
 
 ## Rate limits
 
-Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will stop polling for vehicle updates when it hits this limit, and will wait the appropriate time specified in the **Retry-After** header.
+Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will initially poll every 90 seconds, making vehicle data requests only when the vehicle is awake, and then dynamically slow down polling based on how many vehicle data requests have been made in the last 24 hours.
 
 ## Entities
 
