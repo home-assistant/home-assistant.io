@@ -41,7 +41,7 @@ The integration will create the entities listed below. Some of the entities are 
 
 ### Camera
 
-- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the service described below.
+- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
 
 ### Sensors
 
@@ -133,13 +133,13 @@ template:
 {% endraw %}
 
 
-## Services
+## Actions
 
-### Service `environment_canada.set_radar_type`
+### Action `environment_canada.set_radar_type`
 
 Sets the type of radar to retrieve for the camera.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Camera to set the radar type for.
 | `radar_type` | no | One of "Auto", "Rain", or "Snow".

@@ -57,34 +57,34 @@ Polling Tado API for presence information will happen at most once every 30 seco
 
 Beware that the Tado (v2) API does not provide GPS location of devices, only a bearing, therefore Home Assistant only uses `home`/`not-home` status.
 
-## Services
+## Actions
 
-### Service `tado.set_climate_timer`
+### Action `tado.set_climate_timer`
 
-You can use the service `tado.set_climate_timer` to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
+You can use the `tado.set_climate_timer` action to set your Tado climate device, for example a radiator valve, to switch on for a set time period. 
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
 | `temperature`          | no       | String, The required target temperature e.g., `20.5`                   |
 | `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `overlay`              | yes      | Override your defaults setting. NB dont set this and the time period   |
 
-### Service `tado.set_water_heater_timer`
+### Action `tado.set_water_heater_timer`
 
-You can use the service `tado.set_water_heater_timer` to set your water heater to switch on for a set time period. 
+You can use the `tado.set_water_heater_timer` action to set your water heater to switch on for a set time period. 
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `water_heater.hot_water`                  |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
 | `temperature`          | yes      | String, The required target temperature e.g., `20.5`                   |
 
-### Service `tado.set_climate_temperature_offset`
+### Action `tado.set_climate_temperature_offset`
 
-You can use the service `tado.set_climate_temperature_offset` to set the temperature offset for Tado climate devices.
+You can use the `tado.set_climate_temperature_offset` action to set the temperature offset for Tado climate devices.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | yes      | String, Name of entity e.g., `climate.heating`                         |
 | `offset`               | no       | Float, Offset you would like to set                                    |
@@ -143,11 +143,11 @@ automation:
 ```
 {% endraw %}
 
-### Service `tado.add_meter_reading`
+### Action `tado.add_meter_reading`
 
-You can use the service `tado.add_meter_reading` to add your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
+You can use the `tado.add_meter_reading` action to add your meter readings to Tado Energy IQ. With Energy IQ, you can track your energy consumption and take control of your heating expenses.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `config_entry`         | no       | String, Config entry to add meter readings to.                         |
 | `reading`              | no       | Integer, Reading in m³ or kWh without decimals.                        |

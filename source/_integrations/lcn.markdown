@@ -43,7 +43,7 @@ There is currently support for the following device types within Home Assistant:
 
 {% note %}
 The implemented platforms do not cover the whole functionality of the LCN system.
-Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [service calls](#services).
+Therefore the `lcn` integration offers a variety of [events](#events), [device triggers](#device-triggers) and [actions](#actions).
 They are ideal to be used in automation scripts or for the `template` platforms.
 {% endnote %}
 
@@ -364,7 +364,7 @@ Leading zeroes in the segment id or module/group id can be omitted. If the `conn
 
 ## LCN constants
 
-The platforms and service calls use several predefined constants as parameters.
+The platforms and actions use several predefined constants as parameters.
 
 ### Ports
 
@@ -703,16 +703,16 @@ supposed to cause the event in the device list. You may select the trigger type 
 attributes. If an attribute is optional it is considered as a supplementary filter for the trigger.
 For an explanation of the attributes refer to the corresponding [events](#events).
 
-## Services
+## Actions
 
-In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following service calls can be used.
-Refer to the [Services Calls](/docs/scripts/service-calls) page for examples on how to use them.
+In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
+Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
-### Service: `output_abs`
+### Action: `output_abs`
 
 Set absolute brightness of output port in percent.
 
-| Service data attribute | Optional | Description                       | Values                |
+| Data attribute | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses)     |
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
@@ -730,11 +730,11 @@ data:
   transition: 0
 ```
 
-### Service: `output_rel`
+### Action: `output_rel`
 
 Set relative brightness of output port in percent.
 
-| Service data attribute | Optional | Description                       | Values                |
+| Data attribute | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses)     |
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
@@ -751,11 +751,11 @@ data:
   brightness: 30
 ```
 
-### Service: `output_toggle`
+### Action: `output_toggle`
 
 Toggle output port.
 
-| Service data attribute | Optional | Description                       | Values                |
+| Data attribute | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses)     |
 | `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
@@ -771,14 +771,14 @@ data:
   transition: 0
 ```
 
-### Service: `relays`
+### Action: `relays`
 
 Set the relays status. The relays states are defined as a string with eight characters.
 Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=nochange).
 
 Example states:  `t---001-`
 
-| Service data attribute | Optional | Description                   | Values |
+| Data attribute | Optional | Description                   | Values |
 | ---------------------- | -------- | ----------------------------- | ------ |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `state`                | No       | Relay states as string        |
@@ -792,11 +792,11 @@ data:
   state: t---001-
 ```
 
-### Service: `led`
+### Action: `led`
 
 Set the LED status.
 
-| Service data attribute | Optional | Description                   | Values               |
+| Data attribute | Optional | Description                   | Values               |
 | ---------------------- | -------- | ----------------------------- | -------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `state`                | No       | LED state as string           | [LED_STATE](#states) |
@@ -811,13 +811,13 @@ data:
   state: blink
 ```
 
-### Service: `var_abs`
+### Action: `var_abs`
 
 Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Service data attribute | Optional | Description                   | Values                                                             |
+| Data attribute | Optional | Description                   | Values                                                             |
 | ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
@@ -840,13 +840,13 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behaviors or return error messages.
 {% endimportant %}
 
-### Service: `var_rel`
+### Action: `var_rel`
 
 Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Service data attribute | Optional | Description                   | Values                                                                                                |
+| Data attribute | Optional | Description                   | Values                                                                                                |
 | ---------------------- | -------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
@@ -869,11 +869,11 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behavior or return error messages.
 {% endimportant %}
 
-### Service: `var_reset`
+### Action: `var_reset`
 
 Reset value of variable or setpoint.
 
-| Service data attribute | Optional | Description                   | Values                                                             |
+| Data attribute | Optional | Description                   | Values                                                             |
 | ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
@@ -892,12 +892,12 @@ Ensure that the LCN module is configured properly to provide access to the defin
 Otherwise the module might show unexpected behavior or return error messages.
 {% endimportant %}
 
-### Service: `lock_regulator`
+### Action: `lock_regulator`
 
 Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
 
-| Service data attribute | Optional | Description                   | Values                           |
+| Data attribute | Optional | Description                   | Values                           |
 | ---------------------- | -------- | ----------------------------- | -------------------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `setpoint`             | No       | Setpoint name                 | [SETPOINT](#variables-and-units) |
@@ -913,7 +913,7 @@ data:
   state: true
 ```
 
-### Service: `send_keys`
+### Action: `send_keys`
 
 Send keys (which executes bound commands).
 The keys attribute is a string with one or more key identifiers. Example: `a1a5d8`
@@ -921,7 +921,7 @@ If `state` is not defined, it is assumed to be `hit`.
 The command allows the sending of keys immediately or deferred. For a deferred sending the attributes `time` and `time_unit` have to be specified. For deferred sending, the only key state allowed is `hit`.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Service data attribute | Optional | Description                   | Values                            |
+| Data attribute | Optional | Description                   | Values                            |
 | ---------------------- | -------- | ----------------------------- | --------------------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `keys`                 | No       | Keys string                   |
@@ -950,7 +950,7 @@ data:
   time_unit: s
 ```
 
-### Service: `lock_keys`
+### Action: `lock_keys`
 
 Locks keys.
 If the table is not defined, it is assumed to be table `a`.
@@ -958,7 +958,7 @@ The key lock states are defined as a string with eight characters. Each characte
 The command allows the locking of keys for a specified time period. For a time period, the attributes `time` and `time_unit` have to be specified. For a time period, only table `a` is allowed.
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
-| Service data attribute | Optional | Description                   | Values                            |
+| Data attribute | Optional | Description                   | Values                            |
 | ---------------------- | -------- | ----------------------------- | --------------------------------- |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `table`                | Yes      | Table with keys to lock       |
@@ -987,14 +987,14 @@ data:
   time_unit: s
 ```
 
-### Service: `dyn_text`
+### Action: `dyn_text`
 
 Send dynamic text to LCN-GTxD displays.
 The displays support four rows for text messages.
 Each row can be set independently and can store up to 60 characters (encoded in UTF-8).
 
 
-| Service data attribute | Optional | Description                        | Values |
+| Data attribute | Optional | Description                        | Values |
 | ---------------------- | -------- | ---------------------------------- | ------ |
 | `address`              | No       | [LCN address](#lcn-addresses)      |
 | `row`                  | No       | Text row 1..4                      |
@@ -1010,11 +1010,11 @@ data:
   text: "text in row 1"
 ```
 
-### Service: `pck`
+### Action: `pck`
 
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
-| Service data attribute | Optional | Description                   | Values |
+| Data attribute | Optional | Description                   | Values |
 | ---------------------- | -------- | ----------------------------- | ------ |
 | `address`              | No       | [LCN address](#lcn-addresses) |
 | `pck`                  | No       | PCK command                   |

@@ -37,11 +37,11 @@ Each zone controlled by your Genius Hub will be exposed as either a:
 
 Currently, there is no support for altering zone schedules, although entities can be switched to/from geniushub modes that utilize schedules.
 
-There are limitations due to the differences between the Genius Hub and Home Assistant schemas (e.g.,  HA has no **Footprint** mode) - use the service handlers, below, for this functionality.
+There are limitations due to the differences between the Genius Hub and Home Assistant schemas (for example, Home Assistant has no **Footprint** mode) - use the actions below, for this functionality.
 
-### Service handlers
+### Action handlers
 
-Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific service handlers:
+Home Assistant is obligated to place restrictions upon integrations such as **geniushub** to maintain compatibility with other ecosystems (e.g.,  Google Home) and so not all of the **geniushub** functionality is available via the web UI. Some of this missing functionality is exposed via integration-specific actions:
 
 - `set_switch_override`: change the switches on time _for a specified duration_ (up to 24h),
 - `set_zone_override`: change the zone's setpoint _for a specified duration_ (up to 24h), and

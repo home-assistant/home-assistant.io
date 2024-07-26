@@ -69,7 +69,7 @@ The media from the network storage is then automatically added to the local medi
 
 ## Playing media from a media source
 
-To play media from a media source via a service call, use the uri
+To play media from a media source via an action, use the uri
 scheme `media-source://media_source/<media_dir>/<path>`.
 Default `media_dir` is `local`.
 

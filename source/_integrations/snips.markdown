@@ -79,7 +79,7 @@ Note that if you already have an assistant installed and wish to replace it then
 
 Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
-Start the Snips Voice Platform by starting the `snips-*` services:
+Start the Snips Voice Platform by starting the `snips-*` actions:
 
 ```bash
 sudo systemctl start "snips-*"
@@ -192,19 +192,19 @@ SetTimer:
 
 ### Sending TTS Notifications
 
-You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` services. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
+You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` actions. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
-#### Service `snips.say`
+#### Action `snips.say`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
-#### Service `snips.say_action`
+#### Action `snips.say_action`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |

@@ -9,6 +9,7 @@ ha_category:
   - Event
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
   - Text
@@ -35,6 +36,7 @@ ha_platforms:
   - event
   - light
   - number
+  - select
   - sensor
   - switch
   - text
@@ -255,9 +257,9 @@ Shelly lights supporting light transition:
 The firmware limits the transition time to 5 seconds.
 {% endnote %}
 
-## Device services
+## Device actions
 
-The integration offers device services which can be triggered by a configuration button.
+The integration offers device actions which can be triggered by a configuration button.
 
 ### OTA firmware update
 
@@ -312,6 +314,11 @@ The integration supports the following virtual components:
 
 - `boolean` in `toggle` mode, for which a `switch` platform entity is created
 - `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `enum` in `dropdown` mode, for which a `select` platform entity is created
+- `enum` in `label` mode, for which a `sensor` platform entity is created
+- `number` in `field` mode, for which a `number` platform entity in `box` mode is created
+- `number` in `slider` mode, for which a `number` platform entity in `slider` mode is created
+- `number` in `label` mode, for which a `sensor` platform entity is created
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
 
@@ -334,4 +341,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
-- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+- Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

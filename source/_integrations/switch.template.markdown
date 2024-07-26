@@ -3,11 +3,20 @@ title: "Template Switch"
 description: "Instructions on how to integrate Template Switches into Home Assistant."
 ha_category:
   - Switch
+  - Helper
 ha_release: 0.13
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
 ha_config_flow: true
+ha_platforms:
+  - switch
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates switches that combines components.
@@ -158,7 +167,7 @@ switch:
 
 ### Multiple actions for turn_on or turn_off
 
-This example shows multiple service calls for turn_on and turn_off.
+This example shows multiple actions for turn_on and turn_off.
 
 {% raw %}
 
