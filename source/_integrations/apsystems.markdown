@@ -10,6 +10,7 @@ ha_domain: apsystems
 ha_platforms:
   - number
   - sensor
+  - switch
 ha_integration_type: device
 ha_codeowners:
   - '@mawoka-myblock'
