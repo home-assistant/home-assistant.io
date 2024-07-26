@@ -30,5 +30,7 @@ Within the SimpleFIN Interface, you can create a **Claim Token**, a one-time tok
 
 Each `account` will be set up as a device in Home Assistant, and it will contain the following sensors:
 
-- `balance` 
-
+|Sensor|Description|
+|-------|---------------|
+|Balance|Account Balance|
+|Problem| Binary Sensor that indicates whether the account sync may have a problem |
