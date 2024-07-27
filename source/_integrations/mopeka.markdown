@@ -24,9 +24,9 @@ The Mopeka integration will automatically discover devices once the [Bluetooth](
 Once a device is discovered and selected for configuration, the user can choose a 'Medium Type' which is the substance the sensor meausres such as Propane.
 The sensor needs to use the type of medium to adjust the coefficients used in the ultrasonic sensor calculations.
 
-The supported Mediums are:
+## Supported Mediums
  - Propane (default)
- - Air (for unpressurized top-down sensors like water tanks, etc.)
+ - Air (for unpressurized top-down sensors like water tanks)
  - Fresh Water (for bottom-up sensors)
  - Waste Water
  - Live Well
