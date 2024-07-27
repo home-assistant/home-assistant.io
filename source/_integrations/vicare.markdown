@@ -12,6 +12,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - fan
   - number
   - sensor
   - water_heater
@@ -28,6 +29,7 @@ There is currently support for the following device types within Home Assistant:
 
 - [Climate](#climate) (Heating)
 - [Water heater](#water-heater) (Domestic hot water)
+- [Fan](#fan) (Ventilation)
 - [Sensor](#sensor) (Sensor)
 - [Button](#button) (Button)
 - [Number](#number)
@@ -131,6 +133,10 @@ Sets the target temperature of domestic hot water to the given temperature.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `temperature` | no | New target temperature for water heater
+
+## Fan
+
+Ventilation units are displayed as fans and enable the change of speed and use of presets.
 
 ## Sensor
 
