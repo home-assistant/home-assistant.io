@@ -498,7 +498,6 @@ source/_integrations/minecraft_server.markdown @elmurato
 source/_integrations/minio.markdown @tkislan
 source/_integrations/moat.markdown @bdraco
 source/_integrations/mobile_app.markdown @home-assistant/core
-source/_integrations/modbus.markdown @janiversen
 source/_integrations/modem_callerid.markdown @tkdrob
 source/_integrations/modern_forms.markdown @wonderslug
 source/_integrations/moehlenhoff_alpha2.markdown @j-a-n
