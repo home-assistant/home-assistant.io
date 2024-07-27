@@ -39,6 +39,7 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Tadiran
 - Heiwa
 - Ekokai
+- Lessar
 
 ## Climate
 
