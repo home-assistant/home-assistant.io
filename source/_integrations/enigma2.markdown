@@ -24,6 +24,6 @@ The `enigma2` platform allows you to control a Linux based set-top box which is 
 
 ## Binary sensors
 
-Following binary sensor will be added:
+The following binary sensor will be added:
 
 - If the device is currently recording
