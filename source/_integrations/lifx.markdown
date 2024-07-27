@@ -78,7 +78,7 @@ Note that these sensors are only updated every 30 seconds and may not reflect th
 
 ## Themes
 
-Home Assistant provides a collection of predefined themes for LIFX multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
+Home Assistant provides a collection of predefined themes for LIFX matrix and multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
 
 To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
 
