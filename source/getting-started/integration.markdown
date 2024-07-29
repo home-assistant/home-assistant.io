@@ -72,10 +72,10 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the entities list, filtered for workday](/images/getting-started/workday_three_dots.png)
 2. You can also add another Workday {% term sensor %}. For example, if you want to know when your colleagues have a holiday.
    - Select **Add entry**, give it a name and define your options.
-   - Select the country of interest. 
+   - Select the country of interest.
 3. That's it! {% icon "mdi:party-popper" %}
-   - {% icon "mdi:checkbox-outline" %} You now gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
-   - {% icon "mdi:checkbox-outline" %} You learned to rename, to modify, and how to delete an integration.
+   - {% icon "mdi:checkbox-outline" %} You gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
+   - {% icon "mdi:checkbox-outline" %} You learned to rename, modify, and delete an integration.
    - If you want to find more integrations, checkout the [integration documentation](/integrations/workday/).
    - We are now ready to use **Workday** in an automation.
 
