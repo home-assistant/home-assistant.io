@@ -35,7 +35,7 @@ The calendar sensor contains a `calendar` state attribute, which contains:
 
 For example:
 
-```json
+```yaml
 message: Ridwell Pickup (scheduled)
 all_day: true
 start_time: 2024-07-26 00:00:00
