@@ -115,6 +115,6 @@ Service data attribute | Optional | Description
 
 ## Community notes
 
-1. Integration requires an MQTT connection to be established via port 8003. If you are using a firewall, please allow communication via port 8003 in the firewall settings.  
-2. If you use a network proxy, such as a VPN, the integration may not be able to update the device status, please turn off the VPN.
-3. Please do not use UAC as credentials for HomeAssistant YoLink integration.
+1. This integration requires an MQTT connection to be established via port 8003. If you are using a firewall, please allow communication via port 8003 in the firewall settings.  
+2. If you use a network proxy, such as a VPN, the integration may not be able to update the device status. Turn off the VPN.
+3. Please do not use UAC as credentials for the Home Assistant YoLink integration.
