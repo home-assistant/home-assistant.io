@@ -28,7 +28,7 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 - **Operating mode:** Indicates the current operational state of the soldering iron, such as idle, soldering, boost, sleeping, settings, or debug.
 - **Max tip temperature:** Indicates the maximum temperature that the currently inserted soldering iron tip supports.
 - **Power level:** Displays the duty cycle of the pulse-width modulation (PWM) in percent, indicating the current power output of the soldering iron (for example, "50%" for a 50% duty cycle).
-- **Power source:** Identifies the current power source used by the soldering iron, such as DC input, USB Quick Charge, USB Power Delivery or USB Power Delivery VBUS.
+- **Power source:** Identifies the current power source used by the soldering iron, such as DC input, USB Quick Charge, USB Power Delivery, or USB Power Delivery VBUS.
 - **Raw tip voltage:** Measures the raw voltage at the soldering iron tip.
 - **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (for example, "6.2 Ω" for short tips, "8 Ω" for normal tips)
 - **Uptime:** Tracks the total operating time of the soldering iron since its last power-on.
