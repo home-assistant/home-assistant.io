@@ -31,7 +31,7 @@ The calendar sensor contains a `calendar` state attribute, which contains:
 - The end time of the event. Ends at midnight.
 - The location of the event.
 - The description of the items being picked up.
-- Friendly name of Calendar Event.
+- Friendly name of the calendar event.
 
 For example:
 
