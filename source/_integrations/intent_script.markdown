@@ -11,6 +11,8 @@ ha_integration_type: integration
 
 The `intent_script` integration allows users to configure actions and responses to intents. Intents can be fired by any integration that supports it. Examples are [Alexa](/integrations/alexa/) (Amazon Echo), [Dialogflow](/integrations/dialogflow/) (Google Assistant) and [Snips](/integrations/snips/).
 
+If you are using intent script with LLMs and have parameters, make sure to mention the parameters and their types in the description.
+
 {% raw %}
 
 ```yaml
@@ -101,6 +103,7 @@ available in the `action_response` variable.
 
 ```yaml
 conversation:
+  intents:
     EventCountToday:
       - "How many meetings do I have today?"
 
@@ -113,7 +116,7 @@ intent_script:
         data_template:
           start_date_time: "{{ today_at('00:00') }}"
           duration: { "hours": 24 }
-        response_variable: result                     # get service response
+        response_variable: result                     # get action response
       - stop: ""
         response_variable: result                     # and return it
     speech:

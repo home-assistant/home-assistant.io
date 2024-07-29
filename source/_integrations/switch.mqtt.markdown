@@ -64,6 +64,10 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`. The switch command template accepts the parameters `value`. The `value` parameter will contain the configured value for either `payload_on` or `payload_off`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
@@ -219,11 +223,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

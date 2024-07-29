@@ -70,18 +70,14 @@ Example of connecting to Z-Way via remote access find.z-wave.me:
  - API Token: /112f7a4a-0051-cc2b-3b61-1898181b9950
 
 
-<div class='note warning'>
-
-  To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
-
-</div>
+{% warning %}
+To grant access only to certain devices, create a new user and select the necessary devices from the list. Then use the API token of that user. It is suggested **not to use the API token of the admin**.
+{% endwarning %}
 
 
-<div class='note info'>
-
-  You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
-
-</div>
+{% tip %}
+You can use Z-Wave.Me UI with its enhanced Z-Wave network diagnostics tools together with the Home Assistant UI.
+{% endtip %}
 
 ## Hardware requirements
 

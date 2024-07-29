@@ -2,7 +2,7 @@
 
 Backup of your Home Assistant, add-on data, and configuration. Backups are used to [restore](#restoring-a-backup) a system or parts of it if a rollback is needed or to migrate your Home Assistant to new hardware. It is good practice to create a backup before updating.
 
-Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also a [service](/integrations/hassio/#service-hassiobackup_full) available that allows you to trigger the creation of a backup from an automation. Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory. 
+Backups are made from the backups panel under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}. There is also an [action](/integrations/hassio/#action-hassiobackup_full) available that allows you to trigger the creation of a backup from an automation. Backups are stored in a compressed archive file (.tar) and by default, stored locally in the `/backup` directory. 
 
 A full backup includes the following directories:
 
@@ -50,7 +50,7 @@ There are multiple ways to store the backup on another device:
 
 - **Option 1**: Under {% my supervisor_backups title="**Settings** > **System** > **Backups**" %}, on the list, single-click or tap the backup of interest.
   - **Result**: The backup dialog opens.
-  - In the dialog, select the three dots menu and select **Download backup**.
+  - In the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Download backup**.
   - **Result**: The selected backup is stored in the **Downloads** folder of your computer.
 - **Option 2**: If you haven't already done so, [configure access to files on Home Assistant](/common-tasks/{{page.installation}}/#configuring-access-to-files), using one of the methods listed there.
   - For example, [use the samba add-on](/common-tasks/{{page.installation}}/#installing-and-using-the-samba-add-on).
@@ -59,7 +59,7 @@ There are multiple ways to store the backup on another device:
   - [Add a network storage location](/common-tasks/{{page.installation}}/#network-storage) for backups.
   - [Change the default location](/common-tasks/{{page.installation}}/#change-default-backup-location) for backups.
 
-- **Option 4**: Or even better, create an automation to handle that, using one of the [backup services](/integrations/hassio/#service-hassiobackup_full).
+- **Option 4**: Or even better, create an automation to handle that, using one of the [backup actions](/integrations/hassio/#action-hassiobackup_full).
 - **Option 5**: Make use of a third-party add-on:
   - [Google Drive Backup](https://github.com/sabeechen/hassio-google-drive-backup)
   - [Dropbox Sync](https://github.com/danielwelch/hassio-dropbox-sync)
@@ -103,7 +103,7 @@ You can use a backup during the onboarding process to restore your configuration
 
 ##### To restore a backup during onboarding
 
-1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or SkyConnect):
+1. If you are migrating to a new device and you had controllers or radios connected (such as a Z-Wave stick or Connect&nbsp;ZBT-1):
    - make sure to plug them into the new device.
 2. After Home Assistant has been installed, on the welcome screen, select **Restore from backup**.
    - Then, select **Upload backup**.

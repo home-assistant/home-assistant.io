@@ -4,8 +4,6 @@ description: "Splitting the configuration.yaml into several files."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
-  - docs: /examples/#example-configurationyaml
-    title: Example configuration files by the community
   - docs: /docs/configuration/packages
     title: Using packages to organize configuration files
 ---
@@ -14,7 +12,7 @@ So you've been using Home Assistant for a while now and your {% term "`configura
 
 ## Example configuration files for inspiration
 
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example files here](/examples/#example-configurationyaml).
+First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
 

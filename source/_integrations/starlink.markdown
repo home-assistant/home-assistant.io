@@ -67,7 +67,7 @@ The Starlink integration allows you to integrate your [Starlink](https://www.sta
 
 ### Device tracker
 
-- Device location - Tracks the location of Dishy. Note you need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.
+- Device location - Tracks the latitude, longitude, and altitude of Dishy. You need to allow location access on the local network via the Starlink app for this to work. This is disabled by default in the Starlink app and is thus disabled by default in Home Assistant.
 
 ### Time
 

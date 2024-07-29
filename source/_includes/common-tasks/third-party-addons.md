@@ -6,9 +6,9 @@ Home Assistant allows anyone to create add-on repositories to share their add-on
 https://github.com/home-assistant/hassio-addons-example
 ```
 
-<div class='note warning'>
+{% caution %}
 Home Assistant cannot guarantee the quality or security of third-party add-ons. Use at your own risk.
-</div>
+{% endcaution %}
 
 <p class='img'>
 <img src='/images/hassio/screenshots/dashboard.png' />

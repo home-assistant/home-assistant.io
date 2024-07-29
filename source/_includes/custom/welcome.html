@@ -1,4 +1,4 @@
-<h1>Awaken your home</h1>
+<h1>Awaken<br><span class="line2">your home</span></h1>
 <p class="lead">
   {{ site.description }}
 </p>
@@ -15,7 +15,7 @@
 {%- endfor -%}
 
 <p class='hero-buttons'>
-  <a href='/getting-started/'>Get started</a>
-  <a href='https://demo.home-assistant.io' target='_blank'>View demo</a>
+  <a href='/getting-started/' class="primary">Get started <iconify-icon inline icon='mdi:arrow-right'></iconify-icon></a><br/>
+  <a href='https://demo.home-assistant.io' target='_blank'>View live demos</a>
   <a href='/integrations/'>Browse {{ tot | minus: 1 | divided_by: 100 | round | times: 100 }}+ integrations</a>
 </p>
