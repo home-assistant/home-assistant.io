@@ -26,9 +26,12 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The [Homematic](https://www.eq-3.com/products/homematic.html) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.eq-3.com/products/homematic.html) {% term integration %} provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:
@@ -44,11 +47,9 @@ There is currently support for the following device types within Home Assistant:
 
 Device support is available for most of the wired and wireless devices, as well as a lot of IP devices. If you have a setup with mixed protocols, you have to configure additional [interfaces](/integrations/homematic#interfaces) with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`. When using SSL on a CCU3, by default the same ports as usual with a prepended 4 are available. So 2001 becomes 42001, 2010 becomes 42010 etc..
 
-<div class='note info'>
-
+{% important %}
 Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant instance and allowlist it, inside the CCU's security settings.
-
-</div>
+{% endimportant %}
 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g., HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
@@ -57,7 +58,8 @@ You can manually rename the created entities by using Home Assistant's [Customiz
 
 ## Configuration
 
-To set up the integration, add the following information to your `configuration.yaml` file:
+To set up the integration, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 homematic:
@@ -209,7 +211,7 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 ### Multiple hosts
 
 In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
-Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
+Using multiple hosts has the drawback, that the actions (explained below) may not work as expected. Only one connection can be used for actions, which limits the devices/variables an action can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
 ### Reading attributes of entities
@@ -290,7 +292,7 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 8. When your channel is working now, you can edit it to select the other channels one by one
 9. At the end, you can delete this program from the CCU
 
-### Services
+### Actions
 
 - *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 - *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
@@ -340,7 +342,7 @@ action:
 #### Advanced examples
 
 If you are familiar with the internals of Homematic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
-Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
+Using this action provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above, `rf`, `wired`, and `ip` would be valid values.
 
 Manually turn on a switch actor:
 
@@ -543,7 +545,7 @@ automation:
 
 The `homematic` notification platform enables invoking Homematic devices.
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ### Configuration
 
@@ -583,7 +585,7 @@ value:
 
 ### Usage
 
-`homematic` is a notify platform and can be controlled by calling the notify service [as described here](/integrations/notify/).
+`homematic` is a notify platform and can be controlled by calling the notify action [as described here](/integrations/notify/).
 
 Only the `data` part of the event payload is processed. This part can specify or override the value given as configuration variable:
 
@@ -641,4 +643,4 @@ alert:
 
 {% endraw %}
 
-Please note that the first `data` element belongs to the service `my_hm`, while the second one belongs to the event payload.
+Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

@@ -11,19 +11,23 @@ ha_codeowners:
 ha_platforms:
   - climate
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `schluter` integration allows you to integrate your [Schluter-DITRA-HEAT-E-WiFi](https://www.schluter.com/schluter-us/en_US/ditra-heat-wifi) electric floor heating thermostat in Home Assistant.
+The `schluter` {% term integration %} allows you to integrate your [Schluter-DITRA-HEAT-E-WiFi](https://www.schluter.com/schluter-us/en_US/ditra-heat-wifi) electric floor heating thermostat in Home Assistant.
 
-<div class='note'>
+{% important %}
 You will need to create a Schluter DITRA-HEAT account and register your thermostat with it. This can be done via the thermostat touchscreen, where an email will be sent to you to confirm your account.
-</div>
+{% endimportant %}
 
 ## Configuration
 
 You will need your Schluter login information (email and password) to use this module.
 
-To set it up, add the following to your `configuration.yaml` file:
+To set it up, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

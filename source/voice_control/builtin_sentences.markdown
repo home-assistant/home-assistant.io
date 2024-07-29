@@ -1,5 +1,20 @@
 ---
 title: "Assist - default sentences"
+related:
+  - docs: /voice_control/aliases/
+    title: Create aliases
+  - docs: /voice_control/custom_sentences/
+    title: Create your own sentences
+  - docs: /voice_control/troubleshooting/
+    title: Sentence troubleshooting
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Built-in sentence definitions
+  - url: https://github.com/home-assistant/intents/tree/main/responses
+    title: Built-in response definitions
+  - url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
+    title: Template sentence syntax documentation
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Sentence test cases
 ---
 
 Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
@@ -55,6 +70,25 @@ These sentences allow you, for example, to:
 - **Control the vacuum**
     - *"return rover to base"*
     - *"start rover"*
+- **Use timers**
+  - *“Create a timer for 5 minutes”*
+  - *“Create a 15-minute timer for pizza”*
+  - *“Cancel my timer”*
+  - *“Pause my timer”*
+  - *“Resume my timer”*
+  - *“Add 2 minutes to my 5-minute timer”*
+  - *“Remove 3 minutes from my pizza timer”*
+
+  <p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3-Box-3B, with countdown text and a loading bar!</p>
+
+To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_control/s3_box_voice_assistant/).
+
+- **Combine timers and device control to add a delay**
+Unlike regular voice timers, delayed commands cannot be canceled or modified.
+  - *“Turn off the lights in the living room in 5 minutes”*
+  - *“Pause TV in 10 minutes”*
+  - *“Open the blinds in 5 minutes”*
+
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
@@ -103,12 +137,3 @@ The list of supported sentences is constantly being updated for each language. T
 3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
 
-## Related topics
-
-- [Create aliases](/voice_control/aliases/)
-- [Create your own sentences](/voice_control/custom_sentences/)
-- [Built-in sentence definitions](https://github.com/home-assistant/intents/tree/main/sentences)
-- [Built-in response definitions](https://github.com/home-assistant/intents/tree/main/responses)
-- [Template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
-- [Sentence test cases](https://github.com/home-assistant/intents/tree/main/sentences)
-- [Sentence troubleshooting](/voice_control/troubleshooting/)

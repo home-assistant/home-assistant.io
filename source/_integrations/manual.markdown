@@ -10,13 +10,17 @@ ha_iot_class: Calculated
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `manual` alarm control panel platform enables you to create an alarm system in Home Assistant.
+The `manual` alarm control panel {% term integration %} enables you to create an alarm system in Home Assistant.
 
 ## Configuration
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,6 +72,11 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
+arming_states:
+  description: Limit the supported arming states.
+  required: false
+  type: list
+  default: armed_away, armed_home, armed_night, armed_vacation, armed_custom_bypass
 armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
@@ -128,6 +137,7 @@ be used for example to sound the siren for a shorter time during the night.
 
 In the configuration example below:
 
+- The only arming states allowed are `armed_away` and `armed_home`.
 - The `disarmed` state never triggers the alarm.
 - The `armed_home` state will leave no time to leave the building or disarm the alarm.
 - The other states will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
@@ -141,6 +151,9 @@ alarm_control_panel:
     arming_time: 30
     delay_time: 20
     trigger_time: 4
+    arming_states:
+      - armed_away
+      - armed_home
     disarmed:
       trigger_time: 0
     armed_home:

@@ -9,9 +9,15 @@ ha_domain: lifx_cloud
 ha_platforms:
   - scene
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `lifx_cloud` scene platform allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.
+The `lifx_cloud` scene {% term integration %} allows you to activate the scenes that LIFX smartphone apps store in the LIFX cloud.
+
+To enable the LIFX Cloud {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

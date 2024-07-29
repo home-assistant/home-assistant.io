@@ -9,15 +9,19 @@ ha_domain: gitter
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This `gitter` sensor allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
+This `gitter` {% term integration %} allows one to monitor a [Gitter.im](https://gitter.im) chatroom for unread messages.
 
 ## Configuration
 
 Visit [Gitter Developer Apps](https://developer.gitter.im/apps) to retrieve your "Personal Access Token".
 
-To use a Gitter sensor in your installation, add the following to your `configuration.yaml` file:
+To use a Gitter {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

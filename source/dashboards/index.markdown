@@ -1,6 +1,19 @@
 ---
 title: "Dashboards"
 description: "Powerful and configurable dashboards for Home Assistant."
+related:
+  - docs: /integrations/entity/
+    title: Dashboard themes
+  - docs: /dashboards/dashboards/#creating-a-new-dashboard
+    title: Creating a new dashboard
+  - docs: /dashboards/cards/
+    title: About cards
+  - url: https://demo.home-assistant.io
+    title: Interactive dashboard demo
+  - url: https://home-assistant-cards.bessarabov.com/
+    title: Home Assistant cards
+  - url: https://github.com/custom-cards
+    title: Community custom cards
 ---
 
 Home Assistant dashboards allow you to display information about your smart home. Dashboards are customizable and provide a powerful way to manage your home from your mobile or desktop.
@@ -29,16 +42,3 @@ To create your own dashboard, follow the steps on [creating a new dashboard](/da
 
 - Suggestions are welcome in the [frontend repository](https://github.com/home-assistant/frontend/)
 - For help with dashboards, join the `#frontend` channel on [our chat](/join-chat/) or [our forums](https://community.home-assistant.io/c/projects/frontend)
-
-## Related topics
-
-- [Dashboard themes](/integrations/frontend/#defining-themes)
-- [Interactive dashboard demo](https://demo.home-assistant.io)
-- [Creating a new dashboard](/dashboards/dashboards/#creating-a-new-dashboard)
-
-### Cards
-
-- [About cards](/dashboards/cards/)
-- [Community custom cards](https://github.com/custom-cards)
-- [Home Assistant cards](https://home-assistant-cards.bessarabov.com/)
-

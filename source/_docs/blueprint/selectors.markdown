@@ -271,7 +271,7 @@ assist_pipeline:
 ## Backup location selector
 
 This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type Home Assistant Core or Container, an error
+Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
@@ -1107,7 +1107,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
@@ -1290,9 +1290,9 @@ For example: `heat_cool`.
 ## Target selector
 
 The target selector is a rather special selector, allowing the user to select
-targeted entities, devices or areas for service calls. The value of
+targeted entities, devices, or areas for actions. The value of
 the input will contain a special target format, that is accepted by
-service calls.
+actions.
 
 The selectable targets can be filtered, based on entity or device properties.
 Areas are only selectable as a target, if some entities or devices match
@@ -1365,9 +1365,9 @@ entity:
       required: false
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
-Targets are meant to be used with the `target` property of a service call in
+Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
@@ -1376,7 +1376,7 @@ action:
     target: !input lights
 ```
 
-</div>
+{% endimportant %}
 
 ### Example target selectors <!-- omit from toc -->
 

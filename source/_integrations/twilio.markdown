@@ -17,7 +17,7 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 
 ## Configuration
 
-To use this notification integration in your installation, add the following to your `configuration.yaml` file:
+To use this notification integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,7 +41,7 @@ auth_token:
 
 After configuring the base Twilio integration, add and configure either or both of the [Twilio SMS](/integrations/twilio_sms) and [Twilio Phone](/integrations/twilio_call) integrations to utilize the notification functionality.
 
-To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/docs/configuration/basic) in Home Assistant.
+To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#external_url) in Home Assistant.
 
 To set it up, go to the integrations page in the configuration screen and find Twilio. Click on configure. Follow the instructions on the screen to configure Twilio.
 
@@ -74,6 +74,7 @@ The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYY
 
 An example of an SMS handler:
 
+{% raw %}
 ```yaml
 alias: Twilio incoming
 trigger:
@@ -91,3 +92,4 @@ action:
         incoming twilio message from {{sender}}: {{ message }}
         all event data: {{ trigger.event.data }}
 ```
+{% endraw %}

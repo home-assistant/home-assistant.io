@@ -28,37 +28,66 @@ For a quick introduction on how to get started with Android TV Remote, check out
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/option_flow.md %}
+{% configuration_basic %}
+Configure Applications List:
+  description: Here you can define applications where the keys are app IDs and the values are app names and icons that will be displayed in the UI.
+{% endconfiguration_basic %}
+
 ## Media player
 
 This {% term integration %} adds a `media_player` with basic playback and volume controls. The media player provides volume information and display name of current active app on the Android TV. Due to API limitations, the integration will not display the playback status. It is recommended to use this integration together with [Google Cast integration](/integrations/cast/). Two media players can be combined into one using the [Universal Media Player](/integrations/universal/) integration. See [Using with Google Cast](#using-with-google-cast) section for more details.
 
-Using the `media_player.play_media` service, you can launch applications via `Deep Links` and switch channels. Only `url` and `channel` media types are supported.
+Using the `media_player.play_media` {% term action %}, you can launch applications, switch channels, and start activities via `Deep Links`. Only `app`, `url` and `channel` media types are supported.
 
 ### Launching apps
 
-You can pass any URL to the device. Using `Deep Links`, you can launch some applications.
+If the Android TV device has the Google Play Store, you can directly launch any app by its application ID (package name).
+The app doesn't need to exist in the Google Play Store.
+If it exists, you can find the application ID in the URL of the app's Google Play Store listing.
+For example, if the URL of an app page is `play.google.com/store/apps/details?id=com.example.app123`, the application ID is `com.example.app123`.
+The application ID is also displayed in the media player card when you launch the application on the device.
 
-Examples of some `Deep Links` for popular applications:
+Examples of application IDs for popular applications:
 
-| App | URL |
+| App | App ID |
+| --- | --- |
+| YouTube | `com.google.android.youtube.tv`
+| Netflix | `com.netflix.ninja`
+| Prime Video | `com.amazon.amazonvideo.livingroom`
+| Disney+ | `com.disney.disneyplus`
+| Plex | `com.plexapp.android`
+| Kodi | `org.xbmc.kodi`
+| Twitch | `tv.twitch.android.app`
+
+Example:
+
+```yaml
+# Launch the YouTube app
+service: media_player.play_media
+data:
+  media_content_type: app
+  media_content_id: com.google.android.youtube.tv
+target:
+  entity_id: media_player.living_room_tv
+```
+
+### Launching activities
+
+Alternatively, if the device doesn't have the Google Play Store or if you want to open specific activity in the app, you can pass deep links supported by some applications.
+
+Examples of deep links for popular applications:
+
+| App | Deep link |
 | --- | --- |
 | YouTube | `https://www.youtube.com` or `vnd.youtube://` or `vnd.youtube.launch://`
 | Netflix | `https://www.netflix.com/title` or `netflix://`
 | Prime Video | `https://app.primevideo.com`
 | Disney+ | `https://www.disneyplus.com`
 | Plex | `plex://`
+| Twitch | `twitch://home` `[home, stream, game, video, clip, search, browse, channel, user]`
 
-Examples:
-
-```yaml
-# Launch the Netflix app
-service: media_player.play_media
-data:
-  media_content_type: url
-  media_content_id: https://www.netflix.com/title
-target:
-  entity_id: media_player.living_room_tv
-```
+Example:
 
 ```yaml
 # Open a specific YouTube video:
@@ -128,8 +157,9 @@ media_player:
 
 ## Remote
 
-The remote allows you to send key commands to your Android TV device with the `remote.send_command` service.
+The remote allows you to send key commands to your Android TV device with the `remote.send_command` action.
 The entity has the `current_activity` attribute that shows the current foreground app on the Android TV.
+You can pass the application ID shown in this `current_activity` as `activity` in the `remote.turn_on` action to launch that app.
 
 {% details "List of the most common commands" %}
 
@@ -213,9 +243,9 @@ Other:
 
 {% enddetails %}
 
-If `activity` is specified in `remote.turn_on` it will open the specified URL in the associated app. See [Launching apps section](#launching-apps).
+If `activity` is specified in `remote.turn_on` it will open the specified URL or the application with the given package name. See [Launching apps section](#launching-apps).
 
-Examples of service calls:
+Example actions:
 
 ```yaml
 # Open the currently selected item on the Android TV
@@ -491,7 +521,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.netflix.com/title
+            activity: com.netflix.ninja
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -503,7 +533,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://app.primevideo.com
+            activity: com.amazon.amazonvideo.livingroom
           target:
             entity_id: remote.living_room_tv
         hold_action:
@@ -515,7 +545,7 @@ cards:
           action: call-service
           service: remote.turn_on
           data:
-            activity: https://www.disneyplus.com
+            activity: com.disney.disneyplus
           target:
             entity_id: remote.living_room_tv
         hold_action:

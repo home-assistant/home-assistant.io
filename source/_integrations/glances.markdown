@@ -18,13 +18,11 @@ The `glances` integration allows you to monitor the system information provided 
 
 ## Setup
 
-<div class='note warning'>
+{% important %}
+Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
+{% endimportant %}
 
-  Support for Glances api version 2 is deprecated. It is recommended to upgrade your Glances server to version 3. Once upgraded, reload the integration to connect again.
-
-</div>
-
-These sensors needs a running instance of `glances` on the host. The minimal supported version of `glances` is 2.3.
+These sensors needs a running instance of `glances` in [Web Server Mode](https://glances.readthedocs.io/en/latest/quickstart.html#web-server-mode) on the host. The minimal supported version of `glances` is 2.3.
 
 For details about auto-starting `glances`, please refer to [Start Glances through Systemd](https://github.com/nicolargo/glances/wiki/Start-Glances-through-Systemd).  
 
@@ -61,6 +59,9 @@ Glances integration will add the following sensors if available in the platform:
 - For each detected raid the following sensors will be created:
   - raid_available: The number of available devices for the raid.
   - raid_used: The number of devices used by the raid.
+- For each detected network interface, the following sensors will be created:
+  - network_rx: Average rate of data received since last update in Megabits per second.
+  - network_tx: Average rate of data sent since last update in Megabits per second.
 - For each detected GPU (video card) the following sensors will be created:
   - memory_use: The amount of available VRAM used in percent.
   - processor_use: The load on the GPU processor in percent.

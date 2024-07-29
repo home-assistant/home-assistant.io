@@ -3,6 +3,7 @@ title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Number
   - Select
@@ -19,6 +20,7 @@ ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - number
@@ -34,6 +36,7 @@ The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Ada
 Platforms available - depending on your Smile and setup include:
 
  - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
  - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
@@ -66,11 +69,11 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
 
-### Services
+### Actions
 
 #### Update Smile data
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
 
 ```yaml
 # Example script change the temperature
@@ -80,6 +83,20 @@ script:
       - service: homeassistant.update_entity
         target:
           entity_id: climate.anna
+```
+
+#### Reboot the Plugwise gateway
+
+Service: `button.press`
+
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - service: button.press
+        target:
+          entity_id: button.adam_reboot
 ```
 
 #### Set HVAC mode
@@ -116,7 +133,7 @@ script:
 
 Service: `climate.turn_off`, `climate.turn_on` (Adam only)
 
-These services will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+These actions will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
 `climate.turn_on` will activate the previously selected heating or cooling mode.
 
 Example:

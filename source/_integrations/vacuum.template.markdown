@@ -3,14 +3,23 @@ title: "Template vacuum"
 description: "Instructions how to setup template vacuums within Home Assistant."
 ha_category:
   - Vacuum
+  - Helper
 ha_release: 0.96
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - vacuum
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates vacuums that combine integrations and provides the
-ability to run scripts or invoke services for each of the start, pause, stop,
+ability to run scripts or invoke actions for each of the start, pause, stop,
 return_to_base, clean_spot, locate and set_fan_speed commands of a vacuum.
 
 To enable Template Vacuums in your installation, add the following to your

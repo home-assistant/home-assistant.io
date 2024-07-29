@@ -21,12 +21,10 @@ You’ll need your username (which is usually your email) and password to config
 The integration takes the same security measures regarding an open sauna door as the Huum app.
 If the sauna door is open, the sauna will not turn on.
 
-<div class='note info'>
-
+{% note %}
 When the sauna is off, you must turn on the sauna after setting the temperature.
 This is as a security measure so that one does not turn on the
 sauna by mistake.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}

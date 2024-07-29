@@ -25,14 +25,14 @@ There is currently support for the following device types within Home Assistant:
 
 The light and media players will be automatically added for each of your Sisyphus tables, if the Sisyphus integration is configured.
 
-There are two ways to configure this integration. For the automatic discovery of your table(s), add the following to your `configuration.yaml`:
+There are two ways to configure this integration. For the automatic discovery of your table(s), add the following to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # This will auto-detect all Sisyphus tables on your local network.
 sisyphus:
 ```
 
-Auto-detection can be a little slow, so if your table has a fixed IP address or hostname, you may add a list of tables in your `configuration.yaml`. For example:
+Auto-detection can be a little slow, so if your table has a fixed IP address or hostname, you may add a list of tables in your {% term "`configuration.yaml`" %}. For example:
 
 ```yaml
 # This will skip auto-detection and add only the listed tables

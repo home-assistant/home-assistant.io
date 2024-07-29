@@ -9,6 +9,11 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - tts
 ha_integration_type: integration
+ha_codeowners:
+  - '@jschlyter'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -22,7 +27,8 @@ Available voices are listed in the [Amazon Documentation](https://docs.aws.amazo
 
 ## Configuration
 
-To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
+To get started, add the following lines to your {% term "`configuration.yaml`" %} file (example for Amazon Polly).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

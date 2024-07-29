@@ -14,7 +14,7 @@ This can be used with an application or a service capable of sending images thro
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -3,6 +3,13 @@ type: card
 title: "Picture elements card"
 sidebar_label: Picture elements
 description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The picture elements card is one of the most versatile types of cards.
@@ -28,6 +35,10 @@ type:
 image:
   required: true
   description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
   type: string
 camera_image:
   required: false
@@ -73,7 +84,7 @@ There are several different element types that can be added to a Picture Element
 - [State badge](#state-badge)
 - [State Icon](#state-icon)
 - [State Label](#state-label)
-- [Service Call Button](#service-call-button)
+- [Perform action button](#perform-action-button)
 - [Icon](#icon-element)
 - [Image](#image-element)
 - [Conditional](#conditional-element)
@@ -208,9 +219,9 @@ style:
   default: "position: absolute, transform: translate(-50%, -50%)"
 {% endconfiguration %}
 
-### Service call button
+### Perform action button
 
-This entity creates a button (with arbitrary text) that can be used to call a service.
+This entity creates a button (with arbitrary text) that can be used to perform a service.
 
 {% configuration %}
 type:
@@ -227,7 +238,7 @@ service:
   type: string
 service_data:
   required: false
-  description: The service data to use.
+  description: The data to use.
   type: map
 style:
   required: true
@@ -533,7 +544,7 @@ elements:
       width: 10%
       border: 2px solid red
       border-radius: 10%
-  # Single image, state_filter - call-service on click
+  # Single image, state_filter - perform action on click
   - type: image
     entity: media_player.living_room
     tap_action:
@@ -573,9 +584,3 @@ elements:
           top: 47%
           left: 42%
 ```
-
-## Related topics
-
-- [Card actions](/dashboards/actions/)
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)
