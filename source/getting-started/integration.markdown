@@ -18,9 +18,9 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
   
 2. If there are any devices discovered for you, you can add them now.
    - Under **Discovered**, on the integration, select **Configure**.
-   - Follow the steps in the UI, if additional configuration is required.
-   - If you do not see any devices discovered, don't worry, we will add an integration in the next step.
-3. In the bottom right-corner, select **Add integration**.
+   - Follow the steps in the UI if additional configuration is required.
+   - If no devices were discovered, don't worry, we will add an integration in the next step.
+3. In the bottom-right corner, select **Add integration**.
 4. Type `workd` and select the **Workday** integration.
 
    ![Screenshot of the add integrations dialog](/images/getting-started/add_workday_integration.png)
@@ -30,8 +30,8 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - Select **Submit**, then **Finish**.
 6. Configure the options.
     - For example, if Monday is not a workday for you, select the "x" to remove it.
-    - We want to know if tomorrow is workday. To achieve this, under **Offset**, enter `1`.
-    - Fill in all other options you'd like. At least, define the **Holidays** and **Language**.
+    - To check if tomorrow is workday, under **Offset**, enter `1`.
+    - Fill in all other options as needed. At a minimum, define the **Holidays** and **Language**.
     - Select **Submit**.
 
    ![Screenshot of the configuration options](/images/getting-started/workday_configure.png)
@@ -53,9 +53,9 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
 
 2. Select **Service**, to open the service info page.
-   - In the **Logbook**, you see the timeline of that {% term sensor %}.
-   - Under **Sensors**, you see all the sensors an integration provides. Here, we have only one, but if you have a climate device, for example, you might see temperature, humidity, and battery status here.
-   - You also see that **Workday** is not used (yet) in any {% term automations %}, {% term scripts %}, or {% term scenes %}.
+   - In the **Logbook**, you can see the timeline of that {% term sensor %}.
+   - Under **Sensors**, you can see all the sensors an integration provides. Here, we have only one, but if you have a climate device, for example, you might see temperature, humidity, and battery status here.
+   - You can also see that **Workday** is not used (yet) in any {% term automations %}, {% term scripts %}, or {% term scenes %}.
 
    ![Screenshot of the workday sensor info page](/images/getting-started/workday_service_info.png)
 3. Select the back button {% icon "mdi:arrow-back" %}. Then, select **Entity** to open the list of {% term entities %}.
@@ -74,8 +74,8 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - Select **Add entry**, give it a name and define your options.
    - Select the country of interest.
 3. That's it! {% icon "mdi:party-popper" %}
-   - {% icon "mdi:checkbox-outline" %} You gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
-   - {% icon "mdi:checkbox-outline" %} You learned to rename, modify, and delete an integration.
+   - {% icon "mdi:checkbox-outline" %} You have gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
+   - {% icon "mdi:checkbox-outline" %} You have learned to rename, modify, and delete an integration.
    - If you want to find more integrations, checkout the [integration documentation](/integrations/workday/).
    - We are now ready to use **Workday** in an automation.
 
