@@ -25,9 +25,9 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 The calendar sensor contains a `calendar` state attribute, which contains:
 
-- The name of the Ridwell Calendar
-- Boolean for all day occurrence of event
-- The start time of the calendar event. Starts at midnight
+- The name of the Ridwell Calendar.
+- If the event is an all-day event (Boolean).
+- The start time of the calendar event. Starts at midnight.
 - The end time of the event. Ends at midnight.
 - The location of the event.
 - The description of the items being picked up.
