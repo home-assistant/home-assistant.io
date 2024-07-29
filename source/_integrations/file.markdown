@@ -17,19 +17,21 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
-The File integration allows to store notifications to a file or to set up a sensor based on a file's content.
-
+The File integration allows storing notifications in a file or setting up a sensor based on a file's content.
+  
 {% include integrations/config_flow.md %}
 
 ## Notifications
 
-Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist. Add the path of your [configuration](/docs/configuration/) folder (e.g., `/config`) to save the file there. Setting the optional parameter `name` allows multiple notifiers to be created. Setting `timestamp` to `true` adds a timestamp to every entry.
+Make sure that the file you want to use is added to the [allowlist_external_dirs](https://www.home-assistant.io/integrations/homeassistant/#allowlist_external_dirs). The file will be created if it doesn't exist, but make sure the folder exists. Add the path of your [configuration](/docs/configuration/) folder (for example, `/config/file_notifications`) to save the file there. Setting `timestamp` to `true` adds a timestamp to every logged entry.
+After creating a config entry, you can change the entry name, the name of the notify entity, or the entity ID, if you prefer.
 
-To use notifications, please see the [getting started with automation page](/getting-started/automation/).
+To use notifications in automations or scripts, see the [getting started with automation page](/getting-started/automation/).
 
-Use the `notify.send_message` entity service to store notification messages.
+Use the `notify.send_message` entity to store notification messages.
 
 ## Sensor
 
@@ -41,7 +43,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 #### Entries as JSON
 
-Assuming that the log file contains multiple values formatted as JSON like shown below:
+Assuming that the log file contains multiple values formatted as JSON as shown below:
 
 ```text
 [...]
@@ -49,7 +51,7 @@ Assuming that the log file contains multiple values formatted as JSON like shown
 {"temperature": 22, "humidity": 36}
 ```
 
-This would require the following settings extract the temperature:
+This would require the following settings to extract the temperature:
 
 - Name: `Temperature`
 - File path: `/home/user/.homeassistant/sensor.json`
@@ -58,7 +60,7 @@ This would require the following settings extract the temperature:
 
 #### Entries as CSV
 
-Assuming the log file contains multiple values formatted as CSV like shown below:
+Assuming the log file contains multiple values formatted as CSV as shown below:
 
 ```text
 timestamp,temperature,humidity

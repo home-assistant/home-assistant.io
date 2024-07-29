@@ -52,7 +52,7 @@ As you can see, there are two ways to define the states of each `entity_id`:
 - Define the `state` directly with the entity. Be aware, that `state` needs to be defined.
 - Define a complex state with its attributes. You can see all attributes available for a particular entity under `developer-tools -> state`.
 
-Scenes can be activated using the service `scene.turn_on` (there is no 'scene.turn_off' service).
+Scenes can be activated using the action `scene.turn_on` (there is no 'scene.turn_off' action).
 
 ```yaml
 # Example automation
@@ -70,7 +70,7 @@ automation:
 
 ## Applying a scene without defining it
 
-With the `scene.apply` service you are able to apply a scene without first defining it via configuration. Instead, you pass the states as part of the service data. The format of the data is the same as the `entities` field in a configuration.
+With the `scene.apply` action you are able to apply a scene without first defining it via configuration. Instead, you pass the states as part of the data. The format of the data is the same as the `entities` field in a configuration.
 
 ```yaml
 # Example automation
@@ -95,7 +95,7 @@ automation:
 
 ## Using scene transitions
 
-Both the `scene.apply` and `scene.turn_on` services support setting a transition,
+Both the `scene.apply` and `scene.turn_on` actions support setting a transition,
 which enables you to smoothen the transition to the scene.
 
 This is an example of an automation that sets a romantic scene, in which the
@@ -123,4 +123,4 @@ only lights to have a transition set.
 
 ## Reloading scenes
 
-Whenever you make a change to your scene configuration, you can call the `scene.reload` service to reload the scenes.
+Whenever you make a change to your scene configuration, you can call the `scene.reload` action to reload the scenes.

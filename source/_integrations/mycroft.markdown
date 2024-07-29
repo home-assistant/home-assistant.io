@@ -59,7 +59,7 @@ name:
 
 ## Examples
 
-Send a message to Mycroft by calling `notify.mycroft` service:
+Send a message to Mycroft by calling `notify.mycroft` action:
 
 ```yaml
 message: "Hey Mycroft. Turn on the office light. "

@@ -59,7 +59,7 @@ This limits the processing and detection to elements provided by the group.
 Home Assistant creates an entity for all groups and allows you to show the
 state, person, and IDs directly on the frontend.
 
-The following services are available for managing this feature and can be called
+The following actions are available for managing this feature and can be called
 via the Frontend, a script, or the REST API.
 
 - *microsoft_face.create_group*

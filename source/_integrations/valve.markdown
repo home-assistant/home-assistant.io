@@ -30,14 +30,14 @@ The following device classes are supported for valves:
 - **water**: Valve that controls the flow of water through a system.
 - **gas**: Valve that controls the flow of gas through a system.
 
-## Services
+## Actions
 
-### Valve control services
+### Valve control actions
 
 All valves respond to `valve.open`, `valve.close`, and `valve.toggle`.
 Valves that allow setting a specific position may also be controlled with `valve.set_position` and `valve.stop`.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of valves. Use `entity_id: all` to target all.
 
@@ -54,11 +54,11 @@ automation:
         entity_id: valve.demo
 ```
 
-### Service `valve.set_position`
+### Action `valve.set_position`
 
 Set the position of one or multiple valves if they support setting a specific position.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of valves. Use `entity_id: all` to target all.
 | `position` | no | Integer between 0 (fully closed) and 100 (fully open).

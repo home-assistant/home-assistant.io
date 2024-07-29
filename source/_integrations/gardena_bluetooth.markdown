@@ -18,6 +18,7 @@ ha_platforms:
   - number
   - sensor
   - switch
+  - valve
 ha_integration_type: integration
 ---
 

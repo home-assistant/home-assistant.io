@@ -24,10 +24,10 @@ as a trigger. If you would like to hide a sensor type you can do so by either
 unchecking "Notify the surveillance center" in the camera configuration or by
 using the "ignored" customize option detailed below.
 
-<div class='note'>
+{% important %}
 In order for the sensors to work the hikvision user must have the 'Remote: Notify Surveillance Center/Trigger Alarm Output' permission which can be enabled from the user management section of the web interface. If authentication issues persist after permissions are verified, try accessing using an admin user. Certain devices will only authenticate with an admin account despite permissions being set correctly.
 Also, the 'WEB Authentication' needs to be set to 'digest/basic' in the security/authentication section. Ensure this is applied on each individual camera in case of using an NVR.
-</div>
+{% endimportant %}
 
 For example, if you configure a camera with the name "Front Porch" that has
 motion detection and line crossing events enabled to notify the surveillance
