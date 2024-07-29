@@ -4,7 +4,7 @@ description: Instructions for how to integrate a Bryant Evolution HVAC system us
 ha_category:
   - Climate
 featured: false
-ha_release: 2024.???
+ha_release: 2024.8
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: bryant_evolution
