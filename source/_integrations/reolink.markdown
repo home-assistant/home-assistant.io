@@ -292,6 +292,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
+- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
