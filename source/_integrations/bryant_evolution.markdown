@@ -17,7 +17,9 @@ ha_integration_type: integration
 
 The **Bryant Evolution** {% term integration %} lets you control Bryant Evolution HVAC systems.
 
-It requires that a System Access Module be connected to the HVAC system (e.g., a Bryant SYSTXBBRCT01).
+## Prerequisites
+
+ - It requires that a System Access Module be connected to the HVAC system (for example, a Bryant SYSTXBBRCT01).
 
 To install:
 

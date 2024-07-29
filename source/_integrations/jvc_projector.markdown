@@ -28,7 +28,7 @@ This integration is intended for the automation of any modern JVC Projector with
 
 ## Remote
 
-The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
+The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
 - `menu`
 - `up`

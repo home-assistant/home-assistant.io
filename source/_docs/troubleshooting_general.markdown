@@ -32,7 +32,7 @@ Recovery mode loads a minimum set of integrations to allow troubleshooting the c
 
 You need to identify the issue in the configuration files and fix it there. The issue could be caused by something as simple as an invalid YAML file.
 
-- If you are running {% term "Home Assistant Operating System" %}, you can install an add-on such as VS code to edit the configuration file if needed.
+- If you are running {% term "Home Assistant Operating System" %}, you can install an add-on such as Studio Code Server to edit the configuration file if needed.
 - If you are still logged in, you can [edit your configuration](/docs/configuration/#editing-configurationyaml).
   - In the Home Assistant user interface, open the add-on you usually use and edit the configuration file.
 - Restart Home Assistant.
@@ -47,3 +47,13 @@ If your Home Assistant is acting up and you cannot identify a root cause, you ca
 - If you cannot reach the UI, you can enable **Safe mode** from the [command line](/common-tasks/os/#home-assistant-via-the-command-line):
   - ```ha core restart --safe-mode```
 
+## I don't see any updates
+
+Typically, updates are shown at the top of the **Settings** page. If you don't see them there, the **Visibility** option might be disabled.
+
+### Resolution
+
+1. On the **System** page, in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
+2. Go to {% my updates title="**System** > **Updates**" %}.
+    - Select the update notification.
+    - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.

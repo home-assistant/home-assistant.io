@@ -40,7 +40,7 @@ The Kaleidescape media player platform will create a [media player](/integration
 
 ## Remote
 
-The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
+The Kaleidescape remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
 - `select`
 - `up`
@@ -54,7 +54,7 @@ The Kaleidescape remote platform will create a [Remote](/integrations/remote/) e
 - `go_movie_covers`
 - `menu_toggle`
 
-A typical service call might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
+A typical action might look like the example below, which sends a command to the device to _select_ the currently highlighted item.
 
 ```yaml
 service: remote.send_command

@@ -27,13 +27,13 @@ During the configuration, you will have to manually set the **Host** and the **A
 
 ![Yardian Host/Token Location](/images/integrations/yardian/yardian_config_flow.jpg)
 
-## Services
+## Actions
 
 ### yardian.start_irrigation
 
-Start a zone for a given number of minutes. This service accepts an Yardian Zone switch {% term entity %} and allows a given duration.
+Start a zone for a given number of minutes. This action accepts an Yardian Zone switch {% term entity %} and allows a given duration.
 
-| Service Data Attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | yes      | The Yardian Zone switch to turn on.                   |
 | `duration`             | no       | Number of minutes for this zone to be turned on.      |

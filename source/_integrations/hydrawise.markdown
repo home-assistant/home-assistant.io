@@ -6,17 +6,20 @@ ha_category:
   - Irrigation
   - Sensor
   - Switch
+  - Valve
 ha_config_flow: true
 ha_release: 0.71
 ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@dknowles2'
+  - '@thomaskistler'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor
   - sensor
   - switch
+  - valve
 ha_integration_type: integration
 ---
 
@@ -27,6 +30,7 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Valve](#valve)
 
 ## Prerequisites
 
@@ -42,9 +46,9 @@ Binary sensor entities are created for the controller:
 
 - Cloud API availability
 
-<div class='note warning'>
+{% note %}
 The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
-</div>
+{% endnote %}
 
 Binary sensor entities are created for each zone:
 
@@ -70,6 +74,12 @@ When `auto_watering` is `on` the irrigation zone will follow the Smart Watering 
 
 When `manual_watering` is `on` the zone will run for 15 minutes.
 
-<div class='note warning'>
+{% note %}
 Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
-</div>
+{% endnote %}
+
+## Valve
+
+A valve is added for each zone allowing manual control of zone watering.
+
+When a zone's valve is opened through Home Assistant, it will have an automatic shutoff time set to the zone's default watering duration configured in the Hydrawise [mobile or web app](https://www.hydrawise.com).

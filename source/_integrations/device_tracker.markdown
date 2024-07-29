@@ -32,20 +32,20 @@ device_tracker:
 
 The following optional parameters can be used with any platform:
 
-<div class='note'>
-  Device tracker will only look for the following global settings under the configuration of the first configured platform:
-</div>
+{% note %}
+Device tracker will only look for the following global settings under the configuration of the first configured platform:
+{% endnote %}
 
 | Parameter          | Default | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `interval_seconds` | 12      | Seconds between each scan for new devices. This only applies to local device trackers, not applications that push updates.                                                                                                                                                                                                                                                                                                                                                                                               |
 | `consider_home`    | 180     | Seconds to wait till marking someone as not home after not being seen. This parameter is most useful for households with Apple iOS devices that go into sleep mode while still at home to conserve battery life. iPhones will occasionally drop off the network and then re-appear. `consider_home` helps prevent false alarms in presence detection when using IP scanners such as Nmap. `consider_home` accepts various time representations, (e.g., the following all represents 3 minutes: `180`, `0:03`, `0:03:00`) |
 
-<div class='note'>
+{% note %}
 
-  Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
+Note that setting `track_new_devices: false` will still result in new devices being recorded in `known_devices.yaml`, but they won't be tracked (`track: false`).
 
-</div>
+{% endnote %}
 
 The extended example from above would look like the following sample:
 
@@ -65,11 +65,11 @@ Multiple device trackers can be used in parallel, such as [Owntracks](/integrati
 
 ## `known_devices.yaml`
 
-<div class='note warning'>
+{% warning %}
 
 As of 0.94 `known_devices.yaml` is being phased out and no longer used by all trackers. Depending on the integration you use this section may no longer apply. This includes OwnTracks, GeoFency, GPSLogger, Locative and Huawei LTE.
 
-</div>
+{% endwarning %}
 
 Once `device_tracker` is enabled, a file will be created in your configuration dir named `known_devices.yaml`. Edit this file to adjust which devices to be tracked.
 
@@ -83,11 +83,11 @@ devicename:
   track: true
 ```
 
-<div class='note warning'>
+{% important %}
 
 In the example above, `devicename` refers to the detected name of the device.  For example, with `nmap`, this will be the MAC address (with byte separators omitted).
 
-</div>
+{% endimportant %}
 
 | Parameter       | Default                       | Description                                                                                                                                                                                                                                                                                                                                     |
 | --------------- | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -103,11 +103,11 @@ In the example above, `devicename` refers to the detected name of the device.  F
 
 The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
-## `device_tracker.see` service
+## `device_tracker.see` action
 
-The `device_tracker.see` service can be used to manually update the state of a device tracker:
+The `device_tracker.see` action can be used to manually update the state of a device tracker:
 
-| Service data attribute | Optional | Description                                                                             |
+| Data attribute | Optional | Description                                                                             |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------- |
 | `dev_id`               | no       | The `object_id`, for example `tardis` for `device_tracker.tardis`                       |
 | `location_name`        | yes      | The location, `home`, `not_home`, or the name of the zone                               |

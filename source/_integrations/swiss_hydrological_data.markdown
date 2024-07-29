@@ -57,8 +57,8 @@ Sensors are exposing additional values through their attributes for all availabl
 - `min-24h`: The minimum measurement for the last 24 hours.
 - `station_update`: There is a time span between the sensor update in Home Assistant and the updates from the stations. Include those information if you are building automations based on the discharge of a water body.
 
-<div class='note info'>
-  The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
-</div>
+{% note %}
+The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
+{% endnote %}
 
 The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](https://www.hydrodaten.admin.ch/) and are updated every 10 minutes.

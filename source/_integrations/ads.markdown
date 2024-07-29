@@ -60,9 +60,9 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-## Service
+## Action
 
-The ADS integration will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
+The ADS integration will register the `write_by_name` action allowing you to write a value to a variable on your ADS device.
 
 ```json
 {
@@ -72,7 +72,7 @@ The ADS integration will register the service `write_by_name` allowing you to wr
 }
 ```
 
-Service parameters:
+Action parameters:
 
 - **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use `GBL.myvariable`.
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`

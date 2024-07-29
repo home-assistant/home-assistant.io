@@ -63,7 +63,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & Services** to type the PIN code that will be displayed on it and finish the setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & services** to type the PIN code that will be displayed on it and finish the setup.
 
 ### Example `turn_on_action`
 
@@ -110,7 +110,7 @@ script:
 
 ### Remote
 
-When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` action.
 
 Some of the known valid key values are:
 
@@ -166,5 +166,6 @@ The list with all known valid keys can be found [here](https://github.com/floria
 - TX-P50GT30Y
 - TX-P50GT60E
 - TX-65HZ1000W
+- TX-65HZ1500
 
 If your model is not on the list, give it a test. If everything works correctly, then add it to the list on [GitHub](https://github.com/home-assistant/home-assistant.io/blob/current/source/_integrations/panasonic_viera.markdown).
