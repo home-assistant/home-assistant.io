@@ -57,7 +57,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - You also see that **Workday** is not used (yet) in any {% term automations %}, {% term scripts %}, or {% term scenes %}.
 
    ![Screenshot of the workday sensor info page](/images/getting-started/workday_service_info.png)
-3. Select **Entity**, to open the list of {% term entities %}.
+3. Select the back button {% icon "mdi:arrow-back" %}. Then, select **Entity** to open the list of {% term entities %}.
    - Although your Home Assistant already has many entities, you see only 1 entry in the entities table.
    - This is because it is [filtered](/docs/organizing/tables#filtering-items-in-a-table).
    - You see the entity ID, which consist of the domain (a technical term for device type) and the entity name, in the following format: `domain.entity_name`.
@@ -74,7 +74,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - To check if tomorrow is a workday, under **Offset**, enter `1`.
    - You can also add different sensors for different countries, for example if you want to know when your colleagues have a holiday.
 3. That's it! {% icon "mdi:party-popper" %}
-   - {% icon "mdi:checkbox-outline" %} You now have an overview of the integration page, and know where to find the integration details page, the sensor info page, and the entities table.
+   - {% icon "mdi:checkbox-outline" %} You now gained an overview of the integrations page and know where to find the integration details page, the sensor info page, and the entities table.
    - {% icon "mdi:checkbox-outline" %} You learned to rename, to modify, and how to delete an integration.
    - If you want to find more integrations, checkout the [integration documentation](/integrations/workday/).
    - We are now ready to use **Workday** in an automation.
