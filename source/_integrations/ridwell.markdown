@@ -33,7 +33,7 @@ The calendar sensor contains a `calendar` state attribute, which contains:
 - The description of the items being picked up.
 - Friendly name of Calendar Event.
 
-For Example:
+For example:
 
 ```json
 message: Ridwell Pickup (scheduled)
