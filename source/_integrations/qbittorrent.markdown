@@ -39,10 +39,9 @@ The qBittorrent integration will add the following sensors:
 
 ## Switch
 
-The qBittorrent integration will add the following switch:
+The qBittorrent integration adds the following switch:
 
-- `Alternative Speed`: Allow you to enable and disable qBittorrent's alternative speed
-
+- `Alternative Speed`: Allows you to enable and disable qBittorrent's alternative speed.
 ## Services
 
 ### Service `qbittorrent.get_torrents`
