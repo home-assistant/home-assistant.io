@@ -153,7 +153,7 @@ After setup, fans will appear in Home Assistant using an `entity_id` based on th
 
 For more information on working with fans in Home Assistant, see the [Fans integration](/integrations/fan/).
 
-## Sensor
+## Binary Sensor
 
 Occupancy sensors can be added to a Lutron Caseta system to trigger events when an area becomes vacant and, optionally, occupied. However, Lutron systems report occupancy and vacancy statuses only in *occupancy groups* -- that is, groups of one or more sensors.
 
@@ -166,6 +166,8 @@ Lutron Caseta occupancy sensors support 4 different timeouts and 3 different sen
 Because Lutron Caseta devices automatically report state to Home Assistant (rather than relying on polling), occupancy status updates occur almost instantaneously.
 
 For more information on working with binary sensors in Home Assistant, see the [Binary Sensors integration](/integrations/binary_sensor/)
+
+Lutron's API for remotes reports when contact (press) is made and lost (released). A binary sensor entity is available for each remote button. When the button is pressed (contact is made), the binary sensor will be on; when the button is released, the binary sensor will be off.
 
 ## Button
 
