@@ -85,8 +85,6 @@ To bring them up to modern standards, we want you to join us to:
 - **Extend existing cards with card features.** Card features allow every card to be more modular and be always up-to-date.
 - **Incorporate existing popular cards on HACS.** This will reduce the need to install custom cards and also bring them up to the UX standards of the Home Assistant frontend.
 
-[table of cards to be revamped]
-
 ### Design framework: What will our card designs be based upon?
 
 #### The grid system
