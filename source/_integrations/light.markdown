@@ -75,7 +75,7 @@ automation:
       entity_id: binary_sensor.motion_1
       to: "on"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.living_room
       data:
@@ -90,7 +90,7 @@ automation:
   - at: '05:00'
     platform: time
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.ledliststair
       data:

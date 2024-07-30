@@ -257,7 +257,7 @@ The Addressable v3 (0xA3) models allow setting a color effect per zone. The leng
 
 ```yaml
 #Example action
-service: flux_led.set_zones
+action: flux_led.set_zones
 target:
   entity_id:
     - light.addressable_v3_8e2f7f
@@ -287,7 +287,7 @@ The RGB with MIC (0x08), Addressable v2 (0xA2), and Addressable v3 (0xA3) models
 
 ```yaml
 #Example action
-service: flux_led.set_music_mode
+action: flux_led.set_music_mode
 target:
   entity_id:
     - light.addressable_v3_8e2f7f

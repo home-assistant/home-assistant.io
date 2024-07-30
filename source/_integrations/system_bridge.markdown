@@ -108,7 +108,7 @@ The integration provides an update component, which will notify you when a new v
 You can send notifications to the device using the `notify` platform.
 
 ```yaml
-service: notify.system_bridge_hostname
+action: notify.system_bridge_hostname
 data:
   data:
     image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
@@ -170,7 +170,7 @@ Returns a process by its pid.
 {% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.get_process_by_id
+action: system_bridge.get_process_by_id
 data:
   bridge: "deviceid"
   id: 17752
@@ -197,7 +197,7 @@ Returns a count and a list of processes matching the name provided.
 {% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.get_processes_by_name
+action: system_bridge.get_processes_by_name
 data:
   bridge: "deviceid"
   name: discord
@@ -226,7 +226,7 @@ Open a URL or file on the server using the default application.
 {% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_path
+action: system_bridge.open_path
 data:
   bridge: "deviceid"
   path: "C:\\image.jpg"
@@ -249,7 +249,7 @@ Open a URL or file on the server using the default application.
 {% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_url
+action: system_bridge.open_url
 data:
   bridge: "deviceid"
   url: "https://home-assistant.io"
@@ -272,7 +272,7 @@ Send a keypress to the server.
 {% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_keypress
+action: system_bridge.send_keypress
 data:
   bridge: "deviceid"
   key: "a"
@@ -295,7 +295,7 @@ Sends text for the server to type.
 {% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_text
+action: system_bridge.send_text
 data:
   bridge: "deviceid"
   text: "Hello"
@@ -327,7 +327,7 @@ Supported commands are:
 {% my developer_call_service service="system_bridge.power_command" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.power_command
+action: system_bridge.power_command
 data:
   bridge: "device"
   command: "sleep"

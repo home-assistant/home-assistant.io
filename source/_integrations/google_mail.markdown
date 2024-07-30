@@ -73,7 +73,7 @@ The following attributes can be placed inside the `data` key of the action for e
 This is the full service call to send an email:
 
 ```yaml
-service: notify.example_gmail_com
+action: notify.example_gmail_com
 data:
   message: "test"
   title: "test email"

@@ -30,7 +30,7 @@ automation:
           entity_id: sensor.office_lux_sensor
           below: 10
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.office_lights
 ```
@@ -50,7 +50,7 @@ automation:
         to: "on"
     condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
     action:
-      - service: scene.turn_on
+      - action: scene.turn_on
         target:
           entity_id: scene.office_lights
 ```

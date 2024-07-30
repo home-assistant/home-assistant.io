@@ -56,7 +56,7 @@ The following attributes can be placed inside `data` for extended functionality.
 This will post a message to Mastodon. Visibility will default to your account's setting. 
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A toot from Home Assistant"
 ```
 
@@ -65,7 +65,7 @@ This will post a message to Mastodon. Visibility will default to your account's 
 This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A private toot from Home Assistant"
   target: private
 ```
@@ -75,7 +75,7 @@ This will post a message to Mastodon, but visibility is marked as `private` so o
 This will post a message to Mastodon that includes an image.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A media toot from Home Assistant"
   data:
     media: /config/www/funny_meme.png
@@ -86,7 +86,7 @@ This will post a message to Mastodon that includes an image.
 This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A media toot from Home Assistant"
   target: unlisted
   data:

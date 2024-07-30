@@ -43,7 +43,7 @@ It is also possible to recall NetUSB presets using the play media action. To do 
 This is an example action that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -54,7 +54,7 @@ data:
 This example call shows how to call netusb preset 1:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.buro
 data:

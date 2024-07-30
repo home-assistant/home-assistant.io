@@ -135,7 +135,7 @@ automation:
   - id: trigger_scene_25_on
     alias: "Turn on scene 25"
     action:
-      - service: insteon.scene_on
+      - action: insteon.scene_on
         group: 25
 ```
 
@@ -168,7 +168,7 @@ automation:
         entity_id: light.some_light
         state: "off"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 
@@ -185,7 +185,7 @@ automation:
         entity_id: light.some_light
         state: "off"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 ```

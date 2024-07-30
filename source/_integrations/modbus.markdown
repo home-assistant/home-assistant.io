@@ -1626,7 +1626,7 @@ Description:
 To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
-service: modbus.write_register
+action: modbus.write_register
 data:
   address: <target register address>
   slave: <target slave address>

@@ -193,7 +193,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
    - **Request**: Your request should look like:
 
       ```yaml
-      service: roborock.get_maps
+      action: roborock.get_maps
       target:
         entity_id: vacuum.s7_roborock
       data: {}
@@ -216,7 +216,7 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
 Example:
 
 ```yaml
-service: vacuum.send_command
+action: vacuum.send_command
 data:
   command: app_segment_clean
   params:

@@ -231,7 +231,7 @@ trigger:
   - platform: time
     at: "04:15:00"
 action:
-  - service: recorder.purge_entities
+  - action: recorder.purge_entities
     data:
       keep_days: 5
       entity_id: sensor.power_sensor_0

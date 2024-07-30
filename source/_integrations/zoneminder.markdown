@@ -106,7 +106,7 @@ For example, if your ZoneMinder instance was configured with a run state called 
 
  ```yaml
 action:
-  service: zoneminder.set_run_state
+  action: zoneminder.set_run_state
   data:
     id: ZM_HOST
     name: Home

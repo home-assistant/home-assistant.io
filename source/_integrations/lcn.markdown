@@ -722,7 +722,7 @@ Set absolute brightness of output port in percent.
 Example:
 
 ```yaml
-service: lcn.output_abs
+action: lcn.output_abs
 data:
   address: myhome.0.7
   output: output1
@@ -744,7 +744,7 @@ Set relative brightness of output port in percent.
 Example:
 
 ```yaml
-service: lcn.output_rel
+action: lcn.output_rel
 data:
   address: myhome.0.7
   output: output1
@@ -764,7 +764,7 @@ Toggle output port.
 Example:
 
 ```yaml
-service: lcn.output_toggle
+action: lcn.output_toggle
 data:
   address: myhome.0.7
   output: output1
@@ -786,7 +786,7 @@ Example states:  `t---001-`
 Example:
 
 ```yaml
-service: lcn.relays
+action: lcn.relays
 data:
   address: myhome.0.7
   state: t---001-
@@ -804,7 +804,7 @@ Set the LED status.
 Example:
 
 ```yaml
-service: lcn.led
+action: lcn.led
 data:
   address: myhome.0.7
   led: led6
@@ -827,7 +827,7 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 Example:
 
 ```yaml
-service: lcn.var_abs
+action: lcn.var_abs
 data:
   address: myhome.0.7
   variable: var1
@@ -856,7 +856,7 @@ If `unit_of_measurement` is not defined, it is assumed to be `native`.
 Example:
 
 ```yaml
-service: lcn.var_rel
+action: lcn.var_rel
 data:
   address: myhome.0.7
   variable: var1
@@ -881,7 +881,7 @@ Reset value of variable or setpoint.
 Example:
 
 ```yaml
-service: lcn.var_reset
+action: lcn.var_reset
 data:
   address: myhome.0.7
   variable: var1
@@ -906,7 +906,7 @@ If `state` is not defined, it is assumed to be `False`.
 Example:
 
 ```yaml
-service: lcn.lock_regulator
+action: lcn.lock_regulator
 data:
   address: myhome.0.7
   setpoint: r1varsetpoint
@@ -933,7 +933,7 @@ Examples:
 
 Send keys immediately:
 ```yaml
-service: lcn.send_keys
+action: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -942,7 +942,7 @@ data:
 
 Send keys deferred:
 ```yaml
-service: lcn.send_keys
+action: lcn.send_keys
 data:
   address: myhome.0.7
   keys: a1a5d8
@@ -970,7 +970,7 @@ Examples:
 
 Lock keys forever:
 ```yaml
-service: lcn.lock_keys
+action: lcn.lock_keys
 data:
   address: myhome.0.7
   table: a
@@ -979,7 +979,7 @@ data:
 
 Lock keys for a specified time period:
 ```yaml
-service: lcn.lock_keys
+action: lcn.lock_keys
 data:
   address: myhome.0.7
   state: 1---t0--
@@ -1003,7 +1003,7 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 Example:
 
 ```yaml
-service: lcn.dyn_text
+action: lcn.dyn_text
 data:
   address: myhome.0.7
   row: 1
@@ -1022,7 +1022,7 @@ Send arbitrary PCK command. Only the command part of the PCK command has to be s
 Example:
 
 ```yaml
-service: lcn.pck
+action: lcn.pck
 data:
   address: myhome.0.7
   pck: PIN4

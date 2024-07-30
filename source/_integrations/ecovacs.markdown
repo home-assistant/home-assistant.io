@@ -146,7 +146,7 @@ The integration has a `raw_get_positions` action to retrieve device and chargers
 Example:
 
 ```yaml
-service: ecovacs.raw_get_positions
+action: ecovacs.raw_get_positions
 target:
   entity_id: vacuum.deebot_n8_plus
 ```

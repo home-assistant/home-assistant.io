@@ -29,7 +29,7 @@ scene:
 You can then activate each scene with its name from the smartphone app:
 
 ```yaml
-  - service: scene.turn_on
+  - action: scene.turn_on
     target:
       entity_id: scene.goodnight
 ```

@@ -77,7 +77,7 @@ panasonic_viera:
   host: YOUR_TV_IP
   name: Living Room TV
   turn_on_action:
-    - service: wake_on_lan.send_magic_packet
+    - action: wake_on_lan.send_magic_packet
       data:
         mac: "AA:BB:CC:DD:99:1A"
 ```
@@ -92,10 +92,10 @@ script:
   front_door_camera:
     alias: "Show who's at the door"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.living_room_tv
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.living_room_tv
         data:
@@ -103,7 +103,7 @@ script:
           media_content_id: YOUR_URL
       - delay:
         seconds: 5
-      - service: media_player.media_stop
+      - action: media_player.media_stop
         target:
           entity_id: media_player.living_room_tv
 ```

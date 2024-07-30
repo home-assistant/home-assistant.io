@@ -95,13 +95,13 @@ automation:
       event_type: created
   action:
     - delay: "00:00:01"
-    - service: minio.put
+    - action: minio.put
       data:
         file_path: "{{ trigger.event.data.path }}"
         bucket: "camera-image-object-detection"
         key: "input/{{ now().year }}/{{ (now().month | string).zfill(2) }}/{{ (now().day | string).zfill(2) }}/{{ trigger.event.data.file }}"
     - delay: "00:00:01"
-    - service: shell_command.remove_file
+    - action: shell_command.remove_file
       data:
         file: "{{ trigger.event.data.path }}"
 
@@ -112,7 +112,7 @@ automation:
 
   condition: []
   action:
-  - service: minio.get
+  - action: minio.get
     data:
       bucket: "{{trigger.event.data.bucket}}"
       key: "{{trigger.event.data.key}}"

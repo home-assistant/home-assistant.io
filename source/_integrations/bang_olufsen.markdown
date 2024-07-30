@@ -60,7 +60,7 @@ The Bang & Olufsen integration supports different playback types in the `media_p
 Playing [DR P1](https://www.dr.dk/lyd/p1) from a URL:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -71,7 +71,7 @@ data:
 Activating the first favourite:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -82,7 +82,7 @@ data:
 Playing a local file:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -93,7 +93,7 @@ data:
 Playing a radio station:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -104,7 +104,7 @@ data:
 Playing a Deezer flow. Optionally define a Deezer user ID:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -117,7 +117,7 @@ data:
 Playing a Deezer playlist. Optionally define starting position for the playlist:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -130,7 +130,7 @@ data:
 Playing a Deezer album. Optionally define starting position for the album:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -143,7 +143,7 @@ data:
 Playing a Deezer track:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -154,7 +154,7 @@ data:
 Playing a Tidal playlist. Optionally define starting position for the playlist:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -167,7 +167,7 @@ data:
 Playing a Tidal album. Optionally define starting position for the album:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -180,7 +180,7 @@ data:
 Playing a Tidal track:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -208,7 +208,7 @@ Extra keys available:
 Playing a local file with an absolute volume as an overlay:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -222,7 +222,7 @@ data:
 Playing a Bang & Olufsen Cloud TTS message with an offset volume (as TTS messages can be quiet):
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -235,7 +235,7 @@ data:
 
 Playing a Bang & Olufsen Cloud TTS message with a local language:
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:

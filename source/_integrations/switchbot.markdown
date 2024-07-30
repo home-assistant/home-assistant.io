@@ -139,13 +139,13 @@ cover:
         device_class: blind
         friendly_name: Example Blinds (Simple Down)
         open_cover:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: 50
           target:
             entity_id: cover.example_blinds
         close_cover:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: 0
           target:
@@ -153,7 +153,7 @@ cover:
         position_template: >
           {{ int(states.cover.example_blinds.attributes.current_tilt_position)*2 }}
         set_cover_position:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: "{{position/2}}"
           target:

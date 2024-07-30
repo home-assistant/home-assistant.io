@@ -381,7 +381,7 @@ Example for cameras that support Clip Previews used with iOS which can render vi
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_iphone
+action: notify.mobile_app_iphone
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
@@ -404,7 +404,7 @@ Example for cameras that support Clip Previews, but transcoded to an animated gi
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_android
+action: notify.mobile_app_android
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
@@ -424,7 +424,7 @@ Example for cameras that support Snapshot (jpg) on either Android or iOS.
 {% raw %}
 
 ```yaml
-service: notify.mobile_app
+action: notify.mobile_app
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell

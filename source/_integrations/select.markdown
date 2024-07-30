@@ -36,7 +36,7 @@ This action does not have additional options.
 An example in YAML:
 
 ```yaml
-service: select.select_first
+action: select.select_first
 target:
   entity_id: select.my_entity
 ```
@@ -54,7 +54,7 @@ This action does not have additional options.
 An example in YAML:
 
 ```yaml
-service: select.select_last
+action: select.select_last
 target:
   entity_id: select.my_entity
 ```
@@ -76,14 +76,14 @@ action data.
 Examples in YAML:
 
 ```yaml
-service: select.select_next
+action: select.select_next
 target:
   entity_id: select.my_entity
 ```
 
 ```yaml
 # Disable cycling back to the first option
-service: select.select_next
+action: select.select_next
 target:
   entity_id: select.my_entity
 data:
@@ -104,7 +104,7 @@ the list of options for the targeted entity.
 An example in YAML:
 
 ```yaml
-service: select.select_option
+action: select.select_option
 target:
   entity_id: select.my_entity
 data:
@@ -128,14 +128,14 @@ action data.
 Examples in YAML:
 
 ```yaml
-service: select.select_previous
+action: select.select_previous
 target:
   entity_id: select.my_entity
 ```
 
 ```yaml
 # Disable cycling back to the last option
-service: select.select_previous
+action: select.select_previous
 target:
   entity_id: select.my_entity
 data:

@@ -31,7 +31,7 @@ automation:
       platform: event
       event_type: feedreader
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.my_action
 ```
@@ -47,7 +47,7 @@ automation:
       event_data:
         feed_url: "https://hasspodcast.io/feed/podcast"
     action:
-      service: persistent_notification.create
+      action: persistent_notification.create
       data:
         title: "New HA Podcast available"
         message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"

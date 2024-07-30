@@ -25,7 +25,7 @@ The Linn / OpenHome integration allows you to connect an [Openhome Compliant Ren
 
 ```yaml
 action:
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.linn_bedroom
     data:
@@ -36,7 +36,7 @@ action:
 ### Example web stream playback action
 
 ```yaml
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.linn_bedroom
     data:

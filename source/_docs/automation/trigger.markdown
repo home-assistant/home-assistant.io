@@ -339,7 +339,7 @@ automation:
         minutes: "{{ states('input_number.high_temp_min')|int }}"
         seconds: "{{ states('input_number.high_temp_sec')|int }}"
   action:
-    - service: persistent_notification.create
+    - action: persistent_notification.create
       data:
         message: >
           {{ trigger.to_state.name }} too high for {{ trigger.for }}!
@@ -515,7 +515,7 @@ automation:
         minutes: "{{ states('input_number.lock_min')|int }}"
         seconds: "{{ states('input_number.lock_sec')|int }}"
   action:
-    - service: lock.lock
+    - action: lock.lock
       target:
         entity_id: lock.my_place
 ```
@@ -574,7 +574,7 @@ automation:
         # Can be a positive or negative number
         below: -4.0
     action:
-      - service: switch.turn_on
+      - action: switch.turn_on
         target:
           entity_id: switch.exterior_lighting
 ```
@@ -713,10 +713,10 @@ automation:
         entity_id: binary_sensor.motion
         to: "on"
     action:
-      - service: climate.turn_on
+      - action: climate.turn_on
         target:
           entity_id: climate.office
-      - service: input_datetime.set_datetime
+      - action: input_datetime.set_datetime
         target:
           entity_id: input_datetime.turn_off_ac
         data:
@@ -727,7 +727,7 @@ automation:
       - platform: time
         at: input_datetime.turn_off_ac
     action:
-      - service: climate.turn_off
+      - action: climate.turn_off
         target:
           entity_id: climate.office
 ```
@@ -744,7 +744,7 @@ automation:
       - platform: time
         at: sensor.phone_next_alarm
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
 ```

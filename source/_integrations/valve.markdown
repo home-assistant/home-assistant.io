@@ -49,7 +49,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: valve.close
+    - action: valve.close
       target:
         entity_id: valve.demo
 ```
@@ -71,7 +71,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: valve.set_position
+    - action: valve.set_position
       target:
         entity_id: valve.demo
       data:

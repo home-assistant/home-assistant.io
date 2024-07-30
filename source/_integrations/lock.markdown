@@ -34,7 +34,7 @@ Lock your door, the attribute should appear under a 'data' attribute for the act
 
 ```yaml
 action:
-  service: lock.lock
+  action: lock.lock
   target:
     entity_id: lock.my_place
 ```
@@ -51,7 +51,7 @@ Unlock your door, the attribute should appear under a 'data' attribute for the a
 
 ```yaml
 action:
-  service: lock.unlock
+  action: lock.unlock
   target:
     entity_id: lock.my_place
 ```

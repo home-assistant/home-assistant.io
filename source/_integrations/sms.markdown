@@ -34,7 +34,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.sms
+  action: notify.sms
   data:
     message: "This is a message for you!"
     target: "+5068081-8181"
@@ -46,7 +46,7 @@ Some devices (receiving or sending) do not support Unicode (the default encoding
 
 ```yaml
 action:
-  service: notify.sms
+  action: notify.sms
   data:
     message: "This is a message for you in ANSI"
     target: "+5068081-8181"
@@ -81,7 +81,7 @@ notify_sms_user1:
       description: "The message content"
       example: "The light is on!"
   sequence:
-  - service: notify.sms
+  - action: notify.sms
     data:
       message: "{{ message }}"
       target: "{{ states('sensor.user1_phone_number') }}"
@@ -101,7 +101,7 @@ notify_sms_user1:
   - platform: event
     event_type: sms.incoming_sms
   action:
-  - service: script.notify_sms_user1
+  - action: script.notify_sms_user1
     data:
       message: |
         From: {{trigger.event.data.phone}}

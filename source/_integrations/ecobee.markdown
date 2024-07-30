@@ -96,7 +96,7 @@ The `ecobee` notify platform allows you to send notifications to an ecobee therm
 Example action:
 
 ```yaml
-service: notify.send_message
+action: notify.send_message
 data:
   message: "Hello, this is your thermostat."
   entity_id: notify.ecobee
