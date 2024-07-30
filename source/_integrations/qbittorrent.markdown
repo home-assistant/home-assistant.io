@@ -12,10 +12,12 @@ ha_codeowners:
   - '@finder39'
 ha_platforms:
   - sensor
+  - switch
 ha_integration_type: service
 ---
 
 The `qbittorrent` platform allows you to monitor your downloads with [qBittorrent](https://www.qbittorrent.org/) from within Home Assistant and setup automations based on the information.
+You can control the alternative speed via the `Alternative speed` switch.
 
 ## Setup
 
@@ -34,6 +36,12 @@ The qBittorrent integration will add the following sensors:
 - `sensor.qbittorrent_active_torrents`: The current active torrents in qBittorrent.
 - `sensor.qbittorrent_inactive_torrents`: The current inactive torrents in qBittorrent.
 - `sensor.qbittorrent_paused_torrents`: The current paused torrents in qBittorrent.
+
+## Switch
+
+The qBittorrent integration adds the following switch:
+
+- `Alternative speed`: Allows you to enable or disable qBittorrent's alternative speed.
 
 ## Actions
 
