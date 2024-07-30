@@ -397,15 +397,13 @@ xy_value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
+Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
-  Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
-
-<div class='note warning'>
-  XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
-</div>
+{% note %}
+XY and RGB can not be used at the same time. If both are provided, XY overrides RGB.
+{% endnote %}
 
 ## Default schema - Examples
 
@@ -724,17 +722,13 @@ white_scale:
   default: 255
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
+Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-
-</div>
-
-<div class='note warning'>
-
-  RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
-
-</div>
+{% note %}
+RGB, XY and HSV can not be used at the same time in `state_topic` messages. Make sure that only one of the color models is in the "color" section of the state MQTT payload.
+{% endnote %}
 
 ## JSON schema - Examples
 
@@ -1078,11 +1072,9 @@ unique_id:
    type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
-  Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% important %}
+Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
+{% endimportant %}
 
 ## Template schema - Examples
 

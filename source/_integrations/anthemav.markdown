@@ -54,10 +54,10 @@ port:
 - The tuner is currently unsupported as are the `media_player` play, pause, prev, and next controls.
 - Enabling this platform will set and enforce **Standby IP Control On** within your Anthem device. You almost certainly want this. If you disable it on the device, it will just get re-enabled by Home Assistant.
 
-<div class='note warning'>
+{% warning %}
 
 The {% term integration %} will maintain a persistent connection to the network control port which will prevent any other application from communicating with the receiver. This includes the Anthem iOS and Android remote control apps as well as the ARC-2 Anthem Room Calibration software. If you want to use another application that makes use of the network control port, disable this {% term integration %} and restart Home Assistant.
 <br /><br />
 *The underlying Python module has hooks for halting and resuming the network connection but those functions are currently unsupported by the Home Assistant platform.*
 
-</div>
+{% endwarning %}

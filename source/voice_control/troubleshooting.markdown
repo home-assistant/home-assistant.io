@@ -69,7 +69,7 @@ The example below shows common pitfalls when enquiring about the weather. While 
      ![Create weather entity](/images/assist/metno_weather_entity.png)
 3. Make sure the entity is exposed to Assist:
    - Under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}, select the weather entity for that location.
-   - In the details view that opens, select the cogwheel, then select **Voice Assistant**.
+   - In the details view that opens, select the cogwheel {% icon "mdi:cog-outline" %}, then select **Voice Assistant**.
   
      ![Select voice assistants](/images/assist/weather_entity_voice_assistant.png)
 

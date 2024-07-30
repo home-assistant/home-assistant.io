@@ -75,17 +75,15 @@ hours_to_show:
   default: 0
 {% endconfiguration %}
 
-<div class='note'>
-  Only entities that have latitude and longitude attributes will be displayed on the map.
-</div>
+{% important %}
+Only entities that have latitude and longitude attributes will be displayed on the map.
+{% endimportant %}
 
-<div class="note">
-
-  The `default_zoom` value will be ignored if it is set higher than the current zoom level
-  after fitting all visible entity markers in the map window. In other words, this can only
-  be used to zoom the map _out_ by default.
-
-</div>
+{% note %}
+The `default_zoom` value will be ignored if it is set higher than the current zoom level
+after fitting all visible entity markers in the map window. In other words, this can only
+be used to zoom the map _out_ by default.
+{% endnote %}
 
 ## Options for entities
 

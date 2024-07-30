@@ -24,11 +24,9 @@ The EufyLife integration allows you to integrate Eufy smart scales with Home Ass
 - [Smart Scale P2 (T9148)](https://us.eufy.com/products/t9148)
 - [Smart Scale P2 Pro (T9149)](https://us.eufy.com/products/t9149111)
 
-<div class='note'>
-
+{% note %}
 This integration does not support the Wi-Fi capabilities of the P2 and P2 Pro. It can only connect to your smart scale via Bluetooth.
-
-</div>
+{% endnote %}
 
 ## Features
 

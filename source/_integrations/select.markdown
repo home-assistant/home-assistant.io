@@ -17,19 +17,19 @@ a limited set of selectable options for the entity.
 
 {% include integrations/building_block_integration.md %}
 
-## Services
+## Actions
 
-The select entity exposes additional services to control the entity in, for example,
-automation or scripts. These services can be created via the UI, but are
+The select entity exposes additional actions to control the entity in, for example,
+automation or scripts. These actions can be created via the UI, but are
 also available in YAML (for which examples are provided below).
 
-### Service `select.select_first`
+### Action `select.select_first`
 
-The {% my developer_call_service service="select.select_first" %} service
+The {% my developer_call_service service="select.select_first" %} action
 changes the selected option of the select entity to the first option in the
 list of options available.
 
-This service does not have additional options.
+This action does not have additional options.
 
  {% my developer_call_service badge service="select.select_first" %}
 
@@ -41,13 +41,13 @@ target:
   entity_id: select.my_entity
 ```
 
-### Service `select.select_last`
+### Action `select.select_last`
 
-The {% my developer_call_service service="select.select_last" %} service changes
+The {% my developer_call_service service="select.select_last" %} action changes
 the selected option of the select entity to the last option in the list of
 options available.
 
-This service does not have additional options.
+This action does not have additional options.
 
 {% my developer_call_service badge service="select.select_last" %}
 
@@ -59,9 +59,9 @@ target:
   entity_id: select.my_entity
 ```
 
-### Service `select.select_next`
+### Action `select.select_next`
 
-The {% my developer_call_service service="select.select_next" %} service changes
+The {% my developer_call_service service="select.select_next" %} action changes
 the selected option of the select entity to the next option in the list of
 options available. If the current select option is unknown, the first option
 in the list is selected instead.
@@ -69,7 +69,7 @@ in the list is selected instead.
 In case the current select option is the last option in the list, it will by
 default, cycle back the first option and select that one instead. This cycle
 behavior can be disabled by setting the `cycle` option to `false` in the
-service call data.
+action data.
 
 {% my developer_call_service badge service="select.select_next" %}
 
@@ -90,13 +90,13 @@ data:
   cycle: false
 ```
 
-### Service `select.select_option`
+### Action `select.select_option`
 
-The {% my developer_call_service service="select.select_option" %} service
+The {% my developer_call_service service="select.select_option" %} action
 changes the selected option to a specific desired option provided in the
-service call using the required `option` service call data.
+action using the required `option` action data.
 
-The service call will not succeed if the selected option is not available in
+The action call will not succeed if the selected option is not available in
 the list of options for the targeted entity.
 
 {% my developer_call_service badge service="select.select_option" %}
@@ -111,9 +111,9 @@ data:
   option: "example_option"
 ```
 
-### Service `select.select_previous`
+### Action `select.select_previous`
 
-The {% my developer_call_service service="select.select_previous" %} service
+The {% my developer_call_service service="select.select_previous" %} action
 changes the selected option of the select entity to the previous option in the
 list of options available. If the current select option is unknown, the
 last option in the list is selected instead.
@@ -121,7 +121,7 @@ last option in the list is selected instead.
 In case the current select option is the first option in the list, it will by
 default, cycle back the last option and select that one instead. This cycle
 behavior can be disabled by setting the `cycle` option to `false` in the
-service call data.
+action data.
 
 {% my developer_call_service badge service="select.select_previous" %}
 

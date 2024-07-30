@@ -341,8 +341,7 @@ mqtt:
 
 {% endraw %}
 
-<div class='note warning'>
-
+{% caution %}
 When your MQTT connection is not secured, this will send your secret code over the network unprotected!
-
-</div>
+{% endcaution %}
+ 
