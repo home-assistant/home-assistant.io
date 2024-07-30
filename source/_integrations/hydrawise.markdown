@@ -59,7 +59,7 @@ Sensor entities are created for the controller:
 Sensor entities are created for each irrigation zone:
 
 - Timestamp for the next scheduled automatic watering cycle
-- Time elapsed (in minutes) of the current watering cycle, if running
+- Remaining time (in minutes) for the current watering cycle
 - Daily active water use for the zone (if a flow sensor is attached to the irrigation zone)
 
 ## Switch
