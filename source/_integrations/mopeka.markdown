@@ -25,18 +25,18 @@ When setting up or changing options for a device, a medium, the substance the se
 
 ## Supported Mediums
 
- - Propane (default)
- - Air (for unpressurized top-down sensors like water tanks)
- - Fresh Water (for bottom-up sensors)
- - Waste Water
- - Live Well
- - Black Water
- - Raw Water
- - Gasoline
- - Diesel
- - LNG
- - Oil
- - Hydraulic Oil
+- Propane (default)
+- Air (for unpressurized top-down sensors like water tanks)
+- Fresh Water (for bottom-up sensors)
+- Waste Water
+- Live Well
+- Black Water
+- Raw Water
+- Gasoline
+- Diesel
+- LNG
+- Oil
+- Hydraulic Oil
 
 ## Supported devices
 
