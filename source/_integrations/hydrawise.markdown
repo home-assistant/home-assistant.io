@@ -42,21 +42,25 @@ There is currently support for the following device types within Home Assistant:
 Binary sensor entities are created for the controller:
 
 - Cloud API availability
+- Rain sensor moisture detection (if a rain sensor is attached to the controller)
 
-{% note %}
-The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
-{% endnote %}
-
-Binary sensor entities are created for each zone:
+Binary sensor entities are created for each irrigation zone:
 
 - Running status
 
 ## Sensor
 
-Sensor entities are added to each zone:
+Sensor entities are created for the controller:
+
+- Daily total water use (if a flow sensor is attached to the controller)
+- Daily active water use (if a flow sensor is attached to the controller)
+- Daily inactive water use (if a flow sensor is attached to the controller)
+
+Sensor entities are created for each irrigation zone:
 
 - Timestamp for the next scheduled automatic watering cycle
-- Remaining time for the current watering cycle
+- Time elapsed (in minutes) of the current watering cycle, if running
+- Daily active water use for the zone (if a flow sensor is attached to the irrigation zone)
 
 ## Switch
 
