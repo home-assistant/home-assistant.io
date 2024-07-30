@@ -780,7 +780,7 @@ every Friday.
 - Ensure mqtt subscriptions are in a set ([@jbouwh] - [#122201])
 - Add Z-Wave discovery schema for ZVIDAR roller shades ([@alexschneider] - [#122332])
 - Fix device class on sensor in ViCare ([@CFenner] - [#122334])
-- Goofle Generative AI: Fix string format ([@Shulyaka] - [#122348])
+- Google Generative AI: Fix string format ([@Shulyaka] - [#122348])
 - Ensure script llm tool name does not start with a digit ([@Shulyaka] - [#122349])
 - Bump reolink-aio to 0.9.5 ([@starkillerOG] - [#122366])
 - Fix gemini api format conversion ([@Shulyaka] - [#122403])
