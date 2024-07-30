@@ -17,6 +17,7 @@ This tutorial assumes the following:
 - You have completed the [onboarding steps](/getting-started/onboarding/)
 - You have followed the steps on [adding an integration](/getting-started/integration/)
 - You have a light that is integrated into Home Assistant
+  - If you don't have a light yet, and are unsure what to buy, try [Philips Hue](/integrations/hue/), [nanoleaf](/integrations/nanoleaf/), or products supporting [WLED](/integrations/wled/)
 
 ### To automatically turn on the lights before sunset
 
@@ -82,8 +83,8 @@ This tutorial assumes the following:
    - Select **Add condition** > **Entity** > **State**.
    - Under **Entity**, enter `workd` and select your workday sensor.
    - Under **State**, select **On**.
-4. Next, we want to make sure the light is only dimmed when it is on. No reason to do this if the light is not on.
-   - Select **Add action** > **Building blocks** > **If-then**.
+4. Next, we want to make sure the light is only dimmed when it is actually on. No reason to do this if the light is not on.
+   - To achieve this, we use an **If-then** action. Select **Add action** > **Building blocks** > **If-then**.
    - You now get a block called **Conditionally execute an action**. From the **Entity** list, select your light.
    - Under **If**, select **Add condition** > **Entity** > **State**.
    - Under **State**, select **On**.
