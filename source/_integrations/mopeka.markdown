@@ -21,7 +21,7 @@ Integrates [Mopeka](https://www.mopekaiot.com/) devices into Home Assistant.
 
 The Mopeka integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
-When setting up or changing options for a device, a 'Medium Type', the substance the sensor measures, such as Propane, can be chosen. The sensor needs to use the type of medium to adjust the coefficients used in the ultrasonic sensor calculations.
+When setting up or changing options for a device, a medium, the substance the sensor measures, such as propane, can be chosen. The sensor needs to use the type of medium to adjust the coefficients used in the ultrasonic sensor calculations.
 
 ## Supported Mediums
 
