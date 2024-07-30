@@ -38,7 +38,7 @@ aws:
       aws_secret_access_key: AWS_SECRET
   notify:
     # use the first credential defined in aws integration by default
-    - action: lambda
+    - service: lambda
       region_name: us-east-1
 ```
 
