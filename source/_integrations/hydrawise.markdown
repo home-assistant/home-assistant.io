@@ -84,33 +84,32 @@ The Hydrawise integration makes various custom {% term actions %} available.
 
 ### Action `hydrawise.start_watering`
 
-Start a watering cycle in an irrigation zone.
+Starts a watering cycle in an irrigation zone.
 
-| Data attribute | Optional | Description                                                                                                                                                                        |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | The irrigation zone in which to start watering.                                                                                                                                                      |
-| `duration`             | yes      | The length of time to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
+| Data attribute | Optional | Description                                                                                                                                                                                     |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | The irrigation zone in which to start watering.                                                                                                                                                 |
+| `duration`     | yes      | The length of time (in minutes) to run a watering cycle. If not specified (or zero), the default watering duration set in the Hydrawise mobile or web app for the irrigation zone will be used. |
 
 ### Action `hydrawise.suspend`
 
-Suspend automatic watering in an irrigation zone until a specified date.
+Suspends automatic watering in an irrigation zone until a specified date.
 
-| Data attribute | Optional | Description                                                |
-| ---------------------- | -------- | ---------------------------------------------------------- |
-| `entity_id`            | no       | The irrigation zone in which to suspend watering.                            |
-| `until`                | no       | The date & time when automatic watering should be resumed. |
+| Data attribute | Optional | Description                                                                                |
+| -------------- | -------- | ------------------------------------------------------------------------------------------ |
+| `entity_id`    | no       | The irrigation zone in which to suspend watering.                                          |
+| `until`        | no       | The date & time when automatic watering should be resumed. For example, `2024-08-30 08:30` |
 
 ### Action `hydrawise.resume`
 
-Resume automatic watering in an irrigation zone.
+Resumes automatic watering in an irrigation zone.
 
-| Data attribute | Optional | Description                    |
-| ---------------------- | -------- | ------------------------------ |
-| `entity_id`            | no       | The irrigation zone in which to resume watering. |
+| Data attribute | Optional | Description                                      |
+| -------------- | -------- | ------------------------------------------------ |
+| `entity_id`    | no       | The irrigation zone in which to resume watering. |
 
 ## Valve
 
 A valve is added for each zone allowing manual control of zone watering.
 
 When a zone's valve is opened through Home Assistant, it will have an automatic shutoff time set to the zone's default watering duration configured in the Hydrawise [mobile or web app](https://www.hydrawise.com).
-
