@@ -33,4 +33,4 @@ You will need to use the standalone app for this device to register a username a
 ## Tips
 
 You can use the [group integration](/integrations/group) to group entities as the application proposes (for example covers of the first floor).
-You can use any Cover card like the great custom [hass-shutter-card](https://github.com/Deejayfool/hass-shutter-card) to have a specific display of the covers.
+You can use any Cover card to have a specific display of the covers.
