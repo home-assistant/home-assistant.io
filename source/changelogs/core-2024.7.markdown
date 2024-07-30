@@ -1472,6 +1472,57 @@ For a summary in a more readable format:
 [@tronikos]: https://github.com/tronikos
 [@zweckj]: https://github.com/zweckj
 
+## Release 2024.7.4 - July 30
+
+- Bump `aiotractive` to 0.6.0 ([@bieniu] - [#121155])
+- Ensure mqtt subscriptions are in a set ([@jbouwh] - [#122201])
+- Add Z-Wave discovery schema for ZVIDAR roller shades ([@alexschneider] - [#122332])
+- Fix device class on sensor in ViCare ([@CFenner] - [#122334])
+- Goofle Generative AI: Fix string format ([@Shulyaka] - [#122348])
+- Ensure script llm tool name does not start with a digit ([@Shulyaka] - [#122349])
+- Bump reolink-aio to 0.9.5 ([@starkillerOG] - [#122366])
+- Fix gemini api format conversion ([@Shulyaka] - [#122403])
+- Fix typo in Matter lock platform ([@marcelveldt] - [#122536])
+- Fix target service attribute on Mastodon integration ([@andrew-codechimp] - [#122546])
+- Bump aiolifx to 1.0.6 ([@Djelibeybi] - [#122569])
+- Bump deebot-client to 8.2.0 ([@edenhaus] - [#122612])
+- Bump aiohue to version 4.7.2 ([@marcelveldt] - [#122651])
+- Return unknown when data is missing in Trafikverket Weather ([@gjohansson-ST] - [#122652])
+- Retry later on OSError during apple_tv entry setup ([@bdraco] - [#122747])
+
+[#120579]: https://github.com/home-assistant/core/pull/120579
+[#121155]: https://github.com/home-assistant/core/pull/121155
+[#121289]: https://github.com/home-assistant/core/pull/121289
+[#121671]: https://github.com/home-assistant/core/pull/121671
+[#122194]: https://github.com/home-assistant/core/pull/122194
+[#122201]: https://github.com/home-assistant/core/pull/122201
+[#122332]: https://github.com/home-assistant/core/pull/122332
+[#122334]: https://github.com/home-assistant/core/pull/122334
+[#122348]: https://github.com/home-assistant/core/pull/122348
+[#122349]: https://github.com/home-assistant/core/pull/122349
+[#122366]: https://github.com/home-assistant/core/pull/122366
+[#122403]: https://github.com/home-assistant/core/pull/122403
+[#122536]: https://github.com/home-assistant/core/pull/122536
+[#122546]: https://github.com/home-assistant/core/pull/122546
+[#122569]: https://github.com/home-assistant/core/pull/122569
+[#122612]: https://github.com/home-assistant/core/pull/122612
+[#122651]: https://github.com/home-assistant/core/pull/122651
+[#122652]: https://github.com/home-assistant/core/pull/122652
+[#122747]: https://github.com/home-assistant/core/pull/122747
+[@CFenner]: https://github.com/CFenner
+[@Djelibeybi]: https://github.com/Djelibeybi
+[@Shulyaka]: https://github.com/Shulyaka
+[@alexschneider]: https://github.com/alexschneider
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@jbouwh]: https://github.com/jbouwh
+[@marcelveldt]: https://github.com/marcelveldt
+[@starkillerOG]: https://github.com/starkillerOG
+
 [#103496]: https://github.com/home-assistant/core/pull/103496
 [#104345]: https://github.com/home-assistant/core/pull/104345
 [#105134]: https://github.com/home-assistant/core/pull/105134
