@@ -20,7 +20,7 @@ related:
 
 The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
-It can track how long the {% term integration %} has been in a specific state, in a custom time period.
+It can track how long an {% term entity %} has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
