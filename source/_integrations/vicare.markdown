@@ -36,9 +36,9 @@ Create a new API client by selecting **Add** in the **Clients** section on the d
 
 Copy the **Client ID** in the **Clients** section on the developer dashboard for the setup in Home Assistant.
 
-{% note %}
-Important: Setup the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise your device does not know how to handle the `vicare://` redirect URL and you will receive an **Invalid credentials** notification and the setup procedure will fail.
-{% endnote %}
+{% important %}
+Setup the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise your device does not know how to handle the `vicare://` redirect URL and you will receive an **Invalid credentials** notification and the setup procedure will fail.
+{% endimportant %}
 
 {% note %}
 It may take up to an hour till your new client is active and usable. Otherwise you will not get any devices in Home Assistant.
