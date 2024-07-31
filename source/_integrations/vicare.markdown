@@ -3,6 +3,7 @@ title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
 ha_category:
   - Climate
+  - Fan
   - Water heater
 ha_release: 0.99
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - fan
   - number
   - sensor
   - water_heater
@@ -70,6 +72,10 @@ Represents the heating controls of your device.
 {% note %}
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
+
+### Fan
+
+Ventilation units are displayed as fans and enable the change of speed and use of presets.
 
 ### Water heater
 
