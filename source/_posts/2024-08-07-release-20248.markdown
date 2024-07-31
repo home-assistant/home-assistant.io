@@ -414,11 +414,32 @@ _TODO: Remove screenshot, it is fun for beta, but not for final release_
 [@TheJulianJES]: https://github.com/TheJulianJES
 [Zigbee Home Automation]: /integrations/zha
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus
-nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.
-Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc
-tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec
-purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt
+## Matter updates
+
+A couple of updates for the Matter integration this release, while we are
+working hard to get the integration ready for official Matter certification.
+
+The Matter integration can now provide update entities. Meaning, if your
+Matter device has a firmware update available, Home Assistant will now
+be able to inform you about it and update the device for you. 🎉
+
+_TODO: Add screenshot of a Matter device updating_
+
+This update feature is available for all Matter devices of which the
+manufacturers provide firmware updates for via the official main Matter update
+channels. There are not many manufacturers yet, but this is a great step
+forward and we hope many Matter manufacturers will follow this example.
+
+Event entities provided by the Matter integration have been improved. They
+will now provide more event types, allowing you to react to things like single
+press or double press events with ease.
+
+Additionally, [@jvmahon] contributed support for select entities to the Matter
+integration. This is used for selecting modes if your Matter device supports
+that. For example, laundry washer, oven or dishwasher modes.
+
+[@jvmahon]: https://github.com/jvmahon
+
 
 ## Other noteworthy changes
 
