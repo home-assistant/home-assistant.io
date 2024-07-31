@@ -440,6 +440,18 @@ that. For example, laundry washer, oven or dishwasher modes.
 
 [@jvmahon]: https://github.com/jvmahon
 
+## KNX can now be managed via the UI
+
+_TODO: Add piece of text / story / context as provided by [@farmio]_
+
+The [KNX integration] now supports managing entities from the UI. This means
+you can now create, update, and delete KNX entities directly from the UI
+in the brand new dedicated KNX panel.
+
+<img src="/images/blog/2024-08/knx-panel-for-creating-entities.png" alt="Screenshot showing the brand new KNX panel that allows you to manage the entities created by KNX right from the UI.">
+
+[KNX integration]: /integrations/knx
+[@farmio]: https://github.com/farmio
 
 ## Other noteworthy changes
 
