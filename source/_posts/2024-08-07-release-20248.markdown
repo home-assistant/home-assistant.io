@@ -389,7 +389,30 @@ of this release:
 
 - **UE Smart Radio** has been removed, the service has been [discontinued](https://forums.slimdevices.com/forum/user-forums/general-discussion/1668327-uesmartradio-com-and-mysqueezebox-com-servers).
 
-## Lorem ipsum
+## Zigbee Home Automation (ZHA) updates
+
+The [Zigbee Home Automation] (ZHA) integration has seen lot of improvements
+and love from [@dmulcahey], [@puddly], and [@TheJulianJES] this release.
+
+What this means for you? Well... basically nothing! And this sounds odd, but is
+is a good thing!
+
+The whole integration has been split into a separate codebases, making it
+easier to maintain and improve. This is a huge step forward for the integration
+that took months of work to get done.
+
+You will not notice anything different right now, but this change will make
+it easier to maintain and improve the integration in the future, including
+the ability for code contributers to contribute to the integration more easily.
+
+![Chart showing how ZHA dropping from the number one integration in terms of lines of code to about number ten](https://github.com/home-assistant/core/assets/32534428/d708f61b-1746-4306-9264-24b7ad2ec40a)
+
+_TODO: Remove screenshot, it is fun for beta, but not for final release_
+
+[@dmulcahey]: https://github.com/dmulcahey
+[@puddly]: https://github.com/puddly
+[@TheJulianJES]: https://github.com/TheJulianJES
+[Zigbee Home Automation]: /integrations/zha
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus
 nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.
