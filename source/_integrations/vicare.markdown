@@ -155,6 +155,12 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 ## Troubleshooting
 
+### UTF-8 characters in passwords
+
+The underlying PyViCare python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
+
+### GATEWAY_OFFLINE
+
 The ViCare API tends to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
 
 ```log
