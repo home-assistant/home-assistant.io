@@ -157,7 +157,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 ### UTF-8 characters in passwords
 
-The underlying PyViCare python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
+The underlying PyViCare Python library cannot handle UTF-8 characters in passwords, so do not use for example `ü`, `ø`, etc. in passwords.
 
 ### GATEWAY_OFFLINE
 
