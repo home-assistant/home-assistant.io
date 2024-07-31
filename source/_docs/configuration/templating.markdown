@@ -1148,6 +1148,31 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
 
+## Merge action responses
+
+Using action responses we can collect information from various entities at the same time.
+Using the `merge_response` template we can merge several responses into one list.
+
+| Variable     | Description                                            |
+| ------------ | ----------------------------------                     |
+| `value`      | The incoming value (action response).                  |
+| `sort_by`    | Sort a response dictionary by this key.                |
+| `single_key` | Return a list with information from a single key only. |
+
+{% note %}
+
+`sort_by` and `single_key` has only use if the action call is returning dictionaries
+
+{% endnote %}
+
+Example:
+{% raw %}
+
+{% set combined_forecast = merge_response(response) %}
+{{ combined_forecast[0].precipitation | float(0) | round(1) }}
+
+{% endraw %}
+
 ## Processing incoming data
 
 The other part of templating is processing incoming data. It allows you to modify incoming data and extract only the data you care about. This will only work for platforms and integrations that mention support for this in their documentation.
