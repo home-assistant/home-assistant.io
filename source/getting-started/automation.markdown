@@ -48,7 +48,7 @@ This tutorial assumes the following:
    ![A new automation with the action set up to turn on the lights in the living room.](/images/getting-started/action.png)
 
 6. To save the automation, select **Save**. Give the automation a name and **Save** again.
-   - Now wait until it's 30 minutes before sunset and see your automation magic!   - 
+   - Now wait until it's 30 minutes before sunset and see your automation magic!
    - Or follow these steps to [test your automation](/docs/automation/troubleshooting/#testing-your-automation) right away.
 
 ## Dimming the lights the night before a workday
