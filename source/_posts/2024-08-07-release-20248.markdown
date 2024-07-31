@@ -82,6 +82,11 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=X)
+7 August 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+<lite-youtube videoid="X" videotitle="Home Assistant 2024.8 Release Party"></lite-youtube>
+
 ## Dashboards - Chapter 2
 
 As part of our [roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
@@ -189,14 +194,22 @@ but we recommend using `action` from now on.
 
 {% endimportant %}
 
+## Sort data tables by created or last modified
 
-## Lorem ipsum
+You've added a new integration, a new device, or maybe just updated
+Home Assistant and wondering what new entities or devices you have available?
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus
-nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam.
-Nullam nec purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc
-tincidunt aliquam. Nullam nec purus nec nunc tincidunt aliquam. Nullam nec
-purus nec nunc tincidunt aliquam. Nullam nec purus nec nunc tincidunt
+This release is going to help you with that. Home Assistant now tracks
+when entities, devices, and many other things were created or last
+modified. If these are shown in a table, it means you can now sort them by
+the date they were created or last modified; helping you finding those
+recently added or modified items.
+
+<img class="no-shadow" src="/images/blog/2024-08/data-tables-created-modified-columns-sorting.png" alt="Screenshot showing the new created and modified columns of the entities table, allowing one to sort on these new values.">
+
+The created and modified columns are hidden by default, but you can make them
+visible by clicking the {% icon "mdi:cog" %} icon in the top right of the
+table. Sorting is always available, regardless of the visibility of the columns.
 
 ## Integrations
 
