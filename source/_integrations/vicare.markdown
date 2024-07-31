@@ -155,8 +155,18 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 The ViCare API tend to loose contact with the gateway from time to time. This will be logged in Home Assistant with:
 
-```
-Invalid data from Vicare server: {'viErrorId': '|00-f90f95027255412b970570f114c8acb1-c5ea549312c043f2-01.2ce45073_', 'statusCode': 400, 'errorType': 'DEVICE_COMMUNICATION_ERROR', 'message': '', 'extendedPayload': {'httpStatusCode': 'NotFound', 'code': '404', 'reason': 'GATEWAY_OFFLINE'}}
+```log
+Invalid data from Vicare server: {
+  'viErrorId': '...',
+  'statusCode': 400,
+  'errorType': 'DEVICE_COMMUNICATION_ERROR',
+  'message': '',
+  'extendedPayload': {
+    'httpStatusCode': 'NotFound',
+    'code': '404',
+    'reason': 'GATEWAY_OFFLINE'
+  }
+}
 ```
 
 Usually this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
