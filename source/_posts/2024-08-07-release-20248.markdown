@@ -338,7 +338,7 @@ changes to existing integrations:
 - [Tessie] received lots of attention from [@Bre77] this release, adding
   tons of new entities and features to the integration. Great job!
 - [@joostlek] and [@andrew-codechimp] have been extending the [Mealie]
-  integration lot of new services, and features. Most notably, the ability to
+  integration lot of new actions, and features. Most notably, the ability to
   import recipes, set meal plans, and view shopping lists. Thanks!
 - You can now control your Reolink chime with the [Reolink] integration, thanks
   to [@starkillerOG]!
@@ -858,7 +858,7 @@ the sensor. The new API doesn't provide these anymore.
 {% details "OpenAI Conversation" %}
 
 The previously deprecated `256`, `512`, and `1024` values for size argument for
-the `generate_image` service have been removed. They have already been
+the `generate_image` action have been removed. They have already been
 unsupported in the past (replaced with `1024x1024` by default).
 
 If you still use these values in your automations or scripts, you will need to
