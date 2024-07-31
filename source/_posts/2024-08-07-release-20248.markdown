@@ -481,6 +481,8 @@ noteworthy changes this release:
   to the device that provided the sensor entity.
 - You can now set up [button], [image], [select], and [switch] templates
   entities, straight from the UI. Awesome job [@dougiteixeira]!
+- [@karwosts] added a button to the actions developer tools to copy the action
+  response as JSON for use in templates. Nice!
 
 [@balloob]: https://github.com/balloob
 [@dougiteixeira]: https://github.com/dougiteixeira
@@ -488,6 +490,7 @@ noteworthy changes this release:
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
 [@synesthesiam]: https://github.com/synesthesiam
 [Assist]: /voice_control/
 [button]: /integrations/button
