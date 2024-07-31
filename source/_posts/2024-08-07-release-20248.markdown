@@ -134,7 +134,61 @@ automatically converted to the new badges when you upgrade to this release.
 
 [Mushroom]: https://github.com/piitaya/lovelace-mushroom
 
-<lite-youtube videoid="Snk6oslMQFc" videotitle="Home Assistant 2024.7 Release Party"></lite-youtube>
+## Goodbye service calls, hello actions 👋
+
+This release marks an important milestone in the evolution of Home Assistant:
+we are saying goodbye to **service calls** and hello to **actions**!
+
+If you are a long-time user of Home Assistant reading this now: don't be alarmed
+by this change, nothing breaks with this, and everything will continue to work
+as you are used to.
+
+In the 2024.1 release, we [unified the actions](/2024/01/03/release-20241/#unified-actions)
+in the Home Assistant automation & script editors. The goal of that change
+was to make our automation editor easier to understand for newer users, by
+removing the "Service call" layer and terminology.
+
+<img class="no-shadow" src="/images/blog/2024-01/add-action-search.png" alt="Screenshot showing the new add action dialog utilizing the search function to find whatever you need.">
+
+The UI in above screenshot is thus already in place since the January release,
+and was very well received in general. However, the underlying terminology
+in our documentation and all other places in Home Assistant was still using
+the "service call" terminology.
+
+Additionally, the term "services" in Home Assistant is overloaded and abiguous.
+It is used for both the services you can call in Home Assistant, but also for
+service you might integrate with, like a weather service, or a music service.
+In the latter case, we are talking about integrating with a service provided by
+a software program or website, the menu item in the setting called
+**Devices & services** that refers to that. 😵‍💫
+
+To make things more clear, we are now changing the terminology in Home Assistant
+from "services" (as in service calls variant) to "actions" **everywhere**.
+
+Every occurance in the documentation, the UI, the code, and everywhere else
+in Home Assistant, has been replaced with "action". Unlike the previous services
+which where "called", actions are "performed".
+
+<img class="no-shadow" src="/images/blog/2024-08/actions-developers-tools.png" alt="Screenshot of the developers tools, which also renamed all occurances of services to actions.">
+
+{% important %}
+
+If you are writing automations in YAML, you will notice that the `service` key
+in your actions is now called `action`. For example:
+
+```yaml
+- action: light.turn_on
+  target:
+    area: living_room
+```
+
+Existing UI-managed automations will be automatically converted to when they
+are edited and saved the next time. If you write automation in YAML, you can
+use either `action` or `service` as this change is fully backward compatible,
+but we recommend using `action` from now on.
+
+{% endimportant %}
+
 
 ## Lorem ipsum
 
