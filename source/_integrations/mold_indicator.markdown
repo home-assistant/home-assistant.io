@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The Mold Indicator sensor {% term integration %} consumes information of two temperature sensors and a humidity sensor to predict the humidity near a cold surface. High humidity may lead to mold growth at more than ~70% and causes condensation at 100%.
+The Mold Indicator sensor {% term integration %} uses data from two temperature sensors and a humidity sensor to predict the humidity near a cold surface. High humidity may lead to mold growth at more than ~70% and causes condensation at 100%.
 
 The sensor data may be used to e.g. detect bad air quality (high humidity) or automate operation of indoor air humidifiers to keep the indoor humidity at an optimum.
 
@@ -61,9 +61,9 @@ In this case, the weather forecast temperature sensor is used for the outside te
 
 ## Background
 
-This sensor first predicts the temperature near the given surface by estimating it from the indoor and outdoor temperature. The predicted temperature starts with the indoor temperature, then either brings it closer to the outdoor temperature (if the calibration factor is positive, indicating the surface is influenced by the outdoors) or away (if the calibration factor is negative, indicating the surface is inversely correlated to the outdoors temperature).
+First, this sensor predicts the temperature near the given surface by estimating it from the indoor and outdoor temperatures. The predicted temperature starts with the indoor temperature, then either brings it closer to the outdoor temperature (if the calibration factor is positive, indicating the surface is influenced by the outdoors) or away (if the calibration factor is negative, indicating the surface is inversely correlated with the outdoor temperature).
 
-From there, the sensor calculates the relative humidity near the given surface based off of the dew point.
+From there, the sensor calculates the relative humidity near the given surface based on the dew point.
 
 ## Calibration
 
