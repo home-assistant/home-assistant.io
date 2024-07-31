@@ -209,10 +209,26 @@ to set up and use.
 
 The following integrations are now available via the Home Assistant UI:
 
-- **[Lorem]**, done by [@frenck]
+- **[Bluesound]**, done by [@LouisChrist]
+- **[Genius Hub]**, done by [@GeoffAtHome]
+- **[History stats]**, done by [@gjohansson-ST]
+- **[Mastodon]**, done by [@andrew-codechimp]
+- **[Russound RIO]**, done by [@noahhusby]
+- **[Wake on LAN]**, done by [@gjohansson-ST]
+- **[Worldclock]**, done by [@gjohansson-ST]
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/ipsum
+[Bluesound]: /integrations/bluesound
+[@LouisChrist]: https://github.com/LouisChrist
+[@GeoffAtHome]: https://github.com/GeoffAtHome
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@noahhusby]: https://github.com/noahhusby
+[Genius Hub]: /integrations/geniushub
+[History stats]: /integrations/history_stats
+[Russound RIO]: /integrations/russound_rio
+[Wake on LAN]: /integrations/wake_on_lan
+[Worldclock]: /integrations/worldclock
+[Mastodon]: /integrations/mastodon
+[@andrew-codechimp]: https://github.com/andrew-codechimp
 
 ### Farewell to the following
 
