@@ -51,17 +51,17 @@ The Viessmann API is rate-limited. If you exceed one of the limits below you wil
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
 
-The {% term integration %} polls the API every 60 seconds and will work within these limits. However any additional requests to the API, e.g. by setting the temperature via the {% term integration %} but also by interacting with the ViCare app, counts into those limits.
+The {% term integration %} polls the API every 60 seconds and will work within these limits. However any additional requests to the API, e.g. by setting the temperature via the integration but also by interacting with the ViCare app, counts into those limits.
 
 {% note %}
-If you have multiple Viessmann devices in Home Assistant the limit is shared between them, meaning the poll interval is increased and the values are less frequently updated.
+If you have multiple Viessmann devices in Home Assistant the limit is shared between them, meaning the poll interval is increased and the values are less frequently updated!
 {% endnote %}
 
 {% include integrations/config_flow.md %}
 
 ## Entities
 
-ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to entity of different platforms in Home Assistant. A single device may be represented by one or more platforms.
+ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to {% term <entity> [<entities>] %} of different {% term <platform> [<platforms>] %} in Home Assistant. A single device may be represented by one or more platforms.
 
 ## Climate
 
@@ -75,7 +75,7 @@ Viessmann devices with room temperature sensing will show the current room tempe
 
 Represents the domestic hot water controls of your device.
 
-It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating {% term integration %}. Therefore the operation mode of that {% term integration %} is just available as an attribute and cannot be modified.
+It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore the operation mode of that integration is just available as an attribute and cannot be modified.
 
 ### Sensor
 
@@ -91,9 +91,9 @@ Number entities are available to adjust values like the predefined temperature f
 
 ## Services
 
-The following services of the [climate](/integrations/climate/) {% term integration %} are provided by the ViCare {% term integration %}: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
+The following services of the [climate integration](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
 
-The following services of the [water_heater](/integrations/water_heater/) {% term integration %} are provided by the ViCare {% term integration %}: `set_temperature`
+The following services of the [water_heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
 
 #### Service `vicare.set_vicare_mode`
 
@@ -119,7 +119,7 @@ Note that `set_temperature` will always affect the current normal temperature or
 
 Set HVAC mode for the climate device. The following modes are supported:
 
-The `climate.vicare_heating` {% term integration %} has the following mapping of HVAC modes to Viessmann operation modes:
+The ViCare {% term integration %} has the following mapping of HVAC modes to Viessmann operation modes:
 
 | HVAC mode | Viessmann mode | Description |
 | ---------------------- | -------- | ----------- |
@@ -150,3 +150,13 @@ Sets the target temperature of domestic hot water to the given temperature.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control.
 | `temperature` | no | New target temperature for water heater
+
+## Troubleshooting
+
+The ViCare API tend to loose contact with the gateway from time to time. This will be logged in Home Assistant with:
+
+```
+Invalid data from Vicare server: {'viErrorId': '|00-f90f95027255412b970570f114c8acb1-c5ea549312c043f2-01.2ce45073_', 'statusCode': 400, 'errorType': 'DEVICE_COMMUNICATION_ERROR', 'message': '', 'extendedPayload': {'httpStatusCode': 'NotFound', 'code': '404', 'reason': 'GATEWAY_OFFLINE'}}
+```
+
+Usually this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
