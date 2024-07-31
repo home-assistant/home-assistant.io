@@ -1161,7 +1161,7 @@ Using the `merge_response` template we can merge several responses into one list
 
 {% note %}
 
-`sort_by` and `single_key` has only use if the action call is returning dictionaries
+`sort_by` and `single_key` have only use if the action call is returning dictionaries, for example `weather` and `calendar` action responses.
 
 {% endnote %}
 
