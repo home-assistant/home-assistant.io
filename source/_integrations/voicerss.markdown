@@ -48,6 +48,11 @@ format:
   required: false
   type: string
   default: 8khz_8bit_mono
+voice:
+  description: The voice to use. Needs to match the language.
+  required: false
+  type: string
+  default: linda
 {% endconfiguration %}
 
 Check the [VoiceRSS API documentation](http://www.voicerss.org/api/) for allowed values.
@@ -64,6 +69,7 @@ tts:
     language: "de-de"
     codec: mp3
     format: "8khz_8bit_mono"
+    voice: "jonas"
 ```
 
 Please note, some media_players require a certain format. For example the Sonos requires a format of '44khz_16bit_stereo'
