@@ -54,7 +54,7 @@ The Viessmann API is rate-limited. If you exceed one of the limits below, you wi
 The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration but also by interacting with the ViCare app, count into those limits.
 
 {% note %}
-If you have multiple Viessmann devices in Home Assistant, the limit is shared between them, meaning the poll interval is increased and the values are less frequently updated!
+If you have multiple Viessmann devices in Home Assistant, the limit is shared between them, meaning the poll interval is increased, and the values are less frequently updated!
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -101,8 +101,8 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `vicare_mode` | no | New value of ViCare mode. For supported values see the `vicare_modes` attribute of the climate {% term entity %}.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id.
+| `vicare_mode` | no | New value of ViCare mode. For supported values, see the `vicare_modes` attribute of the climate {% term entity %}.
 
 ### Service `climate.set_temperature`
 
@@ -153,7 +153,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 ## Troubleshooting
 
-The ViCare API tend to loose contact with the gateway from time to time. This will be logged in Home Assistant with:
+The ViCare API tend to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
 
 ```log
 Invalid data from Vicare server: {
@@ -169,4 +169,4 @@ Invalid data from Vicare server: {
 }
 ```
 
-Usually this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
+Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
