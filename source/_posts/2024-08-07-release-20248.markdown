@@ -82,8 +82,57 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=Snk6oslMQFc)
-3 July 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+## Dashboards - Chapter 2
+
+As part of our [roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
+continued, making the dashboard customization and organization easier and more
+intuitive.
+
+Last week, we had the ["Dashboards Chapter 2"](https://www.youtube.com/watch?v=9zmXLxQPr1o)
+live stream, talking about the current state of the dashboards, the progress
+we have made, the upcoming features and improvements we are working on, but
+more importantly: Great insights in all the research and design philosophy
+behind the dashboards. In case you missed it, you can watch the recording
+on our [YouTube channel](https://www.youtube.com/watch?v=9zmXLxQPr1o) or
+read the [recap blog post](/blog/2024/07/26/dashboard-chapter-2/).
+
+As part of our continuous improvement: This month we have fully redesigned
+and revamped the badges for your dashboards!
+
+### New badges for your dashboard
+
+We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges):
+this release introduces our redesigned badges!
+
+A big revamp of the original badges that have been in Home Assistant since, well,
+forever. The new badges are designed to match the design of the
+[Mushroom] chip cards, and are
+mean to sit at the top of a dashboard view, providing a summary of the most
+important information that you need to know, at a glance.
+
+<img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
+
+These new badges are of course fully configurable from the UI, allowing you to
+fully tweak them to your needs. You can specify whether the icon, name, and/or
+state will be visible, and you can configure the contents within each of them.
+
+Everything can, of course, be dragged and dropped in the order you like 😎
+
+Not just that, the new badges also come with visibility options, the same
+as we have [introduced for cards in Home Assistant 2024.6](/blog/2024/06/05/release-20246/#control-visibility-of-cards).
+Meaning you can show or hide them based on who is viewing the dashboard, what
+screen size it is displayed within, whether an entity is in a certain state, and more.
+
+<img class="no-shadow" src="/images/blog/2024-08/badges-add-visibility.png" alt="Screenshots; left showing the add badge dialog wich include the custom mushroom template badge, on the right shows the visibility tab and options badges now have.">
+
+The best news of all? The new badges work across both the new sections view and
+the old masonry view! 🎉 Heck!, we even support for custom badges, like the
+custom template one released by the [Mushroom] project 🍄.
+
+If you have existing old-style badges today, don't worry! They will be
+automatically converted to the new badges when you upgrade to this release.
+
+[Mushroom]: https://github.com/piitaya/lovelace-mushroom
 
 <lite-youtube videoid="Snk6oslMQFc" videotitle="Home Assistant 2024.7 Release Party"></lite-youtube>
 
