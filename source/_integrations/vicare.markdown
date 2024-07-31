@@ -61,7 +61,7 @@ If you have multiple Viessmann devices in Home Assistant the limit is shared bet
 
 ## Entities
 
-ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to {% term <entity> [<entities>] %} of different {% term <platform> [<platforms>] %} in Home Assistant. A single device may be represented by one or more platforms.
+ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to {% term entity [entities] %} of different {% term platform [platforms] %} in Home Assistant. A single device may be represented by one or more platforms.
 
 ## Climate
 
