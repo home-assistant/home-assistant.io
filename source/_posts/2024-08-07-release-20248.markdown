@@ -292,6 +292,181 @@ it is inevitable.
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
+{% details "Recorder database upgrade notice" %}
+
+This notice is only relevant if you are using the recorder integration with
+an MySQL or ProgreSQL database. If you are using the default SQLite database,
+you can ignore this notice.
+
+This release includes a database upgrade/migration that increases the size
+of the number we can store for the idenfier fields. A more technical explanation:
+We are upgrading integer fields for ID columns from a 32-bit integer to `BIGINT`,
+which is a 64-bit integer.
+
+This can cause the database upgrade to take longer than usual, depending on
+the size of your database.
+
+Please be patient and let the upgrade process finish. Do not interrupt the
+upgrade process, as this can lead to a corrupted database.
+
+([@emontnemery] - [#121093]) ([documentation](/integrations/recorder))
+
+[@emontnemery]: https://github.com/emontnemery
+[#121093]: https://github.com/home-assistant/core/pull/121093
+
+{% enddetails %}
+
+{% details "BlinkStick" %}
+
+The Blinksticklight integration is disabled because it requires software that
+is not open source. Any help or contributions to make this integration work
+without the closed-source software is welcomed.
+
+([@joostlek] - [#121846]) ([documentation](/integrations/blinksticklight))
+
+[@joostlek]: https://github.com/joostlek
+[#121846]: https://github.com/home-assistant/core/pull/121846
+
+{% enddetails %}
+
+{% details "Bluesound" %}
+
+Sources behave slightly different. Radio station providers (like TuneIn, Radio
+Paradise) are not part of the source list anymore as they are not selectable
+as source.
+
+Presets which play a specific radio station can be created in the BluOS app and
+are displayed as sources in Home Assistant.
+
+The currently selected source tries to match those presets and falls back to
+the radio station provider (like TuneIn, Radio Paradise).
+
+([@LouisChrist] - [#117257]) ([documentation](/integrations/bluesound))
+
+[@LouisChrist]: https://github.com/LouisChrist
+[#117257]: https://github.com/home-assistant/core/pull/117257
+
+{% enddetails %}
+
+{% details "BMW Connected Drive" %}
+
+Describing attributes `car` and `vin` have been removed from BMW entities.
+If you need to look them up, please get them from the device info screen.
+
+([@rikroe] - [#120830]) ([documentation](/integrations/bmw_connected_drive))
+
+[@rikroe]: https://github.com/rikroe
+[#121093]: https://github.com/home-assistant/core/pull/120830
+
+{% enddetails %}
+
+{% details "Climate" %}
+
+Scenes that used the deprecated auxiliary heat (`aux_heat` attribute),
+will no longer restore/set the auxiliary heat state when the scene
+is activated.
+
+([@bjpetit] - [#121873]) ([documentation](/integrations/climate))
+
+[@bjpetit]: https://github.com/bjpetit
+[#121873]: https://github.com/home-assistant/core/pull/121873
+
+{% enddetails %}
+
+{% details "Concord232" %}
+
+The Concord232 integration is disabled because it requires software that
+is not open source. Any help or contributions to make this integration work
+without the closed-source software is welcomed.
+
+([@joostlek] - [#121974]) ([documentation](/integrations/concord232))
+
+[@joostlek]: https://github.com/joostlek
+[#121974]: https://github.com/home-assistant/core/pull/121974
+
+{% enddetails %}
+
+{% details "DoorBird" %}
+
+Previously resetting the device favorites required working out a complicated
+URL. A button is now available to perform this operation.
+
+([@bdraco] - [#121720]) ([documentation](/integrations/doorbird))
+
+[@bdraco]: https://github.com/bdraco
+[#121720]: https://github.com/home-assistant/core/pull/121720
+
+{% enddetails %}
+
+{% details "Dovado" %}
+
+The Dovado integration is disabled because it requires software that
+is not open source. Any help or contributions to make this integration work
+without the closed-source software is welcomed.
+
+([@joostlek] - [#121871]) ([documentation](/integrations/dovado))
+
+[@joostlek]: https://github.com/joostlek
+[#121871]: https://github.com/home-assistant/core/pull/121871
+
+{% enddetails %}
+
+{% details "HomeKit Bridge" %}
+
+PM2.5 airquality sensors are now mapped to the [US EPA AQI scale](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf).
+The new cutoff value for US AQI Good (0-50) is 9.0 µg/m3 is thus now used to
+match the 2024 US EPA AQI standard.
+
+([@sarabveer] - [#121093]) ([documentation](/integrations/homekit))
+
+[@sarabveer]: https://github.com/sarabveer
+[#109900]: https://github.com/home-assistant/core/pull/109900
+
+{% enddetails %}
+
+{% details "Lights" %}
+
+The following attributes are no longer saved in the database for light
+entities because their combinations would quickly fill up the database and
+they are never used by Home Assistant:
+
+- `brightness`
+- `color_mode`
+- `color_temp`
+- `color_temp_kelvin`
+- `effect`
+- `hs_color`
+- `rgb_color`
+- `rgbw_color`
+- `rgbww_color`
+- `xy_color`
+
+This change has no impact on the operation of your lights, but it will reduce
+the amount of data stored in the database.
+
+([@bdraco] - [#121776]) ([documentation](/integrations/light))
+
+[@bdraco]: https://github.com/bdraco
+[#121776]: https://github.com/home-assistant/core/pull/121776
+
+{% enddetails %}
+
+{% details "Matter" %}
+
+Multi press events are now split of into their own dedicated event type such as
+`multi_press_1`, `multi_press_2` etc. making it easier to automate on multiple
+presses instead of having to look manually at the number of presses count.
+
+If you have used the current event type in your automations, you will need to
+update them to use the new event types.
+
+([@marcelveldt] - [#122191]) ([documentation](/integrations/matter))
+
+[@marcelveldt]: https://github.com/marcelveldt
+[#122191]: https://github.com/home-assistant/core/pull/122191
+
+{% enddetails %}
+
 {% details "MQTT" %}
 
 The `schema` option has been removed from the mqtt vacuum schema. YAML configs
@@ -305,7 +480,90 @@ error message will be logged to notice.
 [@jbouwh]: https://github.com/jbouwh
 [#121093]: https://github.com/home-assistant/core/pull/121093
 
-- Remove schema option for mqtt vacuum configs ([@jbouwh] - [#121093]) ([mqtt docs]) (breaking-change)
+{% enddetails %}
+
+{% details "MVG" %}
+
+([@joostlek] - [#121975]) ([documentation](/integrations/mvglive))
+
+The MVG integration is disabled because it requires software that
+is not open source. Any help or contributions to make this integration work
+without the closed-source software is welcomed.
+
+[@joostlek]: https://github.com/joostlek
+[#121975]: https://github.com/home-assistant/core/pull/121975
+
+{% enddetails %}
+
+{% details "National Weather Service (NWS)" %}
+
+NWS weather entities no longer have a `detailed_description` in the return
+from the `weather.get_forecasts` service.
+
+A new service, `nws.get_forecasts_extra`, is provided that includes
+`detailed_description`. The `detailed_description` is no longer provided
+for `hourly` forecasts in the `nws.get_forecasts_extra` service as the API
+does not return data, however a `short_description` is now available.
+
+([@MatthewFlamm] - [#117254]) ([documentation](/integrations/nws))
+
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[#117254]: https://github.com/home-assistant/core/pull/117254
+
+{% enddetails %}
+
+{% details "NextBus" %}
+
+The `messages`, `directions`, and `attribution` attributes have been removed from
+the sensor. The new API doesn't provide these anymore.
+
+([@ViViDboarder] - [#121133]) ([documentation](/integrations/nextbus))
+
+[@ViViDboarder]: https://github.com/ViViDboarder
+[#121133]: https://github.com/home-assistant/core/pull/121133
+
+{% enddetails %}
+
+{% details "OpenAI Conversation" %}
+
+The previously deprecated `256`, `512`, and `1024` values for size argument for
+the `generate_image` service have been removed. They have already been
+unsupported in the past (replaced with `1024x1024` by default).
+
+If you still use these values in your automations or scripts, you will need to
+update them to use "1024x1024", "1024x1792", or "1792x1024" values.
+
+([@Shulyaka] - [#122388]) ([documentation](/integrations/openai_conversation))
+
+[@Shulyaka]: https://github.com/Shulyaka
+[#122388]: https://github.com/home-assistant/core/pull/122388
+
+{% enddetails %}
+
+{% details "WLED" %}
+
+The WLED integration now requires a WLED device running at least
+[WLED 0.14.0](https://github.com/Aircoookie/WLED/releases/tag/v0.14.0)
+
+([@frenck] - [#120830]) ([documentation](/integrations/wled))
+
+[@frenck]: https://github.com/frenck
+[#122101]: https://github.com/home-assistant/core/pull/122101
+
+{% enddetails %}
+
+{% details "Xiaomi Miio" %}
+
+The `Nature` and `Normal` preset modes will be renamed to `nature`
+and `normal` to support translations.
+
+If you have automations or scripts that use the `Nature` or `Normal` preset
+modes, you will need to update them to use `nature` and `normal` instead.
+
+([@piitaya] - [#122367]) ([documentation](/integrations/xiaomi_miio))
+
+[@piitaya]: https://github.com/piitaya
+[#122367]: https://github.com/home-assistant/core/pull/122367
 
 {% enddetails %}
 
