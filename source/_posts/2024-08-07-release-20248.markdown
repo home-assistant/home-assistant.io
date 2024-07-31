@@ -211,6 +211,42 @@ The created and modified columns are hidden by default, but you can make them
 visible by clicking the {% icon "mdi:cog" %} icon in the top right of the
 table. Sorting is always available, regardless of the visibility of the columns.
 
+## Control Home Assistant using AI with Ollama
+
+In the 2024.6 release, we introduced the ability to use the [OpenAI] and
+[GoogleAI] {%term integrations %} to [control your home using Large Language Models]
+(LLMs). Many of you request this to work with a local hosted LLM as well.
+
+Today we are happy to announce that Home Assistant now supports being
+controlled by local LLMs too!
+
+This is achieved thanks to [@Shulyaka] adding support for the brand new tools
+API in Ollama. The performance of the local models has been fine tuned by
+[@AllenPorter].
+
+Allen created a new LLM benchmark suite that is more balanced and less focused
+on the edge cases. We scored the different models with this new benchmark.
+
+The cloud-based models scored 98% on this new benchmark while local LLMs did
+not do so well. Through prompt tuning and fixes included in this release,
+we have been able to now get local LLMs to be able to score a reasonable 81%.
+
+<img class="no-shadow" src="/images/blog/2024-08/llama-3.1-iteration.png" alt="Graph showing the iteration progress of implementing local Ollama support using the Llama 3.1 8B model.">
+
+We will continue to work on testing new models and improving our prompts
+and tools to achieve a higher score.
+
+If you like to experiment with local LLMs using Home Assistant, we currently
+recommend using the Llama 3.1 8B model.
+
+_TODO: Verify numbers in this text_
+
+[@AllenPorter]: https://github.com/AllenPorter
+[@Shulyaka]: https://github.com/Shulyaka
+[control your home using Large Language Models]: /blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms
+[GoogleAI]: /integrations/google_generative_ai_conversation/
+[OpenAI]: /integrations/openai_conversation
+
 ## Integrations
 
 Thanks to our community for keeping pace with the new {% term integrations %}
