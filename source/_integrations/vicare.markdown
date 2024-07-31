@@ -75,7 +75,9 @@ Viessmann devices with room temperature sensing will show the current room tempe
 
 Represents the domestic hot water controls of your device.
 
+{% note %}
 It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
+{% endnote %}
 
 ### Sensor
 
