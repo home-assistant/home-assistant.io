@@ -103,8 +103,8 @@ Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode]
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id.
-| `vicare_mode` | no | New value of ViCare mode. For supported values, see the `vicare_modes` attribute of the climate entity.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
+| `vicare_mode` | no | New value of ViCare mode. For supported values, see the `vicare_modes` attribute of the climate entity. |
 
 ### Service `climate.set_temperature`
 
@@ -112,8 +112,8 @@ Sets the target temperature to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `temperature` | no | Desired target temperature
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
+| `temperature` | no | Desired target temperature. |
 
 Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
 
@@ -132,7 +132,7 @@ The ViCare {% term integration %} has the following mapping of HVAC modes to Vie
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
-| `hvac_mode` | no | New value of HVAC mode |
+| `hvac_mode` | no | New value of HVAC mode. |
 
 ### Service `climate.set_preset_mode`
 
@@ -151,7 +151,7 @@ Sets the target temperature of domestic hot water to the given temperature.
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. |
-| `temperature` | no | New target temperature for water heater |
+| `temperature` | no | New target temperature for water heater. |
 
 ## Troubleshooting
 
