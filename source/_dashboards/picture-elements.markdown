@@ -25,7 +25,7 @@ The cards allow you to position icons or text and even buttons on an image based
 
 ## YAML configuration
 
-This card can only be configured in YAML.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
