@@ -169,7 +169,6 @@ Depending on the supported features of the camera, select entities are added for
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
 - HDR* (Off, On, Auto)
-- Chime play ringtone
 - Chime motion ringtone
 - Chime person ringtone
 - Chime visitor ringtone
