@@ -3,7 +3,7 @@
 {% assign doc = url_parts[2] %}
 
 {% include site/head.html %}
-  <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} class="{% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'installation' or root == 'getting-started' or root == 'common-tasks' %}documentation-page{% endif %}{% if root == 'integrations' %}integration-page{% endif %}{% if root == 'blog' %}blog-post{% endif %}">
+  <body {% if page.body_id %} id="{{ page.body_id }}"{% elsif page.layout == "landingpage" %} id="landingpage"{% endif %} class="{% if root == 'docs' or root == 'dashboards' or root == 'voice_control' or root == 'installation' or root == 'getting-started' or root == 'common-tasks' %}documentation-page{% endif %} {% if root == 'integrations' %}integration-page{% endif %} {% if page.blog_index %}blog-index{% endif %} {% if root == 'blog' %}blog-post {% if doc == 'categories' %}blog-category{% endif %}{% endif %}">
     <header class='site-header {% if page.dark_header %}dark{% endif %}'>
       {% include site/header.html %}
     </header>
