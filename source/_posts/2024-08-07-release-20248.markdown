@@ -235,7 +235,7 @@ The following integrations are now available via the Home Assistant UI:
 The following {% term integrations %} are also no longer available as
 of this release:
 
-- **Lorem** has been removed, because of Slipsum.
+- **UE Smart Radio** has been removed, the service has been [discontinued](https://forums.slimdevices.com/forum/user-forums/general-discussion/1668327-uesmartradio-com-and-mysqueezebox-com-servers).
 
 ## Lorem ipsum
 
