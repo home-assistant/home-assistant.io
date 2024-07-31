@@ -29,7 +29,7 @@ Some examples of its use include:
 {% include integrations/config_flow.md %}
 
 {% note %}
-When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance is used to calculate the direction of travel in meters (m) to filter out small GPS coordinate changes.
+When adding the **Proximity** integration, you are prompted to define the **Tolerance distance**. The tolerance distance must be provided in meters (m) and is used to filter out small GPS coordinate changes (_due to inaccuracies of GPS_) to calculate the direction of travel.
 {% endnote %}
 
 ## Sensors
