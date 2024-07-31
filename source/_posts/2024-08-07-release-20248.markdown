@@ -332,10 +332,65 @@ changes to existing integrations:
 
 {% details "Potential changes to process" icon="mdi:scale-balance" %}
 
-Processed up to _#121068.
+Processed up to _#122730_.
 
+- Show OHF logo on loading and about screen (#21504) @balloob
+
+- **Add linked doorbell event support to HomeKit** ([@bdraco] - [#120834]) ([homekit docs])
+
+- Add support for event entity motion sensors to HomeKit ([@bdraco] - [#121123]) ([homekit docs])
 - Add event platform to unifiprotect ([@bdraco] - [#120681]) ([unifiprotect docs]) (new-platform)
 - Add event platform to doorbird ([@bdraco] - [#121114]) ([doorbird docs]) (new-platform)
+- Add event platform to august ([@bdraco] - [#121392]) ([august docs]) (new-platform)
+- Add event entity to Feedreader ([@mib1185] - [#118147]) ([feedreader docs]) (new-platform)
+
+- Add support for Roborock Zeo ([@Lash-L] - [#121334]) ([roborock docs]) (noteworthy)
+
+- Add Mealie service to get mealplan ([@joostlek] - [#120824]) ([mealie docs])
+- Add Mealie service to get recipe ([@joostlek] - [#121462]) ([mealie docs])
+- Add shopping lists to Mealie integration ([@andrew-codechimp] - [#121534]) ([mealie docs])
+- Add service to import recipe to mealie ([@joostlek] - [#121598]) ([mealie docs])
+- Add sensor platform to Mealie ([@joostlek] - [#122280]) ([mealie docs]) (new-platform)
+- Add Mealie service to set a random mealplan ([@joostlek] - [#122313]) ([mealie docs])
+- Add mealie service to set mealplan ([@joostlek] - [#122317]) ([mealie docs])
+
+- Add energy binary sensors to Tessie ([@Bre77] - [#121349]) ([tessie docs])
+- Add energy select entities to Tessie ([@Bre77] - [#120641]) ([tessie docs])
+- Add energy number entities for Tessie ([@Bre77] - [#121354]) ([tessie docs])
+- Add energy switch entities to Tessie ([@Bre77] - [#121360]) ([tessie docs])
+- Add sunroof to Tessie ([@Bre77] - [#121743]) ([tessie docs])
+- Add ability to control ventilated seats with Tessie integration ([@atinsley] - [#121624]) ([tessie docs])
+
+- Add support for Xiaomi airpurifier and humidifier ([@tanchu] - [#117791]) ([xiaomi_miio docs])
+
+- Add valve support to Hydrawise ([@dknowles2] - [#116302]) ([hydrawise docs])
+
+- Migrate Habitica Dailies and To-Do's to the todo platform ([@tr4nt0r] - [#116655]) ([habitica docs]) (deprecation)
+
+- Append multiple rows in Google Sheets ([@luca-angemi] - [#120829]) ([google_sheets docs])
+
+- Add Broadlink select platform ([@eifinger] - [#121797]) ([broadlink docs]) (new-platform)
+- Add binary sensors to TotalConnect ([@austinmroczek] - [#121888]) ([totalconnect docs])
+- Add PrusaLink nozzle and mmu support ([@deimosfr] - [#120436]) ([prusalink docs])
+- Add calendar for Rachio smart hose timer ([@brg468] - [#120030]) ([rachio docs]) (new-platform)
+ 
+- Add CCT support to WLED ([@Suxsem] - [#122488]) ([wled docs])
+
+- Add Airzone Cloud zone thermostat sensors ([@Noltari] - [#122648]) ([airzone_cloud docs])
+- Add Airzone Cloud WebServer CPU/Memory sensors ([@Noltari] - [#122667]) ([airzone_cloud docs])
+- Add Airzone Cloud low thermostat battery binary sensor ([@Noltari] - [#122665]) ([airzone_cloud docs])
+- Fix Airzone Cloud WebServer memory usage unit ([@Noltari] - [#122670]) ([airzone_cloud docs])
+
+- Add support for Shelly virtual `boolean` component ([@bieniu] - [#119932]) ([shelly docs]) (noteworthy)
+- Add support for Shelly `text` virtual component ([@bieniu] - [#121735]) ([shelly docs]) (new-platform) (noteworthy)
+- Add support for Shelly `number` virtual component ([@bieniu] - [#121894]) ([shelly docs]) (noteworthy)
+- Add support for Shelly `enum` virtual component ([@bieniu] - [#121997]) ([shelly docs]) (new-platform) (noteworthy)
+- Add shelly overcurrent sensor for switches ([@huettner94] - [#122494]) ([shelly docs])
+
+- Change OpenAI default recommended model to gpt-4o-mini ([@allenporter] - [#122333]) ([openai_conversation docs]) (noteworthy)
+- Switch from WebRTC to microVAD ([@synesthesiam] - [#122861]) ([voip docs]) ([assist_pipeline docs])
+
+- Add Reolink chime support #122752 (@starkillerOG) 
 
 {% enddetails %}
 
