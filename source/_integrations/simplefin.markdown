@@ -32,5 +32,5 @@ Each `account` will be set up as a device in Home Assistant, and it will contain
 
 |Sensor|Description|
 |-------|---------------|
-|Balance|Account Balance|
+|Balance|Account balance|
 |Age| This sensor shows when the data was retrieved by the SimpleFin API |
