@@ -2,6 +2,7 @@
 title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_release: 0.65
@@ -12,7 +13,7 @@ ha_codeowners:
 ha_domain: filter
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file

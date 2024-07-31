@@ -24,6 +24,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - fan
