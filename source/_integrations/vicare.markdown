@@ -41,20 +41,20 @@ Setup the {% term integration %} from your device (phone) where you have the ViC
 {% endimportant %}
 
 {% note %}
-It may take up to an hour till your new client is active and usable. Otherwise you will not get any devices in Home Assistant.
+It may take up to an hour for your new client to become active and usable. Otherwise, you will not receive any devices in Home Assistant.
 {% endnote %}
 
 ### API limits
 
-The Viessmann API is rate-limited. If you exceed one of the limits below you will be blocked for 24 hours:
+The Viessmann API is rate-limited. If you exceed one of the limits below, you will be blocked for 24 hours:
 
 - Limit 1: 120 calls for a time window of 10 minutes
 - Limit 2: 1450 calls for a time window of 24 hours
 
-The {% term integration %} polls the API every 60 seconds and will work within these limits. However any additional requests to the API, e.g. by setting the temperature via the integration but also by interacting with the ViCare app, counts into those limits.
+The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration but also by interacting with the ViCare app, count into those limits.
 
 {% note %}
-If you have multiple Viessmann devices in Home Assistant the limit is shared between them, meaning the poll interval is increased and the values are less frequently updated!
+If you have multiple Viessmann devices in Home Assistant, the limit is shared between them, meaning the poll interval is increased and the values are less frequently updated!
 {% endnote %}
 
 {% include integrations/config_flow.md %}
@@ -75,7 +75,7 @@ Viessmann devices with room temperature sensing will show the current room tempe
 
 Represents the domestic hot water controls of your device.
 
-It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore the operation mode of that integration is just available as an attribute and cannot be modified.
+It is not possible to turn on/off water heating via the water heater {% term integration %} since this would conflict with the operation modes of the heating integration. Therefore, the operation mode of that integration is just available as an attribute and cannot be modified.
 
 ### Sensor
 
