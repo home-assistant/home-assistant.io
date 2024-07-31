@@ -37,7 +37,7 @@ Create a new API client by selecting **Add** in the **Clients** section on the d
 Copy the **Client ID** in the **Clients** section on the developer dashboard for the setup in Home Assistant.
 
 {% important %}
-You have to setup the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise, your device does not know how to handle the `vicare://` redirect URL, and you will receive an **Invalid credentials** notification and the setup procedure will fail.
+You have to set up the {% term integration %} from your device (phone) where you have the ViCare app installed. Otherwise, your device does not know how to handle the `vicare://` redirect URL, and you will receive an **Invalid credentials** notification and the setup procedure will fail.
 {% endimportant %}
 
 {% note %}
@@ -131,8 +131,8 @@ The ViCare {% term integration %} has the following mapping of HVAC modes to Vie
  
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `hvac_mode` | no | New value of HVAC mode
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
+| `hvac_mode` | no | New value of HVAC mode |
 
 ### Service `climate.set_preset_mode`
 
@@ -141,8 +141,8 @@ Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the t
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id.
-| `preset_mode` | no | New value of preset mode.
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
+| `preset_mode` | no | New value of preset mode. |
 
 ### Service `water_heater.set_temperature`
 
@@ -150,12 +150,12 @@ Sets the target temperature of domestic hot water to the given temperature.
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control.
-| `temperature` | no | New target temperature for water heater
+| `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. |
+| `temperature` | no | New target temperature for water heater |
 
 ## Troubleshooting
 
-The ViCare API tend to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
+The ViCare API tends to lose contact with the gateway from time to time. This will be logged in Home Assistant with:
 
 ```log
 Invalid data from Vicare server: {
