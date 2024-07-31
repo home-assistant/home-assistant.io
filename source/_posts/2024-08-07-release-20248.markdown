@@ -901,6 +901,7 @@ If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Climate entity now validates temperature provided in action calls](https://developers.home-assistant.io/blog/2024/07/24/climate-min-max-temperature-check/)
 - [model_id added to DeviceInfo](https://developers.home-assistant.io/blog/2024/07/16/device-info-model-id)
 - [New entity feature flags in FanEntity](https://developers.home-assistant.io/blog/2024/07/19/fan-fanentityfeatures-turn-on_off)
 - [New HVACAction DEFROSTING](https://developers.home-assistant.io/blog/2024/07/07/climate-hvacaction-defrosting/)
