@@ -29,7 +29,7 @@ script:
   message_temperature:
     sequence:
       # This is Home Assistant Script Syntax
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Current temperature is {{ states('sensor.temperature') }}"
 ```
@@ -163,7 +163,7 @@ script:
       - condition: state
         entity_id: switch.pushover_notifications
         state: "on"
-      - service: notify.pushover
+      - action: notify.pushover
         data:
           title: "{{ title }}"
           message: "{{ message }}"
@@ -182,7 +182,7 @@ automation:
     from: "off"
     to: "on"
   action:
-    service: script.notify_pushover
+    action: script.notify_pushover
     data:
       title: "State change"
       message: "The light is on!"
@@ -201,7 +201,7 @@ automation:
     from: "off"
     to: "on"
   action:
-    service: script.turn_on
+    action: script.turn_on
     target:
       entity_id: script.notify_pushover
     data:
@@ -243,7 +243,7 @@ This technique can also be used for the calling script to wait for the called sc
 script:
   script_1:
     sequence:
-      - service: script.turn_on
+      - action: script.turn_on
         target:
           entity_id: script.script_2
       # Perform some other steps here while second script runs...
@@ -290,7 +290,7 @@ script: 
           entity_id: device_tracker.paulus
           domain: light
       - alias: "Bedroom lights on"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: group.bedroom
         data:
@@ -299,7 +299,7 @@ script: 
           # supports seconds, milliseconds, minutes, hours
           minutes: "{{ minutes }}"
       - alias: "Living room lights on"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: "{{ turn_on_entity }}"
 ```

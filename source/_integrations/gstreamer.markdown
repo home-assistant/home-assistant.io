@@ -85,7 +85,7 @@ media_player:
 script:
   tts:
     sequence:
-      - service: tts.google_say # or amazon_polly, voicerss, etc
+      - action: tts.google_say # or amazon_polly, voicerss, etc
         target:
           entity_id: media_player.gstreamer
         data:

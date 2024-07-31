@@ -125,7 +125,7 @@ Documentation:
 Example of calling media player action with title and image set:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:

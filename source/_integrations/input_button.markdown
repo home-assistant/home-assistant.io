@@ -71,7 +71,7 @@ trigger:
   - platform: state
     entity_id: input_button.my_button
 action:
-  - service: notify.frenck
+  - action: notify.frenck
     data:
       message: "My button has been pressed!"
 ```
@@ -84,7 +84,7 @@ The input button entities exposes a single action:
 This action can be used to trigger a button press for that entity.
 
 ```yaml
-- service: input_button.press
+- action: input_button.press
   target:
     entity_id: input_button.my_button
 ```

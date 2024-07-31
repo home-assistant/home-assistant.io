@@ -56,7 +56,7 @@ with a dictionary of torrents based on the provided filter.
 | `torrent_filter`       | no       | The type of torrents you want in the response  | all, active, inactive, paused, downloading, seeding |
 
 ```yaml
-service: qbittorrent.get_torrents
+action: qbittorrent.get_torrents
 data:
   filter: "all"
 response_variable: torrents
@@ -74,7 +74,7 @@ with a dictionary of torrents based on the provided filter.
 | `torrent_filter`       | no       | The type of torrents you want in the response | all, active, inactive, paused, downloading, seeding |
 
 ```yaml
-service: qbittorrent.get_all_torrents
+action: qbittorrent.get_all_torrents
 data:
   filter: "all"
 response_variable: all_torrents

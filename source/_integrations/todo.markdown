@@ -58,7 +58,7 @@ Get to-do items from a to-do list. A to-do list `target` is selected with a [tar
 This is a full example that returns all to-do items that have not been completed:
 
 ```yaml
-service: todo.get_items
+action: todo.get_items
 target:
   entity_id: todo.personal_tasks
 data:
@@ -82,7 +82,7 @@ Only one of `due_date` or `due_datetime` may be specified.
 This is a full example in YAML:
 
 ```yaml
-service: todo.add_item
+action: todo.add_item
 target:
   entity_id: todo.personal_tasks
 data:
@@ -107,7 +107,7 @@ Update a to-do item. A to-do list `target` is selected with a [Target Selector](
 At least one of `rename` or `status` is required. Only one of `due_date` or `due_datetime` may be specified. This is a full example that updates the status and the name of a to-do item.
 
 ```yaml
-service: todo.update_item
+action: todo.update_item
 target:
   entity_id: todo.personal_tasks
 data:
@@ -127,7 +127,7 @@ Removing a to-do item. A to-do list `target` is selected with a [Target Selector
 This is a full example that deletes a to-do Item with the specified name.
 
 ```yaml
-service: todo.remove_item
+action: todo.remove_item
 target:
   entity_id: todo.personal_tasks
 data:
@@ -141,7 +141,7 @@ Removes all completed to-do items. A to-do list `target` is selected with a [Tar
 This is a full example that deletes all completed to-do items.
 
 ```yaml
-service: todo.remove_completed_items
+action: todo.remove_completed_items
 target:
   entity_id: todo.personal_tasks
 ```

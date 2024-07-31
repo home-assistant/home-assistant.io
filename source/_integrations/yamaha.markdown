@@ -110,15 +110,15 @@ script:
  rp_porch:
     alias: "Radio Paradise Porch"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.living_room_stereo_zone_2
-      - service: media_player.volume_set
+      - action: media_player.volume_set
         target:
           entity_id: media_player.living_room_stereo_zone_2
         data:
           volume_level: 0.48
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.living_room_stereo_zone_2
         data:

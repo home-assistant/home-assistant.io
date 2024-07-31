@@ -78,7 +78,7 @@ with a mapping of weather services and their associated forecasts.
 | `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily
 
 ```yaml
-service: weather.get_forecasts
+action: weather.get_forecasts
 target:
   entity_id:
     - weather.tomorrow_io_home_nowcast
@@ -125,7 +125,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:

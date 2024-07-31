@@ -79,7 +79,7 @@ The name of the action is `notify.bmw_connected_drive_<your_vehicle>`.
 ```yaml
 ...
 action:
-  service: notify.bmw_connected_drive_<your_vehicle>
+  action: notify.bmw_connected_drive_<your_vehicle>
   data:
     message: The name of the POI # this is shown on the iDrive dashboard
     data:

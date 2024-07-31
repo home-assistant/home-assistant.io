@@ -43,7 +43,7 @@ cast_downstairs_on_kitchen:
         dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
-      service: cast.show_lovelace_view
+      action: cast.show_lovelace_view
 ```
 
 {% important %}
@@ -70,7 +70,7 @@ You can play MP3 streams like net radios, FLAC files or videos from your local n
 
 ```yaml
 # Play a video file from the local network:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -80,7 +80,7 @@ data:
 
 ```yaml
 # Show a jpeg image:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -93,7 +93,7 @@ For the possible metadata types and values check [Google cast documentation > Me
 
 ```yaml
 # Play a movie from the internet, with extra metadata provided:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -110,7 +110,7 @@ data:
 
 ```yaml
 # Play a netradio, with extra metadata provided:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -161,7 +161,7 @@ Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w
 ```yaml
   alias: "Cast BBC iPlayer to My Chromecast"
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.my_chromecast
       data:
@@ -202,7 +202,7 @@ Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_
 ```yaml
   alias: "Cast BBC Sounds to My Chromecast"
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.my_chromecast
       data:
@@ -252,7 +252,7 @@ Optional:
             "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             "media_type": "video/mp4"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### [NRK Radio](https://radio.nrk.no)
@@ -286,7 +286,7 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
             "app_name": "nrkradio",
             "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### [NRK TV](https://tv.nrk.no)
@@ -318,7 +318,7 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
             "app_name": "nrktv",
             "media_id": "OUHA43000207"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### Plex
@@ -329,7 +329,7 @@ To cast media directly from a configured Plex server, set the fields [as documen
 'cast_plex_to_chromecast':
   alias: "Cast Plex to Chromecast"
   sequence:
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.chromecast
     data:
@@ -376,7 +376,7 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
             "app_name": "supla",
             "media_id": "3601824"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### YouTube
@@ -408,7 +408,7 @@ Optional:
             "app_name": "youtube",
             "media_id": "dQw4w9WgXcQ"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery

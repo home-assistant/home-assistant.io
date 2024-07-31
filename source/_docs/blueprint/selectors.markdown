@@ -75,7 +75,7 @@ The output of this selector is a list of actions. For example:
 
 ```yaml
 # Example action selector output result
-- service: scene.turn_on
+- action: scene.turn_on
   target:
     entity_id: scene.watching_movies
   metadata: {}
@@ -1372,7 +1372,7 @@ a script sequence. For example:
 
 ```yaml
 action:
-  - service: light.turn_on
+  - action: light.turn_on
     target: !input lights
 ```
 

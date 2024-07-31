@@ -61,7 +61,7 @@ You can use the `google_sheets.append_sheet` action to add rows of data to the S
 
 ```yaml
 # Example action
-service: google_sheets.append_sheet
+action: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: "Car Charging"
@@ -71,7 +71,7 @@ data:
     Cost: "{{ states('input_number.car_charging_cost')|float(0) }}"
 
 # Example action with multiple rows
-service: google_sheets.append_sheet
+action: google_sheets.append_sheet
 data:
   config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0
   worksheet: "Car Charging"

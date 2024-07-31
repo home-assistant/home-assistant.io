@@ -214,7 +214,7 @@ image_processing:
        entity_id:
          - binary_sensor.driveway
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: camera.driveway
 ```

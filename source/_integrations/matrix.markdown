@@ -135,7 +135,7 @@ automation:
       event_data:
         command: testword
     action:
-      service: notify.matrix_notify
+      action: notify.matrix_notify
       data:
         message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
@@ -145,7 +145,7 @@ automation:
       event_data:
         command: introduction
     action:
-      service: notify.matrix_notify
+      action: notify.matrix_notify
       data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
@@ -197,7 +197,7 @@ Supported formats are: `text` (default), and `html`.
 ```yaml
 # Example of notification as HTML
 action:
-  service: notify.matrix_notify
+  action: notify.matrix_notify
   data:
     message: >-
       <h1>Hello, world!</h1>
@@ -212,7 +212,7 @@ It is possible to send images with notifications. To do so, add a list of paths 
 ```yaml
 # Example of notification with images
 action:
-  service: notify.matrix_notify
+  action: notify.matrix_notify
   data:
     message: "Test with images"
     data:

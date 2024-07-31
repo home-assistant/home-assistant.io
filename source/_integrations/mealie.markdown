@@ -136,7 +136,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: mealie.get_mealplan
+      - action: mealie.get_mealplan
         data:
           config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
         response_variable: result

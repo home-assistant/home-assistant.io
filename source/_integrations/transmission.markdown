@@ -66,11 +66,11 @@ Example of an automation that notifies on successful download and removes the to
     - platform: event
       event_type: transmission_downloaded_torrent
   action:
-    - service: notify.telegram_notifier
+    - action: notify.telegram_notifier
       data:
         title: "Torrent completed!"
         message: "{{trigger.event.data.name}}"
-    - service: transmission.remove_torrent
+    - action: transmission.remove_torrent
       data:
         entry_id: eeb52bc78e11d813a1e6bc68c8ff93c8
         id: "{{trigger.event.data.id}}"

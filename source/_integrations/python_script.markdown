@@ -58,7 +58,7 @@ logger.info("Hello {} at {}".format(name, time.time()))
 - Call your new {% my developer_call_service service="python_script.hello_world" %} action (with parameters) from the {% my developer_services %}, using the YAML mode. 
 
 ```yaml
-service: python_script.hello_world
+action: python_script.hello_world
 data:
   name: "Input-Text"
 ```
@@ -120,7 +120,7 @@ if entity_id is not None:
 The above `python_script` can be called using the following YAML as an input.
 
 ```yaml
-- service: python_script.turn_on_light
+- action: python_script.turn_on_light
   target:
     entity_id: light.bedroom
   data:
@@ -149,9 +149,9 @@ The above `python_script` can be called using the following YAML and return a re
 {% raw %}
 
 ```yaml
-- service: python_script.hello_world
+- action: python_script.hello_world
   response_variable: python_script_output
-- service: notify.mobile_app_iphone
+- action: notify.mobile_app_iphone
   data:
     message: "{{ python_script_output['hello'] }}"
 ```

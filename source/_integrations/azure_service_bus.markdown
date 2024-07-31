@@ -85,7 +85,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.test_queue
+      action: notify.test_queue
       data:
         message: "Sun is going down"
         title: "Good evening"

@@ -374,7 +374,7 @@ automation:
         destination: "0/4/20"
     action:
       - delay: 0:0:10
-      - service: knx.read
+      - action: knx.read
         data:
           # Cover position address
           address: "0/4/21"
@@ -384,7 +384,7 @@ automation:
         event: start
     action:
       # Register the group address to trigger a knx_event
-      - service: knx.event_register
+      - action: knx.event_register
         data:
           # Cover move trigger
           address: "0/4/20"
@@ -607,7 +607,7 @@ automation:
         state: "on"
     action:
       - entity_id: light.hue_color_lamp_1
-        service: light.turn_on
+        action: light.turn_on
   - trigger:
       platform: numeric_state
       entity_id: binary_sensor.livingroom_switch
@@ -620,9 +620,9 @@ automation:
         state: "on"
     action:
       - entity_id: light.hue_bloom_1
-        service: homeassistant.turn_on
+        action: homeassistant.turn_on
       - entity_id: light.hue_bloom_2
-        service: homeassistant.turn_on
+        action: homeassistant.turn_on
 ```
 
 {% configuration %}
@@ -1508,7 +1508,7 @@ entity_category:
 ### Example action
 
 ```yaml
-service: notify.send_message
+action: notify.send_message
 data:
   message: "Hello from HA!"
   entity_id: notify.alarm

@@ -757,7 +757,7 @@ template:
       state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
       options: "{{ ['off', 'on', 'auto'] }}"
       select_option:
-        - service: tapo_control.set_day_night_mode
+        - action: tapo_control.set_day_night_mode
           data:
             day_night_mode: "{{ option }}"
           target:
@@ -797,7 +797,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:

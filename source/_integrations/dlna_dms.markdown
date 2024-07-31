@@ -41,7 +41,7 @@ URIs generated while browsing will look like the Object ID form above. However, 
 Using a path URI:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:
@@ -51,7 +51,7 @@ data:
 Using a query URI:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:

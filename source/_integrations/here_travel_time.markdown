@@ -86,7 +86,7 @@ automation:
         - thu
         - fri
   action:
-    - service: homeassistant.update_entity
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute
 ```

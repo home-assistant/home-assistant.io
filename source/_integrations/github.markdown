@@ -132,7 +132,7 @@ trigger:
   - platform: state
     entity_id: sensor.awesome_repository_latest_release
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       title: "New github/repository release"
       message: >-
@@ -154,7 +154,7 @@ trigger:
   - platform: state
     entity_id: sensor.awesome_repository_stars
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       title: "New github/repository new star"
       message: >-

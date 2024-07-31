@@ -330,7 +330,7 @@ automation:
         values:
           Sound: 9
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.welcomescene
 ```
@@ -346,7 +346,7 @@ Simulate a button being pressed:
 ```yaml
 ...
 action:
-  service: rfxtrx.send
+  action: rfxtrx.send
   data:
     event: 0b1111e003af16aa10000060
 ```
@@ -357,7 +357,7 @@ Alternatively:
 - Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
-service: rfxtrx.send
+action: rfxtrx.send
 data:
   event: "0b1111e003af16aa10000060"
 ```

@@ -93,7 +93,7 @@ backup:
 Example action:
 
 ```yaml
-service: update.install
+action: update.install
 target:
   entity_id:
     - update.my_light_bulb
@@ -108,7 +108,7 @@ After skipping an offered update, the {% term entity %} will return to the `off`
 which means there is no update available.
 
 ```yaml
-service: update.skip
+action: update.skip
 target:
   entity_id:
     - update.my_light_bulb
@@ -132,7 +132,7 @@ removed and thus the entity will return to the `on` state and the update
 notification will return.
 
 ```yaml
-service: update.clear_skipped
+action: update.clear_skipped
 target:
   entity_id:
     - update.my_light_bulb
@@ -159,7 +159,7 @@ automation:
       to: "on"
     action:
       alias: "Send notification to my phone about the update"
-      service: notify.iphone
+      action: notify.iphone
       data:
         title: "New update available"
         message: "New update available for my_light_bulb!"

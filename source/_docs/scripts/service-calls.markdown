@@ -18,7 +18,7 @@ Use the "Actions" tab under **Developer tools** to discover available actions.
 Perform the action `homeassistant.turn_on` on the {% term entity %} `group.living_room`. This will turn all members of `group.living_room` on. You can also use `entity_id: all` and it will turn on all possible entities.
 
 ```yaml
-service: homeassistant.turn_on
+action: homeassistant.turn_on
 entity_id: group.living_room
 ```
 
@@ -34,7 +34,7 @@ The following example uses a single action to turn on the lights in the
 living room area, 2 additional light devices and 2 additional light entities:
 
 ```yaml
-service: light.turn_on
+action: light.turn_on
 target:
   area_id: living_room
   device_id:
@@ -50,7 +50,7 @@ target:
 You can also specify other parameters beside the entity to target. For example, the `light.turn_on` action allows specifying the brightness.
 
 ```yaml
-service: light.turn_on
+action: light.turn_on
 entity_id: group.living_room
 data:
   brightness: 120
@@ -66,7 +66,7 @@ You can use [templating] support to dynamically choose which action to perform. 
 {% raw %}
 
 ```yaml
-service: >
+action: >
   {% if states('sensor.temperature') | float > 15 %}
     switch.turn_on
   {% else %}
@@ -85,8 +85,8 @@ For example, you may test turning on or off a 'group' (See [groups](/integration
 To turn a group on or off, pass the following info:
 
 - Domain: `homeassistant`
-- Service: `turn_on`
-- Service Data: `{ "entity_id": "group.kitchen" }`
+- Action: `turn_on`
+- Action data: `{ "entity_id": "group.kitchen" }`
 
 ### Use templates to determine the attributes
 
@@ -95,7 +95,7 @@ Templates can also be used for the data that you pass to the action.
 {% raw %}
 
 ```yaml
-service: thermostat.set_temperature
+action: thermostat.set_temperature
 target:
   entity_id: >
     {% if is_state('device_tracker.paulus', 'home') %}
@@ -114,7 +114,7 @@ You can use a template returning a native dictionary as well, which is useful if
 {% raw %}
 
 ```yaml
-service: climate.set_temperature
+action: climate.set_temperature
 data: >
   {% if states('sensor.temperature_living') < 19 %}
     {"hvac_mode": "heat", "temperature": 19 }
@@ -138,7 +138,7 @@ that contains the response data. You can define any name for your `response_vari
 {% raw %}
 
 ```yaml
-service: calendar.get_events
+action: calendar.get_events
 target:
   entity_id: calendar.school
 data:
@@ -160,7 +160,7 @@ Which data fields can be used in an action depends on the type of notification t
 {% raw %}
 
 ```yaml
-service: notify.gmail_com
+action: notify.gmail_com
 data:
   target: "gduser1@workspacesamples.dev"
   title: "Daily agenda for {{ now().date() }}"

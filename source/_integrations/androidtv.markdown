@@ -119,7 +119,7 @@ You can launch an app on your device using the `media_player.select_source` comm
 ```yaml
 start_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -127,7 +127,7 @@ start_netflix:
 
 stop_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -147,7 +147,7 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 
 ```yaml
 action:
-  service: androidtv.adb_command
+  action: androidtv.adb_command
   target:
     entity_id: media_player.androidtv_tv_living_room
   data:
@@ -189,7 +189,7 @@ As an example, an action in a [script](/docs/scripts) could be changed from this
 
 ```yaml
 # Send the "UP" command (slow)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -200,7 +200,7 @@ to this:
 
 ```yaml
 # Send the "UP" command using `sendevent` (faster)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -325,7 +325,7 @@ You can also send other Android keys using the syntax `input keyevent {key}`, re
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 12345f9b4c9863e28ddd52c87dcebe05
 data:

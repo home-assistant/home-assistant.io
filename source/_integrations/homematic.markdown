@@ -260,7 +260,7 @@ automation:
        channel: 1
        param: PRESS_SHORT
    action:
-     service: switch.turn_on
+     action: switch.turn_on
      target:
        entity_id: switch.Kitchen_Ambience
 ```
@@ -307,7 +307,7 @@ Simulate a button being pressed:
 ```yaml
 ...
 action:
-  service: homematic.virtualkey
+  action: homematic.virtualkey
   data:
     address: "BidCoS-RF"
     channel: 1
@@ -319,7 +319,7 @@ Open KeyMatic:
 ```yaml
 ...
 action:
-  service: homematic.virtualkey
+  action: homematic.virtualkey
   data:
     address: "LEQ1234567"
     channel: 1
@@ -331,7 +331,7 @@ Set boolean variable to true:
 ```yaml
 ...
 action:
-  service: homematic.set_variable_value
+  action: homematic.set_variable_value
   target:
     entity_id: homematic.ccu2
   data:
@@ -349,7 +349,7 @@ Manually turn on a switch actor:
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 1
@@ -362,7 +362,7 @@ Manually set temperature on thermostat:
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 4
@@ -375,7 +375,7 @@ Manually set the active profile on thermostat:
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 1
@@ -389,7 +389,7 @@ Set the week program of a wall thermostat:
 ```yaml
 ...
 action:
-  service: homematic.put_paramset
+  action: homematic.put_paramset
   data:
     interface: wireless
     address: "LEQ1234567"
@@ -403,7 +403,7 @@ Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF onl
 ```yaml
 ...
 action:
-  service: homematic.put_paramset
+  action: homematic.put_paramset
   data:
     interface: wireless
     address: "LEQ1234567"
@@ -424,7 +424,7 @@ Manually set lock on KeyMatic devices:
 ```yaml
 ...
 action:
-  service: lock.lock
+  action: lock.lock
   target:
     entity_id: lock.leq1234567
 ```
@@ -434,7 +434,7 @@ Manually set unlock on KeyMatic devices:
 ```yaml
 ...
 action:
-  service: lock.unlock
+  action: lock.unlock
   target:
     entity_id: lock.leq1234567
 ```
@@ -454,14 +454,14 @@ lock:
     unique_id: basedoor
     value_template: "{{ is_state('sensor.lock_status', 'locked') }}"
     lock:
-      service: homematic.set_device_value
+      action: homematic.set_device_value
       data:
         address: "002A1BE9A792D2"
         channel: 1
         param: LOCK_TARGET_LEVEL
         value: 0
     unlock:
-      service: homematic.set_device_value
+      action: homematic.set_device_value
       data:
         address: "002A1BE9A792D2"
         channel: 1
@@ -494,7 +494,7 @@ automation:
       to: "off"
     action:
       # Reconnect, if sensor has not been updated for over 10 minutes
-      service: homematic.reconnect
+      action: homematic.reconnect
 ```
 
 {% endraw %}
@@ -538,7 +538,7 @@ automation:
            platform: state
            entity_id: sensor.v_last_reboot
          action:
-           service: homematic.reconnect
+           action: homematic.reconnect
      ```
 
 ## Notifications
@@ -626,7 +626,7 @@ notify:
   - name: group_hm
     platform: group
     services:
-      - service: my_hm
+      - action: my_hm
         data:
           data:
             value: "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2{% endif %}"

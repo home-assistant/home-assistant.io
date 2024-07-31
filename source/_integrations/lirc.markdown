@@ -90,7 +90,7 @@ automation:
       event_data:
         button_name: KEY_0
     action:
-      service: homeassistant.turn_off
+      action: homeassistant.turn_off
       target:
         entity_id: group.a_lights
 ```

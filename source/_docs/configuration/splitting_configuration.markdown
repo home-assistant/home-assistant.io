@@ -272,7 +272,7 @@ automation:
       entity_id: device_tracker.iphone
       to: "home"
     action:
-      service: light.turn_on
+      action: light.turn_on
       target:
         entity_id: light.entryway
   - alias: "Automation 2"
@@ -281,7 +281,7 @@ automation:
       entity_id: device_tracker.iphone
       from: "home"
     action:
-      service: light.turn_off
+      action: light.turn_off
       target:
         entity_id: light.entryway
 ```
@@ -303,7 +303,7 @@ trigger:
   entity_id: device_tracker.iphone
   to: "home"
 action:
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: light.entryway
 ```
@@ -317,7 +317,7 @@ trigger:
   entity_id: device_tracker.iphone
   from: "home"
 action:
-  service: light.turn_off
+  action: light.turn_off
   target:
     entity_id: light.entryway
 ```
@@ -334,7 +334,7 @@ alexa:
   intents:
     LocateIntent:
       action:
-        service: notify.pushover
+        action: notify.pushover
         data:
           message: "Your location has been queried via Alexa."
       speech:
@@ -372,7 +372,7 @@ alexa:
 ```yaml
 {% raw %}
 action:
-  service: notify.pushover
+  action: notify.pushover
   data:
     message: "Your location has been queried via Alexa."
 speech:
@@ -413,7 +413,7 @@ automation:
         entity_id: device_tracker.iphone
         to: "home"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.entryway
   - alias: "Automation 2"
@@ -422,7 +422,7 @@ automation:
         entity_id: device_tracker.iphone
         from: "home"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         target:
           entity_id: light.entryway
 ```
@@ -444,7 +444,7 @@ automation: !include_dir_merge_list automation/
       entity_id: device_tracker.iphone
       to: "home"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.entryway
 - alias: "Automation 2"
@@ -453,7 +453,7 @@ automation: !include_dir_merge_list automation/
       entity_id: device_tracker.iphone
       from: "home"
   action:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: light.entryway
 ```

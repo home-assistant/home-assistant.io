@@ -127,12 +127,12 @@ When `start_log_objects` highlights the growth of a collection of objects in mem
 This action is useful for investigating the state of objects in memory. For example, if your system has templates that are rendering too frequently, the below example actions shows how to find which templates are the source of the problem:
 
 ```yaml
-service: profiler.dump_log_objects
+action: profiler.dump_log_objects
 data:
   type: RenderInfo
 ```
 ```yaml
-service: profiler.dump_log_objects
+action: profiler.dump_log_objects
 data:
   type: Template
 ```

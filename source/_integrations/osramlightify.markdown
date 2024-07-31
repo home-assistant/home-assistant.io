@@ -81,7 +81,7 @@ dropdown on UI. You can apply a scene by clicking an item from the dropdown or b
 `light.turn_on` service:
 
 ```yaml
-  - service: light.turn_on
+  - action: light.turn_on
     target:
       entity_id: light.bedroom
     data:

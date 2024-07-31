@@ -42,23 +42,23 @@ fan:
         oscillating_template: "{{ states('input_select.osc') }}"
         direction_template: "{{ states('input_select.direction') }}"
         turn_on:
-          service: script.fan_on
+          action: script.fan_on
         turn_off:
-          service: script.fan_off
+          action: script.fan_off
         set_percentage:
-          service: script.fans_set_speed
+          action: script.fans_set_speed
           data:
             percentage: "{{ percentage }}"
         set_preset_mode:
-          service: script.fans_set_preset_mode
+          action: script.fans_set_preset_mode
           data:
             preset_mode: "{{ preset_mode }}"
         set_oscillating:
-          service: script.fan_oscillating
+          action: script.fan_oscillating
           data:
             oscillating: "{{ oscillating }}"
         set_direction:
-          service: script.fan_direction
+          action: script.fan_direction
           data:
             direction: "{{ direction }}"
         speed_count: 6
@@ -175,21 +175,21 @@ fan:
         friendly_name: "Helper Fan"
         value_template: "{{ states('input_boolean.state') }}"
         turn_on:
-          - service: input_boolean.turn_on
+          - action: input_boolean.turn_on
             target:
               entity_id: input_boolean.state
         turn_off:
-          - service: input_boolean.turn_off
+          - action: input_boolean.turn_off
             target:
               entity_id: input_boolean.state
         percentage_template: >
           {{ states('input_number.percentage') if is_state('input_boolean.state', 'on') else 0 }}
         speed_count: 6
         set_percentage:
-          - service: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
+          - action: input_boolean.turn_{{ 'on' if percentage > 0 else 'off' }}
             target:
               entity_id: input_boolean.state
-          - service: input_number.set_value
+          - action: input_number.set_value
             target:
               entity_id: input_number.percentage
             data:
@@ -213,18 +213,18 @@ fan:
         friendly_name: "Preset Mode Fan Example"
         value_template: "{{ states('fan.percentage_fan') }}"
         turn_on:
-          - service: fan.turn_on
+          - action: fan.turn_on
             target:
               entity_id: fan.percentage_fan
         turn_off:
-          - service: fan.turn_off
+          - action: fan.turn_off
             target:
               entity_id: fan.percentage_fan
         percentage_template: >
           {{ state_attr('fan.percentage_fan', 'percentage') }}
         speed_count: 3
         set_percentage:
-          - service: fan.set_percentage
+          - action: fan.set_percentage
             target:
               entity_id: fan.percentage_fan
             data:
@@ -247,7 +247,7 @@ fan:
             off
           {% endif %}
         set_preset_mode:
-          - service: fan.set_percentage
+          - action: fan.set_percentage
             target:
               entity_id: fan.percentage_fan
             data:

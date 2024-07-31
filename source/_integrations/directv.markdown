@@ -97,7 +97,7 @@ At the moment, the following buttons are supported:
 A typical action for pressing several buttons looks like this.
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.directv_entity
 data:

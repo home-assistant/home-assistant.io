@@ -59,7 +59,7 @@ automation:
     event_data:
       action: call_service
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.office
 ```
@@ -106,7 +106,7 @@ automation:
     platform: event
     event_type: SPECIAL_EVENT
   action:
-    service: notify.mailgun
+    action: notify.mailgun
     data:
       title: "Something special has happened"
       message: "This a test message from Home Assistant"

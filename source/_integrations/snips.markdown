@@ -151,7 +151,7 @@ snips:
 intent_script:
   ActivateLightColor:
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
         data:
@@ -178,7 +178,7 @@ SetTimer:
     type: plain
     text: "Set a timer"
   action:
-    service: script.set_timer
+    action: script.set_timer
     data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
@@ -223,7 +223,7 @@ intent_script:
       type: plain
       text: "OK, turning on the light"
     action:
-      service: light.turn_on
+      action: light.turn_on
 ```
 
 ##### Open a Garage Door
@@ -235,7 +235,7 @@ intent_script:
       type: plain
       text: "OK, opening the garage door"
     action:
-      - service: cover.open_cover
+      - action: cover.open_cover
         target:
           entity_id: garage_door
 ```
@@ -255,7 +255,7 @@ automation:
         for:
           minutes: 10
     sequence:
-      service: snips.say_action
+      action: snips.say_action
         data:
           text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
@@ -268,7 +268,7 @@ intent_script:
       type: plain
       text: "OK, closing the garage door"
     action:
-      - service: script.garage_door_close
+      - action: script.garage_door_close
 ```
 
 ##### Weather

@@ -147,7 +147,7 @@ level) using the `logger.set_default_level` action.
 An example call might look like this:
 
 ```yaml
-service: logger.set_default_level
+action: logger.set_default_level
 data:
   level: info
 ```
@@ -160,7 +160,7 @@ It accepts the same format as `logs` in the configuration.
 An example call might look like this:
 
 ```yaml
-service: logger.set_level
+action: logger.set_level
 data:
   homeassistant.core: fatal
   homeassistant.components.mqtt: warning

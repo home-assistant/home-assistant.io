@@ -41,7 +41,7 @@ trigger:
   - platform: state
     entity_id: button.my_button
 action:
-  - service: notify.frenck
+  - action: notify.frenck
     data:
       message: "My button has been pressed!"
 ```
@@ -53,7 +53,7 @@ The button entities exposes a single {% term action %}: {% my developer_call_ser
 This action can be called to trigger a button press for that entity.
 
 ```yaml
-- service: button.press
+- action: button.press
   target:
     entity_id: button.my_button
 ```

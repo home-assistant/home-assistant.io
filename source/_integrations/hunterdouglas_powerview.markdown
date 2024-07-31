@@ -228,7 +228,7 @@ trigger:
   platform: time
   at: "18:00:00"
 action:
-  - service: scene.turn_on
+  - action: scene.turn_on
     target:
       entity_id: scene.10877
 ```
@@ -245,7 +245,7 @@ trigger:
   - platform: time_pattern
     hours: '1'
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id:
         - cover.family_right

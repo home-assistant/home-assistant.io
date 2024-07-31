@@ -273,7 +273,7 @@ Parameters:
 #### Example:
 
 ```yaml
-service: motioneye.set_text_overlay
+action: motioneye.set_text_overlay
 data:
   left_text: timestamp
   right_text: custom-text
@@ -312,7 +312,7 @@ A dashboard card with icons that will call the `action` action to send action co
         icon: "mdi:arrow-left"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: left
             entity_id: camera.living_room
@@ -320,7 +320,7 @@ A dashboard card with icons that will call the `action` action to send action co
         icon: "mdi:arrow-right"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: right
             entity_id: camera.living_room
@@ -328,7 +328,7 @@ A dashboard card with icons that will call the `action` action to send action co
         icon: "mdi:arrow-up"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: up
             entity_id: camera.living_room
@@ -336,7 +336,7 @@ A dashboard card with icons that will call the `action` action to send action co
         icon: "mdi:arrow-down"
         tap_action:
           action: call-service
-          service: motioneye.action
+          action: motioneye.action
           data:
             action: down
             entity_id: camera.living_room
@@ -356,7 +356,7 @@ must be switched on for this automation to work (controllable via `switch.<name>
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
   action:
-    - service: motioneye.set_text_overlay
+    - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
@@ -369,7 +369,7 @@ must be switched on for this automation to work (controllable via `switch.<name>
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
   action:
-    - service: motioneye.set_text_overlay
+    - action: motioneye.set_text_overlay
       target:
         entity_id: camera.living_room
       data:
@@ -392,7 +392,7 @@ An automation to cast stored movie clips to a TV as they arrive.
         # Only cast video.
         file_type: "8"
   action:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.kitchen_tv
       data:

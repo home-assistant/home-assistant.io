@@ -162,14 +162,14 @@ You can use the `google_assistant_sdk.send_text_command` action to send commands
 Examples:
 
 ```yaml
-service: google_assistant_sdk.send_text_command
+action: google_assistant_sdk.send_text_command
 data:
   command: "turn off kitchen TV"
 ```
 
 ```yaml
 # Say a joke on the living room speaker
-service: google_assistant_sdk.send_text_command
+action: google_assistant_sdk.send_text_command
 data:
   command: "tell me a joke"
   media_player: media_player.living_room_speaker
@@ -178,7 +178,7 @@ data:
 You can send multiple commands in the same conversation context which is useful to unlock doors or open covers that need a PIN. Example:
 
 ```yaml
-service: google_assistant_sdk.send_text_command
+action: google_assistant_sdk.send_text_command
 data:
   command:
     - "open the garage door"
@@ -188,7 +188,7 @@ data:
 You can get responses. Example:
 
 ```yaml
-service: google_assistant_sdk.send_text_command
+action: google_assistant_sdk.send_text_command
 data:
   command:
     - "tell me a joke"
@@ -219,7 +219,7 @@ You can use the `notify.google_assistant_sdk` action to broadcast messages to Go
 Example to broadcast to all speakers:
 
 ```yaml
-service: notify.google_assistant_sdk
+action: notify.google_assistant_sdk
 data:
   message: time for dinner
 ```
@@ -227,7 +227,7 @@ data:
 Example to broadcast to speakers in selected rooms:
 
 ```yaml
-service: notify.google_assistant_sdk
+action: notify.google_assistant_sdk
 data:
   message: time for dinner
   target:
