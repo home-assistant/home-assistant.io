@@ -23,7 +23,7 @@ The **Bryant Evolution** {% term integration %} lets you control Bryant Evolutio
 
 To install:
 
-1. Connect the System Access Module to the device running Home Assistant, e.g., using an RS-232-to-USB adapter.
-2. Install the bryant_evolution integration in Home Assistant, passing the name of the serial port to which the device is connected (e.g., `/dev/ttyUSB0`)
+1. Connect the System Access Module to the device running Home Assistant, for example, by using an RS-232-to-USB adapter.
+2. Install the Bryant Evolution integration in Home Assistant, passing the name of the serial port to which the device is connected (for example, `/dev/ttyUSB0`)
 
 {% include integrations/config_flow.md %}
