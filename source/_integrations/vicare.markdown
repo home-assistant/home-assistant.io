@@ -63,7 +63,7 @@ If you have multiple Viessmann devices in Home Assistant the limit is shared bet
 
 ViCare represents devices as a set of [data points](https://documentation.viessmann.com/static/iot/data-points) and the ViCare {% term integration %} maps those to {% term entity entities %} of different {% term platform platforms %} in Home Assistant. A single device may be represented by one or more platforms.
 
-## Climate
+### Climate
 
 Represents the heating controls of your device.
 
@@ -71,7 +71,7 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
-## Water heater
+### Water heater
 
 Represents the domestic hot water controls of your device.
 
