@@ -21,11 +21,11 @@ script:
     sequence:
       # This is written using the Script Syntax
       - alias: "Turn on ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
       - alias: "Notify that ceiling light is turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turned on the ceiling light!"
 ```
@@ -38,7 +38,7 @@ Performing an action can be done in various ways. For all the different possibil
 
 ```yaml
 - alias: "Bedroom lights on"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: group.bedroom
   data:
@@ -67,7 +67,7 @@ The variables {% term action %} allows you to set/override variables that will b
       - light.living_room
     brightness: 100
 - alias: "Control lights"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: "{{ entities }}"
   data:
@@ -85,7 +85,7 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  service: notify.mobile_app_iphone
+  action: notify.mobile_app_iphone
   data:
     message: "{{ blind_state_message }}"
 ```
@@ -115,11 +115,11 @@ sequence:
       - variables:
           people: "{{ people + 1 }}"
       # At this scope, people will now be 1 ...
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "There are {{ people }} people home" # "There are 1 people home"
   # ... but at this scope it will still be 0
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "There are {{ people }} people home" # "There are 0 people home"
 ```
@@ -296,9 +296,9 @@ This can be used to take different actions based on whether or not the condition
 - if:
     - "{{ not wait.completed }}"
   then:
-    - service: script.door_did_not_open
+    - action: script.door_did_not_open
   else:
-    - service: script.turn_on
+    - action: script.turn_on
       target:
         entity_id:
           - script.door_did_open
@@ -308,7 +308,7 @@ This can be used to take different actions based on whether or not the condition
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
-- service: switch.turn_on
+- action: switch.turn_on
   target:
     entity_id: switch.some_light
 - wait_for_trigger:
@@ -318,7 +318,7 @@ This can be used to take different actions based on whether or not the condition
       for: 2
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
-- service: switch.turn_off
+- action: switch.turn_off
   target:
     entity_id: switch.some_light
 ```
@@ -380,7 +380,7 @@ The following {% term automation %} example shows how to capture the custom even
     - platform: event
       event_type: event_light_state_changed
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
@@ -404,7 +404,7 @@ script:
   flash_light:
     mode: restart
     sequence:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: "light.{{ light }}"
       - alias: "Cycle light 'count' times"
@@ -412,13 +412,13 @@ script:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
-            - service: light.toggle
+            - action: light.toggle
               target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
       - alias: "Flash hallway light 3 times"
-        service: script.flash_light
+        action: script.flash_light
         data:
           light: hallway
           count: 3
@@ -445,7 +445,7 @@ repeat:
     - "kitchen"
     - "office"
   sequence:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: "light.{{ repeat.item }}"
 ```
@@ -465,7 +465,7 @@ repeat:
     - language: Dutch
       message: Hallo Wereld
   sequence:
-    - service: notify.phone
+    - action: notify.phone
       data:
         title: "Message in {{ repeat.item.language }}"
         message: "{{ repeat.item.message }}!"
@@ -484,7 +484,7 @@ is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
 script:
   do_something:
     sequence:
-      - service: script.get_ready_for_something
+      - action: script.get_ready_for_something
       - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
@@ -495,7 +495,7 @@ script:
             - condition: template
               value_template: "{{ repeat.index <= 20 }}"
           sequence:
-            - service: script.something
+            - action: script.something
 ```
 
 {% endraw %}
@@ -538,7 +538,7 @@ automation:
         repeat:
           sequence:
             # Run command that for some reason doesn't always work
-            - service: shell_command.turn_something_on
+            - action: shell_command.turn_something_on
             # Give it time to complete
             - delay:
                 milliseconds: 200
@@ -590,12 +590,12 @@ script:
         state: 0
     then:
       - alias: "Then start cleaning already!"
-        service: vacuum.start
+        action: vacuum.start
         target:
           area_id: living_room
     # The `else` is fully optional and can be omitted
     else:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Skipped cleaning, someone is home!"
 ```
@@ -633,24 +633,24 @@ automation:
               - condition: template
                 value_template: "{{ now().hour < 9 }}"
             sequence:
-              - service: script.sim_morning
+              - action: script.sim_morning
           # ELIF day
           - conditions:
               - condition: template
                 value_template: "{{ now().hour < 18 }}"
             sequence:
-              - service: light.turn_off
+              - action: light.turn_off
                 target:
                   entity_id: light.living_room
-              - service: script.sim_day
+              - action: script.sim_day
         # ELSE night
         default:
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: all
 ```
@@ -673,22 +673,22 @@ automation:
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'on') }}
             sequence:
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: true
           - conditions: >
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
-              - service: script.turn_on
+              - action: script.turn_on
                 target:
                   entity_id: script.flash_lights
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: false
           - conditions: "{{ trigger.to_state.state == 'Away' }}"
             sequence:
-              - service: script.left_home
+              - action: script.left_home
 ```
 
 {% endraw %}
@@ -713,7 +713,7 @@ automation:
           below: 4
       action:
         # This must always apply
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             brightness: 255
             color_temp: 366
@@ -728,7 +728,7 @@ automation:
                   entity_id: binary_sensor.livingroom_tv
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -741,7 +741,7 @@ automation:
                   entity_id: binary_sensor.studio_pc
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -777,18 +777,18 @@ automation:
     action:
       - alias: "Turn on devices"
         sequence:
-          - service: light.turn_on
+          - action: light.turn_on
             target:
               entity_id: light.ceiling
-          - service: siren.turn_on
+          - action: siren.turn_on
             target:
               entity_id: siren.noise_maker
       - alias: "Send notifications"
         sequence:
-          - service: notify.person1
+          - action: notify.person1
             data:
               message: "The motion sensor was triggered!"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "Oh oh, someone triggered the motion sensor..."
 ```
@@ -813,10 +813,10 @@ automation:
         to: "on"
     action:
       - parallel:
-          - service: notify.person1
+          - action: notify.person1
             data:
               message: "These messages are sent at the same time!"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "These messages are sent at the same time!"
 ```
@@ -834,10 +834,10 @@ script:
                   - platform: state
                     entity_id: binary_sensor.motion
                     to: "on"
-              - service: notify.person1
+              - action: notify.person1
                 data:
                   message: "This message awaited the motion trigger"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "I am sent immediately and do not await the above action!"
 ```
@@ -915,12 +915,12 @@ it encounters an error; it will continue to the next {% term action %}.
 ```yaml
 - alias: "If this one fails..."
   continue_on_error: true
-  service: notify.super_unreliable_service_provider
+  action: notify.super_unreliable_service_provider
   data:
     message: "I'm going to error out..."
 
 - alias: "This one will still run!"
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: "Hi there!"
     message: "I'm fine..."
@@ -943,13 +943,13 @@ script:
       # The message will not be sent.
       - enabled: false
         alias: "Notify that the ceiling light is being turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
       - alias: "Turn on the ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
 ```

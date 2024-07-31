@@ -84,7 +84,7 @@ automation:
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
   action:
-  - service: downloader.download_file
+  - action: downloader.download_file
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"

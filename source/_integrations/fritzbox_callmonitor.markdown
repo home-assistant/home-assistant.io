@@ -56,7 +56,7 @@ automation:
       - platform: state
         entity_id: sensor.phone
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           title: "Phone"
           message: >-

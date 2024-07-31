@@ -185,7 +185,7 @@ Start a scene blinking.
       command: activated
       address: "42_9"
   action:
-    service: persistent_notification.create
+    action: persistent_notification.create
     data:
       title: "Scene Activated"
       message: >
@@ -200,7 +200,7 @@ all_lights_on:
   alias: "All Lights On"
   description: "Activate two UPB scenes named interior_lights and exterior_lights"
   sequence:
-    - service: scene.turn_on
+    - action: scene.turn_on
       target:
         entity_id: 
           - scene.interior_lights
@@ -210,7 +210,7 @@ all_lights_off:
   alias: "All Lights Off"
   description: "Deactivate two UPB scenes named interior_lights and exterior_lights"
   sequence:
-    - service: upb.scene_deactivate
+    - action: upb.scene_deactivate
       target:
         entity_id: 
           - scene.interior_lights
@@ -220,7 +220,7 @@ kitchen_fade_on:
   alias: "Kitchen Fade to On"
   description: "Turn on kitchen light to 75% over a period of 10 seconds"
   sequence:
-    - service: upb.light_fade_start
+    - action: upb.light_fade_start
       target:
         entity_id: light.kitchen
       data:

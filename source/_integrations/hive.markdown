@@ -66,7 +66,7 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_on
+      - action: hive.boost_heating_on
         target:
           entity_id: "climate.heating"
         data:
@@ -89,7 +89,7 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_off
+      - action: hive.boost_heating_off
         target:
           entity_id: "climate.heating"
 ```
@@ -111,7 +111,7 @@ Examples:
 script:
   boost_hot_water:
     sequence:
-      - service: "hive.boost_hot_water"
+      - action: "hive.boost_hot_water"
         target:
           entity_id: "water_heater.hot_water"
         data:

@@ -92,7 +92,7 @@ To learn IR codes, call `remote.learn_command` with the device name and command 
 script:
   learn_tv_power:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -113,7 +113,7 @@ Learning RF codes takes place in two steps. First call `remote.learn_command` wi
 script:
   learn_car_unlock:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.garage
         data:
@@ -137,7 +137,7 @@ In order to streamline the learning process, you may want to provide a list of c
 script:
   learn_tv_commands:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -164,7 +164,7 @@ If the code works sometimes, and sometimes it doesn't, you can try to relearn it
 script:
   learn_tv_power_button:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -200,7 +200,7 @@ To send a command that you've learned, call `remote.send_command` with the devic
 script:
   tv_power:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -217,7 +217,7 @@ Use `num_repeats:` to send the same command multiple times:
 script:
   turn_up_tv_volume_20:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -235,7 +235,7 @@ You can provide a list of commands to be sent sequentially:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -254,7 +254,7 @@ Sometimes you may want to send a base64 code obtained elsewhere. Use the `b64:` 
 script:
   turn_on_tv:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -270,7 +270,7 @@ You can send a sequence of base64 codes just like normal commands:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -288,7 +288,7 @@ You can mix commands and base64 codes:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -317,7 +317,7 @@ To delete a command, call `remote.delete_command` with the device name and the c
 script:
   delete_tv_power:
     sequence:
-      - service: remote.delete_command
+      - action: remote.delete_command
         target:
           entity_id: remote.bedroom
         data:
@@ -334,7 +334,7 @@ You can provide a list of commands to be deleted:
 script:
   delete_tv_commands:
     sequence:
-      - service: remote.delete_command
+      - action: remote.delete_command
         target:
           entity_id: remote.bedroom
         data:

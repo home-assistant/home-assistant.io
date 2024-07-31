@@ -45,7 +45,7 @@ with route alternatives and travel times between two locations.
 | `avoid_subscription_roads` | yes | Whether to avoid subscription roads | True |
 
 ```yaml
-service: waze_travel_time.get_travel_times
+action: waze_travel_time.get_travel_times
 data:
   origin: "51.330436, 3.802043"
   destination: "51.445677, 3.749929"

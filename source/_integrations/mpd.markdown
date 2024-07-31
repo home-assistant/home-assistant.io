@@ -25,14 +25,14 @@ Example script to load a saved playlist called "DeckMusic" and set the volume:
 ```yaml
 relaxdeck:
     sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.main
       data:
         media_content_type: playlist
         media_content_id: DeckMusic
 
-    - service: media_player.volume_set
+    - action: media_player.volume_set
       target:
         entity_id: media_player.main
       data:

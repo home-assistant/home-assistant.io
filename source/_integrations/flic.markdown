@@ -85,7 +85,7 @@ automation:
         button_name: flic_81e4ac74b6d2
         click_type: single
     action:
-      service: homeassistant.turn_on
+      action: homeassistant.turn_on
       target:
         entity_id: group.lights_livingroom
 ```
@@ -108,7 +108,7 @@ automation:
       platform: event
       event_type: flic_click
     action:
-      - service: notify.html5
+      - action: notify.html5
         data:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"

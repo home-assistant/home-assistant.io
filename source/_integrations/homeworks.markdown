@@ -45,7 +45,7 @@ Send a custom command to the Lutron Homeworks controller.
 The example shows how to send `KBP`, wait 0.5 seconds, then send `KBR` to simulate a keypad button keypress with a duration of a half second.
 
 ```yaml
-service: homeworks.send_command
+action: homeworks.send_command
 data:
   controller_id: "homeworks"
   command:

@@ -36,7 +36,7 @@ In addition to the [`vacuum`](/integrations/vacuum/) actions, this integration s
 This allows you to select specific rooms that you want cleaned, instead of doing a whole-home clean.
 
 ```yaml
-service: sharkiq.clean_room
+action: sharkiq.clean_room
 data:
   rooms:
     - "Entry"

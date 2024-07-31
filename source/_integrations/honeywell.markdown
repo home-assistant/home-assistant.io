@@ -64,7 +64,7 @@ trigger:
 action:
   - repeat:
       sequence:
-        - service: climate.set_temperature
+        - action: climate.set_temperature
           target:
             entity_id: climate.stat
           data:

@@ -97,7 +97,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.turn_on
+    action: scene.turn_on
     target:
       entity_id: scene.romantic
 ```
@@ -115,7 +115,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.apply
+    action: scene.apply
     data:
       entities:
         light.tv_back_light:
@@ -144,7 +144,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.turn_on
+    action: scene.turn_on
     target:
       entity_id: scene.romantic
     data:
@@ -179,7 +179,7 @@ automation:
     platform: homeassistant
     event: start
   action:
-    service: scene.create
+    action: scene.create
     data:
       scene_id: my_scene
       entities:
@@ -208,7 +208,7 @@ automation:
     entity_id: sun.sun
     to: below_horizon
   action:
-    - service: scene.delete
+    - action: scene.delete
       data:
         entity_id: scene.my_scene
 ```
@@ -225,16 +225,16 @@ The following example turns off some entities as soon as a window opens. The sta
     to: "on"
   condition: []
   action:
-  - service: scene.create
+  - action: scene.create
     data:
       scene_id: before
       snapshot_entities:
       - climate.ecobee
       - light.ceiling_lights
-  - service: light.turn_off
+  - action: light.turn_off
     target:
       entity_id: light.ceiling_lights
-  - service: climate.set_hvac_mode
+  - action: climate.set_hvac_mode
     target:
       entity_id: climate.ecobee
     data:
@@ -247,7 +247,7 @@ The following example turns off some entities as soon as a window opens. The sta
     to: "off"
   condition: []
   action:
-  - service: scene.turn_on
+  - action: scene.turn_on
     target:
       entity_id: scene.before
 ```

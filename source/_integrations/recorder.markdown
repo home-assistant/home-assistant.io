@@ -24,7 +24,7 @@ The supported database solutions are:
 - [MariaDB](https://mariadb.org/) ≥ 10.3
 - [MySQL](https://www.mysql.com/) ≥ 8.0
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
-- [SQLite](https://www.sqlite.org/) ≥ 3.31.0
+- [SQLite](https://www.sqlite.org/) ≥ 3.40.1
 
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
@@ -231,7 +231,7 @@ trigger:
   - platform: time
     at: "04:15:00"
 action:
-  - service: recorder.purge_entities
+  - action: recorder.purge_entities
     data:
       keep_days: 5
       entity_id: sensor.power_sensor_0

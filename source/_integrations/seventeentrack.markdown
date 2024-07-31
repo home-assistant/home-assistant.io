@@ -87,7 +87,7 @@ The `seventeentrack.get_packages` action allows you to query the 17track API for
 
 ```yaml
 # Example automation action to retrieve packages with specific states from 17Track
-- service: seventeentrack.get_packages
+- action: seventeentrack.get_packages
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]

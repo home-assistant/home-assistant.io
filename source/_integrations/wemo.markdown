@@ -154,7 +154,7 @@ The following is an example implementation of an automation:
       type: LongPress
       name: Living Room
   action:
-    - service: media_player.toggle
+    - action: media_player.toggle
       target:
         entity_id: media_player.amplifier
 ```

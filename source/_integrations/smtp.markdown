@@ -96,7 +96,7 @@ A notify integration will be created using the name without spaces. In the above
       at: "08:00:00"
   condition: []
   action:
-    - service: notify.NOTIFIER_NAME
+    - action: notify.NOTIFIER_NAME
       data:
           title: "Good Morning"
           message: "Rise and shine"
@@ -113,10 +113,10 @@ Another example attaching images stored locally in a script:
 burglar:
   alias: "Burglar Alarm"
   sequence:
-    - service: shell_command.snapshot
+    - action: shell_command.snapshot
     - delay:
           seconds: 1
-    - service: notify.NOTIFIER_NAME
+    - action: notify.NOTIFIER_NAME
       data:
           title: "Intruder alert"
           message: "Intruder alert at apartment!!"
@@ -140,10 +140,10 @@ When adding images, make sure the folders containing the attachments are added t
 burglar:
   alias: "Burglar Alarm"
   sequence:
-    - service: shell_command.snapshot
+    - action: shell_command.snapshot
     - delay:
           seconds: 1
-    - service: notify.NOTIFIER_NAME
+    - action: notify.NOTIFIER_NAME
       data:
           message: "Intruder alert at apartment!!"
           data:

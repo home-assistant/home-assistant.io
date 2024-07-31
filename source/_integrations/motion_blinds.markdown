@@ -204,7 +204,7 @@ trigger:
   - platform: time_pattern
     minutes: "/1"
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade
 ```

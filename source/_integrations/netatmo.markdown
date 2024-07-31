@@ -211,7 +211,7 @@ Example:
   action:
     - data: {}
       entity_id: counter.event_counter
-      service: counter.increment
+      action: counter.increment
 ```
 
 Example:
@@ -233,7 +233,7 @@ Example:
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
-      service: persistent_notification.create
+      action: persistent_notification.create
 ```
 
 {% endraw %}
@@ -257,7 +257,7 @@ Example:
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
-      service: persistent_notification.create
+      action: persistent_notification.create
 ```
 
 {% endraw %}
@@ -288,7 +288,7 @@ Example:
         message: >
           {{ trigger.event.data["data"]["message"] }}
         title: Netatmo event
-      service: persistent_notification.create
+      action: persistent_notification.create
 ```
 
 {% endraw %}

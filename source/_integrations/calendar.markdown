@@ -93,7 +93,7 @@ automation:
         event: start
         entity_id: calendar.personal
     action:
-      - service: persistent_notification.create
+      - action: persistent_notification.create
         data:
           message: >-
             Event {{ trigger.calendar_event.summary }} @
@@ -129,10 +129,10 @@ automation:
       - if:
           - "{{ trigger.event == 'start' }}"
         then:
-          - service: light.turn_on
+          - action: light.turn_on
             entity_id: light.front
         else:
-          - service: light.turn_off
+          - action: light.turn_off
             entity_id: light.front
 ```
 {% endraw %}
@@ -167,7 +167,7 @@ You either use `start_date_time` and `end_date_time`, or `start_date` and `end_d
 This is a full example of a {% term service %} call in YAML:
 
 ```yaml
-service: calendar.create_event
+action: calendar.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:
@@ -180,7 +180,7 @@ Home Assistant Calendars do not allow zero duration Calendar events. The followi
 
 {% raw %}
 ```yaml
-service: calendar.create_event
+action: calendar.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:
@@ -207,7 +207,7 @@ Use only one of `end_date_time` or `duration`.
 {% endnote %}
 
 ```yaml
-service: calendar.get_events
+action: calendar.get_events
 target:
   entity_id:
     - calendar.school
@@ -233,7 +233,7 @@ This example uses a template with response data in another action:
 
 {% raw %}
 ```yaml
-service: notify.nina
+action: notify.nina
 data:
   title: Daily agenda for {{ now().date() }}
   message: >-

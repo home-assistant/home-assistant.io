@@ -39,11 +39,11 @@ lock:
     name: Garage door
     value_template: "{{ is_state('sensor.door', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.door
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.door
 ```
@@ -113,11 +113,11 @@ lock:
     name: Garage Door
     value_template: "{{ is_state('switch.source', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.source
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.source
 ```
@@ -137,11 +137,11 @@ lock:
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     optimistic: true
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.source
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.source
 ```
@@ -160,11 +160,11 @@ lock:
     name: Garage Door
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.skylight_open
     unlock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.skylight_close
 ```
@@ -184,14 +184,14 @@ lock:
     value_template: "{{ is_state('switch.source', 'on') }}"
     code_format_template: "{{ '\\d{4}' if is_state('switch.source', 'on') else None }}"
     lock:
-      - service: switch.turn_on
+      - action: switch.turn_on
         target:
           entity_id: switch.source
     unlock:
       - variables:
           pin: !secret garage_door_pin
       - condition: "{{ code == pin }}"
-      - service: switch.turn_off
+      - action: switch.turn_off
         target:
           entity_id: switch.source
 ```

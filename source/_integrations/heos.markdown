@@ -37,7 +37,7 @@ A connection to a single device enables control for all devices on the network. 
 Use the sign-in action (go to **Developer Tools** > **Actions** and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example action data payload:
 
 ```yaml
-service: heos.sign_in
+action: heos.sign_in
 data:
   username: "example@example.com"
   password: "password"
@@ -59,7 +59,7 @@ Use the sign-out action to sign the connected controller out of a HEOS account. 
 You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 data:
   entity_id: media_player.office
   media_content_type: "favorite"
@@ -77,7 +77,7 @@ data:
 You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 data:
   entity_id: media_player.office
   media_content_type: "playlist"
@@ -95,7 +95,7 @@ data:
 You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 data:
   entity_id: media_player.office
   media_content_type: "quick_select"
@@ -113,7 +113,7 @@ data:
 You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL. Example action data payload:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 data:
   entity_id: media_player.office
   media_content_type: "url"
@@ -131,7 +131,7 @@ data:
 For grouping HEOS media players together for synchronous playback you can use the `media_player.join` action. With the example action data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
 
 ```yaml
-service: media_player.join
+action: media_player.join
 data:
   entity_id: media_player.office
   group_members:
@@ -150,7 +150,7 @@ data:
 For removing a HEOS player from a group you can use the `media_player.unjoin` action.
 
 ```yaml
-service: media_player.unjoin
+action: media_player.unjoin
 data:
   entity_id: media_player.office
 ```

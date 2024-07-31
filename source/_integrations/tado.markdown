@@ -97,13 +97,13 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: tado.set_climate_timer
+      - action: tado.set_climate_timer
         target:
           entity_id: climate.heating
         data:
           time_period: "01:30:00"
           temperature: 25
-      - service: tado.set_water_heater_timer
+      - action: tado.set_water_heater_timer
         target:
           entity_id: water_heater.hot_water
         data:
@@ -131,7 +131,7 @@ automation:
     
     # Work out what the new offset should be (tado temp less the room temp but add the current offset value) and turn that to a negative value for setting as the new offset
     action:
-    - service: tado.set_climate_temperature_offset
+    - action: tado.set_climate_temperature_offset
       target:
         entity_id: climate.tado
       data:
@@ -167,7 +167,7 @@ automation:
     # Retrieve your `config_entry` id by setting this automation up in UI mode.
     # Notice that you may have to convert the reading to integer.
     action:
-      - service: tado.add_meter_reading
+      - action: tado.add_meter_reading
         data:
           config_entry: ef2e84b3dfc0aee85ed44ac8e8038ccf
           reading: "{{ states('sensor.gas_consumption')|int }}"

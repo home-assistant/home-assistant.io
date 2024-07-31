@@ -470,7 +470,7 @@ source/_integrations/lyric.markdown @timmo001
 source/_integrations/madeco.markdown @starkillerOG
 source/_integrations/marantz.markdown @ol-iver @starkillerOG
 source/_integrations/martec.markdown @starkillerOG
-source/_integrations/mastodon.markdown @fabaff
+source/_integrations/mastodon.markdown @fabaff @andrew-codechimp
 source/_integrations/matrix.markdown @PaarthShah
 source/_integrations/matter.markdown @home-assistant/matter
 source/_integrations/mealie.markdown @joostlek @andrew-codechimp

@@ -75,7 +75,7 @@ The output of this selector is a list of actions. For example:
 
 ```yaml
 # Example action selector output result
-- service: scene.turn_on
+- action: scene.turn_on
   target:
     entity_id: scene.watching_movies
   metadata: {}
@@ -616,6 +616,11 @@ enable_day:
   type: boolean
   default: false
   required: false
+enable_millisecond:
+  description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false  
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -626,6 +631,7 @@ days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
+milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
 ## Entity selector
@@ -1372,7 +1378,7 @@ a script sequence. For example:
 
 ```yaml
 action:
-  - service: light.turn_on
+  - action: light.turn_on
     target: !input lights
 ```
 

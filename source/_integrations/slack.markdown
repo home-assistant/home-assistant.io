@@ -103,7 +103,7 @@ You can call this script as an action.
 ```yaml
 alias: "Notify: Slack Notification Template"
 sequence:
-  - service: notify.YOUR_SLACK_TEAM
+  - action: notify.YOUR_SLACK_TEAM
     data:
       message: Fallback Text
       target: "#test-channel"

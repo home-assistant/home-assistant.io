@@ -57,7 +57,7 @@ automation:
     platform: state
     entity_id: event.created
   action:
-    service: notify.notify
+    action: notify.notify
     data:
       title: New image captured!
       message: "Created {{ trigger.to_state.attributes.file }} in {{ trigger.to_state.attributes.folder }}"

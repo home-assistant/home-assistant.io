@@ -276,7 +276,7 @@ Action trigger example:
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: vacuum.send_command
+      action: vacuum.send_command
       target:
         entity_id: vacuum.vacuum_entity
       data:

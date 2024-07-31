@@ -327,10 +327,10 @@ notify:
   - platform: group
     name: "My notification group"
     services:
-      - service: html5
+      - action: html5
         data:
           target: "macbook"
-      - service: html5_nexus
+      - action: html5_nexus
 ```
 
 {% configuration %}

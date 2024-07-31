@@ -52,7 +52,7 @@ automation:
         entity_id: media_player.kodi
         type: turn_on
     action:
-      - service: script.kodi_turn_on
+      - action: script.kodi_turn_on
 
   - id: kodi_turn_off
     alias: "Kodi: turn off"
@@ -63,7 +63,7 @@ automation:
         entity_id: media_player.kodi
         type: turn_off
     action:
-      - service: script.kodi_turn_off
+      - action: script.kodi_turn_off
 ```
 
 ### Actions
@@ -113,7 +113,7 @@ With this configuration, when calling `media_player/turn_on` on the Kodi device,
 script:
   turn_on_kodi_with_wol:
     sequence:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
           broadcast_address: 192.168.255.255
@@ -129,7 +129,7 @@ Here are the equivalent ways to configure each of the old options to turn off Ko
 script:
   kodi_quit:
     sequence:
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -142,7 +142,7 @@ script:
 script:
   kodi_hibernate:
     sequence:
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -155,7 +155,7 @@ script:
 script:
   kodi_suspend:
     sequence:
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -168,7 +168,7 @@ script:
 script:
   kodi_reboot:
     sequence:
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -181,7 +181,7 @@ script:
 script:
   kodi_shutdown:
     sequence:
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -196,7 +196,7 @@ For Kodi devices running 24/7 attached to a CEC capable TV (OSMC / OpenElec and 
 script:
   turn_on_kodi_with_cec:
   sequence:
-    - service: kodi.call_method
+    - action: kodi.call_method
       target:
         entity_id: media_player.kodi
       data:
@@ -207,10 +207,10 @@ script:
 
   turn_off_kodi_with_cec:
     sequence:
-      - service: media_player.media_stop
+      - action: media_player.media_stop
         target:
           entity_id: media_player.kodi
-      - service: kodi.call_method
+      - action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -236,11 +236,11 @@ script:
     alias: "Turn on the silly box"
     sequence:
       - alias: "TV on"
-        service: media_player.turn_on
+        action: media_player.turn_on
         target:
           entity_id: media_player.kodi
       - alias: "Play TV channel"
-        service: media_player.play_media
+        action: media_player.play_media
         target:
           entity_id: media_player.kodi
         data:
@@ -273,10 +273,10 @@ script:
     alias: "Turn on the silly box with random Firefighter Sam episode"
     sequence:
       - alias: "TV on"
-        service: media_player.turn_on
+        action: media_player.turn_on
         target:
           entity_id: media_player.kodi
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.kodi
         data:
@@ -294,7 +294,7 @@ script:
     alias: "Update Kodi Library"
     sequence:
       - alias: "Call Kodi update"
-        service: kodi.call_method
+        action: kodi.call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -349,7 +349,7 @@ password:
 ```yaml
 kodi_notification:
   sequence:
-  - service: notify.NOTIFIER_NAME
+  - action: notify.NOTIFIER_NAME
     data:
       title: "Home Assistant"
       message: "Message to KODI from Home Assistant!"
@@ -445,14 +445,14 @@ action:
           - condition: template
             value_template: "{{trigger.event.data.data.key=='volume_up'}}"
         sequence:
-          - service: media_player.volume_up
+          - action: media_player.volume_up
             target:
               entity_id: media_player.receiver
       - conditions:
           - condition: template
             value_template: "{{trigger.event.data.data.key=='volume_down'}}"
         sequence:
-          - service: media_player.volume_down
+          - action: media_player.volume_down
             target:
               entity_id: media_player.receiver
 ```

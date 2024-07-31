@@ -71,7 +71,7 @@ automation:
       - platform: time
         at: "04:20:00"
     action:
-      - service: snooz.transition_on
+      - action: snooz.transition_on
         target:
           entity_id: fan.snooz_abcd
         data:
@@ -101,7 +101,7 @@ automation:
       - platform: time
         at: "16:20:00"
     action:
-      - service: snooz.transition_off
+      - action: snooz.transition_off
         target:
           entity_id: fan.snooz_abcd
         data:

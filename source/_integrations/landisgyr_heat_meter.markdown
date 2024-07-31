@@ -80,7 +80,7 @@ trigger:
   - platform: time
     at: "23:30:00"
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id: sensor.heat_meter_heat_usage_gj
 ```

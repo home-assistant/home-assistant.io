@@ -118,7 +118,7 @@ automation:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
     action:
-      service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+      action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
       target:
         entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```

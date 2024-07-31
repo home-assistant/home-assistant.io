@@ -175,7 +175,7 @@ With this action, you can let your mower mow or park for a given time. You can s
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule
+action: husqvarna_automower.override_schedule
 target:
   entity_id: lawn_mower.<name>
 data:

@@ -45,7 +45,7 @@ automation:
       condition: sun
       before: sunset
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
@@ -54,7 +54,7 @@ automation:
       entity_id: alarm_control_panel.total_connect
       to: "armed_away"
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.OnArmedAway
   - alias: "Alarm: Arm Home Instant at Sunset"
@@ -63,7 +63,7 @@ automation:
       event: sunset
       offset: '0'
     action:
-      service: totalconnect.arm_home_instant
+      action: totalconnect.arm_home_instant
       target:
         entity_id: alarm_control_panel.total_connect
 ```

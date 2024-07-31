@@ -102,7 +102,7 @@ automation:
       type: key_down # only trigger on key_down events (optional)
 
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.all
 ```
@@ -128,7 +128,7 @@ automation:
       platform: event
       event_type: keyboard_remote_connected
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:
@@ -142,7 +142,7 @@ automation:
       event_data:
         device_name: "00:58:56:4C:C0:91"
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:

@@ -65,7 +65,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.open_cover
+    - action: cover.open_cover
       target:
         entity_id: cover.demo
 ```
@@ -87,7 +87,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.set_cover_position
+    - action: cover.set_cover_position
       target:
         entity_id: cover.demo
       data:
@@ -111,7 +111,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.set_cover_tilt_position
+    - action: cover.set_cover_tilt_position
       target:
         entity_id: cover.demo
       data:

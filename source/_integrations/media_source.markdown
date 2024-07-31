@@ -88,7 +88,7 @@ of supported video formats.
 Example:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:

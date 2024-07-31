@@ -53,7 +53,7 @@ tap_action:
   keys:
     action:
       required: true
-      description: "Action to perform (`more-info`, `toggle`, `call-service`, `navigate`, `url`, `assist`, `none`)"
+      description: "Action to perform (`more-info`, `toggle`, `perform-action`, `navigate`, `url`, `assist`, `none`)"
       type: string
       default: "`toggle` (some cards overwrite default to `more-info` if the provided entity cannot be toggled)"
     navigation_path:
@@ -71,14 +71,19 @@ tap_action:
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
       type: string
       default: none
-    service:
+    perform-action:
       required: false
-      description: "Service to call (e.g., `media_player.media_play_pause`) when the `action` is defined as `call-service`"
+      description: "Action to perform (e.g., `media_player.media_play_pause`) when the `action` is defined as `perform-action`"
       type: string
       default: none
     data:
       required: false
-      description: "Service data to include (e.g., `entity_id: media_player.bedroom`) when the `action` is defined as `call-service`"
+      description: "Action data to include (e.g., `brightness: 100`) when the `action` is defined as `perform-action`"
+      type: string
+      default: none
+    target:
+      required: false
+      description: "Action target to user (e.g., `entity_id: media_player.bedroom`) when the `action` is defined as `perform-action`"
       type: string
       default: none
     confirmation:

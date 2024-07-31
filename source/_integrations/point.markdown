@@ -112,7 +112,7 @@ automation:
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press
       message: Point button was pressed.
@@ -136,7 +136,7 @@ automation:
     condition: template
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"

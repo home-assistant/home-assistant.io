@@ -72,7 +72,7 @@ When calling the `media_player.play_media` action, the `media_content_type` must
 Example action using the item id:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos_speaker1
 data:
@@ -83,7 +83,7 @@ data:
 Example using the Sonos playlist name:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos_speaker1
 data:
@@ -132,7 +132,7 @@ An optional `enqueue` argument can be added to the action. If `replace` or not p
 Below is an example action that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver) using the `announce` feature and its associated (optional) `volume` parameter:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -145,7 +145,7 @@ data:
 
 The standard `tts.<source>_say` actions do not accept the `volume` parameter directly. To set the `volume` for a TTS announcement, you can use a TTS Media Source URL with the standard `media_player.play_media` action:
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -160,7 +160,7 @@ data:
 Sonos can also play music or playlists from Spotify. Both Spotify URIs and URLs can be used directly. An example action using a playlist URI:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -172,7 +172,7 @@ data:
 An example action using a Spotify URL:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -183,7 +183,7 @@ data:
 Run a [Plex Media Server](/integrations/plex#sonos-playback) in your home? The Sonos integration can work with that as well. This example plays music directly from your Plex server:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -199,7 +199,7 @@ If you have configured a Sonos music library; you can play music from it.
 Play all albums by the Beatles.
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -210,7 +210,7 @@ data:
 Play a specific album:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -222,7 +222,7 @@ data:
 Or add a specific album by a specific artist to the queue.  This is useful in case you have multiple albums with the same name.
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos      
 data:
@@ -234,7 +234,7 @@ data:
 Play all albums by a composer.
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.porch
 data:
@@ -246,7 +246,7 @@ data:
 Play all albums by a genre.
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.porch
 data:
@@ -258,7 +258,7 @@ data:
 Play an imported playlist by using its title.
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.porch
 data:
@@ -379,7 +379,7 @@ condition:
       value_template: >
         {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
 action:
-  - service: sonos.remove_from_queue
+  - action: sonos.remove_from_queue
     target:
       entity_id: >
         {{ trigger.entity_id }}

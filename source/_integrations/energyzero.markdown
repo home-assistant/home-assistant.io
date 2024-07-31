@@ -140,7 +140,7 @@ template:
       - platform: time_pattern
         hours: "*"
     action:
-      - service: energyzero.get_energy_prices
+      - action: energyzero.get_energy_prices
         response_variable: prices
         data:
           config_entry: 1b4a46c6cba0677bbfb5a8c53e8618b0

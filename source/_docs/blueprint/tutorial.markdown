@@ -49,7 +49,7 @@ trigger:
   entity_id: binary_sensor.motion_kitchen
 
 action:
-  service: >
+  action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
     {% else %}
@@ -104,7 +104,7 @@ Inputs are not limited to strings. They can contain complex objects too. So in t
 
 ```yaml
 action:
-  service: >
+  action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
     {% else %}
@@ -238,7 +238,7 @@ trigger:
     entity_id: !input motion_sensor
 
 action:
-  - service: >
+  - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on
       {% else %}
