@@ -48,8 +48,8 @@ It may take up to an hour for your new client to become active and usable. Other
 
 The Viessmann API is rate-limited. If you exceed one of the limits below, you will be blocked for 24 hours:
 
-- Limit 1: 120 calls for a time window of 10 minutes
-- Limit 2: 1450 calls for a time window of 24 hours
+- 120 calls for a time window of 10 minutes
+- 1450 calls for a time window of 24 hours
 
 The {% term integration %} polls the API every 60 seconds and will work within these limits. However, any additional requests to the API, for example, by setting the temperature via the integration but also by interacting with the ViCare app, count into those limits.
 
@@ -125,9 +125,9 @@ The ViCare {% term integration %} has the following mapping of HVAC modes to Vie
 
 | HVAC mode | Viessmann mode | Description |
 | ---------------------- | -------- | ----------- |
-| `off` | `ForcedReduced` | Permanently set heating to reduced temperature. Note: This will also deactivate domestic hot water
-| `heat` | `ForcedNormal` | Permanently set heating to normal temperature.
-| `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device 
+| `off` | `ForcedReduced` | Permanently set heating to reduced temperature. Note: This will also deactivate domestic hot water. |
+| `heat` | `ForcedNormal` | Permanently set heating to normal temperature. |
+| `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device. |
  
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
