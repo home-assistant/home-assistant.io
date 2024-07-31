@@ -571,7 +571,10 @@ If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
-- [Lorem ipsum](https://developers.home-assistant.io/blog/)
+- [model_id added to DeviceInfo](https://developers.home-assistant.io/blog/2024/07/16/device-info-model-id)
+- [New entity feature flags in FanEntity](https://developers.home-assistant.io/blog/2024/07/19/fan-fanentityfeatures-turn-on_off)
+- [New HVACAction DEFROSTING](https://developers.home-assistant.io/blog/2024/07/07/climate-hvacaction-defrosting/)
+- [Services are now actions](https://developers.home-assistant.io/blog/2024/07/16/service-actions)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
