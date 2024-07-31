@@ -464,15 +464,42 @@ in the brand new dedicated KNX panel.
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- It is now possible to ipsum the lorem, thanks [@frenck]!
+- [Timer support] using [Assist], for mobile devices. This means you can now
+  control times from your mobile device or tablet. Thanks [@balloob]!
+- You can now ask [Assist] for the current time and date, thanks [@synesthesiam]!
+- Home Assistant will now raise a repair issue if an script can't be set up
+  (for example, because of YAML syntax errors). Thanks [@emontnemery]!
+- If Home Assistant finds an integration set up that has been removed
+  (like when you remove a custom integration), it will now raise a repair issue
+  to help you clean up anything left behind. Thanks [@joostlek]!
+- The [group] has support for grouping two new entities types. [@joostlek] added
+  support for grouping [notify] entities, and [@frenck] added support for grouping
+  [button] entities. Nice!
+- The [Generic Thermostat] and [Hygrostat] helpers will now be linked to the
+  device that provided the actuator entity, thanks [@dougiteixeira]!
+- [@gjohansson-ST] did the same, he added a link to the [History stats] helper
+  to the device that provided the sensor entity.
+- You can now set up [button], [image], [select], and [switch] templates
+  entities, straight from the UI. Awesome job [@dougiteixeira]!
 
+[@balloob]: https://github.com/balloob
+[@dougiteixeira]: https://github.com/dougiteixeira
+[@emontnemery]: https://github.com/emontnemery
 [@frenck]: https://github.com/frenck
-
-{% details "Potential changes to process" icon="mdi:scale-balance" %}
-
-- Add support for the Select platform in Matter ([@jvmahon] - [#119769]) ([matter docs]) (new-platform)
-
-{% enddetails %}
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@synesthesiam]: https://github.com/synesthesiam
+[Assist]: /voice_control/
+[button]: /integrations/button
+[Generic Thermostat]: /integrations/generic_thermostat
+[group]: /integrations/group
+[History stats]: /integrations/history_stats
+[Hygrostat]: /integrations/generic_hygrostat
+[image]: /integrations/image
+[notify]: /integrations/notify
+[select]: /integrations/select
+[switch]: /integrations/switch
+[Timer support]: /blog/2024/07/03/release-20247/#timers-are-here
 
 ## Integrations and helpers set up via YAML, now visible in the UI!
 
