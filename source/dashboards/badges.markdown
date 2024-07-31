@@ -70,45 +70,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## State label badge
-
-The state label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
-
-```yaml
-type: state-label
-entity: light.living_room
-```
-
-{% configuration state_badge %}
-type:
-  required: true
-  description: "`state-label`"
-  type: string
-entity:
-  required: true
-  description: Entity ID.
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
-  default: Name of entity
-icon:
-  required: false
-  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
-  type: string
-  default: Entity domain icon
-image:
-  required: false
-  description: The URL of an image.
-  type: string
-show_name:
-  required: false
-  description: Show name.
-  type: boolean
-  default: "true"
-{% endconfiguration %}
-
 ## Entity Filter Badge
 
 This badge allows you to define a list of entities that you want to track only when in a certain state. Very useful for showing lights that you forgot to turn off or show a list of people only when they're at home.
