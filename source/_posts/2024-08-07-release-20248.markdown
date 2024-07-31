@@ -187,12 +187,18 @@ The following {% term integrations %} have reached the platinum 🏆 level on ou
 [integration quality scale](/docs/quality_scale). These integrations are
 the best of the best and give you an excellent out-of-the-box experience.
 
-- **[Lorem]**, done by [@frenck]
+- **[BMW Connected Drive]**, done by [@rikroe]
+- **[TechnoVE]**, done by [@Moustachauve]
+- **[Tessie]**, done by [@Bre77]
 
 Congratulations to all the developers who worked on these integrations!
 
-[@frenck]: https://github.com/frenck
-[Lorem]: /integrations/ipsum
+[BMW Connected Drive]: /integrations/bmw_connected_drive
+[@rikroe]: https://github.com/rikroe
+[TechnoVE]: /integrations/technove
+[@Moustachauve]: https://github.com/Moustachauve
+[Tessie]: /integrations/tessie
+[@Bre77]: https://github.com/Bre77
 
 ### Now available to set up from the UI
 
