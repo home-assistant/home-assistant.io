@@ -26,6 +26,8 @@ After Home Assistant has been [installed](/installation/) on your device, there 
 
    - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
      - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
+       - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
+       - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 
 3. Enter the location of your home.
    - The location is used to configure the time zone, unit system, and currency.

@@ -15,9 +15,9 @@ related:
     title: Configuration file
 ---
 
-The Mold Indicator sensor {% term integration %} consumes information of two temperature sensors and a humidity sensor to give an indication for possible mold growth in your home. In case of bad ventilation and insulation, the indoor humidity may lead to condensation on cold surfaces as the windows or even walls. Condensation or a high relative humidity near those cold surfaces leads to a higher risk for mold growth. This sensor integration estimates the temperature at a pre-calibrated critical point in the room (the coldest surface) and calculates the relative humidity of the air at that point. If the sensor value rises above approximately 70 percent, mold growth might occur and the room should be ventilated. At 100%, the air humidity condensates at the critical point.
+The Mold Indicator sensor {% term integration %} uses data from two temperature sensors and a humidity sensor to predict the humidity near a cold surface. High humidity may lead to mold growth at more than ~70% and causes condensation at 100%.
 
-The sensor data may be used e.g., to signal bad air quality (too high air humidity) or to automate operation of indoor air humidifiers to keep the indoor humidity at an optimum.
+The sensor data may be used, for example, to detect bad air quality (high humidity) or automate the operation of indoor air humidifiers to keep the indoor humidity at an optimum.
 
 ## Configuration
 
@@ -59,9 +59,16 @@ calibration_factor:
 
 In this case, the weather forecast temperature sensor is used for the outside temperature.
 
+## Background
+
+First, this sensor predicts the temperature near the given surface by estimating it from the indoor and outdoor temperatures. The predicted temperature starts with the indoor temperature, then either brings it closer to the outdoor temperature (if the calibration factor is positive, indicating the surface is influenced by the outdoors) or away (if the calibration factor is negative, indicating the surface is inversely correlated with the outdoor temperature).
+
+From there, the sensor calculates the relative humidity near the given surface based on the dew point.
+
 ## Calibration
 
 The Mold Indicator sensor integration needs to be calibrated in order to estimate the temperature at the critical point from the outdoor and indoor temperature. First find the coldest surface in the room (critical point), which is typically near the window frames, but depends on the insulation of your home. For calibration you need to measure the temperature at this critical point and simultaneously write down the values for the indoor- and outdoor temperature sensors used for the Mold Indicator. Be sure that there is a significant indoor to outdoor temperature difference to get the best calibration results.
+
 With the three measured temperatures (in Celsius or Fahrenheit), the calibration_factor for your configuration file is given by:
 
 ```text

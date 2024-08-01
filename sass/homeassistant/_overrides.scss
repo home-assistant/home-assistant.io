@@ -110,7 +110,7 @@ h1.title.indent {
       a {
         text-decoration: none !important;
       }
-      
+
       &>li {
         list-style-type: none;
 
@@ -118,7 +118,7 @@ h1.title.indent {
           margin-left: 20px;
           font-size: .85rem;
           font-weight: normal;
-      
+
           &>li {
             margin: 4px 0;
 
@@ -183,7 +183,7 @@ h1.title.indent {
   position: sticky;
   top: 80px;
   padding-left: 32px;
-  
+
   .aside-module {
     background: none;
     padding: 0;
@@ -676,6 +676,10 @@ a.material-card:hover {
     &:hover {
       background-color: lighten(#038fc7, 10%);
     }
+
+    iconify-icon {
+      vertical-align: middle;
+    }
   }
 
   .events {
@@ -820,7 +824,7 @@ a.material-card:hover {
     .round {
       border-radius: 50%;
     }
-          
+
     @media only screen and (max-width: $lap-end) {
       grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
       gap: 16px;
