@@ -71,7 +71,7 @@ tap_action:
       description: "Path to navigate to (e.g., `https://www.home-assistant.io`) when the `action` is defined as `url`"
       type: string
       default: none
-    perform-action:
+    perform_action:
       required: false
       description: "Action to perform (e.g., `media_player.media_play_pause`) when the `action` is defined as `perform-action`"
       type: string
