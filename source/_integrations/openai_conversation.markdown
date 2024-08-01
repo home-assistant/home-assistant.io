@@ -161,7 +161,7 @@ template:
 
 ### Service `openai_conversation.generate_content`
 
-Allows you to ask OpenAI to generate an content based on a prompt. This service
+Allows you to ask OpenAI to generate a content based on a prompt. This service
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the response from OpenAI.
 
