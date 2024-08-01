@@ -9,7 +9,7 @@ comments: true
 categories: Announcements
 og_image: /images/blog/2024-08-yellow-lineup/art.jpg
 ---
-<p class='img'><img src='/images/blog/2024-08-yellow-lineup/art.jpg' style='border: 0;box-shadow: none;' alt="Home Assistant Yellow and packaging">Home Assistant Yellow's fully assembled with additional (and not included) NVMe storage and Z-Wave GPIO module</p>
+<p class='img'><img src='/images/blog/2024-08-yellow-lineup/art.jpg' style='border: 0;box-shadow: none;' alt="Home Assistant Yellow and packaging">Home Assistant Yellow fully assembled with additional (and not included) NVMe storage and Z-Wave GPIO module</p>
 
 **TL;DR:**  We will now only sell the Home Assistant Yellow as a kit, which requires the separate purchase of a CM4. Home Assistant Green is the best plug-and-play option for beginners.
 
