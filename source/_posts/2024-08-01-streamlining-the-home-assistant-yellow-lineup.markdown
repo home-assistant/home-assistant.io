@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Streamlining the Home Assistant Yellow lineup"
-description: "Home Assistant Yellow continues to be our flagship product, and the line is getting small tweak."
+description: "Home Assistant Yellow continues to be our flagship product, and the line is getting a small tweak."
 date: 2024-08-01 00:00:01
 date_formatted: "August 1, 2024"
 author: Andy Gill
