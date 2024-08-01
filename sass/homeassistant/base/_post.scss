@@ -87,7 +87,7 @@ article {
   }
 
   // Blog listings, index page
-  &.listing {
+  &.listing, &.blurb {
     margin-bottom: 20px;
     h1 {
       margin-bottom: .5em;

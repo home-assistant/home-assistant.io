@@ -9,10 +9,16 @@ feedback: false
 <h1 class="title indent">Blog</h1>
 
 {% for post in paginator.posts %}
-<article class="listing">
-  {% include blog/post/article.html %}
-</article>
-<hr>
+  {% if post.layout == 'post' %}
+    <article class="listing">
+      {% include blog/post/article.html %}
+    </article>
+  {% elsif post.layout == 'blurb' %}
+    <article class="blurb">
+      {% include blog/post/blurb.html %}
+    </article>
+  {% endif %}
+  <hr>
 {% endfor %}
 
 <div class="pagination">

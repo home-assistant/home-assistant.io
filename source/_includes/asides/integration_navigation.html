@@ -1,0 +1,109 @@
+
+{%- comment -%}Can't use where to count nil because of https://github.com/jekyll/jekyll/issues/6038{%- endcomment -%}
+{%- assign tot = 0 -%}
+{%- for comp in site.integrations -%}
+{%- if comp.ha_category -%}
+{%- if comp.ha_category.first -%}
+{%- assign tot = tot | plus: comp.ha_category.size -%}
+{%- else -%}
+{%- assign tot = tot | plus: 1 -%}
+{%- endif -%}
+{%- endif %}
+{%- endfor -%}
+
+{%- assign components = site.integrations | sort: 'title' -%}
+{%- assign components_by_version = site.integrations | group_components_by_release -%}
+{%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
+
+<div class="grid__item one-fifth lap-one-whole palm-one-whole">
+
+    <div class="filter-button-group">
+      <div class="all">
+        <a href='#all' class="btn">All <span class="count">{{tot}}</span></a>
+      </div>
+
+      <div class="featured">
+        <a href='#featured' class="btn">Featured</a>
+        <a href='#works-with-home-assistant' class="btn">Partner brands</a>
+      </div>
+
+      <div class="version_select">
+        <label>By release</label>
+        <select id="versions" name="versions">
+          <option value="#"></option>
+          {%- for group in components_by_version -%}
+          <optgroup label="{{ group.label }} ({{group.new_components_count}})">
+            {%- for version in group.versions -%}
+            <option value="#version/{{ version.label }}">{{ version.label }} ({{ version.new_components_count }})
+            </option>
+            {%- endfor -%}
+          </optgroup>
+          {%- endfor -%}
+        </select>
+      </div>
+
+      <div class="category_list">
+        <label>By Categories</label>
+        {%- for category in categories -%}
+          {%- assign category_name = "" -%}
+          {%- assign components_count = 0 -%}
+          {%- for comp in components -%}
+            {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+            {%- if comp_categories contains category -%}
+              {%- if category_name == "" -%}
+                {%- for cat in comp.ha_category -%}
+                  {%- assign lower_cat = cat | downcase -%}
+                  {%- if lower_cat == category -%}
+                    {%- assign category_name = cat -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%} 
+              {%- assign components_count = components_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if category != 'other' and components_count != 0 -%}
+            {%- if category_name == "" -%}
+              {%- assign category_name = category | capitalize -%}
+            {%- endif -%}
+            <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} <span class="count">{{ components_count }}</span></a>
+          {%- endif -%}
+        {%- endfor -%}
+        <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      </div>
+
+      <div class="category_select">
+        <label>By Categories</label>
+        <select id="categories" name="categories">
+          <option value="#"></option>
+          {%- for category in categories -%}
+            {%- assign category_name = "" -%}
+            {%- assign components_count = 0 -%}
+            {%- for comp in components -%}
+              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+              {%- if comp_categories contains category -%}
+                {%- if category_name == "" -%}
+                  {%- for cat in comp.ha_category -%}
+                    {%- assign lower_cat = cat | downcase -%}
+                    {%- if lower_cat == category -%}
+                      {%- assign category_name = cat -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%} 
+                {%- assign components_count = components_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if category != 'other' and components_count != 0 -%}
+              {%- if category_name == "" -%}
+                {%- assign category_name = category | capitalize -%}
+              {%- endif -%}
+              <option value="#{{ category_name | slugify }}">{{ category_name }} ({{ components_count }})
+              </option>
+            {%- endif -%}
+          {%- endfor -%}
+          <option value="#other">Other ({{ components | where: 'ha_category', 'Other' | size }})
+          </option>
+        </select>
+      </div>
+
+    </div>
+  </div>

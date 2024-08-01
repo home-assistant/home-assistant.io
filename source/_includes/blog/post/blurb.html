@@ -1,0 +1,20 @@
+<header>
+  {% unless post.meta == false %}
+  <div class="meta clearfix">
+    {% include post/author.html %}
+    {% include blog/post/date.html %}{{ time }}
+    {% if post.comments != false %}
+      <a class='comments'
+         href="{% if index %}{{ post.url }}{% endif %}#post-comments"
+         >Comments</a>
+    {% endif %}
+  </div>
+  {% endunless %}
+</header>
+
+<div class="entry-content clearfix">
+
+  <p><strong>{{ post.title }}</strong>
+  {{ post.excerpt | replace: 'href="#', blog_post_link | remove_first: '<p>' }}
+
+</div>

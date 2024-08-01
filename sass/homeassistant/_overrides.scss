@@ -902,7 +902,8 @@ dt:hover a.title-link {
 
 article.post,
 article.page,
-article.listing {
+article.listing,
+article.blurb {
   font-size: 1.125em;
   line-height: 1.6;
 
@@ -1016,6 +1017,34 @@ article.listing {
   details {
     padding-bottom: 1em;
   }
+}
+
+
+// Blurb formatting
+
+article.blurb {
+  font-size: 1em;
+  line-height: 1.6;
+
+  padding: 24px;
+  border-radius: 16px;
+  background-color: rgba($primary-color, .075);
+  margin: 0 0 48px 0;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+
+  .meta {
+    padding-bottom: 12px;
+
+    img.author-avatar {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+
 }
 
 .aside-module {

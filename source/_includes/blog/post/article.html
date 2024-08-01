@@ -12,7 +12,7 @@
     {% include post/author.html %}
     {% include blog/post/date.html %}{{ time }}
     {% include blog/post/tags.html %}
-    {% if page.comments != false and post.comments != false %}
+    {% if post.comments != false %}
       <a class='comments'
          href="{% if index %}{{ post.url }}{% endif %}#post-comments"
          >Comments</a>
