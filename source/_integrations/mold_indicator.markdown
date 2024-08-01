@@ -17,7 +17,7 @@ related:
 
 The Mold Indicator sensor {% term integration %} uses data from two temperature sensors and a humidity sensor to predict the humidity near a cold surface. High humidity may lead to mold growth at more than ~70% and causes condensation at 100%.
 
-The sensor data may be used to e.g. detect bad air quality (high humidity) or automate operation of indoor air humidifiers to keep the indoor humidity at an optimum.
+The sensor data may be used, for example, to detect bad air quality (high humidity) or automate the operation of indoor air humidifiers to keep the indoor humidity at an optimum.
 
 ## Configuration
 
