@@ -17,7 +17,9 @@ feedback: false
       <div class="recent-posts material-card text">
         <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
 
-        {% for post in site.posts limit: 4 %}
+        {% assign full_blog_posts = site.posts | where: "layout", "post" %}
+
+        {% for post in full_blog_posts limit: 4 %}
         <li class="post" style="display: grid; font-size: 16px">
           <a href="{{ post.url }}">{{ post.title }}</a>
           <small class="blog-date">{{ post.date_formatted }}</small>
