@@ -165,13 +165,14 @@ Allows you to ask OpenAI to generate a content based on a prompt. This service
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the response from OpenAI.
 
-| Service data attribute | Optional | Description                                             | Example          |
-| ---------------------- | -------- | ------------------------------------------------------- | ---------------- |
-| `config_entry`         | no       | Integration entry ID to use.                            |                  |
-| `prompt`               | no       | The text to turn into an image.                         | Picture of a dog |
-| `image_filename`       | yes      | List of file names for images to include in the prompt. | /tmp/image.jpg   |
+| Service data attribute | Optional | Description                                             | Example              |
+| ---------------------- | -------- | ------------------------------------------------------- | -------------------- |
+| `config_entry`         | no       | Integration entry ID to use.                            |                      |
+| `prompt`               | no       | The text to generate content from.                      | Describe the weather |
+| `image_filename`       | yes      | List of file names for images to include in the prompt. | /tmp/image.jpg       |
 
 {% raw %}
+
 ```yaml
 service: openai.generate_content
 data:
@@ -184,6 +185,7 @@ data:
     - /tmp/doorbell_snapshot.jpg
 response_variable: generated_content
 ```
+
 {% endraw %}
 
 The response data field `text` will contain the generated content.
@@ -191,6 +193,7 @@ The response data field `text` will contain the generated content.
 Another example with multiple images:
 
 {% raw %}
+
 ```yaml
 service: openai.generate_content
 data:
@@ -204,4 +207,5 @@ data:
     - /tmp/driveway_snapshot4.jpg
 response_variable: generated_content
 ```
+
 {% endraw %}
