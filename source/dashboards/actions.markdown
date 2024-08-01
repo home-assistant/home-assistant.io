@@ -275,13 +275,13 @@ user:
 
 ```yaml
 double_tap_action:
-  action: call-service
+  action: perform-action
   confirmation:
     text: Are you sure you want to restart?
     exemptions:
       - user: x9405b8c64ee49bb88c42000e0a9dfa8
       - user: 88bcfbdc39155d16c3b2d09cbf8b0367
-  service: script.restart
+  perform_action: script.restart
 ```
 
 ## Examples
