@@ -290,14 +290,12 @@ Given a camera named `Front Yard` then the camera is created with a name such as
 
 ## Event
 
-All cameras have event entities that support events like motion (people, camera, or motion depending on the camera model) or doorbell chime. 
+All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
 
-See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+There are two classes of event entities that are available based on the above camera features:
 
-There are two types of nest event entities based on the above camera capabilities:
-
-* `Motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-* `Doorbell` for cameras that support `doorbell_chime` events
+* `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
+* `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
 
 Nest event entities do not yet expose media for use in attachments.
 
