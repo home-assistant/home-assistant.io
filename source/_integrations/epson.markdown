@@ -51,7 +51,7 @@ The iProjection app by Epson can be used to test if it is working.
 
 ### Serial connection
 
-Connect projector directly to Home Assistant via a serial cable or ser2net can be used as a Serial to network proxy.
+Connect projector directly to Home Assistant via a serial cable, or ser2net can be used as a Serial to network proxy.
 
 #### ser2net configuration
 
