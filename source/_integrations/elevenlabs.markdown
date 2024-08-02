@@ -13,6 +13,7 @@ ha_integration_type: integration
 ---
 
 The **ElevenLabs** text-to-speech {% term integrations %} adds support for [ElevenLabs](https://elevenlabs.io/) as text-to-speech to read a text with natural sounding voices.
+An ElevenLabs account is required to use this integration - a free one suffices for basic usage. For custom voices or more quota, subscriptions are required. Additionally, you need your API key from the ElevenLabs website. 
 
 {% include integrations/config_flow.md %}
 
