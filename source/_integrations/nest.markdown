@@ -294,8 +294,8 @@ All doorbells and cameras support event entities. See the [Event](https://www.ho
 
 There are two classes of event entities that are available based on the above camera features:
 
-* `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
-* `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+- `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
+- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
 
 Nest event entities do not yet expose media for use in attachments.
 
