@@ -10,12 +10,13 @@ You need to have a compatible Z-Wave stick or module installed. The following de
 {% warning %}
 
 The firmwares of 700 and 800 series Z-Wave controllers have several bugs which impact the stability of the mesh and can cause the controller to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
+
 - 700 series:
   - prefer SDK versions 7.17.2 to 7.18.x
   - SDK versions 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
- 
+
 - 800 series
   - prefer SDK versions 7.22.x
   - SDK versions 7.17.2 to 7.19.x are okay
