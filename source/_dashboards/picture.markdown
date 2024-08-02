@@ -80,8 +80,8 @@ Toggle entity using an action:
 type: picture
 image: /local/light.png
 tap_action:
-  action: call-service
-  service: light.toggle
+  action: perform-action
+  perform_action: light.toggle
   data:
     entity_id: light.ceiling_lights
 ```
