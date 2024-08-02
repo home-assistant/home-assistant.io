@@ -21,6 +21,8 @@ The firmwares of 700 and 800 series Z-Wave controllers have several bugs which i
   - SDK versions 7.17.2 to 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
+ 
+Note that the SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer.
 
 Users should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
 
