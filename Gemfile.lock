@@ -108,7 +108,7 @@ GEM
     rexml (3.3.4)
       strscan
     rouge (4.3.0)
-    rubocop (1.65.0)
+    rubocop (1.65.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
       parallel (~> 1.10)
@@ -168,7 +168,7 @@ DEPENDENCIES
   nokogiri (= 1.16.7)
   rackup (= 2.1.0)
   rake (= 13.2.1)
-  rubocop (= 1.65.0)
+  rubocop (= 1.65.1)
   ruby-lsp (= 0.17.10)
   sass-globbing (= 1.1.5)
   sassc (= 2.1.0)
