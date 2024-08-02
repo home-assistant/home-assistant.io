@@ -17,6 +17,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - sensor
+ha_quality: gold
 ha_integration_type: integration
 ---
 
