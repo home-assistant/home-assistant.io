@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@pburgio'
+  - '@shapournemati-iotty'
 ha_domain: iotty
 ha_platforms:
   - switch
@@ -30,14 +31,14 @@ This integration currently supports the following iotty devices:
 
 - iotty Smart Switch \
   US version:
-  - [1-Switch Controller](https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389)
-  - [2-Switch Controller](https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925)
-  - [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
-  - [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
+  - [1-Switch Controller](https://link.iotty.com/DU-1-gang-smart-switch)
+  - [2-Switch Controller](https://link.iotty.com/DU-2-gang-smart-switch)
+  - [3-Switch Controller](https://link.iotty.com/DU-3-gang-smart-switch)
+  - [4-Switch Controller](https://link.iotty.com/DU-4-gang-smart-switch) \
   EU version:
-  - [iotty Smart Switch](https://iotty.uk/collections/frontpage/products/iotty-smart-switch)
-  - [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
-  - [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
+  - [iotty Smart Switch](https://link.iotty.com/E1-PLUS)
+  - [iotty Smart Switch (variant)](https://link.iotty.com/E2-PLUS)
+  - [iotty Plus Interruttore Intelligente](https://link.iotty.com/i3-PLUS)
 
 ## Supported entities
 
