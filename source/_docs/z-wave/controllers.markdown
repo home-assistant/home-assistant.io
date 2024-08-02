@@ -22,7 +22,7 @@ The firmwares of 700 and 800 series Z-Wave controllers have several bugs which i
   - SDK versions 7.17.2 to 7.19.x are okay
   - avoid SDK versions before 7.17.2
   - avoid SDK versions 7.20 to 7.21.3
- 
+
 Note that the SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer.
 
 Users should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
@@ -158,11 +158,11 @@ If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS inst
 
 This procedure has been tested with the following modules:
 
-  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
-  - Z-Wave.Me RaZberry 7
-  - Z-Wave.Me RaZberry 7 Pro
+- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
+- Z-Wave.Me RaZberry 7
+- Z-Wave.Me RaZberry 7 Pro
 
-1. Make sure the module is properly seated on the Home Assistant Yellow. 
+1. Make sure the module is properly seated on the Home Assistant Yellow.
    ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
 2. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
 3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).
