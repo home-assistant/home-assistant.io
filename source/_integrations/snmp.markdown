@@ -276,7 +276,7 @@ The `value_template` option converts the original value to minutes.
 
 The `snmp` switch platform allows you to control SNMP-enabled equipment.
 
-Currently, only SNMP OIDs that accept integer values are supported. SNMP v1, v2c and v3 are supported.
+Currently, only SNMP OIDs that accept integer or string values are supported. SNMP v1, v2c and v3 are supported.
 
 To use an SNMP switch in your installation:
 
