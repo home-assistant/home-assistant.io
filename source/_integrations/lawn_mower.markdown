@@ -17,13 +17,21 @@ The lawn mower integration allows the control of robotic lawn mowers to be refle
 
 ## Actions
 
-Available actions: `start_mowing`, `pause` and `dock`.
+Available actions: `start_mowing`, `fixed_mowing`, `pause`, `resume`, `cancel` and `dock`.
 
 Before calling one of these actions, make sure your lawn_mower platform supports it.
 
 ### Action `lawn_mower.start_mowing`
 
-Start or resume a mowing task.
+Start a mowing task.
+
+| Data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+
+### Action `lawn_mower.fixed_mowing`
+
+Start a spot mowing task.
 
 | Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
@@ -32,6 +40,22 @@ Start or resume a mowing task.
 ### Action `lawn_mower.pause`
 
 Pause a mowing task.
+
+| Data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+
+### Action `lawn_mower.resume`
+
+Resume a mowing task.
+
+| Data attribute | Optional | Description                                                      |
+| ---------------------- | -------- | ---------------------------------------------------------------- |
+| `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
+
+### Action `lawn_mower.cancel`
+
+Cancel a mowing task.
 
 | Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
