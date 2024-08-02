@@ -42,7 +42,7 @@ When you want to add a device for the first time, turn it on before following th
 
 ## Configuration
 
-This integration supports connecting to a Epson projector via LAN or Serial.
+This integration supports connecting to an Epson projector via LAN or Serial.
 
 ### LAN connection
 
