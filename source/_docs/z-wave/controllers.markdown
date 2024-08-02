@@ -27,7 +27,9 @@ The firmwares of 700 and 800 series Z-Wave controllers have several bugs which i
 The SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
 {% endnote %}
 
-Users should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
+{% important %}
+You should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
+{% endimportant %}
 
 Firmware can be upgraded using the below directions:
 
