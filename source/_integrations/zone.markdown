@@ -12,13 +12,43 @@ ha_domain: zone
 ha_integration_type: system
 ---
 
-Zones allow you to specify certain regions on earth (for now). When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automation setups.
+Zones allow you to specify certain regions on a map. When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automations. For example, for showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
 
-Zones can be added and managed through the user interface at {% my zones title="**Settings** > **Areas, labels & zones**" %}.
+As part of the default [onboarding process](/getting-started/onboarding/), Home Assistant can detect your location from IP address geolocation.
 
-![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
+![Screenshot showing how to define your location during onboarding](/images/getting-started/onboarding_location.png)
 
-You can add a zone in the user interface by specifying the GPS coordinates or dragging the icon on the map. You can adjust the zone radius (except for the Home zone) by changing the size of the zone circle.
+Home Assistant will automatically select a unit system and time zone based on this location. If you didn’t adjust this directly during onboarding, you can do it later. Follow the steps described below.
+
+## Editing your home zone
+
+1. To edit your home zone, go to {% my general title="**Settings** > **System** > **General**" %}.
+2. To change the name of your home zone, under **Name**, enter the new name. Then select **Update**.
+3. To change location or radius, under **Edit location**, select edit.
+   - To adjust the location, specify the GPS coordinates or drag the icon on the map
+   - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
+      <img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screencast showing how to zoom and pan to change location and radius on the Edit home page'>
+4. To save your changes, select **Update**.
+
+## Adding a new zone or editing zones
+
+1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
+2. To add a new zone, select **Add zone**.
+3. Give your zone a name, for example `Nina's office`, or `school`.
+4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
+   - For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+   - Note: the icon cannot be changed for the home zone.
+5. To change location or radius, under **Edit location**, select edit.
+   - To adjust the location, specify the GPS coordinates or drag the icon on the map
+   - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
+
+  ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
+
+6. If you want to hide the zone from the frontend and not use the zone for device tracker state, enable **Passive**. You can still use it in automations.
+   - **Passive** is not available for the home zone.
+7. To save your changes, select **Update**.
+
+## Editing zones in YAML
 
 Zones can also be configured via {% term "`configuration.yaml`" %}:
 
@@ -73,18 +103,6 @@ passive:
 {% endconfiguration %}
 
 To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
-
-## Home zone
-
-If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
-
-{% note %}
-Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
-{% endnote %}
-
-## Icons
-
-It is recommended that you pick an icon to use for your zone. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`. For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
 
 ## State
 
