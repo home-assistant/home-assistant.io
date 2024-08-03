@@ -16,7 +16,7 @@ Zones allow you to specify certain regions on a map. When a device tracker sees 
 
 As part of the default [onboarding process](/getting-started/onboarding/), Home Assistant can detect your location from IP address geolocation.
 
-![Screenshot showing how to define your location during onboarding](/images/getting-started/onboarding_location.png)
+<p class='img'><img src='/images/getting-started/onboarding_location.png' style='border: 0;box-shadow: none;' alt="Screenshot showing how to define your location during onboarding">The screenshot shows how location of your home zone is defined during the onboarding process. The location of your home zone can be changed later on.</p>
 
 Home Assistant will automatically select a unit system and time zone based on this location. If you didn’t adjust this directly during onboarding, you can do it later. Follow the steps described below.
 
