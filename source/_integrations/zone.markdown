@@ -33,7 +33,7 @@ Home Assistant will automatically select a unit system and time zone based on th
 ## Adding a new zone or editing zones
 
 1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
-2. To add a new zone, select **Add zone**.
+2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
