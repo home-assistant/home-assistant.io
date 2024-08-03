@@ -25,25 +25,30 @@ related:
     title: Claude
 ---
 
-The Anthropic integration adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.
+The **Anthropic** {% term integrations %} adds a conversation agent powered by [Anthropic](https://www.anthropic.com), such as Claude 3.5 Sonnet, in Home Assistant.
 
-Legal note: Anthropic currently limits the API usage to organizations only, more info here: [Can I use the Claude API for individual use?](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use)
 
 Controlling Home Assistant is done by providing the AI access to the Assist API of Home Assistant. You can control what devices and entities it can access from the {% my voice_assistants title="exposed entities page" %}. The AI can provide you information about your devices and control them.
 
+Legal note: Anthropic currently limits the API usage to organizations only, more info here: [Can I use the Claude API for individual use?](https://support.anthropic.com/en/articles/8987200-can-i-use-the-claude-api-for-individual-use)
+
 This integration does not integrate with [sentence triggers](/docs/automation/trigger/#sentence-trigger).
 
-This integration requires an API key to use, [which you can generate here.](https://console.anthropic.com/settings/keys). This is a paid service, we advise you to monitor your costs in the [Anthropic portal](https://console.anthropic.com/settings/cost) closely.
 
-{% include integrations/config_flow.md %}
+## Prerequisites
 
-## Generate an API Key
+- This integration requires an API key to use, [which you can generate here.](https://console.anthropic.com/settings/keys). 
+- This is a paid service, we advise you to monitor your costs in the [Anthropic portal](https://console.anthropic.com/settings/cost) closely.
+
+### Generating an API Key
 
 The Anthropic API key is used to authenticate requests to the Anthropic API. To generate an API key, take the following steps:
 
-- Log in to the [Anthropic portal](https://console.anthropic.com) or sign up for an account.
-- Enable billing with a valid credit card on the [plans page](https://console.anthropic.com/settings/plans).
-- Visit the [API Keys page](https://console.anthropic.com/settings/keys) to retrieve the API key you'll use to configure the integration.
+1. Log in to the [Anthropic portal](https://console.anthropic.com) or sign up for an account.
+2. Enable billing with a valid credit card on the [plans page](https://console.anthropic.com/settings/plans).
+3. Visit the [API Keys page](https://console.anthropic.com/settings/keys) to retrieve the API key you'll use to configure the integration.
+
+{% include integrations/config_flow.md %}
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
