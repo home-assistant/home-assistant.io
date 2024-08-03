@@ -24,9 +24,9 @@ The following data is provided by the integration:
 - Lifetime production (Per input and in total)
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
+- Short circuit error status (per input)
 - Off grid status
-- Short circuit error status (For DC 1 and DC 2)
-- Output fault status
+- Output status
 
 The following data can be set by the integration:
 
