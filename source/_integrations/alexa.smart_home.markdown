@@ -148,7 +148,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed on the top right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
