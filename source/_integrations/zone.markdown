@@ -10,6 +10,13 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_domain: zone
 ha_integration_type: system
+related:
+  - docs: /docs/configuration/basic/
+    title: Editing basic settings
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /getting-started/onboarding/
+    title: Onboarding
 ---
 
 Zones allow you to specify certain regions on a map. When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automations. For example, for showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
