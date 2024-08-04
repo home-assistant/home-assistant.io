@@ -43,7 +43,7 @@ Home Assistant will automatically select a unit system and time zone based on th
 2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
-   - For example `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
+   - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
    - Note: the icon cannot be changed for the home zone.
 5. To change location or radius, under **Edit location**, select edit.
    - To adjust the location, specify the GPS coordinates or drag the icon on the map
