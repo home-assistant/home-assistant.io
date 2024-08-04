@@ -21,6 +21,16 @@ There are several things you can do to free up some space:
 - [Uninstall unused add-ons](#uninstalling-unused-add-ons)
 - [Expand storage](#expanding-storage)
 
+## Viewing the available disk space
+
+Follow these steps to check the available free disk space.
+
+1. Go to **{% my storage title="Settings > System > Storage" %}**.
+2. Under disk metrics, hover over the status bar to view the details.
+   - {% icon "mdi:information-outline" %} The **Network storage** section only shows if you have [added network storage](/common-tasks/os/#network-storage).
+
+   ![Screenshot of the "Move datadisk" feature](/images/screenshots/storage_view_free-diskspace.png)
+
 ## Cleaning the database
 
 The Home Assistant database can get huge!
