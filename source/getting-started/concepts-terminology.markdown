@@ -66,12 +66,12 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Add-ons
 
-Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly with Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported by the {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} [installation type](/installation). Add-ons are not supported by {% term "Home Assistant Container" %} and {% term "Home Assistant Core" %} [installation type](/installation).
+Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly with Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported by the {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} [installation type](/installation).
 
 Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of disk space.
 
 Among the most used add-ons are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
 
-![Add-ons](/images/getting-started/add-ons.png)
+<p class='img'><img src='/images/getting-started/add-ons.png' style='border: 0;box-shadow: none;' alt="Screenshot of the add-on page">Screenshot of the add-on page, showing all the installed add-ons on a test system.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
