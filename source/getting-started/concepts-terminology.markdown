@@ -66,7 +66,11 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Add-ons
 
-Depending on your [installation type](/installation), you can install third party add-ons. Add-ons are usually apps that can be run with Home Assistant but provide a quick and easy way to install, configure, and run within Home Assistant. Add-ons provide additional functionality whereas {% term integrations %} connect Home Assistant to other apps.
+Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly with Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported by the {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} [installation type](/installation). Add-ons are not supported by {% term "Home Assistant Container" %} and {% term "Home Assistant Core" %} [installation type](/installation).
+
+If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of disk space.
+
+Among the most used add-ons are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
 
 ![Add-ons](/images/getting-started/add-ons.png)
 
