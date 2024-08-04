@@ -584,6 +584,7 @@ support_url:
     'name':                'name',
     'mf':                  'manufacturer',
     'mdl':                 'model',
+    'mdl_id':              'model_id',
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
@@ -820,7 +821,8 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
       ],
       "name":"Bedroom",
       "manufacturer": "Example sensors Ltd.",
-      "model": "K9",
+      "model": "Example Sensor",
+      "model_id": "K9",
       "serial_number": "12AE3010545",
       "hw_version": "1.01a",
       "sw_version": "2024.1.0",
@@ -955,6 +957,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "name": "Kitchen",
       "mf": "Bla electronics",
       "mdl": "xya",
+      "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
       "hw": "1.0rev2",
@@ -1175,7 +1178,8 @@ data:
     "device": {
     "identifiers": "Acurite-986-1R-51778",
     "name": "Bathroom",
-    "model": "Acurite-986",
+    "model": "Acurite",
+    "model_id": "986",
     "manufacturer": "rtl_433" }
     }
 ```
