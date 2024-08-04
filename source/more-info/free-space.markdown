@@ -23,7 +23,7 @@ There are several things you can do to free up some space:
 
 ## Viewing the available disk space
 
-Follow these steps to see how much free disk space there is available.
+Follow these steps to check the available free disk space.
 
 1. Go to **{% my storage title="Settings > System > Storage" %}**.
 2. Under disk metrics, hover over the status bar to view the details.
