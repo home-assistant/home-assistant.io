@@ -29,7 +29,7 @@ To see the available models and their benefits, check the [models documentation]
 
 ## Action speak
 
-The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the entity for your ElevenLabs TTS (it's named ElevenLabs), select the media player entity or group to send the TTS audio to, and enter the message to speak.
+The `tts.speak` action is the modern way to use TTS. Add the `speak` action, select the entity for your ElevenLabs TTS (it's named ElevenLabs by default), select the media player entity or group to send the TTS audio to, and enter the message to speak.
 
 For more options about `speak`, see the Speak section on the main [TTS](/integrations/tts/#service-speak) building block page.
 
