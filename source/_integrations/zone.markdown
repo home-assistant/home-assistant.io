@@ -38,10 +38,10 @@ During onboarding, this location was used to create the home zone with a 100&nbs
 1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
 2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
-   - The name of your home zone is defined by the name of your home. If you want to change this, go to {% my general title="**Settings** > **System** > **General**" %}.
+   - The home zone always has the name of your home. If you want to change the name for the home, go to {% my general title="**Settings** > **System** > **General**" %}.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
-   - Note: the icon cannot be changed for the home zone.
+   - For the home zone, the icon cannot be changed.
 5. To change location or radius, under **Edit location**, select edit.
    - To adjust the location, specify the GPS coordinates or drag the icon on the map
    - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
