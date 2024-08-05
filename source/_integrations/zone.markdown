@@ -46,7 +46,7 @@ During onboarding, this location was used to create the home zone with a 100&nbs
    - To adjust the location, specify the GPS coordinates or drag the icon on the map
    - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
 
-  ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
+    ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
 
 6. If you want to hide the zone from the frontend and not use the zone for device tracker state, enable **Passive**. You can still use it in automations.
    - For the home zone, **Passive** is not available.
