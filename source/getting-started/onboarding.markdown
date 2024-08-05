@@ -30,8 +30,9 @@ After Home Assistant has been [installed](/installation/) on your device, there 
        - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 
 3. Enter the location of your home.
-   - The location is used to configure the time zone, unit system, and currency.
-   - It is also used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+   - The home location is used to configure the time zone, unit system, and currency.
+   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
+   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
    - You can always change this information later in the settings.
    - After finding your location, select **Next**.
 
