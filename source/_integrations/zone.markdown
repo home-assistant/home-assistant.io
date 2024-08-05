@@ -21,11 +21,17 @@ related:
 
 Zones allow you to specify certain regions on a map. When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automations. For example, for showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
 
-As part of the default [onboarding process](/getting-started/onboarding/), Home Assistant can detect your location from IP address geolocation.
+## About the home zone
 
-<p class='img'><img src='/images/getting-started/onboarding_location.png' style='border: 0;box-shadow: none;' alt="Screenshot showing how to define your location during onboarding">The screenshot shows how location of your home zone is defined during the onboarding process. The location of your home zone can be changed later on.</p>
+During the [onboarding process](/getting-started/onboarding/), Home Assistant asked for your home location. You either entered this manually or asked Home Assistant to detect it by IP address geolocation.
 
-Home Assistant will automatically select a unit system and time zone based on this location. If you didn’t adjust this directly during onboarding, you can do it later. Follow the steps described below.
+During onboarding, this location was used to create the home zone with a 100&nbsp;m radius. The home zone is a special, pre-defined zone with a few characteristics that set it apart from other zones.
+
+- The name of this zone is defined by the name of your (which defaults to "Home").
+- The home zone cannot be deleted and is designated with the home icon in the zone configuration page.
+- The home zone's location is used by integrations that are location-based. For example, the [Sun integration](/integrations/sun/), which uses it to calculate the position of the sun relative to your home.
+- During onboarding, Home Assistant defined a unit system and time zone based on this location. If you change the location later, unit system and time zone will not be changed automatically anymore.
+- Devices that are in the home zone will not appear on the map in the Home Assistant UI. If you are using your phone for example for presence detection and location based automations, don't be alarm if you don't see your phone on the Map dashboard while you are at home.
 
 ## Editing your home zone
 
@@ -110,14 +116,6 @@ passive:
 {% endconfiguration %}
 
 To find the latitude/longitude of a certain place you can use [Google Maps](https://www.google.com/maps/) or [Bing Maps](https://www.bing.com/maps). Just right click and copy the coordinates from there (Bing) or click on the "What is here?" (Google)
-
-## Home zone
-
-If no configuration is given, the `zone` integration will create a zone for home. This zone will use location provided in the `configuration.yaml` file and have a radius of 100 meters. To override this, create a zone configuration in `configuration.yaml` (see above) and name it **'Home'**. Overriding the Home zone via the UI is not supported.
-
-{% note %}
-Devices that are in the zone **'Home'** will not appear on the map in the Home Assistant UI. To apply the changes to the **'Home'** `zone`, you must restart Home Assistant.
-{% endnote %}
 
 ## State
 
