@@ -9,7 +9,7 @@ ha_iot_class: Cloud Polling
 ha_release: '2024.7.3'
 ha_dhcp: true
 ha_config_flow: true
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_codeowners:
   - '@jesperraemaekers'
   - '@kjell-van-straaten'
