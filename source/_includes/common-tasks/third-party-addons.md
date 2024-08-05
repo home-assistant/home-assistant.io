@@ -24,7 +24,7 @@ To add an add-on repository, follow these steps:
 
 ### Troubleshooting: Repository is not showing up
 
-If you have added an add-on repository, but it's not showing up, it means that the add-on repository contains invalid configuration.
+If you have added an add-on repository, but it's not showing up, make sure to refresh your browser. If it still doesn't show up, the add-on repository may contain invalid configuration data.
 
 1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} to find the System log.
    - It should tell you what went wrong.
