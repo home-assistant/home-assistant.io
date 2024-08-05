@@ -54,7 +54,7 @@ During onboarding, this location was used to create the home zone with a 100&nbs
 
 ## Editing zones in YAML
 
-Zones can also be configured via {% term "`configuration.yaml`" %}:
+Zones can also be configured via {% term "`configuration.yaml`" %}. If you define these settings in YAML, they cannot be edited in the UI. They will appear greyed out.
 
 ```yaml
 # Example configuration.yaml entry
