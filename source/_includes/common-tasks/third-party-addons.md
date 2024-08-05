@@ -9,7 +9,8 @@ Home Assistant cannot guarantee the quality or security of third-party add-ons. 
 To add an add-on repository, follow these steps:
 
 1. Copy the URL of the repository.
-   - If you do not have your own repository, but want to try how this works, you can use our example add-on repository:
+   - The URL is simply the git repository clone URL (use Code and copy the https/web URL).
+   - This documentation uses our example add-on repository, which is not really practically useful but follows the same steps. If you are interested in add-on development, refer to our [add-on development documentation](https://developers.home-assistant.io/docs/add-ons).
 
         ```text
         https://github.com/home-assistant/hassio-addons-example
@@ -26,6 +27,6 @@ To add an add-on repository, follow these steps:
 
 If you have added an add-on repository, but it's not showing up, make sure to refresh your browser. If it still doesn't show up, the add-on repository may contain invalid configuration data.
 
-1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} to find the System log.
+1. Go to {% my logs title="**Settings** > **System** > **Logs**" %} and select Supervisor in the top right corner to get the Supervisor log.
    - It should tell you what went wrong.
 2. Report this information to the add-on repository author.
