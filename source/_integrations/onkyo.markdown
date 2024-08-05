@@ -52,7 +52,7 @@ max_volume:
   default: 100
   type: integer
 receiver_max_volume:
-  description: The number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers this typically is 80, newer Onkyo receivers use 200.
+  description: The number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
   required: false
   default: 80
   type: integer
