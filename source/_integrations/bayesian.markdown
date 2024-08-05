@@ -269,3 +269,4 @@ binary_sensor:
       prob_given_false: 0.84 # All the prob_given_false should add to 1
       to_state: "not due"
 ```
+To achieve a similar thing for multiple `template` observations targeting a single entity, simply write your templates to return `True` or `None` rather than `True` or `False`.
