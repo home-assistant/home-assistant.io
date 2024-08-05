@@ -57,7 +57,7 @@ automation:
         entity_id: image_processing.qr_front_door
         to: ARM_QR_CODE_VALUE
     action:
-      - service: alarm_control_panel.alarm_arm_away
+      - action: alarm_control_panel.alarm_arm_away
         target:
           entity_id: alarm_control_panel.home_alarm
         data:

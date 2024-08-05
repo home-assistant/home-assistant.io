@@ -48,9 +48,9 @@ Other devices like Security systems are not currently supported by this integrat
 
 The climate platform integrates Honeywell US-based thermostats into Home Assistant, allowing control of the thermostat through the user interface. The current inside temperature, operating mode, and fan state are also displayed on the thermostat card.
 
-All [climate services](/integrations/climate) are supported except set_swing_mode.
+All [climate actions](/integrations/climate) are supported except set_swing_mode.
 
-Due to the instability of the Honeywell total connect system, service calls within automations should repeat until success similar to the following example:
+Due to the instability of the Honeywell total connect system, actions within automations should repeat until success similar to the following example:
 
 ```yaml
 alias: "No one home"
@@ -64,7 +64,7 @@ trigger:
 action:
   - repeat:
       sequence:
-        - service: climate.set_temperature
+        - action: climate.set_temperature
           target:
             entity_id: climate.stat
           data:

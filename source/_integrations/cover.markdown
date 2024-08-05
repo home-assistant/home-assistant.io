@@ -47,13 +47,13 @@ The following device classes are supported for covers.
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
-## Services
+## Actions
 
-### Cover control services
+### Cover control actions
 
-Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
+Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
-| Service data attribute | Optional | Description                                                                                          |
+| Data attribute | Optional | Description                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
 
@@ -65,16 +65,16 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.open_cover
+    - action: cover.open_cover
       target:
         entity_id: cover.demo
 ```
 
-### Service `cover.set_cover_position`
+### Action `cover.set_cover_position`
 
 Set cover position of one or multiple covers.
 
-| Service data attribute | Optional | Description                                                                                          |
+| Data attribute | Optional | Description                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
 | `position`             | no       | Integer between 0 and 100.                                                                           |
@@ -87,18 +87,18 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.set_cover_position
+    - action: cover.set_cover_position
       target:
         entity_id: cover.demo
       data:
         position: 50
 ```
 
-### Service `cover.set_cover_tilt_position`
+### Action `cover.set_cover_tilt_position`
 
 Set cover tilt position of one or multiple covers.
 
-| Service data attribute | Optional | Description                                                                                          |
+| Data attribute | Optional | Description                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
 | `tilt_position`        | no       | Integer between 0 and 100.                                                                           |
@@ -111,7 +111,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: cover.set_cover_tilt_position
+    - action: cover.set_cover_tilt_position
       target:
         entity_id: cover.demo
       data:

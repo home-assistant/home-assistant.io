@@ -301,7 +301,7 @@ Partial example:
 trigger:
   ...
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
 ```

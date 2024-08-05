@@ -108,7 +108,7 @@ trigger:
       seconds: 0
     above: 20
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The black trash can has left the building"
       title: "The black trash can has left the building"

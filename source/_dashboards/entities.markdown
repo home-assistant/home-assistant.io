@@ -426,8 +426,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -458,8 +458,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

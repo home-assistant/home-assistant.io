@@ -63,7 +63,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.mobile_app_<device_name>
+      action: notify.mobile_app_<device_name>
       data:
         message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
@@ -80,7 +80,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.mobile_app_<device_name>
+      action: notify.mobile_app_<device_name>
       data:
         message: "Flight entry of {{ trigger.event.data.callsign }}"
         data:

@@ -39,7 +39,7 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .integration-page, .documentation-page, .blog-post {
+  .integration-page, .documentation-page, .blog-index, .blog-category {
     .grid-wrapper>.grid.grid-center {
       display: flex;
       flex-direction: row-reverse;
@@ -48,13 +48,13 @@ h1.title.indent {
   }
 
   #sidebar {
-    .vertical-nav, .recent-categories, .recent-posts, .categories {
+    .vertical-nav, .recent-categories, .blog-index .recent-posts, .categories {
       background: none;
       padding: 0 16px 0 0;
     }
   }
 
-  .documentation-page, .blog-post {
+  .documentation-page, .blog-index {
     #sidebar #toc-module {
       display: none;
     }
@@ -110,7 +110,7 @@ h1.title.indent {
       a {
         text-decoration: none !important;
       }
-      
+
       &>li {
         list-style-type: none;
 
@@ -118,7 +118,7 @@ h1.title.indent {
           margin-left: 20px;
           font-size: .85rem;
           font-weight: normal;
-      
+
           &>li {
             margin: 4px 0;
 
@@ -183,7 +183,7 @@ h1.title.indent {
   position: sticky;
   top: 80px;
   padding-left: 32px;
-  
+
   .aside-module {
     background: none;
     padding: 0;
@@ -191,7 +191,7 @@ h1.title.indent {
 }
 
 @media only screen and (min-width: $desk-wide-start) {
-  .documentation-page #toc-bar, .integration-page #toc-bar, .blog-post #toc-bar {
+  .documentation-page #toc-bar, .integration-page #toc-bar, .blog-index #toc-bar {
     display: inline-block;
   }
   #integration-sidebar #toc-module {
@@ -676,6 +676,10 @@ a.material-card:hover {
     &:hover {
       background-color: lighten(#038fc7, 10%);
     }
+
+    iconify-icon {
+      vertical-align: middle;
+    }
   }
 
   .events {
@@ -820,7 +824,7 @@ a.material-card:hover {
     .round {
       border-radius: 50%;
     }
-          
+
     @media only screen and (max-width: $lap-end) {
       grid-template-columns: repeat(auto-fill, minmax(144px, 1fr));
       gap: 16px;
@@ -1076,6 +1080,18 @@ article.listing {
   vertical-align: middle;
   margin: 4px 8px 4px 0;
   border: 2px solid rgba(0,0,0,.1);
+}
+
+
+.author-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 24px !important;
+  vertical-align: middle;
+  margin: 0 8px 0 0;
+  border: 2px solid rgba(0,0,0,.1) !important;
+  box-shadow: none !important;
 }
 
 

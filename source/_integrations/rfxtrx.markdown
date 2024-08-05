@@ -91,7 +91,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration, go to **Settings** > **Devices & services** and select **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -330,34 +330,34 @@ automation:
         values:
           Sound: 9
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.welcomescene
 ```
 
-## Services
+## Actions
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-### Service: Send
+### Action: Send
 
 Simulate a button being pressed:
 
 ```yaml
 ...
 action:
-  service: rfxtrx.send
+  action: rfxtrx.send
   data:
     event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:
 
-- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+- Go to: {% my developer_call_service title="**Developer tools** > **Actions**" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
-service: rfxtrx.send
+action: rfxtrx.send
 data:
   event: "0b1111e003af16aa10000060"
 ```

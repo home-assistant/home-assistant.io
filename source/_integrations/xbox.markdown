@@ -36,13 +36,13 @@ Because it uses the Home Assistant Cloud account linking service you **must** ha
 
 The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-### Service `play_media`
+### Action `play_media`
 
 Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
 
 You can find Product IDs using the **{% my developer_events title="Developer Tools -> Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
-| Service data attribute | Description                           |
+| Data attribute | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
 | `media_content_id`     | "Home"/"TV"/{product_id}              |
@@ -66,9 +66,9 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Service `send_command`
+### Action `send_command`
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | `entity_id` of the Xbox remote.                                                      |
 | `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right |
@@ -113,7 +113,7 @@ image: >-
 elements:
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Up
@@ -125,7 +125,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Down
@@ -137,7 +137,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Left
@@ -149,7 +149,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Right
@@ -161,7 +161,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "A"
@@ -174,7 +174,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "X"
@@ -187,7 +187,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "B"
@@ -200,7 +200,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "Y"
@@ -213,7 +213,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.toggle
+    action: remote.toggle
     service_data:
       entity_id: remote.xboxone_remote
     style:
@@ -225,7 +225,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: media_player.play_media
+    action: media_player.play_media
     service_data:
       entity_id: media_player.xboxone
       media_content_type: ""

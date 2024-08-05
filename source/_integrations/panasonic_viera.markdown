@@ -63,7 +63,7 @@ turn_on_action:
   type: list
 {% endconfiguration %}
 
-When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & Services** to type the PIN code that will be displayed on it and finish the setup.
+When you restart Home Assistant, make sure the TV is turned on and connected to your local network. If your TV needs to be paired, you'll need to go to **Settings > Devices & services** to type the PIN code that will be displayed on it and finish the setup.
 
 ### Example `turn_on_action`
 
@@ -77,7 +77,7 @@ panasonic_viera:
   host: YOUR_TV_IP
   name: Living Room TV
   turn_on_action:
-    - service: wake_on_lan.send_magic_packet
+    - action: wake_on_lan.send_magic_packet
       data:
         mac: "AA:BB:CC:DD:99:1A"
 ```
@@ -92,10 +92,10 @@ script:
   front_door_camera:
     alias: "Show who's at the door"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.living_room_tv
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.living_room_tv
         data:
@@ -103,14 +103,14 @@ script:
           media_content_id: YOUR_URL
       - delay:
         seconds: 5
-      - service: media_player.media_stop
+      - action: media_player.media_stop
         target:
           entity_id: media_player.living_room_tv
 ```
 
 ### Remote
 
-When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` service.
+When the integration is configured, two entities will be created: a `media_player` and a `remote`. The remote allows you to send key commands to your TV with the `remote.send_command` action.
 
 Some of the known valid key values are:
 

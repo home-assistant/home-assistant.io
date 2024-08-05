@@ -89,15 +89,15 @@ If you are having issues and want to report a problem, always start with making 
 
 If the state of {% term entities %} are only reflected in Home Assistant when the {% term integration %} is loaded (during restart, reload, setup) you probably have an issue with the WebSocket configuration where your deCONZ instance is running. The deCONZ integration uses the WebSocket port provided by the deCONZ REST API. If you're running the deCONZ Docker container make sure that it properly configures the WebSocket port so deCONZ can report what port is exposed outside of the containerized environment. Also, make sure to review firewall rules that might block communication over certain ports.
 
-## Device services
+## Device actions
 
-Available services: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
+Available actions: `configure`, `deconz.device_refresh` and `deconz.remove_orphaned_entries`.
 
-### Service `deconz.configure`
+### Action `deconz.configure`
 
 Set the attribute of device in deCONZ using [REST-API](https://dresden-elektronik.github.io/deconz-rest-doc/about_rest/).
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `field`                | No       | String representing a specific device in deCONZ.                            |
 | `entity`               | No       | String representing a specific Home Assistant entity of a device in deCONZ. |
@@ -121,17 +121,21 @@ Either `entity` or `field` must be provided. If both are present, `field` will b
 { "field": "/config", "data": {"permitjoin": 60} }
 ```
 
-### Service `deconz.device_refresh`
+### Action `deconz.device_refresh`
 
 Refresh with devices added to deCONZ after Home Assistants latest restart.
 
-Note: deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this service or a restart of Home Assistant.
+{% note %}
+deCONZ automatically signals Home Assistant when new {% term sensors %} are added, but other devices must at this point in time (deCONZ v2.05.35) be added manually using this action or a restart of Home Assistant.
+{% endnote %}
 
-### Service `deconz.remove_orphaned_entries`
+### Action `deconz.remove_orphaned_entries`
 
 Remove entries from {% term entity %} and device registry which are no longer provided by deCONZ.
 
-Note: it is recommended to use this {% term service %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+{% note %}
+It is recommended to use this {% term action %} after a restart of Home Assistant Core in order to have deCONZ integration properly mirrored to deCONZ.
+{% endnote %}
 
 ## Remote control devices
 
@@ -197,7 +201,7 @@ automation:
           id: remote_control_1
           event: 1002
     action:
-      - service: light.toggle
+      - action: light.toggle
         target:
           entity_id: light.lamp
 
@@ -210,7 +214,7 @@ automation:
           id: remote_control_1
           event: 2002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -227,7 +231,7 @@ automation:
           id: remote_control_1
           event: 3002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -244,7 +248,7 @@ automation:
           id: remote_control_1
           gesture: 7
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
 ```
@@ -265,7 +269,7 @@ automation:
           id: tint_remote_1
           event: 6002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         data:
           xy_color:
             - '{{ trigger.event.data.xy.0 }}'
@@ -289,7 +293,7 @@ automation:
         entity_id: binary_sensor.doorbell_motion
         to: "on"
     action:
-      - service: deconz.configure
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: /state
@@ -300,7 +304,7 @@ automation:
             bri: 255
             alert: "breathe"
       - delay: 00:00:15
-      - service: deconz.configure
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: "/state"

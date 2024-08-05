@@ -156,7 +156,7 @@ command_line:
       type: map
       keys:
         name:
-          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
           required: false
           default: notify
           type: string
@@ -187,6 +187,10 @@ command_line:
           description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
           required: false
           type: [string, list]
+        json_attributes_path:
+          description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+          required: false
+          type: string
         name:
           description: Name of the command sensor.
           required: false
@@ -635,6 +639,26 @@ command_line:
 ```
 {% endraw%}
 
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath.
+
+{% raw %}
+
+```yaml
+command_line:
+  - sensor:
+      name: JSON user
+      command: python3 -c "import requests; print(requests.get('https://jsonplaceholder.typicode.com/users').text)"
+      json_attributes_path: "$.[0].address"
+      json_attributes:
+        - street
+        - suite
+        - city
+        - zipcode
+      value_template: "{{ value_json[0].name }}"
+```
+
+{% endraw %}
+
 ## Example switch platform
 
 ### Change the icon when a state changes
@@ -742,12 +766,12 @@ command_line:
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
 
-## Services
+## Actions
 
-Available services: `reload`.
+Available actions: `reload`.
 
-### Service `command_line.reload`
+### Action `command_line.reload`
 
 Reload all `command_line` entities.
 
-This service takes no service data attributes.
+This action takes no data attributes.

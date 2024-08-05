@@ -151,6 +151,20 @@ Error - the current error of the device - if one exists - "None" otherwise.
 Total cleaning time - how long you have cleaned with your wet/dry vacuum.
 
 
+## Zeo Entities
+
+Roborock Zeo One currently exposes some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+State - The current state of your washing machine. For example, 'washing' or 'rinsing'.
+
+Countdown - Countdown for how long until the machine starts.
+
+Washing left - The amount of time until your machine is done washing.
+
+Error - The current error of the Zeo, if one exists.
+
 ## FAQ
 
 ### Can I use the Mi home app with this integration?
@@ -174,12 +188,12 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Services** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
 
    - **Request**: Your request should look like:
 
       ```yaml
-      service: roborock.get_maps
+      action: roborock.get_maps
       target:
         entity_id: vacuum.s7_roborock
       data: {}
@@ -197,12 +211,12 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
               "17": Living room
       ```
 
-3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
 
 ```yaml
-service: vacuum.send_command
+action: vacuum.send_command
 data:
   command: app_segment_clean
   params:

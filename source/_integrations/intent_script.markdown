@@ -23,7 +23,7 @@ intent_script:
     speech:
       text: We have {{ states('sensor.temperature') }} degrees
     action:
-      service: notify.notify
+      action: notify.notify
       data:
         message: Hello from an intent!
 ```
@@ -110,13 +110,13 @@ conversation:
 intent_script:
   EventCountToday:
     action:
-      - service: calendar.get_events
+      - action: calendar.get_events
         target:
           entity_id: calendar.my_calendar
         data_template:
           start_date_time: "{{ today_at('00:00') }}"
           duration: { "hours": 24 }
-        response_variable: result                     # get service response
+        response_variable: result                     # get action response
       - stop: ""
         response_variable: result                     # and return it
     speech:

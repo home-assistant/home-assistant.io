@@ -15,32 +15,32 @@ The lawn mower integration allows the control of robotic lawn mowers to be refle
 
 {% include integrations/building_block_integration.md %}
 
-## Services
+## Actions
 
-Available services: `start_mowing`, `pause` and `dock`.
+Available actions: `start_mowing`, `pause` and `dock`.
 
-Before calling one of these services, make sure your lawn_mower platform supports it.
+Before calling one of these actions, make sure your lawn_mower platform supports it.
 
-### Service `lawn_mower.start_mowing`
+### Action `lawn_mower.start_mowing`
 
 Start or resume a mowing task.
 
-| Service data attribute | Optional | Description                                                      |
+| Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
 
-### Service `lawn_mower.pause`
+### Action `lawn_mower.pause`
 
 Pause a mowing task.
 
-| Service data attribute | Optional | Description                                                      |
+| Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |
 
-### Service `lawn_mower.dock`
+### Action `lawn_mower.dock`
 
 Tell the lawn_mower to return to dock.
 
-| Service data attribute | Optional | Description                                                      |
+| Data attribute | Optional | Description                                                      |
 | ---------------------- | -------- | ---------------------------------------------------------------- |
 | `entity_id`            | yes      | Only act on specific lawn_mower. Use `entity_id: all` to target all. |

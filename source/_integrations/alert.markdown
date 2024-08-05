@@ -135,7 +135,7 @@ provided by the `alert` integration:
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -291,7 +291,7 @@ but you will still receive the done message.
       event_data:
         data: "/garage_acknowledge"
   action:
-    - service: alert.turn_off
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
 ```

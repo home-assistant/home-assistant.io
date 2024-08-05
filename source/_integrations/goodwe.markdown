@@ -51,7 +51,7 @@ The integration will poll the inverter for new values every 10 seconds. If you w
       minutes: "*"
       seconds: "/30"
   action:
-    - service: homeassistant.update_entity
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.ppv
 ```

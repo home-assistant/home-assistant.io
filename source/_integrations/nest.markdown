@@ -56,7 +56,7 @@ To add the **Nest** integration to your Home Assistant, use this My Button:
 {% details "Manual configuration steps" %}
 
 1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. In the bottom right corner, select the
   **{% my config_flow_start icon domain=page.ha_domain %}** button.
 4. From the list, select **Nest** and follow the instructions on screen.
@@ -257,8 +257,8 @@ Additional Nest Temperature Sensors are not supported by the SDM API.  The Tempe
 
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
-- **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
+- **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` actions like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*.
 
 {% note %}
 
@@ -381,7 +381,7 @@ Example for cameras that support Clip Previews used with iOS which can render vi
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_iphone
+action: notify.mobile_app_iphone
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
@@ -404,7 +404,7 @@ Example for cameras that support Clip Previews, but transcoded to an animated gi
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_android
+action: notify.mobile_app_android
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
@@ -424,7 +424,7 @@ Example for cameras that support Snapshot (jpg) on either Android or iOS.
 {% raw %}
 
 ```yaml
-service: notify.mobile_app
+action: notify.mobile_app
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
@@ -454,7 +454,7 @@ To improve security and reduce phishing risk Google has [deprecated](https://dev
 {% details "Reconfigure the integration" %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. The **Nest** integration should appear with alert.
 
     ![Screenshot of success](/images/integrations/nest/attention.png)
@@ -572,7 +572,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & services**, click `...` next to *Nest* and choose **Reload**.
 
 {% enddetails %}
 

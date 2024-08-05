@@ -30,7 +30,7 @@ an automation that starts playing your favorite radio station on your Cast devic
 If you want to use a YAML for the automation, you would look like this:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.YOUR_MEDIA_PLAYER
 data:

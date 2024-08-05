@@ -10,19 +10,19 @@ Badges are widgets that sit at the top of a panel, above all the cards.
   Badges at the top of a panel.
 </p>
 
-## State Label Badge
+## Entity badge
 
-The State Label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
+The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
 
 ```yaml
-type: state-label
+type: entity
 entity: light.living_room
 ```
 
-{% configuration state_badge %}
+{% configuration entity %}
 type:
   required: true
-  description: "`state-label`"
+  description: "`entity`"
   type: string
 entity:
   required: true
@@ -30,23 +30,44 @@ entity:
   type: string
 name:
   required: false
-  description: Overwrites friendly name.
+  description: Overwrites the entity name.
   type: string
-  default: Name of entity
 icon:
   required: false
-  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
+  description: Overwrites the entity icon.
   type: string
-  default: Entity domain icon
-image:
+color:
   required: false
-  description: The URL of an image.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
   type: string
-show_name:
+  default: state
+show_entity_picture:
   required: false
-  description: Show name.
+  description: If your entity has a picture, it will replace the icon.
   type: boolean
-  default: "true"
+  default: false
+display_type:
+  required: false
+  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state), or `complete` (icon, state, and name).
+  type: string
+  default: standard
+state_content:
+  required: false
+  description: >
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+  type: [string, list]
+tap_action:
+  required: false
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will show the "more-info" dialog.
+  type: map
+hold_action:
+  required: false
+  description: Action taken on tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+double_tap_action:
+  required: false
+  description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 {% endconfiguration %}
 
 ## Entity Filter Badge
