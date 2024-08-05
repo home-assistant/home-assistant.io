@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
+  - '@dontinelli'
 ha_domain: solarlog
 ha_platforms:
   - sensor
@@ -22,9 +23,9 @@ When activating the interface, a red warning triangle with security information 
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
-<div class='note warning'>
-The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
-</div>
+{% important %}
+The open JSON interface is deactivated by default. To activate the open JSON interface, a user password should be set for security purposes. The password isn't needed for accessing the open JSON interface.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -66,6 +67,7 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
+| self_consumption_year | kWh    | Accumulated total self-consumption. |
 | installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
@@ -73,6 +75,29 @@ The following sensors are available in the library:
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
-<div class='note'>
-The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
-</div>
+## Additional data
+
+{% important %}
+The additional data is only accessible, if password protection for the user is deactivated. Obviously this is a security issue and should only be done in specific circumstanses. In any event, you do this at your own risk.
+{% endimportant %}
+
+Users may choose to get additional data from the solarlog device. To enable, check the box for extended data in the system options of the integration.
+
+The following additional sensor becomes available:
+
+| name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+In addition, you can choose to get additional information on devices that are connected to the Solar-Log device. For this, check the box of the respective device in the configuration dialog of the integration.
+
+The following additional sensors are available (all values are per inverter/device):
+
+| name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| current_power         | W      | Current power provided/used by the device. |
+| consumption_year      | kWh    | Total energy provided/used by the device.  |
+
+{% note %}
+The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
+{% endnote %}
