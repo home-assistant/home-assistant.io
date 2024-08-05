@@ -16,7 +16,7 @@ To add an add-on repository, follow these steps:
         ```
 2. Go to {% my supervisor title="**Settings** > **Add-ons**" %} and select **Add-on store**.
    ![Screenshot of the add-on store](/images/getting-started/add-ons.png)
-3. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Repositories**.
+3. In the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Repositories**.
 4. Add the URL of the repository and select **Add**.
    ![Screenshot of the add-on store](/images/hassio/screenshots/adding_repositories.png)
    - **Result**: A new card for the repository will appear.
