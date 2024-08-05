@@ -40,7 +40,7 @@ Tesla restricts open-source integrations to the ["Discovery tier"](https://devel
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be encrypted end to end and signed with a private key. The Tesla Fleet integration is unable to perform this encryption at this time, so certain features may be disabled or throw an exception when used.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be encrypted end-to-end and signed with a private key. The Tesla Fleet integration is unable to perform this encryption at this time, so certain features may be disabled or throw an exception when used.
 
 ## Entities
 
