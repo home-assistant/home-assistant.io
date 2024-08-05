@@ -9,7 +9,7 @@ Home Assistant cannot guarantee the quality or security of third-party add-ons. 
 To add an add-on repository, follow these steps:
 
 1. Copy the URL of the repository.
-   - The URL is simply the git repository clone URL (use Code and copy the https/web URL).
+   - The URL is simply the git repository clone URL (on GitHub, use the Code button and copy the https/web URL).
    - This documentation uses our example add-on repository, which is not really practically useful but follows the same steps. If you are interested in add-on development, refer to our [add-on development documentation](https://developers.home-assistant.io/docs/add-ons).
 
         ```text
