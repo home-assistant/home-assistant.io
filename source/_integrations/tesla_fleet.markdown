@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Tesla Fleet API within Home As
 ha_category:
   - Binary sensor
   - Car
+  - Climate
   - Device tracker
   - Sensor
 ha_release: 2024.8
@@ -14,6 +15,7 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - climate
   - device_tracker
   - diagnostics
   - sensor
@@ -67,6 +69,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Climate|Cabin overheat protection|Yes|
+|Climate|Climate|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
 |Sensor|Battery level|Yes|
