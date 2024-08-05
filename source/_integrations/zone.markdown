@@ -33,21 +33,12 @@ During onboarding, this location was used to create the home zone with a 100&nbs
 - During onboarding, Home Assistant defined a unit system and time zone based on this location. If you change the location later, unit system and time zone will not be changed automatically anymore.
 - Devices that are in the home zone will not appear on the map in the Home Assistant UI. If you are using your phone, for example, for presence detection and location based automations, don't be alarmed if you don't see your phone on the Map dashboard while you are at home.
 
-## Editing your home zone
-
-1. To edit your home zone, go to {% my general title="**Settings** > **System** > **General**" %}.
-2. To change the name of your home zone, under **Name**, enter the new name. Then select **Update**.
-3. To change location or radius, under **Edit location**, select edit.
-   - To adjust the location, specify the GPS coordinates or drag the icon on the map
-   - To change the zone radius, change the size of the zone circle or edit the **Radius** in meters.
-      <img class="no-shadow" src='/images/docs/configuration/change_location_radius.webp' alt='Screencast showing how to zoom and pan to change location and radius on the Edit home page'>
-4. To save your changes, select **Update**.
-
 ## Adding a new zone or editing zones
 
 1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
 2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
+   - The name of your home zone is defined by the name of your home. If you want to change this, go to {% my general title="**Settings** > **System** > **General**" %}.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
    - Note: the icon cannot be changed for the home zone.
