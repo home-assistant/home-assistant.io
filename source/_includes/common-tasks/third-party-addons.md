@@ -19,7 +19,7 @@ To add an add-on repository, follow these steps:
 3. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, and select **Repositories**.
 4. Add the URL of the repository and select **Add**.
    ![Screenshot of the add-on store](/images/hassio/screenshots/adding_repositories.png)
-   - **Result**: A new card for the repository will appear in the **Home Assistant Community Add-ons** section.
+   - **Result**: A new card for the repository will appear.
    ![Screenshot of the add-on store](/images/hassio/screenshots/add-ons-community_example.png)
 
 ### Troubleshooting: Repository is not showing up
