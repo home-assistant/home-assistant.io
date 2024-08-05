@@ -38,7 +38,7 @@ When connecting your Tesla account to Home Assistant, you **must** select the `V
 
 Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will initially poll every 90 seconds, making vehicle data requests only when the vehicle is awake, and then dynamically slow down polling based on how many vehicle data requests have been made in the last 24 hours.
 
-## Command Signing
+## Command signing
 
 Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be encrypted end to end and signed with a private key. The Tesla Fleet integration is unable to perform this encryption at this time, so certain features may be disabled or throw an exception when used.
 
