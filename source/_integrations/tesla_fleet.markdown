@@ -73,7 +73,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
-|Climate|Cabin overheat protection|Yes|
+|Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
