@@ -42,7 +42,7 @@ You need to determine your Todoist API token. Go to the [**Integrations** > **De
 
 ## Custom projects
 
-You can manually configure the Todoist calendar (only) integration using `configuration.yaml` which can specify "custom" projects which match against criteria you set. You should
+You can manually configure the Todoist calendar (only) integration using {% term "`configuration.yaml`" %} which can specify "custom" projects which match against criteria you set. You should
 prefer the above instructions for configuring Todoist from the UI.
 
 {% details "Manual custom projects configuration" %}
@@ -75,7 +75,7 @@ custom_projects:
       type: list
 {% endconfiguration %}
 
-Here's an example of a more advanced `configuration.yaml`:
+Here's an example of a more advanced {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -115,7 +115,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 ## To-do list entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
-items on the Todoist to-do list, including services for creating and
+items on the Todoist to-do list, including actions for creating and
 deleting to-do items.
 
 Todoist completed to-do items are not visible in Home Assistant because they
@@ -151,12 +151,12 @@ the Todoist UI.
 
 - **due_today**: Whether the reported task is due today.
 
-## Services
+## Actions
 
-You may use the services from the [todo](/integrations/todo/) integration for
+You may use the actions from the [todo](/integrations/todo/) integration for
 creating, updating, or deleting to-do items on the to-do list.
 
-Todoist also comes with an additional service, `todoist.new_task` that offers
+Todoist also comes with an additional action, `todoist.new_task` that offers
 more advanced attributes when creating a Todoist task. You can specify labels
 and a project, or you can leave them blank, and the task will go to your
 **Inbox** project.
@@ -185,6 +185,8 @@ Here are two example JSON payloads resulting in the same task:
 ```
 
 - **content** (*Required*): The name of the task you want to create.
+
+- **description** (*Optional*): A description of the task.
 
 - **project** (*Optional*): The project to put the task in.
 

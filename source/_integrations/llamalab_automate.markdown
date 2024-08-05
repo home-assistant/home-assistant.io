@@ -36,7 +36,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -57,7 +57,7 @@ device:
 Example Automation:
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
       data:
         message: "This is the message"
         data:

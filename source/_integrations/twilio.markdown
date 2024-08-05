@@ -17,7 +17,7 @@ Calls are limited to 10 minutes and will play a short trial message before your 
 
 ## Configuration
 
-To use this notification integration in your installation, add the following to your `configuration.yaml` file:
+To use this notification integration in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -65,7 +65,7 @@ automation:
       CallStatus: ringing
       Direction: inbound
   action:
-    service: cover.open_cover
+    action: cover.open_cover
     target:
       entity_id: cover.garage_door
 ```
@@ -74,6 +74,7 @@ The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYY
 
 An example of an SMS handler:
 
+{% raw %}
 ```yaml
 alias: Twilio incoming
 trigger:
@@ -85,9 +86,10 @@ action:
         {{ trigger.event.data.From }}
       message: |
         {{ trigger.event.data.Body }}
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: |
         incoming twilio message from {{sender}}: {{ message }}
         all event data: {{ trigger.event.data }}
 ```
+{% endraw %}

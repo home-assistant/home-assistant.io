@@ -71,7 +71,7 @@ In this mode the current control zone that has been selected is reported, as is 
 zone (read-only, set the value via the individual zones). The current temperature will also be that of the control
 zone.
 
-You can add configure to read these values into sensors (in `configuration.yaml`), 
+You can add configure to read these values into sensors (in {% term "`configuration.yaml`" %}), 
 along with the supply temperature (use the ID of your unit):
 
 {% raw %}
@@ -123,22 +123,22 @@ logger:
 
 This will help you to find network connection issues etc.
 
-## Services
+## Actions
 
-### Service `izone.airflow_min`
+### Action `izone.airflow_min`
 
 Set the minimum airflow for a particular zone.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
 | `airflow`              | no       | Airflow percent in 5% increments               |
 
-### Service `izone.airflow_max`
+### Action `izone.airflow_max`
 
 Set the maximum airflow for a particular zone.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | yes      | izone Zone entity. For example `climate.bed_2` |
 | `airflow`              | no       | Airflow percent in 5% increments               |

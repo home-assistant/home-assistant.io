@@ -2,8 +2,14 @@
 title: TP-Link Smart Home
 description: Instructions on integrating TP-Link Smart Home Devices to Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
+  - Climate
+  - Fan
   - Hub
   - Light
+  - Number
+  - Select
   - Sensor
   - Switch
 ha_release: 0.89
@@ -11,13 +17,18 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@rytilahti'
-  - '@thegardenmonkey'
   - '@bdraco'
   - '@sdb9696'
 ha_domain: tplink
 ha_platforms:
+  - binary_sensor
+  - button
+  - climate
   - diagnostics
+  - fan
   - light
+  - number
+  - select
   - sensor
   - switch
 ha_dhcp: true
@@ -36,107 +47,44 @@ If you have an older device that does not currently require authentication, you 
 
 ## Supported Devices
 
-See [Supported Devices in python-kasa](https://github.com/python-kasa/python-kasa#supported-devices) for an up to date list.
+See [Supported Devices in python-kasa](https://python-kasa.readthedocs.io/en/stable/SUPPORTED.html) for an up to date list that includes hardware and firmware versions.
 
 Devices not listed below may work but if you encounter issues submit a bug report to [python-kasa](https://github.com/python-kasa/python-kasa).
 
-### Not requiring authentication
+### Supported Kasa devices
 
-#### Plugs
+- **Plugs**: EP10, EP25[^1], HS100[^2], HS103, HS105, HS110, KP100, KP105, KP115, KP125, KP125M[^1], KP401
+- **Power Strips**: EP40, HS107, HS300, KP200, KP303, KP400
+- **Wall Switches**: ES20M, HS200, HS210, HS220, KP405, KS200M, KS205[^1], KS220M, KS225[^1], KS230, KS240[^1]
+- **Bulbs**: KL110, KL120, KL125, KL130, KL135, KL50, KL60, LB110
+- **Light Strips**: KL400L5, KL420L5, KL430
+- **Hubs**: KH100[^1]
+- **Hub-Connected Devices[^3]**: KE100[^1]
 
-- HS100
-- HS103
-- HS105
-- HS107
-- HS110
-- KP100
-- KP105
-- KP115
-- KP125
-- KP401
-- EP10
-- EP25 (Hardware version < 2.6)
+### Supported Tapo[^1] devices
 
-#### Power Strips
+- **Plugs**: P100, P110, P115, P125M, P135, TP15
+- **Power Strips**: P300, TP25
+- **Wall Switches**: S500D, S505, S505D
+- **Bulbs**: L510B, L510E, L530E
+- **Light Strips**: L900-10, L900-5, L920-5, L930-5
+- **Hubs**: H100
+- **Hub-Connected Devices[^3]**: T110, T300, T310, T315
 
-- EP40
-- HS300
-- KP303
-- KP200
-- KP400
-- KP405
+[^1]: Requires authentication  
+[^2]: Newer versions require authentication  
+[^3]: Devices may work across TAPO/KASA branded hubs
 
-#### Wall switches
+## Light effects
 
-- ES20M
-- HS200
-- HS210
-- HS220
-- KS200M
-- KS220M
-- KS230
+If light effects are supported by a device they can be selected from the bottom of the light card.
+They are currently not supported on Kasa bulbs.
 
-#### Bulbs
+### Random Effect - Action `tplink.random_effect`
 
-- EP40
-- LB100
-- LB110
-- LB120
-- LB130
-- LB230
-- KL50
-- KL60
-- KL110
-- KL120
-- KL125
-- KL130
-- KL135
+Light strips allow setting a random effect.
 
-#### Light strips
-
-- KL400
-- KL420
-- KL430
-
-### Requiring authentication
-
-#### Plugs
-
-- EP25 (Hardware version >= 2.6)
-- KP125M
-- P110
-- HS100 (UK Hardware version 4.1 with firmware 1.1.0)
-
-#### Wall switches
-
-- KS205
-- KS225
-
-#### Bulbs
-
-- L510B
-- L530E
-- TL135E
-  
-#### Light strips
-
-- L900-5
-- L900-10
-- L920
-
-#### Power Strips
-
-- P300
-
-## Light strip effects
-
-Light strip effects are currently only supported for the device types not requiring authentication.
-
-### Random Effect - Service `tplink.random_effect`
-
-The light strips allow setting a random effect.
-
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `init_states` | Initial HSV sequence |
@@ -153,8 +101,8 @@ The light strips allow setting a random effect.
 | `random_seed` | Random seed |
 
 ```yaml
-#Example Service Call
-service: tplink.random_effect
+#Example action
+action: tplink.random_effect
 target:
   entity_id:
     - light.strip
@@ -181,11 +129,11 @@ data:
   random_seed: 80
 ```
 
-### Sequence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Action `tplink.sequence_effect`
 
-The light strips allow setting a sequence effect.
+Light strips allow setting a sequence effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `sequence` | List of HSV sequences (Max 16) |
@@ -198,8 +146,8 @@ The light strips allow setting a sequence effect.
 | `direction` | Direction |
 
 ```yaml
-#Example Service Call
-service: tplink.sequence_effect
+#Example action
+action: tplink.sequence_effect
 target:
   entity_id:
     - light.strip

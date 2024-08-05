@@ -12,7 +12,7 @@ The `mqtt` Text platform allows you to integrate devices that show text that can
 
 ## Configuration
 
-To enable MQTT text platform in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT text platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,6 +93,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -189,11 +193,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

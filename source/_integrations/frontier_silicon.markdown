@@ -23,7 +23,7 @@ Frontier Silicon is used by many different brands of radio manufacturers.
 
 Supported devices include, but are not limited to:
 
-- Hama: [IR50], [IR110], [DIR3110]
+- Hama: [IR50], [IR110], [DIR3110], [DIR355BT]
 - Medion: [Medion Radios]
 - Silvercrest: [SIRD 14 C2 (archived website)]
 - Teufel: [Radio 3sixty (2019)]
@@ -55,7 +55,7 @@ trigger:
   from: "off"
   to: "on"
 action:
-  service: media_player.turn_on
+  action: media_player.turn_on
   target:
     entity_id: "media_player.badezimmer"
 ```
@@ -74,13 +74,13 @@ Overview of the info dialog:
 
 ## Notes and Limitations
 
-<div class='note warning'>
+{% warning %}
 
 Some older devices may require setting up a session to process requests. This is automatically detected by the underlying library. There is always a single user (session) controlling a device, which means that once Home Assistant connects to a device all other sessions will be invalidated.
 
 This renders the usage of [UNDOK] almost impossible for these older devices, as the Home Assistant integration polls the device state every 30 seconds or issues a command by creating a new session. In that case, you have to disable the integration if you want to use UNDOK.
 
-</div>
+{% endwarning %}
 
 [Frontier Silicon chipset]: https://www.frontiersmart.com/solution/solutions-for-digital-radio/
 [Medion Radios]: https://www.medion.com/de/shop/internetradios

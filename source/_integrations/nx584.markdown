@@ -56,7 +56,7 @@ port:
 
 Enabling this binary sensor platform exposes all of your zones as binary sensors, which provides visibility through the UI as well as the ability to trigger automation actions instantly when something happens like a door opening, or a motion sensor trigger.
 
-To enable this feature, add the following lines to your `configuration.yaml`:
+To enable this feature, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -118,22 +118,22 @@ binary_sensor:
     6: moisture
 ```
 
-## Services
+## Actions
 
-### Service `bypass_zone`
+### Action `bypass_zone`
 
-This service will bypass a given zone.
+This action will bypass a given zone.
 
-| Service data attribute | Optional | Description                     |
+| Data attribute | Optional | Description                     |
 | ---------------------- | -------- | ------------------------------- |
 | `entity_id`            | yes      | entity_id of the NX584 Alarm.   |
 | `zone`                 | no       | Zone number you want to bypass. |
 
-### Service `unbypass_zone`
+### Action `unbypass_zone`
 
-This service will unbypass a given zone.
+This action will unbypass a given zone.
 
-| Service data attribute | Optional | Description                       |
+| Data attribute | Optional | Description                       |
 | ---------------------- | -------- | --------------------------------- |
 | `entity_id`            | yes      | entity_id of the NX584 Alarm.     |
 | `zone`                 | no       | Zone number you want to unbypass. |

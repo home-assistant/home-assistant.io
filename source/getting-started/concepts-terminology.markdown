@@ -8,7 +8,13 @@ Now you're in Home Assistant, let's look at the most important concepts.
 
 Integrations are pieces of software that allow Home Assistant to connect to other software and platforms. For example, a product by Philips called Hue would use the Philips Hue {% term integration %} and allow Home Assistant to talk to the hardware controller Hue Bridge. Any Home Assistant compatible {% term devices %} connected to the Hue Bridge would appear in Home Assistant as [devices](#devices).
 
-![Integrations](/images/getting-started/integrations-new.png)
+![Integrations](/images/getting-started/integrations.png)
+
+Some integration cards show an icon:
+
+- The cloud icon <img height="28px" src="/images/getting-started/cloud-icon.png" alt="Cloud icon"/> indicates that this integration depends on the cloud.
+- The YAML icon <img height="28px" src="/images/getting-started/yaml-icon.png" alt="Yaml icon"/>indicates that this integration was not setup via the UI. You have either set it up in YAML or it is a dependency set up by an other integration. If you want to configure it, you will need to do so in your configuration.yaml file.
+- The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 

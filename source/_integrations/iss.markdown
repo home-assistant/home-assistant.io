@@ -22,10 +22,10 @@ It will also tell you how many people are in space.
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
+{% note %}
 
 If you enable "Show on map" in the options for this integration then the location attributes 
 are named `latitude` and `longitude`. The default name of the location attributes is
 `lat` and `long` to avoid showing them on the map.
 
-</div>
+{% endnote %}

@@ -52,7 +52,7 @@ Both events have two attributes in common:
 - **longitude**: Longitude of the flight in decimal.
 - **icao24**: The ICAO 24-bit address of the aircraft's transponder.
 
-To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your `configuration.yaml` file:
+To receive notifications of the entering flights using the [Home Assistant Companion App](https://companion.home-assistant.io/), add the following lines to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
@@ -63,7 +63,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.mobile_app_<device_name>
+      action: notify.mobile_app_<device_name>
       data:
         message: "Flight entry of {{ trigger.event.data.callsign }}"
 ```
@@ -80,7 +80,7 @@ automation:
       platform: event
       event_type: opensky_entry
     action:
-      service: notify.mobile_app_<device_name>
+      action: notify.mobile_app_<device_name>
       data:
         message: "Flight entry of {{ trigger.event.data.callsign }}"
         data:

@@ -19,7 +19,7 @@ The picture entity card displays an entity in the form of an image. Instead of i
   Background changes according to the entity state.
 </p>
 
-{% include dashboard/edit_dashboard.md %}
+{% include dashboard/add_picture_to_card.md %}
 
 ## YAML configuration
 
@@ -32,7 +32,7 @@ type:
   type: string
 entity:
   required: true
-  description: "An `entity_id` used for the picture."
+  description: "A camera, image, or person `entity_id` used for the picture."
   type: string
 camera_image:
   required: false
@@ -135,8 +135,8 @@ type: picture-entity
 entity: camera.backdoor
 camera_view: live
 tap_action:
-  action: call-service
-  service: camera.snapshot
+  action: perform-action
+  perform_action: camera.snapshot
   data:
     entity_id: camera.backdoor
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'

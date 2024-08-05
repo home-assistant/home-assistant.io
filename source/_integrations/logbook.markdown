@@ -162,7 +162,7 @@ script:
   add_logbook_entry:
     alias: "Add Logbook"
     sequence:
-      - service: logbook.log
+      - action: logbook.log
         data:
           name: Kitchen
           message: is being used
@@ -172,14 +172,10 @@ script:
 ```
 
 
-<div class="note warning">
+{% important %}
+When calling the `logbook.log` action without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
+{% endimportant %}
 
-When calling the `logbook.log` service without a `domain` or `entity_id`, entries will be added with the `logbook` domain. Ensure that the `logbook` domain is not filtered away if you want these entries to appear in your logbook.
-
-</div>
-
-<div class='note'>
-
+{% note %}
 Sensor entities that have been assigned units (i.e., have a `unit_of_measurement` attribute) are assumed to change frequently and those sensors are automatically excluded from the logbook.
-
-</div>
+{% endnote %}

@@ -120,7 +120,7 @@ To play media Spotify first needs a device selected for audio output known as th
 
 ```yaml
 # Example code to select an AV receiver as the output device
-service: media_player.select_source
+action: media_player.select_source
 target:
   entity_id: media_player.spotify
 data:
@@ -132,14 +132,14 @@ The Spotify API cannot initiate playback to a device not already known to the Sp
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service, for example:
+[media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action, for example:
 
 ```yaml
 # Example script to play playlist
 script:
   play_jazz_guitar:
     sequence:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.spotify
         data:

@@ -37,9 +37,9 @@ During configuration, you will be asked for a hostname and password:
 
 You must complete the configuration within 5 minutes of rebooting the KLF 200 gateway while the access point is still available.
 
-## Services
+## Actions
 
-### Service `velux.reboot_gateway`
+### Action `velux.reboot_gateway`
 
 Reboots the configured KLF 200 Gateway.
 
@@ -54,7 +54,7 @@ automation:
     - platform: homeassistant
       event: shutdown
   action:
-    - service: velux.reboot_gateway
+    - action: velux.reboot_gateway
 ```
 
 ## Velux Active (KIX 300)

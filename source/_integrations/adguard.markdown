@@ -53,58 +53,58 @@ write an automation to turn off Safe Search after the kids' bedtime.
 The "AdGuard Protection" switch is a master switch. It will turn off and
 bypass all AdGuard features, regardless of whether they are switched on or not.
 
-<div class="note">
+{% important %}
 Turning off Query Log will result in all sensors not receiving updates anymore.
 AdGuard relies on Query Log to provide stats.
-</div>
+{% endimportant %}
 
-## Services
+## Actions
 
-These {% term services %} allow one to manage filter subscriptions in AdGuard Home.
-Using these services in automations could be helpful to block certain
+These {% term actions %} allow one to manage filter subscriptions in AdGuard Home.
+Using these actions in automations could be helpful to block certain
 sites/domains at certain times.
 
 For example, you could create a custom filter list that blocks social media sites
 during the day and releases them during the evening.
 
-### Service `add_url`
+### Action `add_url`
 
 Add a new filter subscription to AdGuard Home.
 
-| Service data attribute | Optional | Description                                                  |
+| Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `name`                 | No       | The name of the filter subscription.                         |
 | `url`                  | No       | The filter URL to subscribe to, containing the filter rules. |
 
-### Service `remove_url`
+### Action `remove_url`
 
 Removes a filter subscription from AdGuard Home.
 
-| Service data attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to remove. |
 
-### Service `enable_url`
+### Action `enable_url`
 
 Enables a filter subscription in AdGuard Home.
 
-| Service data attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `url`                  | No       | The filter subscription URL to enable. |
 
-### Service `disable_url`
+### Action `disable_url`
 
 Disables a filter subscription in AdGuard Home.
 
-| Service data attribute | Optional | Description                             |
+| Data attribute | Optional | Description                             |
 | ---------------------- | -------- | --------------------------------------- |
 | `url`                  | No       | The filter subscription URL to disable. |
 
-### Service `refresh`
+### Action `refresh`
 
 Refresh all filter subscriptions in AdGuard Home.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `force`                | Yes      | Force update (bypasses AdGuard Home throttling).  |
 

@@ -62,7 +62,7 @@ mochad:
 
 The `mochad` light platform lets you control an X10 enabled dimmer/light device.
 
-To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,7 +99,7 @@ brightness_levels:
 
 The `mochad` switch platform lets you control an X10 enabled switch device.
 
-To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -1,42 +1,55 @@
 ---
 title: "Automation editor"
 description: "Instructions on how to use the automation editor."
+related:
+  - docs: /getting-started/automation/
+    title: Automating Home Assistant
 ---
 
-The automation editor is an easy way of creating and editing automations from the UI. This page uses the [Random sensor](/integrations/random#sensor) as an example, though any other sensor with a numeric value can be used as well.
+The automation editor is an easy way of creating and editing automations from the UI.
 
-From the UI, choose **{% my config %}** which is located in the sidebar, then click on **{% my automations %}** to go to the automation editor. Press the **Create Automation** button in the lower right corner to get started. You can create an automation based on a [blueprint](/docs/automation/using_blueprints/) or start from scratch. Select **Create new automation**.
+This tutorial uses the [Random sensor](/integrations/random#sensor) because it generates data (by default, values between 0 and 20). This enables us to walk through the example, even if you do not have any actual sensors connected yet. You could use any other sensor that outputs a numeric value.
 
-![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
+1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
+2. Select **Create new automation**.
 
-Click on the **Add Trigger** button and select **Numeric state**.
+    ![Create automation dialogue box](/images/docs/automation-editor/create-automation.png)
 
-![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
+3. Select **Add Trigger**, and in the **Search trigger** field, type "num".
+   - Select **Numeric state**.
 
-If the value of the sensor is greater than 10, then the automation should trigger.
+    ![Add trigger](/images/docs/automation-editor/add-trigger-to-automation.png)
 
-![Automation trigger](/images/docs/automation-editor/new-trigger.png)
+4. Enter the trigger conditions:
+   - Define the sensor: Under **Entity**, enter "sensor.random_sensor".
+   - If the sensor value is above 10, we want the automation to trigger.
+     - In the **Above** field, enter "10".
 
-Click on the **Add Action** button and select **Call service**.
+    ![Automation trigger](/images/docs/automation-editor/new-trigger.png)
 
-![Add trigger](/images/docs/automation-editor/new-action.png)
+5. Define the action that should happen:
+   - In the **Then do** section, select **Add Action**.
 
-The action for this automation creates a [persistent notification](/integrations/persistent_notification/).
+     ![Add action](/images/docs/automation-editor/add_action.png)
 
-![Automation action](/images/docs/automation-editor/send-notification.png)
+6. We want to create a [persistent notification](/integrations/persistent_notification/).
+   - Enter "No" and select **Notifications: send a persistent notification**.
 
-As the message we want a simple text that is shown as part of the notification.
+    ![Automation action](/images/docs/automation-editor/send-notification.png)
 
-```yaml
-message: Sensor value greater than 10
-```
+7. As the message, we want a simple text that is shown as part of the notification.
 
- Press the **Save** button, and the save dialogue will appear. Give your automation a meaningful name and press the **Save** button again.
+    ```yaml
+    message: Sensor value greater than 10
+    ```
 
-![New automation editor](/images/docs/automation-editor/new-automation.png)
+8. Select **Save**, give your automation a meaningful name, and **Save** again.
 
-Automations created or edited via the user interface are activated immediately after saving the automation. Read the documentation for [Automating Home Assistant](/getting-started/automation/) to learn more about automations.
+    ![New automation editor](/images/docs/automation-editor/new-automation.png)
+
+    - **Result**: Automations created or edited via the user interface are activated immediately after saving the automation.
+    - To learn more about automations, read the documentation for [Automating Home Assistant](/getting-started/automation/).
 
 ## Troubleshooting missing automations
 
-When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your `configuration.yaml`.
+When you're creating automations using the GUI and they don't appear in the UI, make sure that you add back `automation: !include automations.yaml` from the default configuration to your {% term "`configuration.yaml`" %}.

@@ -18,7 +18,8 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT fans in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -99,6 +100,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -291,7 +296,7 @@ speed_range_min:
   type: integer
   default: 1
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:
@@ -304,11 +309,11 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 
-</div>
+{% endimportant %}
 
 ## Examples
 

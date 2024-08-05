@@ -54,7 +54,7 @@ The `digital_ocean` binary sensor platform allows you to monitor your Digital Oc
 
 ### Configuration
 
-To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your `configuration.yaml` file:
+To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -78,7 +78,7 @@ The `digital_ocean` switch platform allows you to control (start/stop) your Digi
 
 ### Configuration
 
-To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your `configuration.yaml` file:
+To use your Digital Ocean droplets, you first have to set up your [Digital Ocean hub](/integrations/digital_ocean/) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

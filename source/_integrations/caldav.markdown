@@ -21,7 +21,6 @@ related:
     title: To-do list card
   - docs: /integrations/calendar
     title: Calendar
-related:
   - docs: /docs/configuration/
     title: Configuration file
 ---
@@ -53,7 +52,7 @@ This integration was tested against the following systems, but any other complyi
 You may also manually add a WebDAV calendar in Home Assistant by adding the following section to your {% term "`configuration.yaml`" %} file. This method does not support to-do lists. 
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
-{% details Manual configuration examples %}
+{% details "Manual configuration examples" %}
 
 ```yaml
 # Example configuration.yaml entry for baikal
@@ -177,11 +176,9 @@ See [Calendar Automations](/integrations/calendar#automation) for an overview, a
 
 The calendar entity has additional attributes related to a single next upcoming event.
 
-<div class='note'>
-
+{% tip %}
 Using the entity state and attributes is more error prone and less flexible than using Calendar Automations. The calendar entity itself may only track a single upcoming active event and can't handle multiple events with the same start time, or overlapping events.
-
-</div>
+{% endtip %}
 
 - **offset_reached**: If set in the event title and parsed out will be on/off once the offset in the title in minutes is reached. So the title Very important meeting `!! -10` would trigger this attribute to be on 10 minutes before the event starts. This should be in the format of `HH:MM` or `MM`. This attribute is not available when configured from the UI.
 - **all_day**: `True/False` if this is an all day event. Will be `False` if there is no event found.
@@ -195,7 +192,7 @@ Using the entity state and attributes is more error prone and less flexible than
 
 The todo entity is the number of incomplete items on the to-do list. See the
 [todo integration](/integrations/todo) documentation for details and available
-services that can be used in automations.
+actions that can be used in automations.
 
 ## Troubleshooting
 

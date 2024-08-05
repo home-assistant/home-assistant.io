@@ -42,7 +42,7 @@ automation:
       - platform: samsungtv.turn_on
         entity_id: media_player.samsung_smart_tv
     action:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -53,7 +53,7 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 #### Changing channels
 
-Changing channels can be done by calling the `media_player.play_media` service
+Changing channels can be done by calling the `media_player.play_media` action
 with the following payload:
 
 ```yaml
@@ -69,7 +69,7 @@ Some older models also expose the installed applications through the WebSocket, 
 
 ### Remote
 
-The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` service. The supported keys vary between TV models.
+The integration supports the `remote` platform. The remote allows you to send key commands to your TV with the `remote.send_command` action. The supported keys vary between TV models.
 
 {% details "Full keycodes list" %}
 
@@ -333,6 +333,7 @@ KEY_MIC|
 KEY_NINE_SEPERATE|
 KEY_AUTO_FORMAT|AutoFormat
 KEY_DNET|DNET
+KEY_MINUS|Minus
 _______________
 
 **Auto Arc Keys**
@@ -425,7 +426,7 @@ The code list has been extracted from: https://github.com/kdschlosser/samsungctl
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 72953f9b4c9863e28ddd52c87dcebe05
 data:

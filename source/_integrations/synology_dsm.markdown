@@ -31,21 +31,17 @@ The Synology DSM integration provides access to various statistics from your [Sy
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-
+{% warning %}
 This sensor will wake up your Synology NAS if it's in hibernation mode.
 
 You can change the scan interval within the configuration options (default is 15 min).
 
 Having cameras or the Home mode toggle from [Surveillance Station](https://www.synology.com/en-us/surveillance) will fetch every 30 seconds. Disable those entities if you don't want your NAS to be fetched as frequently.
+{% endwarning %}
 
-</div>
-
-<div class='note'>
-
+{% important %}
 When SSDP is activated on a NAS with two or more NICs with different IP addresses on the same subnet an adoption loop will occur. The NAS will be detected several times with different IP addresses and the integration will adopt the "newly" detected IP causing a reload. To resolve this either <a href="https://kb.synology.com/en-id/DSM/help/DSM/AdminCenter/file_service_advanced_introduction?version=7" target="_blank">deactivate SSDP on the NAS</a> or use NIC bonding so that only one IP address is present.
-
-</div>
+{% endimportant %}
 
 ## Separate User Configuration
 
@@ -61,9 +57,9 @@ If you have the "Enforce 2-step verification for the following users" option che
 
 Make sure to log out of your "normal" user's account and then login with the separate user you created specifically for Home Assistant. DSM will walk you through the process of setting up the one-time password for this user which you'll then be able to use in Home Assistant's frontend configuration screen.
 
-<div class='note'>
+{% note %}
 If you denied access to all locations and applications it is normal to receive a message indicating you do not have access to DSM when trying to login with this separate user. As noted above, you do not need access to the DSM and Home Assistant will still be able to read statistics from your NAS.
-</div>
+{% endnote %}
 
 ## Sensors
 
@@ -99,11 +95,9 @@ Entities reporting status, total size (TB), used size (TB), % of volume used, av
 
 Entity reporting the security status of the NAS.
 
-<div class='note'>
-
+{% note %}
 The security status corresponds with the analysis of the DSM Security Advisor, e.g., an `outOfDate` state for the `Update` attribute not only reflects the update status of the installed DSM version but also the status of the installed DSM packages.
-
-</div>
+{% endnote %}
 
 ### Disk sensors
 

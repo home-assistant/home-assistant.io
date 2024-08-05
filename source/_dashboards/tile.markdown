@@ -6,7 +6,7 @@ description: "The tile card gives you a quick overview of your entity. The card 
 related:
   - docs: /dashboards/actions/
     title: Card actions
-  - docs:  /dashboards/features
+  - docs:  /dashboards/features/
     title: Card features
   - docs: /dashboards/cards/
     title: Dashboard cards
@@ -61,7 +61,7 @@ hide_state:
 state_content:
   required: false
   description: >
-    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
 tap_action:
   required: false
@@ -137,3 +137,15 @@ features:
 
 You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
 
+## Reordering features
+
+Some features of the tile card, such as the presets or the HVAC modes of a
+thermostat, can show many buttons. While you can limit the buttons you’d
+like to see, they may not be in the desired order.
+
+For your thermostat, that means you can reorder the HVAC modes or presets.
+
+<p class='img'>
+    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
+    You can now reorder the features of the tile card.
+</p>
