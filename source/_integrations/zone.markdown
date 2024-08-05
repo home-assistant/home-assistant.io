@@ -49,7 +49,7 @@ During onboarding, this location was used to create the home zone with a 100&nbs
   ![Screenshot of the UI for adding or editing a zone](/images/integrations/zone/zone_edit_ui.png)
 
 6. If you want to hide the zone from the frontend and not use the zone for device tracker state, enable **Passive**. You can still use it in automations.
-   - **Passive** is not available for the home zone.
+   - For the home zone, **Passive** is not available.
 7. To save your changes, select **Update**.
 
 ## Editing zones in YAML
