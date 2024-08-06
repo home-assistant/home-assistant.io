@@ -30,13 +30,13 @@ There are different ways of setting up zone presence detection. One way is to ru
   - Android phone (Android 5 or later) or iPhone (iOS 10 or later)
   - Phone plan with Internet access
   - Access to your local network where Home Assistant is running
-- [Home Assistant companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.
+- [Home Assistant Companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.
   - During the setup procedure, make sure to grant **Location access**.
     - Location access creates a `device_tracker` entity for that device. This entity can be used in automations and conditions.
 
 ### To add zone presence detection with a mobile phone
 
-1. Open the companion app on your phone and log in to your Home Assistant instance.
+1. Open the Home Assistant Companion app on your phone and log in to your Home Assistant instance.
 2. On the screen to **Connect to Home Assistant**, make sure you activate **Enable location tracking**.
    - Select **Continue**.
 3. Go to {% my integrations title="**Settings** > **Devices** & **Services**" %} and look for the new integration that was added: **Mobile App**.
