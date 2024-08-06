@@ -47,7 +47,7 @@ There are different ways of setting up zone presence detection. One way is to ru
    - It shows the current location of your phone.
    - To view the details, select that initial.
      - Open the **Attributes** list to see the phone's **Latitude**, **Longitude**, and the **Source** of information.
-     - The source is the `device_tracker` entity for that device, for example `device_tracker_pixel_7_pro`.
+     - The source is the `device_tracker` entity for that device, for example `device_tracker.pixel_7_pro`.
 5. To view the entity details and the history, go to {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and in the search field, enter `devi` and select your `device_tracker` entity from the list.
 6. Check your [Zones](/integrations/zone/) to prepare them for automations.
    - Your home zone was set up during onboarding, but you can edit it.
