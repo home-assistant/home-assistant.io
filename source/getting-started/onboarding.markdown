@@ -31,9 +31,9 @@ After Home Assistant has been [installed](/installation/) on your device, there 
 
 3. Enter the location of your home.
    - The home location is used to configure the time zone, unit system, and currency.
-   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m. You can change the radius and location of this zone later.
-   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
    - You can always change this information later in the settings.
+   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
    - After finding your location, select **Next**.
 
     ![Define your location.](/images/getting-started/onboarding_location.png)
