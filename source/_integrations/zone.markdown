@@ -29,7 +29,7 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 - The home zone cannot be deleted and is designated with the home icon in the zone configuration page.
 - The home zone's location is used by integrations that are location-based. For example, the [Sun integration](/integrations/sun/), which uses it to calculate the position of the sun relative to your home.
 - During onboarding, Home Assistant defined a unit system and time zone based on this location. If you change the location later, unit system and time zone will not be changed automatically anymore.
-- Devices that are in the home zone will not appear on the map in the Home Assistant UI. If you are using your phone, for example, for presence detection and location based automations, don't be alarmed if you don't see your phone on the Map dashboard while you are at home.
+- Devices that are in the home zone will not appear on the map in the Home Assistant UI. If you are using your phone, for example, for presence detection and location-based automations, don't be alarmed if you don't see your phone on the Map dashboard while you are at home.
 
 ## Adding a new zone or editing zones
 
