@@ -49,7 +49,9 @@ To enable the Bayesian sensor, add the following lines to your {% term "`configu
 # Example configuration.yaml entry
 binary_sensor:
   - platform: bayesian
-    prior: 0.1
+    name: "Kitchen Occupied"
+    prior: 0.3
+    probability_threshold: 0.5
     observations:
       - entity_id: "switch.kitchen_lights"
         prob_given_true: 0.6

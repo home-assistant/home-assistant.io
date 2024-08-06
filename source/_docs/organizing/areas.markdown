@@ -44,7 +44,7 @@ Follow these steps to create a new area from the **Areas** view.
 If an area has not yet been assigned to a floor, it is shown in the **Unassigned areas** section. Follow these steps to assign an area to a floor.
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and select **Create area**.
-2. On the area card, select the pencil icon.
+2. On the area card, select the edit {% icon "mdi:edit" %} button.
 3. In the dialog, select the floor and add labels, if you like.
 
 ## Assigning an area to multiple items
@@ -64,7 +64,7 @@ You can assign an area to multiple items at once in the automation, scene, scrip
 
 Follow these steps to edit an area.
 
-1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and on the area card, select the pencil icon.
+1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %} and on the area card, select the edit {% icon "mdi:edit" %} button.
 2. In the dialog, adjust the area details you want to change:
    - Edit the area **Name**.
    - Add an icon (We use [Material icons](https://pictogrammers.com/library/mdi/)).
