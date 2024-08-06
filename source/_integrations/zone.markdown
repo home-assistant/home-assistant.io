@@ -19,7 +19,7 @@ related:
     title: Onboarding
 ---
 
-Zones allow you to specify certain regions on a map. When a device tracker sees a device to be within a zone, the state will take the name from the zone. Zones can also be used as a [trigger](/docs/automation/trigger#zone-trigger) or [condition](/docs/scripts/conditions/#zone-condition) inside automations. For example, for showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+Zones allow you to specify certain regions on a map. They are a powerful tool for location-based automations. For example, for showing the weather, or opening the shades at sunrise. Zones can also be used in combination with presence detection in automations. For example, to start the vacuum after you left home.
 
 ## About the home zone
 
