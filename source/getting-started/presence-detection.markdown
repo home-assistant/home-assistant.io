@@ -23,7 +23,7 @@ There are different ways of setting up zone presence detection. One way is to ru
 
 - [Home Assistant installed](/installation/)
 - [Onboarding steps](/getting-started/onboarding/) completed
-- [Remote access enabled](https://www.home-assistant.io/docs/configuration/remote/)
+- [Remote access enabled](/docs/configuration/remote/)
   - The easiest way to do this is by enabling
     - [Home Assistant Cloud](https://nabucasa.com/config/)
 - Mobile phone:
