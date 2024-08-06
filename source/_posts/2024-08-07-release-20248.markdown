@@ -653,10 +653,10 @@ the size of your database.
 Please be patient and let the upgrade process finish. Do not interrupt the
 upgrade process, as this can lead to a corrupted database.
 
-([@emontnemery] - [#121093]) ([documentation](/integrations/recorder))
+([@emontnemery] - [#121025]) ([documentation](/integrations/recorder))
 
 [@emontnemery]: https://github.com/emontnemery
-[#121093]: https://github.com/home-assistant/core/pull/121093
+[#121025]: https://github.com/home-assistant/core/pull/121025
 
 {% enddetails %}
 
