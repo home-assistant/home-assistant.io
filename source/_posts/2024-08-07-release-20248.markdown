@@ -96,34 +96,34 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 ## Dashboards - Chapter 2
 
 As part of our [roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
-continued, making the dashboard customization and organization easier and more
+continued on making dashboard customization and organization easier and more
 intuitive.
 
 Last week, we had the ["Dashboards Chapter 2"](https://www.youtube.com/watch?v=9zmXLxQPr1o)
 live stream, talking about the current state of the dashboards, the progress
-we have made, the upcoming features and improvements we are working on, but
-more importantly: Great insights in all the research and design philosophy
-behind the dashboards. In case you missed it, you can watch the recording
+we have made, the upcoming features, and improvements we are working on, but
+more importantly: The great insights in all our research and the design philosophy
+behind the dashboards. In case you missed it, you can watch the 1-hour recording
 on our [YouTube channel](https://www.youtube.com/watch?v=9zmXLxQPr1o) or
 read the [recap blog post](/blog/2024/07/26/dashboard-chapter-2/).
 
-As part of our continuous improvement: This month we have fully redesigned
+As part of our continuous improvement, this month we have fully redesigned
 and revamped the badges for your dashboards!
 
 ### New badges for your dashboard
 
-We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges):
+We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges) and
 this release introduces our redesigned badges!
 
 A big revamp of the original badges that have been in Home Assistant since, well,
 forever. The new badges are designed to match the design of the
 [Mushroom] chip cards, and are
-mean to sit at the top of a dashboard view, providing a summary of the most
+meant to sit at the top of a dashboard view, providing a summary of the most
 important information that you need to know, at a glance.
 
 <img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
 
-These new badges are of course fully configurable from the UI, allowing you to
+These new badges match the functionality of the previous design, but bring in a number of new improvements. They are of course fully configurable from the UI, allowing you to
 fully tweak them to your needs. You can specify whether the icon, name, and/or
 state will be visible, and you can configure the contents within each of them.
 
@@ -137,7 +137,7 @@ screen size it is displayed within, whether an entity is in a certain state, and
 <img class="no-shadow" src="/images/blog/2024-08/badges-add-visibility.png" alt="Screenshots; left showing the add badge dialog wich include the custom mushroom template badge, on the right shows the visibility tab and options badges now have.">
 
 The best news of all? The new badges work across both the new sections view and
-the old masonry view! 🎉 Heck!, we even support for custom badges, like the
+the old masonry view! 🎉 Heck!, we even have support for custom badges, like the
 custom template one released by the [Mushroom] project 🍄.
 
 If you have existing old-style badges today, don't worry! They will be
@@ -152,7 +152,7 @@ we are saying goodbye to **service calls** and hello to **actions**!
 
 If you are a long-time user of Home Assistant reading this now: don't be alarmed
 by this change, nothing breaks with this, and everything will continue to work
-as you are used to.
+just as it did before.
 
 In the 2024.1 release, we [unified the actions](/2024/01/03/release-20241/#unified-actions)
 in the Home Assistant automation & script editors. The goal of that change
@@ -161,20 +161,20 @@ removing the "Service call" layer and terminology.
 
 <img class="no-shadow" src="/images/blog/2024-01/add-action-search.png" alt="Screenshot showing the new add action dialog utilizing the search function to find whatever you need.">
 
-The UI in above screenshot is thus already in place since the January release,
+The above screenshot shows the UI that has been in use since the January release,
 and was very well received in general. However, the underlying terminology
 in our documentation and all other places in Home Assistant was still using
 the "service call" terminology.
 
 Additionally, the term "services" in Home Assistant is overloaded and abiguous.
 It is used for both the services you can call in Home Assistant, but also for
-service you might integrate with, like a weather service, or a music service.
+service you might integrate with, like a weather or music service.
 In the latter case, we are talking about integrating with a service provided by
-a software program or website, the menu item in the setting called
-**Devices & services** that refers to that. 😵‍💫
+a program or website, which is referenced in our Settings page as
+**Devices & services**. 😵‍💫
 
-To make things more clear, we are now changing the terminology in Home Assistant
-from "services" (as in service calls variant) to "actions" **everywhere**.
+To make things more clear, we are now changing the terminology around _service calls_ in Home Assistant 
+from "services" to "actions" **everywhere**.
 
 Every occurance in the documentation, the UI, the code, and everywhere else
 in Home Assistant, has been replaced with "action". Unlike the previous services
