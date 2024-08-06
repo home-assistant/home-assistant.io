@@ -27,7 +27,7 @@ There are different ways of setting up zone presence detection. One way is to ru
   - The easiest way to do this is by enabling
     - [Home Assistant Cloud](https://nabucasa.com/config/)
 - Mobile phone:
-  - Android (Android 5 or later) or iPhone (iOS 10 or later)
+  - Android (Android 5 or later) or iPhone (iOS 15 or later)
   - Phone plan with Internet access
   - Access to your local network where Home Assistant is running
 - [Home Assistant Companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.
