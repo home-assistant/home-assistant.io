@@ -77,12 +77,11 @@ You can manually define that the previous boot slot is used. This can be useful 
 ### Updating Home Assistant Core
 
 {% include common-tasks/update.md %}
+
 {% include common-tasks/network_storage.md %}
-{% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
-{% include common-tasks/enable_i2c.md %}
 
 ## Home Assistant versions
 
@@ -94,3 +93,8 @@ To see which version your system is running, go to {% my info title="**Settings*
 
 {% include common-tasks/data_disk.md %}
 
+<!-- Accessing Home Assistant from the commandline-->
+{% include common-tasks/commandline.md %}
+
+<!-- Enabling i2c-->
+{% include common-tasks/enable_i2c.md %}

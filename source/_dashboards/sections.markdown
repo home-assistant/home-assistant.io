@@ -64,7 +64,7 @@ Once you have created a sections view, you can populate it with sections and car
 
 ## Deleting a section
 
-1. To delete a section, go to the dashboard and in the top right corner, select the pencil icon.
+1. To delete a section, go to the dashboard and in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. Open the view with the section you want to delete.
 3. Select the delete {% icon "mdi:trash" %} button.
 
@@ -72,7 +72,7 @@ Once you have created a sections view, you can populate it with sections and car
 
 In the sections view, you can rearrange sections and cards by dragging them to a new location. This is not yet possible in other views.
 
-1. To edit your dashboard, in the top right corner, select the pencil icon.
+1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. To rearrange sections, hold the move {% icon "mdi:cursor-move" %} button and move the card.
 
     <p class='img'>

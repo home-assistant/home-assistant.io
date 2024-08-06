@@ -24,6 +24,8 @@ Once an {% term integration %} has been added, the hardware and/or data are repr
 
 Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
 
+<p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
+
 ## Devices
 
 Devices are a logical grouping for one or more {% term entities %}. A {% term device %} may represent a physical {% term device %}, which can have one or more sensors. The sensors appear as entities associated with the {% term device %}. For example, a motion sensor is represented as a {% term device %}. It may provide motion detection, temperature, and light levels as {% term entities %}. Entities have states such as *detected* when motion is detected and *clear* when there is no motion.
@@ -72,8 +74,12 @@ To learn how to use {% term scenes %}, refer to the [scene](/integrations/scene/
 
 ## Add-ons
 
-Depending on your [installation type](/installation), you can install third party add-ons. Add-ons are usually apps that can be run with Home Assistant but provide a quick and easy way to install, configure, and run within Home Assistant. Add-ons provide additional functionality whereas {% term integrations %} connect Home Assistant to other apps.
+Add-ons are third-party applications that provide additional functionality in Home Assistant. Add-ons run directly alongside Home Assistant, whereas {% term integrations %} connect Home Assistant to other apps. Add-ons are only supported by the {% term "Home Assistant Operating System" %} and {% term "Home Assistant Supervised" %} [installation type](/installation).
 
-![Add-ons](/images/getting-started/add-ons.png)
+Add-ons are installed from the add-on store under {% my supervisor title="**Settings** > **Add-ons**" %}. If you are curious now and feel like installing every add-on that looks interesting: beware that add-ons can use quite a bit of resources in terms of disk space, memory, and additional load on the processor.
+
+Among the most used add-ons are the ones that provide [file access and edit files](/docs/configuration/#to-set-up-access-to-the-files-and-prepare-an-editor) in Home Assistant.
+
+<p class='img'><img src='/images/getting-started/add-ons.png' style='border: 0;box-shadow: none;' alt="Screenshot of the add-on page">Screenshot of the add-on page, showing all the installed add-ons on a test system.</p>
 
 {% include getting-started/next_step.html step="Edit the dashboard" link="/getting-started/onboarding_dashboard/" %}
