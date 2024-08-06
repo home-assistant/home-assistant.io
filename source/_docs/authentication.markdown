@@ -51,6 +51,28 @@ _Make sure to choose a secure password!_ At some time in the future, you will pr
 
 As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
+### Adding another person to Home Assistant
+
+If you have administrator rights, you can add other persons to Home Assistant. Depending on the rights you give them, they can then use Home Assistant on their own devices, can have their own dashboards, and be used in automations.
+
+1. Go to {% my people title="**Settings** > **People**" %} and select **Add person**.
+2. Enter their **Name**.
+3. Add an image if you like.
+4. Under **Allow login**, select if they should be able to log in.
+   - If they cannot log in, they do not get a user account and they cannot do much with Home Assistant.
+   - They cannot have their own dashboard, for example.
+   - But they can still be used for device tracking and show up on a map and be used in automations.
+5. If they are able to log in, fill in the user information.
+   - Check if the user name is correct. A suggestion is made based on the person name. But they do not have to be identical.
+     - The user name is required to log in.
+     - The person name is the name displayed in the UI.
+   - Enter a password and store it in a safe location.
+   - Define if they should have **Local access only**.
+     - If this is enabled, they won't have access to Home Assistant when they are outside your network, for example from their phone.
+   - Define if they should have **Administrator** rights.
+   - Select **Create**.
+6. If you have already set up devices for [presence detection](/getting-started/presence-detection/), **select the devices that belong to this person**.
+
 ## Changing display or user name
 
 To learn how to change a display or user name, refer to [setting up basic information](/docs/configuration/basic/).
