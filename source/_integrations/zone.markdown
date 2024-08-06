@@ -23,11 +23,9 @@ Zones allow you to specify certain regions on a map. When a device tracker sees 
 
 ## About the home zone
 
-During the [onboarding process](/getting-started/onboarding/), Home Assistant asked for your home location. You either entered this manually or asked Home Assistant to detect it automatically.
+During the [onboarding process](/getting-started/onboarding/), Home Assistant asked for your home location. You either entered this manually or asked Home Assistant to detect it automatically. This location was used to create the home zone with a 100&nbsp;m radius. The home zone is a special, pre-defined zone with a few characteristics that set it apart from other zones.
 
-During onboarding, this location was used to create the home zone with a 100&nbsp;m radius. The home zone is a special, pre-defined zone with a few characteristics that set it apart from other zones.
-
-- The name of this zone is defined by the name of your (which defaults to "Home").
+- The name of this zone is defined by the name of your Home Assistant installation name (which defaults to "Home").
 - The home zone cannot be deleted and is designated with the home icon in the zone configuration page.
 - The home zone's location is used by integrations that are location-based. For example, the [Sun integration](/integrations/sun/), which uses it to calculate the position of the sun relative to your home.
 - During onboarding, Home Assistant defined a unit system and time zone based on this location. If you change the location later, unit system and time zone will not be changed automatically anymore.
