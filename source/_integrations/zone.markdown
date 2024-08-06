@@ -17,9 +17,11 @@ related:
     title: Areas
   - docs: /getting-started/onboarding/
     title: Onboarding
+  - docs: /getting-started/presence-detection/
+    title: Presence detection
 ---
 
-Zones allow you to specify certain regions on a map. They are a powerful tool for location-based automations. Together with presence-detection, zones can be used to determine if someone is in a certain area and automate based on this. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
+Zones allow you to specify certain regions on a map. They are a powerful tool for location-based automations. Together with [presence-detection](/getting-started/presence-detection/), zones can be used to determine if someone is in a certain area and automate based on this. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
 
 ## About the home zone
 
