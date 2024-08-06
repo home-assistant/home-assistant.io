@@ -19,7 +19,7 @@ related:
     title: Onboarding
 ---
 
-Zones allow you to specify certain regions on a map. They are a powerful tool for location-based automations. Zones can also be used in combination with presence detection in automations. For example, to start the vacuum after you left home.
+Zones allow you to specify certain regions on a map. They are a powerful tool for location-based automations. Together with presence-detection, zones can be used to determine if someone is in a certain area and automate based on this. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
 
 ## About the home zone
 
