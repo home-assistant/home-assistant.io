@@ -115,11 +115,11 @@ and revamped the badges for your dashboards!
 We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges) and
 this release introduces our redesigned badges!
 
-A big revamp of the original badges that have been in Home Assistant since, well,
+This is a big revamp of the original badges that have been in Home Assistant since, well,
 forever. The new badges are designed to match the design of the
 [Mushroom] chip cards, and are
 meant to sit at the top of a dashboard view, providing a summary of the most
-important information that you need to know, at a glance.
+important information that you need to know at a glance.
 
 <img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
 
@@ -131,7 +131,7 @@ Everything can, of course, be dragged and dropped in the order you like 😎
 
 Not just that, the new badges also come with visibility options, the same
 as we have [introduced for cards in Home Assistant 2024.6](/blog/2024/06/05/release-20246/#control-visibility-of-cards).
-Meaning you can show or hide them based on who is viewing the dashboard, what
+This means you can show or hide them based on who is viewing the dashboard, what
 screen size it is displayed within, whether an entity is in a certain state, and more.
 
 <img class="no-shadow" src="/images/blog/2024-08/badges-add-visibility.png" alt="Screenshots; left showing the add badge dialog wich include the custom mushroom template badge, on the right shows the visibility tab and options badges now have.">
@@ -166,9 +166,9 @@ and was very well received in general. However, the underlying terminology
 in our documentation and all other places in Home Assistant was still using
 the "service call" terminology.
 
-Additionally, the term "services" in Home Assistant is overloaded and abiguous.
+Additionally, the term "services" in Home Assistant is overloaded and ambiguous.
 It is used for both the services you can call in Home Assistant, but also for
-service you might integrate with, like a weather or music service.
+services you might integrate with, like a weather or music service.
 In the latter case, we are talking about integrating with a service provided by
 a program or website, which is referenced in our Settings page as
 **Devices & services**. 😵‍💫
@@ -178,7 +178,7 @@ from "services" to "actions" **everywhere**.
 
 Every occurance in the documentation, the UI, the code, and everywhere else
 in Home Assistant, has been replaced with "action". Unlike the previous services
-which where "called", actions are "performed".
+which were "called", actions are "performed".
 
 <img class="no-shadow" src="/images/blog/2024-08/actions-developers-tools.png" alt="Screenshot of the developers tools, which also renamed all occurances of services to actions.">
 
@@ -193,8 +193,8 @@ in your actions is now called `action`. For example:
     area: living_room
 ```
 
-Existing UI-managed automations will be automatically converted to when they
-are edited and saved the next time. If you write automation in YAML, you can
+Existing UI-managed automations will be automatically converted the next time they
+are edited and saved. If you write automation in YAML, you can
 use either `action` or `service` as this change is fully backward compatible,
 but we recommend using `action` from now on.
 
@@ -208,7 +208,7 @@ Home Assistant and wondering what new entities or devices you have available?
 This release is going to help you with that. Home Assistant now tracks
 when entities, devices, and many other things were created or last
 modified. If these are shown in a table, it means you can now sort them by
-the date they were created or last modified; helping you finding those
+the date they were created or last modified; helping you find those
 recently added or modified items.
 
 <img class="no-shadow" src="/images/blog/2024-08/data-tables-created-modified-columns-sorting.png" alt="Screenshot showing the new created and modified columns of the entities table, allowing one to sort on these new values.">
@@ -217,33 +217,30 @@ The created and modified columns are hidden by default, but you can make them
 visible by clicking the {% icon "mdi:cog" %} icon in the top right of the
 table. Sorting is always available, regardless of the visibility of the columns.
 
+You might notice most entities and devices do not have this created or modified data populated yet. Well this data has only started being recorded in this release, and cannot be applied retroactively, but going forward it should only get more useful.
+
 ## Control Home Assistant using AI with Ollama
 
 In the 2024.6 release, we introduced the ability to use the [OpenAI] and
 [GoogleAI] {%term integrations %} to [control your home using Large Language Models]
-(LLMs). Many of you request this to work with a local hosted LLM as well.
+(LLMs). Many of you requested this to work with a local hosted LLM as well.
 
-Today we are happy to announce that Home Assistant now supports being
-controlled by local LLMs too!
+Today we are happy to announce that Home Assistant now supports
+control via local LLMs too!
 
 This is achieved thanks to [@Shulyaka] adding support for the brand new tools
 API in Ollama. The performance of the local models has been fine tuned by
 [@AllenPorter].
 
-Allen created a new [LLM benchmark suite](https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini) that is more balanced and less focused
-on the edge cases and uses fewer exposed entities. We scored the different
-models with this new benchmark.
-
-The cloud-based models scored 98% on this new benchmark while local LLMs did
-not do so well. Through prompt tuning and fixes included in this release,
-we have been able to now get local LLMs to be able to score a reasonable 83%.
+Allen created a new [LLM benchmark suite](https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini) that is more balanced, less focused on edge cases, and uses fewer exposed entities. We scored the different models with this new benchmark and the cloud-based models scored 98%, but local LLMs did not do nearly as well. Through prompt tuning and fixes included in this release,
+we have been able to get local LLMs to score a reasonable 83%.
 
 <img class="no-shadow" src="/images/blog/2024-08/llama-3.1-iteration.png" alt="Graph showing the iteration progress of implementing local Ollama support using the Llama 3.1 8B model.">
 
-We will continue to work on testing new models and improving our prompts
+We will continue to test new models, while improving our prompts
 and tools to achieve a higher score.
 
-If you like to experiment with local LLMs using Home Assistant, we currently
+If you would like to experiment with local LLMs using Home Assistant, we currently
 recommend using the Llama 3.1 8B model and exposing fewer than 25 entities. Note
 that smaller models are more likely to make mistakes.
 
@@ -263,7 +260,7 @@ and improvements to existing ones! You’re all awesome 🥰
 We welcome the following new integrations in this release:
 
 - **[Autarco]**, added by [@klaasnicolaas]  
-  Monitor the performance of your [Autarco](https://www.autarco.com/) connected solar panels, inverters and batteries.
+  Monitor the performance of your [Autarco](https://www.autarco.com/) connected solar panels, inverters, and batteries.
 - **[Bryant Evolution]**, added by [@danielsmyers]  
   Control your [Bryant Evolution](https://www.bryant.com/en/us/products/evolution-system/) HVAC system.
 - **[Dio Chacon]**, added by [@cnico]  
@@ -338,7 +335,7 @@ changes to existing integrations:
 - [Tessie] received lots of attention from [@Bre77] this release, adding
   tons of new entities and features to the integration. Great job!
 - [@joostlek] and [@andrew-codechimp] have been extending the [Mealie]
-  integration lot of new actions, and features. Most notably, the ability to
+  integration with a lot of new actions and features. Most notably, the ability to
   import recipes, set meal plans, and view shopping lists. Thanks!
 - You can now control your Reolink chime with the [Reolink] integration, thanks
   to [@starkillerOG]!
@@ -450,19 +447,18 @@ of this release:
 
 ## Zigbee Home Automation (ZHA) updates
 
-The [Zigbee Home Automation] (ZHA) integration has seen lot of improvements
+The [Zigbee Home Automation] (ZHA) integration has seen a lot of improvements
 and love from [@dmulcahey], [@puddly], and [@TheJulianJES] this release.
 
-What this means for you? Well... basically nothing! And this sounds odd, but is
+What this means for you? Well... basically nothing! And this sounds odd, but that
 is a good thing!
 
 The whole integration has been split into a separate codebases, making it
-easier to maintain and improve. This is a huge step forward for the integration
-that took months of work to get done.
+easier to maintain and improve. This is a huge step forward for the integration,
+and took months of work to get done.
 
 You will not notice anything different right now, but this change will make
-it easier to maintain and improve the integration in the future, including
-the ability for code contributers to contribute to the integration more easily.
+it easier to maintain and improve the integration in the future, including the ability for code contributors to more easily contribute to the integration.
 
 ![Chart showing how ZHA dropping from the number one integration in terms of lines of code to about number ten](https://github.com/home-assistant/core/assets/32534428/d708f61b-1746-4306-9264-24b7ad2ec40a)
 
@@ -475,7 +471,7 @@ _TODO: Remove screenshot, it is fun for beta, but not for final release_
 
 ## Matter updates
 
-A couple of updates for the Matter integration this release, while we are
+There are a couple of updates for the Matter integration this release, while we are
 working hard to get the integration ready for official Matter certification.
 
 The Matter integration can now provide update entities. Meaning, if your
@@ -484,8 +480,8 @@ be able to inform you about it and update the device for you. 🎉
 
 _TODO: Add screenshot of a Matter device updating_
 
-This update feature is available for all Matter devices of which the
-manufacturers provide firmware updates for via the official main Matter update
+This update feature is available for all Matter devices where the
+manufacturers provide firmware updates via the official main Matter update
 channels. There are not many manufacturers yet, but this is a great step
 forward and we hope many Matter manufacturers will follow this example.
 
@@ -494,8 +490,7 @@ will now provide more event types, allowing you to react to things like single
 press or double press events with ease.
 
 Additionally, [@jvmahon] contributed support for select entities to the Matter
-integration. This is used for selecting modes if your Matter device supports
-that. For example, laundry washer, oven or dishwasher modes.
+integration. This is used to select modes if your Matter device supports them, such as laundry, oven, or dishwasher modes.
 
 [@jvmahon]: https://github.com/jvmahon
 
@@ -532,15 +527,15 @@ noteworthy changes this release:
 
 - We are proud of our [Open Home Foundation], so we now will show its pretty
   logo on the loading and about screens of Home Assistant. Thanks [@balloob]!
-- [Timer support] using [Assist], for mobile devices. This means you can now
-  control times from your mobile device or tablet. Thanks [@balloob]!
+- [Timer support] using [Assist] for mobile devices. This means you can now
+  control timers from your mobile device or tablet. Thanks [@balloob]!
 - You can now ask [Assist] for the current time and date, thanks [@synesthesiam]!
-- Home Assistant will now raise a repair issue if an script can't be set up
+- Home Assistant will now raise a repair issue if a script can't be set up
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - If Home Assistant finds an integration set up that has been removed
   (like when you remove a custom integration), it will now raise a repair issue
   to help you clean up anything left behind. Thanks [@joostlek]!
-- The [group] has support for grouping two new entities types. [@joostlek] added
+- [Group] now has support for grouping two new entities types. [@joostlek] added
   support for grouping [notify] entities, and [@frenck] added support for grouping
   [button] entities. Nice!
 - The [Generic Thermostat] and [Hygrostat] helpers will now be linked to the
@@ -563,7 +558,7 @@ noteworthy changes this release:
 [Assist]: /voice_control/
 [button]: /integrations/button
 [Generic Thermostat]: /integrations/generic_thermostat
-[group]: /integrations/group
+[Group]: /integrations/group
 [History stats]: /integrations/history_stats
 [Hygrostat]: /integrations/generic_hygrostat
 [image]: /integrations/image
@@ -577,18 +572,15 @@ noteworthy changes this release:
 
 Most popular {% term integrations %} and helpers can be set up directly from the
 Home Assistant user interface. However, we still have a lot of older or less
-used integrations that can only be set up using manual YAML configuration.
-
-We are working hard to move more and more of these integrations to the UI,
-however, this takes time and effort; every release we are enabling more and
-more of these integrations to be set up from the UI.
+used integrations that can only be set up using manual YAML configuration. We are working hard to move more and more of these integrations to the UI,
+however, this takes time and effort. 
 
 The problem with these integrations is that they are not visible in the UI
 when they are set up using YAML. What we often see happening, is that someone
 set up an integration using YAML, and next cannot see them on the integrations
 page. Often resulting in questions in our community about where to find them.
 
-As of this release, we have drasticly improved this situation. All integrations,
+As of this release, we have drastically improved this situation. All integrations,
 regardless of how they are set up, are now visible in the integrations page
 in the UI. This means that even if you set up an integration using YAML, you
 can now find them in the UI and can view their provided entities.
@@ -600,10 +592,10 @@ _TODO: Replace screenshot_
 Integrations originating from manual YAML configuration can be recognized by the
 {% icon "mdi:code-braces" %} icon showing on their cards.
 
-Similar, we also have a lot of helpers that can only be set up using YAML
+Similarly, we also have a lot of helpers that can only be set up using YAML
 configuration. These sometimes showed up in the UI, but often did not. We have
 adjusted this as well, and made sure that all helpers are now visible in the UI,
-regardless how they are set up.
+regardless of how they are set up.
 
 {% note %}
 Things set up manually using YAML are still managed using YAML. This means that
@@ -664,7 +656,7 @@ upgrade process, as this can lead to a corrupted database.
 
 The Blinksticklight integration is disabled because it requires software that
 is not open source. Any help or contributions to make this integration work
-without the closed-source software is welcomed.
+without the closed-source software is welcome.
 
 ([@joostlek] - [#121846]) ([documentation](/integrations/blinksticklight))
 
@@ -832,7 +824,7 @@ error message will be logged to notice.
 
 The MVG integration is disabled because it requires software that
 is not open source. Any help or contributions to make this integration work
-without the closed-source software is welcomed.
+without the closed-source software is welcome.
 
 [@joostlek]: https://github.com/joostlek
 [#121975]: https://github.com/home-assistant/core/pull/121975
