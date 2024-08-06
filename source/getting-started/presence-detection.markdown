@@ -56,6 +56,11 @@ There are different ways of setting up zone presence detection. One way is to ru
      - In this case, leaving the office zone would be an automation {% term trigger %}.
      - You could also use the location information as an automation {% term condition %}, for example, when you have an automation to turn on the light at sunset, but only when you are home.
 
+## Adding presence detection for other persons in your home
+
+1. For each person you want to have presence detection, add a device tracker.
+2. Go to {% my people title="**Settings** > **People**" %} and select the person.
+3. Scroll down and under **Select the devices that belong to this person**, select the device.
 
 [routers]: /integrations/#presence-detection
 [nmap]: /integrations/nmap_tracker
