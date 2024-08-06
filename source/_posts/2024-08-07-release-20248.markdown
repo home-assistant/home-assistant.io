@@ -123,7 +123,7 @@ important information that you need to know, at a glance.
 
 <img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
 
-These new badges match the functionality of the previous design, but bring in a number of new improvements. They are of course fully configurable from the UI, allowing you to
+These new badges match the functionality of the previous design, but now are even more feature rich. They are of course fully configurable from the UI, allowing you to
 fully tweak them to your needs. You can specify whether the icon, name, and/or
 state will be visible, and you can configure the contents within each of them.
 
