@@ -45,7 +45,7 @@ If you have administrator rights, you can add other persons to Home Assistant an
    - But they can still be used for device tracking and show up on a map and be used in automations.
 5. If they are able to log in, fill in the user information.
    - Check if the user name is correct. A suggestion is made based on the person name. But they do not have to be identical.
-     - The user name is required to log in.
+     - The username is required to log in.
      - The person name is the name displayed in the UI.
    - Enter a password and store it in a safe location.
    - Define if they should have **Local access only**.
