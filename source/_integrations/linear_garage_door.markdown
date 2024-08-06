@@ -1,11 +1,11 @@
 ---
-title: Nice G.O.
-description: Control Nice G.O. garage doors
+title: Linear Garage Door
+description: Control Linear garage doors
 ha_release: '2023.12'
 ha_category:
   - Cover
   - Light
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@IceBotYT'
@@ -17,13 +17,13 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Nice G.O. integration lets you control Nice G.O. garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Nice G.O. mobile app.
+The Linear integration lets you control Linear garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Linear mobile app.
 
 {% include integrations/config_flow.md %}
 
 ## Cover
 
-Garage doors linked to your Nice G.O. account will appear as covers.
+Garage doors linked to your Linear account will appear as covers.
 
 ## Light
 
