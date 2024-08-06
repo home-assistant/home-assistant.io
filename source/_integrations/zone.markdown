@@ -25,6 +25,11 @@ Zones allow you to specify certain regions on a map. They enable [zone presence-
 
 Create a zone for each area you want to automate on. For example, work, school, and home. Different technologies can be used to detect presence in these zones. A common method is app-based detection using a mobile phone.
 
+<p class='img'>
+    <img src="/images/screenshots/map.png" alt="Screenshot of a map dashboard in Home Assistant showing a school, work and home zone and two people."/>
+    Map dashboard showing a school, work, and a home zone and the location of two people.
+</p>
+
 ## About the home zone
 
 During the [onboarding process](/getting-started/onboarding/), Home Assistant asked for your home location. You either entered this manually or asked Home Assistant to detect it automatically. This location was used to create the home zone with a 100&nbsp;m radius. The home zone is a special, pre-defined zone with a few characteristics that set it apart from other zones.
