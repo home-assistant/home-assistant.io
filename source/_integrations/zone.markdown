@@ -23,7 +23,7 @@ related:
 
 Zones allow you to specify certain regions on a map. They enable [zone presence-detection](/getting-started/presence-detection/). This information can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
 
-Create a zone for each area you want to automate on. For example, work, school, and home. Different technologies can be used to detect presence in these zones. An common method is app-based detection using a mobile phone.
+Create a zone for each area you want to automate on. For example, work, school, and home. Different technologies can be used to detect presence in these zones. A common method is app-based detection using a mobile phone.
 
 ## About the home zone
 
@@ -33,7 +33,7 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 - The home zone cannot be deleted and is designated with the home icon in the zone configuration page.
 - The home zone's location is used by integrations that are location-based. For example, the [Sun integration](/integrations/sun/), which uses it to calculate the position of the sun relative to your home.
 - During onboarding, Home Assistant used the location to define settings such as the unit system and time zone. If you change the location later, unit system and time zone will not be changed automatically anymore.
-- Devices that are in the home zone will not appear on the map in the Home Assistant UI. For example, if you are using your phone for presence detection, you wont see your phone on the Map dashboard while you are at home.
+- Devices that are in the home zone will not appear on the map in the Home Assistant UI. For example, if you are using your phone for presence detection, you won't see your phone on the Map dashboard while you are at home.
 
 ## Adding a new zone or editing zones
 
