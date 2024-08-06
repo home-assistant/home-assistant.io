@@ -15,7 +15,7 @@ Zone presence detection detects if people are within a certain zone, which can b
 
 ## About setting up zone presence detection
 
-There are different ways of setting up zone presence detection. One way is to run an app on your phone to provide detailed location information to your Home Assistant instance. Another way to detect presence is by checking which {% term devices %} are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can detect if people are at home.
+There are different ways of setting up zone presence detection. One way is to run an app on your phone to send detailed location information to your Home Assistant instance. Another way to detect presence is by checking which {% term devices %} are connected to the network. You can do that if you have one of our [supported routers][routers]. By leveraging what your router already knows, you can detect if people are at home.
 
 ## Adding zone presence detection with a mobile phone
 
@@ -27,7 +27,7 @@ There are different ways of setting up zone presence detection. One way is to ru
   - The easiest way to do this is by enabling
     - [Home Assistant Cloud](https://nabucasa.com/config/)
 - Mobile phone:
-  - Android phone (Android 5 or later) or iPhone (iOS 15 or later)
+  - Android (Android 5 or later) or iPhone (iOS 10 or later)
   - Phone plan with Internet access
   - Access to your local network where Home Assistant is running
 - [Home Assistant Companion app installed](https://companion.home-assistant.io/docs/getting_started/) on your phone.
