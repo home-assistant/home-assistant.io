@@ -230,12 +230,13 @@ This is achieved thanks to [@Shulyaka] adding support for the brand new tools
 API in Ollama. The performance of the local models has been fine tuned by
 [@AllenPorter].
 
-Allen created a new LLM benchmark suite that is more balanced and less focused
-on the edge cases. We scored the different models with this new benchmark.
+Allen created a new [LLM benchmark suite](https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini) that is more balanced and less focused
+on the edge cases and uses fewer exposed entities. We scored the different
+models with this new benchmark.
 
 The cloud-based models scored 98% on this new benchmark while local LLMs did
 not do so well. Through prompt tuning and fixes included in this release,
-we have been able to now get local LLMs to be able to score a reasonable 81%.
+we have been able to now get local LLMs to be able to score a reasonable 83%.
 
 <img class="no-shadow" src="/images/blog/2024-08/llama-3.1-iteration.png" alt="Graph showing the iteration progress of implementing local Ollama support using the Llama 3.1 8B model.">
 
@@ -243,9 +244,8 @@ We will continue to work on testing new models and improving our prompts
 and tools to achieve a higher score.
 
 If you like to experiment with local LLMs using Home Assistant, we currently
-recommend using the Llama 3.1 8B model.
-
-_TODO: Verify numbers in this text_
+recommend using the Llama 3.1 8B model and exposing fewer than 25 entities. Note
+that smaller models are more likely to make mistakes.
 
 [@AllenPorter]: https://github.com/AllenPorter
 [@Shulyaka]: https://github.com/Shulyaka
