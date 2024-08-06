@@ -36,7 +36,7 @@ During the [onboarding process](/getting-started/onboarding/), Home Assistant as
 1. Go to {% my zones title="**Settings** > **Areas, labels & zones**" %}.
 2. To edit an existing zone, select the edit {% icon "mdi:edit" %} button. To add a new zone, select **Add zone**.
 3. Give your zone a name, for example `Nina's office`, or `school`.
-   - The home zone always has the name of your home. To change the name for the home, go to {% my general title="**Settings** > **System** > **General**" %}.
+   - The home zone always has the name of your Home Assistant installation. To change the name of the home, go to {% my general title="**Settings** > **System** > **General**" %}.
 4. Pick any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/) and prefix the name with `mdi:`.
    - For example, `mdi:school`, `mdi:briefcase`, `mdi:home`, `mdi:cart`, or `mdi:castle`.
    - For the home zone, the icon cannot be changed.
