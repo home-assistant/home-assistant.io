@@ -534,6 +534,10 @@ noteworthy changes this release:
   entities, straight from the UI. Awesome job [@dougiteixeira]!
 - [@karwosts] added a button to the actions developer tools to copy the action
   response as JSON for use in templates. Nice!
+- The [picture], [picture elements], [picture entity], and [picture glance] cards
+  can now get their image from the person entity! You don't need to set a static
+  image to represent a person, it will now automatically fetch the person's picture
+  for you. Thanks [@Quentame]!
 
 [@balloob]: https://github.com/balloob
 [@dougiteixeira]: https://github.com/dougiteixeira
@@ -542,6 +546,7 @@ noteworthy changes this release:
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@joostlek]: https://github.com/joostlek
 [@karwosts]: https://github.com/karwosts
+[@Quentame]: https://github.com/Quentame
 [@synesthesiam]: https://github.com/synesthesiam
 [Assist]: /voice_control/
 [button]: /integrations/button
@@ -553,7 +558,11 @@ noteworthy changes this release:
 [microVAD]: https://github.com/rhasspy/pymicro-vad
 [notify]: /integrations/notify
 [Open Home Foundation]: https://openhomefoundation.org/
+[picture]: /dashboards/picture/
+[picture elements]: /dashboards/picture-elements/
 [picture elements card]: /dashboards/picture-elements/
+[picture entity]: /dashboards/picture-entity/
+[picture glance]: /dashboards/picture-glance/
 [select]: /integrations/select
 [switch]: /integrations/switch
 [Timer support]: /blog/2024/07/03/release-20247/#timers-are-here
