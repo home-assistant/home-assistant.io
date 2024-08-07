@@ -230,15 +230,18 @@ This is achieved thanks to [@Shulyaka] adding support for the brand new tools
 API in Ollama. The performance of the local models has been fine tuned by
 [@AllenPorter].
 
-Allen created a new [LLM benchmark suite](https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini) that is more balanced, less focused on edge cases, and uses fewer exposed entities. We scored the different models with this new benchmark and the cloud-based models scored 98%, but local LLMs did not do nearly as well. Through prompt tuning and fixes included in this release,
-we have been able to get local LLMs to score a reasonable 83%.
+Allen created a new [LLM benchmark suite] that is more balanced, less focused
+on edge cases, and uses fewer exposed entities. We scored the different models
+with this new benchmark, and the cloud-based models scored 98%, but local LLMs
+did not do nearly as well.
+
+Through prompt tuning and fixes included in this release, we have gotten local
+LLMs to score a reasonable 83%. We will continue to test new models while
+improving our prompts and tools to achieve a higher score.
 
 <img class="no-shadow" src="/images/blog/2024-08/llama-3.1-iteration.png" alt="Graph showing the iteration progress of implementing local Ollama support using the Llama 3.1 8B model.">
 
-We will continue to test new models, while improving our prompts
-and tools to achieve a higher score.
-
-If you would like to experiment with local LLMs using Home Assistant, we currently
+If you want to experiment with local LLMs using Home Assistant, we currently
 recommend using the Llama 3.1 8B model and exposing fewer than 25 entities. Note
 that smaller models are more likely to make mistakes.
 
@@ -246,6 +249,7 @@ that smaller models are more likely to make mistakes.
 [@Shulyaka]: https://github.com/Shulyaka
 [control your home using Large Language Models]: /blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms
 [GoogleAI]: /integrations/google_generative_ai_conversation/
+[LLM benchmark suite]: https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini
 [OpenAI]: /integrations/openai_conversation
 
 ## Integrations
