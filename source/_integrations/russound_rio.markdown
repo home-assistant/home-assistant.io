@@ -18,4 +18,9 @@ The `russound_rio` {% term integration %} allows you to control Russound devices
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information is supported if the selected source reports it.
 
+{% important %}
+If you want to control the Russound ACA, CAV, CAM, CAA, and CAS controllers,
+check out the [Russound RNET](/integrations/russound_rnet/) integration.
+{% endimportant %}
+
 {% include integrations/config_flow.md %}
