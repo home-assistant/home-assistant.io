@@ -561,10 +561,10 @@ noteworthy changes this release:
   entities, straight from the UI. Awesome job [@dougiteixeira]!
 - [@karwosts] added a button to the actions developer tools to copy the action
   response as JSON for use in templates. Nice!
-- The [picture], [picture elements], [picture entity] and [picture glance] cards
-  can now get image from the person entity! You don't need to set a static image
-  to represent a person, it will now automatically fetch the person's picture for
-  you. Thanks [@Quentame]!
+- The [picture], [picture elements], [picture entity], and [picture glance] cards
+  can now get their image from the person entity! You don't need to set a static
+  image to represent a person, it will now automatically fetch the person's picture
+  for you. Thanks [@Quentame]!
 
 [@balloob]: https://github.com/balloob
 [@dougiteixeira]: https://github.com/dougiteixeira
