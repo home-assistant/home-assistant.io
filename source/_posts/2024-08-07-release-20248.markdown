@@ -43,6 +43,7 @@ Enjoy the release! 🎉
 
 - [Dashboards - Chapter 2](#dashboards---chapter-2)
   - [New badges for your dashboard](#new-badges-for-your-dashboard)
+  - [Optimized information density for the Sections view](#optimized-information-density-for-the-sections-view)
 - [Goodbye service calls, hello actions 👋](#goodbye-service-calls-hello-actions-)
 - [Sort data tables by created or last modified](#sort-data-tables-by-created-or-last-modified)
 - [Control Home Assistant using AI with Ollama](#control-home-assistant-using-ai-with-ollama)
@@ -115,6 +116,25 @@ If you have existing old-style badges today, don't worry! They will be
 automatically converted to the new badges when you upgrade to this release.
 
 [Mushroom]: https://github.com/piitaya/lovelace-mushroom
+
+### Optimized information density for the Sections view
+
+For this release, we have also fine-tuned the design grid for our
+[experimental Sections view](/dashboards/sections/).
+
+The height of each row has been reduced, allowing more information to be
+displayed on the screen. Hours of pixel pushing have also reduced the gap
+between the [Tile card](/dashboards/tile/) contents and its
+[features](/dashboards/features/), resulting in a cleaner and more
+uniform appearance.
+
+<p class="img">
+<img src="/images/blog/2024-08/optimized-information-density.png" alt="Screenshot showing the difference between the previous and current release.">
+The 2024.7 release on the left and this 2024.8 release on the right.
+</p>
+
+If you have been experimenting with sections and have resized some of your
+cards, you may need to readjust the sizes to accommodate these changes.
 
 ## Goodbye service calls, hello actions 👋
 
