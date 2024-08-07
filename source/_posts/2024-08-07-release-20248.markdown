@@ -110,27 +110,30 @@ and revamped the badges for your dashboards!
 
 ### New badges for your dashboard
 
-We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges) and
-this release introduces our redesigned badges!
+We already wrote about it extensively in our [Dashboard Chapter 2 blog post](/blog/2024/07/26/dashboard-chapter-2/#new-badges)
+and this release introduces our redesigned badges!
 
-This is a big revamp of the original badges that have been in Home Assistant since, well,
-forever. The new badges are designed to match the design of the
-[Mushroom] chip cards, and are
-meant to sit at the top of a dashboard view, providing a summary of the most
-important information that you need to know at a glance.
+This is a big revamp of the original badges that have been in Home Assistant
+since, well, forever. The new badges are designed to match the design of the
+[Mushroom] chip cards, and are meant to sit at the top of a dashboard view,
+providing a summary of the most important information that you need to know
+at a glance.
 
 <img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
 
-These new badges match the functionality of the previous design, but now are even more feature rich. They are of course fully configurable from the UI, allowing you to
-fully tweak them to your needs. You can specify whether the icon, name, and/or
-state will be visible, and you can configure the contents within each of them.
+These new badges match the functionality of the previous designm but are
+now even more feature-rich. Of course, they are fully configurable from the UI,
+allowing you to tweak them to your needs. You can specify whether the icon,
+name, and/or state will be visible, and you can configure the contents within
+each of them.
 
 Everything can, of course, be dragged and dropped in the order you like 😎
 
 Not just that, the new badges also come with visibility options, the same
 as we have [introduced for cards in Home Assistant 2024.6](/blog/2024/06/05/release-20246/#control-visibility-of-cards).
 This means you can show or hide them based on who is viewing the dashboard, what
-screen size it is displayed within, whether an entity is in a certain state, and more.
+screen size it is displayed within, whether an entity is in a certain state,
+and more.
 
 <img class="no-shadow" src="/images/blog/2024-08/badges-add-visibility.png" alt="Screenshots; left showing the add badge dialog wich include the custom mushroom template badge, on the right shows the visibility tab and options badges now have.">
 
