@@ -538,17 +538,19 @@ the results!
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- We are proud of our [Open Home Foundation], so we now will show its pretty
-  logo on the loading and about screens of Home Assistant. Thanks [@balloob]!
+- We are proud of our [Open Home Foundation], so we will now show its pretty
+  logo on the Home Assistant loading and information screens. Thanks [@balloob]!
 - [Timer support] using [Assist] for mobile devices. This means you can now
   control timers from your mobile device or tablet. Thanks [@balloob]!
 - You can now ask [Assist] for the current time and date, thanks [@synesthesiam]!
+- The [picture elements card] can now be fully managed in the UI using a
+  brand-new visual editor. Fantastic work there [@karwosts]!
 - Home Assistant will now raise a repair issue if a script can't be set up
   (for example, because of YAML syntax errors). Thanks [@emontnemery]!
 - If Home Assistant finds an integration set up that has been removed
   (like when you remove a custom integration), it will now raise a repair issue
   to help you clean up anything left behind. Thanks [@joostlek]!
-- [Group] now has support for grouping two new entities types. [@joostlek] added
+- [Group] now has support for grouping two new entity types. [@joostlek] added
   support for grouping [notify] entities, and [@frenck] added support for grouping
   [button] entities. Nice!
 - The [Generic Thermostat] and [Hygrostat] helpers will now be linked to the
@@ -577,6 +579,7 @@ noteworthy changes this release:
 [image]: /integrations/image
 [notify]: /integrations/notify
 [Open Home Foundation]: https://openhomefoundation.org/
+[picture elements card]: /dashboards/picture-elements/
 [select]: /integrations/select
 [switch]: /integrations/switch
 [Timer support]: /blog/2024/07/03/release-20247/#timers-are-here
