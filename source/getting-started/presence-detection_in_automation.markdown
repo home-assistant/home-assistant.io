@@ -39,18 +39,4 @@ In this tutorial, our goal is to run the [turning on the lights before sunset](/
 4. Select **Save**.
 5. Congratulations! Now, your automation will only run if someone is home.
 
-[routers]: /integrations/#presence-detection
-[nmap]: /integrations/nmap_tracker
-[ha-bluetooth]: /integrations/bluetooth_tracker
-[ha-bluetooth-le]: /integrations/bluetooth_le_tracker
-[ha-locative]: /integrations/locative
-[ha-gpslogger]: /integrations/gpslogger
-[ha-presence]: /integrations/#presence-detection
-[mqtt-self]: /integrations/mqtt/#run-your-own
-[mqtt-cloud]: /integrations/mqtt/#cloudmqtt
-[zone]: /integrations/zone/
-[trigger]: /getting-started/automation-trigger/#zone-trigger
-[condition]: /getting-started/automation-condition/#zone-condition
-[companion]: https://companion.home-assistant.io/
-
 {% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}
