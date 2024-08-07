@@ -203,19 +203,21 @@ but we recommend using `action` from now on.
 You've added a new integration, a new device, or maybe just updated
 Home Assistant and wondering what new entities or devices you have available?
 
-This release is going to help you with that. Home Assistant now tracks
-when entities, devices, and many other things were created or last
-modified. If these are shown in a table, it means you can now sort them by
-the date they were created or last modified; helping you find those
-recently added or modified items.
+This release will help you with that. Home Assistant now tracks when entities
+and devices, and many other things were created or last modified. If these are
+shown in a table, it means you can now sort them by the date they were created
+or last modified; helping you find those recently added or modified items.
 
 <img class="no-shadow" src="/images/blog/2024-08/data-tables-created-modified-columns-sorting.png" alt="Screenshot showing the new created and modified columns of the entities table, allowing one to sort on these new values.">
 
 The created and modified columns are hidden by default, but you can make them
-visible by clicking the {% icon "mdi:cog" %} icon in the top right of the
-table. Sorting is always available, regardless of the visibility of the columns.
+visible by clicking the {% icon "mdi:cog" %} icon at the top right of the
+table. Sorting is always available, regardless of the columns' visibility.
 
-You might notice most entities and devices do not have this created or modified data populated yet. Well this data has only started being recorded in this release, and cannot be applied retroactively, but going forward it should only get more useful.
+You might notice that most entities and devices do not have this created or
+modified data populated yet. Well this data has only started being recorded in
+this release, and cannot be applied retroactively, but going forward it should
+only get more useful.
 
 ## Control Home Assistant using AI with Ollama
 
