@@ -24,7 +24,7 @@ You can add other people to Home Assistant. They can have their own login, use H
 
 ## Apps for Android and iOS
 
-You can use Home Assistant on your phone, smart watch, and even in your car.
+You can use Home Assistant on your phone, smartwatch, and even in your car.
 
 - To learn how to install Home Assistant on Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
 - Want to use your voice to control Home Assistant?
