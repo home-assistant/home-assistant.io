@@ -454,22 +454,21 @@ of this release:
 
 ## Zigbee Home Automation (ZHA) updates
 
-The [Zigbee Home Automation] (ZHA) integration has seen a lot of improvements
-and love from [@dmulcahey], [@puddly], and [@TheJulianJES] this release.
+The [Zigbee Home Automation] (ZHA) got a massive overhaul this release!
 
-What this means for you? Well... basically nothing! And this sounds odd, but that
-is a good thing!
+What this means for you? Well... basically: _**nothing**_! And this sounds odd,
+but that is a good thing!
 
-The whole integration has been split into a separate codebases, making it
+The whole integration has been split into a separate codebase, making it
 easier to maintain and improve. This is a huge step forward for the integration,
 and took months of work to get done.
 
-You will not notice anything different right now, but this change will make
-it easier to maintain and improve the integration in the future, including the ability for code contributors to more easily contribute to the integration.
+You will not notice anything different right now, but this change will make the
+integration easier to maintain and improve in the future, including allowing
+code contributors to contribute more easily.
 
-![Chart showing how ZHA dropping from the number one integration in terms of lines of code to about number ten](https://github.com/home-assistant/core/assets/32534428/d708f61b-1746-4306-9264-24b7ad2ec40a)
-
-_TODO: Remove screenshot, it is fun for beta, but not for final release_
+Thanks for the dedication and the huge amounts of hard work on this integration
+[@dmulcahey], [@puddly], and [@TheJulianJES]! 🥰
 
 [@dmulcahey]: https://github.com/dmulcahey
 [@puddly]: https://github.com/puddly
