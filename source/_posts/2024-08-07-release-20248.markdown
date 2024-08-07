@@ -70,7 +70,6 @@ Enjoy the (beta) release!
 
 - [Dashboards - Chapter 2](#dashboards---chapter-2)
   - [New badges for your dashboard](#new-badges-for-your-dashboard)
-  - [Picture cards get image from the person entity](#picture-cards-get-image-from-the-person-entity)
 - [Goodbye service calls, hello actions 👋](#goodbye-service-calls-hello-actions-)
 - [Sort data tables by created or last modified](#sort-data-tables-by-created-or-last-modified)
 - [Control Home Assistant using AI with Ollama](#control-home-assistant-using-ai-with-ollama)
@@ -146,38 +145,6 @@ If you have existing old-style badges today, don't worry! They will be
 automatically converted to the new badges when you upgrade to this release.
 
 [Mushroom]: https://github.com/piitaya/lovelace-mushroom
-
-### Picture cards get image from the person entity
-
-Remember when changing a person picture and picture cards did not reflect the brand-new image?
-
-That's now an old story, picture cards can now fetch your person picture, so you don't have to update them manually !
-
-**Example on `picture-glance` card**
-
-- Before: it uses a static image
-
-```yaml
-type: picture-glance
-entity: person.paulus
-image: /api/image/serve/a52be54b0cefa35bf27abac3b2a3df1a/512x512
-entities:
- - weather.paris
-```
-
-- After: it retrieves the image from the person entity automatically
-
-```yaml
-type: picture-glance
-entity: person.paulus
-image_entity: person.paulus
-entities:
- - weather.lyon
-```
-
-The result is the same, until you change Paulus's picture, and you see that with the `image` attribute, the card is keeping the previous picture.
-
-Thanks [@Quentame]
 
 ## Goodbye service calls, hello actions 👋
 
@@ -284,7 +251,6 @@ that smaller models are more likely to make mistakes.
 
 [@AllenPorter]: https://github.com/AllenPorter
 [@Shulyaka]: https://github.com/Shulyaka
-[@Quentame]: https://github.com/Quentame
 [control your home using Large Language Models]: /blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms
 [GoogleAI]: /integrations/google_generative_ai_conversation/
 [LLM benchmark suite]: https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini
@@ -595,6 +561,9 @@ noteworthy changes this release:
   entities, straight from the UI. Awesome job [@dougiteixeira]!
 - [@karwosts] added a button to the actions developer tools to copy the action
   response as JSON for use in templates. Nice!
+- Picture cards can now get image from the person entity! You don't need to set
+  static image to represent a person, it will now automatically fetch the person's
+  picture for you. Thanks [@Quentame]!
 
 [@balloob]: https://github.com/balloob
 [@dougiteixeira]: https://github.com/dougiteixeira
@@ -603,6 +572,7 @@ noteworthy changes this release:
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [@joostlek]: https://github.com/joostlek
 [@karwosts]: https://github.com/karwosts
+[@Quentame]: https://github.com/Quentame
 [@synesthesiam]: https://github.com/synesthesiam
 [Assist]: /voice_control/
 [button]: /integrations/button
