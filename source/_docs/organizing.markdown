@@ -12,14 +12,16 @@ related:
     title: Categories
 ---
 
-Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists. There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
+Once you have more devices, you may want to target entire groups of devices in automations. It also becomes more challenging to find items in lists.
 
-| Taxonomy | Automation target | Entity can have multiple |
-| -------- | ----------------- | ------------------------ |
-| Area     | ✅                 | ❌                        |
-| Floor    | ✅                 | ❌                        |
-| Label    | ✅                 | ✅                        |
-| Category | ❌                 | ❌                        |
+There are a few tools to group your assets: [Areas](#areas), [floors](#floors), [labels](#labels), and [categories](#categories).
+
+| Taxonomy | Automation target                | Entity can have multiple         |
+| -------- | -------------------------------- | -------------------------------- |
+| Area     | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Floor    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:cross-mark" %} |
+| Label    | {% icon "openmoji:check-mark" %} | {% icon "openmoji:check-mark" %} |
+| Category | {% icon "openmoji:cross-mark" %} | {% icon "openmoji:cross-mark" %} |
 
 ## Area
 

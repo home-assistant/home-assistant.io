@@ -1392,11 +1392,9 @@ sensors:
       type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
-
-</div>
+{% endnote %}
 
 ### Example: sensor configuration
 
@@ -1622,19 +1620,6 @@ Description:
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-The modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
-
-| Service        | Description                                   |
-| -------------- | --------------------------------------------- |
-| modbus.stop    | Stop communication                            |
-| modbus.restart | Restart communication (Stop first if running) |
-
-Description:
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
 
 ## Example: writing a float32 type register
 

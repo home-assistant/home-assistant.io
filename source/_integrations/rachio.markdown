@@ -37,11 +37,9 @@ They will be automatically added if the Rachio integration is loaded.
 3. Click **Get API Key**.
 4. Copy the API key from the dialog that opens.
 
-<div class='note'>
-
+{% important %}
 In order for Rachio switches and sensors to update, your Home Assistant instance must be accessible from the internet, either via Home Assistant Cloud or another method. See the [Remote Access documentation](/docs/configuration/remote/) for more information. The smart hose timers use polling and don't require external access to be setup.
-
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -83,17 +81,17 @@ Service data attribute | Optional | Description |
 | `entity_id` | no | Individual zone, schedule, or multiple smart hose timer valves to run. A smart hose timer base station device can also be selected to run all valves on the given base.
 | `duration` | yes | Duration in minutes to run the zone or valves. Leave empty for schedules.
 
-<div class='note'>
+{% note %}
 The services below only apply to sprinkler controllers and will not be shown if only smart hose timers are on the account.
-</div>
+{% endnote %}
 
 ### Service `rachio.start_multiple_zone_schedule`
 
 Allows a list of zones to be passed with a corresponding list of durations to create a custom schedule directly from Home Assistant.
 
-<div class='note'>
+{% note %}
 It is not currently possible to have zones from multiple controllers in the same custom schedule.
-</div>
+{% endnote %}
 
  Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

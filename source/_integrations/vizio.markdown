@@ -24,11 +24,9 @@ If `zeroconf` discovery is enabled, your device will get discovered automaticall
 
 ### Install `pyvizio` locally
 
-<div class='note'>
-
+{% note %}
 If the `pip3` command is not found, try `pip` instead
-
-</div>
+{% endnote %}
 
 - To install, run `pip3 install pyvizio` in your terminal.
 - If `pyvizio` is already installed locally, make sure you are using the latest version by running `pip3 install --upgrade pyvizio` in your terminal.

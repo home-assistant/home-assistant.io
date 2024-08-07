@@ -62,8 +62,10 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
-- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock) (currently the Pro model is not supported)
+- [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 
 ## SwitchBot Entity
 
@@ -76,7 +78,7 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-## SwitchBot Lock
+## SwitchBot Lock / SwitchBot Lock Pro
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
@@ -93,9 +95,9 @@ Password:
   description: SwitchBot account password
 {% endconfiguration_basic %}
 
-<div class='note warning'>
+{% important %}
 This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
-</div>
+{% endimportant %}
 
 ### Enter the lock encryption key manually
 

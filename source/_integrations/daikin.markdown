@@ -20,11 +20,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-<div class='note warning'>
+{% warning %}
 
 Daikin has removed their local API in newer products. They offer a Onecta cloud API for controlling Daikin devices through the cloud, see the [Daikin Europe Developer Portal](https://developer.cloud.daikineurope.com) for more details. This affects units fitted with the BRP069C4x wifi adapter. Units listed under Supported Hardware below continue to have access to local control. Additionally the older but commonly available BRP072A42 adapter can be fitted to most if not all newer units for access to local control.
 
-</div>
+{% endwarning %}
 
 The **Daikin** {% term integration %} integrates Daikin air conditioning systems into Home Assistant.
 
@@ -43,16 +43,16 @@ There is currently support for the following device types within Home Assistant:
 - The Australian version of the Daikin Wifi Controller for **AirBase** units (BRP15B61), which is operated by the [Daikin Airbase](https://play.google.com/store/apps/details?id=au.com.daikin.airbase) application.
 - **SKYFi** based units, which is operated by the SKYFi application*.
 
-<div class='note'>
+{% note %}
 
 - The integration for BRP072Cxx and SKYFi based units need API-key / password respectively. The API-key/password can be found on a sticker under the front cover. The other models are auto detected and the API-key and password field must be left empty.
 - BRP084Cxx firmware update from 1.19.0 to 2.8.0 breaks local API there is however ongoing work in fixing local API support again.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
   
 If your Daikin unit does not reside in the same network as your Home Assistant instance, i.e. your network is segmented, note that a couple of UDP connections are made during discovery:
 
@@ -61,7 +61,7 @@ If your Daikin unit does not reside in the same network as your Home Assistant i
 
 If this situation applies to you, you may need to adjust your firewall(s) accordingly.
 
-</div>
+{% endnote %}
 
 ## Climate
 
@@ -76,13 +76,13 @@ The `daikin` climate platform integrates Daikin air conditioning systems into Ho
 
 Current inside temperature is displayed.
 
-<div class='note'>
+{% note %}
   
 Some models do not support setting of **fan speed** or **swing mode**.
   
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
 
 Preset mode **away** translates to Daikin's "Holiday Mode":<br/>
 <br>
@@ -93,7 +93,7 @@ _When "Holiday mode" is enabled, the following action take place:_
 - _All connected units are turned OFF._
 - _All schedule timers are disabled._
 
-</div>
+{% endnote %}
 
 ## Sensor
 
@@ -112,16 +112,16 @@ The integration displays the following parameters for the outdoor compressor:
 - Outside compressor Energy consumption (sum of all devices, resets at 00:00)
 - Outside compressor frequency
 
-<div class='note'>
+{% note %}
 
 - Some models only report outside temperature when they are turned on.
 - Some models do not have humidity sensor.
 - Some models do not report the power/energy consumption.
 - Some models do not report the compressor frequency.
 
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
 
 - The 'Outdoor compressor Energy consumption' and 'Outdoor compressor Estimated power consumption' sensors are updated every time 100 Wh are consumed by all different operating modes summed together.
 - The 'Outdoor compressor Estimated power consumption' sensor is derived from the above energy consumption and not provided by the AC directly.
@@ -130,17 +130,17 @@ The integration displays the following parameters for the outdoor compressor:
 - The 'cool' mode also includes the 'fan' and 'dehumidifier' modes' power consumption.
 - If you have multiple indoor devices, the 'Outdoor compressor' sensors will be created multiple times but will all report the same values. You can disable all but one.
 
-</div>
+{% endnote %}
 
 ## Switch
 
 AirBase and SKYFi units exposes zones (typically rooms) that can be switched on/off individually.
 
-<div class='note'>
+{% note %}
 
 Zones with the name `-` will be ignored, just as the AirBase application is working.
 
-</div>
+{% endnote %}
 
 A switch is created for each device that will toggle the unit on/off. This will turn the unit on to its previous state, or toggle it off. This switch works in conjunction with the climate entity.
 

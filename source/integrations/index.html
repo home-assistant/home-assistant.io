@@ -25,15 +25,21 @@ regenerate: false
 {%- assign categories = components | map: 'ha_category' | join: ',' | downcase | split: ',' | uniq | sort -%}
 
 <div class="grid">
-  <div class="grid__item one-sixth lap-one-whole palm-one-whole">
+  <div class="grid__item one-fifth lap-one-whole palm-one-whole">
 
     <div class="filter-button-group">
-      <a href='#all' class="btn">All ({{tot}})</a>
+      <div class="all">
+        <a href='#all' class="btn">All <span class="count">{{tot}}</span></a>
+      </div>
+
       <div class="featured">
         <a href='#featured' class="btn">Featured</a>
         <a href='#works-with-home-assistant' class="btn">Partner brands</a>
       </div>
-      <div class="version_select">Added in: <select id="versions" name="versions">
+
+      <div class="version_select">
+        <label>By release</label>
+        <select id="versions" name="versions">
           <option value="#"></option>
           {%- for group in components_by_version -%}
           <optgroup label="{{ group.label }} ({{group.new_components_count}})">
@@ -43,36 +49,75 @@ regenerate: false
             {%- endfor -%}
           </optgroup>
           {%- endfor -%}
-        </select></div>
-      {%- for category in categories -%}
-        {%- assign category_name = "" -%}
-        {%- assign components_count = 0 -%}
-        {%- for comp in components -%}
-          {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
-          {%- if comp_categories contains category -%}
+        </select>
+      </div>
+
+      <div class="category_list">
+        <label>By Categories</label>
+        {%- for category in categories -%}
+          {%- assign category_name = "" -%}
+          {%- assign components_count = 0 -%}
+          {%- for comp in components -%}
+            {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+            {%- if comp_categories contains category -%}
+              {%- if category_name == "" -%}
+                {%- for cat in comp.ha_category -%}
+                  {%- assign lower_cat = cat | downcase -%}
+                  {%- if lower_cat == category -%}
+                    {%- assign category_name = cat -%}
+                  {%- endif -%}
+                {%- endfor -%}
+              {%- endif -%} 
+              {%- assign components_count = components_count | plus: 1 -%}
+            {%- endif -%}
+          {%- endfor -%}
+          {%- if category != 'other' and components_count != 0 -%}
             {%- if category_name == "" -%}
-              {%- for cat in comp.ha_category -%}
-                {%- assign lower_cat = cat | downcase -%}
-                {%- if lower_cat == category -%}
-                  {%- assign category_name = cat -%}
-                {%- endif -%}
-              {%- endfor -%}
-            {%- endif -%} 
-            {%- assign components_count = components_count | plus: 1 -%}
+              {%- assign category_name = category | capitalize -%}
+            {%- endif -%}
+            <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} <span class="count">{{ components_count }}</span></a>
           {%- endif -%}
         {%- endfor -%}
-        {%- if category != 'other' and components_count != 0 -%}
-          {%- if category_name == "" -%}
-            {%- assign category_name = category | capitalize -%}
-          {%- endif -%}
-          <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} ({{ components_count }})</a>
-        {%- endif -%}
-      {%- endfor -%}
+        <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other <span class="count">{{ components | where: 'ha_category', 'Other' | size }}</span></a>
+      </div>
 
-      <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+      <div class="category_select">
+        <label>By Categories</label>
+        <select id="categories" name="categories">
+          <option value="#"></option>
+          {%- for category in categories -%}
+            {%- assign category_name = "" -%}
+            {%- assign components_count = 0 -%}
+            {%- for comp in components -%}
+              {%- assign comp_categories = comp.ha_category | join: ',' | downcase -%}
+              {%- if comp_categories contains category -%}
+                {%- if category_name == "" -%}
+                  {%- for cat in comp.ha_category -%}
+                    {%- assign lower_cat = cat | downcase -%}
+                    {%- if lower_cat == category -%}
+                      {%- assign category_name = cat -%}
+                    {%- endif -%}
+                  {%- endfor -%}
+                {%- endif -%} 
+                {%- assign components_count = components_count | plus: 1 -%}
+              {%- endif -%}
+            {%- endfor -%}
+            {%- if category != 'other' and components_count != 0 -%}
+              {%- if category_name == "" -%}
+                {%- assign category_name = category | capitalize -%}
+              {%- endif -%}
+              <option value="#{{ category_name | slugify }}">{{ category_name }} ({{ components_count }})
+              </option>
+            {%- endif -%}
+          {%- endfor -%}
+          <option value="#other">Other ({{ components | where: 'ha_category', 'Other' | size }})
+          </option>
+        </select>
+      </div>
+
     </div>
   </div>
-  <div class="grid__item five-sixths lap-one-whole palm-one-whole">
+  <div class="grid__item four-fifths lap-one-whole palm-one-whole">
     <div class="component-search">
       <form onsubmit="event.preventDefault(); return false">
         <input type="text" name="search" id="search" class="search" placeholder="Search integrations..." autofocus />
@@ -201,7 +246,7 @@ allComponents.pop(); // remove placeholder element at the end
           </a>
           `).join('\n');
       } else {
-        rendered = '<p class="note">Nothing found!</p>';
+        rendered = '<div class="alert alert-note"><p class="alert-content">Nothing found!</p></div>';
       }
 
       // set active class on active menu item
@@ -224,7 +269,7 @@ allComponents.pop(); // remove placeholder element at the end
         'https://brands.home-assistant.io',
         component.ha_brand ? 'brands' : '_',
         component.domain,
-        'logo'
+        'icon'
       ].join('/');
 
       return `<img src="${urlBase}.png" srcset="${urlBase}@2x.png 2x" loading="lazy">`;
@@ -243,6 +288,12 @@ allComponents.pop(); // remove placeholder element at the end
     const versionsEl = document.getElementById('versions');
     versionsEl.addEventListener('change', () => {
       history.pushState('', '', versionsEl.value);
+      applyFilter();
+    });
+
+    const categoriesEl = document.getElementById('categories');
+    categoriesEl.addEventListener('change', () => {
+      history.pushState('', '', categoriesEl.value);
       applyFilter();
     });
 

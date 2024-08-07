@@ -116,12 +116,10 @@ These entities are simpler diagnostic entities without any additional attributes
 
 Here are some small examples on how you can automate using the provided entities from this integration.
 
-<div class="note">
-
+{% note %}
 Remember that the service names and entity IDs used in these examples are examples as well,
 you need to replace it with services and entities that you have in your installation.
-
-</div>
+{% endnote %}
 
 ### Notify new releases
 

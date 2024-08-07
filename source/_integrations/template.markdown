@@ -34,6 +34,9 @@ ha_platforms:
   - weather
 ha_integration_type: helper
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -57,9 +60,19 @@ _For old sensor/binary sensor configuration format, [see below](#legacy-binary-s
 
 ## UI configuration
 
-Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+Sensor template and binary sensor template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. 
 
+{% include integrations/config_flow.md %}
+
+{% important %}
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 
@@ -418,9 +431,9 @@ State-based and trigger-based template entities have the special template variab
 
 When there are entities present in the template and no triggers are defined, the template will be re-rendered when one of the entities changes states. To avoid this taking up too many resources in Home Assistant, rate limiting will be automatically applied if too many states are observed.
 
-<p class='note'>
+{% tip %}
 <a href='#trigger-based-template-sensors'>Define a trigger</a> to avoid a rate limit and get more control over entity updates.
-</p>
+{% endtip %}
 
 When `states` is used in a template by itself to iterate all states on the system, the template is re-rendered each
 time any state changed event happens if any part of the state is accessed. When merely counting states, the template

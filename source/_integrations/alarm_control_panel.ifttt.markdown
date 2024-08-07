@@ -14,9 +14,9 @@ The `ifttt` {% term integration %} allows you to integrate security systems that
 
 This {% term integration %} depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
-<div class='note'>
+{% note %}
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
-</div>
+{% endnote %}
 
 ## Configuration
 
@@ -79,11 +79,11 @@ optimistic:
   default: false
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 
-</div>
+{% endwarning %}
 
 ### Required IFTTT applets
 

@@ -34,8 +34,9 @@ layout: null
 /yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
-# User research
+# Design & User research
 /join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
+/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -346,8 +347,6 @@ layout: null
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/troubleshooting
-/getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /integrations/zwave_js
@@ -490,6 +489,7 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
@@ -517,6 +517,7 @@ layout: null
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301

@@ -23,13 +23,11 @@ Please make sure that you have read the [considerations](#considerations) listed
 some trouble later. However, if you do encounter issues, check out the
 [troubleshooting](#troubleshooting) section.
 
-<div class="note">
-
-  If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
-  which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
-
-</div>
+{% tip %}
+If you want to control HomeKit-only devices with Home Assistant,
+check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
+which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -274,7 +272,7 @@ homekit:
               default: libopus
               available options: copy, libopus
             co_threshold:
-              description: Only for `sensor` entities with `device_class` `carbon_monoxide` or `co` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              description: Only for `sensor` entities with `device_class` `carbon_monoxide`. Used as the threshold value once HomeKit will warn/notify the user.
               required: false
               type: integer
               default: 25
@@ -430,8 +428,8 @@ The following integrations are currently supported:
 | sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
 | sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
 | sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
-| sensor                                                        | CarbonMonoxideSensor   | All sensors that have `co` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
-| sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
+| sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
+| sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |

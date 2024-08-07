@@ -51,11 +51,9 @@ Battery sensors are fully supported for the `Sonos Roam` and `Sonos Move` device
 
 For each speaker with a battery, a `sensor` showing the current battery charge level and a `binary_sensor` showing the power state of the speaker are created. The `binary_sensor` reports if the speaker is currently powered by an external source and its `power_source` attribute shows which specific source is providing the current power. This source attribute can be one of `BATTERY`, `SONOS_CHARGING_RING` if using wireless charging, or `USB_POWER` if charging via USB cable. Note that the Roam will report `SONOS_CHARGING_RING` even when using a generic Qi charger.
 
-<div class='note'>
-
+{% note %}
 The battery sensors rely on working change events or updates will be delayed. S1 battery sensors **require** working events to report any data. See more details in [Advanced use](#advanced-use). 
-
-</div>
+{% endnote %}
 
 ### Alarm support notes
 
@@ -115,12 +113,9 @@ Example templates:
 
 {% endraw %}
 
-<div class='note'>
-
+{% tip %}
 The Sonos favorites sensor (`sensor.sonos_favorites`) is disabled by default. It can be found and enabled from the entities associated with the Sonos integration on your {% my integrations %} page.
-  
-</div>
-
+{% endtip %}
 
 ## Playing media
 
@@ -280,11 +275,9 @@ The Sonos integration makes various custom services available in addition to the
 
 Take a snapshot of what is currently playing on one or more speakers. This service, and the following one, are useful if you want to play a doorbell or notification sound and resume playback afterwards.
 
-<div class='note'>
-
+{% note %}
 The queue is not snapshotted and must be left untouched until the restore. Using `media_player.play_media` is safe and can be used to play a notification sound, including [TTS](/integrations/tts/) announcements.
-
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
@@ -295,15 +288,13 @@ The queue is not snapshotted and must be left untouched until the restore. Using
 
 Restore a previously taken snapshot of one or more speakers.
 
-<div class='note'>
-
+{% note %}
 The playing queue is not snapshotted. Using `sonos.restore` on a speaker that has replaced its queue will restore the playing position, but in the new queue!
+{% endnote %}
 
-</div>
-
-<div class='note'>
+{% note %}
 A cloud queue cannot be restarted. This includes queues started from within Spotify and queues controlled by Amazon Alexa.
-</div>
+{% endnote %}
 
 | Service data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |

@@ -80,11 +80,9 @@ lutron_caseta:
     ca_certs: caseta-bridge.crt
 ```
 
-<div class='note'>
-
+{% note %}
 Note that multiple hubs can be specified by using multiple configuration blocks, but each of them requires its own `keyfile`, `certfile`, and `ca_certs` to be generated and specified.
-
-</div>
+{% endnote %}
 
 {% configuration %}
   host:
@@ -105,13 +103,11 @@ Note that multiple hubs can be specified by using multiple configuration blocks,
     type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% tip %}
 It is recommended to assign a static IP address to your Lutron Smart Bridge. This ensures that it won't change IP address, so you won't have to change the `host` if it reboots and comes up with a different IP address.
 <br>
 Use a DHCP reservation on your router to reserve the address or in the PRO model of the Smart Bridge, set the IP address under Network Settings in the Advanced / Integration menu in the mobile app.
-
-</div>
+{% endtip %}
 
 To get Lutron Caseta roller, honeycomb shades, wood blinds, lights, scene and switch working with Home Assistant, first follow the instructions for the general Lutron Caseta integration above.
 

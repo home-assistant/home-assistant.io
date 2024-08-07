@@ -62,13 +62,10 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
-<div class='note'>
-
-  If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
-
-  The media from the network storage is then automatically added to the local media browser.
-
-</div>
+{% tip %}
+If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+The media from the network storage is then automatically added to the local media browser.
+{% endtip %}
 
 ## Playing media from a media source
 
@@ -76,7 +73,7 @@ To play media from a media source via a service call, use the uri
 scheme `media-source://media_source/<media_dir>/<path>`.
 Default `media_dir` is `local`.
 
-<div class="note">
+{% note %}
 Web browsers and Google Cast media players have very limited video container
 and codec support. The media source integration does not do any transcoding of
 media, meaning media files must be natively supported by your media player or
@@ -86,7 +83,7 @@ If a video file is not supported by
 your media player or web browser it will fail to play. Please check the
 documentation of your media player or web browser for lists
 of supported video formats.
-</div>
+{% endnote %}
 
 Example:
 

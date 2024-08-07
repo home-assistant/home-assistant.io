@@ -109,11 +109,9 @@ The **Alarm Decoder** {% term integration %} gives you access to several {% term
 - `alarmdecoder.alarm_keypress`: Sends a string of characters to the alarm, as if you had touched those keys on a keypad.
 - `alarmdecoder.alarm_toggle_chime`: Toggles the alarm's chime state.
 
-<div class='note'>
-
+{% note %}
 `alarm_arm_custom_bypass` and `alarm_trigger`, while available in the services list in Home Assistant, are not currently implemented in the Alarm Decoder platform.
-
-</div>
+{% endnote %}
 
 ### Examples
 
@@ -196,11 +194,11 @@ The tables below show the key press sequences used for arming for the different 
 
 #### code_arm_required = false
 
-<div class='note'>
+{% note %}
 
 The `chr(4)` and `chr(5)` sequences below are equivalent to pressing the <em>Stay</em> and <em>Away</em> keypad keys respectively (as outlined in the <a href='https://www.alarmdecoder.com/wiki/index.php/Protocol#Special_Keys'>AlarmDecoder documentation</a>).
 
-</div>
+{% endnote %}
 
 | Mode                                                    | Key Sequence                   |
 | ------------------------------------------------------- | ------------------------------ |

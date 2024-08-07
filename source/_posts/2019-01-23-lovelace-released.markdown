@@ -8,6 +8,7 @@ author_twitter: balloob
 categories:
 - Release-Notes
 - Core
+- Dashboard
 og_image: /images/blog/2019-01-lovelace/demo.png
 ---
 

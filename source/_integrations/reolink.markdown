@@ -65,16 +65,17 @@ Dual lens cameras provide additional streams for the second lens.
 
 Depending on the supported features of the camera, binary sensors are added for:
 
-- Motion detection
-- Visitor (Doorbell presses)
-- AI person detection
-- AI vehicle detection
-- AI pet detection
-- AI animal detection
-- AI face detection
-- AI package detection
+- Motion detection+
+- Visitor+ (Doorbell presses)
+- AI person detection+
+- AI vehicle detection+
+- AI pet detection+
+- AI animal detection+
+- AI face detection+
+- AI package detection+
+- Sleep status
 
-These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\+ These sensors receive events using 3 methods in order: ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for ONVIF push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 Not all camera models generate ONVIF push events for all event types, some binary sensors might, therefore, only be polled.
@@ -165,7 +166,7 @@ Depending on the supported features of the camera, select entities are added for
 - Play quick reply message
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
-- Status LED (Doorbell only: Stay off, Auto, Auto & always on at night)
+- Doorbell LED (Stay off, Auto, Auto & always on at night)
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -191,6 +192,7 @@ Depending on the supported features of the camera, switch entities are added for
 - PTZ patrol (start/stop)
 - Doorbell button sound
 - Record
+- Manual record
 - Push notifications
 - Buzzer on event
 - Email on event
@@ -252,6 +254,7 @@ The following models have been tested and confirmed to work with a direct link t
 - C1 Pro*
 - C2 Pro*
 - [CX410](https://reolink.com/product/cx410/)
+- [CX810](https://reolink.com/product/cx810/)
 - [E1 Zoom](https://reolink.com/product/e1-zoom/)
 - [E1 Outdoor](https://reolink.com/product/e1-outdoor/)
 - [E1 Outdoor PoE](https://reolink.com/product/e1-outdoor-poe/)
@@ -276,6 +279,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLC-820A](https://reolink.com/product/rlc-820a/)
 - [RLC-822A](https://reolink.com/product/rlc-822a/)
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
+- [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
@@ -299,6 +303,8 @@ Battery-powered Reolink cameras can be used with Home Assistant with the help of
 
 The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
 
+- [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
+- [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
 - [Argus Eco Ultra](https://reolink.com/product/argus-eco-ultra/)
 - [Argus Track](https://reolink.com/product/argus-track/)
 - [Reolink Doorbell Battery](https://reolink.com/roadmap/)
@@ -352,7 +358,7 @@ Then power up the camera while pointing it at the QR code. It takes about a minu
 
 ### 2. Enabling HTTP/HTTPS ports
 
-Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [windows or Mac](https://reolink.com/software-and-manual/) client ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **Network** > **Advanced** > **Port Settings**. See [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 
 ### 3. Add integration in Home Assistant
 
@@ -366,7 +372,7 @@ Set up the Reolink integration in Home Assistant using the credentials you set i
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
-- Ensure at least one of the HTTP/HTTPS ports is enabled in the [windows](https://reolink.com/software-and-manual/)/web client under **Settings** > **Network** > **Advanced** > **Port Settings**, see [additional instructions](https://support.reolink.com/hc/en-us/articles/900004435763-How-to-Set-up-Reolink-Ports-Settings-via-Reolink-Client-New-Client-) on the Reolink site.
+- Ensure at least one of the HTTP/HTTPS ports is enabled in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC), see [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.

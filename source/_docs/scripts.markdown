@@ -2,7 +2,6 @@
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
 toc: true
-no_toc: true
 ---
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
@@ -131,11 +130,9 @@ sequence:
 
 While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. For documentation on the many different conditions refer to the [conditions page].
 
-<div class='note'>
-
+{% note %}
 The `condition` {% term action %} only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the {% term actions %} within that `choose` will stop.
-
-</div>
+{% endnote %}
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -845,8 +842,7 @@ script:
               message: "I am sent immediately and do not await the above action!"
 ```
 
-<div class='note'>
-
+{% warning %}
 Running {% term actions %} in parallel can be helpful in many cases, but use it with
 caution and only if you need it.
 
@@ -854,8 +850,7 @@ There are some caveats (see below) when using parallel actions.
 
 While it sounds attractive to parallelize, most of the time, just the regular
 sequential {% term actions %} will work just fine.
-
-</div>
+{% endwarning %}
 
 Some of the caveats of running {% term actions %} in parallel:
 

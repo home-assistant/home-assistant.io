@@ -22,9 +22,9 @@ You can add Agent DVR via integrations using the IP address and port of the serv
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  Please ensure you are using Agent DVR v2.6.1.0 +
-</div>
+{% important %}
+Please ensure you are using Agent DVR v2.6.1.0 +
+{% endimportant %}
 
 ## Alarm control panel
 

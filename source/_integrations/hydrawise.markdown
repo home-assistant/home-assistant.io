@@ -12,6 +12,7 @@ ha_iot_class: Cloud Polling
 ha_domain: hydrawise
 ha_codeowners:
   - '@dknowles2'
+  - '@thomaskistler'
   - '@ptcryan'
 ha_platforms:
   - binary_sensor
@@ -41,21 +42,25 @@ There is currently support for the following device types within Home Assistant:
 Binary sensor entities are created for the controller:
 
 - Cloud API availability
+- Rain sensor moisture detection (if a rain sensor is attached to the controller)
 
-<div class='note warning'>
-The Hydrawise API removed the ability to read the rain sensor status. Therefore it is no longer supported by the Hydrawise integration to Home Assistant.
-</div>
-
-Binary sensor entities are created for each zone:
+Binary sensor entities are created for each irrigation zone:
 
 - Running status
 
 ## Sensor
 
-Sensor entities are added to each zone:
+Sensor entities are created for the controller:
+
+- Daily total water use (if a flow sensor is attached to the controller)
+- Daily active water use (if a flow sensor is attached to the controller)
+- Daily inactive water use (if a flow sensor is attached to the controller)
+
+Sensor entities are created for each irrigation zone:
 
 - Timestamp for the next scheduled automatic watering cycle
-- Remaining time for the current watering cycle
+- Remaining time (in minutes) for the current watering cycle
+- Daily active water use for the zone (if a flow sensor is attached to the irrigation zone)
 
 ## Switch
 
@@ -70,6 +75,6 @@ When `auto_watering` is `on` the irrigation zone will follow the Smart Watering 
 
 When `manual_watering` is `on` the zone will run for 15 minutes.
 
-<div class='note warning'>
+{% note %}
 Due to changes in the Hydrawise API the status of the Auto Watering switches has changed. Under normal conditions the Auto Watering switches correctly reflect the Smart Watering schedule on the Hydrawise mobile or web app. However, if a rain sensor is connected to the system and it is active (rain detected), or the zone is running the Auto Watering switch will turn off. After both of those conditions are removed the switch will again show the correct Auto Watering condition.
-</div>
+{% endnote %}

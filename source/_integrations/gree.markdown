@@ -24,9 +24,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% important %}
 Devices must first be bound to WiFi using the Gree+ app, or app provided by the device manufacturer. It is not possible to connect devices to WiFi using this integration at the current time.
-</div>
+{% endimportant %}
 
 ## Supported models
 
@@ -39,6 +39,7 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 - Tadiran
 - Heiwa
 - Ekokai
+- Lessar
 
 ## Climate
 
@@ -51,9 +52,9 @@ The `gree` climate platform integrates Gree HVAC systems into Home Assistant, en
 - [`swing mode`](/integrations/climate#service-climateset_swing_mode)
 - [`set_preset_mode`](/integrations/climate#service-climateset_preset_mode)
 
-<div class='note'>
+{% note %}
 Preset mode **Away** represents Gree's "8°C heating mode."
-</div>
+{% endnote %}
 
 ## Switch
 

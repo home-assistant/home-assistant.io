@@ -96,11 +96,9 @@ action:
       message: "{{ trigger.to_state.attributes.last_added_item }}"
 ```
 
-<div class='note info'>
-  
+{% important %}
 The library sensors are disabled by default, but can be enabled via the Plex integration page.
-  
-</div>
+{% endimportant %}
 
 ## Button
 
@@ -165,20 +163,16 @@ Required fields within the `media_content_id` payloads are marked as such, other
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 
-<div class='note info'>
-  
+{% note %}
 Refer to these links if casting to non-Plex players:
 
 - [Chromecast](/integrations/cast/#plex)
 - [Sonos](/integrations/plex#sonos-playback)
-  
-</div>
+{% endnote %}
 
-<div class='note warning'>
-
+{% important %}
 The integration must be configured with a token for playback commands to work. This can occur if using the `List of IP addresses and networks that are allowed without auth` option on the Plex server. If that feature is required, it's recommended to configure the integration with that feature temporarily disabled.
-
-</div>
+{% endimportant %}
 
 #### Music
 

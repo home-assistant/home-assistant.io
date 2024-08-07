@@ -9,7 +9,7 @@
 {%- endfor -%}
 {% if related_topics and related_topics.size != 0 %}
 <div class="text related-topics">
-  <h2><a class="title-link" href="#related-topics" name="related-topics"></a>Related topics</h2>
+  <h2>Related topics<a class="title-link" href="#related-topics" name="related-topics"></a></h2>
   <ul>
     {%- for related in related_topics -%}
     {% assign computed = related.docs | split: "#" %}
@@ -30,7 +30,7 @@
 {% endif %}
 {% if related_links and related_links.size != 0 %}
 <div class="text related-links">
-  <h2><a class="title-link" href="#related-links" name="related-links"></a>Related links</h2>
+  <h2>Related links<a class="title-link" href="#related-links" name="related-links"></a></h2>
   <ul>
     {% for link in related_links %}
     <li><a href="{{ link.url }}" class="link" target="_blank">{{ link.title | default: link.url }}</a></li>

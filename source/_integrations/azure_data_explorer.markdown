@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: azure_data_explorer
 related:
   - docs: /docs/configuration/
+ha_integration_type: integration
 ---
+
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant **Azure Data Explorer** {% term integration %} allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
 
 ## Prerequisites
@@ -140,10 +142,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Data Explorer.
-</div>
-
+{% endwarning %}
 
 ### Configuring a filter
 
