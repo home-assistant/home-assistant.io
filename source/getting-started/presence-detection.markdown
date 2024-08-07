@@ -76,4 +76,4 @@ There are different ways of setting up zone presence detection. One way is to ru
 [condition]: /getting-started/automation-condition/#zone-condition
 [companion]: https://companion.home-assistant.io/
 
-{% include getting-started/next_step.html step="Join the Community" link="/getting-started/join-the-community/" %}
+{% include getting-started/next_step.html step="Presence detection in automations" link="/getting-started/presence-detection_in_automation/" %}
