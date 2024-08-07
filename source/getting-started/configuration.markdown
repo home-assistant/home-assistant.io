@@ -20,7 +20,7 @@ The onboarding process takes you through the initial setup for Home Assistant, s
 
 ## Adding other persons to Home Assistant
 
-You can add other people to Home Assistant. They can have their own login, use Home Assistant on their devices and create their own dashboards. To add add other people, refer to [Adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
+You can add other people to Home Assistant. They can have their own login, use Home Assistant on their devices and create their own dashboards. To add other people, refer to [Adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
 
 ## Changing the basic settings
 
