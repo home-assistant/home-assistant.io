@@ -26,7 +26,22 @@ The Tesla Fleet API {% term integration %} exposes various sensors from Tesla ve
 
 You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector.
 
+{% details "Use a custom OAuth application" %}
+
+The integration has a preconfigured OAuth application, however you can [create your own application](https://developer.tesla.com/dashboard) and configure it as an application credential.
+https://my.home-assistant.io/redirect/oauth
+
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+
+{% enddetails %}
+
 {% include integrations/config_flow.md %}
+
+## Setup
 
 ## Scopes
 
