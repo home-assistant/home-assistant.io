@@ -15,54 +15,27 @@ og_image: /images/blog/2024-08/social.png
 
 <lite-youtube videoid="fw_9A8iD1g0" videotitle="Home Assistant 2024.8 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2024.8** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/122)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/680)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/129)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
 Home Assistant 2024.8! 🎉
 
-Enjoy the (beta) release!
+Warning! An awesome and huge release is coming your way this month!
+
+[11! new integrations](#new-integrations) and [7! integrations are now available via the UI](#now-available-to-set-up-from-the-ui);
+We have many [noteworthy improvements to integrations](#noteworthy-improvements-to-existing-integrations)
+and even more [noteworthy improvements to Home Assistant](#other-noteworthy-changes) itself.
+And that... is just the tip of the iceberg! 🗻
+
+I'm most excited about the new [badges for your dashboard](#new-badges-for-your-dashboard).
+I mean, the old ones weren't the prettiest, but these new ones are definitely
+gorgeous! Oh! and if you missed the last dashboard stream, I would highly recommend
+watching the [recording](https://www.youtube.com/watch?v=9zmXLxQPr1o) of it, as
+it is very insightful!
+
+This release also marks a significant milestone in the history of Home Assistant,
+as we are [saying goodbye to **service calls**](#goodbye-service-calls-hello-actions-).
+Services have been around since day one, but we are now moving to **actions**,
+making things much easier to explain to people new to Home Assistant.
+
+Enjoy the release! 🎉
 
 ../Frenck
 
@@ -243,7 +216,10 @@ Through prompt tuning and fixes included in this release, we have gotten local
 LLMs to score a reasonable 83%. We will continue to test new models while
 improving our prompts and tools to achieve a higher score.
 
-<img class="no-shadow" src="/images/blog/2024-08/llama-3.1-iteration.png" alt="Graph showing the iteration progress of implementing local Ollama support using the Llama 3.1 8B model.">
+<p class="img">
+<img src="/images/blog/2024-08/ollama-model-performance.png" alt="Picture showing the results of the LLM benchmark suite ran against different models.">
+Overview of performance of Ollama running different local models ran against the <a href="https://github.com/allenporter/home-assistant-datasets/tree/main/reports#assist-mini">LLM benchmark suite</a>.
+</p>
 
 If you want to experiment with local LLMs using Home Assistant, we currently
 recommend using the Llama 3.1 8B model and exposing fewer than 25 entities. Note
