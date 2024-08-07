@@ -149,11 +149,11 @@ automatically converted to the new badges when you upgrade to this release.
 
 ### Picture cards get image from the person entity
 
-Remember when changing a person picture and picture cards did not reflect the brand new image ?
+Remember when changing a person picture and picture cards did not reflect the brand-new image?
 
 That's now an old story, picture cards can now fetch your person picture, so you don't have to update them manually !
 
-__Example on `picture-glance` card__
+**Example on `picture-glance` card**
 
 - Before: it uses a static image
 
@@ -175,7 +175,7 @@ entities:
  - weather.lyon
 ```
 
-The result is the same, until you change Paulus's picture and you see that with the `image` attribute, the card is keeping the previous picture.
+The result is the same, until you change Paulus's picture, and you see that with the `image` attribute, the card is keeping the previous picture.
 
 Thanks [@Quentame]
 
