@@ -13,7 +13,7 @@ categories:
 og_image: /images/blog/2024-08/social.png
 ---
 
-<a href='/integrations/#version/2024.8'><img src='/images/blog/2024-08/social.png' style='border: 0;box-shadow: none;'></a>
+<lite-youtube videoid="fw_9A8iD1g0" videotitle="Home Assistant 2024.8 Release Party"></lite-youtube>
 
 {% note %}
 
@@ -90,8 +90,6 @@ Enjoy the (beta) release!
 
 Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=fw_9A8iD1g0)
 7 August 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
-
-<lite-youtube videoid="fw_9A8iD1g0" videotitle="Home Assistant 2024.8 Release Party"></lite-youtube>
 
 ## Dashboards - Chapter 2
 
