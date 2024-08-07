@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2024.8: Beta release notes"
-description: "Beta release notes for Home Assistant 2024.8"
-date: 2024-07-31 00:00:00
+title: "2024.8: Badges!"
+description: "Beautiful new badges for your dashboards, control Home Assistant with a local AI using Ollama, update your Matter device, manage KNX via the UI, goodbye services, hello actions! And much more!"
+date: 2024-08-07 00:00:00
 date_formatted: "August 7, 2024"
 author: Franck Nijhof
 author_twitter: frenck
@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2024-08/social.png
+og_image: /images/blog/2024-08/social.jpg
 ---
 
 <lite-youtube videoid="fw_9A8iD1g0" videotitle="Home Assistant 2024.8 Release Party"></lite-youtube>
@@ -60,9 +60,6 @@ Enjoy the release! 🎉
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=fw_9A8iD1g0)
-7 August 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
 
 ## Dashboards - Chapter 2
 
