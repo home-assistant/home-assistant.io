@@ -579,30 +579,29 @@ noteworthy changes this release:
 
 Most popular {% term integrations %} and helpers can be set up directly from the
 Home Assistant user interface. However, we still have a lot of older or less
-used integrations that can only be set up using manual YAML configuration. We are working hard to move more and more of these integrations to the UI,
+used integrations that can only be set up using [manual YAML configuration](/docs/configuration/yaml/).
+We are working hard to move [more and more of these integrations to the UI](#now-available-to-set-up-from-the-ui),
 however, this takes time and effort. 
 
 The problem with these integrations is that they are not visible in the UI
-when they are set up using YAML. What we often see happening, is that someone
-set up an integration using YAML, and next cannot see them on the integrations
-page. Often resulting in questions in our community about where to find them.
+when they are set up using YAML. What we often see is that someone sets up
+an integration using YAML and then cannot see it on the integrations page,
+often resulting in questions in our community about where to find it.
 
 As of this release, we have drastically improved this situation. All integrations,
-regardless of how they are set up, are now visible in the integrations page
-in the UI. This means that even if you set up an integration using YAML, you
-can now find them in the UI and can view their provided entities.
+regardless of how they are set up, are now visible on the integrations page
+in the UI. This means that even if you set up an integration using YAML,
+you can now find it in the UI and view its provided entities.
 
-![CleanShot 2024-07-22 at 08 58 53](https://github.com/user-attachments/assets/fcdb16db-cfec-4490-928c-7e5486a746de)
-
-_TODO: Replace screenshot_
+<img class="no-shadow" src="/images/blog/2024-08/yaml-integration-listed.png" alt="Screenshot showing the demo integration, which is set up manually via YAML, showing up in the UI on the integrations dashboard.">
 
 Integrations originating from manual YAML configuration can be recognized by the
-{% icon "mdi:code-braces" %} icon showing on their cards.
+{% icon "mdi:file-code-outline" %} icon showing on their cards.
 
-Similarly, we also have a lot of helpers that can only be set up using YAML
-configuration. These sometimes showed up in the UI, but often did not. We have
-adjusted this as well, and made sure that all helpers are now visible in the UI,
-regardless of how they are set up.
+Similarly, we also have [many helpers](/integrations/#helper) that can be set up
+using YAML configuration. These sometimes showed up in the UI, but often did not.
+We have adjusted this as well, and made sure that all helpers are now visible
+in the UI, regardless of how they are set up.
 
 {% note %}
 Things set up manually using YAML are still managed using YAML. This means that
