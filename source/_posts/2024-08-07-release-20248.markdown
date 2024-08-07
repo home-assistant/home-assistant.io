@@ -265,20 +265,22 @@ We welcome the following new integrations in this release:
   Control your [Bryant Evolution](https://www.bryant.com/en/us/products/evolution-system/) HVAC system.
 - **[Dio Chacon]**, added by [@cnico]  
   Connect your [Dio Chacon devices](https://chacon.com/en/) via RF 433 Mhz or Wi-Fi.
+- **[ElevenLabs]**, added by [@sorgfresser]  
+  [ElevenLabs text-to-speech] service, provides natural sounding voices.
 - **[iotty]**, added by [@pburgio]  
   Control your [iotty Smart Home](https://www.iotty.com/) light switch, gate, smart cover, and outlet devices.
 - **[IronOS]**, added by [@tr4nt0r]  
-  Integrate your IronOS powered soldering iron with Home Assistant over Bluetooth.
+  Integrate your IronOS-powered soldering iron with Home Assistant over Bluetooth.
 - **[Israel Rail]**, added by [@shaiu]  
   Get real-time departure information from the Israel railways.
 - **[LinkPlay]**, added by [@dukeofphilberg]  
-  Control various media player based on the [LinkPlay](https://www.linkplay.com/) protocol.
+  Control various media players based on the [LinkPlay](https://www.linkplay.com/) protocol.
 - **[madVR Envy]**, added by [@iloveicedgreentea]  
   Control your [madVR Envy](https://www.madvrenvy.com/) video processor for your home theater.
 - **[Simplefin]**, added by [@jeeftor]  
   SimpleFIN is a financial data provider that offers a simple and easy-to-use API for retrieving financial data.
 - **[Tesla Fleet]**, added by [@Bre77]  
-  Connect and monitor various sensors from Tesla vehicles, PowerWall, Solar or Wall connectors through the Tesla Fleet API.
+  Through the Tesla Fleet API, you can connect and monitor various sensors from Tesla vehicles, PowerWall, Solar panels, or Wall connectors.
 
 [@Bre77]: https://github.com/Bre77
 [@cnico]: https://github.com/cnico
@@ -289,10 +291,13 @@ We welcome the following new integrations in this release:
 [@klaasnicolaas]: https://github.com/klaasnicolaas
 [@pburgio]: https://github.com/pburgio
 [@shaiu]: https://github.com/shaiu
+[@sorgfresser]: https://github.com/sorgfresser
 [@tr4nt0r]: https://github.com/tr4nt0r
 [Autarco]: /integrations/autarco
 [Bryant Evolution]: /integrations/bryant_evolution
 [Dio Chacon]: /integrations/chacon_dio
+[ElevenLabs text-to-speech]: https://elevenlabs.io/
+[ElevenLabs]: /integrations/elevenlabs
 [iotty]: /integrations/iotty
 [ironOS]: /integrations/iron_os
 [Israel Rail]: /integrations/isreal_rail
@@ -306,14 +311,18 @@ are stubs that are handled by other (existing) integrations to help with
 findability. These ones are new:
 
 - **[Mercury NZ Limited]**, provided by [Opower], added by [@SplicedNZ]
-- **[MINI Connected]** provided by [BMW Connected Drive], added by [@rikroe]
+- **[MINI Connected]**, provided by [BMW Connected Drive], added by [@rikroe]
+- **[Pinecil]**, provided by [ironOS], added by [@tr4nt0r]
 
 [@rikroe]: https://github.com/rikroe
 [@Splicednz]: https://github.com/SplicedNZ
+[@tr4nt0r]: https://github.com/tr4nt0r
 [BMW Connected Drive]: /integrations/bmw_connected_drive
+[ironOS]: /integrations/iron_os
 [Mercury NZ Limited]: /integrations/mercury_nz
 [MINI Connected]: /integrations/mini_connected
 [Opower]: /integrations/opower
+[Pinecil]: /integrations/pinecil
 
 ### Noteworthy improvements to existing integrations
 
