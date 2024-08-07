@@ -328,11 +328,10 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- The [HomeKit Bridge] integration now support the event entities representing
-  doorbell and motion sensors. Big thanks [@bdraco]!
-- In order to use the above HomeKit feature, [@bdraco] added support for
-  event entities to the [UniFi Protect], [Doorbird], and [August] integrations.
-  Awesome!
+- The [HomeKit Bridge] integration now supports the event entities representing
+  doorbells and motion sensors. Big thanks [@bdraco]!
+- To use the above HomeKit feature, [@bdraco] added support for event entities
+  to the [UniFi Protect], [Doorbird], and [August] integrations. Awesome!
 - Talking about event entities, [@mib1185] added event entities to the
   [Feedreader] integration. So you can now easily automate when a new article
   shows up in one of the news feeds you follow. Great!
@@ -348,8 +347,14 @@ changes to existing integrations:
   to [@starkillerOG]!
 - The [Roborock] integration now supports the [Roborock Zeo] washer/dryer.
   Cool [@Lash-L]!
-- [@tr4nt0r] migrated the [Habitica] Dailies and To-Do's to support our
-  todo entities. Nice!
+- [@tr4nt0r] migrated the [Habitica] Dailies and to-do's to support our
+  to-do entities. Nice!
+- Thanks to [@tanchu], the [Xiaomi Miio] integration now supports Xiaomi
+  air purifiers and humidifiers. Great!
+- [@bieniu] extended the [Shelly] integration to support [Shelly virtual components].
+  These virtual components can be used to add Home Assistant entities to your
+  Shelly device, such as the [Shelly WallDisplay] dashboard, or pass
+  Home Assistant sensor data to [Shelly scripts]. Nice!
 
 [@tr4nt0r]: https://github.com/tr4nt0r
 [Habitica]: /integrations/habitica
