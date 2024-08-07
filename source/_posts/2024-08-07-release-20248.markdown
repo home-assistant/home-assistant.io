@@ -153,28 +153,27 @@ by this change, nothing breaks with this, and everything will continue to work
 just as it did before.
 
 In the 2024.1 release, we [unified the actions](/2024/01/03/release-20241/#unified-actions)
-in the Home Assistant automation & script editors. The goal of that change
-was to make our automation editor easier to understand for newer users, by
-removing the "Service call" layer and terminology.
+in the Home Assistant {% term automation %} & script editors. The goal of
+that change was to make our automation editor easier for newer users to
+understand by removing the “Service call” layer and terminology.
 
 <img class="no-shadow" src="/images/blog/2024-01/add-action-search.png" alt="Screenshot showing the new add action dialog utilizing the search function to find whatever you need.">
 
-The above screenshot shows the UI that has been in use since the January release,
+The above screenshot shows the UI that has been in use since the [January release](/2024/01/03/release-20241/),
 and was very well received in general. However, the underlying terminology
-in our documentation and all other places in Home Assistant was still using
-the "service call" terminology.
+in our documentation and all other places in Home Assistant still used the
+"service call" terminology.
 
 Additionally, the term "services" in Home Assistant is overloaded and ambiguous.
-It is used for both the services you can call in Home Assistant, but also for
-services you might integrate with, like a weather or music service.
-In the latter case, we are talking about integrating with a service provided by
-a program or website, which is referenced in our Settings page as
-**Devices & services**. 😵‍💫
+It is used for both the services you can call in Home Assistant and services you
+might integrate with, like weather or music services. In the latter case, we
+are talking about integrating with a service provided by a program or website,
+which is referenced in our Settings page as **Devices & services**. 😵‍💫
 
-To make things more clear, we are now changing the terminology around _service calls_ in Home Assistant 
-from "services" to "actions" **everywhere**.
+To make things more clear, we are now changing the terminology around
+_service calls_ in Home Assistant from "services" to "actions" **everywhere**.
 
-Every occurance in the documentation, the UI, the code, and everywhere else
+Every occurrence in the documentation, the UI, the code, and everywhere else
 in Home Assistant, has been replaced with "action". Unlike the previous services
 which were "called", actions are "performed".
 
@@ -182,7 +181,7 @@ which were "called", actions are "performed".
 
 {% important %}
 
-If you are writing automations in YAML, you will notice that the `service` key
+If you write automations in YAML, you will notice that the `service` key
 in your actions is now called `action`. For example:
 
 ```yaml
@@ -193,7 +192,7 @@ in your actions is now called `action`. For example:
 
 Existing UI-managed automations will be automatically converted the next time they
 are edited and saved. If you write automation in YAML, you can
-use either `action` or `service` as this change is fully backward compatible,
+use either `action` or `service`, as this change is fully backward compatible,
 but we recommend using `action` from now on.
 
 {% endimportant %}
