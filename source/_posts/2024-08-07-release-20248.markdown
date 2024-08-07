@@ -510,25 +510,24 @@ including more (configuration) entities and other improvements.
 ## KNX can now be managed via the UI
 
 The [KNX integration] introduces the ability to manage entities directly from the
-UI. If you have an ETS project file, configuring your devices is now more
-intuitive; you can simply select an actuator from the side panel and drag and
+UI. 🎉
+
+If you have an ETS project file, configuring your devices is now more
+intuitive; you can easily select an actuator from the side panel and drag and
 drop its assigned group addresses into the configuration. Alternatively,
 addresses can be found by name or number using dropdown menus.
-You can now create, update, and delete KNX switch and light entities within the
-KNX panel without touching or reloading YAML. More entity platforms will follow
-in future releases.
 
-<img src="/images/blog/2024-08/knx-panel-for-creating-entities.png" alt="Screenshot showing the KNX panel that allows to create entities right from the UI.">
+Create, update, and delete KNX switch and light entities directly from the KNX
+panel without touching any YAML. 😎
 
-Additionally, the underlying KNX protocol library, xknx, has been updated with
-several improvements. One of the most notable changes is the support for a
-broader range of Data Point Type (DPT) definitions. These can be used directly
-within actions and triggers and can be inspected in the KNX GroupMonitor.
-DPT definitions for color, dimming, time and HVAC modes are already available and
-more will be added in the future.
+<p><img src="/images/blog/2024-08/knx-panel-for-creating-entities.png" alt="Screenshot showing the KNX panel that allows to create entities right from the UI."></p>
 
-[@farmio] has been working hard on these improvements and we are very happy with
-the results!
+More improvements have been made under the hood. One of the most notable changes
+is the support for a broader range of Data Point Type (DPT) definitions. These
+can be used directly within actions and triggers and inspected
+in the KNX GroupMonitor.
+
+Thank you for working so hard on this one [@farmio]; this is awesome! 🥰
 
 [KNX integration]: /integrations/knx
 [@farmio]: https://github.com/farmio
