@@ -213,7 +213,7 @@ with this new benchmark, and the cloud-based models scored 98%, but local LLMs
 did not do nearly as well.
 
 Through prompt tuning and fixes included in this release, we have gotten local
-LLMs to score a reasonable 83%. We will continue to test new models while
+LLMs to score a reasonable 84%. We will continue to test new models while
 improving our prompts and tools to achieve a higher score.
 
 <p class="img">
