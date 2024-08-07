@@ -60,7 +60,7 @@ There are different ways of setting up zone presence detection. One way is to ru
 
 1. For each person you want to have presence detection, add a device tracker (for example, their phone).
    - You can also use a smartwatch for presence detection. To do this, install the [Home Assistant Companion app](https://companion.home-assistant.io/docs/getting_started/) on the device. Make sure to allow location tracking.
-   - To use it for zone presence detection outside your home, the smart watch requires a mobile plan.
+   - To use it for zone presence detection outside your home, the smartwatch requires a mobile plan.
 2. Go to {% my people title="**Settings** > **People**" %} and select the person.
 3. Scroll down and under **Select the devices that belong to this person**, select the device.
 
