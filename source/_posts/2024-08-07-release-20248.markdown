@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024.8: Badges!"
+title: "2024.8: Beautiful badges!"
 description: "Beautiful new badges for your dashboards, control Home Assistant with a local AI using Ollama, update your Matter device, manage KNX via the UI, goodbye services, hello actions! And much more!"
 date: 2024-08-07 00:00:00
 date_formatted: "August 7, 2024"
