@@ -538,6 +538,9 @@ noteworthy changes this release:
 - [Timer support] using [Assist] for mobile devices. This means you can now
   control timers from your mobile device or tablet. Thanks [@balloob]!
 - You can now ask [Assist] for the current time and date, thanks [@synesthesiam]!
+- [@synesthesiam] also switched our voice activity detection to [microVAD]!
+  Using this we are able to detect the end of a speech command much better
+  in noisy environments, even with music in the background. Cool!
 - The [picture elements card] can now be fully managed in the UI using a
   brand-new visual editor. Fantastic work there [@karwosts]!
 - Home Assistant will now raise a repair issue if a script can't be set up
@@ -572,6 +575,7 @@ noteworthy changes this release:
 [History stats]: /integrations/history_stats
 [Hygrostat]: /integrations/generic_hygrostat
 [image]: /integrations/image
+[microVAD]: https://github.com/rhasspy/pymicro-vad
 [notify]: /integrations/notify
 [Open Home Foundation]: https://openhomefoundation.org/
 [picture elements card]: /dashboards/picture-elements/
