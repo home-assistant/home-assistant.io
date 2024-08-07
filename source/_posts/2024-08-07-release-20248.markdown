@@ -637,14 +637,14 @@ possible for you. This release has the following backward-incompatible changes:
 
 {% details "Recorder database upgrade notice" %}
 
-This notice is only relevant if you are using the recorder integration with
-an MySQL or ProgreSQL database. If you are using the default SQLite database,
-you can ignore this notice.
+This notice applies only if you use the recorder integration with a MySQL or
+PostgreSQL database. If you are using the default SQLite database,
+you can ignore it.
 
-This release includes a database upgrade/migration that increases the size
-of the number we can store for the idenfier fields. A more technical explanation:
-We are upgrading integer fields for ID columns from a 32-bit integer to `BIGINT`,
-which is a 64-bit integer.
+This release includes a database upgrade/migration that increases the size of
+the number we can store for the identifier fields. For a more technical
+explanation, we are upgrading integer fields for ID columns from a 32-bit
+integer to `BIGINT`, which is a 64-bit integer.
 
 This can cause the database upgrade to take longer than usual, depending on
 the size of your database.
@@ -674,11 +674,11 @@ without the closed-source software is welcome.
 
 {% details "Bluesound" %}
 
-Sources behave slightly different. Radio station providers (like TuneIn, Radio
-Paradise) are not part of the source list anymore as they are not selectable
-as source.
+Sources behave slightly differently. Radio station providers (like TuneIn and
+Radio Paradise) are no longer part of the source list and are not selectable
+as sources.
 
-Presets which play a specific radio station can be created in the BluOS app and
+Presets that play a specific radio station can be created in the BluOS app and
 are displayed as sources in Home Assistant.
 
 The currently selected source tries to match those presets and falls back to
@@ -705,7 +705,7 @@ If you need to look them up, please get them from the device info screen.
 
 {% details "Climate" %}
 
-Scenes that used the deprecated auxiliary heat (`aux_heat` attribute),
+Scenes that use the deprecated auxiliary heat (`aux_heat` attribute)
 will no longer restore/set the auxiliary heat state when the scene
 is activated.
 
@@ -731,7 +731,7 @@ without the closed-source software is welcomed.
 
 {% details "DoorBird" %}
 
-Previously resetting the device favorites required working out a complicated
+Previously, resetting the device favorites required working out a complicated
 URL. A button is now available to perform this operation.
 
 ([@bdraco] - [#121720]) ([documentation](/integrations/doorbird))
@@ -754,9 +754,23 @@ without the closed-source software is welcomed.
 
 {% enddetails %}
 
+{% details "Ecovacs" %}
+
+The attributes on the vacuum entity for the lifespan of the main brush,
+side brush, and filter are deprecated and will be removed in 2025.2.
+
+These attributes are superseded by dedicated sensor entities.
+
+([@mib1185] - [#122740]) ([documentation](/integrations/ecovacs))
+
+[@mib1185]: https://github.com/mib1185
+[#122740]: https://github.com/home-assistant/core/pull/122740
+
+{% enddetails %}
+
 {% details "HomeKit Bridge" %}
 
-PM2.5 airquality sensors are now mapped to the [US EPA AQI scale](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf).
+PM2.5 air quality sensors are now mapped to the [US EPA AQI scale](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf).
 The new cutoff value for US AQI Good (0-50) is 9.0 µg/m3 is thus now used to
 match the 2024 US EPA AQI standard.
 
@@ -770,7 +784,7 @@ match the 2024 US EPA AQI standard.
 {% details "Lights" %}
 
 The following attributes are no longer saved in the database for light
-entities because their combinations would quickly fill up the database and
+entities because their combinations would quickly fill up the database, and
 they are never used by Home Assistant:
 
 - `brightness`
@@ -784,8 +798,8 @@ they are never used by Home Assistant:
 - `rgbww_color`
 - `xy_color`
 
-This change has no impact on the operation of your lights, but it will reduce
-the amount of data stored in the database.
+This change will not impact the operation of your lights, but it will
+reduce the amount of data stored in the database.
 
 ([@bdraco] - [#121776]) ([documentation](/integrations/light))
 
@@ -796,9 +810,9 @@ the amount of data stored in the database.
 
 {% details "Matter" %}
 
-Multi press events are now split of into their own dedicated event type such as
-`multi_press_1`, `multi_press_2` etc. making it easier to automate on multiple
-presses instead of having to look manually at the number of presses count.
+Multi-press events are now split into their own dedicated event type, such as
+`multi_press_1`, `multi_press_2`, etc., making it easier to automate multiple
+presses instead of looking manually at the number of presses count.
 
 If you have used the current event type in your automations, you will need to
 update them to use the new event types.
@@ -812,11 +826,11 @@ update them to use the new event types.
 
 {% details "MQTT" %}
 
-The `schema` option has been removed from the mqtt vacuum schema. YAML configs
+The `schema` option has been removed from the MQTT vacuum schema. YAML configs
 still containing this option will break after 6 months of deprecation. Users
-have been warned with with a repair. Discovery configs will not break if the
-schema options is still in the config, but it will simple be ignored and an
-error message will be logged to notice.
+have been warned with a repair. Discovery configs will not break if the schema
+options are still in the config, but they will be ignored, and an error message
+will be logged to notice.
 
 ([@jbouwh] - [#121093]) ([documentation](/integrations/mqtt))
 
@@ -846,7 +860,7 @@ from the `weather.get_forecasts` service.
 A new service, `nws.get_forecasts_extra`, is provided that includes
 `detailed_description`. The `detailed_description` is no longer provided
 for `hourly` forecasts in the `nws.get_forecasts_extra` service as the API
-does not return data, however a `short_description` is now available.
+does not return data. However a `short_description` is now available.
 
 ([@MatthewFlamm] - [#117254]) ([documentation](/integrations/nws))
 
@@ -869,8 +883,8 @@ the sensor. The new API doesn't provide these anymore.
 
 {% details "OpenAI Conversation" %}
 
-The previously deprecated `256`, `512`, and `1024` values for size argument for
-the `generate_image` action have been removed. They have already been
+The previously deprecated `256`, `512`, and `1024` values for the size argument
+for the `generate_image` action have been removed. They have already been
 unsupported in the past (replaced with `1024x1024` by default).
 
 If you still use these values in your automations or scripts, you will need to
@@ -919,6 +933,7 @@ new features available for your integration: Be sure to follow our
 - [New entity feature flags in FanEntity](https://developers.home-assistant.io/blog/2024/07/19/fan-fanentityfeatures-turn-on_off)
 - [New HVACAction DEFROSTING](https://developers.home-assistant.io/blog/2024/07/07/climate-hvacaction-defrosting/)
 - [Services are now actions](https://developers.home-assistant.io/blog/2024/07/16/service-actions)
+- [Set up your DataUpdateCoordinator with a setup method](https://developers.home-assistant.io/blog/2024/08/05/coordinator_async_setup/)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
