@@ -26,7 +26,7 @@ And that... is just the tip of the iceberg! 🗻
 
 I'm most excited about the new [badges for your dashboard](#new-badges-for-your-dashboard).
 I mean, the old ones weren't the prettiest, but these new ones are definitely
-gorgeous! Oh! and if you missed the last dashboard stream, I would highly recommend
+gorgeous! Oh! And if you missed the last dashboard stream, I would highly recommend
 watching the [recording](https://www.youtube.com/watch?v=9zmXLxQPr1o) of it, as
 it is very insightful!
 
@@ -91,7 +91,7 @@ at a glance.
 
 <img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
 
-These new badges match the functionality of the previous designm but are
+These new badges match the functionality of the previous design but are
 now even more feature-rich. Of course, they are fully configurable from the UI,
 allowing you to tweak them to your needs. You can specify whether the icon,
 name, and/or state will be visible, and you can configure the contents within
@@ -143,7 +143,7 @@ might integrate with, like weather or music services. In the latter case, we
 are talking about integrating with a service provided by a program or website,
 which is referenced in our Settings page as **Devices & services**. 😵‍💫
 
-To make things more clear, we are now changing the terminology around
+To make things clearer, we are now changing the terminology around
 _service calls_ in Home Assistant from "services" to "actions" **everywhere**.
 
 Every occurrence in the documentation, the UI, the code, and everywhere else
