@@ -356,50 +356,36 @@ changes to existing integrations:
   Shelly device, such as the [Shelly WallDisplay] dashboard, or pass
   Home Assistant sensor data to [Shelly scripts]. Nice!
 
-[@tr4nt0r]: https://github.com/tr4nt0r
-[Habitica]: /integrations/habitica
 [@allenporter]: https://github.com/allenporter
 [@andrew-codechimp]: https://github.com/andrew-codechimp
 [@bdraco]: https://github.com/bdraco
+[@bieniu]: https://github.com/bieniu
 [@Bre77]: https://github.com/Bre77
 [@joostlek]: https://github.com/joostlek
 [@Lash-L]: https://github.com/Lash-L
 [@mib1185]: https://github.com/mib1185
 [@starkillerOG]: https://github.com/starkillerOG
 [@Suxsem]: https://github.com/Suxsem
+[@tanchu]: https://github.com/tanchu
+[@tr4nt0r]: https://github.com/tr4nt0r
 [August]: /integrations/august
 [Doorbird]: /integrations/doorbird
 [Feedreader]: /integrations/feedreader
+[Habitica]: /integrations/habitica
 [HomeKit Bridge]: /integrations/homekit
 [Mealie]: /integrations/mealie
 [OpenAI conversation]: /integrations/openai_conversation
 [Reolink]: /integrations/reolink
 [Roborock Zeo]: https://global.roborock.com/pages/roborock-zeo-one
 [Roborock]: /integrations/roborock
+[Shelly scripts]: https://shelly-api-docs.shelly.cloud/gen2/Scripts/Tutorial/
+[Shelly virtual components]: https://shelly-api-docs.shelly.cloud/gen2/DynamicComponents/Virtual/
+[Shelly WallDisplay]: https://www.shelly.com/en/products/shop/shelly-wall-display/shelly-wall-display
+[Shelly]: /integrations/shelly
 [Tessie]: /integrations/tessie
 [UniFi Protect]: /integrations/unifiprotect
 [WLED]: /integrations/wled
-
-{% details "Potential changes to process" icon="mdi:scale-balance" %}
-
-Processed up to _#122730_.
-
-- Add support for Xiaomi airpurifier and humidifier ([@tanchu] - [#117791]) ([xiaomi_miio docs])
-
-- Append multiple rows in Google Sheets ([@luca-angemi] - [#120829]) ([google_sheets docs])
-
-- Add PrusaLink nozzle and mmu support ([@deimosfr] - [#120436]) ([prusalink docs])
-- Add calendar for Rachio smart hose timer ([@brg468] - [#120030]) ([rachio docs]) (new-platform)
- 
-- Add support for Shelly virtual `boolean` component ([@bieniu] - [#119932]) ([shelly docs]) (noteworthy)
-- Add support for Shelly `text` virtual component ([@bieniu] - [#121735]) ([shelly docs]) (new-platform) (noteworthy)
-- Add support for Shelly `number` virtual component ([@bieniu] - [#121894]) ([shelly docs]) (noteworthy)
-- Add support for Shelly `enum` virtual component ([@bieniu] - [#121997]) ([shelly docs]) (new-platform) (noteworthy)
-- Add shelly overcurrent sensor for switches ([@huettner94] - [#122494]) ([shelly docs])
-
-- Switch from WebRTC to microVAD ([@synesthesiam] - [#122861]) ([voip docs]) ([assist_pipeline docs])
-
-{% enddetails %}
+[Xiaomi Miio]: /integrations/xiaomi_miio
 
 ### Integrations reaching platinum quality level
 
@@ -455,7 +441,7 @@ The following integrations are now available via the Home Assistant UI:
 The following {% term integrations %} are also no longer available as
 of this release:
 
-- **UE Smart Radio** has been removed, the service has been [discontinued](https://forums.slimdevices.com/forum/user-forums/general-discussion/1668327-uesmartradio-com-and-mysqueezebox-com-servers).
+- **UE Smart Radio** has been removed; the service has been [discontinued](https://forums.slimdevices.com/forum/user-forums/general-discussion/1668327-uesmartradio-com-and-mysqueezebox-com-servers).
 
 ## Zigbee Home Automation (ZHA) updates
 
