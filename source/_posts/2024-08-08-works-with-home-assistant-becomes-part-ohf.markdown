@@ -39,7 +39,7 @@ While weâ€™re making this shift from Nabu Casa to the Open Home Foundation, weâ€
 
 From now on the program will be certifying individual devices instead of whole brands. Previously, an integration was approved for Works with Home Assistant, and all devices that could work with the integration could fall under the program. By making testing and certification device-specific, it becomes much clearer to users which devices they can purchase with confidence. We will soon start listing devices that have been certified specifically.
 
-<p class='img'><img src='/images/blog/2024-08-wwha-update/wwha-badges.png' style='border: 0;box-shadow: none;' alt="Full list of Works with Home Assistant badges">We never used the Cloud badge, making it easier to remove from the program.</p>
+<p class='img'><img src='/images/blog/2024-08-wwha-update/wwha-badges.png' style='border: 0;box-shadow: none;' alt="Full list of Works with Home Assistant badges">No brands have used the Cloud badge before, so no one is affected by its removal.</p>
 
 The cloud badge has been discontinued and this is due to our belief, and observation, that all [cloud-based products are always doomed to stop working](https://newsletter.openhomefoundation.org/all-cloud-based-products-will-come-to-an-end/), some sooner than others. Considering the [cases over the past year](https://newsletter.openhomefoundation.org/all-cloud-based-products-will-come-to-an-end/#:~:text=How%20not%20to%20phase%20out%20cloud%2Dbased%20products) of cloud-based devices becoming useless after the cloud service they depended on was shut down, and the lengths needed to keep them somewhat functional, we no longer believe the Works with Home Assistant promise can be upheld by cloud-based devices.
 
