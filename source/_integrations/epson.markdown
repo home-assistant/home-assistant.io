@@ -57,7 +57,7 @@ Connect projector directly to Home Assistant via a serial cable, or ser2net can 
 
 A ser2net configuration similar to below can be used to expose the projector connected to `/dev/ttyUSB0` on port `3629`.
 
-```text
+```yaml
 connection: &con1
   accepter: tcp,3629
   connector: serialdev,/dev/ttyUSB0,9600n81
