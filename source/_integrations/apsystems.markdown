@@ -22,7 +22,8 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 
 ## Sensors
 
-### Numerical Sensors
+### Numerical sensors
+
 | Sensor ID | Unit | Description
 |---|---| ---|
 | total_power | W | Total current output of the inverter
@@ -35,7 +36,8 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 | today_production_p1 | kWh | Today's production of first input
 | today_production_p2 | kWh | Today's production of second input
 
-### Binary Sensors
+### Binary sensors
+
 | Sensor ID  | Description
 |---|---|
 | off_grid_status | On when the inverter is not connected to the power grid
@@ -44,6 +46,7 @@ The **APsystems** {% term integration %} allows you to read the data from your [
 | output_fault_status | Output because of any error deactivated
 
 ## Settings
+
 | Setting ID | Type | Description
 |---|---|---|
 | inverter_status | switch | Enables or disables the inverter's output
