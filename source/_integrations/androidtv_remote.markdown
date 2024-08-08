@@ -318,7 +318,7 @@ cards:
         icon: mdi:arrow-up-bold
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_UP
           target:
@@ -335,7 +335,7 @@ cards:
         icon: mdi:arrow-left-bold
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_LEFT
           target:
@@ -346,14 +346,14 @@ cards:
         icon: mdi:circle
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_CENTER
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_CENTER
             hold_secs: 0.5
@@ -363,7 +363,7 @@ cards:
         icon: mdi:arrow-right-bold
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_RIGHT
           target:
@@ -374,14 +374,14 @@ cards:
         icon: mdi:arrow-left
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: BACK
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: BACK
             hold_secs: 0.5
@@ -391,7 +391,7 @@ cards:
         icon: mdi:arrow-down-bold
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: DPAD_DOWN
           target:
@@ -402,14 +402,14 @@ cards:
         icon: mdi:home-outline
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: HOME
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: HOME
             hold_secs: 0.5
@@ -423,14 +423,14 @@ cards:
         icon: mdi:skip-previous
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_PREVIOUS
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_REWIND
           target:
@@ -439,14 +439,14 @@ cards:
         icon: mdi:play-pause
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_PLAY_PAUSE
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_STOP
           target:
@@ -455,14 +455,14 @@ cards:
         icon: mdi:skip-next
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_NEXT
           target:
             entity_id: remote.living_room_tv
         hold_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MEDIA_FAST_FORWARD
           target:
@@ -471,7 +471,7 @@ cards:
         icon: mdi:volume-off
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: MUTE
           target:
@@ -482,7 +482,7 @@ cards:
         icon: mdi:volume-medium
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: VOLUME_DOWN
           target:
@@ -493,7 +493,7 @@ cards:
         icon: mdi:volume-high
         tap_action:
           action: call-service
-          action: remote.send_command
+          service: remote.send_command
           data:
             command: VOLUME_UP
           target:
