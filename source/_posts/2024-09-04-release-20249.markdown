@@ -191,7 +191,9 @@ The following integrations are now available via the Home Assistant UI:
 The following {% term integrations %} are also no longer available as
 of this release:
 
-- **Lorem ipsum** has been removed; the service has been slipsummed.
+- **Asterisk Call Detail Records** and **Asterisk Voicemail**. Previously
+  deprecated and now removed. They have been using a deprecated mailbox feature
+  that is no longer available.
 
 ## Other integration lorem ipsum
 
