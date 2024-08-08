@@ -126,11 +126,13 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Lorem ipsum]**, added by [@frenck]  
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+- **[Anthropic Conversation]**, added by [@Shulyaka]  
+  Use AI by [Anthropic], like the [Claude 3.5 Sonnet] as a conversation agent in Home Assistant.
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
+[@Shulyaka]: https://github.com/Shulyaka
+[Anthropic Conversation]: /integrations/anthropic
+[Anthropic]: https://anthropic.com/
+[Claude 3.5 Sonnet]: https://www.anthropic.com/claude
 
 This release also has new virtual integrations. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
