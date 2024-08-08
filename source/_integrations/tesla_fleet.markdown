@@ -36,8 +36,6 @@ You will be prompted to pick your custom application credential when creating a 
 
 {% include integrations/config_flow.md %}
 
-## Setup
-
 ## Scopes
 
 When connecting your Tesla account to Home Assistant, you **must** select the `Vehicle Information` or `Energy Product Information` scope. It is recommended you select all scopes for full functionality.
