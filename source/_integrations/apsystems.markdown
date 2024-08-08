@@ -8,6 +8,7 @@ ha_category:
   - Energy
 ha_domain: apsystems
 ha_platforms:
+  - binary_sensor
   - number
   - sensor
   - switch
@@ -23,6 +24,9 @@ The following data is provided by the integration:
 - Lifetime production (Per input and in total)
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
+- Short circuit error status (per input)
+- Off grid status
+- Output status
 
 The following data can be set by the integration:
 
