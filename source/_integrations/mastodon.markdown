@@ -24,6 +24,10 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 {% include integrations/config_flow.md %}
 
+## Sensors
+
+The integration will create sensors for the Mastodon account showing total Followers, Following and Statuses.
+
 ## Notifications
 
 The integration will create a `notify` action matching the name of the integration entry.
