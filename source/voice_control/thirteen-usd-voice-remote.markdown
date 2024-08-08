@@ -46,7 +46,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
       <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
       <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/m5stack-atom-echo/manifest.json"></esp-web-install-button>
-   - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/firmware/blob/main/voice-assistant/m5stack-atom-echo.yaml).
+   - **For advanced users**: The configuration file is available on [GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/m5stack-atom-echo/m5stack-atom-echo.yaml).
 
 {% include voice_assistant/install_esp_firmware.md %}
 9.  Select the **ESPHome** integration. Under **Devices**, you should see the **M5Stack Atom Echo** listed.
