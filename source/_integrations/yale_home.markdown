@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Lock
   - Sensor
 ha_release: 0.64
@@ -21,6 +22,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - lock
   - sensor
 ha_iot_class: Cloud Push

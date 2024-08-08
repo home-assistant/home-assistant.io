@@ -183,4 +183,4 @@ Invalid data from Vicare server: {
 }
 ```
 
-Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
+Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway.

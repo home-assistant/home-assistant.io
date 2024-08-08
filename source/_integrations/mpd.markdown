@@ -12,6 +12,7 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The Music Player Daemon {% term integration %} allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately, it does not allow you to manipulate the playlist (add or delete songs) or add transitions between the songs.

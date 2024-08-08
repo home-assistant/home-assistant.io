@@ -9,6 +9,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@joostlek'
   - '@jgatto1'
+  - '@JakeBosh'
 ha_domain: knocki
 ha_platforms:
   - event

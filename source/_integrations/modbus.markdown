@@ -5,8 +5,6 @@ ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@janiversen'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -16,7 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/

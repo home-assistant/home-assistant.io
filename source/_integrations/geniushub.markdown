@@ -19,6 +19,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
