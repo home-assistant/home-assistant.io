@@ -37,11 +37,11 @@ ha_integration_type: integration
 ha_quality_scale: platinum
 ---
 
-The Tessie integration exposes various commands and sensors from the Tesla vehicles connected to your [Tessie](https://my.tessie.com/) account.
+The Tessie integration exposes various commands and sensors from the Tesla vehicles and energy products connected to your [Tessie](https://tessie.com/) subscription.
 
 ## Prerequisites
 
-You must have a [Tessie](https://my.tessie.com/) account, generate a [Tessie Access Token](https://my.tessie.com/settings/api) and grant Tessie access to your Tesla vehicle by generating a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
+You must have an active [Tessie](https://my.tessie.com/) subscription, generate a [Tessie Access Token](https://my.tessie.com/settings/api) and grant Tessie access to your Tesla vehicle by generating a [Tesla Virtual Key](https://www.tesla.com/_ak/tessie.com).
 
 {% include integrations/config_flow.md %}
 
