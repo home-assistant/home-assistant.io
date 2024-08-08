@@ -11,7 +11,7 @@ og_image: /images/blog/2024-08-wwha-update/art.jpg
 ---
 <p class='img'><img src='/images/blog/2024-08-wwha-update/art.jpg' style='border: 0;box-shadow: none;' alt="Works with Home Assistant becomes part of the Open Home Foundation">Art by Clelia Rella</p>
 
-After two successful years of [Works with Home Assistant](https://partner.home-assistant.io/), we’re continuing our work to improve this program. With this in mind, the program will move to the non-profit organization that owns Home Assistant,  the [Open Home Foundation](https://www.openhomefoundation.org/), which will ensure it is always aligned with the [values of the Open Home](https://www.openhomefoundation.org/about/).
+After two successful years of [Works with Home Assistant](https://partner.home-assistant.io/), we’re continuing our work to improve this program. With this in mind, the program will move to the non-profit organization that owns Home Assistant, the [Open Home Foundation](https://www.openhomefoundation.org/), which will ensure it is always aligned with the [values of the Open Home](https://www.openhomefoundation.org/about/).
 
 Read on to see how we're making several small but important changes to add more clarity to the program, and ultimately working to build a better, larger hardware ecosystem of smart home devices.
 
