@@ -52,7 +52,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box.yaml)
+         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box/esp32-s3-box.yaml)
 
     2. To connect the ESP32-S3-BOX to your computer, follow these steps:
        - In the pop-up window, view the available ports.
@@ -90,7 +90,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX-3 config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box-3.yaml)
+         - [ESP32-S3-BOX-3 config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-3/esp32-s3-box-3.yaml)
 
     2. To connect the ESP32-S3-BOX-3 to your computer, follow these steps:
        - In the pop-up window, view the available ports.
@@ -135,7 +135,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-lite/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX-Lite config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box-lite.yaml)
+         - [ESP32-S3-BOX-Lite config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-lite/esp32-s3-box-lite.yaml)
 
     2. To connect the ESP32-S3-BOX-Lite to your computer, follow these steps:
        - In the pop-up window, view the available ports.
