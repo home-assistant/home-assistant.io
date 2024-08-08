@@ -2,8 +2,8 @@
 title: madVR Envy
 description: Instructions on how to integrate a madVR Envy into Home Assistant.
 ha_category:
-  - Remote
   - Binary Sensor
+  - Remote
   - Sensor
 ha_release: '2024.8'
 ha_iot_class: Local Push

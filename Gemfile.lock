@@ -80,7 +80,7 @@ GEM
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
     parallel (1.25.1)
-    parser (3.3.4.0)
+    parser (3.3.4.1)
       ast (~> 2.4.1)
       racc
     pathutil (0.16.2)
@@ -142,7 +142,7 @@ GEM
       rack-protection (= 4.0.0)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sorbet-runtime (0.5.11511)
+    sorbet-runtime (0.5.11514)
     stringex (2.8.6)
     strscan (3.1.0)
     terminal-table (3.0.2)

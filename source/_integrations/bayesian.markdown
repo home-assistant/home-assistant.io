@@ -3,6 +3,7 @@ title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 ha_category:
   - Binary sensor
+  - Helper
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.53
@@ -10,7 +11,7 @@ ha_quality_scale: internal
 ha_domain: bayesian
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: helper
 ha_codeowners:
   - '@HarvsG'
 related:

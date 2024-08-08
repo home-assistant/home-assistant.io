@@ -1,7 +1,8 @@
 ---
-title: History stats
+title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
@@ -11,7 +12,7 @@ ha_domain: history_stats
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
