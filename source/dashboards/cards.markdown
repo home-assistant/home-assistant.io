@@ -84,9 +84,9 @@ This method is useful if you are on the **Device** page and want to create a car
 8. If you like, define [card actions, features, header and footer widgets](#card-actions-features-header-and-footer-widgets).
    - Not all cards support these elements. Refer to the documentation of the specific card type.
 
-## Showing or hiding a card conditionally
+## Showing or hiding a card or badge conditionally
 
-You can choose to show or hide certain cards based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
+You can choose to show or hide certain cards or [badges](/dashboards/badges/) based on different conditions. The [available conditions](/dashboards/conditional/#card-conditions) are the same as the ones for the conditional card.
 
 1. On the **Visibility** tab, select **Add condition**.
    - Don't see a **Visibility** tab?

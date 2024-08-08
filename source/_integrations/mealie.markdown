@@ -13,11 +13,11 @@ ha_codeowners:
 ha_domain: mealie
 ha_platforms:
   - calendar
+  - diagnostics
   - sensor
   - todo
 ha_integration_type: service
 ---
-
 
 The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
 
@@ -145,7 +145,7 @@ template:
         unique_id: mealie_dinner_today
         state: >
           {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
-          {{ meal.recipe['name'] if meal.recipe is not none else meal.title }}
+          {{ meal.recipe['name'] if meal.recipe is not none else meal.title -}}
           {{ ", " if not loop.last }}
           {%- endfor %}
 ```

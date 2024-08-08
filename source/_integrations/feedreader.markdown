@@ -14,6 +14,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@mib1185'
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
