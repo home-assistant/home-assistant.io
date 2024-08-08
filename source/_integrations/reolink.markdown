@@ -36,6 +36,7 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 {% include integrations/config_flow.md %}
 
 On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
+The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are therefore not allowed. When using a incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
