@@ -236,14 +236,18 @@ it is inevitable.
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
-{% details "Lorem ipsum" %}
+{% details "Proximity" %}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
+In [2024.2 we introduced new sensor entities](/blog/2024/02/07/release-20242/#revamped-proximity-integration)
+to the [Proximity](/integrations/proximity) {% term integration %} and 
+therefore deprecated the `proximity` entity.
 
-([@frenck] - [#12345]) ([documentation](/integrations/lorem_ipsum))
+Now this deprecated `proximity` entity has been removed removed.
 
-[@frenck]: https://github.com/frenck
-[#12345]: https://github.com/home-assistant/core/pull/12345
+([@mib1185] - [#123158]) ([documentation](/integrations/proximity))
+
+[@mib1185]: https://github.com/mib1185
+[#123158]: https://github.com/home-assistant/core/pull/123158
 
 {% enddetails %}
 
