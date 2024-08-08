@@ -12,9 +12,6 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: service
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
 ha_config_flow: true
 ---
 
