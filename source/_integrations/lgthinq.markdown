@@ -56,7 +56,7 @@ The LG ThinQ integration connects to the LG ThinQ Cloud via MQTT and receives pu
 
 ## Setup
 
-To setup the integration, please follow these steps:
+To set up the integration, please follow these steps:
 
 {% include integrations/config_flow.md %}
 
