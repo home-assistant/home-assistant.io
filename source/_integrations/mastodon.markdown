@@ -27,7 +27,7 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 ## Sensors
 
-The integration will create sensors for the Mastodon account showing total Followers, Following and Posts.
+The integration will create sensors for the Mastodon account showing total followers, following, and posts.
 
 ## Notifications
 
