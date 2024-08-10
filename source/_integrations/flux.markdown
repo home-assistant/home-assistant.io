@@ -50,11 +50,11 @@ name:
   default: Flux
   type: string
 start_time:
-  description: The start time.
+  description: The start time, defaults to sunrise.
   required: false
   type: time
 stop_time:
-  description: The stop time.
+  description: The stop time, defaults to dusk.
   required: false
   type: time
 start_colortemp:
