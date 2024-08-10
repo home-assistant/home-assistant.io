@@ -625,7 +625,7 @@ will need to do so in the YAML configuration files.
 
 ## Patch releases
 
-We will also release patch releases for Home Assistant 2024.7 in July. These
+We will also release patch releases for Home Assistant 2024.8 in August. These
 patch releases only contain bug fixes. Our goal is to release a patch every
 week (around Friday).
 
