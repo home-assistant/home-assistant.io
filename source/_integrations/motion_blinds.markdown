@@ -10,6 +10,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_dhcp: true
@@ -94,6 +95,13 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 ### Connector app
 
 Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+
+
+## Favorite position
+
+A *Go to favorite position* button entity allows you to move the blind to its favorite position. In order for this entity to show up, you first need to set the favorite position of the blind in the mobile app, using a remote or using physicall buttons on the blind, refer to the manual of your specific blind for instructions.
+
+The *Set current position as favorite* button entity allows you to change the favorite position. In order for this to work, the blind first needs to be put in programming mode by shorly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly) and you can then use the *Set current position as favorite* entity. After you are done, shortly press the reset button again to exit the programming mode.
 
 ## Top Down Bottom Up (TDBU) blinds
 
