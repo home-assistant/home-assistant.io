@@ -52,10 +52,12 @@ name:
 start_time:
   description: The start time.
   required: false
+  default: sunrise
   type: time
 stop_time:
   description: The stop time.
   required: false
+  default: dusk
   type: time
 start_colortemp:
   description: The color temperature at the start.
