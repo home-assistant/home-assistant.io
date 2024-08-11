@@ -62,7 +62,7 @@ By default, this integration will count unread emails. By configuring the search
 
 ### Selecting a charset supported by the imap server
 
-Some IMAP services like Yahoo, require a `US-ASCII` charset to be configured.
+Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
 ### Selecting message data to include in the IMAP event (advanced mode)
 
