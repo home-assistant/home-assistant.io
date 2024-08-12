@@ -78,10 +78,10 @@ The following sensors are available in the library:
 ## Additional data
 
 {% important %}
-The additional data is only accessible, if password protection for the user is deactivated. Obviously this is a security issue and should only be done in specific circumstanses. In any event, you do this at your own risk.
+The additional data is only accessible if the user's password protection is deactivated. Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
 {% endimportant %}
 
-Users may choose to get additional data from the solarlog device. To enable, check the box for extended data in the system options of the integration.
+You can get additional data from the Solar-Log device. To enable this, select the checkbox for extended data in the integration's system options.
 
 The following additional sensor becomes available:
 
@@ -89,7 +89,7 @@ The following additional sensor becomes available:
 |-----------------------|--------|:-------------------------------------------|
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
 
-In addition, you can choose to get additional information on devices that are connected to the Solar-Log device. For this, check the box of the respective device in the configuration dialog of the integration.
+In addition, you can choose to get additional information on devices that are connected to the Solar-Log device. For this, select the checkbox of the respective device in the configuration dialog of the integration.
 
 The following additional sensors are available (all values are per inverter/device):
 
