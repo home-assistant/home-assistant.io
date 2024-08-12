@@ -12,6 +12,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -31,6 +32,7 @@ ha_platforms:
   - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -139,11 +141,13 @@ Make sure you have all these components ready before trying to add a Matter devi
   - Android:
     - Have the Android version 8.1 or higher.
     - Have the latest version of the Home Assistant Companion app, installed from the Play Store (full version).
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (Nest Hub (2nd Gen) or Nest Wi-Fi Pro or Home Assistant with the OpenThread Border Router add-on) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
   - iPhone
     - Have the iOS version 16 or higher
     - Have the latest version of the Home Assistant Companion app installed.
-    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K) present in your home network.
+    - If you are using {% term Thread %}: Make sure there is a Thread border router device (HomePod Mini or V2, Apple TV 4K or Home Assistant with the OpenThread Border Router add-on) present in your home network.
+      - If you are using OpenThread (for Connect ZBT-1/SkyConnect) as border router, make sure you followed the steps in the [Thread documentation](/integrations/thread#turning-home-assistant-into-a-thread-border-router).
 - Make sure the phone is in close range of the border router and your device.
 - If you are adding a Wi-Fi-based Matter device: Matter devices often use the 2.4&nbsp;GHz frequency for Wi-Fi. For this reason, make sure your phone is in the same 2.4&nbsp;GHz network where you want to operate your devices.
 
@@ -178,7 +182,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - Scan the QR code.
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
-4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
    - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
@@ -186,7 +190,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
 5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
-6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil to edit and rename the device.
+6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
@@ -317,6 +321,10 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Matter device updates
+
+The Matter standard supports OTA (Over-the-Air) updates optionally. Matter devices that support Matter updates will have an [update entity](/integrations/update). Furthermore, the CSA DCL (Distributed Compliance Ledger) stores firmware update information. Home Assistant reads firmware update information directly from the DCL to learn about available updates. By default, the integration checks every 12 hours for an update. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/) with the update entity as the target.
 
 ## Experiment with Matter using a ESP32 dev board
 

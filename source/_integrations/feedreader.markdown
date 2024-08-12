@@ -14,6 +14,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@mib1185'
 ---
 
 Add an RSS/Atom feed reader that polls feeds every hour and sends new entries into the event bus.
@@ -31,7 +33,7 @@ automation:
       platform: event
       event_type: feedreader
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.my_action
 ```
@@ -47,7 +49,7 @@ automation:
       event_data:
         feed_url: "https://hasspodcast.io/feed/podcast"
     action:
-      service: persistent_notification.create
+      action: persistent_notification.create
       data:
         title: "New HA Podcast available"
         message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"

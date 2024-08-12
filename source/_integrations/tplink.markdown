@@ -80,11 +80,11 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 If light effects are supported by a device they can be selected from the bottom of the light card.
 They are currently not supported on Kasa bulbs.
 
-### Random Effect - Service `tplink.random_effect`
+### Random Effect - Action `tplink.random_effect`
 
 Light strips allow setting a random effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `init_states` | Initial HSV sequence |
@@ -101,8 +101,8 @@ Light strips allow setting a random effect.
 | `random_seed` | Random seed |
 
 ```yaml
-#Example Service Call
-service: tplink.random_effect
+#Example action
+action: tplink.random_effect
 target:
   entity_id:
     - light.strip
@@ -129,11 +129,11 @@ data:
   random_seed: 80
 ```
 
-### Sequence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Action `tplink.sequence_effect`
 
 Light strips allow setting a sequence effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `sequence` | List of HSV sequences (Max 16) |
@@ -146,8 +146,8 @@ Light strips allow setting a sequence effect.
 | `direction` | Direction |
 
 ```yaml
-#Example Service Call
-service: tplink.sequence_effect
+#Example action
+action: tplink.sequence_effect
 target:
   entity_id:
     - light.strip

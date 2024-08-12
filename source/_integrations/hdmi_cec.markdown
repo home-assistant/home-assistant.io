@@ -14,7 +14,7 @@ ha_codeowners:
   - '@inytar'
 ---
 
-The `hdmi_cec` integration provides services that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
+The `hdmi_cec` integration provides actions that allow selecting the active device, powering on all devices, setting all devices to standby and creates switch entities for HDMI devices. Devices are defined in the configuration file by associating HDMI port number and a device name. Connected devices that provide further HDMI ports, such as sound-bars and AVRs are also supported. Devices are listed from the perspective of the CEC-enabled Home Assistant device. Any connected device can be listed, regardless of whether it supports CEC. Ideally the HDMI port number on your device will map correctly the CEC physical address. If it does not, use `cec-client` (part of the `libcec` package) to listen to traffic on the CEC bus and discover the correct numbers.
 
 ## CEC Setup
 
@@ -149,11 +149,11 @@ hdmi_cec:
   host: 192.168.1.3
 ```
 
-## Services
+## Actions
 
 ### Select Device
 
-Call the `hdmi_cec.select_device` service with the name of the device from configuration or entity_id or physical address"to select it, for example:
+Use the `hdmi_cec.select_device` action with the name of the device from configuration or entity_id or physical address"to select it, for example:
 
 ```json
 {"device": "Chromecast"}
@@ -171,36 +171,36 @@ So an Automation action using the example above would look something like this.
 
 ```yaml
 action:
-  service: hdmi_cec.select_device
+  action: hdmi_cec.select_device
     data:
       device: Chromecast
 ```
 
 ### Power On
 
-Call the `hdmi_cec.power_on` service (no arguments) to power on any devices that support this function.
+Use the `hdmi_cec.power_on` action (no arguments) to power on any devices that support this function.
 
 An Automation action using the example above would look something like this.
 
 ```yaml
 action:
-  service: hdmi_cec.power_on
+  action: hdmi_cec.power_on
 ```
 
 ### Standby
 
-Call the `hdmi_cec.standby` service (no arguments) to place in standby any devices that support this function.
+Use the `hdmi_cec.standby` action (no arguments) to place in standby any devices that support this function.
 
 An Automation action using the example above would look something like this.
 
 ```yaml
 action:
-  service: hdmi_cec.standby
+  action: hdmi_cec.standby
 ```
 
 ### Change volume level
 
-Call the `hdmi_cec.volume` service with one of following commands:
+Use the `hdmi_cec.volume` action with one of following commands:
 
 #### Volume up
 

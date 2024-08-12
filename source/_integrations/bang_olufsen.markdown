@@ -49,18 +49,18 @@ Device model:
 {% endconfiguration_basic %}
 
 
-## Services
+## Actions
 
-### play_media services
+### play_media actions
 
-The Bang & Olufsen integration supports different playback types in the `media_player.play_media` service: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
+The Bang & Olufsen integration supports different playback types in the `media_player.play_media` action: playback from URL, activating a favorite, playback from a local file, playing a radio station, activating a Deezer flow and Deezer playlists, albums, tracks, and playing files and text-to-speech (TTS) as an overlay.
 
 #### play_media examples
 
 Playing [DR P1](https://www.dr.dk/lyd/p1) from a URL:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -71,7 +71,7 @@ data:
 Activating the first favourite:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -82,7 +82,7 @@ data:
 Playing a local file:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -93,7 +93,7 @@ data:
 Playing a radio station:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -104,7 +104,7 @@ data:
 Playing a Deezer flow. Optionally define a Deezer user ID:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -117,7 +117,7 @@ data:
 Playing a Deezer playlist. Optionally define starting position for the playlist:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -130,7 +130,7 @@ data:
 Playing a Deezer album. Optionally define starting position for the album:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -143,7 +143,7 @@ data:
 Playing a Deezer track:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -154,7 +154,7 @@ data:
 Playing a Tidal playlist. Optionally define starting position for the playlist:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -167,7 +167,7 @@ data:
 Playing a Tidal album. Optionally define starting position for the album:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -180,7 +180,7 @@ data:
 Playing a Tidal track:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -197,7 +197,7 @@ Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and a
 
 Extra keys available:
 
-| Service data attribute    | Optional | Description                                                                                       |
+| Data attribute    | Optional | Description                                                                                       |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                       |
 | `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                  |
@@ -208,7 +208,7 @@ Extra keys available:
 Playing a local file with an absolute volume as an overlay:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -222,7 +222,7 @@ data:
 Playing a Bang & Olufsen Cloud TTS message with an offset volume (as TTS messages can be quiet):
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:
@@ -235,7 +235,7 @@ data:
 
 Playing a Bang & Olufsen Cloud TTS message with a local language:
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.beosound_balance_12345678
 data:

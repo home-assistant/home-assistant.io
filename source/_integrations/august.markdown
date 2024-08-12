@@ -161,7 +161,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
   action:
   - data: {}
     entity_id: camera.inside
-    service: camera.turn_off
+    action: camera.turn_off
 ```
 
 {% endraw %}

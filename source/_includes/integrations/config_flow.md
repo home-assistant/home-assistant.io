@@ -3,7 +3,7 @@
 
 ## Configuration
 
-To add the **{{ name }}** integration to your Home Assistant instance, use this My button:
+To add the **{{ name }}** {% unless page.ha_integration_type == 'hardware' or page.ha_integration_type == 'virtual' %}{{ page.ha_integration_type | default: "integration" }}{% else %}integration{% endunless %} to your Home Assistant instance, use this My button:
 
 {% my config_flow_start badge domain=domain %}
 

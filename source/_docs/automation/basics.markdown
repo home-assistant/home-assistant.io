@@ -37,7 +37,7 @@ Automation rules interact directly with the internal state of Home Assistant, so
 
 State changes can be used as the source of triggers and the current state can be used in conditions.
 
-Actions are all about calling *services*. To explore the available *services* open the **{% my developer_services title="Developer Tools > Services" %}**. *Services* allow changing anything. For example turn on a light, run a script or enable a scene. Each *service* has a domain and a name. For example the *service* {% my developer_call_service service="light.turn_on" %} is capable of turning on any light in your system. Parameters can be passed to a *service* to indicate, for example, which device to activate or which color to use.
+To explore the available *actions* open the {% my developer_services title="**Developer tools** > **Actions**" %}. *Actions* allow changing anything. For example, turn on a light, run a script, or enable a scene. Each *action* has a domain and a name. For example, the *action* {% my developer_call_service service="light.turn_on" %} is capable of turning on any light in your system. Parameters can be passed to an *action* to indicate, for example, which device to activate or which color to use.
 
 ## Creating automations
 

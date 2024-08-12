@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - light
   - remote
+  - select
   - sensor
   - switch
   - time
@@ -56,6 +57,7 @@ The {% term entities %} are divided into four subdomains:
 
 - [Climate](#climate)
 - [Remote](#remote)
+- [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
@@ -71,9 +73,9 @@ The `remote` {% term entities %} allow you to learn and send codes with universa
 
 ### Learning commands
 
-Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` service later.
+Use `remote.learn_command` to learn IR and RF codes. These codes are grouped by device and stored as commands in the [storage folder](#learned-codes-storage-location). They can be sent with the `remote.send_command` action later.
 
-| Service data attribute | Optional | Description                           |
+| Data attribute | Optional | Description                           |
 | ---------------------- | -------- | ------------------------------------- |
 | `entity_id`            | no       | ID of the remote.                     |
 | `device`               | no       | Name of the device to be controlled.  |
@@ -90,7 +92,7 @@ To learn IR codes, call `remote.learn_command` with the device name and command 
 script:
   learn_tv_power:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -111,7 +113,7 @@ Learning RF codes takes place in two steps. First call `remote.learn_command` wi
 script:
   learn_car_unlock:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.garage
         data:
@@ -124,7 +126,7 @@ When the LED blinks for the first time, press and hold the button to sweep the f
 
 The codes will be stored in the same way as the IR codes. You don't need to specify `command_type` to send them because this information is stored in the first byte of the code.
 
-_Tip:_ Click Notifications in the sidebar after calling the service and follow the instructions to make sure you are pressing the button at the right time.
+_Tip:_ Click Notifications in the sidebar after using the action and follow the instructions to make sure you are pressing the button at the right time.
 
 #### Learning a sequence of commands
 
@@ -135,7 +137,7 @@ In order to streamline the learning process, you may want to provide a list of c
 script:
   learn_tv_commands:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -147,7 +149,7 @@ script:
             - volume down
 ```
 
-After calling this service, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
+After using this action, you will be prompted to press the buttons in the same order as provided. Check the notifications to stay on track and make sure you are pressing the right button at the right time.
 
 #### Learning an alternative code
 
@@ -162,7 +164,7 @@ If the code works sometimes, and sometimes it doesn't, you can try to relearn it
 script:
   learn_tv_power_button:
     sequence:
-      - service: remote.learn_command
+      - action: remote.learn_command
         target:
           entity_id: remote.bedroom
         data:
@@ -179,9 +181,9 @@ The learned codes are stored in `/config/.storage/` in a JSON file called `broad
 
 ### Sending commands
 
-After learning IR and RF codes with the `remote.learn_command` service, you can use `remote.send_command` to send them. You can also use this service to send base64 codes taken from elsewhere.
+After learning IR and RF codes with the `remote.learn_command` action, you can use `remote.send_command` to send them. You can also use this action to send base64 codes taken from elsewhere.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | ID of the remote.                                                      |
 | `command`              | no       | Names of the commands to be sent or base64 codes prefixed with `b64:`. |
@@ -198,7 +200,7 @@ To send a command that you've learned, call `remote.send_command` with the devic
 script:
   tv_power:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -215,7 +217,7 @@ Use `num_repeats:` to send the same command multiple times:
 script:
   turn_up_tv_volume_20:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -233,7 +235,7 @@ You can provide a list of commands to be sent sequentially:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -252,7 +254,7 @@ Sometimes you may want to send a base64 code obtained elsewhere. Use the `b64:` 
 script:
   turn_on_tv:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -268,7 +270,7 @@ You can send a sequence of base64 codes just like normal commands:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -286,7 +288,7 @@ You can mix commands and base64 codes:
 script:
   turn_on_ac:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: remote.bedroom
         data:
@@ -298,9 +300,9 @@ script:
 
 ### Deleting commands
 
-You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` service.
+You can use `remote.delete_command` to remove commands that you've learned with the `remote.learn_command` action.
 
-| Service data attribute | Optional | Description                          |
+| Data attribute | Optional | Description                          |
 | ---------------------- | -------- | ------------------------------------ |
 | `entity_id`            | no       | ID of the remote.                    |
 | `device`               | no       | Name of the device.                  |
@@ -315,7 +317,7 @@ To delete a command, call `remote.delete_command` with the device name and the c
 script:
   delete_tv_power:
     sequence:
-      - service: remote.delete_command
+      - action: remote.delete_command
         target:
           entity_id: remote.bedroom
         data:
@@ -332,7 +334,7 @@ You can provide a list of commands to be deleted:
 script:
   delete_tv_commands:
     sequence:
-      - service: remote.delete_command
+      - action: remote.delete_command
         target:
           entity_id: remote.bedroom
         data:
@@ -342,6 +344,10 @@ script:
             - source
             - menu
 ```
+
+## Select
+
+The `select` {% term entities %} allow you to control the weekday of your Broadlink devices. These entities are created automatically when you configure supported devices.
 
 ## Sensor
 

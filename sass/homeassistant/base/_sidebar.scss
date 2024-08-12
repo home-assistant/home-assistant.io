@@ -20,7 +20,7 @@
   }
 }
 
-#sidebar {
+#sidebar, #left-sidebar, #toc-bar, #integration-sidebar {
   position: sticky;
   top: 88px;
   max-height: calc(100vh - 104px);
@@ -43,7 +43,7 @@
 }
 
 @media only screen and (max-width: $lap-end) {
-  #sidebar {
+  #sidebar, #left-sidebar, #toc-bar, #integration-sidebar {
     max-height: fit-content;
     
     .grid {

@@ -156,7 +156,7 @@ command_line:
       type: map
       keys:
         name:
-          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
           required: false
           default: notify
           type: string
@@ -766,12 +766,12 @@ command_line:
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
 
-## Services
+## Actions
 
-Available services: `reload`.
+Available actions: `reload`.
 
-### Service `command_line.reload`
+### Action `command_line.reload`
 
 Reload all `command_line` entities.
 
-This service takes no service data attributes.
+This action takes no data attributes.

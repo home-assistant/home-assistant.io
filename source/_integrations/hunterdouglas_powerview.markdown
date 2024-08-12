@@ -54,7 +54,7 @@ Generation 1 and 2 Pebble remotes use proprietary Bluetooth Low Energy (PLE) and
 This will result in the shade positioning displayed within Home Assistant being incorrect.
 
 {% note %}
-Calling the update entity service (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.
+Calling the update entity action (`homeassistant.update_entity`) on a shade entity will trigger the hub to awaken a shade and report its current position.
 
 [An example automation is available](#force-update-shade-position) below for mains powered shades. While the automation will work for battery-powered shades, it will quickly drain the batteries for these devices.
 {% endnote %}
@@ -228,7 +228,7 @@ trigger:
   platform: time
   at: "18:00:00"
 action:
-  - service: scene.turn_on
+  - action: scene.turn_on
     target:
       entity_id: scene.10877
 ```
@@ -245,7 +245,7 @@ trigger:
   - platform: time_pattern
     hours: '1'
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id:
         - cover.family_right

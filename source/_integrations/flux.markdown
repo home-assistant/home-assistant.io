@@ -25,7 +25,7 @@ The value of `sunset_time` is automatically calculated based on the location spe
 
 The color temperature is specified in kelvin, and accepted values are between 1000 and 40000 kelvin. Lower values will seem more red, while higher will look more white.
 
-If you want to update at variable intervals, you can leave the switch turned off and use automation rules that call the service `switch.<name>_update` whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
+If you want to update at variable intervals, you can leave the switch turned off and use automation rules that use the `switch.<name>_update` action whenever you want the lights updated, where `<name>` equals the `name:` property in the switch configuration.
 
 To use the Flux switch in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

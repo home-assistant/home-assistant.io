@@ -44,7 +44,7 @@ arguments:
 
 Only the "music" media type is supported for now.
 
-This service will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
+This action will control a background VLC instance, therefore you cannot use this to control a VLC instance launched on your desktop, unlike the Kodi media player for example.
 
 ## Full configuration
 

@@ -68,54 +68,54 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-## Services
+## Actions
 
-The Home Connect integration makes various services available.
-Available services: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
+The Home Connect integration makes various actions available.
+Available actions: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
 
-### Service `home_connect.set_option_active`
+### Action `home_connect.set_option_active`
 
 Sets an option for the active program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.set_option_selected`
+### Action `home_connect.set_option_selected`
 
 Sets an option for the selected program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.pause_program`
+### Action `home_connect.pause_program`
 
 Pauses the current running program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 
-### Service `home_connect.resume_program`
+### Action `home_connect.resume_program`
 
 Resumes a paused program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 
-### Service `home_connect.select_program`
+### Action `home_connect.select_program`
 
 Selects a program without starting it.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
@@ -123,11 +123,11 @@ Selects a program without starting it.
 | `value` | yes | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.start_program`
+### Action `home_connect.start_program`
 
 Selects a program and starts it.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
@@ -135,11 +135,11 @@ Selects a program and starts it.
 | `value` | yes | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.change_setting`
+### Action `home_connect.change_setting`
 
 Changes a setting.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |

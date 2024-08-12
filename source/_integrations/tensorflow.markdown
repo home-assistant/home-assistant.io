@@ -194,7 +194,7 @@ image_processing:
 
 ## Optimizing resources
 
-[Image processing components](/integrations/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` service when you actually want to perform processing.
+[Image processing components](/integrations/image_processing/) process the image from a camera at a fixed period given by the `scan_interval`. This leads to excessive processing if the image on the camera hasn't changed, as the default `scan_interval` is 10 seconds. You can override this by adding to your configuration `scan_interval: 10000` (setting the interval to 10,000 seconds), and then call the `image_processing.scan` action when you actually want to perform processing.
 
 ```yaml
 # Example advanced configuration.yaml entry
@@ -214,7 +214,7 @@ image_processing:
        entity_id:
          - binary_sensor.driveway
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: camera.driveway
 ```

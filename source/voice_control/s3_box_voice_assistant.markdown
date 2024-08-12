@@ -18,7 +18,7 @@ related:
     title: ESPHome projects page
 ---
 
-This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP32-S3-BOX-Lite into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX may be used to refer to any of the 3 product variants.
+This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3(B), or an ESP32-S3-BOX-Lite into a Home Assistant voice assistant. Note, the term ESP32-S3-BOX may be used to refer to any of the 3 product variants.
 
 <lite-youtube videoid="erf7HqTwCGs" videotitle="Okay Nabu! Open-source voice assistant running on an Espressif ESP32-S3-Box
 "></lite-youtube>
@@ -29,10 +29,11 @@ This tutorial will guide you to turn an ESP32-S3-BOX, ESP32-S3-BOX-3, or an ESP3
 - [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) or a manually configured [Assist Pipeline](/voice_control/voice_remote_local_assistant)
 - The password to your 2.4&nbsp;GHz Wi-Fi network
 - Chrome or Edge browser on a desktop (not Android/iOS)
-- One of the three Espressif ESP32-S3-BOX variants:
+- One of the Espressif ESP32-S3-BOX variants:
   - ESP32-S3-BOX-3B
   - ESP32-S3-BOX-3, ESP32-S3-BOX, or ESP32-S3-BOX-Lite (not currently on the market)
 - USB-C cable to connect the ESP32-S3-BOX
+- This procedure assumes that this is the first time you are installing ESPHome firmware on the device. If you have previously completed this tutorial and now want to install the latest software version, follow the steps on [updating the software on the S3-BOX](#updating-the-software-on-the-s3-box).
 
 ## Installing the software onto the ESP32-S3-BOX
 
@@ -51,7 +52,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box.yaml)
+         - [ESP32-S3-BOX config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box/esp32-s3-box.yaml)
 
     2. To connect the ESP32-S3-BOX to your computer, follow these steps:
        - In the pop-up window, view the available ports.
@@ -89,7 +90,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX-3 config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box-3.yaml)
+         - [ESP32-S3-BOX-3 config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-3/esp32-s3-box-3.yaml)
 
     2. To connect the ESP32-S3-BOX-3 to your computer, follow these steps:
        - In the pop-up window, view the available ports.
@@ -134,7 +135,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
            <esp-web-install-button manifest="https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-lite/manifest.json"></esp-web-install-button>
 
        - **For advanced users**: The configuration files are available on GitHub:
-         - [ESP32-S3-BOX-Lite config on GitHub](https://github.com/esphome/firmware/blob/main/wake-word-voice-assistant/esp32-s3-box-lite.yaml)
+         - [ESP32-S3-BOX-Lite config on GitHub](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-lite/esp32-s3-box-lite.yaml)
 
     2. To connect the ESP32-S3-BOX-Lite to your computer, follow these steps:
        - In the pop-up window, view the available ports.
@@ -206,3 +207,18 @@ Before you can use this device with Home Assistant, you need to install a bit of
      - Disable **LCD Backlight**.
 
       ![Toggle to enable/disable wake word](/images/assist/s3-box-disable-screen.png)
+
+## Updating the software on the S3-BOX
+
+To update the software on your S3-BOX, follow the steps below that reflect your setup.
+
+- **Option 1**: You have Home Assistant 2024.7 or later, and have not manually altered your ESPHome configuration for the S3-BOX:
+  - Once an update is available, you will receive an update notification, just like any other update.
+  - To install the precompiled new firmware directly on your box, make sure the S3-BOX is connected to your network, and under **ESP32 S3 BOX...Firmware**, select **Install**.
+- **Option 2**: You have Home Assistant 2024.6 or older, and have not manually altered your ESPHome configuration for the S3-BOX:
+  - Follow steps 1-3 of the procedure on [installing the software onto the S3-BOX](#installing-the-software-onto-the-esp32-s3-box).
+    - This installs the latest, precompiled firmware for your S3-BOX.
+- **Option 3**: You have manually changed the configuration file for your S3-BOX:
+  - You need to compile your own firmware. To do so, either:
+    - Use the ESPHome dashboard add-on within Home Assistant. While the easiest option, it tends to be the slowest and may fail, particularly on older systems or on systems with limited memory/CPU resources.
+    - Follow the steps in the [ESPHome documentation](https://esphome.io/guides/getting_started_command_line) and use a desktop-class system to compile and install the firmware. Initial setup is more complex, but the process is significantly faster and more reliable.

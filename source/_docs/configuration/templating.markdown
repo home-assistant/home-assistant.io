@@ -34,7 +34,7 @@ Templates can get big pretty fast. To keep a clear overview, consider using YAML
 script:
   msg_who_is_home:
     sequence:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: >
             {% if is_state('device_tracker.paulus', 'home') %}
@@ -70,7 +70,7 @@ extensions:
 You can write reusable Jinja templates by adding them to a `custom_templates` folder under your
 configuration directory. All template files must have the `.jinja` extension and be less than 5MiB.
 Templates in this folder will be loaded at startup. To reload the templates without
-restarting Home Assistant, invoke the {% my developer_call_service service="homeassistant.reload_custom_templates" %} service.
+restarting Home Assistant, invoke the {% my developer_call_service service="homeassistant.reload_custom_templates" %} action.
 
 Once the templates are loaded, Jinja [includes](https://jinja.palletsprojects.com/en/3.0.x/templates/#include) and [imports](https://jinja.palletsprojects.com/en/3.0.x/templates/#import) will work
 using `config/custom_templates` as the base directory.
@@ -1009,7 +1009,7 @@ Some examples:
     {% set to_remove = extra_ambiance | map(attribute='name') | reject('in', to_add) | list %}
     {{ (state_attr('input_select.light_theme', 'options') + to_add ) | unique | reject('in', to_remove) | list }}
   ```
-  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` service.
+  This more complex example uses the `contains` filter to match the current month with a list. In this case, it's used to generate a list of light theme to give to the `Input select: Set options` action.
 
 {% endraw %}
 
@@ -1255,7 +1255,7 @@ To evaluate a response, go to **{% my developer_template title="Developer Tools 
 
 ### Using templates with the MQTT integration
 
-The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming service calls (command templates) to payloads that configure the MQTT device.
+The [MQTT integration](/integrations/mqtt/) relies heavily on templates. Templates are used to transform incoming payloads (value templates) to status updates or incoming actions (command templates) to payloads that configure the MQTT device.
 
 #### Using value templates with MQTT
 
@@ -1280,7 +1280,7 @@ Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used
 
 #### Using command templates with MQTT
 
-For service calls command templates are defined to format the outgoing MQTT payload to the device. When a service call is executed `value` can be used to generate the correct payload to the device.
+For actions, command templates are defined to format the outgoing MQTT payload to the device. When an action is executed, `value` can be used to generate the correct payload to the device.
 
 {% note %}
 

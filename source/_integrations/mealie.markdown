@@ -13,10 +13,11 @@ ha_codeowners:
 ha_domain: mealie
 ha_platforms:
   - calendar
+  - diagnostics
+  - sensor
   - todo
 ha_integration_type: service
 ---
-
 
 The Mealie integration will fetch data from your [Mealie instance](https://mealie.io/).
 
@@ -46,39 +47,109 @@ The integration will create a calendar for every type of meal plan:
 
 The integration will create a to-do list for every Mealie shopping list.
 
-## Services
+## Sensors
 
-The Mealie integration has the following services:
+The integration provides the following sensors for the statistics:
+- number of recipes
+- categories (such as beverage, dessert, Italian, seafood)
+- tags (such as alcohol)
+- tools (such as instant pot, air fryer, or BBQ)
+- users
+
+## Actions
+
+The Mealie integration has the following actions:
 
 - `mealie.get_mealplan`
 - `mealie.get_recipe`
 - `mealie.import_recipe`
+- `mealie.set_mealplan`
+- `mealie.set_random_mealplan`
 
-### Service `mealie.get_mealplan`
+### Action `mealie.get_mealplan`
 
 Get the meal plan for a specified range.
 
-| Service data attribute | Optional | Description                                              |
+| Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.      |
 | `start_date`           | Yes      | The start date of the meal plan. (today if not supplied) |
 | `end_date`             | Yes      | The end date of the meal plan. (today if not supplied)   |
 
-### Service `mealie.get_recipe`
+### Action `mealie.get_recipe`
 
 Get the recipe for a specified recipe ID or slug.
 
-| Service data attribute | Optional | Description                                         |
+| Data attribute | Optional | Description                                         |
 |------------------------|----------|-----------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from. |
 | `recipe_id`            | No       | The ID or the slug of the recipe to get.            |
 
-### Service `mealie.import_recipe`
+### Action `mealie.import_recipe`
 
 Import the recipe into Mealie from a URL.
 
-| Service data attribute | Optional | Description                                                     |
+| Data attribute | Optional | Description                                                     |
 |------------------------|----------|-----------------------------------------------------------------|
 | `config_entry_id`      | No       | The ID of the Mealie config entry to get data from.             |
 | `url`                  | No       | The URL of the recipe.                                          |
 | `include_tags`         | Yes      | Include tags from the website to the recipe. (false by default) |
+
+### Action `mealie.set_mealplan`
+
+Set a mealplan on a specific date.
+
+| Data attribute    | Optional | Description                                         |
+|-------------------|----------|-----------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
+| `date`            | No       | The date that should be filled.                     |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner", or "side".    |
+| `recipe_id`       | Yes      | The recipe to plan.                                 |
+| `note_title`      | Yes      | The title of the meal note.                         |
+| `note_text`       | Yes      | The description of the meal note.                   |
+
+### Action `mealie.set_random_mealplan`
+
+Set a random mealplan on a specific date.
+
+| Data attribute    | Optional | Description                                         |
+|-------------------|----------|-----------------------------------------------------|
+| `config_entry_id` | No       | The ID of the Mealie config entry to get data from. |
+| `date`            | No       | The date that should be filled.                     |
+| `entry_type`      | No       | One of "breakfast", "lunch", "dinner" or "side".    |
+
+{% tip %}
+You can get your `config_entry_id` by using actions within [Developer Tools](/docs/tools/dev-tools/), using one of the above actions and viewing the YAML.
+{% endtip %}
+
+## Examples
+
+{% details "Example template sensor using get_mealplan" %}
+
+Example template sensor that contains today's dinner meal plan entries:
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      - platform: time_pattern
+        hours: /1
+    action:
+      - action: mealie.get_mealplan
+        data:
+          config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID
+        response_variable: result
+    sensor:
+      - name: "Dinner today"
+        unique_id: mealie_dinner_today
+        state: >
+          {% for meal in result.mealplan if meal.entry_type == "dinner" -%}
+          {{ meal.recipe['name'] if meal.recipe is not none else meal.title -}}
+          {{ ", " if not loop.last }}
+          {%- endfor %}
+```
+
+{% endraw %}
+
+{% enddetails %}

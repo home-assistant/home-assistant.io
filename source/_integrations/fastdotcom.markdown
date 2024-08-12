@@ -27,7 +27,7 @@ If you want to measure bandwidth metrics other than download such as ping and up
 
 Enabling this integration will automatically create the Fast.com Sensor.
 
-By default, a speed test will be run every hour. The user can manually run a speed test via the `homeassistant.update_entity` service.
+By default, a speed test will be run every hour. The user can manually run a speed test via the `homeassistant.update_entity` action.
 
 {% include integrations/config_flow.md %}
 

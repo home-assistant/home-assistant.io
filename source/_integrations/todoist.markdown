@@ -115,7 +115,7 @@ Home Assistant does its best to [determine what task in each project is "most" i
 ## To-do list entity
 
 See the [todo](/integrations/todo/) integration for details on how to manage
-items on the Todoist to-do list, including services for creating and
+items on the Todoist to-do list, including actions for creating and
 deleting to-do items.
 
 Todoist completed to-do items are not visible in Home Assistant because they
@@ -151,12 +151,12 @@ the Todoist UI.
 
 - **due_today**: Whether the reported task is due today.
 
-## Services
+## Actions
 
-You may use the services from the [todo](/integrations/todo/) integration for
+You may use the actions from the [todo](/integrations/todo/) integration for
 creating, updating, or deleting to-do items on the to-do list.
 
-Todoist also comes with an additional service, `todoist.new_task` that offers
+Todoist also comes with an additional action, `todoist.new_task` that offers
 more advanced attributes when creating a Todoist task. You can specify labels
 and a project, or you can leave them blank, and the task will go to your
 **Inbox** project.

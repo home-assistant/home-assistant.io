@@ -81,6 +81,7 @@ Known supported devices:
 - Marantz AV7704
 - Marantz AV8802A
 - Marantz CINEMA 50
+- Marantz CINEMA 60
 - Marantz CINEMA 70s
 - Marantz M-CR510
 - Marantz M-CR511
@@ -150,15 +151,15 @@ A few notes:
 - To remotely power on Marantz receivers with Home Assistant, the Auto-Standby feature must be enabled in the receiver's settings.
 - Sound mode: The command to set a specific sound mode is different from the value of the current sound mode reported by the receiver (sound_mode_raw). There is a key-value structure (sound_mode_dict) that matches the raw sound mode to one of the possible commands to set a sound mode (for instance {'MUSIC':['PLII MUSIC']}. If you get a "Not able to match sound mode" warning, please open an issue on the [denonavr library](https://github.com/ol-iver/denonavr), stating which raw sound mode could not be matched so it can be added to the matching dictionary. You can find the current raw sound mode under **Developer Tools** -> **States**.
 
-#### Service `denonavr.get_command`
+#### Action `denonavr.get_command`
 
-Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` service. In addition, IR remote codes can also be sent to this interface.
+Denon AVR receivers support a simple text-based network interface for sending commands to the receiver over the network. You can access this interface via the `denonavr.get_command` action. In addition, IR remote codes can also be sent to this interface.
 
 A list of network commands supported by the various Denon AVR receivers can be [found here](https://www.heimkinoraum.de/upload/files/product/IP_Protocol_AVR-Xx100.pdf). A list of IR codes can be [found here](https://assets.denon.com/DocumentMaster/UK/AVR3313_IR_CODE_V01.pdf).
 
-To use these commands, call the `denonavr.get_command` service and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
+To use these commands, call the `denonavr.get_command` action and append the specific command to the path `/goform/formiPhoneAppDirect.xml?`:
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |       no | Name of entity to send command to. For example `media_player.marantz`|
 | `command`              |       no | Command to send to device, e.g.,  `/goform/formiPhoneAppDirect.xml?VSMONI2`|
@@ -167,24 +168,24 @@ So for example, the above command `/goform/formiPhoneAppDirect.xml?VSMONI2` will
 
 {% tip %}
 
-The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the service `media_player.turn_on` is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
+The denonavr platform supports the standard media player controls such as `turn_on` and `volume_up`. Thus calling the `media_player.turn_on` action is equivalent to calling `denonavr.get_command` with the command `/goform/formiPhoneAppDirect.xml?PWON`. See [media_player](/integrations/media_player/) for more details.
 
 {% endtip %}
 
-#### Service `denonavr.set_dynamic_eq`
+#### Action `denonavr.set_dynamic_eq`
 
 Enable or disable DynamicEQ setting.
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
 | `dynamic_eq`           |       no | True/false for enable/disable.|
 
-#### Service `denonavr.update_audyssey`
+#### Action `denonavr.update_audyssey`
 
 Update Audyssey settings. This can take up to 10 Seconds for some receivers.
 
-| Service data attribute | Optional | Description                                          |
+| Data attribute | Optional | Description                                          |
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Name of entity to send command to. For example `media_player.marantz`|
 

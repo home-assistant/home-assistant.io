@@ -37,7 +37,7 @@ There is support for the following platform types within Home Assistant:
 ## Integration options
 
 It is possible to change some behaviors through the {% term integration %} options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. On the **Vodafone Station** integration, select the cogwheel. Then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. On the **Vodafone Station** integration, select the cogwheel. Then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 

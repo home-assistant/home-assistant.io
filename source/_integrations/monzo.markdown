@@ -41,9 +41,9 @@ The **Monzo** {% term integration %} allows you to connect your Monzo bank accou
 
 1. To add a second Monzo account in Home Assistant, repeat the above process for creating an OAuth client.
 2. Then, in Home Assistant, add the new credentials *before* trying to add the new entry. 
-   - In the top right of **Devices & Services** page, select the three dot menu, open **Application Credentials**, and select **Add application credentials**
+   - In the top right of **Devices & services** page, select the three dot menu, open **Application Credentials**, and select **Add application credentials**
    - It is recommended to include the person's name in the *Name* field so you can distinguish it later. 
-3. Once added, you can return to **Devices & Services** > **Monzo** > **Add Entry** to proceed with authentication.
+3. Once added, you can return to **Devices & services** > **Monzo** > **Add Entry** to proceed with authentication.
 
 ## Sensor
 

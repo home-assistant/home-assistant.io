@@ -56,7 +56,7 @@ The Pushbullet notification platform sends messages to [Pushbullet](https://www.
 
 ### Usage
 
-Pushbullet is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
+Pushbullet is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to all devices registered in the Pushbullet account. An optional **target** parameter can be given to Pushbullet to specify specific account's devices, contacts or channels.
 
 | Type    | Prefix     | Suffix                  | Example                   |
 | ------- | ---------- | ----------------------- | ------------------------- |
@@ -67,7 +67,7 @@ Pushbullet is a notify platform and thus can be controlled by calling the notify
 
 If using targets, your own account's email address functions as 'send to all devices'. All targets are verified (if exists) before sending, except email.
 
-#### Example service payload
+#### Example action payload
 
 ```yaml
 
@@ -86,7 +86,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send URL
     message: This is an url
@@ -100,7 +100,7 @@ action:
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send file
     message: This is a file
@@ -114,7 +114,7 @@ action:
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send file
     message: This is a file URL
@@ -128,7 +128,7 @@ action:
 
 ```yaml
   action:
-    service: notify.NOTIFIER_NAME
+    action: notify.NOTIFIER_NAME
     data:
       title: "Send to one device"
       message: "This only goes to one specific device"

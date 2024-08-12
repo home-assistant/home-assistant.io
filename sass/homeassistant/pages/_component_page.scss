@@ -6,7 +6,6 @@
       letter-spacing: .005em;
       color: $gray;
       text-transform: uppercase;
-      padding-top: 8px;
     }
   }
   .component-search {
@@ -38,9 +37,8 @@
 // styles for the cards
 .hass-option-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(192px, 1fr));
-
-  margin: -10px; // grid trick, has to match option-card's margin
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
 
   div.alert, p.alert-content {
     width: 100%;
@@ -48,11 +46,9 @@
 
   .option-card {
     flex: 0 0 auto;
-    min-width: 192px;
-    height: 192px;
+    aspect-ratio: 1;
     display: inline-block;
     background-color: #f8f8f8;
-    margin: 10px;
     border-radius: 8px;
     border: 1px solid rgba(0, 0, 0, .12);
     padding: 8px;
@@ -60,7 +56,6 @@
     text-decoration: none;
     align-content: center;
     transition: box-shadow .33s;
-
 
     .img-container {
       height: 64px;
@@ -128,20 +123,23 @@ a.option-card:hover {
 
 @for $i from 1 through 40 {
   .option-card:nth-child(#{$i}) {
-    animation-delay: #{$i * 0.04}s !important;
+    animation-delay: #{$i * 0.025}s !important;
+    @media only screen and (max-width: $palm-end) {
+      animation-delay: #{$i * 0.05}s !important;
+    }
   }
 }
 
-
 @media only screen and (max-width: $palm-end) {
   .hass-option-cards {
+    grid-template-columns: 1fr;
+
     .option-card {
-      width: calc(100% - 24px) !important;
+      width: 100% !important;
       flex-direction: row;
       display: flex;
       align-items: center;
       height: 80px;
-      margin: 8px;
 
       .img-container {
         margin: 8px;
@@ -160,9 +158,8 @@ a.option-card:hover {
   }
   #components-page {
     .hass-option-cards {
-      grid-template-columns: 1fr;
       .option-card {
-        width: calc(50% - 24px);
+
       }
     }
     .category_select {
@@ -181,6 +178,7 @@ a.option-card:hover {
       flex-wrap: wrap;
       margin-bottom: 16px;
       align-items: flex-end;
+      gap: 8px;
 
       &>div {
         margin-right: 8px;
@@ -231,12 +229,13 @@ a.option-card:hover {
       }
 
       .btn {
+        font-size: 1rem;
         display: block;
         background: 0;
         color: black;
         box-shadow: none;
         text-shadow: none;
-        padding: 2px;
+        padding: 4px 0;
         border-radius: 0;
 
         &.current {

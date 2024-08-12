@@ -26,13 +26,13 @@ In addition, all events contain a `data` dictionary with event-specific informat
 
 ### `call_service`
 
-This event is fired when a service is called.
+This event is fired when an service action is performed
 
 | Field             | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
-| `domain`          | Domain of the service. Example: `light`.                                       |
-| `service`         | The service to call. Example: `turn_on`                                        |
-| `service_data`    | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`. |
+| `domain`          | Domain of the action. Example: `light`.                                       |
+| `service`         | The service action that is performed. Example: `turn_on`                                        |
+| `service_data`    | Dictionary with the call parameters. Example: `{ 'brightness': 120 }`. |
 | `service_call_id` | String with a unique call id. Example: `23123-4`.                              |
 
 ### `component_loaded`
@@ -96,21 +96,21 @@ If you want to trigger automation on a Home Assistant stop event, we recommend u
 
 ### `service_registered`
 
-This event is fired when a new service has been registered within Home Assistant.
+This event is fired when a new service action has been registered within Home Assistant.
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the integration that offers this service. Example: `light`. |
-| `service` | The name of the service. Example: `turn_on`                             |
+| `domain`  | The domain of the integration that offers this action. Example: `light`. |
+| `service` | The name of the service action. Example: `turn_on`                             |
 
 ### `service_removed`
 
-This event is fired when a service has been removed from Home Assistant.
+This event is fired when a service action has been removed from Home Assistant.
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the integration that offers this service. Example: `light`. |
-| `service` | The name of the service. Example: `turn_on`                             |
+| `domain`  | The domain of the integration that offers this action. Example: `light`. |
+| `service` | The name of the service action. Example: `turn_on`                             |
 
 ### `state_changed`
 

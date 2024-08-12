@@ -49,7 +49,7 @@ trigger:
   entity_id: binary_sensor.motion_kitchen
 
 action:
-  service: >
+  action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
     {% else %}
@@ -63,7 +63,7 @@ action:
 
 The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
 In this example, a [state trigger](/docs/automation/templating/#state) is used.
-`turn_on` and `turn_off` are [`homeassistant` services](/docs/scripts/service-calls/#homeassistant-services). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/service-calls/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
 
 ### Creating the blueprint file
 
@@ -96,7 +96,7 @@ trigger:
   entity_id: !input motion_sensor
 ```
 
-For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the service action can contain references to areas, devices and/or entities, so that's what we will use.
+For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the action can contain references to areas, devices, and/or entities, so that's what we will use.
 
 Inputs are not limited to strings. They can contain complex objects too. So in this case, we're going to mark the whole `target` as input:
 
@@ -104,7 +104,7 @@ Inputs are not limited to strings. They can contain complex objects too. So in t
 
 ```yaml
 action:
-  service: >
+  action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
     {% else %}
@@ -238,7 +238,7 @@ trigger:
     entity_id: !input motion_sensor
 
 action:
-  - service: >
+  - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on
       {% else %}

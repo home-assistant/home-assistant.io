@@ -127,6 +127,6 @@ group.all_switches              8018
 
 ### Delete
 
-If you don't want to keep certain entities, you can delete them permanently by using the [services provided by the recorder](/integrations/recorder/#service-purge_entities).
+If you don't want to keep certain entities, you can delete them permanently by using the [actions provided by the recorder](/integrations/recorder/#action-purge_entities).
 
 For a more interactive way of working with the database, check the [Data Science Portal](https://data.home-assistant.io/).

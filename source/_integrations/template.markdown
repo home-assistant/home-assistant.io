@@ -34,6 +34,9 @@ ha_platforms:
   - weather
 ha_integration_type: helper
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
@@ -49,17 +52,27 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
 
-Sensor, binary sensor, button and image can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
+Sensor, binary sensor, button, image and select can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
 
-Number and select template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Number template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 ## UI configuration
 
-Sensor template, binary sensor template, button template and image template can be configured using the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
+Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
+{% include integrations/config_flow.md %}
+
+{% important %}
 To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+{% note %}
+Configuration using our user interface provides a more limited subset of options, making this integration more accessible while covering most use cases.
+
+If you need more specific features for your use case, the manual [YAML-configuration section](#yaml-configuration) of this integration might provide them.
+{% endnote %}
 
 ## YAML configuration
 
@@ -125,7 +138,7 @@ unique_id:
   required: false
   type: string
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything via services, in particular services with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 sensor:
@@ -453,7 +466,7 @@ template:
 
 {% endraw %}
 
-If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` service is used, no rate limit is applied.
+If the template accesses every state on the system, a rate limit of one update per minute is applied. If the template accesses all states under a specific domain, a rate limit of one update per second is applied. If the template only accesses specific states, receives update events for specifically referenced entities, or the `homeassistant.update_entity` action is used, no rate limit is applied.
 
 ### Considerations
 
@@ -731,7 +744,7 @@ template:
 
 ### State based select - Control Day/Night mode of a camera
 
-This show how a state based template select can be used to call a service.
+This show how a state based template select can be used to perform an action.
 
 {% raw %}
 
@@ -744,7 +757,7 @@ template:
       state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
       options: "{{ ['off', 'on', 'auto'] }}"
       select_option:
-        - service: tapo_control.set_day_night_mode
+        - action: tapo_control.set_day_night_mode
           data:
             day_night_mode: "{{ option }}"
           target:
@@ -771,9 +784,9 @@ template:
 
 {% endraw %}
 
-### Trigger based handling of service response data
+### Trigger based handling of action response data
 
-This example demonstrates how to use an `action` to call a [service with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
 and use the response in a template.
 
 {% raw %}
@@ -784,7 +797,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:

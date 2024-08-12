@@ -1,6 +1,6 @@
 ---
 title: Cisco Webex Teams
-description: Instructions on how to add Cisco Webex Teams notifications to Home Assistant.
+description: Instructions on how to add Cisco Webex notifications to Home Assistant.
 ha_category:
   - Notifications
 ha_iot_class: Cloud Push
@@ -16,11 +16,11 @@ related:
     title: Configuration file
 ---
 
-The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark).
+The `cisco_webex_teams` notification platform allows you to deliver rich notifications from Home Assistant to [Cisco Webex Teams](https://www.webex.com/team-collaboration.html) (formerly known as Cisco Spark or Cisco Webex Teams).
 
 To use this notification platform you will need an app (bot) token. To obtain a token visit [Cisco Webex for Developers](https://developer.webex.com/).
 
-- Detailed instructions can be found in the section titled **Creating a Webex Teams Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
+- Detailed instructions can be found in the section titled **Creating a Webex Bot** on the [Webex Teams bot documentation](https://developer.webex.com/docs/bots).
 
 You also need to specify the `room_id` that you wish to post messages into. The `room_id` can be found in one of two ways:
 
@@ -28,6 +28,8 @@ You also need to specify the `room_id` that you wish to post messages into. The 
 2. Log into the web client at [teams.webex.com](https://teams.webex.com/),
     - select the room (or create a new room),
     - then copying the room ID from the URL.
+3. Within the Webex Client, press Control+Shift+K (Windows) or Command+Shift+K (macOS), which will automatically copy the space information to your clipboard, which you
+   can paste to a notepad, and will contain your space ID.
 
 {% important %}
 You must add the bot email (in the format `mybot@webex.bot`) as a participant to the room specified above.
@@ -47,7 +49,7 @@ notify:
 
 ## Rich Text Formatting
 
-Webex Teams clients can render rich text via a whitelisted set of html tags.
+Webex clients can render rich text via a whitelisted set of html tags.
 
 For example, you could configure automations to display details in an easy to read fashion like so:
 
@@ -67,7 +69,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_failed
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       message: "<blockquote class=danger>Build 0.89.5 compile failed."
 
@@ -80,7 +82,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_unstable
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>Build 0.89.6 is unstable.</strong>"
       message: "<blockquote class=warning>Version 0.89.6 failed verifications.
@@ -103,7 +105,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_passed
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"
       message: "<blockquote class=info>Version 0.89.7 passed all verifications.
@@ -140,7 +142,7 @@ The following is a list of the allowed html tags and attributes:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
