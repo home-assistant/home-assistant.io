@@ -142,7 +142,7 @@ automation:
 ## Actions
 
 Some calendar {% term integrations %} allow Home Assistant to manage your calendars
-directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/service-calls/).
+directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/perform-actions/).
 
 ### Action `calendar.create_event`
 
@@ -193,7 +193,7 @@ data:
 
 ### Action `calendar.get_events`
 
-This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with calendar events within a date range. It can return events from multiple calendars.
 
 | Data attribute | Optional | Description | Example |

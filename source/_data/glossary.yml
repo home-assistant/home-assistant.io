@@ -489,7 +489,7 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/service-calls/
+  link: /docs/scripts/perform-actions/
   aliases:
     - services
 - term: State

@@ -82,7 +82,7 @@ You can use an OpenAI Conversation integration to [talk to Super Mario and, if d
 ### Action `openai_conversation.generate_image`
 
 Allows you to ask OpenAI to generate an image based on a prompt. This action
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with the requested image.
 
 | Data attribute | Optional | Description                                            | Example          |
