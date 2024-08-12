@@ -10,6 +10,7 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Push
 ha_platforms:
+  - diagnostics
   - notify
   - sensor
 ha_integration_type: service
