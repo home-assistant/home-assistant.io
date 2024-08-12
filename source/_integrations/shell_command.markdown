@@ -54,7 +54,7 @@ A `0` exit code means the commands completed successfully without error. In case
 
 ## Response
 
-Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 ## Examples
 
