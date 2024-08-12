@@ -39,10 +39,20 @@ ha_integration_type: helper
 
 The group integration lets you combine multiple entities into a single entity. Entities that are members of a group can be controlled and monitored as a whole.
 
-This can be useful for cases where you want to control, for example, the
-multiple bulbs in a light fixture as a single light in Home Assistant.
+This can be useful, for example, in cases where you want to control multiple bulbs in a light fixture as a single light in Home Assistant. You also have the option of hiding the individual member entities in a group.
 
-Home Assistant can group multiple binary sensors, covers, events, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
+The following entities can be grouped:
+
+- [binary sensor (binary sensors)](/integrations/binary_sensor/)
+- [button (buttons)](/integrations/button/)
+- [cover (covers)](/integrations/cover/)
+- [fan (fans)](/integrations/fan/)
+- [switch (switches)](/integrations/switch/)
+- [lock (locks)](/integrations/lock/)
+- [light (lights)](/integrations/light/)
+- [event (events)](/integrations/event/)
+- [media player (media players)](/integrations/media_player/)
+- [notify (notifications)](/integrations/notify/)
 
 {% include integrations/config_flow.md %}
 
