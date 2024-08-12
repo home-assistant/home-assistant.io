@@ -1130,7 +1130,7 @@ payload: "{{ states('device_tracker.paulus') }}"
 
 ```yaml
 topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload_template: "{{ states('device_tracker.paulus') }}"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
