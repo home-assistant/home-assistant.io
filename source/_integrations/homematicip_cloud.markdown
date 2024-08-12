@@ -319,12 +319,12 @@ action:
     entity_id: switch.livingroom
 ```
 
-Enable the Cooling Mode for your home.
+Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode will revert to Heating.
 
 ```yaml
 ...
 action:
-  service: homematicip_cloud.set_cooling
+  service: homematicip_cloud.set_home_cooling_mode
   data:
     cooling: True
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
