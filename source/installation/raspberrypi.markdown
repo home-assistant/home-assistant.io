@@ -25,9 +25,9 @@ Remember to ensure you're using an [appropriate power supply](https://www.raspbe
 
 ## Install Home Assistant Operating System
 
-This guide shows how to install the Home Assistant Operating system onto your Raspberry Pi using Raspberry Pi Imager.
+This guide shows how to install the {% term "Home Assistant Operating System" %} onto your Raspberry Pi using Raspberry Pi Imager.
 
-If Raspberry Pi Imager is not supported by your platform, you can use Balena Etcher instead.
+If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool.
 
 ### Write the image to your SD card
 
@@ -72,6 +72,25 @@ If you are running an older Windows version or have a stricter network configura
     - To do this, connect a monitor via HDMI.
 
 Congratulations! You finished the Raspberry Pi setup!
+
+### Downloading the Home Assistant image
+
+If Raspberry Pi Imager is not supported by your platform, you can download the Home Assistant image and use another imaging tool, such as Balena Etcher.
+
+To download the image to your computer, copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
+
+{% tabbed_block %}
+{% for variant in site.installation.types[page.installation_type].variants %}
+
+- title: {{ variant.name }}
+  content: |
+
+    ```text
+    https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    ```    
+
+{% endfor %}
+{% endtabbed_block %}
 
 {% include installation_survey.html %}
 
