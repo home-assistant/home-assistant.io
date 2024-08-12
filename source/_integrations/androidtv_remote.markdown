@@ -334,7 +334,7 @@ cards:
       - type: button
         icon: mdi:arrow-left-bold
         tap_action:
-          action: perform_action
+          action: perform-action
           perform_action: remote.send_command
           data:
             command: DPAD_LEFT
