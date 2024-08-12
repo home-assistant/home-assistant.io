@@ -98,9 +98,9 @@ Click the about page of the connector app 5 times to get the key ([iOS app](http
 
 ## Favorite position
 
-A *Go to favorite position* button entity allows you to move the blind to its favorite position. In order for this entity to show up, you first need to set the favorite position of the blind in the mobile app, using a remote or using physicall buttons on the blind, refer to the manual of your specific blind for instructions.
+A **Go to favorite position** button entity allows you to move the blind to its favorite position. For this entity to show up, you first need to set the blind's favorite position in the mobile app, using a remote or physical buttons on the blind. Refer to the manual of your specific blind for instructions.
 
-The *Set current position as favorite* button entity allows you to change the favorite position. In order for this to work, the blind first needs to be put in programming mode by shortly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly) and you can then use the *Set current position as favorite* entity. After you are done, shortly press the reset button again to exit the programming mode.
+The **Set current position as favorite** button entity allows you to change the favorite position. For this to work, the blind first needs to be put in programming mode by shortly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly). You can then use the **Set current position as favorite** entity. After you are done, shortly press the reset button again to exit the programming mode.
 
 ## Top Down Bottom Up (TDBU) blinds
 
