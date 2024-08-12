@@ -28,7 +28,7 @@ You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWal
 
 {% details "Use a custom OAuth application" %}
 
-The integration has a build-in OAuth application that will be suitable for most users; however, you can [create your own application](https://developer.tesla.com/dashboard) for the Tesla Fleet API and configure it as an [application credential](https://my.home-assistant.io/redirect/application_credentials). When creating the application, you must set `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+The integration has a built-in OAuth application that will be suitable for most users. However, you can [create your own application](https://developer.tesla.com/dashboard) for the Tesla Fleet API and configure it as an [application credential](https://my.home-assistant.io/redirect/application_credentials). When creating the application, you must set `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
 
 You will be prompted to pick your custom application credential when creating a Tesla Fleet config entry.
 
