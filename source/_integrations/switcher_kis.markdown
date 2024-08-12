@@ -53,7 +53,7 @@ You will need two pieces of information:
 - **The username of your Switcher Account.** You can find the username by
   going into the Switcher app.
 - **Local control key token.** To find local control key token, browse to the
-  [Switcher GetKey API][token], enter your Switcher account username (which is email address), and press
+  [Switcher GetKey API][token], enter your Switcher account username (which is an email address), and press
   **Send Me The Code**.
 
   The token will be send to you by email.
