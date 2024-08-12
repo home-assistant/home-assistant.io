@@ -19,7 +19,15 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 {% include integrations/config_flow.md %}
 
-### Gmail with App Password
+### IMAP services with App Passwords
+
+### Microsoft 365 and Live IMAP services
+
+Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. You can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
+
+An OAUTH2 authentication flow is not supported for the IMAP integration. This means that unfortunately, it is not possible to use Home Assistant IMAP with Microsoft 365 IMAP services for school and business and the (free) personal Microsoft Live IMAP services.
+
+### Google Gmail IMAP service
 
 If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
@@ -54,17 +62,7 @@ By default, this integration will count unread emails. By configuring the search
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-
-- Server: `outlook.office365.com`
-- Port: `993`
-- Username: Your full email address
-- Password: Your password
-- Charset: `US-ASCII`
-
-{% important %}
-Yahoo also requires the character set `US-ASCII`.
-{% endimportant %}
+Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
 ### Selecting message data to include in the IMAP event (advanced mode)
 
