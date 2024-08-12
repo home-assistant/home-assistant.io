@@ -165,14 +165,13 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Checking wake word settings
 
-1. Make sure your assistant has [wake word enabled](/voice_control/about_wake_word/), using "OK Nabu".
+1. Make sure your assistant has [wake word enabled](/voice_control/install_wake_word_add_on/), using "OK Nabu".
 2. Under **Devices**, on the ESP32-S3-BOX* entry, select **Device** to open the device page.
 3. Check the device settings:
     - If you want, you can process the wake word on the ESP32-S3 device, rather than on your Home Assistant server.   (The server is the device where Home Assistant is installed, for example on Home Assistant Green):
     - Under **Wake word engine location**, select **On device**, if you want your wake word to be processed on the device itself, and not in Home Assistant.
       - Local processing is faster.
       - The wake word is now *Okay Nabu*.
-    - If **Display conversation** is enabled, the conversation is shown on the ESP32-S3-BOX* display.
 
       ![ESP32-S3-BOX-3 on device wake word processing](/images/assist/wake_word_engine_location.png)
 
@@ -194,7 +193,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 
 ## Turning off microphone or screen
 
-1. If you do not want to Assist to listen for a while, you can turn off the microphone.
+1. If you do not want to Assist to listen to you for a while, you can turn off the microphone.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
       - Under **ESP32-S3-BOX-3**, select **1 device**.
       - Enable **Mute**.
@@ -204,7 +203,7 @@ Before you can use this device with Home Assistant, you need to install a bit of
 2. If you want to just use the wake word, but do not want to use the screen, you can turn it off.
    - Go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **ESPHome** integration.
      - Under **ESP32-S3-BOX-3**, select **1 device**.
-     - Disable **LCD Backlight**.
+     - Disable **Screen**.
 
       ![Toggle to enable/disable wake word](/images/assist/s3-box-disable-screen.png)
 
