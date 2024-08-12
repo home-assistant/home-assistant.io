@@ -8,7 +8,6 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@pburgio'
-  - '@shapournemati-iotty'
 ha_domain: iotty
 ha_platforms:
   - switch
