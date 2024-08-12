@@ -1030,31 +1030,6 @@ Documentation on the MQTT components that support YAML [can be found here](/inte
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
 
-## MQTT Notifications
-
-The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is an action. This means you need to provide more details when calling the action.
-
-**Perform action** section from **Developer Tools** -> **Actions** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of available actions, and enter something like the sample below into the **data** field and select **Perform action**.
-
-```json
-{
-   "~":"homeassistant/switch/irrigation",
-   "name":"garden",
-   "cmd_t":"~/set",
-   "stat_t":"~/state"
-}
-```
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
-</p>
-
-The same will work for automations.
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
-</p>
-
 ### Examples
 
 #### REST API
