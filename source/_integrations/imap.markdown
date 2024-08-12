@@ -23,7 +23,7 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 ### Microsoft 365 and Live IMAP services
 
-Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. user can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
+Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. You can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
 
 An OAUTH2 authentication flow is not supported for the IMAP integration. This means that unfortunately, it is not possible to use Home Assistant IMAP with Microsoft 365 IMAP services for school and business and the (free) personal Microsoft Live IMAP services.
 
