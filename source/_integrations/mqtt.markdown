@@ -1110,11 +1110,7 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-
-{% important %}
-You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-{% endimportant %}
-
+### Publish action data examples
 
 ```yaml
 topic: homeassistant/light/1/command
@@ -1125,7 +1121,7 @@ payload: on
 
 ```yaml
 topic: homeassistant/light/1/state
-payload_template: "{{ states('device_tracker.paulus') }}"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
@@ -1133,27 +1129,24 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 {% raw %}
 
 ```yaml
-topic_template: "homeassistant/light/{{ states('sensor.light_active') }}/state"
+topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
 payload_template: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
 
-`payload` must be a string.
+Be aware that `payload` must be a string.
 If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
+
+{% raw %}
 
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
-When using Home Assistant's YAML editor for formatting JSON
-you should take special care if `payload` contains template content.
-Home Assistant will force you in to the YAML editor and will treat your
-definition as a template. Make sure you escape the template blocks as like
-in the example below. Home Assistant will convert the result to a string
-and will pass it to the MQTT publish action.
+{% endraw %}
 
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
