@@ -56,7 +56,7 @@ You will need two pieces of information:
   [Switcher GetKey API][token], enter your Switcher account username (which is an email address), and press
   **Send Me The Code**.
 
-  The token will be send to you by email.
+  The token will be sent to you by email.
   It will look something like this: zvVvd7JxtN7CgvkD1Psujw==
 
 [token]: https://switcher.co.il/GetKey/
