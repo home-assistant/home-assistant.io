@@ -34,8 +34,32 @@ Supported devices:
 - Switcher V4
 - Switcher Breeze
 - Switcher Runner
+- Switcher Runner S11
+
+Required a token devices:
+
+- Switcher Runner S11
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
+
+## Prerequisites
+
+For security reasons, some of the Switcher devices require a token to operate.
+
+To use your Switcher token-based devices with Home Assistant, 
+
+You will need two pieces of information:
+
+- **The username of your Switcher Account.** You can find the username by
+  going into the Switcher app.
+- **Local control key token.** To find local control key token, browse to the
+  [Switcher GetKey API][token], enter your Switcher account username (which is email address), and press
+  **Send Me The Code**.
+
+  The token will be send to you by email.
+  It will look something like this: zvVvd7JxtN7CgvkD1Psujw==
+
+[token]: https://switcher.co.il/GetKey/
 
 {% include integrations/config_flow.md %}
 
@@ -87,5 +111,5 @@ Note: This does not affect the auto off timer.
 
 ## Notes
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
+Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.
