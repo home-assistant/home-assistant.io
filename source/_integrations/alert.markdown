@@ -62,7 +62,11 @@ name:
   type: string
 entity_id:
   description: The ID of the entity to watch.
-  required: true
+  required: false
+  type: string
+device_class:
+  description: The device_class of entities to watch.
+  required: false
   type: string
 title:
   description: >
@@ -187,6 +191,27 @@ alert:
 This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
 raises above 15 or the alert is acknowledged on the frontend.
+
+### Using a device_class
+
+Using a device_class will monitor the state of all entities of the defined class.
+Monitor the state of all battery entities and alert when any low battery entity 
+turns on.
+
+{% raw %}
+
+```yaml
+
+alert:
+  low_battery:
+    name: Low Battery
+    device_class: battery
+    repeat: 30
+    notifiers:
+      - bens_phone
+```
+
+{% endraw %}
 
 ### Dynamic notification delay times
 
