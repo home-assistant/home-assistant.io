@@ -53,7 +53,7 @@ Fetch the connections for a specific instance.
 
 | Data attribute | Optional | Description                                              |
 |------------------------|----------|----------------------------------------------------------|
-| `config_entry_id`      | No       | The ID of the Swiss public transport config entry to get data from.|
+| `config_entry_id`      | No       | The ID of the Swiss public transport config entry to get data from. (ex. for yaml `config_entry_id: zurich_geneva` or in UI `Instance: zurich_geneva`)|
 | `limit`                | Yes      | The number of connections to fetch. (default: 3, range: [1,15])|
 
 ## Defining a custom polling interval
