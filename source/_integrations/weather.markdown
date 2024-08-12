@@ -70,7 +70,7 @@ wind_speed_unit: km/h
 
 ## Action `weather.get_forecasts`
 
-This action populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of weather services and their associated forecasts.
 
 | Data attribute | Optional | Description | Example |
