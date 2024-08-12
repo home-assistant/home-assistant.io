@@ -46,7 +46,7 @@ If you completed the integration setup but are still unable to control the devic
 
 For security reasons, some of the Switcher devices require a token to operate.
 
-To use your Switcher token-based devices with Home Assistant, 
+To use your Switcher token-based devices with Home Assistant,
 
 You will need two pieces of information:
 
