@@ -47,7 +47,7 @@ The qBittorrent integration adds the following switch:
 
 ### Action `qbittorrent.get_torrents`
 
-This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                    | Example                                             |
@@ -66,7 +66,7 @@ The response data contains the field `torrents` which contains a dictionary of t
 
 ### Action `qbittorrent.get_all_torrents`
 
-This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a dictionary of torrents based on the provided filter.
 
 | Data attribute | Optional | Description                                   | Example                                             |

@@ -138,7 +138,7 @@ unique_id:
   required: false
   type: string
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 sensor:
@@ -786,7 +786,7 @@ template:
 
 ### Trigger based handling of action response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
 and use the response in a template.
 
 {% raw %}

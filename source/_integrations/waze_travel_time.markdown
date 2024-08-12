@@ -27,7 +27,7 @@ Notes:
 
 ## Action `waze_travel_time.get_travel_times`
 
-This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This service populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with route alternatives and travel times between two locations.
 
 | Data attribute | Optional | Description | Example |
