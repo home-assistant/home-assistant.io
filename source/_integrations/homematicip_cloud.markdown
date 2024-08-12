@@ -324,7 +324,7 @@ Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode wil
 ```yaml
 ...
 action:
-  service: homematicip_cloud.set_home_cooling_mode
+  action: homematicip_cloud.set_home_cooling_mode
   data:
     cooling: True
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
