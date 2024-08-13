@@ -23,6 +23,7 @@ Connecting to the Russound device is only possible by TCP, you can make use of a
 ## Supported devices
 
 This integration allows you to connect the following controllers:
+
 - Russound ACA-E5
 - Russound CAS44
 - Russound CAA66

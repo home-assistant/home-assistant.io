@@ -21,6 +21,7 @@ The platform automatically discovers all enabled zones and sources. Each zone is
 ## Supported devices
 
 This integration allows you to connect the following controllers:
+
 - Russound MBX-PRE
 - Russound MBX-AMP
 - Russound MCA-C3
