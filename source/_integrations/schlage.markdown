@@ -42,6 +42,7 @@ Once you have enabled the Schlage integration, you should see the following bina
 Once you have enabled the Schlage integration, you should see the following sensors:
 
 - Lock Battery
+- Auto Lock Time
 
 ## Switch
 
