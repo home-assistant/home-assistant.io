@@ -3,6 +3,26 @@ div.details-block {
   display: block;
   margin: 0 0 1.5em 0;
 
+  summary {
+    .up {
+      display: none;
+    }
+
+    .down {
+      display: block;
+    }
+  }
+
+  &[open] summary {
+    .up {
+      display: block;
+    }
+
+    .down {
+      display: none;
+    }
+  }
+
   .details-block-item {
     background-color: #f8f8f8;
     padding: 4px 24px;
