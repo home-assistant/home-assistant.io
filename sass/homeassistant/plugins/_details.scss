@@ -3,32 +3,22 @@ div.details-block {
   display: block;
   margin: 0 0 1.5em 0;
 
-  summary {
-    .up {
-      display: none;
-    }
-
-    .down {
-      display: block;
-    }
-  }
-
-  &[open] summary {
-    .up {
-      display: block;
-    }
-
-    .down {
-      display: none;
-    }
-  }
-
   .details-block-item {
     background-color: #f8f8f8;
     padding: 4px 24px;
     margin: 8px 0;
     border: 1px solid rgba(0, 0, 0, .12);
     border-radius: 16px;
+
+    &[open] .details-block-title {
+      .up {
+        display: block;
+      }
+
+      .down {
+        display: none;
+      }
+    }
 
     .details-block-title {
       font-weight: bold;
@@ -43,6 +33,14 @@ div.details-block {
       border: 0px;
       width: 100%;
       padding: 0;
+
+      .up {
+        display: none;
+      }
+
+      .down {
+        display: block;
+      }
     }
     .details-block-content {
       margin: 4px 0 12px 0;
