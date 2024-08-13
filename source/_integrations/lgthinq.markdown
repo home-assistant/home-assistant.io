@@ -18,20 +18,13 @@ ha_integration_type: integration
 
 The LG ThinQ integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
-- **Appliances**
-   - Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
-   - This feature works via LG ThinQ cloud; therefore, an internet connection is required.
-- **webOS TVs and Soundbars**
-   - Control LG webOS TVs and LG Soundbars as Home Assistant entities.
-   - This feature works on your local network; therefore, no Internet connection is required.
+- Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
+- This feature works via LG ThinQ cloud; therefore, an internet connection is required.
 
 
 ## Prerequisites
 
-- **Appliances**
-    - An internet connection and a [personal access token](https://connect-pat.lgthinq.com) are required to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
-- **webOS TVs and Soundbars**
-    - If [Service Discovery Protocol (SSDP)](https://www.home-assistant.io/integrations/ssdp/) is not available, you must manually enter the device's local IP address.
+- An internet connection and a [personal access token](https://connect-pat.lgthinq.com) are required to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
 
 
 ### Personal Access Token (PAT)
@@ -60,26 +53,10 @@ To set up the integration, please follow these steps:
 
 {% include integrations/config_flow.md %}
 
-1.	Select one of the three options: **Appliance**, **webOS TV**, or **Soundbar**.
-2. Follow these steps for **Appliance**:
-   1. Enter the information to use LG ThinQ Connect API:
-      - The **Token Value** obtained through the PAT issuance process. (Required)
-      - The entry name.
-   2. Choose the region (country).
-3. Follow these steps for  **webOS TV**:
-   1.	Run the **webOS TV** Search process.
-   2. Enter the information to connect to the webOS TV:
-      - The IP address of your webOS TV. If your search was successful, it will be filled in automatically. Otherwise, you will need to enter the address manually. (Required)
-      - The device name.
-   3. Run the **Connect to webOS TV** process.
-   4. Accept the pairing request on your webOS TV.
-4. Follow these steps for **Soundbar**:
-   1. Run the **Soundbar Search** process.
-   2. Enter the information to connect to the soundbar:
-      - The IP address of your soundbar. If your search was successful, it will be filled in automatically. Otherwise, you will need to enter the address manually. (Required)
-      - The device name.
-
-{% note %} You can't set all three features at the same time. Additional settings are required for each option as needed.{% endnote %}
+1. Enter the information to use LG ThinQ Connect API:
+   - The **Token Value** obtained through the PAT issuance process. (Required)
+   - The entry name.
+2. Choose the region (country).
 
 
 ## Delete
@@ -129,18 +106,10 @@ Support LG Appliances as follows:
 - [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/)
 - [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/)
 
-### webOS TV
-
-Support LG webOS TV
-
-### Soundbar
-
-Support LG Soundbar with Wi-Fi support
-
 
 ## Troubleshooting
 
-### Setup: Appliance
+### Setup
 
 #### Aborted: The token is not valid.
 
@@ -154,17 +123,6 @@ Check your PAT's valid country in the "Choose the region / Country" section.
 
 This error occurs when there's an abnormal number of API calls made using the PAT.
 
-### Setup: webOS TV
-
-#### Troubleshooting Wi-fi Checklist
-
-The webOS TV must be connected to the same local network as Home Assistant.
-
-### Setup: Soundbar
-
-#### Troubleshooting Wi-fi Checklist
-
-The Soundbar must be connected to the same local network as Home Assistant.
 
 ## Debugging
 
