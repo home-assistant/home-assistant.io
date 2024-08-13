@@ -436,7 +436,7 @@ mqtt:
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}
+      value_template: "{{ value_json.temperature }}"
     - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"

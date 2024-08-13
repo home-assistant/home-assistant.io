@@ -30,6 +30,11 @@ Badges are widgets that sit at the top of a panel, above all the cards.
 8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-conditionally).
 9. Select **Save**.
 
+<p class="img">
+  <img src="/images/dashboards/adding_a_badge_to_a_dashboard.webp" alt="screencast showing how to add a badge to a dashboard">
+  Adding a badge to a dashboard.
+</p>
+
 ## Entity badge
 
 The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).

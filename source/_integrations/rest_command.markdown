@@ -95,7 +95,7 @@ rest_command:
 
 ### Using REST command Response in automations
 
-REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+REST commands provide an action response in a dictionary containing `status` (containing the HTTP response code) and `content` containing the response body as text or JSON. This response can be accessed in automations using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 The following example shows how the REST command response may be used in automations. In this case, checking the [Traefik API](https://doc.traefik.io/traefik/operations/api/) for errors.
 
