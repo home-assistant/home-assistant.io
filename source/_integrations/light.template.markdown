@@ -23,7 +23,7 @@ ability to run scripts or invoke actions for each of the on, off, and
 brightness commands of a light.
 
 To enable Template Lights in your installation, add the following to your
-`configuration.yaml` file:
+{% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

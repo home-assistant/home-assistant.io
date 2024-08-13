@@ -104,7 +104,7 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-Full example:
+Full example of an entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
