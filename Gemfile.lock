@@ -142,7 +142,7 @@ GEM
       rack-protection (= 4.0.0)
       rack-session (>= 2.0.0, < 3)
       tilt (~> 2.0)
-    sorbet-runtime (0.5.11518)
+    sorbet-runtime (0.5.11519)
     stringex (2.8.6)
     strscan (3.1.0)
     terminal-table (3.0.2)
