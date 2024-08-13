@@ -19,7 +19,7 @@ templates.
 The preferred way to configure input datetime is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_datetime" title="Date and/or time" %}** option.
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
-If you removed `default_config:` from your configuration, you must add `input_datetime:` to your `configuration.yaml` first, then you can use the UI.
+If you removed `default_config:` from your configuration, you must add `input_datetime:` to your {% term "`configuration.yaml`" %} first, then you can use the UI.
 
 `input_datetime` can also be configured via YAML. To add three datetime inputs to your installation,
 one with both date and time, and one with date or time each,
@@ -96,11 +96,11 @@ Available actions: `input_datetime.set_datetime` and `input_datetime.reload`.
 #### input_datetime.set_datetime
 
 | Data attribute | Format String       | Description                                                                      |
-| ---------------------- | ------------------- | -------------------------------------------------------------------------------- |
-| `date`                 | `%Y-%m-%d`          | This can be used to dynamically set the date.                                    |
-| `time`                 | `%H:%M:%S`          | This can be used to dynamically set the time.                                    |
-| `datetime`             | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.                        |
-| `timestamp`            | N/A                 | This can be used to dynamically set both the date & time using a UNIX timestamp. |
+| -------------- | ------------------- | -------------------------------------------------------------------------------- |
+| `date`         | `%Y-%m-%d`          | This can be used to dynamically set the date.                                    |
+| `time`         | `%H:%M:%S`          | This can be used to dynamically set the time.                                    |
+| `datetime`     | `%Y-%m-%d %H:%M:%S` | This can be used to dynamically set both the date & time.                        |
+| `timestamp`    | N/A                 | This can be used to dynamically set both the date & time using a UNIX timestamp. |
 
 To set both the date and time in the same call, use `date` and `time` together, or use `datetime` or `timestamp` by itself. Using `datetime` or `timestamp` has the advantage that both can be set using one template.
 
