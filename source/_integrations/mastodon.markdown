@@ -10,7 +10,9 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Push
 ha_platforms:
+  - diagnostics
   - notify
+  - sensor
 ha_integration_type: service
 ha_config_flow: true
 ---
@@ -23,6 +25,10 @@ Go to **Preferences** in the Mastodon web interface, then to **Development** and
 If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The integration will create sensors for the Mastodon account showing total followers, following, and posts.
 
 ## Notifications
 
