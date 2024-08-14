@@ -71,6 +71,13 @@ port:
   required: false
   type: integer
   default: 80
+channel:
+  description: >
+    The camera's stream channel to use. For NVRs, this correlates to the camera number in the UI, and may be required to
+    get a connection to a stream or sensor.
+  required: false
+  type: integer
+  default: 0
 resolution:
   description: >
     This parameter allows you to specify the camera resolution.
