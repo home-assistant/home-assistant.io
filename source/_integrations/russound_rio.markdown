@@ -5,7 +5,8 @@ ha_category:
   - Media player
 ha_release: 0.49
 ha_iot_class: Local Push
-ha_domain: russound_rio
+ha_domain: russound_rio 
+ha_quality_scale: silver
 ha_platforms:
   - media_player
 ha_codeowners:
