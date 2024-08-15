@@ -1110,11 +1110,12 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
 | `payload`              | no       | Payload to publish.                                          |
+| `evaluate_bytes`       | yes      | If a `bytes` literal in `payload` should be evaluated as raw data (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
 {% note %}
-When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` object, the outgoing MQTT payload will be sent as `raw` data, instead of an encoded string.
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_bytes` option flag is set to `true`.
 {% endnote %}
 
 {% important %}
