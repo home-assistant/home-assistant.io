@@ -1300,7 +1300,7 @@ Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used
 
 **Example command template with raw data:**
 
-When a command template renders to a valid `bytes` literal, then MQTT will publish this data as raw data. In other cases a string representation will be published. So:
+When a command template renders to a valid `bytes` literal, then MQTT will publish this data as raw data. In other cases, a string representation will be published. So:
 
 - Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
 - Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
