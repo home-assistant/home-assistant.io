@@ -1113,6 +1113,9 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
+{% note %}
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` object, the outgoing MQTT payload will be sent as `raw` data, instead of an encoded string.
+{% endnote %}
 
 {% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.

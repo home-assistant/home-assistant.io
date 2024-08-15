@@ -1284,7 +1284,7 @@ For actions, command templates are defined to format the outgoing MQTT payload t
 
 {% note %}
 
-Example command template:
+**Example command template with JSON data:**
 
 With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endraw %} renders to:
 
@@ -1297,6 +1297,14 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% endnote %}
+
+**Example command template with raw data:**
+
+When a command template renders to a raw `bytes` object, then MQTT will publish this data as raw not encoded data. Other objects, like numbers and data and time objects will be rendered to as string representation.
+
+Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
+Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
+Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
 
 ## Some more things to keep in mind
 
