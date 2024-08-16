@@ -20,7 +20,7 @@ You can check [this link](https://www.fujitsu-general.com/global/support/faq/air
 
 ## Prerequisite
 
-You need to first setup your device in the FGLair app before you can use this integration.
-In order to configure this integration you will need the credentials (login and password) that you used to connect to the FGLair application.
+First, set up your device in the FGLair app before using this integration.
+To configure this integration, you will need the credentials (login and password) used to connect to the FGLair application.
 
 {% include integrations/config_flow.md %}
