@@ -472,7 +472,7 @@ These groups can still be in templates with the `expand()` directive, called usi
 
 ### Attributes
 
-These are the attributes available for an old-style group. Note that these attributes will _remain_ even when the group itself becomes `unavailable`, which is behavior that is different from the new-style groups.
+These are the attributes available for an old-style group. Note that these attributes will *remain* even when the group itself becomes `unavailable`, which is behavior that is different from the new-style groups.
 
 | Attribute                            | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
