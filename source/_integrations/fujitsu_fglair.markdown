@@ -1,10 +1,10 @@
 ---
-title: Fujitsu HVAC (based on Ayla IOT platform)
-description: Control your Fujitsu heat pump based on Ayla IoT platform (if you're using the FGLair app, this is for you)
+title: Fujitsu FGLair
+description: Control your Fujitsu heat pump or air conditioner that uses the FGLair app
 ha_category:
   - Climate
-ha_release: 2024.2.8
-ha_domain: fujitsu_hvac
+ha_release: 2024.9.2
+ha_domain: fujitsu_fglair
 ha_integration_type: integration
 ha_codeowners:
   - '@crevetor'
@@ -12,9 +12,10 @@ ha_config_flow: true
 ha_platforms:
   - climate
 ha_iot_class: "Cloud Polling"
+ha_quality_scale: gold
 ---
 
-The {{ page.title }} {% term integration %} provides support for Fujitsu heat pumps that use the Ayla IoT platform (if you are using the FGLair mobile application to control your heat pump, this integration is for you).
+The {{ page.title }} {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.
 You can check [this link](https://www.fujitsu-general.com/global/support/faq/airstage-mobile/0127.html) to know which app to use for your heat pump.
 
 ## Prerequisite
