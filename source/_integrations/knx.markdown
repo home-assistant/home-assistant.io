@@ -213,12 +213,12 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.dpt_sub` Destination group address sub datapoint type number
 - `trigger.dpt_name` DPT value type name - see Sensor value types
 - `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
-- `telegram.source` Source individual address
-- `telegram.source_name` Source name
-- `telegram.telegramtype` APCI type of telegram
-- `telegram.timestamp` Timestamp
-- `telegram.unit` Unit according to group address DPT
-- `telegram.value` Decoded telegram payload according to DPT
+- `trigger.source` Source individual address
+- `trigger.source_name` Source name
+- `trigger.telegramtype` APCI type of telegram
+- `trigger.timestamp` Timestamp
+- `trigger.unit` Unit according to group address DPT
+- `trigger.value` Decoded telegram payload according to DPT
 
 | Template variable          | Type                        | Project data required |
 |----------------------------|-----------------------------|-----------------------|
@@ -229,12 +229,12 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.dpt_sub`          | integer                     | yes                   |
 | `trigger.dpt_name`         | string                      | yes                   |
 | `trigger.payload`          | integer or list of integers | no                    |
-| `telegram.source`          | string                      | no                    |
-| `telegram.source_name`     | string                      | yes                   |
-| `telegram.telegramtype`    | string                      | no                    |
-| `telegram.timestamp`       | timestamp                   | no                    |
-| `telegram.unit`            | string                      | yes                   |
-| `telegram.value`           | any                         | yes                   |
+| `trigger.source`           | string                      | no                    |
+| `trigger.source_name`      | string                      | yes                   |
+| `trigger.telegramtype`     | string                      | no                    |
+| `trigger.timestamp`        | timestamp                   | no                    |
+| `trigger.unit`             | string                      | yes                   |
+| `trigger.value`            | any                         | yes                   |
 
 For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
 
@@ -250,7 +250,7 @@ Example automation configuration
     destination: 1/2/3
     group_value_read: false
     outgoing: false
-  condition: []
+  condition: "{{ trigger.value == 0 }}"
   action: []
   mode: single
 ```
