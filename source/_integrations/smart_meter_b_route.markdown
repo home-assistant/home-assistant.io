@@ -37,8 +37,8 @@ The Wi-SUN USB dongle has a typical signal reach of approximately 50 meters indo
 2. **Provide Necessary Information**: You may need to provide your smart meter ID, customer ID, or other identifying information.
 3. **Receive Credentials**: Your utility company will provide you with a user ID and password for accessing the B Route data.
 
-Even if you have a contract with a new power provider, you can use this service. For example, if you have a contract with a new power provider and live in Tokyo, you will need to apply to TEPCO. 
-Ensure that your power supply is not a bulk power supply for an apartment building. 
+Even if you have a contract with a new power provider, you can use this service. For example, if you have a contract with a new power provider and live in Tokyo, you will need to apply to TEPCO.
+Ensure that your power supply is not a bulk power supply for an apartment building.
 
 Refer to the links below to apply for your B Route credentials:
 
