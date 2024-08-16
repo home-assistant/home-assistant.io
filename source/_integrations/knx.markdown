@@ -242,6 +242,8 @@ For values that require project data: if the information was not found, or if no
 
 Example automation configuration
 
+{% raw %}
+
 ```yaml
 - alias: Single group address trigger
   description: ''
@@ -254,6 +256,8 @@ Example automation configuration
   action: []
   mode: single
 ```
+
+{% endraw %}
 
 Example trigger data
 
