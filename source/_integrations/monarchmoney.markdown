@@ -23,7 +23,7 @@ ha_integration_type: service
 
 ## Setup Guide
 
-This integration supporst both `username` and `password` login as well as accounts configured with `MFA`.
+This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
 
 ### Accounts & Devices
 
