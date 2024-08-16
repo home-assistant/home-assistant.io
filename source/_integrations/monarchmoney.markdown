@@ -19,8 +19,6 @@ ha_integration_type: service
 
 {% include integrations/config_flow.md %}
 
-
-
 ## Setup Guide
 
 This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
