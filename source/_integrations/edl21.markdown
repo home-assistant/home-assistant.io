@@ -44,7 +44,7 @@ For the efr SGM-C4 it is:
 - entering pin using quicker flashes, wait for 3 seconds for next digit
 - pin accepted
 - flashing 7 times to get to InF=OFF
-- 5-second flash to switch to InF=OFF
+- 5-second flash to switch to InF=ON
 
 You will now get more readings like current Power, Voltage, and phase angle. Some meters don´t have this, in that case only an overall reading is provided.
 

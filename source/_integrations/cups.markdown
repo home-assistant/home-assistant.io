@@ -11,6 +11,9 @@ ha_domain: cups
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `cups` sensor platform uses the open source printing system [CUPS](https://www.cups.org/) to show details about your printers, including the ink levels. It can obtain the information using a CUPS server or by communicating directly with the printer with the Internet Printing Protocol.
@@ -27,7 +30,8 @@ To set up the sensor the "Queue Name" of the printer is needed. The fastest way 
 
 ## Configuration
 
-To enable the CUPS sensor, add the following lines to your `configuration.yaml`:
+To enable the CUPS sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -70,12 +70,10 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 ## A beautiful new login page
 
-<div class='note'>
-
+{% note %}
 This feature has been disabled in Home Assistant 2023.12.3.  
 [Read more about it here](/blog/2023/12/14/disabling-new-login-page-functionality/).
-
-</div>
+{% endnote %}
 
 
 The login page of Home Assistant has been redesigned to be more modern and

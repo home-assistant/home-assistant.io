@@ -9,11 +9,15 @@ ha_domain: telnet
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `telnet` switch platform allows you to control devices with telnet commands.
+The `telnet` switch {% term integration %} allows you to control devices with telnet commands.
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% raw %}
 

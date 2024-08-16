@@ -28,7 +28,7 @@ You must have a developer account to distribute the data. [Create a free develop
 Create an application:
 1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
 2. Create an application
-3. Application creation: Public creation.
+3. Application creation: Public API integration
   - Read and accept the terms if you're happy by pressing **Next**
 4. Information:
   - Target environment: *Development*
@@ -56,6 +56,8 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
     - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
+
+Note: You will only need one developer account; the same account and credentials are used for each Withings configuration.
 
 {% include integrations/config_flow.md %}
 

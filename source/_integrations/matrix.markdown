@@ -12,15 +12,21 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@PaarthShah'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This integration allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
+This {% term integration %} allows you to send messages to matrix rooms, as well as to react to messages in matrix rooms. Reacting to commands is accomplished by firing an event when one of the configured commands is triggered.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Notifications](#notifications)
 
 ## Configuration
+
+To enable the Matrix {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,11 +89,9 @@ commands:
       default: empty
 {% endconfiguration %}
 
-<div class="note">
-
+{% warning %}
 In order to prevent infinite loops when reacting to commands, you have to use a separate account for the Matrix integration.
-
-</div>
+{% endwarning %}
 
 ### Event data
 
@@ -131,7 +135,7 @@ automation:
       event_data:
         command: testword
     action:
-      service: notify.matrix_notify
+      action: notify.matrix_notify
       data:
         message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
@@ -141,7 +145,7 @@ automation:
       event_data:
         command: introduction
     action:
-      service: notify.matrix_notify
+      action: notify.matrix_notify
       data:
         message: "Hello {{trigger.event.data.args['name']}}"
 ```
@@ -157,7 +161,7 @@ This configuration will:
 
 The `matrix` platform allows you to deliver notifications from Home Assistant to a [Matrix](https://matrix.org/) room. Rooms can be both direct as well as group chats.
 
-To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your `configuration.yaml` file:
+To enable Matrix notifications in your installation, you first need to configure the [Matrix integration](#configuration). Then, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -169,7 +173,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -193,7 +197,7 @@ Supported formats are: `text` (default), and `html`.
 ```yaml
 # Example of notification as HTML
 action:
-  service: notify.matrix_notify
+  action: notify.matrix_notify
   data:
     message: >-
       <h1>Hello, world!</h1>
@@ -208,7 +212,7 @@ It is possible to send images with notifications. To do so, add a list of paths 
 ```yaml
 # Example of notification with images
 action:
-  service: notify.matrix_notify
+  action: notify.matrix_notify
   data:
     message: "Test with images"
     data:
@@ -216,9 +220,8 @@ action:
         - /path/to/picture.jpg
 ```
 
-<div class='note'>
-
-If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/docs/configuration/basic/).
+{% important %}
+If you need to include a file from an external folder in your notifications, you will have to [list the source folder as allowed](/integrations/homeassistant/#allowlist_external_dirs).
 
 ```yaml
 configuration.yaml
@@ -227,5 +230,4 @@ homeassistant:
   allowlist_external_dirs:
     - /tmp
 ```
-
-</div>
+{% endimportant %}

@@ -9,6 +9,7 @@ ha_domain: flexit_bacnet
 ha_platforms:
   - binary_sensor
   - climate
+  - number
   - sensor
   - switch
 ha_integration_type: device
@@ -63,6 +64,16 @@ The integration adds entities for sensors with different readings from the devic
 
 The integration adds an entity for a binary sensor called _Air filter polluted_ which tells if it's time to change the filters in the unit.
 
+### Number
+
+The integration adds entities for setting setpoints for the fan in the respective mode:
+
+ - Away
+ - Home
+ - Fireplace
+ - High
+ - Cooker hood
+
 ### Switch
 
 The integration adds an entity for a switch called _Electric heater_ that controls the heating element in the unit.
@@ -75,6 +86,6 @@ The consequences of shutting down the unit can be costly and extensive. For exam
 
 If you need to shut down the unit, make sure to take all necessary precautions, such as securing the system with frost protection dampers.
 
-Furthermore, Flexit recommends to unplug the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from a service call in Home Assistant) before unplugging the device.
+Furthermore, Flexit recommends unplugging the unit from the power socket before replacing a filter. To prevent damage, always initiate a controlled shutdown from the control panel (or, in the future, from an action in Home Assistant) before unplugging the device.
 
 {% include integrations/config_flow.md %}

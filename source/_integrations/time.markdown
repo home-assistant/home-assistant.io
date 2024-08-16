@@ -17,17 +17,17 @@ The Time integration is built for the controlling and monitoring of times on dev
 
 If you are looking for a way to create a similar entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Services
+## Actions
 
-### time services
+### Time actions
 
-Available services: `time.set_value`
+Available actions: `time.set_value`
 
-### Service `time.set_value`
+### Action `time.set_value`
 
 Set a new value for the time entity.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`'s of times to control.
 | `time` | no | New time value to set.

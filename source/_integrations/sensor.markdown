@@ -9,6 +9,11 @@ ha_domain: sensor
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Sensors are a basic integration in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all _things_ reporting different types of information.
@@ -17,7 +22,16 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 
 ## Device class
 
-The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for sensors:
+
+<p class='img'>
+<img src='/images/screenshots/sensor_device_classes_icons.png' />
+Example of various device class icons for sensors.
+</p>
+
+The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
@@ -70,9 +84,4 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
-- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
-
-<p class='img'>
-<img src='/images/screenshots/sensor_device_classes_icons.png' />
-Example of various device class icons for sensors.
-</p>
+- **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph

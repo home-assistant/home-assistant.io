@@ -34,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
+- [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -52,7 +53,7 @@ The UniFi Network application allows you to create multiple users on it besides 
 
 ### UniFi OS
 
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443.
+For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. For some self hosted servers the port will be 8443.
 
 ### Conflicts with MQTT
 
@@ -72,6 +73,9 @@ Use the **Power cycle PoE** button entity to power cycle one specific PoE port t
 
 Use the **Restart UniFi device** button entity to restart the entire UniFi device. In case the device is a PoE switch, the PoE supply is not affected.
 
+### WLAN regenerate password
+Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). Use the **WLAN regenerate password** button entity to generate and apply a new password to the specified WLAN (Wireless Local Area Network). **It will be randomly generated with 20 characters, consisting of lowercase letters, uppercase letters, and digits.**
+
 ## Image
 
 Provides QR Code images that can be scanned to easily join a specific WLAN. Entities are disabled by default. This feature requires admin privileges.
@@ -90,17 +94,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Services
+## Actions
 
-### Service unifi.reconnect_client
+### Action unifi.reconnect_client
 
 Try to get a wireless client to reconnect to the network.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Service unifi.remove_clients
+### Action unifi.remove_clients
 
 Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
@@ -152,9 +156,33 @@ Get entities reporting the general temperature of a UniFi Network device.
 
 Get entities reporting the current state of a UniFi Network device.
 
+### Device CPU
+
+Get entities reporting the current CPU utilization of a UniFi Network device.
+
+### Device memory
+
+Get entities reporting the current memory utilization of a UniFi Network device.
+
+### Port Bandwidth sensor
+
+Get entities reporting receiving and transmitting bandwidth per port. These sensors are disabled by default. To enable the bandwidth sensors, on the UniFi integration page, select **Configure**, go to page 3/3 and enable the bandwidth sensors.
+
 ## Firmware updates
 
 This will show if there are firmware updates available for the UniFi network devices connected to the controller. If the configured user has admin privileges, the firmware upgrades can also be installed directly from Home Assistant.
+
+
+## Removing a device in Home Assistant
+
+Integration populates both UniFi devices as well as network clients into Home Assistant. In certain edge cases entities are left lingering even if they are not present in UniFi network anymore. This can lead to an accumulation of entries in the device registry.
+
+To manually remove a device entry, go to the Device Info page and select "Delete" from the Device Info menu.
+
+Only clients/devices which are no longer known by UniFi since the startup or reload of the UniFi integration can be removed.
+
+![4d4ca937-17bb-4902-9949-2ea83e3c2c0c](https://github.com/home-assistant/home-assistant.io/assets/21991867/c926f5c7-18af-47b5-b888-30cc8511d76a)
+
 
 ## Debugging integration
 

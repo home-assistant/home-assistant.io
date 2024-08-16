@@ -1,13 +1,18 @@
 ---
 type: card
-title: "Energy Cards"
-sidebar_label: Energy Cards
+title: "Energy cards"
+sidebar_label: Energy cards
 description: "An overview of the energy cards that are available."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-This is a list of all the cards used in the energy dashboard, you can also place them anywhere you want in your dashboard.
+This is a list of all the cards used in the energy dashboard. You can also place them anywhere you want in your dashboard.
 
-At the moment there are no configuration options available for these cards, you can configure them on the {% my config_energy title="energy configuration page" %}.
+Currently, there are no configuration options available for these cards. You can configure them on the {% my config_energy title="energy configuration page" %}.
 
 ## Energy date picker
 
@@ -16,10 +21,11 @@ At the moment there are no configuration options available for these cards, you 
   Screenshot of the Energy date selection card.
 </p>
 
-This card will allow you to pick what data to show. Changing it in this card will influence the data in all other cards.
+This card allows you to pick what data to show. Changing it in this card will influence the data in all other cards.
 Specific dates and ranges can be selected by opening the date range picker. The current period can be compared to the previous one using the compare data option within the menu.
 
 ### Example
+
 ```yaml
 type: energy-date-selection
 ```
@@ -35,6 +41,7 @@ The energy usage graph card shows the amount of energy your house has consumed, 
 It will also show the amount of energy your have returned to the grid.
 
 ### Example
+
 ```yaml
 type: energy-usage-graph
 ```
@@ -49,6 +56,7 @@ type: energy-usage-graph
 The solar production graph card shows the amount of energy your solar panels have produced per source, and if setup and available the forecast of the solar production.
 
 ### Example
+
 ```yaml
 type: energy-solar-graph
 ```
@@ -97,6 +105,7 @@ If setup, it will also tell you how many kWh of the energy you got from the grid
 If you set `link_dashboard` to `true`, the card will include a link to the energy dashboard.
 
 ### Example
+
 ```yaml
 type: energy-distribution
 link_dashboard: true
@@ -113,6 +122,7 @@ The energy sources table card shows all your energy sources, and the correspondi
 If setup, it will also show the costs and compensation per source and the total.
 
 ### Example
+
 ```yaml
 type: energy-sources-table
 ```
@@ -127,6 +137,7 @@ type: energy-sources-table
 The grid neutrality gauge card represents your energy dependency. If the needle is in the purple, you returned more energy to the grid than you consumed from it. If it's in the blue, you consumed more energy from the grid than you returned.
 
 ### Example
+
 ```yaml
 type: energy-grid-neutrality-gauge
 ```
@@ -141,6 +152,7 @@ type: energy-grid-neutrality-gauge
 The solar consumed gauge represents how much of the solar energy was used by your home and was not returned to the grid. If you frequently return a lot, try to conserve this energy by installing a battery or buying an electric car to charge.
 
 ### Example
+
 ```yaml
 type: energy-solar-consumed-gauge
 ```
@@ -155,6 +167,7 @@ type: energy-solar-consumed-gauge
 The carbon consumed gauge card represents how much of the energy consumed by your home was generated using non-fossil fuels like solar, wind and nuclear. It includes the solar energy you generated your self.
 
 ### Example
+
 ```yaml
 type: energy-carbon-consumed-gauge
 ```
@@ -169,6 +182,7 @@ type: energy-carbon-consumed-gauge
 The self-sufficiency gauge represents how self-sufficient your home is. If you rely on grid imports, this value decreases. You can increase this value by adding more solar capacity or battery storage.
 
 ### Example
+
 ```yaml
 type: energy-self-sufficiency-gauge
 ```
@@ -194,5 +208,29 @@ The following example limits the number of shown devices to 5:
 
 ```yaml
 type: energy-devices-graph
+max_devices: 5
+```
+
+## Detail devices energy graph
+
+<p class='img'>
+  <img src='/images/dashboards/energy/devices-detail-graph.png' alt='Screenshot of the devices energy graph card'>
+  Screenshot of the detail devices energy graph card.
+</p>
+
+The **Detail devices energy graph** card is similar to the **Devices energy graph** card, but shows the individual usage on a time scale.
+
+By default, this card will show all your devices. Optionally, the number of devices can be limited by adding the `max_devices` option and specifying the maximum number of devices to show. If there are more devices available than shown, the devices with the highest energy usage are shown.
+
+### Examples
+
+```yaml
+type: energy-devices-detail-graph
+```
+
+The following example limits the number of shown devices to 5:
+
+```yaml
+type: energy-devices-detail-graph
 max_devices: 5
 ```

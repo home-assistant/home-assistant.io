@@ -45,6 +45,8 @@ If you have multiple devices of the same type, you need to get the BTLE MAC addr
 
 Please note, device names configured in the SwitchBot app are not transferred into Home Assistant.
 
+Some SwitchBot devices need to be configured within the app before being controlled by Home Assistant, such as calibrating the cover open/close limits or pairing two covers to move together.
+
 {% include integrations/config_flow.md %}
 
 ## Supported devices
@@ -54,14 +56,16 @@ Please note, device names configured in the SwitchBot app are not transferred in
 - [Contact Sensor (WoContact)](https://switch-bot.com/pages/switchbot-contact-sensor)
 - [Curtain (WoCurtain)](https://switch-bot.com/pages/switchbot-curtain) (version 1 & 2)
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
-- [Humidifier (WoHumi)](https://eu.switch-bot.com/products/switchbot-smart-humidifier)
+- Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter)/[Meter Plus 70BB](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
 - [Lock (WoLock)](https://switch-bot.com/pages/switchbot-lock)
+- [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
+- [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
 
 ## SwitchBot Entity
 
@@ -74,7 +78,7 @@ There are three attributes available on the SwitchBot entity to give you more in
 
 - `Retry count`: How many times to retry sending commands to your SwitchBot devices.
 
-## SwitchBot Lock
+## SwitchBot Lock / SwitchBot Lock Pro
 
 The integration currently only uses the primary lock state; in dual lock mode, not all things might work properly.
 
@@ -91,9 +95,9 @@ Password:
   description: SwitchBot account password
 {% endconfiguration_basic %}
 
-<div class='note warning'>
+{% important %}
 This integration doesn't support SSO accounts (Login with Google, etc.) only username and password accounts.
-</div>
+{% endimportant %}
 
 ### Enter the lock encryption key manually
 
@@ -118,11 +122,11 @@ The blind tilt is exposed as a cover entity with control of the tilt position on
 | 50%           | Fully Open  |
 | 0%            | Closed Down |
 
-The close button will close the blinds to the closest closed position (either 0% or 100%), and defaults to closing down if the blinds are fully open. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the service call will still work and open the blind to 50%.
+The close button will close the blinds to the closest closed position (either 0% or 100%), and defaults to closing down if the blinds are fully open. Because Home Assistant believes 100% is open, the default cards will disable the open button when the tilt is at 100%, but the action will still work and open the blind to 50%.
 
 ### Simple cover template entity
 
-Some integrations may expose your SwitchBot Blind Tilt to other services which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
+Some integrations may expose your SwitchBot Blind Tilt to other actions which expect that 100% is open and 0% is fully closed. Using a [Cover Template](/integrations/cover.template), a proxy entity can be created which will be open at 100% and closed at 0%. This template entity is limited to closing in one direction.
 
 {% raw %}
 
@@ -135,13 +139,13 @@ cover:
         device_class: blind
         friendly_name: Example Blinds (Simple Down)
         open_cover:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: 50
           target:
             entity_id: cover.example_blinds
         close_cover:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: 0
           target:
@@ -149,7 +153,7 @@ cover:
         position_template: >
           {{ int(states.cover.example_blinds.attributes.current_tilt_position)*2 }}
         set_cover_position:
-          service: cover.set_cover_tilt_position
+          action: cover.set_cover_tilt_position
           data:
             tilt_position: "{{position/2}}"
           target:

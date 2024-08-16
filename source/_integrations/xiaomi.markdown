@@ -27,25 +27,21 @@ In order to integrate the camera with Home Assistant, it is necessary to install
 
 Once installed, please ensure that you have enabled FTP.
 
-<div class='note warning'>
-
+{% warning %}
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
+{% endwarning %}
 
-</div>
-
-<div class='note warning'>
-
+{% important %}
 Raspbian users: Don't forget to install `ffmpeg` support on your platform, otherwise, you'll not see video.
+{% endimportant %}
 
-</div>
+{% note %}
+The live stream writing by the camera is not a supported format when Home Assistant reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
+{% endnote %}
 
-<div class='note warning'>
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
-</div>
-
-<div class='note warning'>
+{% tip %}
 If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
-</div>
+{% endtip %}
 
 ## Configuring the platform
 
@@ -93,11 +89,9 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
-
-</div>
+{% endimportant %}
 
 ## Image quality
 

@@ -12,7 +12,7 @@ ha_config_flow: true
 ha_domain: epion
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrates Epion Air sensors into Home Assistant.

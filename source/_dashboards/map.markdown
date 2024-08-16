@@ -3,9 +3,16 @@ type: card
 title: "Map card"
 sidebar_label: Map
 description: "The map card that allows you to display entities on a map"
+related:
+  - docs: /dashboards/dashboards/#map-dashboard
+    title: Map dashboard
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The map card that allows you to display entities on a map
+The map card that allows you to display entities on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
@@ -56,11 +63,11 @@ default_zoom:
   description: The default zoom level of the map.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
-dark_mode:
+theme_mode:
   required: false
-  description: Enable a dark theme for the map.
-  type: boolean
-  default: false
+  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
+  type: string
+  default: 'auto'
 hours_to_show:
   required: false
   description: Shows a path of previous locations. Hours to show as path on the map.
@@ -68,17 +75,15 @@ hours_to_show:
   default: 0
 {% endconfiguration %}
 
-<div class='note'>
-  Only entities that have latitude and longitude attributes will be displayed on the map.
-</div>
+{% important %}
+Only entities that have latitude and longitude attributes will be displayed on the map.
+{% endimportant %}
 
-<div class="note">
-
-  The `default_zoom` value will be ignored if it is set higher than the current zoom level
-  after fitting all visible entity markers in the map window. In other words, this can only
-  be used to zoom the map _out_ by default.
-
-</div>
+{% note %}
+The `default_zoom` value will be ignored if it is set higher than the current zoom level
+after fitting all visible entity markers in the map window. In other words, this can only
+be used to zoom the map _out_ by default.
+{% endnote %}
 
 ## Options for entities
 
@@ -134,3 +139,4 @@ entities:
     focus: false
 hours_to_show: 48
 ```
+

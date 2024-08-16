@@ -8,6 +8,7 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
+  - '@h3ss'
 ha_domain: thermopro
 ha_config_flow: true
 ha_platforms:
@@ -25,6 +26,7 @@ Integrates [ThermoPro](https://buythermopro.com/) devices into Home Assistant.
 - [TP393](https://buythermopro.com/product/tp393/)
 - [TP960](https://buythermopro.com/product/tempspike/)
 - [TP962](https://buythermopro.com/twin-tempspike/)
+- [TP970](https://buythermopro.com/product/tempspike-plus-tp970/)
 
 The ThermoPro integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 

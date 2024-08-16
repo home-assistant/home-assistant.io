@@ -17,6 +17,7 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `lupusec` integration allows the user to integrate their Lupusec alarm control panel and ultimately all connected sensors and other devices. For more information about the LUPUS-Electronics security system please visit their [website](https://www.lupus-electronics.de).

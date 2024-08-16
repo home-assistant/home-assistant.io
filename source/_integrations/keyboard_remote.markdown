@@ -10,13 +10,19 @@ ha_codeowners:
   - '@lanrat'
 ha_domain: keyboard_remote
 ha_integration_type: hub
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Receive signals from a keyboard and use it as a remote control.
 
-This integration allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
+This {% term integration %} allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
+
+To enable the Keyboard Remote {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +102,7 @@ automation:
       type: key_down # only trigger on key_down events (optional)
 
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.all
 ```
@@ -122,7 +128,7 @@ automation:
       platform: event
       event_type: keyboard_remote_connected
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:
@@ -136,7 +142,7 @@ automation:
       event_data:
         device_name: "00:58:56:4C:C0:91"
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:

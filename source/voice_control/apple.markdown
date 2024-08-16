@@ -34,9 +34,9 @@ Open the shortcuts app, and edit the Button Assist shortcut. The text in quotes 
 - Use the arrow to expand the _"Dictate text"_ action options, and select your language
 - Use the arrow to expand the _"Assist with `Provided Input`"_ options, and select your language.
 
-<p class='note'>
+{% important %}
 You can import the button shortcut multiple times to create versions for different languages, when asked if you would like to replace your Shortcut, choose "Keep Both".
-</p>
+{% endimportant %}
 
 ## Multiple servers
 

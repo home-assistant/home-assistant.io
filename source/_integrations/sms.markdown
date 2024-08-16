@@ -34,7 +34,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.sms
+  action: notify.sms
   data:
     message: "This is a message for you!"
     target: "+5068081-8181"
@@ -46,7 +46,7 @@ Some devices (receiving or sending) do not support Unicode (the default encoding
 
 ```yaml
 action:
-  service: notify.sms
+  action: notify.sms
   data:
     message: "This is a message for you in ANSI"
     target: "+5068081-8181"
@@ -81,7 +81,7 @@ notify_sms_user1:
       description: "The message content"
       example: "The light is on!"
   sequence:
-  - service: notify.sms
+  - action: notify.sms
     data:
       message: "{{ message }}"
       target: "{{ states('sensor.user1_phone_number') }}"
@@ -101,7 +101,7 @@ notify_sms_user1:
   - platform: event
     event_type: sms.incoming_sms
   action:
-  - service: script.notify_sms_user1
+  - action: script.notify_sms_user1
     data:
       message: |
         From: {{trigger.event.data.phone}}
@@ -184,6 +184,8 @@ ACTION=="add" \
 Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
+
+Note: if you have multiple USB devices, USB number order can change on boot. For this reason, it's preferable to use your device ID and look in `/dev/serial/by-id/*`. For example,  `/dev/serial/by-id/usb-HUAWEI_MOBILE_HUAWEI_MOBILE-if00-port0`.
 
 If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 

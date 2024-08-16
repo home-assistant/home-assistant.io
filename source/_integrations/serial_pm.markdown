@@ -30,7 +30,7 @@ At this time, the following sensors are supported:
 
 ## Configuration
 
-To use your PM sensor in your installation, add the following to your `configuration.yaml` file:
+To use your PM sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

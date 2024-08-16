@@ -9,19 +9,23 @@ ha_domain: fail2ban
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `fail2ban` sensor allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
+The `fail2ban` {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
-<div class='note'>
+{% important %}
 
 Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
 
-</div>
+{% endimportant %}
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml`:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -51,17 +55,17 @@ file_path:
 
 ### Fail2Ban with Docker
 
-<div class='note'>
+{% important %}
 
 These steps assume you already have the Home Assistant Docker running behind NGINX and that it is externally accessible. It also assumes the Docker is running with the `--net='host'` flag.
 
-</div>
+{% endimportant %}
 
 For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [SWAG](https://github.com/linuxserver/docker-swag) from linuxserver.io.
 
 #### Set HTTP logger
 
-In your `configuration.yaml` file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
+In your {% term "`configuration.yaml`" %} file, add the following to the `logger` integration to ensure that Home Assistant prints failed login attempts to the log.
 
 ```yaml
 logger:
@@ -157,7 +161,7 @@ server {
 }
 ```
 
-Once that's added to the NGINX configuration, we need to modify the Home Assistant `configuration.yaml` such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
+Once that's added to the NGINX configuration, we need to modify the Home Assistant {% term "`configuration.yaml`" %} such that the `X-Forwarded-For` header can be parsed. This is done by adding the following to the `http` integration:
 
 ```yaml
 http:
@@ -168,7 +172,7 @@ At this point, once the Let's Encrypt and Home Assistant dockers are restarted, 
 
 #### Add the fail2ban sensor
 
-Now that we've correctly set everything up for Docker, we can add our sensors to `configuration.yaml` with the following:
+Now that we've correctly set everything up for Docker, we can add our sensors to {% term "`configuration.yaml`" %} with the following:
 
 ```yaml
 sensor:

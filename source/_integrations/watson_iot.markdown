@@ -7,6 +7,9 @@ ha_release: 0.72
 ha_domain: watson_iot
 ha_iot_class: Cloud Push
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **IBM Watson IoT Platform** {% term integration %} enables you to link the devices in Home Assistant
@@ -25,7 +28,8 @@ for your Home Assistant instance you'll need four pieces of information:
 - Gateway device ID
 - Authentication Token
 
-With this basic information you can configure the {% term integration %}:
+With this basic information you can add the {% term integration %} to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry:

@@ -12,6 +12,7 @@ ha_domain: ping
 ha_platforms:
   - binary_sensor
   - device_tracker
+  - sensor
 ha_integration_type: integration
 ha_config_flow: true
 ha_codeowners:
@@ -21,6 +22,7 @@ ha_codeowners:
 There is currently support for the following device types within Home Assistant:
 
 - [Binary sensor](#binary-sensor)
+- [Sensors](#sensors)
 - [Presence detection](#presence-detection)
 
 {% include integrations/config_flow.md %}
@@ -39,7 +41,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Ping** integration, then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Ping** integration, then select **Configure**.
 
 - **Ping count**: Number of echo requests to send to the target. The default is 5.
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
@@ -49,16 +51,20 @@ To change the settings, go to {% my integrations title="**Settings** > **Devices
 The `ping` binary sensor platform allows you to use `ping` to send ICMP echo requests. This way you can check if a given host is online and determine the round trip times from your Home Assistant instance to that system.
 This sensor is enabled by default. The default polling interval is 30 seconds.
 
-The sensor exposes the different round trip times in milliseconds measured by `ping` as attributes:
+## Sensors
 
-- `round_trip_time_mdev` - the standard deviation
-- `round_trip_time_avg` - the average round trip time
-- `round_trip_time_min` - the shortest round trip time
-- `round_trip_time_max` - the longest round trip time
+The integration exposes the different round trip times milliseconds as entities:
 
-<div class='note'>
+- `Round Trip Time Mean Deviation` - the standard deviation
+- `Round Trip Time Average` - the average round trip time
+- `Round Trip Time Minimum` - the shortest round trip time
+- `Round Trip Time Maximum` - the longest round trip time
+
+**These entities are disabled by default and can be enabled in the UI if needed.**
+
+{% note %}
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-</div>
+{% endnote %}
 
 ## Presence detection
 
@@ -66,8 +72,8 @@ The `ping` device tracker platform offers presence detection by using `ping` to 
 
 The device tracker is disabled by default and can be enabled in the UI.
 
-<div class='note'>
-  Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</div>
+{% note %}
+Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
+{% endnote %}
 
 See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.

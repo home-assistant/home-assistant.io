@@ -10,6 +10,9 @@ ha_domain: zabbix
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
@@ -22,7 +25,8 @@ There is currently also support for the following device types within Home Assis
 
 ## Configuration
 
-To set the Zabbix {% term integration %} up, add the following information to your `configuration.yaml` file:
+To set the Zabbix {% term integration %} up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -140,11 +144,11 @@ zabbix:
 
 The `zabbix` sensor platform let you monitor the current count of active triggers for your [Zabbix](https://www.zabbix.com/) monitoring instance.
 
-<div class='note'>
+{% important %}
 You must have the <a href="#configuration">Zabbix integration</a> configured to use those sensors.
-</div>
+{% endimportant %}
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

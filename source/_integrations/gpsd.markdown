@@ -8,6 +8,7 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@fabaff'
+  - '@jrieger'
 ha_domain: gpsd
 ha_platforms:
   - sensor

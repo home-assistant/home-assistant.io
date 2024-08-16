@@ -20,6 +20,7 @@ ha_platforms:
   - climate
   - cover
   - date
+  - datetime
   - device_tracker
   - event
   - fan
@@ -44,9 +45,12 @@ ha_platforms:
   - water_heater
   - weather
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `demo` platform allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
+The `demo` {% term integration %} allows you to use integrations which are providing a demo of their implementation. The demo entities are dummies but show you how the actual platform looks like. This way you can run own demonstration instance like the online [Home Assistant demo](/demo/) but combined with your own real/functional platforms.
 
 Available demo platforms:
 
@@ -65,7 +69,6 @@ Available demo platforms:
 - [Image processing](/integrations/image_processing/) (`image_processing`)
 - [Light](/integrations/light/) (`light`)
 - [Lock](/integrations/lock/) (`lock`)
-- [Mailbox](/integrations/mailbox/) (`mailbox`)
 - [Media player](/integrations/media_player/) (`media_player`)
 - [Notification](/integrations/notify/) (`notify`)
 - [Number](/integrations/number/) (`number`)
@@ -81,7 +84,8 @@ Available demo platforms:
 - [Water heater](/integrations/water_heater/) (`water_heater`)
 - [Weather](/integrations/weather/) (`weather`)
 
-To integrate a demo platform in Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate a demo platform in Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

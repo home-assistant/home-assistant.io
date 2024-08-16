@@ -17,7 +17,7 @@ The `google_cloud` platform allows you to use [Google Cloud Platform](https://cl
 
 ## Configuration
 
-To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-an-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in `configuration.yaml`:
+To use Google Cloud Platform, you need to provide `config` directory relative path of [`API key`](#obtaining-an-api-key) file you are going to use. Place it under `config` folder and set `key_file` parameter in {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,13 +71,13 @@ Basic instruction for all APIs:
 
 The Cloud text-to-speech API is priced monthly based on the amount of characters to synthesize into audio sent to the service.
 
-| Voice                         | Monthly free tier         | Paid usage                        |
-| ----------------------------- | ------------------------- | --------------------------------- |
-| Neural2                       | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
-| Polyglot (Preview)            | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
-| Studio (Preview)              | 0 to 100 thousand bytes   | $160.00 USD / 1 million bytes     |
-| Standard                      | 0 to 4 million characters | $4.00 USD / 1 million characters  |
-| WaveNet                       | 0 to 1 million characters | $16.00 USD / 1 million characters |
+| Voice              | Monthly free tier         | Paid usage                        |
+| ------------------ | ------------------------- | --------------------------------- |
+| Neural2            | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Polyglot (Preview) | 0 to 1 million bytes      | $16.00 USD / 1 million bytes      |
+| Studio (Preview)   | 0 to 100 thousand bytes   | $160.00 USD / 1 million bytes     |
+| Standard           | 0 to 4 million characters | $4.00 USD / 1 million characters  |
+| WaveNet            | 0 to 1 million characters | $16.00 USD / 1 million characters |
 
 ### Text-to-speech configuration
 
