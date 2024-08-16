@@ -155,6 +155,14 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ![Group members](/images/integrations/group/Group_members.png)
 
+### Group attributes
+
+These are the attributes available for a group. Note that when the group's members are all `unavailable` the group itself becomes `unavailable` and all attributes are removed.
+
+| Attribute                            | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                                     |
+
 ## YAML configuration
 
 Alternatively, this integration can be configured and set up manually via YAML
@@ -461,6 +469,16 @@ When a group contains entities from domains that have multiple `on` states or on
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
 These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
+
+### Attributes
+
+These are the attributes available for an old-style group. Note that these attributes will *remain* even when the group itself becomes `unavailable`, which is behavior that is different from the new-style groups.
+
+| Attribute                            | Data                                                                                                                            |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                                       |
+| `order`                              | Order in which the entity was created, starting with `0`.                                                                       |
+| `auto`                               | Only appears in groups that were created with the `set` action. Will always be set to `true`.                                   |
 
 ### Actions
 
