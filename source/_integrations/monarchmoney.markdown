@@ -3,6 +3,7 @@ title: Monarch Money
 description: Instructions on the Monarch Money Integration for personal finance.
 ha_category:
   - Sensor
+  - Finance
 ha_iot_class: Cloud Polling
 ha_release: 2024.9
 ha_codeowners:
