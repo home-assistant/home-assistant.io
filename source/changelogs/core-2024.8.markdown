@@ -1291,6 +1291,7 @@ For a summary in a more readable format:
 - Bump bluetooth-adapters to 0.19.4 ([@bdraco] - [#124018])
 - Fix loading KNX integration actions when not using YAML ([@farmio] - [#124027])
 - Bump aiomealie to 0.8.1 ([@joostlek] - [#124047])
+- Exclude aiohappyeyeballs from license check ([@joostlek] - [#124041])
 
 [#114628]: https://github.com/home-assistant/core/pull/114628
 [#122479]: https://github.com/home-assistant/core/pull/122479
@@ -1337,6 +1338,7 @@ For a summary in a more readable format:
 [#124011]: https://github.com/home-assistant/core/pull/124011
 [#124018]: https://github.com/home-assistant/core/pull/124018
 [#124027]: https://github.com/home-assistant/core/pull/124027
+[#124041]: https://github.com/home-assistant/core/pull/124041
 [#124047]: https://github.com/home-assistant/core/pull/124047
 [@Bre77]: https://github.com/Bre77
 [@IceBotYT]: https://github.com/IceBotYT
