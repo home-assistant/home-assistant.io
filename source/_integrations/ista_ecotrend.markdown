@@ -52,21 +52,21 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
   - Navigate to the [energy configuration panel](https://my.home-assistant.io/redirect/config_energy/) of your Home Assistant instance.
 
     [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
-    
+
 - **Add heating energy usage**
-   - Click on **Gas consumption**.
-   - Select **Add gas source**.
-   - Choose your **Heating energy** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_energy`).
-   - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
-   - Select the corresponding **Heating costs** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_cost`).
+  - Click on **Gas consumption**.
+  - Select **Add gas source**.
+  - Choose your **Heating energy** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_energy`).
+  - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
+  - Select the corresponding **Heating costs** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_cost`).
 - **Add hot water energy usage**
-   - Repeat the above steps for your **Hot water energy** and **Hot water costs** entities to track hot water energy usage and costs (for example, `ista_ecotrend:luxemburger_str_1_hot_water_energy` and `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
+  - Repeat the above steps for your **Hot water energy** and **Hot water costs** entities to track hot water energy usage and costs (for example, `ista_ecotrend:luxemburger_str_1_hot_water_energy` and `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
 - **Add hot water consumption**
-   - Click on **Water consumption**.
-   - Select **Add water source**.
-   - Choose the **Hot water** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water`).
-   - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
-   -  Select the corresponding **Hot water costs** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
+  - Click on **Water consumption**.
+  - Select **Add water source**.
+  - Choose the **Hot water** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water`).
+  - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
+  - Select the corresponding **Hot water costs** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
 - **Add water consumption**
-   -  Repeat the above steps for your **Water** and **Water costs** entities to track cold water consumption and costs (for example, `ista_ecotrend:luxemburger_str_1_water` and `ista_ecotrend:luxemburger_str_1_water_cost`).
+  - Repeat the above steps for your **Water** and **Water costs** entities to track cold water consumption and costs (for example, `ista_ecotrend:luxemburger_str_1_water` and `ista_ecotrend:luxemburger_str_1_water_cost`).
 
