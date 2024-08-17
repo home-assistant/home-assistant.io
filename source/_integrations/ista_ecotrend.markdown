@@ -54,16 +54,16 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
     [![Open your Home Assistant instance and show your energy configuration panel.](https://my.home-assistant.io/badges/config_energy.svg)](https://my.home-assistant.io/redirect/config_energy/)
 
 - **Add heating energy usage**
-  - Click on **Gas consumption**.
-  - Select **Add gas source**.
+  - Go to **Gas consumption**.
+  - Click on **Add gas source**.
   - Choose your **Heating energy** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_energy`).
   - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
   - Select the corresponding **Heating costs** entity (for example, `ista_ecotrend:luxemburger_str_1_heating_cost`).
 - **Add hot water energy usage**
   - Repeat the above steps for your **Hot water energy** and **Hot water costs** entities to track hot water energy usage and costs (for example, `ista_ecotrend:luxemburger_str_1_hot_water_energy` and `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
 - **Add hot water consumption**
-  - Click on **Water consumption**.
-  - Select **Add water source**.
+  - Go to **Water consumption**.
+  - Click on **Add water source**.
   - Choose the **Hot water** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water`).
   - For cost tracking, click the radio button labeled **Use an entity tracking the total costs**.
   - Select the corresponding **Hot water costs** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
