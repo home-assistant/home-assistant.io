@@ -99,7 +99,7 @@ nissan_leaf:
 You can use the `button.press` action to send a request to the Nissan servers to start a charge. The car must be plugged in!
 
 ```yaml
-- service: button.press
+- action: button.press
   target:
     entity_id: button.start_NICKNAME_charging    # replace
 ```
@@ -120,7 +120,7 @@ You can also use the `nissan_leaf.update` action to request an on-demand update.
       entity_id: device_tracker.drivername   # replace
       state: "not_home"
   action:
-    - service: nissan_leaf.update
+    - action: nissan_leaf.update
       data:
         vin: "1HGBH41JXMN109186"             # replace
 ```

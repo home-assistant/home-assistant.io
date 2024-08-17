@@ -135,8 +135,8 @@ type: picture-entity
 entity: camera.backdoor
 camera_view: live
 tap_action:
-  action: call-service
-  service: camera.snapshot
+  action: perform-action
+  perform_action: camera.snapshot
   data:
     entity_id: camera.backdoor
     filename: '/shared/backdoor-{{ now().strftime("%Y-%m-%d-%H%M%S") }}.jpg'

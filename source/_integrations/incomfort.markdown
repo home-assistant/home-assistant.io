@@ -53,7 +53,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
     entity_id: sensor.cv_pressure
     below: 1.0
   action:
-  - service: notify.pushbullet_notifier
+  - action: notify.pushbullet_notifier
     data:
       title: "Warning: Low CH Pressure"
       message: >-

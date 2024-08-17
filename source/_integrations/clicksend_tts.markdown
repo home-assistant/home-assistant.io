@@ -65,7 +65,7 @@ trigger:
   - platform: sun
     event: sunset
 action:
-  - service: notify.clicksend_tts
+  - action: notify.clicksend_tts
     data:
       message: "The sun has set"
 ```

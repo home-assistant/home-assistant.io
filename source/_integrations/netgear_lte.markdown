@@ -102,10 +102,10 @@ automation:
       - platform: event
         event_type: netgear_lte_sms
     action:
-      - service: conversation.process
+      - action: conversation.process
         data:
           text: "{{ trigger.event.data.message }}"
-      - service: netgear_lte.delete_sms
+      - action: netgear_lte.delete_sms
         data:
           host: "{{ trigger.event.data.host }}"
           sms_id: "{{ trigger.event.data.sms_id }}"

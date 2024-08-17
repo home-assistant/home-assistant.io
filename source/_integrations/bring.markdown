@@ -58,7 +58,7 @@ The **Bring** integration offers an action to send push notifications to the Bri
 ```yaml
 ...
 action:
-  service: bring.send_message
+  action: bring.send_message
   target:
     entity_id: todo.bring_shoppinglist
   data:
@@ -72,7 +72,7 @@ Note that for the notification type `urgent_message` the attribute `item` is **r
 ```yaml
 ...
 action:
-  service: bring.send_message
+  action: bring.send_message
   target:
     entity_id: todo.bring_shoppinglist
   data:

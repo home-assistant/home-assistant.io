@@ -86,7 +86,7 @@ automation:
       platform: state
       entity_id: input_number.ac_temperature
     action:
-      service: shell_command.set_ac_to_slider
+      action: shell_command.set_ac_to_slider
 
 input_number:
   ac_temperature:
@@ -113,18 +113,18 @@ automation:
     trigger:
       - ...
     action:
-      - service: shell_command.get_file_contents
+      - action: shell_command.get_file_contents
         data:
           filename: "todo.txt"
         response_variable: todo_response
       - if: "{{ todo_response['returncode'] == 0 }}"
         then:
-          - service: notify.mobile_app_iphone
+          - action: notify.mobile_app_iphone
             data:
               title: "ToDo"
               message: "{{ todo_response['stdout'] }}"
         else:
-          - service: notify.mobile_app_iphone
+          - action: notify.mobile_app_iphone
             data:
               title: "ToDo file error"
               message: "{{ todo_response['stderr'] }}"

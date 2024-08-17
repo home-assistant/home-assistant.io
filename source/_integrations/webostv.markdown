@@ -55,7 +55,7 @@ automation:
       - platform: webostv.turn_on
         entity_id: media_player.lg_webos_smart_tv
     action:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -76,7 +76,7 @@ The `play_media` action can be used in a script to switch to the specified TV ch
 
 ```yaml
 # Example action entry in script to switch to channel number 1
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_webos_smart_tv
 data:
@@ -84,7 +84,7 @@ data:
   media_content_type: "channel"
 
 # Example action entry in script to switch to channel including 'TF1' in its name
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_webos_smart_tv
 data:
@@ -136,7 +136,7 @@ Available actions: `button`, `command`
 script:
   home_button:
     sequence:
-      - service: webostv.button
+      - action: webostv.button
         target:
           entity_id:  media_player.lg_webos_smart_tv
         data:
@@ -144,7 +144,7 @@ script:
 
   open_google_command:
     sequence:
-      - service: webostv.command
+      - action: webostv.command
         target:
           entity_id:  media_player.lg_webos_smart_tv
         data:
@@ -167,7 +167,7 @@ automation:
       entity_id: binary_sensor.front_door_motion
       to: "on"
     action:
-      service: notify.livingroom_tv
+      action: notify.livingroom_tv
       data:
         message: "Movement detected: Front Door"
         data:

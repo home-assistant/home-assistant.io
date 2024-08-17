@@ -101,7 +101,8 @@ article {
     }
     + hr {
       border: none;
-      border-bottom: 1px solid $primary-color;
+      border-bottom: 2px solid $grayLighter;
+      margin: 2em 0 2.5em;
     }
   }
 

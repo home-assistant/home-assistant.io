@@ -19,6 +19,7 @@ ha_platforms:
   - switch
   - water_heater
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
 The `geniushub` integration links Home Assistant with your Genius Hub CH/DHW system, including its zones, devices, and issues.
@@ -95,7 +96,7 @@ Each such entity has a state attribute that will contain a list of any such issu
     entity_id: sensor.geniushub_errors
     above: 0
   action:
-  - service: notify.pushbullet_notifier
+  - action: notify.pushbullet_notifier
     data:
       title: "Genius Hub has errors"
       message: >-
@@ -115,7 +116,7 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
     platform: state
     entity_id: binary_sensor.dual_channel_receiver_2_1
   action:
-  - service: notify.pushbullet_notifier
+  - action: notify.pushbullet_notifier
     data:
       title: "Warning: CH State Change!"
       message: >-

@@ -96,7 +96,7 @@ Number 1 shows a classical, text-only message. The Title is optional, although i
 1_send_jabber_message:
   alias: "Text only Jabber message"
   sequence:
-    - service: notify.jabber  # from notify.NOTIFIER_NAME
+    - action: notify.jabber  # from notify.NOTIFIER_NAME
       data:
         title: "Optional Title"
         message: "My funny or witty message"
@@ -120,7 +120,7 @@ Number 2 sends only an image, retrieved from the URL. The TLS connection to get 
 2_send_jabber_message_with_image_url:
   alias: "Send Image via Jabber from website"
   sequence:
-    - service: notify.jabber
+    - action: notify.jabber
       data:
         title: ""
         message: ""
@@ -136,7 +136,7 @@ Number 3 sends an image from a local path.
 3_send_jabber_message_with_local_image_path:
   alias: "Send Image via Jabber from local file"
   sequence:
-    - service: notify.jabber
+    - action: notify.jabber
       data:
         title: ""
         message: ""
@@ -154,7 +154,7 @@ Number 4 sends a text-file, retrieved from GitHub, renamed to `Hass_Cheatsheet.t
 4_send_jabber_message_with_file:
   alias: "Send text file via Jabber"
   sequence:
-    - service: notify.jabber
+    - action: notify.jabber
       data:
         title: ""
         message: ""
@@ -175,7 +175,7 @@ Number 5 sends an image retrieved from a URL, and an additional text message wit
 5_send_jabber_message_with_image_and_text:
   alias: "Send Image and Text via Jabber"
   sequence:
-    - service: notify.jabber
+    - action: notify.jabber
       data:
         title: "The Time is now"
         message: "{{ now() }}, templating works as well..."
@@ -194,7 +194,7 @@ Number 6 sends an image from a templated URL.
 6_send_jabber_message_with_image_from_url_template:
   alias: "Send Image from template URL via Jabber"
   sequence:
-    - service: notify.jabber
+    - action: notify.jabber
       data:
         title: ""
         message: ""

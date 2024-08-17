@@ -220,7 +220,7 @@ image_processing:
        entity_id:
          - binary_sensor.driveway
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: image_processing.doods_camera_driveway
 ```

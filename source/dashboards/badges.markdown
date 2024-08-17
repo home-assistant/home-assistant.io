@@ -10,6 +10,26 @@ Badges are widgets that sit at the top of a panel, above all the cards.
   Badges at the top of a panel.
 </p>
 
+## Adding a badge to your dashboard
+
+1. Go to {% my lovelace_dashboards title="**Settings** > **Dashboards**" %}.
+2. If you have multiple [views](/dashboards/views/), open the view to which you want to add a badge.
+3. In the top right of the screen, select the edit {% icon "mdi:edit" %} button.
+4. To add a badge, select the plus {% icon "mdi:plus" %}button.
+
+   ![Screenshot showing how to add a badge](/images/dashboards/badge_add.png)
+
+5. Select the entity for which you want to display a badge.
+6. Configure your badge.
+   - The available options depend on the entity.
+   - Add the states you want to see.
+   - If you want, add a **Name**.
+
+   ![Screenshot showing how to configure a badge](/images/dashboards/badge_configure.png)
+7. Under **Interactions**, you can define the tap behavior.
+8. If you want this badge to be visible only to specific users or under a certain condition, open the **Visibility** tab to [define those conditions](/dashboards/cards/#showing-or-hiding-a-card-conditionally).
+9. Select **Save**.
+
 ## Entity badge
 
 The Entity badge allows you to display the state of an entity on a badge. This badge supports [actions](/dashboards/actions/).
@@ -68,45 +88,6 @@ double_tap_action:
   required: false
   description: Action taken on double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
-{% endconfiguration %}
-
-## State label badge
-
-The state label badge allows you to display a state badge. This badge supports [actions](/dashboards/actions/).
-
-```yaml
-type: state-label
-entity: light.living_room
-```
-
-{% configuration state_badge %}
-type:
-  required: true
-  description: "`state-label`"
-  type: string
-entity:
-  required: true
-  description: Entity ID.
-  type: string
-name:
-  required: false
-  description: Overwrites friendly name.
-  type: string
-  default: Name of entity
-icon:
-  required: false
-  description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
-  type: string
-  default: Entity domain icon
-image:
-  required: false
-  description: The URL of an image.
-  type: string
-show_name:
-  required: false
-  description: Show name.
-  type: boolean
-  default: "true"
 {% endconfiguration %}
 
 ## Entity Filter Badge

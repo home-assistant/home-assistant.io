@@ -108,7 +108,7 @@ If there is an automation that handles that event, it will be automatically trig
     platform: event
     event_type: event_light_state_changed
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "Light is turned {{ trigger.event.data.state }}"
 ```

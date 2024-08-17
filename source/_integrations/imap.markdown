@@ -207,16 +207,16 @@ condition:
   - condition: template
     value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
 action:
-  - service: imap.fetch
+  - action: imap.fetch
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
     response_variable: message_text
-  - service: imap.seen
+  - action: imap.seen
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     metadata: {}
     data:
       message: "{{ message_text['subject'] }}"

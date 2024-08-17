@@ -19,7 +19,7 @@ The menu on the top-right has options to **Duplicate scene** and **Delete scene*
 A scene can be called in {% term automation %} action and {% term scripts %} using a turn on scene {% term action %}:
 
 ```yaml
-service: scene.turn_on
+action: scene.turn_on
 target:
   entity_id: scene.my_unique_id
 ```

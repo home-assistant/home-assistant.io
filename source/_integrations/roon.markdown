@@ -90,7 +90,7 @@ action:
             attribute: event_type
             state: volume_up
         sequence:
-          - service: remote.send_command
+          - action: remote.send_command
             data:
               num_repeats: 1
               delay_secs: 0.4
@@ -105,7 +105,7 @@ action:
             attribute: event_type
             state: volume_down
         sequence:
-          - service: remote.send_command
+          - action: remote.send_command
             data:
               num_repeats: 1
               delay_secs: 0.4

@@ -201,7 +201,7 @@ automation:
           id: remote_control_1
           event: 1002
     action:
-      - service: light.toggle
+      - action: light.toggle
         target:
           entity_id: light.lamp
 
@@ -214,7 +214,7 @@ automation:
           id: remote_control_1
           event: 2002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -231,7 +231,7 @@ automation:
           id: remote_control_1
           event: 3002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
         data:
@@ -248,7 +248,7 @@ automation:
           id: remote_control_1
           gesture: 7
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.lamp
 ```
@@ -269,7 +269,7 @@ automation:
           id: tint_remote_1
           event: 6002
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         data:
           xy_color:
             - '{{ trigger.event.data.xy.0 }}'
@@ -293,7 +293,7 @@ automation:
         entity_id: binary_sensor.doorbell_motion
         to: "on"
     action:
-      - service: deconz.configure
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: /state
@@ -304,7 +304,7 @@ automation:
             bri: 255
             alert: "breathe"
       - delay: 00:00:15
-      - service: deconz.configure
+      - action: deconz.configure
         data:
           entity: light.hue_lamp
           field: "/state"

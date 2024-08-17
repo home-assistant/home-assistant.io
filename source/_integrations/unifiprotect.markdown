@@ -273,7 +273,7 @@ The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is b
 
 ### Delay in video feed
 
-The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reserve proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for WebSocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
+The default settings on the stream integration will give you a 5-15+ second delay. You can reduce this delay to 1-3 seconds, by enabling [LL-HLS in the stream integration](/integrations/stream/#ll-hls). You will also want to put an HTTP/2 reverse proxy in front of Home Assistant so you can have connection pooling. If you do not add a reverse proxy, you may start to get "Waiting for WebSocket..." messages while trying to view too many camera streams at once. One way to do this is using the official NGINX Proxy Add-on:
 
 {% my supervisor_addon addon="core_nginx_proxy" badge %}
 

@@ -8,8 +8,10 @@ ha_category:
   - Energy
 ha_domain: apsystems
 ha_platforms:
+  - binary_sensor
   - number
   - sensor
+  - switch
 ha_integration_type: device
 ha_codeowners:
   - '@mawoka-myblock'
@@ -22,10 +24,14 @@ The following data is provided by the integration:
 - Lifetime production (Per input and in total)
 - Current production (Per input and in total)
 - Today's production (Per input and in total)
+- Short circuit error status (per input)
+- Off grid status
+- Output status
 
 The following data can be set by the integration:
 
 - Maximal output in watts
+- Inverter status (on or off)
 
 ## Prerequisites
 

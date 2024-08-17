@@ -52,7 +52,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.facebook
+      action: notify.facebook
       data:
         message: "Good Evening"
         target:
@@ -114,7 +114,7 @@ You could also send rich messing (cards, buttons, images, videos, etc). [Info](h
 script:
   test_fb_notification:
     sequence:
-      - service: notify.facebook
+      - action: notify.facebook
         data:
           message: Some text before the quick replies
           target: 0034643123212

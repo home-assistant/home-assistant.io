@@ -45,13 +45,13 @@ alarm_control_panel:
       safe_alarm_panel:
         value_template: "{{ states('alarm_control_panel.real_alarm') }}"
         arm_away:
-          service: alarm_control_panel.alarm_arm_away
+          action: alarm_control_panel.alarm_arm_away
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
             code: !secret alarm_code
         arm_home:
-          service: alarm_control_panel.alarm_arm_home
+          action: alarm_control_panel.alarm_arm_home
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
@@ -60,7 +60,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_disarm
+          - action: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:

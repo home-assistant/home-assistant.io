@@ -171,7 +171,7 @@ template:
       - platform: time_pattern
         seconds: "*"
     action:
-      - service: easyenergy.get_energy_usage_prices
+      - action: easyenergy.get_energy_usage_prices
         response_variable: response
         data:
           config_entry: "013713c172577bada2874a32dbe44feb"

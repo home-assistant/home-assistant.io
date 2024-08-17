@@ -85,7 +85,7 @@ Now you can use the `notify.events` action inside your Home Assistant to:
 ### Example action
 
 ```yaml
-- service: notify.events
+- action: notify.events
   data:
     message: "Backyard motion detected!"
     data:

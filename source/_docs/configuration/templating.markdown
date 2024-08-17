@@ -34,7 +34,7 @@ Templates can get big pretty fast. To keep a clear overview, consider using YAML
 script:
   msg_who_is_home:
     sequence:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: >
             {% if is_state('device_tracker.paulus', 'home') %}

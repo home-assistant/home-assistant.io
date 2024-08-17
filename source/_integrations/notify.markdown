@@ -68,7 +68,7 @@ If you switch to view the YAML data under **Developer Tools**, it will appear as
 {% raw %}
 
 ```yaml
-service: notify.send_message
+action: notify.send_message
 data:
   entity_id: notify.my_direct_message_notifier
   message: "You have an update!"
@@ -83,7 +83,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 
 ```yaml
 action:
-  service: notify.send_message
+  action: notify.send_message
   data:
     entity_id: notify.my_direct_message_notifier
     message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
@@ -100,7 +100,7 @@ If you switch to view the YAML data under **Developer Tools**, it will appear as
 {% raw %}
 
 ```yaml
-service: notify.persistent_notification
+action: notify.persistent_notification
 data:
   message: "Can you hear me now?"
 ```
@@ -113,7 +113,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 
 ```yaml
 action:
-  service: notify.persistent_notification
+  action: notify.persistent_notification
   data:
     message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
@@ -124,7 +124,7 @@ action:
 
 ```yaml
 action:
-  service: notify.persistent_notification
+  action: notify.persistent_notification
   data:
     message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```

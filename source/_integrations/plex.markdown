@@ -90,7 +90,7 @@ trigger:
     id: episode
 
 action:
-  - service: notify.mobile_app_phone
+  - action: notify.mobile_app_phone
     data:
       title: "New {{ trigger.id }} added"
       message: "{{ trigger.to_state.attributes.last_added_item }}"
@@ -111,7 +111,7 @@ Example script:
 ```yaml
 play_plex_on_tv:
   sequence:
-    - service: media_player.select_source
+    - action: media_player.select_source
       target:
         entity_id: media_player.smart_tv
       data:
@@ -122,13 +122,13 @@ play_plex_on_tv:
           to: "on"
       timeout:
         seconds: 10
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.scan_clients_plex
     - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
       timeout: "00:00:10"
       continue_on_timeout: false
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.plex_smart_tv
       data:

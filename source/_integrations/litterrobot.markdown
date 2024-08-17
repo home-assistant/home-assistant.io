@@ -93,7 +93,7 @@ Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot
 Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
-service: litterrobot.set_sleep_mode
+action: litterrobot.set_sleep_mode
 target:
   entity_id: vacuum.litter_robot_litter_box
 data:

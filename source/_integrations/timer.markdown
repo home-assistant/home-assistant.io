@@ -158,7 +158,7 @@ timer:
     entity_id: switch.pumprun
     to: "on"
   action:
-  - service: timer.start
+  - action: timer.start
     target:
       entity_id: timer.test
 
@@ -171,7 +171,7 @@ timer:
     event_data:
       entity_id: timer.test
   action:
-  - service: notify.nma
+  - action: notify.nma
     data:
       message: "Timer stop"
 ```
@@ -185,25 +185,25 @@ script:
   start_timer:
     alias: "Start timer"
     sequence:
-      - service: timer.start
+      - action: timer.start
         target:
           entity_id: timer.test
   pause_timer:
     alias: "Pause timer"
     sequence:
-      - service: timer.pause
+      - action: timer.pause
         target:
           entity_id: timer.test
   cancel_timer:
     alias: "Cancel timer"
     sequence:
-      - service: timer.cancel
+      - action: timer.cancel
         target:
           entity_id: timer.test
   finish_timer:
     alias: "Finish timer"
     sequence:
-      - service: timer.finish
+      - action: timer.finish
         target:
           entity_id: timer.test
 ```
