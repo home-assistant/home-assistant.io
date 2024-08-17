@@ -42,7 +42,7 @@ The **ista EcoTrend** integration allows you to import all your historical consu
 
 ### Identifying ista EcoTrend statistic entities
 
-The statistic entities imported via this integration are distinguishable by their prefix `ista_ecotrend:`. This prefix helps you identify these entities separately from other sensor statistics in your system.
+The statistic entities imported via this integration are distinguishable by their prefix `ista_ecotrend:`. This prefix helps you identify these entities separately from other sensor statistics when setting up the long-term statistics in the energy dashboard.
 
 ### Setting up long-term statistics in the energy dashboard
 
@@ -69,4 +69,3 @@ To set up the **ista EcoTrend** long-term statistics in your Home Assistant ener
   - Select the corresponding **Hot water costs** entity (for example, `ista_ecotrend:luxemburger_str_1_hot_water_cost`).
 - **Add water consumption**
   - Repeat the above steps for your **Water** and **Water costs** entities to track cold water consumption and costs (for example, `ista_ecotrend:luxemburger_str_1_water` and `ista_ecotrend:luxemburger_str_1_water_cost`).
-
