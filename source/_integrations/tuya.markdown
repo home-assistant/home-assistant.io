@@ -67,7 +67,7 @@ Tuya Smart app. You can find it by opening the app and:
 
 {% include integrations/config_flow.md %}
 
-{% important %} If the integration does not ask you for a User Code but instead asks you for Tuya IoT credentials, then you're most likely using an old version of Home Assistant. Please update your instance to use the latest Tuya integration. {% endimportant %}
+{% important %} If the integration does not ask you for a User Code but instead asks you for Tuya IoT credentials, then you're most likely using an outdated version of Home Assistant. Please update your instance to use the latest Tuya integration. {% endimportant %}
 
 ## Scenes
 
