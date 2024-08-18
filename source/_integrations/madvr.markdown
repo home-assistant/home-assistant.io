@@ -119,18 +119,6 @@ The integration creates buttons which send commands to the device. You can add t
 
 ### Navigation & menus
 
-- `Up`: Simulates pressing the up button.
-- `Down`: Simulates pressing the down button.
-- `Left`: Simulates pressing the left button.
-- `Right`: Simulates pressing the right button.
-- `OK`: Simulates pressing the OK button.
-- `Back`: Simulates pressing the back button.
-- `Red`: Simulates pressing the red button.
-- `Green`: Simulates pressing the green button.
-- `Blue`: Simulates pressing the blue button.
-- `Yellow`: Simulates pressing the yellow button.
-- `Magenta`: Simulates pressing the magenta button.
-- `Cyan`: Simulates pressing the cyan button.
 - `Open info menu`: Opens the info menu.
 - `Open settings menu`: Opens the settings menu.
 - `Open configuration menu`: Opens the configuration menu.
@@ -139,14 +127,6 @@ The integration creates buttons which send commands to the device. You can add t
 
 ### Debugging & demos
 
-- `Reset temporary`: Resets temporary settings to their default values.
-- `Toggle tone map`: Toggles the tone mapping feature on or off.
-- `Toggle highlight recovery`: Toggles the highlight recovery feature on or off.
-- `Toggle contrast recovery`: Toggles the contrast recovery feature on or off.
-- `Toggle shadow recovery`: Toggles the shadow recovery feature on or off.
-- `Toggle 3D LUT`: Toggles the 3D Look-Up Table (LUT) feature on or off.
-- `Toggle screen boundaries`: Toggles the display of screen boundaries.
-- `Toggle histogram`: Toggles the display of the video histogram.
 - `Toggle debug OSD`: Toggles the debug on-screen display.
-- `Refresh license info`: Refreshes the license information.
-- `Force 1080p60 output`: Forces the output to 1080p at 60&nbsp;Hz (basically safe mode).
+- `Force 1080p60 output`: Forces the output to 1080p at 60Hz (basically safe mode).
+- `Restart`: Restarts the device.
