@@ -12,7 +12,6 @@ ha_config_flow: true
 ha_platforms:
   - climate
 ha_iot_class: "Cloud Polling"
-ha_quality_scale: gold
 ---
 
 The {{ page.title }} {% term integration %} provides support for Fujitsu heat pumps and air conditioners that use the FGLair app.
