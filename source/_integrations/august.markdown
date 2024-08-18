@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Lock
   - Sensor
 ha_release: 0.64
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - lock
   - sensor
 ha_integration_type: integration
@@ -58,9 +60,9 @@ There is currently support for the following device types within Home Assistant:
 - Camera
 - Lock
 
-<div class='note'>
+{% note %}
 Most devices will need either August Connect Bridge or Doorbell to connect to Home Assistant.
-</div>
+{% endnote %}
 
 ## Known issues with battery reporting
 
@@ -91,6 +93,15 @@ If you have an August Smart Lock with DoorSense, once you have enabled the Augus
 ## Button
 
 Buttons are created to wake locks from a deep sleep. If your lock is not reporting a status, it may be in a deep sleep, and the button can be used to wake it. Locks are not automatically woken from deep sleep to preserve battery life.
+
+## Event
+
+If you have an August doorbell or lock that has a built-in doorbell, once you have enabled the August integration, you should see the following event entities:
+
+- Doorbell
+- Motion
+
+Not all models include motion sensors and support for locks with built-in doorbells is limited to Yale Doorman models type 7 and 10.
 
 ## Camera
 
@@ -150,7 +161,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
   action:
   - data: {}
     entity_id: camera.inside
-    service: camera.turn_off
+    action: camera.turn_off
 ```
 
 {% endraw %}

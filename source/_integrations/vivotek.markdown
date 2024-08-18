@@ -11,6 +11,9 @@ ha_domain: vivotek
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **VIVOTEK** camera {% term integration %} allows you to integrate a VIVOTEK IP camera into Home Assistant.
@@ -19,7 +22,8 @@ Home Assistant will serve the images via its server, making it possible to view 
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -98,59 +102,59 @@ camera:
     stream_path: live2.sdp
 ```
 
-### Services
+### Actions
 
-Once loaded, the `camera` platform will expose services that can be called to perform various actions.
+Once loaded, the `camera` platform will expose actions that can be called to perform various actions.
 
-Available services: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
+Available actions: `enable_motion_detection`, `disable_motion_detection`, `snapshot`, and `play_stream`.
 
-#### Service `play_stream`
+#### Action `play_stream`
 
 Play a live stream from a camera to selected media player(s). Requires [`stream`](/integrations/stream) {% term integration %} to be set up.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name of {% term entity %} to fetch stream from, e.g., `camera.front_door_camera`. |
-| `media_player`         |      no  | Name of media player to play stream on, e.g., `media_player.living_room_tv`. |
-| `format`               |      yes | Stream format supported by `stream` {% term integration %} and selected `media_player`. Default: `hls` |
+| Data attribute | Optional | Description                                                                                            |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------ |
+| `entity_id`            | no       | Name of {% term entity %} to fetch stream from, e.g., `camera.front_door_camera`.                      |
+| `media_player`         | no       | Name of media player to play stream on, e.g., `media_player.living_room_tv`.                           |
+| `format`               | yes      | Stream format supported by `stream` {% term integration %} and selected `media_player`. Default: `hls` |
 
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
 ```yaml
 action:
-  service: camera.play_stream
+  action: camera.play_stream
   target:
     entity_id: camera.yourcamera
   data:
     media_player: media_player.chromecast
 ```
 
-#### Service `enable_motion_detection`
+#### Action `enable_motion_detection`
 
 Enable motion detection in a camera. Currently, this will enable the first event configured on the camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to enable motion detection, e.g., `camera.front_door_camera`. |
+| Data attribute | Optional | Description                                                                       |
+| ---------------------- | -------- | --------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to enable motion detection, e.g., `camera.front_door_camera`. |
 
-#### Service `disable_motion_detection`
+#### Action `disable_motion_detection`
 
 Disable the motion detection in a camera. Currently, this will disable the first event configured on the camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |     yes  | Name(s) of entities to disable motion detection, e.g., `camera.front_door_camera`. |
+| Data attribute | Optional | Description                                                                        |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | Name(s) of entities to disable motion detection, e.g., `camera.front_door_camera`. |
 
-#### Service `snapshot`
+#### Action `snapshot`
 
 Take a snapshot from a camera.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`. |
-| `filename`             |      no  | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
+| Data attribute | Optional | Description                                                                                                   |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------- |
+| `entity_id`            | no       | Name(s) of entities to create a snapshot from, e.g., `camera.front_door_camera`.                              |
+| `filename`             | no       | Template of a file name. Variable is `entity_id`, e.g., {% raw %}`/tmp/snapshot_{{ entity_id }}`{% endraw %}. |
 
-The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
+The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/integrations/homeassistant/#allowlist_external_dirs) section of your `configuration.yaml` file.
 
 For example, the following action is an automation that would take a snapshot from "front_door_camera" and save it to /tmp with a timestamped filename.
 
@@ -158,7 +162,7 @@ For example, the following action is an automation that would take a snapshot fr
 
 ```yaml
 action:
-  service: camera.snapshot
+  action: camera.snapshot
   target:
     entity_id: camera.front_door_camera
   data:

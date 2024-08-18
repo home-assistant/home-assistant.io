@@ -12,9 +12,12 @@ ha_platforms:
   - binary_sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `linode` integration allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
+The `linode` {% term integration %} allows you to access the information about your [Linode](https://linode.com) systems from Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -33,7 +36,8 @@ Obtain your oAuth2 Access Token from Linode account.
 
 ## Configuration
 
-To integrate Linode with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate Linode with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,7 +56,7 @@ linode:
 
 The `linode` binary sensor platform allows you to monitor your Linode nodes.
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +77,7 @@ nodes:
 
 The `linode` switch platform allows you to turn your Linode nodes on and off.
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -3,6 +3,11 @@ type: card
 title: "Alarm panel card"
 sidebar_label: Alarm panel
 description: "The alarm panel card allows you to arm and disarm your alarm control panel integrations."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The alarm panel card allows you to arm and disarm your [alarm control panel](/integrations/#alarm) {% term integrations %}.
@@ -81,8 +86,3 @@ states:
   - arm_night
   - armed_custom_bypass
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

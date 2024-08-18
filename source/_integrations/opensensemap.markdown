@@ -9,9 +9,12 @@ ha_domain: opensensemap
 ha_platforms:
   - air_quality
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `opensensemap` air quality platform will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
+The `opensensemap` air quality {% term integration %} will query the open data API of [openSenseMap.org](https://opensensemap.org/) to monitor air quality sensor station.
 
 ## Setup
 
@@ -19,7 +22,8 @@ To get the ID of a station you need to select it on the [openSense map](https://
 
 ## Manual configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

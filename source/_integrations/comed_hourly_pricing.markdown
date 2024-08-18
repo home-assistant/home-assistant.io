@@ -15,7 +15,8 @@ The ComEd Hourly Pricing program is an optional program available to ComEd elect
 
 There are two price feeds available: the 5-minute price and current hour average price.
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+To use this sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

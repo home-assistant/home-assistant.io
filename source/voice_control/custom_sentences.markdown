@@ -1,5 +1,16 @@
 ---
 title: "Assist - custom sentences"
+related:
+  - docs: /voice_control/aliases/
+    title: Create aliases
+  - docs: /docs/scripts/#respond-to-a-conversation
+    title: Conversation response script action
+  - docs: /docs/automation/trigger/#sentence-trigger
+    title: Sentence triggers
+  - docs: /docs/automation/trigger/#sentence-wildcards
+    title: Sentence wildcards
+  - url: https://developers.home-assistant.io/docs/intent_builtin/
+    title: View existing intents
 ---
 
 You may add your own sentences to the intent recognizer by either extending an [existing intent](https://developers.home-assistant.io/docs/intent_builtin/) or creating a new one. You may also [customize responses](#customizing-responses) for existing intents.
@@ -165,15 +176,7 @@ responses:
 
 {% endraw %}
 
-## Related topics
-
-- [View existing intents](https://developers.home-assistant.io/docs/intent_builtin/)
-- [Create aliases](/voice_control/aliases/)
-- [Conversation response script action](/docs/scripts/#respond-to-a-conversation)
-- [Sentence triggers](/docs/automation/trigger/#sentence-trigger)
-- [Sentence wildcards](/docs/automation/trigger/#sentence-wildcards)
-
-### Related devices and installation tutorials
+## Related devices and installation tutorials
 
 - [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/)
 - [S3-BOX-3 voice assistant](/voice_control/s3_box_voice_assistant/)

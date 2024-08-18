@@ -3,6 +3,11 @@ type: card
 title: "Markdown card"
 sidebar_label: Markdown
 description: "The Markdown card is used to render Markdown"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The Markdown card is used to render [Markdown](https://commonmark.org/help/).
@@ -48,6 +53,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_empty:
+  required: false
+  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Example
@@ -140,8 +150,3 @@ content: |
   <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

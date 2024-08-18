@@ -9,9 +9,12 @@ ha_domain: gitlab_ci
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `gitlab_ci` sensor platform integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
+The `gitlab_ci` sensor {% term integration %} integrates results reported by CI/CD Pipeline Jobs in [GitLab](https://gitlab.com/).
 
 ## Setup
 
@@ -23,7 +26,8 @@ A GitLab token with at least the API permission scope is needed, which can be cr
 
 ## Configuration
 
-To enable this platform, please add the following to your `configuration.yaml` file:
+To enable this {% term integration %}, please add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

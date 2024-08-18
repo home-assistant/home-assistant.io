@@ -51,11 +51,9 @@ See per phase what your voltage, current and power consumption/production is.
 
 ### WaterMeter
 
-<div class='note'>
-
+{% important %}
 You need to run at least version **1.1.0** of P1 Monitor, to use a water meter.
-
-</div>
+{% endimportant %}
 
 See how much water you consume per day, in total and the number of counted pulses.
 

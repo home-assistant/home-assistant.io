@@ -17,17 +17,17 @@ The **Date/Time** {% term integration %} is built for the controlling and monito
 
 If you are looking for a way to create a Date/Time entity, please take a look at the [Date/Time helper](/integrations/input_datetime).
 
-## Services
+## Actions
 
-### datetime services
+### datetime actions
 
-Available {% term services %}: `datetime.set_value`
+Available {% term actions %}: `datetime.set_value`
 
-### Service `datetime.set_value`
+### Action `datetime.set_value`
 
 Set a new value for the datetime {% term entity %}.
 
-| Service data attribute | Optional | Description                                                                                                  |
+| Data attribute | Optional | Description                                                                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | String or list of strings that point at `entity_id`'s of datetimes to control.                               |
 | `datetime`             | no       | New datetime value to set. If timezone is not included, the Home Assistant instance's timezone will be used. |

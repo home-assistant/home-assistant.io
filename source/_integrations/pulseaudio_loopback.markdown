@@ -9,6 +9,9 @@ ha_domain: pulseaudio_loopback
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The goal behind this switch is to allow a very flexible whole home audio system based upon [PulseAudio](https://www.freedesktop.org/wiki/Software/PulseAudio/).
@@ -17,9 +20,10 @@ For example, for a system with a 7.1 surround sound card, and 3 instances of [MP
 
 The benefit of this approach is that this audio routing can occur without modifying the design-time configuration of MPD or PulseAudio.
 
-This integration uses a TCP connection to control a local or remote PulseAudio server. So there are no local dependencies.
+This {% term integration %} uses a TCP connection to control a local or remote PulseAudio server. So there are no local dependencies.
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,8 +57,6 @@ port:
   type: integer
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this integration, `module-native-protocol-tcp auth-ip-acl=<homeassistant ip>` must be loaded on the PulseAudio server.
-
-</div>
+{% endimportant %}

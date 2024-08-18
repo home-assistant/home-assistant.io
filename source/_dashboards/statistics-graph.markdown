@@ -3,6 +3,11 @@ type: card
 title: "Statistics graph card"
 sidebar_label: Statistics graph
 description: "The statistics graph card allows you to display a graph with statistics data for each of the entities listed."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The statistics graph card allows you to display a graph of statistics data for each of the entities listed.
@@ -96,8 +101,3 @@ entities:
   - entity: sensor.inside_temperature
     name: Inside
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

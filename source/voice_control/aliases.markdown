@@ -1,8 +1,15 @@
 ---
-title: "Assist - entity and area aliases"
+title: "Assist - entity, area, and floor aliases"
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /voice_control/custom_sentences/
+    title: Assist - custom sentences
 ---
 
-Assist will use the names of your entities and areas, as well as any aliases you've configured. The configured aliases are not only used by Assist, but can also be used by Google Assistant, if you have set that up.
+Assist will use the names of your entities, areas and floors, as well as any aliases you've configured. The configured aliases are not only used by Assist, but can also be used by Google Assistant, if you have set that up.
 
 These aliases are helpful in case you call the same device by multiple names
 or when using a voice assistant in multiple languages at the same time.
@@ -18,7 +25,14 @@ There are multliple ways to add an alias of an entity:
 
 ## Adding an alias of an area
 
-1. To add an alias for an area, go to **Settings** > **Areas & zones**.
-2. Select the area of interest.
-3. In the three-dot menu, select **Area settings**.
-4. Select **Add alias** and enter the alias you want to use for that area.
+1. To add an alias for an area, go to **Settings** > **Areas, labels & zones**.
+2. On the area card of interest, select the pencil button.
+3. Select **Add alias** and enter the alias you want to use for that area.
+4. **Save** your changes.
+
+## Adding an alias of a floor
+
+1. To add an alias for a floor, go to **Settings** > **Areas, labels & zones**.
+2. Next to the floor of interest, select the three-dot menu, then select **Edit floor**.
+3. Select **Add alias** and enter the alias you want to use for that floor.
+4. **Save** your changes.

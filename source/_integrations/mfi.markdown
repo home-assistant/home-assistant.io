@@ -12,6 +12,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 There is currently support for the following device types within Home Assistant:
@@ -21,9 +24,10 @@ There is currently support for the following device types within Home Assistant:
 
 ## Sensor
 
-The `mfi` sensor platform to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
+The `mfi` sensor {% term integration %} to allow you to monitor [mFi mPort interface and sensors](https://www.ubnt.com/mfi/mport/).
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this {% term integration %} to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +72,7 @@ verify_ssl:
 
 The `mfi` switch platform to allow you to control [mFi Controllable Power Outlets](https://www.ubnt.com/mfi/mpower/).
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this platform to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

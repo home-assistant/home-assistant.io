@@ -12,6 +12,9 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The AquaLogic integration provides connectivity to a Hayward/Goldline AquaLogic/ProLogic pool controller. Note that an RS-485 to Ethernet adapter connected to the pool controller is required.
@@ -23,7 +26,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To add the AquaLogic integration to your installation, add the following to your `configuration.yaml` file:
+To add the AquaLogic integration to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,7 +49,7 @@ port:
 
 ## Sensor
 
-Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -84,7 +88,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the AquaLogic integration, add the following to your `configuration.yaml` file:
+Once you have enabled the AquaLogic integration, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

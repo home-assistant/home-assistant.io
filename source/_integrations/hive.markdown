@@ -32,12 +32,10 @@ ha_homekit: true
 The Hive integration for Home Assistant allows you to interact with supported devices and services offered by
 [hivehome.com](https://www.hivehome.com)
 
-<div class='note'>
-
+{% note %}
 Please note that Hive shut down its North American Servers on November 30th, 2021.
 Read more about this in their [shutdown notice](https://www.hivehome.com/us/support).
-
-</div>
+{% endnote %}
 
 This Hive integration uses the same username and password you use on the [Hive website](https://sso.hivehome.com) to configure it within Home Assistant, 2FA authentication must be enabled to use this integration. Once configured Home Assistant will detect and add all Hive devices, including support for multi-zone heating.
 
@@ -49,13 +47,13 @@ Menu: *Configuration* > *Integrations* > *Select your new integration* > *Press 
 
 - **Scan Interval**: Update the scan interval allowing the integration to poll for data more frequently (Cannot be set lower than 30 seconds).
   
-## Services
+## Actions
 
-### Service `hive.boost_heating_on`
+### Action `hive.boost_heating_on`
 
-You can use the service `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this service.
+You can use the action `hive.boost_heating_on` to set your heating to boost for a period of time at a certain target temperature". Individual TRVs can also be boosted in the same way, using this action.
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `climate.heating`                         |
 | `time_period`          | no       | Time Period, Period of time the boost should last for e.g., `01:30:00` |
@@ -68,7 +66,7 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_on
+      - action: hive.boost_heating_on
         target:
           entity_id: "climate.heating"
         data:
@@ -76,11 +74,11 @@ script:
           temperature: "20.5"
 ```
 
-### Service `hive.boost_heating_off`
+### Action `hive.boost_heating_off`
 
-You can use the service `hive.boost_heating_off` to turn your heating boost off.
+You can use the `hive.boost_heating_off` action to turn your heating boost off.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `climate.heating` |
 
@@ -91,16 +89,16 @@ Examples:
 script:
   boost_heating:
     sequence:
-      - service: hive.boost_heating_off
+      - action: hive.boost_heating_off
         target:
           entity_id: "climate.heating"
 ```
 
-### Service `hive.boost_hot_water`
+### Action `hive.boost_hot_water`
 
-You can use the service `hive.boost_hot_water` to set your hot water to boost for a period of time.
+You can use the `hive.boost_hot_water` action to set your hot water to boost for a period of time.
 
-| Service data attribute | Optional | Description                                                             |
+| Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
 | `entity_id`            | no       | String, Name of entity e.g., `water_heater.hot_water`                   |
 | `time_period`          | yes      | Time Period, Period of time the boost should last for e.g., `01:30:00`. |
@@ -113,7 +111,7 @@ Examples:
 script:
   boost_hot_water:
     sequence:
-      - service: "hive.boost_hot_water"
+      - action: "hive.boost_hot_water"
         target:
           entity_id: "water_heater.hot_water"
         data:
@@ -175,6 +173,11 @@ The `hive` sensor integration exposes Hive data as a sensor.
 The platform exposes the following sensors:
 
 - Battery level for supported products
+- Boost for supported products
+- Mode for supported products
+- State for supported products
+- Current temperature for supported products
+- Target temperature for supported products
   
 ### Switch
 

@@ -42,7 +42,7 @@ for example, the Samba add-on. Users of Home Assistant Container can
 mount a volume of their choice to `/media`.
 
 If you are a Home Assistant Core user, the default directory called is called
-`media` under the configuration path (where your `configuration.yaml` is located).
+`media` under the configuration path (where your {% term "`configuration.yaml`" %} is located).
 
 Files served from `media` are protected by Home Assistant authentication
 unlike those served from `www`.
@@ -62,21 +62,18 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
-<div class='note'>
-
-  If you want to use media from a network storage, the network storage must first be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
-
-  The media from the network storage is then automatically added to the local media browser.
-
-</div>
+{% tip %}
+If you want to use media from a network storage, the network storage must be connected first. Refer to [these instructions on how to connect network storage](/common-tasks/os/#network-storage).
+The media from the network storage is then automatically added to the local media browser.
+{% endtip %}
 
 ## Playing media from a media source
 
-To play media from a media source via a service call, use the uri
+To play media from a media source via an action, use the uri
 scheme `media-source://media_source/<media_dir>/<path>`.
 Default `media_dir` is `local`.
 
-<div class="note">
+{% note %}
 Web browsers and Google Cast media players have very limited video container
 and codec support. The media source integration does not do any transcoding of
 media, meaning media files must be natively supported by your media player or
@@ -86,12 +83,12 @@ If a video file is not supported by
 your media player or web browser it will fail to play. Please check the
 documentation of your media player or web browser for lists
 of supported video formats.
-</div>
+{% endnote %}
 
 Example:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.living_room_tv
 data:
@@ -99,4 +96,4 @@ data:
   media_content_id: "media-source://media_source/local/videos/favourites/Epic Sax Guy 10 Hours.mp4"
 ```
 
-[basic-configuration]: /docs/configuration/basic/#media_dirs
+[basic-configuration]: /integrations/homeassistant/#media_dirs

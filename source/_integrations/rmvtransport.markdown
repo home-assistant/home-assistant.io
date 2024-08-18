@@ -11,9 +11,12 @@ ha_domain: rmvtransport
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `rvmtransport` sensor will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
+The `rvmtransport` {% term integration %} will give you the departure time of the next bus, tram, subway or train at the next station or stop in the Rhein-Main area public transport network. Additional details such as the line number and destination are present in the attributes.
 
 ## Setup
 
@@ -21,7 +24,8 @@ Visit the [RMV OpenData web site](https://opendata.rmv.de) to find a list of val
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

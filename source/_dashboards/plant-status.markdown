@@ -3,6 +3,11 @@ type: card
 title: "Plant status card"
 sidebar_label: Plant status
 description: "The plant status card is for all the lovely botanists out there."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The plant status card is for all the lovely botanists out there.
@@ -48,8 +53,3 @@ Basic example:
 type: plant-status
 entity: plant.bonsai
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

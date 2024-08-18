@@ -5,8 +5,6 @@ ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@janiversen'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -16,15 +14,18 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [modbus](http://www.modbus.org/) is a communication protocol to control PLCs (Programmable Logic Controller) and RTUs (Remote Terminal Unit).
 
 The integration adheres strictly to the [protocol specification](https://www.modbus.org/docs/Modbus_Application_Protocol_V1_1b3.pdf) using [pymodbus](https://github.com/pymodbus-dev/pymodbus) for the protocol implementation.
 
-The modbus integration supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
+The modbus {% term integration %} supports all devices adhering to the modbus standard. The communication to the device/devices can be serial (rs-485), TCP, or UDP connections. The modbus integration allows multiple communication channels e.g. a serial port connection combined with one or more TCP connections.
 
 # Configuring modbus communication
 
@@ -33,6 +34,9 @@ Configure the modbus communication with modbus devices. This is a general setup 
 The modbus integration allows you to use multiple connections each with multiple sensors etc.
 
 The modbus integration provides a number of parameters to help communicate with "difficult" devices, these parameters are independent of the type of communication.
+
+To enable this integration, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% configuration %}
 delay:
@@ -682,6 +686,40 @@ climates:
         value 1 is written."
       required: false
       type: integer
+    swing_mode_register:
+      description: "Configuration of the register for swing mode"
+      required: false
+      type: map
+      keys:
+        address:
+          description: "Address of swing mode register. (int to call write_register, list of 1 int to call write_registers). - Reading done through holding register"
+          required: true
+          type: [integer, list]
+        values:
+          description: "Mapping between the register values and swing modes"
+          required: true
+          type: map
+          keys:
+            swing_mode_state_on:
+              description: "Value corresponding to swing mode on."
+              required: false
+              type: integer
+            swing_mode_state_off:
+              description: "Value corresponding to swing mode off."
+              required: false
+              type: integer
+            swing_mode_state_horizontal:
+              description: "Value corresponding to swing mode horizontal."
+              required: false
+              type: integer
+            swing_mode_state_vertical:
+              description: "Value corresponding to swing mode vertical."
+              required: false
+              type: integer
+            swing_mode_state_both:
+              description: "Value corresponding to Swing mode both."
+              required: false
+              type: integer
     input_type:
       description: Modbus register type for current temperature.
       required: false
@@ -1346,13 +1384,15 @@ sensors:
       description: "Suppress values close to zero. If -zero_suppress <= value <= +zero_suppress --> 0. Can be float or integer"
       required: false
       type: float
+    unique_id:
+      description: ID that uniquely identifies the entity. If two sensors have the same unique ID, Home Assistant will raise an exception.
+      required: false
+      type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
-
-</div>
+{% endnote %}
 
 ### Example: sensor configuration
 
@@ -1445,9 +1485,9 @@ switches:
         coils:
           description: "write_coils is called."
     verify:
-      description: "Read from Modbus device to verify fan.
+      description: "Read from Modbus device to verify switch.
         If used without attributes, it uses the toggle register configuration.
-        If omitted, no verification is done, but the state of the fan is set with each toggle."
+        If omitted, no verification is done, but the state of the switch is set with each toggle."
       required: false
       type: map
       keys:
@@ -1560,11 +1600,11 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# modbus services
+# Actions
 
-The modbus integration provides two generic write services in addition to the platform-specific services.
+The modbus integration provides two generic write actions in addition to the platform-specific actions.
 
-| Service               | Description                 |
+| Action                | Description                 |
 | --------------------- | --------------------------- |
 | modbus.write_register | Write register or registers |
 | modbus.write_coil     | Write coil or coils         |
@@ -1574,30 +1614,17 @@ Description:
 | Attribute | Description                                                                                                                                                                                                                                                                                 |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | hub       | Hub name (defaults to 'modbus_hub' when omitted)                                                                                                                                                                                                                                            |
-| slave     | Slave address (0-255)                                                                                                                                                                                                                                                  |
+| slave     | Slave address (0-255)                                                                                                                                                                                                                                                                       |
 | address   | Address of the Register (e.g. 138)                                                                                                                                                                                                                                                          |
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
-
-The modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
-
-| Service        | Description                                   |
-| -------------- | --------------------------------------------- |
-| modbus.stop    | Stop communication                            |
-| modbus.restart | Restart communication (Stop first if running) |
-
-Description:
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
 
 ## Example: writing a float32 type register
 
 To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
-service: modbus.write_register
+action: modbus.write_register
 data:
   address: <target register address>
   slave: <target slave address>
@@ -1605,17 +1632,17 @@ data:
   value: [0x4120, 0x0000]
 ```
 
-## Service `modbus.set-temperature`
+## Action `modbus.set-temperature`
 
-| Service         | Description                                                                                                                                   |
+| Action          | Description                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-## Service `modbus.set_hvac_mode`
+## Action `modbus.set_hvac_mode`
 
-| Service       | Description                                                                                                                                                                                                                                                                                                                           |
+| Action        | Description                                                                                                                                                                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
+| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 
 # Opening an issue
@@ -1626,7 +1653,7 @@ When opening an issue, please add your current configuration (or a scaled down v
  - the entity (sensor, etc.) lines
 
 In order for the developers better to identify the problem, please add the
-following lines to configuration.yaml:
+following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:

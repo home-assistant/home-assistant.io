@@ -3,6 +3,11 @@ type: card
 title: "Statistic card"
 sidebar_label: Statistic
 description: "The statistic card allows you to display a statistical value for an entity."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The statistic card allows you to display a statistical value for an entity.
@@ -172,8 +177,3 @@ period:
       seconds: -10
 stat_type: change
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

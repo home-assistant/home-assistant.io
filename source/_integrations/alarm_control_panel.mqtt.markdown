@@ -6,11 +6,14 @@ ha_category:
 ha_release: 0.7.4
 ha_iot_class: Configurable
 ha_domain: mqtt
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mqtt` alarm panel platform enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
+The `mqtt` alarm panel {% term integration %} enables the possibility to control MQTT capable alarm panels. The Alarm icon will change state after receiving a new state from `state_topic`. If these messages are published with *RETAIN* flag, the MQTT alarm panel will receive an instant state update after subscription and will start with the correct state. Otherwise, the initial state will be `unknown`.
 
-The integration will accept the following states from your Alarm Panel (in lower case):
+The {% term integration %} will accept the following states from your Alarm Panel (in lower case):
 
 - `disarmed`
 - `armed_home`
@@ -23,11 +26,12 @@ The integration will accept the following states from your Alarm Panel (in lower
 - `arming`
 - `disarming`
 
-The integration can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
+The {% term integration %} can control your Alarm Panel by publishing to the `command_topic` when a user interacts with the Home Assistant frontend.
 
 ## Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml`:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -129,6 +133,10 @@ device:
       type: string
     model:
       description: "The model of the device."
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -242,7 +250,7 @@ retain:
   type: boolean
   default: false
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: true
   type: string
 supported_features:
@@ -337,8 +345,7 @@ mqtt:
 
 {% endraw %}
 
-<div class='note warning'>
-
+{% caution %}
 When your MQTT connection is not secured, this will send your secret code over the network unprotected!
-
-</div>
+{% endcaution %}
+ 

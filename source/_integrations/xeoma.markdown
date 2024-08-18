@@ -9,13 +9,17 @@ ha_domain: xeoma
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `Xeoma` camera platform allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.
+The `Xeoma` camera {% term integration %} allows you to view the video feeds from a [Xeoma](https://felenasoft.com/xeoma) video surveillance server.
 
 ## Configuration
 
-To enable Xeoma camera feeds, add the following lines to your `configuration.yaml`:
+To enable Xeoma camera feeds, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

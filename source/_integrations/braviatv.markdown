@@ -69,36 +69,36 @@ media_player:
     browse_media_entity: media_player.sony_tv_native
     commands:
       turn_off:
-        service: media_player.turn_off
+        action: media_player.turn_off
         data:
           entity_id: media_player.sony_tv_native
       turn_on:
-        service: media_player.turn_on
+        action: media_player.turn_on
         data:
           entity_id: media_player.sony_tv_native
       select_source:
-        service: media_player.select_source
+        action: media_player.select_source
         data:
           entity_id: media_player.sony_tv_native
           source: "{{ source }}"
       media_play:
-        service: media_player.media_play
+        action: media_player.media_play
         target:
           entity_id: media_player.sony_tv_native
       media_pause:
-        service: media_player.media_pause
+        action: media_player.media_pause
         target:
           entity_id: media_player.sony_tv_native
       media_play_pause:
-        service: media_player.media_play_pause
+        action: media_player.media_play_pause
         target:
           entity_id: media_player.sony_tv_native
       media_previous_track:
-        service: media_player.media_previous_track
+        action: media_player.media_previous_track
         target:
           entity_id: media_player.sony_tv_native
       media_next_track:
-        service: media_player.media_next_track
+        action: media_player.media_next_track
         target:
           entity_id: media_player.sony_tv_native
 ```
@@ -107,9 +107,9 @@ media_player:
 
 {% enddetails %}
 
-## Play media service
+## Play media action
 
-The `play_media` {% term service %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
+The `play_media` {% term action %} can be used in an {% term automation %} or {% term script %} to switch to a specified application or TV channel. It selects the best matching application or channel according to the `media_content_id`:
 
  1. Channel number *(i.e., '1' or '6')*
  2. Exact app or channel name *(i.e., 'Google Play' or 'CNN')*
@@ -119,7 +119,7 @@ The `play_media` {% term service %} can be used in an {% term automation %} or {
 **Example to open YouTube app:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -130,7 +130,7 @@ data:
 **Example to switch to channel number 11:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -141,7 +141,7 @@ data:
 **Example to switch to channel including 'news' in its name:**
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.bravia_tv
 data:
@@ -151,14 +151,14 @@ data:
 
 ## Remote
 
-The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` service.
+The {% term integration %} supports `remote` {% term platform %}. It allows you to send remote control commands to your TV with the `remote.send_command` action.
 
-The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term service %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
+The commands that can be sent to the TV depend on the model of your TV. To display a list of supported commands for your TV, call the {% term action %} `remote.send_command` with non-valid command (e.g. `Test`). A list of available commands will be displayed in [Home Assistant System Logs](https://my.home-assistant.io/redirect/logs).
 
 **Example to send `Down` key command:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.bravia_tv
 data:
@@ -216,7 +216,7 @@ See [Using with Google Cast](#using-with-google-cast) section for more details.
 
 ### Power consumption ~15 W when the TV in standby mode while integration is enabled
 
-The Bravia TV is [local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term service %} manually.
+The Bravia TV is [local pulling integration](https://www.home-assistant.io/blog/2016/02/12/classifying-the-internet-of-things/#polling-the-local-device). Even if the TV is turned off, its status is constantly polled to determine the current state, so the TV's network interface remains enabled. This is normal behavior. If you are concerned about this, you can disable polling for updates in the integration **System options** menu, but the TV status will no longer update automatically and you will have to force the {% term entity %} update by calling `homeassistant.update_entity` {% term action %} manually.
 
 Please note that this behavior can be caused not only by the integration, but also by some applications installed on the TV.
 

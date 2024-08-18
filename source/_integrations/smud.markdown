@@ -4,7 +4,7 @@ description: Get energy usage from Sacramento Municipal Utility District (SMUD) 
 ha_category:
   - Energy
   - Sensor
-ha_release: 2024.4
+ha_release: 2023.8
 ha_domain: smud
 ha_integration_type: virtual
 ha_supporting_domain: opower

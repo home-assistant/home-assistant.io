@@ -11,15 +11,19 @@ ha_domain: shodan
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `shodan` sensor platform is displaying the total of result of a
+The `shodan` sensor {% term integration %} is displaying the total of result of a
 [Shodan](https://www.shodan.io/) query.
 
 Use "Show API Key" in the upper right corner when you are logged in or got to
 your "My Account" page to retrieve your API key.
 
-To enable this sensor, add the following lines to your `configuration.yaml`
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 file:
 
 ```yaml

@@ -3,6 +3,11 @@ type: card
 title: "Logbook card"
 sidebar_label: Logbook
 description: "The logbook card displays entries from the logbook for specific entities."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The logbook card displays entries from the logbook for specific entities.
@@ -65,8 +70,3 @@ entities:
   - light.ceiling_lights
 hours_to_show: 24
 ```
-
-## Related topics
-
-- [Themes](/integrations/frontend/)
-- [Dashboard cards](/dashboards/cards/)

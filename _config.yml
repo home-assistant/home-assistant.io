@@ -67,8 +67,6 @@ titlecase: true # Converts page and post titles to titlecase
 collections:
   integrations:
     output: true
-  examples:
-    output: true
   docs:
     output: true
   addons:
@@ -109,9 +107,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2024
-current_minor_version: 3
-current_patch_version: 3
-date_released: 2024-03-22
+current_minor_version: 8
+current_patch_version: 0
+date_released: 2024-08-07
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.
@@ -141,6 +139,7 @@ defaults:
       footer: true
       sharing: true
       sidebar: true
+      toc: true
   # Enable table of contents for integrations and installations
   #
   # To set toc as a default value, we need to set the scope with an empty path
@@ -149,16 +148,37 @@ defaults:
   #
   - scope:
       path: ""
+      type: dashboards
+    values:
+      toc: true
+  - scope:
+      path: ""
       type: integrations
+    values:
+      toc: true
+  - scope:
+      path: ""
+      type: docs
     values:
       toc: true
   - scope:
       path: "installation/*"
     values:
       toc: true
-      no_toc: true
   - scope:
       path: "common-tasks/*"
+    values:
+      toc: true
+  - scope:
+      path: "getting-started/*"
+    values:
+      toc: true
+  - scope:
+      path: "more-info/*"
+    values:
+      toc: true
+  - scope:
+      path: "voice_control/*"
     values:
       toc: true
   - scope:
@@ -179,6 +199,12 @@ defaults:
     values:
       sitemap: false
 
+  - scope:
+      path: "blueprints/**/*.yaml"
+    values:
+      render_with_liquid: false
+      layout: none
+
 # Support for files Jekyll will normally exclude
 include:
   - "_headers"
@@ -195,7 +221,7 @@ toc:
 installation:
   container: "ghcr.io/home-assistant/home-assistant"
   versions:
-    python: "3.11"
+    python: "3.12"
   types:
     odroid:
       board: ODROID

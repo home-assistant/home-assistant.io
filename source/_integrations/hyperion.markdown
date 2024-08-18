@@ -14,8 +14,8 @@ ha_ssdp: true
 ha_platforms:
   - camera
   - light
-  - switch
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -118,7 +118,7 @@ automation:
       entity_id: light.hyperion
       to: "on"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -140,7 +140,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
       entity_id: media_player.plex.plex
       to: "idle"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -156,7 +156,7 @@ To capture the screen on a USB capture device, when playing something on a media
       entity_id: media_player.plex
       to: "playing"
   action:
-    - service: switch.turn_on
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_usb_capture
 ```
@@ -176,7 +176,7 @@ To toggle the LED device together with the light entity in order to turn light o
       entity_id: switch.[instance]_component_led_device
       state: "off"
   action:
-    - service: switch.turn_on
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_led_device
 ```

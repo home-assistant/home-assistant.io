@@ -5,9 +5,9 @@ description: "More information on why systemd journal marks the installation as 
 
 ## The issue
 
-The Supervisor needs access to the systemd journal for logging features
-such as the `/host/logs` API. These features don't work if the journal
-is not accessible.
+The Supervisor needs access to the systemd journal to access logs of
+individual system components and add-ons. These logs are limited or
+not available at all if the journal is not accessible.
 
 ## The solution
 
