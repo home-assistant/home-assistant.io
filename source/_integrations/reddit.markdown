@@ -40,6 +40,8 @@ sensor:
     subreddits:
       - news
       - worldnews
+    redditors:
+      - spez
 ```
 
 {% configuration %}
@@ -62,6 +64,10 @@ client_secret:
 subreddits:
   description: List of subreddits you want to get data on.
   required: true
+  type: list
+redditors:
+  description: List of users you want to get data on.
+  required: false
   type: list
 sort_by:
   description: "Sort reddit posts by `new`, `top`, `controversial` and `hot`."
