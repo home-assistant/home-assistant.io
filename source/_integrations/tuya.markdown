@@ -67,6 +67,10 @@ Tuya Smart app. You can find it by opening the app and:
 
 {% include integrations/config_flow.md %}
 
+{% important %} If the integration does not ask you for a User Code but instead asks you for Tuya IoT credentials, then you're most likely using an old version of Home Assistant. Please update your instance to use the latest Tuya integration. {% endimportant %}
+
+
+
 ## Scenes
 
 Tuya supports scenes in their app. These allow triggering some of the more complex modes of various devices such as light changing effects. Scenes created in the Tuya app will automatically appear in the Scenes list in Home Assistant the next time the integration updates.
