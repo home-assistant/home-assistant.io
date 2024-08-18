@@ -115,15 +115,7 @@ These sensors are disabled because their values are not commonly needed but they
 
 ## Buttons
 
-The integration creates buttons which send commands to the device. You can add these buttons in the UI to build a virtual remote or add them in scripts/automations.
-
-### Navigation & menus
-
-- `Open info menu`: Opens the info menu.
-- `Open settings menu`: Opens the settings menu.
-- `Open configuration menu`: Opens the configuration menu.
-- `Open profiles menu`: Opens the profiles menu.
-- `Open test patterns menu`: Opens the test patterns menu.
+The integration creates buttons which send certain commands to the device. You can add these buttons in the UI to build a virtual remote or add them in scripts/automations.
 
 ### Debugging & demos
 
