@@ -5,6 +5,7 @@ ha_release: '2024.9'
 ha_category:
   - Cover
   - Light
+  - Switch
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
@@ -14,6 +15,7 @@ ha_platforms:
   - cover
   - diagnostics
   - light
+  - switch
 ha_integration_type: integration
 ---
 
