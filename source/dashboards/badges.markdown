@@ -159,7 +159,7 @@ state_filter:
 
 ## Conditions options
 
-You can specify multiple `conditions`, in which case the entity will be displayed if it matches any condition.
+You can specify multiple `conditions`, in which case the entity will be displayed if it matches all conditions.
 
 ### State
 
