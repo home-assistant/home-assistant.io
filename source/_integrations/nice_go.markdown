@@ -1,7 +1,7 @@
 ---
 title: Nice G.O.
 description: Control Nice G.O. garage doors
-ha_release: '2024.8'
+ha_release: '2024.9'
 ha_category:
   - Cover
   - Light
