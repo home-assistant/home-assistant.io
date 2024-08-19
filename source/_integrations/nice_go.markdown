@@ -32,3 +32,7 @@ Garage doors linked to your Nice G.O. account will appear as covers.
 ## Light
 
 Lights on your garage door will appear as lights.
+
+## Switch
+
+A switch for turning vacation mode on and off will be made available for each device.
