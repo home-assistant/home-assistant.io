@@ -29,16 +29,16 @@ The LG ThinQ integration allows you to connect LG ThinQ devices to Home Assistan
 
 ### Personal Access Token (PAT)
 
-1.	Access the **[personal access token](https://connect-pat.lgthinq.com)** page (requires an LG ThinQ account).
-2.	Click the **ADD NEW TOKEN** button.
-3.	Enter a new token name and select the following authorized scopes: 
+1. Access the **[personal access token](https://connect-pat.lgthinq.com)** page (requires an LG ThinQ account).
+2. Click the **ADD NEW TOKEN** button.
+3. Enter a new token name and select the following authorized scopes: 
     - Permission to view all devices
     - Permission to view all device statuses
     - All device control rights
     - All device event subscription rights
     - All device push notification permissions
-4.	Click the **CREATE TOKEN** button.
-5.	Once all the steps are completed, you will see that a **PAT** has been generated.
+4. Click the **CREATE TOKEN** button.
+5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
 ### MQTT
 
@@ -63,9 +63,9 @@ To set up the integration, please follow these steps:
 
 To remove the integration, please follow these steps:
 
-1.	Go to the Home Assistant Integrations page.
-2.	Select the LG ThinQ integration instance.
-3.	Click on the options menu and choose Delete.
+1. Go to the Home Assistant Integrations page.
+2. Select the LG ThinQ integration instance.
+3. Click on the options menu and choose Delete.
 
 {% note %} Deleting the integration will remove all entities associated with your LG ThinQ devices' features. {% endnote %}
 
@@ -111,15 +111,15 @@ Support LG Appliances as follows:
 
 ### Setup
 
-#### Aborted: The token is not valid.
+#### Aborted: The token is not valid
 
 This error occurs when the Personal Access Token (PAT) is invalid or entered incorrectly. Please visit the [Personal Access Token Page](https://d1jykc6oogauei.cloudfront.net/) page to check if your token is valid.
 
-#### Aborted: The country is not supported.
+#### Aborted: The country is not supported
 
 Check your PAT's valid country in the "Choose the region / Country" section.
 
-#### Error: The number of API calls has been exceeded.
+#### Error: The number of API calls has been exceeded
 
 This error occurs when there's an abnormal number of API calls made using the PAT.
 
