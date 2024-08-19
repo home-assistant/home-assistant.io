@@ -4,6 +4,7 @@ description: Control Nice G.O. garage doors
 ha_release: '2024.9'
 ha_category:
   - Cover
+  - Event
   - Light
   - Switch
 ha_iot_class: Cloud Push
@@ -14,6 +15,7 @@ ha_domain: nice_go
 ha_platforms:
   - cover
   - diagnostics
+  - event
   - light
   - switch
 ha_integration_type: integration
@@ -30,6 +32,10 @@ Make sure you have a working account with the Nice G.O. app and have your email 
 ## Cover
 
 Garage doors linked to your Nice G.O. account will appear as covers.
+
+## Event
+
+The barrier obstructed event entity will be triggered whenever the barrier gets obstructed. (beam block, something in the way, etc.)
 
 ## Light
 
