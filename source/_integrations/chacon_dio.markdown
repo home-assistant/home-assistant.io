@@ -50,7 +50,7 @@ The switch platform integrates Chacon Dio devices to manage switches (like the R
 
 ## Actions
 
-In rare case (like wifi interruptions) of needing to update manually the state of your devices, you can use the generic `homeassistant.update_entity` action to manually refresh it.
+In rare cases, such as  Wi-Fi interruptions, you may need to manually update the state of your devices. You can use the `homeassistant.update_entity` action to refresh the device state manually.
 
 ## Tips
 
