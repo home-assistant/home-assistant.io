@@ -19,7 +19,8 @@ ha_integration_type: integration
 
 The **Nice G.O.** {% term integration %} lets you control Nice G.O. garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Nice G.O. mobile app.
 
-
+##
+Make sure you have a working account with the Nice G.O. app and have your email and password ready.
 ## Prerequisites
 
 Make sure you have a working account with the Nice G.O. app and have your email and password ready.
