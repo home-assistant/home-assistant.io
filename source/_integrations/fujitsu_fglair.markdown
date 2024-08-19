@@ -21,6 +21,7 @@ To find out which app to use for your heat pump, check [the Fujitsu FGLair FAQ](
 
 First, set up your device in the FGLair app before using this integration.
 To configure this integration, you will need the credentials (login and password) used to connect to the FGLair application.
+{% include integrations/config_flow.md %}
 
 ## Climate
 
@@ -32,4 +33,3 @@ This integration supports the following functionalities (if the devices support 
 - [`fan mode`](/integrations/climate#action-climateset_fan_mode)
 - [`swing mode`](/integrations/climate#action-climateset_swing_mode)
 
-{% include integrations/config_flow.md %}
