@@ -24,7 +24,7 @@ To configure this integration, you will need the credentials (login and password
 
 ## Climate
 
-This integration supports the following functionalities (if the devices supports it) :
+This integration supports the following functionalities (if the devices support them):
 
 - [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
 - [`target temperature`](/integrations/climate#action-climateset_temperature)
