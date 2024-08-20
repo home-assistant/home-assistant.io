@@ -1153,11 +1153,19 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 Using action responses we can collect information from various entities at the same time.
 Using the `merge_response` template we can merge several responses into one list.
 
-| Variable       | Description                                            |
-| -------------- | ----------------------------------                     |
-| `value`        | The incoming value (action response).                  |
-| `sort_by`      | Sort a response dictionary by this key.                |
-| `selected_key` | Return a list with information from a single key only. |
+| Variable       | Description                                           |
+| -------------- | ----------------------------------                    |
+| `value`        | The incoming value (action response).                 |
+| `sort_by`      | Sort the combined response dictionaries by this key.  |
+| `selected_key` | Return dictionary from second level key.              |
+
+{% note %}
+
+`selected_key` is used for selecting a second level key from within the dictionary.
+
+It can only be used when the response contains dictionaries on second level, not lists like, for example, with `weather.get_forecasts` and `calendar.get_events`
+
+{% endnote %}
 
 ### Example
 
@@ -1165,7 +1173,6 @@ Using the `merge_response` template we can merge several responses into one list
 {% raw %}
 
 {% set combined_forecast = merge_response(response) %}
-
 {{ combined_forecast[0].precipitation | float(0) | round(1) }}
 
 {% endraw %}
@@ -1204,7 +1211,13 @@ Using the `merge_response` template we can merge several responses into one list
     },
 }
 ```
-**Template:** {% raw %}{{ merge_response(response_variable) }}{% endraw %}
+**Template:**
+```yaml
+{% raw %}
+{{ merge_response(response_variable) }}
+{% endraw %}
+```
+
 ```json
 [
   {
@@ -1234,17 +1247,9 @@ Using the `merge_response` template we can merge several responses into one list
 ]
 ```
 
-{% note %}
-
-`sort_by` is used for sorting by a selected key within a dictionary.
-
-`selected_key` is used for selecting a particular key to return from the second level in a dictionary.
-
-See below examples on how they can be used
-
-{% endnote %}
-
 ### Example using `sort_by`
+
+Useful for sorting dictionaries by a certain key
 
 ```json
 {
@@ -1271,7 +1276,12 @@ See below examples on how they can be used
     },
 }
 ```
-**Template:** {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% endraw %}
+**Template:**
+```yaml
+{% raw %}
+{{ merge_response(response_variable, sort_by='start') }}
+{% endraw %}
+```
 ```json
 [
   {
@@ -1294,6 +1304,8 @@ See below examples on how they can be used
 ```
 
 ### Example using `selected_key`
+
+Useful with complex responses where you might only be interested to get a certain key from the second level.
 
 ```json
 {
@@ -1321,7 +1333,12 @@ See below examples on how they can be used
     },
   }
 ```
-**Template:** {% raw %}{{ merge_response(response_variable, selected_key='resp') }}{% endraw %}
+**Template:**
+```yaml
+{% raw %}
+{{ merge_response(response_variable, selected_key='resp') }}
+{% endraw %}
+```
 ```json
 [
     {
