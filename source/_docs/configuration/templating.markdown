@@ -1153,25 +1153,184 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 Using action responses we can collect information from various entities at the same time.
 Using the `merge_response` template we can merge several responses into one list.
 
-| Variable     | Description                                            |
-| ------------ | ----------------------------------                     |
-| `value`      | The incoming value (action response).                  |
-| `sort_by`    | Sort a response dictionary by this key.                |
-| `single_key` | Return a list with information from a single key only. |
+| Variable       | Description                                            |
+| -------------- | ----------------------------------                     |
+| `value`        | The incoming value (action response).                  |
+| `sort_by`      | Sort a response dictionary by this key.                |
+| `selected_key` | Return a list with information from a single key only. |
 
-{% note %}
-
-`sort_by` and `single_key` have only use if the action call is returning dictionaries, for example `weather` and `calendar` action responses.
-
-{% endnote %}
-
-Example:
+### Example
 {% raw %}
 
 {% set combined_forecast = merge_response(response) %}
 {{ combined_forecast[0].precipitation | float(0) | round(1) }}
 
 {% endraw %}
+
+### Example merge calendar action response
+
+```json
+{
+    "calendar.sports": {
+        "events": [
+            {
+                "start": "2024-02-27T17:00:00-06:00",
+                "end": "2024-02-27T18:00:00-06:00",
+                "summary": "Basketball vs. Rockets",
+                "description": "",
+            }
+        ]
+    },
+    "calendar.local_furry_events": {"events": []},
+    "calendar.yap_house_schedules": {
+        "events": [
+            {
+                "start": "2024-02-26T08:00:00-06:00",
+                "end": "2024-02-26T09:00:00-06:00",
+                "summary": "Dr. Appt",
+                "description": "",
+            },
+            {
+                "start": "2024-02-28T20:00:00-06:00",
+                "end": "2024-02-28T21:00:00-06:00",
+                "summary": "Bake a cake",
+                "description": "something good",
+            }
+        ]
+    },
+}
+```
+Template: {% raw %}{{ merge_response(response_variable) }}{% endraw %}
+```json
+[
+  {
+    "description": "",
+    "end": "2024-02-27T18:00:00-06:00",
+    "entity_id": "calendar.sports",
+    "start": "2024-02-27T17:00:00-06:00",
+    "summary": "Basketball vs. Rockets",
+    "value_key": "events"
+  },
+  {
+    "description": "",
+    "end": "2024-02-26T09:00:00-06:00",
+    "entity_id": "calendar.yap_house_schedules",
+    "start": "2024-02-26T08:00:00-06:00",
+    "summary": "Dr. Appt",
+    "value_key": "events"
+  },
+  {
+    "description": "something good",
+    "end": "2024-02-28T21:00:00-06:00",
+    "entity_id": "calendar.yap_house_schedules",
+    "start": "2024-02-28T20:00:00-06:00",
+    "summary": "Bake a cake",
+    "value_key": "events"
+  }
+]
+```
+
+{% note %}
+
+`sort_by` is used for sorting by a selected key within a dictionary.
+`selected_key` is used for selecting a particular key to return from the second level in a dictionary.
+See below examples on how they can be used
+
+{% endnote %}
+
+### Example using `sort_by`
+
+```json
+{
+    "calendar.sports": {
+        "events": [
+            {
+                "start": "2024-02-27T17:00:00-06:00",
+                "end": "2024-02-27T18:00:00-06:00",
+                "summary": "Basketball vs. Rockets",
+                "description": "",
+            }
+        ]
+    },
+    "calendar.local_furry_events": {"events": []},
+    "calendar.yap_house_schedules": {
+        "events": [
+            {
+                "start": "2024-02-26T08:00:00-06:00",
+                "end": "2024-02-26T09:00:00-06:00",
+                "summary": "Dr. Appt",
+                "description": "",
+            }
+        ]
+    },
+}
+```
+Template: {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% endraw %}
+```json
+[
+  {
+    "description": "",
+    "end": "2024-02-26T09:00:00-06:00",
+    "entity_id": "calendar.yap_house_schedules",
+    "start": "2024-02-26T08:00:00-06:00",
+    "summary": "Dr. Appt",
+    "value_key": "events"
+  },
+  {
+    "description": "",
+    "end": "2024-02-27T18:00:00-06:00",
+    "entity_id": "calendar.sports",
+    "start": "2024-02-27T17:00:00-06:00",
+    "summary": "Basketball vs. Rockets",
+    "value_key": "events"
+  },
+]
+```
+### Example using `selected_key`
+
+```json
+{
+    'vacuum.deebot_n8_plus_1': {
+      'header': {
+        'ver': '0.0.1',
+      },
+      'payloadType': 'j',
+      'resp': {
+        'body': {
+          'msg': 'ok',
+        },
+      },
+    },
+    'vacuum.deebot_n8_plus_2': {
+      'header': {
+        'ver': '0.0.1',
+      },
+      'payloadType': 'j',
+      'resp': {
+        'body': {
+          'msg': 'not_ok',
+        },
+      },
+    },
+  }
+```
+Template: {% raw %}{{ merge_response(response_variable, selected_key='resp') }}{% endraw %}
+```json
+[
+    {
+      'body': {
+        'msg': 'ok',
+      },
+      'entity_id': 'vacuum.deebot_n8_plus_1',
+    },
+    {
+      'body': {
+        'msg': 'not_ok',
+      },
+      'entity_id': 'vacuum.deebot_n8_plus_2',
+    },
+  ]
+```
 
 ## Processing incoming data
 
