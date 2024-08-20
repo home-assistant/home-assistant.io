@@ -79,7 +79,6 @@ content: >
 
 The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
-
 | Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
@@ -96,7 +95,6 @@ The `seventeentrack.get_packages` action allows you to query the 17track API for
 ### Action `seventeentrack.archive_package`
 
 The `seventeentrack.archive_package` action allows you to archive a package using the 17track API.
-
 
 | Data attribute            | Optional | Description                                 |
 |---------------------------|----------|---------------------------------------------|
