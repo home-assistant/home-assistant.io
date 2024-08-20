@@ -1,19 +1,18 @@
 ---
-title: Simplefin
+title: SimpleFin
 description: Instructions on the SimpleFIN Integration for personal finance.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 2024.8
 ha_codeowners:
-  - '@jeeftor'
   - '@scottg489'
+  - '@jeeftor'
 ha_domain: simplefin
 ha_config_flow: true
 ha_platforms:
   - sensor
-ha_dhcp: false
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 [SimpleFIN](http://simplefin.org) allows users to share read-only financial data. This is a paid service although it is quite affordable ($1.50 a month). 
@@ -30,5 +29,7 @@ Within the SimpleFIN Interface, you can create a **Claim Token**, a one-time tok
 
 Each `account` will be set up as a device in Home Assistant, and it will contain the following sensors:
 
-- `balance` 
-
+|Sensor|Description|
+|-------|---------------|
+|Balance|Account balance|
+|Age| This sensor shows when the data was retrieved by the SimpleFin API |

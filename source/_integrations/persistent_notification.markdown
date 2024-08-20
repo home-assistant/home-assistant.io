@@ -57,7 +57,7 @@ Here is how an [action](/docs/automation/action) of your [automation setup](/get
 
 ```yaml
 action:
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     message: "Your message goes here"
     title: "Custom subject"
@@ -69,7 +69,7 @@ If you want to show some runtime information, you have to use [templates](/docs/
 
 ```yaml
 action:
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: >
       Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
@@ -88,7 +88,7 @@ This action allows you to remove a notifications by script or automation.
 
 ```yaml
 action:
-  service: persistent_notification.dismiss
+  action: persistent_notification.dismiss
   data:
     notification_id: "1234"
 ```
@@ -97,7 +97,7 @@ The `persistent_notification.dismiss_all` action allows you to remove all notifi
 
 ```yaml
 action:
-  service: persistent_notification.dismiss_all
+  action: persistent_notification.dismiss_all
 ```
 
 ### Markdown support

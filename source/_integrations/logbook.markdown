@@ -162,7 +162,7 @@ script:
   add_logbook_entry:
     alias: "Add Logbook"
     sequence:
-      - service: logbook.log
+      - action: logbook.log
         data:
           name: Kitchen
           message: is being used

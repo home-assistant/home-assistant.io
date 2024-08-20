@@ -61,7 +61,7 @@ providing feedback if the date is a workday or not.
 
 {% raw %}
 ```yaml
-service: workday.check_date
+action: workday.check_date
 target:
   entity_id: binary_sensor.workday
 data:
@@ -91,7 +91,7 @@ automation:
     entity_id: binary_sensor.workday_sensor
     state: "on"
   action:
-    service: switch.turn_on
+    action: switch.turn_on
     target:
       entity_id: switch.heater
 ```

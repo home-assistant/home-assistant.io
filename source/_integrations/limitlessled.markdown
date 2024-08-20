@@ -114,7 +114,7 @@ automation:
     trigger:
       # ...
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id:
             - light.office

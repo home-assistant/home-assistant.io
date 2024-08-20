@@ -584,6 +584,7 @@ support_url:
     'name':                'name',
     'mf':                  'manufacturer',
     'mdl':                 'model',
+    'mdl_id':              'model_id',
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
@@ -820,7 +821,8 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
       ],
       "name":"Bedroom",
       "manufacturer": "Example sensors Ltd.",
-      "model": "K9",
+      "model": "Example Sensor",
+      "model_id": "K9",
       "serial_number": "12AE3010545",
       "hw_version": "1.01a",
       "sw_version": "2024.1.0",
@@ -955,6 +957,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "name": "Kitchen",
       "mf": "Bla electronics",
       "mdl": "xya",
+      "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
       "hw": "1.0rev2",
@@ -1080,7 +1083,7 @@ automation:
     entity_id: device_tracker.me
     to: "home"
   action:
-    service: script.notify_mqtt
+    action: script.notify_mqtt
     data:
       target: "me"
       message: "I'm home"
@@ -1088,7 +1091,7 @@ automation:
 script:
   notify_mqtt:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
@@ -1107,9 +1110,13 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
 | `payload`              | no       | Payload to publish.                                          |
+| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
+{% note %}
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+{% endnote %}
 
 {% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -1163,7 +1170,7 @@ If you set "name" in the payload the entity name will start with the device name
 {% raw %}
 
 ```yaml
-service: mqtt.publish
+action: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
@@ -1175,7 +1182,8 @@ data:
     "device": {
     "identifiers": "Acurite-986-1R-51778",
     "name": "Bathroom",
-    "model": "Acurite-986",
+    "model": "Acurite",
+    "model_id": "986",
     "manufacturer": "rtl_433" }
     }
 ```

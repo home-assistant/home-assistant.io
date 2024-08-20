@@ -114,7 +114,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 ### Example action
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -127,7 +127,7 @@ To include messages with embedding, use these attributes underneath the `embed` 
 ### Example action with attachments sourced from remote URLs
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -143,7 +143,7 @@ Note that `verify_ssl` defaults to `True`, and that any remote hosts will need t
 ### Example embed action
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: ""
     target: ["1234567890", "0987654321"]

@@ -18,6 +18,8 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_dhcp: true
+ha_codeowners:
+  - '@Djelibeybi'
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) lights on each network that is enabled in Home Assistant's [network configuration](/integrations/network). Suppose any of your LIFX lights are not automatically discovered. In that case, you can add them manually using the user interface by following the configuration steps below for each light you want to add:
@@ -78,7 +80,7 @@ Note that these sensors are only updated every 30 seconds and may not reflect th
 
 ## Themes
 
-Home Assistant provides a collection of predefined themes for LIFX multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
+Home Assistant provides a collection of predefined themes for LIFX matrix and multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
 
 To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
 
@@ -96,7 +98,7 @@ automation:
     trigger:
       # ...
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.office, light.kitchen
         data:
@@ -110,7 +112,7 @@ script:
   colorloop_start:
     alias: "Start colorloop"
     sequence:
-      - service: lifx.effect_colorloop
+      - action: lifx.effect_colorloop
         target:
           entity_id: group.livingroom
         data:
@@ -214,7 +216,7 @@ The palette for the Sky effect is shared between all three sky types. To use a c
 For example, the following YAML will trigger the Sky effect with the Sunrise sky type to run for five minutes using the same palette as the LIFX smartphone app:
 
 ```yaml
-service: lifx.effect_sky
+action: lifx.effect_sky
 target:
   entity_id: light.lifx_ceiling
 data:

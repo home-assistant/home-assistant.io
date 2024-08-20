@@ -199,7 +199,7 @@ You can also create automations using YAML, for example:
       channel: 1
       click_type: single
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.living_room
 
@@ -212,7 +212,7 @@ You can also create automations using YAML, for example:
       channel: 2
       click_type: long
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.lamp_living_room
 ```

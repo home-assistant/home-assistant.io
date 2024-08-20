@@ -97,7 +97,7 @@ automation:
       entity_id: input_boolean.notify_home
       state: "on"
   action:
-    - service: notify.pushbullet
+    - action: notify.pushbullet
       data:
         title: ""
         message: "Honey, I'm home!"
@@ -108,7 +108,7 @@ You can also set or change the status of an `input_boolean` by using
 your automation action.
 
 ```yaml
-service: input_boolean.turn_on
+action: input_boolean.turn_on
 target:
   entity_id: input_boolean.notify_home
 ```

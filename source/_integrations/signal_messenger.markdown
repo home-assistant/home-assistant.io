@@ -81,7 +81,7 @@ A few examples on how to use this integration to send notifications from automat
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
     ## Optional
@@ -100,7 +100,7 @@ This example assumes you have an image stored in the default `www`-folder in Hom
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     message: "Alarm in the living room!"
     data:
@@ -119,7 +119,7 @@ action:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     message: "Person detected on Front Camera!"
     data:
@@ -170,7 +170,7 @@ trigger:
     attribute: source
     to: "<yournumber>"
 action:
-  - service: notify.signal
+  - action: notify.signal
     data:
       message: "Message received!"
 ```

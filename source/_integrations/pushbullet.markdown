@@ -86,7 +86,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send URL
     message: This is an url
@@ -100,7 +100,7 @@ action:
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send file
     message: This is a file
@@ -114,7 +114,7 @@ action:
 
 ```yaml
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send file
     message: This is a file URL
@@ -128,7 +128,7 @@ action:
 
 ```yaml
   action:
-    service: notify.NOTIFIER_NAME
+    action: notify.NOTIFIER_NAME
     data:
       title: "Send to one device"
       message: "This only goes to one specific device"

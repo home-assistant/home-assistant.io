@@ -64,7 +64,7 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
    - Replace the `service` and the `message` with your data.
   
       ```yaml
-      service: notify.sarah
+      action: notify.sarah
       data:
         message: "Yay! A message from Home Assistant."
       ```
@@ -177,7 +177,7 @@ To use notifications, please see the [getting started with automation page](/get
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
@@ -211,7 +211,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send an images
     message: "That's an example that sends an image."
@@ -287,7 +287,7 @@ homeassistant:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send a video
     message: "That's an example that sends a video."
@@ -348,7 +348,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send a document
     message: "That's an example that sends a document and a custom keyboard."
@@ -408,7 +408,7 @@ inline_keyboard:
 ...
 
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send location
     message: Location updated.
@@ -442,7 +442,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
     message: |-

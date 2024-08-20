@@ -45,7 +45,7 @@ automation:
       action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
   condition: []
   action:
-  - service: '{{ trigger.event.data.service }}'
+  - action: '{{ trigger.event.data.service }}'
     target:
       entity_id: '{{ trigger.event.data.entity_id }}'
     
@@ -147,7 +147,7 @@ automation:
     platform: homeassistant
     event: start
   action:
-    service: ifttt.trigger
+    action: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
@@ -165,7 +165,7 @@ automation:
     platform: homeassistant
     event: start
   action:
-    service: script.ifttt_notify
+    action: script.ifttt_notify
     data:
       value1: "HA Status:"
       value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
@@ -180,7 +180,7 @@ automation:
 #Example Script to send TestHA_Trigger to IFTTT but with some other data (homeassistant UP).
 ifttt_notify:
   sequence:
-    - service: ifttt.trigger
+    - action: ifttt.trigger
       data: {"event":"TestHA_Trigger", "value1":"{{ value1 }}", "value2":"{{ value2 }}", "value3":"{{ value3 }}"}
 ```
 

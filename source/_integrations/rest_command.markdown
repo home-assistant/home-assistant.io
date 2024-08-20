@@ -108,7 +108,7 @@ automation:
     trigger:
       - ...
     action:
-      - service: rest_command.traefik_get_rawdata
+      - action: rest_command.traefik_get_rawdata
         response_variable: traefik_response
       - if: "{{ traefik_response['status'] == 200 }}"
         then:
@@ -124,12 +124,12 @@ automation:
               got_errors: "{{ router_errors|length > 0 }}"
           - if: "{{ got_errors }}"
             then:
-              - service: notify.mobile_app_iphone
+              - action: notify.mobile_app_iphone
                 data:
                   title: "Traefik errors"
                   message: "{{ router_errors }}"
         else:
-          - service: notify.mobile_app_iphone
+          - action: notify.mobile_app_iphone
             data:
               title: "Could not reach Traefik"
               message: "HTTP code: {{ traefik_response['returncode'] }}"
@@ -189,7 +189,7 @@ automation:
     zone: zone.work
     event: enter
   action:
-    - service: rest_command.my_request
+    - action: rest_command.my_request
       data:
         status: "At Work"
         emoji: ":calendar:"

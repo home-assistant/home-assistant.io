@@ -103,7 +103,7 @@ automation:
         uom: "100"
         prec: "0"
     action:
-      service: light.turn_off
+      action: light.turn_off
       target:
         entity_id: light.lr_track_lights_rear
 ```

@@ -158,7 +158,7 @@ automation my_lights:
         before: "23:00:00"
     action:
       # With a single service entry, we don't need a '-' before service - though you can if you want to
-      - service: homeassistant.turn_on
+      - action: homeassistant.turn_on
         target:
           entity_id: group.living_room
 
@@ -169,7 +169,7 @@ automation my_lights:
         entity_id: all
         to: "not_home"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         target:
           entity_id: all
 
@@ -184,7 +184,7 @@ automation my_lights:
       - condition: time
         after: "20:00"
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Paulus left the house"
 
@@ -197,7 +197,7 @@ automation my_lights:
         event_data:
           entity_id: binary_sensor.cube_158d000103a3de
     action:
-      - service: notify.pushover
+      - action: notify.pushover
         data:
           title: "Cube event detected"
           message: "Cube has triggered this event: {{ trigger.event }}"
@@ -256,7 +256,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
       below: 25
       value_template: "{{ float(state.state) + 2 }}"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
 ```
 
 {% endraw %}

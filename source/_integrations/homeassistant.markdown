@@ -314,7 +314,7 @@ Update the location of the Home Assistant default zone (usually "Home").
 
 ```yaml
 action:
-  service: homeassistant.set_location
+  action: homeassistant.set_location
   data:
     latitude: 32.87336
     longitude: 117.22743
@@ -336,7 +336,7 @@ for example, a light and a switch can be toggled in a single action.
 
 ```yaml
 action:
-  service: homeassistant.toggle
+  action: homeassistant.toggle
   target:
     entity_id: 
       - light.living_room
@@ -358,7 +358,7 @@ for example, a light and a switch can be turned on in a single action.
 
 ```yaml
 action:
-  service: homeassistant.turn_on
+  action: homeassistant.turn_on
   target:
     entity_id:
       - light.living_room
@@ -380,7 +380,7 @@ for example, a light and a switch can be turned off in a single action.
 
 ```yaml
 action:
-  service: homeassistant.turn_off
+  action: homeassistant.turn_off
   target:
     entity_id:
       - light.living_room
@@ -399,7 +399,7 @@ Force one or more entities to update its data rather than wait for the next sche
 
 ```yaml
 action:
-  service: homeassistant.update_entity
+  action: homeassistant.update_entity
   target:
     entity_id:
     - light.living_room

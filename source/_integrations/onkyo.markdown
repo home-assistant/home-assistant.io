@@ -52,7 +52,7 @@ max_volume:
   default: 100
   type: integer
 receiver_max_volume:
-  description: The maximum volume of the receiver. For older Onkyo receivers this was 80, newer Onkyo receivers use 200.
+  description: The number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
   required: false
   default: 80
   type: integer
@@ -91,22 +91,6 @@ List of source names:
 - `xm`
 - `sirius`
 
-If your source is not listed above, and you want to figure out how to format that source name so you can map its entry, you can use the `onkyo-eiscp` Python module to discover the exact naming needed. First, change your receiver's source to the one that you need to define, and then run:
-
-```bash
-onkyo --host 192.168.0.100 source=query
-```
-
-If this returns multiple, comma-separated values, use the first one. For example, if `dvd,bd,dvd` is returned, use `dvd`.
-
-To find your receivers max volume use the onkyo-eiscp Python module set the receiver to its maximum volume
-(don't do this whilst playing something!) and run:
-
-```bash
-onkyo --host 192.168.0.100 volume=query
-unknown-model: master-volume = 191
-```
-
 ### Action `onkyo_select_hdmi_output`
 
 Changes HDMI output of your receiver
@@ -133,10 +117,10 @@ script:
  radio1:
     alias: "Radio 1"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.onkyo
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.onkyo
         data:
@@ -153,7 +137,7 @@ script:
  hdmi_sub:
     alias: "Hdmi out projector"
     sequence:
-      - service: media_player.onkyo_select_hdmi_output
+      - action: media_player.onkyo_select_hdmi_output
         data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub

@@ -79,7 +79,7 @@ At the moment, the following buttons are supported:
 A typical action for pressing several buttons looks like this.
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.roku
 data:
@@ -106,7 +106,7 @@ The `media_player.select_source` action may be used to launch specific applicati
 
 ```yaml
 action:
-- service: media_player.select_source
+- action: media_player.select_source
   target:
     entity_id: media_player.roku
   data:
@@ -117,7 +117,7 @@ Alternatively, the application id can be used for `source`. See [Obtaining Appli
 
 ```yaml
 action:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.roku
     data:
@@ -144,7 +144,7 @@ The `media_player.play_media` action may be used to tune to specific channels on
 
 ```yaml
 action:
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.roku
     data:
@@ -168,7 +168,7 @@ The `media_player.play_media` action may be used to deep-link to content within 
 
 ```yaml
 action:
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.roku
     data:

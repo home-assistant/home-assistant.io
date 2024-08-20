@@ -40,7 +40,7 @@ Modern platforms will create entities under the `tts` domain, where each entity 
 the `tts.speak` action supports `language` and on some platforms also `options` for settings, e.g., _voice, motion, speed, etc_. The text that should be spoken is set with `message`, and the media player that should output the sound is selected with `media_player_entity_id`.
 
 ```yaml
-service: tts.speak
+action: tts.speak
 target:
   entity_id: tts.example
 data:
@@ -56,7 +56,7 @@ Say to all `media_player` entities:
 
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: all
   message: "May the force be with you."
@@ -65,7 +65,7 @@ data:
 Say to the `media_player.floor` entity:
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "May the force be with you."
@@ -74,7 +74,7 @@ data:
 Say to the `media_player.floor` entity in French:
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "Que la force soit avec toi."
@@ -86,7 +86,7 @@ With a template:
 {% raw %}
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   message: "Temperature is {{states('sensor.temperature')}}."
   cache: false

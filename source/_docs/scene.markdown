@@ -63,7 +63,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.turn_on
+    action: scene.turn_on
     target:
       entity_id: scene.romantic
 ```
@@ -81,7 +81,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.apply
+    action: scene.apply
     data:
       entities:
         light.tv_back_light:
@@ -110,7 +110,7 @@ automation:
     from: "not_home"
     to: "home"
   action:
-    service: scene.turn_on
+    action: scene.turn_on
     target:
       entity_id: scene.romantic
     data:

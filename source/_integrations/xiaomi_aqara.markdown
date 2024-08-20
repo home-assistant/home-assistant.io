@@ -170,7 +170,7 @@ This example plays the sound of a dog barking when the button is held down and s
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi_aqara.play_ringtone
+    action: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
@@ -184,7 +184,7 @@ This example plays the sound of a dog barking when the button is held down and s
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
   action:
-    service: xiaomi_aqara.stop_ringtone
+    action: xiaomi_aqara.stop_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
 ```
@@ -202,7 +202,7 @@ This example toggles the living room lamp on a double click of the button.
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.living_room_lamp
 ```

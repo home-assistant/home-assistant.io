@@ -80,7 +80,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.dovado
+      action: notify.dovado
       data:
         message: "The sun has set"
         target: "+14151234567"
