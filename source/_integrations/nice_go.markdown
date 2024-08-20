@@ -37,4 +37,4 @@ Lights on your garage door will appear as lights.
 
 ## Switch
 
-A switch for turning vacation mode on and off will be made available for each device.
+A switch for turning vacation mode on and off will be made available for each device. Vacation mode prevents operation of the door from physical control points. (e.g. wall station, wireless keypad, remote control, HomeLink, etc.)
