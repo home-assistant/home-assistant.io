@@ -1160,12 +1160,16 @@ Using the `merge_response` template we can merge several responses into one list
 | `selected_key` | Return a list with information from a single key only. |
 
 ### Example
+
+```yaml
 {% raw %}
 
 {% set combined_forecast = merge_response(response) %}
+
 {{ combined_forecast[0].precipitation | float(0) | round(1) }}
 
 {% endraw %}
+```
 
 ### Example merge calendar action response
 
@@ -1200,7 +1204,7 @@ Using the `merge_response` template we can merge several responses into one list
     },
 }
 ```
-Template: {% raw %}{{ merge_response(response_variable) }}{% endraw %}
+**Template:** {% raw %}{{ merge_response(response_variable) }}{% endraw %}
 ```json
 [
   {
@@ -1233,7 +1237,9 @@ Template: {% raw %}{{ merge_response(response_variable) }}{% endraw %}
 {% note %}
 
 `sort_by` is used for sorting by a selected key within a dictionary.
+
 `selected_key` is used for selecting a particular key to return from the second level in a dictionary.
+
 See below examples on how they can be used
 
 {% endnote %}
@@ -1265,7 +1271,7 @@ See below examples on how they can be used
     },
 }
 ```
-Template: {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% endraw %}
+**Template:** {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% endraw %}
 ```json
 [
   {
@@ -1291,44 +1297,44 @@ Template: {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% en
 
 ```json
 {
-    'vacuum.deebot_n8_plus_1': {
-      'header': {
-        'ver': '0.0.1',
+    "vacuum.deebot_n8_plus_1": {
+      "header": {
+        "ver": "0.0.1",
       },
-      'payloadType': 'j',
-      'resp': {
-        'body': {
-          'msg': 'ok',
+      "payloadType": "j",
+      "resp": {
+        "body": {
+          "msg": "ok",
         },
       },
     },
-    'vacuum.deebot_n8_plus_2': {
-      'header': {
-        'ver': '0.0.1',
+    "vacuum.deebot_n8_plus_2": {
+      "header": {
+        "ver": "0.0.1",
       },
-      'payloadType': 'j',
-      'resp': {
-        'body': {
-          'msg': 'not_ok',
+      "payloadType": "j",
+      "resp": {
+        "body": {
+          "msg": "not_ok",
         },
       },
     },
   }
 ```
-Template: {% raw %}{{ merge_response(response_variable, selected_key='resp') }}{% endraw %}
+**Template:** {% raw %}{{ merge_response(response_variable, selected_key='resp') }}{% endraw %}
 ```json
 [
     {
-      'body': {
-        'msg': 'ok',
+      "body": {
+        "msg": "ok",
       },
-      'entity_id': 'vacuum.deebot_n8_plus_1',
+      "entity_id": "vacuum.deebot_n8_plus_1",
     },
     {
-      'body': {
-        'msg': 'not_ok',
+      "body": {
+        "msg": "not_ok",
       },
-      'entity_id': 'vacuum.deebot_n8_plus_2',
+      "entity_id": "vacuum.deebot_n8_plus_2",
     },
   ]
 ```
