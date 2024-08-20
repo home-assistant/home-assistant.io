@@ -35,7 +35,7 @@ Garage doors linked to your Nice G.O. account will appear as covers.
 
 ## Event
 
-The barrier obstructed event entity will be triggered whenever the barrier gets obstructed. (beam block, something in the way, etc.)
+The barrier obstructed event entity will be triggered whenever the barrier gets obstructed. This could be triggered by anything that results in the closure being unsuccessful. This may include beam block during closure, beam block before closure, and an object in the way.
 
 ## Light
 
