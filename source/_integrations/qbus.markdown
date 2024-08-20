@@ -24,7 +24,7 @@ There is currently support for the following device types within Home Assistant:
 
 This integration communicates with a Qbus controller over an MQTT server.
 
-The controllers can not communicate directly with MQTT, therefore we developed a gateway which you must install prior to enable this Integration. More information can be found here [Qbus MQTT Gateway](https://github.com/Qbus-iot/qbus-mqttgw).
+The controllers cannot communicate directly with MQTT; therefore, we developed a gateway, which you must install before enabling this integration. More information can be found here [Qbus MQTT Gateway](https://github.com/Qbus-iot/qbus-mqttgw).
 
 We also host a site which contains a [Manual](https://iot.qbus.be/) where you can find lots of information to set up Home Assistant with a Qbus controller (for the moment only in Dutch).
 
