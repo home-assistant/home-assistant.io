@@ -13,3 +13,5 @@ works_with:
 The **ArtSound** {% term integration %} allows users to control their ArtSound media players through the **LinkPlay** {% term integration %}.
 
 [Learn more about LinkPlay in Home Assistant.](/integrations/linkplay/)
+
+{% include integrations/supported_brand.md %}
