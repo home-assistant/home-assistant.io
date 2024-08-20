@@ -1286,6 +1286,7 @@ Template: {% raw %}{{ merge_response(response_variable, sort_by='start') }}{% en
   },
 ]
 ```
+
 ### Example using `selected_key`
 
 ```json
