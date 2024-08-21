@@ -22,7 +22,7 @@ The **SMLIGHT SLZB** {% term integration %} allows users to monitor and manage t
 directly from within Home Assistant and to directly access many of the
 features found in the SMLIGHT web UI. You can also use these in your automations.
 
-## Prerequisite
+## Prerequisites
 
 You need a supported SLZB-06 adapter.
 
