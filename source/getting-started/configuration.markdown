@@ -42,7 +42,7 @@ To learn how to create a backup of your Home Assistant installation, select the 
 
 - {% term "Home Assistant Operating System" %}: [Creating a backup from OS](/common-tasks/os/#backups)
 - {% term "Home Assistant Supervised" %}: [Creating a backup from Supervised](/common-tasks/supervised/#backups)
-- {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}: [Creating a backup from Core or Container](/common-tasks/integrations/backup/)
+- {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}: [Creating a backup from Core or Container](/integrations/backup/)
 
 ## Editing the configuration.yaml and configuring file access
 
