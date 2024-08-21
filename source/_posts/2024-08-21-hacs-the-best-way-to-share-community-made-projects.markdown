@@ -15,7 +15,7 @@ og_image: /images/blog/2024-08-wwha-update/art.jpg
 
 Home Assistant's Community Store, HACS, has now hit v2.0, gaining some big improvements that continue to make it the best way to find, install, and update awesome community-made integrations and UI elements. This follows HACS being added as an [Open Home Foundation](https://www.openhomefoundation.org/) collaboration partner, recognizing its important role in Home Assistant's open ecosystem.
 
-Just note, HACS is an advanced tool that can add custom code to your Home Assistant install which can cause issues on your Home Assistant system. If you are a beginner or prioritize stability above all else, HACS might not be for you.
+Just note, HACS is an advanced tool that can add custom code to your Home Assistant install, which can cause issues on your Home Assistant system. If you are a beginner or prioritize stability above all else, [HACS might not be for you](#how-to-install).
 
 ## Jump to sections <!-- omit from toc -->
 - [HACS reaches v2.0](#hacs-reaches-v20)
@@ -24,7 +24,7 @@ Just note, HACS is an advanced tool that can add custom code to your Home Assist
 - [A Brief History of HACS](#a-brief-history-of-hacs)
 - [How to install](#how-to-install)
 
-Want to skip the blog and just start playing with HACS 2.0? Just remember to proceed with caution and do not skip the backup step before you [install](#how-to-install).
+***Want to skip the blog and just start playing with HACS 2.0?*** Just remember to proceed with caution and do not skip the backup step before you [install](#how-to-install).
 
 <!--more-->
 
@@ -50,7 +50,7 @@ Previously, HACS 100% relied on GitHub to retrieve information, from file locati
 
 No more visiting the HACS page every day to check for updates. They'll now appear in the same places system and add-on [updates](https://my.home-assistant.io/redirect/updates/) appear in the native Home Assistant format. Also, once they're finished updating, they will give you suggested repairs (for instance, reloading the dashboards or rebooting Home Assistant).
 
-## Other improvements <!-- omit from toc -->
+### Other improvements <!-- omit from toc -->
 
 We have also renamed things to help them make more sense, including changing "category" to "type", and "Lovelace" to "dashboard" (Lovelace needs to make room for [Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#what-is-project-grace)). We're also including Template management, which utilizes the new [template type](https://www.hacs.dev/docs/publish/template/) to enhance your Jinja templates.
 
@@ -60,11 +60,11 @@ We have also renamed things to help them make more sense, including changing "ca
 
 ## What is HACS?
 
-Home Assistant is built around choice, and HACS is the epitome of this, giving you access to hundreds of community-made integrations, cards, themes, and more. HACS isn't actually a hack, as Home Assistant has always allowed you to add custom integrations and UI elements - HACS just adds a streamlined interface to find, install, and update these.
+Home Assistant is built around choice, and HACS is the epitome of this, giving you access to hundreds of community-made integrations, cards, themes, and more. HACS isn't actually *a hack*, as Home Assistant has always allowed you to add custom integrations and UI elements - HACS just adds a streamlined interface to find, install, and update these.
 
-HACS stands for Home Assistant Community Store, and despite the name it doesn't sell anything - it's all free and open-source. HACS is there for people in the community who write custom code to address something they think is missing from Home Assistant. It allows them to easily share this code with the community unrestricted via submitting their GitHub repository to HACS. This means these are maintained by the community members that upload them, not HACS or Home Assistant. If you want to learn more about what you're installing, or report issues, there is always a link to the original code.  
+HACS stands for *Home Assistant Community Store*, and despite the name it doesn't sell anything - it's all free and open-source. HACS is there for people in the community who write custom code to address something they think is missing from Home Assistant. It allows them to easily share this code with the community unrestricted via submitting their GitHub repository to HACS. This means these are maintained by the community members that upload them, not HACS or Home Assistant. If you want to learn more about what you're installing, or report issues, there is always a link to the original code.  
 
-Just to clear up the biggest misconception about HACS, it does not install add-ons. Home Assistant OS natively has its own [built-in store for Home Assistant Add-ons](https://my.home-assistant.io/redirect/supervisor_store/). Add-ons run alongside Home Assistant, while HACS installs custom code that can run in Home Assistant (which has implications for system stability, more on that below).
+Just to clear up the biggest misconception about HACS, **it does not install add-ons**. Home Assistant OS natively has its own [built-in store for Home Assistant Add-ons](https://my.home-assistant.io/redirect/supervisor_store/). Add-ons run alongside Home Assistant, while HACS installs custom code that can run in Home Assistant (which has implications for system stability, more on that below).
 
 ## Why use HACS?
 
@@ -89,12 +89,12 @@ Just before we released this big update, it passed 5,000 stars on GitHub! It's t
 ## How to install
 
 {% note %}
-**Proceed with caution** - HACS is not for everyone.  If you're a Home Assistant beginner or are looking for the most stable experience in your smart home, HACS is probably not for you. These are community-made projects that do not receive the same rigorous reviews required of projects submitted to Home Assistant. There may be projects that don't work or, even worse, break your system. Unlike add-ons that run separately and alongside Home Assistant, HACS projects run their code directly in Home Assistant, which increases the chances of crashing or harming your system. Before using HACS, always make a [backup of your system](/integrations/backup/) and download that backup to another device.
+**Proceed with caution** - HACS is not for everyone.  If you're a Home Assistant beginner or are looking for the most stable experience in your smart home, HACS is probably not for you. These are community-made projects that do not receive the same rigorous reviews required of projects submitted to Home Assistant. There may be projects that don't work or, even worse, break your system. Unlike add-ons that run separately and alongside Home Assistant, HACS projects run their code directly in Home Assistant, which increases the chances of crashing or harming your system. Before using HACS, always make a [backup of your system](https://hacs.xyz/docs/use/data/#creating-a-backup) and download that backup to another device.
 {% endnote %}
 
-HACS should work on any up-to-date version of Home Assistant, it even runs on core installs. It also requires a GitHub account. If you already have HACS 1.X installed, perform a backup, go into HACS and then click the update button for HACS (note: if you update, there is no downgrading).
+HACS should work on any up-to-date version of Home Assistant, it even runs on core installations. It also requires a GitHub account. If you already have HACS 1.X installed, perform a backup, go into HACS and then click the update button for HACS (note: if you update, there is no downgrading).
 
-If you're a Home Assistant OS user here is the install method (If you're not using our OS, [visit this page](https://www.hacs.dev/docs/use/download/download/#to-download-hacs-core)),
+If you're a Home Assistant OS user here is the installation method (If you're not using our OS, [visit this page](https://www.hacs.dev/docs/use/download/download/#to-download-hacs-core)),
 
 1. Make a [backup of your system](https://my.home-assistant.io/redirect/backup/) and download it to another device for safekeeping.
 
@@ -106,7 +106,7 @@ If you're a Home Assistant OS user here is the install method (If you're not usi
 
 5. Once finished, reboot Home Assistant and navigate to the [devices page](https://my.home-assistant.io/redirect/devices/). Add the integration HACS, and follow the instructions to link it with your GitHub account.
 
-It's installed, now what? Start downloading some custom integrations and UI elements. There are a lot of great community resources listing the best custom [integrations](https://community.home-assistant.io/c/projects/custom-integrations/47?ascending=false&order=views), [cards](https://community.home-assistant.io/c/projects/frontend/34?ascending=false&order=views), [themes](https://community.home-assistant.io/c/projects/themes/29/l/top), and more.
+***It's installed, now what?*** Start downloading some custom integrations and UI elements. There are a lot of great community resources listing the best custom [integrations](https://community.home-assistant.io/c/projects/custom-integrations/47?ascending=false&order=views), [cards](https://community.home-assistant.io/c/projects/frontend/34?ascending=false&order=views), [themes](https://community.home-assistant.io/c/projects/themes/29/l/top), and more.
 
 ## Conclusion <!-- omit from toc -->
 
