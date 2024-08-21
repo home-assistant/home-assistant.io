@@ -3,7 +3,7 @@ title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB-06x devices from directly within Home Assistant.
 ha_category:
   - Sensor
-ha_release: 2024.07.0
+ha_release: 2024.9
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_domain: smlight
@@ -18,11 +18,9 @@ ha_integration_type: device
 The [SMLIGHT](https://smlight.tech) SLZB-06x Ethernet Zigbee coordinators
 provide a convenient way to add Zigbee to your smart home setup.
 
-The **SMLIGHT SLZB** {% term integrations %} allows users to monitor and manage their SLZB-06x devices
+The **SMLIGHT SLZB** {% term integration %} allows users to monitor and manage their SLZB-06x devices
 directly from within Home Assistant and to directly access many of the
 features found in the SMLIGHT web UI. You can also use these in your automations.
-
-{% include integrations/config_flow.md %}
 
 ## Prerequisite
 
@@ -35,6 +33,7 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
   
+{% include integrations/config_flow.md %}
 ## Integration entities
 
 The following sensors will be created:
