@@ -7,6 +7,7 @@ ha_release: 0.7.6
 ha_quality_scale: internal
 ha_domain: manual
 ha_iot_class: Calculated
+ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: integration
@@ -17,7 +18,11 @@ related:
 
 The `manual` alarm control panel {% term integration %} enables you to create an alarm system in Home Assistant.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Information about the fields and examples about configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+## YAML Configuration
 
 To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
