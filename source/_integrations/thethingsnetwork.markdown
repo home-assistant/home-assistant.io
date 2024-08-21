@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
+  - binary_sensor
 ha_integration_type: hub
 ha_config_flow: true
 ---
@@ -25,14 +26,8 @@ The Things Network supports various integrations to make the data available:
 | [Storage](https://www.thethingsindustries.com/docs/integrations/storage) | [`thethingsnetwork`](#setup) |
 | [HTTP](https://www.thethingsindustries.com/docs/integrations/webhooks) | |
 
-There is currently support for the following device types within Home Assistant:
-
-- [Prerequisites](#prerequisites)
-- [Sensor](#sensor)
-
 
 ## Prerequisites
-
 
 1. Visit the [The Things Network Console](https://console.thethingsnetwork.org/) website, log in with your The Things Network credentials, choose your application from **Applications**.
    - The **Application ID** is used to identify the scope of your data.
@@ -52,10 +47,24 @@ There is currently support for the following device types within Home Assistant:
 
    ![API keys](/images/integrations/thethingsnetwork/apis_key.png)
 
-
 {% include integrations/config_flow.md %}
 
+## Entity types
 
-## Sensor
+All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. The integration uses the [ttn_client library](https://github.com/angelnu/thethingsnetwork_python_client) to parse the `decoded_payload`.
 
-All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. Each field in `decoded_payload` will be added as a Home Assistant sensor entity.
+The client library has support for some [specific devices](https://github.com/angelnu/thethingsnetwork_python_client?tab=readme-ov-file#supported-devices) but also includes a [default parser](https://github.com/angelnu/thethingsnetwork_python_client/blob/main/tests/parsers/test_data/default_valid.json) which will be described here.
+
+With the default parser and if a field in `decoded_payload` has type object (a dictionary in Python), then each member of the object becomes an entity in Home Assistant.
+
+### Binary Sensor
+
+Any field of type `bool` in the `decoded_payload` JSON will be mapped to a Binary Sensor in Home Assistant.
+
+### Sensor
+
+The following field types in `decoded_payload` are converted to a Sensor in Home Assistant:
+
+- `lists`: converted to a string
+- `float`
+- `int`
