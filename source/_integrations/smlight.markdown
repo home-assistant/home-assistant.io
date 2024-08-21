@@ -34,6 +34,7 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
   
 {% include integrations/config_flow.md %}
+
 ## Integration entities
 
 The following sensors will be created:
