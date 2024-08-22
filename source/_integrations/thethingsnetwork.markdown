@@ -12,6 +12,7 @@ ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
   - binary_sensor
+  - device_tracker
 ha_integration_type: hub
 ha_config_flow: true
 ---
@@ -60,6 +61,10 @@ With the default parser and if a field in `decoded_payload` has type object (a d
 ### Binary Sensor
 
 Any field of type `bool` in the `decoded_payload` JSON will be mapped to a Binary Sensor in Home Assistant.
+
+### Device Tracker
+
+Any field of type `object` (Python dictionary) in the `decoded_payload` JSON will be mapped to a Device Tracker in Home Assistant if it contains `latitude`and `longitude`sub-fields.
 
 ### Sensor
 
