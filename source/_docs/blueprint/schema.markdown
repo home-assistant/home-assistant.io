@@ -155,7 +155,7 @@ allows an optional description, and optionally allows for collapsing those input
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
 {% caution %}
-Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. 
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions.
 {% endcaution %}
 
 The full configuration for a section is below:
