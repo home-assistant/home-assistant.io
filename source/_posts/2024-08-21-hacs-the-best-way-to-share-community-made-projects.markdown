@@ -7,7 +7,7 @@ date_formatted: "August 21, 2024"
 author: Joakim Sørensen
 comments: true
 categories: Announcements
-og_image: /images/blog/2024-08-wwha-update/art.jpg
+og_image: /images/blog/2024-08-hacs2/art.png
 ---
 <p class='img'><img src='/images/blog/2024-08-hacs2/art.png' style='border: 0;box-shadow: none;' alt="HACS 2.0 - The best way to share community-made projects just got better">Art by Clelia Rella</p>
 
