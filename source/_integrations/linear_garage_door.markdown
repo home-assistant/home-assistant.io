@@ -25,7 +25,7 @@ This integration is for garage doors connected to the cloud by Wi-Fi using the L
 
 {% warning %}
 Nice North America has begun informing users of the new Nice G.O. app, and dropping support for the Linear app in the coming weeks. Support for the new app will be added in 2024.9.0 as a new integration.
-Migrating now will cut off access to the old app, and the integration will cease functioning for you.
+Migrating now will cut off access to the old app and the integration will cease functioning for you.
 
 See [here](https://na.niceforyou.com/features/nice-go-app/#migration) for more info.
 {% endwarning %}
