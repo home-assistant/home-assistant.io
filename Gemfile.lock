@@ -105,7 +105,7 @@ GEM
     rbs (3.5.2)
       logger
     regexp_parser (2.9.2)
-    rexml (3.3.5)
+    rexml (3.3.6)
       strscan
     rouge (4.3.0)
     rubocop (1.65.1)
