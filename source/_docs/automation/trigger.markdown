@@ -31,6 +31,8 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 - [Sentence trigger](#sentence-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Disabling a trigger](#disabling-a-trigger)
+- [Merging lists of triggers](#merging-lists-of-triggers)
 
 ## Trigger ID
 
@@ -1045,3 +1047,28 @@ blueprint:
 ```
 
 {% endraw %}
+
+## Merging lists of triggers
+
+<div class='note warning'>
+This feature requires Home Assistant version 2024.9 or later. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. 
+</div>
+
+In some advanced cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:
+
+```yaml
+blueprint:
+  name: Nested Trigger Blueprint
+  domain: automation
+  input:
+    usertrigger:
+      selector:
+        trigger:
+
+trigger:
+  - platform: event
+    event_type: manual_event
+  - triggers: !input usertrigger
+```
+
+This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for `wait_for_trigger` action.
