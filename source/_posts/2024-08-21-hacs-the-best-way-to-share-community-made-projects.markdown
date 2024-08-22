@@ -55,7 +55,7 @@ No more visiting the HACS page every day to check for updates. They'll now appea
 We have also renamed things to help them make more sense, including changing "category" to "type", and "Lovelace" to "dashboard" (Lovelace needs to make room for [Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#what-is-project-grace)). We're also including Template management, which utilizes the new [template type](https://www.hacs.xyz/docs/publish/template/) to enhance your Jinja templates.
 
 {% note %}
-**Breaking changes** - There have been some breaking changes, such as removing the yaml configuration, no longer including the NetDaemon type, and moving [beta selection to a switch entity](https://www.hacs.xyz/docs/use/entities/switch/). Many of the changes are more likely to affect those sharing their code via HACS, check the [release notes for the full list](https://github.com/hacs/integration/releases/tag/2.0.0).
+**Breaking changes** - There have been some breaking changes, such as removing the YAML configuration, no longer including the NetDaemon type, and moving [beta selection to a switch entity](https://www.hacs.xyz/docs/use/entities/switch/). Many of the changes are more likely to affect those sharing their code via HACS, check the [release notes for the full list](https://github.com/hacs/integration/releases/tag/2.0.0).
 {% endnote %}
 
 ## What is HACS?
