@@ -9,15 +9,19 @@ ha_domain: russound_rnet
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `russound_rnet` platform allows you to control Russound devices that make use of the RNET protocol.
+The `russound_rnet` {% term integration %} allows you to control Russound devices that make use of the RNET protocol.
 
 This has initially been tested against a Russound CAV6.6 unit with six zones and six sources. It will also work with a Russound CAA66, but be sure to use a null-modem cable. If you have mutiple controllers connected via the RNET link ports, every increment of 6 zones maps to the corresponding controller ID.
 
 Connecting to the Russound device is only possible by TCP, you can make use of a TCP to Serial gateway such as [tcp_serial_redirect](https://github.com/pyserial/pyserial/blob/master/examples/tcp_serial_redirect.py)
 
-To add a device to your installation, add the following to your `configuration.yaml` file:
+To add an {% term integration %} to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

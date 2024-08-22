@@ -3,6 +3,7 @@ title: Bayesian
 description: Instructions on how to integrate threshold Bayesian sensors into Home Assistant.
 ha_category:
   - Binary sensor
+  - Helper
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.53
@@ -10,9 +11,12 @@ ha_quality_scale: internal
 ha_domain: bayesian
 ha_platforms:
   - binary_sensor
-ha_integration_type: integration
+ha_integration_type: helper
 ha_codeowners:
   - '@HarvsG'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `bayesian` binary sensor platform observes the state from multiple sensors. It uses [Bayes' rule](https://en.wikipedia.org/wiki/Bayes%27_theorem) to estimate the probability that an event is occurring given the state of the observed sensors. If the estimated posterior probability is above the `probability_threshold`, the sensor is `on`; otherwise, it is `off`.
@@ -38,13 +42,16 @@ In the configuration use the probability of the observation (the sensor state in
 
 ## Configuration
 
-To enable the Bayesian sensor, add the following lines to your `configuration.yaml`:
+To enable the Bayesian sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
   - platform: bayesian
-    prior: 0.1
+    name: "Kitchen Occupied"
+    prior: 0.3
+    probability_threshold: 0.5
     observations:
       - entity_id: "switch.kitchen_lights"
         prob_given_true: 0.6

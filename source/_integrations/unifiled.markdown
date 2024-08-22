@@ -11,6 +11,9 @@ ha_domain: unifiled
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [UniFi LED](https://unifi-led.ui.com/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a system of controller managed LED light panels and dimmers.
@@ -20,6 +23,9 @@ There is currently support for the following device type within Home Assistant:
 - [Light](#light)
 
 ## Configuration
+
+To use the {% term integration %} in your installation, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

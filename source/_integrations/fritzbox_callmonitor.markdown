@@ -26,7 +26,7 @@ To use the FRITZ!Box call monitor in your installation, a user with at least `Vo
 3.  Navigate to **System** -> **FRITZ!Box User**.
 4.  Click the `Add User` button.
 5.  Enable the option `User account enabled`.
-6.  Enter a user name and password.
+6.  Enter a username and password.
 7.  Check the rights box next to `Voice messages, faxes, FRITZ!App Fon and call list`.
 8.  Click the `Apply` button.
 
@@ -56,7 +56,7 @@ automation:
       - platform: state
         entity_id: sensor.phone
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           title: "Phone"
           message: >-

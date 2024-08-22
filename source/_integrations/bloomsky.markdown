@@ -15,6 +15,9 @@ ha_platforms:
   - camera
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
@@ -31,7 +34,8 @@ Obtain your API key from your [BloomSky dashboard](https://dashboard.bloomsky.co
 
 ## Configuration
 
-To integrate your BloomSky hub with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your BloomSky hub with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,7 +58,7 @@ To get your BloomSky binary sensors working with Home Assistant, follow the inst
 
 ### Configuration
 
-To use your BloomSky binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your BloomSky binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +87,7 @@ The `bloomsky` camera integration allows you to view the current photo created b
 
 ### Configuration
 
-To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your `configuration.yaml` file:
+To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -97,7 +101,7 @@ The `bloomsky` sensor integration allows you to view the measurements made by se
 
 ### Configuration
 
-To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your `configuration.yaml` file:
+To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry

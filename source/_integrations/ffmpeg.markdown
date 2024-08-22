@@ -20,7 +20,7 @@ you have FFmpeg installed on your system.
 
 ## Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 ffmpeg:

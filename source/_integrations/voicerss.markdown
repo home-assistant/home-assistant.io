@@ -9,13 +9,17 @@ ha_domain: voicerss
 ha_platforms:
   - tts
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **VoiceRSS** text-to-speech {% term integration %} uses [VoiceRSS](http://www.voicerss.org/) text-to-speech engine to read a text with natural sounding voices.
 
 ## Configuration
 
-To enable text-to-speech with VoiceRSS, add the following lines to your `configuration.yaml`:
+To enable text-to-speech with VoiceRSS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

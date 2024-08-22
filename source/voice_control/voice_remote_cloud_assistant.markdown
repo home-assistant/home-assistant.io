@@ -5,8 +5,8 @@ related:
     title: Enabling a wake word
   - docs: /voice_control/create_wake_word/
     title: Create your own wake word
-  - docs: /voice_control/voice_remote_cloud_assistant/
-    title: Creating a Cloud assistant
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Creating a local assistant
   - docs: /voice_control/voice_remote_expose_devices/
     title: Exposing devices to Assist
 ---

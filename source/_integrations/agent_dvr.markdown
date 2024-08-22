@@ -22,44 +22,44 @@ You can add Agent DVR via integrations using the IP address and port of the serv
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  Please ensure you are using Agent DVR v2.6.1.0 +
-</div>
+{% important %}
+Please ensure you are using Agent DVR v2.6.1.0 +
+{% endimportant %}
 
 ## Alarm control panel
 
 Reports on the current alarm status and can be used to arm and disarm the system.
 
-## Services
+## Actions
 
-Once loaded, the `agent_dvr` integration will expose services that can be called to perform various actions. The `entity_id` service attribute can specify one or more specific cameras.
+Once loaded, the `agent_dvr` integration will expose actions that can be used. The `entity_id` action attribute can specify one or more specific cameras.
 
-Available services:
+Available actions:
 `enable_alerts`, `disable_alerts`,
 `start_recording`, `stop_recording`,
 `turn_on`, `turn_off`, `toggle`, `enable_motion_detection`,`disable_motion_detection`
 
-### Service `enable_alerts`/`disable_alerts`
+### Action `enable_alerts`/`disable_alerts`
 
-These services enable or disable the device's alert events within Agent DVR.
+These actions enable or disable the device's alert events within Agent DVR.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Service `start_recording`/`stop_recording`
+### Action `start_recording`/`stop_recording`
 
-These services start or stop the device recording.
+These actions start or stop the device recording.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 
-### Service `turn_on`/`turn_off`/`toggle`
+### Action `turn_on`/`turn_off`/`toggle`
 
-These services turn on, off or toggle the device enabled state within Agent DVR
+These actions turn on, off or toggle the device enabled state within Agent DVR
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `entity_id` | no | Name(s) of entities, e.g., `camera.living_room_camera`.
 

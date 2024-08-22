@@ -37,7 +37,7 @@ The integration has a fan platform to view and control the ventilation speed, an
 
 ## Configuration
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 smarty:

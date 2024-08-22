@@ -4,7 +4,7 @@
 
 After changing configuration or automation files, check if the configuration is valid before restarting Home Assistant Core.
 
-## To run a configuration check from the UI
+### Running a configuration check from the UI
 
 1. Go to {% my profile title="your user profile" %} and enable **Advanced Mode**.
 2. Go to {% my server_controls title="**Developer tools** > **YAML**" %} and in the **Configuration validation** section, select the **Check configuration** button.
@@ -12,7 +12,7 @@ After changing configuration or automation files, check if the configuration is 
    - It checks for valid YAML and valid config structures.
 3. If you need to do a more comprehensive configuration check, [run the check from the CLI](#to-run-a-configuration-check-from-the-cli).
 
-## To run a configuration check from the CLI
+### Running a configuration check from the CLI
 
 Use the following command to check if the configuration is valid. The command line configuration check validates the YAML files and checks for valid config structures, as well as some other elements.
 

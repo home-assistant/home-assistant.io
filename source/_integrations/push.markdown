@@ -11,9 +11,12 @@ ha_domain: push
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `push` camera platform allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
+The `push` camera {% term integration %} allows you to integrate images sent over HTTP POST to Home Assistant as a camera. External applications/daemons/scripts are therefore able to "stream" images through Home Assistant.
 
 Optionally the Push Camera can **buffer** a given number of images, creating an animation of the detected motion after the event has been recorded.
 
@@ -44,7 +47,8 @@ camera:
 
 ## Configuration
 
-To enable this camera in your installation, add the following to your `configuration.yaml` file:
+To enable this camera in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

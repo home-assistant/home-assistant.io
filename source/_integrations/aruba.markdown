@@ -9,6 +9,9 @@ ha_domain: aruba
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This platform allows you to detect presence by looking at connected devices to an [Aruba Instant](https://www.arubanetworks.com/products/networking/aruba-instant/) device.
@@ -23,11 +26,12 @@ Supported devices (tested):
 - Aruba IAP-335
 - Aruba Instant IAP-275
 
-<div class='note warning'>
+{% important %}
 This device tracker needs telnet to be enabled on the router.
-</div>
+{% endimportant %}
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

@@ -14,12 +14,12 @@ ha_integration_type: helper
 
 The **Input select** {% term integration %} allows the user to define a list of values that can be selected via the frontend and can be used within conditions of an automation. When a user selects a new item, a state transition event is generated. This state event can be used in an `automation` trigger.
 
-The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & Services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
+The preferred way to configure an input select is via the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Click the add button and then choose the **{% my config_flow_start domain="input_select" title="Dropdown" %}** option.
 
-To be able to add **Helpers** via the user interface you should have `default_config:` in your `configuration.yaml`, it should already be there by default unless you removed it.
+To be able to add **Helpers** via the user interface you should have `default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by default unless you removed it.
 If you removed `default_config:` from you configuration, you must add `input_select:` to your `configuration.yaml` first, then you can use the UI.
 
-Input selects can also be configured via `configuration.yaml`:
+Input selects can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -63,21 +63,19 @@ input_select:
         type: icon
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 Because YAML defines [booleans](https://yaml.org/type/bool.html) as equivalent, any variations of 'On', 'Yes', 'Y', 'Off', 'No', or 'N'  (regardless of case) used as option names will be replaced by True and False unless they are defined in quotation marks.
-
-</div>
+{% endnote %}
 
 ### Restore state
 
 If you set a valid value for `initial` this integration will start with the state set to that value. Otherwise, it will restore the state it had prior to Home Assistant stopping.
 
-### Services
+### Actions
 
-This integration provides three services to modify the state of the `input_select`.
+This integration provides three actions to modify the state of the `input_select`.
 
-| Service         | Data                        | Description                                           |
+| Action          | Data                        | Description                                           |
 | --------------- | --------------------------- | ----------------------------------------------------- |
 | `select_option` | `option`                    | This can be used to select a specific option.         |
 | `set_options`   | `options`<br>`entity_id(s)` | Set the options for specific `input_select` entities. |
@@ -85,19 +83,19 @@ This integration provides three services to modify the state of the `input_selec
 | `select_last`   |                             | Select the last option.                               |
 | `reload`        |                             | Reload `input_select` configuration                   |
 
-#### Service `input_select.select_next`
+#### Action `input_select.select_next`
 
 Select the next option.
 
-| Service data attribute | Optional | Description                                                         |
+| Data attribute | Optional | Description                                                         |
 | ---------------------- | -------- | ------------------------------------------------------------------- |
 | `cycle`                | yes      | Whether to cycle to the first value after the last. Default: `true` |
 
-#### Service `input_select.select_previous`
+#### Action `input_select.select_previous`
 
 Select the previous option.
 
-| Service data attribute | Optional | Description                                                          |
+| Data attribute | Optional | Description                                                          |
 | ---------------------- | -------- | -------------------------------------------------------------------- |
 | `cycle`                | yes      | Whether to cycle to the last value before the first. Default: `true` |
 
@@ -131,7 +129,7 @@ scene:
 
 ## Automation examples
 
-The following example shows the usage of the `input_select.select_option` service in an automation:
+The following example shows the usage of the `input_select.select_option` action in an automation:
 
 ```yaml
 # Example configuration.yaml entry
@@ -141,7 +139,7 @@ automation:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
-      - service: input_select.select_option
+      - action: input_select.select_option
         target:
           entity_id: input_select.who_cooks
         data:
@@ -158,7 +156,7 @@ automation:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
-      - service: input_select.set_options
+      - action: input_select.set_options
         target:
           entity_id: input_select.who_cooks
         data:
@@ -192,7 +190,7 @@ input_select:
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   action:
-    service: input_select.select_option
+    action: input_select.select_option
     target:
       entity_id: input_select.thermostat_mode
     data:
@@ -205,7 +203,7 @@ input_select:
     platform: state
     entity_id: input_select.thermostat_mode
   action:
-    service: mqtt.publish
+    action: mqtt.publish
     data:
       topic: "thermostatMode"
       retain: true

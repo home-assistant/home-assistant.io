@@ -28,7 +28,7 @@ We want our users to get the best home automation experience out there and this 
     <th>Description</th>
   </tr>
   <tr>
-    <td><i class="icon-adjust"></i></td>
+    <td><iconify-icon icon="mdi:circle-half-full"></iconify-icon></td>
     <td style='white-space: nowrap;'>Assumed State</td>
     <td>
       We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
@@ -36,7 +36,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-cloud-upload"></i></td>
+    <td><iconify-icon icon="mdi:cloud-upload"></iconify-icon></td>
     <td>Cloud Polling</td>
     <td>
       Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
@@ -44,7 +44,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-cloud-download"></i></td>
+    <td><iconify-icon icon="mdi:cloud-download"></iconify-icon></td>
     <td>Cloud Push</td>
     <td>
       Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
@@ -52,7 +52,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-download-alt"></i></td>
+    <td><iconify-icon icon="mdi:download-network-outline"></iconify-icon></td>
     <td>Local Polling</td>
     <td>
       Offers direct communication with device. Polling the state means that an update might be noticed later.
@@ -60,7 +60,7 @@ We want our users to get the best home automation experience out there and this 
   </tr>
 
   <tr>
-    <td><i class="icon-upload-alt"></i></td>
+    <td><iconify-icon icon="mdi:upload-network-outline"></iconify-icon></td>
     <td>Local Push</td>
     <td>
       Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
