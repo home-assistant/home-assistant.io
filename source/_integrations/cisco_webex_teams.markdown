@@ -69,7 +69,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_failed
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       message: "<blockquote class=danger>Build 0.89.5 compile failed."
 
@@ -82,7 +82,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_unstable
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>Build 0.89.6 is unstable.</strong>"
       message: "<blockquote class=warning>Version 0.89.6 failed verifications.
@@ -105,7 +105,7 @@ Here are the automations for the above screenshot:
     - platform: webhook
       webhook_id: build_passed
   action:
-    service: notify.cisco_webex_teams_notify
+    action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"
       message: "<blockquote class=info>Version 0.89.7 passed all verifications.
@@ -142,7 +142,7 @@ The following is a list of the allowed html tags and attributes:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string

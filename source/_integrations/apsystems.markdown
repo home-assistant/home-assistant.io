@@ -10,6 +10,7 @@ ha_domain: apsystems
 ha_platforms:
   - number
   - sensor
+  - switch
 ha_integration_type: device
 ha_codeowners:
   - '@mawoka-myblock'
@@ -26,6 +27,7 @@ The following data is provided by the integration:
 The following data can be set by the integration:
 
 - Maximal output in watts
+- Inverter status (on or off)
 
 ## Prerequisites
 

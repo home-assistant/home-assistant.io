@@ -12,14 +12,17 @@
   definition: |-
     Actions are used in several places in Home Assistant. As part of a script or
     automation, actions define what is going to happen once a trigger is
-    activated. In scripts, an action is called *sequence*. Actions use service
-    calls and/or scenes to interact with entities and cause these entities to do
+    activated. In scripts, an action is called *sequence*. An action is a **software
+    function that interacts with targets to make something happen**. Actions can use other actions
+    and/or scenes to interact with entities and cause these entities to do
     something. Actions can also include conditions and a delay. An action can
-    call multiple services at the same time. For example, if your presence is
-    detected in a room, an action may call one service to turn on a light and
-    call another service to start playing music after a delay. Actions are also
+    perform multiple actions at the same time. For example, if your presence is
+    detected in a room, an action may perform one action to turn on a light and
+    perform another action to start playing music after a delay. Actions are also
     used on the dashboard, for example as tap or hold action on a UI element.
-    When triggered, the action calls a service.
+    When triggered, the action performs another action. Home Assistant provides a series of predefined actions,
+    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
+    `homeassistant.reload`.
   aliases:
     - actions
   link: /docs/automation/action/
@@ -41,7 +44,7 @@
     An area in Home Assistant is a logical grouping of devices and entities that
     are meant to match areas (or rooms) in the physical world: your home. For
     example, the `living room` area groups devices and entities in your living
-    room. Areas allow you to target service calls at an entire group of devices.
+    room. Areas allow you to target actions at an entire group of devices.
     For example, turning off all the lights in the living room. Locations within
     your home such as living room, dance floor, etc. Areas can be assigned to
     floors. Areas can also be used for automatically generated cards, such as
@@ -152,6 +155,9 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+- term: Custom integration
+  definition: >-
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -185,12 +191,12 @@
 - term: Domain
   definition: >-
     Each integration in Home Assistant has a unique identifier: a domain. All of
-    the entities and services available in Home Assistant are provided by
+    the entities and actions available in Home Assistant are provided by
     integrations and thus belong to such a domain. The first part of the entity
-    or service, before the `.` shows the domain they belong to. For example
+    or action, before the `.` shows the domain they belong to. For example
     `light.kitchen` is an entity in the `light` domain from the [light
     integration](/integrations/light), while `hue.activate_scene` is the
-    `activate_scene` service for the `hue` domain which belongs to the [Hue
+    `activate_scene` action for the `hue` domain which belongs to the [Hue
     integration](/integrations/hue).
   excerpt: >
     Each integration in Home Assistant has a unique identifier: The domain. It
@@ -347,7 +353,7 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/
+  link: /getting-started/concepts-terminology/#integrations
   aliases:
     - integrations
 - term: Intent
@@ -370,7 +376,7 @@
     Labels in Home Assistant allow grouping elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
-    automations and scripts as a target for actions and services. Labels can
+    automations and scripts as a target for actions. Labels can
     also be used to filter data. For example, you can filter the list of devices
     to show only devices with the label `heavy energy usage` or turn these
     devices off when there is not a lot of solar energy available.
@@ -378,7 +384,7 @@
     Labels in Home Assistant allow grouping elements irrespective of their
     physical location or type. Labels can be assigned to areas, devices,
     entities, automations, scenes, scripts, and helpers. Labels can be used in
-    automations and scripts as a target for actions and services. Labels can
+    automations and scripts as a target for actions. Labels can
     also be used to filter data.
   aliases:
     - labels
@@ -481,27 +487,12 @@
     - selectors
 - term: Service
   definition: |-
-    The term service has 2 meanings in Home Assistant: **The information
-    service** For example, the municipal waste management service that provides
+    The term "service" in Home Assistant is used in the sense of an **information
+    service**. For example, the municipal waste management service that provides
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
-    confusion, as it does not come with a piece of hardware. **The software
-    function that interacts with targets to make something happen** A service
-    carries out one specific task, for example: turning on the light in the
-    living room or sending a notification to a mobile phone. A service has
-    targets and data. Service targets are: areas, devices, and entities. Service
-    data carries the information required to define the desired state change in
-    the target. For example, the target, together with brightness 150 and RGB
-    color `[255,0,0]`, or the message “Your coffee is ready”. Services can be
-    used in, for example, automation, scripts, dashboards, or voice commands to
-    control your home. Home Assistant provides a series of predefined services,
-    such as `homeassistant.turn_on`, `homeassistant.toggle`, or
-    `homeassistant.reload`.
-  excerpt: >
-    A service carries out one specific task, for example: turn on the light in
-    the living room. A service has targets and data and can be called by
-    actions, a dashboard, or via voice command.
-  link: /docs/scripts/service-calls/
+    confusion, as it does not come with a piece of hardware.
+  link: /docs/scripts/perform-actions/
   aliases:
     - services
 - term: State
@@ -532,7 +523,7 @@
 - term: Template
   definition: >-
     A template is an automation definition that can include variables for the
-    service or data from the trigger values. This allows automations to generate
+    action or data from the trigger values. This allows automations to generate
     dynamic actions.
   link: /docs/automation/templating/
   aliases:

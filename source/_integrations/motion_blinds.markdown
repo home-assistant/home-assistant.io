@@ -133,13 +133,13 @@ Therefore it is recommended to use scripts or automations with the TDBU Combined
 
 That will ensure the same absolute position with respect to the window is achieved without letting the Bottom or Top bar move to an absolute_position that is not allowed.
 
-When the `motion_blinds.set_absolute_position` service is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
+When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
 
-Therefore it is always safe to use any of the services in Home Assistant with the TDBU blinds.
+Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 
-## Service `motion_blinds.set_absolute_position`
+## Action `motion_blinds.set_absolute_position`
 
-For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` action.
 
 ### TDBU blinds
 
@@ -150,7 +150,7 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 
 For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
-| Service data attribute | Optional | Description                                                                                       |
+| Data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Name of the Motionblinds cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
 | `absolute_position`    | no       | Absolute position to move to. For example 70                                                      |
@@ -192,7 +192,7 @@ The default update interval of the Motionblinds integration is every 10 minutes.
 To increase the polling interval:
 Go to Settings -> Integrations -> on the already set up Motionblinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
 Now create an automation with as trigger a time pattern and select your desired polling time.
-As the action select "Call service" and select "Update entity", select one of the Motionblinds covers as entity.
+As the action select **Perform action** and select **Update entity**, select one of the Motionblinds covers as entity.
 You only have to create one automation with only one Motionblinds cover as entity, the rest will update at the same time.
 
 Example YAML automation for custom polling interval (every minute):
@@ -204,7 +204,7 @@ trigger:
   - platform: time_pattern
     minutes: "/1"
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade
 ```

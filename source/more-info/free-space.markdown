@@ -2,7 +2,7 @@
 title: "Clear up storage"
 description: "More information on how to clear up storage in Home Assistant."
 related:
-  - docs: /integrations/recorder/#service-purge
+  - docs: /integrations/recorder/#action-purge
     title: purge the contents of the database
   - docs: /common-tasks/os/#network-storage
     title: Add network storage
@@ -21,15 +21,27 @@ There are several things you can do to free up some space:
 - [Uninstall unused add-ons](#uninstalling-unused-add-ons)
 - [Expand storage](#expanding-storage)
 
+## Viewing the available disk space
+
+Follow these steps to check the available free disk space.
+
+1. Go to **{% my storage title="Settings > System > Storage" %}**.
+2. Under disk metrics, hover over the status bar to view the details.
+   - {% icon "mdi:information-outline" %} The **Network storage** section only shows if you have [added network storage](/common-tasks/os/#network-storage).
+
+   ![Screenshot of the "Move datadisk" feature](/images/screenshots/storage_view_free-diskspace.png)
+
 ## Cleaning the database
 
-The Home Assistant database can get huge!
+The Home Assistant database can become very large. Follow these steps to reduce the size of the database.
 
-Luckily, there is a tool you can use to [purge the contents of the database](/integrations/recorder/#service-purge)
-
-You can [filter](/integrations/recorder/#configure-filter) what you send to
-the database, and even change how long it stores the data
-[with the `purge_keep_days` setting](/integrations/recorder/#purge_keep_days)
+1. To view the size of the current database, go to {% my system_health title="**Settings** > **System** > **Repairs**" %}.
+   - Select the three dots {% icon "mdi:dots-vertical" %} menu and select **System information**.
+   - Scroll down to the **Recorder**, and check the **Estimated database size (MiB)**.
+2. [Purge the contents of the database](/integrations/recorder/#service-purge).
+3. To slow down the growth of the database, [filter](/integrations/recorder/#configure-filter) what you send to
+the database.
+4. Change how long it stores the data, using the [`purge_keep_days` setting](/integrations/recorder/#purge_keep_days).
 
 ## Reducing space used for backups
 

@@ -35,7 +35,7 @@ Follow these steps to create a new category.
    - Select **Assign category** and select the category from the list.
    - If the category is not in the list, select **Add new category** and make a new one.
 3. To assign a category to multiple items:
-   - Select the <img height="28px" src="/images/organizing/multiselect_icon.png" alt="Multiselect icon"/> button.
+   - Select the multi-select {% icon "mdi:order-checkbox-ascending" %} button.
    - From the list, select all the items to which you want to apply a category.
    - In the top right corner, select **Move to category**.
    - Then, select the category from the list.

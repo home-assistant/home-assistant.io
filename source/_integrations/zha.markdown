@@ -69,7 +69,7 @@ This {% term integration %} currently supports the following device types within
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
 
-In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
+In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#zigbee-binding-and-unbinding).
 
 ## Introduction
 
@@ -311,13 +311,13 @@ zha:
 
 `{ieee}` is the device hardware address which can be read from the Home Assistant UI when looking at _Device info_. From device info, you can find the `{endpoint_id}` by viewing the _Zigbee device signature_.
 
-## Services
+## Actions
 
-### Service `zha.permit`
+### Action `zha.permit`
 
-To add new devices to the network, call the `permit` service on the `zha` domain. Do this by clicking the Service icon in Developer tools and typing `zha.permit` in the **Service** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
+To add new devices to the network, call the `permit` action on the `zha` domain. Do this by clicking the **Actions** tab in **Developer tools** and typing `zha.permit` in the **Action** dropdown box. Next, follow the device instructions for adding, scanning or factory reset.
 
-This service opens network for joining new devices.
+This action opens network for joining new devices.
 
 | Data       | Optional | Description                                                                    |
 | ---------- | -------- | ------------------------------------------------------------------------------ |
@@ -342,42 +342,42 @@ from the same group:
   - Embrighten
 {% endnote %}
 
-### Service `zha.remove`
+### Action `zha.remove`
 
-This service removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
+This action removes an existing device from the network. You can find the IEEE address of the device on the device card of Zigbee devices. An example of an IEEE address data parameter format is `00:0d::6f:00:05:7d:2d:34`.
 
 | Data   | Optional | Description                          |
 | ------ | -------- | ------------------------------------ |
 | `ieee` | no       | IEEE address of the device to remove |
 
-### Service `zha.set_lock_user_code`
+### Action `zha.set_lock_user_code`
 
-This service sets a lock code on a Zigbee lock.
+This action sets a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                                                                |
 | ----------- | -------- | -------------------------------------------------------------------------- |
 | `code_slot` | no       | Which lock code slot to store the code. Ex. 1-32 will work for Kwikset 954 |
 | `user_code` | no       | Code to set on the lock. Ex. Kwikset accepts numbers 4-8 digits in length  |
 
-### Service `zha.clear_lock_user_code`
+### Action `zha.clear_lock_user_code`
 
-This service clears a lock code from a Zigbee lock.
+This action clears a lock code from a Zigbee lock.
 
 | Data        | Optional | Description                   |
 | ----------- | -------- | ----------------------------- |
 | `code_slot` | no       | Which lock code slot to clear |
 
-### Service `zha.enable_lock_user_code`
+### Action `zha.enable_lock_user_code`
 
-This service enables a lock code on a Zigbee lock.
+This action enables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                    |
 | ----------- | -------- | ------------------------------ |
 | `code_slot` | no       | Which lock code slot to enable |
 
-### Service `zha.disable_lock_user_code`
+### Action `zha.disable_lock_user_code`
 
-This service disables a lock code on a Zigbee lock.
+This action disables a lock code on a Zigbee lock.
 
 | Data        | Optional | Description                     |
 | ----------- | -------- | ------------------------------- |
@@ -389,7 +389,7 @@ Tip! It is highly recommended that you read through the two segments under the t
 
 **To add a new Zigbee device:**
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Zigbee Home Automation** {% term integration %}. Then, select **Configure**.
 3. To start a scan for new devices, on the bottom right corner of the screen, select **Add device**.
 4. Reset your Zigbee devices to factory default settings according to the device instructions provided by the manufacturer (e.g., turn on/off lights up to 10 times; switches usually have a reset button/pin). It might take a few seconds for the devices to appear. You can click on **Show logs** for more verbose output.
@@ -459,7 +459,7 @@ Follow this guide if you have a Zigbee Home Assistant (ZHA) network running and 
 
 ### To migrate to a new Zigbee coordinator radio inside ZHA
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}** and select the ZHA {% term integration %}. Then select **Configure**.
 2. Under **Network settings**, select **Migrate radio**.
 3. Reconfiguration of ZHA will start. Select **Submit**.
 4. Under **Migrate or re-configure**, select **Migrate to a new radio**.
@@ -495,7 +495,7 @@ Note that ZHA only supports connecting a single dedicated Zigbee Coordinator rad
 
 Any Zigbee device can only be connected to a single Zigbee Coordinator (only one Zigbee gateway). This is a limitation in the current (as well as previous) Zigbee protocol specifications, governed by the [CSA (Connectivity Standards Alliance)](https://csa-iot.org/all-solutions/zigbee/). As such, it is a limit that applies to all Zigbee implementations, not just the ZHA implementation.
 
-Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the 'zha.permit' service has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA. Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
+Support for commissioning Zigbee 3.0 devices via "Install Code" or "QR Code" via the `zha.permit` action has so far only been implemented for 'ezsp' (Silicon Labs EmberZNet) or 'znp' (Texas Instruments) radio type in ZHA. Other radio types are missing support in their respective [radio libraries for zigpy](https://github.com/zigpy/) or manufacturer's firmware commands/APIs.
 
 ZHA does currently not support devices that can only use the ZGP ("Zigbee Green Power") profile which is used in a few batteryless self-powered or energy harvesting devices, (such as for example; Philips Hue Click, Philips Hue Tap, and some "Friends of Hue" partnership switches).
 
@@ -608,6 +608,13 @@ The visualization shows multi-hop connections between your paired devices and th
 
 The exact method in which these values are reported depends on the Zigbee network stack used on each device. LQI values can be modified at each step as the message propagates through the mesh networking matrix.
 
+#### Why some links are missing in Zigbee network topology maps
+
+Missing links between Zigbee end devices (often battery-powered devices) in the Zigbee network visualization map are common. They are generally not a sign of a faulty device if the device is still reporting state changes. This happens with sleepy Zigbee end devices and does not mean that the device is no longer connected.
+
+Some end devices (for example, Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child aging. Since using child aging and removing them from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee router devices use child aging.
+
+This is what causes devices to show a missing link. Even though the device is no longer in the child table, the end device can still communicate via the parent Zigbee router.
 #### How to interpret RSSI and LQI values
 
 Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.
@@ -630,7 +637,7 @@ When reporting potential bugs related to the ZHA integration on the issues track
 1. Debug logs for the issue, see [debug logging](#debug-logging).
 2. Exact model and firmware of the Zigbee radio (Zigbee Coordinator adapter) being used.
 3. If the issue is related to a specific Zigbee device, provide both the **Zigbee Device Signature** and the **Diagnostics** information.
-  - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
+  - Both the **Zigbee Device Signature** and the **Diagnostics** information can be found under {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Zigbee Home Automation** integration. Then, select **Configure** > **Devices** (pick your device). Select **Zigbee Device Signature** and **Download Diagnostics**, respectively.
 
 Note: Please also make sure you give it your best effort to follow the recommended best practices for avoiding both [pairing/connection difficulties](#best-practices-to-avoid-pairingconnection-difficulties) and [Zigbee interference](#zigbee-interference-avoidance-and-network-rangecoverage-optimization), (which helps free up time for developers).
 

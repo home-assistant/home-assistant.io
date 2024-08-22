@@ -41,4 +41,7 @@ Prompt template:
 Max history messages:
   description: Maximum number of messages to keep for each conversation (0 = no limit). Limiting this value will cause older messages in a conversation to be dropped.
 
+Keep alive:
+  description: Duration in seconds for the Ollama host to keep the model in memory after receiving a message (-1 = no limit, 0 = no retention). Default value is -1.
+
 {% endconfiguration_basic %}

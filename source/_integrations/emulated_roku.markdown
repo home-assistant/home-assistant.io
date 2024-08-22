@@ -124,7 +124,7 @@ The following is an example implementation of an automation:
       type: keypress
       key: Fwd
   action:
-  - service: media_player.volume_up
+  - action: media_player.volume_up
     target:
       entity_id: media_player.amplifier
 ```

@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@dgomes'
   - '@joostlek'
   - '@catsmanac'
 ha_platforms:
@@ -97,7 +96,7 @@ When the relay mode is set to battery level, the relays will turn on and off bas
 
 ## Polling interval
 
-The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the service using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
 ## Credentials or device IP address update
 

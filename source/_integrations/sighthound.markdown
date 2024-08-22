@@ -20,7 +20,7 @@ This {% term integration %} adds an image processing entity where the state of t
 
 If `save_file_folder` is configured, on each new detection of a person, an annotated image with the name `sighthound_{camera_name}_latest.jpg` is saved in the configured folder if it doesn't already exist, and overwritten if it does exist. The saved image shows the bounding box around detected people and can be displayed on the Home Assistant front end using a [Local File](/integrations/local_file/) camera, and used in notifications. If `save_timestamped_file` is configured as `true`, then the annotated image is saved with a file name that includes the time of detection.
 
-**Note** that by default the {% term integration %} will not automatically scan images, but requires you to call the `image_processing.scan` service, e.g., using an automation triggered by motion.
+**Note** that by default the {% term integration %} will not automatically scan images, but requires you to call the `image_processing.scan` action, e.g., using an automation triggered by motion.
 
 ## Configuration
 
@@ -73,11 +73,11 @@ To verify the integration, check if a new entity is appeared as `image_processin
 
 ## Process an Image
 
-When you want to process an image, you have to call `image_processing.scan` service and listen to the `sighthound.person_detected` and/or `sighthound.vehicle_detected` events.
+When you want to process an image, you have to call `image_processing.scan` action and listen to the `sighthound.person_detected` and/or `sighthound.vehicle_detected` events.
 
 An example using two automations:
 
-- The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` service to send the camera image to the sighthound server for processing.
+- The first automation is triggered, when a motion is detected. It calls the `image_processing.scan` action to send the camera image to the sighthound server for processing.
 
 - The second automation is triggered by a `sighthound.vehicle_detected` event. It sends a notification to a phone.
 
@@ -93,7 +93,7 @@ An example using two automations:
       entity_id: binary_sensor.my_motion_sensor
       domain: binary_sensor
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: image_processing.sighthound_my_cam
   mode: single
@@ -105,7 +105,7 @@ An example using two automations:
     - platform: event
       event_type: sighthound.vehicle_detected
   action:
-    - service: notify.mobile_app_my_iphone
+    - action: notify.mobile_app_my_iphone
       data:
         message: "Somebody has just arrived by car."
   mode: single

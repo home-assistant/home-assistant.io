@@ -47,7 +47,7 @@ Note that setting `track_new_devices: false` will still result in new devices be
 
 {% endnote %}
 
-The extended example from above would look like the following sample:
+In the {% term "`configuration.yaml`" %}, the extended example from above would look like the following sample:
 
 ```yaml
 # Example configuration.yaml entry for Netgear device
@@ -103,11 +103,11 @@ In the example above, `devicename` refers to the detected name of the device.  F
 
 The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
 
-## `device_tracker.see` service
+## `device_tracker.see` action
 
-The `device_tracker.see` service can be used to manually update the state of a device tracker:
+The `device_tracker.see` action can be used to manually update the state of a device tracker:
 
-| Service data attribute | Optional | Description                                                                             |
+| Data attribute | Optional | Description                                                                             |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------- |
 | `dev_id`               | no       | The `object_id`, for example `tardis` for `device_tracker.tardis`                       |
 | `location_name`        | yes      | The location, `home`, `not_home`, or the name of the zone                               |

@@ -165,13 +165,32 @@ The integration will create a switch for each stay-out zone defined for your mow
 
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
 
-## Services
+## Actions
 
-The integration offers the following services:
+The integration offers the following actions:
 
 ### Override schedule
 
-With this service, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
+With this action, you can let your mower mow or park for a given time. You can select the override mode with the `override_mode´ attribute. This will override all your schedules during this time. The duration can be given in days, hours and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
+
+```yaml
+# Replace <name> with the name of your mower.
+action: husqvarna_automower.override_schedule
+target:
+  entity_id: lawn_mower.<name>
+data:
+  duration:
+    days: 1
+    hours: 12
+    minutes: 30
+  override_mode: mow  ### alternative: `park`
+```
+
+### Override schedule work area (if available)
+
+With this action, you can let your mower mow for a given time in a certain work area. You can enter the work area with the `work_area_id` attribute. You can get the `work_area_id` from the `Work area` sensor.
+![Work area sensor](/images/integrations/husqvarna_automower/work_area_sensor.png)
+This will override all your schedules during this time. The duration can be given in days, hours, and/or minutes. The values for the duration have to be between 1 minute and 42 days. Seconds will be ignored.
 
 ```yaml
 # Replace <name> with the name of your mower.
@@ -183,5 +202,5 @@ data:
     days: 1
     hours: 12
     minutes: 30
-  override_mode: mow  ### alternative: `park`
+  work_area_id: 123456 ### Work area ID for the "Front lawn" from the example above.
 ```

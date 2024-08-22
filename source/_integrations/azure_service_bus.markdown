@@ -50,7 +50,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: notify
@@ -85,7 +85,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.test_queue
+      action: notify.test_queue
       data:
         message: "Sun is going down"
         title: "Good evening"

@@ -55,10 +55,10 @@ The `whirlpool` sensor platform integrates Whirlpool Washer and Dryer systems in
 
 The `whirlpool` climate platform integrates Whirlpool air conditioning systems into Home Assistant, allowing control of the appliance trough the user interface. The current inside temperature is also displayed on the thermostat card.
 
-The following services are also available:
+The following actions are also available:
 
-- [**set_hvac_mode**](/integrations/climate/#service-climateset_hvac_mode) (`off`, `heat`, `cool`, `fan_only`)
-- [**target temperature**](/integrations/climate#service-climateset_temperature)
-- [**turn on/off**](/integrations/climate#service-climateturn_on)
-- [**fan mode**](/integrations/climate#service-climateset_fan_mode) (`low`, `medium`, `high`)
-- [**swing mode**](/integrations/climate#service-climateset_swing_mode) (`off`, `horizontal`)
+- [**set_hvac_mode**](/integrations/climate/#action-climateset_hvac_mode) (`off`, `heat`, `cool`, `fan_only`)
+- [**target temperature**](/integrations/climate#action-climateset_temperature)
+- [**turn on/off**](/integrations/climate#action-climateturn_on)
+- [**fan mode**](/integrations/climate#action-climateset_fan_mode) (`low`, `medium`, `high`)
+- [**swing mode**](/integrations/climate#action-climateset_swing_mode) (`off`, `horizontal`)

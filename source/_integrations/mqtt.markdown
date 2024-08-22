@@ -136,7 +136,7 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 
@@ -186,7 +186,7 @@ A configured client certificate will only be active if broker certificate valida
 
 To change the settings, follow these steps:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
@@ -212,9 +212,9 @@ The `mosquitto` broker package ships command line tools (often as `*-clients` pa
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Mosquitto broker integration, then select **Configure**.
 3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
@@ -1027,31 +1027,6 @@ Documentation on the MQTT components that support YAML [can be found here](/inte
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
 
-## MQTT Notifications
-
-The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is a service. This means you need to provide more details when calling the service.
-
-**Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
-
-```json
-{
-   "~":"homeassistant/switch/irrigation",
-   "name":"garden",
-   "cmd_t":"~/set",
-   "stat_t":"~/state"
-}
-```
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
-</p>
-
-The same will work for automations.
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
-</p>
-
 ### Examples
 
 #### REST API
@@ -1080,7 +1055,7 @@ automation:
     entity_id: device_tracker.me
     to: "home"
   action:
-    service: script.notify_mqtt
+    action: script.notify_mqtt
     data:
       target: "me"
       message: "I'm home"
@@ -1088,7 +1063,7 @@ automation:
 script:
   notify_mqtt:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
@@ -1097,26 +1072,20 @@ script:
 
 {% endraw %}
 
-## Publish & Dump services
+## Publish & Dump actions
 
-The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
+The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
-### Service `mqtt.publish`
+### Action `mqtt.publish`
 
-| Service data attribute | Optional | Description                                                  |
+| Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `topic_template`       | no       | Template to render as topic to publish payload to.           |
-| `payload`              | yes      | Payload to publish.                                          |
-| `payload_template`     | yes      | Template to render as payload value.                         |
+| `payload`              | no       | Payload to publish.                                          |
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-
-{% important %}
-You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-{% endimportant %}
-
+### Publish action data examples
 
 ```yaml
 topic: homeassistant/light/1/command
@@ -1127,7 +1096,7 @@ payload: on
 
 ```yaml
 topic: homeassistant/light/1/state
-payload_template: "{{ states('device_tracker.paulus') }}"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
@@ -1135,27 +1104,24 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 {% raw %}
 
 ```yaml
-topic_template: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload_template: "{{ states('device_tracker.paulus') }}"
+topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
 
-`payload` must be a string.
+Be aware that `payload` must be a string.
 If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
+
+{% raw %}
 
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
-When using Home Assistant's YAML editor for formatting JSON
-you should take special care if `payload` contains template content.
-Home Assistant will force you in to the YAML editor and will treat your
-definition as a template. Make sure you escape the template blocks as like
-in the example below. Home Assistant will convert the result to a string
-and will pass it to the MQTT publish service.
+{% endraw %}
 
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
@@ -1165,7 +1131,7 @@ If you set "name" in the payload the entity name will start with the device name
 {% raw %}
 
 ```yaml
-service: mqtt.publish
+action: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
@@ -1193,11 +1159,11 @@ qos: 2
 retain: true
 ```
 
-### Service `mqtt.dump`
+### Action `mqtt.dump`
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
 | `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |

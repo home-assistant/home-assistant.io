@@ -58,7 +58,7 @@ TOTP is _time based_ so it relies on your Home Assistant clock being accurate. I
 
 ### Notify multi-factor authentication module
 
-The Notify MFA module uses the [notify integration](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` service. You use this password to log in.
+The Notify MFA module uses the [notify integration](/integrations/notify/) to send you an [HMAC-based One-Time Password](https://en.wikipedia.org/wiki/HMAC-based_One-time_Password_algorithm). It is typically sent to your phone, but can be sent to any destination supported by a `notify` action. You use this password to log in.
 
 #### Setting up MFA notify
 
@@ -74,11 +74,11 @@ homeassistant:
 
 {% configuration %}
 exclude:
-  description: The list of notifying service entities you want to exclude.
+  description: The list of notifying entities you want to exclude.
   required: false
   type: list
 include:
-  description: The list of notifying service entities you want to include.
+  description: The list of notifying entities you want to include.
   required: false
   type: list
 message:
@@ -99,7 +99,7 @@ homeassistant:
 
 After restarting Home Assistant, go to your {% my profile %} and there should be a "Multi-factor Authentication Modules" section. Click _Enable_ on the _Notify One-Time Password_ option.
 
-Try logging out, then logging in again. You will be asked for the six-digit one-time password that was sent to your notify service. Enter the password to log in.
+Try logging out, then logging in again. You will be asked for the six-digit one-time password that was sent to your notify entity. Enter the password to log in.
 
 If the validation failed, a new one-time password will be sent again.
 

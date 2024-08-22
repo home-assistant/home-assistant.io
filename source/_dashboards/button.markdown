@@ -131,8 +131,8 @@ entity: light.living_room
 Button card with a button name and a [script](/docs/scripts/) that runs when card is tapped:
 
 <p class='img'>
-<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script service'>
-Screenshot of the button card with script service.
+<img src='/images/dashboards/entity_button_complex_card.png' alt='Screenshot of the Button card with script action'>
+Screenshot of the button card with script action.
 </p>
 
 ```yaml
@@ -140,8 +140,8 @@ type: button
 name: Turn Off Lights
 show_state: false
 tap_action:
-  action: call-service
-  service: script.turn_on
+  action: perform-action
+  perform_action: script.turn_on
   data:
     entity_id: script.turn_off_lights
 ```

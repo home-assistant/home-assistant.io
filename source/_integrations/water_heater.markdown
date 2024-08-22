@@ -20,21 +20,21 @@ water_heater:
   platform: demo
 ```
 
-## Services
+## Actions
 
-### Water heater control services
+### Water heater control actions
 
-Available services: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
+Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
 
 {% tip %}
-Not all water heater services may be available for your platform. Be sure to check the available services Home Assistant has enabled by checking **Developer Tools** -> **Services**.
+Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
 {% endtip %}
 
-### Service `water_heater.set_temperature`
+### Action `water_heater.set_temperature`
 
 Sets target temperature of water heater device.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `temperature` | no | New target temperature for water heater
@@ -48,7 +48,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: water_heater.set_temperature
+    - action: water_heater.set_temperature
       target:
         entity_id: water_heater.demo
       data:
@@ -56,11 +56,11 @@ automation:
         operation_mode: eco
 ```
 
-### Service `water_heater.set_operation_mode`
+### Action `water_heater.set_operation_mode`
 
 Set operation mode for water heater device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `operation_mode` | no | New value of operation mode. For a list of possible modes, refer to the integration documentation.
@@ -73,18 +73,18 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: water_heater.set_operation_mode
+    - action: water_heater.set_operation_mode
       target:
         entity_id: water_heater.demo
       data:
         operation_mode: eco
 ```
 
-### Service `water_heater.set_away_mode`
+### Action `water_heater.set_away_mode`
 
 Turn away mode on or off for water heater device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at the `entity_id` of water heater devices to control. Use `entity_id: all` to target all.
 | `away_mode` | no | New value of away mode. 'on'/'off' or True/False
@@ -97,7 +97,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: water_heater.set_away_mode
+    - action: water_heater.set_away_mode
       target:
         entity_id: water_heater.demo
       data:

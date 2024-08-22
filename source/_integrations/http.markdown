@@ -86,7 +86,7 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-The sample below shows a configuration entry with possible values:
+The sample below shows a configuration entry in the {% term "`configuration.yaml`" %} file with possible values:
 
 ```yaml
 # Example configuration.yaml entry

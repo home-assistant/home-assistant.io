@@ -19,7 +19,15 @@ The IMAP integration is observing your [IMAP server](https://en.wikipedia.org/wi
 
 {% include integrations/config_flow.md %}
 
-### Gmail with App Password
+### IMAP services with App Passwords
+
+### Microsoft 365 and Live IMAP services
+
+Microsoft has removed support for direct use (App) passwords when accessing IMAP without modern verification. You can create an App password, but access is only allowed though OAUTH2 enabled mail clients authorized by Microsoft or via an App registration in Microsoft Entra ID (school or business).
+
+An OAUTH2 authentication flow is not supported for the IMAP integration. This means that unfortunately, it is not possible to use Home Assistant IMAP with Microsoft 365 IMAP services for school and business and the (free) personal Microsoft Live IMAP services.
+
+### Google Gmail IMAP service
 
 If you’re going to use Gmail, 2-step verification must be enabled on your Gmail account.  Once it is enabled, you need to create an [App Password](https://support.google.com/mail/answer/185833).
 
@@ -54,22 +62,12 @@ By default, this integration will count unread emails. By configuring the search
 
 ### Selecting a charset supported by the imap server
 
-Below is an example for setting up the integration to connect to your Microsoft 365 account that requires `US-ASCII` as charset:
-
-- Server: `outlook.office365.com`
-- Port: `993`
-- Username: Your full email address
-- Password: Your password
-- Charset: `US-ASCII`
-
-{% important %}
-Yahoo also requires the character set `US-ASCII`.
-{% endimportant %}
+Some IMAP services, like Yahoo, require a `US-ASCII` charset to be configured.
 
 ### Selecting message data to include in the IMAP event (advanced mode)
 
 By default, the IMAP event won't include `text` or `headers` message data. If you want them to be included (`text` or `headers`, or both), you have to manually select them in the option flow. 
-Another way to process the `text` data, is to use the `imap.fetch` service. In this case, `text` won't be limited by size.
+Another way to process the `text` data, is to use the `imap.fetch` action. In this case, `text` won't be limited by size.
 
 ### Selecting an alternate SSL cipher list or disabling SSL verification (advanced mode)
 
@@ -174,11 +172,11 @@ template:
 
 {% endraw %}
 
-### Services for post-processing
+### Actions for post-processing
 
-The IMAP integration has some services for post-pressing email messages. The services are intended to be used in automations as actions after an "imap_content" event. The services take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the service is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
+The IMAP integration has some actions for post-pressing email messages. The actions are intended to be used in automations as actions after an "imap_content" event. The actions take the IMAP `entry_id` and the `uid` of the message's event data. You can use a template for the `entry_id` and the `uid`. When the action is set up as a trigger action, you can easily select the correct entry from the UI. You will find the `entry_id` in YAML mode. It is highly recommended you filter the events by the `entry_id`.
 
-Available services are:
+Available actions are:
 
 - `seen`: Mark the message as seen.
 - `move`: Move the message to a `target_folder` and optionally mark the message `seen`.
@@ -186,12 +184,12 @@ Available services are:
 - `fetch`: Fetch the content of a message. Returns a dictionary containing `"text"`, `"subject"`, `"sender"` and `"uid""`. This allows to fetch and process the complete message text, not limited by size.
 
 {% caution %}
-When these services are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these services unless you know what you are doing.
+When these actions are used in an automation, make sure the right triggers and filtering are set up. When messages are deleted, they cannot be recovered. When multiple IMAP entries are set up, make sure the messages are filtered by the `entry_id` as well to ensure the correct messages are processed. Do not use these actions unless you know what you are doing.
 {% endcaution %}
 
 ## Example - post-processing
 
-The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` service `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
+The example below filters the event trigger by `entry_id`, fetches the message and stores it in `message_text`. It then marks the message in the event as seen and finally, it adds a notification with the subject of the message. The `seen` action `entry_id` can be a template or literal string. In UI mode you can select the desired entry from a list as well.
 
 {% raw %}
 
@@ -207,16 +205,16 @@ condition:
   - condition: template
     value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
 action:
-  - service: imap.fetch
+  - action: imap.fetch
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
     response_variable: message_text
-  - service: imap.seen
+  - action: imap.seen
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     metadata: {}
     data:
       message: "{{ message_text['subject'] }}"

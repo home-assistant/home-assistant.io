@@ -72,9 +72,10 @@ homeassistant:
   keys:
     min_version:
       description: >
-        Minimum required version of Home Assistant to use the blueprint. For example,
-        `2022.4.0`. It is important to set this if the blueprint uses any features
-        introduced in recent releases to head off issues.
+        Minimum required version of Home Assistant to use the blueprint in the format of
+        *major*.*minor*.*patch* (all parts are required). For example, `2022.4.0`. It is
+        important to set this if the blueprint uses any features introduced in recent
+        releases to head off issues.
       type: string
       required: false
 input:
@@ -154,7 +155,7 @@ allows an optional description, and optionally allows for collapsing those input
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
 {% caution %}
-Input sections are a new feature in version 2024.6. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. 
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions.
 {% endcaution %}
 
 The full configuration for a section is below:
@@ -271,7 +272,7 @@ trigger:
     to: "on"
 
 action:
-  - service: light.turn_on
+  - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
       platform: state
@@ -279,7 +280,7 @@ action:
       from: "on"
       to: "off"
   - delay: !input no_motion_wait
-  - service: light.turn_off
+  - action: light.turn_off
     target: !input light_target
 ```
 

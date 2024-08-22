@@ -1,6 +1,6 @@
 ---
-title: DSMR Slimme Meter
-description: Instructions on how to integrate DSMR Smartmeter within Home Assistant.
+title: DSMR Smart Meter
+description: Instructions on how to integrate DSMR smart meter within Home Assistant.
 ha_category:
   - Energy
 ha_release: 0.34
@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Robbie1221'
   - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---
@@ -38,7 +39,7 @@ A sensor platform for Belgian, Dutch, Luxembourg and Swedish Smart Meters which 
 
 ### Options
 
-To configure options for DSMR integration go to **Settings** -> **Devices & Services** and press **Options** on the DSMR card.
+To configure options for DSMR integration go to **Settings** -> **Devices & services** and press **Options** on the DSMR card.
 
 #### Time between updates
 
@@ -93,6 +94,7 @@ $ docker run --device /dev/ttyUSB0:/dev/ttyUSB0 -d --name="home-assistant" -v /h
 - [Smart Meter bridge](https://github.com/legolasbo/smartmeterBridge)
 - [WIZnet WIZ110SR](https://www.wiznet.io/product-item/wiz110sr/)
 - [esp8266 SmartMeter (Poluket)](https://www.domohab.be/categorie-produit/passerelle/) (create for DSMR5 / ESMR5 Meter)
+- [Smart Gateways NL](https://smartgateways.nl/)
 
 DIY solutions (ESP8266 based):
 

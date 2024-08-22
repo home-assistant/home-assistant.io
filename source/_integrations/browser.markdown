@@ -13,7 +13,7 @@ related:
     title: Configuration file
 ---
 
-The **Browser** {% term integration %} provides a service to open URLs in the default browser on the host machine.
+The **Browser** {% term integration %} provides a action to open URLs in the default browser on the host machine.
 
 ## Configuration
 
@@ -25,19 +25,19 @@ To load this integration, add the following lines to your {% term "`configuratio
 browser:
 ```
 
-### Services
+### Actions
 
-Once loaded, the `browser` platform will expose {% term services %} that can be called to perform various {% term actions %}.
+Once loaded, the `browser` platform will expose {% term actions %} that can be called to perform various {% term actions %}.
 
-Available services: `browser/browse_url`.
+Available actions: `browser/browse_url`.
 
-| Service data attribute | Optional | Description      |
+| Data attribute | Optional | Description      |
 | ---------------------- | -------- | ---------------- |
 | `url`                  | no       | The URL to open. |
 
 ### Usage
 
-To use this {% term service %}, choose **Call Service** from the **Developer Tools**. Choose the service *browser/browse_url* from the list of **Available services:** and enter the URL into the **Service Data** field and hit **CALL SERVICE**.
+To use this {% term action %}, select the **Actions** tab from the **Developer Tools**. Choose the action *browser/browse_url* from the list of **Actions:** and enter the URL into the **data** field and select **Perform action**.
 
 ```json
 {"url": "http://www.google.com"}
