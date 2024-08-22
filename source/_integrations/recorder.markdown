@@ -260,6 +260,11 @@ When using SQLite, if the system encounters unrecoverable disk corruption, it wi
 
 In this event, it may be possible to recover the old database by following the [SQLite recovery guide](https://www.sqlite.org/recovery.html).
 
+## Recorder Data
+Since v 2021.8 HA is recording both States and Statistics; https://www.home-assistant.io/blog/2021/08/04/release-20218/
+For more info on data-structure and how to configure sensors for statistics see https://data.home-assistant.io/docs/statistics
+
+
 ## Custom database engines
 
 {% warning %}
