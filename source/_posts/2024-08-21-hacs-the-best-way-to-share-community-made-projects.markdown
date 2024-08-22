@@ -36,13 +36,13 @@ This is one of the biggest updates yet for HACS, but if you're not sure what HAC
 
 <img src='/images/blog/2024-08-hacs2/frontend.png' style='border: 0;box-shadow: none;' alt="HACS frontend looks like data tables">
 
-HACS 2.0 [main dashboard](https://www.hacs.dev/docs/use/repositories/dashboard/) has taken cues from Home Assistant, and now closely matches the native look and functionality of the data tables you find on the entities or automation pages. This includes the options to filter, group, sort, and search.
+HACS 2.0 [main dashboard](https://www.hacs.xyz/docs/use/repositories/dashboard/) has taken cues from Home Assistant, and now closely matches the native look and functionality of the data tables you find on the entities or automation pages. This includes the options to filter, group, sort, and search.
 
 ### Faster downloads <!-- omit from toc -->
 
 <img src='/images/blog/2024-08-hacs2/downloads.png' style='border: 0;box-shadow: none;' alt="HDownload window going very fast">
 
-Previously, HACS 100% relied on GitHub to retrieve information, from file locations to the number of stars, so we needed to limit the API (as there are a lot of HACS users). To speed things up, we've created a [remote dataset](https://www.hacs.dev/docs/faq/data_sources/) stored in Cloudflare R2 buckets, which are updated at regular intervals.  Files are still downloaded from GitHub and their API is still contacted, but it will see drastically fewer calls, and the speed improvement is massive. Behind the scenes, this was a big piece of work, which has ongoing costs, and shows the kind of support the Open Home Foundation can provide to a community-driven project like HACS.
+Previously, HACS 100% relied on GitHub to retrieve information, from file locations to the number of stars, so we needed to limit the API (as there are a lot of HACS users). To speed things up, we've created a [remote dataset](https://www.hacs.xyz/docs/faq/data_sources/) stored in Cloudflare R2 buckets, which are updated at regular intervals.  Files are still downloaded from GitHub and their API is still contacted, but it will see drastically fewer calls, and the speed improvement is massive. Behind the scenes, this was a big piece of work, which has ongoing costs, and shows the kind of support the Open Home Foundation can provide to a community-driven project like HACS.
 
 ### Update and repair <!-- omit from toc -->
 
@@ -52,10 +52,10 @@ No more visiting the HACS page every day to check for updates. They'll now appea
 
 ### Other improvements <!-- omit from toc -->
 
-We have also renamed things to help them make more sense, including changing "category" to "type", and "Lovelace" to "dashboard" (Lovelace needs to make room for [Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#what-is-project-grace)). We're also including Template management, which utilizes the new [template type](https://www.hacs.dev/docs/publish/template/) to enhance your Jinja templates.
+We have also renamed things to help them make more sense, including changing "category" to "type", and "Lovelace" to "dashboard" (Lovelace needs to make room for [Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#what-is-project-grace)). We're also including Template management, which utilizes the new [template type](https://www.hacs.xyz/docs/publish/template/) to enhance your Jinja templates.
 
 {% note %}
-**Breaking changes** - There have been some breaking changes, such as removing the yaml configuration, no longer including the NetDaemon type, and moving [beta selection to a switch entity](https://www.hacs.dev/docs/use/entities/update/). Many of the changes are more likely to affect those sharing their code via HACS, check the [release notes for the full list](https://github.com/hacs/integration/releases/tag/2.0.0).
+**Breaking changes** - There have been some breaking changes, such as removing the yaml configuration, no longer including the NetDaemon type, and moving [beta selection to a switch entity](https://www.hacs.xyz/docs/use/entities/switch/). Many of the changes are more likely to affect those sharing their code via HACS, check the [release notes for the full list](https://github.com/hacs/integration/releases/tag/2.0.0).
 {% endnote %}
 
 ## What is HACS?
@@ -94,7 +94,7 @@ Just before we released this big update, it passed 5,000 stars on GitHub! It's t
 
 HACS should work on any up-to-date version of Home Assistant, it even runs on core installations. It also requires a GitHub account. If you already have HACS 1.X installed, perform a backup, go into HACS and then click the update button for HACS (note: if you update, there is no downgrading).
 
-If you're a Home Assistant OS user here is the installation method (If you're not using our OS, [visit this page](https://www.hacs.dev/docs/use/download/download/#to-download-hacs-core)),
+If you're a Home Assistant OS user here is the installation method (If you're not using our OS, [visit this page](https://www.hacs.xyz/docs/use/download/download/#to-download-hacs-core)),
 
 1. Make a [backup of your system](https://my.home-assistant.io/redirect/backup/) and download it to another device for safekeeping.
 
