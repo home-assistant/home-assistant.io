@@ -72,9 +72,9 @@ homeassistant:
   keys:
     min_version:
       description: >
-        Minimum required version of Home Assistant to use the blueprint in the format of 
-        _major_._minor_._patch_ (all parts are required). For example, `2022.4.0`. It is
-        important to set this if the blueprint uses any features introduced in recent 
+        Minimum required version of Home Assistant to use the blueprint in the format of
+        *major*.*minor*.*patch* (all parts are required). For example, `2022.4.0`. It is
+        important to set this if the blueprint uses any features introduced in recent
         releases to head off issues.
       type: string
       required: false
