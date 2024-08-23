@@ -27,11 +27,14 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+- [Action](#action)
 - [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Cover](#cover)
+- [Climate](#climate)
 
 ## Configuration
 
@@ -252,4 +255,45 @@ device_class:
   required: false
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
+{% endconfiguration %}
+
+## Climate
+
+The `ads` climate platform allows you to control your connected ADS climates.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+climate:
+  - platform: ads
+    name: "Living Room Climate"
+    adsvar_actual_temperature: "Thermostat.ActualTemperature"
+    adsvar_set_temperature: "Thermostat.SetpointTemperature"
+    adsvar_mode: "Thermostat.HeatingMode"
+    adsvar_preset: "Thermostat.Preset"
+```
+
+{% configuration %}
+adsvar_actual_temperature:
+  required: true
+  description: The name of the variable that returns the current temperature value
+  type: string
+adsvar_set_temperature:
+  required: true
+  description: The name of the variable that returns the setpoint temperature value
+  type: string
+adsvar_mode:
+  required: false
+  description: The name of the variable that sets the new climate mode, use an ENUM or INT variable on the PLC side
+  type: string
+adsvar_preset:
+  required: false
+  description: The name of the variable that sets the new climate preset, use an ENUM or INT variable on the PLC side
+  type: string
+name:
+  required: false
+  description: An identifier for the Cover in the frontend
+  type: string
 {% endconfiguration %}
