@@ -35,6 +35,7 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Cover](#cover)
 - [Climate](#climate)
+- [Valve](#valve)
 
 ## Configuration
 
@@ -77,7 +78,7 @@ The ADS integration will register the `write_by_name` action allowing you to wri
 
 Action parameters:
 
-- **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use `GBL.myvariable`.
+- **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use `GVL.myvariable`.
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
@@ -142,7 +143,7 @@ name:
 
 ## Sensor
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *BOOL*, *BYTE*, *INT*, *UINT*, *SINT*, *USINT*, *DINT*, *UDINT*, *WORD*, *DWORD*, *REAL* or *LREAL*.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
@@ -163,7 +164,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
+  description: The datatype of the ADS variable, possible values are bool, byte, int, uint, sint, usint, dint, udint, word, dword, real, lreal.
   default: int
   type: string
 name:
@@ -268,11 +269,11 @@ file:
 # Example configuration.yaml entry
 climate:
   - platform: ads
-    name: "Living Room Climate"
-    adsvar_actual_temperature: "Thermostat.ActualTemperature"
-    adsvar_set_temperature: "Thermostat.SetpointTemperature"
-    adsvar_mode: "Thermostat.HeatingMode"
-    adsvar_preset: "Thermostat.Preset"
+    name: Living Room Climate
+    adsvar_actual_temperature: Thermostat.ActualTemperature
+    adsvar_set_temperature: Thermostat.SetpointTemperature
+    adsvar_mode: Thermostat.HeatingMode
+    adsvar_preset: Thermostat.Preset
 ```
 
 {% configuration %}
@@ -294,6 +295,31 @@ adsvar_preset:
   type: string
 name:
   required: false
-  description: An identifier for the Cover in the frontend
+  description: An identifier for the Climate in the frontend
+  type: string
+{% endconfiguration %}
+
+## Valve
+
+The `ads` valve platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: ads
+    adsvar: .global_bool
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the variable which you want to access on the ADS device.
+  type: string
+name:
+  required: false
+  description: An identifier for the valve in the frontend.
   type: string
 {% endconfiguration %}
