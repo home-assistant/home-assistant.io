@@ -21,4 +21,18 @@ You can boil water and get filter / UV information, such as when you need to rep
 
 You can easily pair your device by confirming your phone number which is registered with your Edge app account.
 
+## Configuration
+
 {% include integrations/config_flow.md %}
+
+## Actions
+
+### tami4.fetch_drinks
+Fetch all available drinks that were configured via the app.
+
+### tami4.prepare_drink
+Prepare a specific drink via its id.
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `drink_id`                    | no      | The drink id as found using `tami4.fetch_drinks`. |
