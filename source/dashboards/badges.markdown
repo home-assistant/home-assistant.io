@@ -151,10 +151,6 @@ icon:
   required: false
   description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
-image:
-  required: false
-  description: The URL of an image.
-  type: string
 conditions:
   required: false
   description: List of conditions to check. See [available conditions](#conditions-options).*
@@ -166,6 +162,8 @@ state_filter:
 {% endconfiguration %}
 
 *only one filter will be applied: `conditions` or `state_filter` if `conditions` is not present
+
+You may also add any additional configuration options to an entity which are supported by the chosen badge type (`Entity` badge type if no type is chosen).
 
 ## Conditions options
 
