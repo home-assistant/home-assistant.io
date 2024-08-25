@@ -262,27 +262,27 @@ and improvements to existing ones! You’re all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Autarco]**, added by [@klaasnicolaas]
+- **[Autarco]**, added by [@klaasnicolaas]  
   Monitor the performance of your [Autarco](https://www.autarco.com/) connected solar panels, inverters, and batteries.
-- **[Bryant Evolution]**, added by [@danielsmyers]
+- **[Bryant Evolution]**, added by [@danielsmyers]  
   Control your [Bryant Evolution](https://www.bryant.com/en/us/products/evolution-system/) HVAC system.
-- **[Dio Chacon]**, added by [@cnico]
+- **[Dio Chacon]**, added by [@cnico]  
   Connect your [Dio Chacon devices](https://chacon.com/en/) via RF 433 Mhz or Wi-Fi.
-- **[ElevenLabs]**, added by [@sorgfresser]
+- **[ElevenLabs]**, added by [@sorgfresser]  
   [ElevenLabs text-to-speech] service, provides natural sounding voices.
-- **[iotty]**, added by [@pburgio]
+- **[iotty]**, added by [@pburgio]  
   Control your [iotty Smart Home](https://www.iotty.com/) light switch, gate, smart cover, and outlet devices.
-- **[IronOS]**, added by [@tr4nt0r]
+- **[IronOS]**, added by [@tr4nt0r]  
   Integrate your IronOS-powered soldering iron with Home Assistant over Bluetooth.
-- **[Israel Rail]**, added by [@shaiu]
+- **[Israel Rail]**, added by [@shaiu]  
   Get real-time departure information from the Israel railways.
-- **[LinkPlay]**, added by [@dukeofphilberg]
+- **[LinkPlay]**, added by [@dukeofphilberg]  
   Control various media players based on the [LinkPlay](https://www.linkplay.com/) protocol.
-- **[madVR Envy]**, added by [@iloveicedgreentea]
+- **[madVR Envy]**, added by [@iloveicedgreentea]  
   Control your [madVR Envy](https://www.madvrenvy.com/) video processor for your home theater.
-- **[Simplefin]**, added by [@jeeftor]
+- **[Simplefin]**, added by [@jeeftor]  
   SimpleFIN is a financial data provider that offers a simple and easy-to-use API for retrieving financial data.
-- **[Tesla Fleet]**, added by [@Bre77]
+- **[Tesla Fleet]**, added by [@Bre77]  
   Through the Tesla Fleet API, you can connect and monitor various sensors from Tesla vehicles, PowerWall, Solar panels, or Wall connectors.
 
 [@Bre77]: https://github.com/Bre77
