@@ -61,7 +61,7 @@ Enjoy the release! 🎉
 - [Patch releases](#patch-releases)
   - [2024.8.1 - August 10](#202481---august-10)
   - [2024.8.2 - August 16](#202482---august-16)
-- [Release 2024.8.3 - August 25](#release-202483---august-25)
+  - [2024.8.3 - August 25](#202483---august-25)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -826,42 +826,42 @@ week (around Friday).
 [@timmo001]: https://github.com/timmo001
 [@wittypluck]: https://github.com/wittypluck
 
-## Release 2024.8.3 - August 25
+### 2024.8.3 - August 25
 
-- Skip NextBus update if integration is still loading ([@drozycki] - [#123564]) ([nextbus docs])
-- Bump yalexs to 6.5.0 ([@bdraco] - [#123739]) ([august docs])
-- Bump yalexs to 8.0.2 ([@bdraco] - [#123817]) ([august docs])
-- Bump aioshelly to 11.2.4 ([@bdraco] - [#124080]) ([shelly docs])
-- Add Alt Core300s model to vesync integration ([@cdnninja] - [#124091]) ([vesync docs])
-- Bump pybravia to 0.3.4 ([@Drafteed] - [#124113]) ([braviatv docs])
-- Bump aiohomekit to 3.2.3 ([@bdraco] - [#124115]) ([homekit_controller docs])
-- Bump nest to 4.0.7 to increase subscriber deadline ([@allenporter] - [#124131]) ([nest docs])
-- Bump tplink-omada-api to 1.4.2 ([@MarkGodwin] - [#124136]) ([tplink_omada docs])
+- Skip NextBus update if integration is still loading ([@drozycki] - [#123564])
+- Bump yalexs to 6.5.0 ([@bdraco] - [#123739])
+- Bump yalexs to 8.0.2 ([@bdraco] - [#123817])
+- Bump aioshelly to 11.2.4 ([@bdraco] - [#124080])
+- Add Alt Core300s model to vesync integration ([@cdnninja] - [#124091])
+- Bump pybravia to 0.3.4 ([@Drafteed] - [#124113])
+- Bump aiohomekit to 3.2.3 ([@bdraco] - [#124115])
+- Bump nest to 4.0.7 to increase subscriber deadline ([@allenporter] - [#124131])
+- Bump tplink-omada-api to 1.4.2 ([@MarkGodwin] - [#124136])
 - Bump aiohttp to 3.10.4 ([@bdraco] - [#124137])
-- Update Matter light transition blocklist to include GE Cync Undercabinet Lights ([@cjmaio] - [#124138]) ([matter docs])
-- Shelly RPC - do not stop BLE scanner if a sleeping device ([@thecode] - [#124147]) ([shelly docs])
-- Fix shelly available check when device is not initialized ([@bdraco] - [#124182]) ([shelly docs])
-- Bump pyhomeworks to 1.1.2 ([@emontnemery] - [#124199]) ([homeworks docs])
+- Update Matter light transition blocklist to include GE Cync Undercabinet Lights ([@cjmaio] - [#124138])
+- Shelly RPC - do not stop BLE scanner if a sleeping device ([@thecode] - [#124147])
+- Fix shelly available check when device is not initialized ([@bdraco] - [#124182])
+- Bump pyhomeworks to 1.1.2 ([@emontnemery] - [#124199])
 - Bump aiohttp to 3.10.5 ([@bdraco] - [#124254])
-- Update xknx to 3.1.1 ([@farmio] - [#124257]) ([knx docs])
-- Bump python-roborock to 2.6.0 ([@allenporter] - [#124268]) ([roborock docs])
-- Prevent KeyError when Matter device sends invalid value for StartUpOnOff ([@marcelveldt] - [#124280]) ([matter docs])
-- Don't abort airgradient user flow if flow in progress ([@joostlek] - [#124300]) ([airgradient docs])
-- Bump yalexs to 8.1.2 ([@bdraco] - [#124303]) ([august docs])
-- Bump python-holidays to 0.54 ([@gjohansson-ST] - [#124170]) ([workday docs]) ([holiday docs])
-- Bump python-holidays to 0.55 ([@gjohansson-ST] - [#124314]) ([workday docs]) ([holiday docs])
-- Add missing strings for riemann options flow ([@karwosts] - [#124317]) ([integration docs])
-- Fix Spotify Media Browsing fails for new config entries ([@PeteRager] - [#124368]) ([spotify docs])
-- update ttn_client - fix crash with SenseCAP devices ([@angelnu] - [#124370]) ([thethingsnetwork docs])
-- Add supported features for iZone ([@Swamp-Ig] - [#124416]) ([izone docs])
-- Bump yalexs to 8.1.4 ([@bdraco] - [#124425]) ([august docs])
-- Bump aiohue to version 4.7.3 ([@idekker] - [#124436]) ([hue docs])
-- Don't raise WLED user flow unique_id check ([@joostlek] - [#124481]) ([wled docs])
-- Bump yalexs to 8.3.3 ([@bdraco] - [#124492]) ([august docs])
-- Bump yalexs to 8.4.0 ([@bdraco] - [#124520]) ([august docs])
-- Bump yalexs to 8.4.1 ([@bdraco] - [#124553]) ([august docs])
-- Fix missing id in Habitica completed todos API response ([@tr4nt0r] - [#124565]) ([habitica docs])
-- Only support remote activity on Alexa if feature is set and at least one feature is in the activity_list ([@jbouwh] - [#124567]) ([alexa docs])
+- Update xknx to 3.1.1 ([@farmio] - [#124257])
+- Bump python-roborock to 2.6.0 ([@allenporter] - [#124268])
+- Prevent KeyError when Matter device sends invalid value for StartUpOnOff ([@marcelveldt] - [#124280])
+- Don't abort airgradient user flow if flow in progress ([@joostlek] - [#124300])
+- Bump yalexs to 8.1.2 ([@bdraco] - [#124303])
+- Bump python-holidays to 0.54 ([@gjohansson-ST] - [#124170])
+- Bump python-holidays to 0.55 ([@gjohansson-ST] - [#124314])
+- Add missing strings for riemann options flow ([@karwosts] - [#124317])
+- Fix Spotify Media Browsing fails for new config entries ([@PeteRager] - [#124368])
+- update ttn_client - fix crash with SenseCAP devices ([@angelnu] - [#124370])
+- Add supported features for iZone ([@Swamp-Ig] - [#124416])
+- Bump yalexs to 8.1.4 ([@bdraco] - [#124425])
+- Bump aiohue to version 4.7.3 ([@idekker] - [#124436])
+- Don't raise WLED user flow unique_id check ([@joostlek] - [#124481])
+- Bump yalexs to 8.3.3 ([@bdraco] - [#124492])
+- Bump yalexs to 8.4.0 ([@bdraco] - [#124520])
+- Bump yalexs to 8.4.1 ([@bdraco] - [#124553])
+- Fix missing id in Habitica completed todos API response ([@tr4nt0r] - [#124565])
+- Only support remote activity on Alexa if feature is set and at least one feature is in the activity_list ([@jbouwh] - [#124567])
 - Revert "Exclude aiohappyeyeballs from license check" ([@bdraco] - [#124116])
 
 [#123276]: https://github.com/home-assistant/core/pull/123276
@@ -923,33 +923,6 @@ week (around Friday).
 [@marcelveldt]: https://github.com/marcelveldt
 [@thecode]: https://github.com/thecode
 [@tr4nt0r]: https://github.com/tr4nt0r
-[advantage_air docs]: /integrations/advantage_air/
-[aemet docs]: /integrations/aemet/
-[airgradient docs]: /integrations/airgradient/
-[airtouch4 docs]: /integrations/airtouch4/
-[airtouch5 docs]: /integrations/airtouch5/
-[alexa docs]: /integrations/alexa/
-[august docs]: /integrations/august/
-[braviatv docs]: /integrations/braviatv/
-[habitica docs]: /integrations/habitica/
-[holiday docs]: /integrations/holiday/
-[homekit_controller docs]: /integrations/homekit_controller/
-[homeworks docs]: /integrations/homeworks/
-[hue docs]: /integrations/hue/
-[integration docs]: /integrations/integration/
-[izone docs]: /integrations/izone/
-[knx docs]: /integrations/knx/
-[matter docs]: /integrations/matter/
-[nest docs]: /integrations/nest/
-[nextbus docs]: /integrations/nextbus/
-[roborock docs]: /integrations/roborock/
-[shelly docs]: /integrations/shelly/
-[spotify docs]: /integrations/spotify/
-[thethingsnetwork docs]: /integrations/thethingsnetwork/
-[tplink_omada docs]: /integrations/tplink_omada/
-[vesync docs]: /integrations/vesync/
-[wled docs]: /integrations/wled/
-[workday docs]: /integrations/workday/
 
 ## Need help? Join the community!
 
