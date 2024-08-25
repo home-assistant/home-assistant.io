@@ -862,6 +862,7 @@ week (around Friday).
 - Bump yalexs to 8.4.1 ([@bdraco] - [#124553]) ([august docs])
 - Fix missing id in Habitica completed todos API response ([@tr4nt0r] - [#124565]) ([habitica docs])
 - Only support remote activity on Alexa if feature is set and at least one feature is in the activity_list ([@jbouwh] - [#124567]) ([alexa docs])
+- Revert "Exclude aiohappyeyeballs from license check" ([@bdraco] - [#124116])
 
 [#123276]: https://github.com/home-assistant/core/pull/123276
 [#123544]: https://github.com/home-assistant/core/pull/123544
@@ -900,6 +901,7 @@ week (around Friday).
 [#124553]: https://github.com/home-assistant/core/pull/124553
 [#124565]: https://github.com/home-assistant/core/pull/124565
 [#124567]: https://github.com/home-assistant/core/pull/124567
+[#124116]: https://github.com/home-assistant/core/pull/124116
 [@Drafteed]: https://github.com/Drafteed
 [@MarkGodwin]: https://github.com/MarkGodwin
 [@PeteRager]: https://github.com/PeteRager
