@@ -35,7 +35,6 @@ The **ista EcoTrend** integration exposes the last monthly readings as sensors. 
 
 Not all values may be available in your ista EcoTrend account. Cost estimation is an optional service that has to be booked by your property manager. Therefore, the cost sensors are deactivated by default.
 
-
 ## Long-term statistics
 
 The **ista EcoTrend** integration allows you to import all your historical consumption readings from your ista EcoTrend account into long-term statistic entities. These entities can be displayed in your Home Assistant energy dashboard, providing a comprehensive view of your consumption data over time.
