@@ -298,14 +298,14 @@ There are two classes of event entities that are available based on the above ca
 - `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
 
 Nest event entities are updated immediately when an event message is received
-without waiting for any media to be fetched.
+without waiting for any media to be fetched. See Device Triggers for media support.
 
 ## Device Triggers
 
 The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
 
-Device triggers will fire after any associated media is downloaded. You may use event
-entities for an immediate event without waiting for media.
+Device triggers will wait to fire after any media associated with the event is downloaded. Use an
+event entity for immediate notifications without media.
 
 {% my automations badge %}
 
@@ -334,7 +334,7 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 
 - `device_id`: The Home Assistant device identifier for the camera
 - `nest_event_id`: is an opaque identifier that identifies the event.
-- `attachment`: May be present if the device supports snapshots or clips and depends on the capabilities of the device.
+- `attachment`: May be present if the device supports snapshots or clips and depends on the capabilities of the device. This is a URL where media from the media source can be fetched.
 - `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
