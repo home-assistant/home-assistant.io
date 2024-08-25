@@ -5,6 +5,7 @@ ha_category:
   - Camera
   - Climate
   - Doorbell
+  - Event
   - Hub
   - Media source
   - Sensor
@@ -20,6 +21,7 @@ ha_platforms:
   - camera
   - climate
   - diagnostics
+  - event
   - sensor
 ha_integration_type: integration
 ---
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Camera](#camera)
+- [Event](#event)
 
 Cameras and doorbells use [Automation and device triggers](#automation-and-device-triggers) for events and a [media source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
@@ -284,6 +287,19 @@ All cameras have motion and person triggers, however only some support capturing
 
 Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
+
+## Event
+
+All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+
+There are two classes of event entities that are available based on the above camera features:
+
+- `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
+- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+
+Nest event entities do not yet expose media for use in attachments.
+
+## Device Triggers
 
 ## Automation and device triggers
 
