@@ -101,7 +101,7 @@ For each Airzone zone (thermostat), the following *sensors* are created:
 
 ## Switch
 
-For each Airzone zone (thermostat) a *switch entity* is created.
+For each Airzone zone (thermostat), a *switch entity* is created.
 
 ## Water heater
 
