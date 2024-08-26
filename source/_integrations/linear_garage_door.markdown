@@ -23,7 +23,7 @@ The Linear integration lets you control Linear garage doors through Home Assista
 Nice North America has begun informing users of the new Nice G.O. app, and dropping support for the Linear app in the coming weeks. Support for the new app will be added as a new integration.
 Migrating now will cut off access to the old app and the integration will cease functioning for you.
 
-For more information, refer to the [Nice G.O. migration documentation](https://na.niceforyou.com/features/nice-go-app/#migration) for more info.
+For more information, refer to the [Nice G.O. migration documentation](https://na.niceforyou.com/features/nice-go-app/#migration).
 {% endwarning %}
 
 ## Prerequisites
