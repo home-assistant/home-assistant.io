@@ -41,7 +41,7 @@ The **ista EcoTrend** integration allows you to import all your historical consu
 
 ### Identifying ista EcoTrend statistic entities
 
-The statistic entities imported via this integration have a `ista_ecotrend:` prefix. This prefix helps you identify these entities separately from other sensor statistics when setting up the long-term statistics in the energy dashboard.
+The statistic entities imported via this integration have a `ista_ecotrend:` prefix. This prefix helps you identify and distinguish these entities from other sensor statistics when setting up the long-term statistics in the energy dashboard.
 
 ### Setting up long-term statistics in the energy dashboard
 
