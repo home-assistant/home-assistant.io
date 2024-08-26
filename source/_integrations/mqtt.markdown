@@ -123,7 +123,7 @@ The easiest option is to install the official Mosquitto Broker add-on. You can c
 You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
 
 {% important %}
-When MQTT is set up with the official Mosquitto MQTT broker add-on, the brokers credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-install of the add-on, the MQTT integration will automatically update the new password for the re-installed broker, and will reconnect automatically.
+When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
 {% endimportant %}
 
  Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
