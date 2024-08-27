@@ -75,7 +75,7 @@ The following are supported for `sensor` source sensors `state_characteristic`:
 | `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size. |
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size. |
 | `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`. |
-| `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements. |
+| `mean` | The average value computed for all measurements. Be aware that this does not consider uneven time intervals between measurements. |
 | `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°). |
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements. |
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals. |
@@ -85,7 +85,7 @@ The following are supported for `sensor` source sensors `state_characteristic`:
 | `sum_differences` | The mathematical sum of differences between subsequent source sensor measurement values within the given time and sampling size limits. |
 | `sum_differences_nonnegative` | The mathematical sum of non-negative differences between subsequent source sensor measurement values within the given time and sampling size limits. The characteristic assumes that the source sensor value can only increase, but might occasionally be reset to zero. If a value is smaller than the previous value, the function assumes the previous value should have been a zero. |
 | `total` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits. Equal to `sum`. |
-| `value_max` | The biggest value among the number of measurements. |
+| `value_max` | The largest value among the number of measurements. |
 | `value_min` | The smallest value among the number of measurements. |
 | `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements. |
 
