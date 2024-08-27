@@ -263,7 +263,7 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` actions like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*.
 
-Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
+Given a camera named `Front Yard`, then the camera is created with a name such as `camera.front_yard`.
 
 {% note %}
 
@@ -275,9 +275,9 @@ This feature is enabled by the following permissions:
 {% endnote %}
 
 All cameras also expose event entities for automation. Some camera models also
-support capturing media (snapshots or clips) through device triggers. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
+support capturing media (snapshots or clips) through device triggers. The table below summarizes the [supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
-| Device                                                                           |    Live Stream    |         Event Entities / Triggers          | Media Source<br> for Triggers |
+| Device                                                                           |    Live stream    |         Event entities / triggers          | Media source<br> for triggers |
 | -------------------------------------------------------------------------------- | :---------------: | :--------------------------------: | :------------------------------------: |
 | Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          |      WebRTC       |          Motion<br>Person          |                  N/A                   |
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording |     Motion<br>Person<br>Sound      |             Snapshot (jpg)             |
@@ -334,7 +334,7 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
 
 - `device_id`: The Home Assistant device identifier for the camera
 - `nest_event_id`: is an opaque identifier that identifies the event.
-- `attachment`: May be present if the device supports snapshots or clips and depends on the capabilities of the device. This is a URL where media from the media source can be fetched.
+- `attachment`: May be present if the device supports snapshots or clips and depends on the device's capabilities. This is a URL where media can be fetched from the media source.
 - `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
