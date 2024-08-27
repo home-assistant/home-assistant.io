@@ -331,6 +331,43 @@ Update an existing Sonos alarm.
 | `enabled` | yes | Boolean for whether or not to enable this alarm.
 | `include_linked_zones` | yes | Boolean that defines if the alarm also plays on grouped players.
 
+### Action `sonos.get_queue`
+
+Returns the media_players queue.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | media_player entity id.
+
+This example script, gets the queue, loops through in reverse order and removes media containing the words "holiday".
+
+```yaml
+  - action: sonos.get_queue
+    target:
+      entity_id: media_player.living_room
+    response_variable: queue
+  - variables:
+      queue_len: '{{ queue["media_player.living_room"] | length }}'
+  - repeat:
+      sequence:
+        - variables:
+            title: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_title"].lower() }}'
+            album: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_album_name"].lower() }}'
+            position: '{{ queue_len - repeat.index }}'
+        - if:
+            - '{{ "holiday" in title or "holiday" in album }}'
+          then:
+            - action: sonos.remove_from_queue
+              target:
+                entity_id: media_player.living_room
+              data:
+                queue_position: '{{position}}'
+      until:
+        - condition: template
+          value_template: '{{queue_len == repeat.index}}'
+
+```
+
 ### Action `sonos.play_queue`
 
 Starts playing the Sonos queue.
