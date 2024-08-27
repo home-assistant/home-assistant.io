@@ -61,33 +61,33 @@ The following are supported for `sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
-| `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Good suited to observe a source sensor with non-periodic sensor updates and when continuous behavior is represented by the measurements (e.g. outside temperature).
-| `average_step` | The average value of stored measurements under consideration of the time distances between them. LOCF (last observation carried forward weighting) is applied, meaning, that the old value is assumed between two measurements. The resulting step function represents well the behavior of non-continuous behavior, like the set temperature of a boiler.
-| `average_timeless` | The average value of stored measurements. This method assumes that all measurements are equally spaced and, therefore, time is ignored and a simple average of values is computed. Equal to `mean`.
-| `change_sample` | The average change per sample. The difference between the newest and the oldest measurement is divided by the number of in-between measurements (n-1).
-| `change_second` | The average change per second. The difference between the newest and the oldest measurement is divided by seconds between them.
-| `change` | The difference between the newest and the oldest measurement.
-| `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`.
-| `datetime_newest` | The timestamp of the newest measurement.
-| `datetime_oldest` | The timestamp of the oldest measurement.
-| `datetime_value_max` | The timestamp of the numerically biggest measurement.
-| `datetime_value_min` | The timestamp of the numerically smallest measurement.
-| `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size.
-| `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
-| `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
-| `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
-| `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°).
-| `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
-| `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
-| `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below.
-| `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements.
-| `sum` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits.
-| `sum_differences` | The mathematical sum of differences between subsequent source sensor measurement values within the given time and sampling size limits.
-| `sum_differences_nonnegative` | The mathematical sum of non-negative differences between subsequent source sensor measurement values within the given time and sampling size limits. The characteristic assumes that the source sensor value can only increase, but might occasionally be reset to zero. If a value is smaller than the previous value, the function assumes the previous value should have been a zero.
-| `total` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits. Equal to `sum`.
-| `value_max` | The biggest value among the number of measurements.
-| `value_min` | The smallest value among the number of measurements.
-| `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements.
+| `average_linear` | The average value of stored measurements under consideration of the time distances between them. A linear interpolation is applied per measurement pair. Suited to observe a source sensor with frequent, non-periodic sensor updates and when continuous behavior is represented by the measurements (e.g. your electricity consumption). WARNING: This type of average may show unexpected behavior in cases where values remain stable (e.g. an equally spaced sequence of t1:0 -> t2:0 -> t3:0 -> t4:0 -> t5:10 would produce an average of 5 instead of 1,25 because the non-changing zeros in the middle (t2 to t4) are being filtered out by Home Assistant and so the actually computed curve already starts rising at t1 instead of staying flat until t4). Accordingly, this function is only making sense in the context of noisy sensors that keep changing constantly. |
+| `average_step` | The average value of stored measurements under consideration of the time distances between them. LOCF (last observation carried forward weighting) is applied, meaning, that the old value is assumed between two measurements. This is a better fit to how Home Assistant deals with constant values (compared to the linear function) and it is also better fitting to sensors that are switching between stable phases (e.g. a heating level set to either 1, 2 or 3). WARNING: Even when a time interval is specified by the max age parameter, the average is not necessarily matching the average over that whole interval (e.g. when values were removed due to the sampling size limit). |
+| `average_timeless` | The average value of stored measurements. This method assumes that all measurements are equally spaced and, therefore, time is ignored and a simple average of values is computed. Equal to `mean`. |
+| `change_sample` | The average change per sample. The difference between the newest and the oldest measurement is divided by the number of in-between measurements (n-1). |
+| `change_second` | The average change per second. The difference between the newest and the oldest measurement is divided by seconds between them. |
+| `change` | The difference between the newest and the oldest measurement. |
+| `count` | The number of stored source sensor readings. This number is limited by `sampling_size` and can be low within the bounds of `max_age`. |
+| `datetime_newest` | The timestamp of the newest measurement. |
+| `datetime_oldest` | The timestamp of the oldest measurement. |
+| `datetime_value_max` | The timestamp of the numerically biggest measurement. |
+| `datetime_value_min` | The timestamp of the numerically smallest measurement. |
+| `distance_95_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 95% of all stored values fall into a range of returned size. |
+| `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size. |
+| `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`. |
+| `mean` | The average value computed for all measurements. Be aware that this does not consider uneven time intervals between measurements. |
+| `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°). |
+| `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements. |
+| `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals. |
+| `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below. |
+| `standard_deviation` | The [standard deviation](https://en.wikipedia.org/wiki/Standard_deviation) of an assumed normal distribution from all measurements. |
+| `sum` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits. |
+| `sum_differences` | The mathematical sum of differences between subsequent source sensor measurement values within the given time and sampling size limits. |
+| `sum_differences_nonnegative` | The mathematical sum of non-negative differences between subsequent source sensor measurement values within the given time and sampling size limits. The characteristic assumes that the source sensor value can only increase, but might occasionally be reset to zero. If a value is smaller than the previous value, the function assumes the previous value should have been a zero. |
+| `total` | The mathematical sum of all source sensor measurement values within the given time and sampling size limits. Equal to `sum`. |
+| `value_max` | The largest value among the number of measurements. |
+| `value_min` | The smallest value among the number of measurements. |
+| `variance` | The [variance](https://en.wikipedia.org/wiki/Variance) of an assumed normal distribution from all measurements. |
 
 ### Binary Source Sensor
 
