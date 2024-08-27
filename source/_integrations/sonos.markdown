@@ -342,6 +342,43 @@ Force start playing the queue, allows switching from another stream (such as rad
 | `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
+### Action `sonos.get_queue`
+
+Returns the media_players queue.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | media_player entity id.
+
+This example script, gets the queue, loops through in reverse order and removes media containing the words "holiday".
+
+```yaml
+  - action: sonos.get_queue
+    target:
+      entity_id: media_player.living_room
+    response_variable: queue
+  - variables:
+      queue_len: '{{ queue["media_player.living_room"] | length }}'
+  - repeat:
+      sequence:
+        - variables:
+            title: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_title"].lower() }}'
+            album: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_album_name"].lower() }}'
+            position: '{{ queue_len - repeat.index }}'
+        - if:
+            - '{{ "holiday" in title or "holiday" in album }}'
+          then:
+            - action: sonos.remove_from_queue
+              target:
+                entity_id: media_player.living_room
+              data:
+                queue_position: '{{position}}'
+      until:
+        - condition: template
+          value_template: '{{queue_len == repeat.index}}'
+
+```
+
 ### Action `sonos.remove_from_queue`
 
 Removes an item from the queue.
