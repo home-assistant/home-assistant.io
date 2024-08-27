@@ -348,7 +348,7 @@ Returns the media_players queue.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | media_player entity id.
+| `entity_id` | no | media_player entity id. |
 
 This example script, gets the queue, loops through in reverse order and removes media containing the words "holiday".
 
