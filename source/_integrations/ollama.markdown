@@ -40,7 +40,7 @@ Prompt template:
 
 Context window size:
   description: The context window size is the number of tokens the model can take as input.
-  Home Assistant defaults to 8k, larger the default value in Ollama Server (2k), and you may adjust based on the maximum context size of specific model used. A larger value will better support
+  Home Assistant defaults to 8k, which is larger than the default value in Ollama Server (2k), and you may adjust it based on the maximum context size of the specific model used. A larger value will better support
   larger homes with more entities and smaller values may lower Ollama server RAM usage.
 
 Max history messages:
