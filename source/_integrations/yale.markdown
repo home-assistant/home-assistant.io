@@ -9,7 +9,7 @@ ha_category:
   - Event
   - Lock
   - Sensor
-ha_release: 2024.8
+ha_release: 2024.9
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
