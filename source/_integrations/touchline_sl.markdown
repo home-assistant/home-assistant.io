@@ -3,7 +3,7 @@ title: Roth Touchline SL
 description: Instructions on how to integrate Roth Touchline SL within Home Assistant.
 ha_category:
   - Climate
-ha_release: 2024.09
+ha_release: 2024.9
 ha_iot_class: Cloud Polling
 ha_domain: touchline_sl
 ha_platforms:
