@@ -150,7 +150,9 @@ A blueprint can have as many inputs as you like.
 ### Blueprint input sections
 
 One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
-allows an optional description, and optionally allows for collapsing those inputs. 
+allows an optional description, and optionally allows for collapsing those inputs. Note that the section only impacts how 
+inputs are displayed to the user when they fill in the blueprint. Inputs must have unique names and be referenced directly
+by their name; not by section and name.
 
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
