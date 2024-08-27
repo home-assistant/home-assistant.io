@@ -1091,6 +1091,38 @@ While Jinja natively supports the conversion of an iterable to a `list`, it does
 
 Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
+### Iterating multiple objects
+
+The `zip()` function can be used to iterate over multiple collections in one operation.
+
+{% raw %}
+
+```text
+{% set names = ['Living Room', 'Dining Room'] %}
+{% set entities = ['sensor.living_room_temperature', 'sensor.dining_room_temperature'] %}
+{% for name, entity in zip(names, entities) %}
+  The {{ name }} temperature is {{ states(entity) }}
+{% endfor %}
+```
+
+{% endraw %}
+
+`zip()` can also unzip lists.
+
+{% raw %}
+
+```text
+{% set information = [
+  ('Living Room', 'sensor.living_room_temperature'),
+  ('Dining Room', 'sensor.dining_room_temperature')
+] %}
+{% set names, entities = zip(*information) %}
+The names are {{ names | join(', ') }}
+The entities are {{ entities | join(', ') }}
+```
+
+{% endraw %}
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
