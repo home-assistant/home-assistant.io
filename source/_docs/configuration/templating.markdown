@@ -1093,7 +1093,7 @@ Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `in
 
 ### Iterating multiple objects
 
-The `zip()` function is used to iterate multiple collections in one operation without using an indexer.
+The `zip()` function can be used to iterate over multiple collections in one operation.
 
 {% raw %}
 
