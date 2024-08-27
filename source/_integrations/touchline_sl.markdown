@@ -17,6 +17,8 @@ The `touchline_sl` climate platform enables you to control [Roth Touchline SL](h
 
 You must have an account registered with the [Roth Touchline SL dashboard](https://roth-touchlinesl.com/login).
 
+{% include integrations/config_flow.md %}
+
 ## Entities
 
 The integration will present each Roth Touchline SL zone as a climate entity, which can:
