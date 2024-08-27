@@ -352,6 +352,8 @@ Returns the media_players queue.
 
 This example script, gets the queue, loops through in reverse order and removes media containing the words "holiday".
 
+{% raw %}
+
 ```yaml
   - action: sonos.get_queue
     target:
@@ -378,6 +380,8 @@ This example script, gets the queue, loops through in reverse order and removes 
           value_template: '{{queue_len == repeat.index}}'
 
 ```
+
+{% endraw %}
 
 ### Action `sonos.remove_from_queue`
 
