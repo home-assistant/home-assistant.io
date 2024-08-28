@@ -2,10 +2,10 @@
 layout: post
 title: "2024.9: Beta release notes"
 description: "Beta release notes for Home Assistant 2024.9"
-date: 2024-08-04 00:00:00
+date: 2024-08-28 00:00:00
 date_formatted: "September 4, 2024"
-author: Franck Nijhof
-author_twitter: frenck
+author: Bram Kragten
+author_twitter: bramkragten
 comments: true
 categories:
   - Release-Notes
@@ -73,16 +73,18 @@ Enjoy the (beta) release!
 
 <!--more-->
 
-- [Dashboards](#dashboards)
-  - [Lorem ipsum](#lorem-ipsum)
-- [MOAR lorem ipsum](#moar-lorem-ipsum)
+- [Home Assistant 2024.9](#home-assistant-20249)
+- [Sections go BIG](#sections-go-big)
+  - [Wider sections](#wider-sections)
+  - [Full span cards](#full-span-cards)
+- [Tracking your untracked energy](#tracking-your-untracked-energy)
+- [LLM agent options grow](#llm-agent-options-grow)
+- [Open source compliance](#open-source-compliance)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
-  - [Integrations reaching platinum quality level](#integrations-reaching-platinum-quality-level)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
-- [Other integration lorem ipsum](#other-integration-lorem-ipsum)
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -105,7 +107,7 @@ In the drive to give our users more customization and organization options for t
 
 ### Wider sections
 
-Sections can be expanded to span multiple sections. Now you can, for example, have your security camera feed span two sections or have a massive three-section wide map. 
+Sections can be expanded to span multiple sections. Now you can, for example, have your security camera feed span two sections or have a massive three-section wide map.
 
 Cards and sections will continue to follow the [Z-Grid rules](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), which can lead to blank spaces if the new wider sections don't fit on a specific part of the screen. When switching to smaller screens, these larger sections will revert to one section wide (if this causes issues for certain big cards, we would recommend using our device [visibility settings](https://www.home-assistant.io/blog/2024/06/05/release-20246/#control-visibility-of-cards)).
 
@@ -125,7 +127,7 @@ We can't all have energy tracking for every device, and if you have whole-home e
 
 ## LLM agent options grow
 
-When we added the ability to use [Large Language Models (LLMs)](https://www.home-assistant.io/blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms) in our Voice Assistant, it began with a limited number of conversation agents.  These included the cloud-based  [OpenAI](https://www.home-assistant.io/components/openai_conversation/) and [Google AI](https://www.home-assistant.io/components/google_generative_ai_conversation/) integrations, along with the locally-run [Ollama](https://www.home-assistant.io/integrations/ollama/) integration. All three can now control the devices in your home. [@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](https://deploy-preview-34194--home-assistant-docs.netlify.app/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant.
+When we added the ability to use [Large Language Models (LLMs)](https://www.home-assistant.io/blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms) in our Voice Assistant, it began with a limited number of conversation agents. These included the cloud-based  [OpenAI](https://www.home-assistant.io/components/openai_conversation/) and [Google AI](https://www.home-assistant.io/components/google_generative_ai_conversation/) integrations, along with the locally-run [Ollama](https://www.home-assistant.io/integrations/ollama/) integration. All three can now control the devices in your home. [@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](https://deploy-preview-34194--home-assistant-docs.netlify.app/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant.
 
 ## Open source compliance
 We have put a lot of work into making sure that Home Assistance is truly open source, from top to bottom. This means ensuring that every library our integrations rely on uses the compliant license. We're now at more than 2,800 integrations, so as you can imagine, this was not a small task. Working with code owners and library developers, we have painstakingly checked that every library is now using an [OSI-approved license](https://opensource.org/license).
@@ -144,29 +146,39 @@ We welcome the following new integrations in this release:
 
 - **[Anthropic Conversation]**, added by [@Shulyaka]  
   Use AI by [Anthropic], like the [Claude 3.5 Sonnet] as a conversation agent in Home Assistant.
-- **Nice G.O.**, added by @IceBotYT
+- **[Nice G.O.]**, added by [@IceBotYT]
   Integrate with compatible garage door and gate openers from the Nice.
-- **Fujitsu FGLair**, added by @crevetor
+- **[Fujitsu FGLair]**, added by [@crevetor]
   Fujitsu HVAC devices that use the Ayla IoT platform (controlled with the FGLair app).
-- **SMLIGHT**, added by @tl-sl
+- **[SMLIGHT]**, added by [@tl-sl]
   Manage SMLIGHT SLZB-06 adaptors from Home Assistant.
-- **Roth Touchline SL**, added by @jnsgruk
+- **[Roth Touchline SL]**, added by [@jnsgruk]
   A new integration for the Roth Touchline SL underfloor heating system.
 
-[@Shulyaka]: https://github.com/Shulyaka
 [Anthropic Conversation]: /integrations/anthropic
 [Anthropic]: https://anthropic.com/
 [Claude 3.5 Sonnet]: https://www.anthropic.com/claude
+
+[Nice G.O.]: /integrations/nice_go
+[Fujitsu FGLair]: /integrations/fujitsu_fglair
+[SMLIGHT]: /integrations/smlight
+[Roth Touchline SL]: /integrations/touchline_sl
+
+[@Shulyaka]: https://github.com/Shulyaka
+[@IceBotYT]: https://github.com/IceBotYT
+[@tl-sl]: https://github.com/tl-sl
+[@jnsgruk]: https://github.com/jnsgruk
+
 
 This release also has a new virtual integration. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
 discoverability. These ones are new:
 
-- **[ArtSound]**, provided by [LinkPlay], added by [@frenck]
+- **[ArtSound]**, provided by [LinkPlay], added by [@dukeofphilberg]
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
-[Lorem slipsum]: /integrations/lorem_slipsum
+[@ukeofphilberg]: https://github.com/dukeofphilberg
+[ArtSound]: /integrations/artsound
+[LinkPlay]: /integrations/linkplay
 
 ### Noteworthy improvements to existing integrations
 
@@ -209,10 +221,10 @@ of this release:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Auto configure outbound websocket for sleepy shelly RPC devices #124545
-- Install and start Mosquitto MQTT broker add-on from MQTT config flow #124106
-- Use BIGINT SQL type for ID columns #123973
-- Add UI to create KNX switch and light entities #122630
+- Auto configure outbound websocket for sleepy shelly RPC devices [#124545]
+- Install and start Mosquitto MQTT broker add-on from MQTT config flow [#124106]
+- Use BIGINT SQL type for ID columns [#123973]
+- Add UI to create KNX switch and light entities [#122630]
 
 
 ## Need help? Join the community!
@@ -246,7 +258,7 @@ In [2024.2 we introduced new sensor entities](/blog/2024/02/07/release-20242/#re
 to the [Proximity](/integrations/proximity) {% term integration %} and 
 therefore deprecated the `proximity` entity.
 
-Now this deprecated `proximity` entity has been removed removed.
+Now this deprecated `proximity` entity has been removed.
 
 ([@mib1185] - [#123158]) ([documentation](/integrations/proximity))
 
@@ -255,29 +267,107 @@ Now this deprecated `proximity` entity has been removed removed.
 
 {% enddetails %}
 
-- Remove deprecated asterisk_cdr integration ([@joostlek] - [#123180]) ([asterisk_cdr docs]) (breaking-change)
-- Remove deprecated asterisk_mbox integration ([@joostlek] - [#123174]) ([asterisk_mbox docs]) (breaking-change)
-- Remove deprecated proximity entity ([@mib1185] - [#123158]) ([proximity docs]) (breaking-change)
-- Remove deprecated fan as light in lutron ([@gjohansson-ST] - [#123607]) ([lutron docs]) (breaking-change)
-- Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupusec docs]) (breaking-change)
-- Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starline docs]) (breaking-change)
-- Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#123616]) ([systemmonitor docs]) (breaking-change)
-- Remove deprecated yaml import from Ecovacs ([@gjohansson-ST] - [#123605]) ([ecovacs docs]) (breaking-change)
-- Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_circle docs]) (breaking-change)
-- Remove deprecated yaml import for gpsd ([@gjohansson-ST] - [#123725]) ([gpsd docs]) (breaking-change)
-- Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux docs]) (breaking-change)
-- Remove demo mailbox ([@gjohansson-ST] - [#123741]) ([demo docs]) (breaking-change)
-- Rename KNX Climate preset modes according to specification ([@farmio] - [#123964]) ([knx docs]) (breaking-change)
-- Fix Pure AQI value sensor in Sensibo ([@gjohansson-ST] - [#124151]) ([sensibo docs]) (breaking-change)
-- Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#124619]) ([overkiz docs]) (breaking-change)
-- Disable sisyphus integration ([@bdraco] - [#124742]) ([sisyphus docs]) (breaking-change)
-- Cleanup removed `schema` option from mqtt vacuum platform ([@jbouwh] - [#124722]) ([mqtt docs]) (breaking-change)
+{% details "Asterisk Call Detail Records" %}
+
+Remove deprecated asterisk_cdr integration ([@joostlek] - [#123180])
+
+{% enddetails %}
+
+{% details "Asterisk Voicemail" %}
+
+Remove deprecated asterisk_mbox integration ([@joostlek] - [#123180])
+
+{% enddetails %}
+
+{% details "Lutron" %}
+
+Remove deprecated fan as light in lutron ([@gjohansson-ST] - [#123607]) ([lutron docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Lupusec" %}
+
+Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupusec docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Starline" %}
+
+Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starline docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "System monitor" %}
+
+Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#123616]) ([systemmonitor docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Ecovacs" %}
+
+Remove deprecated yaml import from Ecovacs ([@gjohansson-ST] - [#123605]) ([ecovacs docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Logi circle" %}
+
+Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_circle docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "gpsd" %}
+
+Remove deprecated yaml import for gpsd ([@gjohansson-ST] - [#123725]) ([gpsd docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Velux" %}
+
+Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Mailbox" %}
+
+Remove demo mailbox ([@gjohansson-ST] - [#123741]) ([demo docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+Rename KNX Climate preset modes according to specification ([@farmio] - [#123964]) ([knx docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Sensibo" %}
+
+Fix Pure AQI value sensor in Sensibo ([@gjohansson-ST] - [#124151]) ([sensibo docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Overkiz" %}
+
+Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#124619]) ([overkiz docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "Sisyphus" %}
+
+Disable sisyphus integration ([@bdraco] - [#124742]) ([sisyphus docs]) (breaking-change)
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+Cleanup removed `schema` option from mqtt vacuum platform ([@jbouwh] - [#124722]) ([mqtt docs]) (breaking-change)
+
+{% enddetails %}
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
-- [Lorem ipsum](https://developers.home-assistant.io/blog/)
+- [New returning type in LawnMowerActivity](https://developers.home-assistant.io/blog/2024/08/23/lawn-mower-activity-returning)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
