@@ -25,6 +25,21 @@ The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) web
 
 The public timetables are coming from [Swiss public transport](https://transport.opendata.ch/).
 
-### Defining a custom polling interval
+## Actions
+
+The Swiss public transport integration has the following action:
+
+- `swiss_public_transport.fetch_connections`
+
+### Action `swiss_public_transport.fetch_connections`
+
+Fetch the connections for a specific instance.
+
+| Data attribute | Optional | Description                                              |
+|------------------------|----------|----------------------------------------------------------|
+| `config_entry_id`      | No       | The ID of the Swiss public transport config entry to get data from. For example, in YAML: `config_entry_id: zurich_geneva` or in UI `Instance: zurich_geneva`)|
+| `limit`                | Yes      | The number of connections to fetch. (default: 3, range: [1,15])|
+
+## Defining a custom polling interval
 
 {% include common-tasks/define_custom_polling.md %}
