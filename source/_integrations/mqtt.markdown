@@ -119,6 +119,15 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
+The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+
+{% important %}
+When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
+{% endimportant %}
+
+ Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
+
 ## Setting up a broker
 
 While public MQTT brokers are available, the easiest and most private option is running your own.
@@ -1030,31 +1039,6 @@ Documentation on the MQTT components that support YAML [can be found here](/inte
 
 The MQTT integration supports templating. Read more [about using templates with the MQTT integration](/docs/configuration/templating/#using-templates-with-the-mqtt-integration).
 
-## MQTT Notifications
-
-The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is an action. This means you need to provide more details when calling the action.
-
-**Perform action** section from **Developer Tools** -> **Actions** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of available actions, and enter something like the sample below into the **data** field and select **Perform action**.
-
-```json
-{
-   "~":"homeassistant/switch/irrigation",
-   "name":"garden",
-   "cmd_t":"~/set",
-   "stat_t":"~/state"
-}
-```
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
-</p>
-
-The same will work for automations.
-
-<p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
-</p>
-
 ### Examples
 
 #### REST API
@@ -1110,9 +1094,14 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
 | `payload`              | no       | Payload to publish.                                          |
+| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
+
+{% note %}
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+{% endnote %}
 
 {% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -1128,7 +1117,7 @@ payload: on
 
 ```yaml
 topic: homeassistant/light/1/state
-payload_template: "{{ states('device_tracker.paulus') }}"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
@@ -1136,27 +1125,24 @@ payload_template: "{{ states('device_tracker.paulus') }}"
 {% raw %}
 
 ```yaml
-topic_template: "homeassistant/light/{{ states('sensor.light_active') }}/state"
-payload_template: "{{ states('device_tracker.paulus') }}"
+topic: "homeassistant/light/{{ states('sensor.light_active') }}/state"
+payload: "{{ states('device_tracker.paulus') }}"
 ```
 
 {% endraw %}
 
-`payload` must be a string.
+Be aware that `payload` must be a string.
 If you want to send JSON using the YAML editor then you need to format/escape
 it properly. Like:
+
+{% raw %}
 
 ```yaml
 topic: homeassistant/light/1/state
 payload: "{\"Status\":\"off\", \"Data\":\"something\"}"`
 ```
 
-When using Home Assistant's YAML editor for formatting JSON
-you should take special care if `payload` contains template content.
-Home Assistant will force you in to the YAML editor and will treat your
-definition as a template. Make sure you escape the template blocks as like
-in the example below. Home Assistant will convert the result to a string
-and will pass it to the MQTT publish action.
+{% endraw %}
 
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity

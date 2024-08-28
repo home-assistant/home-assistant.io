@@ -213,12 +213,12 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.dpt_sub` Destination group address sub datapoint type number
 - `trigger.dpt_name` DPT value type name - see Sensor value types
 - `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
-- `telegram.source` Source individual address
-- `telegram.source_name` Source name
-- `telegram.telegramtype` APCI type of telegram
-- `telegram.timestamp` Timestamp
-- `telegram.unit` Unit according to group address DPT
-- `telegram.value` Decoded telegram payload according to DPT
+- `trigger.source` Source individual address
+- `trigger.source_name` Source name
+- `trigger.telegramtype` APCI type of telegram
+- `trigger.timestamp` Timestamp
+- `trigger.unit` Unit according to group address DPT
+- `trigger.value` Decoded telegram payload according to DPT
 
 | Template variable          | Type                        | Project data required |
 |----------------------------|-----------------------------|-----------------------|
@@ -229,18 +229,20 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.dpt_sub`          | integer                     | yes                   |
 | `trigger.dpt_name`         | string                      | yes                   |
 | `trigger.payload`          | integer or list of integers | no                    |
-| `telegram.source`          | string                      | no                    |
-| `telegram.source_name`     | string                      | yes                   |
-| `telegram.telegramtype`    | string                      | no                    |
-| `telegram.timestamp`       | timestamp                   | no                    |
-| `telegram.unit`            | string                      | yes                   |
-| `telegram.value`           | any                         | yes                   |
+| `trigger.source`           | string                      | no                    |
+| `trigger.source_name`      | string                      | yes                   |
+| `trigger.telegramtype`     | string                      | no                    |
+| `trigger.timestamp`        | timestamp                   | no                    |
+| `trigger.unit`             | string                      | yes                   |
+| `trigger.value`            | any                         | yes                   |
 
 For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
 
 #### Examples
 
 Example automation configuration
+
+{% raw %}
 
 ```yaml
 - alias: Single group address trigger
@@ -250,10 +252,12 @@ Example automation configuration
     destination: 1/2/3
     group_value_read: false
     outgoing: false
-  condition: []
+  condition: "{{ trigger.value == 0 }}"
   action: []
   mode: single
 ```
+
+{% endraw %}
 
 Example trigger data
 
@@ -787,29 +791,28 @@ knx:
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state group objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` group object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
 
 - `0` (cooling)
 - `1` (heating)
 
-The following values are valid for the Home Assistant [Climate](/integrations/climate/) `hvac_mode` attribute. Supported values for your KNX thermostats can be specified via `controller_modes` configuration variable:
+Supported HVAC modes for your KNX thermostats are found automatically. This can be overridden by using the `controller_modes` configuration variable. The following values are valid controller modes:
 
-- `off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
-- `auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
-- `cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
-- `fan_only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
-- `dehumidification` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
+- `off`
+- `auto`
+- `heat`
+- `cool`
+- `fan_only`
+- `dehumidification`
 
-The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
+Supported preset modes for your KNX thermostats are found automatically. This can be overridden by using the `operation_modes` configuration variable. The following values are valid operation modes:
 
-- `auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `economy` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `building_protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `auto`
+- `comfort`
+- `standby`
+- `economy`
+- `building_protection`
 
 {% configuration %}
 name:
@@ -914,11 +917,11 @@ operation_mode_standby_address:
   required: false
   type: [string, list]
 operation_modes:
-  description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
+  description: Overrides the supported operation modes. Provide the supported `preset_modes` value for your device.
   required: false
   type: list
 controller_modes:
-  description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
+  description: Overrides the supported controller modes. Provide the supported `hvac_modes` value for your device.
   required: false
   type: list
 default_controller_mode:
