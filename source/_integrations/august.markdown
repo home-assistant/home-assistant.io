@@ -122,9 +122,7 @@ If you have an August Keypad, once you have enabled the August integration, you 
 
 ## Integration with Yale Access Bluetooth
 
-Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
-
-The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system.
 
 For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
 
