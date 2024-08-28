@@ -1153,19 +1153,10 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 Using action responses we can collect information from various entities at the same time.
 Using the `merge_response` template we can merge several responses into one list.
 
-| Variable       | Description                                           |
-| -------------- | ----------------------------------                    |
-| `value`        | The incoming value (action response).                 |
-| `sort_by`      | Sort the combined response dictionaries by this key.  |
-| `selected_key` | Return dictionary from second level key.              |
+| Variable       | Description                                     |
+| -------------- | ----------------------------------              |
+| `value`        | The incoming value (must be a action response). |
 
-{% note %}
-
-`selected_key` is used for selecting a second level key from within the dictionary.
-
-It can only be used when the response contains dictionaries on second level, not lists like, for example, with `weather.get_forecasts` and `calendar.get_events`
-
-{% endnote %}
 
 ### Example
 
@@ -1245,115 +1236,6 @@ It can only be used when the response contains dictionaries on second level, not
     "value_key": "events"
   }
 ]
-```
-
-### Example using `sort_by`
-
-Useful for sorting dictionaries by a certain key
-
-```json
-{
-    "calendar.sports": {
-        "events": [
-            {
-                "start": "2024-02-27T17:00:00-06:00",
-                "end": "2024-02-27T18:00:00-06:00",
-                "summary": "Basketball vs. Rockets",
-                "description": "",
-            }
-        ]
-    },
-    "calendar.local_furry_events": {"events": []},
-    "calendar.yap_house_schedules": {
-        "events": [
-            {
-                "start": "2024-02-26T08:00:00-06:00",
-                "end": "2024-02-26T09:00:00-06:00",
-                "summary": "Dr. Appt",
-                "description": "",
-            }
-        ]
-    },
-}
-```
-**Template:**
-```yaml
-{% raw %}
-{{ merge_response(response_variable, sort_by='start') }}
-{% endraw %}
-```
-```json
-[
-  {
-    "description": "",
-    "end": "2024-02-26T09:00:00-06:00",
-    "entity_id": "calendar.yap_house_schedules",
-    "start": "2024-02-26T08:00:00-06:00",
-    "summary": "Dr. Appt",
-    "value_key": "events"
-  },
-  {
-    "description": "",
-    "end": "2024-02-27T18:00:00-06:00",
-    "entity_id": "calendar.sports",
-    "start": "2024-02-27T17:00:00-06:00",
-    "summary": "Basketball vs. Rockets",
-    "value_key": "events"
-  },
-]
-```
-
-### Example using `selected_key`
-
-Useful with complex responses where you might only be interested to get a certain key from the second level.
-
-```json
-{
-    "vacuum.deebot_n8_plus_1": {
-      "header": {
-        "ver": "0.0.1",
-      },
-      "payloadType": "j",
-      "resp": {
-        "body": {
-          "msg": "ok",
-        },
-      },
-    },
-    "vacuum.deebot_n8_plus_2": {
-      "header": {
-        "ver": "0.0.1",
-      },
-      "payloadType": "j",
-      "resp": {
-        "body": {
-          "msg": "not_ok",
-        },
-      },
-    },
-  }
-```
-**Template:**
-```yaml
-{% raw %}
-{{ merge_response(response_variable, selected_key='resp') }}
-{% endraw %}
-```
-```json
-[
-    {
-      "body": {
-        "msg": "ok",
-      },
-      "entity_id": "vacuum.deebot_n8_plus_1",
-    },
-    {
-      "body": {
-        "msg": "not_ok",
-      },
-      "entity_id": "vacuum.deebot_n8_plus_2",
-    },
-  ]
 ```
 
 ## Processing incoming data
