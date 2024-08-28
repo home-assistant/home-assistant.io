@@ -4,8 +4,7 @@ title: "2024.9: Beta release notes"
 description: "Beta release notes for Home Assistant 2024.9"
 date: 2024-08-28 00:00:00
 date_formatted: "September 4, 2024"
-author: Bram Kragten
-author_twitter: bramkragten
+author: Gordon Cameron
 comments: true
 categories:
   - Release-Notes
@@ -105,7 +104,7 @@ We hope you've been able to enjoy some time in, and away, from your smart home t
 
 In the drive to give our users more customization and organization options for their dashboards, we've added some new options to our Sections view that really lets us take big advantage of [resizable cards](https://www.home-assistant.io/blog/2024/07/03/release-20247/#resize-the-cards-on-your-dashboard). These powerful customization features can affect the [predictability of where cards or sections will go](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), especially when switching between desktop and mobile views, and we have found it works best with large cards. As always, the choice of how to use it is up to you.
 
-<img src="https://private-user-images.githubusercontent.com/5878303/362216961-73930b87-e839-4b75-854f-7e195463155a.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ4NzM2NjksIm5iZiI6MTcyNDg3MzM2OSwicGF0aCI6Ii81ODc4MzAzLzM2MjIxNjk2MS03MzkzMGI4Ny1lODM5LTRiNzUtODU0Zi03ZTE5NTQ2MzE1NWEucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI0MDgyOCUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNDA4MjhUMTkyOTI5WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9YTJkYzM5YTk4ZmIyOWVkMDIwYmFjN2I3MzNlNTBhYTY3YmE1ZDEwOTAzNmQ3NGUwZGNhYmE2Y2Y0ZjgyMzI2ZCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmYWN0b3JfaWQ9MCZrZXlfaWQ9MCZyZXBvX2lkPTAifQ.yaFg4pqv-jk3ELc-yZj3uxklFC5Pu_lNdtf4gjhyyeY" alt="Temporary screenshot">
+<img src="/images/blog/2024-09/sections-go-big.png" alt="Temporary screenshot">
 
 ### Wider sections
 
@@ -121,7 +120,7 @@ Larger sections mean larger cards. Instead of just stretching out the layout of 
 
 In April, we introduced a [new energy graph for individual devices](https://www.home-assistant.io/blog/2024/03/06/release-20243/#new-energy-graph-for-individual-devices) in our energy dashboard. This allows you to aggregate all your energy monitoring into one graph, giving you a quick way to see your house's biggest energy-using devices. Big thanks to [@karwosts](https://github.com/karwosts), the original creator of this graph, who has now updated it.
 
-<img src="https://private-user-images.githubusercontent.com/32912880/356268886-6fb12518-2889-488c-88c5-e7e6a7bf1fd0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjQ4NzM3MTMsIm5iZiI6MTcyNDg3MzQxMywicGF0aCI6Ii8zMjkxMjg4MC8zNTYyNjg4ODYtNmZiMTI1MTgtMjg4OS00ODhjLTg4YzUtZTdlNmE3YmYxZmQwLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA4MjglMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwODI4VDE5MzAxM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQzZGJlMmZlNzhlNGQwMWQ5MmYxOTRmZDE3OGMyNDZiMTVmZGMxZTliZDcxZDg2OGM4NWMxZmZjN2Q4MTc4MzgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.ILcIEC_kxvSDQO58OLrhlV0qH-tZTrfka5EkKWJdAJA" alt="Temporary screenshot">
+<img src="/images/blog/2024-09/untracked-energy.png" alt="Temporary screenshot">
 
 We can't all have energy tracking for every device, and if you have whole-home energy tracking (like a smart meter or [something more DIY](https://www.home-assistant.io/home-energy-management)) the updated graph will calculate the difference and show your home's untracked usage. So hop onto your [energy dashboard](https://my.home-assistant.io/redirect/energy/) and start to tackle your phantom energy load.
 
