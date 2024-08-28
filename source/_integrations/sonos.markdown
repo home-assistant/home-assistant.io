@@ -350,7 +350,7 @@ Returns the media_players queue.
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | media_player entity id. |
 
-This example script, gets the queue, loops through in reverse order and removes media containing the words "holiday".
+This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
 
 {% raw %}
 
