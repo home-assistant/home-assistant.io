@@ -27,13 +27,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The **Yale** integration allows you to integrate your [Yale](https://yale.com/) and some Yale Access devices in Home Assistant.
+The **Yale** integration allows you to integrate your [Yale](https://www.assaabloy.com/vn/en/solutions/products/yale) and some Yale Access devices in Home Assistant.
+
+The login credentials used to authenticate the integration are the same as the ones used in the Yale Home app.
 
 {% include integrations/config_flow.md %}
 
 ## Known working devices
 
-| Device                            | Requires [Connect Bridge](https://yale.com/products/yale-connect/) or Doorbell |
+| Device                            | Requires [Connect Bridge](https://www.yalehome.com/vn/en/products/yale-smart-door-lock/smart-accessories/yale-connect-wi-fi-bridge) or Doorbell |
 | --------------------------------- | ------------------------------------|
 | Yale Wi-Fi Smart Lock (Gen 4) | no |
 | Yale Smart Lock Pro (Gen 3) | yes |
