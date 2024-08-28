@@ -168,6 +168,7 @@ We welcome the following new integrations in this release:
 
 [@Shulyaka]: https://github.com/Shulyaka
 [@IceBotYT]: https://github.com/IceBotYT
+[@crevetor]: https://github.com/crevetor
 [@tl-sl]: https://github.com/tl-sl
 [@jnsgruk]: https://github.com/jnsgruk
 
@@ -178,7 +179,7 @@ discoverability. These ones are new:
 
 - **[ArtSound]**, provided by [LinkPlay], added by [@dukeofphilberg]
 
-[@ukeofphilberg]: https://github.com/dukeofphilberg
+[@dukeofphilberg]: https://github.com/dukeofphilberg
 [ArtSound]: /integrations/artsound
 [LinkPlay]: /integrations/linkplay
 
@@ -195,6 +196,30 @@ changes to existing integrations:
 - Add switch platform to chacon_dio integration ([@cnico] - [#122514]) ([chacon_dio docs]) (new-platform)
 - Add nest event platform ([@allenporter] - [#123042]) ([nest docs]) (new-platform)
 - Add SimpleFin binary sensor for errors ([@jeeftor] - [#122554]) ([simplefin docs]) (new-platform)
+
+[@CM000n]: https://github.com/CM000n
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@joostlek]: https://github.com/joostlek
+[@starkillerOG]: https://github.com/starkillerOG
+[@cnico]: https://github.com/cnico
+[@allenporter]: https://github.com/allenporter
+[@jeeftor]: https://github.com/jeeftor
+
+[#123045]: https://github.com/home-assistant/core/pull/123045
+[#123434]: https://github.com/home-assistant/core/pull/123434
+[#123534]: https://github.com/home-assistant/core/pull/123534
+[#123489]: https://github.com/home-assistant/core/pull/123489
+[#122514]: https://github.com/home-assistant/core/pull/122514
+[#123042]: https://github.com/home-assistant/core/pull/123042
+[#122554]: https://github.com/home-assistant/core/pull/122554
+
+[apsystems docs]: /integrations/apsystems/
+[mastodon docs]: /integrations/mastodon/
+[airgradient docs]: /integrations/airgradient/
+[motion_blinds docs]: /integrations/motion_blinds/
+[chacon_dio docs]: /integrations/chacon_dio/
+[nest docs]: /integrations/nest/
+[simplefin docs]: /integrations/simplefin/
 
 ### Now available to set up from the UI
 
@@ -229,6 +254,11 @@ noteworthy changes this release:
 - Add UI to create KNX switch and light entities [#122630]
 - Add Ollama context window size configuration [#124555]
 
+[#124545]: https://github.com/home-assistant/core/pull/124545
+[#124106]: https://github.com/home-assistant/core/pull/124106
+[#123973]: https://github.com/home-assistant/core/pull/123973
+[#122630]: https://github.com/home-assistant/core/pull/122630
+[#124555]: https://github.com/home-assistant/core/pull/124555
 
 ## Need help? Join the community!
 
@@ -274,11 +304,16 @@ Now this deprecated `proximity` entity has been removed.
 
 Remove deprecated asterisk_cdr integration ([@joostlek] - [#123180])
 
+[#123180]: https://github.com/home-assistant/core/pull/123180
+
 {% enddetails %}
 
 {% details "Asterisk Voicemail" %}
 
 Remove deprecated asterisk_mbox integration ([@joostlek] - [#123180])
+
+[#123180]: https://github.com/home-assistant/core/pull/123180
+
 
 {% enddetails %}
 
@@ -286,11 +321,17 @@ Remove deprecated asterisk_mbox integration ([@joostlek] - [#123180])
 
 Remove deprecated fan as light in lutron ([@gjohansson-ST] - [#123607]) ([lutron docs]) (breaking-change)
 
+[#123607]: https://github.com/home-assistant/core/pull/123607
+
+
 {% enddetails %}
 
 {% details "Lupusec" %}
 
 Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupusec docs]) (breaking-change)
+
+[#123606]: https://github.com/home-assistant/core/pull/123606
+
 
 {% enddetails %}
 
@@ -298,11 +339,17 @@ Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupu
 
 Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starline docs]) (breaking-change)
 
+[#123608]: https://github.com/home-assistant/core/pull/123608
+
+
 {% enddetails %}
 
 {% details "System monitor" %}
 
 Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#123616]) ([systemmonitor docs]) (breaking-change)
+
+[#123616]: https://github.com/home-assistant/core/pull/123616
+
 
 {% enddetails %}
 
@@ -310,11 +357,16 @@ Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#12361
 
 Remove deprecated yaml import from Ecovacs ([@gjohansson-ST] - [#123605]) ([ecovacs docs]) (breaking-change)
 
+[#123605]: https://github.com/home-assistant/core/pull/123605
+
+
 {% enddetails %}
 
 {% details "Logi circle" %}
 
 Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_circle docs]) (breaking-change)
+
+[#123727]: https://github.com/home-assistant/core/pull/123727
 
 {% enddetails %}
 
@@ -322,11 +374,17 @@ Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_
 
 Remove deprecated yaml import for gpsd ([@gjohansson-ST] - [#123725]) ([gpsd docs]) (breaking-change)
 
+[#123725]: https://github.com/home-assistant/core/pull/123725
+
+
 {% enddetails %}
 
 {% details "Velux" %}
 
 Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux docs]) (breaking-change)
+
+[#123724]: https://github.com/home-assistant/core/pull/123724
+
 
 {% enddetails %}
 
@@ -334,11 +392,17 @@ Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux d
 
 Remove demo mailbox ([@gjohansson-ST] - [#123741]) ([demo docs]) (breaking-change)
 
+[#123741]: https://github.com/home-assistant/core/pull/123741
+
+
 {% enddetails %}
 
 {% details "KNX" %}
 
 Rename KNX Climate preset modes according to specification ([@farmio] - [#123964]) ([knx docs]) (breaking-change)
+
+[#123964]: https://github.com/home-assistant/core/pull/123964
+
 
 {% enddetails %}
 
@@ -346,11 +410,17 @@ Rename KNX Climate preset modes according to specification ([@farmio] - [#123964
 
 Fix Pure AQI value sensor in Sensibo ([@gjohansson-ST] - [#124151]) ([sensibo docs]) (breaking-change)
 
+[#124151]: https://github.com/home-assistant/core/pull/124151
+
+
 {% enddetails %}
 
 {% details "Overkiz" %}
 
 Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#124619]) ([overkiz docs]) (breaking-change)
+
+[#124619]: https://github.com/home-assistant/core/pull/124619
+
 
 {% enddetails %}
 
@@ -358,11 +428,17 @@ Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#12
 
 Disable sisyphus integration ([@bdraco] - [#124742]) ([sisyphus docs]) (breaking-change)
 
+[#124742]: https://github.com/home-assistant/core/pull/124742
+
+
 {% enddetails %}
 
 {% details "MQTT" %}
 
 Cleanup removed `schema` option from mqtt vacuum platform ([@jbouwh] - [#124722]) ([mqtt docs]) (breaking-change)
+
+[#124722]: https://github.com/home-assistant/core/pull/124722
+
 
 {% enddetails %}
 
