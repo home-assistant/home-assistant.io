@@ -29,6 +29,8 @@ ha_integration_type: integration
 
 The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
+For devices that use the [Yale Home](https://yalehome.com/global) app, the [Yale](/integrations/yale) integration should be used instead.
+
 {% include integrations/config_flow.md %}
 
 ## Known working devices
@@ -43,10 +45,6 @@ The `august` integration allows you to integrate your [August](https://august.co
 | August View | no |
 | Yale Assure Lock | yes |
 | Yale Assure Lock 2 | yes |
-| Yale Conexis L1 | yes |
-| Yale Conexis L2 | yes |
-| Yale Doorman L3 | yes |
-| Yale Linus | yes |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.
