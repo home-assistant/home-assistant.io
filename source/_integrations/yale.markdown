@@ -126,9 +126,9 @@ If you have a Yale Keypad, once you have enabled the Yale integration, you shoul
 
 ## Integration with Yale Access Bluetooth
 
-Following Assa Abloy, Yale's parent company, purchasing Yale in 2017, most newer devices use the Yale Access branding.
+Following Assa Abloy, Yale's parent company, purchasing Yale in 2017, most newer devices use the Yale Home branding.
 
-The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Access locks and some Yale locks that use the same system.
+The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Home locks that use the same system.
 
 For locks that support the Yale Access system, the Yale integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
 
