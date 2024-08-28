@@ -66,7 +66,6 @@ There is currently support for the following device types within Home Assistant:
 Most devices will need either a Yale Connect Bridge or a Doorbell to connect to Home Assistant.
 {% endnote %}
 
-
 ## Push updates not available for some entities
 
 While most entities can be updated via the push API, Yale/Yale does not offer a push API for some data, which means these entities will update slower:
