@@ -71,8 +71,6 @@ Home Assistant 2024.9! 🎉
 
 Enjoy the (beta) release!
 
-../Frenck
-
 <!--more-->
 
 - [Dashboards](#dashboards)
@@ -90,37 +88,55 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-## Dashboards
+## Home Assistant 2024.9
 
-As part of our [roadmap](/blog/2024/06/12/roadmap-2024h1/#dashboards), work has
-continued on making dashboard customization and organization easier and more
-intuitive.
+For many of us in the community based in the northern hemisphere we've been taking advantage of the nicer weather to take a little time off.
 
-### Lorem ipsum
+Our releases have continued to grow in size for some time, and this one might not be as gargantuan in size, but it still packs some really cool features and announcements.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras
-elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod
+This release includes bigger sections, smarter energy monitoring, and new LLM options. We also have a couple other exciting new announcements.
 
-<img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="New badges sitting on top of a dashboard view!">
+We hope you've been able to enjoy some time in, and away, from your smart home this month as well. 
 
 
-## MOAR lorem ipsum
+## Sections go BIG
 
-Slipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras
-elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod
+In the drive to give our users more customization and organization options for their dashboards, we've added some new options to our Sections view that really lets us take big advantage of [resizable cards](https://www.home-assistant.io/blog/2024/07/03/release-20247/#resize-the-cards-on-your-dashboard). These powerful customization features can affect the [predictability of where cards or sections will go](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), especially when switching between desktop and mobile views, and we have found it works best with large cards. As always, the choice of how to use it is up to you.
 
-{% important %}
+### Wider sections
 
-Super important stuff here!
+Sections can be expanded to span multiple sections. Now you can, for example, have your security camera feed span two sections or have a massive three-section wide map. 
 
-{% endimportant %}
+Cards and sections will continue to follow the [Z-Grid rules](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), which can lead to blank spaces if the new wider sections don't fit on a specific part of the screen. When switching to smaller screens, these larger sections will revert to one section wide (if this causes issues for certain big cards, we would recommend using our device [visibility settings](https://www.home-assistant.io/blog/2024/06/05/release-20246/#control-visibility-of-cards)).
+
+### Full span cards
+
+Larger sections mean larger cards. Instead of just stretching out the layout of a card, there is also a new option on cards to have them always use the full width of the section.
+
+## Tracking your untracked energy
+
+In April, we introduced a [new energy graph for individual devices](https://www.home-assistant.io/blog/2024/03/06/release-20243/#new-energy-graph-for-individual-devices) in our energy dashboard. This allows you to aggregate all your energy monitoring into one graph, giving you a quick way to see your house's biggest energy-using devices. Big thanks to [@karwosts](https://github.com/karwosts), the original creator of this graph, who has now updated it.
+
+<img src="/images/blog/2024-07-dashboard-chapter-2/new-badges.png" alt="Temporary screenshot">
+
+We can't all have energy tracking for every device, and if you have whole-home energy tracking (like a smart meter or [something more DIY](https://www.home-assistant.io/home-energy-management)) the updated graph will calculate the difference and show your home's untracked usage. So hop onto your [energy dashboard](https://my.home-assistant.io/redirect/energy/) and start to tackle your phantom energy load.
+
+
+
+## LLM agent options grow
+
+When we added the ability to use [Large Language Models (LLMs)](https://www.home-assistant.io/blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms) in our Voice Assistant, it began with a limited number of conversation agents.  These included the cloud-based  [OpenAI](https://www.home-assistant.io/components/openai_conversation/) and [Google AI](https://www.home-assistant.io/components/google_generative_ai_conversation/) integrations, along with the locally-run [Ollama](https://www.home-assistant.io/integrations/ollama/) integration. All three can now control the devices in your home. [@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](https://deploy-preview-34194--home-assistant-docs.netlify.app/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant.
+
+## Open source compliance
+We have put a lot of work into making sure that Home Assistance is truly open source, from top to bottom. This means ensuring that every library our integrations rely on uses the compliant license. We're now at more than 2,800 integrations, so as you can imagine, this was not a small task. Working with code owners and library developers, we have painstakingly checked that every library is now using an [OSI-approved license](https://opensource.org/license).
+
+This might seem like a small procedural thing, but it is critical to keep integrations and Home Assistant functional far into the future. If you're not aware, libraries are what many device and service integrations rely on to function, by calling in additional protocol specific code that [purposely](https://developers.home-assistant.io/docs/api_lib_index/) sits outside of the Home Assistant project. If an individual or corporation can no longer maintain libraries, a proper open source license allows it to be picked up and continued by others.
+
 
 ## Integrations
 
 Thanks to our community for keeping pace with the new {% term integrations %}
-and improvements to existing ones! You’re all awesome 🥰
+and improvements to existing ones! You're all awesome 🥰
 
 ### New integrations
 
@@ -128,17 +144,25 @@ We welcome the following new integrations in this release:
 
 - **[Anthropic Conversation]**, added by [@Shulyaka]  
   Use AI by [Anthropic], like the [Claude 3.5 Sonnet] as a conversation agent in Home Assistant.
+- **Nice G.O.**, added by @IceBotYT
+  Integrate with compatible garage door and gate openers from the Nice.
+- **Fujitsu FGLair**, added by @crevetor
+  Fujitsu HVAC devices that use the Ayla IoT platform (controlled with the FGLair app).
+- **SMLIGHT**, added by @tl-sl
+  Manage SMLIGHT SLZB-06 adaptors from Home Assistant.
+- **Roth Touchline SL**, added by @jnsgruk
+  A new integration for the Roth Touchline SL underfloor heating system.
 
 [@Shulyaka]: https://github.com/Shulyaka
 [Anthropic Conversation]: /integrations/anthropic
 [Anthropic]: https://anthropic.com/
 [Claude 3.5 Sonnet]: https://www.anthropic.com/claude
 
-This release also has new virtual integrations. Virtual integrations
+This release also has a new virtual integration. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
-findability. These ones are new:
+discoverability. These ones are new:
 
-- **[Lorem slipsum]**, provided by [Lorem ipsum], added by [@frenck]
+- **[ArtSound]**, provided by [LinkPlay], added by [@frenck]
 
 [@frenck]: https://github.com/frenck
 [Lorem ipsum]: /integrations/lorem_ipsum
@@ -150,29 +174,13 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- The [Lorem ipsum] integration now supports slipsum! Thanks [@frenck]!
-
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
-
-{% details "Potential changes to process" icon="mdi:scale-balance" %}
-
-Processed up to _#X.
-
-{% enddetails %}
-
-### Integrations reaching platinum quality level
-
-The following {% term integrations %} have reached the platinum 🏆 level on our
-[integration quality scale](/docs/quality_scale). These integrations are
-the best of the best and give you an excellent out-of-the-box experience.
-
-- **[Lorem ipsum]**, done by [@frenck]
-
-Congratulations to all the developers who worked on these integrations!
-
-[Lorem ipsum]: /integrations/lorem_ipsum
-[@frenck]: https://github.com/frenck
+- Add apsystems diagnostic binary sensors ([@CM000n] - [#123045]) ([apsystems docs]) (new-platform)
+- Add sensor platform for Mastodon ([@andrew-codechimp] - [#123434]) ([mastodon docs]) (new-platform)
+- Add update platform to AirGradient ([@joostlek] - [#123534]) ([airgradient docs]) (new-platform)
+- Add favorite position buttons to Motion Blinds ([@starkillerOG] - [#123489]) ([motion_blinds docs]) (new-platform)
+- Add switch platform to chacon_dio integration ([@cnico] - [#122514]) ([chacon_dio docs]) (new-platform)
+- Add nest event platform ([@allenporter] - [#123042]) ([nest docs]) (new-platform)
+- Add SimpleFin binary sensor for errors ([@jeeftor] - [#122554]) ([simplefin docs]) (new-platform)
 
 ### Now available to set up from the UI
 
@@ -181,12 +189,10 @@ user interface, some were only available using YAML configuration. We keep movin
 more integrations to the UI, making them more accessible for everyone
 to set up and use.
 
-The following integrations are now available via the Home Assistant UI:
+You can now add a number [template helper] from the UI Thanks [@dougiteixeira]!
 
-- **[Lorem ipsum]**, done by [@frenck]
-
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
+[@dougiteixeira]: https://github.com/dougiteixeira
+[template helper]: /integrations/template
 
 ### Farewell to the following
 
@@ -197,21 +203,17 @@ of this release:
   deprecated and now removed. They have been using a deprecated mailbox feature
   that is no longer available.
 
-## Other integration lorem ipsum
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
-lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras
-elementum ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod
 
 ## Other noteworthy changes
 
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-  Thanks [@frenck]!
+- Auto configure outbound websocket for sleepy shelly RPC devices #124545
+- Install and start Mosquitto MQTT broker add-on from MQTT config flow #124106
+- Use BIGINT SQL type for ID columns #123973
+- Add UI to create KNX switch and light entities #122630
 
-[@frenck]: https://github.com/frenck
 
 ## Need help? Join the community!
 
@@ -252,6 +254,24 @@ Now this deprecated `proximity` entity has been removed removed.
 [#123158]: https://github.com/home-assistant/core/pull/123158
 
 {% enddetails %}
+
+- Remove deprecated asterisk_cdr integration ([@joostlek] - [#123180]) ([asterisk_cdr docs]) (breaking-change)
+- Remove deprecated asterisk_mbox integration ([@joostlek] - [#123174]) ([asterisk_mbox docs]) (breaking-change)
+- Remove deprecated proximity entity ([@mib1185] - [#123158]) ([proximity docs]) (breaking-change)
+- Remove deprecated fan as light in lutron ([@gjohansson-ST] - [#123607]) ([lutron docs]) (breaking-change)
+- Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupusec docs]) (breaking-change)
+- Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starline docs]) (breaking-change)
+- Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#123616]) ([systemmonitor docs]) (breaking-change)
+- Remove deprecated yaml import from Ecovacs ([@gjohansson-ST] - [#123605]) ([ecovacs docs]) (breaking-change)
+- Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_circle docs]) (breaking-change)
+- Remove deprecated yaml import for gpsd ([@gjohansson-ST] - [#123725]) ([gpsd docs]) (breaking-change)
+- Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux docs]) (breaking-change)
+- Remove demo mailbox ([@gjohansson-ST] - [#123741]) ([demo docs]) (breaking-change)
+- Rename KNX Climate preset modes according to specification ([@farmio] - [#123964]) ([knx docs]) (breaking-change)
+- Fix Pure AQI value sensor in Sensibo ([@gjohansson-ST] - [#124151]) ([sensibo docs]) (breaking-change)
+- Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#124619]) ([overkiz docs]) (breaking-change)
+- Disable sisyphus integration ([@bdraco] - [#124742]) ([sisyphus docs]) (breaking-change)
+- Cleanup removed `schema` option from mqtt vacuum platform ([@jbouwh] - [#124722]) ([mqtt docs]) (breaking-change)
 
 If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
