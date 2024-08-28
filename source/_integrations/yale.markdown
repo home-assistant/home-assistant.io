@@ -37,14 +37,7 @@ The login credentials used to authenticate the integration are the same as the o
 
 | Device                            | Requires [Connect Bridge](https://www.yalehome.com/vn/en/products/yale-smart-door-lock/smart-accessories/yale-connect-wi-fi-bridge) or Doorbell |
 | --------------------------------- | ------------------------------------|
-| Yale Wi-Fi Smart Lock (Gen 4) | no |
-| Yale Smart Lock Pro (Gen 3) | yes |
-| Yale Smart Lock (Gen 2) | yes |
-| Yale Smart Lock (Gen 1) | no |
-| Yale Doorbell Cam (Gen 1, Gen2) | no |
-| Yale View | no |
 | Yale Assure Lock | yes |
-| Yale Assure Lock 2 | yes |
 | Yale Conexis L1 | yes |
 | Yale Conexis L2 | yes |
 | Yale Doorman L3 | yes |
