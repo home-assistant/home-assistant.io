@@ -18,9 +18,7 @@ Integration between the [ebusd](https://github.com/john30/ebusd/) daemon (used f
 
 ## Configuration
 
-Enable the sensor by adding the following to your {% term "`configuration.yaml`" %} file.
-The integration will only monitor conditions explicitly specified as `monitored_conditions`.
-Their availability depends on your heater, ebusd configuration and specific setup.
+Enable the sensor by adding the following to your {% term "`configuration.yaml`" %} file. The integration will only monitor conditions explicitly specified as `monitored_conditions`. Their availability depends on your heater, ebusd configuration and specific setup.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
