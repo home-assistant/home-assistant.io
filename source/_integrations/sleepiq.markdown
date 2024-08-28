@@ -48,7 +48,7 @@ You will need an account on [SleepIQ](https://sleepiq.sleepnumber.com/) to use t
 
 ### Notes
 
-- If you are using a DNS-based ad-blocker such as pi-hole, you may need to disable it temporarily while configuring this item in Home Assistant.
-- The SleepNumber bed communicates with endpoints on **sleepnumber.com** as well as the AWS Firehose data collection service at **firehose.us-east-1.amazonaws.com**.
+- If you are using a DNS-based ad-blocker such as Pi-hole, you may need to disable it temporarily while configuring this item in Home Assistant.
+- The Sleep Number bed communicates with endpoints on **sleepnumber.com** as well as the AWS Firehose data collection service at **firehose.us-east-1.amazonaws.com**.
 
 {% include integrations/config_flow.md %}
