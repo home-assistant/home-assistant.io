@@ -1217,7 +1217,6 @@ Picture, picture elements, picture entity, and picture glance cards will no long
 
 ([@Quentame] - [#20593]) ([issue])
 
-[@Quentame]: https://github.com/Quentame
 [#20593]: https://github.com/home-assistant/frontend/pull/20593
 [issue]: https://github.com/home-assistant/frontend/issues/21738
 
