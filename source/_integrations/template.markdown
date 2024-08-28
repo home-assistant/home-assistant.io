@@ -41,7 +41,9 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, images, numbers, and selects are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+
+For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -51,16 +53,6 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 - [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
-
-Sensor, binary sensor, button, image and select can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
-
-Number template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
-
-_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
-
-## UI configuration
-
-Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 {% include integrations/config_flow.md %}
 
@@ -75,6 +67,10 @@ If you need more specific features for your use case, the manual [YAML-configura
 {% endnote %}
 
 ## YAML configuration
+
+Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+
+_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 ### State-based template binary sensors, buttons, images, numbers, selects and sensors
 
@@ -757,7 +753,7 @@ template:
       state: "{{ state_attr('camera.porch_camera_sd', 'day_night_mode') }}"
       options: "{{ ['off', 'on', 'auto'] }}"
       select_option:
-        - service: tapo_control.set_day_night_mode
+        - action: tapo_control.set_day_night_mode
           data:
             day_night_mode: "{{ option }}"
           target:
@@ -797,7 +793,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:

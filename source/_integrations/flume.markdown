@@ -53,7 +53,7 @@ trigger:
   - platform: time_pattern
     minutes: /5
 action:
-  - service: flume.list_notifications
+  - action: flume.list_notifications
     data:
       config_entry: 1234 # replace this with your config entry id
     response_variable: notifications
@@ -63,7 +63,7 @@ action:
           {{ notifications.notifications | selectattr('type', 'equalto', 1) | 
           sort(attribute == ('created_datetime', reverse == true) | length > 0 }}
     then:
-      - service: notify.all
+      - action: notify.all
         data:
           message: >-
             {%- set usage_alert == notifications.notifications |

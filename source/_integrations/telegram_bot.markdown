@@ -352,7 +352,7 @@ trigger:
   event_data:
     command: "/ping"
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "pong"
 ```
@@ -366,7 +366,7 @@ trigger:
   event_data:
     command: "/start"
 action:
-  - service: notify.telegram
+  - action: notify.telegram
     data:
       message: "commands"
       data:
@@ -384,12 +384,12 @@ trigger:
   event_data:
     command: "/siren"
 action:
-  - service: homeassistant.turn_on
+  - action: homeassistant.turn_on
     target:
       entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
   - delay:
       seconds: 10
-  - service: homeassistant.turn_off
+  - action: homeassistant.turn_off
     target:
       entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
 ```
@@ -406,7 +406,7 @@ An example to show the use of event_data in action:
     event_data:
       command: "/speak"
   action:
-    - service: notify.kitchen_echo
+    - action: notify.kitchen_echo
       data:
         message: >
           Message from {{ trigger.event.data["from_first"] }}. {% for state in trigger.event.data["args"] %} {{ state }} {% endfor %}
@@ -432,7 +432,7 @@ Text repeater:
     platform: event
     event_type: telegram_text
   action:
-    - service: telegram_bot.send_message
+    - action: telegram_bot.send_message
       data:
         title: "*Dumb automation*"
         target: "{{ trigger.event.data.user_id }}"
@@ -457,12 +457,12 @@ Message editor:
     event_data:
       command: "/edit_msg"
   action:
-    - service: telegram_bot.answer_callback_query
+    - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
         message: "Editing the message!"
         show_alert: true
-    - service: telegram_bot.edit_message
+    - action: telegram_bot.edit_message
       data:
         message_id: "{{ trigger.event.data.message.message_id }}"
         chat_id: "{{ trigger.event.data.chat_id }}"
@@ -490,11 +490,11 @@ Keyboard editor:
     event_data:
       command: "/remove_button"
   action:
-    - service: telegram_bot.answer_callback_query
+    - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
         message: "Callback received for editing the inline keyboard!"
-    - service: telegram_bot.edit_replymarkup
+    - action: telegram_bot.edit_replymarkup
       data:
         message_id: "last"
         chat_id: "{{ trigger.event.data.chat_id }}"
@@ -516,7 +516,7 @@ Only acknowledges the 'NO' answer:
     event_data:
       command: "/do_nothing"
   action:
-    - service: telegram_bot.answer_callback_query
+    - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
         message: "OK, you said no!"
@@ -536,7 +536,7 @@ Telegram callbacks also support arguments and commands the same way as normal me
     event_data:
       command: "/repeat"
   action:
-    - service: telegram_bot.answer_callback_query
+    - action: telegram_bot.answer_callback_query
       data:
         show_alert: true
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -559,11 +559,11 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
     event_data:
       message_tag: "msg_start"
   action:
-    - service: input_number.set_value
+    - action: input_number.set_value
       data_template:
         entity_id: input_number.chat_id
         value: "{{ trigger.event.data.chat_id }}"
-    - service: input_number.set_value
+    - action: input_number.set_value
       data_template:
         entity_id: input_number.message_id
         value: "{{ trigger.event.data.message_id }}"
@@ -575,7 +575,7 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 
 ```yaml
 action:
-- service: notify.telegrambot
+- action: notify.telegrambot
   data:
     title: Example Message
     message: 'Message with *BOLD*, _ITALIC_ and `MONOSPACE` Text'
@@ -585,7 +585,7 @@ action:
 
 ```yaml
 action:
-- service: notify.telegrambot
+- action: notify.telegrambot
   data:
     title: Example Message
     message: "Message with tag"
@@ -597,7 +597,7 @@ action:
 
 ```yaml
 action:
-- service: notify.telegram
+- action: notify.telegram
   data:
     message: >-
       <a href="https://www.home-assistant.io/">HA site</a>

@@ -56,7 +56,7 @@ Example action:
 
 ```yaml
 # Example action to disable Pi-Hole for 30 minutes
-service: pi_hole.disable
+action: pi_hole.disable
 data:
   duration: '00:30'
 target:

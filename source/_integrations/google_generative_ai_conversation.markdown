@@ -106,7 +106,7 @@ This action populates [response data](/docs/scripts/service-calls#use-templates-
 
 {% raw %}
 ```yaml
-service: google_generative_ai_conversation.generate_content
+action: google_generative_ai_conversation.generate_content
 data:
   prompt: >-
     Very briefly describe what you see in this image from my doorbell camera.
@@ -123,7 +123,7 @@ Another example with multiple images:
 
 {% raw %}
 ```yaml
-service: google_generative_ai_conversation.generate_content
+action: google_generative_ai_conversation.generate_content
 data:
   prompt: >-
     Briefly describe what happened in the following sequence of images

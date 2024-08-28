@@ -110,7 +110,7 @@ automation:
       value_template: "{{ state.attributes.elevation }}"
       above: 10
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
@@ -125,7 +125,7 @@ automation:
       platform: time
       at: "12:00:00"
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
 ```
@@ -165,7 +165,7 @@ automation:
             ) >= timedelta(hours = 0, minutes = 40)
           }}
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id:
           # Update both UV and protection window data:

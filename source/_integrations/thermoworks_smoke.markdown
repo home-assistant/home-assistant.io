@@ -116,7 +116,7 @@ automation:
           False
         {% endif %}
     action:
-      - service: notify.all
+      - action: notify.all
         data:
           message: >
             {{- state_attr('sensor.my_smoke_probe_1','friendly_name') }} is above

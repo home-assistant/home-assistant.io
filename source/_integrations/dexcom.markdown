@@ -55,7 +55,7 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
     after: "22:00:00"
     before: "06:00:00"
   action:
-  - service: light.turn_on
+  - action: light.turn_on
       target:
         entity_id: light.kitchen
 ```

@@ -2,7 +2,7 @@
 type: card
 title: "Picture elements card"
 sidebar_label: Picture elements
-description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even services! On an image based on coordinates."
+description: "The picture elements card is one of the most versatile types of cards. The cards allow you to position icons or text and even buttons! On an image based on coordinates."
 related:
   - docs: /dashboards/actions/
     title: Card actions
@@ -19,13 +19,13 @@ The picture elements card is one of the most versatile types of cards.
   A functional floorplan powered by picture elements.
 </p>
 
-The cards allow you to position icons or text and even services on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
+The cards allow you to position icons or text and even buttons on an image based on coordinates. Imagine floor plan, imagine [picture-glance](/dashboards/picture-glance/) with no restrictions!
 
 {% include dashboard/edit_dashboard.md %}
 
 ## YAML configuration
 
-This card can only be configured in YAML.
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -35,6 +35,10 @@ type:
 image:
   required: true
   description: The URL of an image.<br/>To use a locally hosted image, see [Hosting](/integrations/http#hosting-files).
+  type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
   type: string
 camera_image:
   required: false
@@ -217,24 +221,28 @@ style:
 
 ### Perform action button
 
-This entity creates a button (with arbitrary text) that can be used to perform a service.
+This entity creates a button (with arbitrary text) that can be used to perform an action.
 
 {% configuration %}
 type:
   required: true
-  description: "`service-button`"
+  description: "`action-button`"
   type: string
 title:
   required: true
   description: Button label.
   type: string
-service:
+action:
   required: true
   description: "`light.turn_on`"
   type: string
-service_data:
+target:
   required: false
-  description: The data to use.
+  description: The target to use for the action.
+  type: map
+data:
+  required: false
+  description: The data to use for the action.
   type: map
 style:
   required: true
@@ -450,8 +458,8 @@ If the option `hold_action` is specified, that action will be performed when the
 tap_action:
   action: toggle
 hold_action:
-  action: call-service
-  service: light.turn_on
+  action: perform-action
+  perform_action: light.turn_on
   data:
     entity_id: light.bed_light
     brightness_pct: 100
@@ -491,13 +499,13 @@ elements:
     style:
       top: 33%
       left: 15%
-  - type: service-button
+  - type: action-button
     title: Turn lights off
     style:
       top: 95%
       left: 60%
-    service: homeassistant.turn_off
-    service_data:
+    action: homeassistant.turn_off
+    target:
       entity_id: group.all_lights
   - type: icon
     icon: mdi:home
@@ -544,9 +552,9 @@ elements:
   - type: image
     entity: media_player.living_room
     tap_action:
-      action: call-service
-      service: media_player.media_play_pause
-      data:
+      action: perform-action
+      perform_action: media_player.media_play_pause
+      target:
         entity_id: media_player.living_room
     image: /local/television.jpg
     filter: brightness(5%)

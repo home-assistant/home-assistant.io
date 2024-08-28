@@ -2,8 +2,8 @@
 title: madVR Envy
 description: Instructions on how to integrate a madVR Envy into Home Assistant.
 ha_category:
-  - Remote
   - Binary Sensor
+  - Remote
   - Sensor
 ha_release: '2024.8'
 ha_iot_class: Local Push
@@ -53,7 +53,6 @@ These are commands that can be sent standalone, no parameters.
 - `RefreshLicenseInfo`
 - `Force1080p60Output`
 
-
 ### Commands with Parameters
 
 These are commands that have parameters with a comma separating them.
@@ -76,30 +75,36 @@ These can be used for various purposes, such as triggering your masking system b
 
 ### Sensor
 
-The integration creates the following sensors:
+The following sensors are enabled by default:
 
-- `MAC address`: The MAC address of the madVR Envy device.
-- `Gpu temperature`: The temperature of the GPU.
-- `Hdmi temperature`: The temperature of the HDMI interface.
-- `Cpu temperature`: The temperature of the CPU.
-- `Mainboard temperature`: The temperature of the mainboard.
-- `Incoming resolution`: The resolution of the incoming video signal.
-- `Incoming frame rate`: The frame rate of the incoming video signal.
-- `Incoming color space`: The color space of the incoming video signal.
-- `Incoming bit depth`: The bit depth of the incoming video signal.
-- `Incoming colorimetry`: The colorimetry of the incoming video signal.
-- `Incoming black levels`: The black level setting of the incoming video signal.
-- `Incoming aspect ratio`: The aspect ratio of the incoming video signal.
-- `Outgoing resolution`: The resolution of the outgoing video signal.
-- `Outgoing frame rate`: The frame rate of the outgoing video signal.
-- `Outgoing color space`: The color space of the outgoing video signal.
-- `Outgoing bit depth`: The bit depth of the outgoing video signal.
-- `Outgoing colorimetry`: The colorimetry of the outgoing video signal.
-- `Outgoing black levels`: The black level setting of the outgoing video signal.
-- `Aspect ratio resolution`: The resolution corresponding to the current aspect ratio.
 - `Aspect ratio decimal`: The aspect ratio as a decimal value.
+- `Incoming bit depth`: The bit depth of the incoming video signal.
+- `Incoming black levels`: The black level setting of the incoming video signal.
+- `Incoming color space`: The color space of the incoming video signal.
+- `Incoming colorimetry`: The colorimetry of the incoming video signal.
+- `Incoming frame rate`: The frame rate of the incoming video signal.
+- `Incoming resolution`: The resolution of the incoming video signal.
+- `Masking decimal`: The masking ratio as a decimal value.
+- `Outgoing bit depth`: The bit depth of the outgoing video signal.
+- `Outgoing black levels`: The black level setting of the outgoing video signal.
+- `Outgoing color space`: The color space of the outgoing video signal.
+- `Outgoing colorimetry`: The colorimetry of the outgoing video signal.
+- `Outgoing frame rate`: The frame rate of the outgoing video signal.
+- `Outgoing resolution`: The resolution of the outgoing video signal.
+
+The following sensors are disabled by default:
+
 - `Aspect ratio integer`: The aspect ratio as an integer ratio.
 - `Aspect ratio name`: The name of the current aspect ratio.
-- `Masking resolution`: The resolution for the current masking setting.
-- `Masking decimal`: The masking ratio as a decimal value.
+- `Aspect ratio resolution`: The resolution corresponding to the current aspect ratio.
+- `CPU temperature`: The temperature of the CPU.
+- `GPU temperature`: The temperature of the GPU.
+- `HDMI temperature`: The temperature of the HDMI interface.
+- `Incoming aspect ratio`: The aspect ratio of the incoming video signal.
+- `Incoming signal type`: The type of the incoming signal (3D or 2D).
+- `Mainboard temperature`: The temperature of the mainboard.
 - `Masking integer`: The masking ratio as an integer ratio.
+- `Masking resolution`: The resolution for the current masking setting.
+- `Outgoing signal type`: The type of the outgoing signal (3D or 2D).
+
+These sensors are disabled because their values are not commonly needed but they can be enabled in the UI according to your needs.

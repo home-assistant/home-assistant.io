@@ -9,9 +9,29 @@ You need to have a compatible Z-Wave stick or module installed. The following de
 
 {% warning %}
 
-Until recently, 700 series Z-Wave Controllers had a bug that could cause the mesh to be flooded on some networks and the controller to become unresponsive. At present, all 700 series controllers share the same firmware and are subject to this bug. It appears that this bug is largely, if not completely, resolved as of firmware version 7.17.2.
+The firmwares of 700 and 800 series Z-Wave controllers have several bugs which impact the stability of the mesh and can cause the controller to become unresponsive. Because there is no known firmware version that is completely fixed, it is recommended to choose a firmware based on the following criteria:
 
-Users should upgrade the firmware on all 700 series controllers to version 7.17.2 or greater. Firmware can be upgraded using the below directions:
+- 700 series:
+  - prefer SDK versions 7.17.2 to 7.18.x
+  - SDK versions 7.19.x are okay
+  - avoid SDK versions before 7.17.2
+  - avoid SDK versions 7.20 to 7.21.3
+
+- 800 series
+  - prefer SDK versions 7.22.x
+  - SDK versions 7.17.2 to 7.19.x are okay
+  - avoid SDK versions before 7.17.2
+  - avoid SDK versions 7.20 to 7.21.3
+
+{% note %}
+The SDK version does not have to match the firmware version. If you are unsure which SDK versions a firmware is based on, contact the manufacturer of your device.
+{% endnote %}
+
+{% important %}
+You should upgrade the firmware on all 700 and 800 series controllers to a recommended version.
+{% endimportant %}
+
+Firmware can be upgraded using the below directions:
 
 - [Upgrade instructions using Linux](https://github.com/kpine/zwave-js-server-docker/wiki/700-series-Controller-Firmware-Updates-(Linux))
 - [Upgrade instructions using Windows (Aeotec)](https://aeotec.freshdesk.com/support/solutions/articles/6000252296-update-z-stick-7-with-windows)
@@ -21,8 +41,9 @@ Users should upgrade the firmware on all 700 series controllers to version 7.17.
 {% endwarning %}
 
 - 800 series controllers (with some caveats, see notes)
-  - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
+  - Z-Wave.Me Z-Station
   - HomeSeer SmartStick G8
+  - Zooz 800 Series Z-Wave Long Range S2 Stick (ZST39 LR)
 
 - 700 series controllers
   - Aeotec Z-Stick 7 USB stick (ZWA010) (the EU version is not recommended due to RF performance issues)
@@ -141,11 +162,11 @@ If you've installed the Z-Wave.Me Z-Way software. In order to use Z-Wave JS inst
 
 This procedure has been tested with the following modules:
 
-  - Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
-  - Z-Wave.Me RaZberry 7
-  - Z-Wave.Me RaZberry 7 Pro
+- Aeotec Z-Pi 7 Raspberry Pi HAT/Shield
+- Z-Wave.Me RaZberry 7
+- Z-Wave.Me RaZberry 7 Pro
 
-1. Make sure the module is properly seated on the Home Assistant Yellow. 
+1. Make sure the module is properly seated on the Home Assistant Yellow.
    ![Aeotec Z-Pi 7 on Home Assistant Yellow](/images/docs/z-wave/zpi-7-yellow.jpg).
 2. Carefully [close the case](https://yellow.home-assistant.io/guides/add-ssd-existing-installation/#reassembling-top-part) and power up Home Assistant Yellow.
 3. Follow the procedure on [setting up a Z-Wave JS server](/integrations/zwave_js/#setting-up-a-z-wave-js-server).

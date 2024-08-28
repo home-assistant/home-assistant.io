@@ -54,7 +54,7 @@ automation:
     - platform: homeassistant
       event: shutdown
   action:
-    - service: velux.reboot_gateway
+    - action: velux.reboot_gateway
 ```
 
 ## Velux Active (KIX 300)

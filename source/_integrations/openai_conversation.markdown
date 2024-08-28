@@ -95,7 +95,7 @@ with the requested image.
 
 {% raw %}
 ```yaml
-service: openai_conversation.generate_image
+action: openai_conversation.generate_image
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
@@ -134,7 +134,7 @@ automation:
         entity_id: weather.home
     action:
       - alias: "Ask OpenAI to generate an image"
-        service: openai_conversation.generate_image
+        action: openai_conversation.generate_image
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249

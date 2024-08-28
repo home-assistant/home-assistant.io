@@ -105,7 +105,7 @@ The following script can be used to easily add a reconnect button to your UI. If
 fritz_box_reconnect:
   alias: "Reconnect FRITZ!Box"
   sequence:
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.fritzbox_7530_reconnect
 
@@ -120,7 +120,7 @@ automation:
     - platform: time
       at: "05:00:00"
   action:
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.fritzbox_7530_reconnect
 
@@ -136,7 +136,7 @@ automation:
         entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           title: "Guest Wi-Fi is enabled"
           message: "Password: ..."

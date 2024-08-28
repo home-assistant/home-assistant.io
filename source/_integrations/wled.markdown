@@ -134,7 +134,7 @@ You can automate changing the effect using an action like this:
 {% raw %}
 
 ```yaml
-service: light.turn_on
+action: light.turn_on
 target:
   entity_id: light.wled
 data:
@@ -152,7 +152,7 @@ and can be done by selecting a random one from the available palette select
 {% raw %}
 
 ```yaml
-service: select.select_option
+action: select.select_option
 target:
   entity_id: select.wled_palette
 data:
@@ -168,10 +168,10 @@ configuration. Here is an example action to set a WLED light
 to a preset called My Preset:
 
 ```yaml
-- service: light.turn_on
+- action: light.turn_on
   target:
     entity_id: light.wled
-- service: select.select_option
+- action: select.select_option
   target:
     entity_id: select.wled_preset
   data:
@@ -195,22 +195,22 @@ Here is an example of all of these put together into an automation:
       entity_id: sensor.weather_condition
       to: "rainy"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.wled
       data:
         effect: "Rain"
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.wled_color_palette
       data:
         option: "Breeze"
-    - service: number.set_value
+    - action: number.set_value
       target:
         entity_id: number.wled_intensity
       data:
         value: 200
-    - service: number.set_value
+    - action: number.set_value
       target:
         entity_id: number.wled_speed
       data:

@@ -97,7 +97,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
     entity_id: sensor.mysensor
     to: on
   action:
-    - service: remember_the_milk.myaccount_create_task
+    - action: remember_the_milk.myaccount_create_task
       data:
         name: "Please switch off {{trigger.entity_id}}"
         id: "{{trigger.entity_id}}"
@@ -107,7 +107,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
     entity_id: sensor.mysensor
     to: off
   action:
-    - service: remember_the_milk.myaccount_complete_task
+    - action: remember_the_milk.myaccount_complete_task
       data:
         id: "{{trigger.entity_id}}"
 ```

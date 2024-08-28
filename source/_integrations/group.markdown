@@ -24,6 +24,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - fan
@@ -44,6 +45,11 @@ multiple bulbs in a light fixture as a single light in Home Assistant.
 Home Assistant can group multiple binary sensors, covers, events, fans, lights, locks, media players, switches as a single entity, with the option of hiding the individual member entities.
 
 {% include integrations/config_flow.md %}
+
+{% note %}
+Notification entities can only be grouped via the UI.
+The older notification services can only be grouped via YAML configuration.
+{% endnote %}
 
 ## Group behavior
 
@@ -103,6 +109,11 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `unlocking` if at least one group member is `unlocking`.
 - Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
 - Otherwise, the group state is `locked`.
+
+### Notify entity groups
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is the last notification sent to the group.
 
 ### Media player groups
 
@@ -317,10 +328,10 @@ notify:
   - platform: group
     name: "My notification group"
     services:
-      - service: html5
+      - action: html5
         data:
           target: "macbook"
-      - service: html5_nexus
+      - action: html5_nexus
 ```
 
 {% configuration %}

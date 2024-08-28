@@ -43,7 +43,7 @@ automation:
       - platform: lg_netcast.turn_on
         entity_id: media_player.lg_netcast_smart_tv
     action:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: AA-BB-CC-DD-EE-FF
           broadcast_address: 11.22.33.44
@@ -57,7 +57,7 @@ The `play_media` action can be used in a script to switch to the specified TV ch
 
 ```yaml
 # Example action entry in script to switch to channel number 15
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_tv
 data:
