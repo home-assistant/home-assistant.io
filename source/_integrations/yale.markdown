@@ -27,7 +27,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `yale` integration allows you to integrate your [Yale](https://yale.com/) and some Yale Access devices in Home Assistant.
+The **Yale** integration allows you to integrate your [Yale](https://yale.com/) and some Yale Access devices in Home Assistant.
 
 {% include integrations/config_flow.md %}
 
@@ -61,7 +61,7 @@ There is currently support for the following device types within Home Assistant:
 - Lock
 
 {% note %}
-Most devices will need either Yale Connect Bridge or Doorbell to connect to Home Assistant.
+Most devices will need either a Yale Connect Bridge or a Doorbell to connect to Home Assistant.
 {% endnote %}
 
 ## Known issues with battery reporting
@@ -80,13 +80,13 @@ While most entities can be updated via the push API, Yale/Yale does not offer a 
 
 ## Binary sensor
 
-If you have an Yale Doorbell, once you have enabled the Yale integration, you should see following sensors:
+If you have a Yale Doorbell, once you have enabled the Yale integration, you should see the following sensors:
 
 - Doorbell ding sensor
 - Doorbell motion sensor
 - Doorbell online sensor
 
-If you have an Yale Smart Lock with DoorSense, once you have enabled the Yale integration, you should see the following sensors:
+If you have a Yale Smart Lock with DoorSense, once you have enabled the Yale integration, you should see the following sensors:
 
 - Door sensor
 
@@ -96,7 +96,7 @@ Buttons are created to wake locks from a deep sleep. If your lock is not reporti
 
 ## Event
 
-If you have an Yale doorbell or lock that has a built-in doorbell, once you have enabled the Yale integration, you should see the following event entities:
+If you have a Yale doorbell or lock that has a built-in doorbell, once you have enabled the Yale integration, you should see the following event entities:
 
 - Doorbell
 - Motion
@@ -109,16 +109,16 @@ The `yale` camera platform allows you to view the latest camera image (triggered
 
 ## Sensor
 
-If you have an Yale Doorbell with a battery, once you have enabled the Yale integration, you should see the following sensors:
+If you have a Yale Doorbell with a battery, once you have enabled the Yale integration, you should see the following sensors:
 
 - Doorbell Battery
 
-If you have an Yale Smart Lock, once you have enabled the Yale integration, you should see the following sensors:
+If you have a Yale Smart Lock, once you have enabled the Yale integration, you should see the following sensors:
 
 - Lock Battery
 - Lock Operation
 
-If you have an Yale Keypad, once you have enabled the Yale integration, you should see the following sensors:
+If you have a Yale Keypad, once you have enabled the Yale integration, you should see the following sensors:
 
 - Keypad Battery
 
@@ -136,14 +136,14 @@ For locks that support the Yale Access system, the Yale integration can keep you
 - The lock must be discoverable by the [Yale Access Bluetooth integration](/integrations/yalexs_ble).
 - The account logged in with the Yale integration must have the offline keys.
 
-### Troubleshooting offline keys updates
+### Troubleshooting offline key updates
 
 - If you do not know which account has the offline keys, configure Yale integration with each different Owner account until you find the one that holds the keys. You may need to make a new owner account and grant the account access to your lock to force the keys to synchronize with the cloud service.
 - Ensure the lock is in range and discoverable by the [Yale Access Bluetooth integration](/integrations/yalexs_ble).
 
 ## Presence detection with lock operation
 
-Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in Yale locks or unlocks the door from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by Yale.
+Using the lock operation sensors, you can detect when a user operates a lock and is physically present (not remote). The below automation example (added to `automations.yaml`) will trigger when the user named “John Doe” in Yale locks or unlocks the door either from the keypad (if present), via Bluetooth from their phone, or by auto-unlock. The state of the sensor will be the name of the party operating the lock as returned by Yale.
 
 {% raw %}
 
