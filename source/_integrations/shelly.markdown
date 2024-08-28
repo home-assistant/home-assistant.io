@@ -308,7 +308,7 @@ shelly:
 
 ## Virtual components
 
-Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
+Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices (with firmware 1.2.0 or later) allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
 
 The integration supports the following virtual components:
 

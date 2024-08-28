@@ -18,4 +18,20 @@ The `russound_rio` {% term integration %} allows you to control Russound devices
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information is supported if the selected source reports it.
 
+## Supported devices
+
+This integration allows you to connect the following controllers:
+
+- Russound MBX-PRE
+- Russound MBX-AMP
+- Russound MCA-C3
+- Russound MCA-C5
+- Russound MCA-66
+- Russound MCA-88
+- Rusosund MCA-88x
+- Russound XSource
+- Russound XZone4
+- Russound XZone70V
+- Russound XStream-X5
+
 {% include integrations/config_flow.md %}

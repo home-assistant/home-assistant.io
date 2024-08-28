@@ -292,8 +292,8 @@ In the example above, the trigger would fire a single time if a numeric_state go
 {% endnote %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
-that contain a numeric value, can be used in the `above` and `below` thresholds,
-making the trigger more dynamic, like:
+that contain a numeric value, can be used in the `above` and `below` thresholds.
+However, the comparison will only be made when the entity specified in the trigger is updated. This would look like:
 
 ```yaml
 automation:

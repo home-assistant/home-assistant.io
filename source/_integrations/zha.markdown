@@ -69,7 +69,7 @@ This {% term integration %} currently supports the following device types within
 - [Switch](/integrations/switch/)
 - [Update](/integrations/update/)
 
-In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#binding-and-unbinding).
+In addition, it has support for "Zigbee groups" that enable native on-device grouping of multiple Zigbee lights, switches, and fans that enable controlling all entities for those devices in those groups with one command. At least two entities must be added to a Zigbee group inside the ZHA {% term integration %} before a group entity is created. There is also support for native on-device Zigbee [binding and unbinding (i.e. bind a remote to a lightbulb or group)](#zigbee-binding-and-unbinding).
 
 ## Introduction
 

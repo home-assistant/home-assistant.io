@@ -123,7 +123,7 @@ action:
         Forecast: {{ forecast.condition }} ({{ forecast.temperature }}{{ temperature_unit }}, {{ forecast.precipitation }}% precipitation)
         {%- endif %}
 
-        Calendar "{{ state_attr(calendar_entity, 'friendly_name') }}" events for the next {{ calendar_duration.hours }}:
+        Calendar "{{ state_attr(calendar_entity, 'friendly_name') }}" events for the next {{ calendar_duration.hours }} hours:
         {%- set agenda = (events_response | items | first)[1] %}
         {%- if agenda.events %}
           {%- for event in agenda.events %}
