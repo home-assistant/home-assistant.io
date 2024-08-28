@@ -62,6 +62,7 @@ Only models that support [Tools](https://ollama.com/search?c=tools) may control 
 Smaller models may not [reliably maintain a conversation](https://llama.meta.com/docs/model-cards-and-prompt-formats/llama3_1/#llama-3.1-instruct) when controlling
 Home Assistant is enabled. However, you may use multiple Ollama configurations that
 share the same model, but use different prompts:
+
 - Add the Ollama integration without enabling control of Home Assistant. You can use
   this conversation agent to have a conversation.
 - Add an additional Ollama integration, using the same model, enabling control of Home Assistant.
