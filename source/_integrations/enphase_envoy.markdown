@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@dgomes'
   - '@joostlek'
   - '@catsmanac'
 ha_platforms:

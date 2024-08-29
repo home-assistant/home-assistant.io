@@ -66,7 +66,7 @@ The action will fail when no product can be found, or when no `product_id` or `p
 
 ```yaml
 # Example automation action to add a product to the cart by name.
-- service: picnic.add_product
+- action: picnic.add_product
   data:
     config_entry_id: 6b4be47a1fa7c3764f14cf756dc9899d
     product_name: "Picnic cola zero"

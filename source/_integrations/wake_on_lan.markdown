@@ -153,7 +153,7 @@ switch:
     name: "TARGET"
     ...
     turn_off:
-      service: shell_command.turn_off_TARGET
+      action: shell_command.turn_off_TARGET
 
 shell_command:
   turn_off_TARGET: "ssh hass@TARGET sudo pm-suspend"
@@ -184,7 +184,7 @@ A switch defined with the `wake_on_lan` platform will render in the UI with both
     - Continuing our example, the action YAML looks like this:
 
       ```yaml
-      service: wake_on_lan.send_magic_packet
+      action: wake_on_lan.send_magic_packet
       data:
         broadcast_port: 9
         mac: 00:11:22:33:44:55

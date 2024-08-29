@@ -36,7 +36,9 @@ The **ecobee** {% term integration %} lets you control and view sensor data from
 You will need to obtain an API key from ecobee's [developer site](https://www.ecobee.com/developers/) to use this integration. To get the key, your thermostat must be registered on ecobee's website (which you likely would have already done while installing your thermostat). Once you have done that, perform the following steps.
 
 {% warning %}
-As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function. 
+As of March 28th, 2024, ecobee is no longer accepting new developer subscriptions, nor are existing developer accounts able to create new API keys. There is no ETA for when they will be allowed again. Existing API keys will continue to function.
+
+In the meantime, you can use the [HomeKit Device](/integrations/homekit_controller/) integration as a fully functional alternative.
 {% endwarning %}
 
 1. Click on the **Become a developer** link on the [developer site](https://www.ecobee.com/home/developer/loginDeveloper.jsp).
@@ -96,7 +98,7 @@ The `ecobee` notify platform allows you to send notifications to an ecobee therm
 Example action:
 
 ```yaml
-service: notify.send_message
+action: notify.send_message
 data:
   message: "Hello, this is your thermostat."
   entity_id: notify.ecobee

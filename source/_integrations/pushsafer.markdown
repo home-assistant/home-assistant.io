@@ -47,7 +47,7 @@ Message to two devices with formatted text.
 
 ```yaml
 action:
-  service: notify.notify
+  action: notify.notify
   data:
     title: "Test to 2 devices"
     message: "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]"
@@ -65,7 +65,7 @@ Message to one device with formatted text and image from an external URL.
 
 ```yaml
 action:
-  service: notify.notify
+  action: notify.notify
   data:
     title: "Test to 1 device with image from an url"
     message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
@@ -85,7 +85,7 @@ Message to two devices and one device group with formatted text and local image.
 
 ```yaml
 action:
-  service: notify.notify
+  action: notify.notify
   data:
     title: "Test to 3 devices with local image"
     message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"

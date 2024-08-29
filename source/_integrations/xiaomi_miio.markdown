@@ -1344,7 +1344,7 @@ remote:
 type: entity-button
 tap_action:
   action: call-service
-  service: remote.send_command
+  action: remote.send_command
   data:
     command: activate_towel_heater
     entity_id: remote.xiaomi_miio_ir
@@ -1363,7 +1363,7 @@ name: Activate Towel Heater
 script:
   towel_heater:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: "remote.bathroom_remote"
         data:
@@ -1371,7 +1371,7 @@ script:
             - "activate_towel_heater"
   please_cover_your_ears:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: "remote.bathroom_remote"
         data:
@@ -1504,7 +1504,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1525,7 +1525,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1547,7 +1547,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1584,7 +1584,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1601,7 +1601,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1617,7 +1617,7 @@ automation:
       - event: start
         platform: homeassistant
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1743,7 +1743,7 @@ Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a s
 vacuum_kitchen:
   alias: "Clean the kitchen"
   sequence:
-    - service: vacuum.send_command
+    - action: vacuum.send_command
       target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
@@ -1765,7 +1765,7 @@ or replaced you can then reset those values on the vacuum. Here is an example sc
 reset_main_brush_left:
   alias: "Reset hours for main brush replacement"
   sequence:
-    - service: vacuum.send_Command
+    - action: vacuum.send_Command
       target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
@@ -1800,7 +1800,7 @@ Using the map editor you are able to acquire the coordinates required for zoned 
 vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:
-    - service: vacuum.send_command
+    - action: vacuum.send_command
       target:
         entity_id: "vacuum.xiaomi_vacuum_cleaner"
       data:

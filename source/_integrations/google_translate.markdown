@@ -121,7 +121,7 @@ For more options about `speak`, see the Speak section on the main [TTS](/integra
 
 In YAML, your action will look like this:
 ```yaml
-service: tts.speak
+action: tts.speak
 target:
   entity_id: tts.google_en_com
 data:
@@ -141,7 +141,7 @@ Say to all `media_player` device entities:
 
 ```yaml
 # Replace google_translate_say with <platform>_say when you use a different platform.
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: all
   message: "May the force be with you."
@@ -150,7 +150,7 @@ data:
 Say to the `media_player.floor` device entity:
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "May the force be with you."
@@ -159,7 +159,7 @@ data:
 Say to the `media_player.floor` device entity in French:
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "Que la force soit avec toi."
@@ -169,7 +169,7 @@ data:
 Say to the `media_player.floor` device entity in UK English:
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "May the force be with you."
@@ -177,7 +177,7 @@ data:
 ```
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   entity_id: media_player.floor
   message: "May the force be with you."
@@ -191,7 +191,7 @@ With a template:
 {% raw %}
 
 ```yaml
-service: tts.google_translate_say
+action: tts.google_translate_say
 data:
   message: "Temperature is {{states('sensor.temperature')}}."
   cache: false

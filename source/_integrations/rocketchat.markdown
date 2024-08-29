@@ -43,7 +43,7 @@ notify:
 ```yaml
 rocketchat_notification:
   sequence:
-  - service: notify.NOTIFIER_NAME
+  - action: notify.NOTIFIER_NAME
     data:
       message: "Message to Rocket.Chat from Home Assistant!"
       data:

@@ -177,7 +177,7 @@ For example:
       entity_id: "binary_sensor.bedroom"
       to: "on"
   action:
-      service: input_boolean.turn_on
+      action: input_boolean.turn_on
       target:
         entity_id: input_boolean.movement_detected
 ```

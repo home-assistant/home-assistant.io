@@ -31,6 +31,7 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The **BMW Connected Drive** {% term integration %} lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
@@ -79,7 +80,7 @@ The name of the action is `notify.bmw_connected_drive_<your_vehicle>`.
 ```yaml
 ...
 action:
-  service: notify.bmw_connected_drive_<your_vehicle>
+  action: notify.bmw_connected_drive_<your_vehicle>
   data:
     message: The name of the POI # this is shown on the iDrive dashboard
     data:

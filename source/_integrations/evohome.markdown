@@ -130,7 +130,7 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
 ```yaml
 - action:
-    - service: evohome.set_system_mode
+    - action: evohome.set_system_mode
       data:
         mode: AutoWithEco
         duration: {hours: 1, minutes: 30}
@@ -140,7 +140,7 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 
 ```yaml
 - action:
-    - service: evohome.set_system_mode
+    - action: evohome.set_system_mode
       data:
         mode: Away
         period: {days: 30}
@@ -162,7 +162,7 @@ This action will set the `setpoint` of a zone, as identified by its `entity_id`,
 
 ```yaml
 - action:
-    - service: evohome.set_zone_override
+    - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom
       data:
@@ -173,7 +173,7 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 
 ```yaml
 - action:
-    - service: evohome.set_zone_override
+    - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom
       data:

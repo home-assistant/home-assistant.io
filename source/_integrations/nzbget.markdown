@@ -57,7 +57,7 @@ Example automation to send a Telegram message on a completed download:
   - event_data:
     category: tv
   action:
-    service: notify.telegram_notifier
+    action: notify.telegram_notifier
     data:
       title: "Download completed!"
       message: "{{trigger.event.data.name}}"

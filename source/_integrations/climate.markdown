@@ -42,7 +42,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_aux_heat
+    - action: climate.set_aux_heat
       target:
         entity_id: climate.kitchen
       data:
@@ -68,7 +68,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_preset_mode
+    - action: climate.set_preset_mode
       target:
         entity_id: climate.kitchen
       data:
@@ -96,7 +96,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_temperature
+    - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
       data:
@@ -111,7 +111,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_temperature
+    - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
       data:
@@ -137,7 +137,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_humidity
+    - action: climate.set_humidity
       target:
         entity_id: climate.kitchen
       data:
@@ -161,7 +161,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_fan_mode
+    - action: climate.set_fan_mode
       target:
         entity_id: climate.kitchen
       data:
@@ -185,7 +185,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_hvac_mode
+    - action: climate.set_hvac_mode
       target:
         entity_id: climate.kitchen
       data:
@@ -209,7 +209,7 @@ automation:
     platform: time
     at: "07:15:00"
   action:
-    - service: climate.set_swing_mode
+    - action: climate.set_swing_mode
       target:
         entity_id: climate.kitchen
       data:

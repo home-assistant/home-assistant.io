@@ -133,7 +133,7 @@ automation:
       platform: state
       entity_id: input_select.scene_bedroom
     action:
-      - service: input_text.set_value
+      - action: input_text.set_value
         target:
           entity_id: input_text.bedroom
         data:

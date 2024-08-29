@@ -29,7 +29,7 @@ It does require that your devices are registered with the [Find My](https://www.
 {% include integrations/config_flow.md %}
 
 {% warning %}
-You may receive an email and a notification from Apple saying that someone has logged into your account.
+You may receive recurring emails and notifications from Apple stating that someone has logged into your account if the integration is improperly configured. If this occurs, select `Don't Allow` on your iOS device and reconfigure the Integration Credentials when prompted.
 
 For the notification, press "Allow", then "OK".
 {% endwarning %}
@@ -38,7 +38,9 @@ To prevent excessive battery drainage, a dynamic interval is used for each indiv
 
 ## Two Factor Authentication
 
-If two-step authentication is enabled for your iCloud account, some time after Home Assistant startup the integration will ask to enter the verification code you receive on your device via a notification in the Home Assistant UI. The duration of this authentication is determined by Apple, so you will need to verify your account every now and then.
+{% important %}
+You need to use an [app-specific password](https://support.apple.com/102654) to set up this integration.
+{% endimportant %}
 
 ## In case of troubleshooting
 

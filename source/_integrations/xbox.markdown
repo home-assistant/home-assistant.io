@@ -113,7 +113,7 @@ image: >-
 elements:
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Up
@@ -125,7 +125,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Down
@@ -137,7 +137,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Left
@@ -149,7 +149,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Right
@@ -161,7 +161,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "A"
@@ -174,7 +174,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "X"
@@ -187,7 +187,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "B"
@@ -200,7 +200,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "Y"
@@ -213,7 +213,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.toggle
+    action: remote.toggle
     service_data:
       entity_id: remote.xboxone_remote
     style:
@@ -225,7 +225,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: media_player.play_media
+    action: media_player.play_media
     service_data:
       entity_id: media_player.xboxone
       media_content_type: ""

@@ -57,7 +57,7 @@ device:
 Example Automation:
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
       data:
         message: "This is the message"
         data:

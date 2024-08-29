@@ -462,7 +462,7 @@ automation:
 
   # Send the arrow right key via a broadlink IR blaster
   action:
-    service: broadlink.send
+    action: broadlink.send
     host: 192.168.1.55
     packet: XXXXXXXX
 ```
@@ -479,9 +479,9 @@ automation:
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door
-        service: open_cover
+        action: open_cover
   action:
-    - service: persistent_notification.create
+    - action: persistent_notification.create
       data:
         message: "The garage door got opened via HomeKit"
 ```

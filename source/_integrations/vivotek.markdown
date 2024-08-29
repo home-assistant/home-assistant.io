@@ -122,7 +122,7 @@ For example, the following action in an automation would send an `hls` live stre
 
 ```yaml
 action:
-  service: camera.play_stream
+  action: camera.play_stream
   target:
     entity_id: camera.yourcamera
   data:
@@ -162,7 +162,7 @@ For example, the following action is an automation that would take a snapshot fr
 
 ```yaml
 action:
-  service: camera.snapshot
+  action: camera.snapshot
   target:
     entity_id: camera.front_door_camera
   data:

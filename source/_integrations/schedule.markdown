@@ -113,7 +113,7 @@ trigger:
         - schedule.thermostat_schedule
       to: "on"
   action:
-    - service: climate.turn_on
+    - action: climate.turn_on
       target:
         entity_id: climate.thermostat
 ```

@@ -271,7 +271,7 @@ trigger:
     to: "on"
 
 action:
-  - service: light.turn_on
+  - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
       platform: state
@@ -279,7 +279,7 @@ action:
       from: "on"
       to: "off"
   - delay: !input no_motion_wait
-  - service: light.turn_off
+  - action: light.turn_off
     target: !input light_target
 ```
 

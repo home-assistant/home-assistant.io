@@ -37,7 +37,7 @@ One weather entity is created for each entry in the configuration. Hourly and da
 | `type` | no | The type of forecast, must be either `twice_daily` or `hourly`. | `twice_daily` |
 
 ```yaml
-service: nws.get_forecasts_extra
+action: nws.get_forecasts_extra
 target:
   entity_id:
     - weather.khou

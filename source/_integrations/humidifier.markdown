@@ -64,7 +64,7 @@ automation:
     - platform: time
       at: "07:15:00"
   action:
-    - service: humidifier.set_mode
+    - action: humidifier.set_mode
       target:
         entity_id: humidifier.bedroom
       data:
@@ -88,7 +88,7 @@ automation:
     - platform: time
       at: "07:15:00"
   action:
-    - service: humidifier.set_humidity
+    - action: humidifier.set_humidity
       target:
         entity_id: humidifier.bedroom
       data:

@@ -64,7 +64,7 @@ This can be an option if the following elements apply to your use case:
 
 - You already have a functioning Home Assistant instance (system 1) that is using an external data disk.
 - You have another, new, Home Assistant instance (system 2).
-- You want now want to use the data disk of system 1 on system 2 instead.
+- You now want to use the data disk of system 1 on system 2 instead.
 
 The aim is to migrate the data from system 1 to system 2. One way to do this is by [restoring a backup](/common-tasks/os/#restoring-a-backup). The other way is to move the data disk. This can be an interesting option if you have a large amount of data on your external disk or if your external disk has more storage capacity than your new system.
 

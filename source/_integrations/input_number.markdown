@@ -131,7 +131,7 @@ automation:
       platform: state
       entity_id: input_number.bedroom_brightness
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
         data:
@@ -171,7 +171,7 @@ automation:
       entity_id: input_select.scene_bedroom
       to: CUSTOM
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
         data:
@@ -203,7 +203,7 @@ automation:
       platform: mqtt
       topic: "setTemperature"
     action:
-      service: input_number.set_value
+      action: input_number.set_value
       target:
         entity_id: input_number.target_temp
       data:
@@ -216,7 +216,7 @@ automation:
       platform: state
       entity_id: input_number.target_temp
     action:
-      service: mqtt.publish
+      action: mqtt.publish
       data:
         topic: "setTemperature"
         retain: true
@@ -256,7 +256,7 @@ automation:
      to: "on"
    action:
      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
-     - service: switch.turn_off
+     - action: switch.turn_off
        target:
          entity_id: switch.something
 ```

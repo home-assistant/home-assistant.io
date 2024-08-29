@@ -81,7 +81,7 @@ Any configured Powr Savr occupancy sensors will be added as occupancy binary sen
         id: office_pico_on
         action: single
   action:
-    - service: notify.telegram
+    - action: notify.telegram
       data:
         message: "pico just turned on!"
 ```

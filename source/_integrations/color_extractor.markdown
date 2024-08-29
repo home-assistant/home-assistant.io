@@ -59,7 +59,7 @@ Example usage in an {% term automation %}, taking the album art present on a Chr
       entity_id: media_player.chromecast
 
   action:
-    - service: color_extractor.turn_on
+    - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
         entity_id: light.shelf_leds
@@ -76,7 +76,7 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
       entity_id: media_player.chromecast
 
   action:
-    - service: color_extractor.turn_on
+    - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
         entity_id: light.shelf_leds

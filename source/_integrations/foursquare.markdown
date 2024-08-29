@@ -62,7 +62,7 @@ automation:
       platform: event
       event_type: foursquare.push
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.my_action
 ```
