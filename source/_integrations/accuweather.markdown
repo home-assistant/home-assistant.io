@@ -44,5 +44,6 @@ You can test your newly created API key [here](https://developer.accuweather.com
 
 {% important %}
 Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
-The Limited Trial account only allows 50 API calls per day.
+The Limited Trial account only allows 50 API calls per day. When the weather forecast is not enabled, the data is updated every 40 minutes (36 calls/day), with the forecast enabled every 80 minutes (18 calls/day).
+This integration does not provide an option to change the frequency of data updates. You can, however, completely disable automatic data updating and update the data using the update_entity service.
 {% endimportant %}
