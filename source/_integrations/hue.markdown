@@ -78,3 +78,7 @@ Philips/Signify released a new version of their Hue bridge (square shape) and th
 - Scene entities are not automatically created for V1 bridges. To activate a Hue scene on a V1 bridge from Home Assistant we provide an action to active it the Hue scene by name.
 - State updates for devices/entities on a V1 bridges are not received instantly but polled on interval.
 - Light entities for Hue rooms are not automatically created for V1 bridges, you can opt-in for creating entities for rooms within the Integration's options.
+
+For v1 Hue bridges, you can create a script using the **Scripts** tab.  
+1. Select **Add New Script** > **Add Action** > **Philips Hue: Activate Scene**
+2. Then select the appropriate room name in the **Group** field and the scene name in the **Scene** field stored on your Hue bridge.
