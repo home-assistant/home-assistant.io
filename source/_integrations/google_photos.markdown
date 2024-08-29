@@ -22,12 +22,12 @@ related:
 ---
 
 The **Google Photos** integration allows you to connect your [Google Photos](https://photos.google.com/) to Home Assistant. The integration adds a [media source](/integrations/media_source) with
-recent  photos allowing you to view or cast your photos from the media browser.
+recent photos allowing you to view or cast your photos from the media browser.
 
 ## Prerequisites
 
 You need to configure developer credentials to allow Home Assistant to access your Google Account.
-These credentials are the same as the ones for [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks) and [Google Mail](/integrations/google_mail).
+These credentials are the same as the ones for [Nest](/integrations/nest), [Google Tasks](/integrations/google_tasks), and [Google Mail](/integrations/google_mail).
 These are not the same as *Device Auth* credentials previously recommended for [Google Calendar](/integrations/google).
 
 If you have already set up the correct credentials, you can do step 1 and then skip to step 13 on the below instructions.
