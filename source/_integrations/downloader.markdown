@@ -63,4 +63,4 @@ Along with the event the following payload parameters are available:
 
 #### Location of Folder
 
-For Home Assistant OS, the Downloader extension is based off the intial folder `/root/homeassistant/`. To that effect, if you have a folder called `/root/homeassistant/my_download_folder`, you would enter simply `my_download_folder` under the prompt for "Select a location to get to store downloads. The setup will check if the directory exists."
+For Home Assistant OS, the Downloader extension is based off the initial folder `/root/homeassistant/`. To that effect, if you have a folder called `/root/homeassistant/my_download_folder`, you would enter simply `my_download_folder` under the prompt for "Select a location to get to store downloads. The setup will check if the directory exists."
