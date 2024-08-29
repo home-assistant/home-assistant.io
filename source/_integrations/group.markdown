@@ -157,7 +157,7 @@ To add or remove entities from an existing group, click on `Group options`, all 
 
 ### Group attributes
 
-These are the attributes available for a group. Note that when the group's members are all `unavailable` the group itself becomes `unavailable` and all attributes are removed.
+These are the attributes available for a group.
 
 | Attribute                            | Data                                                                                                                            |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
@@ -472,13 +472,13 @@ These groups can still be in templates with the `expand()` directive, called usi
 
 ### Attributes
 
-These are the attributes available for an old-style group. Note that when all group members are `unavailable` the group state will be `unknown` and therefore these attributes will *remain*. This behavior is different from the new-style groups.
+These are the attributes available for an old-style group.
 
-| Attribute                            | Data                                                                                                                            |
-| ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                                       |
-| `order`                              | Order in which the entity was created, starting with `0`.                                                                       |
-| `auto`                               | Only appears in groups that were created with the `set` action. Will always be set to `true`.                                   |
+| Attribute                            | Data                                                                                                         |
+| ------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
+| `entity_id`                          | List of all the `entity_id`'s in the group.                                                                  |
+| `order`                              | Integer representing the order in which the entity was created, starting with `0`.                           |
+| `auto`                               | Boolean that will always be set to `true`. Only appears in groups that were created with the `set` action.   |
 
 ### Actions
 
