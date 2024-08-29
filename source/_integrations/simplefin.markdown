@@ -32,5 +32,5 @@ Each `account` will be set up as a device in Home Assistant, and it will contain
 |Sensor|Description|
 |-------|---------------|
 |Age| This sensor shows when the data was retrieved by the SimpleFin API |
-|Balance|Account Balance|
-|Problem| Binary Sensor that indicates whether the account sync may have a problem |
+|Balance|Account balance|
+|Problem| Binary sensor that indicates whether the account sync may have a problem |
