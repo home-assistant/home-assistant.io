@@ -22,7 +22,7 @@ related:
 ---
 
 The **Google Photos** integration allows you to connect your [Google Photos](https://photos.google.com/) to Home Assistant. The integration adds a [media source](/integrations/media_source) with
-recent  photos allowing you view view or cast your photos from the media browser.
+recent  photos allowing you to view or cast your photos from the media browser.
 
 ## Prerequisites
 
