@@ -34,6 +34,10 @@ name:
   required: false
   type: string
   default: HA Alarm
+unique_id:
+  description: Create a unique id for the entity.
+  required: false
+  type: string
 code:
   description: >
     If defined, specifies a code to enable or disable the alarm in the frontend.
@@ -147,6 +151,7 @@ In the configuration example below:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
+    unique_id: a_very_unique_id
     code: "1234"
     arming_time: 30
     delay_time: 20

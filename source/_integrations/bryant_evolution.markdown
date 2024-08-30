@@ -10,9 +10,9 @@ ha_config_flow: true
 ha_domain: bryant_evolution
 ha_platforms:
   - climate
-ha_zeroconf: false
-ha_homekit: true
-ha_integration_type: integration
+ha_integration_type: device
+ha_codeowners:
+  - '@danielsmyers'
 ---
 
 The **Bryant Evolution** {% term integration %} lets you control Bryant Evolution HVAC systems.

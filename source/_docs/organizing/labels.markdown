@@ -38,7 +38,7 @@ Follow these steps to apply a label
 
 1. To apply a label to an area:
    - Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}.
-   - On the area card, select the pencil icon.
+   - On the area card, select the edit {% icon "mdi:edit" %} button.
    - Select one or more labels or select **Add new label** to create a new one.
 2. To apply a label to a device, entity, or helper:
    - Go to **{% my integrations title="Settings > Devices & Services" %}** and open the respective tab.

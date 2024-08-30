@@ -18,9 +18,21 @@ related:
 
 The onboarding process takes you through the initial setup for Home Assistant, such as getting the system up and running, naming your home and selecting your location. This section points you to further documentation helping you with the next steps.
 
+## Adding other persons to Home Assistant
+
+You can add other people to Home Assistant. They can have their own login, use Home Assistant on their devices and create their own dashboards. To add other people, refer to [Adding a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant).
+
+## Apps for Android and iOS
+
+You can use Home Assistant on your phone, smartwatch, and even in your car.
+
+- To learn how to install Home Assistant on Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
+- Want to use your voice to control Home Assistant?
+  - Refer to the documentation on using [Assist on Android](/voice_control/android/).
+
 ## Changing the basic settings
 
-To change basic settings such as location, unit system and language, refer to [Changing basic settings](/docs/configuration/basic/).
+To change basic settings such as location, unit system, and language, refer to [Changing basic settings](/docs/configuration/basic/).
 
 ## Creating a backup
 
@@ -43,6 +55,3 @@ If you need more space to store data, you can configure a [network storage](/com
 
 If you want to get started with a voice assistant, refer to the documentation on [Assist](/voice_control/).
 
-## Apps for Android and iOS
-
-If you are looking for information on Home Assistant for Android or iOS, refer to the [documentation for the Companion Apps](https://companion.home-assistant.io/).
