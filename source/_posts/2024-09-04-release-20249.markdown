@@ -12,7 +12,7 @@ categories:
 og_image: /images/blog/2024-09/social.png
 ---
 
-<lite-youtube videoid="#" videotitle="Home Assistant 2024.9 Release Party"></lite-youtube>
+<lite-youtube videoid="dSbCzRhbOVA" videotitle="Home Assistant 2024.9 Release Party"></lite-youtube>
 
 {% note %}
 
@@ -97,7 +97,7 @@ Our releases have continued to grow in size for some time, and this one might no
 
 This release includes bigger sections, smarter energy monitoring, and new LLM options. We also have a couple other exciting new announcements.
 
-We hope you've been able to enjoy some time in, and away, from your smart home this month as well. 
+We hope you've been able to enjoy some time in, and away, from your smart home this month as well.
 
 
 ## Sections go BIG
@@ -145,15 +145,15 @@ and improvements to existing ones! You're all awesome 🥰
 
 We welcome the following new integrations in this release:
 
-- **[Anthropic Conversation]**, added by [@Shulyaka]  
+- **[Anthropic Conversation]**, added by [@Shulyaka]<br>
   Use AI by [Anthropic], like the [Claude 3.5 Sonnet] as a conversation agent in Home Assistant.
-- **[Nice G.O.]**, added by [@IceBotYT]
+- **[Nice G.O.]**, added by [@IceBotYT]<br>
   Integrate with compatible garage door and gate openers from the Nice.
-- **[Fujitsu FGLair]**, added by [@crevetor]
+- **[Fujitsu FGLair]**, added by [@crevetor]<br>
   Fujitsu HVAC devices that use the Ayla IoT platform (controlled with the FGLair app).
-- **[SMLIGHT]**, added by [@tl-sl]
+- **[SMLIGHT]**, added by [@tl-sl]<br>
   Manage SMLIGHT SLZB-06 adaptors from Home Assistant.
-- **[Roth Touchline SL]**, added by [@jnsgruk]
+- **[Roth Touchline SL]**, added by [@jnsgruk]<br>
   A new integration for the Roth Touchline SL underfloor heating system.
 
 [Anthropic Conversation]: /integrations/anthropic
