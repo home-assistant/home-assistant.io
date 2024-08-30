@@ -58,8 +58,8 @@ Use this procedure only if the following conditions are met:
 3. Once you have opened the Home Assistant command line, enter the following command:
    - Note: `existing_user` is a placeholder. Replace it with your username.
    - Note: `new_password` is a placeholder. Replace it with your new password.
-   - **Command**: `ha auth reset --username existing_user --password new_password`
-     ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/ha_auth_reset.webp)
+   - **Command**: `auth reset --username existing_user --password new_password`
+     ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/home-assistant-cli.webp)
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
 4. You can now log in to Home Assistant using this new password.
 
