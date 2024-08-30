@@ -9,6 +9,11 @@ ha_domain: deako
 ha_config_flow: true
 ha_platforms:
   - light
+ha_codeowners:
+  - '@sebirdman'
+  - '@balake'
+  - '@deakolights'
+ha_zeroconf: true
 ha_integration_type: integration
 ---
 
