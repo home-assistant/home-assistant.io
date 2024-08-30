@@ -12,8 +12,6 @@ The `mqtt` event platform allows you to process event info from an MQTT message.
 
 ## Configuration
 
-<a id='new_format'></a>
-
 ```yaml
 # Example configuration.yaml entry
 mqtt:
@@ -89,8 +87,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -108,9 +114,7 @@ device:
 device_class:
   description: The [type/class](/integrations/event/#device-class) of the event to set the icon in the frontend. The `device_class` can be `null`.
   required: false
-  default: None
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -125,7 +129,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 event_types:
   description: A list of valid `event_type` strings.
   required: true
@@ -167,8 +170,7 @@ qos:
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive JSON event payloads. The JSON payload should contain the `event_type` element. The event type should be one of the configured `event_types`.
-  default: None
+  description: The MQTT topic subscribed to receive JSON event payloads. The JSON payload should contain the `event_type` element. The event type should be one of the configured `event_types`. Note that replayed retained messages will be discarded.
   required: true
   type: string
 unique_id:
@@ -181,11 +183,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ### Full configuration with JSON data
 

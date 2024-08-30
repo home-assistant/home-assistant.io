@@ -9,6 +9,9 @@ ha_domain: aquostv
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `aquostv` platform allows you to control a [Sharp Aquos TV](https://global.sharp/aquos/index.html).
@@ -17,7 +20,8 @@ When the TV is first connected, you will need to accept Home Assistant on the TV
 
 ## Configuration
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To add a TV to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -57,13 +61,11 @@ power_on_enabled:
   type: boolean
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 When you set **power_on_enabled** as True, you have to turn on your TV on the first time with the remote.
 Then you will be able to turn on with Home Assistant.
 Also, with **power_on_enabled** as True, the Aquos logo on your TV will stay on when you turn off the TV and your TV could consume more power.
-
-</div>
+{% endimportant %}
 
 ## Currently known supported models
 

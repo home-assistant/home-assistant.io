@@ -1,16 +1,19 @@
 {
   "name": "home-assistant.io",
   "build": {
-    "dockerfile": "../Dockerfile",
+    "dockerfile": "./Dockerfile",
     "context": "..",
     "args": {
-      "VARIANT": "2.7",
-      "NODE_VERSION": "18"
+      "VARIANT": "3.1",
+      "NODE_VERSION": "20"
     }
   },
   "appPort": [4000],
   "onCreateCommand": "bundle install && npm install",
-  "containerEnv": { "DEVCONTAINER": "true" },
+  "containerEnv": { 
+    "DEVCONTAINER": "true",
+    "BUNDLE_PATH": "vendor/bundle"
+  },
   "customizations": {
     "vscode": {
       "extensions": [
@@ -18,7 +21,6 @@
         "editorconfig.editorconfig",
         "GitHub.vscode-pull-request-github",
         "mrmlnc.vscode-scss",
-        "rebornix.Ruby",
         "streetsidesoftware.code-spell-checker",
         "taichi.vscode-textlint",
         "yzhang.markdown-all-in-one"
@@ -29,7 +31,8 @@
         "gitlens.showWelcomeOnInstall": false,
         "gitlens.showWhatsNewAfterUpgrades": false,
         "terminal.integrated.shell.linux": "/usr/bin/zsh",
-        "workbench.startupEditor": "none"
+        "workbench.startupEditor": "none",
+        "rubyLsp.rubyVersionManager": "none"
       }
     }
   }

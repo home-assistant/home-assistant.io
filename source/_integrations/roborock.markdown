@@ -15,7 +15,6 @@ ha_iot_class: Local Polling
 ha_release: 2023.5
 ha_config_flow: true
 ha_codeowners:
-  - '@humbertogontijo'
   - '@Lash-L'
 ha_domain: roborock
 ha_platforms:
@@ -34,14 +33,14 @@ ha_integration_type: integration
 
 The Roborock integration allows you to control your [Roborock](https://us.roborock.com/pages/robot-vacuum-cleaner) vacuum while using the Roborock app.
 
-This integration requires a cloud connection to set up the device, but it communicates with the device entirely over your home network.
+This integration requires a continuous cloud connection while using the device. However, excluding map data, communication between the integration and the device is conducted locally.
 
 Once you log in with your Roborock account, the integration will automatically discover your Roborock devices and get the needed information to communicate locally with them. Please ensure your Home Assistant instance can communicate with the local IP of your device. We recommend setting a static IP for your Roborock Vacuum to help prevent future issues. The device communicates on port 58867. Depending on your firewall, you may need to allow communication from Home Assistant to your vacuum on that port.
 
 {% include integrations/config_flow.md %}
 
 
-## Entities
+## Robovac entities
 
 Roborock devices have a variety of features that are supported on some devices but not on others. Only entities that your device supports will be added to your integration.
 
@@ -133,6 +132,39 @@ Reset air filter - The air filter is expected to be replaced every 150 hours.
 You can see all the maps within your Roborock account. Keep in mind that they are device-specific. The maps require the cloud API to communicate as the maps are seemingly stored on the cloud. If someone can figure out a way around this - contributions are always welcome.
 
 
+## Dyad entities
+
+Roborock wet/dry vacuums currently expose some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+Status - The current status of your vacuum. This typically describes the action that is currently being run. For example, 'drying' or 'charging'.
+
+Battery - The current charge of your device.
+
+Filter time left - how long until Roborock recommends cleaning/replacing your filter.
+
+Brush time left - how long until Roborock recommends cleaning/replacing your brush.
+
+Error - the current error of the device - if one exists - "None" otherwise.
+
+Total cleaning time - how long you have cleaned with your wet/dry vacuum.
+
+
+## Zeo Entities
+
+Roborock Zeo One currently exposes some entities through an MQTT connection - it is currently cloud dependent.
+
+### Sensor
+
+State - The current state of your washing machine. For example, 'washing' or 'rinsing'.
+
+Countdown - Countdown for how long until the machine starts.
+
+Washing left - The amount of time until your machine is done washing.
+
+Error - The current error of the Zeo, if one exists.
+
 ## FAQ
 
 ### Can I use the Mi home app with this integration?
@@ -156,18 +188,35 @@ We are working on adding a lot of features to the core integration. We have reve
 ### How can I clean a specific room?
 We plan to make the process simpler in the future, but for now, it is a multi-step process.
 1. Make sure to first name the rooms in the Roborock app; otherwise, they won't appear in the debug log.
-2. [Enable debug logging](/docs/configuration/troubleshooting/#enabling-debug-logging) for this integration and reload it.
-3. Search your logs for 'Got home data' and find the attribute rooms.
-4. Write the rooms down; they have a name and 6 digit ID.
-5. Make sure the map you want the room IDs for is selected in your app. Room IDs are non-unique and will repeat if you have multiple maps.
-6. Go to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %}. Select your vacuum as the entity and `get_room_mapping` as the command.
-7. Go back to your logs and look at the response to `get_room_mapping`. This is a list of the 6-digit IDs you saw earlier to 2-digit IDs (use the first number, for instance `16` in `[16, '14000663', 12]` ([internal room id, unique room id, room type])). In your original list of room names and 6-digit IDs, replace the 6-digit ID with its pairing 2-digit ID.
-8. Now, you have the 2-digit ID that your vacuum uses to describe a room.
-9. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Services** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
+2. Go to {% my developer_call_service service="roborock.get_maps" title="**Developer Tools** > **Actions** > **Roborock: Get Maps**" %}. Select your vacuum as the entity. Note that room IDs and names are only updated on the currently selected map.
+
+   - **Request**: Your request should look like:
+
+      ```yaml
+      action: roborock.get_maps
+      target:
+        entity_id: vacuum.s7_roborock
+      data: {}
+      ```
+
+   - **Result**: You will get a response like this:
+
+      ```json
+      vacuum.s7_roborock:
+        maps:
+          - flag: 0
+            name: Downstairs
+            rooms:
+              "16": Kitchen
+              "17": Living room
+      ```
+
+3. Go back to {% my developer_call_service service="vacuum.send_command" title="**Developer Tools** > **Actions** > **Vacuum: Send Command**" %} then type `app_segment_clean` as your command and `segments` with a list of the 2-digit IDs you want to clean. Then, add `repeat` with a number (ranging from 1 to 3) to determine how many times you want to clean these areas.
 
 Example:
+
 ```yaml
-service: vacuum.send_command
+action: vacuum.send_command
 data:
   command: app_segment_clean
   params:

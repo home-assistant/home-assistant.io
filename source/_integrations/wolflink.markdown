@@ -8,6 +8,7 @@ ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
   - '@adamkrol93'
+  - '@mtielen'
 ha_domain: wolflink
 ha_platforms:
   - sensor
@@ -26,5 +27,6 @@ The {% term integration %} fetches all data based on parameters, that are expose
 
 - Wolf Link Home Pro connected to a FGB-28 device
 - Wolf ISM7e / Link Pro connected to a COB-20 device
+- Wolf ISM7 (HW v1.0, SW v2.10.47) connected to a CGB-2-14 device
 
 {% include integrations/config_flow.md %}

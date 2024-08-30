@@ -9,9 +9,12 @@ ha_domain: starlingbank
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Starling Bank sensor platform allows you to monitor your account balance data as sensors in Home Assistant.
+The Starling Bank sensor {% term integration %} allows you to monitor your account balance data as sensors in Home Assistant.
 
 - Turn off the lights when money's tight?
 - Play a song when you reach a savings goal?
@@ -23,21 +26,24 @@ You can find more information about Starling Bank at [their website](https://www
 
 Once you have your own Starling bank account you will need to sign up for a Starling developer account [here](https://developer.starlingbank.com/signup). You won't need to do any development but you will need to get a "Personal Access Token" that will allow the integration to access your account balance.
 
-<div class='note info'>
-  You control what access is granted using this token. This integration only needs very basic access (see below).
-</div>
+{% note %}
+You control what access is granted using this token. This integration only needs very basic access (see below).
+{% endnote %}
 
 Once you've signed up:
 
-1. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account.
-2. Click "Create Token".
-3. Give your token a name e.g., "Home Assistant".
-4. Tick the permissions "account:read" and "balance:read". The others you can leave un-ticked.
-5. Click "Create" and make a note of the newly created token, you will need this for your Home Assistant configuration.
+1. Connect your personal Starling Bank account to your developer account. Head to [Personal Access Page](https://developer.starlingbank.com/personal) of your developer account.
+2. Follow the instructions to generate the QR code to scan within the Starling mobile app to authorize and link your bank account to the developer account.
+3. Head to the [Personal Access Section](https://developer.starlingbank.com/personal/token) of your developer account.
+4. Click "Create Token".
+5. Give your token a name, e.g., "Home Assistant".
+6. Tick the permissions "account:read" and "balance:read". The others you can leave un-ticked.
+7. Click "Create" and make a note of the newly created token, you will need this for your Home Assistant configuration.
 
 ## Configuration
 
-To add Starling account balance sensors to your installation, add the following to your `configuration.yaml` file:
+To add Starling account balance sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 ```yaml
 # Example configuration.yaml entry
 sensor:

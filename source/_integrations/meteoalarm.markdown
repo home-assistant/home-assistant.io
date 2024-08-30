@@ -19,7 +19,7 @@ The binary sensor state shows the warning message if applicable. The details are
 
 ## Configuration
 
-To enable this binary sensor, add the following lines to your `configuration.yaml`:
+To enable this binary sensor, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 binary_sensor:
@@ -94,9 +94,9 @@ automation:
     trigger:
       platform: state
       entity_id: binary_sensor.meteoalarm
-      from: ‘off’
+      from: 'off'
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"
           message: "{{state_attr('binary_sensor.meteoalarm', 'description')}} is effective on {{state_attr('binary_sensor.meteoalarm', 'effective')}}"
@@ -104,6 +104,6 @@ automation:
 
 {% endraw %}
 
-<div class='note warning'>
+{% note %}
 This integration is not affiliated with MeteoAlarm and retrieves data from the website by using the XML feeds. Use it at your own risk.
-</div>
+{% endnote %}

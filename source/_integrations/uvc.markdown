@@ -9,22 +9,26 @@ ha_domain: uvc
 ha_platforms:
   - camera
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `uvc` camera platform allows you to integrate [UniFi Video Camera (UVC)](https://www.ui.com/products/#unifivideo) into Home Assistant.
+The `uvc` camera {% term integration %} allows you to integrate [UniFi Video Camera (UVC)](https://www.ui.com/products/#unifivideo) into Home Assistant.
 
 The platform connects to the [UniFi NVR software](https://www.ui.com/download/unifi-video) and automatically discovers/adds any camera connected to the NVR.
 
 ### Setup
 
-It is recommended that you create a new user for this platform in the NVR software and only give the user the permissions it need to operate.
+It is recommended that you create a new user for this {% term integration %} in the NVR software and only give the user the permissions it need to operate.
 
 - The API key is found in `User` -> `My account` -> `API Access` in the NVR software.
 - The camera password is found in `Settings` -> `Camera Settings` -> `Camera Password` in the NVR software.
 
 ### Configuration
 
-To enable, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -60,6 +64,6 @@ ssl:
   default: false
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 When using an API_KEY to access cameras controlled by Ubiquiti's NVR Software, the associated user account MUST have at least Administrator privileges within the NVR Software in order for new cameras to be added into Home Assistant. Once the entities have been created in Home Assistant, privileges for the user account can be lowered.
-</div>
+{% endimportant %}

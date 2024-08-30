@@ -63,9 +63,9 @@ Additionally, we also support to trigger smarthome templates.
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
-</div>
+{% endnote %}
 
 ## Switches & thermostats
 
@@ -118,9 +118,9 @@ There are several attributes that can be useful for automations and templates.
 
 To get AVM FRITZ!DECT lightbulbs (e.g., FRITZ!DECT 500) follow the [configuration instructions](#configuration) above.
 
-<div class='note'>
-The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in home assistant that is not supported by the device, a color that comes close will be activated.
-</div>
+{% note %}
+The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in Home Assistant that is not supported by the device, a color that comes close will be activated.
+{% endnote %}
 
 ## Cover
 

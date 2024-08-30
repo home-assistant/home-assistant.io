@@ -18,9 +18,7 @@ When a `state_topic` is not available, the switch will work in optimistic mode. 
 
 Optimistic mode can be forced, even if the `state_topic` is available. Try to enable it, if experiencing incorrect switch operation.
 
-<a id='new_format'></a>
-
-To enable this switch in your installation, add the following to your `configuration.yaml` file:
+To enable this switch in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,6 +64,10 @@ availability_topic:
   description: The MQTT topic subscribed to receive availability (online/offline) updates. Must not be used together with `availability`.
   required: false
   type: string
+command_template:
+  description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `command_topic`. The switch command template accepts the parameters `value`. The `value` parameter will contain the configured value for either `payload_on` or `payload_off`.
+  required: false
+  type: template
 command_topic:
   description: The MQTT topic to publish commands to change the switch state.
   required: true
@@ -99,8 +101,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -119,7 +129,6 @@ device_class:
   description: The [type/class](/integrations/switch/#device-class) of the switch to set the icon in the frontend. The `device_class` can be `null`.
   required: false
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -134,7 +143,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -202,7 +210,7 @@ state_on:
   type: string
   default: "`payload_on` if defined, else ON"
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 unique_id:
@@ -215,11 +223,9 @@ value_template:
   type: template
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

@@ -12,9 +12,8 @@ The `mqtt` climate platform lets you control your MQTT enabled HVAC devices.
 
 ## Configuration
 
-<a id='new_format'></a>
-
-To enable this climate platform in your installation, first add the following to your `configuration.yaml` file:
+To enable this climate platform in your installation, first add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -31,8 +30,8 @@ action_template:
   type: template
 action_topic:
   description: >-
-    The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source.
-    Valid values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
+    The MQTT topic to subscribe for changes of the current action. If this is set, the climate graph uses the value received as data source. A "None" payload resets the current action state. An empty payload is ignored.
+    Valid action values: `off`, `heating`, `cooling`, `drying`, `idle`, `fan`.
   required: false
   type: string
 availability:
@@ -116,8 +115,16 @@ device:
       description: 'The model of the device.'
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: 'The name of the device.'
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -146,7 +153,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 fan_mode_command_template:
   description: A template to render the value sent to the `fan_mode_command_topic` with.
   required: false
@@ -160,7 +166,7 @@ fan_mode_state_template:
   required: false
   type: template
 fan_mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC fan mode. If this is not set, the fan mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the HVAC fan mode. If this is not set, the fan mode works in optimistic mode (see below). A "None" payload resets the fan mode state. An empty payload is ignored.
   required: false
   type: string
 fan_modes:
@@ -187,7 +193,7 @@ json_attributes_topic:
 max_humidity:
   description: The minimum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 99
 max_temp:
   description: Maximum set point available. The default value depends on the temperature unit, and will be 35°C or 95°F.
@@ -196,7 +202,7 @@ max_temp:
 min_humidity:
   description: The maximum target humidity percentage that can be set.
   required: false
-  type: integer
+  type: float
   default: 30
 min_temp:
   description: Minimum set point available. The default value depends on the temperature unit, and will be 7°C or 44.6°F.
@@ -215,7 +221,7 @@ mode_state_template:
   required: false
   type: template
 mode_state_topic:
-  description: The MQTT topic to subscribe for changes of the HVAC operation mode. If this is not set, the operation mode works in optimistic mode (see below).
+  description: The MQTT topic to subscribe for changes of the HVAC operation mode. If this is not set, the operation mode works in optimistic mode (see below). A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 modes:
@@ -262,7 +268,7 @@ power_command_template:
   required: false
   type: template
 power_command_topic:
-  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` service. Note that `optimistic` mode is not supported through `climate.turn_on` and `climate.turn_off` services. When called, these services will send a power command to the device but will not optimistically update the state of the climate entity. The climate device should report its state back via `mode_state_topic`.
+  description: The MQTT topic to publish commands to change the HVAC power state. Sends the payload configured with `payload_on` if the climate is turned on via the `climate.turn_on`, or the payload configured with `payload_off` if the climate is turned off via the `climate.turn_off` action. Note that `optimistic` mode is not supported through `climate.turn_on` and `climate.turn_off` actions. When called, these actions will send a power command to the device but will not optimistically update the state of the climate entity. The climate device should report its state back via `mode_state_topic`.
   required: false
   type: string
 precision:

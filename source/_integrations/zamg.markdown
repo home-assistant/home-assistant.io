@@ -1,6 +1,6 @@
 ---
-title: Zentralanstalt für Meteorologie und Geodynamik (ZAMG)
-description: Instructions on how to integrate ZAMG within Home Assistant.
+title: GeoSphere Austria
+description: Instructions on how to integrate GeoSphere Austria (formerly known as ZAMG) within Home Assistant.
 ha_category:
   - Sensor
   - Weather
@@ -16,9 +16,9 @@ ha_codeowners:
   - '@killer0071234'
 ---
 
-The `zamg` platform uses meteorological details published by the Austrian weather service [Zentralanstalt für Meteorologie und Geodynamik (ZAMG)](https://www.zamg.ac.at).
+The `GeoSphere Austria` platform uses meteorological details published by the Austrian weather service [GeoSphere Austria](https://www.geosphere.at).
 
-With this integration, it is possible to get weather station data from up to 228 different ZAMG stations across Austria. The integration uses the [datahub-api](https://dataset.api.hub.zamg.ac.at/v1/docs/index.html).
+With this integration, it is possible to get weather station data from up to 228 different GeoSphere stations across Austria. The integration uses the [datahub-api](https://dataset.api.hub.geosphere.at/v1/docs/index.html).
 
 {% include integrations/config_flow.md %}
 
@@ -48,6 +48,6 @@ This integration provides the following sensors:
 |Precipitation|Precipitation in mm|
 |Snow|Snow in cm|
 
-<div class='note'>
+{% note %}
 Not every station supports every sensor.
-</div>
+{% endnote %}

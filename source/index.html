@@ -2,35 +2,20 @@
 show_title: false
 sidebar: false
 hero_unit: true
+dark_header: true
 is_homepage: true
 regenerate: true
 feedback: false
 ---
 
-{% assign recent_release_post = site.categories['Core'].first %}
-
 <div class="frontpage">
   <div class="grid">
-    <div class="grid__item one-third lap-one-third palm-one-whole">
-      <div class="current-version material-card text">
-        <h1>
-          Current Version: {{ site.current_major_version }}.{{
-          site.current_minor_version }}.{{ site.current_patch_version }}
-        </h1>
-        Released:
-        <span class="release-date"
-          >{{ site.date_released | date: "%B %e, %Y" }}</span
-        >
 
-        <div class="links">
-          <a href="{{ recent_release_post.url }}{{ site.patch_version_notes }}"
-            >Release notes</a
-          >
-        </div>
-      </div>
+    <!--  Left sidebar begins -->
+    <div class="grid__item one-third lap-one-third palm-one-whole">
 
       <div class="recent-posts material-card text">
-        <h1>Recent Blog Posts</h1>
+        <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
 
         {% for post in site.posts limit: 4 %}
         <li class="post" style="display: grid; font-size: 16px">
@@ -41,13 +26,14 @@ feedback: false
       </div>
 
       <div class="join-community material-card text">
-        <h1>Join The Community</h1>
-        We love to help with &amp; talk about home automation.
+        <h1>{% icon "mdi:people-group-outline" %} Join The Community</h1>
+
+        Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
 
         <div class="links">
-          <a href="https://community.home-assistant.io">Forums</a>
-          <a href="/join-chat/">Chat</a>
-          <a href="/newsletter/">Newsletter</a>
+          <a href="https://community.home-assistant.io">{% icon "simple-icons:discourse" %} Forums</a>
+          <a href="/join-chat/">{% icon "simple-icons:discord" %} Chat</a>
+          <a href="/newsletter/">{% icon "mdi:email-newsletter" %} Newsletter</a>
         </div>
       </div>
 
@@ -56,11 +42,11 @@ feedback: false
         href="/blog/2016/01/19/perfect-home-automation/"
       >
         Read our founder's vision for the perfect home automation
-        <i class="icon-arrow-right"></i>
+        <iconify-icon icon="mdi:arrow-right-thick"></iconify-icon>
       </a>
 
       <div class="material-card text">
-        <h1>Alexa, turn on the lights</h1>
+        <h1>{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h1>
         Use Alexa to control Home Assistant.
 
         <div class="links">
@@ -72,7 +58,7 @@ feedback: false
         </div>
       </div>
       <div class="material-card text">
-        <h1>Ok Google, turn on the AC</h1>
+        <h1>{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h1>
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
@@ -85,13 +71,23 @@ feedback: false
       </div>
 
       <a
+        class="material-card highlight-blog-post"
+        href="https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/"
+      >
+        We are a non-profit and can't be sold or acquired
+        <iconify-icon icon="mdi:arrow-right-thick"></iconify-icon>
+      </a>
+
+      <a
         class="material-card picture-promo"
         href="/blog/2019/08/06/home-assistant-cast/"
         style="background-image: url(/images/frontpage/cast-frontpage.png)"
       >
         <div class="caption">
-          <div class="title">
-            Take over all the screens
+          <div>
+            <div class="title">
+              Take over all the screens
+            </div>
             <div class="subtitle">
               Home Assistant Cast makes every TV a display.
             </div>
@@ -104,7 +100,21 @@ feedback: false
         </div>
       </a>
     </div>
+    <!-- Left sidebar ends -->
+
+    <!-- Right content begins -->
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
+      <!-- State of the Open Home -->
+      <a
+        href="/blog/2024/04/24/state-of-the-open-home-2024/"
+        class="material-card picture-promo"
+        style="
+          background-image: url(/images/frontpage/state-of-the-open-home-2024.png);
+          background-size: cover;
+          padding-top: 55%;
+        "
+      ></a>
+
       <a
         class="material-card picture-promo"
         href="/voice_control/"
@@ -115,8 +125,10 @@ feedback: false
         "
       >
         <div class="caption">
-          <div class="title">
-            Control your home with Assist
+          <div>
+            <div class="title">
+              Control your home with Assist
+            </div>
             <div class="subtitle">
               Our private, insanely fast, voice assistant running on affordable
               hardware. Now supporting wake words.
@@ -130,16 +142,6 @@ feedback: false
         </div>
       </a>
 
-      <!-- 10 YEAR HA -->
-      <a
-        href="https://www.youtube.com/watch?v=EmLV6lJLzSU"
-        class="material-card picture-promo"
-        style="
-          background-image: url(/images/frontpage/HA10_-_Website_banner.png);
-          background-size: cover;
-          padding-top: 55%;
-        "
-      ></a>
       {% assign pages_by_date = site.pages | sort: "date" | reverse %} {% for
       page in pages_by_date %} {% if page.layout == "landingpage" and
       page.frontpage != false %}
@@ -153,8 +155,10 @@ feedback: false
           "
       >
         <div class="caption">
-          <div class="title">
-            {{page.title}}
+          <div>
+            <div class="title">
+              {{page.title}}
+            </div>
             <div class="subtitle">{{page.description}}</div>
           </div>
           <svg viewBox="0 0 24 24">
@@ -184,8 +188,10 @@ feedback: false
         "
       >
         <div class="caption">
-          <div class="title">
-            Home Assistant Tags
+          <div>
+            <div class="title">
+              Home Assistant Tags
+            </div>
             <div class="subtitle">
               Use NFC to bring music to your life or automate the mundane.
             </div>
@@ -201,11 +207,13 @@ feedback: false
       <a
         class="material-card picture-promo"
         href="https://home-assistant-store.creator-spring.com/"
-        style="background-image: url(/images/merchandise/shirt-frontpage.png)"
+        style="background-image: url(/images/merchandise/shirt-frontpage.jpg)"
       >
         <div class="caption">
-          <div class="title">
-            Join the Home Assistant t-shirt revolution!
+          <div>
+            <div class="title">
+              Join the Home Assistant t-shirt revolution!
+            </div>
             <div class="subtitle">
               Look sharp in blue, black or gray. Wearing a HA t-shirt is okay.
             </div>
@@ -218,117 +226,126 @@ feedback: false
         </div>
       </a>
     </div>
+    <!-- Right content ends -->
 
-    <div class="sub-title">Features</div>
+
+    <!-- Features section -->
     {% include custom/features.html %}
-    <div class="grid sponsors-and-press">
-      <div class="sponsored-by grid__item one-half lap-one-half palm-one-whole">
-        <div class="material-card">
-          <h1>Home Assistant is sponsored by</h1>
 
+
+    <!-- Press section -->
+    <section class="grid sponsors-and-press">
+      <div class="seen-press grid__item one-whole">
+        <h2>Home Assistant in the press</h2>
+
+        <a
+          href="https://www.theverge.com/2021/9/16/22678088/home-assistant-amber-smart-home-hub-specs-release-date-price"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img alt="The Verge logo" src="/images/press/theverge.svg"
+        /></div></a>
+
+        <a
+          href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="ArsTechnica.com logo"
+            src="/images/press/arstechnica.svg"
+        /></div></a>
+
+        <a
+          href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img alt="Tweakers.net logo" src="/images/press/tweakers.png"
+        /></div></a>
+
+        <a
+          href="https://www.youtube.com/watch?v=x7pSkVarixU"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="Linus Tech Tips logo"
+            class="square"
+            src="/images/press/ltt.svg"
+        /></div></a>
+
+        <a
+          href="https://www.troyhunt.com/iot-unravelled-part-1-its-a-mess-but-then-theres-home-assistant/"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            class="square round"
+            alt="Troy Hunt logo"
+            src="/images/press/troyhunt.jpg"
+        /></div></a>
+
+        <a
+          href="https://www.tomshardware.com/news/raspberry-pi-home-assistant-amber"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="Tom's Hardware logo"
+            src="/images/press/tomshardware.svg"
+        /></div></a>
+
+        <a
+          href="https://www.producthunt.com/posts/home-assistant"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="ProductHunt.com logo"
+            src="/images/press/producthunt.com.png"
+        /></div></a>
+
+        <a
+          href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img alt="Linux.com logo" src="/images/press/linux.com.png"
+        /></div></a>
+
+        <a
+          href="https://opensource.com/article/17/7/home-automation-primer"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="OpenSource.com logo"
+            src="/images/press/opensource.com.svg"
+        /></div></a>
+
+        <a
+          href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img
+            alt="Linux Magazine logo"
+            src="/images/press/LinuxMagazine.png"
+        /></div></a>
+
+        <a
+          href="https://www.heise.de/select/ct/2017/26/1513910625909214"
+          target="_blank"
+          rel="noopener"
+          ><div class="material-card"><img alt="Ct logo" src="/images/press/ct.png"
+        /></div></a>
+      </div>
+    </section>
+
+
+    <!-- Sponsor section -->
+
+    <section class="sponsor">
+      <div class="sponsored-by grid__item one-whole">
+        <h2>The Home Assistant project is sponsored by</h2>
+        <div class="material-card text">
           <a href="https://www.nabucasa.com"
             ><img alt="Nabu Casa logo" src="/images/sponsors/nabu_casa.svg"
           /></a>
         </div>
       </div>
-      <div class="seen-press grid__item one-half lap-one-half palm-one-whole">
-        <div class="material-card">
-          <h1>Home Assistant in the press</h1>
+    </section>
 
-          <a
-            href="https://www.theverge.com/2021/9/16/22678088/home-assistant-amber-smart-home-hub-specs-release-date-price"
-            target="_blank"
-            rel="noopener"
-            ><img alt="The Verge logo" src="/images/press/theverge.svg"
-          /></a>
-
-          <a
-            href="https://arstechnica.com/information-technology/2021/03/how-to-achieve-smart-home-nirvana-or-home-automation-without-subscription/"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="ArsTechnica.com logo"
-              src="/images/press/arstechnica.svg"
-          /></a>
-
-          <a
-            href="https://tweakers.net/reviews/8704/paulus-schoutsen-home-assistant-concurreert-met-alles-wat-via-de-cloud-gaat.html"
-            target="_blank"
-            rel="noopener"
-            ><img alt="Tweakers.net logo" src="/images/press/tweakers.png"
-          /></a>
-
-          <a
-            href="https://www.youtube.com/watch?v=x7pSkVarixU"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="Linus Tech Tips logo"
-              class="square"
-              src="/images/press/ltt.svg"
-          /></a>
-
-          <a
-            href="https://www.troyhunt.com/iot-unravelled-part-1-its-a-mess-but-then-theres-home-assistant/"
-            target="_blank"
-            rel="noopener"
-            ><img
-              class="square round"
-              alt="Troy Hunt logo"
-              src="/images/press/troyhunt.jpg"
-          /></a>
-
-          <a
-            href="https://www.tomshardware.com/news/raspberry-pi-home-assistant-amber"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="Tom's Hardware logo"
-              src="/images/press/tomshardware.svg"
-          /></a>
-
-          <a
-            href="https://www.producthunt.com/posts/home-assistant"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="ProductHunt.com logo"
-              src="/images/press/producthunt.com.png"
-          /></a>
-
-          <a
-            href="https://www.linux.com/news/home-assistant-python-approach-home-automation-video"
-            target="_blank"
-            rel="noopener"
-            ><img alt="Linux.com logo" src="/images/press/linux.com.png"
-          /></a>
-
-          <a
-            href="https://opensource.com/article/17/7/home-automation-primer"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="OpenSource.com logo"
-              src="/images/press/opensource.com.svg"
-          /></a>
-
-          <a
-            href="http://www.linux-magazine.com/Issues/2017/203/Home-Assistant"
-            target="_blank"
-            rel="noopener"
-            ><img
-              alt="Linux Magazine logo"
-              src="/images/press/LinuxMagazine.png"
-          /></a>
-
-          <a
-            href="https://www.heise.de/ct/ausgabe/2017-26-Hausautomations-Schaltzentrale-Home-Assistant-3909532.html"
-            target="_blank"
-            rel="noopener"
-            ><img alt="Ct logo" src="/images/press/ct.png"
-          /></a>
-        </div>
-      </div>
-    </div>
   </div>
 </div>

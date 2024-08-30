@@ -9,6 +9,9 @@ ha_domain: bluetooth_le_tracker
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This tracker discovers new devices on boot and in regular intervals and tracks Bluetooth low-energy devices periodically based on interval_seconds value. It is not required to pair the devices with each other.
@@ -21,7 +24,8 @@ This {% term integration %} requires the [Bluetooth](/integrations/bluetooth) in
 
 ## Configuration
 
-To use the Bluetooth tracker in your installation, add the following to your `configuration.yaml` file:
+To use the Bluetooth tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

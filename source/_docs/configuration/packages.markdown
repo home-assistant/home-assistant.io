@@ -19,7 +19,7 @@ The package configuration can include: `switch`, `light`, `automation`, `groups`
 
 It can be specified inline or in a separate YAML file using `!include`.
 
-Inline example, main `configuration.yaml`:
+Inline example, main {% term "`configuration.yaml`" %}:
 
 ```yaml
 homeassistant:
@@ -34,7 +34,7 @@ homeassistant:
           ...
 ```
 
-Include example, main `configuration.yaml`:
+Include example, main {% term "`configuration.yaml`" %}:
 
 ```yaml
 homeassistant:
@@ -68,13 +68,13 @@ There are some rules for packages that will be merged:
 
 3. Any integration that is not a platform [1], or dictionaries with Entity ID keys [2] can only be merged if its keys, except those for lists, are solely defined once.
 
-<div class='note tip'>
+{% tip %}
 Integrations inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
-</div>
+{% endtip %}
 
 ## Create a packages folder
 
-One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory, you can store any number of packages in a YAML file. This entry in your `configuration.yaml` will load all YAML-files in this _packages_ folder and its subfolders:
+One way to organize packages is to create a folder named "packages" in your Home Assistant configuration directory. In the packages directory, you can store any number of packages in a YAML file. This entry in your {% term "`configuration.yaml`" %} will load all YAML-files in this _packages_ folder and its subfolders:
 
 ```yaml
 homeassistant:
@@ -114,10 +114,8 @@ homeassistant:
 ```
 
 
-<div class='note warning'>
-
+{% important %}
 If you are moving configuration to packages, `auth_providers` must stay within ‘configuration.yaml’. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
 
 This is because Home Assistant processes the authentication provided early in the start-up process, even before packages are processed.
-
-</div>
+{% endimportant %}

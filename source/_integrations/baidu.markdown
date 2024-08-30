@@ -9,13 +9,17 @@ ha_domain: baidu
 ha_platforms:
   - tts
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `baidu` text-to-speech platform uses [Baidu TTS engine](https://cloud.baidu.com/product/speech/tts) to read a text with natural sounding voices.
 
 ## Configuration
 
-To get started, add the following lines to your `configuration.yaml`:
+To get started, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 #Example configuration.yaml entry

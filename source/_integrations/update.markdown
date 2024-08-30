@@ -8,6 +8,11 @@ ha_domain: update
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 An update {% term entity %} is an entity that indicates if an update is available for a
@@ -21,9 +26,9 @@ provided by an integration to the {% term entity %}. For example, the version th
 available, a summary of the release notes, and even links that provide more
 information on the available update.
 
-Lastly, there are two services available for the update {% term entity %}. If possible and
+Lastly, there are two actions available for the update {% term entity %}. If possible and
 made available by the integration providing the update {% term entity %}, triggering
-the actual update from Home Assistant. The other service exposed allows for
+the actual update from Home Assistant. The other action exposed allows for
 skipping the offered update.
 
 {% include integrations/building_block_integration.md %}
@@ -49,79 +54,85 @@ information on the update state:
 - `release_summary`: A summary of the release notes for the update available.
 - `release_url`: A link to the full release announcement for the update available.
 
-## Device classes
+## Device class
 
-The way these update entities are displayed in the frontend depend on their
-device classes. The following device classes are supported for switches:
+{% include integrations/device_class_intro.md %}
+
+The following device classes are supported for update entities:
 
 - **`None`**: A generic software update. This is the default and doesn't need
   to be set.
 - **`firmware`**: This update {% term integration %} provides firmwares.
 
-## Services
+## Actions
 
-The update {% term entity %} exposes two services that can be used to install or skip
+The update {% term entity %} exposes two actions that can be used to install or skip
 an offered software update.
 
-### Service {% my developer_call_service service="update.install" %}
+### Action {% my developer_call_service service="update.install" %}
 
-The {% my developer_call_service service="update.install" %} service can be used
+The {% my developer_call_service service="update.install" %} action can be used
 to install an offered update to the device or service.
 
-This service is only available for an update {% term entity %} if an {% term integration %} provides
-this capability. Additionally, if allowed by the {% term integration %}, the service
+This action is only available for an update {% term entity %} if an {% term integration %} provides
+this capability. Additionally, if allowed by the {% term integration %}, the action
 provides for installing a specific version and even could make a
 backup before installing the update.
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            |      no  | String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`.
-| `version`              |     yes  | A specific update version to install, if not provided, the latest available update will be installed. Availability of this atrribute is dependent on the {% term integration %}.
-| `backup`               |     yes  | If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}.
+#### Action data attributes
 
-Example service call:
+{% configuration_basic %}
+entity_id (required):
+  description: "String or list of strings that point at `entity_id`s of updates. To target all updates, set `entity_id` to `all`."
+version:
+  description: "A specific update version to install, if not provided, the latest available update will be installed. Availability of this attribute is dependent on the {% term integration %}."
+backup:
+  description: "If set to `true`, a backup will be made before installing the update. Availability of this attribute is dependent on the {% term integration %}."
+{% endconfiguration_basic %}
+
+Example action:
 
 ```yaml
-service: update.install
+action: update.install
 target:
   entity_id:
     - update.my_light_bulb
 ```
 
-### Service {% my developer_call_service service="update.skip" %}
+### Action {% my developer_call_service service="update.skip" %}
 
-The {% my developer_call_service service="update.skip" %} service can be used
+The {% my developer_call_service service="update.skip" %} action can be used
 to skip an offered update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 which means there is no update available.
 
 ```yaml
-service: update.skip
+action: update.skip
 target:
   entity_id:
     - update.my_light_bulb
 ```
 
 Even if an update is skipped and shows as `off` (meaning no update), if there
-is a newer version available, calling the `update.install` service on the entity
+is a newer version available, calling the `update.install` action on the entity
 will still install the latest version.
 
-### Service {% my developer_call_service service="update.clear_skipped" %}
+### Action {% my developer_call_service service="update.clear_skipped" %}
 
-The {% my developer_call_service service="update.clear_skipped" %} service can
+The {% my developer_call_service service="update.clear_skipped" %} action can
 be used to remove skipped version marker of a previously skipped an offered
 update to the device or service.
 
 After skipping an offered update, the {% term entity %} will return to the `off` state,
 but will not return to it until a newer version becomes available again.
 
-Using the `update.clear_skipped` service, the skipped version marker can be
+Using the `update.clear_skipped` action, the skipped version marker can be
 removed and thus the entity will return to the `on` state and the update
 notification will return.
 
 ```yaml
-service: update.clear_skipped
+action: update.clear_skipped
 target:
   entity_id:
     - update.my_light_bulb
@@ -148,7 +159,7 @@ automation:
       to: "on"
     action:
       alias: "Send notification to my phone about the update"
-      service: notify.iphone
+      action: notify.iphone
       data:
         title: "New update available"
         message: "New update available for my_light_bulb!"

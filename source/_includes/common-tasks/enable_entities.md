@@ -1,12 +1,16 @@
-## Enabling entities
+## Enabling or disabling elements
 
 Some entities are disabled by default. To enable them, follow these steps:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}** and select the integration of interest.
-2. Select **entities**.
-3. From the list of entities, select the entity you want to enable.
-    ![Select entity from list](/images/screenshots/enable_entities_01.png)
-4. In the pop-up, select the cogwheel.
-5. Toggle the **Enabled** button.
-    ![Enable entities](/images/screenshots/enable_entities_03.png)
-6. To save the changes, select **Update**.
+1. In Home Assistant, open the table of interest.
+   - To enable or disable entities, go to {% my entities title="**Settings** > **Devices & Services** > **Entities**" %}.
+   - To enable or disable automations, go to {% my automations title="**Settings** > **Automations & Scenes**" %}.
+2. [Enable multiselect](/docs/organizing/tables) and select all the entities you want to enable or disable.
+3. In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Enable** or **Disable**.
+
+   ![Screenshot showing how to enable or disable multiple automations](/images/organizing/enable_disable.png)
+
+## Related topics
+
+- [Grouping your assets](/docs/organizing/)
+- [Working with tables](/docs/organizing/tables)

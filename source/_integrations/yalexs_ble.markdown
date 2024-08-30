@@ -37,6 +37,7 @@ Devices must have a Yale Access module installed to function with this {% term i
 - YRD420 (Yale Assure Lock 2)
 - YRD450 (Yale Assure Lock 2 Key Free)
 - YUR/SSDL/1/SIL (Yale Unity Screen Door Lock - Australia)
+- YUR/DEL/1/SIL (Yale Unity Entrance Lock - Australia)
 - IES-D210W-G0 (Yale Smart Safe)
 - YRSM-1 (Yale Smart Safe)
 - ASL-05 (August WiFi Smart Lock - Gen 4)
@@ -60,7 +61,7 @@ Some locks only send push updates when they have an active HomeKit pairing. If y
 
 One easy way to fix this is to create a new/second home in the Apple Home app and add the lock to that new home. Push updates should occur as intended after the lock is added.
 
-Alternatively, call the `homeassistant.update_entity` service to force the {% term integration %} to update the lock state, or enable the always connected option.
+Alternatively, call the `homeassistant.update_entity` action to force the {% term integration %} to update the lock state, or enable the always connected option.
 
 {% include integrations/option_flow.md %}
 
@@ -93,4 +94,18 @@ The iOS app will only save the offline key to your device's filesystem if Auto-U
 
 The Android app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
 
-Root access is required to read the `key` and `slot` stored in `/data/data/com.august.luna/shared_prefs/PeripheralInfoCache.xml`
+Root access is required to copy the `ModelDatabase.db` from `/data/data/com.august.bennu/databases`. Once copied, you can use [DB Browser for SQLite](https://sqlitebrowser.org/) to open the `ModelDatabase.db`, navigate to the table `LockData` and find the column `offlineKeys`. There, you will find a JSON that includes the `key` and `slot` properties.
+
+### Android - Yale Home
+
+The Android app will only save the offline key to your device's filesystem if Auto-Unlock has been enabled and used at least once. Auto-Unlock can be disabled once the key has been loaded.
+
+Root access is required to copy the `ModelDatabase.sql` from `/data/data/com.assaabloy.yale/databases`. Once copied, you can use [DB Browser for SQLite](https://sqlitebrowser.org/) to open the `ModelDatabase.sql`, navigate to the table `LockData` and find the column `offlineKeys`. There, you will find a JSON that includes the `key` and `slot` properties.
+
+## Troubleshooting
+
+### Lock frequently requires re-authentication
+
+If you use the key from an iOS or Android device that you also frequently use to operate the lock, you may find that the key is rotated, and the integration can no longer authenticate. If you are using the [August](/integrations/august) integration to keep the key up to date, it may need to be reloaded to update the key. 
+
+To avoid the problem, create a second owner account in the August app, log in to it once on your iOS or Android device, operate the locks, log out of the account, remove the August integration, and set up the August integration with the secondary owner account. This method avoids the problem because there is no longer an iOS or Android device logged into the secondary owner account that can rotate the key unexpectedly.

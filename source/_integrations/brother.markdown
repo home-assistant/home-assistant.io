@@ -24,22 +24,21 @@ The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}
 
-<div class="note warning">
-
+{% note %}
 Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
-
-</div>
+{% endnote %}
 
 ## Configuring the printer
 
-To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP.
+To enable SNMP, navigate to the printer's web interface (for example: `http://192.168.5.6`) and turn it on under Network / Protocol / SNMP. For some models, access to the web interface is password-protected. For some printers, the default password is printed on a sticker on the back of the printer, preceded by "Pwd:". If the printer does not have a password on the sticker, the default password is "initpass".
+
 For some Brother devices, `SNMPv3 read-write access and v1/v2c read-only access` is the option required (under advanced settings).
 
 ![SNMP settings on Brother Printer web interface](/images/integrations/brother/brother-printer-webui.png)
 
 ## Sensor example
 
-You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to `configuration.yaml` under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
+You can configure Home Assistant to alert you when the printer jams or runs out of paper as follows.  First, add the following to {% term "`configuration.yaml`" %} under the `template:` section (Note: replace `sensor.hl_l2340d_status` with the actual name of your sensor):
 
 {% raw %}
 

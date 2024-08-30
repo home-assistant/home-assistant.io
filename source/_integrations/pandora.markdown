@@ -9,13 +9,16 @@ ha_domain: pandora
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
 
-<div class='note'>
+{% important %}
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
-</div>
+{% endimportant %}
 
 ### Installation of Pianobar
 
@@ -53,7 +56,8 @@ Test it out by running `pianobar` in the command line. You should be able to lis
 
 ### Configuration in Home Assistant
 
-The Pandora player can be loaded by adding the following lines to your `configuration.yaml`:
+The Pandora player can be loaded by adding the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

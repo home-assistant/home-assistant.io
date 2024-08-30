@@ -154,11 +154,6 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       <span>Zigbee & Thread</span>
       <span>Comes with Zigbee out of the box. Thread to power your Matter network is coming soon.</span>
     </div>
-    <div class="item">
-      <span>Ready</span>
-      <span>Zero Setup</span>
-      <span>Comes with Home Assistant.</span>
-    </div>
   </div>
 </div>
 
@@ -168,17 +163,6 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 
 <div class="material-card text spaced-card">
   <h1>Pick your flavor</h1>
-  <div class="yellow-variant">
-    <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow"></div>
-    <div>
-      <b>Home Assistant Yellow</b><br>
-      This flagship version of Home Assistant Yellow is ready to go out of the box.
-      <br><br>
-      It comes pre-assembled in a custom enclosure with a Raspberry Pi Compute Module 4 (CM4) and a custom heat sink for fanless, silent operation. The CM4 is a version without wireless and has 2&nbsp;GB RAM and 16&nbsp;GB eMMC storage. Pre-installed with Home Assistant.
-      <br><br>
-      To get started, just plug in the power supply and the Ethernet cable. The cables are included in the box. This variant does not have Power-over-Ethernet.
-    </div>
-  </div>
   <div class="yellow-variant">
     <div><img src="/images/yellow/yellow-kit-poe-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow Kit Power-over-Ethernet variant"></div>
     <div>
@@ -197,6 +181,14 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       <b>Not included</b>: You must provide your own Raspberry Pi Compute Module 4 and install Home Assistant on it. This allows you to pick the compute module with the memory and eMMC storage to fit your needs. This kit comes with a power supply, but does not support Power-over-Ethernet.
     </div>
   </div>
+  <div class="yellow-variant">
+    <div><img src="/images/yellow/yellow-2d.jpg" alt="2D overview of the content of the Home Assistant Yellow"></div>
+    <div>
+      <b>Home Assistant Yellow Standard*</b><br>
+      The version of Home Assistant Yellow that was ready to go out of the box. It came pre-assembled in a custom enclosure with a Raspberry Pi Compute Module 4 (CM4), a custom heat sink for silent operation, and with the Home Assistant Operating System pre-installed.
+      <br><br>*Although Home Assistant Yellow Standard is no longer manufactured, it will continue to receive the same support as the kit models. If you are looking for more of a plug-and-play experience, take a look at the <a href = "https://www.home-assistant.io/green/">Home Assistant Green</a>.
+    </div>
+  </div>
 </div>
 
 
@@ -211,8 +203,6 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 <div class="material-card text spaced-card">
   <h1>Buying a Raspberry Pi Compute Module 4 (CM4)</h1>
   <p>If you bought the Home Assistant Yellow Kit, you need to bring your own Raspberry Pi Compute Module 4.
-  </p>
-  <p>A chip shortage still impacts the availability of the CM4. Our recommendation is to use <a href="https://rpilocator.com/" target="_blank">rpilocator</a>. This website tracks the stock of official Raspberry Pi distributors. Follow them on X and enable push notifications. You will be notified as soon as the bot tweets that products are in stock.
   </p>
   <p>
     We recommend purchasing a Raspberry Pi Compute Module 4 with the following characteristics: 
@@ -258,7 +248,7 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
         <li>M.2 socket M-Key</li>
         <li>Supports 2230, 2242, 2260, and 2280 modules</li>
         <li>PCIe x1</li>
-        <li>Note: Google Coral AI Accelerator not working, details in this <a href="https://github.com/google-coral/edgetpu/issues/280#issuecomment-818202094">issue</a></li>
+        <li>Note: Google Coral AI Accelerator doesn't work in the expansion slot. For details, see this <a href="https://github.com/google-coral/edgetpu/issues/280#issuecomment-818202094">issue</a></li>
       </ul>
     </li>
     <li>Gigabit Ethernet</li>
@@ -315,6 +305,16 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
   </ul>
 </div>
 
+<h1 class="sub-title">FAQs</h1>
+<div class="faq-list">
+  {% details "Can I buy the Home Assistant Yellow pre-assembled?" %} <p>No. We previously offered a Home Assistant Yellow Standard model that came pre-assembled with a Raspberry Pi CM4, but this model is no longer manufactured. It is now recommended that if you want a more plug-and-play experience, you purchase a <a href="https://www.home-assistant.io/green" target="_blank">Home Assistant Green</a>, as it requires no assembly and matches many of the capabilities of the Yellow, especially if you add a <a href="https://www.home-assistant.io/connectzbt1/" target="_blank">Home Assistant Connect ZBT-1</a> to give it Zigbee/Thread capability.
+  </p>
+  {% enddetails %}
+
+  {% details "What happened to Home Assistant Yellow Standard, and will it still be supported?" %} <p>The Home Assistant Yellow Standard was originally designed to be the beginner option in our product line, as it was pre-assembled and easier to get started with. In 2023, we launched the <a href="https://www.home-assistant.io/green" target="_blank">Home Assistant Green</a>, which offered similar features, including easy setup, but at a lower price point. This led us to end the manufacture of the Home Assistant Yellow Standard and focus on Yellow Kit versions for advanced users. Rest assured, it will continue to receive the same support and software updates as the Yellow Kit variants.
+  </p>
+  {% enddetails %}
+
 <div class="material-card text spaced-card">
   <a href="https://yellow.home-assistant.io/" target="_blank"
   class="documentation-card">
@@ -349,109 +349,215 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
       </span>
     </div>
     <div class="distributors">
+      <details id="dist_america">
+        <summary class="region">Shipping to America</summary>
+        <div>
 
-      <a href="https://ameridroid.com/products/home-assistant-yellow" target="_blank">
-        <div class="distributor">
-          <div>
-            <div>🇺🇸</div>
-            <div>ameriDroid</div>
-            <div>Shipping from the USA. Yellow Standard only.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
+          <a href="https://ameridroid.com/products/home-assistant-yellow" target="_blank">
+            <div class="distributor">
+              <div>
+                <div>🇺🇸</div>
+                <div>ameriDroid</div>
+                <div>Shipping from US</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a href="https://cloudfree.shop/product/home-assistant-yellow/" target="_blank">
+            <div class="distributor">
+              <div>
+                <div>🇺🇸</div>
+                <div>CloudFree</div>
+                <div>Shipping from US</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
         </div>
-      </a>
+      </details>
+      <details id="dist_asia">
+        <summary class="region">Shipping to Asia</summary>
+        <div>
 
-      <a href="https://www.crowdsupply.com/nabu-casa/home-assistant-yellow#products" target="_blank">
-        <div class="distributor">
-          <div>
-            <div>🇺🇸</div>
-            <div>Crowd Supply</div>
-            <div>Shipping from the USA.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
+          <a
+            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
         </div>
-      </a>
+      </details>
+      <details id="dist_europe">
+        <summary class="region">Shipping to Europe</summary>
+        <div>
 
-      <a
-        href="https://en.m.nu/controllers-smart-hubs-3/home-assistant-yellow-with-cm4-module"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇸🇪</div>
-            <div>m.nu</div>
-            <div>Shipping from Sweden. Yellow Standard only.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
+          <!--a
+            href="https://en.m.nu/controllers-smart-hubs-3/home-assistant-yellow-with-cm4-module"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇸🇪</div>
+                <div>m.nu</div>
+                <div>Shipping from Sweden. Yellow Standard only.</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a-->
+
+          <a
+          href="https://botland.com.pl/centralki-i-bramki-sieciowe/24698-home-assistant-yellow-standard-kit-inteligenta-centralka-zigbee-thread-nabu-casa-yellow-kit-std-794677011741.html"
+          target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇵🇱</div>
+                <div>Botland</div>
+                <div>Shipping from Poland</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+          href="https://mauser.pt/catalog/product_info.php?products_id=095-3150"
+          target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇵🇹</div>
+                <div>Mauser</div>
+                <div>Shipping from Portugal</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://www.pi-shop.ch/home-assistant-yellow-kit-with-power-supply-cm4-not-included"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇭</div>
+                <div>Pi-Shop.ch</div>
+                <div>Shipping from Switzerland</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://raspberrypi.dk/en/product/home-assistant-yellow/"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇩🇰</div>
+                <div>RaspberryPi.dk</div>
+                <div>Shipping from Denmark</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇨🇳</div>
+                <div>Seeed Studio</div>
+                <div>Shipping from China, US and Germany</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
+
+          <a
+            href="https://thepihut.com/products/home-assistant-yellow"
+            target="_blank"
+          >
+            <div class="distributor">
+              <div>
+                <div>🇬🇧</div>
+                <div>The Pi Hut</div>
+                <div>Shipping from the United Kingdom</div>
+              </div>
+              <svg width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
+                />
+              </svg>
+            </div>
+          </a>
         </div>
-      </a>
-
-      <a
-        href="https://www.pi-shop.ch/home-assistant-yellow-kit-with-power-supply-cm4-not-included"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇨🇭</div>
-            <div>Pi-Shop.ch</div>
-            <div>Shipping from Switzerland. Also sells CM4 modules.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
-
-      <a
-        href="https://raspberrypi.dk/en/product/home-assistant-yellow/"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇩🇰</div>
-            <div>RaspberryPi.dk</div>
-            <div>Shipping from Denmark. Also sells CM4 modules.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
-
-      <a
-        href="https://www.seeedstudio.com/Home-Assistant-Yellow-Kit-with-selectable-CM4.html"
-        target="_blank"
-      >
-        <div class="distributor">
-          <div>
-            <div>🇨🇳</div>
-            <div>Seeed Studio</div>
-            <div>Shipping from China, US and Germany. Also sells CM4 modules.</div>
-          </div>
-          <svg width="24" height="24" viewBox="0 0 24 24">
-            <path
-              d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"
-            />
-          </svg>
-        </div>
-      </a>
-
+      </details>
     </div>
   </div>
 </div>
@@ -492,5 +598,16 @@ frontpage_image: /images/frontpage/yellow-frontpage.jpg
 
   if (document.location.search === "?order") {
     showBuyDialog();
+  }
+
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const continent = tz.replace( /^(Asia|America|Australia|Europe)\/.*$/, '$1' );
+
+    if ( continent != tz ) {
+      document.querySelector( `#dist_${continent.toLowerCase()}` ).open = true;
+    }
+  } catch ( ev ) {
+    // Ignore...
   }
 </script>

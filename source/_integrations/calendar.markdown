@@ -4,7 +4,8 @@ description: Instructions on how to integrate calendars within Home Assistant.
 ha_release: 0.33
 ha_domain: calendar
 ha_quality_scale: internal
-ha_category: []
+ha_category:
+  - Calendar
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
@@ -16,13 +17,10 @@ dashboard and can be used with automations.
 
 This page does not provide instructions on how to create calendar
 entities. Please see the ["Calendar" category](/integrations/#calendar) on the
-integrations page to find integration offering calendar entities.
+integrations page to find integrations offering calendar entities. For example, [Local Calendar](/integrations/local_calendar/) is a fully local integration to create calendars and events within your Home Assistant instance or other integrations work with other services providing calendar data.
 
 {% include integrations/building_block_integration.md %}
 
-A calendar {% term entity %} has a {% term state %} and attributes representing the next event (only).
-A calendar {% term trigger %} is much more flexible, has fewer limitations, and is
-recommended for automations instead of using the entity state.
 
 ## Viewing and managing calendars
 
@@ -34,7 +32,7 @@ Some calendar integrations allow Home Assistant to manage your calendars
 directly from Home Assistant. In this case, you can add new events by selecting
 the **Add event** button in the lower right corner of the calendar dashboard.
 
-Also see [Services](#services) below.
+Also see [Actions](#actions) below.
 
 ## Automation
 
@@ -42,6 +40,9 @@ Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based
 event's start or end. Review the [Automating Home Assistant](/getting-started/automation/)
 getting started guide on automations or the [Automation](/docs/automation/)
 documentation for full details.
+
+Calendar {% term triggers %} are the best way to automate based on calendar events.
+A calendar {% term entity %} can also be used to automate based on its state, but these are limited and attributes only represent the next event.
 
 {% my automations badge %}
 
@@ -92,7 +93,7 @@ automation:
         event: start
         entity_id: calendar.personal
     action:
-      - service: persistent_notification.create
+      - action: persistent_notification.create
         data:
           message: >-
             Event {{ trigger.calendar_event.summary }} @
@@ -128,26 +129,26 @@ automation:
       - if:
           - "{{ trigger.event == 'start' }}"
         then:
-          - service: light.turn_on
+          - action: light.turn_on
             entity_id: light.front
         else:
-          - service: light.turn_off
+          - action: light.turn_off
             entity_id: light.front
 ```
 {% endraw %}
 
 {% enddetails %}
 
-## Services
+## Actions
 
 Some calendar {% term integrations %} allow Home Assistant to manage your calendars
-directly using {% term services %}. The services provided by some calendar {% term entity %} are described below or you can read more about [Service Calls](/docs/scripts/service-calls/).
+directly using {% term actions %}. The actions provided by some calendar {% term entity %} are described below or you can read more about [actions](/docs/scripts/service-calls/).
 
-### Service `calendar.create_event`
+### Action `calendar.create_event`
 
 Add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `summary` | no | Acts as the title of the event. | Bowling
 | `description` | yes | The description of the event. | Birthday bowling
@@ -159,16 +160,14 @@ Add a new calendar event. A calendar `target` is selected with a [Target Selecto
 | `location` | yes | The location of the event. | Bowling center
 
 
-<div class='note'>
-
+{% note %}
 You either use `start_date_time` and `end_date_time`, or `start_date` and `end_date`, or `in`.
-
-</div>
+{% endnote %}
 
 This is a full example of a {% term service %} call in YAML:
 
 ```yaml
-service: calendar.create_event
+action: calendar.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:
@@ -181,7 +180,7 @@ Home Assistant Calendars do not allow zero duration Calendar events. The followi
 
 {% raw %}
 ```yaml
-service: calendar.create_event
+action: calendar.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:
@@ -192,37 +191,35 @@ data:
 {% endraw %}
 
 
-### Service `calendar.list_events`
+### Action `calendar.get_events`
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
-with calendar events within a date range.
+This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with calendar events within a date range. It can return events from multiple calendars.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
 | `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with `duration`. You must specify either `end_date_time` or `duration`.| 2019-03-10 23:00:00
 | `duration` | yes | Return active events from `start_date_time` until the specified duration. Cannot be used with `end_date_time`. You must specify either `duration` or `end_date_time`. | `days: 2`
 
-<div class='note'>
-
+{% note %}
 Use only one of `end_date_time` or `duration`.
+{% endnote %}
 
-</div>
-
-
-{% raw %}
 ```yaml
-service: calendar.list_events
+action: calendar.get_events
 target:
-  entity_id: calendar.school
+  entity_id:
+    - calendar.school
+    - calendar.work
 data:
   duration:
     hours: 24
 response_variable: agenda
 ```
-{% endraw %}
 
-The response data field `events` is a list of events with these fields:
+The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
+Every calendar entity has a field `events` containing a list of events with these fields:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
@@ -232,20 +229,21 @@ The response data field `events` is a list of events with these fields:
 | `end` | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00
 | `location` | The location of the event. | Bowling center
 
-This example uses a template with response data in another service call:
+This example uses a template with response data in another action:
 
 {% raw %}
 ```yaml
-service: notify.gmail_com
+action: notify.nina
 data:
-  target: gduser1@workspacesamples.dev
   title: Daily agenda for {{ now().date() }}
   message: >-
-    Your agenda for today:
-    <p>
-    {% for event in agenda.events %}
+    Your school calendar for today:
+    {% for event in agenda["calendar.school_calendar"]["events"] %}
     {{ event.start}}: {{ event.summary }}<br>
     {% endfor %}
-    </p>
+    Your work calendar for today:
+    {% for event in agenda["calendar.work_calendar"]["events"] %}
+    {{ event.start}}: {{ event.summary }}<br>
+    {% endfor %}
 ```
 {% endraw %}

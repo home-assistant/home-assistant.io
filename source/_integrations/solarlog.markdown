@@ -9,6 +9,7 @@ ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@Ernst79'
+  - '@dontinelli'
 ha_domain: solarlog
 ha_platforms:
   - sensor
@@ -22,9 +23,9 @@ When activating the interface, a red warning triangle with security information 
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
-<div class='note warning'>
+{% important %}
 The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -66,6 +67,7 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
+| self_consumption_year | kWh    | Accumulated total self-consumption. |
 | installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
@@ -73,6 +75,6 @@ The following sensors are available in the library:
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
 
-<div class='note'>
-The solarlog integration is using the sunwatcher pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the sunwatcher package.
-</div>
+{% note %}
+The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
+{% endnote %}

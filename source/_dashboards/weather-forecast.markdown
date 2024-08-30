@@ -3,6 +3,11 @@ type: card
 title: "Weather forecast card"
 sidebar_label: Weather forecast
 description: "The weather forecast card displays the weather. Very useful to include on interfaces that people display on the wall."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The weather forecast card displays the weather. This card is particularly useful on wall-mounted displays.
@@ -31,11 +36,10 @@ Theme:
   description: Name of any loaded theme to be used for this card. For more information about themes, see the [frontend documentation](/integrations/frontend/).
 {% endconfiguration_basic %}
 
-<div class="note">
-
-  This card works only with platforms that define a `weather` entity.
-  
-  E.g., it works with [OpenWeatherMap](https://www.home-assistant.io/integrations/openweathermap/#weather) but not [OpenWeatherMap Sensor](https://www.home-assistant.io/integrations/openweathermap/#sensor)
+{% important %}
+This card works only with platforms that define a `weather` entity.
+E.g., it works with [OpenWeatherMap](/integrations/openweathermap/#weather) but not [OpenWeatherMap Sensor](/integrations/openweathermap/#sensor)
+{% endimportant %}
 
 </div>
 

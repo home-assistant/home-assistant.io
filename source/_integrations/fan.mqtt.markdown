@@ -18,9 +18,8 @@ When a `state_topic` is not available, the fan will work in optimistic mode. In 
 
 Optimistic mode can be forced even if a `state_topic` is available. Try to enable it if you are experiencing incorrect fan operation.
 
-<a id='new_format'></a>
-
-To enable MQTT fans in your installation, add the following to your `configuration.yaml` file:
+To enable MQTT fans in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -86,7 +85,7 @@ device:
     connections:
       description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -103,8 +102,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -133,7 +140,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -226,12 +232,12 @@ payload_reset_percentage:
   description: A special payload that resets the `percentage` state attribute to `unknown` when received at the `percentage_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 payload_reset_preset_mode:
   description: A special payload that resets the `preset_mode` state attribute to `unknown` when received at the `preset_mode_state_topic`.
   required: false
   type: string
-  default: 'None'
+  default: '"None"'
 percentage_command_template:
   description: Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to generate the payload to send to `percentage_command_topic`.
   required: false
@@ -290,7 +296,7 @@ speed_range_min:
   type: integer
   default: 1
 state_topic:
-  description: The MQTT topic subscribed to receive state updates.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 state_value_template:
@@ -303,11 +309,11 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 
-</div>
+{% endimportant %}
 
 ## Examples
 
@@ -327,7 +333,6 @@ mqtt:
       command_topic: "bedroom_fan/on/set"
       direction_state_topic: "bedroom_fan/direction/state"
       direction_command_topic: "bedroom_fan/direction/set"
-      oscillation_command_topic: "bedroom_fan/oscillation/set"
       oscillation_state_topic: "bedroom_fan/oscillation/state"
       oscillation_command_topic: "bedroom_fan/oscillation/set"
       percentage_state_topic: "bedroom_fan/speed/percentage_state"

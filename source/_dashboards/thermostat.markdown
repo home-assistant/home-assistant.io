@@ -3,12 +3,17 @@ type: card
 title: "Thermostat card"
 sidebar_label: Thermostat
 description: "The thermostat card gives control of your climate entity, allowing you to change the temperature and mode of the entity."
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The thermostat card gives control of your [climate](/integrations/#climate) entity, allowing you to change the temperature and mode of the entity.
+The thermostat card gives control of your [climate](/integrations/#climate) {% term entity %}, allowing you to change the temperature and mode of the {% term entity %}.
 
 <p class='img'>
-  <img src='/images/dashboards/thermostat_card.gif' alt='Screenshot of the thermostat card'>
+  <img src='/images/dashboards/thermostat_card.png' alt='Screenshot of the thermostat card'>
   Screenshot of the thermostat card.
 </p>
 
@@ -38,6 +43,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_current_as_primary:
+  required: false
+  description: Show current temperature as primary information instead of target temperature. The target temperature will be displayed as secondary information.
+  type: boolean
+  default: false
 features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features). Only climate related features are supported.

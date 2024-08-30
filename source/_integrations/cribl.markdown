@@ -3,7 +3,6 @@ title: Cribl
 description: Send events to Cribl.
 ha_category:
   - History
-ha_iot_class: Local Push
 ha_release: 0.13
 ha_domain: cribl
 ha_supporting_domain: splunk

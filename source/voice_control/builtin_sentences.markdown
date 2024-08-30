@@ -1,5 +1,20 @@
 ---
 title: "Assist - default sentences"
+related:
+  - docs: /voice_control/aliases/
+    title: Create aliases
+  - docs: /voice_control/custom_sentences/
+    title: Create your own sentences
+  - docs: /voice_control/troubleshooting/
+    title: Sentence troubleshooting
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Built-in sentence definitions
+  - url: https://github.com/home-assistant/intents/tree/main/responses
+    title: Built-in response definitions
+  - url: https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/
+    title: Template sentence syntax documentation
+  - url: https://github.com/home-assistant/intents/tree/main/sentences
+    title: Sentence test cases
 ---
 
 Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
@@ -12,9 +27,11 @@ These sentences allow you, for example, to:
     - *"turn on the TV"*
     - *"lock all the doors"*
     - *"open the main door"*
-- **Open and close covers**
+- **Open, close covers, or ask about their state**
     - *"Close the garage door"*
     - *"Open kitchen window"*
+    - *"Which curtains are closed"*
+    - *"Set bedroom curtain to 50%"*
 - **Set the brightness and color of lights**
     - *"Change kitchen lights brightness to 50%"*
     - *"Set bed light to green"*
@@ -37,6 +54,41 @@ These sentences allow you, for example, to:
     - *"How many people are in the kitchen"*
     - *"Who is in the garage"*
     - *"Where is Anne"*
+- **Control the media player**
+    - *"next item on TV"*
+    - *"skip song on the TV"*
+    - *"skip track on the TV"*
+    - *"skip to the next song on the TV"*
+    - *"pause TV"*
+    - *"TV pause"*
+    - *"unpause TV"*
+    - *"TV unpause"*
+    - *"resume TV"*
+    - *"set TV volume to 90 percent"*
+    - *"change the TV volume to 90"*
+    - *"turn TV volume down to 90 percent"*
+- **Control the vacuum**
+    - *"return rover to base"*
+    - *"start rover"*
+- **Use timers**
+  - *“Create a timer for 5 minutes”*
+  - *“Create a 15-minute timer for pizza”*
+  - *“Cancel my timer”*
+  - *“Pause my timer”*
+  - *“Resume my timer”*
+  - *“Add 2 minutes to my 5-minute timer”*
+  - *“Remove 3 minutes from my pizza timer”*
+
+  <p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3-Box-3B, with countdown text and a loading bar!</p>
+
+To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_control/s3_box_voice_assistant/).
+
+- **Combine timers and device control to add a delay**
+Unlike regular voice timers, delayed commands cannot be canceled or modified.
+  - *“Turn off the lights in the living room in 5 minutes”*
+  - *“Pause TV in 10 minutes”*
+  - *“Open the blinds in 5 minutes”*
+
 - **Abort wake word**
     - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
 
@@ -60,7 +112,7 @@ The list of supported sentences is constantly being updated for each language. T
 **Note**: If the voice assistant doesn't understand you, you may need to rephrase your sentence a bit. Or check if the {% term entity %} or {% term area %} name is correct for your environment.
 
 1. Take a look at the test sentences:
-    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
+    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Look through the test files to see the example sentences that have been tested.
     - The second part of the file name shows the {% term intent %}, the first part shows the {% term domain %}. For some {% term domains %}, such as covers, fans, and light, there are specific sentences.
         The other {% term domains %} are covered by the generic *homeassistant_*.
@@ -73,24 +125,15 @@ The list of supported sentences is constantly being updated for each language. T
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
 2. View the sentence definition for the tests:
-    - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
+    - On GitHub, in the [sentences](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
     - Open the file of interest.
 
         ![Sentences definition for turning on the light](/images/assist/assist-sentence-definition-01.png)
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - <> mean an expansion rule. The view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+        - <> mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
 
-## Related topics
-
-- [Create aliases](/voice_control/aliases/)
-- [Create your own sentences](/voice_control/custom_sentences/)
-- [Built-in sentence definitions](https://github.com/home-assistant/intents/tree/main/sentences)
-- [Built-in response definitions](https://github.com/home-assistant/intents/tree/main/responses)
-- [Template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/)
-- [Sentence test cases](https://github.com/home-assistant/intents/tree/main/sentences)
-- [Sentence troubleshooting](/voice_control/troubleshooting/)

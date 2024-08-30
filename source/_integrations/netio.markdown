@@ -9,11 +9,15 @@ ha_domain: netio
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `netio` switch platform allows you to control your [Netio](https://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or Wi-Fi that reports consumptions (Netio4all). This integration requires Telnet to be enabled on the Netio device.
+The `netio` switch {% term integration %} allows you to control your [Netio](https://www.netio-products.com/en/overview/) Netio4, Netio4 All, and Netio 230B. These are smart outlets controllable through Ethernet and/or Wi-Fi that reports consumptions (Netio4all). This integration requires Telnet to be enabled on the Netio device.
 
-To use Netio devices in your installation, add the following to your `configuration.yaml` file:
+To use Netio devices in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

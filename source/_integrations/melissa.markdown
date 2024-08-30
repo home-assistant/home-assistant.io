@@ -12,9 +12,12 @@ ha_domain: melissa
 ha_platforms:
   - climate
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `melissa` integration is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
+The `melissa` {% term integration %} is the main integration to connect to a [Melissa Climate](https://seemelissa.com/) A/C control.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -24,7 +27,8 @@ The climate platform will be automatically configured if Melissa integration is 
 
 ## Configuration
 
-To set the Melissa integration up, add the following information to your `configuration.yaml` file:
+To set the Melissa {% term integration %} up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

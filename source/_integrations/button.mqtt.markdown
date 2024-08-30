@@ -8,11 +8,9 @@ ha_iot_class: Configurable
 ha_domain: mqtt
 ---
 
-The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press service is called. This can be used to expose some service of a remote device, for example reboot.
+The `mqtt` button platform lets you send an MQTT message when the button is pressed in the frontend or the button press action is called. This can be used to expose some service of a remote device, for example reboot.
 
 ## Configuration
-
-<a id='new_format'></a>
 
 ```yaml
 # Example configuration.yaml entry
@@ -64,7 +62,7 @@ command_template:
   type: template
 command_topic:
   description: The MQTT topic to publish commands to trigger the button.
-  required: false
+  required: true
   type: string
 device:
   description: "Information about the device this button is a part of to tie it into the [device registry](https://developers.home-assistant.io/docs/en/device_registry_index.html). Only works when [`unique_id`](#unique_id) is set. At least one of identifiers or connections must be present to identify the device."
@@ -95,8 +93,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -114,9 +120,7 @@ device:
 device_class:
   description: The [type/class](/integrations/button/#device-class) of the button to set the icon in the frontend. The `device_class` can be `null`.
   required: false
-  default: None
   type: device_class
-  default: None
 enabled_by_default:
   description: Flag which defines if the entity should be enabled when first added.
   required: false
@@ -131,7 +135,6 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
-  default: None
 icon:
   description: "[Icon](/docs/configuration/customizing-devices/#icon) for the entity."
   required: false
@@ -184,11 +187,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

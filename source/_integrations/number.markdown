@@ -10,6 +10,11 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@Shulyaka'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Keeps track on `number` entities in your environment, their state, and allows you to control them. This integration allows other integrations to get a value input from user within a range.
@@ -20,7 +25,9 @@ If you are looking for a way to create a number entity, please take a look at th
 
 ## Device class
 
-The type of data a number represents impacts how it is displayed in the frontend. This is controlled by the number's device class designation. Built-in numbers and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new number the device class may be optionally assigned. A full list of available number device classes is below:
+{% include integrations/device_class_intro.md %}
+
+The following device classes are supported for numbers:
 
 - **None**: Generic number. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
@@ -64,15 +71,16 @@ The type of data a number represents impacts how it is displayed in the frontend
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
 - **voltage**: Voltage in V, mV
 - **volume**: Generic volume in L, mL, gal, fl. oz., m³, ft³, or CCF
+- **volume_flow_rate**: Volume flow rate in m³/h, ft³/min, L/min, gal/min
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
  
-## Services
+## Actions
 
-The Number entities registers the following services:
+The Number entities registers the following actions:
 
-| Service | Data | Description |
+| Action | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities

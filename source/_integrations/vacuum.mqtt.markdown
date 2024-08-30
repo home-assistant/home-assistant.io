@@ -84,8 +84,16 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
+      required: false
+      type: string
+    serial_number:
+      description: "The serial number of the device."
       required: false
       type: string
     suggested_area:
@@ -176,11 +184,6 @@ retain:
   required: false
   type: boolean
   default: false
-schema:
-  description: The schema to use. Must be `state`.
-  required: false
-  type: string
-  default: legacy
 send_command_topic:
   description: The MQTT topic to publish custom commands to the vacuum.
   required: false
@@ -190,7 +193,7 @@ set_fan_speed_topic:
   required: false
   type: string
 state_topic:
-  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#state-mqtt-protocol)."
+  description: "The MQTT topic subscribed to receive state messages from the vacuum. Messages received on the `state_topic` must be a valid JSON dictionary, with a mandatory `state` key and optionally `battery_level` and `fan_speed` keys as shown in the [example](#configuration-example)."
   required: false
   type: string
 supported_features:
@@ -269,7 +272,7 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
@@ -277,7 +280,7 @@ Service trigger example:
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: vacuum.send_command
+      action: vacuum.send_command
       target:
         entity_id: vacuum.vacuum_entity
       data:

@@ -14,7 +14,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-[OPNsense](https://opnsense.org/) is an open source HardenedBSD based firewall
+[OPNsense](https://opnsense.org/) is an open source FreeBSD based firewall
 and routing platform. There is currently support for the following device types
 within Home Assistant:
 

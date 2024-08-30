@@ -23,6 +23,19 @@ function handleIntersect(entries, _observer) {
     });
 }
 
+const expandRegion = () => {
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const continent = tz.replace( /^(Asia|America|Australia|Europe)\/.*$/, '$1' );
+
+    if ( continent != tz ) {
+      document.querySelector( `#dist_${continent.toLowerCase()}` ).open = true;
+    }
+  } catch ( ev ) {
+    // Ignore...
+  }
+};
+
 window.addEventListener(
     "load",
     () => {
@@ -67,6 +80,8 @@ window.addEventListener(
             },
             { passive: true }
         );
+
+        expandRegion();
     },
     false
 );
