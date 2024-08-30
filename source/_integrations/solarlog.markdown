@@ -85,13 +85,13 @@ You can get additional data from the Solar-Log device. To enable this, select th
 
 The following additional sensor becomes available:
 
-| name                  | Unit   | Description   |
+| Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
 
-In addition, additional information on devices that are connected to the Solar-Log device become available. The following additional sensors are available (all values are per inverter/device):
+In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
 
-| name                  | Unit   | Description   |
+| Name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
 | current_power         | W      | Current power provided/used by the device. |
 | consumption_year      | kWh    | Total energy provided/used by the device.  |
