@@ -6,6 +6,7 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 2024.10
 ha_domain: deako
+ha_config_flow: true
 ha_platforms:
   - light
 ha_integration_type: integration
