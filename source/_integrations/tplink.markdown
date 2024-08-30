@@ -75,6 +75,19 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 [^2]: Newer versions require authentication  
 [^3]: Devices may work across TAPO/KASA branded hubs
 
+## Unavailable entities
+
+Some entities might be showing as Unavailable if they have been removed from the integration.
+
+### Total consumption
+
+This entity is only reported by older kasa devices.
+Currently tapo devices and newer kasa devices do not report total consumption, although briefly during 2024.6 they incorrectly reported today's consumption as "total consumption". You can safely delete this entity if it reported as Unavailable on a newer kasa or tapo device.
+
+### Update
+
+This entity has been removed from the integration due stability issues calling the TPLink cloud api to check for updates. It will be replaced in a future release with a new Update entity but if you have an Unavailable entity id starting with `binary_sensor.` and ending with `update` you can safely delete it.
+
 ## Light effects
 
 If light effects are supported by a device they can be selected from the bottom of the light card.
