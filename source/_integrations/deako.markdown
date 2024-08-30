@@ -18,6 +18,8 @@ The **Deako Smart Lighting** integration allows you to control your [Deako](http
 
 For this integration to work, your devices must be listed **online**, viewable in the Deako app.
 
+{% include integrations/config_flow.md %}
+
 Current devices supported:
 
 - all smart Deako devices
