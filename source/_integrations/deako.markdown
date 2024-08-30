@@ -34,6 +34,3 @@ Features not currently supported:
 - Deako groups
 - Deako scenes
 
-This integration uses the [`pydeako`](https://pypi.org/project/pydeako/) library to connect to and interact with devices. One device is selected as the bridge over the local network to the Deako BLE mesh network, allowing for discovery of all devices and control.
-
-The bridge device can be discovered automatically through mDNS in Home Assistant, or a bridge can be selected manually through manual setup of the Deako integration.
