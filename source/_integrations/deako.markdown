@@ -21,7 +21,7 @@ The **Deako Smart Lighting** integration allows you to control your [Deako](http
 
 ## Prerequisites
 
-For this integration to work, your devices must be listed **online**, viewable in the Deako app.
+For this integration to work, your devices must be listed **online**, viewable in the Deako app. Once devices have been onboarded and are online, the Deako app is no longer needed. Devices will continue to work without the app.
 
 {% include integrations/config_flow.md %}
 
