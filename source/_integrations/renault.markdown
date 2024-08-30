@@ -2,9 +2,9 @@
 title: Renault
 description: Instructions on how to integrate Renault car into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Car
-  - Presence Detection
+  - Presence detection
   - Select
   - Sensor
 ha_release: 2021.8
@@ -30,6 +30,7 @@ This integration provides the following platforms:
 
 - Binary sensors - such as plug and charge status.
 - Device tracker - to track location of your car.
+- Buttons - to start air conditioning or start/stop the charge. Please note that although available these actions do not work on all vehicles.
 - Selectors - to change the charge mode.
 - Sensors - such as battery level, outside temperature, odometer, estimated range, and charging rate.
 
@@ -37,31 +38,31 @@ This integration provides the following platforms:
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
-## Services
+## Actions
 
-### Service `renault.ac_start`
+### Action `renault.ac_start`
 
 Start A/C on vehicle.
 
-  | Service data attribute | Required | Description | Example |
+  | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle | |
   | `temperature` | yes | Target A/C temperature in °C | |
   | `when` | no | Timestamp for the start of the A/C (optional - defaults to now) | `2020-05-01T17:45:00` |
 
-### Service `renault.ac_cancel`
+### Action `renault.ac_cancel`
 
 Cancel A/C on vehicle.
 
-  | Service data attribute | Required | Description |
+  | Data attribute | Required | Description |
   | ---------------------- | -------- | ----------- |
   | `vehicle`| yes | device_id of the vehicle |
 
-### Service `renault.charge_set_schedules`
+### Action `renault.charge_set_schedules`
 
 Update charge schedule on vehicle.
 
-  | Service data attribute | Required | Description | Example |
+  | Data attribute | Required | Description | Example |
   | ---------------------- | -------- | ----------- | ------- |
   | `vehicle`| yes | device_id of the vehicle |
   | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#schedule_example) |

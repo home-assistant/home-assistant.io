@@ -35,11 +35,11 @@ Precision:
   description: Round the calculated mean, median or sum value to at most N decimal places.
 {% endconfiguration_basic %}
 
-## YAML Configuration
+## YAML configuration
 
-Alternatlively, this integration can be configured and set up manually via YAML
+Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

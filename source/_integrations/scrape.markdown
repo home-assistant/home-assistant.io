@@ -8,15 +8,17 @@ ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@fabaff'
   - '@gjohansson-ST'
-  - '@epenet'
 ha_domain: scrape
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_config_flow: true
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `scrape` sensor platform is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
+The `scrape` sensor {% term integration %} is scraping information from websites. The sensor loads an HTML page and gives you the option to search and split out a value. As this is not a full-blown web scraper like [scrapy](https://scrapy.org/), it will most likely only work with simple web pages and it can be time-consuming to get the right section.
 
 If you are not using Home Assistant Container or Home Assistant Operating System, this integration requires `libxml2` to be installed. On Debian based installs, run:
 
@@ -28,7 +30,8 @@ Both UI and YAML setup is supported while YAML provides additional configuration
 
 {% include integrations/config_flow.md %}
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %} using YAML, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,6 +95,11 @@ scan_interval:
   required: false
   type: integer
   default: 600
+encoding:
+  description: The character encoding to use if none provided in the header of the shared data.
+  required: false
+  type: string
+  default: UTF-8
 sensor:
   description: A list of sensors to create from the shared data. All configuration settings that are supported by [RESTful Sensor](/integrations/sensor.rest#configuration-variables) not listed above can be used here.
   required: true
@@ -145,15 +153,6 @@ sensor:
       description: Defines a template for the entity picture of the sensor.
       required: false
       type: template
-    attributes:
-      description: Defines templates for attributes of the sensor.
-      required: false
-      type: map
-      keys:
-        "attribute: template":
-          description: The attribute and corresponding template.
-          required: true
-          type: template
     device_class:
       description: Sets the class of the device, changing the device state and icon that is displayed on the UI (see below). It does not set the `unit_of_measurement`.
       required: false
@@ -167,7 +166,7 @@ In this section you find some real-life examples of how to use this sensor. Ther
 
 ### Home Assistant
 
-The current release Home Assistant is published on [https://www.home-assistant.io/](/)
+The current release Home Assistant is published on [homepage](/)
 
 {% raw %}
 
@@ -185,7 +184,7 @@ scrape:
 
 ### Available implementations
 
-Get the counter for all our implementations from the [Component overview](/integrations/) page.
+Get the counter for all our implementations from the integrations page under {% my integrations title="**Settings** > **Devices & services**" %}.
 
 {% raw %}
 
@@ -253,13 +252,37 @@ This example tries to retrieve the price for electricity.
 ```yaml
 # Example configuration.yaml entry
 scrape:
-  - resource: https://elen.nu/timpriser-pa-el-for-elomrade-se3-stockholm/
+  - resource: https://elen.nu/dagens-spotpris/se3-stockholm/
     sensor:
       - name: Electricity price
-        select: ".text-lg:is(span)"
+        select: ".text-lg.font-bold"
         index: 1
         value_template: '{{ value | replace (",", ".") | float }}'
         unit_of_measurement: "öre/kWh"
 ```
 
 {% endraw %}
+
+### Container cleaning by CleanProfs in The Netherlands
+
+This example gets the container type and container cleaning date for the next two cleanings.
+
+```yaml
+# Example configuration.yaml entry. Change postal code and house number to your own address.
+scrape:
+  - resource: https://crm.cleanprofs.nl/search/planning
+    method: POST
+    payload: zipcode=5624JW&street_number=17
+    headers:
+      Content-Type: application/x-www-form-urlencoded
+    sensor:
+      - name: "Type container 1"
+        select: "div.nk-tb-item:nth-child(2) > div:nth-child(1) > span:nth-child(1)"
+      - name: "Date container 1"
+        select: "div.nk-tb-item:nth-child(2) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
+      - name: "Type container 2"
+        select: "div.nk-tb-item:nth-child(3) > div:nth-child(1) > span:nth-child(1)"
+      - name: "Date container 2"
+        select: "div.nk-tb-item:nth-child(3) > div:nth-child(3) > span:nth-child(1) > span:nth-child(1)"
+
+```

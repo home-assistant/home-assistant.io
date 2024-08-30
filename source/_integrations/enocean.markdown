@@ -1,9 +1,8 @@
 ---
 title: EnOcean
 description: Connect EnOcean devices to Home Assistant
-logo: enocean.png
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -20,15 +19,18 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [EnOcean](https://en.wikipedia.org/wiki/EnOcean) standard is supported by many different vendors. There are switches and sensors of many different kinds, and typically they employ energy harvesting to get power such that no batteries are necessary.
 
-The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/en/enocean_modules/usb-300/) in order for it to work.
+The EnOcean integration adds support for some of these devices. You will need a controller like the [USB300](https://www.enocean.com/product/usb-300/) in order for it to work.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor) - Wall switches
+- [Binary sensor](#binary-sensor) - Wall switches
 - [Sensor](#sensor) - Power meters, temperature sensors, humidity sensors and window handles
 - [Light](#light) - Dimmers
 - [Switch](#switch)
@@ -44,7 +46,7 @@ The following devices have been confirmed to work out of the box:
 - EnOcean STM-330 temperature sensor
 - Hoppe SecuSignal window handle from Somfy
 
-If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
+If you own a device not listed here, please check whether your device can talk in one of the listed [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) (EEP). If it does, it will most likely work. The available profiles are usually listed somewhere in the device manual.
 
 Support for tech-in messages is not implemented.
 
@@ -52,21 +54,22 @@ Support for tech-in messages is not implemented.
 
 Despite the UI-based configuration of the hub, the entities are still configured using YAML see next chapters).
 
-## Binary Sensor
+## Binary sensor
 
 This can typically be one of those batteryless wall switches.
 Tested with:
 
 - Eltako FT55 which uses the EnOcean PTM 215 module
-- [TRIO2SYS Wall switches](https://www.trio2sys.fr/index.php/fr/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
+- [TRIO2SYS Wall switches](https://www.trio2sys.fr/index.php/produits-enocean-sans-fil-sans-pile-interoperable/emetteur-sans-fils-sans-pile-interoperable-enocean) which uses the EnOcean PTM210 DB module
 - Omnio WS-CH-102
 
-The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
-- F6-02-01 (Light and Blind Control - Application Style 2)
-- F6-02-02 (Light and Blind Control - Application Style 1)
+- F6-02-01 (Light and Blind Control - Application Style 1)
+- F6-02-02 (Light and Blind Control - Application Style 2)
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -107,7 +110,7 @@ Sample automation to switch lights on and off:
 ```yaml
 # Example automation to turn lights on/off on button release
 automation:
-  - alias: "hall light switches"
+  - alias: "Hall light switches"
     trigger:
       platform: event
       event_type: button_pressed
@@ -115,18 +118,20 @@ automation:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
     action:
-      service: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+      action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
       target:
         entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
 {% endraw %}
 
+You can find the `event_data` `id` by going to {% my developer_events title="Developer Tools -> Events" %} and listening to “button_pressed” events. Then hit a button on the device and you should see an event.
+
 ## Light
 
 An EnOcean light can take many forms. Currently only one type has been tested: Eltako FUD61 dimmer.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -156,12 +161,12 @@ name:
 
 The EnOcean sensor platform currently supports the following device types:
 
- * [power sensor](#power-sensor)
- * [humidity sensor](#humidity-sensor)
- * [temperature sensor](#temperature-sensor)
- * [window handle](#window-handle)
+- [power sensor](#power-sensor)
+- [humidity sensor](#humidity-sensor)
+- [temperature sensor](#temperature-sensor)
+- [window handle](#window-handle)
  
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -192,7 +197,7 @@ device_class:
 
 This has been tested with a Permundo PSC234 switch, but any device sending EEP **A5-12-01** messages will work.
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -205,14 +210,14 @@ sensor:
 
 ### Humidity sensor
 
-The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
 - Any profile that contains the humidity value at position **DB2.7** to **DB2.0**
 - **A5-04-01** - Temp. and Humidity Sensor, Range 0°C to +40°C and 0% to 100%
 - **A5-04-02** - Temp. and Humidity Sensor, Range -20°C to +60°C and 0% to 100%
 - **A5-10-10** to **A5-10-14** - Room Operating Panels
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -227,7 +232,7 @@ sensor:
 
 This sensor has been tested with a generic STM-330 sensor, which is used in most indoor temperature sensor devices. 
 
-The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what-is-enocean/specifications/) are supported:
+The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/specifications/) are supported:
 
 - Any profile that contains an 8-bit temperature at position DB1.7 to DB1.0. 10-bit is not supported.
 - **A5-02-01** to **A5-02-1B** - Temperature Sensor with various temperature ranges
@@ -241,7 +246,7 @@ The following [EnOcean Equipment Profiles](https://www.enocean-alliance.org/what
 Check the manual of your temperature sensor to figure out what EEP it uses. 
 If you do not know, make an educated guess and check the reported values. It's easiest to validate the temperature at the boundaries of the range, so maybe put the sensor into the fridge for a while. 
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -285,7 +290,7 @@ However, some EEPs have a different, inverted range, which goes from 0 to 250. T
 - **A5-10-10** to **A5-10-14**
 - **A5-20-01** - Battery powered actuator (bi-dir)
 
-Adapt the `configuration.yaml` for those sensors:
+Adapt the {% term "`configuration.yaml`" %} for those sensors:
 
 ```yaml
 # Example configuration.yaml entry for EEP A5-10-10
@@ -302,7 +307,7 @@ sensor:
 
 As of now, the Hoppe SecuSignal window handle from Somfy has been successfully tested. However, any mechanical window handle that follows the EnOcean RPS telegram spec F6 10 00 (Hoppe AG) is supported.
 
-To configure a window handle, add the following code to your `configuration.yaml`:
+To configure a window handle, add the following code to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry for window handle EEP F6-10-00
@@ -325,7 +330,7 @@ The window handle sensor can have the following states:
 
 An EnOcean switch can take many forms. Currently, only a few types have been tested: Permundo PSC234 and Nod On SIN-2-1-01.
 
-To use your EnOcean device, you first have to set up your [EnOcean hub](#hub) and then add the following to your `configuration.yaml` file:
+To use your EnOcean device, you first have to set up your EnOcean hub and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

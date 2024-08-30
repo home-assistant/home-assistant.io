@@ -2,8 +2,9 @@
 title: Rain Bird
 description: Instructions on how to integrate your Rain Bird LNK WiFi Module within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Calendar
   - Irrigation
-  - Binary Sensor
   - Sensor
   - Switch
 ha_config_flow: true
@@ -15,6 +16,8 @@ ha_codeowners:
 ha_domain: rainbird
 ha_platforms:
   - binary_sensor
+  - calendar
+  - number
   - sensor
   - switch
 ha_integration_type: integration
@@ -24,40 +27,46 @@ This `rainbird` integration allows interacting with [LNK WiFi](https://www.rainb
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
-- [Sensor](#sensor)
+- [Binary sensor](#binary-sensor)
+- [Calendar](#calendar)
+- [Number](#number)
 - [Switch](#switch)
 
 {% include integrations/config_flow.md %}
 
-## Configuration Options
+## Configuration options
 
 The integration has a configuration option to change the default amount of time that the irrigation
-will run when turning on a zone switch (default is 6 minutes). This can be overridden with a service call (see below).
+will run when turning on a zone switch (default is 6 minutes). This can be overridden with an action (see below).
 
-## Binary Sensor
+## Binary sensor
 
 The `rainsensor` sensor will tell if you if the device has detected rain.
 
-## Sensor
+## Calendar
 
-The `raindelay` sensor reports the number of days, if any, the automatic irrigation schedule
-has been delayed.
+Some Rain Bird devices support automatic irrigation schedules configured with the Rain Bird app.
+and are available in Home Assistant as a [Calendar](https://www.home-assistant.io/integrations/calendar/) entity. You can view the program schedule in the UI, or trigger other automations
+based on the irrigation start or end time.
+
+## Number
+
+The Rain Delay Number Entity lets you set and view  the number of days, if any, the automatic irrigation schedule has been delayed.
 
 ## Switch
 
 Switches are automatically added for all available zones of configured controllers.
 
-## Services
+## Actions
 
-The integration exposes services to give additional control over a Rain Bird device.
+The integration exposes actions to give additional control over a Rain Bird device.
 
 ### `rainbird.start_irrigation`
 
-Start a Rain Bird zone for a set number of minutes. This service accepts a Rain Bird sprinkler
+Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
 zone switch entity and allows a custom duration unlike the switch.
 
-| Service Data Attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
 | `duration`             | no       | Number of minutes for this zone to be turned on.      |
@@ -71,18 +80,8 @@ automation:
       - platform: time
         at: "5:30:00"
     action:
-      - service: rainbird.start_irrigation
+      - action: rainbird.start_irrigation
         data:
           entity_id: switch.rain_bird_sprinkler_1
           duration: 5
 ```
-
-### `rainbird.set_rain_delay`
-
-Sets the number of days to disable automatic irrigation. This service accepts a target of
-a Rain Bird config entry.
-
-| Service Data Attribute | Optional | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `config_entry`         | no       | The configuration entry id for the rainbird controller |
-| `duration`             | no       | Number of days for the device to be turned off.        |

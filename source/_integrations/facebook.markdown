@@ -9,11 +9,15 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `facebook` notification platform enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
+The `facebook` notification {% term integration %} enables sending notifications via Facebook Messenger, powered by [Facebook](https://facebook.com).
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -25,11 +29,11 @@ notify:
 
 {% configuration %}
 page_access_token:
-  description: "Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/guides/setup) for more information."
+  description: "Access token for your Facebook page. Checkout [Facebook Messenger Platform](https://developers.facebook.com/docs/messenger-platform/webhooks) for more information."
   required: true
   type: string
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: "`notify`"
   type: string
@@ -37,8 +41,8 @@ name:
 
 ### Usage
 
-With Facebook notify service, you can send your notifications to your Facebook messenger with help of your Facebook page. You have to create a [Facebook Page and App](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) for this service. You can control it by calling the notify service [as described here](/integrations/notify/). It will send a message on messenger to user specified by **target** on behalf of your page. See the [quick start](https://developers.facebook.com/docs/messenger-platform/guides/quick-start) guide for more information.
-The phone number used in **target** should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If your app is not approved by Facebook then the recipient should by either admin, developer or tester for your Facebook app. [More information](https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number) about the phone number.
+With Facebook notify action, you can send your notifications to your Facebook messenger with help of your Facebook page. You have to create a [Facebook Page and App](https://developers.facebook.com/docs/messenger-platform/getting-started/quick-start) for this action. You can control it by calling the notify action [as described here](/integrations/notify/). It will send a message on messenger to user specified by **target** on behalf of your page. See the [quick start](https://developers.facebook.com/docs/messenger-platform/getting-started/quick-start) guide for more information.
+The phone number used in **target** should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If your app is not approved by Facebook then the recipient should by either admin, developer or tester for your Facebook app. [More information](https://developers.facebook.com/docs/messenger-platform/reference/send-api#phone_number) about the phone number.
 
 ```yaml
 # Example automation notification entry
@@ -48,7 +52,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.facebook
+      action: notify.facebook
       data:
         message: "Good Evening"
         target:
@@ -102,7 +106,7 @@ if (preg_match('/get my id/', strtolower($message))) {
 ```
 
 ### Rich messages
-You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/send-api-reference) to which types of messages and how to build them.
+You could also send rich messing (cards, buttons, images, videos, etc). [Info](https://developers.facebook.com/docs/messenger-platform/reference/send-api) to which types of messages and how to build them.
 
 ```yaml
 # Example script with a notification entry with a rich message
@@ -110,7 +114,7 @@ You could also send rich messing (cards, buttons, images, videos, etc). [Info](h
 script:
   test_fb_notification:
     sequence:
-      - service: notify.facebook
+      - action: notify.facebook
         data:
           message: Some text before the quick replies
           target: 0034643123212

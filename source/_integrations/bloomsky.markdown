@@ -2,10 +2,11 @@
 title: BloomSky
 description: Instructions on how to integrate the BloomSky within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Environment
   - Sensor
+  - Weather
 ha_release: 0.14
 ha_iot_class: Cloud Polling
 ha_domain: bloomsky
@@ -14,13 +15,16 @@ ha_platforms:
   - camera
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `bloomsky` integration allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
+The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Camera](#camera)
 - [Sensor](#sensor)
 
@@ -30,7 +34,8 @@ Obtain your API key from your [BloomSky dashboard](https://dashboard.bloomsky.co
 
 ## Configuration
 
-To integrate your BloomSky hub with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your BloomSky hub with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -45,7 +50,7 @@ api_key:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
 The `bloomsky` binary sensor platform allows you to get data from your BloomSky device.
 
@@ -53,7 +58,7 @@ To get your BloomSky binary sensors working with Home Assistant, follow the inst
 
 ### Configuration
 
-To use your BloomSky binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your BloomSky binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -82,7 +87,7 @@ The `bloomsky` camera integration allows you to view the current photo created b
 
 ### Configuration
 
-To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your `configuration.yaml` file:
+To enable this camera in your installation, set up the BloomSky integration with your API key and add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -96,7 +101,7 @@ The `bloomsky` sensor integration allows you to view the measurements made by se
 
 ### Configuration
 
-To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your `configuration.yaml` file:
+To enable these sensors in your installation, set up the BloomSky integration with your API key add the following to your {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -131,4 +136,4 @@ monitored_conditions:
       description: Voltage
 {% endconfiguration %}
 
-More conditions are available using the [BloomSky binary sensor](#binary-sensor) component.
+More conditions are available using the [BloomSky binary sensor](#binary-sensor) integration.

@@ -12,32 +12,34 @@ ha_domain: influxdb
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `influxdb` integration makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database, or [there is a community add-on](https://community.home-assistant.io/t/community-hass-io-add-on-influxdb/54491) available.
+The `influxdb` {% term integration %} makes it possible to transfer all state changes to an external [InfluxDB](https://influxdb.com/) database. See the [official installation documentation](https://docs.influxdata.com/influxdb/v1.7/introduction/installation/) for how to set up an InfluxDB database.
 
-Additionally, you can now make use of an InfluxDB 2.0 installation with this integration. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
+Additionally, you can now make use of an InfluxDB 2.0 installation with this {% term integration %}. See the [official installation instructions](https://v2.docs.influxdata.com/v2.0/) for how to set up an InfluxDB 2.0 database. Or you can sign up for their [cloud service](https://cloud2.influxdata.com/signup) and connect Home Assistant to that. Note that the configuration is significantly different for a 2.xx installation, the documentation below will note when fields or defaults apply to only a 1.xx installation or a 2.xx installation.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-<div class='note'>
-
+{% note %}
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-
-</div>
+{% endnote %}
 
 ## Configuration
 
-The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your `configuration.yaml` file:
+The default InfluxDB configuration doesn't enforce authentication. If you have installed InfluxDB on the same host where Home Assistant is running and haven't made any configuration changes, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 influxdb:
 ```
 
-You will still need to create a database named `home_assistant` via InfluxDB's command-line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
+You will still need (not for version 2) to create a database named `home_assistant` via InfluxDB's command-line interface. For instructions on how to create a database check the [InfluxDB documentation](https://docs.influxdata.com/influxdb/latest/introduction/getting_started/#creating-a-database) relevant to the version you have installed.
 
 {% configuration %}
 api_version:
@@ -56,7 +58,7 @@ host:
   default: localhost
 port:
   type: integer
-  description: Port to use. 2.xx - No default port for 2.xx, otherwise 8086.
+  description: Port to use. 2.xx - Must specify port for 2.xx, otherwise 8086.
   required: false
   default: 8086
 path:
@@ -173,7 +175,7 @@ ignore_attributes:
 component_config:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -199,7 +201,7 @@ component_config_domain:
 component_config_glob: 
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_measurement:
       type: string
@@ -211,7 +213,7 @@ component_config_glob:
       required: false
 {% endconfiguration %}
 
-## Configure Filter
+## Configure filter
 
 By default, no entity will be excluded. To limit which entities are being exposed to `InfluxDB`, you can use the `include` and `exclude` parameters.
 
@@ -294,11 +296,11 @@ influxdb:
 
 ## Sensor
 
-The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history component. It can also be used with an external data source.
+The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history integration. It can also be used with an external data source.
 
-<div class='note'>
+{% important %}
 
-  You must configure the `influxdb` history component in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
+  You must configure the `influxdb` history integration in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
 
 ```yaml
 influxdb:
@@ -306,11 +308,11 @@ influxdb:
     entity_globs: "*"
 ```
 
-</div>
+{% endimportant %}
 
 ### Configuration
 
-To configure this sensor, you need to define the sensor connection variables and a list of queries to your `configuration.yaml` file. A sensor will be created for each query:
+To configure this sensor, you need to define the sensor connection variables and a list of queries to your {% term "`configuration.yaml`" %} file. A sensor will be created for each query:
 
 ```yaml
 # Example configuration.yaml entry
@@ -506,27 +508,27 @@ The example configuration entry below create two request to your local InfluxDB 
 
 ```yaml
 sensor:
-  platform: influxdb
-  host: localhost
-  username: home-assistant
-  password: password
-  queries:
-    - name: last value of foo
-      unit_of_measurement: °C
-      value_template: '{{ value | round(1) }}'
-      group_function: last
-      where: '"name" = ''foo'''
-      measurement: '"°C"'
-      field: value
-      database: db1
-    - name: Min for last hour
-      unit_of_measurement: "%"
-      value_template: '{{ value | round(1) }}'
-      group_function: min
-      where: '"entity_id" = ''salon'' and time > now() - 1h'
-      measurement: '"%"'
-      field: tmp
-      database: db2
+  - platform: influxdb
+    host: localhost
+    username: home-assistant
+    password: password
+    queries:
+      - name: last value of foo
+        unit_of_measurement: °C
+        value_template: '{{ value | round(1) }}'
+        group_function: last
+        where: '"name" = ''foo'''
+        measurement: '"°C"'
+        field: value
+        database: db1
+      - name: Min for last hour
+        unit_of_measurement: "%"
+        value_template: '{{ value | round(1) }}'
+        group_function: min
+        where: '"entity_id" = ''salon'' and time > now() - 1h'
+        measurement: '"%"'
+        field: tmp
+        database: db2
 ```
 
 {% endraw %}
@@ -567,7 +569,7 @@ sensor:
 
 {% endraw %}
 
-Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history component, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
+Note that when working with Flux queries, the resultset is broken into tables, you can see how this works in the Data Explorer of the UI. If you are operating on data created by the InfluxDB history integration, this means by default, you will have a table for each entity and each attribute of each entity (other then `unit_of_measurement` and any others you promoted to tags).
 
 This is a lot more tables compared to 1.xx queries, where you essentially had one table per `unit_of_measurement` across all entities. You can still create aggregate metrics across multiple sensors though. As you can see in the example above, a good way to do this is with the [keep](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/keep/) or [drop](https://v2.docs.influxdata.com/v2.0/reference/flux/stdlib/built-in/transformations/drop/) filters. When you remove key columns Influx merges tables, allowing you to make many tables that share a schema for `_value` into one.
 

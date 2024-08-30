@@ -2,7 +2,7 @@
 title: Melnor RainCloud
 description: Instructions on how to integrate your Melnor Raincloud sprinkler system within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Irrigation
   - Sensor
   - Switch
@@ -16,19 +16,23 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `raincloud` integration allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
+The `raincloud` {% term integration %} allows you to integrate your [Melnor RainCloud](https://wifiaquatimer.com) sprinkler system in Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 - [Switch](#switch)
 
 ## Configuration
 
-To enable it, add the following to your `configuration.yaml` file:
+To enable it, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,9 +52,9 @@ password:
   type: string
 {% endconfiguration %}
 
-## Binary Sensor
+## Binary sensor
 
-Once you have enabled the [Raincloud integration](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -73,7 +77,7 @@ monitored_conditions:
 
 ## Sensor
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -100,7 +104,7 @@ monitored_conditions:
 
 ## Switch
 
-Once you have enabled the [Raincloud component](#configuration), add the following to your `configuration.yaml` file:
+Once you have enabled the [Raincloud integration](#configuration), add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -122,5 +126,5 @@ monitored_conditions:
     auto_watering:
       description: Toggle the watering scheduled per zone.
     manual_watering:
-      description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub component.
+      description: Toggle manually the watering per zone. It will inherent the value in minutes specified on the RainCloud hub integration.
 {% endconfiguration %}

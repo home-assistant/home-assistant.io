@@ -28,9 +28,9 @@ The integration uses the REST-API interface which is also used by the integrated
 
 The integration disables most of the sensors per default. You can enable it in the *Entity* page. The sensors are split into two sets, one for the process data and one for the setting values.
 
-<div class='note'>
+{% note %}
 The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make an pull request.
-</div>
+{% endnote %}
 
 ### Process Data Sensors
 
@@ -39,7 +39,7 @@ The following sensors are available in the library:
 | Name                    | Unit | Description   |
 |-------------------------|------|:-------------------------------------------|
 | Inverter State          |      | State of the inverter. |
-| Solar Power             | W    | Sum of all DC strings. |
+| Solar Power             | W    | Sum of all DC strings (including battery). |
 | Grid Power              | W    | Power from (+)/to (-) the grid. |
 | Home Power from Battery | W    | Power from the battery for home consumption. |
 | Home Power from Grid    | W    | Power from the grid for home consumption. |
@@ -100,18 +100,45 @@ The following sensors are available in the library:
 | Energy Yield Month      | kWh  | Energy yield of the current month. |
 | Energy Yield Year       | kWh  | Energy yield of the current year. |
 | Energy Yield Total      | kWh  | Energy yield total. |
-| Energy Discharge to Grid Day    | kWh  | Energy discharged to the Grid of the current day. |
-| Energy Discharge to Grid Month  | kWh  | Energy discharged to the Grid of the current month. |
-| Energy Discharge to Grid Year   | kWh  | Energy discharged to the Grid of the current year. |
-| Energy Discharge to Grid Total  | kWh  | Energy discharged to the Grid total. |
+| Energy Discharge to Grid Day    | kWh  | Energy discharged from battery to the Grid of the current day. |
+| Energy Discharge to Grid Month  | kWh  | Energy discharged from battery to the Grid of the current month. |
+| Energy Discharge to Grid Year   | kWh  | Energy discharged from battery to the Grid of the current year. |
+| Energy Discharge to Grid Total  | kWh  | Energy discharged from battery to the Grid total. |
 | Battery Charge from Grid Day    | kWh  | Energy charged to the battery from the Grid of the current day. |
 | Battery Charge from Grid Month  | kWh  | Energy charged to the battery from the Grid of the current month. |
 | Battery Charge from Grid Year   | kWh  | Energy charged to the battery from the Grid of the current year. |
 | Battery Charge from Grid Total  | kWh  | Energy charged to the battery from the Grid total. |
-| Battery Charge from PV Day    | kWh  | Energy charged to the battery from the PV of the current day. |
-| Battery Charge from PV Month  | kWh  | Energy charged to the battery from the PV of the current month. |
-| Battery Charge from PV Year   | kWh  | Energy charged to the battery from the PV of the current year. |
-| Battery Charge from PV Total  | kWh  | Energy charged to the battery from the PV total. |
+| Battery Charge from PV Day    | kWh  | Energy to the battery on the DC side charged by PV during the current day. |
+| Battery Charge from PV Month  | kWh  | Energy to the battery on the DC side charged by PV during the current month. |
+| Battery Charge from PV Year   | kWh  | Energy to the battery on the DC side charged by PV during the current year. |
+| Battery Charge from PV Total  | kWh  | Energy to the battery on the DC side charged by PV  total. |
+| Battery Discharge Day | kWh | Energy from the battery on the DC side discharged during the current day. |
+| Battery Discharge Month | kWh | Energy from PV on DC-side used to charge the battery of the current month. |
+| Battery Discharge Year | kWh | Energy from PV on DC-side used to charge the battery of the current year. |
+| Battery Discharge Total | kWh | Energy from PV on DC-side used to charge the battery total. |
+| Energy to Grid Day | kWh | Energy fed into the grid for the current day. |
+| Energy to Grid Month | kWh | Energy fed into the grid for the current month. |
+| Energy to Grid Year | kWh | Energy fed into the grid for the current year. |
+| Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
+| Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
+
+{% note %}
+The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
+{% endnote %}
+
+#### Configuration of the energy dashboard
+
+The following sensors can be used in the [energy dashboard](/docs/energy/):
+
+| Energy dashboard | Sensor |
+|------------------|:-------|
+| Grid consumption | Home Consumption from Grid Total |
+| Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
+| Battery systems  | Battery Discharge Total, Battery Charge from PV Total |
+
+{% note %}
+Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
+{% endnote %}
 
 ### Settings Sensors
 
@@ -124,9 +151,23 @@ The following sensors are available in the library:
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
 
-<div class='note'>
+{% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
-</div>
+{% endnote %}
+
+#### Battery Strategy
+
+This sensor is on by default, which maps to the "Automatically" mode in the Kostal Plenticore Plus documentation. This mode is recommended for regions with little snowfall.
+
+Turning this sensor off maps to the "Automatically economical" mode. Consequently, the inverter controls the battery charging automatically but switches the battery off when there is insufficient PV energy to charge the battery for longer periods. This mode is recommended for regions with a lot of snowfall.
+
+#### Battery Smart Control
+
+The Battery Smart Control sensor appears as a select field labeled "Battery Charging / Usage Mode" with three options:
+
+- **None**: the battery is loaded immediately when there is PV energy spare.
+- **Battery:SmartBatteryControl:Enable**: the battery loading optimizes grid feed-in and battery loading. This setting is recommended when the grid feed-in is limited to, for example, 70% of the Plenticore Plus peak power.
+- **Battery:TimeControl:Enable**: battery charging/discharging can be configured flexibly at different times (tariff periods). Detailed settings must be done on the web frontend of the Kostal Plenticore Plus inverter. This option activates the time-controlled battery usage mode.
 
 ## Number
 

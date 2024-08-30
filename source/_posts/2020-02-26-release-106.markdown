@@ -145,7 +145,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - **Tesla** - Tesla default scan interval has been raised to 660 seconds from 300 seconds. This is the result of new testing showing the prior default would not allow Tesla vehicles to fall asleep. You should reevaluate your scan interval if you have changed it, to avoid battery drain. The scan interval has had the minimum lowered to 60. - ([@alandtse] - [#31194]) ([tesla docs])
 

@@ -1,21 +1,35 @@
-<section class="aside-module grid__item one-whole lap-one-half">
+{% assign url_parts = page.url | split: '/' %}
+{% assign root = url_parts[1] %}
+{% assign doc = url_parts[2] %}
+
+<section class="vertical-nav aside-module grid__item one-whole lap-one-half">
   <div class="section">
-    <h1 class="title delta">Getting Started</h1>
+    <h1 class="title epsilon">{% icon "mdi:rocket-launch-outline" %} Getting started</h1>
     <ul class="divided sidebar-menu">
-      <li>{% active_link /installation/ Installation %}</li>
+      <li>{% active_link /installation/ Installation %}
+        {% if root == 'installation' %}
+        <ul>
+          <li><a href="https://green.home-assistant.io/">Home Assistant Green {% icon "tabler:external-link" %}</a></li>
+          <li><a href="https://yellow.home-assistant.io/">Home Assistant Yellow {% icon "tabler:external-link" %}</a></li>
+          <li>{% active_link /installation/raspberrypi Raspberry Pi %}</li>
+          <li>{% active_link /installation/odroid ODROID %}</li>
+          <li>{% active_link /installation/generic-x86-64 Generic x86-64 %}</li>
+          <li>{% active_link /installation/linux Linux %}</li>
+          <li>{% active_link /installation/macos macOS %}</li>
+          <li>{% active_link /installation/windows Windows %}</li>
+          <li>{% active_link /installation/alternative Other systems %}</li>
+          <li>{% active_link /installation/troubleshooting/ Troubleshooting %}</li>
+        </ul>
+        {% endif %}
+      </li>
       <li>{% active_link /getting-started/onboarding/ Onboarding %}</li>
-      <li>{% active_link /getting-started/automation/ Automation %}</li>
-      <li>
-        {% active_link /getting-started/presence-detection/ Presence detection
-        %}
-      </li>
-      <li>
-        {% active_link /getting-started/join-the-community/ Join the community
-        %}
-      </li>
-      <li>
-        {% active_link /getting-started/configuration/ Advanced Configuration %}
-      </li>
+      <li>{% active_link /getting-started/concepts-terminology/ Concepts and terminology %}</li>
+      <li>{% active_link /getting-started/onboarding_dashboard/ Editing the dashboard %}</li>
+      <li>{% active_link /getting-started/integration/ Adding integrations %}</li>
+      <li>{% active_link /getting-started/automation/ Automating devices %}</li>
+      <li>{% active_link /getting-started/presence-detection/ Presence detection %}</li>
+      <li>{% active_link /getting-started/join-the-community/ Join the community %}</li>
+      <li>{% active_link /getting-started/configuration/ Next steps %}</li>
     </ul>
   </div>
 </section>

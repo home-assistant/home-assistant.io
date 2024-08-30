@@ -6,11 +6,12 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.7.3
 ha_codeowners:
-  - '@skgsergio'
+  - '@krmarien'
 ha_domain: foscam
 ha_config_flow: true
 ha_platforms:
   - camera
+  - switch
 ha_integration_type: integration
 ---
 
@@ -18,29 +19,33 @@ The `foscam` platform allows you to watch the live stream of your [Foscam](https
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 There seems to be some issues within Foscam with lengthy passwords and passwords containing certain symbols. Be sure to check your camera's documentation.
-</div>
+{% endnote %}
+
+### Controllable Features
+
+If your camera supports it, a switch "Sleep" will be added to put the camera in sleep mode.
 
 ### Streams
 
 Most Foscam IP Cameras supports two video streams, by default the `Main` stream is the high quality stream while the `Sub` stream is a lower quality stream. These streams can be configured in your camera preferences.
 
-### Service `foscam.ptz`
+### Action `foscam.ptz`
 
-If your Foscam camera supports PTZ, you will be able to pan or tilt your camera.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan or tilt your camera.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `movement` | 	Direction of the movement. Allowed values: `up`, `down`, `left`, `right`, `top_left`, `top_right`, `bottom_left`, `bottom_right` |
 | `travel_time` | (Optional) Travel time in seconds. Allowed values: float from 0 to 1. Default: 0.125 |
 
-### Service `foscam.ptz_preset`
+### Action `foscam.ptz_preset`
 
-If your Foscam camera supports PTZ presets, you will be able to move the camera to a predefined preset using the preset name.
+If your Foscam camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> presets, you will be able to move the camera to a predefined preset using the preset name.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `preset_name` | The name of the preset to move to. Presets can be created from within the official Foscam apps. |
@@ -69,7 +74,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: up
@@ -81,7 +86,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: down
@@ -93,7 +98,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: left
@@ -105,7 +110,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: right
@@ -117,7 +122,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: top_left
@@ -129,7 +134,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: top_right
@@ -141,7 +146,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: bottom_left
@@ -153,7 +158,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      service: foscam.ptz
+      action: foscam.ptz
       data:
         entity_id: camera.bedroom
         movement: bottom_right

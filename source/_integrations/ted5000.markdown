@@ -9,11 +9,15 @@ ha_domain: ted5000
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `ted 5000` monitors electricity consumption/production by connecting to the [TED](https://www.theenergydetective.com/) gateway, itself connected to one or several Measuring Transmitting Units (MTU). The platform creates up to two sensors per MTU, one for Wattage the other for Voltage.
 
-If you want to enable the ted5000 sensor, add the following lines to your `configuration.yaml`:
+If you want to enable the ted5000 {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

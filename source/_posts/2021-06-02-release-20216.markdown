@@ -44,10 +44,10 @@ worth scanning the all changes section for your favorite integrations.
 - [Release 2021.6.5 - June 15](#release-202165---june-15)
 - [Release 2021.6.6 - June 20](#release-202166---june-20)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
   - [Integrations that removed deprecated YAML import](#integrations-that-removed-deprecated-yaml-import)
   - [Integrations that deprecated YAML import](#integrations-that-deprecated-yaml-import)
-  - [Other breaking changes](#other-breaking-changes)
+  - [Other backward-incompatible changes](#other-breaking-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -471,9 +471,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
-This release has an unusual amount of breaking changes to report. Don't worry,
+This release has an unusual amount of backward-incompatible changes to report. Don't worry,
 most won't have a noticeable impact and are part of a cleanup effort.
 However, we do want to report them all, just to be complete and transparent.
 
@@ -535,7 +535,7 @@ deprecation period.
 - [Transmission][transmission docs]
 - [VeSync][vesync docs]
 
-### Other breaking changes
+### Other backward-incompatible changes
 
 Below is a listing of the other breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

@@ -2,7 +2,7 @@
 title: Tailscale
 description: Instructions on how to integrate Tailscale within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
   - Sensor
 ha_release: 2021.12
@@ -23,16 +23,14 @@ The Tailscale integration integrates the [Tailscale](https://www.tailscale.com) 
 with Home Assistant; giving you the possibility to monitor and automate on
 the state of the devices in your Tailscale VPN network (Tailnet).
 
-<div class="note">
-
+{% important %}
 This integration **DOES NOT** make your Home Assistant accessible via
 Tailscale VPN remotely!
 
 If you want to access your Home Assistant instance remotely, you will
 need to install Tailscale itself on your own. For instructions on how to do
 this, please consult the [Tailscale documentation](https://tailscale.com/kb/).
-
-</div>
+{% endimportant %}
 
 ## Prerequisites
 

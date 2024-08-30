@@ -13,7 +13,7 @@ The `system_log` integration stores information about all logged errors and warn
 
 ## Configuration
 
-This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your `configuration.yaml` file:
+This integration is automatically loaded by the `frontend` (so no need to do anything if you are using the frontend). If you are not doing so, or if you wish to change a parameter, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 system_log:
@@ -33,33 +33,33 @@ fire_event:
   default: false
 {% endconfiguration %}
 
-## Services
+## Actions
 
-### Service `clear`
+### Action `clear`
 
-To manually clear the system log, call this service.
+To manually clear the system log, use this action.
 
-### Service `write`
+### Action `write`
 
 Write a log entry
 
-| Service data attribute | Optional | Description                                                                     |
-| ---------------------- | -------- | ------------------------------------------------------------------------------- |
-| `message`              | no       | Message to log                                                                  |
-| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.          |
-| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'.  |
+| Data attribute | Optional | Description                                                                    |
+| ---------------------- | -------- | ------------------------------------------------------------------------------ |
+| `message`              | no       | Message to log                                                                 |
+| `level`                | yes      | Log level: debug, info, warning, error, critical. Defaults to 'error'.         |
+| `logger`               | yes      | Logger name under which to log the message. Defaults to 'system_log.external'. |
 
 ## Events
 
 Errors and warnings are posted as the event `system_log_event`, so it is possible to write automations that trigger whenever a warning or error occurs. The following information is included in each event:
 
 | Field       | Description                                                                 |
-|-------------|-----------------------------------------------------------------------------|
+| ----------- | --------------------------------------------------------------------------- |
 | `level`     | Either `WARNING` or `ERROR` depending on severity.                          |
 | `source`    | File that triggered the error, e.g., `core.py` or `media_player/yamaha.py`. |
 | `exception` | Full stack trace if available, an empty string otherwise.                   |
 | `message`   | Descriptive message of the error, e.g., "Error handling request".           |
-| `name`      | Name of the component, e.g., `homeassistant.components.device_tracker`      |
+| `name`      | Name of the integration, e.g., `homeassistant.components.device_tracker`    |
 | `timestamp` | Unix timestamp with as a double, e.g., 1517241010.237416.                   |
 
 Live examples of these events can be found in the Home Assistant log file (`home-assistant.log`) or by just looking in the system log. An example could, for instance, look like this:
@@ -72,7 +72,7 @@ Traceback (most recent call last):
 [...]
 ```
 
-The message ("Unable to find integration system_healt"), name (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. Here is another error caused by the `google_map` integration with additional output present.
+The message ("Unable to find integration system_healt"), name (`homeassistant.loader`) and level (`ERROR`) can easily be extracted from the log. The exact timestamp and if there is a stack trace that's shown as well. 
 
 ## Examples 
 
@@ -96,31 +96,31 @@ automation:
       event_data:
         level: WARNING
     action:
-      service: counter.increment
+      action: counter.increment
       target:
         entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages
 
-This automation will create a persistent notification whenever an error or warning is logged that has the word "service" in the message:
+This automation will create a persistent notification whenever an error or warning is logged that has the word "action" in the message:
 
 {% raw %}
 
 ```yaml
 automation:
-  - alias: "Create notifications for "service" errors"
+  - alias: "Create notifications for 'action' errors"
     trigger:
       platform: event
       event_type: system_log_event
     condition:
       condition: template
-      value_template: '{{ "service" in trigger.event.data.message[0] }}'
+      value_template: '{{ "action" in trigger.event.data.message[0] }}'
     action:
-      service: persistent_notification.create
+      action: persistent_notification.create
       data:
         title: Something bad happened
-        message: "{{ trigger.event.data.message }}"
+        message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}
@@ -138,7 +138,7 @@ automation:
       from: "off"
       to: "on"
     action:
-      service: system_log.write
+      action: system_log.write
       data:
         message: "Door opened!"
         level: info

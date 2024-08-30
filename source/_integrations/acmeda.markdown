@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Rollease Acmeda Automate integration allows you to control and monitor covers via your Rollease Acmeda Automate hub. The integrations communicates directly with hubs on the local network, rather than connecting via the cloud or via RS-485. Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery condition.
+The **Rollease Acmeda Automate** {% term integration %} allows you to control and monitor covers via your Rollease Acmeda Automate hub. The integrations communicates directly with hubs on the local network, rather than connecting via the cloud or via RS-485. Devices are represented as a cover for monitoring and control as well as a sensor for monitoring battery condition.
 
 ## Supported devices
 
@@ -34,5 +34,5 @@ If the IP address for the hub changes, you will need to re-register it with Home
 
 The integration has the following limitations:
 
-- covers with position as well as tilt are not supported.
-- the integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.
+- Covers with position as well as tilt are not supported.
+- The integration doesn't make use of rooms and scenes configured in the hub, use the equivalent functionality in Home Assistant instead.

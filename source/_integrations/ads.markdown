@@ -2,7 +2,7 @@
 title: ADS
 description: Connect Home Assistant to TwinCAT devices via the ADS interface
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
   - Hub
   - Light
@@ -18,13 +18,16 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.hu/english.asp?twincat/default.htm) and other devices implementing this interface.
+The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
@@ -32,7 +35,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable ADS, add the following lines to your `configuration.yaml` file:
+To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,9 +60,9 @@ ip_address:
   type: string
 {% endconfiguration %}
 
-## Service
+## Action
 
-The ADS integration will register the service `write_by_name` allowing you to write a value to a variable on your ADS device.
+The ADS integration will register the `write_by_name` action allowing you to write a value to a variable on your ADS device.
 
 ```json
 {
@@ -68,17 +72,17 @@ The ADS integration will register the service `write_by_name` allowing you to wr
 }
 ```
 
-Service parameters:
+Action parameters:
 
 - **adsvar**: Name of the variable on the ADS device. To access global variables on *TwinCAT2* use a prepending dot `.myvariable`, for TwinCAT3 use `GBL.myvariable`.
 - **adstype**: Specify the type of the variable. Use one of the following: `int`, `byte`, `uint`, `bool`
 - **value**: The value that will be written in the variable.
 
-## Binary Sensor
+## Binary sensor
 
 The `ads` binary sensor platform can be used to monitor a boolean value on your ADS device.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -107,7 +111,7 @@ device_class:
 
 The `ads` light platform allows you to control your connected ADS lights.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -137,7 +141,7 @@ name:
 
 The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -176,7 +180,7 @@ The *factor* can be used to implement fixed decimals. E.g., set *factor* to 100 
 
 The `ads` switch platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml
@@ -201,7 +205,7 @@ name:
 
 The `ads` cover platform allows you to control your connected ADS covers.
 
-To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your `configuration.yaml`
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
 
 ```yaml

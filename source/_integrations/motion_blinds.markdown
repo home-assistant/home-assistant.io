@@ -1,6 +1,6 @@
 ---
-title: Motion Blinds
-description: Instructions on how to integrate Motion Blinds from Coulisse B.V. into Home Assistant.
+title: Motionblinds
+description: Instructions on how to integrate Motionblinds from Coulisse B.V. into Home Assistant.
 ha_category:
   - Cover
 ha_iot_class: Local Push
@@ -10,16 +10,18 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The integration allows you to control [Motion Blinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
+The integration allows you to control [Motionblinds](https://motionblinds.com/) from [Coulisse B.V.](https://coulisse.com/).
 
 Additionally the following brands have been reported to also work with this integration:
 
+- [Acomax](https://www.acomax.de/)
 - [AMP Motorization](https://www.ampmotorization.com/)
 - [Bliss Automation - Alta Window Fashions](https://www.altawindowfashions.com/product/automation/bliss-automation/)
 - [Bloc Blinds](https://www.blocblinds.com/)
@@ -32,30 +34,45 @@ Additionally the following brands have been reported to also work with this inte
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
+- [Krispol](https://krispol.eu/en/drives/)
+- [Linx](https://linxautomation.com.au/)
+- [Madeco](https://www.madeco.fr/)
 - [Martec](https://www.martec.co.nz/)
-- [Motion Blinds](https://motionblinds.com/)
+- [Motionblinds](https://motionblinds.com/)
 - [Raven Rock MFG](https://www.ravenrockmfg.com/)
 - [ScreenAway](https://www.screenaway.com.au/)
-- [Smart Blinds](https://www.smartblinds.nl/)
+- [Smart Rollo (SIRO)](https://smart-rollos.de/)
+- [Smartblinds](https://www.smartblinds.nl/)
 - [Smart Home](https://www.smart-home.hu)
 - [Uprise Smart Shades](http://uprisesmartshades.com)
 
 This integration allows for both directly controlling blinds that support wifi-connection and controlling Uni- and Bi-direction blinds that connect to a 433MHz WiFi bridge.
 The following bridges are reported to work with this integration:
- - CM-20 Motion Blinds bridge
- - CMD-01 Motion Blinds mini-bridge
- - DD7002B Connector bridge
- - D1554 Connector mini-bridge
- - DD7002B Brel-Home box
- - D1554 Brel Home USB plug
+
+- CM-20 Motionblinds bridge
+- CMD-01 Motionblinds mini-bridge
+- DD7002B Connector bridge
+- D1554 Connector mini-bridge
+- DD7002B Brel-Home box
+- D1554 Brel Home USB plug
+- Brel HUB-03
+- Acomax FX-I 620 Bridge Maxi
+- Linx Hub
+- Linx Hub Mini
+- Linx Hub USB
+- SIRO Connect SI7002
+- SIRO Connect SI7005
 
 {% include integrations/config_flow.md %}
 
 ## Retrieving the API Key
 
-### Motion Blinds app
+The 16 character API key needed to setup the Home Assistant integration needs to be retrieved by first connecting the blind/bridge to the official app of its respective brand.
+In that app the key can often be found by clicking multiple times on specific places on the "About" page.
 
-The Motion Blinds API uses a 16 character key that can be retrieved from the official "Motion Blinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
+### Motionblinds app
+
+The Motionblinds API uses a 16 character key that can be retrieved from the official "Motionblinds" app for [IOS](https://apps.apple.com/us/app/motion-blinds/id1437234324) or [Android](https://play.google.com/store/apps/details?id=com.coulisse.motion).
 
 Open the app, click the 3 dots in the top right corner, go to "settings", go to "Motion APP About", Please quickly tap this "Motion APP About" page 5 times, a popup will appear that gives you the key.
 
@@ -76,7 +93,14 @@ In the Brel Home app on Android go to the `me` page (home screen 4th tab), tap 5
 In the official Bloc Blinds app go to settings (three bars > gear icon), go to the `About` page, Tap five time on the bloc blinds icon in the middle and a pop-up with the key will be shown.
 
 ### Connector app
+
 Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+
+## Favorite position
+
+A **Go to favorite position** button entity allows you to move the blind to its favorite position. For this entity to show up, you first need to set the blind's favorite position in the mobile app, using a remote or physical buttons on the blind. Refer to the manual of your specific blind for instructions.
+
+The **Set current position as favorite** button entity allows you to change the favorite position. For this to work, the blind first needs to be put in programming mode by shortly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly). You can then use the **Set current position as favorite** entity. After you are done, shortly press the reset button again to exit the programming mode.
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -116,13 +140,13 @@ Therefore it is recommended to use scripts or automations with the TDBU Combined
 
 That will ensure the same absolute position with respect to the window is achieved without letting the Bottom or Top bar move to an absolute_position that is not allowed.
 
-When the `motion_blinds.set_absolute_position` service is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
+When the `motion_blinds.set_absolute_position` action is used with values that would move the Bottom or Top bar to positions that will make them collide, nothing will happen. An error will be logged telling that that position is not allowed and the TDBU blind will not move.
 
-Therefore it is always safe to use any of the services in Home Assistant with the TDBU blinds.
+Therefore it is always safe to use any of the actions in Home Assistant with the TDBU blinds.
 
-## Service `motion_blinds.set_absolute_position`
+## Action `motion_blinds.set_absolute_position`
 
-For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` service.
+For simple blinds the `motion_blinds.set_absolute_position` does the same as `cover.set_cover_position` action.
 
 ### TDBU blinds
 
@@ -133,12 +157,12 @@ The `cover.set_cover_position` will set the scaled position relative to the spac
 
 For tilt capable blinds a new position and tilt can be specified and the blind will move to the new position and then adjust its tilt. If the normal `cover.set_cover_position` is issued and immediately after a `cover.set_cover_tilt_position` is issued, the blind will stop moving and start adjusting the tilt before it reaches the intended position.
 
-| Service data attribute | Optional | Description                                                                                       |
+| Data attribute | Optional | Description                                                                                       |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------- |
-| `entity_id`            |      yes | Name of the motion blind cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
-| `absolute_position`    |       no | Absolute position to move to. For example 70                                                      |
-| `tilt_position`        |      yes | Tilt position to move to. For example 50                                                          |
-| `width`                |      yes | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
+| `entity_id`            | yes      | Name of the Motionblinds cover entity to control. For example `cover.TopDownBottomUp-Bottom-0001` |
+| `absolute_position`    | no       | Absolute position to move to. For example 70                                                      |
+| `tilt_position`        | yes      | Tilt position to move to. For example 50                                                          |
+| `width`                | yes      | Optionally specify the width that is covered, only for TDBU Combined entities. For example 30     |
 
 ## Troubleshooting
 
@@ -169,24 +193,25 @@ For Ubiquiti routers/access points the "Enable multicast enhancement (IGMPv3)" s
 ### Bypassing UDP multicast
 
 If UDP Multicast does not work in your setup (due to network limitations), this integration can be used in local polling mode.
-Go to Settings -> Integrations -> on the already set up Motion Blinds integration click "configure" --> disable the "Wait for push" option (disabled by default).
+Go to Settings -> Integrations -> on the already set up Motionblinds integration click "configure" --> disable the "Wait for multicast push on update" option (disabled by default).
 
-The default update interval of the Motion Blinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
+The default update interval of the Motionblinds integration is every 10 minutes. When UDP multicast pushes do not work, this polling interval can be a bit high.
 To increase the polling interval:
-Go to Settings -> Integrations -> on the already set up Motion Blinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
+Go to Settings -> Integrations -> on the already set up Motionblinds integration click more options (three dots) and select "System options" -> disable "polling for updates".
 Now create an automation with as trigger a time pattern and select your desired polling time.
-As the action select "Call service" and select "Update entity", select one of the motion blinds covers as entity.
-You only have to create one automation with only one motion blind cover as entity, the rest will update at the same time.
+As the action select **Perform action** and select **Update entity**, select one of the Motionblinds covers as entity.
+You only have to create one automation with only one Motionblinds cover as entity, the rest will update at the same time.
 
 Example YAML automation for custom polling interval (every minute):
+
 ```yaml
-alias: Motion blinds polling automation
+alias: Motionblinds polling automation
 mode: single
 trigger:
   - platform: time_pattern
     minutes: "/1"
 action:
-  - service: homeassistant.update_entity
+  - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade
 ```

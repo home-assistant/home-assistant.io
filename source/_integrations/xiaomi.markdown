@@ -16,38 +16,34 @@ The `Xiaomi` camera platform allows you to utilize Xiaomi Cameras within Home As
 
 To successfully implement this platform, the Home Assistant host should be capable of multiple simultaneous reads. For every concurrent Home Assistant user, a connection will be made to the camera every 10 seconds. This should normally not be a problem.
 
-## Preparing the Device
+## Preparing the device
 
 In order to integrate the camera with Home Assistant, it is necessary to install a custom firmware on the device. Instructions for doing so can be found for each models.
 
-* [Yi 720p](https://github.com/fritz-smh/yi-hack)
-* [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
-* [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
-* [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
+- [Yi 720p](https://github.com/fritz-smh/yi-hack)
+- [Yi Home 17CN / 27US / 47US / 1080p Home / Dome / 1080p Dome](https://github.com/shadow-1/yi-hack-v3)
+- [Recent Yi 1080p Home / 1080p Dome](https://github.com/roleoroleo/yi-hack-MStar)
+- [Xiaofang 1080p Camera](https://github.com/samtap/fang-hacks)
 
 Once installed, please ensure that you have enabled FTP.
 
-<div class='note warning'>
-
+{% warning %}
 Currently, version 0.1.4-beta2 of the custom firmware is the highest supported. Firmwares higher than this version use [Pure-FTPd](https://www.pureftpd.org/project/pure-ftpd), which has a bug that prevents FFmpeg from correctly rendering video files.
+{% endwarning %}
 
-</div>
-
-<div class='note warning'>
-
+{% important %}
 Raspbian users: Don't forget to install `ffmpeg` support on your platform, otherwise, you'll not see video.
+{% endimportant %}
 
-</div>
+{% note %}
+The live stream writing by the camera is not a supported format when Home Assistant reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
+{% endnote %}
 
-<div class='note warning'>
-The live stream writing by the camera is not a supported format when the hass reads through FTP for Yi 720p and Xiaofang Cameras, so this platform retrieves the video which was saved 1 minute earlier.
-</div>
-
-<div class='note warning'>
+{% tip %}
 If you enabled RTSP server, you can connect to your camera via other Home Assistant camera platforms. However, this RTSP server disables the ability to use the supremely-useful Mi Home app. In order to maintain both Home Assistant compatibility _and_ the native app, this platform retrieves videos via FTP.
-</div>
+{% endtip %}
 
-## Configuring the Platform
+## Configuring the platform
 
 To enable the platform, add the following lines to your`configuration.yaml` file:
 
@@ -93,11 +89,9 @@ ffmpeg_arguments:
   type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% important %}
 The default for `path:` will not work with all cameras. It may be needed that you add that key with the exact path for your device.
-
-</div>
+{% endimportant %}
 
 ## Image quality
 
@@ -117,7 +111,7 @@ camera:
 ```
 ## Hostname template
 
-The hostname/IP address can be provided either a value or from the existing entity attributes.
+The hostname/IP address can be provided either a value or from the existing {% term entity %} attributes.
 
 ```yaml
 camera:

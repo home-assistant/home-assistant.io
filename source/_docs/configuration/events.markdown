@@ -3,7 +3,9 @@ title: "Events"
 description: "Describes all there is to know about events in Home Assistant."
 ---
 
-The core of Home Assistant is the event bus. The event bus allows any integration to fire or listen for events. It is the core of everything. For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
+The core of Home Assistant is the event bus. The event bus allows any integration to fire or listen for events. It is the core of everything.
+
+For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity.
 
 Home Assistant contains a few built-in events that are used to coordinate between various integrations.
 
@@ -24,13 +26,13 @@ In addition, all events contain a `data` dictionary with event-specific informat
 
 ### `call_service`
 
-This event is fired when a service is called.
+This event is fired when an service action is performed
 
 | Field             | Description                                                                    |
 | ----------------- | ------------------------------------------------------------------------------ |
-| `domain`          | Domain of the service. Example: `light`.                                       |
-| `service`         | The service to call. Example: `turn_on`                                        |
-| `service_data`    | Dictionary with the service call parameters. Example: `{ 'brightness': 120 }`. |
+| `domain`          | Domain of the action. Example: `light`.                                       |
+| `service`         | The service action that is performed. Example: `turn_on`                                        |
+| `service_data`    | Dictionary with the call parameters. Example: `{ 'brightness': 120 }`. |
 | `service_call_id` | String with a unique call id. Example: `23123-4`.                              |
 
 ### `component_loaded`
@@ -94,21 +96,21 @@ If you want to trigger automation on a Home Assistant stop event, we recommend u
 
 ### `service_registered`
 
-This event is fired when a new service has been registered within Home Assistant.
+This event is fired when a new service action has been registered within Home Assistant.
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the component that offers this service. Example: `light`. |
-| `service` | The name of the service. Example: `turn_on`                             |
+| `domain`  | The domain of the integration that offers this action. Example: `light`. |
+| `service` | The name of the service action. Example: `turn_on`                             |
 
 ### `service_removed`
 
-This event is fired when a service has been removed from Home Assistant.
+This event is fired when a service action has been removed from Home Assistant.
 
 | Field     | Description                                                             |
 | --------- | ----------------------------------------------------------------------- |
-| `domain`  | The domain of the component that offers this service. Example: `light`. |
-| `service` | The name of the service. Example: `turn_on`                             |
+| `domain`  | The domain of the integration that offers this action. Example: `light`. |
+| `service` | The name of the service action. Example: `turn_on`                             |
 
 ### `state_changed`
 
@@ -124,7 +126,7 @@ This event is fired when a state has changed. It contains the entity identifier 
 
 This event is fired after a theme has been set or reloaded. It contains no additional data.
 
-## `user_added`
+### `user_added`
 
 This event is fired when a user has been added.
 
@@ -132,7 +134,7 @@ This event is fired when a user has been added.
 | --------- | ------------------------------- |
 | `user_id` | Identification of the new user. |
 
-## `user_removed`
+### `user_removed`
 
 This event is fired when a user has been removed.
 
@@ -140,9 +142,9 @@ This event is fired when a user has been removed.
 | --------- | ----------------------------------- |
 | `user_id` | Identification of the removed user. |
 
-### Built-in events (default integrations)
+## Built-in events (default integrations)
 
-## `automation_reloaded`
+### `automation_reloaded`
 
 Integration: [`automation`](/integrations/automation/)
 
@@ -150,7 +152,7 @@ This event is fired when automations have been reloaded and thus might have chan
 
 This event contains no additional data.
 
-## `automation_triggered`
+### `automation_triggered`
 
 Integration: [`automation`](/integrations/automation/)
 
@@ -161,7 +163,7 @@ This event is fired when an automation is triggered.
 | `name`      | The name of the automation.       |
 | `entity_id` | The identifier of the automation. |
 
-## `scene_reloaded`
+### `scene_reloaded`
 
 Integration: [`homeassistant`](/integrations/homeassistant/)
 
@@ -169,7 +171,7 @@ This event is fired when scenes have been reloaded and thus might have changed.
 
 This event contains no additional data.
 
-## `script_started`
+### `script_started`
 
 Integration: [`script`](/integrations/script/)
 

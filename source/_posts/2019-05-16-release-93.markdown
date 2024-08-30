@@ -153,12 +153,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Homematic IP Cloud__ - Adds homematicip cloud temperature sensor from thermostats. Entity IDs of HmIP-SLO (Light Sensor Outdoor) will change and stale entities will need to be removed from the entity registry.  ([@SukramJ] - [#23263]) ([homematicip_cloud docs])
 - __Pollen.com__
-  * IQVIA is the parent company which hosts a variety of sites (https://pollen.com, https://flustar.com, etc.) from which valid data can come. To accommodate this, the Pollen.com sensor platform is now the IQVIA component and the configuration.yaml schema has changed accordingly. ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs])
-  * The IQVIA component no longer provides historical data for allergen and asthma conditions. Tactically, this means all historical sensors – including "Yesterday" sensors – will no longer appear; users will need to update any automations that previously relied on these sensors. ([@bachya] - [#23258]) ([iqvia docs])
+  - IQVIA is the parent company which hosts a variety of sites (https://pollen.com, https://flustar.com, etc.) from which valid data can come. To accommodate this, the Pollen.com sensor platform is now the IQVIA component and the configuration.yaml schema has changed accordingly. ([@bachya] - [#22986]) ([iqvia docs]) ([pollen docs])
+  - The IQVIA component no longer provides historical data for allergen and asthma conditions. Tactically, this means all historical sensors – including "Yesterday" sensors – will no longer appear; users will need to update any automations that previously relied on these sensors. ([@bachya] - [#23258]) ([iqvia docs])
 
     Example configuration:
     ```yaml
@@ -170,8 +170,8 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 
 - __Sonos__
-  * Configuring the Sonos integration as a media_player: platform in configuration.yaml was deprecated in 0.72 and has now been removed. Please see the notes above in this release post as well as the component documentation for further info. ([@amelchio] - [#23385]) ([sonos docs])
-  * Sonos-specific services have been moved from the media_player domain to the sonos domain. For example, media_player.sonos_join has become sonos.join. Services sonos.set_sleep_timer, sonos.clear_sleep_timer, sonos.update_alarm and sonos.set_option now require the entity_id parameter and will not target all when it is missing. You can use all to target all. ([@amelchio] - [#23670]) ([sonos docs])
+  - Configuring the Sonos integration as a media_player: platform in configuration.yaml was deprecated in 0.72 and has now been removed. Please see the notes above in this release post as well as the component documentation for further info. ([@amelchio] - [#23385]) ([sonos docs])
+  - Sonos-specific services have been moved from the media_player domain to the sonos domain. For example, media_player.sonos_join has become sonos.join. Services sonos.set_sleep_timer, sonos.clear_sleep_timer, sonos.update_alarm and sonos.set_option now require the entity_id parameter and will not target all when it is missing. You can use all to target all. ([@amelchio] - [#23670]) ([sonos docs])
 
 
 - __Nmap__ - In Linux, and when running a setuid nmap, MAC addresses are reported with a leading zero in each byte. Under Mac OS X, when running the arp command, there is no leading zero. This makes it annoying to share config files between a Mac and Linux setup. This change fixes this by forcing MAC addresses to be zero padded, "breaking" Mac detection on a Mac by aligning it to the convention on Linux ([@mikeage] - [#23492]) ([nmap_tracker docs])
@@ -368,7 +368,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Update docstrings ([@fabaff] - [#23624]) ([panasonic_bluray docs])
 - Order imports ([@fabaff] - [#23623]) ([opple docs])
 - Polling is default ([@fabaff] - [#23622]) ([serial_pm docs])
-- Loosen discovery config validation to avoid breaking changes ([@Jc2k] - [#23625]) ([discovery docs])
+- Loosen discovery config validation to avoid backward-incompatible changes ([@Jc2k] - [#23625]) ([discovery docs])
 - Clean up redundant same-package ..package imports ([@scop] - [#23587]) ([greeneye_monitor docs]) ([huawei_lte docs]) ([tplink_lte docs])
 - Upgrade pytest to 4.4.1 ([@scop] - [#23584])
 - Upgrade mypy ([@scop] - [#23586])

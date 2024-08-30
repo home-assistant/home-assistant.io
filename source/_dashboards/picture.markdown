@@ -1,16 +1,29 @@
 ---
 type: card
-title: "Picture Card"
+title: "Picture card"
 sidebar_label: Picture
-description: "The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action.
 
 <p class='img'>
 <img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
 Screenshot of the picture card.
 </p>
+
+{% include dashboard/add_picture_to_card.md %}
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -20,6 +33,10 @@ type:
 image:
   required: true
   description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
+  type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
   type: string
 alt_text:
   required: false
@@ -43,16 +60,7 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-## Options For Exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
-## Examples
+### Examples
 
 Navigate to another view:
 
@@ -66,14 +74,14 @@ tap_action:
 
 Check the [views](/dashboards/views/) setup on how to setup custom IDs.
 
-Toggle entity using a service:
+Toggle entity using an action:
 
 ```yaml
 type: picture
 image: /local/light.png
 tap_action:
-  action: call-service
-  service: light.toggle
+  action: perform-action
+  perform_action: light.toggle
   data:
     entity_id: light.ceiling_lights
 ```

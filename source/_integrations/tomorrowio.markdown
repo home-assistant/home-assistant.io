@@ -23,9 +23,11 @@ The Tomorrow.io integration allows you to obtain weather, air quality, pollen, a
 
 ## Obtain an API key
 
-You can obtain a free API key by signing up with [Tomorrow.io](https://www.tomorrow.io/weather-api/).
+You can obtain a free API key by signing up with [Tomorrow.io](https://www.tomorrow.io/weather-api/). The integration assumes that your API key is associated with a free Tomorrow.io account. Free accounts include a limited number of daily API requests and the number of daily API requests included varies by account. Login to Tomorrow.io to view the number of daily API requests included with your account.
 
-The integration will automatically set the refresh interval based on the number of Tomorrow.io integrations that are using the same API key for a given Home Assistant instance. The integration currently assumes you are using a free account so the max requests per day is 100 (the refresh interval is calculated such that you should only use up around 90% of the quota).
+The refresh interval defaults to a time period that is compatible with an account limited to 100 daily API requests and this integration should use around 90% of the available daily requests.
+
+When using a free account, the information provided by Tomorrow.io is limited to the [Core layer](https://docs.tomorrow.io/reference/data-layers-core). It does not include the Air Quality layer or other layers. A paid Tomorrow.io account is required to retrieve those layers.
 
 ## Supported Forecast Types
 

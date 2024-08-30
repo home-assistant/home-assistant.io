@@ -13,7 +13,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The `websocket_api` integration set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` component](/integrations/http/).
+The `websocket_api` integration set up a WebSocket API and allows one to interact with a Home Assistant instance that is running headless. This integration depends on the [`http` integration](/integrations/http/).
 
 ## Configuration
 

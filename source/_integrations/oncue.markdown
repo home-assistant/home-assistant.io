@@ -2,7 +2,7 @@
 title: Oncue by Kohler
 description: Documentation about the oncue sensors.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 2022.2
@@ -20,7 +20,7 @@ ha_integration_type: integration
 
 The Oncue by Kohler integration will allow you to monitor the state of your [Oncue enabled Kohler generator](https://api.kohler.com/oncueplus/#/auth).
 
-## Tested Devices
+## Tested devices
 
 - 20RESA
 - [24RCL](https://kohlerpower.com/en/residential/generators/product/24rcl)

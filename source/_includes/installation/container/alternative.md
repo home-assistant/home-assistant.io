@@ -1,14 +1,14 @@
 ### Synology NAS
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
+Synology with DSM now supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
 
 The steps would be:
 
-- Install "Docker" package on your Synology NAS
-- Launch Docker-app and move to "Registry"-section
+- Install Docker "Container Manager" package on your Synology NAS
+- Launch Container Manager-app and move to "Registry"-section
 - Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
 - Wait for some time until your NAS has pulled the image
-- Move to the "Image"-section of the Docker-app
+- Move to the "Image"-section of the "Container Manager"-app
 - Click on "Launch"
 - Within "Network" select "Use same network as Docker Host" and click Next
 - Choose a container-name you want (e.g., "homeassistant")
@@ -26,15 +26,13 @@ To use a Z-Wave USB stick for Z-Wave control, the HA Docker container needs extr
 <https://www.synology.com/en-global/knowledgebase/DSM/help/DSM/AdminCenter/system_terminal>
 
 
-<div class='note'>
-
+{% tip %}
 [See this page for accessing the Terminal via SSH](https://www.synology.com/en-global/knowledgebase/DSM/tutorial/General_Setup/How_to_login_to_DSM_with_root_permission_via_SSH_Telnet)
-
-</div>
+{% endtip %}
 
 Adjust the following Terminal command as follows :
 
-- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration
+- Replace `/PATH_TO_YOUR_CONFIG` points at the folder where you want to store your configuration -  make sure that you keep the `:/config` part
 - Replace `/PATH_TO_YOUR_USB_STICK` matches the path for your USB stick (e.g., `/dev/ttyACM0` for most Synology users)
 - Replace "Australia/Melbourne" with [your timezone](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
@@ -48,8 +46,8 @@ Complete the remainder of the Z-Wave configuration by [following the instruction
 
 Remark: to update your Home Assistant on your Docker within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Registry"-section
-- Find "homeassistant/home-assistant" within registry and click on "Download". Choose the "stable" tag.
+- Go to the "Container Manager"-app and move to "Image"-section
+- Find "homeassistant/home-assistant" within Image and click on "Update".
 - Wait until the system-message/-notification comes up, that the download is finished (there is no progress bar)
 - Move to "Container"-section
 - Stop your container if it's running
@@ -58,18 +56,18 @@ Remark: to update your Home Assistant on your Docker within Synology NAS, you ju
 
 Remark: to restart your Home Assistant within Synology NAS, you just have to do the following:
 
-- Go to the Docker-app and move to "Container"-section
+- Go to the "Container Manager"-app and move to "Container"-section
 - Right-click on it and select "Action"->"Restart".
 
-<div class='note'>
+{% note %}
 
 If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assistant on Synology Docker these instructions do not correctly configure the container to access the USB devices. To configure these devices on your Synology Docker Home Assistant you can follow the instructions provided [here](https://philhawthorne.com/installing-home-assistant-io-on-a-synology-diskstation-nas/) by Phil Hawthorne.
 
-</div>
+{% endnote %}
 
 ### QNAP NAS
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
+QNAP with QTS supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
 
 The steps would be:
 

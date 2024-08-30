@@ -53,7 +53,7 @@ Have a good weekend everyone!
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - BOM sensor: `'Wind Direction kt'` to `'Wind Speed kt'` (fixes #14535) ([@fabaff] - [#14541]) (breaking change)
 - Removed attribute current_time from Raincloudy sensors to avoid being triggered by recorder component ([@tchellomello] - [#14584]) ([raincloud docs]) ([switch.raincloud docs]) (breaking change)

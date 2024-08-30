@@ -10,9 +10,12 @@ ha_codeowners:
   - '@albertogeniola'
 ha_domain: elmax
 ha_platforms:
+  - alarm_control_panel
   - binary_sensor
+  - cover
   - switch
 ha_integration_type: integration
+ha_zeroconf: true
 ---
 
 The Elmax integration enables Home Assistant integration with 

@@ -47,14 +47,14 @@ The app on Sidequest is the [minimal version] of the Home Assistant Companion An
 
 We can't just make a post like this and ignore the new release for the Phone app that just went out the other day without highlighting it right?! While the 2022.1 release may not be as jam-packed as 2021.12 we do still have some neat features to cover.
 
-*  A new sensor to determine if your devices [work profile] is active by [zmarties]. This sensor will update as soon as a state change is detected allowing you to make unique automations based on the profile being active.
-*  [dshokouhi] has added a new sensor allowing you to see what the [Last Used App] was. Pair this new sensor with the Quest and you can make specific automations based on what game you are currently playing!
+-  A new sensor to determine if your devices [work profile] is active by [zmarties]. This sensor will update as soon as a state change is detected allowing you to make unique automations based on the profile being active.
+-  [dshokouhi] has added a new sensor allowing you to see what the [Last Used App] was. Pair this new sensor with the Quest and you can make specific automations based on what game you are currently playing!
 
 ![Screenshot of Last Used App](/images/blog/2022-01-android/last_used_app.png)
 
-*  [jpelgrom] has worked on our WebSocket implementation to finally bring in areas to the app. Device controls are the first feature to get area support so you can easily add entities from areas. The area will also be shown in the device control button itself. Be on the lookout for more area support in other parts of the app as it should make finding entities a lot easier.
-*  [JBassett] has also made more progress on the WebSocket implementation by bringing in better error handling to prevent the application from crashing and producing a lot of unnecessary errors.
-*  For the Wear OS app [SkechyWolf] has added support for the back button to properly function and exit the app.
+-  [jpelgrom] has worked on our WebSocket implementation to finally bring in areas to the app. Device controls are the first feature to get area support so you can easily add entities from areas. The area will also be shown in the device control button itself. Be on the lookout for more area support in other parts of the app as it should make finding entities a lot easier.
+-  [JBassett] has also made more progress on the WebSocket implementation by bringing in better error handling to prevent the application from crashing and producing a lot of unnecessary errors.
+-  For the Wear OS app [SkechyWolf] has added support for the back button to properly function and exit the app.
 
 A big thank you to all of our contributors and users for bringing in awesome features and great feedback/bugs. We look forward to improving the android app even further in 2022! As always please remember to add your feature requests and bugs to GitHub.
 

@@ -9,19 +9,21 @@ ha_domain: html5
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `html5` notification platform enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
+The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
 
-<div class='note'>
-
-HTML5 push notifications **do not** work on iOS.
-
-</div>
+{% important %}
+HTML5 push notifications **do not** work on iOS versions below 16.4.
+{% endimportant %}
 
 ## Configuration
 
-To enable this platform, add the following lines to your `configuration.yaml` file:
+To enable this platform, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -42,7 +44,7 @@ vapid_prv_key:
   required: true
   type: string
 vapid_email:
-  description: The e-mail account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
+  description: The email account of your Google account associated with your Firebase project, [see configuring the platform](#configuring-the-platform).
   required: true
   type: string
 {% endconfiguration %}
@@ -51,12 +53,12 @@ vapid_email:
 
 The `html5` platform can only function if all of the following requirements are met:
 
-* You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android.
-* Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
-* If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
-* If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
-* You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
-* You are willing to accept the notification permission in your browser.
+- You are using Chrome and/or Firefox on any desktop platform, ChromeOS or Android. Or you added your Home Assistant instance to your home screen on iOS 16.4 or higher.
+- Your Home Assistant instance is accessible from outside your network over HTTPS or can perform an alternative [Domain Name Verification Method](https://support.google.com/webmasters/answer/9008080#domain_name_verification) on the domain used by Home Assistant.
+- If using a proxy, HTTP basic authentication must be off for registering or unregistering for push notifications. It can be re-enabled afterwards.
+- If you don't run Hass.io: `pywebpush` must be installed. `libffi-dev`, `libpython-dev` and `libssl-dev` must be installed prior to `pywebpush` (i.e., `pywebpush` probably won't automatically install).
+- You have configured SSL/TLS for your Home Assistant. It doesn't need to be configured in Home Assistant though, e.g., you can be running NGINX in front of Home Assistant and this will still work. The certificate must be trustworthy (i.e., not self-signed).
+- You are willing to accept the notification permission in your browser.
 
 ### Configuring the platform
 
@@ -74,7 +76,7 @@ Assuming you have already configured the platform:
 
 {% my profile badge %}
 
-1. Open Home Assistant in Chrome or Firefox and load profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
+1. Open Home Assistant in Chrome, Firefox or the webapp in iOS and load the profile page by clicking the My button above or by clicking on the badge next to the Home Assistant title in the sidebar. Assuming you have met all the [requirements](#requirements) above then you should see a new slider for Push Notifications. If the slider is greyed out, ensure you are viewing Home Assistant via its external HTTPS address (and that you have configured the `notify` HTML5 integration in Home Assistant). If the slider is not visible, ensure you are not in the user configuration (Sidebar, Configuration, Users, View User).
 2. Turn on the slider, and name the device you're using in the alert that appears.
 3. Within a few seconds you should be prompted to allow notifications from Home Assistant.
 4. Assuming you accept, that's all there is to it!
@@ -87,9 +89,9 @@ Assuming the previous test completed successfully and your browser was registere
 
 {% my developer_services badge %}
 
-1. Click on the My button above, or open Home Assistant in Chrome or Firefox, open the sidebar and click the Services button at the bottom (shaped like a remote control), located below the Developer Tools.
-2. From the Services dropdown, search for your HTML5 notify service (notify.html5) and select it.
-3. In the Service Data text box enter: `{"message":"hello world"}`, then press the CALL SERVICE button.
+1. Click on the My button above.
+2. From the **Actions** dropdown, search for your HTML5 notify action (`notify.html5`) and select it.
+3. In the data text box enter: `{"message":"hello world"}`, then select the **Perform action** button.
 4. If everything worked you should see a popup notification.
 
 ### Usage
@@ -144,10 +146,9 @@ Example of adding a tag to your notification. This won't create new notification
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: notify.html5
+      action: notify.html5
       data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
-      data:
         data:
           tag: "notification-about-sensor"
 ```
@@ -176,7 +177,7 @@ target:
 
 #### Overrides
 
-You can pass any of the parameters listed [here](https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
+You can pass any of the parameters listed [here](https://developer.mozilla.org/docs/Web/API/ServiceWorkerRegistration/showNotification#Parameters) in the `data` dictionary. Please note, Chrome specifies that the maximum size for an icon is 320px by 320px, the maximum `badge` size is 96px by 96px and the maximum icon size for an action button is 128px by 128px.
 
 #### URL
 
@@ -207,7 +208,7 @@ data:
 
 ### Dismiss
 
-You can dismiss notifications by using service html5.dismiss like so:
+You can dismiss notifications by using `html5.dismiss` action like so:
 
 ```yaml
 target: ['my phone']
@@ -225,7 +226,7 @@ During the lifespan of a single push notification, Home Assistant will emit a fe
 Common event payload parameters are:
 
 | Parameter | Description                                                                                                                                                                                                                                                    |
-|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `action`  | The `action` key that you set when sending the notification of the action clicked. Only appears in the `clicked` event.                                                                                                                                        |
 | `data`    | The data dictionary you originally passed in the notify payload, minus any parameters that were added to the HTML5 notification (`actions`, `badge`, `body`, `dir`, `icon`, `image`, `lang`, `renotify`, `requireInteraction`, `tag`, `timestamp`, `vibrate`). |
 | `tag`     | The unique identifier of the notification. Can be overridden when sending a notification to allow for replacing existing notifications.                                                                                                                        |

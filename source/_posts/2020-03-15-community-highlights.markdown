@@ -34,7 +34,7 @@ setup has a total of 5 Home Assistant instances, controlling 7x marine aquariums
 Those are some big views Kevin! I bet you will be happy with the new Lovelace
 features that are coming in Home Assistant Core 0.107. It will help
 you to trim down that a bit, into multiple Lovelace Dashboards (now in
-[beta, sneak peak?](https://rc.home-assistant.io/latest-release-notes/)).
+[beta, sneak peak?](/blog/2020/03/18/release-107/)).
 
 [Click here to check out Kevin's post on our Facebook group.](https://www.facebook.com/groups/HomeAssistant/permalink/2597624533842234/)
 

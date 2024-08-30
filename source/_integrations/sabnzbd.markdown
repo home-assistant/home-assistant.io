@@ -9,13 +9,14 @@ ha_config_flow: true
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@shaiu'
+  - '@jpbede'
 ha_domain: sabnzbd
 ha_platforms:
   - sensor
 ha_integration_type: integration
 ---
 
-The `sabnzbd` integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
+The SABnzbd integration will allow you to monitor and control your downloads with [SABnzbd](https://sabnzbd.org) from within Home Assistant and setup automations based on the information.
 
 ## Prerequisites
 
@@ -29,7 +30,7 @@ You need to grab your API key from your SABnzbd instance in order to configure t
 
 ## Sensor
 
-This component will create these sensors:
+This integration will create these sensors:
 
 - `status`: The current status of SABnzbd. (Idle, Paused, etc.)
 - `speed`: The current download speed.
@@ -44,29 +45,29 @@ This component will create these sensors:
 - `monthly_total`: GB downloaded this month. (disabled by default)
 
 
-## Services
+## Actions
 
-Available services:
+Available actions:
 
 - `pause`: Pause the download queue.
 - `resume`: Resume the download queue.
 - `set_speed`: Set the download queue speed limit.
 
-### Service `sabnzbd.pause`
+### Action `sabnzbd.pause`
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
+| Data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
 
-### Service `sabnzbd.resume`
+### Action `sabnzbd.resume`
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
+| Data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |
 
-### Service `sabnzbd.set_speed`
+### Action `sabnzbd.set_speed`
 
-| Service data attribute | Optional | Description                                                                                                                                                                                 |
+| Data attribute | Optional | Description                                                                                                                                                                                 |
 |------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `speed`                | yes      | Sets the download speed limit. If specified as a number with no units, will be interpreted as a percent. If units are provided (e.g., 500K) will be interpreted absolutely. Defaults to 100 |
 | `api_key`      | no       | The SABnzbd API key of the service instance (unique per SABnzbd integration).                                                                                                               |

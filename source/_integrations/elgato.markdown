@@ -15,6 +15,8 @@ ha_platforms:
   - button
   - diagnostics
   - light
+  - sensor
+  - switch
 ha_integration_type: device
 ---
 
@@ -27,6 +29,7 @@ integration:
 
 - [Elgato Key Light](https://www.elgato.com/en/key-light)
 - [Elgato Key Light Air](https://www.elgato.com/en/key-light-air)
+- [Elgato Key Light Mini](https://www.elgato.com/en/key-light-mini)
 - [Elgato Ring Light](https://www.elgato.com/en/ring-light)
 - [Elgato Light Strip](https://www.elgato.com/en/light-strip)
 
@@ -40,20 +43,37 @@ allows you to control the color temperature, brightness, and its on/off state.
 When using the Elgato Light Strip, color support is automatically detected
 and enabled in Home Assistant.
 
-## Services
+## Other entities
 
-### Service `elgato.identify`
+Besides the above mentioned light entity, this integration also provides other
+secondary entities that can be useful for monitoring and controlling your
+Elgato light.
 
-The identify service shortly blinks the Elgato light. Originally meant as
+### Sensors
+
+If you have a Key Light Mini, Home Assistant will provide an additional
+sensor that indicates the level of your battery in percent (%).
+
+### Switches
+
+If you have a Key Light Mini, Home Assistant will provide an additional
+switch that allows the control of the "Studio mode" of your light. When
+studio mode is enabled, your battery will not be used and bypassed.
+
+## Actions
+
+### Action `elgato.identify`
+
+The identify action shortly blinks the Elgato light. Originally meant as
 a way to identify which light you are talking to; it can also be used as
-a service to create a visual notification.
+an action to create a visual notification.
 
-This service also works when the light is turned off and will turn off the
+This action also works when the light is turned off and will turn off the
 light after the identification sequence has been completed.
 
 {% my developer_call_service badge service="elgato.identify" %}
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | Yes | String or list of Elgato light entity IDs.
 
@@ -67,7 +87,7 @@ a binary sensor (a doorbell) is triggered:
       entity_id: binary_sensor.doorbell
       to: "on"
   action:
-    - service: elgato.identify
+    - action: elgato.identify
       target:
         entity_id: light.elgato_key_light
 ```

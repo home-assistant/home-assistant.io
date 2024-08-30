@@ -16,19 +16,19 @@ If you create an account on the Website, you are responsible for maintaining the
 
 If you post material to the Website, post links on the Website, or otherwise make (or allow any third party to make) material available by means of the Website (any such material, "Content"), You are entirely responsible for the content of, and any harm resulting from, that Content. That is the case regardless of whether the Content in question constitutes text, graphics, an audio file, or computer software. By making Content available, you represent and warrant that:
 
-* the downloading, copying and use of the Content will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark or trade secret rights, of any third party;
-* if your employer has rights to intellectual property you create, you have either (i) received permission from your employer to post or make available the Content, including but not limited to any software, or (ii) secured from your employer a waiver as to all rights in or to the Content;
-* you have fully complied with any third-party licenses relating to the Content, and have done all things necessary to successfully pass through to end users any required terms;
-* the Content does not contain or install any viruses, worms, malware, Trojan horses or other harmful or destructive content;
-* the Content is not spam, is not machine- or randomly-generated, and does not contain unethical or unwanted commercial content designed to drive traffic to third party sites or boost the search engine rankings of third party sites, or to further unlawful acts (such as phishing) or mislead recipients as to the source of the material (such as spoofing);
-* the Content is not pornographic, does not contain threats or incite violence, and does not violate the privacy or publicity rights of any third party;
-* your content is not getting advertised via unwanted electronic messages such as spam links on newsgroups, email lists, blogs and web sites, and similar unsolicited promotional methods;
-* your content is not named in a manner that misleads your readers into thinking that you are another person or company; and
-* you have, in the case of Content that includes computer code, accurately categorized and/or described the type, nature, uses and effects of the materials, whether requested to do so by Home Assistant or otherwise.
+- the downloading, copying and use of the Content will not infringe the proprietary rights, including but not limited to the copyright, patent, trademark or trade secret rights, of any third party;
+- if your employer has rights to intellectual property you create, you have either (i) received permission from your employer to post or make available the Content, including but not limited to any software, or (ii) secured from your employer a waiver as to all rights in or to the Content;
+- you have fully complied with any third-party licenses relating to the Content, and have done all things necessary to successfully pass through to end users any required terms;
+- the Content does not contain or install any viruses, worms, malware, Trojan horses or other harmful or destructive content;
+- the Content is not spam, is not machine- or randomly-generated, and does not contain unethical or unwanted commercial content designed to drive traffic to third party sites or boost the search engine rankings of third party sites, or to further unlawful acts (such as phishing) or mislead recipients as to the source of the material (such as spoofing);
+- the Content is not pornographic, does not contain threats or incite violence, and does not violate the privacy or publicity rights of any third party;
+- your content is not getting advertised via unwanted electronic messages such as spam links on newsgroups, email lists, blogs and web sites, and similar unsolicited promotional methods;
+- your content is not named in a manner that misleads your readers into thinking that you are another person or company; and
+- you have, in the case of Content that includes computer code, accurately categorized and/or described the type, nature, uses and effects of the materials, whether requested to do so by Home Assistant or otherwise.
 
 ## 3. User Content License
 
-User contributions are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US). Without limiting any of those representations or warranties, Home Assistant has the right (though not the obligation) to, in Home Assistant’s sole discretion (i) refuse or remove any content that, in Home Assistant’s reasonable opinion, violates any Home Assistant policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in Home Assistant’s sole discretion. Home Assistant will have no obligation to provide a refund of any amounts previously paid.
+User contributions are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License](https://creativecommons.org/licenses/by-nc-sa/3.0/). Without limiting any of those representations or warranties, Home Assistant has the right (though not the obligation) to, in Home Assistant’s sole discretion (i) refuse or remove any content that, in Home Assistant’s reasonable opinion, violates any Home Assistant policy or is in any way harmful or objectionable, or (ii) terminate or deny access to and use of the Website to any individual or entity for any reason, in Home Assistant’s sole discretion. Home Assistant will have no obligation to provide a refund of any amounts previously paid.
 
 ## 4. Payment and Renewal
 
@@ -56,7 +56,7 @@ We have not reviewed, and cannot review, all of the material, including computer
 
 ## 8. Copyright Infringement and DMCA Policy
 
-As Home Assistant asks others to respect its intellectual property rights, it respects the intellectual property rights of others. If you believe that material located on or linked to by Home Assistant violates your copyright, and if this website resides in the USA, you are encouraged to notify Home Assistant in accordance with Home Assistant’s [Digital Millennium Copyright Act](http://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) ("DMCA") Policy. Home Assistant will respond to all such notices, including as required or appropriate by removing the infringing material or disabling all links to the infringing material. Home Assistant will terminate a visitor’s access to and use of the Website if, under appropriate circumstances, the visitor is determined to be a repeat infringer of the copyrights or other intellectual property rights of Home Assistant or others. In the case of such termination, Home Assistant will have no obligation to provide a refund of any amounts previously paid to Home Assistant.
+As Home Assistant asks others to respect its intellectual property rights, it respects the intellectual property rights of others. If you believe that material located on or linked to by Home Assistant violates your copyright, and if this website resides in the USA, you are encouraged to notify Home Assistant in accordance with Home Assistant’s [Digital Millennium Copyright Act](https://en.wikipedia.org/wiki/Digital_Millennium_Copyright_Act) ("DMCA") Policy. Home Assistant will respond to all such notices, including as required or appropriate by removing the infringing material or disabling all links to the infringing material. Home Assistant will terminate a visitor’s access to and use of the Website if, under appropriate circumstances, the visitor is determined to be a repeat infringer of the copyrights or other intellectual property rights of Home Assistant or others. In the case of such termination, Home Assistant will have no obligation to provide a refund of any amounts previously paid to Home Assistant.
 
 ## 9. Intellectual Property
 
@@ -80,7 +80,7 @@ Home Assistant may terminate your access to all or any part of the Website at an
 
 ## 14. Disclaimer of Warranties
 
-The Website is provided "as is". Home Assistant and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither Home Assistant nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. If you’re actually reading this, here’s [a treat](http://www.newyorker.com/online/blogs/shouts/2012/12/the-hundred-best-lists-of-all-time.html). You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.
+The Website is provided "as is". Home Assistant and its suppliers and licensors hereby disclaim all warranties of any kind, express or implied, including, without limitation, the warranties of merchantability, fitness for a particular purpose and non-infringement. Neither Home Assistant nor its suppliers and licensors, makes any warranty that the Website will be error free or that access thereto will be continuous or uninterrupted. If you’re actually reading this, here’s [a treat](https://www.newyorker.com/humor/daily-shouts/the-hundred-best-lists-of-all-time). You understand that you download from, or otherwise obtain content or services through, the Website at your own discretion and risk.
 
 ## 15. Limitation of Liability
 
@@ -100,4 +100,4 @@ This Agreement constitutes the entire agreement between Home Assistant and you c
 
 This document is CC-BY-SA. It was last updated February 20, 2017.
 
-Originally adapted from the [WordPress Terms of Service](http://en.wordpress.com/tos/).
+Originally adapted from the [WordPress Terms of Service](https://wordpress.com/tos/).

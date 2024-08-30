@@ -2,8 +2,9 @@
 title: RFXCOM RFXtrx
 description: Instructions on how to integrate RFXtrx into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Cover
+  - Event
   - Hub
   - Light
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -33,17 +35,18 @@ The RFXtrx integration supports RFXtrx devices by [RFXCOM](http://www.rfxcom.com
 There is currently support for the following device types within Home Assistant:
 
 - [Cover](#covers)
+- [Event](#events)
 - [Light](#lights)
 - [Switch](#switches)
 - [Sensor](#sensors)
-- [Binary Sensor](#binary-sensors)
+- [Binary sensor](#binary-sensors)
 - [Siren](#sirens)
 
 {% include integrations/config_flow.md %}
 
 ## Debug logging
 
-To receive debug logging from the RFXCOM device, add the following lines to `configuration.yaml`:
+To receive debug logging from the RFXCOM device, add the following lines to {% term "`configuration.yaml`" %}:
 
 ```yaml
 logger:
@@ -57,9 +60,9 @@ logger:
 
 ## Supported protocols
 
-Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either.
+Not all protocols as advertised are enabled on the initial setup of your transceiver. Enabling all protocols is not recommended either. The RFXcom transceiver loses significant sensitivity when more protocols are enabled. **Warning**: enabling the "BlindsT0" protocol blocks receiving any other protocol.
 
-If your 433.92 product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
+If your 433.92 MHz product is not showing in the logs, you may need to enable additional protocols. You can do this by configuring the device itself using [RFXmgmr](http://www.rfxcom.com/epages/78165469.sf/en_GB/?ViewObjectPath=%2FShops%2F78165469%2FCategories%2FDownloads) to enable the required protocol, or you can configure the device in Home Assistant by configuring the [Protocols](#protocols).
 
 ## ser2net
 
@@ -88,7 +91,7 @@ connection: &rfxtrx
 
 ## Settings options
 
-To configure options for RFXtrx integration go to **Settings** -> **Devices & Services** and press **Options** on the RFXtrx card.
+To configure options for RFXtrx integration, go to **Settings** > **Devices & services** and select **Options** on the RFXtrx card.
 
 <img src='/images/integrations/rfxtrx/options.png' />
 
@@ -99,6 +102,10 @@ In the options menu, select *Enable automatic add* to enable automatic addition 
 #### Covers
 
 The RFXtrx integration supports Siemens/LightwaveRF and Somfy RTS roller shutters that communicate in the frequency range of 433.92 MHz.
+
+#### Events
+
+The RFXtrx integration will expose event entities for remotes controlling lights as well as security devices.
 
 #### Lights
 
@@ -116,7 +123,7 @@ The RFXtrx integration support sensors that communicate in the frequency range o
 
 Also, several switches and other devices will also expose sensor entities with battery status as well as the signal level.
 
-#### Binary Sensors
+#### Binary sensors
 
 The RFXtrx integration support binary sensors that communicate in the frequency range of 433.92 MHz. The RFXtrx binary sensor integration provides support for them. Many cheap sensors available on the web today are based on a particular RF chip called *PT-2262*. Depending on the running firmware on the RFXcom box, some of them may be recognized under the X10 protocol, but most of them are recognized under the *Lighting4* protocol. The RFXtrx binary sensor integration provides some special options for them, while other RFXtrx protocols should work too.
 
@@ -138,7 +145,7 @@ To add the device, enter the value unaltered in the Event Code field, and click 
 
 #### Convert switch event to dimming event
 
-To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) component.
+To convert a standard switch to a light, use the [Light Switch](/integrations/light.switch/) integration.
 
 To convert a switch to a dimmable light, make sure the event contains a dimming command. You can usually convert a command by changing one byte.
 
@@ -170,11 +177,11 @@ Some protocols, like `undecoded`, cannot be enabled in non-volatile memory and m
 
 To configure device options, select a device from the list under *Select device to configure*. After pressing *Submit* a window with device options are presented based on the device type.
 
-<div class='note warning'>
+{% important %}
 If a device is missing from the list, close the options window and either make sure the device sents a command or manually re-add the device by event code.
-</div>
+{% endimportant %}
 
-#### Off Delay
+#### Off delay
 
 Binary sensors have only two states - "on" and "off". Many door or window opening sensors will send a signal each time the door/window is open or closed. However, depending on their hardware or on their purpose, some sensors are only able to signal their "on" state:
 
@@ -323,34 +330,34 @@ automation:
         values:
           Sound: 9
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.welcomescene
 ```
 
-## Services
+## Actions
 
 - `rfxtrx.send`: Send a custom event using the RFXtrx device.
 
-### Service: Send
+### Action: Send
 
 Simulate a button being pressed:
 
 ```yaml
 ...
 action:
-  service: rfxtrx.send
+  action: rfxtrx.send
   data:
     event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:
 
-- Go to: {% my developer_call_service title="Developer tools -> Services" service="rfxtrx.send" %}
-- Select: `RFXCOM RFXtrx: Send` from the Service drop-down menu.
+- Go to: {% my developer_call_service title="**Developer tools** > **Actions**" service="rfxtrx.send" %}
+- Select: `RFXCOM RFXtrx: Send` from the **Action** drop-down menu.
 
 ```yaml
-service: rfxtrx.send
+action: rfxtrx.send
 data:
   event: "0b1111e003af16aa10000060"
 ```

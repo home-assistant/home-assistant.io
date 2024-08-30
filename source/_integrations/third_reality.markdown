@@ -6,7 +6,7 @@ ha_iot_class: Local Push
 ha_category:
   - Cover
   - Switch
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Button
 ha_domain: third_reality

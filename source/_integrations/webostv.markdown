@@ -2,12 +2,11 @@
 title: LG webOS Smart TV
 description: Instructions on how to integrate a LG webOS Smart TV within Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
   - Notifications
 ha_iot_class: Local Push
 ha_release: 0.18
 ha_codeowners:
-  - '@bendavid'
   - '@thecode'
 ha_domain: webostv
 ha_config_flow: true
@@ -24,8 +23,8 @@ The `webostv` platform allows you to control a [LG](https://www.lg.com/) webOS S
 
 There is currently support for the following device types within Home Assistant:
 
-- [Media Player](#media-player)
-- [Notifications](#notifications)
+- [Media player](/integrations/media_player/)
+- [Notifications](/integrations/notify/)
 
 To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
@@ -33,15 +32,15 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 ## Turn on action
 
-Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an integration like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
+Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
 
-<div class='note'>
+{% important %}
 This usually only works if the TV is connected to the same network. Routing the WakeOnLan packet to a different subnet requires special configuration on your router or may not be possible.
-</div>
+{% endimportant %}
 
 You can create an automation from the user interface, from the device create a new automation and select the  **Device is requested to turn on** automation.
 Automations can also be created using an automation action:
@@ -56,7 +55,7 @@ automation:
       - platform: webostv.turn_on
         entity_id: media_player.lg_webos_smart_tv
     action:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -65,11 +64,11 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 ## Sources
 
-It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the integration card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
+It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the {% term integration %} card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 
-## Change channel through play_media service
+## Change channel through play_media action
 
-The `play_media` service can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
+The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
 
  1. Channel number *(i.e., '1' or '6')*
  2. Exact channel name *(i.e., 'France 2' or 'CNN')*
@@ -77,7 +76,7 @@ The `play_media` service can be used in a script to switch to the specified TV c
 
 ```yaml
 # Example action entry in script to switch to channel number 1
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_webos_smart_tv
 data:
@@ -85,7 +84,7 @@ data:
   media_content_type: "channel"
 
 # Example action entry in script to switch to channel including 'TF1' in its name
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.lg_webos_smart_tv
 data:
@@ -103,29 +102,29 @@ The behavior of the next and previous buttons is different depending on the acti
 ### Sound output
 
 The current sound output of the TV can be found under the state attributes.
-To change the sound output, the following service is available:
+To change the sound output, the following action is available:
 
-#### Service `webostv.select_sound_output`
+#### Action `webostv.select_sound_output`
 
-| Service data attribute | Optional | Description                             |
+| Data attribute | Optional | Description                             |
 | ---------------------- | -------- | --------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player. |
 | `sound_output`         | no       | Name of the sound output to switch to.  |
 
 ### Generic commands and buttons
 
-Available services: `button`, `command`
+Available actions: `button`, `command`
 
-### Service `webostv.button`
+### Action `webostv.button`
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                            |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                                                                                                                                |
-| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
+| `button`               | no       | Name of the button. Known possible values are `LEFT`, `RIGHT`, `DOWN`, `UP`, `HOME`, `MENU`, `BACK`, `ENTER`, `DASH`, `INFO`, `ASTERISK`, `CC`, `EXIT`, `MUTE`, `RED`, `GREEN`, `BLUE`, `YELLOW`, `VOLUMEUP`, `VOLUMEDOWN`, `CHANNELUP`, `CHANNELDOWN`, `PLAY`, `PAUSE`, `NETFLIX`, `GUIDE`, `AMAZON`, `0`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9` |
 
-### Service `webostv.command`
+### Action `webostv.command`
 
-| Service data attribute | Optional | Description                                                                                                                                                                          |
+| Data attribute | Optional | Description                                                                                                                                                                          |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_id`            | no       | Target a specific webostv media player.                                                                                                                                              |
 | `command`              | no       | Endpoint for the command, e.g.,  `system.launcher/open`.  The full list of known endpoints is available at <https://github.com/bendavid/aiopylgtv/blob/master/aiopylgtv/endpoints.py> |
@@ -137,7 +136,7 @@ Available services: `button`, `command`
 script:
   home_button:
     sequence:
-      - service: webostv.button
+      - action: webostv.button
         target:
           entity_id:  media_player.lg_webos_smart_tv
         data:
@@ -145,7 +144,7 @@ script:
 
   open_google_command:
     sequence:
-      - service: webostv.command
+      - action: webostv.command
         target:
           entity_id:  media_player.lg_webos_smart_tv
         data:
@@ -168,7 +167,7 @@ automation:
       entity_id: binary_sensor.front_door_motion
       to: "on"
     action:
-      service: notify.livingroom_tv
+      action: notify.livingroom_tv
       data:
         message: "Movement detected: Front Door"
         data:
@@ -177,4 +176,4 @@ automation:
 
 ## Notes
 
-If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on port 3000 with the TCP protocol from Home Assistant to your TV.
+If Home Assistant and your TV are not on the same network, you need to create a firewall rule, which allows a connection on ports 3000 & 3001 with the TCP protocol from Home Assistant to your TV.

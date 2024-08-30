@@ -15,7 +15,6 @@ ha_codeowners:
 ha_domain: wled
 ha_zeroconf: true
 ha_platforms:
-  - binary_sensor
   - button
   - diagnostics
   - light
@@ -38,9 +37,9 @@ newer is recommended to get the optimal experience.
 
 ## Lights
 
-This integration adds the WLED device as a light in Home Assistant.
+This {% term integration %} adds the WLED device as a light in Home Assistant.
 Home Assistant treats every segment of the LED strip as a separate light
-entity.
+{% term entity %}.
 
 Only native supported features of a light in Home Assistant are supported
 (which includes effects).
@@ -53,33 +52,33 @@ well. The fully-featured segment control has been introduced in WLED 0.10
 but has been partly around via APIs since WLED 0.8.6.
 
 If WLED has 1 segment defined (the default), that one segment controls the whole
-LED strip. Home Assistant creates a single light entity to control the
+LED strip. Home Assistant creates a single light {% term entity %} to control the
 strip.
 
-If WLED has 2 or more segments, each segment gets its own light entity in
-Home Assistant. Additionally, a master light entity is created. This master
-entity controls the strip power and overall brightness applied to all segments.
+If WLED has 2 or more segments, each segment gets its own light {% term entity %} in
+Home Assistant. Additionally, a master light {% term entity %} is created. This master
+{% term entity %} controls the strip power and overall brightness applied to all segments.
 
 Additionally, select and number entities described below will be created for each segment.
 
-## Select Entities
+## Select entities
 
-This integration provides selects for the following information from WLED:
+This {% term integration %} provides selects for the following information from WLED:
 
 - Playlist
 - Preset
 - Color palette (per segment, disabled by default).
 
-## Number Entities
+## Number entities
 
-This integration provides `number` entities to control the following, segment-specific settings:
+This {% term integration %} provides `number` entities to control the following, segment-specific settings:
 
 - Intensity
 - Speed
 
-## Sensor Entities
+## Sensor entities
 
-This integration provides sensors for the following information from WLED:
+This {% term integration %} provides sensors for the following information from WLED:
 
 - Estimated current (in mA).
 - Uptime (disabled by default)
@@ -88,34 +87,35 @@ This integration provides sensors for the following information from WLED:
 - Wi-Fi Signal Strength (RSSI in dBm, disabled by default).
 - Wi-Fi Channel (disabled by default).
 - Wi-Fi BSSID (disabled by default).
+- IP.
 
 ## Switches
 
-The integration will create a number of switches:
+The {% term integration %} will create a number of switches:
 
 ### Nightlight
 
 Toggles the WLED Timer.
 Can be configured on the WLED itself under settings > LED Preferences > Timed light.
 
-### Sync Receive and Sync Send
+### Sync receive and sync send
 
 Toggles the synchronization between multiple WLED devices.
 Can be configured on the WLED itself under settings > Sync Interfaces > WLED Broadcast.
 
 [WLED Sync documentation](https://kno.wled.ge/interfaces/udp-realtime/)
 
-## Firmware Updates
+## Firmware updates
 
-The integration has an [update entity](/integrations/update/) that provides
+The {% term integration %} has an [update entity](/integrations/update/) that provides
 information on the latest available version of WLED and indicates if a
 firmware update is available for installation.
 
 The firmware update can be triggered and installed onto your WLED device
 directly from Home Assistant.
 
-The update entity will only provide updates to stable versions, unless you are
-using a beta version of WLED. In that case, the update entity will also provide
+The update {% term entity %} will only provide updates to stable versions, unless you are
+using a beta version of WLED. In that case, the update {% term entity %} will also provide
 updates to newer beta versions.
 
 {% include integrations/option_flow.md %}
@@ -124,16 +124,17 @@ updates to newer beta versions.
 Keep Master Light:
   description: Keep the master light, even if there is only 1 segment. This ensures the master light is always there, in case you are automating segments to appear and remove dynamically.
 {% endconfiguration_basic %}
-## Example Automations
 
-### Activating Random Effect
+## Example automations
 
-You can automate changing the effect using a service call like this:
+### Activating random effect
+
+You can automate changing the effect using an action like this:
 
 {% raw %}
 
 ```yaml
-service: light.turn_on
+action: light.turn_on
 target:
   entity_id: light.wled
 data:
@@ -142,16 +143,16 @@ data:
 
 {% endraw %}
 
-### Activating Random Palette
+### Activating random palette
 
 Activating a random palette is very similar to the above random effect,
 and can be done by selecting a random one from the available palette select
-entity.
+{% term entity %}.
 
 {% raw %}
 
 ```yaml
-service: select.select_option
+action: select.select_option
 target:
   entity_id: select.wled_palette
 data:
@@ -163,26 +164,26 @@ data:
 ### Activating a preset
 
 Activating a preset is an easy way to set a WLED light to a specific
-configuration. Here is an example service call to set a WLED light 
+configuration. Here is an example action to set a WLED light 
 to a preset called My Preset:
 
 ```yaml
-- service: light.turn_on
+- action: light.turn_on
   target:
     entity_id: light.wled
-- service: select.select_option
+- action: select.select_option
   target:
     entity_id: select.wled_preset
   data:
     option: "My Preset"
 ```
 
-### Automation Using Specific Palette Name
+### Automation using specific palette name
 
 An automation to turn on a WLED light and select a specific palette and
 set intensity, and speed can be created by first calling the `light.turn_on`
-service, then calling the `select.select_option` service to select the
-palette, then call the `number.set_value` service to set the intensity
+service, then calling the `select.select_option` action to select the
+palette, then call the `number.set_value` action to set the intensity
 and again to set the speed. 
 
 Here is an example of all of these put together into an automation:
@@ -194,22 +195,22 @@ Here is an example of all of these put together into an automation:
       entity_id: sensor.weather_condition
       to: "rainy"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.wled
       data:
         effect: "Rain"
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.wled_color_palette
       data:
         option: "Breeze"
-    - service: number.set_value
+    - action: number.set_value
       target:
         entity_id: number.wled_intensity
       data:
         value: 200
-    - service: number.set_value
+    - action: number.set_value
       target:
         entity_id: number.wled_speed
       data:

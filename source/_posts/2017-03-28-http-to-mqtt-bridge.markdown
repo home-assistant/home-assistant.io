@@ -22,16 +22,16 @@ The app could be hosted on any Node.js hosting. I prefer [Heroku: Cloud Applicat
 1. Configure [CloudMQTT](https://www.cloudmqtt.com/). Check this [video tutorial](https://www.youtube.com/watch?v=VaWdvVVYU3A) for details.
 1. [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/petkov/http_to_mqtt) HTTP to MQTT bridge app.
 1. Add the [Configuration Variables](https://devcenter.heroku.com/articles/config-vars#setting-up-config-vars-for-a-deployed-application) to your Heroku app mentioned here.
-   * AUTH_KEY: Can be any string, eg. `912ec803b2ce49e4a541068d495ab570`.
-   * MQTT_HOST: The host of your MQTT broker, eg. mqtts://k99.cloudmqtt.com:21234.
-   * MQTT_USER: MQTT username
-   * MQTT_PASS: MQTT password
+  - AUTH_KEY: Can be any string, eg. `912ec803b2ce49e4a541068d495ab570`.
+  - MQTT_HOST: The host of your MQTT broker, eg. mqtts://k99.cloudmqtt.com:21234.
+  - MQTT_USER: MQTT username
+  - MQTT_PASS: MQTT password
 1. Create an IFTTT applet the same way as described in [BRUH Automation](https://youtu.be/087tQ7Ly7f4?t=265) video.
 1. Configure [Maker Webhooks](https://ifttt.com/maker_webhooks) service with below parameters.
-   * URL: `https://<app_name>.herokuapp.com/post/`
-   * Method: `POST`
-   * Content Type: `application/json`
-   * Body: `{"topic":"<mqtt_topic>","message":"<mqtt_message>","key":"<AUTH_KEY>"}`
+  - URL: `https://<app_name>.herokuapp.com/post/`
+  - Method: `POST`
+  - Content Type: `application/json`
+  - Body: `{"topic":"<mqtt_topic>","message":"<mqtt_message>","key":"<AUTH_KEY>"}`
 
 ### Subscribe to latest version
 

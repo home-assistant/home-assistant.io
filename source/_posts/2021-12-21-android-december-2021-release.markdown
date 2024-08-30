@@ -75,24 +75,24 @@ Screenshot of welcome screen
 
 With so many changes since the last update its impossible to list all of the other cool new features but here is a list of some welcomed improvements:
 
-*  New sensor to report the state of [High Accuracy Mode] by [dshokouhi]
-*  New notification parameters to change the [Status Bar Icon] and also to [alert once] for any given notification by [dshokouhi]
-*  New [WebView] settings to keep the screen on and to auto play videos by [dshokouhi] and [skynetua]
-*  New [notification command] to keep the screen on by [skynetua]
-*  Updated notification commands to accept URL encoding in extras by [mvn23]
-*  [BLE Transmitter] improvements to power output and adverister mode by [Alfiegerner] and [amadeo-alex]
-*  Quick Settings Tile limit increased from 5 to 12 by [dshokouhi]
-*  Support for Android 12 by [dshokouhi]
-*  Updated design for Media Player Widget by [jannis3005]
+-  New sensor to report the state of [High Accuracy Mode] by [dshokouhi]
+-  New notification parameters to change the [Status Bar Icon] and also to [alert once] for any given notification by [dshokouhi]
+-  New [WebView] settings to keep the screen on and to auto play videos by [dshokouhi] and [skynetua]
+-  New [notification command] to keep the screen on by [skynetua]
+-  Updated notification commands to accept URL encoding in extras by [mvn23]
+-  [BLE Transmitter] improvements to power output and adverister mode by [Alfiegerner] and [amadeo-alex]
+-  Quick Settings Tile limit increased from 5 to 12 by [dshokouhi]
+-  Support for Android 12 by [dshokouhi]
+-  Updated design for Media Player Widget by [jannis3005]
 
 <p class='img'>
 <img src='/images/blog/2021-12-21-android-december-2021/media_player.png' alt='Screenshot of Media Player Widget'>
 Screenshot of Media Player Widget
 </p>
 
-*  Support for cookie based authentication by [duncf]
-*  Setting to always try the internal URL first. This is helpful to those who like to leave location off by [dshokouhi]
-*  Support for entity category and state class in sensors by [dshokouhi]
+-  Support for cookie based authentication by [duncf]
+-  Setting to always try the internal URL first. This is helpful to those who like to leave location off by [dshokouhi]
+-  Support for entity category and state class in sensors by [dshokouhi]
 
 
 Big thank you to everyone involved. Please keep those bug reports and feature requests coming! Be sure to watch the State of the Open Home address for what to expect in 2022 and a live demo of some of the features above!

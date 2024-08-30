@@ -1,6 +1,6 @@
 ---
-title: Alarm Control Panel
-description: Instructions on how to integrate Alarm Control Panels into Home Assistant.
+title: Alarm control panel
+description: Instructions on how to integrate Alarm control panels into Home Assistant.
 ha_category:
   - Alarm
 ha_release: 0.7.3
@@ -14,11 +14,14 @@ ha_integration_type: entity
 Home Assistant can give you an interface which is similar to a classic alarm system.
 Please see [manual alarm](/integrations/manual) or [template alarm](/integrations/alarm_control_panel.template) for alarm configuration.
 
-### Services
 
-Depending on features supported by a specific integration alarm may expose the following services:
+{% include integrations/building_block_integration.md %}
 
-| Service | Data | Description |
+### Actions
+
+Depending on features supported by a specific integration alarm may expose the following actions:
+
+| Action | Data | Description |
 | ------- | ---- | ----------- |
 | `alarm_arm_home` | `entity_id` <br> `code` (optional) | Arm the alarm in the home mode.
 | `alarm_arm_away` | `entity_id` <br> `code` (optional) | Arm the alarm in the away mode.

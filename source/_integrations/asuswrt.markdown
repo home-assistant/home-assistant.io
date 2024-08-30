@@ -3,7 +3,7 @@ title: ASUSWRT
 description: Instructions on how to integrate ASUSWRT into Home Assistant.
 ha_category:
   - Hub
-  - Presence Detection
+  - Presence detection
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
@@ -16,7 +16,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The ASUSWRT integration can connect Home Assistant to a ASUS router that runs on ASUSWRT firmware.
@@ -28,13 +28,11 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-
+{% important %}
 You need to enable telnet on your router if you choose to use `protocol: telnet`.
+{% endimportant %}
 
-</div>
-
-### Sensors Configuration
+### Sensors configuration
 
 These sensors are automatically created and associated to the router device:
 
@@ -62,11 +60,9 @@ Require IP:
   description: If devices must have IP (this option is available only for access point mode).
 {% endconfiguration_basic %}
 
-<div class='note'>
-
+{% note %}
 If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
-
-</div>
+{% endnote %}
 
 ## Padavan custom firmware (The rt-n56u project)
 

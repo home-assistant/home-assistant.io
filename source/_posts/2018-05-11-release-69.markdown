@@ -37,7 +37,7 @@ Not much time to write a great intro this time as we're hanging out at PyCon! So
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - Pollen.com: Added attributes on top 3 allergens. This caused attribute names `primary_allergen_genus`, `primary_allergen_name` and `primary_allergen_type` to be suffixed with `_1` ([@bachya] - [#14018]) ([sensor.pollen docs]) (breaking change)
 - Add Sonos device attribute with grouping information. The `media_player.sonos` attribute `is_coordinator` has been removed; the new attribute `sonos_group` (listing all group members, coordinator first) can be used instead. ([@amelchio] - [#13553]) ([media_player.sonos docs]) (breaking change)

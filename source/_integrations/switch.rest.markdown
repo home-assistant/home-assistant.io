@@ -12,7 +12,7 @@ The `rest` switch platform allows you to control a given endpoint that supports 
 
 ## Configuration
 
-To enable this switch, add the following lines to your `configuration.yaml` file:
+To enable this switch, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -38,8 +38,20 @@ method:
 name:
   description: Name of the REST Switch.
   required: false
-  type: string
+  type: template
   default: REST Switch
+icon:
+  description: Defines a template for the icon of the entity.
+  required: false
+  type: template
+picture:
+  description: Defines a template for the entity picture of the entity.
+  required: false
+  type: template
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/switch/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false
@@ -50,12 +62,12 @@ timeout:
   type: integer
   default: 10
 body_on:
-  description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become enabled. This value can be a [template](/docs/configuration/templating/)."
   required: false
   type: string
   default: "ON"
 body_off:
-  description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/topics/templating/)."
+  description: "The body of the POST request that commands the switch to become disabled. This value can also be a [template](/docs/configuration/templating/)."
   required: false
   type: string
   default: "OFF"
@@ -86,15 +98,15 @@ verify_ssl:
   default: true
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 Make sure that the URL matches exactly your endpoint or resource.
-</div>
+{% endimportant %}
 
 ## Example
 
 ### Switch with templated value
 
-This example shows a switch that uses a [template](/topics/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
+This example shows a switch that uses a [template](/docs/configuration/templating/) to allow Home Assistant to determine its state. In this example, the REST endpoint returns this JSON response with true indicating the switch is on.
 
 ```json
 {"is_active": "true"}

@@ -2,39 +2,62 @@
 title: Statistics
 description: Instructions on how to integrate statistical sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
 ha_release: '0.30'
 ha_quality_scale: internal
 ha_codeowners:
-  - '@fabaff'
   - '@ThomDietrich'
 ha_domain: statistics
+ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
+ha_config_flow: true
 ---
 
-The `statistics` sensor platform observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automations, e.g., to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffee over a day gets too high.
+The `statistics` integration observes the state of a source sensor and provides aggregated statistical characteristics about its recent past. This integration can be useful in automation, for example, to trigger an action when the air humidity in the bathroom settles after a hot shower or when the number of brewed coffees over a day gets too high.
 
 The statistics sensor updates with every update of the source sensor, for which the numeric `sensor` and `binary_sensor` are supported. The time period and/or number of recent state changes, which should be considered, must be given in configuration. Check the configuration section below for details.
 
 Assuming the [`recorder`](/integrations/recorder/) integration is running, historical sensor data is read from the database on startup and is available immediately after a restart of the platform. If the [`recorder`](/integrations/recorder/) integration is *not* running, it can take some time for the sensor to start reporting data because some characteristics calculations require more than one source sensor value.
 
-<div class='note tip'>
-
+{% tip %}
 The `statistics` integration is different to [Long-term Statistics](https://developers.home-assistant.io/docs/core/entity/sensor/#long-term-statistics). More details on the differences can be found in the [2021.8.0 release notes](/blog/2021/08/04/release-20218/#long-term-statistics).
+{% endtip %}
 
-</div>
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input. Numeric `sensor` and `binary_sensor` are supported.
+State_characteristic:
+  description: List of statistical characteristics to choose from.
+Sampling size:
+  description: Maximum number of source sensor measurements stored.
+Max age:
+  description: Maximum age of source sensor measurements stored.
+Keep last sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the "Max age" setting.
+Percentile:
+  description: Only relevant in combination with the percentile characteristic. Must be a value between 1 and 99.
+Precision:
+  description: Defines the number of decimal places of the calculated sensor value.
+{% endconfiguration_basic %}
 
 ## Characteristics
 
-The following statistical characteristics are available. Pay close attention to the right configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
+The following options for the configuration parameter `state_characteristic` are available as staticical characteristics. Pay close attention to the correct configuration of `sampling_size` and/or `max_age`, as most characteristics are directly influenced by these settings.
 
 ### Numeric Source Sensor
 
-The following characteristics are supported for `sensor` source sensors:
+The following are supported for `sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -53,6 +76,7 @@ The following characteristics are supported for `sensor` source sensors:
 | `distance_99_percent_of_values` | A statistical indicator derived from the standard deviation of an assumed normal distribution. 99% of all stored values fall into a range of returned size.
 | `distance_absolute` | The difference or "spread" between the extreme values of measurements. Equals `value_max` minus `value_min`.
 | `mean` | The average value computed for all measurements. Be aware that this does not take into account uneven time intervals between measurements.
+| `mean_circular` | The [circular mean](https://en.wikipedia.org/wiki/Circular_mean) for angular measurements (_e.g._ wind direction). Assumes that measurements are expressed in degrees (_e.g._, 180° or -90°), and outputs the mean in positive degrees (0-360°).
 | `median` | The [median](https://en.wikipedia.org/wiki/Mode_(statistics)#Comparison_of_mean,_median_and_mode) value computed for all measurements.
 | `noisiness` | A simplified version of a signal-to-noise ratio. A high value indicates a quickly changing source sensor value, a small value will be seen for a steady source sensor. The absolute change between subsequent source sensor measurement values is summed up and divided by the number of intervals.
 | `percentile` | [Percentiles](https://en.wikipedia.org/wiki/Percentile) divide the range of a distribution of all considered source sensor measurements into 100 continuous intervals of equal probability. The characteristic calculates the value for which a given percentage of source sensor measurements are smaller in value. The 20th percentile is the value below which 20 percent of the measurements may be found. The additional configuration parameters `percentile` is needed, see below.
@@ -67,7 +91,7 @@ The following characteristics are supported for `sensor` source sensors:
 
 ### Binary Source Sensor
 
-The following characteristic are supported for `binary_sensor` source sensors:
+The following are supported for `binary_sensor` source sensors `state_characteristic`:
 
 | State Characteristic | Description |
 | -------------------- | ----------- |
@@ -90,7 +114,7 @@ A statistics sensor presents the following attributes for context about its inte
 | `buffer_usage_ratio` | Only when `sampling_size` is defined. Ratio (0.0-1.0) of the configured buffer size used by the stored source sensor measurements. A low number can indicate an unwanted mismatch between the configured limits and the source sensor behavior. The value 1.0 represents a full buffer, value 0 stands for an empty one.
 | `source_value_valid` | True/false indication whether the source sensor supplies valid values to the statistics sensor (judged by the last value received).
 
-## Configuration
+## YAML configuration
 
 Define a statistics sensor by adding lines similar to the following examples to your `configuration.yaml`:
 
@@ -120,7 +144,7 @@ sensor:
 
 {% configuration %}
 entity_id:
-  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensor](/integrations/binary_sensor/) are supported.
+  description: The source sensor to observe and compute statistical characteristics for. Only [sensors](/integrations/sensor/) and [binary sensors](/integrations/binary_sensor/) are supported.
   required: true
   type: string
 name:
@@ -129,7 +153,7 @@ name:
   default: Stats
   type: string
 state_characteristic:
-  description: The characteristic that should be used as the state of the statistics sensor (see table above).
+  description: The characteristic that should be used as the state of the statistics sensor (see tables above).
   required: true
   type: string
 sampling_size:
@@ -140,6 +164,11 @@ max_age:
   description: Maximum age of source sensor measurements stored. Setting this to a time period will cause older values to be discarded. If omitted, the number of considered source sensor measurements is limited by `sampling_size` only. Set both parameters appropriately to create suited limits for your use case. The sensor value will become `unknown` if the source sensor is not updated within the time period. A statistics sensor requires `sampling_size`, `max_age`, or both to be defined.
   required: false
   type: time
+keep_last_sample:
+  description: Defines whether the most recent sampled value should be preserved regardless of the `max_age` setting. 
+  required: false
+  default: false
+  type: boolean
 percentile:
   description: Only relevant in combination with the `percentile` characteristic. Must be a value between 1 and 99. The value defines the percentile value to consider. The 25th percentile is also known as the first quartile, the 50th percentile as the median.
   required: false
@@ -158,4 +187,6 @@ unique_id:
 
 ### An important note on `max_age` and `sampling_size`
 
-The `max_age` option is only valid within the measured samples specified by `sampling_size` (default 20). Specify a wide-enough `sampling_size` if using an extended max-age (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement a minute should have at least a `sampling_size` of 60.
+If both `max_age` and `sampling_size` are given, the considered samples are those within the `max_age` time window but limited to the number of `sampling_size` newest samples.  Specify a wide-enough `sampling_size` if using an extended `max_age` (e.g., when looking for `max_age` 1 hour, a sensor that produces one measurement per minute should have at least a `sampling_size` of 60 to use all samples within the `max_age` timeframe.)
+
+If only `sampling_size` is given there is no time limit. If only `max_age` is given the considered number of samples is unlimited.

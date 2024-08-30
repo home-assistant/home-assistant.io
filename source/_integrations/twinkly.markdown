@@ -10,7 +10,9 @@ ha_iot_class: Local Polling
 ha_codeowners:
   - '@dr1rrb'
   - '@Robbie1221'
+  - '@Olen'
 ha_platforms:
+  - diagnostics
   - light
 ha_dhcp: true
 ha_integration_type: integration

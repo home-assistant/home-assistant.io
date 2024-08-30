@@ -10,17 +10,20 @@ ha_domain: dweet
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `dweet` integration makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
+The `dweet` {% term integration %} makes it possible to transfer details collected with Home Assistant to [Dweet.io](https://dweet.io/) and visualize them with [freeboard.io](https://freeboard.io). Keep in mind that your information will be public!
 
 <p class='img'>
   <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
-<div class='note warning'>
+{% note %}
 The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
-</div>
+{% endnote %}
 
 There is currently support for the following device types within Home Assistant:
 
@@ -28,7 +31,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To use the `dweet` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `dweet` integration in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +62,7 @@ The `dweet` sensor platform allows you to get details from your devices which ar
 
 ### Configuration
 
-To use Dweet.io sensors in your installation, add the following to your `configuration.yaml` file:
+To use Dweet.io sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 

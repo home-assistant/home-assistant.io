@@ -2,7 +2,7 @@
 title: devolo Home Control
 description: Instructions on how to integrate devolo Home Control with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Light
@@ -16,11 +16,12 @@ ha_codeowners:
   - '@2Fake'
   - '@Shutgun'
 ha_domain: devolo_home_control
-ha_quality_scale: silver
+ha_quality_scale: gold
 ha_platforms:
   - binary_sensor
   - climate
   - cover
+  - diagnostics
   - light
   - sensor
   - siren
@@ -47,7 +48,7 @@ The integration provides support for the following Z-Wave devices:
 - Fibaro Wall Plug
 - Fibaro Double Relay Switch
 
-## Binary Sensors
+## Binary sensors
 
 The integration provides support for the following Z-Wave devices:
 

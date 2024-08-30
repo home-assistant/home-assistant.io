@@ -3,12 +3,13 @@ title: Islamic Prayer Times
 description: Instructions on how to integrate the Islamic Prayer Times integration within Home Assistant.
 ha_category:
   - Sensor
-ha_iot_class: Cloud Polling
+ha_iot_class: Calculated
 ha_release: 0.85
 ha_config_flow: true
 ha_domain: islamic_prayer_times
 ha_codeowners:
   - '@engrbm87'
+  - '@cpfair'
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -48,3 +49,27 @@ sensors:
   - maghrib: Show the maghrib prayer time for today.
   - isha: Show the isha prayer time for today.
   - midnight: Show the midnight for today which is the end of isha prayer. This is a calculated field and is not the same as 12AM.
+
+## Configuration
+
+### Prayer calcuation method
+
+Default: Islamic Society of North America
+
+A prayer times calculation method. Methods identify various schools of thought about how to compute the timings. If not specified, it defaults to Islamic Society of North America.
+
+### Latatude Adjustment Method
+
+Default: Middle of the night 
+
+Method for adjusting times higher latitudes - for instance, if you are checking timings in the UK or Sweden.
+
+### Midnight mode
+
+Default: Standard (mid sunset to sunrise)
+
+### School
+
+Default: Shafi
+
+Method for adjusting Asr time calcuation, if not specified, it defaults to Shafi.

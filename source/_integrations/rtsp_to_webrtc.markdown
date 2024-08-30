@@ -22,7 +22,7 @@ The integration configuration requires the URL to your server (e.g. `http://exam
 
 {% include integrations/config_flow.md %}
 
-## Technical Details
+## Technical details
 
 RTSPtoWebRTC registers with the camera integration to override the camera attribute `frontend_stream_type` of `STREAM_TYPE_WEBRTC` to instruct the frontend to use WebRTC streams.
 

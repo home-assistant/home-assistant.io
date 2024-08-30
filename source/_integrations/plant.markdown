@@ -7,13 +7,17 @@ ha_release: 0.44
 ha_quality_scale: internal
 ha_domain: plant
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This`plant`component lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
+This `plant` {% term integration %} lets you merge moisture, conductivity, light intensity, temperature and battery level for a plant into a single UI element. It also supports setting minimum and maximum values for each measurement and will change its state to "problem" if it is not within those limits.
 
 ## Configuration
 
-To use your `plant` sensor in your installation, add the following to your `configuration.yaml` file:
+To use your `plant` sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,7 +97,7 @@ entity_id:
       required: false
       type: float
     min_brightness:
-      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than min_brightness. You can use this to check if the plant gets enough light during the course of the day.
+      description: Minimum brightness before triggering a problem. In contrast to the other values, this check is *not* looking at the current situation, but rather at the last days. A problem is only reported if the maximum brightness over the last days was lower than `min_brightness`. You can use this to check if the plant gets enough light during the course of the day.
       required: false
       type: integer
     max_brightness:
@@ -110,11 +114,11 @@ entity_id:
 ## Examples
 ### Using plain MQTT sensor to get the data
 This is a practical example that uses a multiple of `MQTT sensors` to supply the readings used by the `plant` sensor.
-Another good source of this data would be the [Mi Flora](/integrations/miflora) component.
+Another good source of this data would be the [Mi Flora](/integrations/miflora) integration.
 
 If the sensor data is within the min/max values the status will be `ok`, if not the status will be `problem`. You can use this to trigger a notification, if there is a problem with your plant. Of course you can only monitor attributes of your plant, where the sensor is configured and is providing the data.
 
-## Data Source
+## Data source
 
 The main sources of the data will usually be a [MiFlora sensor](/integrations/miflora) or a [MQTT sensor](/integrations/sensor.mqtt/) receiving the data from a [PlantGateway](https://github.com/ChristianKuehnel/plantgateway).
 

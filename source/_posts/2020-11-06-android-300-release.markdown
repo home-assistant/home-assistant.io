@@ -13,9 +13,9 @@ Hey everyone it's been a little while since we last spoke. We have a brand new H
 
 Before we get into the release details I'd like to mention that this month marks the [1 year anniversary](https://youtu.be/tc17q1Zn0Xs?t=3487) of the Home Assistant Companion app being offered in the Google Play Store! Just to think how far along the entire app has come from its initial alpha state to what is currently being offered in today's release. Can you believe it's already been a year?
 
-It has been pretty busy over on the Android side of things during Hacktoberfest! We have seen a total of 84 pull requests from a wide range of contributors that we are thankful for, so thank you for all of your efforts! In case you missed it we actually had a release shortly after version 2.4.0 but as we did not have an accompanying blog post, we'll cover whats new since we last spoke in this post. All of the features listed below are already documented on the [Companion](https://companion.home-assistant.io/) site, please be sure to check in there for greater details. Before we continue with what's new lets go over the breaking changes for this release.
+It has been pretty busy over on the Android side of things during Hacktoberfest! We have seen a total of 84 pull requests from a wide range of contributors that we are thankful for, so thank you for all of your efforts! In case you missed it we actually had a release shortly after version 2.4.0 but as we did not have an accompanying blog post, we'll cover whats new since we last spoke in this post. All of the features listed below are already documented on the [Companion](https://companion.home-assistant.io/) site, please be sure to check in there for greater details. Before we continue with what's new lets go over the backward-incompatible changes for this release.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 In our [last blog post](https://www.home-assistant.io/blog/2020/09/12/android-240-release/) we mentioned that we were going to be breaking up some sensors and their attributes. As of 3.0.0 we have completed this task and no longer have non-static attributes as part of any sensor. If you are missing any data please check the Manage Sensors screen under App Configuration and enable the sensor you were previously using as an attribute.
 
@@ -90,7 +90,7 @@ There have been several improvements to notifications as well.
 
 - An event gets sent upon a notification being [cleared](https://companion.home-assistant.io/docs/notifications/notification-cleared) along with all notification data.
 - Notifications can make use of the alarm stream to bypass a device's ringer mode setting. This can be useful if there is an important event such as an alarm being triggered. Make sure to check the updated Android examples on the [companion site](https://companion.home-assistant.io/docs/notifications/critical-notifications).
-- [Text To Speech notifications](https://companion.home-assistant.io/docs/notifications/notifications-basic#text-to-speech-notifications), with the ability to use the alarm stream if desired. By default it will use the device's music stream. There is also an additional option to temporarily change the volume level to the maximum level while speaking, the level would then restored to what it was previously.
+- [Text-to-speech notifications](https://companion.home-assistant.io/docs/notifications/notifications-basic#text-to-speech-notifications), with the ability to use the alarm stream if desired. By default it will use the device's music stream. There is also an additional option to temporarily change the volume level to the maximum level while speaking, the level would then restored to what it was previously.
 - New device [commands](https://companion.home-assistant.io/docs/notifications/notification-commands) to control your phone: broadcasting an intent to another app, controlling Do Not Disturb and ringer mode.
 - Opening another app with an [actionable notification](https://companion.home-assistant.io/docs/notifications/actionable-notifications#building-automations-for-notification-actions), make sure to follow the Android examples.
 
@@ -107,7 +107,7 @@ Screenshot of settings.
 - App language can now be overridden to match a user's profile, this will impact the name of entities that get added as well as the App Configuration appearance. By default your device will use your phones language however, we noticed some users actually prefer Home Assistant to always be in a different language on their device. With this feature you can now set the language to be one of any that are supported by the app. You can also help us translate the app on [Lokalise](https://lokalise.com/public/145814835dd655bc5ab0d0.36753359/).
 - History of recently received notifications, along with all data that was sent
 - Notification rate limit information to help you understand if you are about to go over the daily limit.
-- Editable widgets, with the ability to delete missing widgets as mentioned in the [breaking changes](#breaking-changes). This is really helpful if you ever created a widget and realized you needed to make one more adjustment.
+- Editable widgets, with the ability to delete missing widgets as mentioned in the [backward-incompatible changes](#backward-incompatible-changes). This is really helpful if you ever created a widget and realized you needed to make one more adjustment.
 - Widgets now update when the screen turns on to provide faster updates
 - A new widget to control any [media player](https://companion.home-assistant.io/docs/integrations/android-widgets#media-player)
 

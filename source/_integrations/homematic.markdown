@@ -2,7 +2,7 @@
 title: Homematic
 description: Instructions for integrating Homematic into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Climate
   - Cover
   - Hub
@@ -15,7 +15,6 @@ ha_iot_class: Local Push
 ha_release: 0.23
 ha_codeowners:
   - '@pvizeli'
-  - '@danielperna84'
 ha_domain: homematic
 ha_platforms:
   - binary_sensor
@@ -27,14 +26,17 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The [Homematic](https://www.homematic.com/) integration provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
+The [Homematic](https://www.eq-3.com/products/homematic.html) {% term integration %} provides bi-directional communication with your CCU/Homegear. It uses an XML-RPC connection to set values on devices and subscribes to receive events the devices and the CCU emit.
 If you are using Homegear with paired [Intertechno](https://intertechno.at/) devices, uni-directional communication is possible as well.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Climate
 - Cover
 - Light
@@ -45,20 +47,19 @@ There is currently support for the following device types within Home Assistant:
 
 Device support is available for most of the wired and wireless devices, as well as a lot of IP devices. If you have a setup with mixed protocols, you have to configure additional [interfaces](/integrations/homematic#interfaces) with the appropriate ports. The default is using port 2001, which are wireless devices. Wired devices usually are available through port 2000 and IP devices through port 2010. The virtual thermostatgroups the CCU provides use port 9292 **and** require you to set the `path` setting to `/groups`. When using SSL on a CCU3, by default the same ports as usual with a prepended 4 are available. So 2001 becomes 42001, 2010 becomes 42010 etc..
 
-<div class='note info'>
-
+{% important %}
 Since CCU Version 3, the internal firewalls are enabled by default. You have to grant full access for the `XML-RPC API` or specify the IP-address of the Home Assistant instance and allowlist it, inside the CCU's security settings.
-
-</div>
+{% endimportant %}
 
 If you want to see if a specific device you have is supported, head over to the [pyhomematic](https://github.com/danielperna84/pyhomematic/tree/master/pyhomematic/devicetypes) repository and browse through the source code. A dictionary with the device identifiers (e.g., HM-Sec-SC-2) can be found within the relevant modules near the bottom. If your device is not supported, feel free to contribute.
 
 We automatically detect all devices we currently support and try to generate useful names. If you enable name-resolving, we try to fetch names from Metadata (Homegear), via JSON-RPC or the XML-API you may have installed on your CCU. Since this may fail this is disabled by default.
-You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. The Homematic integration is also supported by the [Entity Registry](https://developers.home-assistant.io/docs/en/entity_registry_index.html), which allows you to change the friendly name and the entity ID directly in the Home Assistant UI.
+You can manually rename the created entities by using Home Assistant's [Customizing](/docs/configuration/customizing-devices/) feature. The Homematic integration is also supported by the [Entity Registry](https://developers.home-assistant.io/docs/entity_registry_index/), which allows you to change the friendly name and the entity ID directly in the Home Assistant UI.
 
 ## Configuration
 
-To set up the component, add the following information to your `configuration.yaml` file:
+To set up the integration, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 homematic:
@@ -201,7 +202,7 @@ homematic:
 
 We use three approaches to fetch the names of devices. Each assumes you have properly named your devices in your existing Homematic setup. As a general advice: Use ASCII for your devices names. Home Assistant won't include non-ASCII characters in entity-names.
 
-1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work you need to add valid credentials to your component-configuration. Guest-access is sufficient to query for device names.
+1. `json`: The CCU allows to fetch details of the paired devices via JSON-RPC. For this to work, you need to add valid credentials to your integration configuration. Guest-access is sufficient to query for device names.
 2. `xml`: If you use a CCU, there is an add-on called the "XML-API". With it installed, you are able to fetch all kinds of information from you CCU using XML-RPC. We can leverage this and fetch the names of devices set within the CCU. We don't support authentication with this method. The `json` method should be preferred over `xml`. Support for the XML-API is only available for downwards compatibility and may be disabled in a future release.
 3. `metadata`: Homegear provides device-names through the metadata devices internally have. When using an HM-CFG-LAN interface, you typically use a configuration software ("HomeMatic-Komponenten konfigurieren" is the name of the shortcut on your desktop by default) to pair and configure your devices. If you have paired devices, you'll see them listed in a table. The leftmost column (Name) is prefilled with default names. You can click such a name and enter whatever you like.
 
@@ -210,12 +211,12 @@ Resolving names can take some time. So when you start Home Assistant you won't s
 ### Multiple hosts
 
 In order to allow communication with multiple hosts or different protocols in parallel (wireless, wired and IP), multiple connections will be established, each to the configured destination. The name you choose for the host has to be unique and limited to ASCII letters.
-Using multiple hosts has the drawback, that the services (explained below) may not work as expected. Only one connection can be used for services, which limits the devices/variables a service can use to the scope/protocol of the host.
+Using multiple hosts has the drawback, that the actions (explained below) may not work as expected. Only one connection can be used for actions, which limits the devices/variables an action can use to the scope/protocol of the host.
 This does *not* affect the entities in Home Assistant. They all use their own connection and work as expected.
 
 ### Reading attributes of entities
 
-Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) component. Here's an example of a template sensor that exposes the valve position of a thermostat.
+Most devices have, besides their state, additional attributes like their battery state or valve position. These can be accessed using templates in automations, or even as their own entities using the [template sensor](/integrations/template) integration. Here's an example of a template sensor that exposes the valve position of a thermostat.
 
 {% raw %}
 
@@ -259,7 +260,7 @@ automation:
        channel: 1
        param: PRESS_SHORT
    action:
-     service: switch.turn_on
+     action: switch.turn_on
      target:
        entity_id: switch.Kitchen_Ambience
 ```
@@ -291,7 +292,7 @@ To get the `homematic.keypress` event for some Homematic IP devices like WRC2 / 
 8. When your channel is working now, you can edit it to select the other channels one by one
 9. At the end, you can delete this program from the CCU
 
-### Services
+### Actions
 
 - *homematic.virtualkey*: Simulate a keypress (or other valid action) on CCU/Homegear with device or virtual keys.
 - *homematic.reconnect*: Reconnect to CCU/Homegear without restarting Home Assistant (useful when CCU has been restarted)
@@ -306,7 +307,7 @@ Simulate a button being pressed:
 ```yaml
 ...
 action:
-  service: homematic.virtualkey
+  action: homematic.virtualkey
   data:
     address: "BidCoS-RF"
     channel: 1
@@ -318,7 +319,7 @@ Open KeyMatic:
 ```yaml
 ...
 action:
-  service: homematic.virtualkey
+  action: homematic.virtualkey
   data:
     address: "LEQ1234567"
     channel: 1
@@ -330,7 +331,7 @@ Set boolean variable to true:
 ```yaml
 ...
 action:
-  service: homematic.set_variable_value
+  action: homematic.set_variable_value
   target:
     entity_id: homematic.ccu2
   data:
@@ -341,14 +342,14 @@ action:
 #### Advanced examples
 
 If you are familiar with the internals of Homematic devices, you can manually set values on the devices. This can serve as a workaround if support for a device is currently not available, or only limited functionality has been implemented.
-Using this service provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above `rf`, `wired` and `ip` would be valid values.
+Using this action provides you direct access to the setValue-method of the primary connection. If you have multiple hosts, you may select the one hosting a specific device by providing the proxy-parameter with a value equivalent to the name you have chosen. In the example configuration from above, `rf`, `wired`, and `ip` would be valid values.
 
 Manually turn on a switch actor:
 
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 1
@@ -361,7 +362,7 @@ Manually set temperature on thermostat:
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 4
@@ -374,7 +375,7 @@ Manually set the active profile on thermostat:
 ```yaml
 ...
 action:
-  service: homematic.set_device_value
+  action: homematic.set_device_value
   data:
     address: "LEQ1234567"
     channel: 1
@@ -388,7 +389,7 @@ Set the week program of a wall thermostat:
 ```yaml
 ...
 action:
-  service: homematic.put_paramset
+  action: homematic.put_paramset
   data:
     interface: wireless
     address: "LEQ1234567"
@@ -402,7 +403,7 @@ Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF onl
 ```yaml
 ...
 action:
-  service: homematic.put_paramset
+  action: homematic.put_paramset
   data:
     interface: wireless
     address: "LEQ1234567"
@@ -423,7 +424,7 @@ Manually set lock on KeyMatic devices:
 ```yaml
 ...
 action:
-  service: lock.lock
+  action: lock.lock
   target:
     entity_id: lock.leq1234567
 ```
@@ -433,7 +434,7 @@ Manually set unlock on KeyMatic devices:
 ```yaml
 ...
 action:
-  service: lock.unlock
+  action: lock.unlock
   target:
     entity_id: lock.leq1234567
 ```
@@ -453,14 +454,14 @@ lock:
     unique_id: basedoor
     value_template: "{{ is_state('sensor.lock_status', 'locked') }}"
     lock:
-      service: homematic.set_device_value
+      action: homematic.set_device_value
       data:
         address: "002A1BE9A792D2"
         channel: 1
         param: LOCK_TARGET_LEVEL
         value: 0
     unlock:
-      service: homematic.set_device_value
+      action: homematic.set_device_value
       data:
         address: "002A1BE9A792D2"
         channel: 1
@@ -493,12 +494,12 @@ automation:
       to: "off"
     action:
       # Reconnect, if sensor has not been updated for over 10 minutes
-      service: homematic.reconnect
+      action: homematic.reconnect
 ```
 
 {% endraw %}
 
-  The important part is the `sensor.time` entity (from time_date component). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
+  The important part is the `sensor.time` entity (from time_date integration). This will update the binary sensor on every change of the sensor and every minute. If the Homematic sensor does not send any updates anymore, the `sensor.time` will set the binary sensor to `off` 10 minutes after the last sensor update. This will trigger the automation.
 
 - If you have a CCU you can also create a system variable on the CCU, which stores its last reboot time. Since Home Assistant can still refresh system variables from the CCU (even after a reboot) this is another option to call *homematic.reconnect*. Even though this option might look preferable to many since it does not rely on a sensor, **it is less fail-safe** than checking for updates of a sensor. Since the variable on the CCU is only changed on boot, any problem that causes the connection between Home Assistant and the CCU to break but will not result in a reboot will not be detected (eg. in case of networking issues). This is how this can be done:
 
@@ -537,14 +538,14 @@ automation:
            platform: state
            entity_id: sensor.v_last_reboot
          action:
-           service: homematic.reconnect
+           action: homematic.reconnect
      ```
 
 ## Notifications
 
 The `homematic` notification platform enables invoking Homematic devices.
 
-To use this notification platform in your installation, add the following to your `configuration.yaml` file:
+To use this notification platform in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ### Configuration
 
@@ -584,7 +585,7 @@ value:
 
 ### Usage
 
-`homematic` is a notify platform and can be controlled by calling the notify service [as described here](/integrations/notify/).
+`homematic` is a notify platform and can be controlled by calling the notify action [as described here](/integrations/notify/).
 
 Only the `data` part of the event payload is processed. This part can specify or override the value given as configuration variable:
 
@@ -625,7 +626,7 @@ notify:
   - name: group_hm
     platform: group
     services:
-      - service: my_hm
+      - action: my_hm
         data:
           data:
             value: "1,1,108000{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},1{% endif %}{% if is_state('binary_sensor.oeqxxxxxxx_state', 'on') %},2{% endif %}"
@@ -642,4 +643,4 @@ alert:
 
 {% endraw %}
 
-Please note that the first `data` element belongs to the service `my_hm`, while the second one belongs to the event payload.
+Please note that the first `data` element belongs to the `my_hm` action, while the second one belongs to the event payload.

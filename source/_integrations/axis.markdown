@@ -2,7 +2,7 @@
 title: Axis
 description: Integration between network devices from Axis Communications with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Light
   - Switch
@@ -30,9 +30,9 @@ ha_integration_type: device
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-  It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
-</div>
+{% tip %}
+It is recommended that you create a user on your Axis device specifically for Home Assistant. For sensor functionality, it is enough to create a user with viewer privileges. If you want additional functional control you will need admin privileges.
+{% endtip %}
 
 ## Debugging integration
 
@@ -58,7 +58,7 @@ If your device is not discovered. On your camera, go to **System Options** -> **
 
 When creating an issue detailing a problem related to the integration make sure to share the device model and firmware as well as prepare logs. Logs might contain sensitive information so make sure to look through it before sharing.
 
-## Binary Sensor
+## Binary sensor
 
 The following sensor types are supported:
 

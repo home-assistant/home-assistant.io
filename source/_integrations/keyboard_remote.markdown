@@ -9,14 +9,20 @@ ha_codeowners:
   - '@bendavid'
   - '@lanrat'
 ha_domain: keyboard_remote
-ha_integration_type: integration
+ha_integration_type: hub
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Receive signals from a keyboard and use it as a remote control.
 
-This integration allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
+This {% term integration %} allows you to use one or more keyboards as remote controls. It will fire `keyboard_remote_command_received` events which can then be used in automation rules.
 
 The `evdev` package is used to interface with the keyboard and thus this is Linux only. It also means you can't use your normal keyboard for this because `evdev` will block it.
+
+To enable the Keyboard Remote {% term integration %}, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,12 +41,12 @@ emulate_key_hold:
   type: boolean
   default: false
 emulate_key_hold_delay:
-  description:  Number of milliseconds to wait before sending first emulated key hold event
+  description:  Number of seconds to wait before sending first emulated key hold event
   required: false
   type: float
   default: 0.250
 emulate_key_hold_repeat:
-  description:  Number of milliseconds to wait before sending subsequent emulated key hold event
+  description:  Number of seconds to wait before sending subsequent emulated key hold event
   required: false
   type: float
   default: 0.033
@@ -96,7 +102,7 @@ automation:
       type: key_down # only trigger on key_down events (optional)
 
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.all
 ```
@@ -122,7 +128,7 @@ automation:
       platform: event
       event_type: keyboard_remote_connected
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:
@@ -136,7 +142,7 @@ automation:
       event_data:
         device_name: "00:58:56:4C:C0:91"
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.speaker
         data:
@@ -164,4 +170,30 @@ You can check ACLs permissions with:
 
 ```bash
 getfacl /dev/input/event*
+```
+
+## Containers
+
+If you are running Home Assistant Container, you need to pass the input device through to the container. You can pass the input device you want to use directly into the container with the `--devices` flag. However, restarting the container or unplugging and replugging your keyboard will break this integration. This is because only the instance of the keyboard that existed when the container first started will be available inside the container.
+
+Here is an incomplete example `docker-compose.yml` that allows Home Assistant persistent access to input devices in a container:
+
+```yaml
+version: '3.7'
+
+services:
+  homeassistant:
+    image: ghcr.io/homeassistant/home-assistant:stable
+    volumes:
+      - config:/config/
+      - /dev/input:/dev/input/ # this is needed to read input events.
+    restart: unless-stopped
+    device_cgroup_rules:
+      # allow creation of /dev/input/* with mknod, this is not enough on its own and needs mknod to be called in the container
+      - 'c 13:* rmw' 
+    devices:
+      # since input id may change, pass them all in
+      - "/dev/input/"
+    ...
+
 ```

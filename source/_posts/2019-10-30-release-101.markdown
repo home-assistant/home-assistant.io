@@ -220,7 +220,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Removed__ - The following integrations have been removed:
   - __Direct authentication via trusted networks or API password__ - It is no longer possible to make authenticated requests using trusted networks or by appending ?api_password=X to the URL. You will now first need to get an authentication token and use that token to make requests. Auth providers for trusted networks and API passwords are still available. - ([@balloob] - [#27656]) ([auth docs]) ([http docs]) ([websocket_api docs])

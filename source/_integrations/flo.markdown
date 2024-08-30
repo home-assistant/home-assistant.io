@@ -2,7 +2,7 @@
 title: Flo
 description: Instructions on how to integrate Flo by Moen into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
   - Switch
 ha_config_flow: true
@@ -23,13 +23,13 @@ The `flo` integration integrates
 
 There is currently support for the following device types within Home Assistant:
 
-- **Binary Sensor**: reports whether or not there are any alerts.
+- **Binary sensor**: reports whether or not there are any alerts.
 - **Sensor**: reports on the device's system mode, water flow rate, temperature, water pressure, and daily water consumption.
 - **Switch**: allows the user to open and close the valve on the water shutoff device.
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
 ### `flo.run_health_test`
 

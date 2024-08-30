@@ -5,9 +5,9 @@ description: "More information on why systemd journal marks the installation as 
 
 ## The issue
 
-The Supervisor needs access to the systemd journal for logging features
-such as the `/host/logs` API. These features don't work if the journal
-is not accessible.
+The Supervisor needs access to the systemd journal to access logs of
+individual system components and add-ons. These logs are limited or
+not available at all if the journal is not accessible.
 
 ## The solution
 
@@ -22,5 +22,15 @@ If using Home Assistant Supervised, run the following on the host:
 sudo apt install systemd-journal-remote -y
 ```
 
-and then reboot. If you still see this issue then run the [supervised installer](https://github.com/home-assistant/supervised-installer)
+and then reboot your system
+
+If after upgrading you are still facing this error, reinstall `systemd-journal-remote` with the following command
+
+```sh
+sudo apt-get install --reinstall systemd-journal-remote
+```
+
+and reboot your system
+
+If you still see this issue then run the [supervised installer](https://github.com/home-assistant/supervised-installer)
 on the host as the supervisor service may need an update as well.

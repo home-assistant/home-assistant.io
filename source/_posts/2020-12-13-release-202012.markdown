@@ -52,7 +52,7 @@ Happy holidays, stay safe and for the last time this year: Enjoy the release!
 - [Release 2020.12.1 - December 16](#release-2020121---december-16)
 - [Release 2020.12.2 - December 30](#release-2020122---december-30)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -125,7 +125,7 @@ inspiring others.
 ## New neural voices for Nabu Casa Cloud TTS
 
 If you have a [Nabu Casa Home Assistant Cloud][cloud] subscription, this release
-brings in some really nice goodness for you. The Text-to-Speech service offered
+brings in some really nice goodness for you. The text-to-speech service offered
 by Nabu Casa has been extended and now supports a lot of new voices in many
 different languages.
 
@@ -373,7 +373,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

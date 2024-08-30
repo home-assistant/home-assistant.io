@@ -12,6 +12,7 @@ ha_domain: bthome
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - event
   - sensor
 ha_integration_type: integration
 ---
@@ -26,4 +27,4 @@ BTHome is an energy effective but flexible BLE format to broadcast data with Blu
 
 ## Bindkey
 
-When using encryption for your BTHome sensor, you will prompted to enter your 32 character hexadecimal (16 bytes) encryption key. This key is called the bindkey. More information about the bindkey can be found in the [specifications](https://bthome.io/#encryption).
+When using encryption for your BTHome sensor, you will be prompted to enter your 32 character hexadecimal (16 bytes) encryption key. This key is called the bindkey. More information about the bindkey can be found in the [specifications](https://bthome.io/#encryption).

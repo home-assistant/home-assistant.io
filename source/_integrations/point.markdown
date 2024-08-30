@@ -3,13 +3,13 @@ title: Minut Point
 description: Instructions on how to integrate Minut Point into Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Sensor
 ha_release: 0.83
 ha_config_flow: true
 ha_iot_class: Cloud Polling
-ha_quality_scale: gold
+ha_quality_scale: silver
 ha_codeowners:
   - '@fredrike'
 ha_domain: point
@@ -18,19 +18,25 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://localhost:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
+The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://homeassistant.local:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
 
 Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
 There is currently support for the following device types within Home Assistant:
 
 - [Alarm](#alarm)
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
 ### Configuration
+
+To use the Minut Point {% term integration %} in your installation, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -54,26 +60,22 @@ client_secret:
 
 The integration supports the following device types within Home Assistant:
   - [Alarm](#alarm)
-  - [Binary Sensor](#binary-sensor)
+  - [Binary sensor](#binary-sensor)
   - [Sensor](#sensor)
 
-<div class='note'>
-
-The Point is just active occasionally so the [Sensors](#sensor) are only updated every hour or so. The [Binary Sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
-
-</div>
+{% note %}
+The Point is just active occasionally so the [sensors](#sensor) are only updated every hour or so. The [binary sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
+{% endnote %}
 
 ## Alarm
 
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
-<div class="note">
-
+{% note %}
 The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implemented.
+{% endnote %}
 
-</div>
-
-## Binary Sensor
+## Binary sensor
 
 Each Point exposes the following binary sensors:
 
@@ -93,11 +95,9 @@ Each Point exposes the following binary sensors:
 - **tamper**: `On` means the point was removed, `Off` means normal
 - **tamper_old**: `On` means the point was removed or attached, `Off` means normal (this is only supported on some "old" devices)
 
-<div class="note">
-
+{% note %}
 The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a brief moment and are then switched back to `Off`.
-
-</div>
+{% endnote %}
 
 ### Automation example
 
@@ -112,7 +112,7 @@ automation:
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press
       message: Point button was pressed.
@@ -136,7 +136,7 @@ automation:
     condition: template
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"

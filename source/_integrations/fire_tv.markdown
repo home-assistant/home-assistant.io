@@ -1,12 +1,13 @@
 ---
 title: Amazon Fire TV
-description: Instructions on how to integrate Amazon Fire TV devices into Home Assistant.
+description: Connect and control your Amazon Fire TV devices using the Android Debug Bridge integration
 ha_category:
-  - Media Player
+  - Media player
+  - Remote
 ha_domain: fire_tv
 ha_integration_type: virtual
 ha_supporting_domain: androidtv
-ha_supporting_integration: Android TV
+ha_supporting_integration: Android Debug Bridge
 ha_release: 0.7.6
 ha_codeowners:
   - '@JeffLIrion'
@@ -15,6 +16,7 @@ ha_config_flow: true
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
 ha_iot_class: Local Polling
 ---
 

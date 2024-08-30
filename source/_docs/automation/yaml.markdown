@@ -3,11 +3,11 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an automation, go to edit the automation, click on the menu button in the top right and turn on YAML mode.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
-It is also possible to write your automations directly inside `configuration.yaml` or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
+It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
 
 ```yaml
 # The configuration required for the UI to work
@@ -70,7 +70,7 @@ trigger_variables:
       description: "The value of the variable. Any YAML is valid. Only [limited templates](/docs/configuration/templating/#limited-templates) can be used."
       type: any
 mode:
-  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation Modes](#automation-modes)."
+  description: "Controls what happens when the automation is invoked while it is still running from one or more previous invocations. See [Automation modes](#automation-modes)."
   required: false
   type: string
   default: single
@@ -112,24 +112,23 @@ action:
   type: list
 {% endconfiguration %}
 
-### Automation Modes
+### Automation modes
 
-Mode | Description
--|-
-`single` | Do not start a new run. Issue a warning.
-`restart` | Start a new run after first stopping previous run.
-`queued` | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued.
-`parallel` | Start a new, independent run in parallel with previous runs.
+| Mode       | Description                                                                                                     |
+| ---------- | --------------------------------------------------------------------------------------------------------------- |
+| `single`   | Do not start a new run. Issue a warning.                                                                        |
+| `restart`  | Start a new run after first stopping previous run.                                                              |
+| `queued`   | Start a new run after all previous runs complete. Runs are guaranteed to execute in the order they were queued. |
+| `parallel` | Start a new, independent run in parallel with previous runs.                                                    |
 
 <p class='img'>
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
 
+## YAML example
 
-## YAML Example
-
-Example of a YAML based automation that you can add to `configuration.yaml`.
+Example of a YAML based automation that you can add to {% term "`configuration.yaml`" %}.
 
 {% raw %}
 
@@ -158,8 +157,8 @@ automation my_lights:
         after: "16:00:00"
         before: "23:00:00"
     action:
-      # With a single service call, we don't need a '-' before service - though you can if you want to
-      - service: homeassistant.turn_on
+      # With a single service entry, we don't need a '-' before service - though you can if you want to
+      - action: homeassistant.turn_on
         target:
           entity_id: group.living_room
 
@@ -170,7 +169,7 @@ automation my_lights:
         entity_id: all
         to: "not_home"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         target:
           entity_id: all
 
@@ -185,11 +184,11 @@ automation my_lights:
       - condition: time
         after: "20:00"
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Paulus left the house"
 
-  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi component.
+  # Send a notification via Pushover with the event of a Xiaomi cube. Custom event from the Xiaomi integration.
   - alias: "Xiaomi Cube Action"
     initial_state: false
     trigger:
@@ -198,7 +197,7 @@ automation my_lights:
         event_data:
           entity_id: binary_sensor.cube_158d000103a3de
     action:
-      - service: notify.pushover
+      - action: notify.pushover
         data:
           title: "Cube event detected"
           message: "Cube has triggered this event: {{ trigger.event }}"
@@ -257,15 +256,15 @@ If you want to migrate your manual automations to use the editor, you'll have to
       below: 25
       value_template: "{{ float(state.state) + 2 }}"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
 ```
 
 {% endraw %}
 
-### Deleting Automations
+### Deleting automations
 
-When automations remain visible in the Home Assistant Dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
+When automations remain visible in the Home Assistant dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
-To delete them completely, go to UI **{% my entities title="Settings -> Devices & Services -> Entities" %}** and find the automation in the search field or by scrolling down.
+To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
 
 Check the square box aside of the automation you wish to delete and from the top-right of your screen, select 'REMOVE SELECTED'.

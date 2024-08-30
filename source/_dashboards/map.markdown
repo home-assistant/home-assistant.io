@@ -1,18 +1,31 @@
 ---
 type: card
-title: "Map Card"
+title: "Map card"
 sidebar_label: Map
-description: "The Map card that allows you to display entities on a map"
+description: "The map card that allows you to display entities on a map"
+related:
+  - docs: /dashboards/dashboards/#map-dashboard
+    title: Map dashboard
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The Map card that allows you to display entities on a map
+The map card that allows you to display entities on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
 Screenshot of the map card.
 </p>
 
-To add the Map card to your user interface, click the menu (three dots at the top right of the screen) and then **Edit Dashboard**. Click the "Add Card" button in the bottom right corner and select **Map** from the card picker. All options for this card can be configured via the user interface.
+{% include dashboard/edit_dashboard.md %}
+
+All options for this card can be configured via the user interface.
+
+## YAML configuration
+
+The following YAML options are available when you use YAML mode or just prefer to use YAML in the code editor in the UI.
 
 {% configuration %}
 type:
@@ -21,7 +34,7 @@ type:
   type: string
 entities:
   required: true
-  description: List of entity IDs. Either this or the `geo_location_sources` configuration option is required.
+  description: List of entity IDs or `entity` objects (see below). Either this or the `geo_location_sources` configuration option is required.
   type: list
 geo_location_sources:
   required: true
@@ -30,6 +43,11 @@ geo_location_sources:
 auto_fit:
   required: false
   description: The map will follow moving `entities` by adjusting the viewport of the map each time an entity is updated. 
+  type: boolean
+  default: false
+fit_zones:
+  required: false
+  description: Whether the map should consider the zones in the list of specified entities when fitting its viewport.
   type: boolean
   default: false
 title:
@@ -45,11 +63,11 @@ default_zoom:
   description: The default zoom level of the map.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
-dark_mode:
+theme_mode:
   required: false
-  description: Enable a dark theme for the map.
-  type: boolean
-  default: false
+  description: 'Override the theme to force the map to display in either a light mode (`theme_mode: light`) or a dark mode (`theme_mode: dark`). Default (`theme_mode: auto`) will follow the theme settings.'
+  type: string
+  default: 'auto'
 hours_to_show:
   required: false
   description: Shows a path of previous locations. Hours to show as path on the map.
@@ -57,21 +75,42 @@ hours_to_show:
   default: 0
 {% endconfiguration %}
 
-<div class='note'>
-  Only entities that have latitude and longitude attributes will be displayed on the map.
-</div>
+{% important %}
+Only entities that have latitude and longitude attributes will be displayed on the map.
+{% endimportant %}
 
-<div class="note">
+{% note %}
+The `default_zoom` value will be ignored if it is set higher than the current zoom level
+after fitting all visible entity markers in the map window. In other words, this can only
+be used to zoom the map _out_ by default.
+{% endnote %}
 
-  The `default_zoom` value will be ignored if it is set higher than the current zoom level
-  after fitting all visible entity markers in the map window. In other words, this can only
-  be used to zoom the map _out_ by default.
+## Options for entities
 
-</div>
+If you define entities as objects instead of strings (by adding `entity:` before entity ID), you can add more customization and configuration.
+
+{% configuration %}
+entity:
+  required: true
+  description: Entity ID.
+  type: string
+name:
+  required: false
+  description: Replace the default label for the marker.
+  type: string
+label_mode:
+  required: false
+  default: name
+  description: When set to `state`, renders the entity's state as the label for the map marker instead of the entity's name. This option doesn't apply to [zone](/integrations/zone/) entities because they don't use a label but an icon.
+  type: string
+focus:
+  required: false
+  default: true
+  description: When set to `false`, this entity will not be considered for determining the default zoom or fit of the map.
+  type: boolean
+{% endconfiguration %}
 
 ## Examples
-
-The card can also be configured using YAML, some examples below:
 
 ```yaml
 type: map
@@ -95,5 +134,9 @@ entities:
 type: map
 entities:
   - device_tracker.demo_paulus
+  - entity: sensor.gas_station_gas_price
+    label_mode: state
+    focus: false
 hours_to_show: 48
 ```
+

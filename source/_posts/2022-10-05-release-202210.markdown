@@ -57,7 +57,7 @@ PS: I noticed the [Home Assistant SkyConnect is now available for pre-order](/sk
 - [Release 2022.10.4 - October 14](#release-2022104---october-14)
 - [Release 2022.10.5 - October 20](#release-2022105---october-20)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -672,7 +672,7 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -821,7 +821,7 @@ the state no longer reports as "ok" but instead reports as "on".
 
 {% details "Radarr" %}
 
-Some breaking changes have been made in disabling the Movies count sensor out
+Some backward-incompatible changes have been made in disabling the Movies count sensor out
 of caution. This sensor can cause problems with massive databases.
 If you still wish to use it, you may do so.
 

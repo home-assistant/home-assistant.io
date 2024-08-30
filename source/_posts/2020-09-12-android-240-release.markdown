@@ -13,7 +13,7 @@ og_image: /images/blog/2020-09-12-android-240-release/Companion.png
 
 Hey there, I hope everyone has been enjoying the last release of the Android app. We have another update coming up where we felt it's time to give everyone a heads up before release. There are several new changes done that you will immediately notice after installing the update to 2.4.0, so we wanted to cover what's new. You can expect this release to be available in the Google Play Store tomorrow.
 
-## Current and Future Breaking Changes
+## Current and Future Backward-incompatible changes
 
 Sometimes when we move really fast, we may move a bit too fast. While we had fun adding all the new sensors, we didn't stop to think about the new user experience and how we are making a burden on them by having non-static attributes for some of the sensors. In reality, these attributes are a state and we need to treat them as such. If we don't, there will be a need to use templates that are not user-friendly. We wanted to fix this issue and be courteous to our current users, so we have made a few changes. Some of which take place in this release and some in the following release after 2.4.0.
 

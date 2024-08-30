@@ -2,7 +2,8 @@
 title: Ring
 description: Instructions on how to integrate your Ring.com devices within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
   - Camera
   - Doorbell
   - Light
@@ -12,45 +13,57 @@ ha_release: 0.42
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_domain: ring
+ha_quality_scale: silver
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
+  - button
   - camera
+  - diagnostics
   - light
   - sensor
   - siren
   - switch
 ha_integration_type: integration
+ha_codeowners:
+  - '@sdb9696'
 ---
 
-The `ring` implementation allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
+The Ring integration allows you to integrate your [Ring.com](https://ring.com/) devices in Home Assistant. Due to recent authentication changes of Ring, you will need to run at least Home Assistant 0.104.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Camera](#camera)
+  - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Light](#light)
 
-<p class='note'>
-This component does NOT allow for live viewing of your Ring camera within Home Assistant.
-</p>
+{% note %}
+This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-## Binary Sensor
+## Binary sensor
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
 
+## Button
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the button platform. Currently, it supports intercom to open the door.
+
 ## Camera
 
-<div class='note'>
+{% important %}
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</div>
+{% endimportant %}
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
-## Saving the videos captured by your Ring Door Bell
+### Saving the videos captured by your Ring Door Bell
 
 You can save locally the latest video captured by your Ring Door Bell using the [downloader](/integrations/downloader) along with either an [automation](/integrations/automation) or [python_script](/integrations/python_script). First, enable the [downloader](/integrations/downloader) integration in your configuration by adding the following to your `configuration.yaml`.
 
@@ -71,7 +84,7 @@ automation:
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
   action:
-  - service: downloader.download_file
+  - action: downloader.download_file
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
@@ -93,7 +106,7 @@ You may consider some modifications in the subdirectory and the filename to suit
 
 the above modification will save the video file under `<config>/downloads/<camera_name>/YYYY-MM/YYYY-MM-DD-at-HH-MM-SS.mp4`. You can change the date according to your localization format.
 
-If you want to use `python_script`, enable it your `configuration.yaml` file first:
+If you want to use `python_script`, enable it your {% term "`configuration.yaml`" %} file first:
 
 ```yaml
 python_script:

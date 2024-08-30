@@ -2,7 +2,7 @@
 title: Digital Loggers
 description: Connect and control your Digital Loggers devices using the Belkin WeMo integration
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Fan
   - Hub
   - Light

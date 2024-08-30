@@ -2,6 +2,7 @@
 title: Filter
 description: Instructions on how to integrate Data Filter Sensors into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_release: 0.65
@@ -12,12 +13,15 @@ ha_codeowners:
 ha_domain: filter
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `filter` platform enables sensors that process the states of other entities.
+The `filter` {% term integration %} enables sensors that process the states of other entities.
 
-`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) component.
+`filter` applies a signal processing algorithm to a sensor, previous and current states, and generates a `new state` given the chosen algorithm. The next image depicts an original sensor and the filter sensor of that same sensor using the [History Graph](/dashboards/history-graph/) integration.
 
 <p class='img'>
   <img src='/images/screenshots/filter-sensor.png' />
@@ -25,7 +29,8 @@ The `filter` platform enables sensors that process the states of other entities.
 
 ## Configuration
 
-To enable Filter Sensors in your installation, add the following to your `configuration.yaml` file:
+To enable Filter Sensors in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -115,6 +120,10 @@ filters:
       default: positive infinity
 {% endconfiguration %}
 
+{% warning %}
+When configuring a `window_size` that is not a time and with a value larger than the default of `1`, the database must examine nearly every stored state for that entity during Home Assistant startup. If you have modified the [Recorder `purge_keep_days`](/integrations/recorder/#purge_keep_days) value or have many states stored in the database for the filtered entity, this can cause your Home Assistant instance to respond poorly during startup.
+{% endwarning %}
+
 ## Filters
 
 ### Low-pass
@@ -152,7 +161,7 @@ To adjust the rate you need to set the window_size. To throttle a sensor down to
 
 This filter is relevant when you have a sensor which produces states at a very high-rate, which you might want to throttle down for storing or visualization purposes.
 
-### Time Throttle
+### Time throttle
 
 The Time Throttle filter (`time_throttle`) will only update the state of the sensor for the first state in the window. This means the filter will skip all other values.
 

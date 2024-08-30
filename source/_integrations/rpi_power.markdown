@@ -2,7 +2,7 @@
 title: Raspberry Pi Power Supply Checker
 description: Instructions on how to integrate Raspberry Pi Power Supply Checker within Home Assistant.
 ha_category:
-  - System Monitor
+  - System monitor
 ha_iot_class: Local Polling
 ha_release: 0.116
 ha_domain: rpi_power
