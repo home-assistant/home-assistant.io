@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `deako` platform allows you to control your [Deako](https://deako.com) devices from Home Assistant.
+The **Deako Smart Lighting** integration allows you to control your [Deako](https://deako.com) devices from Home Assistant.
 
 In order for this integration to work, your devices must be listed **online**, viewable in the Deako app.
 
