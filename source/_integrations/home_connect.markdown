@@ -37,7 +37,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 1. Visit [https://developer.home-connect.com](https://developer.home-connect.com) and sign up for a developer account.
 2. Enter the email of your login for the original Home Connect App from Bosch/Siemens under "Default Home Connect User Account for Testing" in the sign up process.
-3. Navigate to the the [Applications](https://developer.home-connect.com/applications) page and click on [Register Application](https://developer.home-connect.com/application/add):
+3. Navigate to the [Applications](https://developer.home-connect.com/applications) page and click on [Register Application](https://developer.home-connect.com/application/add):
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
