@@ -20,7 +20,7 @@ For this integration to work, your devices must be listed **online**, viewable i
 
 {% include integrations/config_flow.md %}
 
-Current devices supported:
+## Supported devices
 
 - all smart Deako devices
 
