@@ -89,9 +89,7 @@ The following additional sensor becomes available:
 |-----------------------|--------|:-------------------------------------------|
 | self_consumption_year | kWh    | Annual self-consumed solar power.          |
 
-In addition, you can choose to get additional information on devices that are connected to the Solar-Log device. For this, select the checkbox of the respective device in the configuration dialog of the integration.
-
-The following additional sensors are available (all values are per inverter/device):
+In addition, additional information on devices that are connected to the Solar-Log device become available. The following additional sensors are available (all values are per inverter/device):
 
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
