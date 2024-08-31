@@ -43,7 +43,7 @@ The Webmin API ignores any 2FA set up via the frontend. Even with 2FA enabled, i
 
 ### Required Webmin Perl Module
 
-The `XML::Parser` Perl module must be installed via [Webmin Perl Modules](https://webmin.com/docs/modules/perl-modules/) before configuring the integration in Home Assistant.
+Ensure the `XML::Parser` Perl module is installed via [Webmin Perl Modules](https://webmin.com/docs/modules/perl-modules/) before configuring the integration.
 
 #### Installing XML::Parser Perl Module
 
@@ -51,12 +51,11 @@ The `XML::Parser` Perl module must be installed via [Webmin Perl Modules](https:
 2. Under the "Install module" tab, enter `XML::Parser` into the _From CPAN_ text field.
 3. Select _Install_ at the bottom of the dialog.
 4. Confirm that the installation is successful.
-   - If the installation succeeded:
+   - If the installation succeeds:
      - Continue with any remaining steps for Home Assistant.
-   - If the installation failed:
+   - If the installation fails:
      - Refer to [Webmin documentation for Perl Modules](https://webmin.com/docs/modules/perl-modules/) to resolve any Webmin issues.
      - Retry the module installation and confirm that `XML::Parser` is listed on the Perl Modules page under "Existing Modules".
-
 {% include integrations/config_flow.md %}
 
 ## Sensors
