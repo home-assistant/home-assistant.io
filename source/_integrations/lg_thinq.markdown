@@ -132,5 +132,5 @@ The LG ThinQ integration will show additional information by enabling log config
 logger:
   default: info
   logs:
-    homeassistant.components.lgthinq: debug
+    homeassistant.components.lg_thinq: debug
 ```
