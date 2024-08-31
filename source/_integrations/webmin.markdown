@@ -27,7 +27,7 @@ This {% term integration %} provides sensors for monitoring the CPU and memory u
 Always consider your own setup and security needs before exposing services with system-level access.
 {% endwarning %}
 
-As a good security practice, create a Webmin User specific to Home Assistant. A dedicated account allows for this integration to operate uninterrupted should you change your primary login for Webmin, and it allows for more granular access so that only the necessary data and access is made available to Home Assistant.
+As a good security practice, create a Webmin User specific to Home Assistant. A dedicated account allows for this integration to operate uninterrupted should you change your primary login for Webmin, and it can allow for more granular access so that only the necessary data and access is made available to Home Assistant.
 
 #### Suggested User Setup
 
@@ -35,6 +35,7 @@ As a good security practice, create a Webmin User specific to Home Assistant. A 
 - Only enable the _"Can accept RPC calls"_ permission (under "Permissions for all modules"),
 - Consider disabling the _"Can accept RPC calls"_ permission for other users (unless specifically required),
 - Consider limiting this account to only have access via the IP address of your Home Assistant instance (if appropriate).
+- 
 
 {% note %}
 The Webmin API ignores any 2FA set up via the frontend. Even with 2FA enabled, it is still possible to use the API with only a username and password.
