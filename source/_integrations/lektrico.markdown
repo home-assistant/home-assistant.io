@@ -3,12 +3,11 @@ title: Lektrico Charging Station
 description: Instructions on how to integrate a Lektrico Chargering Station with Home Assistant.
 ha_category:
   - Sensor
-ha_release: 0.47
+ha_release: "2024.10"
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:
   - '@lektrico'
-ha_quality_scale: platinum
 ha_domain: lektrico
 ha_zeroconf: true
 ha_platforms:
