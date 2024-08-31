@@ -9,6 +9,7 @@ ha_config_flow: true
 ha_domain: smlight
 ha_zeroconf: true
 ha_platforms:
+  - button
   - sensor
 ha_codeowners:
   - '@tl-sl'
@@ -45,3 +46,10 @@ The following sensors will be created:
 - **Zigbee Uptime** - Uptime of Zigbee connection to ZHA/Z2M
 - **RAM Usage** - Monitor RAM Usage
 - **FS Usage** - Monitor filesystem usage
+
+The following buttons will be created:
+
+- **Core Restart** - Restart core ESP32
+- **Zigbee Restart** - Restart Zigbee CCCC2652 or EFR32 chip
+- **Zigbee Flash Mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
+
