@@ -18,7 +18,8 @@ The **Compensation** {% term integration %} consumes the {% term state %} from o
 
 ## Configuration
 
-To enable the compensation sensor, add the following lines to your `configuration.yaml`:
+To enable the compensation sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

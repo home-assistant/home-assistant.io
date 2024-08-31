@@ -2,7 +2,13 @@
 title: Comelit SimpleHome
 description: Instructions on how to integrate Comelit SimpleHome home automation devices into Home Assistant.
 ha_category:
+  - Alarm
+  - Climate
+  - Cover
+  - Humidifier
   - Light
+  - Sensor
+  - Switch
 ha_release: '2023.9'
 ha_domain: comelit
 ha_config_flow: true
@@ -12,13 +18,13 @@ ha_iot_class: Local Polling
 ha_platforms:
   - alarm_control_panel
   - climate
-  - humidifier
   - cover
   - humidifier
   - light
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
+ha_quality_scale: silver
 ---
 
 The Comelit SimpleHome integration allows you to control your [Comelit home automation devices](https://comelitgroup.it/installatore/offerta/domotica-e-smart-home).

@@ -15,27 +15,31 @@ ha_platforms:
 ha_codeowners:
   - '@javicalle'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `rflink` integration supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
+The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
 The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
 
 RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
-<div class='note'>
-Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
-</div>
+{% note %}
+Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1 and MySensors devices.
+{% endnote %}
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
-This integration is tested with the following hardware/software:
+This {% term integration %} is tested with the following hardware/software:
 
 - Nodo RFLink Gateway V1.4/RFLink R46
 
 ## Configuration
 
-To enable RFLink in your installation, add the following to your `configuration.yaml` file:
+To enable RFLink in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,25 +93,25 @@ rflink:
 
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
-To expose the USB/serial interface over TCP on a different host (Linux) the following command can be used:
+The following command can be used to expose the USB/serial interface over TCP on a different host (Linux). The arguments are separated by spaces, further info on all arguments can be found for example [on the Debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
+- `/dev/ttyACM0,b57600,rawer` specifies the device location, a `b57600` 57600 baud rate, and `rawer` causes socat to ignore control sequences sent via the port (for example, it makes socat pass all information 'rawest form', rather than picking up control characters such as control-C which would close socat).
+- `TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16` listens on IPV4 on the specified port (1234, change as suits your needs), the details behind the `reuseaddr` option [are fairly complex](https://stackoverflow.com/a/3233022/1049701) but it allows faster reconnects from the client (Home Assistant) in case of connection drops. An important security option is `range=192.168.0.0/16`, which specifies that socat should only accept connections from a certain range of IP addresses - the /16 subnet mask specifies a range from 192.168.0.0 to 192.168.255.255. Change this as required for your LAN network.
 
 ```bash
-socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr
+socat /dev/ttyACM0,b57600,rawer TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16
 ```
 
 Other methods of exposing the serial interface over TCP are possible (eg: ESP8266 or using Arduino Wifi shield). Essentially the serial stream should be directly mapped to the TCP stream.
 
 Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively.
 
-<div class='note warning'>
-
+{% tip %}
 Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://aliexpress.com/item/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
+{% endtip %}
 
-</div>
-
-<div class='note'>
+{% tip %}
 When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
-</div>
+{% endtip %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -157,7 +161,7 @@ This configuration will ignore the button `1` of the `newkaku` device with ID `0
 
 ### Invert cover
 
-Devices can be configure to work in inverted mode by adding option in `configuration.yaml`:
+Devices can be configure to work in inverted mode by adding option in {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry for inverted RTS cover

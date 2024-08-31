@@ -11,13 +11,16 @@ ha_domain: cisco_ios
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 This is a presence detection scanner for [Cisco IOS](https://www.cisco.com/) devices.
 
-<div class='note warning'>
+{% important %}
 This device tracker needs SSH to be enabled on the router.
-</div>
+{% endimportant %}
 
 Before using this scanner it is recommended that you lower the ARP cache timeout on your router, as Cisco IOS normally comes with a 4 hour default ARP cache timeout.
 
@@ -43,13 +46,14 @@ arp timeout 120
 copy running-config startup-config
 ```
 
-<div class='note warning'>
+{% note %}
 
 If you have a very large number of devices on your VLan (+1000), then you may want to adjust the ARP cache timeout to suit your needs. See [this discussion](https://community.cisco.com/t5/switching/arp-timeout/td-p/839027) to learn more.
 
-</div>
+{% endnote %}
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

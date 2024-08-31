@@ -9,6 +9,9 @@ ha_domain: wsdot
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Washington State Department of Transportation (WSDOT)** {% term integration %} will give you travel time information from the [Washington State Department of Transportation (WSDOT)](https://wsdot.com/).
@@ -19,7 +22,8 @@ First, you need to get a free Traveler Information `api_key` from the [WSDOT API
 
 ## Configuration
 
-Once you have the code, create `wsdot` sensors by editing your `configuration.yaml` file as follows:
+Once you have the code, create `wsdot` sensors by editing your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,9 +87,9 @@ Some common examples include:
  98 HOV Bellevue-Seattle via I-90 (WB REV)
 ```
 
-<div class='note info'>
+{% note %}
 WSDOT does provide information about ferry schedules, mountain passes, tolls, etc. but so far only Travel Time data is available in this platform.
-</div>
+{% endnote %}
 
 Here's an example of the sensor in use:
 

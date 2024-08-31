@@ -11,9 +11,12 @@ ha_domain: swiss_hydrological_data
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `swiss_hydrological_data` sensor will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
+The `swiss_hydrological_data` {% term integration %} will show you details (temperature, level, and discharge) of rivers and lakes in Switzerland.
 
 ## Setup
 
@@ -21,7 +24,8 @@ The [station overview](https://www.hydrodaten.admin.ch/en/stations-and-data.html
 
 ## Configuration
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -53,8 +57,8 @@ Sensors are exposing additional values through their attributes for all availabl
 - `min-24h`: The minimum measurement for the last 24 hours.
 - `station_update`: There is a time span between the sensor update in Home Assistant and the updates from the stations. Include those information if you are building automations based on the discharge of a water body.
 
-<div class='note info'>
-  The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
-</div>
+{% note %}
+The sensors don't show the latest measurement, but those from the last hour due to the source of data. Some stations also don't provide data for certain measurements.
+{% endnote %}
 
 The hydrological measurements are coming from the [Swiss Federal Office for the Environment (Bundesamt für Umwelt - Abt. Hydrologie)](https://www.hydrodaten.admin.ch/) and are updated every 10 minutes.

@@ -17,7 +17,7 @@ Currently supported and tested thermostats:
 
 - NT10e
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

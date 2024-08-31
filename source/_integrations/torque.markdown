@@ -37,7 +37,7 @@ Under the **Realtime Web Upload** header:
 
 ### Configuration
 
-Add the following to your `configuration.yaml` file:
+Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

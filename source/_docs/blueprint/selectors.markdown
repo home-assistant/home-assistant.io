@@ -18,7 +18,6 @@ The following selectors are currently available:
 - [Action selector](#action-selector)
 - [Add-on selector](#add-on-selector)
 - [Area selector](#area-selector)
-  - [Example area selectors](#example-area-selectors)
 - [Attribute selector](#attribute-selector)
 - [Assist pipeline selector](#assist-pipeline-selector)
 - [Backup location selector](#backup-location-selector)
@@ -32,23 +31,21 @@ The following selectors are currently available:
 - [Date selector](#date-selector)
 - [Date \& time selector](#date--time-selector)
 - [Device selector](#device-selector)
-  - [Example device selector](#example-device-selector)
 - [Duration selector](#duration-selector)
 - [Entity selector](#entity-selector)
-  - [Example entity selector](#example-entity-selector)
+- [Floor selector](#floor-selector)
 - [Icon selector](#icon-selector)
+- [Label selector](#label-selector)
 - [Language selector](#language-selector)
 - [Location selector](#location-selector)
 - [Media selector](#media-selector)
 - [Number selector](#number-selector)
-  - [Example number selectors](#example-number-selectors)
 - [Object selector](#object-selector)
 - [QR code selector](#qr-code-selector)
 - [RGB color selector](#rgb-color-selector)
 - [Select selector](#select-selector)
 - [State selector](#state-selector)
 - [Target selector](#target-selector)
-  - [Example target selectors](#example-target-selectors)
 - [Template selector](#template-selector)
 - [Text selector](#text-selector)
 - [Theme selector](#theme-selector)
@@ -78,7 +75,7 @@ The output of this selector is a list of actions. For example:
 
 ```yaml
 # Example action selector output result
-- service: scene.turn_on
+- action: scene.turn_on
   target:
     entity_id: scene.watching_movies
   metadata: {}
@@ -211,7 +208,7 @@ living_room
 - kitchen
 ```
 
-### Example area selectors
+### Example area selectors <!-- omit from toc -->
 
 An example area selector only shows areas that provide one or more lights or
 switches provided by the [ZHA](/integrations/zha) integration.
@@ -274,7 +271,7 @@ assist_pipeline:
 ## Backup location selector
 
 This can only be used on an installation with a Supervisor (Operating System or
-Supervised). For installations of type Home Assistant Core or Container, an error
+Supervised). For installations of type {% term "Home Assistant Core" %} or {% term "Home Assistant Container" %}, an error
 will be displayed.
 
 The backup location selector shows a list of places a backup could go, depending
@@ -285,6 +282,10 @@ on what you have configured in [storage](https://my.home-assistant.io/redirect/s
 The output of this selector is the name of the selected network storage. It may
 also be the value `/backup`, if the user chooses to use the local data disk option
 instead of one of the configured network storage locations.
+
+```yaml
+backup_location:
+```
 
 ## Boolean selector
 
@@ -581,7 +582,7 @@ faadde5365842003e8ca55267fe9d1f4
 - 3da77cb054352848b9544d40e19de562
 ```
 
-### Example device selector
+### Example device selector <!-- omit from toc -->
 
 An example entity selector that, will only show devices that are:
 
@@ -619,6 +620,11 @@ enable_day:
   type: boolean
   default: false
   required: false
+enable_millisecond:
+  description: When `true`, the duration selector will allow selecting milliseconds.
+  type: boolean
+  default: false
+  required: false  
 {% endconfiguration %}
 
 The output of this selector is a mapping of the time values the user selected.
@@ -629,6 +635,7 @@ days: 1 # Only when enable_day was set to true
 hours: 12
 minutes: 30
 seconds: 15
+milliseconds: 500 # Only when enable_millisecond was set to true
 ```
 
 ## Entity selector
@@ -717,7 +724,7 @@ light.living_room
 - light.kitchen
 ```
 
-### Example entity selector
+### Example entity selector <!-- omit from toc -->
 
 An example entity selector that, will only show entities that are:
 
@@ -737,6 +744,141 @@ entity:
       device_class: motion
 ```
 
+## Floor selector
+
+The floor selector shows a floor finder that can pick 
+floors based on the selector configuration. The value of the input will be the
+floor ID. If `multiple` is set to `true`, the value is a list of floor IDs.
+
+A floor selector can filter the list of floors based on the properties of the
+devices and entities assigned to the areas on those floors.
+For example, the floor list could be limited to floors with entities
+provided by the [ZHA](/integrations/zha) integration, based on the areas they are in.
+
+In its most basic form, this selector doesn't require any options.
+It will show all floors.
+
+![Screenshot of a floor selector](/images/blueprints/selector-floor.png)
+
+```yaml
+floor:
+```
+
+{% configuration floor %}
+device:
+  description: >
+    When device options are provided, the list of floors is filtered by floors
+    that have at least one device matching the given conditions. Can be
+    either an object or a list of objects.
+  type: list
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of floors that
+        have devices by this integration domain. For example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    manufacturer:
+      description: >
+        When set, the list only includes floors that have devices by the set
+        manufacturer name.
+      type: string
+      required: false
+    model:
+      description: >
+        When set, the list only includes floors that have devices which have
+        the set model.
+      type: string
+      required: false
+entity:
+  description: >
+    When entity options are provided, the list only includes floors
+    that at least have one entity that matches the given conditions. Can be
+    either an object or a list of objects.
+  type: list
+  required: false
+  keys:
+    integration:
+      description: >
+        Can be set to an integration domain. Limits the list of floors that
+        have entities by the set integration domain. For example,
+        [`zha`](/integrations/zha).
+      type: string
+      required: false
+    domain:
+      description: >
+        When set, the list only includes floors that have entities of certain domains,
+        for example, [`light`](/integrations/light) or
+        [`binary_sensor`](/integrations/binary_sensor). Can be either a string
+        with a single domain, or a list of string domains to limit the selection to.
+      type: [string, list]
+      required: false
+    device_class:
+      description: >
+        When set, the list only includes floors that have entities with a certain
+        device class, for example, `motion` or `window`. Can be either a string
+        with a single device_class, or a list of string device_class to limit
+        the selection.
+      type: [device_class, list]
+      required: false
+    supported_features:
+      description: >
+        When set, the list only includes floors that have entities with a certain
+        supported feature, for example, `light.LightEntityFeature.TRANSITION`
+        or `climate.ClimateEntityFeature.TARGET_TEMPERATURE`. Should be a list
+        of features.
+      type: list
+      required: false
+multiple:
+  description: >
+    Allows selecting multiple floors. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the floor ID, or (in case `multiple` is set to
+`true`) a list of floor IDs.
+
+```yaml
+# Example floor selector output result, when multiple is set to false
+first_floor
+
+# Example floor selector output result, when multiple is set to true
+- first_floor
+- second_floor
+```
+
+### Example floor selectors <!-- omit from toc -->
+
+An example floor selector only shows floors that have one or more lights or
+switches provided by the [ZHA](/integrations/zha) integration.
+
+```yaml
+floor:
+  entity:
+    integration: zha
+    domain:
+      - light
+      - switch
+```
+
+Another example using the floor selector, which only shows floors that
+have one or more remote controls provided by the [deCONZ](/integrations/deconz)
+integration. Multiple floors can be selected.
+
+```yaml
+floor:
+  multiple: true
+  device:
+    - integration: deconz
+      manufacturer: IKEA of Sweden
+      model: TRADFRI remote control
+```
+
 ## Icon selector
 
 The icon selector shows an icon picker that allows the user to select an icon.
@@ -754,6 +896,43 @@ placeholder:
 
 The output of this selector is a string containing the selected icon,
 for example: `mdi:bell`.
+
+## Label selector
+
+The label selector shows a label finder that can pick labels. The value of the
+input is the label ID. If `multiple` is set to `true`, the value is a list
+of label IDs.
+
+![Screenshot of the label selector](/images/blueprints/selector-label.png)
+
+In its most basic form, this selector doesn't require any options.
+It will show all labels.
+
+```yaml
+label:
+```
+
+{% configuration text %}
+multiple:
+  description: >
+    Allows selecting multiple labels. If set to `true`, the resulting value of
+    this selector will be a list instead of a single string value.
+  type: boolean
+  default: false
+  required: false
+{% endconfiguration %}
+
+The output of this selector is the label ID, or (in case `multiple` is set to
+`true`) a list of label IDs.
+
+```yaml
+# Example label selector output result, when multiple is set to false
+energy_saving
+
+# Example label selector output result, when multiple is set to true
+- energy_saving
+- christmas_decorations
+```
 
 ## Language selector
 
@@ -910,7 +1089,7 @@ mode:
 
 The output of this selector is a number, for example: `42`
 
-### Example number selectors
+### Example number selectors <!-- omit from toc -->
 
 An example number selector that allows a user a percentage, directly in a
 regular number input box.
@@ -938,7 +1117,7 @@ number:
 
 ## Object selector
 
-The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries like service data. The value of the input will contain the provided data.
+The object selector can be used to input arbitrary data in YAML form. This is useful for e.g. lists and dictionaries containing data for actions. The value of the input will contain the provided data.
 
 ![Screenshot of an object selector](/images/blueprints/selector-object.png)
 
@@ -1121,9 +1300,9 @@ For example: `heat_cool`.
 ## Target selector
 
 The target selector is a rather special selector, allowing the user to select
-targeted entities, devices or areas for service calls. The value of
+targeted entities, devices, or areas for actions. The value of
 the input will contain a special target format, that is accepted by
-service calls.
+actions.
 
 The selectable targets can be filtered, based on entity or device properties.
 Areas are only selectable as a target, if some entities or devices match
@@ -1196,20 +1375,20 @@ entity:
       required: false
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
-Targets are meant to be used with the `target` property of a service call in
+Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
 action:
-  - service: light.turn_on
+  - action: light.turn_on
     target: !input lights
 ```
 
-</div>
+{% endimportant %}
 
-### Example target selectors
+### Example target selectors <!-- omit from toc -->
 
 An example target selector that only shows targets that at least provide one
 or more lights, provided by the [ZHA](/integrations/zha) integration.

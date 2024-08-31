@@ -17,7 +17,7 @@ This sensor requires an API token. Please obtain one at [Foobot API site](https:
 
 ## Configuring the Platform
 
-To enable this sensor, add the following lines to your `configuration.yaml` file:
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:

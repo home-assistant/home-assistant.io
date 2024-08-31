@@ -12,7 +12,7 @@ The `mqtt` scene platform lets you control your MQTT enabled scenes.
 
 ## Configuration
 
-To enable a MQTT scene in your installation, add the following to your `configuration.yaml` file:
+To enable a MQTT scene in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -89,6 +89,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -177,11 +181,9 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 Make sure that your topic matches exactly. `some-topic/` and `some-topic` are different topics.
-
-</div>
+{% endimportant %}
 
 ## Examples
 

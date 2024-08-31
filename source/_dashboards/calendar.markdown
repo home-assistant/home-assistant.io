@@ -3,9 +3,14 @@ type: card
 title: "Calendar card"
 sidebar_label: Calendar
 description: "The calendar card displays your calendar entities in a month, day and list view"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The calendar card displays your [calendar](/integrations/#calendar) entities in a month, day and list view (7 days).
+The calendar card displays your [calendar](/integrations/#calendar) {% term entities %} in a month, day, and list view (7 days).
 
 <p class='img'>
   <img src='/images/dashboards/calendar_card.png' alt='Screenshot of the 

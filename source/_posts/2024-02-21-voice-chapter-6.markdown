@@ -141,5 +141,5 @@ Thanks to our language leaders for extending the sentence support to all the var
 [Kevin Ahrendt]: https://www.kevinahrendt.com/
 [debugging tools]: /voice_control/troubleshooting/#test-a-sentence-per-language-without-voice-without-executing-commands
 [intents]: https://developers.home-assistant.io/docs/intent_builtin
-[Chapter 4]: /blog/2023/10/20/year-of-the-voice-chapter-4/
+[Chapter 4]: /blog/2023/10/12/year-of-the-voice-chapter-4-wakewords/
 [m5-tutorial]: /voice_control/thirteen-usd-voice-remote/

@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@emontnemery'
   - '@jbouwh'
+  - '@bdraco'
 ha_domain: mqtt
 ha_platforms:
   - alarm_control_panel
@@ -25,8 +26,10 @@ ha_platforms:
   - fan
   - humidifier
   - image
+  - lawn_mower
   - light
   - lock
+  - notify
   - number
   - scene
   - select
@@ -34,13 +37,14 @@ ha_platforms:
   - siren
   - switch
   - tag
+  - tag
   - text
   - update
   - vacuum
   - valve
   - water_heater
 ha_integration_type: integration
-ha_quality_scale: gold
+ha_quality_scale: platinum
 ---
 
 MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things" connectivity protocol on top of TCP/IP. It allows extremely lightweight publish/subscribe messaging transport.
@@ -65,6 +69,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -97,6 +102,7 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 - [Lawn mower](/integrations/lawn_mower.mqtt/)
 - [Light](/integrations/light.mqtt/)
 - [Lock](/integrations/lock.mqtt/)
+- [Notify](/integrations/notify.mqtt/)
 - [Number](/integrations/number.mqtt/)
 - [Scene](/integrations/scene.mqtt/)
 - [Select](/integrations/select.mqtt/)
@@ -111,27 +117,27 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 {% enddetails %}
 
-
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
-## Choose an MQTT broker
+The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
 
-### Run your own
+{% important %}
+When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
+{% endimportant %}
 
-The most private option is running your own MQTT broker.
+ Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
+
+## Setting up a broker
+
+While public MQTT brokers are available, the easiest and most private option is running your own.
 
 The recommended setup method is to use the [Mosquitto MQTT broker add-on](https://github.com/home-assistant/hassio-addons/blob/master/mosquitto/DOCS.md).
 
-<div class='note warning'>
-
+{% warning %}
 Neither ActiveMQ MQTT broker nor the RabbitMQ MQTT Plugin are supported, use a known working broker like Mosquitto instead.
 There are [at least two](https://issues.apache.org/jira/browse/AMQ-6360) [issues](https://issues.apache.org/jira/browse/AMQ-6575) with the ActiveMQ MQTT broker which break MQTT message retention.
-
-</div>
-
-### Use a public broker
-
-The Mosquitto project runs a [public broker](https://test.mosquitto.org). This is the easiest to set up, but there is no privacy as all messages are public. Use this only for testing purposes and not for real tracking of your devices or controlling your home. To use the public mosquitto broker, configure the MQTT integration to connect to broker `test.mosquitto.org` on port 1883 or 8883.
+{% endwarning %}
 
 ## Broker configuration
 
@@ -139,23 +145,21 @@ MQTT broker settings are configured when the MQTT integration is first set up an
 
 Add the MQTT integration, then provide your broker's hostname (or IP address) and port and (if required) the username and password that Home Assistant should use. To change the settings later, follow these steps:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 
-<div class='note'>
+{% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
-</div>
+{% endimportant %}
 
 ### Advanced broker configuration
 
-Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication and enabling TLS validation of the brokers certificate for. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
+Advanced broker configuration options include setting a custom client ID, setting a client certificate and key for authentication, and enabling TLS validation of the broker's certificate for secure connection. To access the advanced settings, open the MQTT broker settings, switch on `Advanced options` and click `Next`. The advanced options will be shown by default if there are advanced settings active already.
 
-<div class='note info'>
-
+{% tip %}
 Advanced broker options are accessible only when advanced mode is enabled (see user settings), or when advanced broker settings are configured already.
-
-</div>
+{% endtip %}
 
 #### Alternative client ID
 
@@ -167,33 +171,31 @@ The time in seconds between sending keep alive messages for this client. The def
 
 #### Broker certificate validation
 
-To enable a secure the broker certificate should be validated. If your broker uses a trusted certificate then choose `Auto`. This will allow validation against certifite CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM encoded CA-certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
+To enable a secure connection to the broker, the broker certificate should be validated. If your broker uses a trusted certificate, then choose `Auto`. This will allow validation against certificate CAs bundled certificates. If a self-signed certificate is used, select `Custom`. A custom PEM-encoded CA certificate can be uploaded. Click `NEXT` to show the control to upload the CA certificate.
 If the server certificate does not match the hostname then validation will fail. To allow a connection without the verification of the hostname, turn the `Ignore broker certificate validation` switch on.
 
 #### MQTT Protocol
 
 The MQTT protocol setting defaults to version `3.1.1`. If your MQTT broker supports MQTT version 5 you can set the protocol setting to `5`.
 
-#### Securing the the connection
+#### Securing the connection
 
 With a secure broker connection it is possible to use a client certificate for authentication. To set the client certificate and private key turn on the option `Use a client certificate` and click "Next" to show the controls to upload the files. Only a PEM encoded client certificates together with a PEM encoded private key can be uploaded. Make sure the private key has no password set.
 
 #### Using WebSockets as transport
 
 You can select `websockets` as transport method if your MQTT broker supports it. When you select `websockets` and click `NEXT`, you will be able to add a WebSockets path (default = `/`) and WebSockets headers (optional). The target WebSockets URI: `ws://{broker}:{port}{WebSockets path}` is built with `broker`, `port` and `ws_path` (WebSocket path) settings.
-To configure the WebSocketS headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
+To configure the WebSocket's headers supply a valid JSON dictionary string. E.g. `{ "Authorization": "token" , "x-header": "some header"}`. The default transport method is `tcp`. The WebSockets transport can be secured using TLS and optionally using user credentials or a client certificate.
 
-<div class='note'>
-
+{% note %}
 A configured client certificate will only be active if broker certificate validation is enabled.
-
-</div>
+{% endnote %}
 
 ## Configure MQTT options
 
 To change the settings, follow these steps:
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
 3. Select **Configure**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
@@ -213,15 +215,15 @@ MQTT Birth and Last Will messages can be customized or disabled from the UI. To 
 
 ## Testing your setup
 
-The `mosquitto` broker package ships commandline tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost` check the example below:
+The `mosquitto` broker package ships command line tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost`, to can use [`mosquitto_pub`](https://mosquitto.org/man/mosquitto_pub-1.html), check the example below:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 ```
 
-Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & Services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
+Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
-1. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the Mosquitto broker integration, then select **Configure**.
 3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
@@ -280,11 +282,9 @@ The discovery of MQTT devices will enable one to use MQTT devices with only mini
 MQTT discovery is enabled by default, but can be disabled. The prefix for the discovery topic (default `homeassistant`) can be changed.
 See the [MQTT Options sections](#configure-mqtt-options)
 
-<div class='note info'>
-
+{% note %}
 Documentation on the MQTT components that support MQTT discovery [can be found here](/integrations/mqtt/#configuration-via-mqtt-discovery).
-
-</div>
+{% endnote %}
 
 ### Discovery messages
 
@@ -307,7 +307,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 
 #### Discovery payload
 
-The payload must be a serialized JSON dictionary and will be checked like an entry in your `configuration.yaml` file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
@@ -326,7 +326,6 @@ sw_version:
 support_url:
   description: Support URL of the application that supplies the discovered MQTT item.
 {% endconfiguration_basic %}
-
 
 {% details "Supported abbreviations" %}
 
@@ -594,12 +593,15 @@ support_url:
     'name':                'name',
     'mf':                  'manufacturer',
     'mdl':                 'model',
+    'mdl_id':              'model_id',
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
     'sn':                  'serial_number',
 ```
+
 {% enddetails %}
+
 {% details "Supported abbreviations for origin info" %}
 
 ```txt
@@ -607,6 +609,7 @@ support_url:
     'sw':                  'sw_version',
     'url':                 'support_url',
 ```
+
 {% enddetails %}
 
 ### How to use discovery messages
@@ -644,15 +647,13 @@ This can also be done by publishing `retained` messages. As soon as a config is 
 the setup will subscribe any state topics. If a retained message is available at a state topic,
  this message will be replayed so that the state can be restored for this topic.
 
-<div class='note warning'>
-
+{% warning %}
 A disadvantage of using retained messages is that these messages retain at the broker,
 even when the device or service stops working. They are retained even after the system or broker has been restarted.
 Retained messages can create ghost entities that keep coming back.
 <br><br>
 Especially when you have many entities, (unneeded) discovery messages can cause excessive system load. For this reason, use discovery messages with caution.
-
-</div>
+{% endwarning %}
 
 ### Using Availability topics
 
@@ -739,6 +740,7 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
+- [OTGateway](https://github.com/Laxilef/OTGateway)
 
 ### Discovery examples
 
@@ -828,7 +830,8 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
       ],
       "name":"Bedroom",
       "manufacturer": "Example sensors Ltd.",
-      "model": "K9",
+      "model": "Example Sensor",
+      "model_id": "K9",
       "serial_number": "12AE3010545",
       "hw_version": "1.01a",
       "sw_version": "2024.1.0",
@@ -858,9 +861,9 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
 
 The sensor [`identifiers` or `connections`](/integrations/sensor.mqtt/#device) option allows to set up multiple entities that share the same device.
 
-<p class='note info'>
+{% note %}
 If a device configuration is shared, then it is not needed to add all device details to the other entity configs. It is enough to add shared identifiers or connections to the device mapping for the other entity config payloads.
-</p>
+{% endnote %}
 
 A common state payload that can be parsed with the `value_template` in the sensor configs:
 
@@ -963,6 +966,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "name": "Kitchen",
       "mf": "Bla electronics",
       "mdl": "xya",
+      "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
       "hw": "1.0rev2",
@@ -994,7 +998,7 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 ## Manual configured MQTT items
 
-For most integrations, it is also possible to manually set up MQTT items in `configuration.yaml`. Read more [about configuration in YAML](/docs/configuration/yaml).
+For most integrations, it is also possible to manually set up MQTT items in {% term "`configuration.yaml`" %}. Read more [about configuration in YAML](/docs/configuration/yaml).
 
 MQTT supports two styles for configuring items in YAML. All configuration items are placed directly under the `mqtt` integration key. Note that you cannot mix these styles. Use the *YAML configuration listed per item* style when in doubt.
 
@@ -1027,11 +1031,9 @@ mqtt:
 
 If you have a large number of manually configured items, you might want to consider [splitting up the configuration](/docs/configuration/splitting_configuration/).
 
-<div class='note info'>
-
+{% note %}
 Documentation on the MQTT components that support YAML [can be found here](/integrations/mqtt/#configuration-via-yaml).
-
-</div>
+{% endnote %}
 
 ## Using Templates
 
@@ -1039,9 +1041,9 @@ The MQTT integration supports templating. Read more [about using templates with 
 
 ## MQTT Notifications
 
-The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is a service. This means you need to provide more details when calling the service.
+The MQTT notification support is different than for the other [notification](/integrations/notify/) integrations. It is an action. This means you need to provide more details when calling the action.
 
-**Call Service** section from **Developer Tools** -> **Services** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of **Available services:** and enter something like the sample below into the **Service Data** field and hit **CALL SERVICE**.
+**Perform action** section from **Developer Tools** -> **Actions** allows you to send MQTT messages. Choose *mqtt.publish*  from the list of available actions, and enter something like the sample below into the **data** field and select **Perform action**.
 
 ```json
 {
@@ -1053,15 +1055,14 @@ The MQTT notification support is different than for the other [notification](/in
 ```
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify.png' />
+  <img src='/images/screenshots/mqtt-notify.png' alt='Screenshot showing how to publish a message to an MQTT topic'/>
 </p>
 
 The same will work for automations.
 
 <p class='img'>
-  <img src='/images/screenshots/mqtt-notify-action.png' />
+  <img src='/images/screenshots/mqtt-notify-action.png'  alt='Screenshot showing how to publish a message to an MQTT topic for automations' />
 </p>
-
 
 ### Examples
 
@@ -1091,7 +1092,7 @@ automation:
     entity_id: device_tracker.me
     to: "home"
   action:
-    service: script.notify_mqtt
+    action: script.notify_mqtt
     data:
       target: "me"
       message: "I'm home"
@@ -1099,7 +1100,7 @@ automation:
 script:
   notify_mqtt:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
@@ -1108,24 +1109,28 @@ script:
 
 {% endraw %}
 
-## Publish & Dump services
+## Publish & Dump actions
 
-The MQTT integration will register the service `mqtt.publish` which allows publishing messages to MQTT topics. There are two ways of specifying your payload. You can either use `payload` to hard-code a payload or use `payload_template` to specify a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) that will be rendered to generate the payload.
+The MQTT integration will register the `mqtt.publish` action, which allows publishing messages to MQTT topics.
 
-### Service `mqtt.publish`
+### Action `mqtt.publish`
 
-| Service data attribute | Optional | Description                                                  |
+| Data attribute | Optional | Description                                                  |
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
-| `topic_template`       | no       | Template to render as topic to publish payload to.           |
-| `payload`              | yes      | Payload to publish.                                          |
-| `payload_template`     | yes      | Template to render as payload value.                         |
+| `payload`              | no       | Payload to publish.                                          |
+| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-<p class='note'>
+{% note %}
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+{% endnote %}
+
+{% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
-</p>
+{% endimportant %}
+
 
 ```yaml
 topic: homeassistant/light/1/command
@@ -1164,7 +1169,7 @@ you should take special care if `payload` contains template content.
 Home Assistant will force you in to the YAML editor and will treat your
 definition as a template. Make sure you escape the template blocks as like
 in the example below. Home Assistant will convert the result to a string
-and will pass it to the MQTT publish service.
+and will pass it to the MQTT publish action.
 
 The example below shows how to publish a temperature sensor 'Bathroom Temperature'.
 The `device_class` is set, so it is not needed to set the "name" option. The entity
@@ -1174,7 +1179,7 @@ If you set "name" in the payload the entity name will start with the device name
 {% raw %}
 
 ```yaml
-service: mqtt.publish
+action: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
@@ -1186,7 +1191,8 @@ data:
     "device": {
     "identifiers": "Acurite-986-1R-51778",
     "name": "Bathroom",
-    "model": "Acurite-986",
+    "model": "Acurite",
+    "model_id": "986",
     "manufacturer": "rtl_433" }
     }
 ```
@@ -1202,11 +1208,11 @@ qos: 2
 retain: true
 ```
 
-### Service `mqtt.dump`
+### Action `mqtt.dump`
 
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
 | `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |

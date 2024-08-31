@@ -21,14 +21,14 @@ It takes considerable effort to configure. Your Home Assistant instance must be 
 
 The [Emulated Hue integration][emulated-hue-integration] provides a simpler alternative to use utterances such as _"Alexa, turn on the kitchen light"_. However, it has some limitations since everything looks like a light bulb.
 
-<div class='note'>
+{% note %}
 
 With [Home Assistant Cloud](/cloud/), you can connect your Home Assistant instance in a few simple clicks to Amazon Alexa. With Home Assistant Cloud you don't have to deal with dynamic DNS, SSL certificates or opening ports on your router. Just log in via the user interface and a secure connection with the cloud will be established. Home Assistant Cloud requires a paid subscription after a 30-day free trial.
 <br/>
 <br/>
 For Home Assistant Cloud Users, documentation can be found [here](https://www.nabucasa.com/config/amazon_alexa/).
 
-</div>
+{% endnote %}
 
 Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
@@ -86,6 +86,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
+  - [Remote](#remote)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -105,7 +106,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
 
 ## Requirements
 
-- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will work, but a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) is recommended. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
+- The Alexa Smart Home API requires your Home Assistant instance to be accessible from the internet via HTTPS on port 443 using an SSL/TLS certificate. A self-signed certificate will not work, but a public trusted certificate or a certificate signed by [an Amazon approved certificate authority](https://ccadb-public.secure.force.com/mozilla/IncludedCACertificateReport) should work. Read more on [our blog](/blog/2015/12/13/setup-encryption-using-lets-encrypt/) about how to set up encryption for Home Assistant. When running Home Assistant, using the [Duck DNS](/addons/duckdns/) add-on is the easiest method.
 - An Amazon Developer Account. Sign up [here](https://developer.amazon.com).
 - An [Amazon Web Services (AWS)](https://aws.amazon.com/free/) account is required to host the Lambda function for your Alexa Smart Home Skill. [AWS Lambda](https://aws.amazon.com/lambda/pricing/) is free to use for up to 1-million requests and 1GB outbound data transfer per month.
 
@@ -148,7 +149,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -178,7 +179,7 @@ Next you need create a Lambda function.
 
 ### Test the Lambda Function
 
-Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your `configuration.yaml` file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
+Now, you have created the Lambda function, but before you can test it, you have to set up the necessary aspects of your Home Assistant configuration. Put the following minimal configuration into your {% term "`configuration.yaml`" %} file. It will expose all of your supported devices and automations to Alexa. It is strongly recommended to check the [configuration section](#alexa-smart-home-integration-configuration) and setup control of which devices and entities are exposed.
 
 ```yaml
 alexa:
@@ -240,13 +241,18 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
   - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]/auth/authorize`
   - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]/auth/token`
 
-    It is also possible to use a different port by appending `:1443` or a similar port number, make sure your firewall is forwarding the correct port:
-  - `Authorization URI`: `https://[YOUR HOME ASSISTANT URL]:1443/auth/authorize`
-  - `Access Token URI`: `https://[YOUR HOME ASSISTANT URL]:1433/auth/token`
+    Although it is possible to assign a different port, Alexa requires you use port 443, so make sure your firewall/proxy is forwarding via port 443.
 
-<div class="note">
-    Note: you must use a valid/trusted SSL certificate for account linking to work. Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
-</div>
+    Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
+
+    {% note %}
+    Despite the Alexa documentation's disclaimer, however, [Let's Encrypt](https://letsencrypt.org/) certificates are still accepted.
+    {% endnote %}
+
+{% important %}
+You must use a valid/trusted SSL certificate for account linking to work.
+Self signed certificates will not work, but you can use a free Let's Encrypt certificate.
+{% endimportant %}
 
 - `Client ID`:
   - `https://pitangui.amazon.com/` if you are in US
@@ -452,9 +458,9 @@ light.kitchen_light:
   display_categories: LIGHT,SWITCH
 ```
 
-<div class='note info'>
+{% note %}
 Devices such as cameras, garage doors, and alarm control panels require specific display categories to provide all available features from Amazon Alexa. Overriding the default display category will limit features provided by Amazon Alexa.
-</div>
+{% endnote %}
 
 See [Alexa Display Categories][alexa-display-categories] for a complete list
 
@@ -479,12 +485,10 @@ The alarm control panel state must be in the `disarmed` state before arming. Ale
 
 The alarm control panel state `armed_custom_bypass` isn't supported by Alexa and is treated as `armed_home`.
 
-<div class="note">
-
+{% note %}
 Alexa does not support arming with voice PIN at this time. Therefore if the alarm control panel requires a `code` for arming or the `code_arm_required` attribute is `true`, the entity will not be exposed during discovery.
 The alarm control panel may default the `code_arm_required` attribute to `true` even if the platform does not support or require it. Use the [entity customization tool](/docs/configuration/customizing-devices/#customization-using-the-ui) to override `code_arm_required` to `false` and expose the alarm control panel during discovery.
-
-</div>
+{% endnote %}
 
 #### Disarming
 
@@ -497,7 +501,7 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
 
 To use the existing code configured for the alarm control panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
-The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
+The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` action. If the `alarm_control_panel.alarm_disarm` action fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
 ### Alert, Automation, Group
 
@@ -594,11 +598,9 @@ alexa:
 
 Alexa will announce on all echo devices _"Person detected at [entity name]"_.
 
-<div class="note">
-
+{% important %}
 Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturb feature turned off.
-
-</div>
+{% endimportant %}
 
  <p class='img'>
    <a href='/images/integrations/alexa/alexa_app_person_detection.png' target='_blank'>
@@ -727,9 +729,9 @@ Requires [Proactive Events](#proactive-events) enabled.
 Home Assistant `event` entities can trigger a doorbell announcement in Alexa if the `device_class` of the `event` entity is set to `doorbell`.
 Alexa will announce on all echo devices _"Someone is at the [entity name]"_ when an `event` entity has received an updated.
 
-<div class='note info'>
+{% note %}
 Each Amazon Echo device will need the communication and announcements setting enabled and the Do Not Disturb feature turned off.
-</div>
+{% endnote %}
 
 <p class='img'>
 <a href='/images/integrations/alexa/alexa_app_doorbell_announcement.png' target='_blank'>
@@ -810,11 +812,9 @@ Alexa will announce on all echo devices _"Person detected at [entity name]"_.
    <img height='460' src='/images/integrations/alexa/alexa_app_person_detection.png' alt='Screenshot: Alexa App Person Detection Notification'/></a>
  </p>
 
-<div class='note'>
-
+{% note %}
 Display category will default to `CAMERA` to enable presence detected notification settings in the Alexa App. Each Echo device will need the communication and Announcements setting enabled, and the Do Not Disturbed feature turned off.
-
-</div>
+{% endnote %}
 
 ### Input Number and Number
 
@@ -869,13 +869,13 @@ Adjust lights that support color temperature using the following friendly names:
 
 The following table lists the possible friendly name synonyms available to lights that support color temperature.
 
-| Color Temperature in Kelvin | Friendly Name Synonyms  |
-| -----| ---------------------------------------------- |
-| 2200 | _"warm"_, _"warm white"_                       |
-| 2700 | _"incandescent"_, _"soft white"_               |
-| 4000 | _"white"_                                      |
-| 5500 | _"daylight"_, _"daylight white"_               |
-| 7000 | _"cool"_, _"cool white"_                       |
+| Color Temperature in Kelvin | Friendly Name Synonyms           |
+| --------------------------- | -------------------------------- |
+| 2200                        | _"warm"_, _"warm white"_         |
+| 2700                        | _"incandescent"_, _"soft white"_ |
+| 4000                        | _"white"_                        |
+| 5500                        | _"daylight"_, _"daylight white"_ |
+| 7000                        | _"cool"_, _"cool white"_         |
 
 Use _"warmer"_, _"softer"_, _"cooler_, _"whiter"_ utterances to adjust color temperature by 50 `mired` (approximately 300-500 degree kelvin change).
 
@@ -943,9 +943,22 @@ Home Assistant will attempt to translate the `media_player` `source_list` into a
 
 Requires [Proactive Events](#proactive-events) enabled.
 
-<div class='note info'>
+{% note %}
 Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
-</div>
+{% endnote %}
+
+### Remote
+
+Supports changing the Remote `activity` from the given `activity_list`
+
+- _"Alexa, change the TV to PlayStation."_
+- _"Alexa, change the input on the TV to PlayStation."_
+
+{% note %}
+Alexa does not allow the following words to be used as activity names:
+
+`alarm`, `alarms`, `all alarms`, `away mode`, `bass`, `camera`, `date`, `date today`, `day`, `do not disturb`, `drop in`, `music`, `night light`, `notification`, `playing`, `sleep sounds`, `time`, `timer`, `today in music`, `treble`, `volume`, `way f. m.`
+{% endnote %}
 
 ### Scene
 
@@ -1007,9 +1020,9 @@ Pause and Restart Timer entities in Home Assistant.
 - _"Alexa, hold the sous vide."_
 - _"Alexa, restart the microwave."_
 
-<div class="note">
+{% important %}
 To avoid issues with Alexa's built-in timer functionality, the timer entity should not include the word "timer" in its friendly name.
-</div>
+{% endimportant %}
 
 ### Vacuum
 
@@ -1090,7 +1103,7 @@ Disable and re-enable the skill using the Alexa App; then restart Home Assistant
 
 ## Debugging
 
-The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml`:
+The Alexa integration will log additional information about state updates and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %}:
 
 If using Alexa with an Alexa Smart Home Skill and Lambda function such as haaska:
 

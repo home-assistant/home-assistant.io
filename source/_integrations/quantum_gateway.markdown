@@ -11,6 +11,9 @@ ha_domain: quantum_gateway
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `quantum_gateway` device tracker platform offers presence detection by looking at devices connected to a Verizon Fios gateway.
@@ -19,7 +22,8 @@ It was tested with a Verizon Fios-G1100 and G3100 Quantum Gateway.
 
 ## Configuration
 
-To use a Verizon Fios Quantum Gateway in your installation, add the following to your `configuration.yaml` file:
+To use a Verizon Fios Quantum Gateway in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
