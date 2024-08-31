@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ha_code_owners:
   - '@LG-ThinQ-Integration'
 ha_config_flow: true
-ha_domain: lgthinq
+ha_domain: lg_thinq
 ha_platforms:
   - switch
 ha_dhcp: true
