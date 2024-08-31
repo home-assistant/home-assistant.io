@@ -24,7 +24,7 @@ When activating the interface, a red warning triangle with security information 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 {% important %}
-The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
+The open JSON interface is deactivated by default. To activate the open JSON interface, a user password should be set for security purposes. The password isn't needed for accessing the open JSON interface.
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
@@ -74,6 +74,27 @@ The following sensors are available in the library:
 | efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
+
+## Additional data
+
+{% important %}
+The additional data is only accessible if the user's password protection is deactivated. Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
+{% endimportant %}
+
+You can get additional data from the Solar-Log device. To enable this, select the checkbox for extended data in the integration's system options.
+
+The following additional sensor becomes available:
+
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
+
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| current_power         | W      | Current power provided/used by the device. |
+| consumption_year      | kWh    | Total energy provided/used by the device.  |
 
 {% note %}
 The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.
