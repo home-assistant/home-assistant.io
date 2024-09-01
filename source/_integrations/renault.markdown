@@ -58,6 +58,39 @@ Cancel A/C on vehicle.
   | ---------------------- | -------- | ----------- |
   | `vehicle`| yes | device_id of the vehicle |
 
+### Action `renault.ac_set_schedules`
+
+Update AC schedule on vehicle.
+
+  | Data attribute | Required | Description | Example |
+  | ---------------------- | -------- | ----------- | ------- |
+  | `vehicle`| yes | device_id of the vehicle |
+  | `schedules` | yes | Schedule details. Can be a single schedule or a list of schedules | see [example below](#ac_schedule_example) |
+  
+Notes:
+
+- `schedules` can be in the form `{'id':1,...}` when updating a single schedules, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call
+- the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
+- the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
+- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'readyAtTime':'T12:00Z'}` where start time is in UTC format and the duration is in minutes.
+
+<a name="ac_schedule_example">Example</a>:
+
+```yaml
+[
+  { 
+    'id': 1, 
+    'activated': true, 
+    'monday': {'readyAtTime':'T12:00Z'} 
+  }, 
+  { 
+    'id': 2, 
+    'activated': false, 
+    'monday': {'readyAtTime':'T12:00Z'} 
+  },
+]
+```
+
 ### Action `renault.charge_set_schedules`
 
 Update charge schedule on vehicle.
