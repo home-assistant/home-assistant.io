@@ -21,7 +21,7 @@ This {% term integration %} provides sensors for monitoring the CPU and memory u
 
 ## Prerequisites
 
-### Recommended Authentication Setup
+### Authentication setup
 
 {% warning %}
 Always consider your own setup and security needs before exposing services with system-level access.
@@ -47,15 +47,15 @@ Ensure the `XML::Parser` Perl module is installed via [Webmin Perl Modules](http
 
 #### Installing XML::Parser Perl Module
 
-1. In the Webmin UI, navigate to Tools > Perl Modules.
-2. Under the "Install module" tab, enter `XML::Parser` into the _From CPAN_ text field.
-3. Select _Install_ at the bottom of the dialog.
+1. In the Webmin UI, go to **Tools** > **Perl Modules**.
+2. Under the **Install module** tab, enter `XML::Parser` into the **From CPAN** text field.
+3. Select **Install** at the bottom of the dialog.
 4. Confirm that the installation is successful.
    - If the installation succeeds:
      - Continue with any remaining steps for Home Assistant.
    - If the installation fails:
      - Refer to [Webmin documentation for Perl Modules](https://webmin.com/docs/modules/perl-modules/) to resolve any Webmin issues.
-     - Retry the module installation and confirm that `XML::Parser` is listed on the Perl Modules page under "Existing Modules".
+     - Retry the module installation and confirm that `XML::Parser` is listed on the Perl Modules page under **Existing Modules**.
 {% include integrations/config_flow.md %}
 
 ## Sensors
