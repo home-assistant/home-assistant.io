@@ -12,6 +12,7 @@ ha_config_flow: true
 ha_domain: lg_thinq
 ha_platforms:
   - switch
+  - binary_sensor
 ha_dhcp: true
 ha_integration_type: integration
 ---
