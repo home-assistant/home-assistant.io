@@ -49,17 +49,6 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 2. Choose the region (country).
 
 
-## Removing the LG ThinQ integration
-
-To remove the LG ThinQ integration, follow these steps:
-
-1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
-2. Select the LG ThinQ integration.
-3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Delete**.
-
-{% note %} Deleting the integration will remove all entities associated with your LG ThinQ devices' features. {% endnote %}
-
-
 ## Supported Devices
 
 ### Appliance
@@ -112,6 +101,7 @@ Check your PAT's valid country in the **Choose the region / Country** section.
 #### Error: The number of API calls has been exceeded
 
 This error occurs when there's an abnormal number of API calls made using the PAT.
+The LG ThinQ integration will work propery after some time.
 
 
 ## Debugging
