@@ -1,7 +1,6 @@
 ---
 title: LG ThinQ
 description: Setup for LG ThinQ Integration.
-featured: true
 ha_category:
   - Hub
 ha_release: "2024.10"
@@ -12,7 +11,6 @@ ha_config_flow: true
 ha_domain: lg_thinq
 ha_platforms:
   - switch
-ha_dhcp: true
 ha_integration_type: integration
 ---
 
