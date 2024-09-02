@@ -1,6 +1,6 @@
 ### Synology NAS
 
-As Synology within DSM now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
+Synology with DSM now supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
 
 Note that some users have reported issues creating Home Assistant containers on ARM QNAP systems (e.g., TS-233) with Container Station 3. A possible workaround is the "Docker compose" approach based on a YAML file (see section "Docker compose"). In the QNAP Container Station 3 UI, this can be accessed by going to the "Applications" section and clicking on "Create". You are then prompted to enter YAML code, which can be copied from that shown in the "Docker compose" section. Take care to modify this code in two ways: firstly, add a first line reading "version: '3'"; secondly, replace the text "/PATH_TO_YOUR_CONFIG" by a valid path on your NAS system, e.g., "/share/Container/HomeAssistant/config".
 
@@ -69,7 +69,7 @@ If you want to use a USB Bluetooth adapter or Z-Wave USB Stick with Home Assista
 
 ### QNAP NAS
 
-As QNAP within QTS now supports Docker (with a neat UI), you can simply install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
+QNAP with QTS supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.qnap.com/solution/container_station/en/index.php>
 
 The steps would be:
 

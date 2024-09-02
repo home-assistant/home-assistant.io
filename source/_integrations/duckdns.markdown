@@ -43,10 +43,10 @@ duckdns:
     type: string
 {% endconfiguration %}
 
-## Service `set_txt`
+## Action `set_txt`
 
 Set the TXT record of your DuckDNS subdomain.
 
-| Service data attribute | Optional | Description                 |
+| Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
 | `txt`                  | no       | Payload for the TXT record. |

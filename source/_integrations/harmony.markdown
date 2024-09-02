@@ -16,7 +16,6 @@ ha_ssdp: true
 ha_platforms:
   - remote
   - select
-  - switch
 ha_integration_type: integration
 ---
 
@@ -34,7 +33,7 @@ Supported units:
 
 **Note:** Depending on the firmware, you may need to enable XMPP for this integration to work. From your Harmony app, go to: **Menu** > **Harmony Setup** > **Add/Edit Devices & Activities** > **Remote & Hub** > **Enable XMPP**.
 
-Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & Services** >> **Your Logitech Harmony Hub**
+Once the Logitech Harmony Hub has been configured, the default activity and duration in seconds between sending commands to a device can be adjusted in the settings via **Settings** -> **Devices & services** >> **Your Logitech Harmony Hub**
 
 ### Configuration file
 
@@ -46,19 +45,19 @@ Upon startup one file will be written to your Home Assistant configuration direc
 
 This file will be overwritten whenever the Harmony HUB has a new configuration, there is no need to restart Home Assistant.
 
-### Service `remote.turn_off`
+### Action `remote.turn_off`
 
 Turn off all devices that were switched on from the start of the current activity.
 
-| Service data attribute | Optional | Description          |
+| Data attribute | Optional | Description          |
 | ---------------------- | -------- | -------------------- |
 | `entity_id`            | no       | Entity ID to target. |
 
-### Service `remote.turn_on`
+### Action `remote.turn_on`
 
 Start an activity. Will start the default `activity` from {% term "`configuration.yaml`" %} if no activity is specified.  The specified activity can either be the activity name or the activity ID from the configuration file written to your [Home Assistant configuration directory](/docs/configuration/).
 
-| Service data attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `entity_id`            | no       | Entity ID to target.                   |
 | `activity`             | yes      | Activity ID or Activity Name to start. |
@@ -78,22 +77,22 @@ In the file 'harmony_REMOTENAME.conf' you can find the available activities, for
 }
 ```
 
-Using the activity name 'Watch TV', you can call a service via automation to switch this activity on:
+Using the activity name 'Watch TV', you can perform an action via automation to switch this activity on:
 
 ```yaml
 action:
-  - service: remote.turn_on
+  - action: remote.turn_on
     target:
       entity_id: remote.bed_room_hub
     data:
        activity: "Watch TV"
 ```
 
-### Service `remote.send_command`
+### Action `remote.send_command`
 
 Send a single command or a set of commands to one device, device ID and available commands are written to the configuration file at startup. You can optionally specify the number of times you wish to repeat the command(s) and delay you want between repeated command(s).
 
-| Service data attribute | Optional | Description                                         |
+| Data attribute | Optional | Description                                         |
 | ---------------------- | -------- | --------------------------------------------------- |
 | `entity_id`            | no       | Entity ID to target.                                |
 | `device`               | no       | Device ID or Device Name to send the command to.    |
@@ -127,10 +126,10 @@ In the file 'harmony_REMOTENAME.conf' you can find the available devices and com
 }
 ```
 
-A typical service call for sending several button presses looks like this:
+A typical action for sending several button presses looks like this:
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.tv_room
 data:
@@ -142,7 +141,7 @@ data:
 ```
 OR
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.tv_room
 data:
@@ -153,30 +152,30 @@ data:
   delay_secs: 0.6
 ```
 
-### Service `harmony.change_channel`
+### Action `harmony.change_channel`
 
 Sends the change channel command to the Harmony HUB
 
-| Service data attribute | Optional | Description                 |
+| Data attribute | Optional | Description                 |
 | ---------------------- | -------- | --------------------------- |
 | `entity_id`            | no       | Entity ID to target.        |
 | `channel`              | no       | Channel number to change to |
 
-A typical service call for changing the channel would be::
+A typical action for changing the channel would be::
 
 ```yaml
-service: harmony.change_channel
+action: harmony.change_channel
 target:
   entity_id: remote.tv_room
 data:
   channel: 200
 ```
 
-### Service `harmony.sync`
+### Action `harmony.sync`
 
 Force synchronization between the Harmony device and the Harmony cloud.
 
-| Service data attribute | Optional | Description          |
+| Data attribute | Optional | Description          |
 | ---------------------- | -------- | -------------------- |
 | `entity_id`            | no       | Entity ID to target. |
 
@@ -213,7 +212,7 @@ automation:
       condition: template
       value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
-      service: input_boolean.turn_on
+      action: input_boolean.turn_on
       target:
         entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
@@ -224,7 +223,7 @@ automation:
       condition: template
       value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
-      service: input_boolean.turn_off
+      action: input_boolean.turn_off
       target:
         entity_id: input_boolean.notify
 ```

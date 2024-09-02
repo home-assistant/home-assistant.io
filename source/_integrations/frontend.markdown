@@ -11,7 +11,7 @@ ha_domain: frontend
 ha_integration_type: system
 ---
 
-This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your configuration. If that is the case, the following example shows you how to enable this integration manually:
+This offers the official frontend to control Home Assistant. This integration is enabled by default unless you've disabled or removed the [`default_config:`](/integrations/default_config/) line from your {% term "`configuration.yaml`" %} file. If that is the case, the following example shows you how to enable this integration manually in the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry
@@ -52,6 +52,7 @@ frontend:
 ### Theme format
 
 The frontend integration allows you to create custom themes to influence the look and feel of the user interface.
+Example of a configuration entry in the {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -155,17 +156,17 @@ Check our [community forums](https://community.home-assistant.io/c/projects/them
 
 ## Setting themes
 
-There are two themes-related services:
+There are two themes-related actions:
 
 - `frontend.reload_themes`: Reloads theme configuration from your {% term "`configuration.yaml`" %} file.
 - `frontend.set_theme`: Sets backend-preferred theme name.
 
-### Service `set_theme`
+### Action `set_theme`
 
-| Service data attribute | Description                                                                                         |
-| ---------------------- | --------------------------------------------------------------------------------------------------- |
-| `name`                 | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
-| `mode`                 | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
+| Data attribute | Description                                                                                         |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| `name`         | Name of the theme to set, `default` for the default theme or `none` to restore to the default.      |
+| `mode`         | If the theme should be applied in light or dark mode `light` or `dark` (Optional, default `light`). |
 
 If no dark mode backend theme is set, the light mode theme will also be used in dark mode.
 The backend theme settings will be saved and restored on a restart of Home Assistant.
@@ -173,7 +174,7 @@ The backend theme settings will be saved and restored on a restart of Home Assis
 ### Manual theme selection
 
 When themes are enabled in the {% term "`configuration.yaml`" %} file, a new option will show up in the user profile page (accessed by clicking your user account initials at the bottom of the sidebar). You can then choose any installed theme from the dropdown list and it will be applied immediately.
-This will overrule the theme settings set by the above service calls, and will only be applied to the current device.
+This will overrule the theme settings set by the above actions, and will only be applied to the current device.
 
 <p class='img'>
   <img src='/images/frontend/user-theme.png' />

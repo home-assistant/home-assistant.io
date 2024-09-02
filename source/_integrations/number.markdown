@@ -77,10 +77,10 @@ The following device classes are supported for numbers:
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
 - **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
  
-## Services
+## Actions
 
-The Number entities registers the following services:
+The Number entities registers the following actions:
 
-| Service | Data | Description |
+| Action | Data | Description |
 | ------- | ---- | ----------- |
 | `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities

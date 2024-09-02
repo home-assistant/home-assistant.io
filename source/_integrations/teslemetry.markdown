@@ -21,6 +21,7 @@ ha_config_flow: true
 ha_codeowners:
   - '@Bre77'
 ha_domain: teslemetry
+ha_quality_scale: platinum
 ha_platforms:
   - binary_sensor
   - button
@@ -91,6 +92,7 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
+|Cover|Sunroof|No|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
 |Lock|Charge cable lock|Yes|
@@ -195,4 +197,74 @@ These are the entities available in the Teslemetry integration. Not all entities
 
 ## Vehicle sleep
 
-Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the Teslemetry integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` action to force polling the API, which will reset the timer.
+
+## Actions
+
+Teslemetry provides various custom actions to interact with the Tesla Fleet API directly.
+
+### Navigate to coordinates
+
+`teslemetry.navigation_gps_request`
+
+| Field         | Description                | Example                          |
+|---------------|----------------------------|----------------------------------|
+| device_id     | The vehicle's device ID    | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| gps           | Dictionary of coordinates  |                                  |
+| gps.latitude  | Latitude in degrees        | -27.9699373                      |
+| gps.longitude | Longitude in degrees       | 153.4081865                      |
+| order         | Order for this destination | 1                                |
+
+### Set scheduled charging
+
+`teslemetry.set_scheduled_charging`
+
+| Field     | Description                           | Example                          |
+|-----------|---------------------------------------|----------------------------------|
+| device_id | The vehicle's device ID              | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| enable    | Enable or disable scheduled charging | true                             |
+| time      | Time to start charging in HH:MM       | 6:00                             |
+
+### Set scheduled departure
+
+`teslemetry.set_scheduled_departure`
+
+| Field                           | Description                               | Example                          |
+|---------------------------------|-------------------------------------------|----------------------------------|
+| device_id                       | The vehicle's device ID                  | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| enable                          | Enable or disable scheduled departure     | true                             |
+| preconditioning_enabled         | Enable preconditioning                    | true                             |
+| preconditioning_weekdays_only   | Enable preconditioning on weekdays only   | false                            |
+| departure_time                  | Planned departure time (HH:MM)         | 6:00                             |
+| off_peak_charging_enabled       | Enable off-peak charging                  | false                            |
+| off_peak_charging_weekdays_only | Enable off-peak charging on weekdays only | false                            |
+| end_off_peak_time               | Time to complete charging by (HH:MM)      | 5:00                             |
+
+### Valet Mode
+
+`teslemetry.valet_mode`
+
+| Field         | Description                  | Example                          |
+|---------------|------------------------------|----------------------------------|
+| device_id     | The vehicle's device ID      | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| enable        | Enable or disable valet mode | true                             |
+| pin           | 4-digit pin                  | 1234                             |
+
+### Speed Limit
+
+`teslemetry.speed_limit`
+
+| Field         | Description                   | Example                          |
+|---------------|-------------------------------|----------------------------------|
+| device_id     | The vehicle's device ID       | 0d462c0c4c0b064b1a91cdbd1ffcbd31 |
+| enable        | Enable or disable speed limit | true                             |
+| pin           | 4-digit pin                   | 1234                             |
+
+### Time of use
+
+`teslemetry.time_of_use`
+
+| Field         | Description                  | Example                                                                                                          |
+|---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
+| device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
+| tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |

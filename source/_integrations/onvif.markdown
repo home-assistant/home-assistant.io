@@ -85,11 +85,11 @@ To help with development of this integration, enable `info` level logging for `h
 
 If you are running into trouble with this sensor, please refer to the [Troubleshooting section](/integrations/ffmpeg/#troubleshooting).
 
-### Service `onvif.ptz`
+### Action `onvif.ptz`
 
 If your ONVIF camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr>, you will be able to pan, tilt or zoom your camera.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | -----------------------| ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of cameras. Use `entity_id: all` to target all. |
 | `tilt` | Tilt direction. Allowed values: `UP`, `DOWN`, `NONE` |

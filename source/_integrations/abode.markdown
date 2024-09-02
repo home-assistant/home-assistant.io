@@ -38,7 +38,7 @@ There is currently support for the following {% term device %} types within Home
 
 - **Alarm control panel**: Reports on the current alarm status and can be used to arm and disarm the system.
 - **Binary sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` {% term sensors %} (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) {% term services %}.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#action-turn_off) and [`camera.turn_on`](/integrations/camera/#action-turn_on) {% term actions %}.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
@@ -86,33 +86,33 @@ There is a unique list of known event_codes are defined in
 and the inferred groups and their ranges of event codes are defined in
 [timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
-## Services
+## Actions
 
-Available {% term services %}: `change_setting`, `capture_image`, `trigger_automation`
+Available {% term actions %}: `change_setting`, `capture_image`, `trigger_automation`
 
-### Service `change_setting`
+### Action `change_setting`
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
 [`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `setting` | No | The setting you wish to change. |
 | `value` | No | The value you wish to change the setting to. |
 
-### Service `capture_image`
+### Action `capture_image`
 
 Request a new still image from your Abode camera.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
-### Service `trigger_automation`
+### Action `trigger_automation`
 
 Trigger an automation on your Abode system.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations. |

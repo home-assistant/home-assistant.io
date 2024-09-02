@@ -28,7 +28,7 @@ To learn how to create and style your own dashboards, refer to the following top
 To learn how to organize and filter your data on an existing dashboard, refer to the following topics:
 
 - [Grouping](/docs/organizing/) into [areas](/docs/organizing/areas/), [floors](/docs/organizing/floors/), [labels](/docs/organizing/labels/), and [categories](/docs/organizing/categories/)
-- [Filtering](/docs/organizing/filtering)
+- [Filtering](/docs/organizing/tables)
 
 ## User- or browser-dependent settings, general settings
 

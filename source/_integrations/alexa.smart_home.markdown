@@ -86,6 +86,7 @@ Steps to Integrate an Amazon Alexa Smart Home Skill with Home Assistant:
     - [Equalizer Mode](#equalizer-mode)
     - [Inputs](#inputs)
     - [Playback State](#playback-state)
+  - [Remote](#remote)
   - [Scene](#scene)
   - [Script](#script)
   - [Sensor](#sensor)
@@ -148,7 +149,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -243,6 +244,10 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
     Although it is possible to assign a different port, Alexa requires you use port 443, so make sure your firewall/proxy is forwarding via port 443.
 
     Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
+
+    {% note %}
+    Despite the Alexa documentation's disclaimer, however, [Let's Encrypt](https://letsencrypt.org/) certificates are still accepted.
+    {% endnote %}
 
 {% important %}
 You must use a valid/trusted SSL certificate for account linking to work.
@@ -496,7 +501,7 @@ Users must opt-in to the disarm by voice feature in the Alexa App. Alexa will re
 
 To use the existing code configured for the alarm control panel the `code` must be 4 digits and the `code_format` attribute must be `number`. After discovery, the Alexa app will offer the ability to use the existing `code`, or create an additional 4 digit PIN to use with Alexa.
 
-The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` service. If the `alarm_control_panel.alarm_disarm` service fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
+The existing code is never communicated to Alexa from Home Assistant. During disarming, Alexa will ask for a PIN. The PIN spoken to Alexa is relayed to Home Assistant and passed to the `alarm_control_panel.alarm_disarm` action. If the `alarm_control_panel.alarm_disarm` action fails for any reason, it is assumed the PIN was incorrect and reported to Alexa as an invalid PIN.
 
 ### Alert, Automation, Group
 
@@ -940,6 +945,19 @@ Requires [Proactive Events](#proactive-events) enabled.
 
 {% note %}
 Intents to seek forwards (skip) or to rewind (go back) are not supported at the moment.
+{% endnote %}
+
+### Remote
+
+Supports changing the Remote `activity` from the given `activity_list`
+
+- _"Alexa, change the TV to PlayStation."_
+- _"Alexa, change the input on the TV to PlayStation."_
+
+{% note %}
+Alexa does not allow the following words to be used as activity names:
+
+`alarm`, `alarms`, `all alarms`, `away mode`, `bass`, `camera`, `date`, `date today`, `day`, `do not disturb`, `drop in`, `music`, `night light`, `notification`, `playing`, `sleep sounds`, `time`, `timer`, `today in music`, `treble`, `volume`, `way f. m.`
 {% endnote %}
 
 ### Scene

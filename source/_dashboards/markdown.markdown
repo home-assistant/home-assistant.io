@@ -53,6 +53,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_empty:
+  required: false
+  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Example

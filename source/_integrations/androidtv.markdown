@@ -3,6 +3,7 @@ title: Android Debug Bridge
 description: Instructions on how to integrate Android and Fire TV devices into Home Assistant.
 ha_category:
   - Media player
+  - Remote
 ha_release: 0.7.6
 ha_config_flow: true
 ha_iot_class: Local Polling
@@ -13,6 +14,7 @@ ha_domain: androidtv
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
 ha_integration_type: device
 ---
 
@@ -104,7 +106,11 @@ If the setup for your Android or Fire TV device fails, then there is probably an
 
 7. If you are using the [Python ADB implementation](#1-python-adb-implementation) approach, as mentioned above, there may be some issues with newer devices. In this case, you should use the [ADB server](#2-adb-server) approach instead.
 
-## Services
+## Device Unavailable
+
+Some devices, such as the Insignia F30 series, disappear from the network when they are turned off. This can be seen as the device becoming unavailable in Home Assistant (logs show TCP timeout errors), disappearing from the network, and not responding to ping. Often, this is for approximately 50 minutes out of each hour when turned off. This can be fixed by opening the Settings app on the device and using "Display & Sounds" -> "Power Controls" -> "Voice Commands When TV Screen is Off". Change this value to "On" and accept the warning about increased power consumption. This will cause the device to always remain listening on the network so that it can be turned on via Home Assistant. Note that after being unplugged or losing power, the device will need to be manually turned on once before this setting takes effect again.
+
+## Actions
 
 ### `media_player.select_source`
 
@@ -113,7 +119,7 @@ You can launch an app on your device using the `media_player.select_source` comm
 ```yaml
 start_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -121,7 +127,7 @@ start_netflix:
 
 stop_netflix:
   sequence:
-  - service: media_player.select_source
+  - action: media_player.select_source
     target:
       entity_id: media_player.fire_tv_living_room
     data:
@@ -130,9 +136,9 @@ stop_netflix:
 
 ### `androidtv.adb_command`
 
-The service `androidtv.adb_command` allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
+The `androidtv.adb_command` action allows you to send either keys or ADB shell commands to your Android / Fire TV device. If there is any output, it will be stored in the `'adb_response'` attribute (i.e., `state_attr('media_player.android_tv_living_room', 'adb_response')` in a template) and logged at the INFO level.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 | `command`              |       no | Either a key command or an ADB shell command.
@@ -141,7 +147,7 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 
 ```yaml
 action:
-  service: androidtv.adb_command
+  action: androidtv.adb_command
   target:
     entity_id: media_player.androidtv_tv_living_room
   data:
@@ -169,21 +175,21 @@ A list of various intents can be found [here](https://gist.github.com/mcfrojd/9e
 
 ### `androidtv.learn_sendevent` (for faster ADB commands)
 
-When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` service. Its usage is as follows:
+When sending commands like UP, DOWN, HOME, etc. via ADB, the device can be slow to respond. The problem isn't ADB, but rather the Android command `input` that is used to perform those actions. A faster way to send these commands is using the Android `sendevent` command. The challenge is that these commands are device-specific. To assist users in learning commands for their device, the Android debug bridge integration provides the `androidtv.learn_sendevent` action. Its usage is as follows:
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 
-1. Call the `androidtv.learn_sendevent` service.
+1. Perform the `androidtv.learn_sendevent` action.
 2. Within 8 seconds, hit a single button on your Android / Fire TV remote.
-3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` service. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
+3. After 8 seconds, a persistent notification will appear that contains the equivalent command that can be sent via the `androidtv.adb_command` action. This command can also be found in the `adb_response` attribute of the media player in Home Assistant, and it will be logged at the INFO level.
 
-As an example, a service call in a [script](/docs/scripts) could be changed from this:
+As an example, an action in a [script](/docs/scripts) could be changed from this:
 
 ```yaml
 # Send the "UP" command (slow)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -194,7 +200,7 @@ to this:
 
 ```yaml
 # Send the "UP" command using `sendevent` (faster)
-- service: androidtv.adb_command
+- action: androidtv.adb_command
   target:
     entity_id: media_player.fire_tv_living_room
   data:
@@ -203,17 +209,17 @@ to this:
 
 ### `androidtv.download` and `androidtv.upload`
 
-You can use the `androidtv.download` service to download a file from your Android / Fire TV device to your Home Assistant instance.
+You can use the `androidtv.download` action to download a file from your Android / Fire TV device to your Home Assistant instance.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name of Android / Fire TV entity.
 | `device_path`          |       no | The filepath on the Android / Fire TV device.
 | `local_path`           |       no | The filepath on your Home Assistant instance.
 
-Similarly, you can use the `androidtv.upload` service to upload a file from Home Assistant instance to Android / Fire TV devices.
+Similarly, you can use the `androidtv.upload` action to upload a file from Home Assistant instance to Android / Fire TV devices.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id`            |       no | Name(s) of Android / Fire TV entities.
 | `device_path`          |       no | The filepath on the Android / Fire TV device.
@@ -234,4 +240,100 @@ The solution to this problem is the `state_detection_rules` configuration parame
 - `'media_session_state'` = try to use the `media_session_state` property to determine the state
 - `'audio_state'` = try to use the `audio_state` property to determine the state
 
-To determine what these rules should be, you can use the `androidtv.adb_command` service with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
+To determine what these rules should be, you can use the `androidtv.adb_command` action with the command `GET_PROPERTIES`, as described in the [androidtv.adb_command](#androidtvadb_command) section.
+
+## Remote
+
+The integration supports the `remote` platform. The remote allows you to send commands to your device with the `remote.send_command` action. You can send either keys or ADB shell commands to your Android / Fire TV device. The supported keys vary between Android models and version.
+
+{% details "Full keycodes list" %}
+
+**Power Keys**
+Key|Description
+---|-----------
+"POWER"|Power toggle
+"SLEEP"|Sleep mode
+"RESUME"|Resume
+"SUSPEND"|Suspend mode
+"WAKEUP"|Wake up
+____________
+
+**Input Keys**
+Key|Description
+---|-----------
+"COMPONENT1"|Component 1
+"COMPONENT2"|Component 2
+"COMPOSITE1"|Composite 1
+"COMPOSITE2"|Composite 2
+"HDMI1"|HDMI output port 1
+"HDMI2"|HDMI output port 2
+"HDMI3"|HDMI output port 3
+"HDMI4"|HDMI output port 4
+"INPUT"|Change input
+"SAT"|Satellite
+"VGA"|VGA
+_____________
+
+**Volume Keys**
+Key|Description
+---|-----------
+"VOLUME_DOWN"|Volume down
+"VOLUME_UP"|Volume up
+"MUTE"|Volume mute
+________________
+
+**Color Keys**
+Key|Description
+---|-----------
+"BLUE"|Blue
+"GREEN"Green
+"YELLOW"|Yellow
+"RED"|Red
+_____________
+
+**Other Keys**
+Key|Description
+---|-----------
+"BACK"|Back
+"CENTER"|Center
+"DOWN"|Down
+"END"|End
+"ENTER"|Enter
+"ESCAPE"|Escape
+"FAST_FORWARD"|Fast forward
+"HOME"|Home
+"LEFT"|Left
+"MENU"|Menu
+"MOVE_HOME"|Move home
+"PAIRING"|Pairing
+"REWIND"|Rewind
+"RIGHT"|Right
+"SEARCH"|Search
+"SETTINGS"|Settings
+"SYSDOWN"|Sysdown
+"SYSLEFT"|Sysleft
+"SYSRIGHT"|Sysright
+"SYSUP"|Sysup
+"TEXT"|Text
+"TOP"|Top
+"UP"|Up
+
+{% enddetails %}
+
+You can also send other Android keys using the syntax `input keyevent {key}`, replacing `{key}` with the Android numeric key event. Refer to [Android TV KeyEvent](https://developer.android.com/reference/android/view/KeyEvent) for details.
+
+**Example to send sequence of commands:**
+
+```yaml
+action: remote.send_command
+target:
+  device_id: 12345f9b4c9863e28ddd52c87dcebe05
+data:
+  command:
+    - MENU
+    - RIGHT
+    - UP
+    - UP
+    - ENTER
+
+```

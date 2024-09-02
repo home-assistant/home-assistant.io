@@ -248,6 +248,12 @@ SELECT pg_database_size('dsmrreader')/1024/1024 as db_size;
 Use `db_size` as column for value.
 Replace `dsmrreader` with the correct name of your database.
 
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}
+
 #### MariaDB/MySQL
 
 Change `table_schema="homeassistant"` to the name that you use as the database name, to ensure that your sensor will work properly.
@@ -257,6 +263,12 @@ SELECT table_schema "database", Round(Sum(data_length + index_length) / POWER(10
 ```
 Use `value` as column for value.
 
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}
+
 #### SQLite
 
 If you are using the `recorder` integration then you don't need to specify the location of the database. For all other cases, add `sqlite:////path/to/database.db` as Database URL.
@@ -265,6 +277,12 @@ If you are using the `recorder` integration then you don't need to specify the l
 SELECT ROUND(page_count * page_size / 1024 / 1024, 1) as size FROM pragma_page_count(), pragma_page_size();
 ```
 Use `size` as column for value.
+
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}
 
 #### MS SQL
 
@@ -282,3 +300,9 @@ Connecting with MSSQL requires "pyodbc" to be installed on your system, which ca
 SELECT TOP 1 SUM(m.size) * 8 / 1024 as size FROM sys.master_files m INNER JOIN sys.databases d ON d.database_id=m.database_id WHERE d.name='DB_NAME';
 ```
 Use `size` as column for value.
+
+{% tip %}
+The unit of measurement returned by the above query is `MiB`, please configure this correctly.
+
+Set the device class to `Data size` so you can use UI unit conversion.
+{% endtip %}

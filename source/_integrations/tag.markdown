@@ -9,8 +9,6 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_platforms:
-  - event
 ha_integration_type: integration
 ---
 
@@ -89,7 +87,7 @@ automation:
         media_player_entity_id: "{{ media_players[trigger.event.data.device_id] }}"
         media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"
         media_content_type: "{{ tags[trigger.event.data.tag_id].media_content_type }}"
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: "{{ media_player_entity_id }}"
       data:

@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: prusalink
 ha_integration_type: integration
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - sensor

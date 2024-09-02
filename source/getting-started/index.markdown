@@ -2,8 +2,11 @@
 title: "Getting started"
 description: "Getting started with Home Assistant"
 body_id: getting_started
+feedback: false
 show_title: true
 ---
+
+Thanks for choosing Home Assistant for your smart home. Here are the basic steps to get you started on the journey to a more private, powerful, and sustainable home.
 
 <!-- textlint-disable -->
 {% include getting-started/next_step.html step="Installation" link="/installation/" icon="simple-icons:homeassistant" %}

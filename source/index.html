@@ -2,6 +2,7 @@
 show_title: false
 sidebar: false
 hero_unit: true
+dark_header: true
 is_homepage: true
 regenerate: true
 feedback: false
@@ -14,7 +15,7 @@ feedback: false
     <div class="grid__item one-third lap-one-third palm-one-whole">
 
       <div class="recent-posts material-card text">
-        <h1><iconify-icon inline icon="mdi:newspaper-variant-multiple"></iconify-icon> Recent Blog Posts</h1>
+        <h1>{% icon "mdi:newspaper-variant-multiple" %} Recent Blog Posts</h1>
 
         {% for post in site.posts limit: 4 %}
         <li class="post" style="display: grid; font-size: 16px">
@@ -25,14 +26,14 @@ feedback: false
       </div>
 
       <div class="join-community material-card text">
-        <h1><iconify-icon inline icon="mdi:people-group-outline"></iconify-icon> Join The Community</h1>
+        <h1>{% icon "mdi:people-group-outline" %} Join The Community</h1>
 
         Our vibrant community is very active and super friendly. We love to talk and share our passion for home automation.
 
         <div class="links">
-          <a href="https://community.home-assistant.io"><iconify-icon inline icon="simple-icons:discourse"></iconify-icon> Forums</a>
-          <a href="/join-chat/"><iconify-icon inline icon="simple-icons:discord"></iconify-icon> Chat</a>
-          <a href="/newsletter/"><iconify-icon inline icon="mdi:email-newsletter"></iconify-icon> Newsletter</a>
+          <a href="https://community.home-assistant.io">{% icon "simple-icons:discourse" %} Forums</a>
+          <a href="/join-chat/">{% icon "simple-icons:discord" %} Chat</a>
+          <a href="/newsletter/">{% icon "mdi:email-newsletter" %} Newsletter</a>
         </div>
       </div>
 
@@ -45,7 +46,7 @@ feedback: false
       </a>
 
       <div class="material-card text">
-        <h1><iconify-icon inline icon="simple-icons:amazonalexa"></iconify-icon> Alexa, turn on the lights</h1>
+        <h1>{% icon "simple-icons:amazonalexa" %} Alexa, turn on the lights</h1>
         Use Alexa to control Home Assistant.
 
         <div class="links">
@@ -57,7 +58,7 @@ feedback: false
         </div>
       </div>
       <div class="material-card text">
-        <h1><iconify-icon inline icon="simple-icons:googleassistant"></iconify-icon> Ok Google, turn off the AC</h1>
+        <h1>{% icon "simple-icons:googleassistant" %} Ok Google, turn off the AC</h1>
         Use Google Assistant to control Home Assistant.
 
         <div class="links">
@@ -68,6 +69,14 @@ feedback: false
           >
         </div>
       </div>
+
+      <a
+        class="material-card highlight-blog-post"
+        href="https://www.openhomefoundation.org/blog/announcing-the-open-home-foundation/"
+      >
+        We are a non-profit and can't be sold or acquired
+        <iconify-icon icon="mdi:arrow-right-thick"></iconify-icon>
+      </a>
 
       <a
         class="material-card picture-promo"
@@ -198,7 +207,7 @@ feedback: false
       <a
         class="material-card picture-promo"
         href="https://home-assistant-store.creator-spring.com/"
-        style="background-image: url(/images/merchandise/shirt-frontpage.png)"
+        style="background-image: url(/images/merchandise/shirt-frontpage.jpg)"
       >
         <div class="caption">
           <div>

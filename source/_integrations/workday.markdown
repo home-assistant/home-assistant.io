@@ -47,18 +47,21 @@ Remove holidays will take dates formatted with `YYYY-MM-DD`, a date range format
 
 The offset can be used to see if future days are workdays. For example, put `1` to see if tomorrow is a workday.
 
-## Service `workday.check_date`
+Additional categories can be added through the configuration to include optional holidays according to the lists provided in the [python-holidays library](https://github.com/vacanza/python-holidays?tab=readme-ov-file#available-countries)
 
-This service populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+## Action `workday.check_date`
+
+
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.
 
-| Service data attribute | Required | Description | Example |
+| Data attribute | Required | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `check_date` | yes | Date to test if workday or not. | 2022-03-10
 
 {% raw %}
 ```yaml
-service: workday.check_date
+action: workday.check_date
 target:
   entity_id: binary_sensor.workday
 data:
@@ -88,7 +91,7 @@ automation:
     entity_id: binary_sensor.workday_sensor
     state: "on"
   action:
-    service: switch.turn_on
+    action: switch.turn_on
     target:
       entity_id: switch.heater
 ```

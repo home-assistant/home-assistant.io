@@ -16,8 +16,6 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_codeowners:
-  - '@andrewsayre'
 ha_domain: smartthings
 ha_platforms:
   - binary_sensor

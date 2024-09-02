@@ -25,12 +25,12 @@ Notes:
 - The string inputs for `Substring *` allow you to force the {% term integration %} to use a particular route or avoid a particular route in its time travel calculation. These inputs are case insensitive and matched against the description of the route.
 - When using the `Avoid Toll Roads?`, `Avoid Subscription Roads?` and `Avoid Ferries?` options, be aware that Waze will sometimes still route you over toll roads or ferries if a valid vignette/subscription is assumed. Default behavior is that Waze will route you over roads having subscription options. It is therefor best is to set both `Avoid Toll Roads?` and `Avoid Subscription Roads?` or `Avoid Ferries?` if needed and experiment to ensure the desired outcome.
 
-## Service `waze_travel_time.get_travel_times`
+## Action `waze_travel_time.get_travel_times`
 
-This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This service populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with route alternatives and travel times between two locations.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `origin` | no | The origin of the route | "51.330436, 3.802043" |
 | `destination` | no | The destination of the route | "51.330436, 3.802043" |
@@ -45,7 +45,7 @@ with route alternatives and travel times between two locations.
 | `avoid_subscription_roads` | yes | Whether to avoid subscription roads | True |
 
 ```yaml
-service: waze_travel_time.get_travel_times
+action: waze_travel_time.get_travel_times
 data:
   origin: "51.330436, 3.802043"
   destination: "51.445677, 3.749929"
@@ -53,7 +53,7 @@ data:
 response_variable: routes
 ```
 
-{% details "Example service response" %}
+{% details "Example action response" %}
 
 ```yaml
 waze_travel_time.get_travel_times:

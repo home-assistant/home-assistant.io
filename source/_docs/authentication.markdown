@@ -51,6 +51,14 @@ _Make sure to choose a secure password!_ At some time in the future, you will pr
 
 As an extra level of security, you can turn on [multi-factor authentication](/docs/authentication/multi-factor-auth/).
 
+## Adding a person to Home Assistant
+
+If you have administrator rights, you can [add a person to Home Assistant](/integrations/person/#adding-a-person-to-home-assistant) and create them a user account.
+
+## Changing display or user name
+
+To learn how to change a display or user name, refer to [setting up basic information](/docs/configuration/basic/).
+
 ## Other authentication techniques
 
 Home Assistant provides several ways to authenticate. See the [Auth providers](/docs/authentication/providers/) section.

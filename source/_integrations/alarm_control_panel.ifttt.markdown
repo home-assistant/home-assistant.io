@@ -89,7 +89,7 @@ It is strongly discouraged to use this platform when you don't use encryption; o
 
 Next, you will need to set up the required IFTTT applets as listed below.
 
-This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered.
+This platform supports the `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night` actions. For each of these actions, an IFTTT webhook will be triggered.
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
 

@@ -3,10 +3,16 @@ title: "Template Alarm control panel"
 description: "Instructions on how to integrate template alarm control panels into Home Assistant."
 ha_category: 
   - Alarm
+  - Helper
 ha_release: 0.105
 ha_iot_class: "Local Push"
-ha_qa_scale: internal
+ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - alarm_control_panel
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -39,13 +45,13 @@ alarm_control_panel:
       safe_alarm_panel:
         value_template: "{{ states('alarm_control_panel.real_alarm') }}"
         arm_away:
-          service: alarm_control_panel.alarm_arm_away
+          action: alarm_control_panel.alarm_arm_away
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
             code: !secret alarm_code
         arm_home:
-          service: alarm_control_panel.alarm_arm_home
+          action: alarm_control_panel.alarm_arm_home
           target:
             entity_id: alarm_control_panel.real_alarm
           data:
@@ -54,7 +60,7 @@ alarm_control_panel:
           - condition: state
             entity_id: device_tracker.paulus
             state: "home"
-          - service: alarm_control_panel.alarm_disarm
+          - action: alarm_control_panel.alarm_disarm
             target:
               entity_id: alarm_control_panel.real_alarm
             data:

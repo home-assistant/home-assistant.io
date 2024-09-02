@@ -220,6 +220,8 @@ Supported devices:
 | Air Purifier Super 2   | zhimi.airpurifier.sa2   |              |
 | Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | AC-M6-SC     |
 | Air Purifier 3H (2019) | zhimi.airpurifier.mb3   |              |
+| Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
+| Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
 | Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
 | Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
 | Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
@@ -452,6 +454,45 @@ Supported devices:
 ### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
+
+- Power (on, off)
+- Operation modes (Auto, Silent, Favorite, Fan)
+- Attributes (fan platform)
+  - `use_time`
+- Number entities
+
+| Number         | Description            |
+| -------------- | ---------------------- |
+| Fan Level      | Set the fan level      |
+| Favorite Level | Set the favorite level |
+
+- Select entities
+
+| Select         | Description                                            |
+| -------------- | ------------------------------------------------------ |
+| LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
+
+- Sensor entities
+
+| Sensor                    | Description                                                   | Enabled by default |
+| ------------------------- | ------------------------------------------------------------- | ------------------ |
+| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
+| Filter Use                | Filter usage time in hours                                    | True               |
+| Humidity                  | The current humidity measured                                 | True               |
+| Motor Speed               | The current motor speed measured in rpm                       | True               |
+| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
+| Purify Volume             | The volume of purified air in qubic meter                     | False              |
+| Temperature               | The current temperature measured                              | True               |
+| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+
+- Switch entities
+
+| Switch     | Description                |
+| ---------- | -------------------------- |
+| Buzzer     | Turn on/off the buzzer     |
+| Child Lock | Turn on/off the child lock |
+
+### Air Purifier Pro H/Pro H EU (zhimi.airpurifier.va1/zhimi.airpurifier.vb2)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
@@ -1151,57 +1192,57 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the Child Lock |
 | Ionizer    | Turn on/off the Ionizer    |
 
-### Platform Services
+### Actions
 
-### Service `humidifier.set_humidity`
+### Action `humidifier.set_humidity`
 
 Set the target humidity.
 
-| Service data attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
 | `humidity`             | no       | Target humidity                                       |
 
-### Service `humidifier.set_mode`
+### Action `humidifier.set_mode`
 
 Set the humidifier operation mode.
 
-| Service data attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO humidifier entity. |
 | `mode`                 | no       | The Xiaomi miIO operation mode                        |
 
-### Service `fan.set_percentage`
+### Action `fan.set_percentage`
 
 Set the fan speed percentage.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
 | `percentage`           | no       | Fan speed. Percentage speed setting            |
 
-### Service `fan.set_preset_mode`
+### Action `fan.set_preset_mode`
 
 Set the fan operation mode.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
 | `preset_mode`          | no       | The Xiaomi miIO operation mode                 |
 
-### Service `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
+### Action `xiaomi_miio.fan_reset_filter` (Air Purifier 2 only)
 
 Reset the filter lifetime and usage.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
 
-### Service `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
+### Action `xiaomi_miio.fan_set_extra_features` (Air Purifier only)
 
 Set the extra features.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO fan entity. |
 | `features`             | no       | Integer, known values are 0 and 1.             |
@@ -1303,7 +1344,7 @@ remote:
 type: entity-button
 tap_action:
   action: call-service
-  service: remote.send_command
+  action: remote.send_command
   data:
     command: activate_towel_heater
     entity_id: remote.xiaomi_miio_ir
@@ -1322,7 +1363,7 @@ name: Activate Towel Heater
 script:
   towel_heater:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: "remote.bathroom_remote"
         data:
@@ -1330,7 +1371,7 @@ script:
             - "activate_towel_heater"
   please_cover_your_ears:
     sequence:
-      - service: remote.send_command
+      - action: remote.send_command
         target:
           entity_id: "remote.bathroom_remote"
         data:
@@ -1383,9 +1424,9 @@ Note there are at least 4 versions of the Xiaomi IR Remote (ChuangmiIr) which ca
 
 For now, pronto hex codes only work on the first version (`chuangmi.ir.v2`).
 
-### Platform Services
+### Actions
 
-The Xiaomi IR Remote Platform registers four services.
+The Xiaomi IR Remote Platform registers four actions.
 
 ### `remote.send_command`
 
@@ -1413,7 +1454,7 @@ Used to turn remote's blue LED off.
 
 The `xiaomi_miio` vacuum platform allows you to control the state of your [Xiaomi Mi Robot Vacuum](https://www.mi.com/roomrobot/).
 
-Currently supported services are:
+Currently supported actions are:
 
 - `start`
 - `pause`
@@ -1428,9 +1469,9 @@ Currently supported services are:
 - `xiaomi_goto`
 - `remote_control_*` (of your robot)
 
-### Platform Services
+### Actions
 
-In addition to all of the services provided by the `vacuum` {% term integration %} (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific services to access the remote control mode of the robot. These are:
+In addition to all of the actions provided by the `vacuum` {% term integration %} (`start`, `pause`, `stop`, `return_to_base`, `locate`, `set_fan_speed` and `send_command`), the `xiaomi_miio` platform introduces specific actions to access the remote control mode of the robot. These are:
 
 - `xiaomi_miio.vacuum_clean_zone`
 - `xiaomi_miio.vacuum_clean_segment`
@@ -1440,11 +1481,11 @@ In addition to all of the services provided by the `vacuum` {% term integration 
 - `xiaomi_miio.vacuum_remote_control_move`
 - `xiaomi_miio.vacuum_remote_control_move_step`
 
-### Service `xiaomi_miio.vacuum_clean_zone`
+### Action `xiaomi_miio.vacuum_clean_zone`
 
 Start the cleaning operation in the areas selected for the number of repeats indicated.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | `zone`                 | no       | List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone. |
@@ -1463,7 +1504,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1484,7 +1525,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1506,7 +1547,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_zone
+      - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1522,11 +1563,11 @@ automation:
               - 26496
 ```
 
-### Service `xiaomi_miio.vacuum_clean_segment`
+### Action `xiaomi_miio.vacuum_clean_segment`
 
 Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
-| Service data attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                          |
 | `segments`             | no       | List of segment numbers or one single segment number. |
@@ -1543,7 +1584,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1560,7 +1601,7 @@ automation:
         platform: homeassistant
     condition: []
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
@@ -1576,57 +1617,57 @@ automation:
       - event: start
         platform: homeassistant
     action:
-      - service: xiaomi_miio.vacuum_clean_segment
+      - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
         data:
           segments: [1, 1]
 ```
 
-### Service `xiaomi_miio.vacuum_goto`
+### Action `xiaomi_miio.vacuum_goto`
 
 Go the specified coordinates.
 
-| Service data attribute | Optional | Description                                                             |
+| Data attribute | Optional | Description                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                                            |
 | `x_coord`              | no       | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
 | `y_coord`              | no       | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
 
-Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` service first.
+Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` action first.
 
-### Service `xiaomi_miio.vacuum_remote_control_start`
+### Action `xiaomi_miio.vacuum_remote_control_start`
 
 Start the remote control mode of the robot. You can then move it with `remote_control_move`; when done, call `remote_control_stop`.
 
-| Service data attribute | Optional | Description                  |
+| Data attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
 | `entity_id`            | no       | Only act on a specific robot |
 
-### Service `xiaomi_miio.vacuum_remote_control_stop`
+### Action `xiaomi_miio.vacuum_remote_control_stop`
 
 Exit the remote control mode of the robot.
 
-| Service data attribute | Optional | Description                  |
+| Data attribute | Optional | Description                  |
 | ---------------------- | -------- | ---------------------------- |
 | `entity_id`            | no       | Only act on a specific robot |
 
-### Service `xiaomi_miio.vacuum_remote_control_move`
+### Action `xiaomi_miio.vacuum_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
-| Service data attribute | Optional | Description                                               |
+| Data attribute | Optional | Description                                               |
 | ---------------------- | -------- | --------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                              |
 | `velocity`             | no       | Speed: between -0.29 and 0.29                             |
 | `rotation`             | no       | Rotation: between -179 degrees and 179 degrees            |
 | `duration`             | no       | The number of milliseconds that the robot should move for |
 
-### Service `xiaomi_miio.vacuum_remote_control_move_step`
+### Action `xiaomi_miio.vacuum_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
-| Service data attribute | Optional | Description                                               |
+| Data attribute | Optional | Description                                               |
 | ---------------------- | -------- | --------------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific robot                              |
 | `velocity`             | no       | Speed: between -0.29 and 0.29                             |
@@ -1702,7 +1743,7 @@ Example script using [`vacuum.send_command`](/integrations/vacuum/) to clean a s
 vacuum_kitchen:
   alias: "Clean the kitchen"
   sequence:
-    - service: vacuum.send_command
+    - action: vacuum.send_command
       target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
@@ -1724,7 +1765,7 @@ or replaced you can then reset those values on the vacuum. Here is an example sc
 reset_main_brush_left:
   alias: "Reset hours for main brush replacement"
   sequence:
-    - service: vacuum.send_Command
+    - action: vacuum.send_Command
       target:
         entity_id: vacuum.xiaomi_vacuum_cleaner
       data:
@@ -1759,7 +1800,7 @@ Using the map editor you are able to acquire the coordinates required for zoned 
 vacuum_kitchen:
   alias: "vacuum kitchen"
   sequence:
-    - service: vacuum.send_command
+    - action: vacuum.send_command
       target:
         entity_id: "vacuum.xiaomi_vacuum_cleaner"
       data:
@@ -1776,7 +1817,7 @@ miiocli roborockvacuum --ip <ip of the vacuum> --token <your vacuum token> get_r
 ```
 
 It will return the full mapping of room numbers to user-defined names as a list of (number,name) tuples.
-Alternatively, one can just test the clean_segment service with a number and see which room it cleans.
+Alternatively, one can just test the `clean_segment` action with a number and see which room it cleans.
 
 It seems to be the case that Numbers 1..15 are used to number the initial segmentation done by the vacuum cleaner itself. Numbers 16 and upwards numbers rooms from the users manual editing.
 
@@ -1868,71 +1909,71 @@ Supported models: `philips.light.moonlight`
   - brand_sleep
   - brand
 
-### Platform Services
+### Actions
 
-### Service `xiaomi_miio.light_set_scene`
+### Action `xiaomi_miio.light_set_scene`
 
 Set one of the 4 available fixed scenes.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 | `scene`                | no       | Scene, between 1 and 4.                          |
 
-### Service `xiaomi_miio.light_set_delayed_turn_off`
+### Action `xiaomi_miio.light_set_delayed_turn_off`
 
 Delayed turn off.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 | `time_period`          | no       | Time period for the delayed turn off.            |
 
-### Service `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_reminder_on` (Eyecare Smart Lamp 2 only)
 
 Enable the eye fatigue reminder/notification.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
-### Service `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_reminder_off` (Eyecare Smart Lamp 2 only)
 
 Disable the eye fatigue reminder/notification.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
-### Service `xiaomi_miio.light_night_light_mode_on` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_night_light_mode_on` (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode on.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
-### Service `xiaomi_miio.light_night_light_mode_off` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_night_light_mode_off` (Eyecare Smart Lamp 2 only)
 
 Turn the smart night light mode off.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
-### Service `xiaomi_miio.light_eyecare_mode_on` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_eyecare_mode_on` (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode on.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
-### Service `xiaomi_miio.light_eyecare_mode_off` (Eyecare Smart Lamp 2 only)
+### Action `xiaomi_miio.light_eyecare_mode_off` (Eyecare Smart Lamp 2 only)
 
 Turn the eyecare mode off.
 
-| Service data attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO light entity. |
 
@@ -1982,38 +2023,38 @@ Supported models: `lumi.acpartner.v3` (the socket of the `acpartner.v1` and `v2`
 - Attributes
   - Load power
 
-### Platform Services
+### Actions
 
-### Service `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
+### Action `xiaomi_miio.switch_set_wifi_led_on` (Power Strip only)
 
 Turn the wifi LED on.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
 
-### Service `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
+### Action `xiaomi_miio.switch_set_wifi_led_off` (Power Strip only)
 
 Turn the wifi LED off.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
 
-### Service `xiaomi_miio.switch_set_power_price` (Power Strip)
+### Action `xiaomi_miio.switch_set_power_price` (Power Strip)
 
 Set the power price.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
 | `price`                | no       | Power price, between 0 and 999.                   |
 
-### Service `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
+### Action `xiaomi_miio.switch_set_power_mode` (Power Strip V1 only)
 
 Set the power mode.
 
-| Service data attribute | Optional | Description                                       |
+| Data attribute | Optional | Description                                       |
 | ---------------------- | -------- | ------------------------------------------------- |
 | `entity_id`            | no       | Only act on a specific Xiaomi miIO switch entity. |
 | `mode`                 | no       | Power mode, valid values are 'normal' and 'green' |

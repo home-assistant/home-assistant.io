@@ -9,8 +9,10 @@ ha_category:
   - Event
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
+  - Text
   - Update
   - Valve
 ha_release: 0.115
@@ -34,8 +36,10 @@ ha_platforms:
   - event
   - light
   - number
+  - select
   - sensor
   - switch
+  - text
   - update
   - valve
 ha_integration_type: device
@@ -195,7 +199,7 @@ You can also create automations using YAML, for example:
       channel: 1
       click_type: single
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.living_room
 
@@ -208,7 +212,7 @@ You can also create automations using YAML, for example:
       channel: 2
       click_type: long
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.lamp_living_room
 ```
@@ -253,9 +257,9 @@ Shelly lights supporting light transition:
 The firmware limits the transition time to 5 seconds.
 {% endnote %}
 
-## Device services
+## Device actions
 
-The integration offers device services which can be triggered by a configuration button.
+The integration offers device actions which can be triggered by a configuration button.
 
 ### OTA firmware update
 
@@ -288,11 +292,7 @@ As soon as you change the temperature, it gets enabled again.
 
 ## Shelly Gas with Valve add-on
 
-If you have Valve add-on connected to Shelly Gas, the integration will create three entities for the valve. The `switch` and `valve` entities allow you to control the valve, the `sensor` entity shows exact states of the valve. The `switch` entity is deprecated and will be removed in a future version of Home Assistant.
-
-{% note %}
-The `switch` entity in Home Assistant does not support transition states. For this reason, the `opening` state of the valve maps to the `on` (opened) state of the entity and the `closing` state of the valve maps to the `off` (closed) state of the entity.
-{% endnote %}
+If you have the Valve add-on connected to Shelly Gas, the integration will create two entities for the valve. The `valve` entity allows you to control the valve, the `sensor` entity shows exact states of the valve.
 
 ## CoAP port (generation 1)
 
@@ -305,6 +305,22 @@ In order to change it, add the following key to your {% term "`configuration.yam
 shelly:
   coap_port: 12345
 ```
+
+## Virtual components
+
+Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices (with firmware 1.2.0 or later) allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
+
+The integration supports the following virtual components:
+
+- `boolean` in `toggle` mode, for which a `switch` platform entity is created
+- `boolean` in `label` mode, for which a `binary_sensor` platform entity is created
+- `enum` in `dropdown` mode, for which a `select` platform entity is created
+- `enum` in `label` mode, for which a `sensor` platform entity is created
+- `number` in `field` mode, for which a `number` platform entity in `box` mode is created
+- `number` in `slider` mode, for which a `number` platform entity in `slider` mode is created
+- `number` in `label` mode, for which a `sensor` platform entity is created
+- `text` in `field` mode, for which a `text` platform entity is created
+- `text` in `label` mode, for which a `sensor` platform entity is created
 
 ## Additional info
 
@@ -325,4 +341,4 @@ Please check from the device Web UI that the configured server is reachable.
 - Generation 1 "Shelly 4Pro" and "Shelly Sense" are not supported (devices based on old CoAP v1 protocol)
 - Before set up, battery-powered devices must be woken up by pressing the button on the device.
 - For battery-powered devices, the `update` platform entities only inform about the availability of firmware updates but are not able to trigger the update process.
-- Using the `homeassistant.update_entity` service for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).
+- Using the `homeassistant.update_entity` action for an entity belonging to a battery-powered device is not possible because most of the time these devices are sleeping (are offline).

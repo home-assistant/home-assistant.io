@@ -268,7 +268,7 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
@@ -276,7 +276,7 @@ Service trigger example:
       - platform: state
         entity_id: sensor.sensor
     action:
-      service: vacuum.send_command
+      action: vacuum.send_command
       target:
         entity_id: vacuum.vacuum_entity
       data:

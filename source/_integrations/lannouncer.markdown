@@ -29,7 +29,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -56,7 +56,7 @@ More information can be found [here](https://web.archive.org/web/20200928053944/
 
 Lannouncer supports two types of messages.
 
-Spoken messages is the default method (`speak`). You just invoke the `notify` service with the following JSON and the device will speak out the specified message.
+Spoken messages is the default method (`speak`). You just invoke the `notify` action with the following JSON and the device will speak out the specified message.
 
 ```json
 {

@@ -20,7 +20,11 @@ layout: default
       </div>
     {% endif %}
     <h1 class="title indent">
-      {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+      {% if page.title contains "Category:" %}
+        {{ page.title | replace: "-", " " | replace: "Category: ", "" }}
+      {% else %}
+        {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+      {% endif %}
     </h1>
   </header>
   {% if page.collection == "integrations" %}

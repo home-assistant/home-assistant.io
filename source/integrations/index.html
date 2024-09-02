@@ -78,7 +78,7 @@ regenerate: false
             <a href='#{{ category_name | slugify }}' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">{{ category_name }} <span class="count">{{ components_count }}</span></a>
           {%- endif -%}
         {%- endfor -%}
-        <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other ({{ components | where: 'ha_category', 'Other' | size }})</a>
+        <a href='#other' class="btn" onclick="document.querySelector('.page-content').scrollTop = 0">Other <span class="count">{{ components | where: 'ha_category', 'Other' | size }}</span></a>
       </div>
 
       <div class="category_select">
