@@ -23,7 +23,7 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 
 ## Prerequisites
 
-- This feature works via LG ThinQ cloud, therefore an internet connection is required.
+- This feature works via LG ThinQ cloud. Therefore, an internet connection is required.
 - A [personal access token](https://connect-pat.lgthinq.com) to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
 
 
