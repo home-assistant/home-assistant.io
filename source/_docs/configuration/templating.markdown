@@ -1157,6 +1157,11 @@ Using the `merge_response` template we can merge several responses into one list
 | -------------- | ----------------------------------              |
 | `value`        | The incoming value (must be a action response). |
 
+`entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key the template will fail.
+`value_key` key is appended to each dictionary within the template output list as a reference of origin if the original service call was providing a list of dictionaries, as example `calendar.get_events` or `weather.get_forecasts`.
+
+Examples of these two keys can can be seen in [example merge calendar action response](#example-merge-calendar-action-response) template output.
+
 
 ### Example
 
@@ -1169,37 +1174,49 @@ Using the `merge_response` template we can merge several responses into one list
 {% endraw %}
 ```
 
+### Example how to sort
+
+Sorting the dictionaries within the list based on a specific key can be done directly by using the jinja's `sort` filter.
+
+```yaml
+{% raw %}
+
+{{ merge_response(calendar_response) | sort(attribute='start') | ... }}
+
+{% endraw %}
+```
+
 ### Example merge calendar action response
 
 ```json
 {
-    "calendar.sports": {
-        "events": [
-            {
-                "start": "2024-02-27T17:00:00-06:00",
-                "end": "2024-02-27T18:00:00-06:00",
-                "summary": "Basketball vs. Rockets",
-                "description": "",
-            }
-        ]
-    },
-    "calendar.local_furry_events": {"events": []},
-    "calendar.yap_house_schedules": {
-        "events": [
-            {
-                "start": "2024-02-26T08:00:00-06:00",
-                "end": "2024-02-26T09:00:00-06:00",
-                "summary": "Dr. Appt",
-                "description": "",
-            },
-            {
-                "start": "2024-02-28T20:00:00-06:00",
-                "end": "2024-02-28T21:00:00-06:00",
-                "summary": "Bake a cake",
-                "description": "something good",
-            }
-        ]
-    },
+  "calendar.sports": {
+    "events": [
+      {
+        "start": "2024-02-27T17:00:00-06:00",
+        "end": "2024-02-27T18:00:00-06:00",
+        "summary": "Basketball vs. Rockets",
+        "description": "",
+      }
+    ]
+  },
+  "calendar.local_furry_events": {"events": []},
+  "calendar.yap_house_schedules": {
+    "events": [
+      {
+        "start": "2024-02-26T08:00:00-06:00",
+        "end": "2024-02-26T09:00:00-06:00",
+        "summary": "Dr. Appt",
+        "description": "",
+      },
+      {
+        "start": "2024-02-28T20:00:00-06:00",
+        "end": "2024-02-28T21:00:00-06:00",
+        "summary": "Bake a cake",
+        "description": "something good",
+      }
+    ]
+  },
 }
 ```
 **Template:**
@@ -1235,6 +1252,70 @@ Using the `merge_response` template we can merge several responses into one list
     "summary": "Bake a cake",
     "value_key": "events"
   }
+]
+```
+
+### Example non-list action responses
+
+```json
+{
+  "vacuum.deebot_n8_plus_1": {
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+  "vacuum.deebot_n8_plus_2": {
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+}
+```
+**Template:**
+```yaml
+{% raw %}
+{{ merge_response(response_variable) }}
+{% endraw %}
+```
+
+```json
+[
+  {
+    "entity_id": "vacuum.deebot_n8_plus_1",
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+  {
+    "entity_id": "vacuum.deebot_n8_plus_2",
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
 ]
 ```
 
