@@ -37,7 +37,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 1. Visit [https://developer.home-connect.com](https://developer.home-connect.com) and sign up for a developer account.
 2. Enter the email of your login for the original Home Connect App from Bosch/Siemens under "Default Home Connect User Account for Testing" in the sign up process.
-3. Navigate to the [Applications](https://developer.home-connect.com/applications) page and click on [Register Application](https://developer.home-connect.com/application/add):
+3. Go to the [Applications](https://developer.home-connect.com/applications) page and select [Register Application](https://developer.home-connect.com/application/add):
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
@@ -47,7 +47,7 @@ Note that it depends on the appliance and on API permissions which of the featur
 *Important*:
  - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
  - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on. 
- - After performing the steps above [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+ - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
  - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
  - All changes in the developer portal take 15 minutes before the change is implemented.
 
