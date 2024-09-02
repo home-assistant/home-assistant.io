@@ -40,12 +40,6 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 4. Select **CREATE TOKEN**.
 5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
-### MQTT
-
-The LG ThinQ integration connects to the LG ThinQ Cloud via MQTT and receives push status updates from the devices. This is a part of the LG ThinQ API implementation and is automatically connected through internal operations, so no additional settings are required.
-
-{% note %} MQTT connections are only supported in the **Appliance** feature.{% endnote %}
-
 
 {% include integrations/config_flow.md %}
 
