@@ -16,40 +16,36 @@ ha_dhcp: true
 ha_integration_type: integration
 ---
 
-The LG ThinQ integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
+The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
 - Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
-- This feature works via LG ThinQ cloud; therefore, an internet connection is required.
 
 
 ## Prerequisites
 
-- An internet connection and a [personal access token](https://connect-pat.lgthinq.com) are required to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
+- This feature works via LG ThinQ cloud, therefore an internet connection is required.
+- A [personal access token](https://connect-pat.lgthinq.com) to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
 
 
 ### Personal Access Token (PAT)
 
 1. Access the **[personal access token](https://connect-pat.lgthinq.com)** page (requires an LG ThinQ account).
-2. Click the **ADD NEW TOKEN** button.
+2. Select **ADD NEW TOKEN**.
 3. Enter a new token name and select the following authorized scopes: 
-    - Permission to view all devices
-    - Permission to view all device statuses
-    - All device control rights
-    - All device event subscription rights
-    - All device push notification permissions
-4. Click the **CREATE TOKEN** button.
+    - **Permission to view all devices**
+    - **Permission to view all device statuses**
+    - **All device control rights**
+    - **All device event subscription rights**
+    - **All device push notification permissions**
+4. Select **CREATE TOKEN**.
 5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
 ### MQTT
 
 The LG ThinQ integration connects to the LG ThinQ Cloud via MQTT and receives push status updates from the devices. This is a part of the LG ThinQ API implementation and is automatically connected through internal operations, so no additional settings are required.
 
-{% note %} MQTT connections are only supported in the Appliance feature.{% endnote %}
+{% note %} MQTT connections are only supported in the **Appliance** feature.{% endnote %}
 
-
-## Setup
-
-To set up the integration, please follow these steps:
 
 {% include integrations/config_flow.md %}
 
@@ -59,13 +55,13 @@ To set up the integration, please follow these steps:
 2. Choose the region (country).
 
 
-## Delete
+## Removing the LG ThinQ integration
 
-To remove the integration, please follow these steps:
+To remove the LG ThinQ integration, follow these steps:
 
-1. Go to the Home Assistant Integrations page.
-2. Select the LG ThinQ integration instance.
-3. Click on the options menu and choose Delete.
+1. Go to **{% my integrations icon title="Settings > Devices & Services" %}**.
+2. Select the LG ThinQ integration.
+3. Select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Delete**.
 
 {% note %} Deleting the integration will remove all entities associated with your LG ThinQ devices' features. {% endnote %}
 
@@ -117,7 +113,7 @@ This error occurs when the Personal Access Token (PAT) is invalid or entered inc
 
 #### Aborted: The country is not supported
 
-Check your PAT's valid country in the "Choose the region / Country" section.
+Check your PAT's valid country in the **Choose the region / Country** section.
 
 #### Error: The number of API calls has been exceeded
 
