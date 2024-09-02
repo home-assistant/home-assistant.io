@@ -25,7 +25,7 @@ ha_integration_type: integration
 
 An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
 
-## Pre-requisites
+## Prerequisites
 
 - The Envoy must be configured and commissioned.
 - The Envoy must be on your local network with IPV4 connectivity from Home Assistant.
