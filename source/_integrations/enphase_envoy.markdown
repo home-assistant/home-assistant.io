@@ -29,7 +29,7 @@ An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-se
 
 - The Envoy must be configured and commissioned.
 - The Envoy must be on your local network with IPV4 connectivity from Home Assistant.
-- Envoy firmware version 3.9 or newer, use a custom integration with older firmware ([1](https://github.com/catsmanac/ha_enphase_envoy_with_legacy),[2](https://github.com/briancmpbll/home_assistant_custom_envoy)).
+- Envoy firmware version 3.9 or newer.
 - With Envoy firmware 7 and greater
   - an Enlighten cloud username and password.
   - Home Assistant 2023.9 or newer.
