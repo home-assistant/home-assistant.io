@@ -1157,11 +1157,11 @@ Using the `merge_response` template we can merge several responses into one list
 | -------------- | ----------------------------------              |
 | `value`        | The incoming value (must be an action response). |
 
-`entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key the template will fail.
+The `entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key, the template will fail.
 
-`value_key` key is appended to each dictionary within the template output list as a reference of origin if the original service call was providing a list of dictionaries, as example `calendar.get_events` or `weather.get_forecasts`.
+The `value_key` key is appended to each dictionary within the template output list as a reference of origin if the original service call was providing a list of dictionaries, for example, `calendar.get_events` or `weather.get_forecasts`.
 
-Examples of these two keys can can be seen in [example merge calendar action response](#example-merge-calendar-action-response) template output.
+Examples of these two keys can be seen in [example merge calendar action response](#example-merge-calendar-action-response) template output.
 
 
 ### Example
@@ -1177,7 +1177,7 @@ Examples of these two keys can can be seen in [example merge calendar action res
 
 ### Example how to sort
 
-Sorting the dictionaries within the list based on a specific key can be done directly by using the jinja's `sort` filter.
+Sorting the dictionaries within the list based on a specific key can be done directly by using Jinja's `sort` filter.
 
 ```yaml
 {% raw %}
