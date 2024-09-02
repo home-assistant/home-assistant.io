@@ -21,26 +21,29 @@ Enabling a wake word consists of 2 steps:
 ### Installing the openWakeWord add-on
 
 1. Go to {% my supervisor_addon addon="core_openwakeword" title="**Settings** > **Add-ons** > **openWakeWord**" %} and select **Install**.
-2. Start the add-on.
+2. **Start** the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
-   - Under **Discovered**, you should now see the **Wyoming** integration.
+   - Under **Discovered**, you should now see the **openWakeWord** integration.
    - Select **Configure** and **Submit**.
    - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
 ### Enabling wake word for your voice assistant
 
-1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %} and select **Add assistant**.
-2. Give your assistant a name, for example the wake word you are going to use.
-3. Select the language you are going to use to speak to Home Assistant.
+1. Go to {% my voice_assistants title="**Settings** > **Voice assistants**" %}
+2. Choose the Assistant:
+   - To enable wake word for an existing assistant, select the Assistant and continue with step 6.
+   - To create a new Assistant: select **Add assistant**.
+3. Give your assistant a name, for example the wake word you are going to use.
+4. Select the language you are going to use to speak to Home Assistant.
    - If the **Text-to-speech** and **Speech-to-text** sections do not provide language selectors, this means you do not have an Assist pipeline set up.
    - Set up [Home Assistant Cloud](https://www.nabucasa.com) or a manually configured [Assist pipeline](/voice_control/voice_remote_local_assistant).
-4. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
-5. To define the wake word engine, under **Wake word**, select **openWakeWord**.
+5. Under **Text-to-speech**, select the language and voice you want Home Assistant to use when speaking to you.
+6. To define the wake word engine, under **Wake word**, select **openwakeword**.
    - Then, select **ok nabu**.
    - If you created a new assistant, select **Create**.
    - If you edited an existing assistant, select **Update**.
    - **Result**: You now have a voice assistant that listens to a wake word.
-6. For the first run, it is recommended to use **ok nabu**, just to test the setup.
+7. For the first run, it is recommended to use **ok nabu**, just to test the setup.
    - Once you have it all set up, you can [create your own wake words](/voice_control/create_wake_word/).
 
 ## Related topics

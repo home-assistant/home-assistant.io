@@ -102,6 +102,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -305,11 +309,11 @@ unique_id:
   type: string
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 
 Make sure that your topics match exactly. `some-topic/` and `some-topic` are different topics.
 
-</div>
+{% endimportant %}
 
 ## Examples
 

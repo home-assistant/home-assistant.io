@@ -65,7 +65,7 @@ automation:
       CallStatus: ringing
       Direction: inbound
   action:
-    service: cover.open_cover
+    action: cover.open_cover
     target:
       entity_id: cover.garage_door
 ```
@@ -86,7 +86,7 @@ action:
         {{ trigger.event.data.From }}
       message: |
         {{ trigger.event.data.Body }}
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: |
         incoming twilio message from {{sender}}: {{ message }}

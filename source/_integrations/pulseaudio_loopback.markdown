@@ -57,8 +57,6 @@ port:
   type: integer
 {% endconfiguration %}
 
-<div class='note warning'>
-
+{% important %}
 This integration relies on raw TCP commands to PulseAudio. In order for PulseAudio to accept commands with this integration, `module-native-protocol-tcp auth-ip-acl=<homeassistant ip>` must be loaded on the PulseAudio server.
-
-</div>
+{% endimportant %}

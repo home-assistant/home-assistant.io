@@ -27,23 +27,23 @@ Supported devices are listed on their [site](https://usa.yamaha.com/products/con
 
 ## Grouping functionality
 
-The Yamaha MusicCast {% term integration %} implements the grouping services. There are some limitations in the MusicCast system for grouping:
+The Yamaha MusicCast {% term integration %} implements the grouping actions. There are some limitations in the MusicCast system for grouping:
 
 - It is not possible to let mediaplayer entities of the same device (e.g., different zones) be in distinct groups.
 - If a non-main zone is the master of a group, it is not possible to let other mediaplayers of the same device join this group.
 
 ## Play media functionality
 
-The MusicCast {% term integration %} supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this service. This includes the Home Assistant text-to-speech services.
+The MusicCast {% term integration %} supports the Home Assistant media browser for all streaming services, your device supports. For services such as Deezer, you have to log in using the official MusicCast app. In addition, local HTTP URLs can be played back using this action. This includes the Home Assistant text-to-speech actions.
 
-It is also possible to recall NetUSB presets using the play media service. To do so "presets:<preset_num>" has to be used as `media_content_id` in the service call.
+It is also possible to recall NetUSB presets using the play media action. To do so "presets:<preset_num>" has to be used as `media_content_id` in the action.
 
 ### Examples:
 
-This is an example service call that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
+This is an example action that plays an audio file from a web server on the local network (like the Home Assistant built-in webserver):
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.sonos
 data:
@@ -54,7 +54,7 @@ data:
 This example call shows how to call netusb preset 1:
 
 ```yaml
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.buro
 data:

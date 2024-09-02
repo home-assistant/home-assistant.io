@@ -12,6 +12,15 @@ ha_domain: openai_conversation
 ha_integration_type: service
 ha_platforms:
   - conversation
+related:
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing entities to Assist
+  - docs: /voice_control/assist_create_open_ai_personality/
+    title: Create an AI personality
+  - url: https://platform.openai.com/account/api-keys
+    title: OpenAI API key
+  - url: https://www.openai.com
+    title: OpenAI
 ---
 
 The OpenAI integration adds a conversation agent powered by [OpenAI](https://www.openai.com) in Home Assistant.
@@ -39,7 +48,7 @@ Instructions:
   description: Instructions for the AI on how it should respond to your requests. It is written using [Home Assistant Templating](/docs/configuration/templating/).
 
 Control Home Assistant:
-  description: If the model is allowed to interact with Home Assistant
+  description: If the model is allowed to interact with Home Assistant. It can only control or provide information about entities that are [exposed](/voice_control/voice_remote_expose_devices/) to it.
 
 Recommended settings:
   description: If enabled, the recommended model and settings are chosen.
@@ -51,7 +60,7 @@ If you choose to not use the recommended settings, you can configure the followi
 {% configuration_basic %}
 
 Model:
-  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3 Documentation](https://platform.openai.com/docs/models/gpt-3), [OpenAI GPT-3.5 Documentation](https://platform.openai.com/docs/models/gpt-3-5), or [OpenAI GPT-4 and GPT-4 Turbo Documentation](https://platform.openai.com/docs/models/gpt-4-and-gpt-4-turbo). The default is "gpt-3.5-turbo".
+  description: The GPT language model is used for text generation. You can find more details on the available models in the [OpenAI GPT-3.5 Turbo Documentation](https://platform.openai.com/docs/models/gpt-3-5-turbo), [OpenAI GPT-4 Turbo and GPT-4 Documentation](https://platform.openai.com/docs/models/gpt-4-turbo-and-gpt-4), or [GPT-4o Documentation](https://platform.openai.com/docs/models/gpt-4o). The default is "gpt-4o".
 
 Maximum Tokens to Return in Response:
   description: The maximum number of words or "tokens" that the AI model should generate in its completion of the prompt. For more information, see the [OpenAI Completion Documentation](https://platform.openai.com/docs/guides/completion/introduction).
@@ -66,17 +75,17 @@ Top P:
 
 ## Talking to Super Mario over the phone
 
-You can use an OpenAI Conversation integration to [talk to Super Mario over a classic landline phone](/voice_control/worlds-most-private-voice-assistant/).
+You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
-## Services
+## Actions
 
-### Service `openai_conversation.generate_image`
+### Action `openai_conversation.generate_image`
 
-Allows you to ask OpenAI to generate an image based on a prompt. This service
+Allows you to ask OpenAI to generate an image based on a prompt. This action
 populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with the requested image.
 
-| Service data attribute | Optional | Description                                            | Example          |
+| Data attribute | Optional | Description                                            | Example          |
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
@@ -86,7 +95,7 @@ with the requested image.
 
 {% raw %}
 ```yaml
-service: openai_conversation.generate_image
+action: openai_conversation.generate_image
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
@@ -108,7 +117,7 @@ to generate a new image of New York in the current weather state.
 The resulting image entity can be used in, for example, a card on your dashboard.
 
 The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Developer Tools** > **Services**" %}. Ensure you are in UI mode and enter the following below:
+Then, go to {% my developer_services title="**Developer Tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
 
 ![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
 
@@ -125,7 +134,7 @@ automation:
         entity_id: weather.home
     action:
       - alias: "Ask OpenAI to generate an image"
-        service: openai_conversation.generate_image
+        action: openai_conversation.generate_image
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249

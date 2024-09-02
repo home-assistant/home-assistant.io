@@ -130,9 +130,9 @@ sensor:
 
 ## Hardware specifics
 
-<div class='note warning'>
+{% note %}
 Not every hardware supports all values.
-</div>
+{% endnote %}
 
 ### HP Microserver Gen8
 

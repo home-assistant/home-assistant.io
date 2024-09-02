@@ -3,10 +3,19 @@ title: "Template Lock"
 description: "Instructions on how to integrate Template Locks into Home Assistant."
 ha_category:
   - Lock
+  - Helper
 ha_release: 0.81
 ha_iot_class: Local Push
 ha_quality_scale: internal
+ha_codeowners:
+  - '@home-assistant/core'
 ha_domain: template
+ha_platforms:
+  - lock
+ha_integration_type: helper
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `template` platform creates locks that combines components.
@@ -30,11 +39,11 @@ lock:
     name: Garage door
     value_template: "{{ is_state('sensor.door', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.door
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.door
 ```
@@ -104,11 +113,11 @@ lock:
     name: Garage Door
     value_template: "{{ is_state('switch.source', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.source
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.source
 ```
@@ -128,11 +137,11 @@ lock:
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     optimistic: true
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.source
     unlock:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.source
 ```
@@ -151,11 +160,11 @@ lock:
     name: Garage Door
     value_template: "{{ is_state('sensor.skylight.state', 'on') }}"
     lock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.skylight_open
     unlock:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.skylight_close
 ```
@@ -175,14 +184,14 @@ lock:
     value_template: "{{ is_state('switch.source', 'on') }}"
     code_format_template: "{{ '\\d{4}' if is_state('switch.source', 'on') else None }}"
     lock:
-      - service: switch.turn_on
+      - action: switch.turn_on
         target:
           entity_id: switch.source
     unlock:
       - variables:
           pin: !secret garage_door_pin
       - condition: "{{ code == pin }}"
-      - service: switch.turn_off
+      - action: switch.turn_off
         target:
           entity_id: switch.source
 ```

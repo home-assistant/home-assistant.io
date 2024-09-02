@@ -41,9 +41,9 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Light](#light)
 
-<p class='note'>
+{% note %}
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
-</p>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -57,9 +57,9 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Camera
 
-<div class='note'>
+{% important %}
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</div>
+{% endimportant %}
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
@@ -84,7 +84,7 @@ automation:
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
   action:
-  - service: downloader.download_file
+  - action: downloader.download_file
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"

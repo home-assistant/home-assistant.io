@@ -4,8 +4,6 @@ description: "Splitting the configuration.yaml into several files."
 related:
   - docs: /docs/configuration/
     title: configuration.yaml file
-  - docs: /examples/#example-configurationyaml
-    title: Example configuration files by the community
   - docs: /docs/configuration/packages
     title: Using packages to organize configuration files
 ---
@@ -14,7 +12,7 @@ So you've been using Home Assistant for a while now and your {% term "`configura
 
 ## Example configuration files for inspiration
 
-First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example files here](/examples/#example-configurationyaml).
+First off, several community members have sanitized (read: without API keys/passwords) versions of their configurations available for viewing. You can see a [list of example configuration on GitHub](https://github.com/search?q=topic%3Ahome-assistant-config&type=Repositories).
 
 As commenting code doesn't always happen, please read on to learn in detail how configuration files can be structured.
 
@@ -274,7 +272,7 @@ automation:
       entity_id: device_tracker.iphone
       to: "home"
     action:
-      service: light.turn_on
+      action: light.turn_on
       target:
         entity_id: light.entryway
   - alias: "Automation 2"
@@ -283,7 +281,7 @@ automation:
       entity_id: device_tracker.iphone
       from: "home"
     action:
-      service: light.turn_off
+      action: light.turn_off
       target:
         entity_id: light.entryway
 ```
@@ -305,7 +303,7 @@ trigger:
   entity_id: device_tracker.iphone
   to: "home"
 action:
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: light.entryway
 ```
@@ -319,7 +317,7 @@ trigger:
   entity_id: device_tracker.iphone
   from: "home"
 action:
-  service: light.turn_off
+  action: light.turn_off
   target:
     entity_id: light.entryway
 ```
@@ -336,7 +334,7 @@ alexa:
   intents:
     LocateIntent:
       action:
-        service: notify.pushover
+        action: notify.pushover
         data:
           message: "Your location has been queried via Alexa."
       speech:
@@ -374,7 +372,7 @@ alexa:
 ```yaml
 {% raw %}
 action:
-  service: notify.pushover
+  action: notify.pushover
   data:
     message: "Your location has been queried via Alexa."
 speech:
@@ -415,7 +413,7 @@ automation:
         entity_id: device_tracker.iphone
         to: "home"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.entryway
   - alias: "Automation 2"
@@ -424,7 +422,7 @@ automation:
         entity_id: device_tracker.iphone
         from: "home"
     action:
-      - service: light.turn_off
+      - action: light.turn_off
         target:
           entity_id: light.entryway
 ```
@@ -446,7 +444,7 @@ automation: !include_dir_merge_list automation/
       entity_id: device_tracker.iphone
       to: "home"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.entryway
 - alias: "Automation 2"
@@ -455,7 +453,7 @@ automation: !include_dir_merge_list automation/
       entity_id: device_tracker.iphone
       from: "home"
   action:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: light.entryway
 ```

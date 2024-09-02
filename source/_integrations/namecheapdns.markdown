@@ -14,9 +14,9 @@ related:
 
 With the `namecheapdns` {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) service.
 
-<div class='note warning'>
+{% important %}
 Namecheap only supports updating IPv4 addresses.
-</div>
+{% endimportant %}
 
 ## Configuration
 

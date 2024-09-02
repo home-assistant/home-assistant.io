@@ -95,6 +95,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -233,11 +237,11 @@ To create the device_tracker with GPS coordinates support:
 mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "a4567d663eaf/attributes", "name": "My Tracker"}'
 ```
 
-<div class='note info'>
+{% note %}
 
 Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
 
-</div>
+{% endnote %}
 
 To set the state of the device tracker to specific coordinates:
 

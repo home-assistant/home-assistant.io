@@ -21,7 +21,7 @@ automations by using them in their {% term conditions %}.
 
 The preferred way to configure input boolean helpers is via the user interface,
 in which they are known as Toggle Helpers. To add one, go to
-**{% my helpers title="Settings > Devices & Services > Helpers" %}** and click the add button;
+**{% my helpers title="Settings > Devices & services > Helpers" %}** and click the add button;
 next choose the **{% my config_flow_start domain="input_boolean" title="Toggle" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
@@ -61,13 +61,13 @@ input_boolean:
     icon: mdi:car
 ```
 
-## Services
+## Actions
 
-This integration provides the following {% term services %} to modify the state of the
-`input_boolean` and a service to reload the configuration without restarting
+This integration provides the following {% term actions %} to modify the state of the
+`input_boolean` and an action to reload the configuration without restarting
 Home Assistant itself.
 
-| Service    | Data                           | Description                                                 |
+| Action     | Data                           | Description                                                 |
 | ---------- | ------------------------------ | ----------------------------------------------------------- |
 | `turn_on`  | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `on`  |
 | `turn_off` | `entity_id(s)`<br>`area_id(s)` | Set the value of specific `input_boolean` entities to `off` |
@@ -97,7 +97,7 @@ automation:
       entity_id: input_boolean.notify_home
       state: "on"
   action:
-    - service: notify.pushbullet
+    - action: notify.pushbullet
       data:
         title: ""
         message: "Honey, I'm home!"
@@ -108,7 +108,7 @@ You can also set or change the status of an `input_boolean` by using
 your automation action.
 
 ```yaml
-service: input_boolean.turn_on
+action: input_boolean.turn_on
 target:
   entity_id: input_boolean.notify_home
 ```

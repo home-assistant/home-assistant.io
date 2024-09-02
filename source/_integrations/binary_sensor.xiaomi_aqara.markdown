@@ -49,12 +49,12 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     entity_id: sensor.illumination_34ce00xxxx11
     below: 300
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_34ce00xxxx11
       data:
         brightness: 5
-    - service: automation.turn_on
+    - action: automation.turn_on
       target:
         entity_id: automation.MOTION_OFF
 - alias: "If there no motion for 5 minutes turn off the gateway light"
@@ -66,10 +66,10 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     for:
       minutes: 5
   action:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: light.gateway_light_34ce00xxxx11
-    - service: automation.turn_off
+    - action: automation.turn_off
       target:
         entity_id: automation.Motion_off
 ```
@@ -84,7 +84,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     from: "off"
     to: "on"
   action:
-    service: climate.set_operation_mode
+    action: climate.set_operation_mode
     target:
       entity_id: climate.livingroom
     data:
@@ -98,7 +98,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     for:
       minutes: 5
   action:
-    service: climate.set_operation_mode
+    action: climate.set_operation_mode
     target:
       entity_id: climate.livingroom
     data:
@@ -114,7 +114,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
       entity_id: group.family
       state: "not_home"
   action:
-    - service: notify.notify_person
+    - action: notify.notify_person
       data:
         message: "The door has been opened"
 ```
@@ -129,11 +129,11 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     from: "off"
     to: "on"
   action:
-    - service: notify.html5
+    - action: notify.html5
       data:
         title: Fire alarm!
         message: Fire/Smoke detected!
-    - service: xiaomi_aqara.play_ringtone
+    - action: xiaomi_aqara.play_ringtone
       data:
         gw_mac: xxxxxxxxxxxx
         ringtone_id: 2
@@ -152,7 +152,7 @@ The requirement is that you have setup the [`xiaomi aqara` integration](/integra
     from: "off"
     to: "on"
   action:
-    - service: notify.html5
+    - action: notify.html5
       data:
         title: Gas alarm!
         message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
@@ -173,7 +173,7 @@ As indicated in the table on top of this page there are 3 versions of the button
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
   action:
-    service: switch.toggle
+    action: switch.toggle
     target:
       entity_id: switch.wall_switch_left_158d000xxxxx01
 - alias: "Toggle couch light on double click"
@@ -184,7 +184,7 @@ As indicated in the table on top of this page there are 3 versions of the button
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
   action:
-    service: switch.toggle
+    action: switch.toggle
     target:
       entity_id: switch.wall_switch_right_158d000xxxxx01
 - alias: "Let a dog bark on long press"
@@ -195,7 +195,7 @@ As indicated in the table on top of this page there are 3 versions of the button
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi_aqara.play_ringtone
+    action: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
@@ -215,7 +215,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip90
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
@@ -228,7 +228,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: flip180
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
@@ -241,7 +241,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: move
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
@@ -254,7 +254,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: tap_twice
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
@@ -267,7 +267,7 @@ Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swi
       entity_id: binary_sensor.cube_15xxxxxxxxxxxx
       action_type: shake_air
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.gateway_light_28xxxxxxxxxx
       data:
@@ -289,7 +289,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
       click_type: single
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.gateway_light_34xxxxxxxx13
     data:
@@ -312,7 +312,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
       click_type: single
   action:
-    service: light.turn_on
+    action: light.turn_on
     target:
       entity_id: light.gateway_light_34xxxxxxxx13
     data:
@@ -335,7 +335,7 @@ The Aqara Wireless Switch is available as single-key and double-key version. Eac
       entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
       click_type: both
   action:
-    service: light.turn_off
+    action: light.turn_off
     target:
       entity_id: light.gateway_light_34xxxxxxxx13
 ```
@@ -355,7 +355,7 @@ This automation toggles the living room lamp on vibration/tilt.
       entity_id: binary_sensor.vibration_xxxx000000
       movement_type: vibrate
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.living_room_lamp
 - alias: "Turn on Living Room Lamp on tilt"
@@ -366,7 +366,7 @@ This automation toggles the living room lamp on vibration/tilt.
       entity_id: binary_sensor.vibration_xxxx000000
       movement_type: tilt
   action:
-    service: light.toggle
+    action: light.toggle
     target:
       entity_id: light.living_room_lamp
 ```

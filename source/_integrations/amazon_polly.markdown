@@ -10,7 +10,7 @@ ha_platforms:
   - tts
 ha_integration_type: integration
 ha_codeowners:
- - '@jschlyter'
+  - '@jschlyter'
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -87,7 +87,7 @@ engine:
 Say to all `media_player` device entities:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: "<speak>Hello from Amazon Polly</speak>"
 ```
@@ -95,7 +95,7 @@ Say to all `media_player` device entities:
 or
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: >
       <speak>
@@ -106,7 +106,7 @@ or
 Say to the `media_player.living_room` device entity:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   target:
     entity_id: media_player.living_room
     message: >
@@ -118,7 +118,7 @@ Say to the `media_player.living_room` device entity:
 Say with break:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: >
       <speak>
@@ -140,7 +140,7 @@ Amazon Polly supports accented bilingual voices and you may find that you'd pref
 Note: You now need to enclose all new and previous TTS input within the `<speak></speak>` tags. To use SSML in automation, you can follow these steps, for instance:
 
 ```yaml
-service: tts.amazon_polly_say
+action: tts.amazon_polly_say
 data:
   cache: true
   entity_id: media_player.mpd

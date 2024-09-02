@@ -58,17 +58,17 @@ To create your first [Telegram bot](https://core.telegram.org/bots#how-do-i-crea
 
 5. From the conversation with BotFather, select the link to open a chat with your new bot.
 6. In the chat with the new bot, enter `/start`.
-7. Test the service:
-   - Go to [**Developer tools** > **Services** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
+7. Test the action:
+   - Go to [**Developer tools** > **Actions** > **YAML mode**](https://my.home-assistant.io/redirect/developer_call_service/?service=homeassistant.turn_on).
    - Paste this into the YAML file:
    - Replace the `service` and the `message` with your data.
   
       ```yaml
-      service: notify.sarah
+      action: notify.sarah
       data:
         message: "Yay! A message from Home Assistant."
       ```
-   - Select **Call service**. You should now get a message.
+   - Select **Perform action**. You should now get a message.
 
 8. You can do more with this. Check out the configuration descriptions and examples below.
 
@@ -118,9 +118,9 @@ $ python3
 123456789
 ```
 
-<div class='note'>
+{% tip %}
 If you want to add new chat IDs then you will need to disable the active configuration to actually see the result with the IDs, otherwise you may only get empty results array.
-</div>
+{% endtip %}
 
 
 **Method 4:** You can also get the chat ID from the Home Assistant logs. If you have set up the bot already, you can send a message to your bot from an unauthorized ID and you will see an error entry in the log containing the ID.  
@@ -160,7 +160,7 @@ Refer to the platforms mentioned in the
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -177,7 +177,7 @@ To use notifications, please see the [getting started with automation page](/get
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
     message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
@@ -211,7 +211,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send an images
     message: "That's an example that sends an image."
@@ -267,7 +267,7 @@ inline_keyboard:
   type: list
 {% endconfiguration %}
 
-<div class='note'>
+{% important %}
 
 Since Home Assistant version 0.48 you have to [whitelist the source folder](/integrations/homeassistant/#allowlist_external_dirs) of the file you want to include in the notification.
 
@@ -280,14 +280,14 @@ homeassistant:
     - /home/kenji/data
 ```
 
-</div>
+{% endimportant %}
 
 ### Video support
 
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send a video
     message: "That's an example that sends a video."
@@ -348,7 +348,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send a document
     message: "That's an example that sends a document and a custom keyboard."
@@ -408,7 +408,7 @@ inline_keyboard:
 ...
 
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: Send location
     message: Location updated.
@@ -442,7 +442,7 @@ inline_keyboard:
 ```yaml
 ...
 action:
-  service: notify.NOTIFIER_NAME
+  action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
     message: |-

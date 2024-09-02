@@ -94,11 +94,9 @@ Depending on the control unit the channel configuration can have varying formats
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend) the state is known and will be shown in the frontend.
 
-<div class='note warning'>
-
+{% note %}
 Note that due to the way those cheap RC units work it is **not possible to query their current state**. Therefore the only way to preserve a consistent state within Home Assistant is to only use Home Assistant as the controller.
-
-</div>
+{% endnote %}
 
 ## Full example
 

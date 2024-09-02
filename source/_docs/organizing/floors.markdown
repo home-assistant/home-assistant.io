@@ -13,8 +13,9 @@ related:
     title: Using floor alias for voice assistants
 ---
 
-A floor in Home Assistant is a logical grouping of areas meant to match your home's physical floors. Devices and entities
-cannot be assigned to floors directly but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
+A floor in Home Assistant is a logical grouping of areas meant to match your home's physical floors.
+
+Devices and entities cannot be assigned to floors directly but to areas. Floors can be used in automations and scripts as a target for actions. For example, to turn off all the lights on the downstairs floor when you go to bed.
 
 ## Creating a floor
 
@@ -43,7 +44,7 @@ Follow these steps to create a new floor.
 Follow these steps to delete a floor. Areas that are assigned to a floor will become unassigned. Automations and scripts or voice assistants that used a floor as a target will no longer work as they no longer have a target.
 
 1. Go to {% my areas title="**Settings** > **Areas, labels & zones**" %}.
-2. Next to the floor, select the three dots menu and select **Delete floor**.
+2. Next to the floor, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete floor**.
 
     ![Screenshot showing the dialog to delete a floor](/images/organizing/floor_delete.png)
 
