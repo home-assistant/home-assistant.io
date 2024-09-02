@@ -65,7 +65,7 @@ Support LG Appliances as follows:
 - [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)
 - [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)
 - [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/)
-- Humidifier
+- [Humidifier](Note: There is no available link yet.)
 - [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/)
 - [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/)
 - [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/)
@@ -75,8 +75,8 @@ Support LG Appliances as follows:
 - [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/)
 - [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)
 - [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/)
-- Washcombo Main
-- Washcombo Mini
+- [Washcombo Main](Note: There is no available link yet.)
+- [Washcombo Mini](Note: There is no available link yet.)
 - [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)
 - [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)
 - [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)
