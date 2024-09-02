@@ -69,10 +69,10 @@ Update AC schedule on vehicle.
 
 Notes:
 
-- `schedules` can be in the form `{'id':1,...}` when updating a single schedules, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call
-- the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
-- the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
-- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'readyAtTime':'T12:00Z'}` where start time is in UTC format and the duration is in minutes.
+- `schedules` can be in the form `{'id':1,...}` when updating a single schedule, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call.
+- The `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle).
+- The `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
+- The `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'readyAtTime':'T12:00Z'}` where start time is in UTC format and the duration is in minutes.
 
 <a name="ac_schedule_example">Example</a>:
 
