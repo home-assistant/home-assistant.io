@@ -20,18 +20,16 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 
 - Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
 
-
 ## Prerequisites
 
 - This feature works via LG ThinQ cloud. Therefore, an internet connection is required.
 - A [personal access token](https://connect-pat.lgthinq.com) to use the [LG ThinQ Connect API](https://thinq.developer.lge.com/ko/cloud/).
 
-
 ### Personal Access Token (PAT)
 
 1. Access the **[personal access token](https://connect-pat.lgthinq.com)** page (requires an LG ThinQ account).
 2. Select **ADD NEW TOKEN**.
-3. Enter a new token name and select the following authorized scopes: 
+3. Enter a new token name and select the following authorized scopes:
     - **Permission to view all devices**
     - **Permission to view all device statuses**
     - **All device control rights**
@@ -40,14 +38,12 @@ The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assi
 4. Select **CREATE TOKEN**.
 5. Once all the steps are completed, you will see that a **PAT** has been generated.
 
-
 {% include integrations/config_flow.md %}
 
 1. Enter the information to use LG ThinQ Connect API:
    - The **Token Value** obtained through the PAT issuance process. (Required)
    - The entry name.
 2. Choose the region (country).
-
 
 ## Supported Devices
 
@@ -85,7 +81,6 @@ Support LG Appliances as follows:
 - [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/)
 - [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/)
 
-
 ## Troubleshooting
 
 ### Setup
@@ -102,7 +97,6 @@ Check your PAT's valid country in the **Choose the region / Country** section.
 
 This error occurs when there's an abnormal number of API calls made using the PAT.
 The LG ThinQ integration will work properly after some time.
-
 
 ## Debugging
 
