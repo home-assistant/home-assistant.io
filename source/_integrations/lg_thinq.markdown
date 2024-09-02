@@ -98,6 +98,7 @@ The LG ThinQ integration will work properly after some time.
 
 The LG ThinQ integration will show additional information by enabling log configuration. Add the line to your {% term "`configuration.yaml`" %}:
 Don't forget to remove the line again once you are done debugging.
+
 ```yaml
 logger:
   default: info
