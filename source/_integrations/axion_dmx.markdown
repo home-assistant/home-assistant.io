@@ -12,7 +12,7 @@ ha_domain: axion_dmx
 ha_integration_type: integration
 ---
 
-The Axion Lighting integration allows you to control [Axion Lights](https://axionlighting.com/) systems via DMX protocol within Home Assistant. This integration supports various light modes including White, Tunable White, RGB, RGBW, and RGBWW with accurate brightness scaling and channel numbering starting from 1.
+This integration enables control of the complete [Axion Lighting](https://axionlighting.com/) ecosystem via the Axion PoE & Wi-Fi DMX Controller. Using Home Assistant you can add White, Tunable White, RGB, RGBW, and RGBWW lighting loads. The module provides accurate brightness scaling, quick responsiveness, and is easy to integrate any DMX address from 1-512.
 
 ## Prerequisites
 
