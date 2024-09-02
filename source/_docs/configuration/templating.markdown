@@ -1155,9 +1155,10 @@ Using the `merge_response` template we can merge several responses into one list
 
 | Variable       | Description                                     |
 | -------------- | ----------------------------------              |
-| `value`        | The incoming value (must be a action response). |
+| `value`        | The incoming value (must be an action response). |
 
 `entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key the template will fail.
+
 `value_key` key is appended to each dictionary within the template output list as a reference of origin if the original service call was providing a list of dictionaries, as example `calendar.get_events` or `weather.get_forecasts`.
 
 Examples of these two keys can can be seen in [example merge calendar action response](#example-merge-calendar-action-response) template output.
@@ -1219,7 +1220,7 @@ Sorting the dictionaries within the list based on a specific key can be done dir
   },
 }
 ```
-**Template:**
+
 ```yaml
 {% raw %}
 {{ merge_response(response_variable) }}
@@ -1283,7 +1284,7 @@ Sorting the dictionaries within the list based on a specific key can be done dir
   },
 }
 ```
-**Template:**
+
 ```yaml
 {% raw %}
 {{ merge_response(response_variable) }}
