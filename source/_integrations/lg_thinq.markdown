@@ -53,7 +53,6 @@ Support LG Appliances as follows:
 
 - [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/)
 - [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/)
-- [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier-fan/)
 - [Ceiling Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/)
 - [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/cooktop/)
 - [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/)
@@ -71,14 +70,11 @@ Support LG Appliances as follows:
 - [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)
 - [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/system-boiler/)
 - [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)
-- [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washtower-single-unit/)
-- [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washtower-dryer/)
-- [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washtower-washer/)
 - [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-heater/)
 - [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/)
 - [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/wine-cellar/)
 {% note %}
-Humidifier, Washcombo Main and Washcombo Mini are also supported, but the links are not available yet.
+Air Purifier Fan, Washtower Dryer, Washtower Washer, Humidifier, Washcombo Main and Washcombo Mini are also supported.
 {% endnote %}
 
 ## Troubleshooting
