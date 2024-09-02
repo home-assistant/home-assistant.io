@@ -101,7 +101,7 @@ Check your PAT's valid country in the **Choose the region / Country** section.
 #### Error: The number of API calls has been exceeded
 
 This error occurs when there's an abnormal number of API calls made using the PAT.
-The LG ThinQ integration will work propery after some time.
+The LG ThinQ integration will work properly after some time.
 
 
 ## Debugging
