@@ -1,6 +1,6 @@
 ## Enabling or disabling entities
 
-Some {% term entities %} are disabled by default. Whether a particular entity of a device is disable or enabled by default, depends on the integration. Diagnostic entities for example are often disabled by default so as not to clutter Home Assistant. For example, the RSSI entity (representing the RF signal strengh) provided by the ZHA integration for each Zigbee device is disabled by default.
+Some {% term entities %} are disabled by default. Whether a particular entity of a device is disable or enabled by default, depends on the integration. Diagnostic entities for example are often disabled by default so that they don't clutter Home Assistant. For example, the RSSI entity (representing the RF signal strengh) provided by the ZHA integration for each Zigbee device is disabled by default.
 
 There are different ways to enable {% term entities %}. You can enable a single entity in the entity settings, or you can enable multiple entities at once from the list of entities.
 
