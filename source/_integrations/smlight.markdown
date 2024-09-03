@@ -49,7 +49,7 @@ The following sensors will be created:
 
 The following buttons will be created:
 
-- **Core Restart** - Restart core ESP32
-- **Zigbee Restart** - Restart Zigbee CCCC2652 or EFR32 chip
-- **Zigbee Flash Mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
+- **Core restart** - Restart core ESP32
+- **Zigbee restart** - Restart Zigbee CCCC2652 or EFR32 chip
+- **Zigbee flash mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
 
