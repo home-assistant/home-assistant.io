@@ -1,8 +1,8 @@
 ## Enabling or disabling entities
 
-Some entities are disabled by default.
+Some {% term entities %} are disabled by default.
 
-There are different ways to enable entities. You can enable a single entity in the entity settings, or you can enable multiple entities at once from the list of entities.
+There are different ways to enable {% term entities %}. You can enable a single entity in the entity settings, or you can enable multiple entities at once from the list of entities.
 
 ### To enable or disable a single entity
 
