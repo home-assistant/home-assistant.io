@@ -95,8 +95,8 @@ A read-only property which has only two states that can be toggled is represente
 | [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Rinse refill needed |
 | [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Eco-friendly mode |
 | | Power saving mode  |
-| | Enable sabbath mode |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable sabbath mode |
+| | Enable Sabbath mode |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
 
 ### Switch
 
