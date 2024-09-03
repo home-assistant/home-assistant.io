@@ -11,6 +11,7 @@ ha_config_flow: true
 ha_domain: lg_thinq
 ha_platforms:
   - switch
+  - binary_sensor
 ha_integration_type: integration
 ---
 
@@ -74,6 +75,39 @@ Support LG Appliances as follows:
 {% note %}
 Air Purifier Fan, Washtower Dryer, Washtower Washer, Humidifier, Washcombo Main and Washcombo Mini are also supported.
 {% endnote %}
+
+## Platforms
+
+LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/). And these are mapped to entities in Home Assistant.
+
+A list of all Entity Platforms provided by LG ThinQ Integration:
+
+- [Binary sensor](#binary-sensor)
+- [Switch](#switch)
+
+### Binary sensor
+
+A read-only property which has only two states that can be toggled is represented as a binary sensor platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/)<br>[Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>[Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/)<br>[Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)<br>Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/)<br> | Enable remote control |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Rinse refill needed |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Eco-friendly mode |
+| | Power saving mode  |
+| | Enable Sabbath mode |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Switch
+
+A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode |
+| Humidifier | Humidifier operation mode |
 
 ## Troubleshooting
 
