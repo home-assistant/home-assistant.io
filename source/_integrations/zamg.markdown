@@ -36,16 +36,19 @@ This integration provides the following sensors:
 |Temperature|Temperature in °C|
 |Temperature Average|Average Temperature in °C|
 |Humidity|Humidity in %|
+|Humidity Average|Average Humidity in %|
 |Dew Point|Dew point in °C|
 |Dew Point Average|Average Dew point in °C|
 |Pressure|Station pressure in hPa|
 |Pressure at Sea Level|Sea level pressure in hPa|
 |Wind Speed|Wind speed in km/h|
+|Wind Speed Average|Average Wind speed in km/h|
 |Top Wind Speed|Max wind speed in km/h|
 |Wind Bearing|Wind bearing in °|
 |Top Wind Bearing|Wind bearing at max speed in °|
 |Sun Last 10 Minutes|Sunshine in the last 10 minutes in sec|
 |Precipitation|Precipitation in mm|
+|Precipitation Last 10 Minutes|Precipitation in the last 10 minutes in min|
 |Snow|Snow in cm|
 
 {% note %}
