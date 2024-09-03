@@ -63,7 +63,7 @@ action:
 
 The options that can be used with the `trigger` object are listed under [automation trigger variables](/docs/automation/templating/#available-trigger-data).
 In this example, a [state trigger](/docs/automation/templating/#state) is used.
-`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/service-calls/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
+`turn_on` and `turn_off` are [`homeassistant` actions](/docs/scripts/perform-actions/#homeassistant-actions). They are not tied to a specific domain. You can use them on lights, switches, and other domains.
 
 ### Creating the blueprint file
 

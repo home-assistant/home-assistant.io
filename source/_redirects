@@ -344,7 +344,8 @@ layout: null
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-service-calls /docs/scripts/perform-actions/
+/docs/scripts/service-calls /docs/scripts/perform-actions/
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os
@@ -498,6 +499,7 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301

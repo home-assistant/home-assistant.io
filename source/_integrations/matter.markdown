@@ -189,8 +189,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
-6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil to edit and rename the device.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 
@@ -322,9 +322,16 @@ This section provides a bit more information on some of the categories:
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
 
-## Matter device updates
+## Matter OTA device updates
 
-The Matter standard supports OTA (Over-the-Air) updates optionally. Matter devices that support Matter updates will have an [update entity](/integrations/update). Furthermore, the CSA DCL (Distributed Compliance Ledger) stores firmware update information. Home Assistant reads firmware update information directly from the DCL to learn about available updates. By default, the integration checks every 12 hours for an update. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/) with the update entity as the target.
+The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
+
+The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. Currently, Eve and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
+
+<p class='img'>
+<img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
+Notification of an OTA update for a Matter device
+</p>
 
 ## Experiment with Matter using a ESP32 dev board
 

@@ -20,7 +20,7 @@ related:
 
 The **History stats** {% term integration %} provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
 
-It can track how long the {% term integration %} has been in a specific state, in a custom time period.
+It can track how long an {% term entity %} has been in a specific state, in a custom time period.
 
 Examples of what you can track:
 
@@ -172,7 +172,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() }}"
+    start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
 ```
 
@@ -183,7 +183,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       hours: 24
 ```
@@ -209,7 +209,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() - timedelta(days=now().weekday()) }}"
+    start: "{{ today_at('00:00') - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
@@ -220,7 +220,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at().replace(day=1) }}"
+    start: "{{ today_at('00:00').replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
@@ -231,8 +231,8 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ (today_at().replace(day=1) - timedelta(days=1)).replace(day=1) }}"
-    end: "{{ today_at().replace(day=1) }}"
+    start: "{{ (today_at('00:00').replace(day=1) - timedelta(days=1)).replace(day=1) }}"
+    end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
 {% endraw %}
@@ -254,7 +254,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       days: 30
 ```

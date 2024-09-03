@@ -13,6 +13,13 @@ ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - diagnostics
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+  - docs: /integrations/default_config/
+    title: Default config
+  - url: https://esphome.io/projects/?type=bluetooth
+    title: Bluetooth proxy page
 ---
 
 The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.

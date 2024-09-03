@@ -292,7 +292,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: up
@@ -304,7 +304,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: down
@@ -316,7 +316,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left
@@ -328,7 +328,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right
@@ -340,7 +340,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_up
@@ -352,7 +352,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_up
@@ -364,7 +364,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_down
@@ -376,7 +376,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_down
@@ -388,13 +388,13 @@ elements:
       right: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       data:
         entity_id: camera.lakehouse
         movement: zoom_out
