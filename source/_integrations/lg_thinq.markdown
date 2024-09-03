@@ -105,8 +105,8 @@ A read-wirte property which has only two states that can be toggled is represens
 | Device | Property |
 | ------ | -------- |
 | [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode` |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode` |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode |
 | Humidifier | Humidifier operation mode |
 
 ## Troubleshooting
