@@ -1,6 +1,6 @@
 ## Enabling or disabling entities
 
-Some entities are disabled by default. Or have been disabled previously.
+Some entities are disabled by default.
 
 There are different ways to enable entities. You can enable a single entity in the entity settings, or you can enable multiple entities at once from the list of entities.
 
@@ -26,5 +26,6 @@ There are different ways to enable entities. You can enable a single entity in t
 
 ## Related topics
 
+- [Customizing entities](/docs/configuration/customizing-devices/)
 - [Grouping your assets](/docs/organizing/)
 - [Working with tables](/docs/organizing/tables)
