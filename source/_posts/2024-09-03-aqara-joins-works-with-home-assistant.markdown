@@ -2,7 +2,7 @@
 layout: post
 title: "Aqara joins Works with Home Assistant"
 description: "We have certified 4 Aqara devices, all of which are the first to use our Works via Matter with Home Assistant badge."
-date: 2024-08-30 00:00:01
+date: 2024-09-03 00:00:01
 date_formatted: "September 3, 2024"
 author: Guy Sie
 comments: true
