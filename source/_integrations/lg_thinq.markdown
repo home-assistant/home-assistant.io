@@ -89,25 +89,25 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 
 A read-only property which has only two states that can be toggled is represented as a binary sensor platform.
 
-| Device | Resource | Property |
-| ------ | -------- | -------- |
-| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/)<br>[Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>[Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/)<br>[Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)<br>Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/)<br> | `remoteControlEnable` | `remoteControlEnabled` |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | `dishWashingStatus` | `rinseRefill` |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | `ecoFriendly` | `ecoFriendlyMode` |
-| | `powerSave` | `powerSaveEnabled` |
-| | `sabbath` | `sabbathMode` |
-| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | `operation` | `sabbathMode` |
+| Device | Property |
+| ------ | -------- |
+| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/)<br>[Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>[Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/)<br>[Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/)<br>Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/)<br> | `remoteControlEnabled` |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | `rinseRefill` |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | `ecoFriendlyMode` |
+| | `powerSaveEnabled` |
+| | `sabbathMode` |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | `sabbathMode` |
 
 ### Switch
 
 A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
 
-| Device | Resource | Property |
-| ------ | -------- | -------- |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | `operation` | `airFanOperationMode` |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | `operation` | `airPurifierOperationMode` |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | `operation` | `dehumidifierOperationMode` |
-| Humidifier | `operation` | `humidifierOperationMode` |
+| Device | Property |
+| ------ | -------- |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | `airFanOperationMode` |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | `airPurifierOperationMode` |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | `dehumidifierOperationMode` |
+| Humidifier | `humidifierOperationMode` |
 
 ## Troubleshooting
 
