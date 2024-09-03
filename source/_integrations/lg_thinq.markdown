@@ -85,7 +85,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Binary sensor](#binary-sensor)
 - [Switch](#switch)
 
-#### Binary sensor
+### Binary sensor
 
 A read-only property which has only two states that can be toggled is represented as a binary sensor platform.
 
@@ -98,7 +98,7 @@ A read-only property which has only two states that can be toggled is represente
 | | `sabbath` | `sabbathMode` |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | `operation` | `sabbathMode` |
 
-#### Switch
+### Switch
 
 A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
 
