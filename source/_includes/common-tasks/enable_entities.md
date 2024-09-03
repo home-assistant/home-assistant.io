@@ -8,9 +8,10 @@ There are different ways to enable {% term entities %}. You can enable a single 
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and select your integration card.
 2. Select the device.
-3. Select the entity of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select the toggle for **Enable**.
-4. Select **Update**.
-5. Confirm the notification stating that it will take about 30 seconds for the entity to become enabled. Select **OK**.
+3. To see all the entities, you may need to expand the **entity not shown** section.
+4. Select the entity of interest, select the cogwheel {% icon "mdi:cog-outline" %}, then select the toggle for **Enable**.
+5. Select **Update**.
+6. Confirm the notification stating that it will take about 30 seconds for the entity to become enabled. Select **OK**.
 
    ![Screencast showing how to enable a single entity](/images/docs/configuration/enable_entity.webp)
 
