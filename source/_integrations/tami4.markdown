@@ -18,21 +18,10 @@ ha_integration_type: integration
 Support for [Tami4 Edge / Edge+ by Strauss](https://www.tami4.co.il/tami4edge-collection) in Home Assistant.
 
 You can boil water and get filter / UV information, such as when you need to replace them.
+Also, all of your personal drinks will be available as buttons for you to use.
 
 You can easily pair your device by confirming your phone number which is registered with your Edge app account.
 
 ## Configuration
 
 {% include integrations/config_flow.md %}
-
-## Actions
-
-### tami4.fetch_drinks
-Fetch all available drinks that were configured via the app.
-
-### tami4.prepare_drink
-Prepare a specific drink via its id.
-
-| Data attribute | Optional | Description                                      |
-| ---------------------- | -------- | ------------------------------------------------ |
-| `drink_id`                    | no      | The drink id as found using `tami4.fetch_drinks`. |
