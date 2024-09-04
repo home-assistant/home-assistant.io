@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Light
   - Sensor
   - Switch
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -49,7 +51,9 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 ## Binary sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
+The binary sensor switches between off and on when motion, doorbell rings, and intercom unlock events occur.
+
+The binary sensor is being replaced with the event entity and you should migrate any automations to the event entity by release 2025.3.0.
 
 ## Button
 
@@ -131,6 +135,10 @@ data = {
 # call downloader integration to save the video
 hass.services.call("downloader", "download_file", data)
 ```
+
+## Event
+
+The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
 
 ## Sensor
 
