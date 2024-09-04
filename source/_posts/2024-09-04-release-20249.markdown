@@ -16,7 +16,7 @@ og_image: /images/blog/2024-09/social.jpg
 
 Home Assistant 2024.9! 🎉
 
-For many of us in the community based in the northern hemisphere we've been taking advantage of the nicer weather to take a little time off. Home Assistant releases have continued to grow for some time, and this one might not be as gargantuan in size as previous releases, but it still packs some really cool features and announcements.
+Many community members based in the northern hemisphere have taken advantage of the nicer weather to take a little time off. Home Assistant releases have continued to grow for some time, and this one might not be as gargantuan in size as previous releases, but it still packs some really cool features and announcements.
 
 This release includes bigger sections, smarter energy monitoring, and a new LLM option. We've added [five](#new-integrations) new integrations, along with [one](#now-available-to-set-up-from-the-ui) existing integration being added to the UI. On top of all that, we've announced a new Works with Home Assistant partner, and the culmination of a project to ensure our project is truly open source.
 
@@ -77,7 +77,7 @@ Larger sections mean larger cards. Instead of just stretching out the layout of 
 
 Talking about dashboards, the newly styled badges we [introduced](/blog/2024/08/07/release-20248/#new-badges-for-your-dashboard) in last release, are now more configurable.
 
-Instead of a display mode, you can decide yourself what element you want to show. This allows you for example to hide the icon of an badge and only show the state of the device you want to show in your badge.
+Instead of using display mode, you can decide for yourself what element you want to show. This allows you, for example, to hide the icon of an badge and only show the state of the device you want to show in your badge.
 
 ## Tracking your untracked energy
 
