@@ -311,7 +311,7 @@ Yale Home devices will soon stop working with the August integration.
 
 {% details "Ecovacs" %}
 
-The YAML configuration for the Ecovacs integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+The YAML configuration for the Ecovacs integration was removed. The configuration has been moved to the UI in Home Assistant 2024.2.
 
 The YAML configuration was automatically imported and should be removed from your YAML configuration.
 
@@ -324,7 +324,7 @@ The YAML configuration was automatically imported and should be removed from you
 
 {% details "GPSD" %}
 
-The YAML configuration for the GPSD integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+The YAML configuration for the GPSD integration was removed. The configuration has been moved to the UI in Home Assistant 2024.2.
 
 The YAML configuration was automatically imported and should be removed from your YAML configuration.
 
@@ -365,7 +365,7 @@ Logitech stopped accepting applications for access to the Logi Circle API in May
 
 {% details "Lupusec" %}
 
-The YAML configuration for the Lupusec integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+The YAML configuration for the Lupusec integration was removed. The configuration has been moved to the UI in Home Assistant 2024.2.
 
 The YAML configuration was automatically imported and should be removed from your YAML configuration.
 
@@ -464,7 +464,7 @@ Instead of a switch a horn button entity was added. Please update your automatio
 {% details "System monitor" %}
 
 Removes the deprecated process sensor from the System Monitor integration.
-This sensor has been provided as a binary sensor for 6 months raising a repair issue.
+This sensor has been provided as a binary sensor for 6 months, raising a repair issue.
 
 [@gjohansson-ST] - [#123616] ([documentation](/integrations/systemmonitor))
 
@@ -487,7 +487,7 @@ It will be replaced in a subsequent release with the Update entity but is disabl
 
 {% details "Velux" %}
 
-The YAML configuration for the Velux integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+The YAML configuration for the Velux integration was removed. The configuration has been moved to the UI in Home Assistant 2024.2.
 
 The YAML configuration was automatically imported and should be removed from your YAML configuration.
 
