@@ -54,7 +54,10 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
 
 In the drive to give our users more customization and organization options for their dashboards, we've added some new options to our Sections view that really lets us take big advantage of [resizable cards](/blog/2024/07/03/release-20247/#resize-the-cards-on-your-dashboard). These powerful customization features can affect the [predictability of where cards or sections will go](/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), especially when switching between desktop and mobile views, and we have found it works best with large cards. As always, the choice of how to use it is up to you.
 
-<img src="/images/blog/2024-09/sections-go-big.png" alt="Temporary screenshot">
+<div style="display: flex;">
+  <img src="/images/blog/2024-09/sections-before.png" width="50%" alt="Screenshot showing sections that are all 1 section wide, on the right showing a section that is 2 sections wide.">
+  <img src="/images/blog/2024-09/sections-after.png" width="50%" alt="Screenshots showing a section that is 2 sections wide.">
+</div>
 
 ### Wider sections
 
@@ -63,6 +66,8 @@ Sections can be expanded to span multiple sections. Now you can, for example, ha
 Cards and sections will continue to follow the [Z-Grid rules](/blog/2024/03/04/dashboard-chapter-1/#drag-and-drop-rearrangement-of-cards-and-sections), which can lead to blank spaces if the new wider sections don't fit on a specific part of the screen. If you don't like those blank spaces between sections, you can choose a _dense_ layout. A dense section layout option will attempt to follow the Z-Grid rules, but will fill blank spaces whenever possible. This can affect the order and predictability of your sections, but will maximize screen real estate.
 
 When switching to smaller screens, these larger sections will revert to one section wide (if this causes issues for certain big cards, we would recommend using our device [visibility settings](/blog/2024/06/05/release-20246/#control-visibility-of-cards)).
+
+<img src="/images/blog/2024-09/section-settings.png" alt="Screenshot of the section settings">
 
 ### Full span cards
 
@@ -78,7 +83,7 @@ Instead of a display mode, you can decide yourself what element you want to show
 
 In April, we introduced a [new energy graph for individual devices](/blog/2024/03/06/release-20243/#new-energy-graph-for-individual-devices) in our energy dashboard. This allows you to aggregate all your energy monitoring into one graph, giving you a quick way to see your house's biggest energy-using devices. Big thanks to [@karwosts](https://github.com/karwosts), the original creator of this graph, who has now updated it.
 
-<img src="/images/blog/2024-09/untracked-energy.png" alt="Temporary screenshot">
+<img src="/images/blog/2024-09/untracked-energy.png" alt="Screenshot of the individual device energy graph">
 
 We can't all have energy tracking for every device, and if you have whole-home energy tracking (like a smart meter or [something more DIY](/home-energy-management)) the updated graph will calculate the difference and show your home's untracked usage. So hop onto your [energy dashboard](https://my.home-assistant.io/redirect/energy/) and start to tackle your phantom energy load.
 
@@ -93,7 +98,10 @@ We have updated our [LLM leaderboard](https://github.com/allenporter/home-assist
 [@allenporter] added the ability to configure the context window size of the [Ollama](/integrations/ollama) integration. The default size was increased, making it perform 20% better!
 
 ## Aqara joins Works with Home Assistant
-We [recently announced](/blog/2024/09/02/aqara-joins-works-with-home-assistant/) that four Aqara devices are joining our [Works with Home Assistant](https://partner.home-assistant.io/) program.  What's really exciting is that these are all Matter devices, and Aqara will be the first partner to use our "Works via Matter with Home Assistant" badge, giving some great options to use with Home Assistant's amazing Matter integration.
+
+<img src="/images/blog/2024-09-aqara-wwha/art.jpg" alt="Aqara join Works via Matter with Home Assistant">
+
+We [recently announced](/blog/2024/09/03/aqara-joins-works-with-home-assistant/) that four Aqara devices are joining our [Works with Home Assistant](https://partner.home-assistant.io/) program.  What's really exciting is that these are all Matter devices, and Aqara will be the first partner to use our "Works via Matter with Home Assistant" badge, giving some great options to use with Home Assistant's amazing Matter integration.
 
 What's more, this will be the first partner to join since [our recent update to the program](/blog/2024/08/08/works-with-home-assistant-becomes-part-ohf/), meaning device-by-device certification that we tested ourselves. This makes it really easy to see what will give you the best experience in Home Assistant. 
 
