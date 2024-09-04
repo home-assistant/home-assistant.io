@@ -33,7 +33,7 @@ port:
   type: integer
   default: 8840
 ssl:
-  description: Whether SSL (i.e. https) should be used to access the WatchYourLAN service
+  description: Whether SSL (i.e. HTTPS) should be used to access the WatchYourLAN service
   required: false
   type: boolean
   default: False
