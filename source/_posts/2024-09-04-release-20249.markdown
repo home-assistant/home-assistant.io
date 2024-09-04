@@ -508,6 +508,9 @@ new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
 - [New returning type in LawnMowerActivity](https://developers.home-assistant.io/blog/2024/08/23/lawn-mower-activity-returning)
+- [Validation of entity action schemas](https://developers.home-assistant.io/blog/2024/08/27/entity-service-schema-validation)
+- [Changes to the icon translations schema](https://developers.home-assistant.io/blog/2024/08/27/changed-icon-translations-schema)
+- [https://developers.home-assistant.io/blog/2024/09/02/template-hass-required](https://developers.home-assistant.io/blog/2024/09/02/template-hass-required)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
