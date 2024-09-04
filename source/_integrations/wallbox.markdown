@@ -44,6 +44,7 @@ The {% term integration %} adds the following sensors:
 The {% term integration %} adds the following number entities:
 
 - Max charging current
+- Max ICP current
 - Energy price
 
 The number {% term entity %} is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
