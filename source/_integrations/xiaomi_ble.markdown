@@ -61,3 +61,15 @@ Flower Care firmware update steps:
 - The Flower Care account and app are not required any further for this integration to work
 
 Also note that the battery level of the plant sensor can only be retrieved by connecting to the device (reading characteristics), while the other sensor data is broadcasted passively. To prevent battery drainage, a connection is made only once a day. Connecting to the device also requires that the device has a good signal strength.
+
+### Motion sensor: Motion Sensor / Xiaomi Motion Sensor 2S (XMPIRO2SXS)
+
+XMPIRO2SXS, a PIR Motion (Human Body) Sensor, should be automatically discoverable.
+
+There is no custom firmware for the device. Please extract the keys from Xiaomi Cloud using a [token extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) tool.
+
+### Occupancy sensor: Occupancy Sensor / Xiaomi Human Presence Sensor (XMOSB01XS)
+
+XMOSB01XS, a battery based PIR+mmWave Occupancy (Human Presence) Sensor, should be automatically discoverable. If it isn't discovered, please upgrade your Home Assistant to the latest version.
+
+There is no custom firmware for the device. Please extract the keys from Xiaomi Cloud using a [token extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) tool.
