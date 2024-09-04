@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "2024.9: Beta release notes"
-description: "Beta release notes for Home Assistant 2024.9"
-date: 2024-08-28 00:00:00
+title: "2024.9: Sections go BIG"
+description: "Bigger wider sections for big cards, smarter energy monitoring, a new LLM option, Works with Home Assistant Matter devices, and more open source."
+date: 2024-09-04 00:00:00
 date_formatted: "September 4, 2024"
 author: Gordon Cameron
 comments: true
@@ -14,75 +14,31 @@ og_image: /images/blog/2024-09/social.jpg
 
 <lite-youtube videoid="dSbCzRhbOVA" videotitle="Home Assistant 2024.9 Release Party"></lite-youtube>
 
-{% note %}
-
-**Welcome to the beta release notes for Home Assistant 2024.9** 🎉
-
-<br />
-
-Please note that these release notes are a work in progress. 👷‍♀️ We will be
-completing them over the next couple of days. Not all features might be final
-yet, and some features _**may not** make it into the final release_.
-
-<br />
-
-**Want to help test the beta?** Awesome! ❤️ We have documented how you
-[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
-
-<br />
-
-While running the beta, we highly recommend joining our _#beta_ channel on
-the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
-testers are in this channel during the beta period to share experiences, ideas,
-and iterate over new features, fine-tuning them before the final release.
-It's a really fun place to hang out. 😎
-
-<br />
-
-**Reporting issues**: As this is a beta test, you might encounter unexpected
-behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
-You can find our issue trackers and the reported issues during beta here:
-
-<br />
-
-- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/123)
-- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/686)
-- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/130)
-
-🙏 When reporting issues, **make sure to mention the exact beta version you are
-running** in the issue description. This will help us identify and track the
-issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
-
-<br />
-
-Issues introduced in the beta are processed with priority. 🔝
-
-{% endnote %}
-
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=X)
-4 September 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
-
-{% endtip %}
-
 Home Assistant 2024.9! 🎉
 
 For many of us in the community based in the northern hemisphere we've been taking advantage of the nicer weather to take a little time off. Home Assistant releases have continued to grow for some time, and this one might not be as gargantuan in size as previous releases, but it still packs some really cool features and announcements.
 
-This release includes bigger sections, smarter energy monitoring, and a new LLM option. We’ve added [five](#new-integrations) new integrations, along with [one](#now-available-to-set-up-from-the-ui) existing integration being added to the UI. On top of all that, we’ve announced a new Works with Home Assistant partner, and the culmination of a project to ensure our project is truly open source.
+This release includes bigger sections, smarter energy monitoring, and a new LLM option. We've added [five](#new-integrations) new integrations, along with [one](#now-available-to-set-up-from-the-ui) existing integration being added to the UI. On top of all that, we've announced a new Works with Home Assistant partner, and the culmination of a project to ensure our project is truly open source.
 
 We hope you've been able to enjoy some time in, and away, from your smart home this month as well.
 
-Enjoy the (beta) release!
+Enjoy the release!
 
-<!--more-->
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=dSbCzRhbOVA)
+4 September 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+{% endtip %}
+
 
 - [Sections go BIG](#sections-go-big)
   - [Wider sections](#wider-sections)
   - [Full span cards](#full-span-cards)
+  - [Badges](#badges)
 - [Tracking your untracked energy](#tracking-your-untracked-energy)
 - [LLM agent options grow](#llm-agent-options-grow)
+- [Aqara joins Works with Home Assistant](#aqara-joins-works-with-home-assistant)
 - [Open source compliance](#open-source-compliance)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -112,6 +68,12 @@ When switching to smaller screens, these larger sections will revert to one sect
 
 Larger sections mean larger cards. Instead of just stretching out the layout of a card, there is also a new option on cards to have them always use the full width of the section.
 
+### Badges
+
+Talking about dashboards, the newly styled badges we [introduced](/blog/2024/08/07/release-20248/#new-badges-for-your-dashboard) in last release, are now more configurable.
+
+Instead of a display mode, you can decide yourself what element you want to show. This allows you for example to hide the icon of an badge and only show the state of the device you want to show in your badge.
+
 ## Tracking your untracked energy
 
 In April, we introduced a [new energy graph for individual devices](/blog/2024/03/06/release-20243/#new-energy-graph-for-individual-devices) in our energy dashboard. This allows you to aggregate all your energy monitoring into one graph, giving you a quick way to see your house's biggest energy-using devices. Big thanks to [@karwosts](https://github.com/karwosts), the original creator of this graph, who has now updated it.
@@ -125,6 +87,11 @@ We can't all have energy tracking for every device, and if you have whole-home e
 When we added the ability to use [Large Language Models (LLMs)](/blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms) in our Voice Assistant, it began with a limited number of conversation agents. These included the cloud-based  [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/) integrations, along with the locally-run [Ollama](/integrations/ollama/) integration. All three can now control the devices in your home.
 
 [@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant. Setting it up can be a little different than other conversation agents so take a look at the [documents](/integrations/anthropic) if you're interested.
+
+## Aqara joins Works with Home Assistant
+We [recently announced](/blog/2024/09/02/aqara-joins-works-with-home-assistant/) that four Aqara devices are joining our [Works with Home Assistant](https://partner.home-assistant.io/) program.  What's really exciting is that these are all Matter devices, and Aqara will be the first partner to use our "Works via Matter with Home Assistant" badge, giving some great options to use with Home Assistant's amazing Matter server.
+
+What's more, this will be the first partner to join since [our recent update to the program](/blog/2024/08/08/works-with-home-assistant-becomes-part-ohf/), meaning device-by-device certification that we tested ourselves. This makes it really easy to see what will give you the best experience in Home Assistant. 
 
 ## Open source compliance
 
@@ -151,6 +118,8 @@ We welcome the following new integrations in this release:
   Manage SMLIGHT SLZB-06 adaptors from Home Assistant.
 - **[Roth Touchline SL]**, added by [@jnsgruk]<br>
   A new integration for the Roth Touchline SL underfloor heating system.
+- **[Yale]**, added by [@bdraco]<br>
+  The Yale Home brand now has it's own integration and will not longer be using the [August] integration. If you use a Yale Home device with the August integration, you should migrate to the new Yale integration.
 
 [Anthropic Conversation]: /integrations/anthropic
 [Anthropic]: https://anthropic.com/
@@ -160,12 +129,15 @@ We welcome the following new integrations in this release:
 [Fujitsu FGLair]: /integrations/fujitsu_fglair
 [SMLIGHT]: /integrations/smlight
 [Roth Touchline SL]: /integrations/touchline_sl
+[Yale]: /integrations/yale
+[August]: /integrations/august
 
 [@Shulyaka]: https://github.com/Shulyaka
 [@IceBotYT]: https://github.com/IceBotYT
 [@crevetor]: https://github.com/crevetor
 [@tl-sl]: https://github.com/tl-sl
 [@jnsgruk]: https://github.com/jnsgruk
+[@bdraco]: https://github.com/bdraco
 
 This release also has a new virtual integration. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
@@ -183,13 +155,10 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- Add apsystems diagnostic binary sensors ([@CM000n] - [#123045]) ([apsystems docs]) (new-platform)
-- Add sensor platform for Mastodon ([@andrew-codechimp] - [#123434]) ([mastodon docs]) (new-platform)
-- Add update platform to AirGradient ([@joostlek] - [#123534]) ([airgradient docs]) (new-platform)
-- Add favorite position buttons to Motion Blinds ([@starkillerOG] - [#123489]) ([motion_blinds docs]) (new-platform)
-- Add switch platform to chacon_dio integration ([@cnico] - [#122514]) ([chacon_dio docs]) (new-platform)
-- Add nest event platform ([@allenporter] - [#123042]) ([nest docs]) (new-platform)
-- Add SimpleFin binary sensor for errors ([@jeeftor] - [#122554]) ([simplefin docs]) (new-platform)
+- [@bdraco] Made it easier to add battery operated [Shelly](/integrations/shelly) devices, you no longer have to manually set an outbound WebSocket configuration.
+- The Mosquitto MQTT broker add-on can now be installed and started automatically when you setup [MQTT](/integrations/mqtt). Great work [@jbouwh]!
+- In the [UI for KNX that was introduced last release](/blog/2024/08/07/release-20248/#knx-can-now-be-managed-via-the-ui), you can now also add switch and light entities! Thanks [@farmio]!
+- The context window size of [Ollama](/integrations/ollama) is bigger and configurable now, making it perform 20% better! Great [@allenporter]!
 
 [@CM000n]: https://github.com/CM000n
 [@andrew-codechimp]: https://github.com/andrew-codechimp
@@ -236,22 +205,6 @@ of this release:
   deprecated and now removed. They have been using a deprecated mailbox feature
   that is no longer available.
 
-## Other noteworthy changes
-
-There are many more improvements in this release; here are some of the other
-noteworthy changes this release:
-
-- Auto configure outbound websocket for sleepy shelly RPC devices [#124545]
-- Install and start Mosquitto MQTT broker add-on from MQTT config flow [#124106]
-- Use BIGINT SQL type for ID columns [#123973]
-- Add UI to create KNX switch and light entities [#122630]
-- Add Ollama context window size configuration [#124555]
-
-[#124545]: https://github.com/home-assistant/core/pull/124545
-[#124106]: https://github.com/home-assistant/core/pull/124106
-[#123973]: https://github.com/home-assistant/core/pull/123973
-[#122630]: https://github.com/home-assistant/core/pull/122630
-[#124555]: https://github.com/home-assistant/core/pull/124555
 
 ## Need help? Join the community!
 
@@ -278,6 +231,183 @@ it is inevitable.
 We always make sure to document these changes to make the transition as easy as
 possible for you. This release has the following backward-incompatible changes:
 
+{% details "Recorder database upgrade notice" %}
+
+This notice applies only if you use the recorder integration with a MySQL or
+PostgreSQL database. If you are using the default SQLite database,
+you can ignore it.
+
+Last release included a database upgrade/migration that increases the size of
+the number we can store for the identifier fields.
+
+Not all migrations where successful despite being marked as successful. This 
+release will do the migration again, but will catch unsuccessful migrations.
+
+This can cause the database upgrade to take longer than usual, depending on
+the size of your database.
+
+Please be patient and let the upgrade process finish. Do not interrupt the
+upgrade process, as this can lead to a corrupted database.
+
+([@emontnemery] - [#123973]) ([documentation](/integrations/recorder))
+
+[@emontnemery]: https://github.com/emontnemery
+[#123973]: https://github.com/home-assistant/core/pull/123973
+
+{% enddetails %}
+
+{% details "Asterisk Call Detail Records" %}
+
+Asterisk Call Detail Records has been deprecated in 2024.3.0 and has now been removed.
+
+It was using a deprecated mailbox feature that is no longer available.
+
+([@joostlek] - [#123180])
+
+[#123180]: https://github.com/home-assistant/core/pull/123180
+
+{% enddetails %}
+
+{% details "Asterisk Voicemail" %}
+
+Asterisk Voicemail has been deprecated in 2024.3.0 and has now been removed.
+
+It was using a deprecated mailbox feature that is no longer available.
+
+([@joostlek] - [#123180])
+
+[#123180]: https://github.com/home-assistant/core/pull/123180
+
+{% enddetails %}
+
+{% details "August" %}
+
+If you are using a Yale Home device with the [August] integration, you should migrate to the new [Yale] integration.
+
+Yale Home devices will soon stop working with the August integration.
+
+([@bdraco] - [#124895]) ([august documentation](/integrations/august) - [yale documentation](/integrations/yale))
+
+[#124895]: https://github.com/home-assistant/core/pull/124895
+
+{% enddetails %}
+
+{% details "Ecovacs" %}
+
+The YAML configuration for the Ecovacs integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+
+The YAML configuration was automatically imported and should be removed your YAML configuration.
+
+[@gjohansson-ST] - [#123605] ([documentation](/integrations/ecovacs))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#123605]: https://github.com/home-assistant/core/pull/123605
+
+{% enddetails %}
+
+{% details "GPSD" %}
+
+The YAML configuration for the GPSD integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+
+The YAML configuration was automatically imported and should be removed your YAML configuration.
+
+([@gjohansson-ST] - [#123725]) ([documentation](/integrations/gpsd))
+
+[#123725]: https://github.com/home-assistant/core/pull/123725
+
+{% enddetails %}
+
+{% details "KNX" %}
+
+The KNX Climate preset modes are renamed to match the KNX specifications.
+
+| KNX specifications  | Previous | Now            |
+|---------------------|----------|----------------|
+| Auto | none | auto                              |
+| Comfort | comfort | comfort                     |
+| Standby | away |  standby                       |
+| Economy | sleep | economy                       |
+| Building protection | eco | building_protection |
+
+[@farmio] - [#123964] ([documentation](/integrations/knx))
+
+[@farmio]: http://gtihub.com/farmio
+[#123964]: https://github.com/home-assistant/core/pull/123964
+
+{% enddetails %}
+
+{% details "Logi circle" %}
+
+Logitech stopped accepting applications for access to the Logi Circle API in May 2022, and the Logi Circle integration has now been removed.
+
+[@gjohansson-ST] - [#123727]
+
+[#123727]: https://github.com/home-assistant/core/pull/123727
+
+{% enddetails %}
+
+{% details "Lupusec" %}
+
+The YAML configuration for the Lupusec integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+
+The YAML configuration was automatically imported and should be removed your YAML configuration.
+
+[@gjohansson-ST] - [#123606] ([documentation](/integrations/lupusec))
+
+[#123606]: https://github.com/home-assistant/core/pull/123606
+
+{% enddetails %}
+
+{% details "Lutron" %}
+
+In Home Assistant 2024.2 fans where converted from a light entity to a fan entity. 
+The old light entities will no longer work in this release and can be removed.
+
+[@gjohansson-ST] - [#123607] ([documentation](/integrations/lutron))
+
+[#123607]: https://github.com/home-assistant/core/pull/123607
+
+{% enddetails %}
+
+{% details "Mailbox" %}
+
+The Mailbox platform that was previously deprecated has been removed.
+ 
+ [@gjohansson-ST] - [#123741]
+
+[#123741]: https://github.com/home-assistant/core/pull/123741
+
+{% enddetails %}
+
+{% details "MQTT" %}
+
+The schema option was removed from the MQTT vacuum schema in Home Assistant 2024.2. You should remove this from your YAML configuration if set.
+
+Manual configured MQTT vacuum entities will break if the schema option is still configured.
+When using MQTT discovery the option will be silently ignored.
+
+[@jbouwh] - [#124722] ([documentation](/integrations/mqtt))
+
+[@jbouwh]: https://github.com/jbouwh
+[#124722]: https://github.com/home-assistant/core/pull/124722
+
+{% enddetails %}
+
+{% details "Overkiz" %}
+ 
+ Atlantic CozyTouch Water Heaters will now show the Manual operation mode as Electric.
+
+ A binary sensor was added to indicate if the manual mode is action.
+
+ Users that have automations or scripts using these entities together with the Manual mode should update the automations or scripts accordingly.
+
+[@ALERTua] - [#124619] ([documentation](/integrations/overkiz))
+
+[@ALERTua]: https://github.com/ALERTua
+[#124619]: https://github.com/home-assistant/core/pull/124619
+
+{% enddetails %}
+
 {% details "Proximity" %}
 
 In [2024.2 we introduced new sensor entities](/blog/2024/02/07/release-20242/#revamped-proximity-integration)
@@ -292,41 +422,23 @@ Now this deprecated `proximity` entity has been removed.
 
 {% enddetails %}
 
-{% details "Asterisk Call Detail Records" %}
+{% details "Sensibo" %}
 
-Remove deprecated asterisk_cdr integration ([@joostlek] - [#123180])
+The previous PM2.5 sensor for Pure devices was incorrectly reporting a PM2.5 value, but it's actually a number representing an AQI level. The sensor will now provide the new states of 'good', 'moderate' and 'bad'.
 
-[#123180]: https://github.com/home-assistant/core/pull/123180
+[@gjohansson-ST] - [#124151] ([documentation](/integrations/sensibo))
 
-{% enddetails %}
-
-{% details "Asterisk Voicemail" %}
-
-Remove deprecated asterisk_mbox integration ([@joostlek] - [#123180])
-
-[#123180]: https://github.com/home-assistant/core/pull/123180
-
-{% enddetails %}
-
-{% details "Lutron" %}
-
-Remove deprecated fan as light in lutron ([@gjohansson-ST] - [#123607]) ([lutron docs]) (breaking-change)
-
-[#123607]: https://github.com/home-assistant/core/pull/123607
-
-{% enddetails %}
-
-{% details "Lupusec" %}
-
-Remove deprecated yaml import from lupusec ([@gjohansson-ST] - [#123606]) ([lupusec docs]) (breaking-change)
-
-[#123606]: https://github.com/home-assistant/core/pull/123606
+[#124151]: https://github.com/home-assistant/core/pull/124151
 
 {% enddetails %}
 
 {% details "Starline" %}
 
-Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starline docs]) (breaking-change)
+The horn switch has been deprecated since 2024.1 and is now removed.
+
+Instead of switch a horn button entity was added. Please update your automations accordingly.
+
+([@gjohansson-ST] - [#123608]) ([documentation](/integrations/starline))
 
 [#123608]: https://github.com/home-assistant/core/pull/123608
 
@@ -334,89 +446,54 @@ Remove deprecated horn switch in starline ([@gjohansson-ST] - [#123608]) ([starl
 
 {% details "System monitor" %}
 
-Remove deprecated process sensor from System monitor ([@gjohansson-ST] - [#123616]) ([systemmonitor docs]) (breaking-change)
+Removes the deprecated process sensor from the System Monitor integration.
+This sensor has been provided as a binary sensor for 6 months raising a repair issue.
+
+[@gjohansson-ST] - [#123616] ([documentation](/integrations/systemmonitor))
 
 [#123616]: https://github.com/home-assistant/core/pull/123616
 
 {% enddetails %}
 
-{% details "Ecovacs" %}
+{% details "TP-Link Smart Home" %}
 
-Remove deprecated yaml import from Ecovacs ([@gjohansson-ST] - [#123605]) ([ecovacs docs]) (breaking-change)
+The binary sensor for "Update available" will no longer be provided by the TP-Link Smart Home integration.
 
-[#123605]: https://github.com/home-assistant/core/pull/123605
+It will be replaced in a subsequent release with the Update entity but is disabled for now due to stability issues when calling the TP Link cloud API to check the latest firmware version. This may cause devices to go offline and power cycled to function again. The sensor was also unreliable and may have returned incorrect data because of rate limiting from the TP Link cloud.
 
-{% enddetails %}
+[@sdb9696] - [#124930] ([documentation](/integrations/tplink))
 
-{% details "Logi circle" %}
-
-Remove deprecated logi_circle integration ([@gjohansson-ST] - [#123727]) ([logi_circle docs]) (breaking-change)
-
-[#123727]: https://github.com/home-assistant/core/pull/123727
-
-{% enddetails %}
-
-{% details "gpsd" %}
-
-Remove deprecated yaml import for gpsd ([@gjohansson-ST] - [#123725]) ([gpsd docs]) (breaking-change)
-
-[#123725]: https://github.com/home-assistant/core/pull/123725
+[@sdb9696]: https://github.com/sdb9696
+[#124930]: https://github.com/home-assistant/core/pull/124930
 
 {% enddetails %}
 
 {% details "Velux" %}
 
-Remove deprecated yaml import for velux ([@gjohansson-ST] - [#123724]) ([velux docs]) (breaking-change)
+The YAML configuration for the Velux integration that was moved to the UI in Home Assistant 2024.2 has been removed.
+
+The YAML configuration was automatically imported and should be removed your YAML configuration.
+
+[@gjohansson-ST] - [#123724] ([documentation](/integrations/velux))
 
 [#123724]: https://github.com/home-assistant/core/pull/123724
 
 {% enddetails %}
 
-{% details "Mailbox" %}
+{% details "Zigbee Home Automation" %}
 
-Remove demo mailbox ([@gjohansson-ST] - [#123741]) ([demo docs]) (breaking-change)
+- The IKEA Starkvind fan modes have been updated. Automations that used to set the fan to 10% speed to switch it to "auto mode" should now be updated to set the preset to "auto."
+In auto mode, the actual fan speed is now properly displayed.
 
-[#123741]: https://github.com/home-assistant/core/pull/123741
+  For more information, see the [PR in the ZHA repo](https://github.com/zigpy/zha/pull/87). 
 
-{% enddetails %}
+- Firmware update entity logic has changed. A device will only be considered "up-to-date" if there is a known firmware update for it and the current firmware version is greater. If there is no known firmware update, the device firmware state will be considered "unknown", as we can't tell if it's up to date or not.
+Previously we showed "up-to-date" if there was no known firmware which misrepresented the state for many devices.
 
-{% details "KNX" %}
+[@puddly] - [#124804] ([documentation](/integrations/zha))
 
-Rename KNX Climate preset modes according to specification ([@farmio] - [#123964]) ([knx docs]) (breaking-change)
-
-[#123964]: https://github.com/home-assistant/core/pull/123964
-
-{% enddetails %}
-
-{% details "Sensibo" %}
-
-Fix Pure AQI value sensor in Sensibo ([@gjohansson-ST] - [#124151]) ([sensibo docs]) (breaking-change)
-
-[#124151]: https://github.com/home-assistant/core/pull/124151
-
-{% enddetails %}
-
-{% details "Overkiz" %}
-
-Update overkiz Atlantic Water Heater operation mode switching ([@ALERTua] - [#124619]) ([overkiz docs]) (breaking-change)
-
-[#124619]: https://github.com/home-assistant/core/pull/124619
-
-{% enddetails %}
-
-{% details "Sisyphus" %}
-
-Disable sisyphus integration ([@bdraco] - [#124742]) ([sisyphus docs]) (breaking-change)
-
-[#124742]: https://github.com/home-assistant/core/pull/124742
-
-{% enddetails %}
-
-{% details "MQTT" %}
-
-Cleanup removed `schema` option from mqtt vacuum platform ([@jbouwh] - [#124722]) ([mqtt docs]) (breaking-change)
-
-[#124722]: https://github.com/home-assistant/core/pull/124722
+[@puddly]: https://github.com/puddly
+[#124804]: https://github.com/home-assistant/core/pull/124804
 
 {% enddetails %}
 
