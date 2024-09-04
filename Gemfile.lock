@@ -29,9 +29,6 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
-    google-protobuf (4.28.0-arm64-darwin)
-      bigdecimal
-      rake (>= 13)
     google-protobuf (4.28.0-x86_64-linux)
       bigdecimal
       rake (>= 13)
@@ -134,8 +131,6 @@ GEM
     ruby2_keywords (0.0.5)
     safe_yaml (1.0.5)
     sass (3.4.25)
-    sass-embedded (1.78.0-arm64-darwin)
-      google-protobuf (~> 4.27)
     sass-embedded (1.78.0-x86_64-linux-gnu)
       google-protobuf (~> 4.27)
     sass-globbing (1.1.5)
