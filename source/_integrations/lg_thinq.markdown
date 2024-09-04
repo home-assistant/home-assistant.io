@@ -10,9 +10,9 @@ ha_code_owners:
 ha_config_flow: true
 ha_domain: lg_thinq
 ha_platforms:
+  - switch
   - binary_sensor
   - sensor
-  - switch
 ha_integration_type: integration
 ---
 
