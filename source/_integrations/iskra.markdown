@@ -23,6 +23,7 @@ The [Iskra](https://www.iskra.eu/) {% term integration %} allows you to connect 
 ### Energy meters
 
 Most Iskra's DIN rail mountable energy meters support Modbus RTU over RS485 and IR. To integrate them, you will need a Modbus TCP gateway or Iskra's Smart Gateway:
+
 - Impact series ([IE38XX / IE14XX](https://www.iskra.eu/en/Iskra-Energy-meters/))
 - WM series ([WM3XX / WM1XX](https://www.iskra.eu/en/Iskra-Energy-meters/))
 
@@ -43,7 +44,6 @@ If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gate
 
 - **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to the Smart Gateway's configuration. It's also recommended to set static IP on your smart gateway.
 - **Home Assistant**: Add the Iskra integration, enter Smart Gateway's **IP address**, and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required, Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
-
 
 ### Modbus TCP connection
 
