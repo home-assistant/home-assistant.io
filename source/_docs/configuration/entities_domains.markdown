@@ -8,6 +8,8 @@ related:
 
 Your {% term devices %} are represented in Home Assistant as entities. Entities are the basic building blocks to hold data in Home Assistant. An entity represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An term entity is usually part of a {% term device %} or a {% term service %}. Entities have [states](/docs/configuration/state_object/) and [attributes](#entity-attributes).
 
+All your entities are listed in the enities table, under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
+
 <p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
 ## Entity attributes
