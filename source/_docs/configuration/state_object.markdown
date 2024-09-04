@@ -1,6 +1,9 @@
 ---
 title: "State objects"
 description: "Describes all there is to know about state objects in Home Assistant."
+related:
+  - docs: /docs/configuration/entities_domains/
+    title: Entities and domains
 ---
 
 Your {% term devices %} are represented in Home Assistant as entities. The {% term entities %} will write their current {% term state %} to the state machine for other entities/templates/frontend to access. States are a current representation of the {% term entity %}.
@@ -9,18 +12,18 @@ If you overwrite a state via the states dev tool or the API, it will not impact 
 
 All states will always have an entity id, a state and a timestamp when last updated and last changed.
 
-| Field                | Description                                                                                                                                                                                                        |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `state.state`        | String representation of the current state of the entity. Example `off`.                                                                                                                                           |
-| `state.entity_id`    | Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.                                                                                                                                               |
-| `state.domain`       | Domain of the entity. Example: `light`.                                                                                                                                                                            |
-| `state.object_id`    | Object ID of entity. Example: `kitchen`.                                                                                                                                                                           |
-| `state.name`         | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.                                                                                                    |
-| `state.last_changed` | Time the state changed in the state machine in UTC time. This is not updated if only state attributes change. Example: `2017-10-28 08:13:36.715874+00:00`.                                                         |
-| `state.last_reported`| Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any change to the state or a state attribute. Example: `2017-10-28 08:13:36.715874+00:00`.                    |
-| `state.last_updated` | Time the state or state attributes changed in the state machine in UTC time. This is not updated if neither state nor state attributes changed. Example: `2017-10-28 08:13:36.715874+00:00`. |
-| `state.attributes`   | A dictionary with extra attributes related to the current state.                                                                                                                                                   |
-| `state.context`      | A dictionary with extra attributes related to the context of the state.                                                                                                                                                   |
+| Field                 | Description                                                                                                                                                                                     |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `state.state`         | String representation of the current state of the entity. Example `off`.                                                                                                                        |
+| `state.entity_id`     | Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.                                                                                                                            |
+| `state.domain`        | Domain of the entity. Example: `light`.                                                                                                                                                         |
+| `state.object_id`     | Object ID of entity. Example: `kitchen`.                                                                                                                                                        |
+| `state.name`          | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.                                                                                 |
+| `state.last_changed`  | Time the state changed in the state machine in UTC time. This is not updated if only state attributes change. Example: `2017-10-28 08:13:36.715874+00:00`.                                      |
+| `state.last_reported` | Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any change to the state or a state attribute. Example: `2017-10-28 08:13:36.715874+00:00`. |
+| `state.last_updated`  | Time the state or state attributes changed in the state machine in UTC time. This is not updated if neither state nor state attributes changed. Example: `2017-10-28 08:13:36.715874+00:00`.    |
+| `state.attributes`    | A dictionary with extra attributes related to the current state.                                                                                                                                |
+| `state.context`       | A dictionary with extra attributes related to the context of the state.                                                                                                                         |
 
 ## Attributes
 
@@ -42,8 +45,8 @@ When an attribute contains spaces, you can retrieve it like this: `state_attr('s
 
 Context is used to tie {% term events %} and {% term states %} together in Home Assistant. Whenever an {% term automation %} or user interaction causes states to change, a new context is assigned. This context will be attached to all events and states that happen as result of the change.
 
-| Field        | Description                                                         |
-| ------------ | ------------------------------------------------------------------- |
-| `context_id` | Unique identifier for the context.                                  |
-| `user_id`    | Unique identifier of the user that started the change. Will be `None` if the action was not started by a user (for example, started by an automation).  |
-| `parent_id`  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent.  |
+| Field        | Description                                                                                                                                                                  |
+| ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `context_id` | Unique identifier for the context.                                                                                                                                           |
+| `user_id`    | Unique identifier of the user that started the change. Will be `None` if the action was not started by a user (for example, started by an automation).                       |
+| `parent_id`  | Unique identifier of the parent context that started the change, if available. For example, if an automation is triggered, the context of the trigger will be set as parent. |
