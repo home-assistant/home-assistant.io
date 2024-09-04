@@ -45,7 +45,6 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
-- [Other noteworthy changes](#other-noteworthy-changes)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -103,7 +102,7 @@ We have updated our [LLM leaderboard](https://github.com/allenporter/home-assist
 
 We [recently announced](/blog/2024/09/03/aqara-joins-works-with-home-assistant/) that four Aqara devices are joining our [Works with Home Assistant](https://partner.home-assistant.io/) program.  What's really exciting is that these are all Matter devices, and Aqara will be the first partner to use our "Works via Matter with Home Assistant" badge, giving some great options to use with Home Assistant's amazing Matter integration.
 
-What's more, this will be the first partner to join since [our recent update to the program](/blog/2024/08/08/works-with-home-assistant-becomes-part-ohf/), meaning device-by-device certification that we tested ourselves. This makes it really easy to see what will give you the best experience in Home Assistant. 
+What's more, this will be the first partner to join since [our recent update to the program](/blog/2024/08/08/works-with-home-assistant-becomes-part-ohf/), meaning device-by-device certification that we tested ourselves. This makes it really easy to see what will give you the best experience in Home Assistant.
 
 ## Open source compliance
 
@@ -256,7 +255,7 @@ you can ignore it.
 Last release included a database upgrade/migration that increases the size of
 the number we can store for the identifier fields.
 
-Not all migrations were successful despite being marked as successful. This 
+Not all migrations were successful despite being marked as successful. This
 release will do the migration again, but will catch unsuccessful migrations.
 
 This can cause the database upgrade to take longer than usual, depending on
@@ -376,7 +375,7 @@ The YAML configuration was automatically imported and should be removed from you
 
 {% details "Lutron" %}
 
-In Home Assistant 2024.2, fans where converted from a light entity to a fan entity. 
+In Home Assistant 2024.2, fans where converted from a light entity to a fan entity.
 The old light entities will no longer work in this release and can be removed.
 
 [@gjohansson-ST] - [#123607] ([documentation](/integrations/lutron))
@@ -388,7 +387,7 @@ The old light entities will no longer work in this release and can be removed.
 {% details "Mailbox" %}
 
 The Mailbox platform that was previously deprecated has been removed.
- 
+
  [@gjohansson-ST] - [#123741]
 
 [#123741]: https://github.com/home-assistant/core/pull/123741
@@ -410,7 +409,7 @@ When using MQTT discovery the option will be silently ignored.
 {% enddetails %}
 
 {% details "Overkiz" %}
- 
+
  Atlantic CozyTouch Water Heaters will now show the Manual operation mode as Electric.
 
  A binary sensor was added to indicate if the manual mode is activated.
@@ -501,7 +500,7 @@ The YAML configuration was automatically imported and should be removed from you
 - The IKEA Starkvind fan modes have been updated. Automations that used to set the fan to 10% speed to switch it to "auto mode", should now be updated to set the preset to "auto."
 In auto mode, the actual fan speed is now properly displayed.
 
-  For more information, see the [PR in the ZHA repo](https://github.com/zigpy/zha/pull/87). 
+  For more information, see the [PR in the ZHA repo](https://github.com/zigpy/zha/pull/87).
 
 - The firmware update entity logic has changed. A device will only be considered "up-to-date" if there is a known firmware update for it and the current firmware version is greater than the firmware update version. If there is no known firmware update, the device firmware state will be considered "unknown", as we can't tell if it's up to date or not.
 Previously, we showed "up-to-date" if there was no known firmware which misrepresented the state for many devices.
