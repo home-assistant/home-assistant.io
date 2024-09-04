@@ -42,15 +42,15 @@ There are two ways to configure your devices with Home Assistant:
 
 If your device supports Modbus RTU over RS485/IR, you can use Iskra's Smart Gateway to connect them via the REST API:
 
-- **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to the Smart Gateway's configuration. It's also recommended to set static IP on your smart gateway.
-- **Home Assistant**: Add the Iskra integration, enter Smart Gateway's **IP address**, and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required, Home Assistant will prompt you to enter Smart Gateway's **credentials**. All devices configured on Smart Gateway will be automatically added to your Home Assistant.
+- **Smart Gateway**: Connect your devices to the Smart Gateway and add your devices to the Smart Gateway's configuration. It's also recommended to set a static IP on your smart gateway.
+- **Home Assistant**: Add the Iskra integration, enter the Smart Gateway's **IP address**, and select **RestAPI** as the connection type within the Home Assistant integration. If authentication is required, Home Assistant will prompt you to enter the Smart Gateway's **credentials**. All devices configured on the Smart Gateway will be automatically added to your Home Assistant.
 
 ### Modbus TCP connection
 
 If your device supports a direct internet connection, such as PQ meters (iMC/MC series/ iMT/MT series usually), you can use Modbus TCP:
 
-- **Device**: Find your device using the [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it to use static IP.
-- **Home Assistant**: Add the Iskra integration, enter the devices's **IP address**, and select **Modbus TCP** as the connection type within the Home Assistant integration. Home Assistant will prompt you to enter the Modbus TCP port and Modbus address of your device.
+- **Device**: Find your device using the [MiQen](https://www.iskra.si/sl/Programska-oprema/MiQen/) software and configure it to use a static IP.
+- **Home Assistant**: Add the Iskra integration, enter the device's **IP address**, and select **Modbus TCP** as the connection type within the Home Assistant integration. Home Assistant will prompt you to enter the Modbus TCP port and Modbus address of your device.
 
 {% include integrations/config_flow.md %}
 
