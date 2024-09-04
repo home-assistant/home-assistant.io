@@ -538,14 +538,14 @@ Possible modes and their meaning for the GPIO pins are listed here:
     Bulletpoints and numbers to match the LED mode layout below.
 {% endcomment %}
 
-- 1\. No function, default for both ports on a freshly flashed chip.
-- 2\. Ground - A permanently low output (0V). Could be used for a power LED.
-- 3\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
-- 4\. LED E - An additional LED if you want to present more than 4 LED functions.
-- 5\. LED F - An additional LED if you want to present more than 5 LED functions.
-- 6\. Home - Set thermostat to setback temperature when pulled low.
-- 7\. Away - Set thermostat to setback temperature when pulled high.
-- 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
+- 0\. Input - default for both ports on a freshly flashed chip.
+- 1\. Ground - A permanently low output (0V). Could be used for a power LED.
+- 2\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
+- 3\. LED E - An additional LED if you want to present more than 4 LED functions.
+- 4\. LED F - An additional LED if you want to present more than 5 LED functions.
+- 5\. Home - Set thermostat to setback temperature when pulled low.
+- 6\. Away - Set thermostat to setback temperature when pulled high.
+- 7\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
 
 ## LED modes
 
