@@ -38,4 +38,4 @@ There is support for the following platform types within Home Assistant:
 
 ## Alarm control panel
 
-The integration will create an alarm entity for each area and a sensor for each zone.
+The integration will create an alarm entity for each area, a sensor for each zone and a presence detection binary sensor for each zone.
