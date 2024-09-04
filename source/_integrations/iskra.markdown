@@ -6,7 +6,7 @@ ha_category:
   - Energy
   - Sensor
 ha_codeowners:
-  - '@iskrakranj'
+  - '@iskramis'
 ha_config_flow: true
 ha_domain: iskra
 ha_iot_class: local_polling
@@ -56,7 +56,7 @@ If your device supports a direct internet connection, such as PQ meters (iMC/MC 
 
 ## Sensors
 
-The integration provides detailed information about power, current, and voltage for each phase, as well as energy counters. The data is updated every minute.
+The integration provides detailed information about power, current, and voltage for each phase. The data is updated every minute.
 
 | Name                | Unit | Description                                                                 |
 | ------------------- | ---- | :-------------------------------------------------------------------------- |
@@ -73,17 +73,7 @@ The integration provides detailed information about power, current, and voltage 
 | phase2_current      | A    | Current of phase 2.                                                         |
 | phase3_current      | A    | Current of phase 3.                                                         |
 | frequency           | Hz   | Frequency.                                                                  |
-| nresettable_counter1|    | Non-resettable counter 1.                                                   |
-| nresettable_counter2|    | Non-resettable counter 2.                                                   |
-| nresettable_counter3|    | Non-resettable counter 3.                                                   |
-| ...                 |    | ...                                                                         |
-| resettable_counter1 |    | Resettable counter 1.                                                       |
-| resettable_counter2 |    | Resettable counter 2.                                                       |
-| resettable_counter3 |    | Resettable counter 3.                                                       |
-| ...                 |    | ...                                                                         |
 
 ## Note
-
-Energy counters are named "non-resettable counter" and "resettable counter." The direction (export/import) and energy type (active power, reactive power, apparent power) their count depend on the user's settings through MiQen software.
 
 This integration supports Iskra's energy meters, not Iskra Emeco ones.
