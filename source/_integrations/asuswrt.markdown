@@ -51,7 +51,7 @@ If the integration is configured to use the http(s) protocol, also the following
 - Free memory sensor (Megabyte)
 - Memory used sensor (Megabyte)
 - Last boot sensor (Timestamp)
-- Uptime sensor (Seconds)
+- Uptime sensor (HH:MM:SS)
 
 Only `Connected devices sensor` and `Last boot sensor` are created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
 
