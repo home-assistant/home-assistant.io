@@ -168,7 +168,6 @@ integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
 - The Mosquitto MQTT broker add-on can now be installed and started automatically when you setup [MQTT](/integrations/mqtt). Great work [@jbouwh]!
-- In the [UI for KNX that was introduced last release](/blog/2024/08/07/release-20248/#knx-can-now-be-managed-via-the-ui), you can now also add switch and light entities! Thanks [@farmio]!
 - [@allenporter] added event entities to the [Nest](integrations/nest) integration.
 - [@bdraco] made it easier to add battery operated [Shelly](/integrations/shelly) devices, you no longer have to manually set an outbound WebSocket configuration.
 - [MotionBlinds](/integrations/motion_blinds) now has a button for your favorite position. Thanks [@starkillerOG].
