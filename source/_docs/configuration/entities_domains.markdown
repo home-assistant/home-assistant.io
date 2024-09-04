@@ -25,7 +25,9 @@ For more information on entity attributes, refer to the [attributes](/docs/confi
 
 ## Domains
 
-Each integration in Home Assistant has a unique identifier: a domain. All of the entities and actions available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or action, before the . shows the domain they belong to. For example light.kitchen is an entity in the light domain.
+Each integration in Home Assistant has a unique identifier: a domain. All of the entities and actions available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or action, before the . shows the domain they belong to. For example `light.bed_light` is an entity in the light domain. `bed_light` is the name of the entity.
+
+The domain provides entities, services, and other functionality that other integrations can use. For example, IKEA and Philips Hue both use the light integration. This is why the look and feel and behavior is similar in Home Assistant.
 
 Currently, the following domains are available (also known as *building block integrations* or *entity integrations*):
 
