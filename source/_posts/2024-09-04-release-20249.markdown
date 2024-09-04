@@ -155,10 +155,16 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- [@bdraco] Made it easier to add battery operated [Shelly](/integrations/shelly) devices, you no longer have to manually set an outbound WebSocket configuration.
 - The Mosquitto MQTT broker add-on can now be installed and started automatically when you setup [MQTT](/integrations/mqtt). Great work [@jbouwh]!
 - In the [UI for KNX that was introduced last release](/blog/2024/08/07/release-20248/#knx-can-now-be-managed-via-the-ui), you can now also add switch and light entities! Thanks [@farmio]!
 - The context window size of [Ollama](/integrations/ollama) is bigger and configurable now, making it perform 20% better! Great [@allenporter]!
+- [@allenporter] Added event entities to the [Nest](integrations/nest) integation.
+- [@bdraco] Made it easier to add battery operated [Shelly](/integrations/shelly) devices, you no longer have to manually set an outbound WebSocket configuration.
+- [MotionBlinds](/integrations/motion_blinds) not have buttons for the favorite position. Thanks [@starkillerOG].
+- [@joostlek] Added the abilitiy to update your [AirGradient](/integrations/airgradient) devices from Home Assistant.
+- [@CM000n] added diagnostic binary sensors to the [APsystems](/integrations/apsystems) integration.
+- The [Mastodon](/integrations/mastodon) integration now shows information about your account, like how many followers you have. Thanks [@andrew-codechimp]!
+
 
 [@CM000n]: https://github.com/CM000n
 [@andrew-codechimp]: https://github.com/andrew-codechimp
