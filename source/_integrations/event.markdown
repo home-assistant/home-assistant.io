@@ -10,6 +10,8 @@ ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
 related:
+  - docs: /docs/automation/trigger/#event-trigger
+    title: Event triggers
   - docs: /docs/configuration/customizing-devices/
     title: Customizing devices
   - docs: /dashboards/

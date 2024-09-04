@@ -23,7 +23,16 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S). Firmware version 3.9 or newer is required.
+An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+
+## Prerequisites
+
+- The Envoy must be configured and commissioned.
+- The Envoy must be on your local network with IPV4 connectivity from Home Assistant.
+- Envoy firmware version 3.9 or newer.
+- With Envoy firmware 7 and greater
+  - an Enlighten cloud username and password.
+  - Home Assistant 2023.9 or newer.
 
 {% include integrations/config_flow.md %}
 
