@@ -85,7 +85,7 @@ automation:
 
 ## Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
+An event trigger fires when an [event](/docs/configuration/events/) is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
