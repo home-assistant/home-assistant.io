@@ -84,6 +84,7 @@ LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.c
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
+- [Sensor](#sensor)
 - [Switch](#switch)
 
 ### Binary sensor
