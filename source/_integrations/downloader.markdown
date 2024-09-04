@@ -12,11 +12,11 @@ ha_integration_type: integration
 ha_config_flow: true
 ---
 
-The **Downloader** {% term integration %} provides an action to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user who is running Home Assistant. See Location of Folder, below.
+The **Downloader** {% term integration %} provides an action to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user who is running Home Assistant.
 
 {% include integrations/config_flow.md %}
 
-If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, .homeassistant/downloads).
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `.homeassistant/downloads`). For Home Assistant OS, the Downloader extension is based off the initial folder `/root/homeassistant/`. To that effect, if you have a folder called `/root/homeassistant/my_download_folder`, you would enter simply `my_download_folder` under the prompt for "Select a location to get to store downloads. The setup will check if the directory exists."
 
 ### Use the action
 
@@ -60,7 +60,3 @@ Along with the event the following payload parameters are available:
       message: "{{trigger.event.data.filename}} download failed"
       title: "Download Failed"
  ```
-
-#### Location of Folder
-
-For Home Assistant OS, the Downloader extension is based off the initial folder `/root/homeassistant/`. To that effect, if you have a folder called `/root/homeassistant/my_download_folder`, you would enter simply `my_download_folder` under the prompt for "Select a location to get to store downloads. The setup will check if the directory exists."
