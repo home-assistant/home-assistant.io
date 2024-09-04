@@ -427,7 +427,7 @@ When using MQTT discovery the option will be silently ignored.
 
 {% details "Proximity" %}
 
-In [2024.2 we introduced new sensor entities](/blog/2024/02/07/release-20242/#revamped-proximity-integration)
+In 2024.2, [we introduced new sensor entities](/blog/2024/02/07/release-20242/#revamped-proximity-integration)
 to the [Proximity](/integrations/proximity) {% term integration %} and therefore deprecated the `proximity` entity.
 
 Now this deprecated `proximity` entity has been removed.
@@ -441,7 +441,7 @@ Now this deprecated `proximity` entity has been removed.
 
 {% details "Sensibo" %}
 
-The previous PM2.5 sensor for Pure devices was incorrectly reporting a PM2.5 value, but it's actually a number representing an AQI level. The sensor will now provide the new states of 'good', 'moderate' and 'bad'.
+The previous PM2.5 sensor for Pure devices was incorrectly reporting a PM2.5 value, but it's actually a number representing an AQI level. The sensor will now provide the new states of 'good', 'moderate', and 'bad'.
 
 [@gjohansson-ST] - [#124151] ([documentation](/integrations/sensibo))
 
@@ -453,7 +453,7 @@ The previous PM2.5 sensor for Pure devices was incorrectly reporting a PM2.5 val
 
 The horn switch has been deprecated since 2024.1 and is now removed.
 
-Instead of switch a horn button entity was added. Please update your automations accordingly.
+Instead of a switch a horn button entity was added. Please update your automations accordingly.
 
 ([@gjohansson-ST] - [#123608]) ([documentation](/integrations/starline))
 
