@@ -366,9 +366,13 @@ In general, the state trigger fires when the state of any of given entities **ch
   - During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
   - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
 
+{% tip %}
 The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer Tools** > **States**" %}.
+{% endtip %}
 
 ### Examples
+
+This automation triggers if either Paulus or Anne-Therese are home for one minute.
 
 ```yaml
 automation:
