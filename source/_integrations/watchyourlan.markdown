@@ -11,7 +11,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `watchyourlan` sensor platform is the API endpoint which is exposed by a the [WatchYourLAN](https://github.com/aceberg/WatchYourLAN/blob/main/docs/API.md) project.
+The `watchyourlan` sensor platform is the API endpoint which is exposed by the [WatchYourLAN](https://github.com/aceberg/WatchYourLAN/blob/main/docs/API.md) project.
 
 ```yaml
 # Example configuration.yaml entry
