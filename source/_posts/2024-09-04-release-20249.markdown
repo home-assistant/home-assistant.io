@@ -91,7 +91,7 @@ We can't all have energy tracking for every device, and if you have whole-home e
 
 When we added the ability to use [Large Language Models (LLMs)](/blog/2024/06/05/release-20246/#dipping-our-toes-in-the-world-of-ai-using-llms) in our Voice Assistant, it began with a limited number of conversation agents. These included the cloud-based  [OpenAI](/components/openai_conversation/) and [Google AI](/components/google_generative_ai_conversation/) integrations, along with the locally-run [Ollama](/integrations/ollama/) integration. All three can now control the devices in your home.
 
-[@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant. Setting it up can be a little different than other conversation agents so take a look at the [documentation](/integrations/anthropic) if you're interested.
+[@Shulyaka](https://github.com/Shulyaka) has now added another cloud option with [Anthropic](/integrations/anthropic) - thanks again for giving us another option for experimenting with AI in Home Assistant. Setting it up can be a little different than other conversation agents, so take a look at the [documentation](/integrations/anthropic).
 
 We have updated our [LLM leaderboard](https://github.com/allenporter/home-assistant-datasets/tree/main/reports) to include Anthropic. Both Claude 3 Haiku and Claude 3 Sonnet score very high on our benchmarks and now rank among the top. Based on the results of the benchmark, we have set the cheaper Claude 3 Haiku as the default model for the Anthropic integration.
 
@@ -377,7 +377,7 @@ The YAML configuration was automatically imported and should be removed from you
 
 {% details "Lutron" %}
 
-In Home Assistant 2024.2 fans where converted from a light entity to a fan entity. 
+In Home Assistant 2024.2, fans where converted from a light entity to a fan entity. 
 The old light entities will no longer work in this release and can be removed.
 
 [@gjohansson-ST] - [#123607] ([documentation](/integrations/lutron))
