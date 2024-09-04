@@ -14,7 +14,7 @@ All your entities are listed in the entities table, under {% my entities title="
 
 ## Entity attributes
 
-Entities have attributes. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each integration will also have its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. The list of available attributes depends on the {% term device %}.
+Many entities have attributes. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each integration will also have its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. The list of available attributes depends on the {% term device %}.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
@@ -25,7 +25,7 @@ For more information on entity attributes, refer to the [attributes](/docs/confi
 
 ## Domains
 
-Each integration in Home Assistant has a unique identifier: a domain. All of the entities and actions available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or action, before the . shows the domain they belong to. For example light.kitchen is an entity in the light domain from the light integration.
+Each integration in Home Assistant has a unique identifier: a domain. All of the entities and actions available in Home Assistant are provided by integrations and thus belong to such a domain. The first part of the entity or action, before the . shows the domain they belong to. For example light.kitchen is an entity in the light domain.
 
 Currently, the following domains are available (also known as *building block integrations* or *entity integrations*):
 
