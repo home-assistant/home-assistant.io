@@ -1,6 +1,6 @@
 ---
 title: AWS Data
-description: Description on How an what AWS Data monitors
+description: Learn how to monitor AWS services like EC2, S3, and Cost Explorer using the aws_data integration.
 ha_category:
   - Sensor
 ha_iot_class: Cloud Pull
@@ -15,11 +15,11 @@ related:
 ---
 
 The `aws_data` gives you an option to monitor services inside your [Amazon Web Services](https://aws.amazon.com/) account.
-Right now, it's monitoring only [EC2](https://aws.amazon.com/ec2/), [S3](https://aws.amazon.com/S3/), [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/).
+The `aws_data` integration currently monitors  [EC2](https://aws.amazon.com/ec2/), [S3](https://aws.amazon.com/S3/), [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/).
 
 ## Setup
 
-In order to make the `aws_data` integration work you need to set up an access key.
+To set up the `aws_data` integration, you need an access key.
 The best way to create the key is going to the console's [IAM](https://us-east-1.console.aws.amazon.com/iam/home) page, creating the appropriate user with minimal permissions for the services, also producing the key is on the created user's page.
 
 **Appropriate permissions for each service:**
@@ -30,7 +30,7 @@ The best way to create the key is going to the console's [IAM](https://us-east-1
 - `S3: ListAllMyBuckets` to list all S3 buckets in the account.
 - `Cost Explorer: GetCostAndUsage` to view general cost in the account.
 
-**Note:** `CloudWatch` and `Cost Explorer` can accumulate costs with API Inquiry, Please see Documentation on [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/) and [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/).
+> **Important:** `CloudWatch` and `Cost Explorer` can accumulate costs with API Inquiry, Please see Documentation on [CloudWatch](https://aws.amazon.com/cloudwatch/pricing/) and [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/pricing/).
 
 ## Monitoring
 
@@ -45,8 +45,7 @@ Each Monitor has a default interval retrieving data which can be changes in a co
 
 ## Configuration
 
-To se tup the integration you should provide the access key and secret, with the correct permissions it should produce your account's region list, choosing a region and a service is required.
-Each time you se tup the integration which linked to the same account will add to the existing integration with the current configurations.
+To set up the integration, you should provide the access key and secret. With the correct permissions, it should produce your account's region list. Choosing a region and a service is required. Each time you set up the integration linked to the same account, it will add to the existing integration with the current configurations.
 
 ### Configuration file
 
@@ -55,7 +54,7 @@ Adding a setting in your {% term "`configuration.yaml`" %} file gives you the ab
 ```yaml
 aws_data:
   filter:
-   - name: ec2 | s3 (ce cant be here, general metric)
+   - name: ec2 | s3 (ce cant be here, it's a general metric)
      account: account id
      id:
       - service id 1
@@ -67,4 +66,4 @@ aws_data:
      seconds: 60
 ```
 
-Choosing to have a `reason` with the `Include`, unlike `Exclude` which filters out services by id, will make the integration to create sensors only for the ids in the `Include` and will ignore the rest ids for the service. Interval changes the refresh time for the sensor's data per service.
+The `filter` parameter, let's you choose the services you want to monitor or exclude. Each `name` mentioned in the `filter` only corresponds to relevant service. The `reason` gives the option to `Include` or `Exclude` a service found during the integration set up. While `Exclude` removes an `id`, `Include` will monitor only the `id` found in the integration.
