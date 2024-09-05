@@ -12,9 +12,9 @@ The core of Home Assistant is the event bus. The event bus allows any integratio
 
 ## Events and state changes
 
-Every {% term state %} change produces an event. This means that all event entity changes will be on the event bus, but not all events on the event bus are event entities. For more information on event entities, refer to the documentation of the [event entity integration](/integrations/event/).
+All {% term entities %} produce state change events. Every time a {% term state %} changes, a state change event is produced. State change events are just one type of event on the event bus, but there are other kinds of events, such as the [built-in events](#built-in-events-core) that are used to coordinate between various integrations. State change events are not to be confused with the [event entity](/integrations/event/). This is a specific type of entity, that itself produces event state changes, just lake all other events.
 
-For example, any state change will be announced on the event bus as a `state_changed` event containing the previous and the new state of an entity. But Home Assistant also contains [built-in events](#built-in-events-core) that are used to coordinate between various integrations.
+Any state change will be announced on the event bus as a `state_changed` event, containing the previous and the new state of an entity.
 
 ## Common fields
 
