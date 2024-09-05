@@ -29,7 +29,7 @@ Each integration in Home Assistant has a unique identifier: a domain. All of the
 
 The domain provides entities, services, and other functionality that other integrations can use. For example, IKEA and Philips Hue both use the light integration. This is why the look and feel and behavior is similar in Home Assistant.
 
-Currently, the following domains are available (also known as *building block integrations* or *entity integrations*):
+The following integrations are used as domains. The list is not complete, but these are the most common ones. The integrations listed below are also referred to as *building block integrations* or *entity integrations*:
 
 <ul>
 {%- for integration in site.integrations %}
