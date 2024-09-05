@@ -119,7 +119,7 @@ A common read-only property is represented as a sensor platform.
 | Kimchi Refrigerator | Air filter mode<br>One touch filter state<br>Target temperature |
 | [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state |
 | [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state<br>Target temperature |
-| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Current state<br>Growth mode<br>Wind volume<br>Daytime target temperature<br>Night target temperaturet<br>Temperature state |
+| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Current state<br>Growth mode<br>Wind volume<br>Daytime target temperature<br>Night target temperature<br>Temperature state |
 | [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Air filter mode |
 | [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Error description<br>Current state<br>Current job mode |
 | [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Current job mode<br>Current state |
