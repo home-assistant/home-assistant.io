@@ -1051,7 +1051,7 @@ blueprint:
 ## Merging lists of triggers
 
 {% caution %}
-This feature requires Home Assistant version 2024.9 or later. Set the `min_version` for the blueprint to at least this version if using this feature. Otherwise, the blueprint will generate errors on older versions.
+This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version.
 {% endcaution %}
 
 In some advanced cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:
