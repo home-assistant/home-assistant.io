@@ -76,6 +76,24 @@ name:
   default: Threshold
 {% endconfiguration %}
 
+## Matrix of state change behavior
+
+### Sensor value rising
+
+| set           | turns on when           | turns off when          |
+| ------------- | ----------------------- | ----------------------- |
+| only upper    | sensor > (upper + hyst) | never                   |
+| only lower    | never                   | sensor > (lower + hyst) |
+| upper & lower | sensor > (lower + hyst) | sensor > (upper + hyst) |
+
+### Sensor value falling
+
+| set           | turns on when           | turns off when          |
+| ------------- | ----------------------- | ----------------------- |
+| only upper    | never                   | sensor < (upper - hyst) |
+| only lower    | sensor < (lower - hyst) | never                   |
+| upper & lower | sensor < (upper - hyst) | sensor < (lower - hyst) |
+
 ## Examples
 
 ### Is the temperature rising or falling
