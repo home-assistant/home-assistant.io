@@ -32,6 +32,8 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06M](https://smlight.tech/product/slzb-06m)
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
+
+Core firmware on your SLZB-06x device must be `2.3.6` or newer. If you have an older version, update using the SMLIGHT Web UI before installing this integration.
   
 {% include integrations/config_flow.md %}
 
