@@ -22,3 +22,14 @@ The `emoncms` sensor {% term integration %} creates sensors for the feeds availa
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+- **energy** in Wh, kWh
+- **power** in W
+- **voltage** in V
+- **current** in A
+- **apparent power** in VA
+- **temperature** in °C, °F or K
+- **frequency** in Hz
+- **pressure** in hPa
