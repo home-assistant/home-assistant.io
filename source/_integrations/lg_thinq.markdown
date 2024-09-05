@@ -100,66 +100,39 @@ A read-only property which has only two states that can be toggled is represente
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
 
-#### Sensor
+### Sensor
 
 A common read-only property is represented as a sensor platform.
 
 | Device | Property |
 | ------ | -------- |
 | [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor concentration<br>Total pollution |
-| | Operation timer |
-| | Sleep timer |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor concentration<br>Total pollution<br>Enable monitoring<br>Temperature |
-| | Sleep timer |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor concentration<br>Total pollution<br>Enable Monitoring |
-| | Current job mode |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor concentration<br>Temperature<br>Total pollution<br>Monitoring always or on operation |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor concentration<br>Total pollution<br>Monitoring always or on operation<br>Current job mode<br>Personalizaion mode (preset) |
 | [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/) | Current state |
-| | Power level |
-| | Remained time |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Current job mode |
-| | Current humidity |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Current dishwashing course |
-| | Current state |
-| | Door state |
-| | Rinse level<br>Softening level<br>Signal sound<br>Enable reminder |
-| | Operation timer |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Current state |
-| | Operation timer<br>Remained time<br>Total time |
-| [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Recipe name<br>Wort info<br>Yeast info<br>Hop oil info<br>Flavor info<br>Beer remain |
-| | Current state |
-| | Elapsed day on current status<br>Total elapsed day |
-| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Hood operation mode |
-| | Remained time |
-| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Total pollution<br>Enable monitoring<br>Temperature |
-| | Operation timer |
-| | Sleep timer |
-| [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/) | Fresh air filter mode<br>Enable one touch filter |
-| | Target temperature |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Current job mode<br>Current state |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Error description<br>Current state |
+| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Error description<br>Current state |
+| [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Current state |
+| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Operation mode |
+| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Total pollution<br>Monitoring always or on operation |
+| Kimchi Refrigerator | Air filter mode<br>One touch filter state<br>Target temperature |
 | [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state |
-| | Remained time |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state |
-| | Target temperature |
-| | Remained time |
-| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Brightness<br>Duration<br>Start time<br>End time |
-| | Current state<br>Growth mode<br>Wind volume |
-| | Daytime target temperature<br>Night target temperaturet<br>Temperature |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Door state |
-| | Fresh air filter mode |
-| | Used time |
-| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Current state |
-| | Current job mode |
-| | Running time |
-| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Current state |
-| | Current job mode |
-| | Battery level |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Current state |
-| | Remained time<br>Operation timer<br>Total time |
-| Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Current state |
-| | Operation timer |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Operation mode |
-| | Current temperature |
-| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Cock state<br>Sterilizing state |
-| | Water type |
+| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state<br>Target temperature |
+| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Current state<br>Growth mode<br>Wind volume<br>Daytime target temperature<br>Night target temperaturet<br>Temperature state |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Air filter mode |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Error description<br>Current state<br>Current job mode |
+| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Current job mode<br>Current state |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Error description<br>Current state |
+| Washcombo Main | Error description<br>Current state |
+| Washcombo Mini | Error description<br>Current state |
+| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Error description<br>Current state |
+| [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Error description<br>Current state |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
+| [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Error description<br>Current state |
+| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature | Operation mode |
+| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Cock(body) cleaning mode<br>Sterilizing mode<br>Water type |
 
 ### Switch
 
