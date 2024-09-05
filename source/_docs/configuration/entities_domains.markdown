@@ -14,7 +14,7 @@ All your entities are listed in the entities table, under {% my entities title="
 
 ## Entity attributes
 
-Many entities have attributes. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each integration will also have its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. The list of available attributes depends on the {% term device %}.
+Many entities have attributes. There are a few attributes that are available on all entities, such as `friendly_name` and `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. The list of available attributes depends on the {% term device %}.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
@@ -32,7 +32,7 @@ The domain provides entities, services, and other functionality that other integ
 There are different types of domains: integration domains and entity domains:
 
 - Integration domains provide functionality primarily for itself: examples are Hue, Matter, or Zigbee.
-- Entity domains don't use their own functionality as such. But they provide it for other integrations to use. 
+- Entity domains don't use their own functionality as such. But they provide it for other integrations to use.
 
 The integrations listed below are used as entity domains. They are also referred to as *building block integrations* or *entity integrations*:
 
