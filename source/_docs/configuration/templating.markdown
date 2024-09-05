@@ -1091,6 +1091,38 @@ While Jinja natively supports the conversion of an iterable to a `list`, it does
 
 Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
+### Iterating multiple objects
+
+The `zip()` function can be used to iterate over multiple collections in one operation.
+
+{% raw %}
+
+```text
+{% set names = ['Living Room', 'Dining Room'] %}
+{% set entities = ['sensor.living_room_temperature', 'sensor.dining_room_temperature'] %}
+{% for name, entity in zip(names, entities) %}
+  The {{ name }} temperature is {{ states(entity) }}
+{% endfor %}
+```
+
+{% endraw %}
+
+`zip()` can also unzip lists.
+
+{% raw %}
+
+```text
+{% set information = [
+  ('Living Room', 'sensor.living_room_temperature'),
+  ('Dining Room', 'sensor.dining_room_temperature')
+] %}
+{% set names, entities = zip(*information) %}
+The names are {{ names | join(', ') }}
+The entities are {{ entities | join(', ') }}
+```
+
+{% endraw %}
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
@@ -1284,7 +1316,7 @@ For actions, command templates are defined to format the outgoing MQTT payload t
 
 {% note %}
 
-Example command template:
+**Example command template with JSON data:**
 
 With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endraw %} renders to:
 
@@ -1297,6 +1329,14 @@ With given value `21.9` template {% raw %}`{"temperature": {{ value }} }`{% endr
 Additional the MQTT entity attributes `entity_id`, `name` and `this` can be used as variables in the template. The `this` attribute refers to the [entity state](/docs/configuration/state_object) of the MQTT item.
 
 {% endnote %}
+
+**Example command template with raw data:**
+
+When a command template renders to a valid `bytes` literal, then MQTT will publish this data as raw data. In other cases, a string representation will be published. So:
+
+- Template {% raw %}`{{ "16" }}`{% endraw %} renders to payload encoded string `"16"`.
+- Template {% raw %}`{{ 16 }}`{% endraw %} renders to payload encoded string `"16"`.
+- Template {% raw %}`{{ pack(0x10, ">B") }}`{% endraw %} renders to a raw 1 byte payload `0x10`.
 
 ## Some more things to keep in mind
 

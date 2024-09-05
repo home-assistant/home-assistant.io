@@ -41,6 +41,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
 - Mercury NZ Limited
+- National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
