@@ -15,11 +15,11 @@ related:
 ---
 
 The `aws_data` gives you an option to monitor services inside your [Amazon Web Services](https://aws.amazon.com/) account.
-Right now it's monitoring only [EC2](https://aws.amazon.com/ec2/), [S3](https://aws.amazon.com/S3/), [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/).
+Right now, it's monitoring only [EC2](https://aws.amazon.com/ec2/), [S3](https://aws.amazon.com/S3/), [Cost Explorer](https://aws.amazon.com/aws-cost-management/aws-cost-explorer/).
 
 ## Setup
 
-In order to make the `aws_data` integration work you need to setup an access key.
+In order to make the `aws_data` integration work you need to set up an access key.
 The best way to create the key is going to the console's [IAM](https://us-east-1.console.aws.amazon.com/iam/home) page, creating the appropriate user with minimal permissions for the services, also producing the key is on the created user's page.
 
 **Appropriate permissions for each service:**
@@ -34,7 +34,7 @@ The best way to create the key is going to the console's [IAM](https://us-east-1
 
 ## Monitoring
 
-Currently the available metrics in each service are:
+Currently, the available metrics in each service are:
 
 - **EC2:**  CPUUtilization, NetworkOut, EBSWriteBytes, EBSReadBytes.
 - **S3:** Number Of Objects, Bucket Size.
@@ -45,12 +45,12 @@ Each Monitor has a default interval retrieving data which can be changes in a co
 
 ## Configuration
 
-To setup the integration you should provide the access key and secret, with the correct permissions it should produce your account's region list, choosing a region and a service is required.
-Each time you setup the integration which linked to the same account will add to the existing integration with the current configurations.
+To se tup the integration you should provide the access key and secret, with the correct permissions it should produce your account's region list, choosing a region and a service is required.
+Each time you se tup the integration which linked to the same account will add to the existing integration with the current configurations.
 
 ### Configuration file
 
-Adding a setting in your {% term "`configuration.yaml`" %} file gives you the ability to filter out or include specific services by the appropriate ids, also the ability to change interval of the sensors.
+Adding a setting in your {% term "`configuration.yaml`" %} file gives you the ability to filter out or include specific services by the appropriate ids, also the ability to change the interval of the sensors.
 
 ```yaml
 aws_data:
