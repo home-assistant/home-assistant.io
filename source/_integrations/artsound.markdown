@@ -7,7 +7,7 @@ ha_domain: artsound
 ha_zeroconf: true
 ha_integration_type: virtual
 ha_supporting_domain: linkplay
-ha_supporting_integration: Linkplay
+ha_supporting_integration: LinkPlay
 ha_release: 2024.9
 ha_codeowners:
   - '@Velleman'
