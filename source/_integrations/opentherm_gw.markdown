@@ -259,7 +259,7 @@ Possible LED modes and their meaning are listed here:
 ## Advanced usage
 
 {% warning %}
-Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering to use the information in this section.
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using the information in this section.
 {% endwarning %}
 For advanced control of your heating system, some `switch` configuration entities can be found on the added `OpenTherm Gateway` device.
-These entities are disabled by default as they can cause your heating system to run continuously and/or increase your energy consumption significantly if used improperly. In most setups, these entities are not needed and should be left disabled.
+These entities are disabled by default, as they can cause your heating system to run continuously and/or increase your energy consumption significantly if used improperly. In most setups, these entities are not needed and should be left disabled.
