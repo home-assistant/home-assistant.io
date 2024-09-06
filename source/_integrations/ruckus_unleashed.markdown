@@ -20,7 +20,7 @@ This platform allows you to connect to [Ruckus](https://www.ruckusnetworks.com/)
 
 [Ruckus Unleashed](https://www.ruckusnetworks.com/products/network-control-and-management/controller-less/),
 [Ruckus ZoneDirector](https://support.ruckuswireless.com/products/73),
-[Ruckus SmartZone](https://www.ruckusnetworks.com/products/network-control-and-management/network-controllers/)
+[Ruckus SmartZone](https://www.ruckusnetworks.com/products/network-control-and-management/network-controllers/),
 and [Ruckus One](https://www.ruckusnetworks.com/products/network-control-and-management/cloud-managed/)
 access points are supported. Access points running Standalone/Solo firmware are not supported.
 
@@ -46,16 +46,16 @@ If you've configured an Unleashed Management Interface then use this instead.
 
 You'll need to use your Ruckus One dashboard to create an Application Token. Go to the bottom of the
 **Administration** > **Settings** screen and click the **Add Token** link. Choose any
-**Application Name**, e.g. `Home Assistant`. The **Token Scope** can be `Read Only`.
+**Application Name**, for example `Home Assistant`. The **Token Scope** can be **Read Only**.
 
 When Home Assistant prompts for Ruckus connection details, use the full URL of a Ruckus One
-dashboard page as the Host (e.g. `https://asia.ruckus.cloud/5dd1000334cc2a01fcf28a740a6c95cf/t/dashboard`),
+dashboard page as the Host (such as `https://asia.ruckus.cloud/5dd1000334cc2a01fcf28a740a6c95cf/t/dashboard`),
 your Token **Client ID** as the Username & your Token **Shared Secret** as the Password.
 
 ## Limitations
 
 This integration is not currently suitable for large multi-venue SmartZone or Ruckus One networks: there
-is no way to filter devices by e.g. Venue or Zone.
+is no way to filter devices by Venue or Zone.
 
 If you've configured your access points with an extended Client Inactivity Timeout then this is how long
 you'll need to wait for devices to be detected as `not_home`.
@@ -64,4 +64,4 @@ you'll need to wait for devices to be detected as `not_home`.
 
 For this platform to work, the Ruckus controller or Unleashed AP will need to be accessible over HTTPS.
 If you are having trouble with Home Assistant not connecting, make sure the user you have specified
-can log in to the web dashboard and view AP, WLAN and Client information.
+can log in to the web dashboard and view AP, WLAN, and Client information.
