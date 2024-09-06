@@ -45,6 +45,8 @@ Don't forget to [join our release party live stream on YouTube](https://www.yout
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
   - [Farewell to the following](#farewell-to-the-following)
+- [Patch releases](#patch-releases)
+- [Release 2024.9.1 - September 6](#release-202491---september-6)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -219,6 +221,98 @@ of this release:
 - **Asterisk Call Detail Records** and **Asterisk Voicemail**. Previously
   deprecated and now removed. They have been using a deprecated mailbox feature
   that is no longer available.
+
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.9 in September. These
+patch releases only contain bug fixes. Our goal is to release a patch every
+week (around Friday).
+
+## Release 2024.9.1 - September 6
+
+- Fix BTHome validate triggers for device with multiple buttons ([@thecode] - [#125183]) ([bthome docs])
+- Improve play media support in LinkPlay ([@silamon] - [#125205]) ([linkplay docs])
+- Revert #122676 Yamaha discovery ([@joostlek] - [#125216]) ([yamaha docs])
+- Fix blocking call in yale_smart_alarm ([@gjohansson-ST] - [#125255]) ([yale_smart_alarm docs])
+- Don't show input panel if default code provided in envisalink ([@gjohansson-ST] - [#125256]) ([envisalink docs])
+- Increase AquaCell timeout and handle timeout exception properly ([@Jordi1990] - [#125263]) ([aquacell docs])
+- Bump aiorussound to 3.0.4 ([@noahhusby] - [#125285]) ([russound_rio docs])
+- Add follower to the PlayingMode enum ([@silamon] - [#125294]) ([linkplay docs])
+- Don't allow templating min, max, step in config entry template number ([@emontnemery] - [#125342]) ([template docs])
+- Fix for Hue sending effect None at turn_on command while no effect is active ([@marcelveldt] - [#125377]) ([hue docs])
+- Lyric: fixed missed snake case conversions ([@dalinicus] - [#125382]) ([lyric docs])
+- Bump pysmlight to 0.0.14 ([@tl-sl] - [#125387]) ([smlight docs])
+- Bump pypck to 0.7.22 ([@alengwenus] - [#125389]) ([lcn docs])
+- Increase coordinator update_interval for fyta ([@dontinelli] - [#125393]) ([fyta docs])
+- Fix controlling AC temperature in airtouch5 ([@danzel] - [#125394]) ([airtouch5 docs])
+- Bump sfrbox-api to 0.0.10 ([@AlexT59] - [#125405])
+- Improve handling of old firmware versions ([@tl-sl] - [#125406]) ([smlight docs])
+- Set min_power similar to max_power to support all inverters from apsystems ([@mawoka-myblock] - [#124247]) ([apsystems docs])
+- Update frontend to 20240906.0 ([@piitaya] - [#125409]) ([frontend docs])
+- Bump pyatv to 0.15.1 ([@postlund] - [#125412]) ([apple_tv docs])
+
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124247]: https://github.com/home-assistant/core/pull/124247
+[#124569]: https://github.com/home-assistant/core/pull/124569
+[#124880]: https://github.com/home-assistant/core/pull/124880
+[#125183]: https://github.com/home-assistant/core/pull/125183
+[#125205]: https://github.com/home-assistant/core/pull/125205
+[#125216]: https://github.com/home-assistant/core/pull/125216
+[#125255]: https://github.com/home-assistant/core/pull/125255
+[#125256]: https://github.com/home-assistant/core/pull/125256
+[#125263]: https://github.com/home-assistant/core/pull/125263
+[#125285]: https://github.com/home-assistant/core/pull/125285
+[#125294]: https://github.com/home-assistant/core/pull/125294
+[#125342]: https://github.com/home-assistant/core/pull/125342
+[#125377]: https://github.com/home-assistant/core/pull/125377
+[#125382]: https://github.com/home-assistant/core/pull/125382
+[#125387]: https://github.com/home-assistant/core/pull/125387
+[#125389]: https://github.com/home-assistant/core/pull/125389
+[#125393]: https://github.com/home-assistant/core/pull/125393
+[#125394]: https://github.com/home-assistant/core/pull/125394
+[#125405]: https://github.com/home-assistant/core/pull/125405
+[#125406]: https://github.com/home-assistant/core/pull/125406
+[#125409]: https://github.com/home-assistant/core/pull/125409
+[#125412]: https://github.com/home-assistant/core/pull/125412
+[@AlexT59]: https://github.com/AlexT59
+[@Jordi1990]: https://github.com/Jordi1990
+[@alengwenus]: https://github.com/alengwenus
+[@balloob]: https://github.com/balloob
+[@dalinicus]: https://github.com/dalinicus
+[@danzel]: https://github.com/danzel
+[@dontinelli]: https://github.com/dontinelli
+[@edenhaus]: https://github.com/edenhaus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@mawoka-myblock]: https://github.com/mawoka-myblock
+[@noahhusby]: https://github.com/noahhusby
+[@piitaya]: https://github.com/piitaya
+[@postlund]: https://github.com/postlund
+[@silamon]: https://github.com/silamon
+[@thecode]: https://github.com/thecode
+[@tl-sl]: https://github.com/tl-sl
+[airtouch5 docs]: /integrations/airtouch5/
+[apple_tv docs]: /integrations/apple_tv/
+[apsystems docs]: /integrations/apsystems/
+[aquacell docs]: /integrations/aquacell/
+[bthome docs]: /integrations/bthome/
+[envisalink docs]: /integrations/envisalink/
+[frontend docs]: /integrations/frontend/
+[fyta docs]: /integrations/fyta/
+[hue docs]: /integrations/hue/
+[lcn docs]: /integrations/lcn/
+[linkplay docs]: /integrations/linkplay/
+[lyric docs]: /integrations/lyric/
+[russound_rio docs]: /integrations/russound_rio/
+[smlight docs]: /integrations/smlight/
+[template docs]: /integrations/template/
+[yale_smart_alarm docs]: /integrations/yale_smart_alarm/
+[yamaha docs]: /integrations/yamaha/
 
 
 ## Need help? Join the community!
