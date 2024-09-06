@@ -1,5 +1,5 @@
 ---
-title: Ruckus Networks
+title: Ruckus
 description: Instructions on how to integrate your Ruckus Networks device into Home Assistant.
 ha_category:
   - Presence detection
