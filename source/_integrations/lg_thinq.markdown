@@ -114,7 +114,6 @@ A common read-only property is represented as a sensor platform.
 | [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Error description<br>Current state |
 | [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Error description<br>Current state |
 | [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Current state |
-| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Operation mode |
 | Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation |
 | Kimchi Refrigerator | Air filter mode<br>One touch filter state<br>Target temperature |
 | [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state |
@@ -131,7 +130,7 @@ A common read-only property is represented as a sensor platform.
 | [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
 | [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
 | [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Error description<br>Current state |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature | Operation mode |
+| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
 | [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Cock(body) cleaning mode<br>Sterilizing mode<br>Water type |
 
 ### Switch
