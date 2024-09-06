@@ -22,11 +22,11 @@ The LinkPlay {% term integrations %} for Home Assistant allows you to control va
 
 ## Actions
 
-The Linkplay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
+The LinkPlay integration makes various custom actions available in addition to the [standard media player actions](/integrations/media_player/#actions).
 
 ### Action `linkplay.play_preset`
 
-Play a preset on a Linkplay media player. 
+Play a preset on a LinkPlay media player. 
 
 {% note %}
 Companion apps, like 4stream for example, allow to save music presets (for example Spotify playlists). This action can be used to start playing these presets. 
@@ -34,6 +34,6 @@ Companion apps, like 4stream for example, allow to save music presets (for examp
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | no | The speakers to target. To target all Linkplay devices, use `all`.
+| `entity_id` | no | The speakers to target. To target all LinkPlay devices, use `all`.
 | `preset_number` | no | The number of the preset to play.
 
