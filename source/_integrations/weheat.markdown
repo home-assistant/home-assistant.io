@@ -6,17 +6,13 @@ ha_category:
   - Climate
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: '2024.7.3'
-ha_dhcp: true
+ha_release: "2024.10"
 ha_config_flow: true
-ha_quality_scale: silver
 ha_codeowners:
   - '@jesperraemaekers'
   - '@kjell-van-straaten'
 ha_domain: weheat
 ha_platforms:
-  - energy
-  - climate
   - sensor
 ha_integration_type: integration
 ---
