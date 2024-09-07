@@ -934,7 +934,7 @@ command_off_template:
   required: true
   type: template
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
+  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `hue`, `sat`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `hue` is provided as float from range 0-360. Value of `sat` is provided as float from range 0-100. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: template
 command_topic:
