@@ -42,7 +42,7 @@ automation:
       - platform: samsungtv.turn_on
         entity_id: media_player.samsung_smart_tv
     action:
-      - service: wake_on_lan.send_magic_packet
+      - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
 ```
@@ -426,7 +426,7 @@ The code list has been extracted from: https://github.com/kdschlosser/samsungctl
 **Example to send sequence of commands:**
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   device_id: 72953f9b4c9863e28ddd52c87dcebe05
 data:

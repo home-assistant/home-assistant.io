@@ -608,6 +608,13 @@ The visualization shows multi-hop connections between your paired devices and th
 
 The exact method in which these values are reported depends on the Zigbee network stack used on each device. LQI values can be modified at each step as the message propagates through the mesh networking matrix.
 
+#### Why some links are missing in Zigbee network topology maps
+
+Missing links between Zigbee end devices (often battery-powered devices) in the Zigbee network visualization map are common. They are generally not a sign of a faulty device if the device is still reporting state changes. This happens with sleepy Zigbee end devices and does not mean that the device is no longer connected.
+
+Some end devices (for example, Xiaomi door sensors) sleep for an extended period, causing the parent Zigbee Router to remove them from its child table via a feature called router child aging. Since using child aging and removing them from the child table is a Zigbee 3.0 feature, this does not always occur because not all Zigbee router devices use child aging.
+
+This is what causes devices to show a missing link. Even though the device is no longer in the child table, the end device can still communicate via the parent Zigbee router.
 #### How to interpret RSSI and LQI values
 
 Interpreting RSSI and LQI values is complex. Unless you are a Zigbee specialist yourself or are guided by one, please ignore those values. They can be misleading. If you delve into this, it is important to understand not to judge RSSI or LQI values on their own. When troubleshooting Zigbee messages that are being dropped, you must interpret the combination of both RSSI and LQI.

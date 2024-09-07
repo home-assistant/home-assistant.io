@@ -86,7 +86,7 @@ script:
         address: 65
         memo_text: "It's trash day"
         interface: "tls://192.168.1.9:27015"
-      service: velbus.set_memo_text
+      action: velbus.set_memo_text
 ```
 
 ### Action `velbus.clear_cache`
@@ -131,7 +131,7 @@ The actual linking can be realized by two automation rules. One rule to control 
   condition: []
   action:
   - entity_id: light.living
-    service: light.toggle
+    action: light.toggle
 
 # Keep status LED push_button_10 in sync to status light living
 - id: 'Update LED of push_button_10'
@@ -164,5 +164,5 @@ The actual linking can be realized by two automation rules. One rule to control 
         entity_id: light.living
         state: "on"
   - entity_id: light.led_push_button_10
-    service: light.toggle
+    action: light.toggle
 ```

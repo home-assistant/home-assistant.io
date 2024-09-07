@@ -197,35 +197,35 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
       - entity: button.camera1_ptz_left
         icon: mdi:pan-left
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_left
       - entity: button.camera1_ptz_right
         icon: mdi:pan-right
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_right
       - entity: button.camera1_ptz_up
         icon: mdi:pan-up
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_up
       - entity: button.camera1_ptz_down
         icon: mdi:pan-down
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_down
     camera_image: camera.camera1_sub
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       target:
         entity_id: light.philips_929003052501_01_huelight
     ```

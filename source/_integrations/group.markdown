@@ -24,6 +24,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - fan
@@ -327,10 +328,10 @@ notify:
   - platform: group
     name: "My notification group"
     services:
-      - service: html5
+      - action: html5
         data:
           target: "macbook"
-      - service: html5_nexus
+      - action: html5_nexus
 ```
 
 {% configuration %}

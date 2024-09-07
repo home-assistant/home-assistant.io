@@ -11,6 +11,7 @@ ha_codeowners:
   - '@Robbie1221'
   - '@frenck'
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: hub
 ---

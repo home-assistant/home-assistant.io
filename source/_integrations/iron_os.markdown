@@ -11,12 +11,17 @@ ha_codeowners:
 ha_domain: iron_os
 ha_integration_type: integration
 ha_platforms:
+  - number
   - sensor
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
 
 {% include integrations/config_flow.md %}
+
+## Number controls
+
+- **Setpoint temperature:** Allows to set the desired target temperature for the soldering iron tip.
 
 ## Sensors
 

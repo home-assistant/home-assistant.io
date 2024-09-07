@@ -119,6 +119,15 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 Your first step to get MQTT and Home Assistant working is to choose a broker.
 
+The easiest option is to install the official Mosquitto Broker add-on. You can choose to set up and configure this add-on automatically when you set up the MQTT integration. Home Assistant will automatically generate and assign a safe username and password, and no further attention is required. This also works if you have already set up this add-on yourself in advance.
+You can set up additional logins for your MQTT devices and services using the [Mosquitto add-on configuration](https://my.home-assistant.io/create-link/?redirect=supervisor_addon&addon=core_mosquitto).
+
+{% important %}
+When MQTT is set up with the official Mosquitto MQTT broker add-on, the broker's credentials are generated and kept secret. If the official Mosquitto MQTT broker needs to be re-installed, make sure you save a copy of the add-on user options, like the additional logins. After re-installing the add-on, the MQTT integration will automatically update the new password for the re-installed broker. It will then reconnect automatically.
+{% endimportant %}
+
+ Alternatively, you can use a different MQTT broker that you configure yourself, ensuring it is compatible with Home Assistant.
+
 ## Setting up a broker
 
 While public MQTT brokers are available, the easiest and most private option is running your own.
@@ -817,6 +826,7 @@ support_url:
     'name':                'name',
     'mf':                  'manufacturer',
     'mdl':                 'model',
+    'mdl_id':              'model_id',
     'hw':                  'hw_version',
     'sw':                  'sw_version',
     'sa':                  'suggested_area',
@@ -1051,7 +1061,8 @@ Setting up a sensor with multiple measurement values requires multiple consecuti
       ],
       "name":"Bedroom",
       "manufacturer": "Example sensors Ltd.",
-      "model": "K9",
+      "model": "Example Sensor",
+      "model_id": "K9",
       "serial_number": "12AE3010545",
       "hw_version": "1.01a",
       "sw_version": "2024.1.0",
@@ -1186,6 +1197,7 @@ Setting up a [light that takes JSON payloads](/integrations/light.mqtt/#json-sch
       "name": "Kitchen",
       "mf": "Bla electronics",
       "mdl": "xya",
+      "mdl_id": "ABC123",
       "sw": "1.0",
       "sn": "ea334450945afc",
       "hw": "1.0rev2",
@@ -1351,7 +1363,7 @@ automation:
     entity_id: device_tracker.me
     to: "home"
   action:
-    service: script.notify_mqtt
+    action: script.notify_mqtt
     data:
       target: "me"
       message: "I'm home"
@@ -1359,7 +1371,7 @@ automation:
 script:
   notify_mqtt:
     sequence:
-      - service: mqtt.publish
+      - action: mqtt.publish
         data:
           payload: "{{ message }}"
           topic: home/"{{ target }}"
@@ -1378,9 +1390,13 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | ---------------------- | -------- | ------------------------------------------------------------ |
 | `topic`                | no       | Topic to publish payload to.                                 |
 | `payload`              | no       | Payload to publish.                                          |
+| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
+{% note %}
+When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
+{% endnote %}
 
 {% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
@@ -1434,7 +1450,7 @@ If you set "name" in the payload the entity name will start with the device name
 {% raw %}
 
 ```yaml
-service: mqtt.publish
+action: mqtt.publish
 data:
   topic: homeassistant/sensor/Acurite-986-1R-51778/config
   payload: >-
@@ -1446,7 +1462,8 @@ data:
     "device": {
     "identifiers": "Acurite-986-1R-51778",
     "name": "Bathroom",
-    "model": "Acurite-986",
+    "model": "Acurite",
+    "model_id": "986",
     "manufacturer": "rtl_433" }
     }
 ```

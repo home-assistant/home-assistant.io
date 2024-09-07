@@ -170,7 +170,7 @@ To add a notification sound, icon, cycles, or priority override,
     from: "not_home"
     to: "school"
   action:
-    service: notify.my_lametric
+    action: notify.my_lametric
     data:
       message: "Tom has arrived at school!"
       data:

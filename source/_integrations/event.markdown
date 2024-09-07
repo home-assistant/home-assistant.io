@@ -40,7 +40,7 @@ trigger:
   - platform: state
     entity_id: event.doorbell
 action:
-  - service: notify.frenck
+  - action: notify.frenck
     data:
       message: "Ding Dong! Someone is at the door!"
 ```

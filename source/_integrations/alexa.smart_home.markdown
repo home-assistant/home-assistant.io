@@ -149,7 +149,7 @@ The first thing you need to do after signing into the [AWS console](https://cons
 Next you need create a Lambda function.
 
 - Click `Services` in top navigation bar, expand the menu to display all AWS services, then under `Compute` section click `Lambda` to navigate to Lambda console. Or you may use this [link](https://console.aws.amazon.com/lambda/home)
-- **IMPORTANT - Alexa Skills are only supported in certain AWS regions** Your current server location will be displayed on the top right corner (for example, Ohio), make sure you select the server closest to your location / region based on your Amazon account's country, whilst also ensuring that it is within one of the supported regions for Alexa Skills otherwise this will not work!
+- **IMPORTANT - Alexa Skills are only supported in certain AWS regions.** Your current server location will be displayed in the top-right corner (for example, Ohio). Select an available server below that is closest to your location and in your region, based on your Amazon account’s country. Alexa Lambda functions created on other servers will not work properly and may prevent account linking!
   - **US East (N.Virginia)** region for English (US) or English (CA) skills
   - **EU (Ireland)** region for English (UK), English (IN), German (DE), Spanish (ES) or French (FR) skills
   - **US West (Oregon)** region for Japanese and English (AU) skills.
@@ -244,6 +244,10 @@ Alexa needs to link your Amazon account to your Home Assistant account. Therefor
     Although it is possible to assign a different port, Alexa requires you use port 443, so make sure your firewall/proxy is forwarding via port 443.
 
     Read [more from the Alexa developer documentation](https://developer.amazon.com/en-US/docs/alexa/account-linking/requirements-account-linking.html) about requirements for account linking.
+
+    {% note %}
+    Despite the Alexa documentation's disclaimer, however, [Let's Encrypt](https://letsencrypt.org/) certificates are still accepted.
+    {% endnote %}
 
 {% important %}
 You must use a valid/trusted SSL certificate for account linking to work.

@@ -80,7 +80,7 @@ automation:
       - platform: time
         at: "5:30:00"
     action:
-      - service: rainbird.start_irrigation
+      - action: rainbird.start_irrigation
         data:
           entity_id: switch.rain_bird_sprinkler_1
           duration: 5

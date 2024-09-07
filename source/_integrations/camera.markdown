@@ -65,7 +65,7 @@ For example, the following action in an automation would send an `hls` live stre
 
 ```yaml
 action:
-  service: camera.play_stream
+  action: camera.play_stream
   target:
     entity_id: camera.yourcamera
   data:
@@ -93,7 +93,7 @@ For example, the following action in an automation would take a recording from "
 
 ```yaml
 action:
-  service: camera.record
+  action: camera.record
   target:
     entity_id: camera.yourcamera
   data:
@@ -119,7 +119,7 @@ For example, the following action in an automation would take a snapshot from "y
 
 ```yaml
 action:
-  service: camera.snapshot
+  action: camera.snapshot
   target:
     entity_id: camera.yourcamera
   data:

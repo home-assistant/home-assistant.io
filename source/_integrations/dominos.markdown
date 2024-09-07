@@ -38,7 +38,7 @@ dominos:
 Now you can use the Dominos {% term action %} to order pizza within your automations:
 
 ```yaml
-- service: dominos.order
+- action: dominos.order
   data:
     order_entity_id: dominos.medium_pan
 ```

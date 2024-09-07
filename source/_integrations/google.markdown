@@ -110,7 +110,7 @@ You either use `start_date_time` and `end_date_time`, or `start_date` and `end_d
 This is a full example of an action in YAML:
 
 ```yaml
-service: google.create_event
+action: google.create_event
 target:
   entity_id: calendar.device_automation_schedules
 data:

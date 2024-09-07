@@ -93,7 +93,7 @@ An example using two automations:
       entity_id: binary_sensor.my_motion_sensor
       domain: binary_sensor
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: image_processing.sighthound_my_cam
   mode: single
@@ -105,7 +105,7 @@ An example using two automations:
     - platform: event
       event_type: sighthound.vehicle_detected
   action:
-    - service: notify.mobile_app_my_iphone
+    - action: notify.mobile_app_my_iphone
       data:
         message: "Somebody has just arrived by car."
   mode: single

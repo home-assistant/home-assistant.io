@@ -54,14 +54,14 @@ automation:
       - platform: template
         value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
     action:
-      - service: shell_command.green
+      - action: shell_command.green
 
   - alias: "Internet Speed Glow Connect Poor"
     trigger:
       - platform: template
         value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
     action:
-      - service: shell_command.red
+      - action: shell_command.red
 ```
 
 {% endraw %}

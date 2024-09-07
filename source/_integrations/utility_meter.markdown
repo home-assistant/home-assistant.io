@@ -222,12 +222,12 @@ automation:
       variables:
         tariff: "offpeak"
   action:
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.daily_energy
       data:
         option: "{{ tariff }}"
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.monthly_energy
       data:

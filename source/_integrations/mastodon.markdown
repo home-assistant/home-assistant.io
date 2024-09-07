@@ -10,11 +10,11 @@ ha_codeowners:
 ha_domain: mastodon
 ha_iot_class: Cloud Push
 ha_platforms:
+  - diagnostics
   - notify
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - sensor
+ha_integration_type: service
+ha_config_flow: true
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
@@ -25,6 +25,10 @@ Go to **Preferences** in the Mastodon web interface, then to **Development** and
 If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The integration will create sensors for the Mastodon account showing total followers, following, and posts.
 
 ## Notifications
 
@@ -56,7 +60,7 @@ The following attributes can be placed inside `data` for extended functionality.
 This will post a message to Mastodon. Visibility will default to your account's setting. 
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A toot from Home Assistant"
 ```
 
@@ -65,7 +69,7 @@ This will post a message to Mastodon. Visibility will default to your account's 
 This will post a message to Mastodon, but visibility is marked as `private` so only followers will see it.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A private toot from Home Assistant"
   target: private
 ```
@@ -75,7 +79,7 @@ This will post a message to Mastodon, but visibility is marked as `private` so o
 This will post a message to Mastodon that includes an image.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A media toot from Home Assistant"
   data:
     media: /config/www/funny_meme.png
@@ -86,7 +90,7 @@ This will post a message to Mastodon that includes an image.
 This will post a message to Mastodon that includes an image and a target of `unlisted`, so it doesn't show in the public timeline.
 
 ```yaml
-- service: notify.mastodon
+- action: notify.mastodon
   message: "A media toot from Home Assistant"
   target: unlisted
   data:

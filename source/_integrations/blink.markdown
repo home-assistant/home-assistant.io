@@ -116,10 +116,10 @@ This example script shows how to take a picture with your camera, named `My Came
 ```yaml
 alias: "Blink Snap Picture"
 sequence:
-  - service: blink.trigger_camera
+  - action: blink.trigger_camera
     target:
       entity_id: camera.blink_my_camera
-  - service: camera.snapshot
+  - action: camera.snapshot
     target:
       entity_id: camera.blink_my_camera
     data:
@@ -140,7 +140,7 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
     entity_id: all
     to: "not_home"
   action:
-    service: alarm_control_panel.alarm_arm_away
+    action: alarm_control_panel.alarm_arm_away
     target:
       entity_id: alarm_control_panel.blink_my_sync_module
 ```
@@ -157,7 +157,7 @@ Similar to the previous example, this automation will disarm blink when arriving
     entity_id: all
     to: "home"
   action:
-    service: alarm_control_panel.alarm_disarm
+    action: alarm_control_panel.alarm_disarm
     target:
       entity_id: alarm_control_panel.blink_my_sync_module
 ```
@@ -178,7 +178,7 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
     entity_id: binary_sensor.blink_my_camera_motion_detected
     to: "on"
   action:
-    -  service: blink.save_video
+    -  action: blink.save_video
        target:
          entity_id: camera.blink_my_camera
        data:
@@ -206,7 +206,7 @@ The file name of the downloaded video file is not configurable.
     - platform: time_pattern
       minutes: /3
   action:
-    - service: blink.save_recent_clips
+    - action: blink.save_recent_clips
       target:
         entity_id: camera.my_camera
       data:
