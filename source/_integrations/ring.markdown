@@ -51,9 +51,9 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 ## Binary sensor
 
-The binary sensor switches between off and on when motion, doorbell rings, and intercom unlock events occur.
+The binary sensor switches off and on when motion, doorbell rings, and intercom unlock events occur.
 
-The binary sensor is being replaced with the event entity and you should migrate any automations to the event entity by release 2025.3.0.
+The binary sensor is being replaced with the event entity, and you should migrate any automations to the event entity by release 2025.4.0.
 
 ## Button
 
