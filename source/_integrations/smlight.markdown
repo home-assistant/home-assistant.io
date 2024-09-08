@@ -46,8 +46,11 @@ The following sensors will be created:
 - **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
 - **RAM usage** - Monitor RAM Usage
 - **FS usage** - Monitor filesystem usage
+- **Connection mode** -  Connection mode - Ethernet, Wi-Fi or USB
 - **Ethernet** - Ethernet connection status
 - **Wi-Fi** - Wi-Fi connection status
+- **Firmware channel** - Channel for updates, stable or development firmware or currently installed firmware.
+- **Zigbee type** - Current mode of Zigbee chip. Coordinator, router or Thread. Only works with official firmware installed via OTA in SMLIGHT web UI.
 
 The following buttons will be created:
 
