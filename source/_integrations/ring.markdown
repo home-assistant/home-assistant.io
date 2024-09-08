@@ -140,6 +140,17 @@ hass.services.call("downloader", "download_file", data)
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
 
+### Event issues and stability
+
+If you are experiencing issues with receiving ring alerts the reason could be that you have too many authenticated devices on your ring account.
+Prior to version 2023.12.0 HA would register a new entry in `Authorised Client Devices` in the `Control Centre` at ring.com every time it restarted.
+If you have been using ring prior to this you may have many `Authorised Client Devices` in the `Control Centre` on ring.com.
+This can cause issues receiving ring alerts.
+You should delete all authorised devices from home assistant which are from HomeAassistant
+(i.e. do not delete thsoe named `iPhone` or `Android`, homeassistant devices are naamed `ring-doorbell:HomeAssistant/something` or `Python program`).
+If you have too many `Authorised Client Devices` it might be easier to `Remove all devices` and re-add your primary devices.
+
+
 ## Sensor
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports doorbell, external chimes and stickup cameras.
