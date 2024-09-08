@@ -27,9 +27,13 @@ GEM
       http_parser.rb (~> 0)
     eventmachine (1.2.7)
     ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x64-mingw-ucrt)
     ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
     google-protobuf (4.28.0-arm64-darwin)
+      bigdecimal
+      rake (>= 13)
+    google-protobuf (4.28.0-x64-mingw-ucrt)
       bigdecimal
       rake (>= 13)
     google-protobuf (4.28.0-x86_64-linux)
@@ -82,6 +86,8 @@ GEM
     mustermann (3.0.3)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.16.7-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
@@ -136,13 +142,13 @@ GEM
     sass (3.4.25)
     sass-embedded (1.78.0-arm64-darwin)
       google-protobuf (~> 4.27)
+    sass-embedded (1.78.0-x64-mingw-ucrt)
+      google-protobuf (~> 4.27)
     sass-embedded (1.78.0-x86_64-linux-gnu)
       google-protobuf (~> 4.27)
     sass-globbing (1.1.5)
       sass (>= 3.1)
-    sassc (2.1.0)
-      ffi (~> 1.9)
-    sassc (2.1.0-x86_64-linux)
+    sassc (2.4.0)
       ffi (~> 1.9)
     sinatra (4.0.0)
       mustermann (~> 3.0)
@@ -160,10 +166,12 @@ GEM
     tzinfo-data (1.2024.1)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.5.0)
+    wdm (0.2.0)
     webrick (1.8.1)
 
 PLATFORMS
   arm64-darwin-23
+  x64-mingw-ucrt
   x86_64-linux
 
 DEPENDENCIES
@@ -179,11 +187,12 @@ DEPENDENCIES
   rubocop (= 1.66.1)
   ruby-lsp (= 0.17.17)
   sass-globbing (= 1.1.5)
-  sassc (= 2.1.0)
+  sassc (= 2.4.0)
   sinatra (= 4.0.0)
   stringex (= 2.8.6)
   tzinfo (~> 2.0)
   tzinfo-data
+  wdm (~> 0.2.0)
 
 RUBY VERSION
    ruby 2.6.2p47
