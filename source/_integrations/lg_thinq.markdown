@@ -131,7 +131,7 @@ A common read-only property is represented as a sensor platform.
 | [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
 | [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Error description<br>Current state |
 | [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
-| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Purification mode: Normal / Cleaning<br>Sterilizing mode<br>Water type |
+| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Purification mode<br>Sterilizing mode<br>Water type |
 
 ### Switch
 
