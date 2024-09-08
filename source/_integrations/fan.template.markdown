@@ -25,7 +25,7 @@ ability to run scripts or invoke actions for each of the `turn_on`, `turn_off`, 
 ## Configuration
 
 To enable template fans in your installation, add the following to your
-`configuration.yaml` file:
+{% term "`configuration.yaml`" %} file:
 
 {% raw %}
 
