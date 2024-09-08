@@ -69,26 +69,24 @@ Update AC schedule on vehicle.
 
 Notes:
 
-- `schedules` can be in the form `{'id':1,...}` when updating a single schedule, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call.
+- `schedules` can contain one or more schedules which are set within the same call
 - The `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle).
 - The `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
-- The `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'readyAtTime':'T12:00Z'}` where start time is in UTC format and the duration is in minutes.
+- The `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must contain the key `readyAtTime` (in UTC format).
 
 <a name="ac_schedule_example">Example</a>:
 
 ```yaml
-[
-  { 
-    'id': 1, 
-    'activated': true, 
-    'monday': {'readyAtTime':'T12:00Z'} 
-  }, 
-  { 
-    'id': 2, 
-    'activated': false, 
-    'monday': {'readyAtTime':'T12:00Z'} 
-  },
-]
+- id: 1 
+  activated: true 
+  monday: 
+    readyAtTime: 'T12:00Z' 
+- id: 2 
+  activated: false 
+  monday:
+    readyAtTime: 'T12:00Z' 
+  tuesday:
+    readyAtTime: 'T12:00Z'
 ```
 
 ### Action `renault.charge_set_schedules`
@@ -102,24 +100,22 @@ Update charge schedule on vehicle.
   
 Notes:
 
-- `schedules` can be in the form `{'id':1,...}` when updating a single schedules, or in the form `[{'id':1,...},{'id':2,...},...]` when updating multiple schedules within the same call
+- `schedules` can contain one or more schedules which are set within the same call
 - the `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle)
 - the `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
-- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must conform to this format `{'startTime':'T12:00Z','duration':15}` where start time is in UTC format and the duration is in minutes.
+- the `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must contain the keys `startTime` (in UTC format) and `duration` (in minutes).
 
 <a name="schedule_example">Example</a>:
 
 ```yaml
-[
-  { 
-    'id': 1, 
-    'activated': true, 
-    'monday': {'startTime':'T12:00Z', 'duration':15} 
-  }, 
-  { 
-    'id': 2, 
-    'activated': false, 
-    'monday': {'startTime':'T12:00Z', 'duration':240} 
-  },
-]
+- id: 1 
+  activated: true 
+  monday: 
+    startTime: 'T12:00Z'
+    duration: 15 
+- id: 1 
+  activated: false 
+  monday: 
+    startTime: 'T12:00Z'
+    duration: 15 
 ```
