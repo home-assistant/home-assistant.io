@@ -40,12 +40,12 @@ You need a supported SLZB-06 adapter.
 
 The following sensors will be created:
 
-- **Core Temperature** - Temperature of core ESP32
-- **Zigbee Temperature** - Temperature of Zigbee CC2652 or EFR32 chip
-- **Core Uptime** - Uptime of Core device
-- **Zigbee Uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM Usage** - Monitor RAM Usage
-- **FS Usage** - Monitor filesystem usage
+- **Core temperature** - Temperature of core ESP32
+- **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
+- **Core uptime** - Uptime of Core device
+- **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
+- **RAM usage** - Monitor RAM Usage
+- **FS usage** - Monitor filesystem usage
 - **Ethernet** - Ethernet connection status
 - **Wi-Fi** - Wi-Fi connection status
 
