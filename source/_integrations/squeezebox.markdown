@@ -58,8 +58,6 @@ transporter_toslink:
 
 ## Actions
 
-## Actions
-
 ### Action `call_method`
 
 Call a custom Squeezebox JSON-RPC API.
