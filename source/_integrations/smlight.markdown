@@ -46,6 +46,8 @@ The following sensors will be created:
 - **Zigbee Uptime** - Uptime of Zigbee connection to ZHA/Z2M
 - **RAM Usage** - Monitor RAM Usage
 - **FS Usage** - Monitor filesystem usage
+- **Ethernet** - Ethernet connection status
+- **Wi-Fi** - Wi-Fi connection status
 
 The following buttons will be created:
 
@@ -53,3 +55,10 @@ The following buttons will be created:
 - **Zigbee restart** - Restart Zigbee CCCC2652 or EFR32 chip
 - **Zigbee flash mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
 
+### Switches
+
+The following switches will be created:
+
+- **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
+- **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
+- **Auto Zigbee update** - This allows the core firmware on SLZB-06x to manage Zigbee firmware updates and it will automatically install updates when they are released.
