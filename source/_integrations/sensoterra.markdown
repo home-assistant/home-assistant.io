@@ -1,7 +1,7 @@
 ---
 title: Sensoterra
 description: Instructions on how to integrate your Sensoterra probes with Home Assistant.
-ha_release: 2024.7
+ha_release: 2024.10
 ha_category:
   - Sensor
 ha_iot_class: Cloud Poll
@@ -26,7 +26,7 @@ Soil moisture probes can be purchased at Sensoterra.com. Create a free account i
 The integration provides the following sensors for each probe:
 
 - Soil moisture (either in volumetric-% or in SI)
-- Temperature
+- Temperature (in degrees Celsius)
 - LoRaWAN signal strength (RSSI level)
 - Battery level (100, 50 or 10% approximations)
 - Last seen timestamp
