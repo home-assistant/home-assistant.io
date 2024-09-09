@@ -53,6 +53,8 @@ The following buttons will be created:
 - **Zigbee restart** - Restart Zigbee CCCC2652 or EFR32 chip
 - **Zigbee flash mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
 
+### Switches
+
 The following switches will be created:
 
 - **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
