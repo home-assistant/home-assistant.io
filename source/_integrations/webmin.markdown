@@ -35,7 +35,6 @@ As a good security practice, create a Webmin User specific to Home Assistant. A 
 - Only enable the _"Can accept RPC calls"_ permission (under "Permissions for all modules"),
 - Consider disabling the _"Can accept RPC calls"_ permission for other users (unless specifically required),
 - Consider limiting this account to only have access via the IP address of your Home Assistant instance (if appropriate).
-- 
 
 {% note %}
 The Webmin API ignores any 2FA set up via the frontend. Even with 2FA enabled, it is still possible to use the API with only a username and password.
