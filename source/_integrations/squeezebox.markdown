@@ -49,6 +49,15 @@ transporter_toslink:
         media_content_type: "music"
 ```
 
+## Entities
+
+### Binary sensors
+
+- Needs restart
+  Sever Service would like to be restarted usually to apply updates.
+- Library rescan
+  Music library is currently being scaned by LMS.
+
 ### Action `call_method`
 
 Call a custom Squeezebox JSON-RPC API.
