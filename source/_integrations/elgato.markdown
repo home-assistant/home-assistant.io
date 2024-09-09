@@ -87,7 +87,7 @@ a binary sensor (a doorbell) is triggered:
       entity_id: binary_sensor.doorbell
       to: "on"
   action:
-    - service: elgato.identify
+    - action: elgato.identify
       target:
         entity_id: light.elgato_key_light
 ```

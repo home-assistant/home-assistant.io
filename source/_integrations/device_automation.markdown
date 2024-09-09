@@ -29,5 +29,5 @@ Example:
       type: turn_off
       entity_id: light.bowl
   action:
-    - service: camera.turn_off
+    - action: camera.turn_off
 ```

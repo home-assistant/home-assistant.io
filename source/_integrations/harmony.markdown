@@ -81,7 +81,7 @@ Using the activity name 'Watch TV', you can perform an action via automation to 
 
 ```yaml
 action:
-  - service: remote.turn_on
+  - action: remote.turn_on
     target:
       entity_id: remote.bed_room_hub
     data:
@@ -129,7 +129,7 @@ In the file 'harmony_REMOTENAME.conf' you can find the available devices and com
 A typical action for sending several button presses looks like this:
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.tv_room
 data:
@@ -141,7 +141,7 @@ data:
 ```
 OR
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.tv_room
 data:
@@ -164,7 +164,7 @@ Sends the change channel command to the Harmony HUB
 A typical action for changing the channel would be::
 
 ```yaml
-service: harmony.change_channel
+action: harmony.change_channel
 target:
   entity_id: remote.tv_room
 data:
@@ -212,7 +212,7 @@ automation:
       condition: template
       value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     action:
-      service: input_boolean.turn_on
+      action: input_boolean.turn_on
       target:
         entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
@@ -223,7 +223,7 @@ automation:
       condition: template
       value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     action:
-      service: input_boolean.turn_off
+      action: input_boolean.turn_off
       target:
         entity_id: input_boolean.notify
 ```

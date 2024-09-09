@@ -96,7 +96,7 @@ automation:
       event_data:
         level: WARNING
     action:
-      service: counter.increment
+      action: counter.increment
       target:
         entity_id: counter.warning_counter
 ```
@@ -117,7 +117,7 @@ automation:
       condition: template
       value_template: '{{ "action" in trigger.event.data.message[0] }}'
     action:
-      service: persistent_notification.create
+      action: persistent_notification.create
       data:
         title: Something bad happened
         message: "{{ trigger.event.data.message[0] }}"
@@ -138,7 +138,7 @@ automation:
       from: "off"
       to: "on"
     action:
-      service: system_log.write
+      action: system_log.write
       data:
         message: "Door opened!"
         level: info

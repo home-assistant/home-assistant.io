@@ -40,6 +40,8 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Delmarva Power
   - PECO Energy Company (PECO)
   - Potomac Electric Power Company (Pepco)
+- Mercury NZ Limited
+- National Grid NY Upstate
 - Pacific Gas & Electric (PG&E)
 - Portland General Electric (PGE)
 - Puget Sound Energy (PSE)
@@ -74,7 +76,9 @@ Alternatively, you can create a new TOTP secret for your account and use the "no
 
 ### Exelon subsidiaries
 
-When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication. Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
+When using Opower with any of the Exelon subsidiaries, such as BGE, ComEd, PECO, Pepco, etc., you need to actively disable two-factor authentication.
+Before proceeding, make sure you understand the security implications of disabling 2FA.
+Log onto the website, select **Don't use 2FA** and **Don't ask me again**. If you have already enabled 2FA, disable it.
 
 {% include integrations/config_flow.md %}
 

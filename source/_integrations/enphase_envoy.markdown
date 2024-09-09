@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@dgomes'
   - '@joostlek'
   - '@catsmanac'
 ha_platforms:
@@ -47,8 +46,10 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
   
   - Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
   - Phase net production and net consumption, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
-  - Frequency net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
-  - Voltage net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
+  - Frequency for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
+  - Voltage for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
+  - Current for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
+  - Powerfactor for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).[^1]
   - Metering status for net consumption and production <abbr title="current transformers">CT</abbr> (`normal` | `not-metering` | `check-wiring`) (aggregate and phase).
   - Count of meter status flags active for net consumption and production <abbr title="current transformers">CT</abbr> (aggregate and phase).[^2]
 
@@ -69,7 +70,10 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
   - Sensors for battery storage energy charged and discharged and current active power discharge/charge
   - Disabled sensors for:
     - Phase battery storage energy charged and discharged and current power discharge/charge
-    - Voltage storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Voltage for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Current for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Frequency for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
+    - Powerfactor for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
     - Metering status for storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
     - Count of meter status flags active storage <abbr title="current transformers">CT</abbr> (aggregate and phase)
 

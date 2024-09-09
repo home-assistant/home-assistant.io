@@ -116,7 +116,7 @@ Example of an automation with an action, full configuration:
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+action: notify.living_room_tv
 data:
   title: "Thanks for the water!"
   message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"

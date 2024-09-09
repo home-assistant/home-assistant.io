@@ -74,7 +74,7 @@ automation:
       entity_id: sensor.door_motion_sensor
       to: "on"
   action:
-    - service: image_processing.scan
+    - action: image_processing.scan
       target:
         entity_id: image_processing.door
 ...

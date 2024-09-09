@@ -21,6 +21,30 @@ The Ridwell integration allows users to track waste recycling pickups scheduled 
 
 {% include integrations/config_flow.md %}
 
+## Calendar
+
+The calendar sensor contains a `calendar` state attribute, which contains:
+
+- The name of the Ridwell Calendar.
+- If the event is an all-day event (Boolean).
+- The start time of the calendar event. Starts at midnight.
+- The end time of the event. Ends at midnight.
+- The location of the event.
+- The description of the items being picked up.
+- Friendly name of the calendar event.
+
+For example:
+
+```yaml
+message: Ridwell Pickup (scheduled)
+all_day: true
+start_time: 2024-07-26 00:00:00
+end_time: 2024-07-27 00:00:00
+location: 
+description: Pickup types: Light Bulbs (quantity: 1), Hand Tools (quantity: 1), Batteries (quantity: 1), Threads (quantity: 1), Plastic Film (quantity: 1)
+friendly_name: Ridwell
+```
+
 ## Pickup types
 
 The pickup sensor contains a `pickup_types` state attribute, which contains:

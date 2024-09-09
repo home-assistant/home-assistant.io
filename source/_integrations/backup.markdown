@@ -40,7 +40,7 @@ The action has no additional options or parameters.
 Example action:
 
 ```yaml
-service: backup.create
+action: backup.create
 ```
 
 ### Example: Backing up every night at 3:00 AM
@@ -56,7 +56,7 @@ automation:
       at: "03:00:00"
     action:
       alias: "Create backup now"
-      service: backup.create
+      action: backup.create
 ```
 
 ## Restoring a backup

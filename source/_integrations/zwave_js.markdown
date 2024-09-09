@@ -211,7 +211,7 @@ Let's use parameter 31 for [this device](https://devices.zwave-js.io/?jumpTo=0x0
 Example 1:
 
 ```yaml
-service: zwave_js.set_config_parameter
+action: zwave_js.set_config_parameter
 target:
   entity_id: switch.fan
 data:
@@ -223,7 +223,7 @@ data:
 Example 2:
 
 ```yaml
-service: zwave_js.set_config_parameter
+action: zwave_js.set_config_parameter
 target:
   entity_id: switch.fan
 data:
@@ -235,7 +235,7 @@ data:
 Example 3:
 
 ```yaml
-service: zwave_js.set_config_parameter
+action: zwave_js.set_config_parameter
 target:
   entity_id: switch.fan
 data:
@@ -267,7 +267,7 @@ When using the dictionary format to map the partial parameter to values, the cac
 Example 1:
 
 ```yaml
-service: zwave_js.bulk_set_partial_config_parameters
+action: zwave_js.bulk_set_partial_config_parameters
 target:
   entity_id: switch.fan
 data:
@@ -278,7 +278,7 @@ data:
 Example 2:
 
 ```yaml
-service: zwave_js.bulk_set_partial_config_parameters
+action: zwave_js.bulk_set_partial_config_parameters
 target:
   entity_id: switch.fan
 data:
@@ -292,7 +292,7 @@ data:
 Example 3:
 
 ```yaml
-service: zwave_js.bulk_set_partial_config_parameters
+action: zwave_js.bulk_set_partial_config_parameters
 target:
   entity_id: switch.fan
 data:
@@ -306,7 +306,7 @@ data:
 Example 4:
 
 ```yaml
-service: zwave_js.bulk_set_partial_config_parameters
+action: zwave_js.bulk_set_partial_config_parameters
 target:
   entity_id: switch.fan
 data:
@@ -320,7 +320,7 @@ data:
 Example 5:
 
 ```yaml
-service: zwave_js.bulk_set_partial_config_parameters
+action: zwave_js.bulk_set_partial_config_parameters
 target:
   entity_id: switch.fan
 data:
@@ -610,7 +610,7 @@ trigger:
     event_data:
       entity_id: switch.in_wall_dual_relay_switch
 action:
-  - service: zwave_js.refresh_value
+  - action: zwave_js.refresh_value
     data:
       entity_id:
         - switch.in_wall_dual_relay_switch_2

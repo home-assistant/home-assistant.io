@@ -100,7 +100,7 @@ You can use the `fully_kiosk.load_url` action to have the tablet open the specif
 Example:
 
 ```yaml
-service: fully_kiosk.load_url
+action: fully_kiosk.load_url
 data:
   url: "https://home-assistant.io"
 target:
@@ -120,7 +120,7 @@ You can use the `fully_kiosk.set_config` action to change the many configuration
 Example:
 
 ```yaml
-service: fully_kiosk.set_config
+action: fully_kiosk.set_config
 data:
   key: "startURL"
   value: "https://home-assistant.io"
@@ -140,7 +140,7 @@ You can use the `fully_kiosk.start_application` action to have the tablet launch
 Example:
 
 ```yaml
-service: fully_kiosk.start_application
+action: fully_kiosk.start_application
 data:
   application: "de.ozerov.fully"
 target:

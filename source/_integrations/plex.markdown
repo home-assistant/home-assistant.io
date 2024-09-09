@@ -90,7 +90,7 @@ trigger:
     id: episode
 
 action:
-  - service: notify.mobile_app_phone
+  - action: notify.mobile_app_phone
     data:
       title: "New {{ trigger.id }} added"
       message: "{{ trigger.to_state.attributes.last_added_item }}"
@@ -111,7 +111,7 @@ Example script:
 ```yaml
 play_plex_on_tv:
   sequence:
-    - service: media_player.select_source
+    - action: media_player.select_source
       target:
         entity_id: media_player.smart_tv
       data:
@@ -122,13 +122,13 @@ play_plex_on_tv:
           to: "on"
       timeout:
         seconds: 10
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.scan_clients_plex
     - wait_template: "{{ not is_state('media_player.plex_smart_tv', 'unavailable') }}"
       timeout: "00:00:10"
       continue_on_timeout: false
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.plex_smart_tv
       data:
@@ -160,6 +160,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 - `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
 - `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
+- `username`: A username for a local Plex user account. This is only required if the Plex server has multiple users and you wish to play media for a specific user.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 

@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Aseko Pool Live integration allows you to monitor your Aseko ASIN Aqua dosing systems.
+The Aseko Pool Live integration allows you to monitor your Aseko ASIN Aqua dosing systems and Aseko ASIN Pool controllers.
 
 The integration is fully compatible with ASIN AQUA Net and ASIN AQUA Home.
 

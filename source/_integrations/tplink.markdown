@@ -102,7 +102,7 @@ Light strips allow setting a random effect.
 
 ```yaml
 #Example action
-service: tplink.random_effect
+action: tplink.random_effect
 target:
   entity_id:
     - light.strip
@@ -147,7 +147,7 @@ Light strips allow setting a sequence effect.
 
 ```yaml
 #Example action
-service: tplink.sequence_effect
+action: tplink.sequence_effect
 target:
   entity_id:
     - light.strip

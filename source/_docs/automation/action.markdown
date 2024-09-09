@@ -18,7 +18,7 @@ automation:
     - platform: sun
       event: sunset
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id:
           - light.kitchen
@@ -37,11 +37,11 @@ automation 2:
     notification_action: notify.paulus_iphone
   action:
     # Actions are scripts so can also be a list of actions
-    - service: "{{ notification_action }}"
+    - action: "{{ notification_action }}"
       data:
         message: "Beautiful sunset!"
     - delay: 0:35
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "Oh wow you really missed something great."
 ```
@@ -58,7 +58,7 @@ automation:
       entity_id: sensor.office_occupancy
       to: "on" 
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "Testing conditional actions"
     - condition: or
@@ -70,7 +70,7 @@ automation:
         - condition: state
           entity_id: sensor.office_illuminance
           below: 10
-    - service: scene.turn_on
+    - action: scene.turn_on
       target:
         entity_id: scene.office_at_evening
 ```

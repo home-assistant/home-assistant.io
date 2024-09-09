@@ -17,7 +17,7 @@ ha_homekit: true
 ha_dhcp: true
 ha_platforms:
   - binary_sensor
-  - Calendar
+  - calendar
   - switch
 ha_zeroconf: true
 ha_integration_type: integration
@@ -112,7 +112,7 @@ It is not currently possible to have zones from multiple controllers in the same
 script:
   run_grass_zones:
     sequence: 
-      - service: rachio.start_multiple_zone_schedule
+      - action: rachio.start_multiple_zone_schedule
         target:
           entity_id:
             - switch.front_yard_west
@@ -127,7 +127,7 @@ script:
 script:
   run_grass_zones:
     sequence: 
-      - service: rachio.start_multiple_zone_schedule
+      - action: rachio.start_multiple_zone_schedule
         target:
           entity_id:
             - switch.front_yard_west

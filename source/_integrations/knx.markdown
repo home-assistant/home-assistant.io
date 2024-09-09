@@ -74,10 +74,6 @@ There is currently support for the following device types within Home Assistant:
 - [Time](#time)
 - [Weather](#weather)
 
-## Free KNX online training
-
-As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
-
 {% include integrations/config_flow.md %}
 
 ## Basic configuration
@@ -374,7 +370,7 @@ automation:
         destination: "0/4/20"
     action:
       - delay: 0:0:10
-      - service: knx.read
+      - action: knx.read
         data:
           # Cover position address
           address: "0/4/21"
@@ -384,7 +380,7 @@ automation:
         event: start
     action:
       # Register the group address to trigger a knx_event
-      - service: knx.event_register
+      - action: knx.event_register
         data:
           # Cover move trigger
           address: "0/4/20"
@@ -607,7 +603,7 @@ automation:
         state: "on"
     action:
       - entity_id: light.hue_color_lamp_1
-        service: light.turn_on
+        action: light.turn_on
   - trigger:
       platform: numeric_state
       entity_id: binary_sensor.livingroom_switch
@@ -620,9 +616,9 @@ automation:
         state: "on"
     action:
       - entity_id: light.hue_bloom_1
-        service: homeassistant.turn_on
+        action: homeassistant.turn_on
       - entity_id: light.hue_bloom_2
-        service: homeassistant.turn_on
+        action: homeassistant.turn_on
 ```
 
 {% configuration %}
@@ -787,29 +783,28 @@ knx:
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state group objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` group object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
 
 - `0` (cooling)
 - `1` (heating)
 
-The following values are valid for the Home Assistant [Climate](/integrations/climate/) `hvac_mode` attribute. Supported values for your KNX thermostats can be specified via `controller_modes` configuration variable:
+Supported HVAC modes for your KNX thermostats are found automatically. This can be overridden by using the `controller_modes` configuration variable. The following values are valid controller modes:
 
-- `Off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
-- `Auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `Heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
-- `Cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
-- `Fan only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
-- `Dry` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
+- `off`
+- `auto`
+- `heat`
+- `cool`
+- `fan_only`
+- `dehumidification`
 
-The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
+Supported preset modes for your KNX thermostats are found automatically. This can be overridden by using the `operation_modes` configuration variable. The following values are valid operation modes:
 
-- `Auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `Comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `Standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `Night` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `Frost Protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `auto`
+- `comfort`
+- `standby`
+- `economy`
+- `building_protection`
 
 {% configuration %}
 name:
@@ -866,7 +861,7 @@ command_value_state_address:
   required: false
   type: [string, list]
 operation_mode_address:
-  description: KNX address for setting operation mode (Frost protection/night/comfort). *DPT 20.102*
+  description: KNX address for setting operation mode (auto / building protection / economy / standby / comfort). *DPT 20.102*
   required: false
   type: [string, list]
 operation_mode_state_address:
@@ -902,7 +897,7 @@ operation_mode_frost_protection_address:
   required: false
   type: [string, list]
 operation_mode_night_address:
-  description: KNX address for switching on/off night mode. *DPT 1*
+  description: KNX address for switching on/off economy mode. *DPT 1*
   required: false
   type: [string, list]
 operation_mode_comfort_address:
@@ -914,11 +909,11 @@ operation_mode_standby_address:
   required: false
   type: [string, list]
 operation_modes:
-  description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
+  description: Overrides the supported operation modes. Provide the supported `preset_modes` value for your device.
   required: false
   type: list
 controller_modes:
-  description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
+  description: Overrides the supported controller modes. Provide the supported `hvac_modes` value for your device.
   required: false
   type: list
 default_controller_mode:
@@ -1508,7 +1503,7 @@ entity_category:
 ### Example action
 
 ```yaml
-service: notify.send_message
+action: notify.send_message
 data:
   message: "Hello from HA!"
   entity_id: notify.alarm

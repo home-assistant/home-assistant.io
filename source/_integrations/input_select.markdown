@@ -139,7 +139,7 @@ automation:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
-      - service: input_select.select_option
+      - action: input_select.select_option
         target:
           entity_id: input_select.who_cooks
         data:
@@ -156,7 +156,7 @@ automation:
       platform: event
       event_type: MY_CUSTOM_EVENT
     action:
-      - service: input_select.set_options
+      - action: input_select.set_options
         target:
           entity_id: input_select.who_cooks
         data:
@@ -190,7 +190,7 @@ input_select:
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   action:
-    service: input_select.select_option
+    action: input_select.select_option
     target:
       entity_id: input_select.thermostat_mode
     data:
@@ -203,7 +203,7 @@ input_select:
     platform: state
     entity_id: input_select.thermostat_mode
   action:
-    service: mqtt.publish
+    action: mqtt.publish
     data:
       topic: "thermostatMode"
       retain: true

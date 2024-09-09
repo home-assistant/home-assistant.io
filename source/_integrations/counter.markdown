@@ -155,7 +155,7 @@ automation:
     event_data:
       level: ERROR
   action:
-    service: counter.increment
+    action: counter.increment
     target:
       entity_id: counter.error_counter
     
