@@ -74,10 +74,6 @@ There is currently support for the following device types within Home Assistant:
 - [Time](#time)
 - [Weather](#weather)
 
-## Free KNX online training
-
-As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
-
 {% include integrations/config_flow.md %}
 
 ## Basic configuration
