@@ -12,7 +12,6 @@ ha_platforms:
 ha_codeowners:
   - '@markruys'
 ha_integration_type: integration
-ha_quality_scale: silver
 ---
 
 This {% term integration %} communicates with your [Sensoterra](https://sensoterra.com) soil moisture probes using the public [Sensoterra Customer API](https://monitor.sensoterra.com/api/v3/) via HTTPS.
