@@ -40,12 +40,12 @@ to your Ruckus controller's web dashboard.
 ### Ruckus Unleashed
 
 You may enter the **IP address / hostname** of any access point as the Host.
-If you've configured an Unleashed Management Interface then use this instead.
+If you've configured an Unleashed Management Interface, then use this instead.
 
 ### Ruckus One
 
 You'll need to use your Ruckus One dashboard to create an Application Token. Go to the bottom of the
-**Administration** > **Settings** screen and click the **Add Token** link. Choose any
+**Administration** > **Settings** screen and select the **Add Token** link. Choose any
 **Application Name**, for example `Home Assistant`. The **Token Scope** can be **Read Only**.
 
 When Home Assistant prompts for Ruckus connection details, use the full URL of a Ruckus One
@@ -57,7 +57,7 @@ your Token **Client ID** as the Username & your Token **Shared Secret** as the P
 This integration is not currently suitable for large multi-venue SmartZone or Ruckus One networks: there
 is no way to filter devices by Venue or Zone.
 
-If you've configured your access points with an extended Client Inactivity Timeout then this is how long
+If you've configured your access points with an extended Client Inactivity Timeout, then this is how long
 you'll need to wait for devices to be detected as `not_home`.
 
 ## Troubleshooting
