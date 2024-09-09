@@ -256,7 +256,7 @@ Possible LED modes and their meaning are listed here:
 - M. Boiler requires maintenance.
 - P. Raised power mode active on thermostat interface.
 
-## Advanced usage
+## Disabled configuration entities
 
 {% warning %}
 Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using the information in this section.
