@@ -53,10 +53,10 @@ transporter_toslink:
 
 ### Binary sensors
 
-- Needs restart
-  Server Service needs to be restarted (typically, this is needed to apply updates).
-- Library rescan
-  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+- **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+## Actions
 
 ### Action `call_method`
 
