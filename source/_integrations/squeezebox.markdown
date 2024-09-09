@@ -56,7 +56,7 @@ transporter_toslink:
 - Needs restart
   Server Service needs to be restarted (typically, this is needed to apply updates).
 - Library rescan
-  Music library is currently being scaned by LMS (during a scan some content may be unavailable dependant on the type of scan).
+  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
 
 ### Action `call_method`
 
