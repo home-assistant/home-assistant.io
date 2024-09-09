@@ -60,8 +60,8 @@ transporter_toslink:
 ### Sensors
 
 - **Last scan**: Date of the last library scan.
-- **Player count**: Players on the service.
-- **Player count off service**: Players not on this service.
+- **Player count**: Number of players on the service.
+- **Player count off service**: Number of players not on this service.
 - **Total albums**: Albums currently in the service.
 - **Total artists**: Artists currently in the service.
 - **Total duration**: Duration of all tracks in service.
