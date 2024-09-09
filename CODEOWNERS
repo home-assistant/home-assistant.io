@@ -451,6 +451,7 @@ source/_integrations/ld2410_ble.markdown @930913
 source/_integrations/leaone.markdown @bdraco
 source/_integrations/led_ble.markdown @bdraco
 source/_integrations/legrand.markdown @cgtobi
+source/_integrations/lektrico.markdown @lektrico
 source/_integrations/leviton_z_wave.markdown @home-assistant/z-wave
 source/_integrations/lg_netcast.markdown @Drafteed @splinter98
 source/_integrations/lidarr.markdown @tkdrob
