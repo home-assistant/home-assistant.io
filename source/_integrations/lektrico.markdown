@@ -31,7 +31,7 @@ Sensors available in the library:
 | state               |      | State of the charger.                                     |
 | charging_time       | s    | Indicates the current session charging time.              |
 | power               | kW   | Current instant power.                                    |
-| energy              | kWh  | Current session charged energy.                           |
+| energy              | kWh  | Total charged energy for the current charging session.    |
 | temperature         | °C   | Board temperature.                                        |
 | lifetime_energy     | kWh  | Total charged energy since installation.                  |
 | installation_current| A    | Current value [A] to be limited by software.              |
@@ -46,7 +46,7 @@ Sensors available in the library:
 | state               |      | State of the charger.                                     |
 | charging_time       | s    | Indicates the current session charging time.              |
 | power               | kW   | Current instant power.                                    |
-| energy              | kWh  | Current session charged energy.                           |
+| energy              | kWh  | Total charged energy for the current charging session.    |
 | temperature         | °C   | Board temperature.                                        |
 | lifetime_energy     | kWh  | Total charged energy since installation.                  |
 | installation_current| A    | Current value [A] to be limited by software.              |
