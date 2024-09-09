@@ -29,13 +29,12 @@ There is currently support for the following device types within Home Assistant:
 - **Presence detection** - The platform will look at devices connected to the access point and will
 create a `device_tracker` for each discovered device.
 
-## Configuration
+## Prerequisites
 
-To add a Ruckus Unleashed device to your installation, go to **Settings** -> **Devices & services**,
-click the `+` button, then select **Ruckus** from the list of integrations.
+- **IP address / hostname**, **Username** and **Password** which you use to connect
+    to your Ruckus controller's web dashboard.
 
-Enter be the **IP address / hostname**, **Username** and **Password** which you use to connect
-to your Ruckus controller's web dashboard.
+{% include integrations/config_flow.md %}
 
 ### Ruckus Unleashed
 
