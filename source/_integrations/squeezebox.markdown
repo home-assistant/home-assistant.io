@@ -66,7 +66,7 @@ transporter_toslink:
 - **Total artists**: Total number of artists currently available in the service.
 - **Total duration**: Duration of all tracks in service.
 - **Total genres**: Total number of genres used in current service.
-- **Total songs**: Number of music files currently in service.
+- **Total songs**: Total number of music files currently in service.
 
 ## Actions
 
