@@ -37,6 +37,8 @@ These devices typically support Ethernet connections and use Modbus TCP for data
 ## Configuration options
 
 There are two ways to configure your devices with Home Assistant:
+- [Using a Smart Gateway with REST API](#smart-gateway-with-rest-api)
+- [Using a Modbus TCP connection](#modbus-tcp-connection)
 
 ### Smart Gateway with REST API
 
