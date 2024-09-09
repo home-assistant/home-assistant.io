@@ -23,10 +23,10 @@ BSBLan is a device that is made by `Frederik Holst` and with
 the help of many other contributors.
 The board v3 is designed for an Arduino Due with an Ethernet-Shield for web-based controlling
 of heating systems such as `Elco Thision`, `Brötje` and similar systems.
-Also available is a ESP32 version of the board.
+Also, available is a ESP32 version of the board.
 
 It can interface with the heating system over Boiler-System-Bus, Local Process Bus and PPS (Punkt-zu-Punkt Schnittstelle)
-For more information of which system it supports, have a look at their [documentation](https://docs.bsb-lan.de).
+For more information of which system it supports, take a look at their [documentation](https://docs.bsb-lan.de).
 
 {% include integrations/config_flow.md %}
 
@@ -35,9 +35,9 @@ or using a passkey is supported. Use either one.
 
 For more documentation of the BSBLan device, check the [manual](https://docs.bsb-lan.de).
 
-To see a more detailed listing of the reported systems which are successfully used with BSB-LAN please follow the corresponding link:
+To see a more detailed listing of the reported systems which are successfully used with BSB-LAN, please follow the corresponding link:
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `3.1.6-20230327101530`. A newer firmware versions may not work, because the api could have changed.
+The integration is tested with the stable firmware version `3.1.6-20230327101530`. A newer firmware versions may not work because the api could have changed.
 Please use this release. [release 3.1](https://github.com/fredlcore/BSB-LAN/releases/tag/v3.1)
