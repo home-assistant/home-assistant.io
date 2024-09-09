@@ -48,6 +48,8 @@ The following sensors will be created:
 - **Zigbee Uptime** - Uptime of Zigbee connection to ZHA/Z2M
 - **RAM Usage** - Monitor RAM Usage
 - **FS Usage** - Monitor filesystem usage
+- **Ethernet** - Ethernet connection status
+- **Wi-Fi** - Wi-Fi connection status
 
 The following buttons will be created:
 
