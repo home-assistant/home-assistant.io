@@ -21,6 +21,8 @@ This {% term integration %} communicates with your [Sensoterra](https://sensoter
 
 Soil moisture probes can be purchased at Sensoterra.com. Create a free account in the Sensoterra app and register your probes. The Sensoterra Home Assistant integration needs your credentials to obtain a token to access your probe data.
 
+{% include integrations/config_flow.md %}
+
 ## Sensors
 
 The integration provides the following sensors for each probe:
