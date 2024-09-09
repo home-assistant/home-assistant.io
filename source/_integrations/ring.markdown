@@ -147,7 +147,7 @@ Prior to version 2023.12.0 the Home Assistant ring integration would register a 
 If you have been using the ring integration prior to this you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
 This can cause issues receiving ring alerts.
 You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
-(i.e. do not delete thsoe named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
+(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
 If you have too many `Authorised Client Devices` to delete one by one, it might be easier to `Remove all devices` and then re-authorize your required devices.
 
 ## Sensor
