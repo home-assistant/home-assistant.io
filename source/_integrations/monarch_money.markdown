@@ -8,7 +8,7 @@ ha_iot_class: Cloud Polling
 ha_release: 2024.9
 ha_codeowners:
   - '@jeeftor'
-ha_domain: monarchmoney
+ha_domain: monarch_money
 ha_config_flow: true
 ha_platforms:
   - sensor
