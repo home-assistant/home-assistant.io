@@ -28,14 +28,14 @@ Sensors available in the library:
 
 | Condition           | Unit | Description                                               |
 | :------------------ | :--- | :-------------------------------------------------------- |
-| state               | enum | State of the charger.                                     |
+| state               |      | State of the charger.                                     |
 | charging_time       | s    | Indicates the current session charging time.              |
 | power               | kW   | Current instant power.                                    |
 | energy              | kWh  | Current session charged energy.                           |
 | temperature         | °C   | Board temperature.                                        |
 | lifetime_energy     | kWh  | Total charged energy since installation.                  |
 | installation_current| A    | Current value [A] to be limited by software.              |
-| limit_reason        | enum | Current limit reason.                                     |
+| limit_reason        |      | Current limit reason.                                     |
 | voltage             | V    | Measured voltage.                                         |
 | current             | A    | Measured current.                                         |
 
@@ -43,14 +43,14 @@ Sensors available in the library:
 
 | Condition           | Unit | Description                                               |
 | :------------------ | :--- | :-------------------------------------------------------- |
-| state               | enum | State of the charger.                                     |
+| state               |      | State of the charger.                                     |
 | charging_time       | s    | Indicates the current session charging time.              |
 | power               | kW   | Current instant power.                                    |
 | energy              | kWh  | Current session charged energy.                           |
 | temperature         | °C   | Board temperature.                                        |
 | lifetime_energy     | kWh  | Total charged energy since installation.                  |
 | installation_current| A    | Current value [A] to be limited by software.              |
-| limit_reason        | enum | Current limit reason.                                     |
+| limit_reason        |      | Current limit reason.                                     |
 | voltage_l1          | V    | Measured voltage on L1.                                   |
 | voltage_l2          | V    | Measured voltage on L2.                                   |
 | voltage_l3          | V    | Measured voltage on L3.                                   |
