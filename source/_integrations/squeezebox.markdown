@@ -13,6 +13,7 @@ ha_dhcp: true
 ha_platforms:
   - media_player
   - binary_sensor
+  - sensor
 ha_integration_type: integration
 ---
 
@@ -55,6 +56,17 @@ transporter_toslink:
 
 - **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
 - **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+### Sensors
+
+- **Last scan**: Date of the last library scan.
+- **Player count**: Players on the service.
+- **Player count off service**: Players not on this service.
+- **Total albums**: Albums currently in the service.
+- **Total artists**: Artists currently in the service.
+- **Total duration**: Duration of all tracks in service.
+- **Total genres**: Genres used in current service.
+- **Total songs**: Number of msuic files currently in service.
 
 ## Actions
 
