@@ -18,10 +18,13 @@ related:
 ha_config_flow: true
 ---
 
-The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org). An API key, which you can find in your local or cloud based Emoncms account settings, is required to use this service. 
+The `emoncms` sensor {% term integration %} creates sensors for the feeds available in your local or cloud based version of [Emoncms](https://emoncms.org).
 
 To write information from Home Assistant to Emoncms, you can use the [`emoncms_history`](/integrations/emoncms_history) {% term integration %}.
 
+## Prerequisites
+
+ To use this service, you need an Emoncms account and an API key. You can the API key in your local or cloud-based Emoncms account settings.
 
 {% include integrations/config_flow.md %}
 
