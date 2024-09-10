@@ -128,7 +128,7 @@ Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfi
 
 ### Traffic Rules
 
-Entities appear for each Traffic Rule. This allows toggling of rules on and off.
+Entities appear for each Traffic Rule. This allows toggling rules on and off.
 
 ## Sensor
 
