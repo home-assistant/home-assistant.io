@@ -130,6 +130,10 @@ Entities appear for each port forwarding rule.
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
 
+### Traffic Rules
+
+Entities appear for each Traffic Rule. This allows toggling rules on and off.
+
 ## Sensor
 
 ### Bandwidth sensor

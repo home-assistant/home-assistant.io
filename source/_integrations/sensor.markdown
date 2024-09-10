@@ -46,8 +46,8 @@ The following device classes are supported for sensors:
 - **date**: Date string (ISO 8601)
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in d, h, min, or s
-- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
-- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
+- **energy**: Energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
+- **energy_storage**: Stored energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
