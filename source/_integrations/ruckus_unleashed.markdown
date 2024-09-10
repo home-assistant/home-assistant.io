@@ -34,7 +34,6 @@ create a `device_tracker` for each discovered device.
 - **IP address / hostname**, **Username** and **Password** which you use to connect
     to your Ruckus controller's web dashboard.
 
-{% include integrations/config_flow.md %}
 
 ### Ruckus Unleashed
 
@@ -50,6 +49,8 @@ You'll need to use your Ruckus One dashboard to create an Application Token. Go 
 When Home Assistant prompts for Ruckus connection details, use the full URL of a Ruckus One
 dashboard page as the Host (such as `https://asia.ruckus.cloud/5dd1000334cc2a01fcf28a740a6c95cf/t/dashboard`),
 your Token **Client ID** as the Username & your Token **Shared Secret** as the Password.
+
+{% include integrations/config_flow.md %}
 
 ## Limitations
 
