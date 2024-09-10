@@ -53,6 +53,7 @@ For Envoy S Metered / IQ Gateway Metered with installed and configured current t
 - Sensors for net production (grid export) and net consumption (grid import) if the consumption <abbr title="current transformers">CT</abbr> is a net-consumption <abbr title="current transformers">CT</abbr>.
 - Disabled sensors for:
   
+  - `Balanced net power consumption` and `lifetime balanced net energy consumption` (grid import - grid export) if either a net-consumption or total-consumption CT is installed. The `balanced net power consumption` value is calculated by the Envoy if a total-consumption CT is used. When a net-consumption CT is installed, it is the same value as the `current net power consumption`, which is enabled by default if the CT is present.
   - Production and consumption sensors for each phase, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
   - Phase net production and net consumption, if <abbr title="current transformers">CT</abbr> are installed on more than 1 phase.
   - Frequency for production and net consumption <abbr title="current transformers">CT</abbr> (aggregate and phase).
@@ -88,7 +89,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 
 The load shedding and on/off-grid functions marked (*) are only available with the Enpower/IQ System Controller installed. In battery installations without off-grid functionality, used in many EU countries, these off-grid related sensors and switches are not available.
 
-In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
+In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase which pulls the amount from the grid, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount imported and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One may consider using the `lifetime balanced net energy consumption` which is the sum of grid import and export to eliminate this effect. This would require some templating to split these values into import and export values. Alternatively, use the `current net power consumption` or `balanced net power consumption` with a Riemann integral sum helper.
 
 ## Envoy authentication requirements
 
