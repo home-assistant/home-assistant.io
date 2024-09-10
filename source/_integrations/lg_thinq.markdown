@@ -12,6 +12,7 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - climate
   - sensor
 ha_integration_type: integration
 ---
@@ -85,6 +86,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
+- [Climate](#climate)
 - [Switch](#switch)
 
 ### Binary sensor
@@ -99,6 +101,15 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Climate
+
+The properties for controlling the both temperature and wind strength of the appliance are represented as a climate platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Fan mode<br>HVAC mode<br>Preset mode<br>Current Temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
+| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | HVAC mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low |
 
 ### Sensor
 
