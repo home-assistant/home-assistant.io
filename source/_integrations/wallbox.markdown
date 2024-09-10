@@ -29,14 +29,14 @@ The {% term integration %} adds the following sensors:
 - Added range (km)
 - Charging power (kW)
 - Charging speed
-- Charging time 
+- Charging time
 - Cost ([default currency])
-- Current mode 
+- Current mode
 - Depot price ([default currency]/kWh)
 - Energy price ([default currency]/kWh)
 - Max available power (A)
 - State of charge (%)
-- Status description 
+- Status description
 - Max charging current (A)
 - Max ICP current (A)
 
