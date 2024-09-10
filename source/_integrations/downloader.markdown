@@ -16,7 +16,7 @@ The **Downloader** {% term integration %} provides an action to download files. 
 
 {% include integrations/config_flow.md %}
 
-If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `.homeassistant/downloads`). For Home Assistant OS, the Downloader extension is based off the initial folder `/root/homeassistant/`. To that effect, if you have a folder called `/root/homeassistant/my_download_folder`, you would enter simply `my_download_folder` under the prompt for "Select a location to get to store downloads. The setup will check if the directory exists."
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `.homeassistant/downloads`). When prompted to enter a folder name, only enter the folder name, not the path. So if you have a folder called `.homeassistant/my_download_folder`, when prompted to **Select a location to get to store downloads**, enter `my_download_folder`. Home Assistant checks if the directory exists.
 
 ### Use the action
 
