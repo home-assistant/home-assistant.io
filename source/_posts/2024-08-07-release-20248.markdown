@@ -1211,6 +1211,17 @@ update them to use "1024x1024", "1024x1792", or "1792x1024" values.
 
 {% enddetails %}
 
+{% details "Picture, Picture Elements, Picture Entity, Picture Glance cards" %}
+
+Picture, picture elements, picture entity, and picture glance cards will no longer respect the `image` attribute when the entity is set to a person. The image will be inherited from the person entity with no option to override.
+
+([@Quentame] - [#20593]) ([issue])
+
+[#20593]: https://github.com/home-assistant/frontend/pull/20593
+[issue]: https://github.com/home-assistant/frontend/issues/21738
+
+{% enddetails %}
+
 {% details "WLED" %}
 
 The WLED integration now requires a WLED device running at least
