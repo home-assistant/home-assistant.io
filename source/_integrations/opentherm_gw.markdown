@@ -15,6 +15,7 @@ ha_domain: opentherm_gw
 ha_platforms:
   - binary_sensor
   - climate
+  - select
   - sensor
   - switch
 ha_integration_type: integration
