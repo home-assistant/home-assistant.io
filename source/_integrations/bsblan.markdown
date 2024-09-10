@@ -30,6 +30,7 @@ For more information of which system it supports, take a look at their [document
 
 {% include integrations/config_flow.md %}
 
+{% include integrations/config_flow.md %},
 For authentication HTTP authentication using a username and password,
 or using a passkey is supported. Use either one.
 
