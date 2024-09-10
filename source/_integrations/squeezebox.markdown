@@ -1,6 +1,6 @@
 ---
 title: Squeezebox (Lyrion Music Server)
-description: Instructions on how to integrate a Squeezebox player into Home Assistant.
+description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS)  into Home Assistant.
 ha_category:
   - Media player
 ha_release: pre 0.7
@@ -12,10 +12,13 @@ ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
   - media_player
+  - binary_sensor
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was previously known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+
+This integration provides both media players connected to the server and supporting binary sensors for the server status.
 
 The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
@@ -45,6 +48,15 @@ transporter_toslink:
         media_content_id: "source:toslink"
         media_content_type: "music"
 ```
+
+## Entities
+
+### Binary sensors
+
+- **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+## Actions
 
 ### Action `call_method`
 
