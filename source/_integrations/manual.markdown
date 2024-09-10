@@ -34,6 +34,10 @@ name:
   required: false
   type: string
   default: HA Alarm
+unique_id:
+  description: Create a unique id for the entity.
+  required: false
+  type: string
 code:
   description: >
     If defined, specifies a code to enable or disable the alarm in the frontend.
@@ -72,6 +76,11 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
+arming_states:
+  description: Limit the supported arming states.
+  required: false
+  type: list
+  default: armed_away, armed_home, armed_night, armed_vacation, armed_custom_bypass
 armed_custom_bypass/armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
   description: State specific settings
   required: false
@@ -132,6 +141,7 @@ be used for example to sound the siren for a shorter time during the night.
 
 In the configuration example below:
 
+- The only arming states allowed are `armed_away` and `armed_home`.
 - The `disarmed` state never triggers the alarm.
 - The `armed_home` state will leave no time to leave the building or disarm the alarm.
 - The other states will give 30 seconds to leave the building before triggering the alarm, and 20 seconds to disarm the alarm when coming back.
@@ -141,10 +151,14 @@ In the configuration example below:
 alarm_control_panel:
   - platform: manual
     name: Home Alarm
+    unique_id: a_very_unique_id
     code: "1234"
     arming_time: 30
     delay_time: 20
     trigger_time: 4
+    arming_states:
+      - armed_away
+      - armed_home
     disarmed:
       trigger_time: 0
     armed_home:
@@ -179,7 +193,7 @@ automation:
       entity_id: alarm_control_panel.home_alarm
       state: armed_away
   action:
-    service: alarm_control_panel.alarm_trigger
+    action: alarm_control_panel.alarm_trigger
     target:
       entity_id: alarm_control_panel.home_alarm
 ```
@@ -194,7 +208,7 @@ automation:
         entity_id: alarm_control_panel.home_alarm
         to: "triggered"
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "ALARM! The alarm has been triggered"
 ```
@@ -210,7 +224,7 @@ automation:
         to: "19"
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
     action:
-      - service: alarm_control_panel.alarm_disarm
+      - action: alarm_control_panel.alarm_disarm
         target:
           entity_id: alarm_control_panel.home_alarm
 ```
@@ -226,7 +240,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}"
 ```
@@ -238,7 +252,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       entity_id: alarm_control_panel.home_alarm
       to: "pending"
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date_time') }}"
 ```
@@ -250,7 +264,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date_time') }}"
 ```
@@ -262,7 +276,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
       entity_id: alarm_control_panel.home_alarm
       to: "armed_home"
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         # Using multi-line notation allows for easier quoting
         message: >

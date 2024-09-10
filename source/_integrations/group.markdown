@@ -3,6 +3,7 @@ title: Group
 description: Instructions on how to setup groups within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Cover
   - Event
   - Fan
@@ -23,6 +24,7 @@ ha_domain: group
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - event
   - fan
@@ -44,6 +46,11 @@ Home Assistant can group multiple binary sensors, covers, events, fans, lights, 
 
 {% include integrations/config_flow.md %}
 
+{% note %}
+Notification entities can only be grouped via the UI.
+The older notification services can only be grouped via YAML configuration.
+{% endnote %}
+
 ## Group behavior
 
 ### Binary sensor, light, and switch groups
@@ -61,6 +68,13 @@ Binary sensor, light, and switch groups allow you set the "All entities" option.
 - Otherwise, the group state is `unknown` if at least one group member is `unknown` or `unavailable`.
 - Otherwise, the group state is `off` if at least one group member is `off`.
 - Otherwise, the group state is `on`.
+
+### Button groups
+
+The group state is the last time the grouped button was pressed.
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is the last time the grouped button was pressed.
 
 ### Cover groups
 In short, when any group member entity is `open`, the group will also be `open`. A complete overview of how cover groups behave:
@@ -96,6 +110,11 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 - Otherwise, the group state is `unlocked` if at least one group member is `unlocked`.
 - Otherwise, the group state is `locked`.
 
+### Notify entity groups
+
+- The group state is `unavailable` if all group members are `unavailable`.
+- Otherwise, the group state is the last notification sent to the group.
+
 ### Media player groups
 
 - The group state is `unavailable` if all group members are `unavailable`.
@@ -116,7 +135,7 @@ In short, when any group member entity is `unlocked`, the group will also be `un
 
 ## Managing groups
 
-To edit a group, **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**. Find and select the group from the list.
+To edit a group, **{% my helpers title="Settings -> Devices & services -> Helpers" %}**. Find and select the group from the list.
 
 ![Group members](/images/integrations/group/Group_settings.png)
 
@@ -142,6 +161,19 @@ binary_sensor:
     entities:
       - binary_sensor.door_left_contact
       - binary_sensor.door_right_contact
+```
+
+Example YAML configuration of a button group:
+
+```yaml
+# Example configuration.yaml entry
+button:
+  - platform: group
+    name: "Restart all ESPHome devices"
+    device_class: opening
+    entities:
+      - button.device_1_restart
+      - button.device_2_restart
 ```
 
 Example YAML configuration of a cover group:
@@ -288,7 +320,7 @@ state_class:
 
 This group is a special case of groups currently only available via YAML configuration.
 
-Notify groups are used to combine multiple notification services into a single service. This allows you to send notification to multiple devices with a single call.
+Notify groups are used to combine multiple notification actions into a single action. This allows you to send notification to multiple devices by performing a single action.
 
 ```yaml
 # Example configuration.yaml entry
@@ -296,10 +328,10 @@ notify:
   - platform: group
     name: "My notification group"
     services:
-      - service: html5
+      - action: html5
         data:
           target: "macbook"
-      - service: html5_nexus
+      - action: html5_nexus
 ```
 
 {% configuration %}
@@ -308,12 +340,12 @@ name:
   required: true
   type: string
 services:
-  description: A list of all the services to be included in the group.
+  description: A list of all the actions to be included in the group.
   required: true
   type: list
   keys:
     service:
-      description: The service part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification services!
+      description: The name part of an entity ID, e.g.,  if you use `notify.html5` normally, just put `html5`. Note that you must put everything in lower case here. Although you might have capitals written in the actual notification actions!
       required: true
       type: string
     data:
@@ -400,11 +432,9 @@ Old style groups can calculate group state with entities from the following doma
 - `vacuum`
 - `water_heater`
 
-<div class='note info'>
-
+{% note %}
 Platform domains other than these are not supported to be used with old style groups, nor will other domains be supported in the future.
-
-</div>
+{% endnote %}
 
 When member entities all have a single `on` and `off` state, the group state will be calculated as follows:
 
@@ -420,13 +450,13 @@ When a group contains entities from domains that have multiple `on` states or on
 
 It is possible to create a group that the system cannot calculate a group state. Groups with entities from unsupported domains will always have an unknown state.
 
-These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` services, etc.
+These groups can still be in templates with the `expand()` directive, called using the `homeassistant.turn_on` and `homeassistant.turn_off` actions, etc.
 
-### Services
+### Actions
 
-This integration provides the following services to modify groups and a service to reload the configuration without restarting Home Assistant itself.
+This integration provides the following actions to modify groups and a action to reload the configuration without restarting Home Assistant itself.
 
-| Service  | Data              | Description                                                                   |
+| Action   | Data              | Description                                                                   |
 | -------- | ----------------- | ----------------------------------------------------------------------------- |
 | `set`    | `Object ID`       | Group id and part of entity id.                                               |
 |          | `Name`            | Name of the group.                                                            |

@@ -21,9 +21,9 @@ The `dweet` {% term integration %} makes it possible to transfer details collect
   <img src='/images/screenshots/dweet-freeboard.png' />
 </p>
 
-<div class='note warning'>
+{% note %}
 The publishing interval is limited to 1 second. This means that it's possible to miss fast changes.
-</div>
+{% endnote %}
 
 There is currently support for the following device types within Home Assistant:
 

@@ -25,11 +25,11 @@ The FireServiceRota integration provides you real-time information about inciden
 
 You will need a FireServiceRota or BrandweerRooster account.
 
-<div class='note'>
+{% caution %}
 
 A word of caution: Do not solely rely on this integration for your emergency calls!
 
-</div>
+{% endcaution %}
 
 This integration provides the following platforms:
 
@@ -121,7 +121,7 @@ automation:
       platform: state
       entity_id: sensor.incidents
     action:
-      service: light.turn_on
+      action: light.turn_on
       target:
         entity_id: light.bedroom
 
@@ -138,7 +138,7 @@ automation:
             attribute: message_to_speech_url
             state: None
     action:
-      - service: media_player.play_media
+      - action: media_player.play_media
         data_template:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
@@ -150,7 +150,7 @@ automation:
       platform: state
       entity_id: switch.response_button
     action:
-      service: homeassistant.turn_on
+      action: homeassistant.turn_on
       target:
         entity_id: switch.incident_response
 
@@ -159,7 +159,7 @@ automation:
       platform: homeassistant
       event: start
     action:
-      service: cast.show_lovelace_view
+      action: cast.show_lovelace_view
       data: 
         entity_id: media_player.nest_hub_bedroom
         view_path: fsr

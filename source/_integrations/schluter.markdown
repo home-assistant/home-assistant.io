@@ -18,9 +18,9 @@ related:
 
 The `schluter` {% term integration %} allows you to integrate your [Schluter-DITRA-HEAT-E-WiFi](https://www.schluter.com/schluter-us/en_US/ditra-heat-wifi) electric floor heating thermostat in Home Assistant.
 
-<div class='note'>
+{% important %}
 You will need to create a Schluter DITRA-HEAT account and register your thermostat with it. This can be done via the thermostat touchscreen, where an email will be sent to you to confirm your account.
-</div>
+{% endimportant %}
 
 ## Configuration
 

@@ -23,9 +23,9 @@ After configuring this {% term integration %}, the binary sensors automatically 
 
 ## Configuration
 
-<div class='note'>
+{% important %}
 You should have at least one VM or container entry configured, else this integration won't do anything.
-</div>
+{% endimportant %}
 
 To use the `proxmoxve` {% term integration %}, add the following configuration to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

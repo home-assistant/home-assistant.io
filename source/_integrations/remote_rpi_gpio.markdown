@@ -112,9 +112,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
-<div class='note warning'>
+{% note %}
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
-</div>
+{% endnote %}
 
 A common question is what does port refer to? This number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

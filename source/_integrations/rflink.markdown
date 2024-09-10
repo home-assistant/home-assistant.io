@@ -26,9 +26,9 @@ The 433 MHz spectrum is used by many manufacturers mostly using their own protoc
 
 RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
 
-<div class='note'>
-Note: Versions later than R44 add support for Ikea Ansluta, Philips Living Colors Gen1 and MySensors devices.
-</div>
+{% note %}
+Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1 and MySensors devices.
+{% endnote %}
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
 
@@ -105,15 +105,13 @@ Other methods of exposing the serial interface over TCP are possible (eg: ESP826
 
 Tested with Wifi serial bridge [esp-link V2.2.3](https://github.com/jeelabs/esp-link/releases/tag/v2.2.3) running on a NodeMCU (ESP8266 Wifi module) with ESP8266 TXD0 (pin D10) and RXD0 (pin D9) connected to Arduino MEGA 2560 RX (Pin 2) and TX (Pin 3) respectively.
 
-<div class='note warning'>
-
+{% tip %}
 Due to different logic levels, a voltage level shifter is required between the 3.3V NodeMCU and 5V Arduino MEGA 2560 pins. The BSS138 bidirectional logic level converter has been tested for serial pins and the [link](https://aliexpress.com/item/32238089139.html) is recommended for the CC2500 transceiver (used for IKEA Ansluta and Philips Living Colors)
+{% endtip %}
 
-</div>
-
-<div class='note'>
+{% tip %}
 When re-flashing the Arduino MEGA, disconnect the ESP8266 to avoid programming difficulties.
-</div>
+{% endtip %}
 
 ```yaml
 # Example configuration.yaml entry

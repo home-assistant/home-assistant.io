@@ -2,11 +2,9 @@
 
 If you want to stay on the bleeding-edge Home Assistant Core development branch, you can upgrade to `dev`.
 
-<div class='note warning'>
-
-  The `dev` branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
-
-</div>
+{% caution %}
+The `dev` branch is likely to be unstable. Potential consequences include loss of data and instance corruption.
+{% endcaution %}
 
 {% if page.installation == "os" or page.installation == "supervised" %}
 

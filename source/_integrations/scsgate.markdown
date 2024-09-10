@@ -88,11 +88,9 @@ devices:
           type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 **Known limitation:** It is not possible to know the current state of the cover.
-
-</div>
+{% endnote %}
 
 ### Light
 

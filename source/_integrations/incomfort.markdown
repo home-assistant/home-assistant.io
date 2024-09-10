@@ -9,7 +9,7 @@ ha_category:
 ha_release: 0.93
 ha_iot_class: Local Polling
 ha_codeowners:
-  - '@zxdavb'
+  - '@jbouwh'
 ha_domain: incomfort
 ha_platforms:
   - binary_sensor
@@ -53,7 +53,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
     entity_id: sensor.cv_pressure
     below: 1.0
   action:
-  - service: notify.pushbullet_notifier
+  - action: notify.pushbullet_notifier
     data:
       title: "Warning: Low CH Pressure"
       message: >-

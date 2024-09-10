@@ -204,3 +204,9 @@ For example:
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
 ```
+
+## Supported metrics
+
+Metrics are exported only for the following domains:
+
+`alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`

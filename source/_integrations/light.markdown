@@ -29,19 +29,17 @@ The field transition is optional and can be omitted.
 
 The `.default` suffix should be added to the entity identifier of each light to define a default value, e.g., for `light.ceiling_2` the `profile` field is `light.ceiling_2.default`. To define a default for all lights, the identifier `group.all_lights.default` can be used. Individual settings always supersede the `all_lights` default setting.
 
-<div class='note'>
+{% note %}
+If a light entity is in the `on` state, the default profile brightness will only be applied if it is called in the action data attribute `profile`, like any other named profile. The transition attribute will be applied for all `light.turn_on`, `light.toggle`, and `light.turn_off` actions, unless specified otherwise in the action data.
+{% endnote %}
 
-If a light entity is in the `on` state, the default profile brightness will only be applied if it is called in the service call data attribute `profile`, like any other named profile. The transition attribute will be applied for all `light.turn_on`, `light.toggle` and `light.turn_off` service calls, unless specified otherwise in the service call data.
-
-</div>
-
-### Service `light.turn_on`
+### Action `light.turn_on`
 
 Turns one light on or multiple lights on using [groups](/integrations/group/).
 
 Most lights do not support all attributes. You can check the integration documentation of your particular light for hints, but in general, you will have to try things out and see what works.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`.                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `transition`           | yes      | Number that represents the time (in seconds) the light should take to transition to the new state.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -63,11 +61,9 @@ Most lights do not support all attributes. You can check the integration documen
 | `flash`                | yes      | Tell light to flash, can be either value `short` or `long`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | `effect`               | yes      | Applies an effect such as `colorloop` or `random`.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 
-<div class='note'>
-
+{% note %}
 In order to apply attributes to an entity, you will need to add `data:` to the configuration. See example below
-
-</div>
+{% endnote %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -79,7 +75,7 @@ automation:
       entity_id: binary_sensor.motion_1
       to: "on"
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.living_room
       data:
@@ -94,31 +90,29 @@ automation:
   - at: '05:00'
     platform: time
   action:
-    - service: light.turn_on
+    - action: light.turn_on
       target:
         entity_id: light.ledliststair
       data:
         brightness: 130
         rgb_color: [255,0,0]
 ```
-<div class='note'>
-
+{% note %}
 If no data is sent, and a default profile exists, the default profile will be applied.
+{% endnote %}
 
-</div>
-
-### Service `light.turn_off`
+### Action `light.turn_off`
 
 Turns one or multiple lights off.
 
-| Service data attribute | Optional | Description                                                                                                     |
+| Data attribute | Optional | Description                                                                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | String or list of strings that point at `entity_id`s of lights. To target all lights, set `entity_id` to `all`. |
 | `transition`           | yes      | Integer that represents the time the light should take to transition to the new state in seconds.               |
 | `flash`                | yes      | Tell light to flash, can be either value `short` or `long`.                                                     |
 
-### Service `light.toggle`
+### Action `light.toggle`
 
-Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#service-lightturn_on) service.
+Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#action-lightturn_on) action.
 
 *Note*: If `light.toggle` is used for a group of lights, it will toggle the individual state of each light. If you want the lights to be treated as a single light, use [Light Groups](/integrations/group#binary-sensor-light-and-switch-groups) instead.

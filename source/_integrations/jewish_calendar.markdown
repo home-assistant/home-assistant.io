@@ -12,6 +12,8 @@ ha_platforms:
   - binary_sensor
   - sensor
 ha_integration_type: integration
+ha_config_flow: true
+ha_quality_scale: silver
 ---
 
 The Jewish Calendar (`jewish_calendar`) {% term integration %} displays various information related to the Jewish Calendar as various sensors.
@@ -46,9 +48,9 @@ Allows you to override the default location information provided by Home Assista
 ### Data sensors
 
 - `date`: Shows the hebrew date for today.
-- `weekly_portion`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
+- `parshat_hashavua`: Shows the weekly portion (parshat hashavu'a - פרשת השבוע)
 - `holiday`: If it is a holiday, shows the name of the holiday _(see below for more info)_.
-- `omer_count`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
+- `day_of_the_omer`: An integer sensor indicating the day of the Omer (1-49) or 0 if it is not currently the Omer.
 - `daf_yomi`: Shows the date's daf yomi page.
 
 ### Time sensors
@@ -57,19 +59,19 @@ Allows you to override the default location information provided by Home Assista
 
 Time sensor states are represented as ISO8601 formatted *UTC time*.
 
-- `first_light`: First light of dawn (Alot Hashachar - עלות השחר)
-- `talit`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
-- `sunrise`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
-- `gra_end_shma`: Last time for the reading of the Shma according to the Gr"a.
-- `mga_end_shma`: Last time for the reading of the Shma according to the MG"A.
-- `gra_end_tefilla`: Last time for full shacharit according to the Gr"a.
-- `mga_end_tefilla`: Last time for full shacharit according to the MG"A.
-- `midday`: Half way through the day (Chatzot Hayom - חצות היום)
-- `big_mincha`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
-- `little_mincha`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
-- `plag_mincha`: Time of the Plag Hamincha (פלג המנחה)
-- `sunset`: Sunset (Shkiya - שקיעה)
-- `first_stars`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
+- `alot_hashachar`: First light of dawn (Alot Hashachar - עלות השחר)
+- `talit_and_tefillin`: Earliest time for tallit and tefillin (Misheyakir - משיכיר)
+- `hanetz_hachama`: Earliest time for Shacharit (Hanetz Hachama - הנץ החמה)
+- `latest_time_for_shma_gr_a`: Last time for the reading of the Shma according to the Gr"a.
+- `latest_time_for_shma_mg_a`: Last time for the reading of the Shma according to the MG"A.
+- `latest_time_for_tefilla_gr_a`: Last time for full shacharit according to the Gr"a.
+- `latest_time_for_tefilla_mg_a`: Last time for full shacharit according to the MG"A.
+- `chatzot_hayom`: Half way through the day (Chatzot Hayom - חצות היום)
+- `mincha_gedola`: Earliest time for Mincha (Mincha Gedola - מנחה גדולה)
+- `mincha_ketana`: Preferable earliest time for Mincha (Mincha Ketana - מנחה קטנה)
+- `plag_hamincha`: Time of the Plag Hamincha (פלג המנחה)
+- `shkia`: Sunset (Shkiya - שקיעה)
+- `t_set_hakochavim`: Time at which the first stars are visible (Tseit Hakochavim - צאת הכוכבים)
 - `upcoming_shabbat_candle_lighting`: The time of candle lighting for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat.
 - `upcoming_shabbat_havdalah`: The time of havdalah for either the current Shabbat (if it is currently Shabbat) or the immediately upcoming Shabbat. If it is currently a three-day holiday, this value *could* be None (i.e., if a holiday is Sat./Sun./Mon. and it's Saturday, there will be no `shabbat_havdalah` value. See comments in hdate library for details.)
 - `upcoming_candle_lighting`: The time of candle lighting for either the current Shabbat OR Yom Tov, or the immediately upcoming Shabbat OR Yom Tov. If, for example, today is Sunday, and Rosh Hashana is Monday night through Wednesday night, this reports the candle lighting for Rosh Hashana on Monday night. This avoids a situation of triggering pre-candle-lighting automations while it is currently Yom Tov. To always get the Shabbat times, use the `upcoming_shabbat_candle_lighting` sensor.

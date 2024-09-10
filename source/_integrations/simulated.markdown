@@ -13,6 +13,10 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
+{% warning %}
+The `simulated` integration has been deprecated and will be removed in 2025.1
+{% endwarning %}
+
 The `simulated` sensor platform provides a simulated sensor that generates a time-varying signal `V(t)` given by the [function](https://en.wikipedia.org/wiki/Sine_wave):
 
 ```text

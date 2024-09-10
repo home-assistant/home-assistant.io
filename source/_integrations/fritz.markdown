@@ -42,25 +42,25 @@ There is support for the following platform types within Home Assistant:
 - **Update** - firmware status of the device.
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% important %}
 Both TR-064 and UPnP need to be enabled in the FRITZ!Box ( Home Network -> Network -> Network settings -> Access Settings in the Home Network ) for Home Assistant to login and read device info.
-</div>
+{% endimportant %}
 
 ## Username
 
 The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
 
-## Services
+## Actions
 
-Available {% term services %}: `set_guest_wifi_password`
+Available {% term actions %}: `set_guest_wifi_password`
 
-### Service `set_guest_wifi_password`
+### Action `set_guest_wifi_password`
 
 Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.
 If no password is given, it will be auto-generated.
 
-| Service data attribute | Optional | Description                                                                                                    |
+| Data attribute | Optional | Description                                                                                                    |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
 | `device_id`            | no       | Only act on a specific  router                                                                                 |
 | `password`             | yes      | New password for the guest wifi                                                                                |
@@ -69,7 +69,7 @@ If no password is given, it will be auto-generated.
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.
@@ -105,7 +105,7 @@ The following script can be used to easily add a reconnect button to your UI. If
 fritz_box_reconnect:
   alias: "Reconnect FRITZ!Box"
   sequence:
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.fritzbox_7530_reconnect
 
@@ -120,7 +120,7 @@ automation:
     - platform: time
       at: "05:00:00"
   action:
-    - service: button.press
+    - action: button.press
       target:
         entity_id: button.fritzbox_7530_reconnect
 
@@ -136,7 +136,7 @@ automation:
         entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           title: "Guest Wi-Fi is enabled"
           message: "Password: ..."

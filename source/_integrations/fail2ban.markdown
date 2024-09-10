@@ -16,11 +16,11 @@ related:
 
 The `fail2ban` {% term integration %} allows for IPs banned by [fail2ban](https://www.fail2ban.org/wiki/index.php/Main_Page) to be displayed in the Home Assistant frontend.
 
-<div class='note'>
+{% important %}
 
 Your system must have `fail2ban` installed and correctly configured for this sensor to work. In addition, Home Assistant must be able to read the `fail2ban` log file.
 
-</div>
+{% endimportant %}
 
 ## Configuration
 
@@ -55,11 +55,11 @@ file_path:
 
 ### Fail2Ban with Docker
 
-<div class='note'>
+{% important %}
 
 These steps assume you already have the Home Assistant Docker running behind NGINX and that it is externally accessible. It also assumes the Docker is running with the `--net='host'` flag.
 
-</div>
+{% endimportant %}
 
 For those of us using Docker, the above tutorial may not be sufficient. The following steps specifically outline how to set up `fail2ban` and Home Assistant when running Home Assistant within a Docker behind NGINX. The setup this was tested on was an unRAID server using the [SWAG](https://github.com/linuxserver/docker-swag) from linuxserver.io.
 

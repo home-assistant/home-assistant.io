@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Light
   - Sensor
   - Switch
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -41,15 +43,17 @@ There is currently support for the following device types within Home Assistant:
 - [Switch](#switch)
 - [Light](#light)
 
-<p class='note'>
+{% note %}
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
-</p>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
 ## Binary sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
+The binary sensor switches off and on when motion, doorbell rings, and intercom unlock events occur.
+
+The binary sensor is being replaced with the event entity, and you should migrate any automations to the event entity by release 2025.4.0.
 
 ## Button
 
@@ -57,9 +61,9 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Camera
 
-<div class='note'>
+{% important %}
 Please note that downloading and playing Ring video will require a Ring Protect plan.
-</div>
+{% endimportant %}
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the camera platform. Currently, it supports doorbell and stickup cameras.
 
@@ -84,7 +88,7 @@ automation:
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
   action:
-  - service: downloader.download_file
+  - action: downloader.download_file
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"
       subdir: "{{state_attr('camera.front_door', 'friendly_name')}}"
@@ -131,6 +135,10 @@ data = {
 # call downloader integration to save the video
 hass.services.call("downloader", "download_file", data)
 ```
+
+## Event
+
+The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
 
 ## Sensor
 

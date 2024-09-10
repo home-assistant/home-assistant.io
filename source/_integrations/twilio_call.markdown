@@ -34,7 +34,7 @@ from_number:
   required: true
   type: string
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: "`notify`"
   type: string
@@ -42,7 +42,7 @@ name:
 
 ### Usage
 
-Twilio is a notification platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
+Twilio is a notification platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send a notification to all E.164 phone numbers in the notification **target**. See the notes above regarding the `from_number` configuration variable for information about formatting phone numbers.
 
 ```yaml
 # Example automation notification entry
@@ -52,7 +52,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.twilio_call
+      action: notify.twilio_call
       data:
         message: "The sun has set"
         target:
