@@ -142,9 +142,9 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Realtime event stability
 
-If you are experiencing issues with receiving ring alerts the reason could be that you have too many authenticated devices on your ring account.
+If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
 Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
-If you have been using the ring integration prior to this you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
+If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
 This can cause issues receiving ring alerts.
 You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
 (i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
