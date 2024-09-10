@@ -24,7 +24,7 @@ To write information from Home Assistant to Emoncms, you can use the [`emoncms_h
 
 ## Prerequisites
 
- To use this service, you need an Emoncms account and an API key. You can the API key in your local or cloud-based Emoncms account settings.
+ To use this service, you need an Emoncms account and an API key. You can find the API key in your local or cloud-based Emoncms account settings.
 
 {% include integrations/config_flow.md %}
 
