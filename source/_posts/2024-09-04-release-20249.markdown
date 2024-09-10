@@ -24,13 +24,7 @@ We hope you've been able to enjoy some time in, and away, from your smart home t
 
 Enjoy the release!
 
-{% tip %}
-
-Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=dSbCzRhbOVA)
-4 September 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
-
-{% endtip %}
-
+<!--more-->
 
 - [Sections go BIG](#sections-go-big)
   - [Wider sections](#wider-sections)
