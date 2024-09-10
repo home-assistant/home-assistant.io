@@ -1211,6 +1211,17 @@ update them to use "1024x1024", "1024x1792", or "1792x1024" values.
 
 {% enddetails %}
 
+{% details "Reolink" %}
+
+The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are therefore not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
+
+([@StarkillerOG] - [#34196]) ([documentation](/integrations/reolink))
+
+[@StarkillerOG]: https://github.com/starkillerOG
+[#34196]: https://github.com/home-assistant/home-assistant.io/pull/34196
+
+{% enddetails %}
+
 {% details "WLED" %}
 
 The WLED integration now requires a WLED device running at least
