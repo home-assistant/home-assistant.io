@@ -22,6 +22,4 @@ Also, all of your personal drinks will be available as buttons for you to use.
 
 You can easily pair your device by confirming your phone number which is registered with your Edge app account.
 
-## Configuration
-
 {% include integrations/config_flow.md %}
