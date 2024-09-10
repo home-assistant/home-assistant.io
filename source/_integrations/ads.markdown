@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Valve
 ha_release: '0.60'
 ha_iot_class: Local Push
 ha_domain: ads
@@ -17,6 +18,7 @@ ha_platforms:
   - light
   - sensor
   - switch
+  - valve
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -27,11 +29,14 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
+- [Configuration](#configuration)
+- [Action](#action)
 - [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Cover](#cover)
+- [Valve](#valve)
 
 ## Configuration
 
@@ -252,4 +257,29 @@ device_class:
   required: false
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
+{% endconfiguration %}
+
+## Valve
+
+The `ads` valve platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+valve:
+  - platform: ads
+    adsvar: MAIN.bValveControl
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the variable which you want to access on the ADS device.
+  type: string
+name:
+  required: false
+  description: An identifier for the valve in the frontend.
+  type: string
 {% endconfiguration %}
