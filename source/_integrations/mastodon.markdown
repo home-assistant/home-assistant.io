@@ -8,7 +8,7 @@ ha_codeowners:
   - '@fabaff'
   - '@andrew-codechimp'
 ha_domain: mastodon
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_platforms:
   - diagnostics
   - notify
