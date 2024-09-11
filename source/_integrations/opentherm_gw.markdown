@@ -6,6 +6,7 @@ ha_category:
   - Binary sensor
   - Climate
   - Hub
+  - Select
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
@@ -17,7 +18,9 @@ ha_platforms:
   - button
   - binary_sensor
   - climate
+  - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -65,6 +68,12 @@ Temporary Setpoint Override Mode:
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
 {% endconfiguration_basic %}
+
+## Entities
+
+### Select
+
+Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
 
 ## Actions
 
@@ -250,3 +259,11 @@ Possible LED modes and their meaning are listed here:
 - E. Transmission error has been detected.
 - M. Boiler requires maintenance.
 - P. Raised power mode active on thermostat interface.
+
+## Disabled configuration entities
+
+{% warning %}
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using the information in this section.
+{% endwarning %}
+For advanced control of your heating system, some `switch` configuration entities can be found on the added `OpenTherm Gateway` device.
+These entities are disabled by default, as they can cause your heating system to run continuously and/or increase your energy consumption significantly if used improperly. In most setups, these entities are not needed and should be left disabled.

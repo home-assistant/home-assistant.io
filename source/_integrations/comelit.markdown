@@ -17,6 +17,7 @@ ha_codeowners:
 ha_iot_class: Local Polling
 ha_platforms:
   - alarm_control_panel
+  - binary_sensor
   - climate
   - cover
   - humidifier
@@ -38,4 +39,4 @@ There is support for the following platform types within Home Assistant:
 
 ## Alarm control panel
 
-The integration will create an alarm entity for each area and a sensor for each zone.
+The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
