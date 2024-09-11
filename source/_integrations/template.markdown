@@ -133,6 +133,10 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
+condition:
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed. Optional. [See condition documentation](/docs/automation/condition).
+  required: false
+  type: list
 action:
   description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
@@ -540,6 +544,27 @@ template:
         auto_off: 5
         state: "true"
 ```
+
+### Using conditions with triggers to control status updates
+
+This example shows how to store the last valid value of a temperature sensor. It will update as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state will remain unchanged. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      platform: state
+      entity_id: sensor.outside_temperature
+    condition:
+      - condition: template
+        value_template: "{{ is_number(states('sensor.outside_temperature')) }}"
+    sensor:
+      - name: Outside Temperature last known value
+        state: "{{ states('sensor.outside_temperature') }}"
+```
+
+{% endraw %}
 
 ### State based sensor exposing sun angle
 
