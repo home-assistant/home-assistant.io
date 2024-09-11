@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
 
-The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and transport controls are supported if the selected source reports it.
+The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and transport controls are supported if the selected source reports it.
 
 ## Supported devices
 
@@ -55,10 +55,10 @@ The interface automatically sets which controls are available depending on which
 Volume control is only supported on all-in-one amps, or streamers with pre-amp mode.
 Likely, the device is not configured to be in pre-amp mode.
 This can be changed by navigating to the IP address of the device in a web browser,
-or selecting settings in the StreamMagic app and setting `Pre-Amp` to `On`.
+or selecting settings in the StreamMagic app and setting **Pre-Amp** to **On**.
 
 ### Turning on the device doesn't work from Home Assistant
 
 Cambridge Audio devices come with ECO mode enabled by default, which disables the network interface when
 the device is powered down. This can be changed by navigating to the IP address of the device in a web browser,
-or selecting settings in the StreamMagic app and setting `Standby Mode` to `Network standby`.
+or selecting settings in the StreamMagic app and setting **Standby Mode** to **Network standby**.
