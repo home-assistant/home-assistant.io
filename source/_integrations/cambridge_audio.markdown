@@ -47,18 +47,18 @@ Host:
 
 ### The buttons to skip, shuffle, and repeat the track are missing
 
-Transport control functionality depends on the source / service that is currently selected. 
+Transport control functionality depends on the source / service that is currently selected.
 The interface automatically sets which controls are available depending on which source is selected.
 
 ### The ability to change volume is missing
 
-Volume control is only supported on all-in-one amps, or streamers with pre-amp mode. 
-Likely, the device is not configured to be in pre-amp mode. 
-This can be changed by navigating to the IP address of the device in a web browser, 
+Volume control is only supported on all-in-one amps, or streamers with pre-amp mode.
+Likely, the device is not configured to be in pre-amp mode.
+This can be changed by navigating to the IP address of the device in a web browser,
 or selecting settings in the StreamMagic app and setting `Pre-Amp` to `On`.
 
 ### Turning on the device doesn't work from Home Assistant
 
-Cambridge Audio devices come with ECO mode enabled by default which disables the network interface when
+Cambridge Audio devices come with ECO mode enabled by default, which disables the network interface when
 the device is powered down. This can be changed by navigating to the IP address of the device in a web browser,
 or selecting settings in the StreamMagic app and setting `Standby Mode` to `Network standby`.
