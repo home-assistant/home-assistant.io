@@ -108,7 +108,7 @@ A device tracker with **GPS** can have any number of string states. In that case
 - Report GPS coordinates. The coordinates are then matched to a zone (which is set as state)
 - Report a location. This could be any string which is set as state.
 
-A device tracker with **router** as source will only have one of two states: **Home**, or **Not home**.
+A device tracker with **router** as source can have one of two states: **Home**, or **Not home**.
 
 - **Home**: Your tracked device is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive).
 - **Not home**: When a device isn't at home and isn't in any zone.
