@@ -9,6 +9,11 @@ ha_domain: alarm_control_panel
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /integrations/manual/
+    title: Manual alarm
+  - docs: /integrations/alarm_control_panel.template/
+    title: Template alarm
 ---
 
 Home Assistant can give you an interface which is similar to a classic alarm system.
