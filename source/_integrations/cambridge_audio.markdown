@@ -14,7 +14,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `cambridge_audio` {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
+The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
 
 The platform automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and transport controls are supported if the selected source reports it.
 
