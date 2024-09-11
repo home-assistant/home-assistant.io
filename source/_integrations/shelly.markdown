@@ -131,9 +131,9 @@ The integration uses the following strategy to name its entities:
 
 Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, you need to configure the device:
 
-- change the device profile to `Cover` (**Settings** >> **Device profile**)
-- calibrate the cover (**Home** >> **Cover** >> **Calibration** >> **Start**)
-- enable and configure **Slat control** (**Home** >> **Cover** >> **Slat control**)
+- Change the device profile to `Cover` (**Settings** > **Device profile**)
+- Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
+- Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
 
 ## Binary input sensors
 
