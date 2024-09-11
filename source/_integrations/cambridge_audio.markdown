@@ -43,7 +43,7 @@ Host:
     type: string
 {% endconfiguration_basic %}
 
-## FAQ
+## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing
 
