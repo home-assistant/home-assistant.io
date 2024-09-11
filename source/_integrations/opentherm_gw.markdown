@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Climate
   - Hub
+  - Select
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
@@ -71,6 +72,12 @@ Temporary Setpoint Override Mode:
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
 {% endconfiguration_basic %}
+
+## Entities
+
+### Select
+
+Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
 
 ## Actions
 
