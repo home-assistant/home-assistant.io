@@ -125,7 +125,7 @@ Names are set from the device web page:
 The integration uses the following strategy to name its entities:
 
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
-- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
+- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
 
 ## Binary input sensors
 
