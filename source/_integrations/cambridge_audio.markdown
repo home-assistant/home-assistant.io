@@ -16,7 +16,7 @@ ha_integration_type: integration
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
 
-The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and transport controls are supported if the selected source reports it.
+The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it.
 
 ## Supported devices
 
@@ -47,7 +47,7 @@ Host:
 
 ### The buttons to skip, shuffle, and repeat the track are missing
 
-Transport control functionality depends on the source / service that is currently selected.
+Control functionality depends on the source / service that is currently selected.
 The interface automatically sets which controls are available depending on which source is selected.
 
 ### The ability to change volume is missing
