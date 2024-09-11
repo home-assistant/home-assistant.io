@@ -214,6 +214,11 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
+    unit_of_measurement:
+      description: Defines the units of measurement of the number, if any.
+      required: false
+      type: string
+      default: None
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
@@ -805,6 +810,33 @@ template:
         state: "{{ now().isoformat() }}"
         attributes:
           forecast: "{{ hourly['weather.home'].forecast }}"
+```
+
+{% endraw %}
+
+### Number entity changing the unit of measurement of another number
+
+This example demonstrates the usage of a template number with a unit of measurement set to change a unit-less value of another number entity.
+
+{% raw %}
+
+```yaml
+template:
+  - number:
+      - name: "Cutting Height"
+        unit_of_measurement: "cm"
+        unique_id: automower_cutting_height
+        state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
+        set_value:
+          - service: number.set_value
+            target:
+              entity_id: number.automower_cutting_height_raw
+            data:
+              value: "{{ (value - 1.5) * 2 }}"
+        step: 0.5
+        min: 2
+        max: 6
+        icon: mdi:ruler
 ```
 
 {% endraw %}
