@@ -29,6 +29,10 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 {% include integrations/building_block_integration.md %}
 
+## The state of binary sensor
+
+A binary sensor can have two states: **on** or **off**. However, in the frontend, they might not be called **on** or **off**, but use an alternative term to be more meaningful in the context, such as hot/cold, locked/unlocked. The meaning of an **on** or **off** state depends on the device class.
+
 ### Device class
 
 {% include integrations/device_class_intro.md %}
