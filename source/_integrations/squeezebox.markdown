@@ -64,7 +64,7 @@ transporter_toslink:
 - **Player count off service**: Number of players not on this service.
 - **Total albums**: Total number of albums currently available in the service.
 - **Total artists**: Total number of artists currently available in the service.
-- **Total duration**: Duration of all tracks in service.
+- **Total duration**: Duration of all tracks in service (HHHH:MM:SS).
 - **Total genres**: Total number of genres used in current service.
 - **Total songs**: Total number of music files currently in service.
 
