@@ -5,7 +5,7 @@ ha_category:
   - Sensor
   - Finance
 ha_iot_class: Cloud Polling
-ha_release: 2024.9
+ha_release: "2024.10"
 ha_codeowners:
   - '@jeeftor'
 ha_domain: monarch_money
