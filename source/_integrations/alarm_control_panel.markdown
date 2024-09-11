@@ -20,7 +20,7 @@ Please see [manual alarm](/integrations/manual) or [template alarm](/integration
 
 An alarm panel entity can have the following states. Not all integrations implement all the different states.
 
-- **Disarmed**: he alarm is disarmed (off).
+- **Disarmed**: The alarm is disarmed (off).
 - **Armed home**: The alarm is armed in home mode.
 - **Armed away**: The alarm is armed in away mode.
 - **Armed night**: The alarm is armed in night mode.
