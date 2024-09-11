@@ -30,4 +30,4 @@ The platforms cover the following levels (if they are available):
 
 ## The state of an air quality entity
 
-The state of an air quality entity represents the concentration of particles in the air that are 2.5 microns or less in diameter. The state is a number. The number is followed by the unit of measurement (micrograms per cubic meter: "µg/m³"). For example, *PM2.5: 4 µg/m³*. In this example, the state is 4.
+The state of an air quality entity represents the concentration of particles in the air that are 2.5 microns or fewer in diameter. The state is a number. The number is followed by the unit of measurement (micrograms per cubic meter: "µg/m³"). For example, *PM2.5: 4 µg/m³*. In this example, the state is 4.
