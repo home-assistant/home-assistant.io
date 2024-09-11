@@ -66,11 +66,21 @@ show_entity_picture:
   description: If your entity has a picture, it will replace the icon.
   type: boolean
   default: false
-display_type:
+show_name:
   required: false
-  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state), or `complete` (icon, state, and name).
-  type: string
-  default: standard
+  description: Show the name
+  type: boolean
+  default: "true"
+show_icon:
+  required: false
+  description: Show the icon
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show the state.
+  type: boolean
+  default: "false"
 state_content:
   required: false
   description: >
