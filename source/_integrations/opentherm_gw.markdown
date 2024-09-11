@@ -71,6 +71,10 @@ Floor Temperature:
 
 ## Entities
 
+### Button
+
+The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
+
 ### Select
 
 Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
