@@ -101,7 +101,7 @@ In the example above, `devicename` refers to the detected name of the device.  F
 
 ## The state of a tracked device
 
-What states a device tracker can have depends on the data source it is using: GPS or router.
+What states a device tracker can have depends on whether it is using GPS or router as the data source.
 
 A device tracker with **GPS** can have any number of string states. In that case, the integration can return one of the following options:
 
