@@ -967,7 +967,7 @@ In Home Assistant, it is currently not possible to set the Z-Wave controller int
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 
-## Z-Wave Command Classes supported in Home Assistant
+## Z-Wave Command Classes supported in Home Assistant when queried
 
 The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices. 
 
