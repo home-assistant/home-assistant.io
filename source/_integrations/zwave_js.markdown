@@ -51,6 +51,22 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS
 
 ## Getting started
 
+This sections shows you how to set up a Z-Wave JS server how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+
+### Z-Wave terminology
+
+Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
+
+| Z-Wave functionality | Home Assistant                                                  |
+| -------------------- | --------------------------------------------------------------- |
+| inclusion            | add                                                             |
+| exclusion            | remove                                                          |
+| barrier operator     | cover                                                           |
+| window covering      | cover                                                           |
+| multilevel switch    | represented by different entity types: light, fan etc.          |
+
+### Prerequisites
+
 To run a Z-Wave network, you need the following elements:
 
 - A [supported Z-Wave controller](/docs/z-wave/controllers/#supported-z-wave-usb-sticks--hardware-modules). First-time user? For recommendations on what to buy, go [here](#which-z-wave-controller-should-i-buy).
@@ -934,16 +950,3 @@ Set the log level for `zwave_js_server` to `debug`. This can either be done in y
 ##### Disable Z-Wave JS logging manually, or via an automation
 
 Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
-
-## Z-Wave terminology
-
-For some of the concepts, you may come across different terminology in Z-Wave than in Home Assistant.
-The table below provides equivalents for some of those terms.
-
-| Z-Wave functionality | Home Assistant                                                  |
-| -------------------- | --------------------------------------------------------------- |
-| inclusion            | add                                                             |
-| exclusion            | remove                                                          |
-| barrier operator     | cover                                                           |
-| window covering      | cover                                                           |
-| multilevel switch    | represented by different entity types: cover, fan, dimmer, etc. |
