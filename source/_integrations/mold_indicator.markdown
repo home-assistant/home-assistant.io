@@ -7,6 +7,7 @@ ha_release: '0.20'
 ha_iot_class: Local Polling
 ha_quality_scale: internal
 ha_domain: mold_indicator
+ha_config_flow: true
 ha_platforms:
   - sensor
 ha_integration_type: integration
