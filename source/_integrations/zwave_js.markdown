@@ -950,3 +950,15 @@ Set the log level for `zwave_js_server` to `debug`. This can either be done in y
 ##### Disable Z-Wave JS logging manually, or via an automation
 
 Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
+
+## Unsupported functionality
+
+This sections lists functionality that is available in Z-Wave but that is not currently supported in Home Assistant.
+
+### Setting the controller into learn mode to receive network information
+
+In Home Assistant, it is currently not possible to set the Z_Wave controller into learn mode to receive network information from another controller.
+
+### Include and exclude the device in an existing network using classic inclusion
+
+This is not supported in Home Assistant, as Home Assistant acts as the central hub. *Classic inclusion* means you set both the including device and the device to be included into the corresponding mode. The alternative is SmartStart, where the including device is constantly listening for inclusion requests from devices that want to join the network.
