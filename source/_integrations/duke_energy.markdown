@@ -12,11 +12,14 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The Duke Energy integration allows you to get energy information from [Duke Energy](https://www.duke-energy.com/). Currently, this integration only supports electric meters.
+The **Duke Energy** {% term integration %} allows you to get energy information from [Duke Energy](https://www.duke-energy.com/).
+## Supported devices
 
-## Authentication Requirements
+Currently, this integration only supports electric meters.
+## Prerequisites
 
-Only a username and password are required to access your account.
+You need a Duke Energy account to use this integration. During installation of the integration, you will need the username and password to access your account.
+{% include integrations/config_flow.md %}
 
 ## Energy
 
