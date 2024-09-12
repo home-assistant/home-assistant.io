@@ -957,7 +957,7 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 ### Setting the controller into learn mode to receive network information
 
-In Home Assistant, it is currently not possible to set the Z_Wave controller into learn mode to receive network information from another controller.
+In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
 ### Include and exclude the device in an existing network using classic inclusion
 
