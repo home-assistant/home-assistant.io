@@ -963,6 +963,6 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
-### Include and exclude the device in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
+### Including / excluding the device in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
-Joining another network is not supported in Home Assistant, as Home Assistant acts as the central hub.
+A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
