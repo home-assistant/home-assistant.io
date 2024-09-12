@@ -13,9 +13,11 @@ ha_integration_type: integration
 ---
 
 The **Duke Energy** {% term integration %} allows you to get energy information from [Duke Energy](https://www.duke-energy.com/).
+
 ## Supported devices
 
 Currently, this integration only supports electric meters.
+
 ## Prerequisites
 
 You need a Duke Energy account to use this integration. During installation of the integration, you will need the username and password to access your account.
