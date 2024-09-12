@@ -41,7 +41,9 @@ related:
 
 The `template` integration allows creating entities which derive their values from other data. This is done by specifying [templates](/docs/configuration/templating/) for properties of an entity, like the name or the state.
 
-Sensors, binary (on/off) sensors, buttons, images, numbers and selects are covered on this page. For other types, please see the specific pages:
+Sensors, binary (on/off) sensors, buttons, images, numbers, and selects are covered on this page. They can be configured using [UI](#configuration) or [YAML](#yaml-configuration) file.
+
+For other types, please see the specific pages:
 
 - [Alarm control panel](/integrations/alarm_control_panel.template/)
 - [Cover](/integrations/cover.template/)
@@ -51,16 +53,6 @@ Sensors, binary (on/off) sensors, buttons, images, numbers and selects are cover
 - [Switch](/integrations/switch.template/)
 - [Vacuum](/integrations/vacuum.template/)
 - [Weather](/integrations/weather.template/)
-
-Sensor, binary sensor, button, image and select can be configured using [UI](#ui-configuration) or [YAML](#yaml-configuration) file.
-
-Number template entities are defined in your YAML configuration files under the `template:` key and cannot be configured via the UI. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
-
-_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
-
-## UI configuration
-
-Sensor template, binary sensor template, button template, image template and select template can be configured using the user interface at **{% my helpers title="Settings > Devices & services > Helpers" %}**. Select the **+ Add helper** button and then select the **{% my config_flow_start domain=page.ha_domain title=page.title %}** helper.
 
 {% include integrations/config_flow.md %}
 
@@ -75,6 +67,10 @@ If you need more specific features for your use case, the manual [YAML-configura
 {% endnote %}
 
 ## YAML configuration
+
+Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+
+_For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
 ### State-based template binary sensors, buttons, images, numbers, selects and sensors
 
@@ -137,6 +133,10 @@ unique_id:
   description: The unique ID for this config block. This will be prefixed to all unique IDs of all entities in this block.
   required: false
   type: string
+condition:
+  description: Define conditions that have to be met after a trigger fires and before any actions are executed or sensor updates are performed. Optional. [See condition documentation](/docs/automation/condition).
+  required: false
+  type: list
 action:
   description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
@@ -218,6 +218,11 @@ number:
       description: Template for the number's current value.
       required: true
       type: template
+    unit_of_measurement:
+      description: Defines the units of measurement of the number, if any.
+      required: false
+      type: string
+      default: None
     set_value:
       description: Defines actions to run when the number value changes. The variable `value` will contain the number entered.
       required: true
@@ -540,6 +545,27 @@ template:
         state: "true"
 ```
 
+### Using conditions with triggers to control status updates
+
+This example shows how to store the last valid value of a temperature sensor. It will update as long as the source sensor has a valid (numeric) state. Otherwise, the template sensor's state will remain unchanged. 
+
+{% raw %}
+
+```yaml
+template:
+  - trigger:
+      platform: state
+      entity_id: sensor.outside_temperature
+    condition:
+      - condition: template
+        value_template: "{{ is_number(states('sensor.outside_temperature')) }}"
+    sensor:
+      - name: Outside Temperature last known value
+        state: "{{ states('sensor.outside_temperature') }}"
+```
+
+{% endraw %}
+
 ### State based sensor exposing sun angle
 
 This example shows the sun angle in the frontend.
@@ -809,6 +835,33 @@ template:
         state: "{{ now().isoformat() }}"
         attributes:
           forecast: "{{ hourly['weather.home'].forecast }}"
+```
+
+{% endraw %}
+
+### Number entity changing the unit of measurement of another number
+
+This example demonstrates the usage of a template number with a unit of measurement set to change a unit-less value of another number entity.
+
+{% raw %}
+
+```yaml
+template:
+  - number:
+      - name: "Cutting Height"
+        unit_of_measurement: "cm"
+        unique_id: automower_cutting_height
+        state: "{{ states('number.automower_cutting_height_raw')|int(0) * 0.5 + 1.5 }}"
+        set_value:
+          - service: number.set_value
+            target:
+              entity_id: number.automower_cutting_height_raw
+            data:
+              value: "{{ (value - 1.5) * 2 }}"
+        step: 0.5
+        min: 2
+        max: 6
+        icon: mdi:ruler
 ```
 
 {% endraw %}
