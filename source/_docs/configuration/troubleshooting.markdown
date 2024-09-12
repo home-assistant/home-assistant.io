@@ -119,7 +119,7 @@ To enable debug logging for a specific integration, follow these steps:
 
 <p class='img'>
   <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
-  Screenshot showing the **Enable debug logging** button on an integration detail page. The MQTT integration is used as an example to show where the button can be found.
+  Screenshot showing the <b>Enable debug logging</b> button on an integration detail page. The MQTT integration is used as an example to show where the button can be found.
 </p>
 
 ### Disable debug logging and download logs
