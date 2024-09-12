@@ -65,7 +65,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 - Sensors for the state of the Enpower's four load-shedding relays *
 - A switch allowing you to take your system on-grid and off-grid. Note that the Enpower has a slight delay built-in between receiving these commands and actually switching the system on or off grid. *
 - A switch allowing you to enable or disable charging the Encharge/IQ batteries from the power grid. **
-- Support for changing the battery storage mode between full backup, self-consumption, and savings mode and setting the reserve battery level for outages. **
+- Support for changing the battery storage mode between full backup, self-consumption, and savings mode, and setting the reserve battery level for outages. **
 - If a storage <abbr title="current transformers">CT</abbr> is installed:
   - Sensors for battery storage energy charged and discharged and current active power discharge/charge
   - Disabled sensors for:
@@ -79,7 +79,7 @@ For Enphase Ensemble systems with the Enpower/IQ System Controller and Encharge/
 
 *: The load shedding and on/off-grid functions are only available with the Enpower/IQ System Controller installed. In battery installations without load-shedding and off-grid functionality, used in many EU countries, these sensors and switches are not available.
 
-**: When used with Enpower/IQ System Controller the entities for charge from grid, battery storage mode and reserve battery level are connected to the Enpower device with the Enpower serial number in their entity and unique id's. When no Enpower is installed these are connected to the Envoy itself and the Envoy serial number is used in the id's.
+**: When used with Enpower/IQ System Controller, the entities to charge from the grid, battery storage mode, and reserve battery level are connected to the Enpower device with the Enpower serial number in their entity and unique IDs. When no Enpower is installed, these are connected to the Envoy itself and the Envoy serial number is used in the IDs.
 
 In multiphase installations with batteries, in countries with phase-balancing grid meters, the battery will export to the grid on one phase the amount it lacks on another phase, as if it is using the grid as a 'transport' between phases. Since the grid meter will balance the amount in and exported on the two phases, the net result is zero. The Envoy multiphase consumption CTs, however, will report the amounts on both phases, resulting in too high export on one and too high import on the other. One needs to use the sum of grid import and export to eliminate this effect.
 
