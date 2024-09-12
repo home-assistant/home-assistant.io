@@ -67,7 +67,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 
 #### Classic inclusion versus SmartStart
 
-Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the including device is constantly listening for inclusion requests from devices that want to join the network.
+Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
 
 ### Prerequisites
 
@@ -963,6 +963,6 @@ This sections lists functionality that is available in Z-Wave but that is not cu
 
 In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
 
-### Including / excluding the device in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
+### Including / excluding a controller in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
