@@ -104,7 +104,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Climate
 
-The properties for controlling the both temperature and wind strength of the appliance are represented as a climate platform.
+The properties for controlling both the temperature and wind strength of the appliance are represented as a climate platform.
 
 | Device | Property |
 | ------ | -------- |
