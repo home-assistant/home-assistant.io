@@ -63,7 +63,7 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 | exclusion            | remove                                                          |
 | barrier operator     | cover                                                           |
 | window covering      | cover                                                           |
-| multilevel switch    | represented by different entity types: light, fan etc.        |
+| multilevel switch    | represented by different entity types: light, fan etc.          |
 
 ### Prerequisites
 
