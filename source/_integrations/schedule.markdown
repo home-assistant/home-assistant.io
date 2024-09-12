@@ -64,33 +64,10 @@ schedule:
 ```
 
 Defining the schedule in YAML also allows adding extra data to each block, which will
-appear as attributes on the schedule helper entity when that block is active, and can
+appear as attributes on the schedule helper entity when that block is active. This can
 be used to easily build schedule-based automations.
 
-For example, adding a single `data` value will show up as an attribute named "Data":
-
-```yaml
-schedule:
-  thermostat_schedule:
-    name: "Thermostat schedule"
-    thursday:
-      - from: "17:00:00"
-        to: "23:00:00"
-        data: 71
-    friday:
-      - from: "17:00:00"
-        to: "23:00:00"
-        data: 70
-    saturday:
-      - from: "07:00:00"
-        to: "10:00:00"
-        data: 74
-      - from: "16:00:00"
-        to: "23:00:00"
-        data: 72
-```
-
-It is also possible to add multiple data values by using a nested object. In this example,
+The `data` key of each block should be a mapping of attribute names to values. In this example,
 the schedule helper entity will have "Brightness" and "Color temp" attributes when
 the blocks are active:
 
@@ -154,7 +131,7 @@ schedule:
         data:
           description: Additional data to add to the entity's attributes when this block is active.
           required: false
-          type: [boolean, string, integer, float]
+          type: map
           default: {}
 {% endconfiguration %}
 
@@ -182,6 +159,27 @@ trigger:
       target:
         entity_id: climate.thermostat
 ```
+
+Using the `light_schedule` example from above in an automation might look like this:
+
+{% raw %}
+
+```yaml
+trigger:
+    - platform: state
+      entity_id:
+        - schedule.light_schedule
+      to: "on"
+  action:
+    - service: light.turn_on
+      target:
+        entity_id: climate.thermostat
+      data_template:
+        brightness_pct: "{{ state_attr('schedule.light_schedule', 'brightness') }}"
+        kelvin: "{{ state_attr('schedule.light_schedule, 'temperature') }}"
+```
+
+{% endraw %}
 
 ### Services
 
