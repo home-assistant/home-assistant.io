@@ -127,6 +127,14 @@ The integration uses the following strategy to name its entities:
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
 - If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
 
+## Cover entities
+
+Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, you need to configure the device:
+
+- Change the device profile to `Cover` (**Settings** > **Device profile**)
+- Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
+- Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
+
 ## Binary input sensors
 
 ### Binary input sensors (generation 1)

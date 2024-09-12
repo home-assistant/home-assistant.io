@@ -160,6 +160,7 @@ Required fields within the `media_content_id` payloads are marked as such, other
 - `resume`: Resumes playback at the last partially watched position if available, otherwise plays at the beginning.
 - `offset`: The desired playback start position in seconds.
 - `allow_multiple`: A search must find one specific item to succeed. This parameter accepts multiple matches in a search and enqueues all found items for playback. Accepts `1` or `true` to enable.
+- `username`: A username for a local Plex user account. This is only required if the Plex server has multiple users and you wish to play media for a specific user.
 
 Simplified examples are provided for [music](#music), [TV episodes](#tv-episode), and [movies](#movie). See [advanced searches](#advanced-searches) for complex/smart search capabilities.
 
