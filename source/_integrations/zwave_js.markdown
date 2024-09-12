@@ -193,6 +193,11 @@ The following features can be accessed from the device panel of a Z-Wave control
 
 - **Factory reset:** Exercise extreme caution when using this action! Once initiated, your controller will be reset to factory settings, it will forget all devices it is paired with, it will establish a new network ID that will prevent any recovery of your old network, and all Z-Wave devices for this network will be removed from Home Assistant. If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
 
+<p class='img'>
+<img src='/images/integrations/z-wave/z-wave-controller-commands.png' alt='Screenshot showing the device panel of a Z-Wave controller' />
+Screenshot showing the device panel of a Z-Wave controller.
+</p>
+
 #### Network devices
 
 The following features can be accessed from the device panel of any Z-Wave device on your network aside from the controller:
