@@ -969,8 +969,7 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 ## Z-Wave Command Classes supported in Home Assistant
 
-The following table lists Command Classes that are supported in Home Assistant, together with their version and their required
-Security Class.
+The following table lists Command Classes that Home Assistant will respond to when queried by other devices, together with the implemented version and required security class:
 
 | Command Class                 | Version | Security Class  |
 | ----------------------------- | ---------------- | --------------- |
