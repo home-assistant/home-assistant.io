@@ -110,12 +110,12 @@ The first thing you will need before reporting an issue online is debug logs and
 
 ### Enabling debug logging
 
-To enable debug logging for an integration, follow these steps:
+To enable debug logging for a specific integration, follow these steps:
 
-1. Go to {% my integrations title="**Settings** > **Devices & services**" %} and go to the detail page of the integration.
-2. On the left side of the integration detail page, select **Enable Debug Logging**.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
+2. Open the detail page of the integration of which you want debug logs.
+3. On the left side of the integration detail page, select **Enable Debug Logging**.
    - The screenshot uses the MQTT integration as an example for illustration purposes. It does not mean you need to install the MQTT integration.
-   - You need to open the integration for which you want debug logs.
 
 <p class='img'>
   <img src='/images/docs/configuration/enable-debug-logging.png' alt='Screenshot showing the Enable debug logging button on an integration detail page'>
