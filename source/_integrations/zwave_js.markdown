@@ -966,3 +966,28 @@ In Home Assistant, it is currently not possible to set the Z-Wave controller int
 ### Including / excluding a controller in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
+
+## Z-Wave Command Classes supported in Home Assistant
+
+The following table lists Command Classes that are supported in Home Assistant, together with their version and their required
+Security Class.
+
+| Command Class                 | Version Required | Security Class  |
+| ----------------------------- | ---------------- | --------------- |
+| Z-Wave Plus Info              | 2                | None            |
+| Security                      | 1                | None            |
+| Security 2                    | 1                | None            |
+| Transport Service             | 2                | None            |
+| Supervision                   | 2                | None            |
+| CRC-16 Encapsulation          | 1                | None            |
+| Multi Command                 | 1                | None            |
+| Inclusion Controller          | 1                | None            |
+| Association                   | 4                | Highest granted |
+| Association Group Information | 3                | Highest granted |
+| Device Reset Locally          | 1                | Highest granted |
+| Firmware Update Meta Data     | 8                | Highest granted |
+| Indicator                     | 4                | Highest granted |
+| Manufacturer Specific         | 2                | Highest granted |
+| Multi Channel Association     | 5                | Highest granted |
+| Power Level                   | 1                | Highest granted |
+| Version                       | 3                | Highest granted |
