@@ -57,13 +57,17 @@ This sections shows you how to set up a Z-Wave JS server how to add your first Z
 
 Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
 
-| Z-Wave functionality | Home Assistant                                                  |
-| -------------------- | --------------------------------------------------------------- |
-| inclusion            | add                                                             |
-| exclusion            | remove                                                          |
-| barrier operator     | cover                                                           |
-| window covering      | cover                                                           |
-| multilevel switch    | represented by different entity types: light, fan etc.          |
+| Z-Wave functionality | Home Assistant                                         |
+| -------------------- | ------------------------------------------------------ |
+| inclusion            | add                                                    |
+| exclusion            | remove                                                 |
+| barrier operator     | cover                                                  |
+| window covering      | cover                                                  |
+| multilevel switch    | represented by different entity types: light, fan etc. |
+
+#### Classic inclusion versus SmartStart
+
+Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
 
 ### Prerequisites
 
@@ -209,16 +213,16 @@ The following features can be accessed from the device panel of any Z-Wave devic
 
 This action will update a configuration parameter. To update multiple partial parameters in a single call, use the `zwave_js.bulk_set_partial_config_parameters` action.
 
-| Data attribute | Required | Description                                                                                                                                                     |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Entity (or list of entities) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       |
-| `device_id`            | no       | Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                  |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
-| `parameter`            | yes      | The parameter number or the name of the property. The name of the property is case sensitive.                                                                   |
-| `bitmask`              | no       | The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. Cannot be combined with value_size or value_format.                       |
-| `value`                | yes      | The target value for the parameter as the integer value or the state label. The state label is case sensitive.                                                  |
-| `value_size`                | no      | The size of the target parameter value, either 1, 2, or 4. Used in combination with value_format when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
-| `value_format`                | no      | The format of the target parameter value, 0 for signed integer, 1 for unsigned integer, 2 for enumerated, 3 for bitfield. Used in combination with value_size when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                  |
+| Data attribute | Required | Description                                                                                                                                                                                                                                                                |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Entity (or list of entities) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                  |
+| `device_id`    | no       | Device ID (or list of device IDs) to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                             |
+| `area_id`      | no       | Area ID (or list of area IDs) for devices/entities to set the configuration parameter on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                            |
+| `parameter`    | yes      | The parameter number or the name of the property. The name of the property is case sensitive.                                                                                                                                                                              |
+| `bitmask`      | no       | The bitmask for a partial parameter in hex (0xff) or decimal (255) format. If the name of the parameter is provided, this is not needed. Cannot be combined with value_size or value_format.                                                                               |
+| `value`        | yes      | The target value for the parameter as the integer value or the state label. The state label is case sensitive.                                                                                                                                                             |
+| `value_size`   | no       | The size of the target parameter value, either 1, 2, or 4. Used in combination with value_format when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask.                                                              |
+| `value_format` | no       | The format of the target parameter value, 0 for signed integer, 1 for unsigned integer, 2 for enumerated, 3 for bitfield. Used in combination with value_size when a config parameter is not defined in your device's configuration file. Cannot be combined with bitmask. |
 
 #### Examples of setting a single parameter value
 
@@ -265,12 +269,12 @@ data:
 This action will bulk set multiple partial configuration parameters. Be warned that correctly using this action requires advanced knowledge of Z-Wave.
 
 | Data attribute | Required | Description                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Entity (or list of entities) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                                                     |
-| `device_id`            | no       | Device ID (or list of device IDs) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                                                |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                               |
-| `parameter`            | yes      | The parameter number of the property. The name of the property is case sensitive.                                                                                                                                                                                                                                                                                                                                                       |
-| `value`                | yes      | Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are either the bitmasks (in integer or hex form) or the partial parameter name and the values are the value you want to set on each partial (either the integer value or a named state when applicable). Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values. |
+| -------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | no       | Entity (or list of entities) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                                                     |
+| `device_id`    | no       | Device ID (or list of device IDs) to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                                                |
+| `area_id`      | no       | Area ID (or list of area IDs) for devices/entities to bulk set partial configuration parameters on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                                                                                                                               |
+| `parameter`    | yes      | The parameter number of the property. The name of the property is case sensitive.                                                                                                                                                                                                                                                                                                                                                       |
+| `value`        | yes      | Either the raw integer value that you want to set for the entire parameter, or a dictionary where the keys are either the bitmasks (in integer or hex form) or the partial parameter name and the values are the value you want to set on each partial (either the integer value or a named state when applicable). Note that when using a dictionary, and bitmasks that are not provided will be set to their currently cached values. |
 
 #### Examples of bulk setting partial parameter values
 
@@ -351,95 +355,95 @@ data:
 
 This action will refresh the value(s) for an entity. This action will generate extra traffic on your Z-Wave network and should be used sparingly. Updates from devices on battery may take some time to be received.
 
-| Data attribute | Required | Description                                                                                                                                      |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `entity_id`            | yes      | Entity or list of entities to refresh values for.                                                                                                |
-| `refresh_all_values`   | no       | Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. |
+| Data attribute       | Required | Description                                                                                                                                      |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`          | yes      | Entity or list of entities to refresh values for.                                                                                                |
+| `refresh_all_values` | no       | Whether all values should be refreshed. If  `false`, only the primary value will be refreshed. If  `true`, all watched values will be refreshed. |
 
 ### Action `zwave_js.set_value`
 
 This action will set a value on a Z-Wave device. It is for advanced use cases where you need to modify the state of a node and can't do it using native Home Assistant entity functionality. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation and blindly calls the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere. To set a config parameter, you should use the `zwave_js.set_config_parameter` or `zwave_js.bulk_set_partial_config_parameters` action instead of this one.
 
-| Data attribute | Required | Description                                                                                                                                                                                                                                                                   |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Entity (or list of entities) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                       |
-| `device_id`            | no       | Device ID (or list of device IDs) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                  |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                 |
-| `command_class`        | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                       |
-| `property`             | yes      | ID of Property that you want to set the value for.                                                                                                                                                                                                                            |
-| `property_key`         | no       | ID of Property Key that you want to set the value for.                                                                                                                                                                                                                        |
-| `endpoint`             | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                            |
-| `value`                | yes      | The new value that you want to set.                                                                                                                                                                                                                                           |
-| `options`              | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                                  |
-| `wait_for_result`      | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
+| Data attribute    | Required | Description                                                                                                                                                                                                                                                             |
+| ----------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | no       | Entity (or list of entities) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                                 |
+| `device_id`       | no       | Device ID (or list of device IDs) to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                                            |
+| `area_id`         | no       | Area ID (or list of area IDs) for devices/entities to set the value on. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                                                                                                           |
+| `command_class`   | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                 |
+| `property`        | yes      | ID of Property that you want to set the value for.                                                                                                                                                                                                                      |
+| `property_key`    | no       | ID of Property Key that you want to set the value for.                                                                                                                                                                                                                  |
+| `endpoint`        | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                      |
+| `value`           | yes      | The new value that you want to set.                                                                                                                                                                                                                                     |
+| `options`         | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                            |
+| `wait_for_result` | no       | Boolean that indicates whether or not to wait for a response from the node. If not included in the payload, the integration will decide whether to wait or not. If set to `true`, note that the action can take a while if setting a value on an asleep battery device. |
 
 ### Action `zwave_js.multicast_set_value`
 
 This action will set a value on multiple Z-Wave devices using multicast. It is for advanced use cases where you need to set the same value on multiple nodes simultaneously. Be warned that correctly using this action requires advanced knowledge of Z-Wave. The action provides minimal validation beyond what is necessary to properly call the Z-Wave JS API, so if you are having trouble using it, it is likely because you are providing an incorrect value somewhere.
 
-| Data attribute | Required | Description                                                                                                                                                                                                                                                                                                                                                                                  |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                                                    |
-| `device_id`            | no       | Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                                               |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                              |
-| `broadcast`            | no       | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave networks configured, you MUST provide at least one `device_id` or `entity_id` so the action knows which network to target. |
-| `command_class`        | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                                                                                                                                      |
-| `property`             | yes      | ID of Property that you want to set the value for.                                                                                                                                                                                                                                                                                                                                           |
-| `property_key`         | no       | ID of Property Key that you want to set the value for.                                                                                                                                                                                                                                                                                                                                       |
-| `endpoint`             | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                                                                                                                                           |
-| `value`                | yes      | The new value that you want to set.                                                                                                                                                                                                                                                                                                                                                          |
-| `options`              | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                                                                                                                                                 |
+| Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                                                                                                 |
+| --------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`     | no       | Entity (or list of entities) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                                                   |
+| `device_id`     | no       | Device ID (or list of device IDs) to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                                              |
+| `area_id`       | no       | Area ID (or list of area IDs) for devices/entities to set the value on via multicast. At least two `entity_id` or `device_id` must be resolved if not broadcasting the command.                                                                                                                                                                                                             |
+| `broadcast`     | no       | Boolean that indicates whether you want the message to be broadcast to all nodes on the network. If you have only one Z-Wave network configured, you do not need to provide a `device_id` or `entity_id` when this is set to true. When you have multiple Z-Wave networks configured, you MUST provide at least one `device_id` or `entity_id` so the action knows which network to target. |
+| `command_class` | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                                                                                                                                     |
+| `property`      | yes      | ID of Property that you want to set the value for.                                                                                                                                                                                                                                                                                                                                          |
+| `property_key`  | no       | ID of Property Key that you want to set the value for.                                                                                                                                                                                                                                                                                                                                      |
+| `endpoint`      | no       | ID of Endpoint that you want to set the value for.                                                                                                                                                                                                                                                                                                                                          |
+| `value`         | yes      | The new value that you want to set.                                                                                                                                                                                                                                                                                                                                                         |
+| `options`       | no       | Set value options map. Refer to the Z-Wave JS documentation for more information on what options can be set.                                                                                                                                                                                                                                                                                |
 
 ### Action `zwave_js.invoke_cc_api`
 
 Leverage this action to use the Command Class API directly. In most cases, the `zwave_js.set_value` action will accomplish what you need to, but some Command Classes have API commands that can't be accessed via that action. Refer to the [Z-Wave JS Command Class documentation](https://zwave-js.github.io/node-zwave-js/#/api/CCs/index) for the available APIs and arguments. Be sure to know what you are doing when calling this action.
 
-| Data attribute | Required | Description                                                                                                                                                                                                                                                                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the primary value endpoint will be used for each entity.                                         |
-| `device_id`            | no       | Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each device.                                         |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each `zwave_js` device in the area. |
-| `command_class`        | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                                                                |
-| `endpoint`             | no       | The endpoint to call the CC API against.                                                                                                                                                                                                                                                                               |
-| `method_name`          | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
-| `parameters`           | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
+| Data attribute  | Required | Description                                                                                                                                                                                                                                                                                                            |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`     | no       | Entity (or list of entities) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the primary value endpoint will be used for each entity.                                         |
+| `device_id`     | no       | Device ID (or list of device IDs) to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each device.                                         |
+| `area_id`       | no       | Area ID (or list of area IDs) for devices/entities to ping. At least one `entity_id`, `device_id`, or `area_id` must be provided. If `endpoint` is specified, that endpoint will be used to make the CC API call for all devices, otherwise the root endpoint (0) will be used for each `zwave_js` device in the area. |
+| `command_class` | yes      | ID of Command Class that you want to set the value for.                                                                                                                                                                                                                                                                |
+| `endpoint`      | no       | The endpoint to call the CC API against.                                                                                                                                                                                                                                                                               |
+| `method_name`   | yes      | The name of the method that is being called from the CC API.                                                                                                                                                                                                                                                           |
+| `parameters`    | yes      | A list of parameters to pass to the CC API method.                                                                                                                                                                                                                                                                     |
 
 ### Action `zwave_js.refresh_notifications`
 
 This action will refresh the notifications of a given type on a device that
 supports the Notification Command Class.
 
-| Data attribute | Required | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `entity_id`            | no       | Entity (or list of entities) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
-| `device_id`            | no       | Device ID (or list of device IDs) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                                         |
-| `area_id`              | no       | Area ID (or list of area IDs) for devices/entities to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
-| `notification_type`            | yes      | The type of notification to refresh.              |
-| `notification_event`            | no      | The notification event to refresh.              |
+| Data attribute       | Required | Description                                                                                                                                            |
+| -------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `entity_id`          | no       | Entity (or list of entities) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                       |
+| `device_id`          | no       | Device ID (or list of device IDs) to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided.                  |
+| `area_id`            | no       | Area ID (or list of area IDs) for devices/entities to refresh notifications for. At least one `entity_id`, `device_id`, or `area_id` must be provided. |
+| `notification_type`  | yes      | The type of notification to refresh.                                                                                                                   |
+| `notification_event` | no       | The notification event to refresh.                                                                                                                     |
 
 ### Action `zwave_js.reset_meter`
 
 This action will reset the meters on a device that supports the Meter Command Class.
 
 | Data attribute | Required | Description                                                                                                 |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | Entity (or list of entities) for the meters you want to reset.                                              |
-| `meter_type`           | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.      |
-| `value`                | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option. |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | Entity (or list of entities) for the meters you want to reset.                                              |
+| `meter_type`   | no       | If supported by the device, indicates the type of meter to reset. Not all devices support this option.      |
+| `value`        | no       | If supported by the device, indicates the value to reset the meter to. Not all devices support this option. |
 
 ### Action `zwave_js.set_lock_configuration`
 
 This action will set the configuration of a lock.
 
-| Data attribute | Required | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
-| `operation_type`       | yes       | Lock operation type, one of `timed` or `constant`.   |
-| `lock_timeout`       | no       | Seconds until lock mode times out. Should only be used if operation type is `timed`.   |
-| `auto_relock_time`       | no       | Duration in seconds until lock returns to secure state. Only enforced when operation type is `constant`.   |
-| `hold_and_release_time`       | no       | Duration in seconds the latch stays retracted.   |
-| `twist_assist`       | no       | Enable Twist Assist.   |
-| `block_to_block`       | no       | Enable block-to-block functionality.   |
+| Data attribute          | Required | Description                                                                                              |
+| ----------------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| `entity_id`             | no       | Lock entity or list of entities to set the usercode.                                                     |
+| `operation_type`        | yes      | Lock operation type, one of `timed` or `constant`.                                                       |
+| `lock_timeout`          | no       | Seconds until lock mode times out. Should only be used if operation type is `timed`.                     |
+| `auto_relock_time`      | no       | Duration in seconds until lock returns to secure state. Only enforced when operation type is `constant`. |
+| `hold_and_release_time` | no       | Duration in seconds the latch stays retracted.                                                           |
+| `twist_assist`          | no       | Enable Twist Assist.                                                                                     |
+| `block_to_block`        | no       | Enable block-to-block functionality.                                                                     |
 
 ### Action `zwave_js.set_lock_usercode`
 
@@ -447,10 +451,10 @@ This action will set the usercode of a lock to X at code slot Y.
 Valid usercodes are at least 4 digits.
 
 | Data attribute | Required | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            | no       | Lock entity or list of entities to set the usercode. |
-| `code_slot`            | yes      | The code slot to set the usercode into.              |
-| `usercode`             | yes      | The code to set in the slot.                         |
+| -------------- | -------- | ---------------------------------------------------- |
+| `entity_id`    | no       | Lock entity or list of entities to set the usercode. |
+| `code_slot`    | yes      | The code slot to set the usercode into.              |
+| `usercode`     | yes      | The code to set in the slot.                         |
 
 ### Action `zwave_js.clear_lock_usercode`
 
@@ -458,9 +462,9 @@ This action will clear the usercode of a lock in code slot X.
 Valid code slots are between 1-254.
 
 | Data attribute | Required | Description                                            |
-| ---------------------- | -------- | ------------------------------------------------------ |
-| `entity_id`            | no       | Lock entity or list of entities to clear the usercode. |
-| `code_slot`            | yes      | The code slot to clear the usercode from.              |
+| -------------- | -------- | ------------------------------------------------------ |
+| `entity_id`    | no       | Lock entity or list of entities to clear the usercode. |
+| `code_slot`    | yes      | The code slot to clear the usercode from.              |
 
 ## Events
 
@@ -950,3 +954,15 @@ Set the log level for `zwave_js_server` to `debug`. This can either be done in y
 ##### Disable Z-Wave JS logging manually, or via an automation
 
 Set the log level for `zwave_js_server` to a level higher than `debug`. This can either be done in your `configuration.yaml` in the `logger` section, or using the `logger.set_level` action. The Z-Wave JS logs will no longer be included in the Home Assistant logs, and if the log level of Z-Wave JS was changed by the integration, it will automatically change back to its original level.
+
+## Unsupported functionality
+
+This sections lists functionality that is available in Z-Wave but that is not currently supported in Home Assistant.
+
+### Setting the controller into learn mode to receive network information
+
+In Home Assistant, it is currently not possible to set the Z-Wave controller into learn mode to receive network information from another controller.
+
+### Including / excluding a controller in an existing network using [classic inclusion](#classic-inclusion-versus-smartstart)
+
+A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
