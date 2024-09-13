@@ -45,6 +45,10 @@ You must have an active [Tessie](https://my.tessie.com/) subscription, generate 
 
 {% include integrations/config_flow.md %}
 
+## Troubleshooting
+
+If a vehicle action returns an error in Home Assistant, you should first try perform the same action in the Tessie app, as this will guide you through the steps to fix common issues like command signing or scopes.
+
 ## Vehicle entities
 
 ### Binary sensor
