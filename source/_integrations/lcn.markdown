@@ -27,12 +27,17 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
+The **LCN** {% term integration %} for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
+
+## Prerequisites
 
 The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
 With this setup sending and receiving commands to and from LCN modules is possible.
 
 The `lcn` integration allows connections to more than one hardware coupler. For each coupler, a new integration entry needs to be created.
+{% include integrations/config_flow.md %}
+
+## Supported device types
 
 There is currently support for the following device types within Home Assistant:
 
@@ -50,7 +55,6 @@ Therefore the `lcn` integration offers a variety of [events](#events), [device t
 They are ideal to be used in automation scripts or for the `template` platforms.
 {% endnote %}
 
-{% include integrations/config_flow.md %}
 
 ## Setting up devices and entites
 
@@ -699,7 +703,7 @@ The motor values specify which hardware relay or outputs configuration will be u
 | :-------: | :-------: | :---------: |
 | `outputs` | `output1` |  `output2`  |
 
-### Variables and Units
+### Variables and units
 
 | Constant     | Values                                                                                                                                                                          |
 | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
