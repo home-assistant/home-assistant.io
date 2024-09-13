@@ -1,6 +1,6 @@
 ---
 title: Duwi
-description: A document on how to configure Duwi integration in HomeAssistant.
+description: A document on how to configure Duwi integration in Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Cloud Push
