@@ -791,9 +791,11 @@ If you're not running the supervisor or you've unchecked the above-mentioned box
 
 ## FAQ: Supported devices and Command Classes
 
-See the [Z-Wave JS device database](https://devices.zwave-js.io/).
+For a list of supported devices, refer to the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
 While there is support for the most common devices, some Command Classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
+
+You can also check the list of Z-Wave [Command Classes Home Assistant responds to when queried](#z-wave-command-classes-home-assistant-responds-to-when-queried) towards the end of this page.
 
 You can also keep track of the road map for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
@@ -976,22 +978,22 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices.
 
-| Command Class                 | Version          | Security Class  |
-| ----------------------------- | ---------------- | --------------- |
-| Z-Wave Plus Info              | 2                | None            |
-| Security                      | 1                | None            |
-| Security 2                    | 1                | None            |
-| Transport Service             | 2                | None            |
-| Supervision                   | 2                | None            |
-| CRC-16 Encapsulation          | 1                | None            |
-| Multi Command                 | 1                | None            |
-| Inclusion Controller          | 1                | None            |
-| Association                   | 4                | Highest granted |
-| Association Group Information | 3                | Highest granted |
-| Device Reset Locally          | 1                | Highest granted |
-| Firmware Update Meta Data     | 8                | Highest granted |
-| Indicator                     | 4                | Highest granted |
-| Manufacturer Specific         | 2                | Highest granted |
-| Multi Channel Association     | 5                | Highest granted |
-| Power Level                   | 1                | Highest granted |
-| Version                       | 3                | Highest granted |
+| Command Class                 | Version | Security Class  |
+| ----------------------------- | ------- | --------------- |
+| Z-Wave Plus Info              | 2       | None            |
+| Security                      | 1       | None            |
+| Security 2                    | 1       | None            |
+| Transport Service             | 2       | None            |
+| Supervision                   | 2       | None            |
+| CRC-16 Encapsulation          | 1       | None            |
+| Multi Command                 | 1       | None            |
+| Inclusion Controller          | 1       | None            |
+| Association                   | 4       | Highest granted |
+| Association Group Information | 3       | Highest granted |
+| Device Reset Locally          | 1       | Highest granted |
+| Firmware Update Meta Data     | 8       | Highest granted |
+| Indicator                     | 4       | Highest granted |
+| Manufacturer Specific         | 2       | Highest granted |
+| Multi Channel Association     | 5       | Highest granted |
+| Power Level                   | 1       | Highest granted |
+| Version                       | 3       | Highest granted |
