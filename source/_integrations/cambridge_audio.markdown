@@ -5,7 +5,8 @@ ha_category:
   - Media player
 ha_release: '2024.10'
 ha_iot_class: Local Push
-ha_domain: cambridge_audio
+ha_domain: cambridge_audio 
+ha_quality_scale: platinum
 ha_platforms:
   - media_player
 ha_codeowners:
