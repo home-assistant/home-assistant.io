@@ -29,8 +29,6 @@ The ADS (automation device specification) describes a device-independent and fie
 
 There is currently support for the following device types within Home Assistant:
 
-- [Configuration](#configuration)
-- [Action](#action)
 - [Binary sensor](#binary-sensor)
 - [Light](#light)
 - [Sensor](#sensor)
