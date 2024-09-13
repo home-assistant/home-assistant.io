@@ -105,7 +105,7 @@ The type of state a device tracker can have depends on whether it uses GPS or a 
 
 A device tracker with **GPS** as a source can have any number of string states. The integration can return one of the following options:
 
-- Report GPS coordinates. The coordinates are then matched to a zone (which is set as state)
+- Report GPS coordinates. The coordinates are then matched to a zone (which is set as state). If the home zone is matched, the state will be **Home**. If no zone was matched the state will be **Not home**.
 - Report a location. This could be any string which is set as state.
 
 A device tracker with **router** as a source can have one of two states: **Home**, or **Not home**.
