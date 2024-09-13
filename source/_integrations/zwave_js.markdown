@@ -980,7 +980,7 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 ## Z-Wave association groups used
 
-Home Assistant, a single [association group](#association-group) is supported:
+In Home Assistant, a single [association group](#association-group) is supported:
 
 - **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#controller), to send a **Device Reset Locally Notification**.
 
