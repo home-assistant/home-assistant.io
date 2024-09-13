@@ -982,7 +982,7 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 Home Assistant, a single [association group](#association-group) is supported:
 
-- **Group 1**: This is an association group that includes only one device. It is used to send a **Device Reset Locally Notification** after a factory reset.
+- **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#controller), to send a **Device Reset Locally Notification**.
 
 This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
 
@@ -992,23 +992,23 @@ Under normal circumstances, it is not necessary to add a device to this group.
 
 The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices.
 
-| Command Class                 | Version          | Security Class  |
-| ----------------------------- | ---------------- | --------------- |
-| Z-Wave Plus Info              | 2                | None            |
-| Security                      | 1                | None            |
-| Security 2                    | 1                | None            |
-| Transport Service             | 2                | None            |
-| Supervision                   | 2                | None            |
-| CRC-16 Encapsulation          | 1                | None            |
-| Multi Command                 | 1                | None            |
-| Inclusion Controller          | 1                | None            |
-| Association                   | 4                | Highest granted |
-| Association Group Information | 3                | Highest granted |
-| Device Reset Locally          | 1                | Highest granted |
-| Firmware Update Meta Data     | 8                | Highest granted |
-| Indicator                     | 4                | Highest granted |
-| Manufacturer Specific         | 2                | Highest granted |
-| Multi Channel Association     | 5                | Highest granted |
-| Power Level                   | 1                | Highest granted |
-| Version                       | 3                | Highest granted |
+| Command Class                 | Version | Security Class  |
+| ----------------------------- | ------- | --------------- |
+| Z-Wave Plus Info              | 2       | None            |
+| Security                      | 1       | None            |
+| Security 2                    | 1       | None            |
+| Transport Service             | 2       | None            |
+| Supervision                   | 2       | None            |
+| CRC-16 Encapsulation          | 1       | None            |
+| Multi Command                 | 1       | None            |
+| Inclusion Controller          | 1       | None            |
+| Association                   | 4       | Highest granted |
+| Association Group Information | 3       | Highest granted |
+| Device Reset Locally          | 1       | Highest granted |
+| Firmware Update Meta Data     | 8       | Highest granted |
+| Indicator                     | 4       | Highest granted |
+| Manufacturer Specific         | 2       | Highest granted |
+| Multi Channel Association     | 5       | Highest granted |
+| Power Level                   | 1       | Highest granted |
+| Version                       | 3       | Highest granted |
 
