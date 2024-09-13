@@ -44,7 +44,7 @@ Gain insight into how much energy an inverter produces. The integration will cre
 
 ### Battery
 
-If you have a battery connected to your system, you can monitor its status. The entities which showing the total of charged and discharged energy are selected to use in the energy dashboard.
+If you have a battery connected to your system, you can monitor its status. The entities which show the total of charged and discharged energy are selected to use in the energy dashboard.
 
 - Power flow (W) - Positive values indicate charging, negative values indicate discharging
 - State of charge (%)
