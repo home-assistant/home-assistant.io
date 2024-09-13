@@ -199,6 +199,11 @@ The following features can be accessed from the device panel of a Z-Wave control
 
 - **Factory reset:** Exercise extreme caution when using this action! Once initiated, your controller will be reset to factory settings, it will forget all devices it is paired with, it will establish a new network ID that will prevent any recovery of your old network, and all Z-Wave devices for this network will be removed from Home Assistant. If there are any devices still paired with the controller when it is reset, they will have to go through the exclusion process before they can be re-paired.
 
+<p class='img'>
+<img src='/images/integrations/z-wave/z-wave-controller-commands.png' alt='Screenshot showing the device panel of a Z-Wave controller' />
+Screenshot showing the device panel of a Z-Wave controller.
+</p>
+
 #### Network devices
 
 The following features can be accessed from the device panel of any Z-Wave device on your network aside from the controller:
@@ -982,3 +987,28 @@ Home Assistant, a single [association group](#association-group) is supported:
 This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
 
 Under normal circumstances, it is not necessary to add a device to this group.
+
+## Z-Wave Command Classes Home Assistant responds to when queried
+
+The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices.
+
+| Command Class                 | Version          | Security Class  |
+| ----------------------------- | ---------------- | --------------- |
+| Z-Wave Plus Info              | 2                | None            |
+| Security                      | 1                | None            |
+| Security 2                    | 1                | None            |
+| Transport Service             | 2                | None            |
+| Supervision                   | 2                | None            |
+| CRC-16 Encapsulation          | 1                | None            |
+| Multi Command                 | 1                | None            |
+| Inclusion Controller          | 1                | None            |
+| Association                   | 4                | Highest granted |
+| Association Group Information | 3                | Highest granted |
+| Device Reset Locally          | 1                | Highest granted |
+| Firmware Update Meta Data     | 8                | Highest granted |
+| Indicator                     | 4                | Highest granted |
+| Manufacturer Specific         | 2                | Highest granted |
+| Multi Channel Association     | 5                | Highest granted |
+| Power Level                   | 1                | Highest granted |
+| Version                       | 3                | Highest granted |
+
