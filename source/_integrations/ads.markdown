@@ -32,7 +32,9 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Cover](#cover)
+- [Select](#select)
 
+<!-- omit in toc -->
 ## Configuration
 
 To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
@@ -60,6 +62,7 @@ ip_address:
   type: string
 {% endconfiguration %}
 
+<!-- omit in toc -->
 ## Action
 
 The ADS integration will register the `write_by_name` action allowing you to write a value to a variable on your ADS device.
@@ -252,4 +255,50 @@ device_class:
   required: false
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
+{% endconfiguration %}
+
+## Select
+
+The `ads` select platform accesses an ENUM (int) variable on the connected ADS device. The variable is identified by its name. You have to set up a corresponding ENUM in the TwinCAT PLC, and recommended to use explicit values starting from `0`.
+
+```yaml
+TYPE E_SampleA :
+(
+    e1 := 0,
+    e2 := 1,
+    e3 := 2, 
+);
+END_TYPE
+```
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+select:
+  - platform: ads
+    adsvar: MAIN.eMyEnum
+    options:
+      - "Off"
+      - "Setup"
+      - "Automatic"
+      - "Manual"
+      - "Guest"
+      - "Error"
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the variable which you want to access on the ADS device.
+  type: string
+options:
+  required: true
+  description: The available options to select from.
+  type: string
+name:
+  required: false
+  description: An identifier for the valve in the frontend.
+  type: string
 {% endconfiguration %}
