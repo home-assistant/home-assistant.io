@@ -17,7 +17,7 @@ The other implementation method is [Telegram polling](/integrations/telegram_pol
 
 ## Configuration
 
-To integrate this into Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate this into Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

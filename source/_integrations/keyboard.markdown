@@ -18,7 +18,7 @@ The `keyboard` integration simulates key presses on the host machine. It current
 - `keyboard/media_next_track`
 - `keyboard/media_prev_track`
 
-To load this component, add the following lines to your `configuration.yaml`:
+To load this component, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 keyboard:

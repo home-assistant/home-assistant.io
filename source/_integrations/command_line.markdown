@@ -19,15 +19,16 @@ ha_platforms:
 ha_integration_type: integration
 ha_codeowners:
   - '@gjohansson-ST'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Command line** {% term integration %} offers functionality that issues specific commands to get data or to control a device.
 
-<div class='note'>
-
+{% tip %}
 It's highly recommended to enclose the command in single quotes `'` as it ensures all characters can be used in the command and reduces the risk of unintentional escaping. To include a single quote in a command enclosed in single quotes, double it: `''`.
-
-</div>
+{% endtip %}
 
 {% configuration %}
 command_line:
@@ -119,6 +120,10 @@ command_line:
           required: false
           type: integer
           default: 15
+        device_class:
+          description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
         name:
           description: The name used to display the cover in the frontend.
           required: true
@@ -151,7 +156,7 @@ command_line:
       type: map
       keys:
         name:
-          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+          description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
           required: false
           default: notify
           type: string
@@ -182,6 +187,10 @@ command_line:
           description: Defines a list of keys to extract values from a JSON dictionary result and then set as sensor attributes.
           required: false
           type: [string, list]
+        json_attributes_path:
+          description: A [JSONPath](https://goessner.net/articles/JsonPath/) that references the location of the `json_attributes` in the JSON content.
+          required: false
+          type: string
         name:
           description: Name of the command sensor.
           required: false
@@ -283,7 +292,7 @@ command_line:
 
 ## Binary sensor
 
-To use your Command binary sensor in your installation, add the following to your `configuration.yaml` file:
+To use your Command binary sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -300,7 +309,7 @@ command_line:
 
 A `command_line`cover platform that issues specific commands when it is moved up, down and stopped. It allows anyone to integrate any type of cover into Home Assistant that can be controlled from the command line.
 
-To enable a command line cover in your installation, add the following to your `configuration.yaml` file:
+To enable a command line cover in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -318,7 +327,7 @@ command_line:
 
 The `command_line` platform allows you to use external tools for notifications from Home Assistant. The message will be passed in as STDIN.
 
-To enable those notifications in your installation, add the following to your `configuration.yaml` file:
+To enable those notifications in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -333,7 +342,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ## Sensor
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 {% raw %}
 ```yaml
@@ -353,7 +362,7 @@ and off. This might very well become our most powerful platform as it allows
 anyone to integrate any type of switch into Home Assistant that can be
 controlled from the command line, including calling other scripts!
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %}:
 
 {% raw %}
 ```yaml
@@ -366,7 +375,7 @@ command_line:
 ```
 {% endraw%}
 
-<div class='note'>
+{% note %}
 
 A note on `name` for `cover` and `switch`:
   
@@ -374,17 +383,17 @@ The use of `friendly_name` and `object_id` has been deprecated and the slugified
 
 Use `unique_id` to enable changing the name from the UI and if required, use the slugified `name` as identifier.
 
-</div>
+{% endnote %}
 
 ## Execution
 
 The `command` is executed within the [configuration directory](/docs/configuration/).
 
-<div class='note'>
+{% note %}
 
 If you are using [Home Assistant Operating System](https://github.com/home-assistant/operating-system), the commands are executed in the `homeassistant` container context. So if you test or debug your script, it might make sense to do this in the context of this container to get the same runtime environment.
 
-</div>
+{% endnote %}
 
 With a `0` exit code, the output (stdout) of the command is used as `value`. In case a command results in a non `0` exit code or is terminated by the `command_timeout`, the result is only logged to Home Assistant log and the sensors value is not updated.
 
@@ -494,7 +503,7 @@ In this section you find some real-life examples of how to use this sensor.
 
 ### CPU temperature
 
-Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your `configuration.yaml` file:
+Thanks to the [`proc`](https://en.wikipedia.org/wiki/Procfs) file system, various details about a system can be retrieved. Here the CPU temperature is of interest. Add something similar to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -511,7 +520,7 @@ command_line:
 
 ### Monitoring failed login attempts on Home Assistant
 
-If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your `configuration.yaml` file:
+If you'd like to know how many failed login attempts are made to Home Assistant, add the following to your {% term "`configuration.yaml`" %} file:
 
 {% raw %}
 ```yaml
@@ -565,7 +574,7 @@ command_line:
 
 The example is doing the same as the [aREST sensor](/integrations/arest#sensor) but with an external Python script. It should give you an idea about interfacing with devices which are exposing a RESTful API.
 
-The one-line script to retrieve a value is shown below. Of course it would be possible to use this directly in the `configuration.yaml` file but need extra care about the quotation marks.
+The one-line script to retrieve a value is shown below. Of course it would be possible to use this directly in the {% term "`configuration.yaml`" %} file but need extra care about the quotation marks.
 
 {% raw %}
 ```bash
@@ -585,7 +594,7 @@ print(response.json()["return_value"])
 ```
 {% endraw%}
 
-To use the script you need to add something like the following to your `configuration.yaml` file.
+To use the script you need to add something like the following to your {% term "`configuration.yaml`" %} file.
 
 {% raw %}
 ```yaml
@@ -629,6 +638,26 @@ command_line:
       value_template: "{{ value_json.time }}"
 ```
 {% endraw%}
+
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) provides sample JSON data for testing. In the below example, JSONPath locates the attributes in the JSON document. [JSONPath Online Evaluator](https://jsonpath.com/) provides a tool to test your JSONPath.
+
+{% raw %}
+
+```yaml
+command_line:
+  - sensor:
+      name: JSON user
+      command: python3 -c "import requests; print(requests.get('https://jsonplaceholder.typicode.com/users').text)"
+      json_attributes_path: "$.[0].address"
+      json_attributes:
+        - street
+        - suite
+        - city
+        - zipcode
+      value_template: "{{ value_json[0].name }}"
+```
+
+{% endraw %}
 
 ## Example switch platform
 
@@ -684,9 +713,9 @@ Given this example, in the UI one would see the `friendly_name` of
 
 This switch will shutdown your system that is hosting Home Assistant.
 
-<div class='note warning'>
+{% warning %}
 This switch will shutdown your host immediately, there will be no confirmation.
-</div>
+{% endwarning %}
 
 {% raw %}
 ```yaml
@@ -737,12 +766,12 @@ command_line:
 - Replace admin and password with an "Admin" privileged Foscam user
 - Replace ipaddress with the local IP address of your Foscam
 
-## Services
+## Actions
 
-Available services: `reload`.
+Available actions: `reload`.
 
-### Service `command_line.reload`
+### Action `command_line.reload`
 
 Reload all `command_line` entities.
 
-This service takes no service data attributes.
+This action takes no data attributes.

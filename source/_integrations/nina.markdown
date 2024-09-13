@@ -18,11 +18,9 @@ The [NINA](https://www.bbk.bund.de/DE/Warnung-Vorsorge/Warn-App-NINA/warn-app-ni
 
 For each county/city it creates warning slots that change to Unsafe when warnings are present. The text of the warning and the metadata are stored in the attributes of the slots.
 
-<div class='note warning'>
-
-This integration may only works with an Internet connection that supports IPv4.
-
-</div>
+{% important %}
+This integration may only work with an Internet connection that supports IPv4.
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -30,9 +28,9 @@ This integration may only works with an Internet connection that supports IPv4.
 
 The integration includes the possibility to filter warnings in two ways via a regex.
 
-<div class='note'>
+{% note %}
 All filters are applied to lowercase text only.
-</div>
+{% endnote %}
 
 #### Headline filter
 

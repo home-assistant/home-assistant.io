@@ -38,13 +38,13 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
 ### `guardian.pair_sensor`
 
 Add a new paired sensor to the valve controller.
 
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
@@ -52,7 +52,7 @@ Add a new paired sensor to the valve controller.
 
 Remove a paired sensor from the valve controller.
 
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `uid`                    | yes      | The unique device ID on the bottom of the sensor.|
 
@@ -60,15 +60,17 @@ Remove a paired sensor from the valve controller.
 
 Upgrade the device firmware.
 
-| Service Data Attribute | Optional | Description                                      |
+| Data attribute | Optional | Description                                      |
 | ---------------------- | -------- | ------------------------------------------------ |
 | `url`                    | yes      | The URL of the server hosting the firmware file. |
 | `port`                   | yes      | The port on which the firmware file is served.   |
 | `filename`               | yes      | The firmware filename.                           |
 
-*Note:* not all service calls are available on all Guardian valve controller firmwares.
+{% note %} 
+Not all actions are available on all Guardian valve controller firmwares.
 Please ensure you upgrade your valve controller to the latest firmware before opening
-bugs related to non-working service calls.
+bugs related to non-working actions.
+{% endnote %}
 
 ## Paired Sensor Notes
 

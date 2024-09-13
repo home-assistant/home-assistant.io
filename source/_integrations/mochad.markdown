@@ -12,9 +12,12 @@ ha_platforms:
   - light
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mochad` integration is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
+The `mochad` {% term integration %} is the main integration to integrate all X10 platforms being controlled by [mochad](https://sourceforge.net/projects/mochad/). Besides this integration you will have to setup your X10 devices separately.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -23,7 +26,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To integrate your Mochad units with Home Assistant, add the following section to your `configuration.yaml` file:
+To integrate your Mochad units with Home Assistant, add the following section to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -58,7 +62,7 @@ mochad:
 
 The `mochad` light platform lets you control an X10 enabled dimmer/light device.
 
-To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -95,7 +99,7 @@ brightness_levels:
 
 The `mochad` switch platform lets you control an X10 enabled switch device.
 
-To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your `configuration.yaml` file:
+To enable this sensor, you first have to set up the [mochad integration](#configuration) and then add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -9,7 +9,7 @@ layout: null
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://building.open-home.io/
+/newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /merch https://home-assistant-store.creator-spring.com
@@ -34,8 +34,9 @@ layout: null
 /yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
-# User research
+# Design & User research
 /join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
+/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -253,6 +254,8 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+/skyconnect /connectzbt1#from-skyconnect
+
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
@@ -308,7 +311,7 @@ layout: null
 /docs/z-wave/events /integrations/zwave_js#events
 /docs/z-wave/installation /integrations/zwave_js#configuration
 /docs/z-wave/query-stage /integrations/zwave_js
-/docs/z-wave/services /integrations/zwave_js#services
+/docs/z-wave/services /integrations/zwave_js#actions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -344,8 +347,6 @@ layout: null
 /getting-started/scripts-service-calls /docs/scripts/service-calls
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/troubleshooting
-/getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /integrations/zwave_js
@@ -389,6 +390,10 @@ layout: null
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
+/examples /
+
+# Moved marketing pages / rebranding
+/skyconnect /connectzbt1
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -484,6 +489,7 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
@@ -492,6 +498,7 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
@@ -511,6 +518,7 @@ layout: null
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
@@ -602,6 +610,7 @@ layout: null
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/ue_smart_radio /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301

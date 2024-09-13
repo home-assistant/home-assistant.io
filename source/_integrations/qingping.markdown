@@ -9,7 +9,6 @@ ha_release: 2022.9
 ha_iot_class: Local Push
 ha_codeowners:
   - '@bdraco'
-  - '@skgsergio'
 ha_domain: qingping
 ha_config_flow: true
 ha_platforms:

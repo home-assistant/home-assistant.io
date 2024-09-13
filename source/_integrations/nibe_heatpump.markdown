@@ -93,7 +93,7 @@ Home Assistant support connecting to Nibe heat pumps over Modbus over either TCP
 
 #### TCP/IP
 
-The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://assetstore.nibe.se/hcms/v2.4/entity/document/34499/storage/MDM0NDk5LzAvbWFzdGVy).
+The newer S-series pump exposes a built-in TCP Modbus server that can be used to communicate with the pump. To enable support for this integration, the pump must be connected to your local network and network (5.2 - Network settings) and Modbus (7.5.9 - Modbus TCP/IP) must be enabled. More details on the Modbus support in the pump can be found in Nibe document [M12676EN](https://www.nibe.eu/download/18.3db69dc1795e0d992c5722/1622634529178/Modbus%20S-series%20EN%20M12676EN-1.pdf).
 
 - `tcp://[IP OR HOSTNAME]`
 - `tcp://[IP OR HOSTNAME]:502`
@@ -105,6 +105,6 @@ If your system is equipped with a MODBUS40 accessory, this can be used to contro
 - `serial://[DEVICE PATH]` for direct local connection
 - `rfc2217://[IP OR HOSTNAME]:[PORT]` for a [ser2net](https://linux.die.net/man/8/ser2net) type proxy
 
-<div class='note info'>
+{% note %}
 Support for RCU-based communication is currently untested.
-</div>
+{% endnote %}

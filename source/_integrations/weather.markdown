@@ -68,17 +68,17 @@ wind_speed: 35.17
 wind_speed_unit: km/h
 ```
 
-## Service `weather.get_forecasts`
+## Action `weather.get_forecasts`
 
-This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
 with a mapping of weather services and their associated forecasts.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily
 
 ```yaml
-service: weather.get_forecasts
+action: weather.get_forecasts
 target:
   entity_id:
     - weather.tomorrow_io_home_nowcast
@@ -125,7 +125,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -144,7 +144,7 @@ template:
 {% enddetails %}
 
 
-{% details "Example service response" %}
+{% details "Example action response" %}
 
 ```yaml
 weather.tomorrow_io_home_nowcast:

@@ -19,16 +19,16 @@ like an automation.
 ## Configuration
 
 The preferred way to configure button helpers is via the user interface.
-To add one, go to **{% my helpers title="Settings -> Devices & Services -> Helpers" %}**
+To add one, go to **{% my helpers title="Settings -> Devices & services -> Helpers" %}**
 and click the add button; next choose the **{% my config_flow_start domain="input_button" title="Button" %}** option.
 
 To be able to add **Helpers** via the user interface you should have
-`default_config:` in your `configuration.yaml`, it should already be there by
+`default_config:` in your {% term "`configuration.yaml`" %}, it should already be there by
 default unless you removed it. If you removed `default_config:` from your
 configuration, you must add `input_button:` to your `configuration.yaml` first,
 then you can use the UI.
 
-Input buttons can also be configured via `configuration.yaml`:
+Input buttons can also be configured via {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
@@ -71,20 +71,20 @@ trigger:
   - platform: state
     entity_id: input_button.my_button
 action:
-  - service: notify.frenck
+  - action: notify.frenck
     data:
       message: "My button has been pressed!"
 ```
 
-## Services
+## Actions
 
-The input button entities exposes a single service:
+The input button entities exposes a single action:
 {% my developer_call_service service="input_button.press" %}
 
-This service can be called to trigger a button press for that entity.
+This action can be used to trigger a button press for that entity.
 
 ```yaml
-- service: input_button.press
+- action: input_button.press
   target:
     entity_id: input_button.my_button
 ```

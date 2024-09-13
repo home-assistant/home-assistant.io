@@ -12,6 +12,7 @@ ha_codeowners:
 ha_domain: prusalink
 ha_integration_type: integration
 ha_platforms:
+  - binary_sensor
   - button
   - camera
   - sensor
@@ -50,4 +51,3 @@ Firmware update guides can be found here:
  - Use the **username** and **password** you entered during the initial PrusaLink setup (not the API key).
 
 {% include integrations/config_flow.md %}
-

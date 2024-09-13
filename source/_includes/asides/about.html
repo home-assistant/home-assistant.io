@@ -1,13 +1,13 @@
 <section class="aside-module grid__item one-whole lap-one-half">
-  <h1 class="title delta">About Home Assistant</h1>
+  <h1 class="title epsilon">{% icon "mdi:about-circle-outline" %} About Home Assistant</h1>
   <ul class="divided">
     <li>
       {{ site.description }}
     </li>
     <li><a href='/getting-started/'>Get started with Home Assistant</a></li>
-    <li><a href='https://demo.home-assistant.io'>Try the online demo</a></li>
-    <li><a href='https://building.open-home.io/#/portal'>Join our newsletter</a></li>
-    <li><a href="https://twitter.com/Home_Assistant">Follow Home Assistant on X</a></li>
+    <li><a class="external-link" href='https://demo.home-assistant.io'>Try the online demo {% icon "tabler:external-link" %}</a></li>
+    <li><a class="external-link" href='https://building.open-home.io/#/portal'>Sign up for our newsletter {% icon "tabler:external-link" %}</a></li>
+    <li><a class="external-link" href="https://twitter.com/Home_Assistant">Follow Home Assistant on X {% icon "tabler:external-link" %}</a></li>
     {% comment %}
     <li>
       Subscribe to the Home Assistant Newsletter
@@ -18,4 +18,7 @@
     </li>
     {% endcomment %}
   </ul>
+  <p>
+    Home Assistant is part of the <a class="external-link" href="https://www.openhomefoundation.org/">Open Home Foundation {% icon "tabler:external-link" %}</a>.
+  </p>
 </section>

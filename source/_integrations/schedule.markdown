@@ -17,13 +17,13 @@ Home Assistant that can be used to trigger or make decisions in your
 automations and scripts.
 
 The preferred way to configure a schedule is via the user interface at
-**{% my helpers title="Settings > Devices & Services > Helpers." %}** Click the add button
+**{% my helpers title="Settings > Devices & services > Helpers." %}** Click the add button
 and then choose the **{% my config_flow_start domain=schedule title="Schedule" %}** option, or click the My button below.
 
 {% include integrations/config_flow.md %}
 
 To be able to add **{% my helpers title="Helpers" %}** via the user interface you should
-have `default_config:` in your `configuration.yaml`, it should already
+have `default_config:` in your {% term "`configuration.yaml`" %}, it should already
 be there by default unless you removed it.
 
 If you removed `default_config:` from your configuration,
@@ -155,7 +155,7 @@ trigger:
         - schedule.thermostat_schedule
       to: "on"
   action:
-    - service: climate.turn_on
+    - action: climate.turn_on
       target:
         entity_id: climate.thermostat
 ```
@@ -181,10 +181,10 @@ trigger:
 
 {% endraw %}
 
-### Services
+### Actions
 
-Available service: `schedule.reload`.
+Available action: `schedule.reload`.
 
 #### schedule.reload
 
-`schedule.reload` service allows one to reload the schedule's configuration without restarting Home Assistant itself.
+`schedule.reload` action allows one to reload the schedule's configuration without restarting Home Assistant itself.

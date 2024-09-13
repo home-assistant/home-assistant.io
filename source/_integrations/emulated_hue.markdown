@@ -11,49 +11,53 @@ ha_integration_type: integration
 ha_codeowners:
   - '@bdraco'
   - '@Tho85'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-<div class='note warning'>
+{% warning %}
 
 Be aware that `emulated_hue` doesn't work for new users of **Google Home** with `emulated_hue`. If you've not previously set this up and had it working, use the [Google Assistant](/integrations/google_assistant/) integration or [Nabu Casa cloud](/integrations/cloud) integration.
 
-</div>
+{% endwarning %}
 
-The `emulated_hue` integration provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
+The `emulated_hue` {% term integration %} provides a virtual [Philips Hue](https://www.philips-hue.com) bridge, written entirely in software that allows services that work with the Hue API to interact with Home Assistant
 entities. The driving use case behind this functionality is to allow Home Assistant to work with an Amazon Echo or Google Home with no setup cost outside of configuration changes.
 The virtual bridge can turn entities on/off or change the brightness of dimmable lights. The volume level of media players can be controlled as brightness.
 
-<div class='note'>
+{% important %}
 A physical Hue Bridge is required for Philips Hue lights to function - this virtual bridge will not replace a physical bridge. Instead, it allows Home Assistant to represent non-Philips Hue devices to Amazon Echo as Philips Hue devices, which Amazon Echo can control with built-in support.
-</div>
+{% endimportant %}
 
-<div class='note'>
+{% tip %}
 It is recommended to assign a static IP address to the computer running Home Assistant. This is because the Amazon Echo discovers devices by IP addresses, and if the IP changes, the Echo won't be able to control it. This is easiest done from your router, see your router's manual for details.
-</div>
+{% endtip %}
 
-<div class='note'>
+{% note %}
 
 Both Google Home and Alexa use the device they were initially set up with for communication with `emulated_hue`. In other words: if you remove/replace this device you will also break `emulated_hue`. To recover your `emulated_hue` functionality, backup your `config/.storage/emulated_hue.ids` file, delete the original one and reboot your Home Assistant instance.
 
 If you added or upgraded to a newer Alexa device and devices are not found, you must change to listen_port: 80. If Alexa responds with "value is out of range for device..." it means switches were automatically added as lights in discovery. Remove each device in the Alexa app. Turn on all the switches in Home Assistant. In the Alexa app go to "Add New Device" select "Switch" and then "other" to add them correctly.
 
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
 
 [Sleep Cycle](https://www.sleepcycle.com) and [Sleep as Android](https://sleep.urbandroid.org): smart alarm clock app can use emulated_hue to turn on and off entities. Sleep Cycle only has it implemented in the iOS app, see [Sleep Cycle support](https://support.sleepcycle.com/hc/articles/207670385-Does-Sleep-Cycle-integrates-with-Phillips-Hue-). The app requires the same configuration as Google Home and does not work if the type is defined as Alexa in the configuration.
 
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
   
 Logitech Harmony remotes cannot connect to this emulator via Android and iOS mobile applications because they require the physical button on the hub to be pressed. The [MyHarmony desktop software](https://support.myharmony.com/download) must be used with the original cable to connect it, then "Scan for Devices". 
   
-</div>
+{% endnote %}
 
 ### Configuration
 
-To enable the emulated Hue bridge, add one of the following configs to your `configuration.yaml` file:
+To enable the emulated Hue bridge, add one of the following configs to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Google Home example configuration.yaml entry
@@ -145,11 +149,11 @@ The following are attributes that can be applied in the `entities` section:
 - **name** (*Optional*): The name that the emulated Hue will use. The default for this is the entity's friendly name.
 - **hidden** (*Optional*): Whether or not the emulated Hue bridge should expose the entity. Adding `hidden: false` will expose the entity to Alexa. The default value for this attribute is controlled by the `expose_by_default` option.
 
-<div class='note'>
+{% note %}
 
 These attributes used to be found under the `customize` section of `homeassistant`, however, they have now been moved to `entities`. Emulated Hue configuration under `homeassistant.customize` will be deprecated in the near future.
 
-</div>
+{% endnote %}
 
 ### Troubleshooting
 

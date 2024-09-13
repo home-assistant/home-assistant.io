@@ -14,16 +14,15 @@ ha_platforms:
   - binary_sensor
   - device_tracker
   - diagnostics
+  - sensor
 ha_integration_type: integration
 ---
 
 Traccar uses GPS for tracking and has support for over 1500 different types of devices. You can use the Traccar Server integration to communicate with your own [Traccar Server](https://www.traccar.org/server/), which is also available as [Home Assistant add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_traccar).
 
-<div class="note">
-
-  Looking for documentation on how to setup the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
-
-</div>
+{% tip %}
+Looking for documentation on how to setup the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -302,7 +301,7 @@ Partial example:
 trigger:
   ...
 action:
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
 ```

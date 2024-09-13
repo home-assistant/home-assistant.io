@@ -206,7 +206,7 @@ automation:
       entity_id: device_tracker.paulus
       id: paulus_device
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
@@ -219,7 +219,7 @@ automation 2:
     - platform: mqtt
       topic: "/notify/+"
   action:
-    service: >
+    action: >
       notify.{{ trigger.topic.split('/')[-1] }}
     data:
       message: "{{ trigger.payload }}"
@@ -236,7 +236,7 @@ automation 3:
       # Trigger when someone leaves one of those lights on for 10 minutes.
       for: "00:10:00"
   action:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
@@ -257,7 +257,7 @@ automation 4:
       value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
   action:
     # Turn off various lights
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id:
           - light.kitchen

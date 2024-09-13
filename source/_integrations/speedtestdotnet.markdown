@@ -22,7 +22,7 @@ The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) w
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` service to automate the speed test frequency.
+By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` action to automate the speed test frequency.
 
 {% include common-tasks/define_custom_polling.md %}
 
@@ -54,14 +54,14 @@ automation:
       - platform: template
         value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
     action:
-      - service: shell_command.green
+      - action: shell_command.green
 
   - alias: "Internet Speed Glow Connect Poor"
     trigger:
       - platform: template
         value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
     action:
-      - service: shell_command.red
+      - action: shell_command.red
 ```
 
 {% endraw %}

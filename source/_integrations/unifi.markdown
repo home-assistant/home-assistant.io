@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
-- [Services](#services)
+- [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -53,7 +53,7 @@ The UniFi Network application allows you to create multiple users on it besides 
 
 ### UniFi OS
 
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443.
+For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. For some self hosted servers the port will be 8443.
 
 ### Conflicts with MQTT
 
@@ -94,17 +94,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Services
+## Actions
 
-### Service unifi.reconnect_client
+### Action unifi.reconnect_client
 
 Try to get a wireless client to reconnect to the network.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Service unifi.remove_clients
+### Action unifi.remove_clients
 
 Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 
@@ -129,6 +129,10 @@ Entities appear for each port forwarding rule.
 ### Control WLAN availability
 
 Entities appear for each WLAN. Changing the state of WLAN will trigger a reconfiguration of affected access points, limiting access to all WLANs exposed by the access point.
+
+### Traffic Rules
+
+Entities appear for each Traffic Rule. This allows toggling rules on and off.
 
 ## Sensor
 
