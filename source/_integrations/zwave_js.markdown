@@ -980,9 +980,9 @@ In Home Assistant, it is currently not possible to set the Z-Wave controller int
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 
-## Z-Wave association groups used
+## Z-Wave association groups
 
-In Home Assistant, a single [association group](#association-group) is supported:
+In Home Assistant, a single [association group](#association-group) is implemented:
 
 - **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#controller), to send a **Device Reset Locally Notification**.
 
