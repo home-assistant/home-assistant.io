@@ -969,10 +969,12 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 ## Z-Wave association groups used
 
-An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly with one another without the need to communicate via a hub. An _association group_ in Z-Wave terminology is a group of devices that are controlled from a controller device. Z-Wave has a range of association groups that each has different capabilities.
+An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
 
-In Home Assistant, only one association group is used. It is a group of 1 one device.
+An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
+
+Home Assistant, a single association group is supported:
 
 - **Group 1**: This is an association group that includes only one device. It is used to send a **Device Reset Locally Notification** after a factory reset.
 
-This association group is used when Home Assistant [resets the Z-Wave controller](#controller) or a Z-Wave end device.
+This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
