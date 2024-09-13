@@ -31,10 +31,12 @@ The **LCN** {% term integration %} for Home Assistant allows you to connect to [
 
 ## Prerequisites
 
-The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
-With this setup sending and receiving commands to and from LCN modules is possible.
+- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. 
+- Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
+With this setup, sending and receiving commands to and from LCN modules is possible.
 
 The `lcn` integration allows connections to more than one hardware coupler. For each coupler, a new integration entry needs to be created.
+
 {% include integrations/config_flow.md %}
 
 ## Supported device types
@@ -58,11 +60,11 @@ They are ideal to be used in automation scripts or for the `template` platforms.
 
 ## Setting up devices and entites
 
-The `lcn` hardware modules and groups are represented by Home Assistant *devices*. The periphery of each `lcn` module is represented by Home Assistant *entities*. Peripheries are for example the output ports, relays and variables of a module. Refer to the description of each [platform](#platforms) to learn about which entity should be used for which periphery.
+The `lcn` hardware modules and groups are represented by Home Assistant *devices*. The periphery of each `lcn` module is represented by Home Assistant *entities*. Peripheries are, for example, the output ports, relays, and variables of a module. Refer to the description of each [platform](#platforms) to learn about which entity should be used for which periphery.
 
 The configuration of the `lcn` devices and entities is completely done using a web user interface (configuration panel).
 
-Once the integration is added to Home Assistant, the `lcn` configuration panel can be accessed by clicking on the `Configure` button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
+Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
 The detailed documentation for the LCN frontend panel can be found [here](https://github.com/alengwenus/lcn-frontend/blob/main/docs/lcn-frontend.md).
 
