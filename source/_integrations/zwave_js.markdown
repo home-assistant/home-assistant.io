@@ -51,7 +51,7 @@ The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
 ### Z-Wave terminology
 
@@ -68,6 +68,12 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 #### Classic inclusion versus SmartStart
 
 Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
+
+#### Association group
+
+An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
+
+An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
 
 ### Prerequisites
 
@@ -969,12 +975,10 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 ## Z-Wave association groups used
 
-An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
-
-An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
-
-Home Assistant, a single association group is supported:
+Home Assistant, a single [association group](#association-group) is supported:
 
 - **Group 1**: This is an association group that includes only one device. It is used to send a **Device Reset Locally Notification** after a factory reset.
 
 This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
+
+Under normal circumstances, it is not necessary to add a device to this group.
