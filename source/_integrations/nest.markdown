@@ -396,7 +396,7 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 You can use the Nest Device Trigger payload fields `attachment.image` or `attachment.video`in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
-{% details "Example Action: Clip Preview (mp4) attachment for iOS" %}
+{% details "Example Action: Clip Preview (mp4) attachment for Android or iOS" %}
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
@@ -408,8 +408,8 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: {{ trigger.event.data.attachment.image }}
-    video: {{ trigger.event.data.attachment.video }}
+    image: "{{ trigger.event.data.attachment.image }}"
+    video: "{{ trigger.event.data.attachment.video }}"
 mode: single
 ```
 
@@ -429,7 +429,7 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: {{ trigger.event.data.attachment.image }}
+    image: "{{ trigger.event.data.attachment.image }}"
 ```
 
 {% endraw %}
@@ -448,7 +448,7 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: {{ trigger.event.data.attachment.image }}
+    image: "{{ trigger.event.data.attachment.image }}"
 ```
 
 {% endraw %}

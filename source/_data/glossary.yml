@@ -155,6 +155,9 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+- term: Custom integration
+  definition: >-
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -350,7 +353,7 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/
+  link: /getting-started/concepts-terminology/#integrations
   aliases:
     - integrations
 - term: Intent
@@ -489,7 +492,7 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/service-calls/
+  link: /docs/scripts/perform-actions/
   aliases:
     - services
 - term: State
