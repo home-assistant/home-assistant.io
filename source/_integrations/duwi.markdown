@@ -1,6 +1,6 @@
 ---
 title: Duwi
-description: A document on how to configure Duwi integration in HomeAssistant.
+description: A document on how to configure Duwi integration in Home Assistant.
 ha_category:
   - Switch
 ha_iot_class: Cloud Push
@@ -47,8 +47,8 @@ To synchronize device information from the Duwi Smart system to Home Assistant, 
   <img src='/images/integrations/duwi/image003.png' alt="Duwi Integration Final Step"/>
 </p>
 
-Remember to follow security best practices by not storing or sharing your login information, including your api_key,
-secret, phone, and password, in any insecure locations.
+Remember to follow security best practices by not storing or sharing your login information, including your *api_key*,
+*secret*, *phone*, and *password*, in any insecure locations.
 
 {% configuration %}
 api_key:
