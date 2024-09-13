@@ -55,7 +55,7 @@ You do not need a Z-Wave controller that is specifically designed for the Z-Wave
 
 ## Getting started
 
-This sections shows you how to set up a Z-Wave JS server how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
+This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
 ### Z-Wave terminology
 
@@ -72,6 +72,12 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 #### Classic inclusion versus SmartStart
 
 Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
+
+#### Association group
+
+An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
+
+An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
 
 ### Prerequisites
 
@@ -795,9 +801,11 @@ If you're not running the supervisor or you've unchecked the above-mentioned box
 
 ## FAQ: Supported devices and Command Classes
 
-See the [Z-Wave JS device database](https://devices.zwave-js.io/).
+For a list of supported devices, refer to the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
 While there is support for the most common devices, some Command Classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
+
+You can also check the list of Z-Wave [Command Classes Home Assistant responds to when queried](#z-wave-command-classes-home-assistant-responds-to-when-queried) towards the end of this page.
 
 You can also keep track of the road map for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
@@ -976,6 +984,16 @@ In Home Assistant, it is currently not possible to set the Z-Wave controller int
 
 A Z-Wave controller that manages an empty network can also join a different network and act as a secondary controller there. However, with Home Assistant, this is not possible. Home Assistant does not allow the Z-Wave controller to join another network, because Home Assistant acts as the central hub.
 
+## Z-Wave association groups used
+
+In Home Assistant, a single [association group](#association-group) is supported:
+
+- **Group 1**: This is an association group that includes only one device. It is used after a [factory reset](#controller), to send a **Device Reset Locally Notification**.
+
+This association group is used when Home Assistant [resets the Z-Wave controller](#controller).
+
+Under normal circumstances, it is not necessary to add a device to this group.
+
 ## Z-Wave Command Classes Home Assistant responds to when queried
 
 The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices.
@@ -999,3 +1017,5 @@ The following table lists the Command Classes together with the implemented vers
 | Multi Channel Association     | 5       | Highest granted |
 | Power Level                   | 1       | Highest granted |
 | Version                       | 3       | Highest granted |
+
+
