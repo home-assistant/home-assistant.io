@@ -72,7 +72,7 @@ transporter_toslink:
 ### Updates
 
 -- **Lyrion Music Server**: Update of the server software is available.
--- **Updated plugins**: Named Plugins will be updated on next restart. The install button will restart the service if possible(install type depenant) to install the pending plugin updates. Allow enough time for the service to restart it will becomre briefly unavailable.
+-- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
 
 ## Actions
 
