@@ -969,7 +969,7 @@ A Z-Wave controller that manages an empty network can also join a different netw
 
 ## Z-Wave Command Classes Home Assistant responds to when queried
 
-The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices. 
+The following table lists the Command Classes together with the implemented version and required security class. These are the Command Classes that Home Assistant will respond to when queried by other devices.
 
 | Command Class                 | Version          | Security Class  |
 | ----------------------------- | ---------------- | --------------- |
