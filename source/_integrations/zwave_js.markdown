@@ -136,7 +136,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
    - **Option 1: your device supports SmartStart**:
      - Select **Scan QR code** and scan the QR code on your device.
-     - If scanning does not work (for example due to missing https), paste the QR code content as text from a different QR reader and select **Submit**.
+     - If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
      - If you haven't done so yet, turn the device on.
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
