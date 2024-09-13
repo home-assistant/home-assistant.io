@@ -142,7 +142,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 6. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-7. If the controller fails to add/find your device, cancel the inclusion process.
+7. **Troubleshooting**: If the controller fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
