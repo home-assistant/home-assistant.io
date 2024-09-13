@@ -797,9 +797,11 @@ If you're not running the supervisor or you've unchecked the above-mentioned box
 
 ## FAQ: Supported devices and Command Classes
 
-See the [Z-Wave JS device database](https://devices.zwave-js.io/).
+For a list of supported devices, refer to the [Z-Wave JS device database](https://devices.zwave-js.io/).
 
 While there is support for the most common devices, some Command Classes are not yet (fully) implemented in Z-Wave JS. You can track the status [here](https://github.com/zwave-js/node-zwave-js/issues/6).
+
+You can also check the list of Z-Wave [Command Classes Home Assistant responds to when queried](#z-wave-command-classes-home-assistant-responds-to-when-queried) towards the end of this page.
 
 You can also keep track of the road map for the Z-Wave integration [here](https://github.com/home-assistant-libs/zwave-js-server-python/issues/56).
 
