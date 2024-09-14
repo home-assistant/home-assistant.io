@@ -137,7 +137,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
    - **Option 1: your device supports SmartStart**:
      - Select **Scan QR code** and scan the QR code on your device.
      - If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
-     - If you haven't done so yet, turn the device on.
+     - Turn the device on. If it was already on, you might need to power-cycle it.
    - **Option 2: your device does not support SmartStart**:
      - Set the device in inclusion mode. Refer to the device manual to see how this is done.
      - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
