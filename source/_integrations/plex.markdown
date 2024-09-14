@@ -100,6 +100,29 @@ action:
 The library sensors are disabled by default, but can be enabled via the Plex integration page.
 {% endimportant %}
 
+### Media Sensors
+
+This integration will create the following sensors for each client found:
+
+- `Title`: The name of the current media item.
+- `Year`: The year the media item was released.
+- `Codec`: The audio codec for the media item.
+- `Codec extended`: The extended audio codec for the media item. This is necessary to disgintuish between DTS-HD MA and DTS:X, for example.
+- `Edition`: The edition of the media item such as Extended, Theatrical, etc.
+- `TMBD`: The Movie Database ID for the media item.
+- `TVDB`: The TV Database ID for the media item.
+- `Filename`: The filename of the media item as reported by the server.
+
+These sensors can be used in automations to trigger actions based on the media being played.
+
+{% important %}
+The media sensors are disabled by default, but can be enabled via the Plex client device page.
+{% endimportant %}
+
+{% important %}
+There seems to be a bug in Plex where iOS (NOT inclusive of iPad OS) clients do not populate a filename. Please do not open a Home Assistant issue for this.
+{% endimportant %}
+
 ## Button
 
 A `button.scan_clients` entity is available to discover new controllable Plex clients. This may be necessary in scripts or automations which control a Plex client app, but where the underlying device must be turned on first. This button is preferred over the legacy `plex.scan_for_clients` action.
