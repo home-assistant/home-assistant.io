@@ -47,7 +47,7 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The **Z-Wave** {% term integrations %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
 
 ## Device compatibility
 
