@@ -31,6 +31,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - [Havana Shade](https://havanashade.com/)
+- [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
@@ -62,6 +63,7 @@ The following bridges are reported to work with this integration:
 - Linx Hub USB
 - SIRO Connect SI7002
 - SIRO Connect SI7005
+- Heicko Smart Stick 1ST
 
 {% include integrations/config_flow.md %}
 
@@ -94,7 +96,7 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 
 ### Connector app
 
-Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+Click the About page of the Connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)). The About page is in the left sidebar of the app, under Settings (gear icon). Selecting About opens the About page, which you can tap on 5 times to open a window with the API key.
 
 ## Favorite position
 
