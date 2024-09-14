@@ -47,7 +47,11 @@ ha_zeroconf: true
 ha_quality_scale: platinum
 ---
 
-The Z-Wave integration allows you to control a Z-Wave network via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+The **Z-Wave** {% term integration %} allows you to control a Z-Wave network from Home Assistant via the [Z-Wave JS](https://zwave-js.github.io/node-zwave-js/#/) driver.
+
+## Device compatibility
+
+You do not need a Z-Wave controller that is specifically designed for the Z-Wave integration in Home Assistant. The Z-Wave integration in Home Assistant can be operated with any Z-Wave network with other Z-Wave certified devices from other manufacturers. All mains operated nodes within the network will act as repeaters regardless of vendor to increase reliability of the network.
 
 ## Getting started
 
@@ -1013,4 +1017,5 @@ The following table lists the Command Classes together with the implemented vers
 | Multi Channel Association     | 5       | Highest granted |
 | Power Level                   | 1       | Highest granted |
 | Version                       | 3       | Highest granted |
+
 
