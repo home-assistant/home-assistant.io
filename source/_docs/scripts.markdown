@@ -886,6 +886,10 @@ response data must contains a mapping of key/value pairs.
   response_variable: "my_response_variable"
 ```
 
+{% warning %} 
+The response_variable will not be returned when the script mode is set to queued. 
+{% endwarning %}
+
 There is also an `error` option, to indicate we are stopping because of
 an unexpected error. It stops the sequence as well, but marks the {% term automation %}
 or script as failed to run.
