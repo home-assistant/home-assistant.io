@@ -4,7 +4,7 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Sensor
 ha_release: 2024.9
-ha_iot_class: Local Polling
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: smlight
 ha_zeroconf: true
