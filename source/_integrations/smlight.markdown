@@ -2,7 +2,10 @@
 title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB-06x devices from directly within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
   - Sensor
+  - Switch
   - Update
 ha_release: 2024.9
 ha_iot_class: Local Push
@@ -10,8 +13,10 @@ ha_config_flow: true
 ha_domain: smlight
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - button
   - sensor
+  - switch
   - update
 ha_codeowners:
   - '@tl-sl'
