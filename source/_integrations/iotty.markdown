@@ -32,11 +32,12 @@ This integration currently supports the following iotty devices:
 
 ### iotty Smart Switch
 
-  US version:
-  - [1-Switch Controller](https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389)
-  - [2-Switch Controller](https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925)
-  - [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
-  - [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
+US version:
+
+- [1-Switch Controller](https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389)
+- [2-Switch Controller](https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925)
+- [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
+- [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
 
 EU version:
 
