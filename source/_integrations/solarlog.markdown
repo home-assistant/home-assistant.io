@@ -18,20 +18,20 @@ ha_integration_type: integration
 
 The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
 
-Before being able to use the integration, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
-When activating the interface, a red warning triangle with security information and risks is displayed.
+Before being able to use the integration, you either need the password of the Solar-Log user or you must activate the open JSON interface on your Solar-Log device. The latter can be activated from the Configuration | System | Access control menu of your Solar-Log device. When activating the interface, a red warning triangle with security information and risks is displayed. For security reasons it is recommended to activate password protection and use the integration with the respective password.
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 {% important %}
-The open JSON interface is deactivated by default. To activate the open JSON interface, a user password should be set for security purposes. The password isn't needed for accessing the open JSON interface.
+If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons it is recommended to activate the user password. 
+Please note that the open JSON interface only exposes a limites amount of data. Even if the open JSON interface has been activated but you do not have the user password, only limited data is available in the integration (https://www.home-assistant.io/integrations/solarlog/#sensors). For [full functionality](https://www.home-assistant.io/integrations/solarlog/#additional_data) you need the user password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
 ## Additional template sensor
 
-In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
+In case you would like to get additional calculated sensors such as the amount of excess solar power available, you can use the [template platform](/integrations/template/).
 
 {% raw %}
 
@@ -47,7 +47,7 @@ template:
 
 ## Sensors
 
-The following sensors are available in the library:
+The following sensors are available via the open JSON intervace:
 
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
@@ -67,7 +67,6 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
-| self_consumption_year | kWh    | Accumulated total self-consumption. |
 | installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
@@ -78,10 +77,8 @@ The following sensors are available in the library:
 ## Additional data
 
 {% important %}
-The additional data is only accessible if the user's password protection is deactivated. Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
+The additional data is only accessible if the user's password is available (or password protection is deactivated). Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
 {% endimportant %}
-
-You can get additional data from the Solar-Log device. To enable this, select the checkbox for extended data in the integration's system options.
 
 The following additional sensor becomes available:
 
