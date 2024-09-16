@@ -77,3 +77,21 @@ Sensors available in the library:
 | pf_l1               |      | Power factor on L1.                                       |
 | pf_l2               |      | Power factor on L2.                                       |
 | pf_l3               |      | Power factor on L3.                                       |
+
+## Buttons
+
+Buttons available in the library:
+
+### Chargers
+
+| Button              | Description                        |
+| :------------------ | :--------------------------------- |
+| charge_start        | Command charger to start charging. |
+| charge_stop         | Command charger to stop charging.  |
+| reboot              | Reboot charger.                    |
+
+### Energy meters
+
+| Button              | Description                        |
+| :------------------ | :--------------------------------- |
+| reboot              | Reboot energy meter.               |
