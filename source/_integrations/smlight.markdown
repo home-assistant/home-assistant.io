@@ -42,14 +42,17 @@ Core firmware on your SLZB-06x device must be `2.3.6` or newer. If you have an o
 
 The following sensors will be created:
 
-- **Core Temperature** - Temperature of core ESP32
-- **Zigbee Temperature** - Temperature of Zigbee CC2652 or EFR32 chip
-- **Core Uptime** - Uptime of Core device
-- **Zigbee Uptime** - Uptime of Zigbee connection to ZHA/Z2M
-- **RAM Usage** - Monitor RAM Usage
-- **FS Usage** - Monitor filesystem usage
+- **Core temperature** - Temperature of core ESP32
+- **Zigbee temperature** - Temperature of Zigbee CC2652 or EFR32 chip
+- **Core uptime** - Uptime of Core device
+- **Zigbee uptime** - Uptime of Zigbee connection to ZHA/Z2M
+- **RAM usage** - Monitor RAM Usage
+- **FS usage** - Monitor filesystem usage
+- **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
 - **Wi-Fi** - Wi-Fi connection status
+- **Firmware channel** - Channel for updates, stable, or development firmware or currently installed firmware.
+- **Zigbee type** - Current mode of Zigbee chip. Coordinator, router, or Thread. Only works with official firmware installed via OTA in SMLIGHT web UI.
 
 The following buttons will be created:
 
