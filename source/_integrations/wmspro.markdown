@@ -4,7 +4,7 @@ description: Instructions on how to integrate WAREMA devices via WMS WebControl 
 ha_category:
   - Cover
   - Hub
-ha_release: '2024.9'
+ha_release: "2024.10"
 ha_iot_class: Local Polling
 ha_codeowners:
   - '@mback2k'
