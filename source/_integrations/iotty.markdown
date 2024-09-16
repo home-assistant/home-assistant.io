@@ -4,6 +4,7 @@ description: Instructions on how to connect iotty Smart Devices to Home Assistan
 ha_release: '2024.8'
 ha_category:
   - Switch
+  - Cover
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: iotty
 ha_platforms:
   - switch
+  - cover
 ha_integration_type: device
 ---
 
