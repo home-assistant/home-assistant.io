@@ -134,17 +134,25 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 2. Select the Z-Wave integration. Then select **Configure**.
 3. Select **Add device**.
    - The Z-Wave controller is now in inclusion mode.
-4. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
-5. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
-   - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
+4. Check, if your device supports SmartStart:
+   - On the packaging, check for the SmartStart label.
+   - Find the QR code. It can be on the packaging or on the device itself.
+5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
+   - **Option 1: your device supports SmartStart**:
+     - Select **Scan QR code** and scan the QR code on your device.
+     - If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
+     - Turn the device on. If it was already on, you might need to power-cycle it.
+   - **Option 2: your device does not support SmartStart**:
+     - Set the device in inclusion mode. Refer to the device manual to see how this is done.
+     - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 6. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-7. If the controller fails to add/find your device, cancel the inclusion process.
+7. **Troubleshooting**: If the controller fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
 **Important:**
 
-1. **Do not move your Z-Wave stick to include devices.** This is no longer necessary and leads to broken routes.
+1. **Do not move your Z-Wave stick to include devices.** Moving the controller is no longer necessary and leads to broken routes.
 2. **Do not initiate device inclusion from the Z-Wave stick itself.** This is no longer supported.
 
 ### Removing a device from the Z-Wave network
