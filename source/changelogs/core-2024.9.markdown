@@ -841,6 +841,7 @@ For a summary in a more readable format:
 - Bump govee light local to 1.5.2 ([@Galorhallen] - [#125968])
 - Bump aiorussound to 3.0.5 ([@noahhusby] - [#125975])
 - Abort zeroconf flow on connect error during discovery ([@tl-sl] - [#125980])
+- Pin pyasn1 until fixed ([@hunterjm] - [#125712])
 
 [#123490]: https://github.com/home-assistant/core/pull/123490
 [#123544]: https://github.com/home-assistant/core/pull/123544
@@ -863,6 +864,7 @@ For a summary in a more readable format:
 [#125694]: https://github.com/home-assistant/core/pull/125694
 [#125706]: https://github.com/home-assistant/core/pull/125706
 [#125710]: https://github.com/home-assistant/core/pull/125710
+[#125712]: https://github.com/home-assistant/core/pull/125712
 [#125732]: https://github.com/home-assistant/core/pull/125732
 [#125734]: https://github.com/home-assistant/core/pull/125734
 [#125743]: https://github.com/home-assistant/core/pull/125743
@@ -886,6 +888,7 @@ For a summary in a more readable format:
 [@farmio]: https://github.com/farmio
 [@frenck]: https://github.com/frenck
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@hunterjm]: https://github.com/hunterjm
 [@jbouwh]: https://github.com/jbouwh
 [@jonnynch]: https://github.com/jonnynch
 [@kristof-mattei]: https://github.com/kristof-mattei
