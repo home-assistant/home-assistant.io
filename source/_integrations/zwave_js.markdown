@@ -57,7 +57,7 @@ You do not need a Z-Wave controller that is specifically designed for the Z-Wave
 
 This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
-### Z-Wave terminology
+### Z-Wave terminology and Home Assistant
 
 Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
 
@@ -73,11 +73,9 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 
 Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
 
-#### Association group
+#### Related topics
 
-An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
-
-An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
+For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
 
 ### Prerequisites
 
@@ -1026,4 +1024,21 @@ The following table lists the Command Classes together with the implemented vers
 | Power Level                   | 1       | Highest granted |
 | Version                       | 3       | Highest granted |
 
+## Z-Wave terminology
 
+This section explains some Z-Wave terms and concepts you might find in Z-Wave product documentation.
+
+### Association group
+
+An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
+
+An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
+
+### SmartStart
+
+SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with a controller providing SmartStart inclusion.
+No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require [classic inclusion](#classic-inclusion-versus-smartstart). For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
+
+### Terminology mapping table
+
+For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.
