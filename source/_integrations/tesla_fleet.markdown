@@ -6,6 +6,7 @@ ha_category:
   - Car
   - Climate
   - Device tracker
+  - Number
   - Select
   - Sensor
   - Switch
@@ -20,6 +21,7 @@ ha_platforms:
   - climate
   - device_tracker
   - diagnostics
+  - number
   - select
   - sensor
   - switch
@@ -90,6 +92,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Climate|Climate|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
+|Number|Charge current|Yes|
+|Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
 |Select|Seat heater front right|Yes|
 |Select|Seat heater rear center|No|
@@ -153,6 +157,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Number|Backup reserve|Yes|
+|Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|
 |Select|Operation mode|Yes|
 |Sensor|Battery power|Yes|
