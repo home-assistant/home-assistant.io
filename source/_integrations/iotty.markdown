@@ -28,18 +28,22 @@ To create an iotty account, you need to get the App from the [App Store](https:/
 
 This integration currently supports the following iotty devices:
 
-- iotty Smart Switch \
+### iotty Smart Switch
+
   US version:
   - [1-Switch Controller](https://iottysmarthome.com/products/1-switch-controller?variant=43630747058389)
   - [2-Switch Controller](https://iottysmarthome.com/products/2-switch-controller?variant=43630751219925)
   - [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
   - [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
-  EU version: \
+
+  EU version:
+
   - [iotty Smart Switch](https://iotty.uk/collections/frontpage/products/iotty-smart-switch)
   - [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
   - [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
 
-- iotty Shutter \
+### iotty Shutter
+
   - [iotty Smart Shades Switch](https://iotty.uk/collections/frontpage/products/e2s-plus-smart-shades-switch-for-shutters-and-blinds)
   - [iotty Plus Interruttore Intelligente per Tende e Tapparelle](https://iotty.it/collections/prodotti-singoli/products/i3s-plus-interruttore-intelligente-per-tende-e-tapparelle) (currently only available for the Italian market)
 
