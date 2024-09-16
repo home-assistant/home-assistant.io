@@ -8,6 +8,7 @@ ha_category:
   - Doorbell
   - Event
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 0.42
@@ -23,6 +24,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - number
   - sensor
   - siren
   - switch
@@ -42,6 +44,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+- [Number](#number)
 
 {% note %}
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
@@ -97,7 +100,7 @@ automation:
 
 {% endraw %}
 
-You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file: 
+You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file:
 
 {% raw %}
 ```yaml
@@ -154,6 +157,8 @@ If you have too many `Authorised Client Devices` to delete them individually, it
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports doorbell, external chimes and stickup cameras.
 
+The volume sensors are being replaced with the number entity, and you should migrate any automations to the number entity by release 2025.4.0.
+
 ## Switch
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
@@ -161,3 +166,7 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 ## Light
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a floodlight).
+
+## Number
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform. Currently, it supports the volume of doorbell, external chimes and intercom.
