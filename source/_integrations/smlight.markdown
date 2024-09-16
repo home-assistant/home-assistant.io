@@ -3,6 +3,7 @@ title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB-06x devices from directly within Home Assistant.
 ha_category:
   - Sensor
+  - Update
 ha_release: 2024.9
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -11,6 +12,7 @@ ha_zeroconf: true
 ha_platforms:
   - button
   - sensor
+  - update
 ha_codeowners:
   - '@tl-sl'
 ha_integration_type: device
@@ -65,3 +67,12 @@ The following switches will be created:
 - **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
 - **Auto Zigbee update** - This allows the core firmware on SLZB-06x to manage Zigbee firmware updates and it will automatically install updates when they are released.
+
+### Updates
+
+The following update entities will be created:
+
+- **Core firmware** - Core firmware updates of SLZB-06x firmware
+- **Zigbee firmware** - Firmware updates of Zigbee chip
+
+The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
