@@ -5,6 +5,7 @@ ha_category:
   - Camera
   - Climate
   - Doorbell
+  - Event
   - Hub
   - Media source
   - Sensor
@@ -20,6 +21,7 @@ ha_platforms:
   - camera
   - climate
   - diagnostics
+  - event
   - sensor
 ha_integration_type: integration
 ---
@@ -31,6 +33,7 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Camera](#camera)
+- [Event](#event)
 
 Cameras and doorbells use [Automation and device triggers](#automation-and-device-triggers) for events and a [media source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
@@ -260,6 +263,8 @@ Home Assistant supports all SDM API features. However, every Camera or Doorbell 
 - **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` actions like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
 - **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*.
 
+Given a camera named `Front Yard`, then the camera is created with a name such as `camera.front_yard`.
+
 {% note %}
 
 This feature is enabled by the following permissions:
@@ -269,10 +274,10 @@ This feature is enabled by the following permissions:
 
 {% endnote %}
 
+All cameras also expose event entities for automation. Some camera models also
+support capturing media (snapshots or clips) through device triggers. The table below summarizes the [supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
-All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
-
-| Device                                                                           |    Live Stream    |         Triggers / Events          | Media Source<br> for Triggers / Events |
+| Device                                                                           |    Live stream    |         Event entities / triggers          | Media source<br> for triggers |
 | -------------------------------------------------------------------------------- | :---------------: | :--------------------------------: | :------------------------------------: |
 | Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          |      WebRTC       |          Motion<br>Person          |                  N/A                   |
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording |     Motion<br>Person<br>Sound      |             Snapshot (jpg)             |
@@ -282,12 +287,25 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Doorbell (wired, 2nd gen)                                                   |      WebRTC       |     Motion<br>Person<br>Chime      |        Clip Preview (mp4, gif)         |
 | Nest Hub Max                                                                     | RTSP<br>Recording |   Motion<br>Person<br>Sound<br>    |             Snapshot (jpg)             |
 
-Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
+## Event
 
-## Automation and device triggers
+All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+
+There are two classes of event entities that are available based on the above camera features:
+
+- `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
+- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+
+Nest event entities are updated immediately when an event message is received
+without waiting for any media to be fetched. See Device Triggers for media support.
+
+## Device Triggers
 
 The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+
+Device triggers will wait to fire after any media associated with the event is downloaded. Use an
+event entity for immediate notifications without media.
 
 {% my automations badge %}
 
@@ -305,13 +323,18 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
         "type": "doorbell_chime",
         "timestamp": "2022-01-26T04:56:54.031000+00:00",
         "nest_event_id": "EXAMPLE_EVENT_ID",
+        "attachment": {
+          "image": "/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail",
+          "video": "/api/nest/event_media/DEVICE_ID/EVENT_ID",
+        }
         "zones": ["Zone 1"],
     },
 }
 ```
 
 - `device_id`: The Home Assistant device identifier for the camera
-- `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+- `nest_event_id`: is an opaque identifier that identifies the event.
+- `attachment`: May be present if the device supports snapshots or clips and depends on the device's capabilities. This is a URL where media can be fetched from the media source.
 - `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
@@ -327,7 +350,7 @@ This feature is enabled by the following permissions:
 - *Other permissions and notification settings in the Nest or Google Home apps*.
 {% endnote %}
 
-### Google Home App Notification Settings
+## Google Home App Notification Settings
 
 The Google Home App Notifications settings control not only which notifications are sent to your phone,
 but also what gets published to the Pub/Sub feed.
@@ -346,7 +369,6 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 {% details "Google Home App Notification Settings" %}
 
-
 | Google Home App Setting  |                                  Notes                                  |
 | ------------------------ | :---------------------------------------------------------------------: |
 | Notifications: Push      |            Required for any detection event to be published             |
@@ -362,7 +384,7 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 The Nest [media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
-The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
+The table above describes which devices support image snapshots or 10-frame mp4 video clips.
 
 ### Media Attachments
 
@@ -372,7 +394,7 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 - `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
 
-You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
+You can use the Nest Device Trigger payload fields `attachment.image` or `attachment.video`in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
 {% details "Example Action: Clip Preview (mp4) attachment for iOS" %}
 
@@ -386,10 +408,8 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
-    video: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id  }}
+    image: {{ trigger.event.data.attachment.image }}
+    video: {{ trigger.event.data.attachment.video }}
 mode: single
 ```
 
@@ -409,8 +429,7 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+    image: {{ trigger.event.data.attachment.image }}
 ```
 
 {% endraw %}
@@ -429,8 +448,7 @@ data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+    image: {{ trigger.event.data.attachment.image }}
 ```
 
 {% endraw %}

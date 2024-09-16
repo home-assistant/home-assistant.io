@@ -177,6 +177,15 @@ Depending on the supported features of the camera, select entities are added for
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
+### Action reolink.play_chime
+
+To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
+
+| Data attribute | Optional | Description                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
+| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
+
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.

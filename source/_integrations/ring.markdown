@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Light
   - Sensor
   - Switch
@@ -20,6 +21,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - light
   - sensor
   - siren
@@ -49,7 +51,9 @@ This integration does NOT allow for live viewing of your Ring camera within Home
 
 ## Binary sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using a binary sensor. Currently, it supports doorbell, external chimes and stickup cameras.
+The binary sensor switches off and on when motion, doorbell rings, and intercom unlock events occur.
+
+The binary sensor is being replaced with the event entity, and you should migrate any automations to the event entity by release 2025.4.0.
 
 ## Button
 
@@ -131,6 +135,20 @@ data = {
 # call downloader integration to save the video
 hass.services.call("downloader", "download_file", data)
 ```
+
+## Event
+
+The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
+
+### Realtime event stability
+
+If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
+Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
+If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
+This can cause issues receiving ring alerts.
+You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
+(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
+If you have too many `Authorised Client Devices` to delete them individually, it might be easier to `Remove all devices` and then re-authorize your required devices.
 
 ## Sensor
 

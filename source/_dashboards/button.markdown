@@ -140,8 +140,8 @@ type: button
 name: Turn Off Lights
 show_state: false
 tap_action:
-  action: call-service
-  service: script.turn_on
+  action: perform-action
+  perform_action: script.turn_on
   data:
     entity_id: script.turn_off_lights
 ```

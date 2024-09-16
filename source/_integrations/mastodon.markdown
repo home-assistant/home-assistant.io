@@ -8,13 +8,13 @@ ha_codeowners:
   - '@fabaff'
   - '@andrew-codechimp'
 ha_domain: mastodon
-ha_iot_class: Cloud Push
+ha_iot_class: Cloud Polling
 ha_platforms:
+  - diagnostics
   - notify
-ha_integration_type: integration
-related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - sensor
+ha_integration_type: service
+ha_config_flow: true
 ---
 
 The `mastodon` platform uses [Mastodon](https://joinmastodon.org/) to deliver notifications from Home Assistant.
@@ -25,6 +25,10 @@ Go to **Preferences** in the Mastodon web interface, then to **Development** and
 If you want to grant only required accesses, uncheck all checkboxes then check only **read:accounts** and **write:statuses**.
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+The integration will create sensors for the Mastodon account showing total followers, following, and posts.
 
 ## Notifications
 

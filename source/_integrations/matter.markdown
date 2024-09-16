@@ -12,6 +12,7 @@ ha_category:
   - Select
   - Sensor
   - Switch
+  - Update
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -188,8 +189,8 @@ This guide describes how to add a new device. This will use the Bluetooth connec
       - This starts the commissioning process which may take a few minutes.
    - If you're adding a test board (e.g. ESP32 running the example apps) and commissioning fails, you might need to take some actions in the Google Developer console, have a look at any instructions for your test device.
    - Once the process is complete, select **Done**.
-5. To view the device details, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the **Matter** integration.
-6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil to edit and rename the device.
+5. To view the device details, go to {% my integrations title="**Settings** > **Devices & Services**" %} and select the **Matter** integration.
+6. By default, the device gets a factory specified name. To rename it, on the device page, select the pencil {% icon "mdi:edit" %} to edit and rename the device.
    ![image](/images/integrations/matter/matter-android-rename.png)
 7. Your device is now ready to use.
 

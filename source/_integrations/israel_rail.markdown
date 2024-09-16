@@ -1,5 +1,5 @@
 ---
-title: Israel Rail
+title: Israel Railways
 description: Instructions on how to integrate timetable data for traveling in Israel rail within Home Assistant.
 ha_category:
   - Transport

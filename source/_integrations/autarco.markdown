@@ -11,6 +11,7 @@ ha_codeowners:
   - '@klaasnicolaas'
 ha_domain: autarco
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---

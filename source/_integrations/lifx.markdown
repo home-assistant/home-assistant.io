@@ -18,6 +18,8 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 ha_dhcp: true
+ha_codeowners:
+  - '@Djelibeybi'
 ---
 
 The LIFX integration automatically discovers [LIFX](https://www.lifx.com) lights on each network that is enabled in Home Assistant's [network configuration](/integrations/network). Suppose any of your LIFX lights are not automatically discovered. In that case, you can add them manually using the user interface by following the configuration steps below for each light you want to add:

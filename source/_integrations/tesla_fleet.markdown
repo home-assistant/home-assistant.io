@@ -4,8 +4,10 @@ description: Instructions on how to integrate the Tesla Fleet API within Home As
 ha_category:
   - Binary sensor
   - Car
+  - Climate
   - Device tracker
   - Sensor
+  - Switch
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -14,9 +16,12 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - climate
   - device_tracker
   - diagnostics
   - sensor
+  - switch
+ha_quality_scale: gold
 ha_integration_type: integration
 ---
 
@@ -26,6 +31,14 @@ The Tesla Fleet API {% term integration %} exposes various sensors from Tesla ve
 
 You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector.
 
+{% details "Use a custom OAuth application" %}
+
+The integration has a built-in OAuth application that will be suitable for most users. However, you can [create your own application](https://developer.tesla.com/dashboard) for the Tesla Fleet API and configure it as an [application credential](https://my.home-assistant.io/redirect/application_credentials). When creating the application, you must set `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+
+You will be prompted to pick your custom application credential when creating a Tesla Fleet config entry.
+
+{% enddetails %}
+
 {% include integrations/config_flow.md %}
 
 ## Scopes
@@ -34,7 +47,11 @@ When connecting your Tesla account to Home Assistant, you **must** select the `V
 
 ## Rate limits
 
-Tesla restricts open-source integrations to the ["Discovery tier"](https://developer.tesla.com/docs/fleet-api#membership-levels) which only allows for 200 vehicle data requests per day. The integration will initially poll every 90 seconds, making vehicle data requests only when the vehicle is awake, and then dynamically slow down polling based on how many vehicle data requests have been made in the last 24 hours.
+Tesla restricts open-source integrations to the ["Discovery" plan](https://developer.tesla.com/docs/fleet-api/getting-started/subscription-plans) which only allows for 200 vehicle data requests per day. The integration will initially poll every 90 seconds, making vehicle data requests only when the vehicle is awake, and then dynamically slow down polling based on how many vehicle data requests have been made in the last 24 hours.
+
+## Command signing
+
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be encrypted end-to-end and signed with a private key. The Tesla Fleet integration is unable to perform this encryption at this time, so certain features may be disabled or throw an exception when used.
 
 ## Entities
 
@@ -67,6 +84,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Climate|Cabin overheat protection|No|
+|Climate|Climate|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
 |Sensor|Battery level|Yes|
@@ -110,6 +129,12 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable battery level|No|
+|Switch|Auto seat climate left|Yes|
+|Switch|Auto seat climate right|Yes|
+|Switch|Auto steering wheel heater|Yes|
+|Switch|Charge|Yes|
+|Switch|Defrost|Yes|
+|Switch|Sentry mode|Yes|
 
 ### Energy sites
 
@@ -130,6 +155,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Switch|Allow charging from grid|Yes|
+|Switch|Storm watch|Yes|
 
 ### Wall connector
 

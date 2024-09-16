@@ -88,6 +88,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -161,6 +165,10 @@ object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
+options:
+  description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` should be set to `enum`. Cannot be used together with `state_class` or `unit_of_measurement`.
+  required: false
+  type: list
 payload_available:
   description: The payload that represents the available state.
   required: false

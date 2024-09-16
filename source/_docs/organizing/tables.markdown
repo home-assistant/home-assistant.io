@@ -74,5 +74,6 @@ To customize columns, follow these steps:
 1. In the top right corner of the table, select the cog wheel.
 2. To hide a column, deselect it.
 3. To rearrange the order, grab the column and move it to its new position.
+4. To sort, select the column header of interest.
 
    ![Screencast showing how to show, hide, and rearrange columns](/images/organizing/customize_columns.webp)
