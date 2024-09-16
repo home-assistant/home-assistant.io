@@ -88,10 +88,10 @@ Buttons available in the library:
 | :------------------ | :--------------------------------- |
 | charge_start        | Command charger to start charging. |
 | charge_stop         | Command charger to stop charging.  |
-| reboot              | Reboot device.                     |
+| reboot              | Reboot charger.                    |
 
 ### Energy meters
 
 | Button              | Description                        |
 | :------------------ | :--------------------------------- |
-| reboot              | Reboot device.                     |
+| reboot              | Reboot energy meter.               |
