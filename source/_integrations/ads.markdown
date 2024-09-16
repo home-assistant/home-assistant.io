@@ -259,7 +259,7 @@ device_class:
 
 ## Select
 
-The `ads` select platform accesses an ENUM (int) variable on the connected ADS device. The variable is identified by its name. You have to set up a corresponding ENUM in the TwinCAT PLC, and recommended to use explicit values starting from `0`.
+The `ads` select entity accesses an ENUM (int) variable on the connected ADS device. The variable is identified by its name. You have to set up a corresponding ENUM in the TwinCAT PLC. It is recommended to use explicit values starting from `0`.
 
 ```yaml
 TYPE E_SampleA :
