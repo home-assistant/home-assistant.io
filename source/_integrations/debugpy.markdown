@@ -134,10 +134,12 @@ your Visual Studio Code project to connect to the debugger.
         {
             // Example of attaching to local debug server
             "name": "Python: Attach Local",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
-            "port": 5678,
-            "host": "localhost",
+            "connect": {
+                "port": 5678,
+                "host": "localhost",
+            },
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",
@@ -148,10 +150,12 @@ your Visual Studio Code project to connect to the debugger.
         {
             // Example of attaching to my production server
             "name": "Python: Attach Remote",
-            "type": "python",
+            "type": "debugpy",
             "request": "attach",
-            "port": 5678,
-            "host": "homeassistant.local",
+            "connect": {
+                "port": 5678,
+                "host": "homeassistant.local",
+            },
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}",

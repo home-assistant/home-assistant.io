@@ -18,19 +18,30 @@ Keeps track which locks are in your environment, their state and allows you to c
 
 {% include integrations/building_block_integration.md %}
 
-### Actions
+## The state of a lock entity
+
+A lock entity can have the following states:
+
+- **Jammed**: The lock is currently jammed.
+- **Open**: Indication of whether the lock is currently open.
+- **Opening**: Indication of whether the lock is currently opening.
+- **Locked**: The lock is currently locked.
+- **Locking**: The lock is in the process of being locked.
+- **Unlocking**: The lock is in the process of being unlocked.
+
+## Actions
 
 A lock integration provides the following actions:
 
-#### Action `lock.lock` 
+### Action `lock.lock` 
 
 Lock your door, the attribute should appear under a 'data' attribute for the action.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Entity of the relevant lock. |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock. |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -39,15 +50,15 @@ action:
     entity_id: lock.my_place
 ```
 
-#### Action `lock.unlock` 
+### Action `lock.unlock` 
 
 Unlock your door, the attribute should appear under a 'data' attribute for the action.
 
 | Data attribute | Optional | Description                  |
-| ---------------------- | -------- | ---------------------------- |
-| `entity_id`            | no       | Entity of the relevant lock. |
+| -------------- | -------- | ---------------------------- |
+| `entity_id`    | no       | Entity of the relevant lock. |
 
-##### Example
+#### Example
 
 ```yaml
 action:
@@ -56,7 +67,7 @@ action:
     entity_id: lock.my_place
 ```
 
-### Use the actions
+## Use the actions
 
 Go to the **Developer Tools**, then to **Actions** in the frontend, and choose `lock.lock`, `lock.unlock` or `lock.open` from the list of available actions. Enter something like the sample below into the **data** field and select **Perform action**.
 
@@ -65,5 +76,5 @@ Go to the **Developer Tools**, then to **Actions** in the frontend, and choose `
 ```
 
 | Data attribute | Optional | Description                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------- |
-| `entity_id`            | yes      | Only act on specific lock. Use `entity_id: all` to target all. |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `entity_id`    | yes      | Only act on specific lock. Use `entity_id: all` to target all. |

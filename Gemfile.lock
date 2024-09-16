@@ -29,14 +29,14 @@ GEM
     ffi (1.17.0-arm64-darwin)
     ffi (1.17.0-x86_64-linux-gnu)
     forwardable-extended (2.6.0)
-    google-protobuf (4.28.0-arm64-darwin)
+    google-protobuf (4.28.1-arm64-darwin)
       bigdecimal
       rake (>= 13)
-    google-protobuf (4.28.0-x86_64-linux)
+    google-protobuf (4.28.1-x86_64-linux)
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     jekyll (4.3.3)
       addressable (~> 2.4)
@@ -157,9 +157,9 @@ GEM
     tilt (2.4.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2024.1)
+    tzinfo-data (1.2024.2)
       tzinfo (>= 1.0.0)
-    unicode-display_width (2.5.0)
+    unicode-display_width (2.6.0)
     webrick (1.8.1)
 
 PLATFORMS
