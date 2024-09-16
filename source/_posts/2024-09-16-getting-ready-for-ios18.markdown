@@ -10,9 +10,9 @@ categories: iOS Release-Notes
 og_image: /images/blog/2024-09-16/ios-og.jpg
 ---
 
-Bruno here once again to bring you a bunch of news on your favorite iOS App 😉. In this release, we are introducing some new features to complement the release of iOS 18, along with a new way to configure your Home Assistant Apple Watch app.
-
 ![Companion App for iOS 2024.9](/images/blog/2024-09-16/ios-og.jpg)
+
+Bruno here once again to bring you a bunch of news on your favorite iOS App 😉. In this release, we are introducing some new features to complement the release of iOS 18, along with a new way to configure your Home Assistant Apple Watch app.
 
 <!--more-->
 
@@ -41,7 +41,7 @@ Assist opening on iOS 18 control (right) compared to from shortcuts (left)
 
 For a long time, our Watch app was only able to display [Home Assistant’s built-in iOS Actions](https://companion.home-assistant.io/docs/core/actions/). With this release, you will be able to display scripts, scenes, iOS Actions, and more to come in the future. After updating, open the iOS App and go to companion app settings to find a new Apple Watch configuration screen where you can choose which items to display, their order, and customize the look.
 
-A really useful customization is the **Require confirmation** option, which will prompt you with a confirmation popup before running the item. This will be very helpful if you, like me, have a bad aim and accidentally open your garage door instead of turning on your TV.
+A really useful customization is the **Require confirmation** option, which will prompt you with a confirmation popup before running the item. This will be very helpful if you, like me, have bad aim and accidentally open your garage door instead of turning on your TV.
 
 ![New Apple Watch configuration](/images/blog/2024-09-16/watch.png)
 
