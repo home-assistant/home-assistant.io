@@ -31,7 +31,7 @@ With these options, you can use Home Assistant capabilities even faster, from as
 
 These controls are also available to be used with the Action button on iPhone 15 Pro and 16 series. In the [previous release blog](/blog/2024/05/22/companion-app-for-ios-20245-assist/), we discussed that this was a great way to access Assist, in a very similar way to how you trigger Siri with the power button. Well, this release speeds this up significantly by no longer using shortcuts. Just check out the difference.
 
-<lite-youtube videoid="v7NXQJMUK2c" videotitle="Comparing Assist launch from Shortcuts and iOS 18 Control">Assist opening on iOS 18 control (right) compared to from shortcuts (left)</lite-youtube>
+<p class='img'><lite-youtube videoid="v7NXQJMUK2c" videotitle="Comparing Assist launch from Shortcuts and iOS 18 Control"></lite-youtube>Assist opening on iOS 18 control (right) compared to from shortcuts (left)</p>
 
 ## New Apple Watch configuration
 
