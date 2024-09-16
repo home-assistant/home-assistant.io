@@ -38,11 +38,11 @@ This integration currently supports the following iotty devices:
   - [3-Switch Controller](https://iottysmarthome.com/products/3-switch-controller?variant=43630760493269)
   - [4-Switch Controller](https://iottysmarthome.com/products/4-switch-controller?variant=43630774386901)
 
-  EU version:
+EU version:
 
-  - [iotty Smart Switch](https://iotty.uk/collections/frontpage/products/iotty-smart-switch)
-  - [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
-  - [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
+- [iotty Smart Switch](https://iotty.uk/collections/frontpage/products/iotty-smart-switch)
+- [iotty Smart Switch (variant)](https://iotty.uk/collections/frontpage/products/iotty-smart-switch?variant=40820222460082)
+- [iotty Plus Interruttore Intelligente](https://iotty.it/collections/frontpage/products/iotty-plus-interruttore-intelligente-per-luci-e-cancelli)
 
 ### iotty Shutter
 
