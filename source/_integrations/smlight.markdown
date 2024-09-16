@@ -72,4 +72,4 @@ The following update entities will be created:
 - **Core firmware** - Core firmware updates of SLZB-06x firmware
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
-The updates offered in Home Assistant, will match your currently installed firmware. This is based on firmware channel (dev, release) and for Zigbee also the firmware type (coordinator, router, thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
