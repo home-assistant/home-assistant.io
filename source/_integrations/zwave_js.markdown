@@ -61,10 +61,11 @@ This sections shows you how to set up a Z-Wave JS server and how to add your fir
 
 Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
 
-| Z-Wave functionality | Home Assistant                                         |
-| -------------------- | ------------------------------------------------------ |
-| inclusion            | add                                                    |
-| exclusion            | remove                                                 |
+| Z-Wave functionality | Home Assistant                                         | Definition                                                                                                  |
+| -------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| inclusion            | add                                                    | The process of adding a node to the Z-Wave network                                                          |
+| exclusion            | remove                                                 | The process of removing a node from the Z-Wave network                                                      |
+| replication          | copy (not supported in Home Assistant)                 | The process of copying network information from one controller to another. Not supported in Home Assistant. |
 | barrier operator     | cover                                                  |
 | window covering      | cover                                                  |
 | multilevel switch    | represented by different entity types: light, fan etc. |
