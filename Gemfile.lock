@@ -36,7 +36,7 @@ GEM
       bigdecimal
       rake (>= 13)
     http_parser.rb (0.8.0)
-    i18n (1.14.5)
+    i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     jekyll (4.3.3)
       addressable (~> 2.4)
