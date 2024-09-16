@@ -24,7 +24,7 @@ The `solarlog` integration uses the default host address "http://solar-log" if y
 
 {% important %}
 If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons it is recommended to activate the user password. 
-Please note that the open JSON interface only exposes a limites amount of data. Even if the open JSON interface has been activated but you do not have the user password, only limited data is available in the integration (https://www.home-assistant.io/integrations/solarlog/#sensors). For [full functionality](https://www.home-assistant.io/integrations/solarlog/#additional_data) you need the user password or the user password should be deactivated (not recommended).
+Please note that the open JSON interface only exposes a limites amount of data. Even if the open JSON interface has been activated but you do not have the user password, only limited data is available in the integration (#sensors). For [full functionality](#additional-data) you need the user password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
