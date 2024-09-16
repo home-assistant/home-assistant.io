@@ -16,9 +16,9 @@ Bruno here once again to bring you a bunch of news on your favorite iOS App 😉
 
 <!--more-->
 
-## Dark and Tinted App Icons
+## Dark and tinted app icons
 
-Within the iOS update rolling out today, Apple has introduced home screen customization for app icons. This includes a new dark mode variant and a tinted option where the user can choose an accent color for the icon, of course Home Assistant joined the party.
+Within the iOS update rolling out today, Apple has introduced home screen customization for app icons. This includes a new dark mode variant and a tinted option where the user can choose an accent color for the icon. Of course Home Assistant joined the party.
 
 ![Dark and tinted variants are available for the main App Icon and some custom icons](/images/blog/2024-09-16/new-icons.png)
 
@@ -26,22 +26,22 @@ Within the iOS update rolling out today, Apple has introduced home screen custom
 
 ## Control Center
 
-The new iOS also brings a new level of customization to Control Center, for which we are introducing five new controls: Assist, Toggle light, Run Script, Activate Scene, and Open Page.
+The new iOS also brings a new level of customization to Control Center, for which we are introducing five new controls: Assist, Toggle light, Run script, Activate scene, and Open page.
 
 ![iOS 18 Control center options](/images/blog/2024-09-16/control-center.jpg)
 
 With these options, you can use Home Assistant capabilities even faster, from asking Assist a question to running a complete script flow.
 
-These controls are also available to be used with the Action button on iPhone 15 Pro and 16 series. In the [previous release blog](/blog/2024/05/22/companion-app-for-ios-20245-assist/) we discussed that this was a great way to access Assist, in a very similar way to how you trigger Siri with the power button. Well, this release speeds this up significantly by no longer using shortcuts, just check out the difference.
+These controls are also available to be used with the Action button on iPhone 15 Pro and 16 series. In the [previous release blog](/blog/2024/05/22/companion-app-for-ios-20245-assist/), we discussed that this was a great way to access Assist, in a very similar way to how you trigger Siri with the power button. Well, this release speeds this up significantly by no longer using shortcuts. Just check out the difference.
 
 <lite-youtube videoid="v7NXQJMUK2c" videotitle="Comparing Assist launch from Shortcuts and iOS 18 Control"></lite-youtube>
 Assist opening on iOS 18 control (right) compared to from shortcuts (left)
 
 ## New Apple Watch configuration
 
-For a long time, our Watch app was only able to display [Home Assistant’s built-in iOS Actions](https://companion.home-assistant.io/docs/core/actions/). With this release you will be able to display scripts, scenes, iOS Actions, and with much more coming in future. After updating, open the iOS App and go to companion app settings to find a new Apple Watch configuration screen where you can choose which items to display, their order, and customize the look.
+For a long time, our Watch app was only able to display [Home Assistant’s built-in iOS Actions](https://companion.home-assistant.io/docs/core/actions/). With this release, you will be able to display scripts, scenes, iOS Actions, and more to come in the future. After updating, open the iOS App and go to companion app settings to find a new Apple Watch configuration screen where you can choose which items to display, their order, and customize the look.
 
-A really useful customization is the “Require confirmation” option, which will prompt you with a confirmation popup before running the item. This will be very helpful if you, like me, have bad aim and accidentally open your garage door instead of turning on your TV.
+A really useful customization is the **Require confirmation** option, which will prompt you with a confirmation popup before running the item. This will be very helpful if you, like me, have a bad aim and accidentally open your garage door instead of turning on your TV.
 
 ![New Apple Watch configuration](/images/blog/2024-09-16/watch.png)
 
