@@ -259,7 +259,7 @@ device_class:
 
 ## Valve
 
-The `ads` valve platform accesses a boolean variable on the connected ADS device. The variable is identified by its name.
+The `ads` valve entity accesses a boolean variable on the connected ADS device. The variable is identified by its name.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
