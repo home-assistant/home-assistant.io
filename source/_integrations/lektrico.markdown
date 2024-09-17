@@ -102,7 +102,7 @@ Numbers available in the library:
 
 ### Chargers
 
-| Button              | Description                               |
-| :------------------ | :---------------------------------------- |
-| led_max_brightness  | Set the LED brightness of the charger.    |
-| dynamic_limit       | Set the maximum allowed charging current. |
+| Number             | Unit | Range   | Description                               |
+| :----------------- | :--- | :------ | :---------------------------------------- |
+| led_max_brightness | %    | 0 - 100 | Set the LED brightness of the charger.    |
+| dynamic_limit      | A    | 0 - 32  | Set the maximum allowed charging current. |
