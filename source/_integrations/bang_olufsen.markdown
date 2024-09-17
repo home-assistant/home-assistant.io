@@ -264,8 +264,8 @@ Expand current Beolink experience.
 
 | Action data attribute | Optional | Description                                                      |
 | --------------------- | -------- | ---------------------------------------------------------------- |
-| `all_discovered`      | no       | Expand Beolink experience to all discovered devices.             |
-| `beolink_jids`        | no       | Specify which Beolink JIDs will join current Beolink experience. |
+| `all_discovered`      | yes      | Expand Beolink experience to all discovered devices.             |
+| `beolink_jids`        | yes      | Specify which Beolink JIDs will join current Beolink experience. |
 
 #### `bang_olufsen.beolink_unexpand`
 
