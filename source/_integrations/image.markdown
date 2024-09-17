@@ -18,4 +18,3 @@ The **Image** {% term integration %} allows other integrations to display a stat
 ## The state of an image entity
 
 The state of an image entity is a timestamp, showing the date and time when the image was last changed.
-
