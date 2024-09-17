@@ -51,6 +51,7 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
    - On the details page, we see that this integration has one {% term service %} and one {% term entity %}.
    - **Documentation** opens the documentation page of that integration.
    - **Known issues** opens the GitHub issue tracker, filtered for issues related to that integrations.
+     - This allows you to see if there is currently an open issue for that integration.
    - **Enable debug logging** lets you [activate the debug logs for that integration](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
    ![Screenshot of the workday integration details page](/images/getting-started/workday_sensor_details.png)
