@@ -169,4 +169,5 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 ## Number
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform. Currently, it supports the volume of doorbell, external chimes and intercom.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform.
+Currently, it supports showing and setting the volume of the doorbell/chime ring, intercom voice volume, and intercom microphone volume.
