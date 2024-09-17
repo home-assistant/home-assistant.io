@@ -84,13 +84,12 @@ action:
   data:
     message: The name of the POI # this is shown on the iDrive dashboard
     data:
-      location:
-        latitude: 48.177024
-        longitude: 11.559107
-        street: Street name  # Optional
-        city: City name  # Optional
-        postal_code: Postal Code  # Optional
-        country: Country  # Optional
+      latitude: 48.177024
+      longitude: 11.559107
+      street: Street name  # Optional
+      city: City name  # Optional
+      postal_code: Postal Code  # Optional
+      country: Country  # Optional
 ```
 
 ## Lock

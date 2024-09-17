@@ -17,6 +17,7 @@ ha_platforms:
   - device_tracker
   - diagnostics
   - sensor
+ha_quality_scale: gold
 ha_integration_type: integration
 ---
 
@@ -25,6 +26,14 @@ The Tesla Fleet API {% term integration %} exposes various sensors from Tesla ve
 ## Prerequisites
 
 You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector, and must not have disabled the [My Home Assistant](/integrations/my/) integration.
+
+{% details "Use a custom OAuth application" %}
+
+The integration has a built-in OAuth application that will be suitable for most users. However, you can [create your own application](https://developer.tesla.com/dashboard) for the Tesla Fleet API and configure it as an [application credential](https://my.home-assistant.io/redirect/application_credentials). When creating the application, you must set `https://my.home-assistant.io/redirect/oauth` as the redirect URL.
+
+You will be prompted to pick your custom application credential when creating a Tesla Fleet config entry.
+
+{% enddetails %}
 
 {% include integrations/config_flow.md %}
 
@@ -143,3 +152,11 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 ## Vehicle sleep
 
 Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.

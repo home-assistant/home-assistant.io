@@ -74,10 +74,6 @@ There is currently support for the following device types within Home Assistant:
 - [Time](#time)
 - [Weather](#weather)
 
-## Free KNX online training
-
-As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
-
 {% include integrations/config_flow.md %}
 
 ## Basic configuration
@@ -791,29 +787,28 @@ knx:
 ```
 
 `operation_mode_frost_protection_address` / `operation_mode_night_address` / `operation_mode_comfort_address` / `operation_mode_standby_address` are not necessary if `operation_mode_address` is specified.
-If the actor doesn't support explicit state group objects the `*_state_address` can be configured with the same group address as the writeable `*_address`. The read flag for the `*_state_address` group object has to be set in ETS to support initial reading e.g., when starting Home Assistant.
 
 The following values are valid for the `heat_cool_address` and the `heat_cool_state_address`:
 
 - `0` (cooling)
 - `1` (heating)
 
-The following values are valid for the Home Assistant [Climate](/integrations/climate/) `hvac_mode` attribute. Supported values for your KNX thermostats can be specified via `controller_modes` configuration variable:
+Supported HVAC modes for your KNX thermostats are found automatically. This can be overridden by using the `controller_modes` configuration variable. The following values are valid controller modes:
 
-- `off` (maps internally to `HVAC_MODE_OFF` within Home Assistant)
-- `auto` (maps internally to `HVAC_MODE_AUTO` within Home Assistant)
-- `heat` (maps internally to `HVAC_MODE_HEAT` within Home Assistant)
-- `cool` (maps internally to `HVAC_MODE_COOL` within Home Assistant)
-- `fan_only` (maps internally to `HVAC_MODE_FAN_ONLY` within Home Assistant)
-- `dehumidification` (maps internally to `HVAC_MODE_DRY` within Home Assistant)
+- `off`
+- `auto`
+- `heat`
+- `cool`
+- `fan_only`
+- `dehumidification`
 
-The following presets are valid for the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute. Supported values for your KNX thermostats can be specified via `operation_modes` configuration variable:
+Supported preset modes for your KNX thermostats are found automatically. This can be overridden by using the `operation_modes` configuration variable. The following values are valid operation modes:
 
-- `auto` (maps to `none` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `comfort` (maps to `comfort` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `standby` (maps to `away` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `economy` (maps to `sleep` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
-- `building_protection` (maps to `eco` of the Home Assistant [Climate](/integrations/climate/) `preset_mode` attribute)
+- `auto`
+- `comfort`
+- `standby`
+- `economy`
+- `building_protection`
 
 {% configuration %}
 name:
@@ -918,11 +913,11 @@ operation_mode_standby_address:
   required: false
   type: [string, list]
 operation_modes:
-  description: Overrides the supported operation modes. Provide the supported `preset_mode` values for your device.
+  description: Overrides the supported operation modes. Provide the supported `preset_modes` value for your device.
   required: false
   type: list
 controller_modes:
-  description: Overrides the supported controller modes. Provide the supported `hvac_mode` values for your device.
+  description: Overrides the supported controller modes. Provide the supported `hvac_modes` value for your device.
   required: false
   type: list
 default_controller_mode:
