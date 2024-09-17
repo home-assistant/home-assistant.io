@@ -11,9 +11,13 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The fan integration allows you to control and monitor fan devices.
+The **Fan** {% integration %} allows you to control and monitor fan devices.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a fan entity
+
+The state of a fan entity can be either `on` or `off`.
 
 ## Actions
 
@@ -32,10 +36,10 @@ Not all fan actions may be available for your platform. You can check which acti
 
 Sets the speed percentage for fan device.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage` | no | Percentage speed setting
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `percentage`   | no       | Percentage speed setting                                                                                                  |
 
 #### Automation example
 
@@ -56,10 +60,10 @@ automation:
 
 Sets a preset mode for the fan device. Available preset modes are defined by the integration that supplies the fan entity to Home Assistant. For example, the ESPHome [Speed Fan](https://esphome.io/components/fan/speed.html) component provides three available presets by default: `Low`, `Medium`, and `High`.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `preset_mode` | no | The preset mode
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `preset_mode`  | no       | The preset mode                                                                                                           |
 
 #### Automation example
 
@@ -80,10 +84,10 @@ automation:
 
 Sets the rotation for fan device.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `direction` | no | The direction to rotate. Either `forward` or `reverse`
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `direction`    | no       | The direction to rotate. Either `forward` or `reverse`                                                                    |
 
 #### Automation example
 
@@ -104,10 +108,10 @@ automation:
 
 Sets the oscillation for fan device.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `oscillating` | no | Flag to turn on/off oscillation. Either `True` or `False`.
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `oscillating`  | no       | Flag to turn on/off oscillation. Either `True` or `False`.                                                                |
 
 #### Automation example
 
@@ -128,19 +132,19 @@ automation:
 
 Turn fan device on. This is only supported if the fan device supports being turned off. See a similar example under `fan.turn_off`.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage` | yes | Percentage speed setting
-| `preset_mode` | yes | The preset mode
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `percentage`   | yes      | Percentage speed setting                                                                                                  |
+| `preset_mode`  | yes      | The preset mode                                                                                                           |
 
 ### Action `fan.turn_off`
 
 Turn fan device off. This is only supported if the fan device supports being turned on.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
+| Data attribute | Optional | Description                                                                                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
 
 
 #### Automation example
@@ -162,10 +166,10 @@ automation:
 
 Increases the speed of the fan device.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage_step` | yes | Increase speed by a percentage. Should be between 0..100.
+| Data attribute    | Optional | Description                                                                                                               |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `percentage_step` | yes      | Increase speed by a percentage. Should be between 0..100.                                                                 |
 
 #### Automation example
 
@@ -187,10 +191,10 @@ automation:
 
 Decreases the speed of the fan device.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`.
-| `percentage_step` | yes | Decrease speed by a percentage. Should be between 0..100.
+| Data attribute    | Optional | Description                                                                                                               |
+| ----------------- | -------- | ------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | yes      | String or list of strings that define the entity ID(s) of fan device(s) to control. To target all fan devices, use `all`. |
+| `percentage_step` | yes      | Decrease speed by a percentage. Should be between 0..100.                                                                 |
 
 #### Automation example
 
