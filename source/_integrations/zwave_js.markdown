@@ -1007,23 +1007,23 @@ The following table lists the Command Classes together with the implemented vers
 
 | Command Class                 | Version | Security Class  |
 | ----------------------------- | ------- | --------------- |
-| Z-Wave Plus Info              | 2       | None            |
-| Security                      | 1       | None            |
-| Security 2                    | 1       | None            |
-| Transport Service             | 2       | None            |
-| Supervision                   | 2       | None            |
-| CRC-16 Encapsulation          | 1       | None            |
-| Multi Command                 | 1       | None            |
-| Inclusion Controller          | 1       | None            |
 | Association                   | 4       | Highest granted |
 | Association Group Information | 3       | Highest granted |
+| CRC-16 Encapsulation          | 1       | None            |
 | Device Reset Locally          | 1       | Highest granted |
 | Firmware Update Meta Data     | 8       | Highest granted |
+| Inclusion Controller          | 1       | None            |
 | Indicator                     | 4       | Highest granted |
 | Manufacturer Specific         | 2       | Highest granted |
 | Multi Channel Association     | 5       | Highest granted |
+| Multi Command                 | 1       | None            |
 | Power Level                   | 1       | Highest granted |
+| Security                      | 1       | None            |
+| Security 2                    | 1       | None            |
+| Supervision                   | 2       | None            |
+| Transport Service             | 2       | None            |
 | Version                       | 3       | Highest granted |
+| Z-Wave Plus Info              | 2       | None            |
 
 ## Z-Wave terminology
 
