@@ -2,7 +2,7 @@
 
 Home Assistant can be flashed to an ODROID-M1S by connecting the device directly to your computer via the USB-OTG connection on the front of the board. 
 Unlike other ODROID boards, the M1S does not have a socket for an optional  <abbr title="embedded MultiMediaCard">eMMC</abbr> module. It also does not have a separate flash chip that holds a dedicated bootloader.
-Instead, the M1S has a build-in 64GB <abbr title="embedded MultiMediaCard">eMMC</abbr> soldered directly on the board that holds a bootloader by default. This guide will show you how to install the Home Assistant Operating System to the built-in <abbr title="embedded MultiMediaCard">eMMC</abbr>.
+Instead, the M1S has a build-in 64GB <abbr title="embedded MultiMediaCard">eMMC</abbr> soldered directly on the board that holds a bootloader by default. This guide will show you how to install the {% term "Home Assistant Operating System" %} to the built-in <abbr title="embedded MultiMediaCard">eMMC</abbr>.
 
 <ins>**Warning:</ins> Installing Home Assistant OS replaces the firmware and <abbr title="secondary program loader">SPL</abbr> on the <abbr title="embedded MultiMediaCard">eMMC</abbr> with the mainline version provided by the Home Assistant OS. As a result, it is not possible to use the SD card with the EMMC2UMS image anymore, because the mainline <abbr title="secondary program loader">SPL</abbr> is not compatible with U-Boot in the EMMC2UMS image at this time (February 2024). This does not pose any problem for standard use, just makes it more complicated in case you want to return to the Hardkernel-provided OS (see [HK Recovery](#hk-recovery)).**
 

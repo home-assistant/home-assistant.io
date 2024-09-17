@@ -1,8 +1,15 @@
 ---
 type: card
-title: "Entities Card"
+title: "Entities card"
 sidebar_label: Entities
 description: "The entities card is the most common type of card. It groups items together into lists."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The entities card is the most common type of card. It groups items together into lists. It can be used to display an entity's state or attribute, but also contain buttons, web links, etc.
@@ -419,8 +426,8 @@ entities:
     name: Bed light transition
     action_name: Toggle light
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       data:
         entity_id: light.bed_light
         transition: 10
@@ -451,8 +458,8 @@ entities:
     name: Power cycle LibreELEC
     icon: mdi:power-cycle
     tap_action:
-      action: call-service
+      action: perform-action
       confirmation:
         text: Are you sure you want to restart?
-      service: script.libreelec_power_cycle
+      perform_action: script.libreelec_power_cycle
 ```

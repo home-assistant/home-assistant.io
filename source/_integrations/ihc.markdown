@@ -16,9 +16,12 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-IHC Controller integration for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
+IHC Controller {% term integration %} for Home Assistant allows you to connect the LK IHC controller to Home Assistant. The controller is sold under other names in different countries - "ELKO Living system" in Sweden and Norway.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -27,7 +30,8 @@ There is currently support for the following device types within Home Assistant:
 - [Light](#light)
 - [Switch](#switch)
 
-An `ihc` section must be present in the `configuration.yaml` file and contain the following options:
+An `ihc` section must be present in the {% term "`configuration.yaml`" %} file and contain the following options:
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry for two IHC controllers
@@ -338,46 +342,46 @@ switch:
 
 The resource id should be a boolean resource (On/Off). For more information about IHC resource ids see [Manual Setup](#manual-setup).
 
-## Services
+## Actions
 
 Below are the service functions for the IHC integrations.
 
-### Service `ihc.pulse`
+### Action `ihc.pulse`
 
-| Service data attribute | Optional | Description                                                                                         |
+| Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
 
-This service will send a pulse to the specified IHC resource.
+This action will send a pulse to the specified IHC resource.
 On and Off with a 400ms delay.
 
-### Service `ihc.set_runtime_value_bool`
+### Action `ihc.set_runtime_value_bool`
 
-| Service data attribute | Optional | Description                                                                                         |
+| Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The boolean IHC resource ID.                                                                        |
 | `value`                | no       | The boolean value to set. (true or false)                                                           |
 
-This service will set the specified boolean resource on the IHC controller.
+This action will set the specified boolean resource on the IHC controller.
 
-### Service `ihc.set_runtime_value_float`
+### Action `ihc.set_runtime_value_float`
 
-| Service data attribute | Optional | Description                                                                                         |
+| Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The float IHC resource ID.                                                                          |
 | `value`                | no       | The float value to set.                                                                             |
 
-This service will set the specified float resource on the IHC controller.
+This action will set the specified float resource on the IHC controller.
 
-### Service `ihc.set_runtime_value_int`
+### Action `ihc.set_runtime_value_int`
 
-| Service data attribute | Optional | Description                                                                                         |
+| Data attribute | Optional | Description                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------- |
 | `controller_id`        | yes      | If you have multiple controller, this is the index of you controller starting with 0 (0 is default) |
 | `ihc_id`               | no       | The integer IHC resource ID.                                                                        |
 | `value`                | no       | The integer value to set.                                                                           |
 
-This service will set the specified integer resource on the IHC controller.
+This action will set the specified integer resource on the IHC controller.

@@ -20,15 +20,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-Integrates devices that implement the Xiaomi Mijia BLE MiBeacon protocol and the BLE protocols implemented in the MiScales and the MiFora plant sensor. The integration listens to Bluetooth broadcasts that the device makes by itself, allowing it to track the latest sensor values or events without waking the device up for polling.  This method conserves battery lifetime.
+Integrates devices that use the Xiaomi Mijia BLE MiBeacon protocol and the BLE protocols implemented in the MiScales and the MiFora plant sensor. This integration does not support Xiaomi BLE Mesh devices. The integration listens to Bluetooth broadcasts that the device makes by itself, allowing it to track the latest sensor values or events without waking the device up for polling (except HHCCJCY01, see note below). This method conserves battery lifetime.
 
 The integration automatically discovers devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional. The entities are added after the values are first received. This means that entities might show up later if the corresponding values are broadcasted at a lower interval (for example, battery).
 
 {% include integrations/config_flow.md %}
-
-## Supported devices
-
-From the devices that support the Xiaomi Mijia BLE MiBeacon protocol, currently locks are not implemented yet. This integration also does not support Xiaomi BLE Mesh devices.
 
 ## Encryption
 
@@ -63,3 +59,5 @@ Flower Care firmware update steps:
 - Wait for the synchronization of the sensor to finish, and a dialog asking for a firmware update should appear (this might take a few minutes)
 - The installed and latest firmware version can be verified by selecting the plant -> three-dot menu -> Hardware settings -> Hardware update
 - The Flower Care account and app are not required any further for this integration to work
+
+Also note that the battery level of the plant sensor can only be retrieved by connecting to the device (reading characteristics), while the other sensor data is broadcasted passively. To prevent battery drainage, a connection is made only once a day. Connecting to the device also requires that the device has a good signal strength.

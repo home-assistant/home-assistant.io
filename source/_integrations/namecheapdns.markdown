@@ -7,17 +7,21 @@ ha_iot_class: Cloud Push
 ha_release: 0.56
 ha_domain: namecheapdns
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-With the `namecheapdns` integration you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) service.
+With the `namecheapdns` {% term integration %} you can automatically update your dynamic DNS entry hosted by Namecheap's [FreeDNS](https://www.namecheap.com/store/domains/freedns/) service.
 
-<div class='note warning'>
+{% important %}
 Namecheap only supports updating IPv4 addresses.
-</div>
+{% endimportant %}
 
 ## Configuration
 
-To use the integration in your installation, add the following to your `configuration.yaml` file:
+To use the {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

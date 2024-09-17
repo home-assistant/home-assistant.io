@@ -23,18 +23,30 @@ ha_integration_type: device
 ---
 
 [System Bridge](https://system-bridge.timmo.dev) is an application that runs on your local machine to share system information via its API/WebSocket. You can also send commands to the device such as opening a URL or sending keyboard keypresses.
+
 ## Prerequisites
+
 ### Version
-This integration requires System Bridge 3.1.1 and above. Any older version will not work.
-### API key
-You will need your API key. This can be found following the documentation [here](https://system-bridge.timmo.dev/docs/running).
+
+This integration requires System Bridge 4.0.2 and above. Any older version will not work.
+
+### Token
+
+You will need your token. For instructions on finding your token, follow the steps in the [System Bridge documentation](https://system-bridge.timmo.dev/docs/running).
+
 {% include integrations/config_flow.md %}
+
 ## Binary sensors
+
 This integration provides the following binary sensors:
-| Name                  | Description                        |
-| --------------------- | ---------------------------------- |
-| Battery Is Charging   | Whether the battery is charging    |
-| New Version Available | Whether a new version is available |
+
+| Name                  | Description                         |
+| --------------------- | ----------------------------------- |
+| Battery Is Charging   | Whether the battery is charging     |
+| Camera In Use         | Whether the camera/webcam is in use |
+| Pending Reboot        | Whether a reboot is pending         |
+| New Version Available | Whether a new version is available  |
+
 ## Sensors
 
 This integration provides the following sensors:
@@ -89,14 +101,14 @@ This integration is available as a media source to use with the media browser in
 
 The integration provides an update component, which will notify you when a new version of the app is available.
 
-## Services
+## Actions
 
 ### Notifications `notify.system_bridge_hostname`
 
 You can send notifications to the device using the `notify` platform.
 
 ```yaml
-service: notify.system_bridge_hostname
+action: notify.system_bridge_hostname
 data:
   data:
     image: "https://brands.home-assistant.io/system_bridge/logo@2x.png"
@@ -151,14 +163,70 @@ Here is an example action that will open a URL in the device's browser:
 
 This is an object containing the `source` and `volume` (0-100). The source must be a URL to a playable audio file (an MP3 for example).
 
-### Service `system_bridge.open_path`
+### Action `system_bridge.get_process_by_id`
+
+Returns a process by its pid.
+
+{% my developer_call_service service="system_bridge.get_process_by_id" title="Show action in your Home Assistant instance." %}
+
+```yaml
+action: system_bridge.get_process_by_id
+data:
+  bridge: "deviceid"
+  id: 17752
+```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+id: 17752
+name: steam.exe
+cpu_usage: 0.9
+created: 1698951361.6117153
+memory_usage: 0.23782578821487121
+path: C:\Program Files (x86)\Steam\steam.exe
+status: running
+username: hostname\user
+working_directory: null
+```
+
+### Action `system_bridge.get_processes_by_name`
+
+Returns a count and a list of processes matching the name provided.
+
+{% my developer_call_service service="system_bridge.get_processes_by_name" title="Show action in your Home Assistant instance." %}
+
+```yaml
+action: system_bridge.get_processes_by_name
+data:
+  bridge: "deviceid"
+  name: discord
+```
+
+This returns [Response Data](https://www.home-assistant.io/docs/scripts/service-calls#use-templates-to-handle-response-data) like the following:
+
+```yaml
+count: 1
+processes:
+  - id: 11196
+    name: Discord.exe
+    cpu_usage: 0.3
+    created: 1698951365.770648
+    memory_usage: 0.07285296297215042
+    path: C:\Users\user\AppData\Local\Discord\app\Discord.exe
+    status: running
+    username: hostname\user
+    working_directory: null
+```
+
+### Action `system_bridge.open_path`
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_path" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_path" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_path
+action: system_bridge.open_path
 data:
   bridge: "deviceid"
   path: "C:\\image.jpg"
@@ -174,14 +242,14 @@ data:
 message: Path opened
 ```
 
-### Service `system_bridge.open_url`
+### Action `system_bridge.open_url`
 
 Open a URL or file on the server using the default application.
 
-{% my developer_call_service service="system_bridge.open_url" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.open_url" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.open_url
+action: system_bridge.open_url
 data:
   bridge: "deviceid"
   url: "https://home-assistant.io"
@@ -197,14 +265,14 @@ data:
 message: URL opened
 ```
 
-### Service`system_bridge.send_keypress`
+### Action`system_bridge.send_keypress`
 
 Send a keypress to the server.
 
-{% my developer_call_service service="system_bridge.send_keypress" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_keypress" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_keypress
+action: system_bridge.send_keypress
 data:
   bridge: "deviceid"
   key: "a"
@@ -220,14 +288,14 @@ data:
 message: Key pressed
 ```
 
-### Service `system_bridge.send_text`
+### Action `system_bridge.send_text`
 
 Sends text for the server to type.
 
-{% my developer_call_service service="system_bridge.send_text" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.send_text" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.send_text
+action: system_bridge.send_text
 data:
   bridge: "deviceid"
   text: "Hello"
@@ -243,7 +311,7 @@ data:
 message: Text entered
 ```
 
-### Service `system_bridge.power_command`
+### Action `system_bridge.power_command`
 
 Sends power command to the system.
 
@@ -256,10 +324,10 @@ Supported commands are:
 - `shutdown`
 - `sleep`
 
-{% my developer_call_service service="system_bridge.power_command" title="Show service in your Home Assistant instance." %}
+{% my developer_call_service service="system_bridge.power_command" title="Show action in your Home Assistant instance." %}
 
 ```yaml
-service: system_bridge.power_command
+action: system_bridge.power_command
 data:
   bridge: "device"
   command: "sleep"

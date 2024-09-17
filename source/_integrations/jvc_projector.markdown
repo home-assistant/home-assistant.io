@@ -13,6 +13,8 @@ ha_domain: jvc_projector
 ha_platforms:
   - binary_sensor
   - remote
+  - select
+  - sensor
 ha_integration_type: device
 ---
 
@@ -26,7 +28,7 @@ This integration is intended for the automation of any modern JVC Projector with
 
 ## Remote
 
-The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) service.
+The JVC Projector remote platform will create a [Remote](/integrations/remote/) entity for the device. This entity allows you to send the following commands via the [remote.send_command](/integrations/remote/) action.
 
 - `menu`
 - `up`
@@ -61,5 +63,31 @@ The JVC Projector remote platform will create a [Remote](/integrations/remote/) 
 
 ### Binary sensor
 
-The status reported is:
-- **Power on** is **True** when the projector is either in status **on** or **warming**.
+The following sensor types are supported:
+
+- Power on is True when projector is in status "on", "warming"
+
+### Sensor
+
+Introduces two sensors to detect Power Status and HDMI Input.
+
+Detailed Power Status values:
+
+- `standby`
+- `on`
+- `warming`
+- `cooling`
+- `error`
+
+Please note that if the projector is off, it will not respond to remote polling and will show as *unavailable*.
+
+Detailed HDMI Input values:
+
+- `hdmi1`
+- `hdmi2`
+
+### Selects
+
+The following Select entities are added. They allow changing the device state from a list of options.
+
+- `input`

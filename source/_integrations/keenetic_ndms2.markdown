@@ -21,4 +21,4 @@ Router running NDMS firmware versions 2.05 and up. It uses telnet connection so 
 
 ## Configuration
 
-To add Keenetic router to your installation, go to **Settings** -> **Devices & Services** in the UI, click the button with `+` sign and from the list of integrations select **Keenetic NDMS2 Router**.
+To add a Keenetic router to your installation, go to **Settings** > **Devices & services** in the UI, click the button with `+` sign, and from the list of integrations, select **Keenetic NDMS2 Router**.

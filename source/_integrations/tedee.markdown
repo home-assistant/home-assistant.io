@@ -18,6 +18,7 @@ ha_codeowners:
   - '@patrickhilker'
   - '@zweckj'
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 This integration interacts with your [Tedee](https://tedee.com) locks by communicating with the Tedee bridge through HTTP. The integration will communicate with your lock locally.
@@ -28,7 +29,11 @@ This integration interacts with your [Tedee](https://tedee.com) locks by communi
 - You need to have the local API enabled.
 - The bridge firmware needs to be at least version `2.2.18086` for push updates to work without errors.
 
-If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller.markdown). Communication will happen over Bluetooth in that case, and features will be limited.
+If you do not own the bridge, you can still add your locks to Home Assistant through the [HomeKit device integration](/integrations/homekit_controller/). Communication will happen over Bluetooth in that case, and features will be limited.
+
+{% note %}
+The integration will try to configure callbacks to receive near-real-time push updates from your bridge about your lock state changes. For this to work properly, the bridge must be able to reach your Home Assistant instance. It will prefer the configured `internal_url`, so ensure this address is reachable from your bridge on your network.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

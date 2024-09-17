@@ -16,6 +16,9 @@ ha_platforms:
 ha_codeowners:
   - '@sergeymaysak'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Wireless Sensor Tags** {% term integration %} allows you to integrate your [wirelesstag.net](https://wirelesstag.net/) sensors tags in Home Assistant.
@@ -28,7 +31,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Configuration
 
-To enable tags set up with your [wirelesstag.net](https://wirelesstag.net/) account, add the following to your `configuration.yaml` file:
+To enable tags set up with your [wirelesstag.net](https://wirelesstag.net/) account, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +54,7 @@ password:
 
 ## Binary sensor
 
-To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the binary sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -92,7 +96,7 @@ monitored_conditions:
 
 ## Sensor
 
-To enable the sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the sensor platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -123,7 +127,7 @@ monitored_conditions:
 
 ## Switch
 
-To enable the switch platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your `configuration.yaml` file:
+To enable the switch platform for your tags, set up with your [wirelesstag.net](https://wirelesstag.net/) account. Add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -11,11 +11,15 @@ ha_domain: linux_battery
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `linux_battery` sensor platform is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.
+The `linux_battery` sensor {% term integration %} is using the information stored in `/sys/class/power_supply/` on your local Linux system to display details about the current state of your battery.
 
-To setup a battery sensor to your installation, add the following to your `configuration.yaml` file:
+To setup a battery sensor to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

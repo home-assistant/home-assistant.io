@@ -19,6 +19,7 @@ ha_platforms:
   - stt
   - switch
   - tts
+  - wake_word
 ha_iot_class: Local Push
 ha_zeroconf: true
 ---

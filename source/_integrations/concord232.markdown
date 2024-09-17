@@ -24,7 +24,8 @@ There is currently support for the following device types within Home Assistant:
 
 ## Alarm control panel
 
-To enable the alarm control panel platform, add the following lines to your `configuration.yaml`:
+To enable the alarm control panel platform, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -56,7 +57,7 @@ mode:
 
 ## Binary sensor
 
-To enable the binary sensor platform, add the following lines to your `configuration.yaml`:
+To enable the binary sensor platform, add the following lines to your {% term "`configuration.yaml`" %}:
 
 ```yaml
 # Example configuration.yaml entry
