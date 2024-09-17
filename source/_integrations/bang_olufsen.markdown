@@ -38,15 +38,15 @@ and any other Mozart based products.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-  IP Address:
+IP Address:
   description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `Settings` → `About` → `IP address`.
   required: true
   type: string
-  Device model:
+Device model:
   description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
   required: true
   type: string
-{% endconfiguration_basic %}
+{% endconfiguration_basic %} 
 
 ## Actions
 
@@ -250,7 +250,7 @@ data:
 
 The Bang & Olufsen integration additionally supports different custom actions
 
-#### Action `bang_olufsen.beolink_join`
+#### `bang_olufsen.beolink_join`
 
 Join a Beolink experience.
 
@@ -258,15 +258,16 @@ Join a Beolink experience.
 | --------------------- | -------- | ------------------------------------- |
 | `beolink_jid`         | yes      | Manually specify Beolink JID to join. |
 
-#### Action `bang_olufsen.beolink_expand`
+#### `bang_olufsen.beolink_expand`
 
 Expand current Beolink experience.
 
 | Action data attribute | Optional | Description                                                      |
 | --------------------- | -------- | ---------------------------------------------------------------- |
+| `all_discovered`      | no       | Expand Beolink experience to all discovered devices.             |
 | `beolink_jids`        | no       | Specify which Beolink JIDs will join current Beolink experience. |
 
-#### Action `bang_olufsen.beolink_unexpand`
+#### `bang_olufsen.beolink_unexpand`
 
 Unexpand from current Beolink experience.
 
@@ -274,11 +275,11 @@ Unexpand from current Beolink experience.
 | --------------------- | -------- | ---------------------------------------------------------------------- |
 | `beolink_jids`        | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
 
-#### Action `bang_olufsen.beolink_leave`
+#### `bang_olufsen.beolink_leave`
 
 Leave a Beolink experience.
 
-#### Action `bang_olufsen.beolink_allstandby`
+#### `bang_olufsen.beolink_allstandby`
 
 Set all connected Beolink devices to standby.
 
@@ -324,8 +325,3 @@ beolink:
   listeners: Beolink listeners (if available)
   peers: Beolink peers (if available)
 ```
-
-- self: The current device
-- leader: Beolink leader (if available)
-- listeners: Beolink listeners (if available)
-- peers: Beolink peers (if available)
