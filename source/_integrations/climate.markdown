@@ -165,7 +165,7 @@ automation:
       target:
         entity_id: climate.kitchen
       data:
-        fan_mode: "On Low"
+        fan_mode: "low"
 ```
 
 ### Action `climate.set_hvac_mode`
