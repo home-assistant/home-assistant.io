@@ -38,7 +38,7 @@ GEM
     http_parser.rb (0.8.0)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
-    jekyll (4.3.3)
+    jekyll (4.3.4)
       addressable (~> 2.4)
       colorator (~> 1.0)
       em-websocket (~> 0.5)
@@ -112,7 +112,7 @@ GEM
       logger
     regexp_parser (2.9.2)
     rexml (3.3.7)
-    rouge (4.3.0)
+    rouge (4.4.0)
     rubocop (1.66.1)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -168,7 +168,7 @@ PLATFORMS
 
 DEPENDENCIES
   compass (= 1.0.3)
-  jekyll (= 4.3.3)
+  jekyll (= 4.3.4)
   jekyll-commonmark (= 1.4.0)
   jekyll-paginate (= 1.1.0)
   jekyll-sitemap (= 1.4.0)
