@@ -38,14 +38,14 @@ and any other Mozart based products.
 {% include integrations/config_flow.md %}
 
 {% configuration_basic %}
-IP Address:
-description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `Settings` → `About` → `IP address`.
-required: true
-type: string
-Device model:
-description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
-required: true
-type: string
+  IP Address:
+  description: The IP address of your device. Can be found by navigating to the device on the [Bang & Olufsen app](https://www.bang-olufsen.com/en/dk/story/apps) and selecting `Settings` → `About` → `IP address`.
+  required: true
+  type: string
+  Device model:
+  description: The model name of your Bang & Olufsen device. This is used to determine some capabilities of the device. If the device is not in the list yet, choose a product similar to yours.
+  required: true
+  type: string
 {% endconfiguration_basic %}
 
 ## Actions
@@ -246,39 +246,39 @@ data:
     overlay_tts_language: da-dk
 ```
 
-### Custom services
+### Custom actions
 
-The Bang & Olufsen integration additionally supports different custom services
+The Bang & Olufsen integration additionally supports different custom actions
 
-#### Service `bang_olufsen.beolink_join`
+#### Action `bang_olufsen.beolink_join`
 
 Join a Beolink experience.
 
-| Service data attribute | Optional | Description                           |
-| ---------------------- | -------- | ------------------------------------- |
-| `beolink_jid`          | yes      | Manually specify Beolink JID to join. |
+| Action data attribute | Optional | Description                           |
+| --------------------- | -------- | ------------------------------------- |
+| `beolink_jid`         | yes      | Manually specify Beolink JID to join. |
 
-#### Service `bang_olufsen.beolink_expand`
+#### Action `bang_olufsen.beolink_expand`
 
 Expand current Beolink experience.
 
-| Service data attribute | Optional | Description                                                      |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `beolink_jids`         | no       | Specify which Beolink JIDs will join current Beolink experience. |
+| Action data attribute | Optional | Description                                                      |
+| --------------------- | -------- | ---------------------------------------------------------------- |
+| `beolink_jids`        | no       | Specify which Beolink JIDs will join current Beolink experience. |
 
-#### Service `bang_olufsen.beolink_unexpand`
+#### Action `bang_olufsen.beolink_unexpand`
 
 Unexpand from current Beolink experience.
 
-| Service data attribute | Optional | Description                                                            |
-| ---------------------- | -------- | ---------------------------------------------------------------------- |
-| `beolink_jids`         | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
+| Action data attribute | Optional | Description                                                            |
+| --------------------- | -------- | ---------------------------------------------------------------------- |
+| `beolink_jids`        | no       | Specify which Beolink JIDs will leave from current Beolink experience. |
 
-#### Service `bang_olufsen.beolink_leave`
+#### Action `bang_olufsen.beolink_leave`
 
 Leave a Beolink experience.
 
-#### Service `bang_olufsen.beolink_allstandby`
+#### Action `bang_olufsen.beolink_allstandby`
 
 Set all connected Beolink devices to standby.
 
