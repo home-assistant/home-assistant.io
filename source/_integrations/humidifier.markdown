@@ -17,9 +17,13 @@ related:
     title: Dashboard
 ---
 
-The `humidifier` integration is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
+The **Humidifier** {% term integration %} is built for the controlling and monitoring of humidifiers, dehumidifiers, and hygrostat devices.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a humidifier entity
+
+The state of a humidifier entity can be either `on` or `off`.
 
 ## Device class
 
