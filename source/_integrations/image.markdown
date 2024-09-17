@@ -15,6 +15,7 @@ The **Image** {% term integration %} allows other integrations to display a stat
 
 {% include integrations/building_block_integration.md %}
 
-## The state of an image integration
+## The state of an image entity
 
-The state of an image integration is a timestamp, showing the date and time when the image was last changed.
+The state of an image entity is a timestamp, showing the date and time when the image was last changed.
+
