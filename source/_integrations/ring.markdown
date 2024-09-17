@@ -155,7 +155,7 @@ If you have too many `Authorised Client Devices` to delete them individually, it
 
 ## Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and wifi signal.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
 
 The volume sensors are being replaced with the number entity which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
