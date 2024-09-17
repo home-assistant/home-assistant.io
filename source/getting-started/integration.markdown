@@ -49,8 +49,8 @@ This tutorial assumes that you have [installed Home Assistant](/installation/) a
 
    - This opens the integration details page.
    - We see that this integration has one {% term service %} and one {% term entity %}.
-   - **Documentation** opens the documentation page of that integration.
-   - **Known issues** opens the GitHub issue tracker, filtered for issues related to that integrations.
+   - **Documentation** opens the documentation page of this integration.
+   - **Known issues** opens the GitHub issue tracker, filtered for issues related to this integration.
      - This allows you to see if other users reported issues related to that integration.
    - **Enable debug logging** lets you [activate the debug logs for that integration](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics).
 
