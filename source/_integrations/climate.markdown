@@ -27,27 +27,6 @@ A HVAC entity can have the following states, depending on the specific climate d
 - **Dry**: The device is set to dry/humidity mode.
 - **Fan only**: The device only has the fan on. No heating or cooling is taking place.
 
-A fan entity can have the following states:
-
-- **On**: The fan is turned on.
-- **Off**: The fan is turned off.
-- **Auto**: The fan operates automatically.
-- **Low**: The fan is set to low speed.
-- **Medium**: The fan is set to medium speed.
-- **High**: The fan is set to high speed.
-- **Middle**: The fan is set to a middle speed.
-- **Focus**: The fan is focused on a specific area.
-- **Diffuse**: The fan is set to diffuse air broadly.
-
-A HVAC entity can have the following preset states:
-
-- **Eco**: The device is set to an energy-saving mode.
-- **Away**: The device is set to an away mode for energy saving when no one is home.
-- **Boost**: The device is set to a temporary boost mode for rapid heating or cooling. Device turns all valves up to the maximum.
-- **Comfort**: The device is set to a comfort mode for optimal temperature.
-- **Sleep**: The device is set to a sleep mode for nighttime operation.
-- **Activity**: The device is reacting to activity (for example, to movement sensors).
-
 ## Actions
 
 ### Climate control actions
