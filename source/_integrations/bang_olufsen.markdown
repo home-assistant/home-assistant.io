@@ -308,20 +308,3 @@ beolink:
   listeners: Beolink listeners (if available)
   peers: Beolink peers (if available)
 ```
-
-- self: The current device
-- leader: Beolink leader (if available)
-- listeners: Beolink listeners (if available)
-- peers: Beolink peers (if available)
-
-### Beolink
-
-Discovered devices and devices in an active Beolink experience are available in the properties of the media_player entity. A device is represented by its friendly name and JID, used for connecting devices.
-
-```yaml
-beolink:
-  self: The current device
-  leader: Beolink leader (if available)
-  listeners: Beolink listeners (if available)
-  peers: Beolink peers (if available)
-```
