@@ -23,6 +23,10 @@ Keeps track on `number` entities in your environment, their state, and allows yo
 
 If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
 
+## The state of a number entity
+
+The state of a number entity is a number.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
@@ -81,6 +85,6 @@ The following device classes are supported for numbers:
 
 The Number entities registers the following actions:
 
-| Action | Data | Description |
-| ------- | ---- | ----------- |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities
+| Action      | Data                                      | Description                                 |
+| ----------- | ----------------------------------------- | ------------------------------------------- |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities |
