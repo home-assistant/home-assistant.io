@@ -1,7 +1,7 @@
 ---
 title: Sensoterra
 description: Instructions on how to integrate your Sensoterra probes with Home Assistant.
-ha_release: 2024.10
+ha_release: "2024.10"
 ha_category:
   - Sensor
 ha_iot_class: Cloud Poll
