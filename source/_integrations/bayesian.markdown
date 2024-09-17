@@ -261,7 +261,7 @@ binary_sensor:
     - platform: "state"
       entity_id: "sensor.bin_collection"
       prob_given_true: 0.05 # If the bins need bringing in, then the sensor.bin_collection shouldn't be 'due'
-      prob_given_false: 0.11 # The sensor will be 'due' for about 1 day a week whilst for the 24 hours before collection
+      prob_given_false: 0.11 # The sensor will be 'due' for about 1 day a week (the 24 hours before collection)
       to_state: "due"
     - platform: "state"
       entity_id: "sensor.bin_collection"
