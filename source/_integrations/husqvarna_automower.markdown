@@ -111,10 +111,8 @@ The integration will create the following binary sensors:
 
 The integration will create the following buttons:
 
-- Confirm Error (if available)
-  *For conforming minor mower errors.
-- Sync clock
-  *Syncs the clock of the mower with the time set in Home Assistant.
+- **Confirm Error** (if available): For confirming minor mower errors.
+- **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
 
 ### Calendar
 
