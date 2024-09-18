@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Remote** {% term integration%} keeps track of the remotes in your environment, captures their state, and allows you to control them.
+The **Remote** {% term integration%} manages the state of the remote entities and allows you to control them.
 
 - Maintains a state per remote and a combined state `all_remotes`.
 - Registers actions `remote/turn_on`, `remote/turn_off`, `remote/toggle`, and `remote/send_command` to control remotes.
@@ -20,7 +20,12 @@ The **Remote** {% term integration%} keeps track of the remotes in your environm
 
 ## The state of a remote entity
 
-The state of a remote entity can be either `on` or `off`.
+The state of a remote entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Use the actions
 

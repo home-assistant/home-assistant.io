@@ -118,6 +118,11 @@ A device tracker with **router** as a source can have one of two states: **Home*
 Screenshot showing the state of a device tracker entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## `device_tracker.see` action
 
 The `device_tracker.see` action can be used to manually update the state of a device tracker:

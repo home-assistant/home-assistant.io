@@ -36,6 +36,11 @@ The state of a button is a timestamp showing the date and time of the last time 
 Screenshot showing the state of a button entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 

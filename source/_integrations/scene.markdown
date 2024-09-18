@@ -30,6 +30,11 @@ an action.
 Screenshot showing the state of a scene entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Scenes created by integrations
 
 Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as an action. In this case, the integration provides the preferred states to restore.

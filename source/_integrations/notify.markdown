@@ -26,6 +26,11 @@ The state of a notify entity is the date and time when a message was last sent.
 Screenshot showing the state of a notify entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Action
 
 The legacy `notify` platform will expose a generic `notify` action that can be called to send notifications.

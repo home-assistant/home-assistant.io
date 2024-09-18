@@ -26,3 +26,8 @@ The state of a wake word detection {% term entity %} is a timestamp showing the 
 <img src='/images/integrations/wake_word/state_wake-word.png' alt='Screenshot showing the state of a wake word detection entity in the developer tools' />
 Screenshot showing the state of a wake word detection entity in the developer tools.
 </p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.

@@ -30,12 +30,17 @@ The event entity can capture these events in the physical world and makes them a
 
 ## The state of an event entity
 
-The event entity does not capture a state such as `on` or `off`. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
+The event entity does not capture a state such as **On** or **Off**. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
 
 <p class='img'>
   <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
   Event entity with a timestamp value in state and event type "pressed".
 </p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 

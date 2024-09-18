@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The **Select** {% term integration %} keeps track of the `select` {% term entities %} in your environment, their state, and allows
+The **Select** {% term integration %} manages the state of the select entities and allows
 you to control them. This integration allows other integrations to offer
 a limited set of selectable options for the entity.
 
@@ -25,6 +25,11 @@ The state of a select entity is the value of the currently selected option.
 <img src='/images/integrations/select/state_select.png' alt='Screenshot showing the state of a select entity in the developer tools' />
 Screenshot showing the state of a select entity in the developer tools.
 </p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

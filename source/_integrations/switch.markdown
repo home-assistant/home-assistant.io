@@ -18,7 +18,7 @@ related:
     title: Dashboard
 ---
 
-The **Switch** {% term integration %} keeps track of the states of the switches in your environment and allows you to control them.
+The **Switch** {% term integration %} manages the state of the switch entities and allows you to control them.
 
 - Maintains a state per switch and a combined state `all_switches`.
 - Registers actions `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
@@ -27,7 +27,12 @@ The **Switch** {% term integration %} keeps track of the states of the switches 
 
 ## The state of a switch entity
 
-The state of a switch {% term entity %} can be either `on` or `off`.
+The state of a switch {% term entity %} can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Device class
 

@@ -15,9 +15,9 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 {% include integrations/building_block_integration.md %}
 
-## The state of a HVAC entity
+## The state of an HVAC entity
 
-A HVAC entity can have the following states, depending on the specific climate device and its capabilities.
+An HVAC entity can have the following states, depending on the specific climate device and its capabilities.
 
 - **Off**: The device is turned off.
 - **Heat**: The device is set to heat to a target temperature.
@@ -26,6 +26,8 @@ A HVAC entity can have the following states, depending on the specific climate d
 - **Auto**: The device is set to a schedule, learned behavior, AI.
 - **Dry**: The device is set to dry/humidity mode.
 - **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

@@ -25,6 +25,8 @@ A vacuum {% term entity %} can have the following states:
 - **Idle**: The vacuum is not paused, not docked, and does not have any errors.
 - **Paused**: The vacuum was cleaning but was paused without returning to the dock.
 - **Returning**: The vacuum is done cleaning and is currently returning to the dock, but not yet docked.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

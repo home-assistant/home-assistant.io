@@ -19,6 +19,11 @@ Image processing enables Home Assistant to process images from [cameras](/integr
 
 For face recognition applications, the state of an image processing entity can be the name of the detected person or motion that was detected.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## ALPR
 
 ALPR entities have a vehicle counter attribute `vehicles` and all found plates are stored in the `plates` attribute.

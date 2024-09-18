@@ -17,7 +17,12 @@ The **Fan** {% term integration %} allows you to control and monitor fan devices
 
 ## The state of a fan entity
 
-The state of a fan entity can be either `on` or `off`.
+The state of a fan entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 
