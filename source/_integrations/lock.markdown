@@ -22,14 +22,14 @@ Keeps track which locks are in your environment, their state and allows you to c
 
 A lock entity can have the following states:
 
-- **jammed**: The lock is currently jammed.
-- **open**: Indication of whether the lock is currently open.
-- **opening**: Indication of whether the lock is currently opening.
-- **locked**: The lock is currently locked.
-- **locking**: The lock is in the process of being locked.
-- **unlocking**: The lock is in the process of being unlocked.
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Jammed**: The lock is currently jammed.
+- **Open**: Indication of whether the lock is currently open.
+- **Opening**: Indication of whether the lock is currently opening.
+- **Locked**: The lock is currently locked.
+- **Locking**: The lock is in the process of being locked.
+- **Unlocking**: The lock is in the process of being unlocked.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

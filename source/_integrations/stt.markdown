@@ -21,5 +21,5 @@ the speech-to-text entity was used to process speech.
 
 In addition, the entity can have the following states:
 
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.

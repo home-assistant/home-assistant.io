@@ -25,18 +25,19 @@ Please see [manual alarm](/integrations/manual) or [template alarm](/integration
 
 An alarm panel entity can have the following states. Not all integrations implement all the different states.
 
-- **disarmed**: The alarm is disarmed (off).
-- **armed home**: The alarm is armed in home mode.
-- **armed away**: The alarm is armed in away mode.
-- **armed night**: The alarm is armed in night mode.
-- **armed vacation**: The alarm is armed in vacation mode.
-- **armed custom bypass**: The alarm is armed in bypass mode.
-- **pending**: The alarm is pending (towards triggered).
-- **arming**: The alarm is in the process of being armed.
-- **disarming**: The alarm is in the process of being disarmed.
-- **triggered**: The alarm has been triggered.
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Disarmed**: The alarm is disarmed (off).
+- **Armed home**: The alarm is armed in home mode.
+- **Armed away**: The alarm is armed in away mode.
+- **Armed night**: The alarm is armed in night mode.
+- **Armed vacation**: The alarm is armed in vacation mode.
+- **Armed custom bypass**: The alarm is armed in bypass mode.
+- **Pending**: The alarm is pending (towards triggered).
+- **Arming**: The alarm is in the process of being armed.
+- **Disarming**: The alarm is in the process of being disarmed.
+- **Triggered**: The alarm has been triggered.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 
 ## Actions
 

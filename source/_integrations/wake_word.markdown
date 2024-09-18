@@ -29,5 +29,5 @@ Screenshot showing the state of a wake word detection entity in the developer to
 
 In addition, the entity can have the following states:
 
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.

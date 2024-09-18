@@ -33,11 +33,11 @@ The `Preload stream` option will start the camera feed on Home Assistant startup
 
 A camera can have the following states. Not all camera integrations support all states.
 
-- **streaming**: the camera transmits a live play-back of the video data it is recording.
-- **recording**: the camera is currently capturing video content.
-- **idle**: the camera is not currently capturing video content.
-- **unavailable**: the entity is currently unavailable.
-- **unknown**: the state is not yet known.
+- **Streaming**: The camera transmits a live play-back of the video data it is recording.
+- **Recording**: The camera is currently capturing video content.
+- **Idle**: The camera is not currently capturing video content.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

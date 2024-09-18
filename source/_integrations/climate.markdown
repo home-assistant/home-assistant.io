@@ -19,15 +19,15 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 A HVAC entity can have the following states, depending on the specific climate device and its capabilities.
 
-- **off**: The device is turned off.
-- **heat**: The device is set to heat to a target temperature.
-- **cool**: The device is set to cool to a target temperature.
-- **heat/cool**: The device is set to heat/cool to a target temperature range.
-- **auto**: The device is set to a schedule, learned behavior, AI.
-- **dry**: The device is set to dry/humidity mode.
-- **fan only**: The device only has the fan on. No heating or cooling is taking place.
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Off**: The device is turned off.
+- **Heat**: The device is set to heat to a target temperature.
+- **Cool**: The device is set to cool to a target temperature.
+- **Heat/Cool**: The device is set to heat/cool to a target temperature range.
+- **Auto**: The device is set to a schedule, learned behavior, AI.
+- **Dry**: The device is set to dry/humidity mode.
+- **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

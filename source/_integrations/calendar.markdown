@@ -42,8 +42,8 @@ The state shows whether or not there is an active event:
 
 In addition, the entity can have the following states:
 
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Automation
 

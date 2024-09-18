@@ -28,8 +28,8 @@ Screenshot showing the state of a time entity in the developer tools.
 
 In addition, the entity can have the following states:
 
-- **unavailable**: the entity is currently unavailable.
-- **unknown**: the state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

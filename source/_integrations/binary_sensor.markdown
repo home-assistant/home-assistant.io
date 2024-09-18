@@ -35,8 +35,8 @@ A binary sensor can have two states: **on** or **off**. However, in the frontend
 
 In addition, the entity can have the following states:
 
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ### Device class
 

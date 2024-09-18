@@ -24,12 +24,13 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 A can have the following states:
 
-- **opening**: The cover is in the process of opening to reach a set position.
-- **open**: The cover has reached the open position.
-- **closing**: The cover is in the process of closing to reach a set position.
-- **closed**: The cover has reached the closed position.
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Opening**: The cover is in the process of opening to reach a set position.
+- **Open**: The cover has reached the open position.
+- **Closing**: The cover is in the process of closing to reach a set position.
+- **Closed**: The cover has reached the closed position.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 
 How the state of a cover is represented in the frontend depends on the device class.
 

@@ -21,8 +21,8 @@ For face recognition applications, the state of an image processing entity can b
 
 In addition, the entity can have the following states:
 
-- **unavailable**: The entity is currently unavailable.
-- **unknown**: The state is not yet known.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## ALPR
 
