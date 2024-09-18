@@ -68,7 +68,7 @@ The following switches will be created:
 - **Auto Zigbee update** - This allows the core firmware on SLZB-06x to manage Zigbee firmware updates and it will automatically install updates when they are released.
 - **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
-- **VPN enabled** - Enable WireGuard VPN client (requires configuration via SMLIGHT web UI).
+- **Enable VPN** - Enable WireGuard VPN client (requires configuration via the SMLIGHT web UI).
 
 ### Updates
 
