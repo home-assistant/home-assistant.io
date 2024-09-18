@@ -12,7 +12,7 @@ og_image: /images/blog/2024-09-11th-anniversary/art.png
 
 <img src='/images/blog/2024-09-11th-anniversary/art.png' alt='Art by Clelia' style='border: 0;box-shadow: none;'>
 
-I've said it before, but Home Assistant would be nothing without its community. That's why we decided this year to focus our anniversary celebration on acknowledging and thanking our amazing community. It's fitting as 2024 was the year we added a dedicated community coordinator, [Missy Quarry](https://community.home-assistant.io/t/an-introduction-your-new-community-social-media-manager/693623), who hosted this celebration of *you* in our [11th Anniversary live stream](https://www.youtube.com/watch?v=iE8yFUvQ2e4).
+I've said it before, but Home Assistant would be nothing without its community. That's why we decided this year to focus our anniversary celebration on acknowledging and thanking our amazing community. It's fitting as 2024 was the year we added a dedicated community manager, [Missy Quarry](https://community.home-assistant.io/t/an-introduction-your-new-community-social-media-manager/693623), who hosted this celebration of *you* in our [11th Anniversary live stream](https://www.youtube.com/watch?v=iE8yFUvQ2e4).
 
 Missy co-hosted the stream with creator and Home Assistant community member Andrej Broz, better known as [Bearded Tinker](https://www.youtube.com/c/BeardedTinker). Together they threw a barrage of questions at [Frenck](https://github.com/frenck) and [myself](https://github.com/balloob) - we didn't see any of them ahead of time so our responses don't get any more real than that. It was a lot of fun, and there was even a little announcement slipped in there, so [please check it out](https://www.youtube.com/watch?v=iE8yFUvQ2e4).
 
