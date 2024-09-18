@@ -33,7 +33,7 @@ See all [TTS integrations](https://www.home-assistant.io/integrations/#text-to-s
 
 ## The state of a text-to-speech entity
 
-The state of a text-to-speech {% term entity %} is a timestamp showing the date and time when text-to-speech was last detected.
+The state of a text-to-speech {% term entity %} is a timestamp showing the date and time when text-to-speech was last used.
 
 <p class='img'>
 <img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the developer tools' />
