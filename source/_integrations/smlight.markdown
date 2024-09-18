@@ -2,7 +2,10 @@
 title: SMLIGHT SLZB
 description: The SMLIGHT SLZB integration allows users to monitor and manage their SMLIGHT SLZB-06x devices from directly within Home Assistant.
 ha_category:
+  - Binary sensor
+  - Button
   - Sensor
+  - Switch
   - Update
 ha_release: 2024.9
 ha_iot_class: Local Push
@@ -10,8 +13,10 @@ ha_config_flow: true
 ha_domain: smlight
 ha_zeroconf: true
 ha_platforms:
+  - binary_sensor
   - button
   - sensor
+  - switch
   - update
 ha_codeowners:
   - '@tl-sl'
@@ -40,6 +45,8 @@ You need a supported SLZB-06 adapter.
 
 ## Integration entities
 
+### Sensors
+
 The following sensors will be created:
 
 - **Core temperature** - Temperature of core ESP32
@@ -55,6 +62,8 @@ The following sensors will be created:
 - **Wi-Fi** - Wi-Fi connection status
 - **Firmware channel** - Channel for updates, stable, or development firmware or currently installed firmware.
 - **Zigbee type** - Current mode of Zigbee chip. Coordinator, router, or Thread. Only works with official firmware installed via OTA in SMLIGHT web UI.
+
+### Buttons
 
 The following buttons will be created:
 
