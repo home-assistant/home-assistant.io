@@ -50,6 +50,7 @@ The following sensors will be created:
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
+- **VPN** - WireGuard VPN client connection status
 - **Wi-Fi** - Wi-Fi connection status
 - **Firmware channel** - Channel for updates, stable, or development firmware or currently installed firmware.
 - **Zigbee type** - Current mode of Zigbee chip. Coordinator, router, or Thread. Only works with official firmware installed via OTA in SMLIGHT web UI.
@@ -64,9 +65,10 @@ The following buttons will be created:
 
 The following switches will be created:
 
+- **Auto Zigbee update** - This allows the core firmware on SLZB-06x to manage Zigbee firmware updates and it will automatically install updates when they are released.
 - **Disable LEDs** - Disable all LEDs on the SLZB-06x device.
 - **LED night mode** - Enables night mode, which turns off the LEDs overnight, based on the times set in SLZB-06x web UI.
-- **Auto Zigbee update** - This allows the core firmware on SLZB-06x to manage Zigbee firmware updates and it will automatically install updates when they are released.
+- **Enable VPN** - Enable WireGuard VPN client (requires configuration via the SMLIGHT web UI).
 
 ### Updates
 
