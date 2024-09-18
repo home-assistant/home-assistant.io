@@ -5,14 +5,14 @@ ha_category:
   - Voice
 ha_release: '2024.10'
 ha_codeowners:
-  - '@balloob'
+  - '@home-assistant/core'
   - '@synesthesiam'
 ha_domain: assist_satellite
 ha_integration_type: entity
 ha_quality_scale: internal
 ---
 
-Platform for remote satellites that use [Assist](/voice_control/) to control and interact with Home Assistant. This {% term integration %} allows other integrations to represent these satellites in a consistent manner.
+This is an {% term integration %} for remote satellites that use [Assist](/voice_control/) to control and interact with Home Assistant. This allows other integrations to represent these satellites in a consistent manner.
 
 {% include integrations/building_block_integration.md %}
 
