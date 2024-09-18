@@ -18,7 +18,7 @@ related:
     title: Dashboard
 ---
 
-The **Switch** {% term integration %} keeps track of the states of the switches in your environment and allows you to control them.
+The **Switch** {% term integration %} manages the state of the switches and allows you to control them.
 
 - Maintains a state per switch and a combined state `all_switches`.
 - Registers actions `switch.turn_on`, `switch.turn_off`, and `switch.toggle` to control switches.
