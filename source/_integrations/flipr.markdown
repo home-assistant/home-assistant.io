@@ -11,14 +11,15 @@ ha_codeowners:
 ha_domain: flipr
 ha_platforms:
   - binary_sensor
+  - select
   - sensor
   - switch
 ha_integration_type: integration
 ---
 
 [Go flipr](https://www.goflipr.com) company sells smart pool monitor and management devices. The Flipr and Flipr Hub devices publish data to the cloud via Wi-Fi and SigFox.
-This {% term integrations %} gives you access on Home Assistant to the information measured by your Flipr with the same data as the vendor's smartphone application.
-This {% term integrations %} gives you also access to the Flipr Hub to control your pool equipments like pump, heater, light, etc.
+This {% term integration %} gives you access on Home Assistant to the information measured by your Flipr with the same data as the vendor's smartphone application.
+This {% term integration %} gives you also access to the Flipr Hub to control your pool equipments like pump, heater, light, etc.
 
 There is currently support for the following device types within Home Assistant:
 
@@ -54,6 +55,7 @@ There is currently support for the following information within Home Assistant v
 The Hub lets you handle your equipment (pump, heater, light, etc.) from Home Assistant and all of the automation you can imagine.
 
 - **Turn on/off** the switch inside the Hub and automatically set the Hub in manual mode
+- **Choose** the mode of the Hub between auto, planning and manual.
 
 ## Actions
 
