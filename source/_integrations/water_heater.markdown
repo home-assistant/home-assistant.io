@@ -32,7 +32,6 @@ A water heater entity can have the following states:
 - **Gas**: Gas only mode. This mode uses the most energy.
 - **Off**: The water heater is off.
 
-
 ## Actions
 
 ### Water heater control actions
