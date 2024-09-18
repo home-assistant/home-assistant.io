@@ -20,6 +20,15 @@ Sensors are a basic integration in Home Assistant. They monitor the states and c
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
+## The state of a sensor entity
+
+The state of a sensor entity is its currently detected value.
+
+<p class='img'>
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
+Screenshot showing the state of a sensor entity in the developer tools.
+</p>
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
