@@ -1025,6 +1025,10 @@ The following table lists the Command Classes together with the implemented vers
 | Version                       | 3       | Highest granted |
 | Z-Wave Plus Info              | 2       | None            |
 
+{% note %}
+Home Assistant and Z-Wave JS will never return a "Working" or "Fail" status for a valid and supported command of the Supervision Command Class.
+{% endnote %}
+
 ## Z-Wave terminology
 
 This section explains some Z-Wave terms and concepts you might find in Z-Wave product documentation.
