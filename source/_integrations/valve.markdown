@@ -24,13 +24,13 @@ The **Valve** entity in Home Assistant provides an interface to control valves s
 
 The valve {% term entity %} can have the following states:
 
-- **Open**: The valve is fully open.
-- **Opening**: The valve is in the process of opening.
-- **Closed**: The valve is fully closed.
-- **Closing**: The valve is in the process of closing.
-- **Stopped**: The valve has stopped moving before reaching a fully open or closed position.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **open**: The valve is fully open.
+- **opening**: The valve is in the process of opening.
+- **closed**: The valve is fully closed.
+- **closing**: The valve is in the process of closing.
+- **stopped**: The valve has stopped moving before reaching a fully open or closed position.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Device class
 

@@ -26,8 +26,8 @@ form of a stateless switch.
 
 ## The state of a button
 
-The button {% term entity %} is stateless, as in, it cannot have a state like the `on` or
-`off` state that, for example, a normal switch entity has.
+The button {% term entity %} is stateless, as in, it cannot have a state like the **on** or
+**off** state that, for example, a normal switch entity has.
 
 The state of a button is a timestamp showing the date and time of the last time the button had been pressed in the Home Assistant UI or via an action.
 
@@ -38,8 +38,8 @@ Screenshot showing the state of a button entity in the developer tools.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:

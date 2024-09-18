@@ -42,8 +42,8 @@ Screenshot showing the state of a to-do list entity in the developer tools.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Blueprint to add an item to a dedicated list
 

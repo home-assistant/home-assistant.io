@@ -19,13 +19,13 @@ The **Lawn mower** {% term integration %} allows the control of robotic lawn mow
 
 A lawn mower entity can have the following states:
 
-- **Mowing**: The lawn mower is currently mowing.
-- **Docked**: The lawn mower is done mowing and is currently docked.
-- **Paused**: The lawn mower was active and is now paused.
-- **Returning**: The lawn mower is returning to the dock.
-- **Error**: The lawn mower encountered an error while active and needs assistance.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **mowing**: The lawn mower is currently mowing.
+- **docked**: The lawn mower is done mowing and is currently docked.
+- **paused**: The lawn mower was active and is now paused.
+- **returning**: The lawn mower is returning to the dock.
+- **error**: The lawn mower encountered an error while active and needs assistance.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Actions
 

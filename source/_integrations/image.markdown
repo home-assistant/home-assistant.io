@@ -21,5 +21,5 @@ The state of an image entity is a timestamp, showing the date and time when the 
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.

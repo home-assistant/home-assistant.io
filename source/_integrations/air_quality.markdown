@@ -34,5 +34,5 @@ The state of an air quality entity represents the concentration of particles in 
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.

@@ -39,6 +39,10 @@ The state of a text-to-speech {% term entity %} is a timestamp showing the date 
 <img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the developer tools' />
 Screenshot showing the state of a text-to-speech entity in the developer tools.
 </p>
+In addition, the entity can have the following states:
+
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Actions
 

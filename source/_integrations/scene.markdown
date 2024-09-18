@@ -18,8 +18,8 @@ Scenes can be user-defined or can be provided through an integration.
 
 ## The state of a scene
 
-The scene entity is stateless, as in, it cannot have a state like the `on` or
-`off` state that, for example, a normal switch entity has.
+The scene entity is stateless, as in, it cannot have a state like the **on** or
+**off** state that, for example, a normal switch entity has.
 
 Every scene entity does keep track of the timestamp of when the last time
 the scene entity was called via the Home Assistant UI or called via
@@ -32,8 +32,8 @@ Screenshot showing the state of a scene entity in the developer tools.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Scenes created by integrations
 

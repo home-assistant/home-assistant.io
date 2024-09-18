@@ -20,7 +20,7 @@ The **Remote** {% term integration%} manages the state of the remote entities an
 
 ## The state of a remote entity
 
-The state of a remote entity can be either `on` or `off`.
+The state of a remote entity can be either **on** or **off**.
 
 In addition, the entity can have the following states:
 

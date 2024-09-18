@@ -28,8 +28,8 @@ Screenshot showing the state of a date in the developer tools. In the example sh
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## Actions
 

@@ -24,15 +24,15 @@ water_heater:
 
 A water heater entity can have the following states:
 
-- **Eco**: Energy efficient mode, provides energy savings and fast heating.
-- **Electric**: Electric only mode. This mode uses the most energy.
-- **Performance**: High performance mode.
-- **High demand**: Meet high demands when the water heater is undersized.
-- **Heat pump**: Heat pump is the slowest to heat, but it uses less energy.
-- **Gas**: Gas only mode. This mode uses the most energy.
-- **Off**: The water heater is off.
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **eco**: energy efficient mode, provides energy savings and fast heating.
+- **electric**: electric only mode. this mode uses the most energy.
+- **performance**: high performance mode.
+- **high demand**: meet high demands when the water heater is undersized.
+- **heat pump**: heat pump is the slowest to heat, but it uses less energy.
+- **gas**: gas only mode. this mode uses the most energy.
+- **off**: the water heater is off.
+- **unavailable**: the entity is currently unavailable.
+- **unknown**: the state is not yet known.
 
 ## Actions
 

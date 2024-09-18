@@ -105,12 +105,12 @@ The type of state a device tracker can have depends on whether it uses GPS or a 
 
 A device tracker with **GPS** as a source can have any number of string states. The integration can return one of the following options:
 
-- Report GPS coordinates. The coordinates are then matched to a zone (which is set as state). If the home zone is matched, the state will be **Home**. If no zone was matched the state will be **Not home**.
+- Report GPS coordinates. The coordinates are then matched to a zone (which is set as state). If the home zone is matched, the state will be **home**. If no zone was matched the state will be **not home**.
 - Report a location. This could be any string which is set as state.
 
-A device tracker with **router** as a source can have one of two states: **Home**, or **Not home**.
+A device tracker with **router** as a source can have one of two states: **home**, or **not home**.
 
-- **Home**: Your tracked device is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth-based presence detection. If you're using a presence detection method that includes coordinates: when it's in a zone, the state equals the name of the zone (case sensitive).
+- **home**: Your tracked device is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth-based presence detection. If you're using a presence detection method that includes coordinates: when it's in a zone, the state equals the name of the zone (case sensitive).
 - **Not home**: When a device isn't at home and isn't in any zone.
 
 <p class='img'>
@@ -120,8 +120,8 @@ Screenshot showing the state of a device tracker entity in the developer tools.
 
 In addition, the entity can have the following states:
 
-- **Unavailable**: The entity is currently unavailable.
-- **Unknown**: The state is not yet known.
+- **unavailable**: The entity is currently unavailable.
+- **unknown**: The state is not yet known.
 
 ## `device_tracker.see` action
 
