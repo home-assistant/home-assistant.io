@@ -95,3 +95,14 @@ Buttons available in the library:
 | Button              | Description                        |
 | :------------------ | :--------------------------------- |
 | reboot              | Reboot energy meter.               |
+
+## Numbers
+
+Numbers available in the library:
+
+### Chargers
+
+| Number             | Unit | Range   | Description                               |
+| :----------------- | :--- | :------ | :---------------------------------------- |
+| led_max_brightness | %    | 0 - 100 | Set the LED brightness of the charger.    |
+| dynamic_limit      | A    | 0 - 32  | Set the maximum allowed charging current. |
