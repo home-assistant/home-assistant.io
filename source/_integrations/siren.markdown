@@ -18,7 +18,7 @@ The **Siren** {% term integration %} is built for the controlling and monitoring
 
 ## The state of a siren entity
 
-The state of a siren entity can be either `on` or `off`.
+The state of a siren entity can be either **On** or **Off**.
 
 In addition, the entity can have the following states:
 

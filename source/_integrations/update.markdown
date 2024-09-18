@@ -27,8 +27,8 @@ For a list of {% term integrations %} offering update entities, on the integrati
 ## The state of an update entity
 
 The state of an update {% term entity %} reflects whether an update is available or not.
-When the state is `on`, it means there is an update available; when everything
-is up-to-date, the state is `off`.
+When the state is **On**, it means there is an update available; when everything
+is up-to-date, the state is **Off**.
 
 In addition, the entity can have the following states:
 
