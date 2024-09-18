@@ -50,6 +50,7 @@ The following sensors will be created:
 - **FS usage** - Monitor filesystem usage
 - **Connection mode** -  Connection mode - Ethernet, Wi-Fi, or USB
 - **Ethernet** - Ethernet connection status
+- **Internet** - Internet connection status
 - **VPN** - WireGuard VPN client connection status
 - **Wi-Fi** - Wi-Fi connection status
 - **Firmware channel** - Channel for updates, stable, or development firmware or currently installed firmware.
