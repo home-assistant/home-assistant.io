@@ -1026,9 +1026,7 @@ The following table lists the Command Classes together with the implemented vers
 | Z-Wave Plus Info              | 2       | None            |
 
 {% note %}
-The documentation must list all cases where a "Working" of "Fail" status is returned for a valid and supported command of the Supervision Command Class:
-
-Home Assistant and Z-Wave JS will never return a "Working" of "Fail" status for a valid and supported command of the Supervision Command Class.
+Home Assistant and Z-Wave JS will never return a "Working" or "Fail" status for a valid and supported command of the Supervision Command Class.
 {% endnote %}
 
 ## Z-Wave terminology
