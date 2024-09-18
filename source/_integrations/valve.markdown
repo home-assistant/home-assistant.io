@@ -22,7 +22,7 @@ The **Valve** entity in Home Assistant provides an interface to control valves s
 
 ## The state of a valve entity
 
-The valve entity can have the following states:
+The valve {% term entity %} can have the following states:
 
 - **Open**: The valve is fully open.
 - **Opening**: The valve is in the process of opening.
