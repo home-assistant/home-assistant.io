@@ -23,7 +23,7 @@ The **Humidifier** {% term integration %} is built for the controlling and monit
 
 ## The state of a humidifier entity
 
-The state of a humidifier entity can be either `on` or `off`.
+The state of a humidifier entity can be either **on** or **off**.
 
 In addition, the entity can have the following states:
 
