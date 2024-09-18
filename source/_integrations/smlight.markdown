@@ -45,6 +45,8 @@ You need a supported SLZB-06 adapter.
 
 ## Integration entities
 
+### Sensors
+
 The following sensors will be created:
 
 - **Core temperature** - Temperature of core ESP32
@@ -58,6 +60,8 @@ The following sensors will be created:
 - **Wi-Fi** - Wi-Fi connection status
 - **Firmware channel** - Channel for updates, stable, or development firmware or currently installed firmware.
 - **Zigbee type** - Current mode of Zigbee chip. Coordinator, router, or Thread. Only works with official firmware installed via OTA in SMLIGHT web UI.
+
+### Buttons
 
 The following buttons will be created:
 
