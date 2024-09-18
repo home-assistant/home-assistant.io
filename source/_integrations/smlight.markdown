@@ -36,6 +36,8 @@ You need a supported SLZB-06 adapter.
 - [SLZB-06p7](https://smlight.tech/product/slzb-06p7)
 - [SLZB-06p10](https://smlight.tech/product/slzb-06p10/)
   
+Core firmware on your SLZB-06x device must be `v2.3.6` or newer. If you have an older `v2.x.x` version, you can update from within Home Assistant. If you have `v0.9.9`, update using the [SMLIGHT web flasher](https://smlight.tech/flasher/#SLZB-06) before installing this integration.
+
 {% include integrations/config_flow.md %}
 
 ## Integration entities
