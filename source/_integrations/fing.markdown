@@ -14,11 +14,11 @@ ha_domain: fing
 ha_integration_type: integration
 ---
 
-Integrate [Fing Agents](https://www.fing.com/fing-agent/) with Home Assistant to enhance your presence detection.
+The [Fing Agent](https://www.fing.com/fing-agent/) integration enables you to retrieve device data from your network, create your personal device inventory and use it to optimize your automations.
 
 ## Fing Local API
 
-This integration leverages the [Local API](https://help.fing.com/hc/en-us/articles/10212457020060-Connect-3rd-Party-Apps-to-Fing-Local-API#h_01HA9YA44XMDDESE68FWAZXX96) provided by the Fing Agent to seamlessly connect Home Assistant with the device information gathered by the Agent, so make sure the Local API is enabled on your Fing Agent for proper functionality.
+This integration leverages the [Local API](https://www.fing.com/developers/local-api/) provided by the Fing Agent to seamlessly connect Home Assistant with the device information gathered by the Agent, so make sure the Local API is enabled on your Fing Agent for proper functionality.
 
 To configure the integration you will need the IP address, port, and API key of your Fing Agent.
 
