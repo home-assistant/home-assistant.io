@@ -17,7 +17,7 @@ The **Vacuum** {% term integration %} enables the ability to control home cleani
 
 ## The state of a vacuum entity
 
-A vacuum entity can have the following states:
+A vacuum {% term entity %} can have the following states:
 
 - **Cleaning**: The vacuum is currently cleaning.
 - **Docked**: The vacuum is currently docked. It is assumed that docked can also mean charging.
