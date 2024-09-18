@@ -26,6 +26,8 @@ A HVAC entity can have the following states, depending on the specific climate d
 - **Auto**: The device is set to a schedule, learned behavior, AI.
 - **Dry**: The device is set to dry/humidity mode.
 - **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

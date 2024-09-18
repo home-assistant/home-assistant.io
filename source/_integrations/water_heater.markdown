@@ -31,6 +31,8 @@ A water heater entity can have the following states:
 - **Heat pump**: Heat pump is the slowest to heat, but it uses less energy.
 - **Gas**: Gas only mode. This mode uses the most energy.
 - **Off**: The water heater is off.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

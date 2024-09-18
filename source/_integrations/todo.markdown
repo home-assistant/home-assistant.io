@@ -40,6 +40,11 @@ incomplete items in the list.
 Screenshot showing the state of a to-do list entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Blueprint to add an item to a dedicated list
 
 This blueprint allows you to create a script to add an

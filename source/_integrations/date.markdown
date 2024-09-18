@@ -26,6 +26,11 @@ The state of a date entity is the actual date value.
 Screenshot showing the state of a date in the developer tools. In the example shown, the state is January 1, 2020; in the format YYYY-MM-DD.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 ### Date actions

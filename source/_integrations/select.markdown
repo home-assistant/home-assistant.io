@@ -26,6 +26,11 @@ The state of a select entity is the value of the currently selected option.
 Screenshot showing the state of a select entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 The select {% term entity %} exposes additional {% term actions %} to control the entity in, for example,

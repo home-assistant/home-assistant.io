@@ -27,6 +27,11 @@ If you are looking for a way to create a number entity, please take a look at th
 
 The state of a number entity is a number.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}

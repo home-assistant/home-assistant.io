@@ -29,6 +29,11 @@ The **Switch** {% term integration %} keeps track of the states of the switches 
 
 The state of a switch {% term entity %} can be either `on` or `off`.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}

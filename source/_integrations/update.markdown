@@ -30,7 +30,12 @@ The state of an update {% term entity %} reflects whether an update is available
 When the state is `on`, it means there is an update available; when everything
 is up-to-date, the state is `off`.
 
-Additionally, the following state attributes are exposed to provide more
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+The following state attributes are exposed to provide more
 information on the update state:
 
 - `title`: The title/name of the available software or firmware. As the device

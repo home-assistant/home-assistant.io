@@ -24,6 +24,8 @@ A lawn mower entity can have the following states:
 - **Paused**: The lawn mower was active and is now paused.
 - **Returning**: The lawn mower is returning to the dock.
 - **Error**: The lawn mower encountered an error while active and needs assistance.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

@@ -37,6 +37,11 @@ The event entity does not capture a state such as `on` or `off`. Instead, an eve
   Event entity with a timestamp value in state and event type "pressed".
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 
 ```yaml

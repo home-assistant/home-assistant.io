@@ -22,6 +22,11 @@ The **Remote** {% term integration%} keeps track of the remotes in your environm
 
 The state of a remote entity can be either `on` or `off`.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Use the actions
 
 Go to the **Developer Tools** and open the **Actions** tab. From the **Actions** dropdown, choose `remote/turn_on`, `remote/turn_off`, or `remote/toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.

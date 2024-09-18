@@ -35,6 +35,9 @@ An alarm panel entity can have the following states. Not all integrations implem
 - **Arming**: The alarm is in the process of being armed.
 - **Disarming**: The alarm is in the process of being disarmed.
 - **Triggered**: The alarm has been triggered.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 
 ## Actions
 

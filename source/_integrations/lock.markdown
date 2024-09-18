@@ -28,6 +28,8 @@ A lock entity can have the following states:
 - **Locked**: The lock is currently locked.
 - **Locking**: The lock is in the process of being locked.
 - **Unlocking**: The lock is in the process of being unlocked.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

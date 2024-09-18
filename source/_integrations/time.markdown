@@ -26,6 +26,11 @@ The state of a time {% term entity %} is a timestamp in the format HH:MM:SS.
 Screenshot showing the state of a time entity in the developer tools.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 ### Time actions

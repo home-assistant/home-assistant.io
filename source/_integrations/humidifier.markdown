@@ -25,6 +25,11 @@ The **Humidifier** {% term integration %} is built for the controlling and monit
 
 The state of a humidifier entity can be either `on` or `off`.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}

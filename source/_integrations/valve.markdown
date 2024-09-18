@@ -29,6 +29,8 @@ The valve {% term entity %} can have the following states:
 - **Closed**: The valve is fully closed.
 - **Closing**: The valve is in the process of closing.
 - **Stopped**: The valve has stopped moving before reaching a fully open or closed position.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Device class
 

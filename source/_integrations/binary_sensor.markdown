@@ -33,6 +33,11 @@ or using an [input boolean helper](/integrations/input_boolean).
 
 A binary sensor can have two states: **on** or **off**. However, in the frontend, they might not be called **on** or **off**, but use an alternative term to be more meaningful in context. For example, hot/cold, locked/unlocked. The meaning of an **on** or **off** state depends on the device class.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ### Device class
 
 {% include integrations/device_class_intro.md %}
