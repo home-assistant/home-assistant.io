@@ -22,12 +22,17 @@ Some of these sensors are built-in to Home Assistant, some are created automatic
 
 ## The state of a sensor entity
 
-The state of a sensor entity is its currently detected value, which can be either text or a number. If the sensor device is currently unavailable, it will have 'unavailable' as state and when the current value is not yet known, the state will be 'unknown'.
+The state of a sensor entity is its currently detected value, which can be either text or a number.
 
 <p class='img'>
 <img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
 Screenshot showing the state of a sensor entity in the developer tools.
 </p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Device class
 
