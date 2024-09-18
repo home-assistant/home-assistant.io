@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Home Assistant is 11 years old"
+title: "Home Assistant is 11 years old!"
 description: "This year, we celebrate the community and the people who make Home Assistant what it is."
 date: 2024-09-18 00:00:01
 date_formatted: "September 18, 2024"
