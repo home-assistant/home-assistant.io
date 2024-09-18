@@ -62,4 +62,4 @@ We went over a lot in this live stream, so here are some highlights to help you,
 
 - ([1:41](https://www.youtube.com/live/iE8yFUvQ2e4?si=Ss91TppP7qrSSzsB&t=6076)) How the community can support Home Assistant
 
-There was a live Q&A after the live stream on [our Discord](https://discord.gg/home-assistant) using their new Stage function, but you had to be there to have enjoyed it, no catching up on that one.
+There was a live Q&A after the live stream on [our Discord](/join-chat) using their new Stage function, but you had to be there to have enjoyed it, no catching up on that one.
