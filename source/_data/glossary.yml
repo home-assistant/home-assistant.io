@@ -222,7 +222,7 @@
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
-  link: /docs/configuration/state_object/
+  link: /docs/configuration/entities_domains/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant.
     Entities are used to monitor physical properties or to control other
