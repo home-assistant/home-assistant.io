@@ -498,8 +498,8 @@
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used. Entities store 2
-    timestamps related to the state: `last_updated` and `last_changed`. Each
+    light is on or off, the current temperature, or the amount of energy used. Entities store 3
+    timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
     entity has exactly one state and the state only holds one value at a time.
     However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
