@@ -503,7 +503,7 @@
     entity has exactly one state and the state only holds one value at a time.
     However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State change events can be used as triggers. 
+    current brightness and color values. State change events can be used as triggers.
     The current state can be used in conditions.
 
   link: /docs/configuration/state_object/
