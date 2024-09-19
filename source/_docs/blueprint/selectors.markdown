@@ -1381,7 +1381,7 @@ Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
-action:
+actions:
   - action: light.turn_on
     target: !input lights
 ```

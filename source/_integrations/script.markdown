@@ -176,12 +176,12 @@ Aside from the automation editor UI, variables can be passed to scripts within t
 ```yaml
 # Example configuration.yaml entry
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: light.bedroom
     from: "off"
     to: "on"
-  action:
+  actions:
     action: script.notify_pushover
     data:
       title: "State change"
@@ -195,12 +195,12 @@ This example shows using `script.turn_on` action:
 ```yaml
 # Example configuration.yaml entry
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: light.bedroom
     from: "off"
     to: "on"
-  action:
+  actions:
     action: script.turn_on
     target:
       entity_id: script.notify_pushover

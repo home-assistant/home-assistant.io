@@ -258,23 +258,23 @@ media_player:
 
 automation:
   - alias: Turn on the TV when Kodi is activated
-    trigger:
+    triggers:
       platform: state
       entity_id: media_player.kodi_tv
       from: "off"
       to: playing
-    action:
+    actions:
       - action: media_player.turn_on
         target:
           entity_id: media_player.kodi_tv
   - alias: Turn off the TV when Kodi is in idle > 15 min
-    trigger:
+    triggers:
       platform: state
       entity_id: media_player.kodi_tv
       to: idle
       for:
         minutes: 15
-    action:
+    actions:
       - action: media_player.turn_off
         target:
           entity_id: media_player.kodi_tv

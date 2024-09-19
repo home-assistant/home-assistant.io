@@ -320,7 +320,7 @@ scene:
 
 automation:
   - alias: "Use doorbell button to trigger scene"
-    trigger:
+    triggers:
     - platform: event
       event_type: rfxtrx_event
       event_data:
@@ -329,7 +329,7 @@ automation:
         id_string: "00:90"
         values:
           Sound: 9
-    action:
+    actions:
       action: scene.turn_on
       target:
         entity_id: scene.welcomescene
@@ -345,7 +345,7 @@ Simulate a button being pressed:
 
 ```yaml
 ...
-action:
+actions:
   action: rfxtrx.send
   data:
     event: 0b1111e003af16aa10000060

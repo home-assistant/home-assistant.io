@@ -111,13 +111,13 @@ Sample automation to switch lights on and off:
 # Example automation to turn lights on/off on button release
 automation:
   - alias: "Hall light switches"
-    trigger:
+    triggers:
       platform: event
       event_type: button_pressed
       event_data:
         id: [0xYY, 0xYY, 0xYY, 0xYY]
         pushed: 0
-    action:
+    actions:
       action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
       target:
         entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"

@@ -134,7 +134,7 @@ automation:
   # Trigger an Insteon scene 25
   - id: trigger_scene_25_on
     alias: "Turn on scene 25"
-    action:
+    actions:
       - action: insteon.scene_on
         group: 25
 ```
@@ -157,17 +157,17 @@ automation:
   # 4 or 8 button remote with button c pressed
   - id: light_on
     alias: "Turn a light on"
-    trigger:
+    triggers:
       - platform: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c
       button: c
-    condition:
+    conditions:
       - condition: state
         entity_id: light.some_light
         state: "off"
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.some_light
@@ -175,16 +175,16 @@ automation:
   # single button remote
   - id: light_off
     alias: "Turn a light off"
-    trigger:
+    triggers:
       - platform: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c
-    condition:
+    conditions:
       - condition: state
         entity_id: light.some_light
         state: "off"
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.some_light

@@ -129,10 +129,10 @@ input_text:
     
 automation:
   - alias: "Bedroom Light - Custom"
-    trigger:
+    triggers:
       platform: state
       entity_id: input_select.scene_bedroom
-    action:
+    actions:
       - action: input_text.set_value
         target:
           entity_id: input_text.bedroom

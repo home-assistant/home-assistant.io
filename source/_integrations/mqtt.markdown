@@ -1087,11 +1087,11 @@ Use as [`script`](/integrations/script/) in automations.
 ```yaml
 automation:
   alias: "Send me a message when I get home"
-  trigger:
+  triggers:
     platform: state
     entity_id: device_tracker.me
     to: "home"
-  action:
+  actions:
     action: script.notify_mqtt
     data:
       target: "me"

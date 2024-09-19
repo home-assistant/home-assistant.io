@@ -164,12 +164,12 @@ To add a notification sound, icon, cycles, or priority override,
 
 ```yaml
 - alias: "Send notification on arrival at school"
-  trigger:
+  triggers:
     platform: state
     entity_id: device_tracker.tom_mobile
     from: "not_home"
     to: "school"
-  action:
+  actions:
     action: notify.my_lametric
     data:
       message: "Tom has arrived at school!"

@@ -113,11 +113,11 @@ To start Hyperion with an effect, use the following automation:
 automation:
 - id: one
   alias: "Turn Hyperion effect on when light goes on"
-  trigger:
+  triggers:
     - platform: state
       entity_id: light.hyperion
       to: "on"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.hyperion
@@ -129,7 +129,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 
 ```yaml
 - alias: "Set hyperion effect after playback"
-  trigger:
+  triggers:
     - platform: state
       entity_id: media_player.plex
       to: "off"
@@ -139,7 +139,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
     - platform: state
       entity_id: media_player.plex.plex
       to: "idle"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.hyperion
@@ -151,11 +151,11 @@ To capture the screen on a USB capture device, when playing something on a media
 
 ```yaml
 - alias: "Set hyperion when playback starts"
-  trigger:
+  triggers:
     - platform: state
       entity_id: media_player.plex
       to: "playing"
-  action:
+  actions:
     - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_usb_capture
@@ -165,17 +165,17 @@ To toggle the LED device together with the light entity in order to turn light o
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"
-  trigger:
+  triggers:
     - platform: state
       entity_id:
         - light.hyperion
       from: "off"
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: switch.[instance]_component_led_device
       state: "off"
-  action:
+  actions:
     - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_led_device

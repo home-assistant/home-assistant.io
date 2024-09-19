@@ -22,12 +22,12 @@ Example:
 ```yaml
 - id: "123456789"
   alias: "Light turns off"
-  trigger:
+  triggers:
     - platform: device
       device_id: 7a92d5ee74014a0b86903fc669b0bcd6
       domain: light
       type: turn_off
       entity_id: light.bowl
-  action:
+  actions:
     - action: camera.turn_off
 ```

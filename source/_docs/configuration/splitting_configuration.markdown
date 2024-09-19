@@ -267,20 +267,20 @@ These work recursively. As an example using `!include_dir_list automation`, will
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
+    triggers:
       platform: state
       entity_id: device_tracker.iphone
       to: "home"
-    action:
+    actions:
       action: light.turn_on
       target:
         entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
+    triggers:
       platform: state
       entity_id: device_tracker.iphone
       from: "home"
-    action:
+    actions:
       action: light.turn_off
       target:
         entity_id: light.entryway
@@ -298,11 +298,11 @@ automation: !include_dir_list automation/presence/
 
 ```yaml
 alias: "Automation 1"
-trigger:
+triggers:
   platform: state
   entity_id: device_tracker.iphone
   to: "home"
-action:
+actions:
   action: light.turn_on
   target:
     entity_id: light.entryway
@@ -312,11 +312,11 @@ action:
 
 ```yaml
 alias: "Automation 2"
-trigger:
+triggers:
   platform: state
   entity_id: device_tracker.iphone
   from: "home"
-action:
+actions:
   action: light.turn_off
   target:
     entity_id: light.entryway
@@ -333,7 +333,7 @@ It is important to note that each file must contain only **one** entry when usin
 alexa:
   intents:
     LocateIntent:
-      action:
+      actions:
         action: notify.pushover
         data:
           message: "Your location has been queried via Alexa."
@@ -371,7 +371,7 @@ alexa:
 
 ```yaml
 {% raw %}
-action:
+actions:
   action: notify.pushover
   data:
     message: "Your location has been queried via Alexa."
@@ -408,20 +408,20 @@ speech:
 ```yaml
 automation:
   - alias: "Automation 1"
-    trigger:
+    triggers:
       - platform: state
         entity_id: device_tracker.iphone
         to: "home"
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.entryway
   - alias: "Automation 2"
-    trigger:
+    triggers:
       - platform: state
         entity_id: device_tracker.iphone
         from: "home"
-    action:
+    actions:
       - action: light.turn_off
         target:
           entity_id: light.entryway
@@ -439,20 +439,20 @@ automation: !include_dir_merge_list automation/
 
 ```yaml
 - alias: "Automation 1"
-  trigger:
+  triggers:
     - platform: state
       entity_id: device_tracker.iphone
       to: "home"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.entryway
 - alias: "Automation 2"
-  trigger:
+  triggers:
     - platform: state
       entity_id: device_tracker.iphone
       from: "home"
-  action:
+  actions:
     - action: light.turn_off
       target:
         entity_id: light.entryway

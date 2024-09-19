@@ -51,10 +51,10 @@ at 3 AM:
 ```yaml
 automation:
   - alias: "Backup Home Assistant every night at 3 AM"
-    trigger:
+    triggers:
       platform: time
       at: "03:00:00"
-    action:
+    actions:
       alias: "Create backup now"
       action: backup.create
 ```

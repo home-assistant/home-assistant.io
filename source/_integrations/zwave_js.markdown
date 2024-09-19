@@ -458,7 +458,7 @@ Notification event data can be used to trigger automations, both in the automati
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
-trigger:
+triggers:
   - platform: event
     event_type: zwave_js_notification
     event_data:
@@ -604,12 +604,12 @@ Value Updated example:
 This event can be used to trigger a refresh of values when the new state needs to be retrieved. Here's an example automation:
 
 ```yaml
-trigger:
+triggers:
   - platform: event
     event_type: zwave_js_value_updated
     event_data:
       entity_id: switch.in_wall_dual_relay_switch
-action:
+actions:
   - action: zwave_js.refresh_value
     data:
       entity_id:
@@ -629,7 +629,7 @@ This trigger platform can be used to trigger automations on any Z-Wave JS value 
 
 ```yaml
 # Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
-trigger:
+triggers:
   platform: zwave_js.value_updated
   # At least one `device_id` or `entity_id` must be provided
   device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
@@ -679,7 +679,7 @@ There is strict validation in place based on all known event types, so if you co
 
 ```yaml
 # Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
-trigger:
+triggers:
   platform: zwave_js.event
   # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
   device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID

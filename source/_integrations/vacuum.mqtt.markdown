@@ -276,10 +276,10 @@ Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
+    triggers:
       - platform: state
         entity_id: sensor.sensor
-    action:
+    actions:
       action: vacuum.send_command
       target:
         entity_id: vacuum.vacuum_entity

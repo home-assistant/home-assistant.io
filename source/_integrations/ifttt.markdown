@@ -38,13 +38,13 @@ You then need to consume that incoming information with the following automation
 automation:
 - id: this_is_the_automation_id
   alias: "The optional automation alias"
-  trigger:
+  triggers:
   - platform: event
     event_type: ifttt_webhook_received
     event_data:
       action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
-  condition: []
-  action:
+  conditions:
+  actions:
   - action: '{{ trigger.event.data.service }}'
     target:
       entity_id: '{{ trigger.event.data.entity_id }}'
@@ -143,10 +143,10 @@ Add the *Then That* action. The below example sends a notification to the IFTTT 
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
+  triggers:
     platform: homeassistant
     event: start
-  action:
+  actions:
     action: ifttt.trigger
     data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
@@ -161,10 +161,10 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
+  triggers:
     platform: homeassistant
     event: start
-  action:
+  actions:
     action: script.ifttt_notify
     data:
       value1: "HA Status:"

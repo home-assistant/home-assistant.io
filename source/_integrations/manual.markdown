@@ -175,7 +175,7 @@ Using sensors to trigger the alarm.
 ```yaml
 automation:
 - alias: 'Trigger alarm while armed away'
-  trigger:
+  triggers:
     - platform: state
       entity_id: sensor.pir1
       to: "active"
@@ -188,11 +188,11 @@ automation:
     - platform: state
       entity_id: sensor.window
       to: "open"
-  condition:
+  conditions:
     - condition: state
       entity_id: alarm_control_panel.home_alarm
       state: armed_away
-  action:
+  actions:
     action: alarm_control_panel.alarm_trigger
     target:
       entity_id: alarm_control_panel.home_alarm
@@ -203,11 +203,11 @@ Sending a notification when the alarm is triggered.
 ```yaml
 automation:
   - alias: 'Send notification when alarm triggered'
-    trigger:
+    triggers:
       - platform: state
         entity_id: alarm_control_panel.home_alarm
         to: "triggered"
-    action:
+    actions:
       - action: notify.notify
         data:
           message: "ALARM! The alarm has been triggered"
@@ -218,12 +218,12 @@ Disarming the alarm when the door is properly unlocked.
 ```yaml
 automation:
   - alias: 'Disarm alarm when door unlocked by keypad'
-    trigger:
+    triggers:
       - platform: state
         entity_id: sensor.front_door_lock_alarm_type
         to: "19"
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
-    action:
+    actions:
       - action: alarm_control_panel.alarm_disarm
         target:
           entity_id: alarm_control_panel.home_alarm
@@ -235,11 +235,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
-  trigger:
+  triggers:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
-  action:
+  actions:
     - action: notify.notify
       data:
         message: "ALARM! The alarm is Disarmed at {{ states('sensor.date_time') }}"
@@ -247,11 +247,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 
 ```yaml
 - alias: 'Send notification when alarm is in pending status'
-  trigger:
+  triggers:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
       to: "pending"
-  action:
+  actions:
     - action: notify.notify
       data:
         message: "ALARM! The alarm is in pending status at {{ states('sensor.date_time') }}"
@@ -259,11 +259,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 
 ```yaml
 - alias: 'Send notification when alarm is Armed in Away mode'
-  trigger:
+  triggers:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
-  action:
+  actions:
     - action: notify.notify
       data:
         message: "ALARM! The alarm is armed in Away mode {{ states('sensor.date_time') }}"
@@ -271,11 +271,11 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 
 ```yaml
 - alias: 'Send notification when alarm is Armed in Home mode'
-  trigger:
+  triggers:
     - platform: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_home"
-  action:
+  actions:
     - action: notify.notify
       data:
         # Using multi-line notation allows for easier quoting

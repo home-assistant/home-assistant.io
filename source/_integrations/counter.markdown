@@ -149,12 +149,12 @@ system_log:
 automation:
 - id: 'errorcounterautomation'
   alias: "Error Counting Automation"
-  trigger:
+  triggers:
     platform: event
     event_type: system_log_event
     event_data:
       level: ERROR
-  action:
+  actions:
     action: counter.increment
     target:
       entity_id: counter.error_counter

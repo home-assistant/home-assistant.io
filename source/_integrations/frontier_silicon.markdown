@@ -49,12 +49,12 @@ In case your device (friendly name) is called *badezimmer*, an example automatio
 ```yaml
 # Example configuration.yaml automation
 alias: "Bathroom Motion Detected"
-trigger:
+triggers:
   platform: state
   entity_id: binary_sensor.motion_sensor_166d0001171111
   from: "off"
   to: "on"
-action:
+actions:
   action: media_player.turn_on
   target:
     entity_id: "media_player.badezimmer"

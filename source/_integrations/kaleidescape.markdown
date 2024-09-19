@@ -229,11 +229,11 @@ A typical automation might look like the example below, which turns up the light
 
 ```yaml
 - alias: kaleidescape_theater_lights_up
-  trigger:
+  triggers:
     - platform: state
       entity_id: sensor.kaleidescape_theater_media_location
       from: content
-  action:
+  actions:
     - action: scene.turn_on
       target:
         entity_id: scene.theater_lights

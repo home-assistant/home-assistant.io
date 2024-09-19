@@ -397,14 +397,14 @@ Removes an item from the queue.
 # Example automation to remove just played song from queue
 alias: "Remove last played song from queue"
 id: Remove last played song from queue
-trigger:
+triggers:
   - platform: state
     entity_id: media_player.kitchen
   - platform: state
     entity_id: media_player.bathroom
   - platform: state
     entity_id: media_player.move
-condition:
+conditions:
   condition: and
   conditions:
     # Coordinator
@@ -419,7 +419,7 @@ condition:
     - condition: template
       value_template: >
         {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
-action:
+actions:
   - action: sonos.remove_from_queue
     target:
       entity_id: >

@@ -91,12 +91,12 @@ Scenes can be activated using the `scene.turn_on` action (there is no `scene.tur
 ```yaml
 # Example automation
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
-  action:
+  actions:
     action: scene.turn_on
     target:
       entity_id: scene.romantic
@@ -109,12 +109,12 @@ With the `scene.apply` action you are able to apply a scene without first defini
 ```yaml
 # Example automation
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
-  action:
+  actions:
     action: scene.apply
     data:
       entities:
@@ -138,12 +138,12 @@ light will transition to the scene in 2.5 seconds.
 ```yaml
 # Example automation
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
-  action:
+  actions:
     action: scene.turn_on
     target:
       entity_id: scene.romantic
@@ -175,10 +175,10 @@ This video tutorial explains how scenes work and how you can utilize scenes on t
 ```yaml
 # Example automation using entities
 automation:
-  trigger:
+  triggers:
     platform: homeassistant
     event: start
-  action:
+  actions:
     action: scene.create
     data:
       scene_id: my_scene
@@ -203,11 +203,11 @@ If the scene was not previously created by `scene.create`, the action will fail 
 ```yaml
 # Example automation
 automation:
-  trigger:
+  triggers:
     platform: state
     entity_id: sun.sun
     to: below_horizon
-  action:
+  actions:
     - action: scene.delete
       data:
         entity_id: scene.my_scene
@@ -218,13 +218,13 @@ The following example turns off some entities as soon as a window opens. The sta
 ```yaml
 # Example automation using snapshot
 - alias: "Window opened"
-  trigger:
+  triggers:
   - platform: state
     entity_id: binary_sensor.window
     from: "off"
     to: "on"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - action: scene.create
     data:
       scene_id: before
@@ -240,13 +240,13 @@ The following example turns off some entities as soon as a window opens. The sta
     data:
       hvac_mode: "off"
 - alias: "Window closed"
-  trigger:
+  triggers:
   - platform: state
     entity_id: binary_sensor.window
     from: "on"
     to: "off"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - action: scene.turn_on
     target:
       entity_id: scene.before

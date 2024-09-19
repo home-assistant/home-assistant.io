@@ -30,7 +30,7 @@ An example of a persistent notification trigger in YAML:
 
 ```yaml
 automation:
-  - trigger:
+  - triggers:
       - platform: persistent_notification
         # Optional. Possible values: added, removed, updated, current
         update_type:
@@ -56,7 +56,7 @@ The `persistent_notification.create` action takes in `message`, `title`, and `no
 Here is how an [action](/docs/automation/action) of your [automation setup](/getting-started/automation/) with static content could look like.
 
 ```yaml
-action:
+actions:
   action: persistent_notification.create
   data:
     message: "Your message goes here"
@@ -68,7 +68,7 @@ If you want to show some runtime information, you have to use [templates](/docs/
 {% raw %}
 
 ```yaml
-action:
+actions:
   action: persistent_notification.create
   data:
     title: >
@@ -87,7 +87,7 @@ The `persistent_notification.dismiss` action requires a `notification_id`.
 This action allows you to remove a notifications by script or automation.
 
 ```yaml
-action:
+actions:
   action: persistent_notification.dismiss
   data:
     notification_id: "1234"
@@ -96,7 +96,7 @@ action:
 The `persistent_notification.dismiss_all` action allows you to remove all notifications.
 
 ```yaml
-action:
+actions:
   action: persistent_notification.dismiss_all
 ```
 

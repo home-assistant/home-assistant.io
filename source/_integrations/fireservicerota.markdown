@@ -117,27 +117,27 @@ These are documented below.
 ```yaml
 automation:
   - alias: "Switch on a light when incident is received"
-    trigger:
+    triggers:
       platform: state
       entity_id: sensor.incidents
-    action:
+    actions:
       action: light.turn_on
       target:
         entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
-    trigger:
+    triggers:
       platform: state
       entity_id: sensor.incidents
       attribute: message_to_speech_url
-    condition:
+    conditions:
       - condition: not
         conditions:
           - condition: state
             entity_id: sensor.incidents
             attribute: message_to_speech_url
             state: None
-    action:
+    actions:
       - action: media_player.play_media
         data_template:
           entity_id: media_player.nest_hub_bedroom
@@ -146,10 +146,10 @@ automation:
           media_content_type: "audio/mp4"
 
   - alias: "Send response acknowledgement when a button is pressed"
-    trigger:
+    triggers:
       platform: state
       entity_id: switch.response_button
-    action:
+    actions:
       action: homeassistant.turn_on
       target:
         entity_id: switch.incident_response
@@ -158,7 +158,7 @@ automation:
     trigger: 
       platform: homeassistant
       event: start
-    action:
+    actions:
       action: cast.show_lovelace_view
       data: 
         entity_id: media_player.nest_hub_bedroom

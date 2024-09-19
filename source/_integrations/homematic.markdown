@@ -252,14 +252,14 @@ Here's an example of how to use these events for automations:
 
 ```yaml
 automation:
-   trigger:
+   triggers:
      platform: event
      event_type: homematic.keypress
      event_data:
        name: "Kitchen Switch"
        channel: 1
        param: PRESS_SHORT
-   action:
+   actions:
      action: switch.turn_on
      target:
        entity_id: switch.Kitchen_Ambience
@@ -306,7 +306,7 @@ Simulate a button being pressed:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.virtualkey
   data:
     address: "BidCoS-RF"
@@ -318,7 +318,7 @@ Open KeyMatic:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.virtualkey
   data:
     address: "LEQ1234567"
@@ -330,7 +330,7 @@ Set boolean variable to true:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.set_variable_value
   target:
     entity_id: homematic.ccu2
@@ -348,7 +348,7 @@ Manually turn on a switch actor:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.set_device_value
   data:
     address: "LEQ1234567"
@@ -361,7 +361,7 @@ Manually set temperature on thermostat:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.set_device_value
   data:
     address: "LEQ1234567"
@@ -374,7 +374,7 @@ Manually set the active profile on thermostat:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.set_device_value
   data:
     address: "LEQ1234567"
@@ -388,7 +388,7 @@ Set the week program of a wall thermostat:
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.put_paramset
   data:
     interface: wireless
@@ -402,7 +402,7 @@ Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF onl
 
 ```yaml
 ...
-action:
+actions:
   action: homematic.put_paramset
   data:
     interface: wireless
@@ -423,7 +423,7 @@ Manually set lock on KeyMatic devices:
 
 ```yaml
 ...
-action:
+actions:
   action: lock.lock
   target:
     entity_id: lock.leq1234567
@@ -433,7 +433,7 @@ Manually set unlock on KeyMatic devices:
 
 ```yaml
 ...
-action:
+actions:
   action: lock.unlock
   target:
     entity_id: lock.leq1234567
@@ -488,11 +488,11 @@ template:
 
 automation:
   - alias: "Homematic Reconnect"
-    trigger:
+    triggers:
       platform: state
       entity_id: binary_sensor.homematic_is_sending_updates
       to: "off"
-    action:
+    actions:
       # Reconnect, if sensor has not been updated for over 10 minutes
       action: homematic.reconnect
 ```
@@ -534,10 +534,10 @@ automation:
      ```yaml
      automation:
        - alias: "Homematic CCU Reboot"
-         trigger:
+         triggers:
            platform: state
            entity_id: sensor.v_last_reboot
-         action:
+         actions:
            action: homematic.reconnect
      ```
 

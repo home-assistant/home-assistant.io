@@ -42,7 +42,7 @@ To use notifications, please see the [getting started with automation page](/get
 ### Send message
 
 ```yaml
-action:
+actions:
   action: notify.send_message
   data:
     entity_id: notify.tibber
@@ -143,14 +143,14 @@ The electricity price can be used to make automations. The sensor has a `max_pri
 
 ```yaml
 - alias: "Electricity price"
-  trigger:
+  triggers:
     platform: time_pattern
   # Matches every hour at 1 minutes past whole
     minutes: 1
-  condition:
+  conditions:
     condition: template
     value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
-  action:
+  actions:
    - action: notify.pushbullet
      data:
        title: "Electricity price"

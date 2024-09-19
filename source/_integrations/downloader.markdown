@@ -51,10 +51,10 @@ Along with the event the following payload parameters are available:
 
 ```yaml
 - alias: "Download Failed Notification"
-  trigger:
+  triggers:
     platform: event
     event_type: downloader_download_failed
-  action:
+  actions:
     action: persistent_notification.create
     data:
       message: "{{trigger.event.data.filename}} download failed"

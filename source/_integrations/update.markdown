@@ -153,11 +153,11 @@ the update for a light bulb becomes available.
 ```yaml
 automation:
   - alias: "Send notification when update available"
-    trigger:
+    triggers:
       platform: state
       entity_id: update.my_light_bulb
       to: "on"
-    action:
+    actions:
       alias: "Send notification to my phone about the update"
       action: notify.iphone
       data:

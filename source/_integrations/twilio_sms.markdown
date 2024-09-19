@@ -51,10 +51,10 @@ Media can be included with messages by setting the optional `media_url` variable
 # Example automation notification entry
 automation:
   - alias: "The sun has set"
-    trigger:
+    triggers:
       platform: sun
       event: sunset
-    action:
+    actions:
       action: notify.twilio_sms
       data:
         message: "The sun has set"

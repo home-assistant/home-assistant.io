@@ -82,11 +82,11 @@ a binary sensor (a doorbell) is triggered:
 
 ```yaml
 - alias: Visual doorbell notification example
-  trigger:
+  triggers:
     - platform: state
       entity_id: binary_sensor.doorbell
       to: "on"
-  action:
+  actions:
     - action: elgato.identify
       target:
         entity_id: light.elgato_key_light

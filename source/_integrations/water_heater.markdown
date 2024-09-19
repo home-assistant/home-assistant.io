@@ -44,10 +44,10 @@ Sets target temperature of water heater device.
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: water_heater.set_temperature
       target:
         entity_id: water_heater.demo
@@ -69,10 +69,10 @@ Set operation mode for water heater device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: water_heater.set_operation_mode
       target:
         entity_id: water_heater.demo
@@ -93,10 +93,10 @@ Turn away mode on or off for water heater device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: water_heater.set_away_mode
       target:
         entity_id: water_heater.demo

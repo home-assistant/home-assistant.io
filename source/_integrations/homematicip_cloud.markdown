@@ -234,7 +234,7 @@ Activate eco mode with duration.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.activate_eco_mode_with_duration
   data:
     duration: 60
@@ -245,7 +245,7 @@ Activate eco mode with period.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.activate_eco_mode_with_period
   data:
     endtime: 2019-09-17 18:00
@@ -256,7 +256,7 @@ Activates the vacation mode until the given time.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.activate_vacation
   data:
     endtime: 2019-09-17 18:00
@@ -268,7 +268,7 @@ Deactivates the eco mode immediately.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.deactivate_eco_mode
   data:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
@@ -278,7 +278,7 @@ Deactivates the vacation mode immediately.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.deactivate_vacation
   data:
     accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
@@ -291,7 +291,7 @@ You can get the required index from the native Homematic IP App.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.set_active_climate_profile
   target:
     entity_id: climate.livingroom
@@ -303,7 +303,7 @@ Dump the configuration of the Homematic IP Access Point(s).
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.dump_hap_config
   data:
     anonymize: True
@@ -313,7 +313,7 @@ Reset energy counter of measuring actuators.
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.reset_energy_counter
   target:
     entity_id: switch.livingroom
@@ -323,7 +323,7 @@ Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode wil
 
 ```yaml
 ...
-action:
+actions:
   action: homematicip_cloud.set_home_cooling_mode
   data:
     cooling: True

@@ -60,10 +60,10 @@ Set mode for the humidifier device. This action is only available if the device 
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     - platform: time
       at: "07:15:00"
-  action:
+  actions:
     - action: humidifier.set_mode
       target:
         entity_id: humidifier.bedroom
@@ -84,10 +84,10 @@ Set target humidity of the humidifier device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     - platform: time
       at: "07:15:00"
-  action:
+  actions:
     - action: humidifier.set_humidity
       target:
         entity_id: humidifier.bedroom

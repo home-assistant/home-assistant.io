@@ -90,12 +90,12 @@ counter:
 
 automation:
   - alias: "Count warnings"
-    trigger:
+    triggers:
       platform: event
       event_type: system_log_event
       event_data:
         level: WARNING
-    action:
+    actions:
       action: counter.increment
       target:
         entity_id: counter.warning_counter
@@ -110,13 +110,13 @@ This automation will create a persistent notification whenever an error or warni
 ```yaml
 automation:
   - alias: "Create notifications for 'action' errors"
-    trigger:
+    triggers:
       platform: event
       event_type: system_log_event
-    condition:
+    conditions:
       condition: template
       value_template: '{{ "action" in trigger.event.data.message[0] }}'
-    action:
+    actions:
       action: persistent_notification.create
       data:
         title: Something bad happened
@@ -132,12 +132,12 @@ This automation will create a new log entry when the door is opened:
 ```yaml
 automation:
   - alias: "Log door opened"
-    trigger:
+    triggers:
       platform: state
       entity_id: binary_sensor.door
       from: "off"
       to: "on"
-    action:
+    actions:
       action: system_log.write
       data:
         message: "Door opened!"

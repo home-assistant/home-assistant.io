@@ -53,12 +53,12 @@ You can then consume that information with the following automation:
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: event
     event_type: mailgun_message_received
     event_data:
       action: call_service
-  action:
+  actions:
     action: light.turn_on
     target:
       entity_id: light.office
@@ -102,10 +102,10 @@ The following automation reacts to an event by sending out an email with two att
 ```yaml
 # Example automation using Mailgun notifications
 automation:
-  trigger:
+  triggers:
     platform: event
     event_type: SPECIAL_EVENT
-  action:
+  actions:
     action: notify.mailgun
     data:
       title: "Something special has happened"

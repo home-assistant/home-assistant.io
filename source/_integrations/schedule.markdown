@@ -149,12 +149,12 @@ automations and templates.
 A schedule creates an on/off (schedule) sensor within the times set. Using the thermostat schedule example above, you can turn on your thermostat:
 
 ```yaml
-trigger:
+triggers:
     - platform: state
       entity_id:
         - schedule.thermostat_schedule
       to: "on"
-  action:
+  actions:
     - action: climate.turn_on
       target:
         entity_id: climate.thermostat
@@ -165,12 +165,12 @@ Using the `light_schedule` example from above in an automation might look like t
 {% raw %}
 
 ```yaml
-trigger:
+triggers:
     - platform: state
       entity_id:
         - schedule.light_schedule
       to: "on"
-  action:
+  actions:
     - service: light.turn_on
       target:
         entity_id: climate.thermostat

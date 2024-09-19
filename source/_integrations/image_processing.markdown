@@ -25,7 +25,7 @@ The `found_plate` event is triggered after OpenALPR has found a new license plat
 # Example configuration.yaml automation entry
 automation:
 - alias: "Open garage door"
-  trigger:
+  triggers:
     platform: event
     event_type: image_processing.found_plate
     event_data:
@@ -46,7 +46,7 @@ The `detect_face` event is triggered after a Face entity has found a face.
 # Example configuration.yaml automation entry
 automation:
 - alias: "Known person in front of my door"
-  trigger:
+  triggers:
     platform: event
     event_type: image_processing.detect_face
     event_data:
@@ -69,11 +69,11 @@ sensor:
 ...
 automation:
 - alias: "Scan for faces when motion detected"
-  trigger:
+  triggers:
     - platform: state
       entity_id: sensor.door_motion_sensor
       to: "on"
-  action:
+  actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.door

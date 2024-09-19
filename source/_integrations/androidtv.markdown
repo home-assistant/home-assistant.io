@@ -146,7 +146,7 @@ The `androidtv.adb_command` action allows you to send either keys or ADB shell c
 In an [action](/getting-started/automation-action/) of your [automation setup](/getting-started/automation/) it could look like this:
 
 ```yaml
-action:
+actions:
   action: androidtv.adb_command
   target:
     entity_id: media_player.androidtv_tv_living_room

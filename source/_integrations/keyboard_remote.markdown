@@ -93,7 +93,7 @@ And an automation rule to breathe life into it:
 ```yaml
 automation:
   alias: "Keyboard all lights on"
-  trigger:
+  triggers:
     platform: event
     event_type: keyboard_remote_command_received
     event_data:
@@ -101,7 +101,7 @@ automation:
       key_code: 107 # inspect log to obtain desired keycode
       type: key_down # only trigger on key_down events (optional)
 
-  action:
+  actions:
     action: light.turn_on
     target:
       entity_id: light.all
@@ -124,10 +124,10 @@ Here's an automation example that plays a sound through a media player whenever 
 ```yaml
 automation:
   - alias: "Keyboard Connected"
-    trigger:
+    triggers:
       platform: event
       event_type: keyboard_remote_connected
-    action:
+    actions:
       - action: media_player.play_media
         target:
           entity_id: media_player.speaker
@@ -136,12 +136,12 @@ automation:
           media_content_type: music
 
   - alias: "Bluetooth Keyboard Disconnected"
-    trigger:
+    triggers:
       platform: event
       event_type: keyboard_remote_disconnected
       event_data:
         device_name: "00:58:56:4C:C0:91"
-    action:
+    actions:
       - action: media_player.play_media
         target:
           entity_id: media_player.speaker

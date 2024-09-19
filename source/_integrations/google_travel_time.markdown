@@ -70,10 +70,10 @@ You can use the `homeassistant.update_entity` action to update the sensor on-dem
 - id: update_morning_commute_sensor
   alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
+  triggers:
     - platform: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -84,7 +84,7 @@ You can use the `homeassistant.update_entity` action to update the sensor on-dem
         - wed
         - thu
         - fri
-  action:
+  actions:
     - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute

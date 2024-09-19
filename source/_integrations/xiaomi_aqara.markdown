@@ -163,13 +163,13 @@ This example plays the sound of a dog barking when the button is held down and s
 
 ```yaml
 - alias: "Let a dog bark on long press"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
-  action:
+  actions:
     action: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
@@ -177,13 +177,13 @@ This example plays the sound of a dog barking when the button is held down and s
       ringtone_vol: 8
 
 - alias: "Stop barking immediately on single click"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
-  action:
+  actions:
     action: xiaomi_aqara.stop_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
@@ -195,13 +195,13 @@ This example toggles the living room lamp on a double click of the button.
 
 ```yaml
 - alias: "Double Click to toggle living room lamp"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
-  action:
+  actions:
     action: light.toggle
     target:
       entity_id: light.living_room_lamp

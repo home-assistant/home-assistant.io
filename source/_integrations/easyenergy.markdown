@@ -167,10 +167,10 @@ You can use the response data in a template sensor that is updated every hour:
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: time_pattern
         seconds: "*"
-    action:
+    actions:
       - action: easyenergy.get_energy_usage_prices
         response_variable: response
         data:

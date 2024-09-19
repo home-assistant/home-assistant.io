@@ -47,14 +47,14 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
 - id: '1234567890123'
   alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
-  trigger:
+  triggers:
   - below: '65'
     entity_id: sensor.dexcom_YOUR_USERNAME_glucose_value
     platform: numeric_state
   condition: time
     after: "22:00:00"
     before: "06:00:00"
-  action:
+  actions:
   - action: light.turn_on
       target:
         entity_id: light.kitchen

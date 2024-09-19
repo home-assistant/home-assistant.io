@@ -107,10 +107,10 @@ Example of adding a tag to your notification. This won't create new notification
 
 ```yaml
   - alias: "Push/update notification of sensor state with tag"
-    trigger:
+    triggers:
       - platform: state
         entity_id: sensor.sensor
-    action:
+    actions:
       action: notify.html5
       data:
         message: "Last known sensor state is {{ states('sensor.sensor') }}."
@@ -207,7 +207,7 @@ notification is received on the device.
 
 ```yaml
 - alias: "HTML5 push notification received and displayed on device"
-  trigger:
+  triggers:
     platform: event
     event_type: html5_notification.received
 ```
@@ -218,7 +218,7 @@ You will receive an event named `html5_notification.clicked` when the notificati
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
+  triggers:
     platform: event
     event_type: html5_notification.clicked
 ```
@@ -227,7 +227,7 @@ or
 
 ```yaml
 - alias: "HTML5 push notification action button clicked"
-  trigger:
+  triggers:
     platform: event
     event_type: html5_notification.clicked
     event_data:
@@ -240,7 +240,7 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
+  triggers:
     platform: event
     event_type: html5_notification.closed
 ```

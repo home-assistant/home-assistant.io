@@ -83,14 +83,14 @@ Example usage for automation:
 ```yaml
 automation:
   alias: "Turn on heater on workdays"
-  trigger:
+  triggers:
     platform: time
     at: "08:00:00"
-  condition:
+  conditions:
     condition: state
     entity_id: binary_sensor.workday_sensor
     state: "on"
-  action:
+  actions:
     action: switch.turn_on
     target:
       entity_id: switch.heater

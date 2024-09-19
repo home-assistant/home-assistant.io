@@ -264,13 +264,13 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
+triggers:
   - platform: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
+actions:
   - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:

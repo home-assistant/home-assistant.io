@@ -346,12 +346,12 @@ Simple ping pong example.
 
 ```yaml
 alias: 'Telegram bot that reply pong to ping'
-trigger:
+triggers:
   platform: event
   event_type: telegram_command
   event_data:
     command: "/ping"
-action:
+actions:
   - action: notify.notify
     data:
       message: "pong"
@@ -360,12 +360,12 @@ action:
 An example that shows keyboard interaction with `notify.telegram`
 
 ```yaml
-trigger:
+triggers:
   platform: event
   event_type: telegram_command
   event_data:
     command: "/start"
-action:
+actions:
   - action: notify.telegram
     data:
       message: "commands"
@@ -378,12 +378,12 @@ action:
 and an automation to trigger a related command "/siren".
 
 ```yaml
-trigger:
+triggers:
   platform: event
   event_type: telegram_command
   event_data:
     command: "/siren"
-action:
+actions:
   - action: homeassistant.turn_on
     target:
       entity_id: switch.vision_zm1601eu5_battery_operated_siren_switch_9_0
@@ -400,12 +400,12 @@ An example to show the use of event_data in action:
 
 ```yaml
 - alias: 'Kitchen Telegram Speak'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_command
     event_data:
       command: "/speak"
-  action:
+  actions:
     - action: notify.kitchen_echo
       data:
         message: >
@@ -428,10 +428,10 @@ Text repeater:
 
 ```yaml
 - alias: 'Telegram bot that repeats text'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_text
-  action:
+  actions:
     - action: telegram_bot.send_message
       data:
         title: "*Dumb automation*"
@@ -451,12 +451,12 @@ Message editor:
 
 ```yaml
 - alias: 'Telegram bot that edits the last sent message'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_callback
     event_data:
       command: "/edit_msg"
-  action:
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -484,12 +484,12 @@ Keyboard editor:
 
 ```yaml
 - alias: 'Telegram bot that edits the keyboard'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_callback
     event_data:
       command: "/remove_button"
-  action:
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -510,12 +510,12 @@ Only acknowledges the 'NO' answer:
 
 ```yaml
 - alias: 'Telegram bot that simply acknowledges'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_callback
     event_data:
       command: "/do_nothing"
-  action:
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         callback_query_id: "{{ trigger.event.data.id }}"
@@ -530,12 +530,12 @@ Telegram callbacks also support arguments and commands the same way as normal me
 
 ```yaml
 - alias: 'Telegram bot repeats arguments on callback query'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_callback
     event_data:
       command: "/repeat"
-  action:
+  actions:
     - action: telegram_bot.answer_callback_query
       data:
         show_alert: true
@@ -553,12 +553,12 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 
 ```yaml
 - alias: 'Notifications about messages sent by Telegram bot'
-  trigger:
+  triggers:
     platform: event
     event_type: telegram_sent
     event_data:
       message_tag: "msg_start"
-  action:
+  actions:
     - action: input_number.set_value
       data_template:
         entity_id: input_number.chat_id
@@ -574,7 +574,7 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ## Example: send_message with formatted Text
 
 ```yaml
-action:
+actions:
 - action: notify.telegrambot
   data:
     title: Example Message
@@ -584,7 +584,7 @@ action:
 ## Example: send_message with message tag
 
 ```yaml
-action:
+actions:
 - action: notify.telegrambot
   data:
     title: Example Message
@@ -596,7 +596,7 @@ action:
 ## Example: send_message with disabled webpage preview:
 
 ```yaml
-action:
+actions:
 - action: notify.telegram
   data:
     message: >-

@@ -146,7 +146,7 @@ The `condition` {% term action %} only stops executing the current sequence bloc
 
 ```yaml
 - alias: "Check if Paulus ishome AND temperature is below 20"
-  condition:
+  conditions:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -360,11 +360,11 @@ The following {% term automation %} example shows how to raise a custom event ca
 
 ```yaml
 - alias: "Fire Event"
-  trigger:
+  triggers:
     - platform: state
       entity_id: switch.kitchen
       to: "on"
-  action:
+  actions:
     - event: event_light_state_changed
       event_data:
         state: "on"
@@ -376,10 +376,10 @@ The following {% term automation %} example shows how to capture the custom even
 
 ```yaml
 - alias: "Capture Event"
-  trigger:
+  triggers:
     - platform: event
       event_type: event_light_state_changed
-  action:
+  actions:
     - action: notify.notify
       data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
@@ -524,16 +524,16 @@ _until_ the condition(s) evaluate to true.
 
 ```yaml
 automation:
-  - trigger:
+  - triggers:
       - platform: state
         entity_id: binary_sensor.xyz
         to: "on"
-    condition:
+    conditions:
       - condition: state
         entity_id: binary_sensor.something
         state: "off"
     mode: single
-    action:
+    actions:
       - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:
           sequence:
@@ -621,12 +621,12 @@ The `choose` {% term action %} can be used like an "if/then/elseif/then.../else"
 ```yaml
 # Example with "if", "elif" and "else"
 automation:
-  - trigger:
+  - triggers:
       - platform: state
         entity_id: input_boolean.simulate
         to: "on"
     mode: restart
-    action:
+    actions:
       - choose:
           # IF morning
           - conditions:
@@ -664,10 +664,10 @@ For example:
 
 ```yaml
 automation:
-  - trigger:
+  - triggers:
       - platform: state
         entity_id: input_select.home_mode
-    action:
+    actions:
       - choose:
           - conditions: >
               {{ trigger.to_state.state == 'Home' and
@@ -706,12 +706,12 @@ When the sun goes below the horizon, the `porch` and `garden` lights must turn o
 # Example with "if" and "if"
 automation:
   - alias: "Turn lights on when the sun gets dim and if some room is occupied"
-      trigger:
+      triggers:
         - platform: numeric_state
           entity_id: sun.sun
           attribute: elevation
           below: 4
-      action:
+      actions:
         # This must always apply
         - action: light.turn_on
           data:
@@ -770,11 +770,11 @@ groups themselves. In total, four actions are executed, one after the other.
 
 ```yaml
 automation:
-  - trigger:
+  - triggers:
       - platform: state
         entity_id: binary_sensor.motion
         to: "on"
-    action:
+    actions:
       - alias: "Turn on devices"
         sequence:
           - action: light.turn_on
@@ -807,11 +807,11 @@ The following example shows sending messages out at the same time (in parallel):
 
 ```yaml
 automation:
-  - trigger:
+  - triggers:
       - platform: state
         entity_id: binary_sensor.motion
         to: "on"
-    action:
+    actions:
       - parallel:
           - action: notify.person1
             data:
@@ -966,7 +966,7 @@ blueprint:
       selector: 
         boolean:
 
-  action:
+  actions:
     - delay: 0:35
       enabled: !input input_boolean
 ```

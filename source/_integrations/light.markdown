@@ -70,11 +70,11 @@ In order to apply attributes to an entity, you will need to add `data:` to the c
 automation:
 - id: one
   alias: "Turn on light when motion is detected"
-  trigger:
+  triggers:
     - platform: state
       entity_id: binary_sensor.motion_1
       to: "on"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.living_room
@@ -86,10 +86,10 @@ automation:
 # Ledlist morning on, red
 - id: llmor
   alias: "Stair morning on"
-  trigger:
+  triggers:
   - at: '05:00'
     platform: time
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.ledliststair

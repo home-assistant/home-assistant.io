@@ -247,7 +247,7 @@ Here is a more complex example. The automation is triggered if the garage door i
 ```yaml
 automation:
   garage_door_has_been_open:
-    trigger:
+    triggers:
      - platform: state
         entity_id: binary_sensor.my_garage_door_sensor
         from: "off"
@@ -267,7 +267,7 @@ intent_script:
     speech:
       type: plain
       text: "OK, closing the garage door"
-    action:
+    actions:
       - action: script.garage_door_close
 ```
 

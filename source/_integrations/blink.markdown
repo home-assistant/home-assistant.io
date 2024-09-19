@@ -135,11 +135,11 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 ```yaml
 - id: arm_blink_when_away
   alias: "Arm Blink When Away"
-  trigger:
+  triggers:
     platform: state
     entity_id: all
     to: "not_home"
-  action:
+  actions:
     action: alarm_control_panel.alarm_arm_away
     target:
       entity_id: alarm_control_panel.blink_my_sync_module
@@ -152,11 +152,11 @@ Similar to the previous example, this automation will disarm blink when arriving
 ```yaml
 - id: disarm_blink_when_home
   alias: "Disarm Blink When Home"
-  trigger:
+  triggers:
     platform: state
     entity_id: all
     to: "home"
-  action:
+  actions:
     action: alarm_control_panel.alarm_disarm
     target:
       entity_id: alarm_control_panel.blink_my_sync_module
@@ -173,11 +173,11 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
 ```yaml
 - id: save_blink_video_on_motion
   alias: "Save Blink Video on Motion"
-  trigger:
+  triggers:
     platform: state
     entity_id: binary_sensor.blink_my_camera_motion_detected
     to: "on"
-  action:
+  actions:
     -  action: blink.save_video
        target:
          entity_id: camera.blink_my_camera
@@ -202,10 +202,10 @@ The file name of the downloaded video file is not configurable.
 ```yaml
 - id: save_recent_clips_from_my_camera
   alias: "Save Recent Clips from My Camera"
-  trigger:
+  triggers:
     - platform: time_pattern
       minutes: /3
-  action:
+  actions:
     - action: blink.save_recent_clips
       target:
         entity_id: camera.my_camera

@@ -53,10 +53,10 @@ The `changed_by` attribute enables one to be able to take different actions depe
 ```yaml
 automation:
   - alias: "Alarm status changed"
-    trigger:
+    triggers:
       - platform: state
         entity_id: alarm_control_panel.alarm_1
-    action:
+    actions:
       - action: notify.notify
         data:
           message: >
