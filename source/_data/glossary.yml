@@ -231,7 +231,7 @@
     - entities
 - term: Event
   definition: >-
-    An event is when something happens.
+    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All event entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.
   link: /docs/configuration/events/
   aliases:
     - events
@@ -498,14 +498,13 @@
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used.
-    The data type of state is `string` (a textual value). Entities store 2
+    light is on or off, the current temperature, or the amount of energy used. Entities store 2
     timestamps related to the state: `last_updated` and `last_changed`. Each
     entity has exactly one state and the state only holds one value at a time.
     However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State changes can be used as the source
-    of triggers. The current state can be used in conditions.
+    current brightness and color values. State change events can be used as triggers. 
+    The current state can be used in conditions.
 
   link: /docs/configuration/state_object/
   aliases:
