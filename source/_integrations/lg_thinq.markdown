@@ -12,6 +12,7 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - event
 ha_integration_type: integration
 ---
 
@@ -84,6 +85,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
 - [Switch](#switch)
+- [Event](#event)
 
 ### Binary sensor
 
@@ -97,6 +99,29 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Event
+
+A notification message pushed from the server is represented as a event platform. Supported devices:
+
+| Device |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) |
+| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) |
+| Humidifier |
+| [Kimchi Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Kimchi-Refrigerator/) |
+| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) |
+| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) |
+| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) |
+| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) |
 
 ### Switch
 
