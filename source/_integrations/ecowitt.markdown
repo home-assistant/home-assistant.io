@@ -22,13 +22,17 @@ ha_integration_type: integration
 
 ## Ecowitt Weather Station configuration
 
-The following steps must be performed to set up this integration. For security reason, use the token path that you get from the Home Assistant config flow.
+The Ecowitt integration works by first creating a callback endpoint on your Home Assistant instance, then adding this configuration to the Ecowitt console so that it starts sending data.
 
+To set up this integration:
+
+1. Add the Ecowitt integration to your Home Assistant instance. When doing so, the config flow will display a Server IP, Path, and Port.
 1. Use the Ecowitt App (on your phone) or access the Ecowitt WebUI in a browser at the station IP address.
-2. Pick your station -> Menu Others -> DIY Upload Servers.
-3. Hit next and select 'Customized'
-4. Pick the protocol Ecowitt, and put in the ip/hostname of your Home Assistant server.
-5. Path has to match! If using the Ecowitt App, remove the first forward slash from the API token, as the app will prepend one.
-6. Save configuration.
+3. Pick your station -> Menu Others -> DIY Upload Servers.
+4. Hit next and select 'Customized'
+5. Pick the protocol Ecowitt
+6. Enter the Server IP, Path, and Port that were displayed in step 1 
+    * Path has to match! If using the Ecowitt app, remove the first forward slash from the path, as the app will prepend one.
+7. Save configuration
 
 Ecowitt doesn't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.
