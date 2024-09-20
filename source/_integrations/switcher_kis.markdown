@@ -36,7 +36,7 @@ Supported devices:
 - Switcher Runner
 - Switcher Runner S11
 
-Required token devices:
+Devices that require a token:
 
 - Switcher Runner S11
 
