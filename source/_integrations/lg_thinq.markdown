@@ -13,7 +13,6 @@ ha_platforms:
   - switch
   - binary_sensor
   - climate
-  - sensor
 ha_integration_type: integration
 ---
 
@@ -85,7 +84,6 @@ LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.c
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
-- [Sensor](#sensor)
 - [Climate](#climate)
 - [Switch](#switch)
 
@@ -110,39 +108,6 @@ The properties for controlling both the temperature and wind strength of the app
 | ------ | -------- |
 | [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Fan mode<br>HVAC mode<br>Preset mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
 | [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | HVAC mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
-
-### Sensor
-
-A common read-only property is represented as a sensor platform.
-
-| Device | Property |
-| ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | PM1<br>PM2<br>PM10<br>Humidity |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Monitoring always or on operation<br>Current job mode<br>Personalizaion mode (preset) |
-| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/) | Current state |
-| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Current job mode<br>Current state |
-| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Error description<br>Current state |
-| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Error description<br>Current state |
-| [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Current state |
-| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation |
-| Kimchi Refrigerator | Air filter mode<br>One touch filter state<br>Target temperature |
-| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state |
-| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state<br>Target temperature |
-| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Current state<br>Growth mode<br>Wind volume<br>Daytime target temperature<br>Night target temperature<br>Temperature state |
-| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Air filter mode |
-| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Error description<br>Current state<br>Current job mode |
-| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Current job mode<br>Current state |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Error description<br>Current state |
-| Washcombo Main | Error description<br>Current state |
-| Washcombo Mini | Error description<br>Current state |
-| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Error description<br>Current state |
-| [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Error description<br>Current state |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Error description<br>Current state |
-| [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Error description<br>Current state |
-| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
-| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Purification mode<br>Sterilizing mode<br>Water type |
 
 ### Switch
 
