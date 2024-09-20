@@ -12,6 +12,7 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - text
 ha_integration_type: integration
 ---
 
@@ -84,6 +85,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
 - [Switch](#switch)
+- [Text](#text)
 
 ### Binary sensor
 
@@ -108,6 +110,15 @@ A read-wirte property which has only two states that can be toggled is represens
 | [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode |
 | [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode |
 | Humidifier | Humidifier operation mode |
+
+### Text
+
+A read-wirte property which should specify the time in a specific format are is represensted as a text platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/)<br>[Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/)<br>[Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/)<br>Humidifier | Start timer<br>Stop timer |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Start timer |
 
 ## Troubleshooting
 
