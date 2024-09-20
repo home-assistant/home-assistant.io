@@ -28,11 +28,11 @@ To set up this integration:
 
 1. Add the Ecowitt integration to your Home Assistant instance. When doing so, the config flow will display a Server IP, Path, and Port.
 1. Use the Ecowitt App (on your phone) or access the Ecowitt WebUI in a browser at the station IP address.
-3. Pick your station -> Menu Others -> DIY Upload Servers.
-4. Hit next and select 'Customized'
-5. Pick the protocol Ecowitt
-6. Enter the Server IP, Path, and Port that were displayed in step 1 
-    * Path has to match! If using the Ecowitt app, remove the first forward slash from the path, as the app will prepend one.
-7. Save configuration
+1. Pick your station -> Menu Others -> DIY Upload Servers.
+1. Hit next and select 'Customized'
+1. Pick the protocol Ecowitt
+1. Enter the Server IP, Path, and Port that were displayed in step 1 
+    - Path has to match! If using the Ecowitt app, remove the first forward slash from the path, as the app will prepend one.
+1. Save configuration
 
 Ecowitt doesn't support TLS/SSL, you can use the NGINX TLS Proxy Add-on to support HTTPS and HTTP at the same time.
