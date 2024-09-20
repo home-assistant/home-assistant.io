@@ -4,6 +4,7 @@ description: The SMLIGHT SLZB integration allows users to monitor and manage the
 ha_category:
   - Binary sensor
   - Button
+  - Event
   - Sensor
   - Switch
   - Update
@@ -15,6 +16,7 @@ ha_zeroconf: true
 ha_platforms:
   - binary_sensor
   - button
+  - event
   - sensor
   - switch
   - update
@@ -90,3 +92,9 @@ The following update entities will be created:
 - **Zigbee firmware** - Firmware updates of Zigbee chip
 
 The updates offered in Home Assistant will match your currently installed firmware. This is based on the firmware channel (dev, release) and for Zigbee also on the firmware type (coordinator, router, Thread). If you wish to switch channels, install the different firmware type in the SMLIGHT web UI. You will get notifications when new firmware updates are available to install.
+
+### Events
+
+The following {% term events %} can be triggered in real-time from SLZB-06x actions:
+
+- **core-reboot** - Triggered on core reboot, includes the attribute `reason` indicating the cause of the reboot.
