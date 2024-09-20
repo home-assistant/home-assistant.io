@@ -18,6 +18,15 @@ The DLNA Digital Media Server integration allows you to browse and play media fr
 
 {% include integrations/config_flow.md %}
 
+## Options
+
+Options for DLNA DMS devices can be set by going to **Settings** > **Devices & services** > **DLNA Digital Media Server** > **Configuration**.
+
+{% configuration_basic %}
+Try to reconnect when disconnected?:
+  description: "When an actiion is initiated on the media server and it is disconnected, a reconnection is attempted.  The result is either a successful connection or an Exception "DMS is not connected".
+{% endconfiguration_basic %}
+
 ## Renaming
 
 The name/title of the DMS device is the same as the title of the config entry. It can be changed on the Integrations Configuration page from the three-dot menu.
