@@ -26,6 +26,11 @@ The state of a date/time entity is the actual date and time value.
 Screenshot showing the state of a date/time entity in the developer tools. In the example shown, the state is January 1, 2020 at 12:00 in the format YYYY-MM-DD T HH:MM:SS.
 </p>
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 ### datetime actions

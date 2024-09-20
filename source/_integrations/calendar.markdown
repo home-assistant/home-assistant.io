@@ -40,6 +40,11 @@ The state shows whether or not there is an active event:
 - On: The calendar has an active event.
 - Off: The calendar does not have an active event.
 
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Automation
 
 Calendar [Triggers](/docs/automation/trigger) enable {% term automation %} based on an

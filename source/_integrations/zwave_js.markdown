@@ -57,14 +57,15 @@ You do not need a Z-Wave controller that is specifically designed for the Z-Wave
 
 This sections shows you how to set up a Z-Wave JS server and how to add your first Z-Wave device to Home Assistant. It also introduces you to some of the basic terminology.
 
-### Z-Wave terminology
+### Z-Wave terminology and Home Assistant
 
 Throughout this documentation, Home Assistant terminology is used. For some of the concepts, the terminology does not correspond to the terminology used in Z-Wave documentation. The table below provides equivalents for some of those terms.
 
-| Z-Wave functionality | Home Assistant                                         |
-| -------------------- | ------------------------------------------------------ |
-| inclusion            | add                                                    |
-| exclusion            | remove                                                 |
+| Z-Wave functionality | Home Assistant                                         | Definition                                                                                                  |
+| -------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------- |
+| inclusion            | add                                                    | The process of adding a node to the Z-Wave network                                                          |
+| exclusion            | remove                                                 | The process of removing a node from the Z-Wave network                                                      |
+| replication          | copy (not supported in Home Assistant)                 | The process of copying network information from one controller to another. Not supported in Home Assistant. |
 | barrier operator     | cover                                                  |
 | window covering      | cover                                                  |
 | multilevel switch    | represented by different entity types: light, fan etc. |
@@ -73,11 +74,9 @@ Throughout this documentation, Home Assistant terminology is used. For some of t
 
 Home Assistant supports both _classic inclusion_ and _SmartStart_. _Classic inclusion_ means you set both the hub and the device to be included into the corresponding mode. The alternative is _SmartStart_, where the hub is constantly listening for inclusion requests from devices that want to join the network.
 
-#### Association group
+#### Related topics
 
-An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
-
-An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
+For more Z-Wave term definitions, refer to the [terminology section](#z-wave-terminology).
 
 ### Prerequisites
 
@@ -134,17 +133,25 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 2. Select the Z-Wave integration. Then select **Configure**.
 3. Select **Add device**.
    - The Z-Wave controller is now in inclusion mode.
-4. If your device supports SmartStart (700 series controller), select **Scan QR code** and scan the QR code on your device.
-5. If your device does not support SmartStart, set the device in inclusion mode. Refer to the device manual to see how this is done.
-   - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
+4. Check, if your device supports SmartStart:
+   - On the packaging, check for the SmartStart label.
+   - Find the QR code. It can be on the packaging or on the device itself.
+5. Depending on whether your device supports SmartStart, follow the steps in either option 1 or 2:
+   - **Option 1: your device supports SmartStart**:
+     - Select **Scan QR code** and scan the QR code on your device.
+     - If scanning does not work (for example due to missing HTTPS), paste the QR code content as text from a different QR reader and select **Submit**.
+     - Turn the device on. If it was already on, you might need to power-cycle it.
+   - **Option 2: your device does not support SmartStart**:
+     - Set the device in inclusion mode. Refer to the device manual to see how this is done.
+     - If your device is included using S2 security, you may be prompted to enter a PIN number provided with your device. Often, this PIN is provided with the documentation _and_ is also printed on the device itself. For more information on secure inclusion, refer to [this section](/integrations/zwave_js/#should-i-use-secure-inclusion).
 6. The UI should confirm that the device was added. After a short while (seconds to minutes), the entities should also be created.
-7. If the controller fails to add/find your device, cancel the inclusion process.
+7. **Troubleshooting**: If the controller fails to add/find your device, cancel the inclusion process.
    - In some cases, it might help to first [remove](/integrations/zwave_js/#removing-a-device-from-the-z-wave-network) a device (exclusion) before you add it, even when the device has not been added to this Z-Wave network yet.
    - Another approach would be to factory reset the device. Refer to the device manual to see how this is done.
 
 **Important:**
 
-1. **Do not move your Z-Wave stick to include devices.** This is no longer necessary and leads to broken routes.
+1. **Do not move your Z-Wave stick to include devices.** Moving the controller is no longer necessary and leads to broken routes.
 2. **Do not initiate device inclusion from the Z-Wave stick itself.** This is no longer supported.
 
 ### Removing a device from the Z-Wave network
@@ -1000,22 +1007,43 @@ The following table lists the Command Classes together with the implemented vers
 
 | Command Class                 | Version | Security Class  |
 | ----------------------------- | ------- | --------------- |
-| Z-Wave Plus Info              | 2       | None            |
-| Security                      | 1       | None            |
-| Security 2                    | 1       | None            |
-| Transport Service             | 2       | None            |
-| Supervision                   | 2       | None            |
-| CRC-16 Encapsulation          | 1       | None            |
-| Multi Command                 | 1       | None            |
-| Inclusion Controller          | 1       | None            |
 | Association                   | 4       | Highest granted |
 | Association Group Information | 3       | Highest granted |
+| CRC-16 Encapsulation          | 1       | None            |
 | Device Reset Locally          | 1       | Highest granted |
 | Firmware Update Meta Data     | 8       | Highest granted |
+| Inclusion Controller          | 1       | None            |
 | Indicator                     | 4       | Highest granted |
 | Manufacturer Specific         | 2       | Highest granted |
 | Multi Channel Association     | 5       | Highest granted |
+| Multi Command                 | 1       | None            |
 | Power Level                   | 1       | Highest granted |
+| Security                      | 1       | None            |
+| Security 2                    | 1       | None            |
+| Supervision                   | 2       | None            |
+| Transport Service             | 2       | None            |
 | Version                       | 3       | Highest granted |
+| Z-Wave Plus Info              | 2       | None            |
 
+{% note %}
+Home Assistant and Z-Wave JS will never return a "Working" or "Fail" status for a valid and supported command of the Supervision Command Class.
+{% endnote %}
 
+## Z-Wave terminology
+
+This section explains some Z-Wave terms and concepts you might find in Z-Wave product documentation.
+
+### Association group
+
+An _association_ in Z-Wave terminology is when two or more Z-Wave products communicate directly. This enables devices to communicate with each other without the need to communicate via a hub, or to send unsolicited reports to the central hub.
+
+An _association group_ in Z-Wave terminology is a group of devices that another one will send commands to in certain situations. Association groups and their functionality are specific to the device that sends the commands. Refer to the device manual for details.
+
+### SmartStart
+
+SmartStart enabled products can be added into a Z-Wave network by scanning the Z-Wave QR Code present on the product with a controller providing SmartStart inclusion.
+No further action is required and the SmartStart product will be added automatically within 10 minutes of being switched on in the network vicinity. Not all devices support SmartStart. Some devices require [classic inclusion](#classic-inclusion-versus-smartstart). For documentation on adding a device to Home Assistant, refer to [adding a new device to the Z-Wave network](#adding-a-new-device-to-the-z-wave-network).
+
+### Terminology mapping table
+
+For some of the concepts, the terminology used in Home Assistant does not correspond to the terminology used in Z-Wave documentation. Refer to the [terminology mapping table](#z-wave-terminology-and-home-assistant) for a list of term equivalents.

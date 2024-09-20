@@ -4,13 +4,13 @@ ruby '> 2.5.0'
 
 group :development do
   gem 'rake', '13.2.1'
-  gem 'jekyll', '4.3.3'
+  gem 'jekyll', '4.3.4'
   gem 'compass', '1.0.3'
   gem 'sass-globbing', '1.1.5'
   gem 'stringex', '2.8.6'
   gem 'sassc', '2.4.0'
   gem 'rubocop', '1.66.1'
-  gem 'ruby-lsp', '0.17.17'
+  gem 'ruby-lsp', '0.18.0'
   gem 'rackup', '2.1.0'
 end
 
