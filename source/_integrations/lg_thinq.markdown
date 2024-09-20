@@ -105,6 +105,7 @@ A read-only property which has only two states that can be toggled is represente
 A notification message pushed from the server is represented as a event platform. Supported devices:
 
 | Device |
+| ------ |
 | [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) |
 | [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) |
 | [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) |
