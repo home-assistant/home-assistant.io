@@ -50,19 +50,6 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
    - Click **CREATE**.  *Application Key* and *Application Secret* will be generated and shown.  Protect these like a username and password.
 
-    {% details "I have manually disabled My Home Assistant" %}
-
-    If you don't have [My Home Assistant](/integrations/my) on your installation,
-    you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
-    instead.
-
-    The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
-    authentication process.
-
-    Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
-
-    {% enddetails %}
-
 4. Click on **CONNECT NEW API** and connect the **Authentication API**.
    ![Authentication API*](/images/integrations/husqvarna_automower/connect_authentication_api.png)
 
@@ -71,6 +58,20 @@ Your Husqvarna account username/password used for the *Automower® Connect*  pho
 
 6. Leave this tab open in browser and continue with Home Assistant configuration.
    ![Application Overview](/images/integrations/husqvarna_automower/application_overview.png)
+
+
+{% details "I have manually disabled My Home Assistant" %}
+
+If you don't have [My Home Assistant](/integrations/my) on your installation,
+you can use `<HOME_ASSISTANT_URL>/auth/external/callback` as the redirect URI
+instead.
+
+The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
+authentication process.
+
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
+
+{% enddetails %}
 
 ### Home Assistant
 
