@@ -243,6 +243,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- CPU usage*
 - HDD/SD storage*
 - Battery percentage
 - Battery temperature*
