@@ -810,7 +810,7 @@ source/_integrations/switch_as_x.markdown @home-assistant/core
 source/_integrations/switchbee.markdown @jafar-atili
 source/_integrations/switchbot.markdown @danielhiversen @RenierM26 @murtas @Eloston @dsypniewski
 source/_integrations/switchbot_cloud.markdown @SeraphicRav @laurence-presland
-source/_integrations/switcher_kis.markdown @thecode
+source/_integrations/switcher_kis.markdown @thecode @YogevBokobza
 source/_integrations/switchmate.markdown @danielhiversen @qiz-li
 source/_integrations/symfonisk.markdown @jjlawren @peterager
 source/_integrations/syncthing.markdown @zhulik
