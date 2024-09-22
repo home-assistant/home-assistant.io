@@ -181,6 +181,27 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Sensor|Solar exported|No|
+|Sensor|Generator exported|Yes|
+|Sensor|Grid imported|No|
+|Sensor|Grid services imported|No|
+|Sensor|Grid services exported|No|
+|Sensor|Grid exported from solar|No|
+|Sensor|Grid exported from generator|No|
+|Sensor|Grid exported from battery|No|
+|Sensor|Battery exported|No|
+|Sensor|Battery imported from grid|No|
+|Sensor|Battery imported from solar|No|
+|Sensor|Battery imported from generator|No|
+|Sensor|Consumer imported from grid|No|
+|Sensor|Consumer imported from solar|No|
+|Sensor|Consumer imported from battery|No|
+|Sensor|Consumer imported from generator|No|
+|Sensor|Home usage|Yes|
+|Sensor|Battery charged|Yes|
+|Sensor|Battery discharged|Yes|
+|Sensor|Solar generated|Yes|
+|Sensor|Grid exported|Yes|
 |Select|Allow export|Yes|
 |Select|Operation mode|Yes|
 |Switch|Allow charging from grid|Yes|
