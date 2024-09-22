@@ -6,6 +6,7 @@ ha_category:
   - Car
   - Climate
   - Device tracker
+  - Lock
   - Number
   - Select
   - Sensor
@@ -21,6 +22,7 @@ ha_platforms:
   - climate
   - device_tracker
   - diagnostics
+  - lock
   - number
   - select
   - sensor
@@ -92,6 +94,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Climate|Climate|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
+|Lock|Charge cable lock|Yes|
+|Lock|Lock|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
