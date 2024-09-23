@@ -26,7 +26,7 @@ ha_integration_type: service
 
 ### Accounts & devices
 
-Each `account` will be set up as a device in Home Assistant, and it will contain the following sensors:
+Each `account` is set up as a device in Home Assistant and contain the following sensors:
 
 |Sensor|Description|
 |-------|---------------|
