@@ -12,6 +12,7 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - select
 ha_integration_type: integration
 ---
 
@@ -83,6 +84,7 @@ LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.c
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
+- [Select](#select)
 - [Switch](#switch)
 
 ### Binary sensor
@@ -97,6 +99,28 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Select
+
+A writable property which has a list of selectable values is represensted as a select platform.
+
+| Device |Property |
+| ------ |-------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Monitoring always or on operation<br>Air clean mode<br>Enable power save mode |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Wind strength<br>Wind angle<br>Warm mode<br>Light level<br>Current job mode<br>UV sterilization |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Wind strength<br>Current job mode |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Wind strength |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Operation mode |
+| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Operation mode |
+| Humidifier | Warm mode<br>Wind strength<br>Light level, Current job mode<br>Mood lamp state<br>Auto mode<br>Sleep mode<br>Hygiene dry mode<br> |
+| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Cook mode<br>Operation mode<br> |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Express mode<br>Rapid freeze<br> |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Operation mode |
+| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Hot water mode |
+| Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Operation mode |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Dryer operation mode<br>Washer operation mode |
+| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Current job mode |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Light brightness<br>Optimal humidity |
 
 ### Switch
 
