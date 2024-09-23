@@ -32,7 +32,7 @@ You can find the statistics in {% my developer_statistics title="**Developer Too
 At the initial setup, the integration pulls historical hourly usage since the account activation. Duke Energy typically only keeps this data for the past 3 years.
 After the initial setup, the integration keeps pulling data (twice per day) for the past 30 days to allow for any corrections in the data.
 
-In the configuration of the energy dashboard (**{% my config_energy title="Settings > Dashboards > Energy" %}**):
+In the configuration of the energy dashboard ({% my config_energy title="**Settings** > **Dashboards** > **Energy**" %}):
 
 1. Select **Add consumption** for the **Electricity grid**.
 2. Select **Duke Energy Electric {meter serial number} Consumption** for the **consumed energy**.
