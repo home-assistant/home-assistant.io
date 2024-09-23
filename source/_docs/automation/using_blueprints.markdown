@@ -52,6 +52,7 @@ To edit an imported blueprint, follow these steps:
 3. Select the three dots menu and select **Take control**.
 
    ![Screencast showing how to take control of a blueprint](/images/blueprints/blueprint_take_control.webp)
+
 4. Under **Take control of automation?**, select **OK**
    - **Info**: By taking control, the blueprint is converted into an automation. You won't be able to convert this back into a blueprint.
 
