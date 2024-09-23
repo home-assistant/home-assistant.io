@@ -88,13 +88,13 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
-|Device tracker|Location|Yes|
-|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Sunroof|No|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
@@ -169,6 +169,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Grid services enabled|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
+|Select|Allow export|Yes|
+|Select|Operation mode|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
@@ -179,10 +181,8 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Sensor|Percentage charged|Yes|
 |Sensor|Solar power|Yes|
 |Sensor|Total pack energy|No|
-|Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
-|Select|Allow export|Yes|
-|Select|Operation mode|Yes|
+|Sensor|VPP backup reserve|Yes|
 |Switch|Allow charging from grid|Yes|
 |Switch|Storm watch|Yes|
 
