@@ -89,7 +89,7 @@ to Google Photos.
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `filename` | no | Path to the image to upload. | /mnt/image.jpg
-| `config_entry_id` | no | The ID of the Google Photos cofnig entry. | a1bee602deade2b09bc522749bbce48e |
+| `config_entry_id` | no | The ID of the Google Photos config entry. | a1bee602deade2b09bc522749bbce48e |
 
 {% enddetails %}
 
