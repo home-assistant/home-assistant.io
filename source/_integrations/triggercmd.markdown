@@ -1,5 +1,5 @@
 ---
-title: TRIGGERcmd Integration
+title: TRIGGERcmd
 description: How to integrate TRIGGERcmd with Home Assistant.
 ha_category:
   - Switch
@@ -16,18 +16,18 @@ ha_zeroconf: false
 ha_integration_type: integration
 ---
 
-This integration allows you to run commands on computers via [TRIGGERcmd](https://triggercmd.com/) with Home Assistant.
+The TRIGGERcmd {% term integration %} allows you to run commands on computers via [TRIGGERcmd](https://triggercmd.com/) with Home Assistant.
 
-Instructions on how to install and use TRIGGERcmd itself can be found [here](https://docs.triggercmd.com/#/./QuickStart).
 
 {% include integrations/config_flow.md %}
 
 ## Prerequisites
+
 To use TRIGGERcmd, you need the following:
 
 - A [TRIGGERcmd account](https://www.triggercmd.com/user/auth/signup)
 - A computer with the TRIGGERcmd agent running on it
-
+- For instructions on installing and using TRIGGERcmd itself, refer to the [TRIGGERcmd Quick Start Guide](https://docs.triggercmd.com/#/./QuickStart).
 ## Using TRIGGERcmd with Home Assistant
 
 Upon adding the TRIGGERcmd integration, you will be prompted for your **user token,** this can be found at the bottom of your TRIGGERcmd profile page or the instructions page.
