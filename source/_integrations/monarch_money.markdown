@@ -20,7 +20,7 @@ ha_integration_type: service
 ## Prerequisites
 
 - You need a Monarch Money account to use this integration.
-- Your account credentials. This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
+- You need account credentials. This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
 
 {% include integrations/config_flow.md %}
 
