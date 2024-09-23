@@ -41,14 +41,21 @@ Flipr sends data like pH, chlorine or temperature to a cloud server on a regular
 
 There is currently support for the following information within Home Assistant via **sensors** and **binary_sensors** :
 
-- Chlorine Level
-- pH
-- Water Temperature
-- Red OX Level
-- Last measure date
-- pH Status Indicator
-- Chlorine Status Indicator
-- Battery Level
+## Entities
+
+### Sensors
+
+- Chlorine : the chlorine level
+- pH : the pH level of the water
+- Water Temperature : the temperature of the water
+- Red OX : the redox level of the water in mV
+- Last measure date : the date of the last measure taken by the flipr
+- Battery Level : the battery level of the flipr in percentage
+
+### Binary sensors
+
+- pH Status : an indicator if pH level is normal, too loo or too high
+- Chlorine Status : an indicator if chlorine level is normal, too loo or too high
 
 ## Hub
 
