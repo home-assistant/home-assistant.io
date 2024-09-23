@@ -12,7 +12,7 @@ This installation method **does not have access to add-ons**. If you want to use
 <b>Prerequisites</b>
 This guide assumes that you already have an operating system setup and a container runtime installed (like Docker).
 
-If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer.
+If you are using Docker then you need to be on at least version 19.03.9, ideally an even higher version, and `libseccomp` 2.4.2 or newer. Docker _Desktop_ will not work, you must use Docker _Engine_.
 
 {% endimportant %}
 
