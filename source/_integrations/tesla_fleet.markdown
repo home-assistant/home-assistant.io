@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Cover
   - Device tracker
+  - Media player
   - Number
   - Select
   - Sensor
@@ -23,6 +24,7 @@ ha_platforms:
   - cover
   - device_tracker
   - diagnostics
+  - media_player
   - number
   - select
   - sensor
@@ -99,6 +101,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
+|Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
