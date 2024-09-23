@@ -59,7 +59,7 @@ The Hub lets you handle your equipment (pump, heater, light, etc.) from Home Ass
 
 ## Actions
 
-The polling of the cloud data is configured to check every 15 minutes. If you want to force a refresh of the data, you can use the `homeassistant.update_entity` action.
+The cloud data is polled every 15 minutes. If you want to force a refresh of the data, you can use the `homeassistant.update_entity` action.
 
 ## Tips
 
