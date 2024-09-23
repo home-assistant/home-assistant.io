@@ -19,10 +19,10 @@ To flash your <abbr title="embedded MultiMediaCard">eMMC</abbr> using <abbr titl
 
 (These steps are identical to the official [Hardkernel wiki](https://wiki.odroid.com/odroid-m1s/getting_started/os_installation_guide?redirect=1#install_over_usb_from_pc) page.)
 
-1. Download [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img).
-2. Use [balena Etcher](https://www.balena.io/etcher/) or another tool to flash the UMS utility onto an SD card.
-   - Use **Flash from file**. **Flash from URL** does not work on all systems.
-      (balena Etcher will complain that something went wrong during flashing. You can ignore this message)
+1. Download the _UMS Utility_ image: [ODROID-M1S_EMMC2UMS.img](https://dn.odroid.com/RK3566/ODROID-M1S/Installer/ODROID-M1S_EMMC2UMS.img). The _UMS Utility_ is a special image that switches ODROID-M1S to USB Mass Storage device.
+2. Use [balena Etcher](https://www.balena.io/etcher/) or another tool to flash the _UMS utility_ onto an SD card.
+   - Use **Flash from file** as **Flash from URL** does not work on all systems.
+      (balena Etcher will complain that something went wrong during flashing. You can safely ignore this message and resort to downloading it and flashing it from file instead.)
 3. Plug-in that SD card to your ODROID-M1S and boot it.
 
 ### Flashing Home Assistant M1S
