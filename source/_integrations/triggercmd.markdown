@@ -26,6 +26,7 @@ To use TRIGGERcmd, you need the following:
 - A [TRIGGERcmd account](https://www.triggercmd.com/user/auth/signup)
 - A computer with the TRIGGERcmd agent running on it
 - For instructions on installing and using TRIGGERcmd itself, refer to the [TRIGGERcmd Quick Start Guide](https://docs.triggercmd.com/#/./QuickStart).
+- After adding the TRIGGERcmd integration, you will be prompted for your **user token**. This can be found at the bottom of your TRIGGERcmd profile page or the instructions page.
 {% include integrations/config_flow.md %}
 
 ## Using TRIGGERcmd with Home Assistant
