@@ -24,7 +24,7 @@ ha_integration_type: service
 
 {% include integrations/config_flow.md %}
 
-### Accounts & Devices
+### Accounts & devices
 
 Each `account` will be set up as a device in Home Assistant, and it will contain the following sensors:
 
