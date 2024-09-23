@@ -40,5 +40,5 @@ To see a more detailed listing of the reported systems which are successfully us
 
 [Supported heating systems](https://docs.bsb-lan.de/supported_heating_systems.html)
 
-The integration is tested with the stable firmware version `3.1.6-20230327101530`. A newer firmware versions may not work because the api could have changed.
+The integration is tested with the stable firmware version `3.1.6-20230327101530`. A newer firmware version may not work because the API could have changed.
 Please use this release. [release 3.1](https://github.com/fredlcore/BSB-LAN/releases/tag/v3.1)
