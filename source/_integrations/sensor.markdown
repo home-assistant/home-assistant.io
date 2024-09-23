@@ -72,7 +72,7 @@ The following device classes are supported for sensors:
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
-- **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph or mm/d
+- **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
