@@ -4,7 +4,7 @@ description: How to integrate TRIGGERcmd with Home Assistant.
 ha_category:
   - Switch
   - Automation
-ha_release: '2024.6'
+ha_release: "2024.10"
 ha_iot_class: Cloud Polling
 ha_config_flow: true
 ha_codeowners:
