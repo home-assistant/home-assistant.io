@@ -96,7 +96,11 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 
 ### Connector app
 
-Click the About page of the Connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)). The About page is in the left sidebar of the app, under Settings (gear icon). Selecting About opens the About page, which you can tap on 5 times to open a window with the API key.
+ To get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+ 
+  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
+  2. Select the **About** page of the Connector app 5 times. 
+      - This opens a window with the API key.
 
 ## Favorite position
 
