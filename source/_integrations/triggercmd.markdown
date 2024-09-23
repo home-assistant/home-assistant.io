@@ -31,7 +31,6 @@ To use TRIGGERcmd, you need the following:
 
 ## Using TRIGGERcmd with Home Assistant
 
-Upon adding the TRIGGERcmd integration, you will be prompted for your **user token,** this can be found at the bottom of your TRIGGERcmd profile page or the instructions page.
 
 All of your TRIGGERcmd commands should show up as **switch** devices. You can change the rooms of your devices, or press **finish** to leave them without rooms.
 
