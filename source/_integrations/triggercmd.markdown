@@ -31,6 +31,6 @@ To use TRIGGERcmd, you need the following:
 
 ## Using TRIGGERcmd with Home Assistant
 
-All of your TRIGGERcmd commands should show up as **switch** devices. You can change the rooms of your devices, or press **finish** to leave them without rooms.
+All of your TRIGGERcmd commands should show up as **switch** devices. You can change the rooms of your devices, or select **Finish** to leave them without rooms.
 
 Using the switch will trigger the respective command. If you have **Allow parameters** enabled, your command will run with an "on" or "off" parameter, depending on whether you flip the switch in Home Assistant on or off.
