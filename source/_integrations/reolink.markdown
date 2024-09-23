@@ -174,6 +174,8 @@ Depending on the supported features of the camera, select entities are added for
 - Chime motion ringtone
 - Chime person ringtone
 - Chime visitor ringtone
+- Hub alarm ringtone
+- Hub visitor ringtone
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
@@ -210,7 +212,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record
 - Push notifications
-- Buzzer on event
+- Hub ringtone on event
 - Email on event
 - FTP upload
 - PIR enabled*
@@ -219,7 +221,7 @@ Depending on the supported features of the camera, switch entities are added for
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
-For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+For NVRs, a global switch for **Record**, **Push**, **Hub ringtone on event**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 **Push** notifications to a phone will only be provided if the following conditions are met: 
 - The **Push notifications** switch in Home Assistant is ON. 
