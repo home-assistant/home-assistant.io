@@ -5,6 +5,7 @@ ha_category:
   - Binary sensor
   - Car
   - Climate
+  - Cover
   - Device tracker
   - Number
   - Select
@@ -19,6 +20,7 @@ ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - device_tracker
   - diagnostics
   - number
@@ -90,6 +92,11 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|User present|Yes|
 |Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Sunroof|No|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
 |Number|Charge current|Yes|
