@@ -89,7 +89,10 @@ Depending on the supported features of the camera, number entities are added for
 - Optical zoom control
 - Focus control
 - Floodlight turn on brightness
-- Volume
+- Volume (Camera)
+- Alarm volume (Home Hub)
+- Message volume (Home Hub)
+- Chime volume
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
@@ -116,7 +119,6 @@ Depending on the supported features of the camera, number entities are added for
 - Image saturation* (default 128)
 - Image sharpness* (default 128)
 - Image hue* (default 128)
-- Chime volume
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
