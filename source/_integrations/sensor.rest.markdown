@@ -8,7 +8,7 @@ ha_iot_class: Local Polling
 ha_domain: rest
 ---
 
-The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests.
+The `rest` sensor platform is consuming a given endpoint which is exposed by a [RESTful API](https://en.wikipedia.org/wiki/Representational_state_transfer) of a device, an application, or a web service. The sensor has support for GET and POST requests and can consume JSON (default) or XML responses.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
@@ -78,7 +78,7 @@ icon:
   required: false
   type: template
 json_attributes:
-  description: "A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. If the endpoint returns XML with the `text/xml`, `application/xml` or `application/xhtml+xml` content type, it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html)"
+  description: A list of keys to extract values from a JSON dictionary result and then set as sensor attributes. See the note [here](#xml-content) about how to create keys for an XML response
   required: false
   type: [string, list]
 json_attributes_path:
@@ -284,6 +284,14 @@ sensor:
 ```
 
 {% endraw %}
+
+### XML Content
+
+If the endpoint returns XML it will automatically be converted to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html) before resolving the value_template.
+The following rules are used to determine that the content should be processed as xml:
+- The HTTP Content Type Response Header is any of `text/xml`, `application/xml` or `application/xhtml+xml`
+- The resource URL ends with `.xml`
+- The returned data starts with `<?xml version="1.0"`
 
 ### Fetch multiple JSON attributes and present them as values
 
