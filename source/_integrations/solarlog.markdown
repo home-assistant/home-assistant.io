@@ -16,15 +16,19 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
+The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation.
 
-Before being able to use the integration, you either need the password of the Solar-Log user or you must activate the open JSON interface on your Solar-Log device. The latter can be activated from the Configuration | System | Access control menu of your Solar-Log device. When activating the interface, a red warning triangle with security information and risks is displayed. For security reasons it is recommended to activate password protection and use the integration with the respective password.
+## Prerequisites
+
+Before you can use the integration, you either need the password of the Solar-Log user or you must activate the open JSON interface on your Solar-Log device. 
+- To activate the JSON interface on your Solar-Log device, on the device, go to the Configuration | System | Access control menu.
+- When activating the interface, a red warning triangle with security information and risks is displayed. For security reasons, it is recommended to activate password protection and use the integration with the respective password.
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 {% important %}
-If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons it is recommended to activate the user password.
-Please note that the open JSON interface only exposes a limites amount of data. Even if the open JSON interface has been activated, but you do not have the user password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data) you need the user password or the user password should be deactivated (not recommended).
+If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
+Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
