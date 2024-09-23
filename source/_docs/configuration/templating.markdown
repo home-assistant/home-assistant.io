@@ -1091,6 +1091,38 @@ While Jinja natively supports the conversion of an iterable to a `list`, it does
 
 Note that, in Home Assistant, to convert a value to a `list`, a `string`, an `int`, or a `float`, Jinja has built-in functions with names that correspond to each type.
 
+### Iterating multiple objects
+
+The `zip()` function can be used to iterate over multiple collections in one operation.
+
+{% raw %}
+
+```text
+{% set names = ['Living Room', 'Dining Room'] %}
+{% set entities = ['sensor.living_room_temperature', 'sensor.dining_room_temperature'] %}
+{% for name, entity in zip(names, entities) %}
+  The {{ name }} temperature is {{ states(entity) }}
+{% endfor %}
+```
+
+{% endraw %}
+
+`zip()` can also unzip lists.
+
+{% raw %}
+
+```text
+{% set information = [
+  ('Living Room', 'sensor.living_room_temperature'),
+  ('Dining Room', 'sensor.dining_room_temperature')
+] %}
+{% set names, entities = zip(*information) %}
+The names are {{ names | join(', ') }}
+The entities are {{ entities | join(', ') }}
+```
+
+{% endraw %}
+
 ### Functions and filters to process raw data
 
 These functions are used to process raw value's in a `bytes` format to values in a native Python type or vice-versa.
@@ -1147,6 +1179,178 @@ See: [Python regular expression operations](https://docs.python.org/3/library/re
 - Filter `string|regex_replace(find='', replace='', ignorecase=False)` will replace the find expression with the replace string using regex.
 - Filter `value | regex_findall(find='', ignorecase=False)` will find all regex matches of the find expression in `value` and return the array of matches.
 - Filter `value | regex_findall_index(find='', index=0, ignorecase=False)` will do the same as `regex_findall` and return the match at index.
+
+## Merge action responses
+
+Using action responses we can collect information from various entities at the same time.
+Using the `merge_response` template we can merge several responses into one list.
+
+| Variable       | Description                                     |
+| -------------- | ----------------------------------              |
+| `value`        | The incoming value (must be an action response). |
+
+The `entity_id` key is appended to each dictionary within the template output list as a reference of origin. If the input dictionary already contains an `entity_id` key, the template will fail.
+
+The `value_key` key is appended to each dictionary within the template output list as a reference of origin if the original service call was providing a list of dictionaries, for example, `calendar.get_events` or `weather.get_forecasts`.
+
+Examples of these two keys can be seen in [example merge calendar action response](#example-merge-calendar-action-response) template output.
+
+
+### Example
+
+```yaml
+{% raw %}
+
+{% set combined_forecast = merge_response(response) %}
+{{ combined_forecast[0].precipitation | float(0) | round(1) }}
+
+{% endraw %}
+```
+
+### Example how to sort
+
+Sorting the dictionaries within the list based on a specific key can be done directly by using Jinja's `sort` filter.
+
+```yaml
+{% raw %}
+
+{{ merge_response(calendar_response) | sort(attribute='start') | ... }}
+
+{% endraw %}
+```
+
+### Example merge calendar action response
+
+```json
+{
+  "calendar.sports": {
+    "events": [
+      {
+        "start": "2024-02-27T17:00:00-06:00",
+        "end": "2024-02-27T18:00:00-06:00",
+        "summary": "Basketball vs. Rockets",
+        "description": "",
+      }
+    ]
+  },
+  "calendar.local_furry_events": {"events": []},
+  "calendar.yap_house_schedules": {
+    "events": [
+      {
+        "start": "2024-02-26T08:00:00-06:00",
+        "end": "2024-02-26T09:00:00-06:00",
+        "summary": "Dr. Appt",
+        "description": "",
+      },
+      {
+        "start": "2024-02-28T20:00:00-06:00",
+        "end": "2024-02-28T21:00:00-06:00",
+        "summary": "Bake a cake",
+        "description": "something good",
+      }
+    ]
+  },
+}
+```
+
+```yaml
+{% raw %}
+{{ merge_response(response_variable) }}
+{% endraw %}
+```
+
+```json
+[
+  {
+    "description": "",
+    "end": "2024-02-27T18:00:00-06:00",
+    "entity_id": "calendar.sports",
+    "start": "2024-02-27T17:00:00-06:00",
+    "summary": "Basketball vs. Rockets",
+    "value_key": "events"
+  },
+  {
+    "description": "",
+    "end": "2024-02-26T09:00:00-06:00",
+    "entity_id": "calendar.yap_house_schedules",
+    "start": "2024-02-26T08:00:00-06:00",
+    "summary": "Dr. Appt",
+    "value_key": "events"
+  },
+  {
+    "description": "something good",
+    "end": "2024-02-28T21:00:00-06:00",
+    "entity_id": "calendar.yap_house_schedules",
+    "start": "2024-02-28T20:00:00-06:00",
+    "summary": "Bake a cake",
+    "value_key": "events"
+  }
+]
+```
+
+### Example non-list action responses
+
+```json
+{
+  "vacuum.deebot_n8_plus_1": {
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+  "vacuum.deebot_n8_plus_2": {
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+}
+```
+
+```yaml
+{% raw %}
+{{ merge_response(response_variable) }}
+{% endraw %}
+```
+
+```json
+[
+  {
+    "entity_id": "vacuum.deebot_n8_plus_1",
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+  {
+    "entity_id": "vacuum.deebot_n8_plus_2",
+    "header": {
+      "ver": "0.0.1",
+    },
+    "payloadType": "j",
+    "resp": {
+      "body": {
+        "msg": "ok",
+      },
+    },
+  },
+]
+```
 
 ## Processing incoming data
 

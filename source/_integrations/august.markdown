@@ -29,6 +29,8 @@ ha_integration_type: integration
 
 The `august` integration allows you to integrate your [August](https://august.com/) and some Yale Access devices in Home Assistant.
 
+For devices that use the [Yale Home](https://yalehome.com/global) app, the [Yale](/integrations/yale) integration should be used instead.
+
 {% include integrations/config_flow.md %}
 
 ## Known working devices
@@ -43,10 +45,6 @@ The `august` integration allows you to integrate your [August](https://august.co
 | August View | no |
 | Yale Assure Lock | yes |
 | Yale Assure Lock 2 | yes |
-| Yale Conexis L1 | yes |
-| Yale Conexis L2 | yes |
-| Yale Doorman L3 | yes |
-| Yale Linus | yes |
 | Yale Smart Safe | yes |
 
 Other devices not listed above have not been tested and may not function as expected.
@@ -124,9 +122,7 @@ If you have an August Keypad, once you have enabled the August integration, you 
 
 ## Integration with Yale Access Bluetooth
 
-Following Assa Abloy, Yale's parent company, purchasing August in 2017, most newer devices use the Yale Access branding. 
-
-The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system. 
+The [Yale Access Bluetooth](/integrations/yalexs_ble) integration provides local control over Bluetooth of many Yale Access locks and some August locks that use the same system.
 
 For locks that support the Yale Access system, the August integration can keep your offline access keys up to date to ensure you can operate your lock over Bluetooth. The following requirements must be met for the offline key updates to work:
 

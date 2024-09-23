@@ -48,6 +48,10 @@ The switch platform integrates Chacon Dio devices to manage switches (like the R
 - get the **state** of the switch (connected or not and on/off state)
 - **Turn on/off** the switch
 
+## Actions
+
+In rare cases, such as  Wi-Fi interruptions, you may need to manually update the state of your devices. You can use the `homeassistant.update_entity` action to refresh the device state manually.
+
 ## Tips
 
 You can use the [group integration](/integrations/group) to group entities as the application proposes (for example covers of the first floor).

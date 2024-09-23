@@ -11,6 +11,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
@@ -30,6 +31,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
 ha_dhcp: true
 ha_quality_scale: platinum
