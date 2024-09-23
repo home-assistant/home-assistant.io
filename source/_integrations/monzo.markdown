@@ -54,3 +54,15 @@ The integration will create a device for each of your accounts and pots. For an 
 Additionally, an account will also have:
 
 - Total Balance: The current balance of that account plus all of its pots.
+
+## Device triggers
+
+Each account will setup a webhook that will fire an event in Home Assistant for each transaction created. The event contains lots of data about the transaction provided exactly reported by the Monzo API. For the structure of this data, see Monzo's [transaction created documentation](https://docs.monzo.com/#transaction-created).
+
+These events are also registered as device triggers, so you can, for example, trigger an automation when a transaction is created on your current account and access the data from that event within your automation using {% raw %}`{{ trigger.event.data.data }}`{% endraw %}.
+
+<div class='note warning'>
+
+For this to work, your Home Assistant instance must be [accessible remotely](/docs/configuration/remote/).
+
+</div>
