@@ -3,6 +3,7 @@ title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Climate
   - Cover
@@ -21,6 +22,7 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - device_tracker
@@ -94,6 +96,12 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Button|Flash lights|Yes|
+|Button|Homelink|Yes|
+|Button|Honk horn|Yes|
+|Button|Keyless driving|Yes|
+|Button|Play fart|Yes|
+|Button|Wake|Yes|
 |Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
 |Cover|Charge port door|Yes|
