@@ -42,7 +42,7 @@ The Tami4 Edge integration provides the following entities.
 
 ### Sensors
 
-**UV upcoming replacement**: Number of days remaining until the UV lamp needs to be replaced.
+**UV upcoming replacement**: Date when the UV lamp needs to be replaced.
 **UV installed**: Date when the UV lamp was installed.
 **Filter last replacement**: Date when the filter was last replaced.
 **Filter upcoming replacement**: Number of days remaining until the filter needs to be replaced.
