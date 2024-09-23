@@ -15,13 +15,13 @@ ha_platforms:
 ha_integration_type: service
 ---
 
-[Monarch Money](https://www.monarchmoney.com) is a personal finance aggrigation and budgeting service that ties in with all 3 major financial back ends: Plaid, MX and FinCity.
+[Monarch Money](https://www.monarchmoney.com) is a personal finance aggregation and budgeting service that integrates with Plaid, MX, and FinCity, the three major financial backends.
+## Prerequisites
+
+- You need a Monarch Money account to use this integration.
+- Your account credentials. This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
 
 {% include integrations/config_flow.md %}
-
-## Setup Guide
-
-This integration supports both `username` and `password` login, as well as accounts configured with `MFA`.
 
 ### Accounts & Devices
 
