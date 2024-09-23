@@ -106,3 +106,13 @@ Numbers available in the library:
 | :----------------- | :--- | :------ | :---------------------------------------- |
 | led_max_brightness | %    | 0 - 100 | Set the LED brightness of the charger.    |
 | dynamic_limit      | A    | 0 - 32  | Set the maximum allowed charging current. |
+
+## Selects
+
+Selects available in the library:
+
+### Energy meters
+
+| Select              | Description                             |
+| :------------------ | :-------------------------------------- |
+| lb_mode             | Load balancing mode of the energy meter.|
