@@ -21,6 +21,7 @@ Currently, this integration only supports electric meters.
 ## Prerequisites
 
 You need a Duke Energy account to use this integration. During installation of the integration, you will need the username and password to access your account.
+
 {% include integrations/config_flow.md %}
 
 ## Energy
