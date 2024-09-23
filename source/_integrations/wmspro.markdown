@@ -20,7 +20,7 @@ related:
     title: Technical documentation for WMS WebControl pro
 ---
 
-The WMS WebControl pro integration allows users to integrate their WAREMA devices into Home Assistant.
+The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA devices into Home Assistant.
 
 This integration uses a local API which is available with firmware container version 11H.
 
