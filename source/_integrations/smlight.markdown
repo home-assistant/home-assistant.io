@@ -73,6 +73,7 @@ The following buttons will be created:
 - **Core restart** - Restart core ESP32
 - **Zigbee restart** - Restart Zigbee CCCC2652 or EFR32 chip
 - **Zigbee flash mode** - Trigger the Zigbee chip into bootloader flash mode so it can be flashed. It is possible to flash Zigbee firmware over a network socket once this is activated.
+- **Reconnect Zigbee router** - Place the router into pairing mode to join a new Zigbee network. This is only created if the SLZB-06x device is in Zibgee router mode.
 
 ### Switches
 
