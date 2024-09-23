@@ -100,7 +100,7 @@ action:
 The library sensors are disabled by default, but can be enabled via the Plex integration page.
 {% endimportant %}
 
-### Media Sensors
+### Media sensors
 
 This integration will create the following sensors for each client found:
 
@@ -108,7 +108,7 @@ This integration will create the following sensors for each client found:
 - `Year`: The year the media item was released.
 - `Codec`: The audio codec for the media item.
 - `Codec extended`: The extended audio codec for the media item. This is necessary to disgintuish between DTS-HD MA and DTS:X, for example.
-- `Edition`: The edition of the media item such as Extended, Theatrical, etc.
+- `Edition`: The edition of the media item such as Extended or Theatrical.
 - `TMBD`: The Movie Database ID for the media item.
 - `TVDB`: The TV Database ID for the media item.
 - `Filename`: The filename of the media item as reported by the server.
