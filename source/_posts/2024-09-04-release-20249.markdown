@@ -42,6 +42,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2024.9.1 - September 6](#202491---september-6)
   - [2024.9.2 - September 16](#202492---september-16)
+  - [2024.9.3 - September 23](#202493---september-23)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -382,6 +383,75 @@ week (around Friday).
 [@tl-sl]: https://github.com/tl-sl
 [@tmenguy]: https://github.com/tmenguy
 [@zweckj]: https://github.com/zweckj
+
+### 2024.9.3 - September 23
+
+- Fix wall connector state in Teslemetry ([@Bre77] - [#124149])
+- Fix set brightness for Netatmo lights ([@cgtobi] - [#126075])
+- Update Aseko to support new API ([@milanmeu] - [#126133])
+- Fix qbittorrent error when torrent count is 0 ([@DAcodedBEAT] - [#126146])
+- Prevent blocking event loop in ps4 ([@jpbede] - [#126151])
+- Broaden scope of ConfigEntryNotReady in Mealie ([@andrew-codechimp] - [#126208])
+- Fix tibber fails if power production is enabled but no power is produced ([@nohn] - [#126209])
+- Bump pydaikin to 2.13.7 ([@fredrike] - [#126219])
+- Fix Matter climate platform attributes when dedicated OnOff attribute is off ([@marcelveldt] - [#126286])
+- Fix loading KNX UI entities with entity category set ([@farmio] - [#126290])
+- Bump airgradient to 0.9.0 ([@joostlek] - [#126319])
+- Fix next change (scheduler) sensors in AVM FRITZ!SmartHome ([@mib1185] - [#126363])
+- Bump python-holidays to 0.57 ([@gjohansson-ST] - [#126367])
+- Fix surepetcare token update ([@frei-style] - [#126385])
+- Fix due date calculation for future dailies in Habitica integration ([@tr4nt0r] - [#126403])
+- Bump pydrawise to 2024.9.0 ([@dknowles2] - [#126431])
+- Add support for new JVC Projector auth method ([@SteveEasley] - [#126453])
+- Fix blocking call in Bang & Olufsen API client initialization ([@mj23000] - [#126456])
+- Bump mozart_api to 3.4.1.8.8 ([@mj23000] - [#126334])
+
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124149]: https://github.com/home-assistant/core/pull/124149
+[#124569]: https://github.com/home-assistant/core/pull/124569
+[#124880]: https://github.com/home-assistant/core/pull/124880
+[#125420]: https://github.com/home-assistant/core/pull/125420
+[#126062]: https://github.com/home-assistant/core/pull/126062
+[#126075]: https://github.com/home-assistant/core/pull/126075
+[#126133]: https://github.com/home-assistant/core/pull/126133
+[#126146]: https://github.com/home-assistant/core/pull/126146
+[#126151]: https://github.com/home-assistant/core/pull/126151
+[#126208]: https://github.com/home-assistant/core/pull/126208
+[#126209]: https://github.com/home-assistant/core/pull/126209
+[#126219]: https://github.com/home-assistant/core/pull/126219
+[#126286]: https://github.com/home-assistant/core/pull/126286
+[#126290]: https://github.com/home-assistant/core/pull/126290
+[#126319]: https://github.com/home-assistant/core/pull/126319
+[#126334]: https://github.com/home-assistant/core/pull/126334
+[#126363]: https://github.com/home-assistant/core/pull/126363
+[#126367]: https://github.com/home-assistant/core/pull/126367
+[#126385]: https://github.com/home-assistant/core/pull/126385
+[#126403]: https://github.com/home-assistant/core/pull/126403
+[#126431]: https://github.com/home-assistant/core/pull/126431
+[#126453]: https://github.com/home-assistant/core/pull/126453
+[#126456]: https://github.com/home-assistant/core/pull/126456
+[@Bre77]: https://github.com/Bre77
+[@DAcodedBEAT]: https://github.com/DAcodedBEAT
+[@SteveEasley]: https://github.com/SteveEasley
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@balloob]: https://github.com/balloob
+[@cgtobi]: https://github.com/cgtobi
+[@dknowles2]: https://github.com/dknowles2
+[@edenhaus]: https://github.com/edenhaus
+[@farmio]: https://github.com/farmio
+[@fredrike]: https://github.com/fredrike
+[@frei-style]: https://github.com/frei-style
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@joostlek]: https://github.com/joostlek
+[@jpbede]: https://github.com/jpbede
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@milanmeu]: https://github.com/milanmeu
+[@mj23000]: https://github.com/mj23000
+[@nohn]: https://github.com/nohn
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 
