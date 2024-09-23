@@ -5,8 +5,10 @@ ha_category:
   - Binary sensor
   - Car
   - Climate
+  - Cover
   - Device tracker
   - Lock
+  - Media player
   - Number
   - Select
   - Sensor
@@ -20,9 +22,11 @@ ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
   - climate
+  - cover
   - device_tracker
   - diagnostics
   - lock
+  - media_player
   - number
   - select
   - sensor
@@ -92,10 +96,16 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|User present|Yes|
 |Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Sunroof|No|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
+|Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
