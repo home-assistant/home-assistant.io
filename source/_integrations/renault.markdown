@@ -69,8 +69,8 @@ Update AC schedule on vehicle.
 
 Notes:
 
-- `schedules` can contain one or more schedules which are set within the same call
-- The `id` is compulsory on each `schedule` (should be 1 to 5 depending on the vehicle).
+- `schedules` can contain one or more schedules which are set within the same call.
+- The `id` is compulsory on each `schedule` (should be 1 to 5, depending on the vehicle).
 - The `activated` flag is an optional boolean. If it is not provided, then the existing flag will be kept as is.
 - The `monday` to `sunday` elements are optional. If they are not provided, then the existing settings will be kept for each day. If they are provided as None, then the existing setting will be cleared. If a value is provided, it must contain the key `readyAtTime` (in UTC format).
 
