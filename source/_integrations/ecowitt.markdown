@@ -31,7 +31,7 @@ To set up this integration:
 3. Select your station > Menu **Others** > **DIY Upload Servers**.
 4. Select **Next**, then select **Customized**.
 5. Select the protocol **Ecowitt**.
-6. Enter the Server IP, Path, and Port that were displayed in step 1 
+6. Enter the Server IP, Path, and Port that were displayed in step 1.
     - The path has to match! If using the Ecowitt app, remove the first forward slash from the path, as the app will prepend one.
 7. Save the configuration.
 
