@@ -46,9 +46,8 @@ If you completed the integration setup but are still unable to control the devic
 
 To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
 
-- **The username of your Switcher Account.** You can find the username by
-  going into the Switcher app.
-- **Local control key token.** To find local control key token, browse to the
+- **The username of your Switcher Account**: To find the username, open the Switcher app.
+- **Local control key token**: To find the local control key token, browse to the
   [Switcher GetKey API][token], enter your Switcher account username (which is an email address), and press
   **Send Me The Code**.
 
