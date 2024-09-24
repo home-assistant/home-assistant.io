@@ -89,7 +89,7 @@ will only occur if the `input_boolean` is on.
 automation:
   alias: "Arriving home"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.motion_garage
       to: "on"
   conditions:

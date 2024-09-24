@@ -56,7 +56,7 @@ Due to the instability of the Honeywell total connect system, actions within aut
 alias: "No one home"
 description: "Everyone has left home"
 triggers:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: zone.home
     for:
       minutes: 10

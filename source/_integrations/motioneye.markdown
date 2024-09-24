@@ -352,7 +352,7 @@ must be switched on for this automation to work (controllable via `switch.<name>
 ```yaml
 - alias: "Set camera text overlay to armed"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
   actions:
@@ -365,7 +365,7 @@ must be switched on for this automation to work (controllable via `switch.<name>
 
 - alias: "Set camera text overlay to disarmed"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
   actions:
@@ -386,7 +386,7 @@ An automation to cast stored movie clips to a TV as they arrive.
 ```yaml
 - alias: "Cast motionEye movie clips"
   triggers:
-    - platform: event
+    - trigger: event
       event_type: motioneye.file_stored
       event_data:
         # Only cast video.

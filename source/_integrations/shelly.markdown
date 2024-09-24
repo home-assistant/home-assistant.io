@@ -200,7 +200,7 @@ You can also create automations using YAML, for example:
 ```yaml
 - alias: "Toggle living room light"
   triggers:
-    platform: event
+    trigger: event
     event_type: shelly.click
     event_data:
       device: shellyswitch25-AABBCC
@@ -213,7 +213,7 @@ You can also create automations using YAML, for example:
 
 - alias: "Toggle living room lamp"
   triggers:
-    platform: event
+    trigger: event
     event_type: shelly.click
     event_data:
       device: shellyswitch25-AABBCC

@@ -213,7 +213,7 @@ Example automation using these IR codes to toggle a Sonoff plug.
   description: Turn on sonoff s20 relay
   triggers:
   - entity_id: sensor.kira_wireless
-    platform: state
+    trigger: state
     to: PanaOne
   conditions: []
   actions:
@@ -226,7 +226,7 @@ Example automation using these IR codes to toggle a Sonoff plug.
   description: Turn off sonoff s20 relay
   triggers:
   - entity_id: sensor.kira_wireless
-    platform: state
+    trigger: state
     to: PanaTwo
   conditions: []
   actions:

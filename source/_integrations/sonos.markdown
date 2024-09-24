@@ -398,11 +398,11 @@ Removes an item from the queue.
 alias: "Remove last played song from queue"
 id: Remove last played song from queue
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: media_player.kitchen
-  - platform: state
+  - trigger: state
     entity_id: media_player.bathroom
-  - platform: state
+  - trigger: state
     entity_id: media_player.move
 conditions:
   condition: and

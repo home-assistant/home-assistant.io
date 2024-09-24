@@ -149,7 +149,7 @@ Using the lock operation sensors, you can detect when a user operates a lock and
   description: John Doe locks or unlocks the Front Door
   triggers:
   - entity_id: sensor.front_door_operator
-    platform: state
+    trigger: state
     to: John Doe
   conditions:
   - condition: template

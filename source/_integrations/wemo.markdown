@@ -148,7 +148,7 @@ The following is an example implementation of an automation:
 - id: long_press_living_room
   alias: "Toggle amplifier power"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: wemo_subscription_event
     event_data:
       type: LongPress

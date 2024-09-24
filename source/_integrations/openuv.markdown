@@ -102,7 +102,7 @@ horizon:
 automation:
   - alias: "Update OpenUV"
     triggers:
-      platform: time_pattern
+      trigger: time_pattern
       minutes: "/20"
     conditions:
       condition: numeric_state
@@ -122,7 +122,7 @@ Update the protection window once a day at 12:00pm:
 automation:
   - alias: "Update OpenUV"
     triggers:
-      platform: time
+      trigger: time
       at: "12:00:00"
     actions:
       action: homeassistant.update_entity
@@ -143,7 +143,7 @@ automation:
       # Time pattern of /45 will not work as expected, as it will sometimes be true
       # twice per hour (on the whole hour and on the whole hour + 45 minutes); use a
       # more frequent time pattern and a condition to get the intended behavior:
-      - platform: time_pattern
+      - trigger: time_pattern
         minutes: "/15"
     conditions:
       - condition: sun

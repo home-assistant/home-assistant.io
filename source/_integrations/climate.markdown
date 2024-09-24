@@ -53,7 +53,7 @@ Turn auxiliary heater on/off for climate device
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_aux_heat
@@ -79,7 +79,7 @@ reflecting a situation where the climate device is set to save energy. For examp
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_preset_mode
@@ -107,7 +107,7 @@ Set target temperature of climate device
 ### Set temperature to 24 in heat mode
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_temperature
@@ -122,7 +122,7 @@ automation:
 ### Set temperature range to 20 to 24 in heat_cool mode
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_temperature
@@ -148,7 +148,7 @@ Set target humidity of climate device
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_humidity
@@ -172,7 +172,7 @@ Set fan operation for climate device
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_fan_mode
@@ -196,7 +196,7 @@ Set climate device's HVAC mode
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_hvac_mode
@@ -220,7 +220,7 @@ Set swing operation mode for climate device
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: climate.set_swing_mode

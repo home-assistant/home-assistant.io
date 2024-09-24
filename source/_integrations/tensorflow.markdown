@@ -210,7 +210,7 @@ image_processing:
 # Example advanced automations.yaml entry
 - alias: "TensorFlow scanning"
   triggers:
-     - platform: state
+     - trigger: state
        entity_id:
          - binary_sensor.driveway
   actions:

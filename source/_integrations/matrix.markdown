@@ -130,7 +130,7 @@ notify:
 automation:
   - alias: 'React to !testword'
     triggers:
-      platform: event
+      trigger: event
       event_type: matrix_command
       event_data:
         command: testword
@@ -140,7 +140,7 @@ automation:
         message: "It looks like you wrote !testword"
   - alias: 'React to an introduction'
     triggers:
-      platform: event
+      trigger: event
       event_type: matrix_command
       event_data:
         command: introduction

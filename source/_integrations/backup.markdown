@@ -52,7 +52,7 @@ at 3 AM:
 automation:
   - alias: "Backup Home Assistant every night at 3 AM"
     triggers:
-      platform: time
+      trigger: time
       at: "03:00:00"
     actions:
       alias: "Create backup now"

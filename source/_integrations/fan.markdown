@@ -51,7 +51,7 @@ Sets the speed percentage for fan device.
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: fan.set_percentage
@@ -75,7 +75,7 @@ Sets a preset mode for the fan device. Available preset modes are defined by the
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: fan.set_preset_mode
@@ -99,7 +99,7 @@ Sets the rotation for fan device.
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: fan.set_direction
@@ -123,7 +123,7 @@ Sets the oscillation for fan device.
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: fan.oscillate
@@ -157,7 +157,7 @@ Turn fan device off. This is only supported if the fan device supports being tur
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: fan.turn_off
@@ -181,7 +181,7 @@ Increases the speed of the fan device.
 ```yaml
 automation:
   triggers:
-  - platform: device
+  - trigger: device
     device_id: 097cd9f706a86e9163acb64ba7d630da
     domain: lutron_caseta
     type: press
@@ -206,7 +206,7 @@ Decreases the speed of the fan device.
 ```yaml
 automation:
   triggers:
-  - platform: device
+  - trigger: device
     device_id: 097cd9f706a86e9163acb64ba7d630da
     domain: lutron_caseta
     type: press

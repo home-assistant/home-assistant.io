@@ -1501,7 +1501,7 @@ automation:
   - alias: "Test vacuum zone3"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     conditions: []
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
@@ -1522,7 +1522,7 @@ automation:
   - alias: "Test vacuum zone3"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     conditions: []
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
@@ -1544,7 +1544,7 @@ automation:
   - alias: "Test vacuum zone3"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     conditions: []
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
@@ -1581,7 +1581,7 @@ automation:
   - alias: "Vacuum kitchen and living room"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     conditions: []
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
@@ -1598,7 +1598,7 @@ automation:
   - alias: "Vacuum kitchen"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     conditions: []
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
@@ -1615,7 +1615,7 @@ automation:
   - alias: "Vacuum kitchen"
     triggers:
       - event: start
-        platform: homeassistant
+        trigger: homeassistant
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:

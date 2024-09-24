@@ -231,9 +231,9 @@ This {% term action %} can use the same triggers that are available in an automa
 # Wait for a custom event or light to turn on and stay on for 10 sec
 - alias: "Wait for MY_EVENT or light on"
   wait_for_trigger:
-    - platform: event
+    - trigger: event
       event_type: MY_EVENT
-    - platform: state
+    - trigger: state
       entity_id: light.LIGHT
       to: "on"
       for: 10
@@ -262,7 +262,7 @@ You can also get the script to abort after the timeout by using optional `contin
 
 # Wait for IFTTT event or abort after specified timeout.
 - wait_for_trigger:
-    - platform: event
+    - trigger: event
       event_type: ifttt_webhook_received
       event_data:
         action: connected_to_network
@@ -312,7 +312,7 @@ This can be used to take different actions based on whether or not the condition
   target:
     entity_id: switch.some_light
 - wait_for_trigger:
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.door_2
       to: "on"
       for: 2
@@ -361,7 +361,7 @@ The following {% term automation %} example shows how to raise a custom event ca
 ```yaml
 - alias: "Fire Event"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: switch.kitchen
       to: "on"
   actions:
@@ -377,7 +377,7 @@ The following {% term automation %} example shows how to capture the custom even
 ```yaml
 - alias: "Capture Event"
   triggers:
-    - platform: event
+    - trigger: event
       event_type: event_light_state_changed
   actions:
     - action: notify.notify
@@ -525,7 +525,7 @@ _until_ the condition(s) evaluate to true.
 ```yaml
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.xyz
         to: "on"
     conditions:
@@ -622,7 +622,7 @@ The `choose` {% term action %} can be used like an "if/then/elseif/then.../else"
 # Example with "if", "elif" and "else"
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: input_boolean.simulate
         to: "on"
     mode: restart
@@ -665,7 +665,7 @@ For example:
 ```yaml
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: input_select.home_mode
     actions:
       - choose:
@@ -707,7 +707,7 @@ When the sun goes below the horizon, the `porch` and `garden` lights must turn o
 automation:
   - alias: "Turn lights on when the sun gets dim and if some room is occupied"
       triggers:
-        - platform: numeric_state
+        - trigger: numeric_state
           entity_id: sun.sun
           attribute: elevation
           below: 4
@@ -771,7 +771,7 @@ groups themselves. In total, four actions are executed, one after the other.
 ```yaml
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.motion
         to: "on"
     actions:
@@ -808,7 +808,7 @@ The following example shows sending messages out at the same time (in parallel):
 ```yaml
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.motion
         to: "on"
     actions:
@@ -831,7 +831,7 @@ script:
       - parallel:
           - sequence:
               - wait_for_trigger:
-                  - platform: state
+                  - trigger: state
                     entity_id: binary_sensor.motion
                     to: "on"
               - action: notify.person1

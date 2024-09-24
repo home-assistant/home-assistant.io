@@ -52,7 +52,7 @@ wake_on_lan: # enables `wake_on_lan` integration
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
     triggers:
-      - platform: webostv.turn_on
+      - trigger: webostv.turn_on
         entity_id: media_player.lg_webos_smart_tv
     actions:
       - action: wake_on_lan.send_magic_packet
@@ -163,7 +163,7 @@ The icon can be overridden for individual notifications by providing a path to a
 automation:
   - alias: "Front door motion"
     triggers:
-      platform: state
+      trigger: state
       entity_id: binary_sensor.front_door_motion
       to: "on"
     actions:

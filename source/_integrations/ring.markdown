@@ -87,7 +87,7 @@ Then you can use the following automation, with the entities from your system, w
 automation:
   alias: "Save the video when the doorbell is pushed"
   triggers:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
   actions:

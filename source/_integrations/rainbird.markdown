@@ -77,7 +77,7 @@ zone switch entity and allows a custom duration unlike the switch.
 automation:
   - alias: "Turn irrigation on"
     triggers:
-      - platform: time
+      - trigger: time
         at: "5:30:00"
     actions:
       - action: rainbird.start_irrigation

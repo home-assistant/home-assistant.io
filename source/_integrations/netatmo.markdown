@@ -207,7 +207,7 @@ Example:
   triggers:
     - event_data: {}
       event_type: netatmo_event
-      platform: event
+      trigger: event
   actions:
     - data: {}
       entity_id: counter.event_counter
@@ -224,7 +224,7 @@ Example:
   description: "Motion detected at home"
   triggers:
     - event_type: netatmo_event
-      platform: event
+      trigger: event
       event_data:
         type: movement
   actions:
@@ -248,7 +248,7 @@ Example:
   description: "Motion detected at home"
   triggers:
     - event_type: netatmo_event
-      platform: event
+      trigger: event
       event_data:
         type: human # other possible types: animal, vehicle
   actions:
@@ -272,15 +272,15 @@ Example:
   description: "Notifies which door or window is open or was moved"
   triggers:
     - event_type: netatmo_event
-      platform: event
+      trigger: event
       event_data:
         type: tag_open
     - event_type: netatmo_event
-      platform: event
+      trigger: event
       event_data:
         type: tag_big_move
     - event_type: netatmo_event
-      platform: event
+      trigger: event
       event_data:
         type: tag_small_move
   actions:

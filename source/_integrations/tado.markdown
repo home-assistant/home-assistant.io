@@ -116,7 +116,7 @@ script:
 automation:
     # Trigger if the state of either thermostat changes
     triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - sensor.temp_sensor_room
         - sensor.tado_temperature
@@ -160,7 +160,7 @@ Examples:
 automation:
     # Trigger on specified time.
     triggers:
-      - platform: time
+      - trigger: time
         at: "00:00:00"
 
     # Add meter readings from `sensor.gas_consumption` to Tado.

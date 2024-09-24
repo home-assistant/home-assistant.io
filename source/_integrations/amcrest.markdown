@@ -437,7 +437,7 @@ Using this {% term trigger %} in an {% term automation %} will allow you to dete
 alias: Doorbell Pressed
 description: "Trigger when Amcrest Button Press Event Fires"
 triggers:
-  - platform: event
+  - trigger: event
     event_type: amcrest
     event_data:
       event: "CallNoAnswered"

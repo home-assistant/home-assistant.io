@@ -1063,7 +1063,7 @@ Use as [`script`](/integrations/script/) in automations.
 automation:
   alias: "Send me a message when I get home"
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.me
     to: "home"
   actions:

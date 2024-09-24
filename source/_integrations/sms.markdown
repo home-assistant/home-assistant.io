@@ -98,7 +98,7 @@ notify_sms_user1:
 ```yaml
 - alias: "Forward SMS"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: sms.incoming_sms
   actions:
   - action: script.notify_sms_user1

@@ -236,7 +236,7 @@ The below automation will remove history for `sensor.power_sensor_0` older than 
 ```yaml
 alias: "Purge noisy power sensors"
 triggers:
-  - platform: time
+  - trigger: time
     at: "04:15:00"
 actions:
   - action: recorder.purge_entities

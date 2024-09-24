@@ -93,7 +93,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
 ```yaml
 - id: mysensor_on
   triggers:
-    platform: state
+    trigger: state
     entity_id: sensor.mysensor
     to: on
   actions:
@@ -103,7 +103,7 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
         id: "{{trigger.entity_id}}"
 - id: mysensor_off
   triggers:
-    platform: state
+    trigger: state
     entity_id: sensor.mysensor
     to: off
   actions:

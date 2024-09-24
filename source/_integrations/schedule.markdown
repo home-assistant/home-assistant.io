@@ -150,7 +150,7 @@ A schedule creates an on/off (schedule) sensor within the times set. Using the t
 
 ```yaml
 triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - schedule.thermostat_schedule
       to: "on"
@@ -166,7 +166,7 @@ Using the `light_schedule` example from above in an automation might look like t
 
 ```yaml
 triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - schedule.light_schedule
       to: "on"

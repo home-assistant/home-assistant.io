@@ -164,7 +164,7 @@ You can create an automation as follows:
 ```yaml
 ...
 triggers:
-  - platform: state
+  - trigger: state
     entity_id:
       - sensor.signal_message_received
     attribute: source

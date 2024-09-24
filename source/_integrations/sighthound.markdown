@@ -88,7 +88,7 @@ An example using two automations:
   description: "Send a camera image to sighthound, when motion is detected at the entrance"
   triggers:
     - type: motion
-      platform: device
+      trigger: device
       device_id: YOUR_DEVICE_ID
       entity_id: binary_sensor.my_motion_sensor
       domain: binary_sensor
@@ -102,7 +102,7 @@ An example using two automations:
   alias: "Arriving Vehicle Notification"
   description: "Send a notification to a phone, when a vehicle is detected at the entrance"
   triggers:
-    - platform: event
+    - trigger: event
       event_type: sighthound.vehicle_detected
   actions:
     - action: notify.mobile_app_my_iphone

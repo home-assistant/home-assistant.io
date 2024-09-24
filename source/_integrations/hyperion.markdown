@@ -114,7 +114,7 @@ automation:
 - id: one
   alias: "Turn Hyperion effect on when light goes on"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: light.hyperion
       to: "on"
   actions:
@@ -130,13 +130,13 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 ```yaml
 - alias: "Set hyperion effect after playback"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex
       to: "off"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "paused"
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex.plex
       to: "idle"
   actions:
@@ -152,7 +152,7 @@ To capture the screen on a USB capture device, when playing something on a media
 ```yaml
 - alias: "Set hyperion when playback starts"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.plex
       to: "playing"
   actions:
@@ -166,7 +166,7 @@ To toggle the LED device together with the light entity in order to turn light o
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - light.hyperion
       from: "off"

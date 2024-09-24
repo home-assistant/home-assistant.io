@@ -113,7 +113,7 @@ You can also use the `nissan_leaf.update` action to request an on-demand update.
   alias: "Update when driver not home"
   initial_state: on
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: "/30"
   conditions:
     - condition: state

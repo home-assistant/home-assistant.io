@@ -89,7 +89,7 @@ Automations can be triggered on new files created on the Minio server using the 
 automation:
 - alias: "Upload camera snapshot"
   triggers:
-    platform: event
+    trigger: event
     event_type: folder_watcher
     event_data:
       event_type: created
@@ -107,7 +107,7 @@ automation:
 
 - alias: "Download new Minio file"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: minio
 
   conditions: []

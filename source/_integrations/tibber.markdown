@@ -144,7 +144,7 @@ The electricity price can be used to make automations. The sensor has a `max_pri
 ```yaml
 - alias: "Electricity price"
   triggers:
-    platform: time_pattern
+    trigger: time_pattern
   # Matches every hour at 1 minutes past whole
     minutes: 1
   conditions:

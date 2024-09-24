@@ -16,7 +16,7 @@ automation: !include automations.yaml
 # Labeled automation block
 automation kitchen:
   - triggers:
-      - platform: ...
+      - trigger: ...
 ```
 
 You can add as many labeled `automation` blocks as you want.
@@ -141,10 +141,10 @@ automation my_lights:
     triggers:
       # Prefix the first line of each trigger configuration
       # with a '-' to enter multiple
-      - platform: sun
+      - trigger: sun
         event: sunset
         offset: "-01:00:00"
-      - platform: state
+      - trigger: state
         entity_id: all
         to: "home"
     conditions:
@@ -165,7 +165,7 @@ automation my_lights:
   # Turn off lights when everybody leaves the house
   - alias: "Rule 2 - Away Mode"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: all
         to: "not_home"
     actions:
@@ -176,7 +176,7 @@ automation my_lights:
   # Notify when Paulus leaves the house in the evening
   - alias: "Leave Home notification"
     triggers:
-      - platform: zone
+      - trigger: zone
         event: leave
         zone: zone.home
         entity_id: device_tracker.paulus
@@ -192,7 +192,7 @@ automation my_lights:
   - alias: "Xiaomi Cube Action"
     initial_state: false
     triggers:
-      - platform: event
+      - trigger: event
         event_type: cube_action
         event_data:
           entity_id: binary_sensor.cube_158d000103a3de
@@ -218,7 +218,7 @@ automation:
   - alias: "Automation Name"
     initial_state: false
     triggers:
-      - platform: ...
+      - trigger: ...
 ```
 
 ### Number of debug traces stored
@@ -231,7 +231,7 @@ automation:
     trace:
       stored_traces: 10
     triggers:
-      - platform: ...
+      - trigger: ...
 ```
 
 ## Migrating your YAML automations to `automations.yaml`
@@ -245,7 +245,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
 - id: my_unique_id  # <-- Required for editor to work, for automations created with the editor the id will be automatically generated.
   alias: "Hello world"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: sun.sun
       from: below_horizon
       to: above_horizon

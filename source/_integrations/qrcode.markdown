@@ -53,7 +53,7 @@ An automation using this integration could look like this:
 automation:
   - alias: "Catch QR code and arm the alarm system"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: image_processing.qr_front_door
         to: ARM_QR_CODE_VALUE
     actions:

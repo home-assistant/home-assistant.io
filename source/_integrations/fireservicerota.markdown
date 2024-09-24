@@ -118,7 +118,7 @@ These are documented below.
 automation:
   - alias: "Switch on a light when incident is received"
     triggers:
-      platform: state
+      trigger: state
       entity_id: sensor.incidents
     actions:
       action: light.turn_on
@@ -127,7 +127,7 @@ automation:
 
   - alias: "Play TTS incident details when incident is received"
     triggers:
-      platform: state
+      trigger: state
       entity_id: sensor.incidents
       attribute: message_to_speech_url
     conditions:
@@ -147,7 +147,7 @@ automation:
 
   - alias: "Send response acknowledgement when a button is pressed"
     triggers:
-      platform: state
+      trigger: state
       entity_id: switch.response_button
     actions:
       action: homeassistant.turn_on
@@ -156,7 +156,7 @@ automation:
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
     trigger: 
-      platform: homeassistant
+      trigger: homeassistant
       event: start
     actions:
       action: cast.show_lovelace_view

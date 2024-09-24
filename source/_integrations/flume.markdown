@@ -50,7 +50,7 @@ Example of an automation that sends a Home Assistant notification of the most re
 ```yaml
 alias: "Notify: flume"
 triggers:
-  - platform: time_pattern
+  - trigger: time_pattern
     minutes: /5
 actions:
   - action: flume.list_notifications

@@ -52,7 +52,7 @@ Example automation to send a Telegram message on a completed download:
 ```yaml
 - alias: "Completed Torrent"
   triggers:
-    platform: event
+    trigger: event
     event_type: nzbget_download_complete
   - event_data:
     category: tv

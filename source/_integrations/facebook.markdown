@@ -49,7 +49,7 @@ The phone number used in **target** should be registered with Facebook messenger
 automation:
   - alias: "Evening Greeting"
     triggers:
-      platform: sun
+      trigger: sun
       event: sunset
     actions:
       action: notify.facebook

@@ -76,7 +76,7 @@ automation:
         media_content_id: spotify:playlist:0OtWh3u6fZrBJTQtVBQWge
         media_content_type: playlist
   triggers:
-    platform: event
+    trigger: event
     event_type: tag_scanned
   conditions:
     # Test that we support this device and tag

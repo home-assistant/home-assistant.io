@@ -71,7 +71,7 @@ You can use the `homeassistant.update_entity` action to update the sensor on-dem
   alias: "Commute - Update morning commute sensor"
   initial_state: "on"
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: "/2"
   conditions:
     - condition: time

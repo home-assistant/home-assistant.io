@@ -83,7 +83,7 @@ a binary sensor (a doorbell) is triggered:
 ```yaml
 - alias: Visual doorbell notification example
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.doorbell
       to: "on"
   actions:

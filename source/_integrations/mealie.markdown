@@ -133,7 +133,7 @@ Example template sensor that contains today's dinner meal plan entries:
 ```yaml
 template:
   - triggers:
-      - platform: time_pattern
+      - trigger: time_pattern
         hours: /1
     actions:
       - action: mealie.get_mealplan

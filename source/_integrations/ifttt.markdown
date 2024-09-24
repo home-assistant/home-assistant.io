@@ -39,7 +39,7 @@ automation:
 - id: this_is_the_automation_id
   alias: "The optional automation alias"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: ifttt_webhook_received
     event_data:
       action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
@@ -144,7 +144,7 @@ Add the *Then That* action. The below example sends a notification to the IFTTT 
 automation:
   alias: "Startup Notification"
   triggers:
-    platform: homeassistant
+    trigger: homeassistant
     event: start
   actions:
     action: ifttt.trigger
@@ -162,7 +162,7 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 automation:
   alias: "Startup Notification"
   triggers:
-    platform: homeassistant
+    trigger: homeassistant
     event: start
   actions:
     action: script.ifttt_notify

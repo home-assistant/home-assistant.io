@@ -126,7 +126,7 @@ The actual linking can be realized by two automation rules. One rule to control 
   alias: "Control light living using Velbus push_button_10"
   triggers:
   - entity_id: binary_sensor.push_button_10
-    platform: state
+    trigger: state
     to: "on"
   conditions: []
   actions:
@@ -138,10 +138,10 @@ The actual linking can be realized by two automation rules. One rule to control 
   alias: "Update LED state of push_button_10"
   triggers:
   - entity_id: light.living
-    platform: state
+    trigger: state
     to: "on"
   - entity_id: light.living
-    platform: state
+    trigger: state
     to: "off"
   conditions: []
   actions:

@@ -46,7 +46,7 @@ automation:
   - id: kodi_turn_on
     alias: "Kodi: turn on"
     triggers:
-      - platform: device
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
@@ -57,7 +57,7 @@ automation:
   - id: kodi_turn_off
     alias: "Kodi: turn off"
     triggers:
-      - platform: device
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
@@ -435,7 +435,7 @@ alias: Kodi keypress
 mode: parallel
 max: 10
 triggers:
-  - platform: event
+  - trigger: event
     event_type: kodi_keypress
     event_data:
       entity_id: media_player.kodi_livingroom

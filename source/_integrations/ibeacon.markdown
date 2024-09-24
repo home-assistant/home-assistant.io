@@ -93,14 +93,14 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 alias: "The black trash can has left the building"
 mode: single
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: sensor.black_trash_bin_estimated_distance
     to: "unavailable"
     for:
       hours: 0
       minutes: 5
       seconds: 0
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.black_trash_bin_estimated_distance
     for:
       hours: 0

@@ -147,7 +147,7 @@ For example, the following will trigger when the doorbell rings:
 
 ```yaml
 triggers:
-  - platform: event
+  - trigger: event
     event_type: SIMPLISAFE_EVENT
     event_data:
         last_event_type: doorbell_detected

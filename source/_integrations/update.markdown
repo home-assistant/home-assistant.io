@@ -148,7 +148,7 @@ the update for a light bulb becomes available.
 automation:
   - alias: "Send notification when update available"
     triggers:
-      platform: state
+      trigger: state
       entity_id: update.my_light_bulb
       to: "on"
     actions:

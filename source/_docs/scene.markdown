@@ -58,7 +58,7 @@ Scenes can be activated using the action `scene.turn_on` (there is no 'scene.tur
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
@@ -76,7 +76,7 @@ With the `scene.apply` action you are able to apply a scene without first defini
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
@@ -105,7 +105,7 @@ light will transition to the scene in 2.5 seconds.
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"

@@ -77,7 +77,7 @@ This is a notify platform and thus can be controlled by calling the notify actio
 automation:
   - alias: "The sun has set"
     triggers:
-      platform: sun
+      trigger: sun
       event: sunset
     actions:
       action: notify.dovado

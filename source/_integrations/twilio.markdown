@@ -57,7 +57,7 @@ Here is an example:
 ```yaml
 automation:
   triggers:
-    platform: event
+    trigger: event
     event_type: twilio_data_received
     event_data:
       From: '+1XXXXXXXXXXX'
@@ -78,7 +78,7 @@ An example of an SMS handler:
 ```yaml
 alias: Twilio incoming
 triggers:
-  - platform: event
+  - trigger: event
     event_type: twilio_data_received
 actions:
   - variables:

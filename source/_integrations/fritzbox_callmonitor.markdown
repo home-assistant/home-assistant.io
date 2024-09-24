@@ -53,7 +53,7 @@ This example shows how to send notifications whenever the sensor's state changes
 automation:
   - alias: "Notify about phone state"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: sensor.phone
     actions:
       - action: notify.notify

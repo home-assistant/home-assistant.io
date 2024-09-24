@@ -253,7 +253,7 @@ Here's an example of how to use these events for automations:
 ```yaml
 automation:
    triggers:
-     platform: event
+     trigger: event
      event_type: homematic.keypress
      event_data:
        name: "Kitchen Switch"
@@ -489,7 +489,7 @@ template:
 automation:
   - alias: "Homematic Reconnect"
     triggers:
-      platform: state
+      trigger: state
       entity_id: binary_sensor.homematic_is_sending_updates
       to: "off"
     actions:
@@ -535,7 +535,7 @@ automation:
      automation:
        - alias: "Homematic CCU Reboot"
          triggers:
-           platform: state
+           trigger: state
            entity_id: sensor.v_last_reboot
          actions:
            action: homematic.reconnect

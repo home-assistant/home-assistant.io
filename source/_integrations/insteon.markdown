@@ -158,7 +158,7 @@ automation:
   - id: light_on
     alias: "Turn a light on"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c
@@ -176,7 +176,7 @@ automation:
   - id: light_off
     alias: "Turn a light off"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c

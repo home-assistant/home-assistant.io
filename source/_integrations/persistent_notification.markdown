@@ -31,7 +31,7 @@ An example of a persistent notification trigger in YAML:
 ```yaml
 automation:
   - triggers:
-      - platform: persistent_notification
+      - trigger: persistent_notification
         # Optional. Possible values: added, removed, updated, current
         update_type:
           - added

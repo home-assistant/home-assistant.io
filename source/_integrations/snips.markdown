@@ -248,7 +248,7 @@ Here is a more complex example. The automation is triggered if the garage door i
 automation:
   garage_door_has_been_open:
     triggers:
-     - platform: state
+     - trigger: state
         entity_id: binary_sensor.my_garage_door_sensor
         from: "off"
         to: "on"

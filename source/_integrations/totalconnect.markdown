@@ -40,7 +40,7 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 automation:
   - alias: "Alarm: Disarmed Daytime"
     triggers:
-      platform: state
+      trigger: state
       entity_id: alarm_control_panel.total_connect
       to: "disarmed"
     conditions:
@@ -52,7 +52,7 @@ automation:
         entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
     triggers:
-      platform: state
+      trigger: state
       entity_id: alarm_control_panel.total_connect
       to: "armed_away"
     actions:
@@ -61,7 +61,7 @@ automation:
         entity_id: scene.OnArmedAway
   - alias: "Alarm: Arm Home Instant at Sunset"
     triggers:
-      platform: sun
+      trigger: sun
       event: sunset
       offset: '0'
     actions:

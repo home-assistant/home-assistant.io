@@ -150,7 +150,7 @@ automation:
 - id: 'errorcounterautomation'
   alias: "Error Counting Automation"
   triggers:
-    platform: event
+    trigger: event
     event_type: system_log_event
     event_data:
       level: ERROR

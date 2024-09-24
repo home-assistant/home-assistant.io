@@ -176,16 +176,16 @@ Using sensors to trigger the alarm.
 automation:
 - alias: 'Trigger alarm while armed away'
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: sensor.pir1
       to: "active"
-    - platform: state
+    - trigger: state
       entity_id: sensor.pir2
       to: "active"
-    - platform: state
+    - trigger: state
       entity_id: sensor.door
       to: "open"
-    - platform: state
+    - trigger: state
       entity_id: sensor.window
       to: "open"
   conditions:
@@ -204,7 +204,7 @@ Sending a notification when the alarm is triggered.
 automation:
   - alias: 'Send notification when alarm triggered'
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: alarm_control_panel.home_alarm
         to: "triggered"
     actions:
@@ -219,7 +219,7 @@ Disarming the alarm when the door is properly unlocked.
 automation:
   - alias: 'Disarm alarm when door unlocked by keypad'
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: sensor.front_door_lock_alarm_type
         to: "19"
         # many z-wave locks use Alarm Type 19 for 'Unlocked by Keypad'
@@ -236,7 +236,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 ```yaml
 - alias: 'Send notification when alarm is Disarmed'
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "disarmed"
   actions:
@@ -248,7 +248,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 ```yaml
 - alias: 'Send notification when alarm is in pending status'
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "pending"
   actions:
@@ -260,7 +260,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 ```yaml
 - alias: 'Send notification when alarm is Armed in Away mode'
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_away"
   actions:
@@ -272,7 +272,7 @@ Sending a Notification when the Alarm is Armed (Away/Home), Disarmed and in Pend
 ```yaml
 - alias: 'Send notification when alarm is Armed in Home mode'
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: alarm_control_panel.home_alarm
       to: "armed_home"
   actions:

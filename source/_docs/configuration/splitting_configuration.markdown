@@ -268,7 +268,7 @@ These work recursively. As an example using `!include_dir_list automation`, will
 automation:
   - alias: "Automation 1"
     triggers:
-      platform: state
+      trigger: state
       entity_id: device_tracker.iphone
       to: "home"
     actions:
@@ -277,7 +277,7 @@ automation:
         entity_id: light.entryway
   - alias: "Automation 2"
     triggers:
-      platform: state
+      trigger: state
       entity_id: device_tracker.iphone
       from: "home"
     actions:
@@ -299,7 +299,7 @@ automation: !include_dir_list automation/presence/
 ```yaml
 alias: "Automation 1"
 triggers:
-  platform: state
+  trigger: state
   entity_id: device_tracker.iphone
   to: "home"
 actions:
@@ -313,7 +313,7 @@ actions:
 ```yaml
 alias: "Automation 2"
 triggers:
-  platform: state
+  trigger: state
   entity_id: device_tracker.iphone
   from: "home"
 actions:
@@ -409,7 +409,7 @@ speech:
 automation:
   - alias: "Automation 1"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: device_tracker.iphone
         to: "home"
     actions:
@@ -418,7 +418,7 @@ automation:
           entity_id: light.entryway
   - alias: "Automation 2"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: device_tracker.iphone
         from: "home"
     actions:
@@ -440,7 +440,7 @@ automation: !include_dir_merge_list automation/
 ```yaml
 - alias: "Automation 1"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.iphone
       to: "home"
   actions:
@@ -449,7 +449,7 @@ automation: !include_dir_merge_list automation/
         entity_id: light.entryway
 - alias: "Automation 2"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.iphone
       from: "home"
   actions:

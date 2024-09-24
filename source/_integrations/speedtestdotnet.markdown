@@ -51,14 +51,14 @@ In this section you will find some real-life examples of how to use this integra
 automation:
   - alias: "Internet Speed Glow Connect Great"
     triggers:
-      - platform: template
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
     actions:
       - action: shell_command.green
 
   - alias: "Internet Speed Glow Connect Poor"
     triggers:
-      - platform: template
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
     actions:
       - action: shell_command.red

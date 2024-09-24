@@ -84,7 +84,7 @@ Example usage for automation:
 automation:
   alias: "Turn on heater on workdays"
   triggers:
-    platform: time
+    trigger: time
     at: "08:00:00"
   conditions:
     condition: state

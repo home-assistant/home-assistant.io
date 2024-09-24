@@ -184,7 +184,7 @@ Call the new action from [developer tools](/docs/tools/dev-tools/) in the sideba
 automation:
 - alias: "Arrive at Work"
   triggers:
-    platform: zone
+    trigger: zone
     entity_id: device_tracker.my_device
     zone: zone.work
     event: enter
