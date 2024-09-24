@@ -1241,7 +1241,10 @@ The KNX light integration is used as an interface to control KNX actuators for l
 - LED controllers
 - DALI gateways
 
-To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+Light entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-light-yaml"></a>
+{% details "Configuration of KNX light entities via YAML" %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -1382,9 +1385,7 @@ entity_category:
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
-For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address`.
-
-*Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
+For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
 ### Extended configuration examples
 
@@ -1471,6 +1472,8 @@ knx:
       address: "1/0/5"
       state_address: "1/0/5"
 ```
+
+{% enddetails %}
 
 ## Notify
 
@@ -1988,6 +1991,11 @@ knx:
 
 The KNX switch platform is used as an interface to switching actuators.
 
+Switch entities can be created from the frontend in the KNX panel or via YAML.
+
+<a name="configuration-swithc-yaml"></a>
+{% details "Configuration of KNX switch entities via YAML" %}
+
 ```yaml
 knx:
   switch:
@@ -2034,6 +2042,8 @@ The optional `state_address` can be used to inform Home Assistant about state ch
 
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches that have a `state_address` configured request their current state from the KNX bus.
+
+{% enddetails %}
 
 ## Text
 
