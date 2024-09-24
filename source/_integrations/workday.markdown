@@ -52,7 +52,7 @@ Additional categories can be added through the configuration to include optional
 ## Action `workday.check_date`
 
 
-This action populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 providing feedback if the date is a workday or not.
 
 | Data attribute | Required | Description | Example |

@@ -85,16 +85,16 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 
 ## Actions
 
-The hourly prices are exposed using [actions](/docs/scripts/service-calls/). The actions populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
 ### Action `tibber.get_prices`
 
 Fetches hourly energy prices including price level.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2024-01-01 00:00:00 |
-| `end` | yes | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
+| Data attribute | Optional | Description                                           | Example             |
+| -------------- | -------- | ----------------------------------------------------- | ------------------- |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00  | 2024-01-01 00:00:00 |
+| `end`          | yes      | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
 
 #### Response data
 

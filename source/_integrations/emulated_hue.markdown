@@ -122,7 +122,7 @@ entities:
   type: list
 {% endconfiguration %}
 
-A full configuration sample looks like the one below.
+A full configuration sample looks like the one below. Configuration entries are added to the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 # Example configuration.yaml entry

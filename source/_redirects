@@ -344,7 +344,8 @@ layout: null
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-service-calls /docs/scripts/perform-actions/
+/docs/scripts/service-calls /docs/scripts/perform-actions/
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os

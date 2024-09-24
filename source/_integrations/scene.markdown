@@ -25,6 +25,16 @@ Every scene entity does keep track of the timestamp of when the last time
 the scene entity was called via the Home Assistant UI or called via
 an action.
 
+<p class='img'>
+<img src='/images/integrations/scene/state_scene.png' alt='Screenshot showing the state of a scene entity in the developer tools' />
+Screenshot showing the state of a scene entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Scenes created by integrations
 
 Some integrations like [Philips Hue](/integrations/hue), [MQTT](/integrations/mqtt), and [KNX](/integrations/knx) provide scenes. You can activate them from the Home Assistant UI or via as an action. In this case, the integration provides the preferred states to restore.
