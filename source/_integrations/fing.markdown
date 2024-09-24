@@ -1,7 +1,7 @@
 ---
 title: Fing
 description: "Instructions on integrating your Fing Agent with Home Assistant"
-ha_release: "0.1"
+ha_release: 2024.9.1
 ha_category: 
     - Presence detection
 ha_platforms:
