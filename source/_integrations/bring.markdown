@@ -36,7 +36,7 @@ For authentication, the integration requires the `email` and `password` you used
 - **Urgent:** Shows the number of items tagged with the `Urgent` badge on the shopping list. Completed items are excluded.
 - **On occasion:** Displays the count of items marked with the `If convenient` badge.
 - **Discount only:** Indicates the number of items tagged with the `Offer` badge.
-- **Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected language for the shopping list. If it shows `Unknown`, the language has not been set properly in the **Bring!** app.
+- **Region & Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected Region for the shopping list. If it shows `Unknown`, the Region has not been set properly in the **Bring!** app.
 
 ## Actions
 
