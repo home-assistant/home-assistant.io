@@ -1988,7 +1988,7 @@ Switch entities can be created from the frontend in the KNX panel or via YAML.
 Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
 Switches that have a `state_address` configured request their current state from the KNX bus.
 
-<a name="configuration-swithc-yaml"></a>
+<a name="configuration-switch-yaml"></a>
 {% details "Configuration of KNX switch entities via YAML" %}
 
 ```yaml
