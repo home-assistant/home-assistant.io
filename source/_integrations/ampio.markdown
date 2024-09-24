@@ -29,7 +29,7 @@ To enable this platform, add the following lines to your {% term "`configuration
 ```yaml
 # Example configuration.yaml entry
 air_quality:
-  - trigger: ampio
+  - platform: ampio
     station_id: STATION_ID
 ```
 
