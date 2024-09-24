@@ -22,7 +22,15 @@ The JVC Projector integration allows for the automation of [JVC Projectors](http
 
 ## Supported models
 
-This integration is intended for the automation of any modern JVC Projector with a LAN network port.
+This integration is intended for the automation of any modern JVC Projector with a network port.
+
+{% note %}
+Newer JVC models (e.g., DLA-NZ800/DLA-RS3200 and DLA-NZ900/DLA-RS4200) require a user-generated password to access the network port for security reasons.
+
+To set up these models:
+1. Set a password on the projector's network setup page.
+2. Use this password when adding the JVC Projector integration in Home Assistant.
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
