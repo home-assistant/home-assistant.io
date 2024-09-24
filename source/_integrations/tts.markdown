@@ -31,6 +31,15 @@ Text-to-speech (TTS) enables Home Assistant to speak to you.
 
 See all [TTS integrations](https://www.home-assistant.io/integrations/#text-to-speech) using this building block for ways to use it in your automations. If you are using the Home Assistant voice assistant, [Assist](https://www.home-assistant.io/voice_control/), Assist is using TTS when replying to you. Another way to use TTS is by using [TTS with Home Assistant Cloud](https://www.nabucasa.com/config/tts/). 
 
+## The state of a text-to-speech entity
+
+The state of a text-to-speech {% term entity %} is a timestamp showing the date and time when text-to-speech was last used.
+
+<p class='img'>
+<img src='/images/integrations/tts/state_tts.png' alt='Screenshot showing the state of a text-to-speech entity in the developer tools' />
+Screenshot showing the state of a text-to-speech entity in the developer tools.
+</p>
+
 ## Actions
 
 ### Action speak

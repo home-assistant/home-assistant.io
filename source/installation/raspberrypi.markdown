@@ -10,12 +10,14 @@ Included section for this page is located under source/_includes/installation
 {% assign board = "Raspberry Pi" %}
 {% assign installation_media = "SD card" %}
 
-## Suggested Hardware
+## Suggested hardware
 
 We will need a few things to get started with installing Home Assistant.
 
 - [Raspberry Pi 5](https://amzn.to/3UH6TcD) or [Raspberry Pi 4](https://amzn.to/2S0Gcl1) with [power supply](https://amzn.to/2ReZ2Vq) (Raspberry Pi 3 Model B is ok to get started, but the Model A does not have enough RAM).
-- [Micro SD Card](https://amzn.to/2X0Z2di). Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html) as they handle small I/O much more consistently than cards not optimized to host applications. A 32&nbsp;GB or bigger card is recommended.
+- [Micro SD Card](https://amzn.to/2X0Z2di).
+  - Ideally get one that is [Application Class 2](https://www.sdcard.org/developers/overview/application/index.html). Check for the label **A2** on the card. Application Class 2 cards perform better especially on small read and write operations and are better suited to host applications.
+  - Make sure to use a card that provides at least 32&nbsp;GB.
 - SD Card reader. This is already part of most laptops, but you can purchase a [standalone USB adapter](https://amzn.to/2WWxntY) if you don't have one. The brand doesn't matter, just pick the cheapest.
 - [Ethernet cable](https://amzn.com/dp/B00N2VISLW). Required for installation. After installation, Home Assistant can work with Wi-Fi, but an Ethernet connection is more reliable and highly recommended.
 
@@ -25,9 +27,9 @@ Remember to ensure you're using an [appropriate power supply](https://www.raspbe
 
 ## Install Home Assistant Operating System
 
-This guide shows how to install the Home Assistant Operating system onto your Raspberry Pi using Raspberry Pi Imager.
+This guide shows how to install the {% term "Home Assistant Operating System" %} onto your Raspberry Pi using Raspberry Pi Imager.
 
-If Raspberry Pi Imager is not supported by your platform, you can use Balena Etcher instead.
+If Raspberry Pi Imager is not supported by your platform, you can [download the Home Assistant image](#downloading-the-home-assistant-image) and use another imaging tool.
 
 ### Write the image to your SD card
 
@@ -72,6 +74,25 @@ If you are running an older Windows version or have a stricter network configura
     - To do this, connect a monitor via HDMI.
 
 Congratulations! You finished the Raspberry Pi setup!
+
+### Downloading the Home Assistant image
+
+If Raspberry Pi Imager is not supported by your platform, you can download the Home Assistant image and use another imaging tool, such as Balena Etcher.
+
+To download the image to your computer, copy the correct URL for the Raspberry Pi 3, 4 or 5 (Note: there are 3 different links below!):
+
+{% tabbed_block %}
+{% for variant in site.installation.types[page.installation_type].variants %}
+
+- title: {{ variant.name }}
+  content: |
+
+    ```text
+    https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+    ```    
+
+{% endfor %}
+{% endtabbed_block %}
 
 {% include installation_survey.html %}
 
