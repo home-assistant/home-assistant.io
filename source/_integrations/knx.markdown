@@ -348,6 +348,29 @@ response:
   default: false
 {% endconfiguration %}
 
+```yaml
+# Example script to send a fixed value and the state of an entity
+alias: My Script
+sequence:
+  - action: knx.send
+    data:
+      address: 1/1/1
+      type: percent
+      payload: 50
+      response: false
+  - action: knx.send
+    data:
+      address: 1/1/1
+      payload: [128]  # 50 % as 1-byte raw value
+      response: false
+  - action: knx.send
+    data:
+      address: 3/3/3
+      type: temperature
+      payload: "{{ states('sensor.dew_point') }}"
+      response: false
+```
+
 ### Read
 
 You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
