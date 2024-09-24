@@ -112,7 +112,7 @@ For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are 
 
 ## Switch
 
-For each Airzone zone (thermostat), a switch entity is created.
+For each Airzone zone (thermostat), a switch entity is created to turn the thermostat on or off (without changing the HVAC mode).
 
 ## Water heater
 
