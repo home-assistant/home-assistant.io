@@ -115,4 +115,4 @@ Selects available in the library:
 
 | Select              | Description                             |
 | :------------------ | :-------------------------------------- |
-| lb_mode             | Load balancing mode of the energy meter.|
+| lb_mode             | Select the load balancing mode of the energy meter. The options are **Disabled**, **Power**, **Hybrid**, and **Green**. |
