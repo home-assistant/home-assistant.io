@@ -47,21 +47,21 @@ There is currently support for the following information within Home Assistant v
 
 - Chlorine : the chlorine level
 - pH : the pH level of the water
-- Water Temperature : the temperature of the water
+- Water temperature : the temperature of the water
 - Red OX : the redox level of the water in mV
 - Last measure date : the date of the last measure taken by the flipr
-- Battery Level : the battery level of the flipr in percentage
+- Battery level : the battery level of the flipr in percentage
 
 ### Binary sensors
 
 - pH Status : an indicator if pH level is normal, too loo or too high
-- Chlorine Status : an indicator if chlorine level is normal, too loo or too high
+- Chlorine status : an indicator if the chlorine level is normal, too low, or too high
 
 ## Hub
 
 The Hub lets you handle your equipment (pump, heater, light, etc.) from Home Assistant and all of the automation you can imagine.
 
-- **Turn on/off** the switch inside the Hub and automatically set the Hub in manual mode
+- **Turn on/off** the switch inside the Hub and automatically set the Hub in manual mode.
 - **Choose** the mode of the Hub between auto, planning and manual.
 
 ## Actions
