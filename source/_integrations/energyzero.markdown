@@ -57,18 +57,18 @@ For the dynamic gas prices, only entities are created that display the
 
 ## Actions
 
-The energy and gas prices are exposed using [actions](/docs/scripts/service-calls/). The actions populate [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
 ### Action `energyzero.get_gas_prices`
 
 Fetches the gas prices. The `config_entry` value be found using the **Actions** tab in the **Developer Tools**, selecting the desired entity and then switching to YAML.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. | 1b4a46c6cba0677bbfb5a8c53e8618b0
-| `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| Data attribute | Optional | Description                                          | Example                          |
+| -------------- | -------- | ---------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry to use.                                 | 1b4a46c6cba0677bbfb5a8c53e8618b0 |
+| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.   | false                            |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices. Defaults to today 00:00:00   | 2023-01-01 00:00:00              |
 
 ### Response data
 
@@ -98,12 +98,12 @@ The response data is a dictionary with the gas timestamps and prices as string a
 
 Fetches the energy prices. The `config_entry` value be found using the **Actions** tab in the **Developer Tools**, selecting the desired entity and then switching to YAML.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `config_entry` | no | Config entry to use. Can be found using the **Actions** tab in the **Developer Tools** and switching to YAML. | 1b4a46c6cba0677bbfb5a8c53e8618b0
-| `incl_vat` | no | Defines whether the prices include or exclude VAT. | false
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
-| `end` | yes | End time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
+| Data attribute | Optional | Description                                                                                                   | Example                          |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| `config_entry` | no       | Config entry to use. Can be found using the **Actions** tab in the **Developer Tools** and switching to YAML. | 1b4a46c6cba0677bbfb5a8c53e8618b0 |
+| `incl_vat`     | no       | Defines whether the prices include or exclude VAT.                                                            | false                            |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00                                                          | 2023-01-01 00:00:00              |
+| `end`          | yes      | End time to get prices. Defaults to today 00:00:00                                                            | 2023-01-01 00:00:00              |
 
 ### Response data
 

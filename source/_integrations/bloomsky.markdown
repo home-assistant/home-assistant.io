@@ -20,7 +20,7 @@ related:
     title: Configuration file
 ---
 
-The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather station's.
+The **BloomSky** {% term integration %} allows you to access your [BloomSky](https://www.bloomsky.com/) weather stations.
 
 There is currently support for the following device types within Home Assistant:
 

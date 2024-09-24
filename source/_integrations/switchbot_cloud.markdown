@@ -7,16 +7,19 @@ ha_category:
   - Remote
   - Sensor
   - Switch
+  - Vacuum
 ha_release: '2023.10'
 ha_iot_class: Cloud Polling
 ha_codeowners:
   - '@SeraphicRav'
   - '@laurence-presland'
+  - '@Gigatrappeur'
 ha_domain: switchbot_cloud
 ha_platforms:
   - climate
   - sensor
   - switch
+  - vacuum
 ha_config_flow: true
 ha_integration_type: hub
 ---
@@ -41,6 +44,7 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Meter
 - MeterPlus
 - Outdoor Meter
+- Vacuum K10+, K10+ pro, S1, S1 Plus
 
 ## Important considerations
 

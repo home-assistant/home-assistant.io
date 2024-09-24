@@ -12,13 +12,9 @@ As an alternative, Home Assistant OS can be installed in a Linux guest VM. Runni
 This is an advanced installation process, and some steps might differ on your system. Considering the nature of this installation type, we assume you can handle subtle differences between this document and the system configuration you are using. When in doubt, please consider one of the [other installation methods](/installation/), as they might be a better fit instead.
 {% endcaution %}
 
-{% important %}
-
-<b>Prerequisites</b>
+### Prerequisites
 
 This guide assumes that you already have an operating system setup and have installed Python {{site.installation.versions.python}} (including the package `python3-dev`) or newer.
-
-{% endimportant %}
 
 ### Install dependencies
 
@@ -85,6 +81,8 @@ Once you have installed the required Python package, it is now time to install H
 ```bash
 pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
+
+**Troubleshooting**: If you do not see the above version of Home Assistant package in your environment, make sure you have the correct Python version installed, as defined under the [Prerequisites](#prerequisites).
 
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 

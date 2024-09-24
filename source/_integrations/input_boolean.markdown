@@ -30,7 +30,7 @@ default unless you removed it. If you removed `default_config:` from your
 configuration, you must add `input_boolean:` to your {% term "`configuration.yaml`" %} first,
 then you can use the UI.
 
-Input booleans can also be configured via {% term "`configuration.yaml`" %}:
+Input booleans can also be configured via {% term "`configuration.yaml`" %} file:
 
 {% configuration %}
   input_boolean:

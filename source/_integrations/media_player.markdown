@@ -20,6 +20,20 @@ Interacts with media players on your network.
 
 {% include integrations/building_block_integration.md %}
 
+## The state of a media player
+
+A media player can have the following states:
+
+- **Off**: The media player is turned off and is not accepting commands until turned on.
+- **On**: The media player is turned on, but no details on its state are currently known.
+- **Idle**: The media player is turned on and accepting commands, but currently not playing any media. Possibly at some idle home screen.
+- **Playing**: The media player is currently playing media.
+- **Paused**: The media player has an active media and is currently paused
+- **Standby**: The media player is in a low power state, accepting commands.
+- **Buffering**: The media player is preparing to start playback of media.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 ### Media control actions
@@ -183,7 +197,7 @@ Allows to group media players together for synchronous playback. Only works on s
 | ---------------------- | -------- | ---------------------------------------------------- |
 | `entity_id`            |      yes | Unjoin this media player from any player groups.     |
 
-### Device class
+## Device class
 
 {% include integrations/device_class_intro.md %}
 

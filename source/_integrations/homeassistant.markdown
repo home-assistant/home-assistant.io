@@ -24,7 +24,7 @@ The **Home Assistant Core** {% term integration %} provides generic implementati
 
 The Home Assistant Core integration is also responsible for the general settings. These settings are defined during onboarding, but you can change them later under {% my general title="**Settings** > **System** > **General**" %}. For the detailed steps, refer to [Basic settings](/docs/configuration/basic/).
 
-If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
+If you prefer editing in YAML, you can define your general settings in the {% term "`configuration.yaml`" %} file.
 Note that for some of the settings, these can't be edited from the UI if they were defined in YAML. They will be grayed out or inaccessible.
 
 <p class='img'>
@@ -34,7 +34,7 @@ Note that for some of the settings, these can't be edited from the UI if they we
 
 To get started with the general settings in YAML, follow these steps:
 
-1. Copy the following information to your [`configuration.yaml` file](/docs/configuration/).
+1. Copy the following information to your {% term "`configuration.yaml`" %} file.
 
     ```yaml
     homeassistant:
@@ -150,7 +150,7 @@ By default, all of your devices will be visible and have a default icon determin
 
 Most of these settings can be changed from the UI. For the detailed steps, refer to [Customizing entities](/docs/configuration/customizing-devices/).
 
-If you prefer editing in YAML, you can define your general settings in the [`configuration.yaml` file](/docs/configuration/).
+If you prefer editing in YAML, you can define your general settings in the {% term "`configuration.yaml`" %} file.
 
 ### Possible values
 
@@ -212,7 +212,7 @@ For a list of the supported device classes, refer to the documentation of the pl
 ### Manual customization
 
 {% important %}
-If you implement `customize`, `customize_domain`, or `customize_glob` you must make sure it is done inside of `homeassistant:` or it will fail.
+If you implement `customize`, `customize_domain`, or `customize_glob`, in your {% term "`configuration.yaml`" %} file, you must make sure it is done inside of `homeassistant:` or it will fail.
 {% endimportant %}
 
 ```yaml
@@ -280,11 +280,11 @@ will take effect the next time an importing template is rendered.
 Reloads an integration config entry.
 
 | Data attribute | Description                                                |
-| ---------------------- | ---------------------------------------------------------- |
-| `entity_id`            | List of entity ids used to reference a config entry.       |
-| `area_id`              | List of area ids used to reference a config entry.         |
-| `device_id`            | List of device ids used to reference a config entry.       |
-| `entry_id`             | A single config entry id used to reference a config entry. |
+| -------------- | ---------------------------------------------------------- |
+| `entity_id`    | List of entity ids used to reference a config entry.       |
+| `area_id`      | List of area ids used to reference a config entry.         |
+| `device_id`    | List of device ids used to reference a config entry.       |
+| `entry_id`     | A single config entry id used to reference a config entry. |
 
 ### Action `homeassistant.reload_core_config`
 
@@ -305,10 +305,10 @@ Stops the Home Assistant instance. Home Assistant must be restarted from the Hos
 Update the location of the Home Assistant default zone (usually "Home").
 
 | Data attribute | Optional | Description                 |
-| ---------------------- | -------- | --------------------------- |
-| `latitude`             | no       | Latitude of your location.  |
-| `longitude`            | no       | Longitude of your location. |
-| `elevation`            | yes      | Elevation of your location. |
+| -------------- | -------- | --------------------------- |
+| `latitude`     | no       | Latitude of your location.  |
+| `longitude`    | no       | Longitude of your location. |
+| `elevation`    | yes      | Elevation of your location. |
 
 #### Example
 
@@ -329,8 +329,8 @@ action compared the others, is that is can be used to mix different domains,
 for example, a light and a switch can be toggled in a single action.
 
 | Data attribute | Optional | Description                                   |
-| ---------------------- | -------- | --------------------------------------------- |
-| `entity_id`            | yes      | The entity_id of the device to toggle on/off. |
+| -------------- | -------- | --------------------------------------------- |
+| `entity_id`    | yes      | The entity_id of the device to toggle on/off. |
 
 #### Example
 
@@ -351,8 +351,8 @@ action compared the others, is that is can be used to mix different domains,
 for example, a light and a switch can be turned on in a single action.
 
 | Data attribute | Optional | Description                             |
-| ---------------------- | -------- | --------------------------------------- |
-| `entity_id`            | yes      | The entity_id of the device to turn on. |
+| -------------- | -------- | --------------------------------------- |
+| `entity_id`    | yes      | The entity_id of the device to turn on. |
 
 #### Example
 
@@ -373,8 +373,8 @@ action compared the others, is that is can be used to mix different domains,
 for example, a light and a switch can be turned off in a single action.
 
 | Data attribute | Optional | Description                              |
-| ---------------------- | -------- | ---------------------------------------- |
-| `entity_id`            | yes      | The entity_id of the device to turn off. |
+| -------------- | -------- | ---------------------------------------- |
+| `entity_id`    | yes      | The entity_id of the device to turn off. |
 
 #### Example
 
@@ -392,8 +392,8 @@ actions:
 Force one or more entities to update its data rather than wait for the next scheduled update.
 
 | Data attribute | Optional | Description                                             |
-| ---------------------- | -------- | ------------------------------------------------------- |
-| `entity_id`            | no       | One or multiple entity_ids to update. It can be a list. |
+| -------------- | -------- | ------------------------------------------------------- |
+| `entity_id`    | no       | One or multiple entity_ids to update. It can be a list. |
 
 #### Example
 

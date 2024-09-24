@@ -68,7 +68,7 @@ For the dynamic gas prices, only entities are created that display the
 
 ## Actions
 
-The energy and gas prices are exposed using [actions](/docs/scripts/service-calls/). The actions populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
 ### Action `easyenergy.get_gas_prices`
 

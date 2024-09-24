@@ -1006,7 +1006,7 @@ will not be used by anything.
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[actions page]: /docs/scripts/service-calls/
+[actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

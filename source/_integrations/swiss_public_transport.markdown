@@ -23,22 +23,6 @@ The [Stationboard](https://transport.opendata.ch/examples/stationboard.html) web
 
 {% include integrations/config_flow.md %}
 
-{% configuration %}
-from:
-  description: The ID of the station of the start station.
-  required: true
-  type: string
-to:
-  description: The ID of the station of the end station.
-  required: true
-  type: string
-name:
-  description: The name of the sensor.
-  required: false
-  type: string
-  default: Next Departure
-{% endconfiguration %}
-
 The public timetables are coming from [Swiss public transport](https://transport.opendata.ch/).
 
 ## Actions
