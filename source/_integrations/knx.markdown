@@ -348,6 +348,8 @@ response:
   default: false
 {% endconfiguration %}
 
+{% raw %}
+
 ```yaml
 # Example script to send a fixed value and the state of an entity
 alias: My Script
@@ -370,6 +372,8 @@ sequence:
       payload: "{{ states('sensor.dew_point') }}"
       response: false
 ```
+
+{% endraw %}
 
 ### Read
 
