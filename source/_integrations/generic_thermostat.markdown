@@ -52,7 +52,7 @@ unique_id:
   required: false
   type: string
 heater:
-  description: "`entity_id` for heater switch, must be for `switch` or `fan` entity. Becomes air conditioning switch when `ac_mode` is set to `true`."
+  description: "`entity_id` for heater, must be for `switch` or `fan` entity. Becomes air conditioning control when `ac_mode` is set to `true`."
   required: true
   type: string
 target_sensor:
