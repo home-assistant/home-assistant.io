@@ -946,11 +946,6 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
-entity_category:
-  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
-  required: false
-  type: string
-  default: None
 fan_speed_address:
   description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
   required: false
@@ -974,6 +969,11 @@ fan_zero_mode:
   required: false
   type: string
   default: "off"
+entity_category:
+  description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
+  required: false
+  type: string
+  default: None
 {% endconfiguration %}
 
 ## Cover
