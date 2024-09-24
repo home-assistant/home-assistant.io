@@ -38,13 +38,12 @@ The Tami4 Edge integration provides the following entities.
 ### Buttons
 
 - **Boil water**: Select this button to start boiling the water.
-- **Prepare drink**: Select this button to start preparing the drink.
+- **Prepare drink**: Select this button to start preparing the drink. There's a button for each predefined drink.
 
 ### Sensors
 
 **UV upcoming replacement**: Date when the UV lamp needs to be replaced.
 **UV installed**: Date when the UV lamp was installed.
-**Filter last replacement**: Date when the filter was last replaced.
 **Filter upcoming replacement**: Number of days remaining until the filter needs to be replaced.
-**Filter installed**: Date when the filter was installed for the first time.
-**Filter water passed**: Amount of water that has been filtered with the currently installed filter.
+**Filter installed**: Date when the filter was installed.
+**Filter water passed**: Amount of water (in liters) that has been filtered with the currently installed filter.
