@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -21,6 +22,7 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
