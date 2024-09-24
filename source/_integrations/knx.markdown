@@ -1246,14 +1246,6 @@ Light entities can be created from the frontend in the KNX panel or via YAML.
 <a name="configuration-light-yaml"></a>
 {% details "Configuration of KNX light entities via YAML" %}
 
-```yaml
-# Example configuration.yaml entry
-knx:
-  light:
-    - name: "Kitchen"
-      address: "1/0/9"
-```
-
 {% configuration %}
 address:
   description: KNX group address for switching the light on and off. *DPT 1.001*
@@ -1387,7 +1379,7 @@ Many KNX devices can change their state internally without a message to the swit
 
 For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-### Extended configuration examples
+### YAML configuration examples
 
 ```yaml
 knx:
