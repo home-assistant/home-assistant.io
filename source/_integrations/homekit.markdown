@@ -454,14 +454,14 @@ The key name will be available in the event data in the `key_name` field. Exampl
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: event
     event_type: homekit_tv_remote_key_pressed
     event_data:
       key_name: arrow_right
 
   # Send the arrow right key via a broadlink IR blaster
-  action:
+  actions:
     action: broadlink.send
     host: 192.168.1.55
     packet: XXXXXXXX
@@ -474,13 +474,13 @@ The HomeKit integration emits `homekit_state_change` events. These events can be
 ```yaml
 # Example for handling a HomeKit event
 automation:
-  trigger:
+  triggers:
     - platform: event
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door
         action: open_cover
-  action:
+  actions:
     - action: persistent_notification.create
       data:
         message: "The garage door got opened via HomeKit"

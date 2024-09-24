@@ -124,27 +124,27 @@ The actual linking can be realized by two automation rules. One rule to control 
 # Control light living from Velbus push_button_10
 - id: 'Control_light_living_from_Velbus'
   alias: "Control light living using Velbus push_button_10"
-  trigger:
+  triggers:
   - entity_id: binary_sensor.push_button_10
     platform: state
     to: "on"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - entity_id: light.living
     action: light.toggle
 
 # Keep status LED push_button_10 in sync to status light living
 - id: 'Update LED of push_button_10'
   alias: "Update LED state of push_button_10"
-  trigger:
+  triggers:
   - entity_id: light.living
     platform: state
     to: "on"
   - entity_id: light.living
     platform: state
     to: "off"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - condition: or
     conditions:
     - condition: and

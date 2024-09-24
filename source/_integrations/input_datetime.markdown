@@ -117,10 +117,10 @@ automation:
 # Example configuration.yaml entry
 # Turns on bedroom light at the time specified.
 automation:
-  trigger:
+  triggers:
     platform: time
     at: input_datetime.bedroom_alarm_clock_time
-  action:
+  actions:
     action: light.turn_on
     target:
       entity_id: light.bedroom

@@ -48,10 +48,10 @@ The phone number used in **target** should be registered with Facebook messenger
 # Example automation notification entry
 automation:
   - alias: "Evening Greeting"
-    trigger:
+    triggers:
       platform: sun
       event: sunset
-    action:
+    actions:
       action: notify.facebook
       data:
         message: "Good Evening"

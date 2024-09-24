@@ -107,7 +107,7 @@ input_number:
 
 automation:
   - alias: "Alert when My Smoke Probe 1 is above threshold"
-    trigger:
+    triggers:
       platform: template
       value_template: >-
         {% if (states("sensor.my_smoke_probe_1") | float) > (states("input_number.smoke_probe_1_threshold") | float) %}
@@ -115,7 +115,7 @@ automation:
         {% else %}
           False
         {% endif %}
-    action:
+    actions:
       - action: notify.all
         data:
           message: >

@@ -91,11 +91,11 @@ A notify integration will be created using the name without spaces. In the above
 ```yaml
 - alias: "Send E-Mail Every Morning"
   description: ""
-  trigger:
+  triggers:
     - platform: time
       at: "08:00:00"
-  condition: []
-  action:
+  conditions: []
+  actions:
     - action: notify.NOTIFIER_NAME
       data:
           title: "Good Morning"

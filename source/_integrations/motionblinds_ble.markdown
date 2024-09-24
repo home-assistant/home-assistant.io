@@ -62,10 +62,10 @@ This can also be automated using a YAML automation. For instance, the following 
 ```yaml
 alias: Motionblinds Bluetooth polling automation
 mode: single
-trigger:
+triggers:
   - platform: time_pattern
     hours: "/24"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade

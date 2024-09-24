@@ -46,7 +46,7 @@ private_key:
 Message to two devices with formatted text.
 
 ```yaml
-action:
+actions:
   action: notify.notify
   data:
     title: "Test to 2 devices"
@@ -64,7 +64,7 @@ action:
 Message to one device with formatted text and image from an external URL.
 
 ```yaml
-action:
+actions:
   action: notify.notify
   data:
     title: "Test to 1 device with image from an url"
@@ -84,7 +84,7 @@ action:
 Message to two devices and one device group with formatted text and local image.
 
 ```yaml
-action:
+actions:
   action: notify.notify
   data:
     title: "Test to 3 devices with local image"

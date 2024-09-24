@@ -1499,11 +1499,11 @@ Inline array:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    condition: []
-    action:
+    conditions: []
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1520,11 +1520,11 @@ Array with inline zone:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    condition: []
-    action:
+    conditions: []
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1542,11 +1542,11 @@ Array mode:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    condition: []
-    action:
+    conditions: []
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1579,11 +1579,11 @@ Multiple segments:
 ```yaml
 automation:
   - alias: "Vacuum kitchen and living room"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    condition: []
-    action:
+    conditions: []
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1596,11 +1596,11 @@ Single segment:
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    condition: []
-    action:
+    conditions: []
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1613,10 +1613,10 @@ The original app for Xiaomi vacuum has a nice feature of room cleaning with repe
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
+    triggers:
       - event: start
         platform: homeassistant
-    action:
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum

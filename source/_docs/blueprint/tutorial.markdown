@@ -44,11 +44,11 @@ The automation we're going to use in this tutorial controls a light based on a m
 {% raw %}
 
 ```yaml
-trigger:
+triggers:
   platform: state
   entity_id: binary_sensor.motion_kitchen
 
-action:
+actions:
   action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
@@ -91,7 +91,7 @@ Now we have to decide what steps we want to make configurable. We want to make i
 Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
-trigger:
+triggers:
   platform: state
   entity_id: !input motion_sensor
 ```
@@ -103,7 +103,7 @@ Inputs are not limited to strings. They can contain complex objects too. So in t
 {% raw %}
 
 ```yaml
-action:
+actions:
   action: >
     {% if trigger.to_state.state == "on" %}
       light.turn_on
@@ -233,11 +233,11 @@ blueprint:
           entity:
             - domain: light
 
-trigger:
+triggers:
   - platform: state
     entity_id: !input motion_sensor
 
-action:
+actions:
   - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on

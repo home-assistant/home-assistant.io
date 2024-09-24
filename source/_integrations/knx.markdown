@@ -243,12 +243,12 @@ Example automation configuration
 ```yaml
 - alias: Single group address trigger
   description: ''
-  trigger:
+  triggers:
   - platform: knx.telegram
     destination: 1/2/3
     group_value_read: false
     outgoing: false
-  condition: "{{ trigger.value == 0 }}"
+  conditions: "{{ trigger.value == 0 }}"
   action: []
   mode: single
 ```
@@ -259,7 +259,7 @@ Example trigger data
 
 ```yaml
 variables:
-  trigger:
+  triggers:
     id: "0"
     idx: "0"
     alias: null
@@ -368,21 +368,21 @@ address:
 ```yaml
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
-  - trigger:
+  - triggers:
       - platform: knx.telegram
         # Cover move trigger
         destination: "0/4/20"
-    action:
+    actions:
       - delay: 0:0:10
       - action: knx.read
         data:
           # Cover position address
           address: "0/4/21"
 
-  - trigger:
+  - triggers:
       - platform: homeassistant
         event: start
-    action:
+    actions:
       # Register the group address to trigger a knx_event
       - action: knx.event_register
         data:
@@ -595,7 +595,7 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 ```yaml
 # Example automation.yaml entry
 automation:
-  - trigger:
+  - triggers:
       platform: numeric_state
       entity_id: binary_sensor.livingroom_switch
       attribute: counter
@@ -605,20 +605,20 @@ automation:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
-    action:
+    actions:
       - entity_id: light.hue_color_lamp_1
         action: light.turn_on
-  - trigger:
+  - triggers:
       platform: numeric_state
       entity_id: binary_sensor.livingroom_switch
       attribute: counter
       above: 1
       below: 3
-    condition:
+    conditions:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
-    action:
+    actions:
       - entity_id: light.hue_bloom_1
         action: homeassistant.turn_on
       - entity_id: light.hue_bloom_2

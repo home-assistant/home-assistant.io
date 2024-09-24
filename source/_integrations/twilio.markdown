@@ -56,7 +56,7 @@ Here is an example:
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: event
     event_type: twilio_data_received
     event_data:
@@ -64,7 +64,7 @@ automation:
       To: '+1YYYYYYYYYYY'
       CallStatus: ringing
       Direction: inbound
-  action:
+  actions:
     action: cover.open_cover
     target:
       entity_id: cover.garage_door
@@ -77,10 +77,10 @@ An example of an SMS handler:
 {% raw %}
 ```yaml
 alias: Twilio incoming
-trigger:
+triggers:
   - platform: event
     event_type: twilio_data_received
-action:
+actions:
   - variables:
       sender: |
         {{ trigger.event.data.From }}

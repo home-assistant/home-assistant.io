@@ -291,11 +291,11 @@ script:
 
 automation:
   - alias: "Close covers at night"
-    trigger:
+    triggers:
       - platform: sun
         event: sunset
         offset: "+00:30:00"
-    action:
+    actions:
       - action: cover.set_cover_position
         target:
           entity_id: cover.cover_group

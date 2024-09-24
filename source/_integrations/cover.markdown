@@ -75,10 +75,10 @@ Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, 
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: cover.open_cover
       target:
         entity_id: cover.demo
@@ -97,10 +97,10 @@ Set cover position of one or multiple covers.
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: cover.set_cover_position
       target:
         entity_id: cover.demo
@@ -121,10 +121,10 @@ Set cover tilt position of one or multiple covers.
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: cover.set_cover_tilt_position
       target:
         entity_id: cover.demo

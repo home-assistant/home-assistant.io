@@ -78,11 +78,11 @@ Here is an example automation using an IR blaster to control `media_player_study
 ```yaml
 alias: Roon Study Volume
 description: ""
-trigger:
+triggers:
   - platform: state
     entity_id:
       - event.study_roon_volume
-action:
+actions:
   - choose:
       - conditions:
           - condition: state

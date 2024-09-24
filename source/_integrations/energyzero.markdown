@@ -136,10 +136,10 @@ The response data can be added to a template sensor:
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: time_pattern
         hours: "*"
-    action:
+    actions:
       - action: energyzero.get_energy_prices
         response_variable: prices
         data:

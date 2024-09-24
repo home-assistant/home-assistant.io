@@ -75,14 +75,14 @@ automation:
       04-B1-C6-62-2F-64-80:
         media_content_id: spotify:playlist:0OtWh3u6fZrBJTQtVBQWge
         media_content_type: playlist
-  trigger:
+  triggers:
     platform: event
     event_type: tag_scanned
-  condition:
+  conditions:
     # Test that we support this device and tag
     - "{{ trigger.event.data.tag_id in tags }}"
     - "{{ trigger.event.data.device_id in media_players }}"
-  action:
+  actions:
     - variables:
         media_player_entity_id: "{{ media_players[trigger.event.data.device_id] }}"
         media_content_id: "{{ tags[trigger.event.data.tag_id].media_content_id }}"

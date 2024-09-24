@@ -135,10 +135,10 @@ The following example shows the usage of the `input_select.select_option` action
 # Example configuration.yaml entry
 automation:
   - alias: "example automation"
-    trigger:
+    triggers:
       platform: event
       event_type: MY_CUSTOM_EVENT
-    action:
+    actions:
       - action: input_select.select_option
         target:
           entity_id: input_select.who_cooks
@@ -152,10 +152,10 @@ To dynamically set the `input_select` options you can call `input_select.set_opt
 # Example configuration.yaml entry
 automation:
   - alias: "example automation"
-    trigger:
+    triggers:
       platform: event
       event_type: MY_CUSTOM_EVENT
-    action:
+    actions:
       - action: input_select.set_options
         target:
           entity_id: input_select.who_cooks
@@ -185,11 +185,11 @@ input_select:
  # This automation script runs when a value is received via MQTT on retained topic: thermostatMode
  # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
 - alias: "Set Thermostat Mode Selector"
-  trigger:
+  triggers:
     platform: mqtt
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
-  action:
+  actions:
     action: input_select.select_option
     target:
       entity_id: input_select.thermostat_mode
@@ -199,10 +199,10 @@ input_select:
  # This automation script runs when the thermostat mode selector is changed.
  # It publishes its value to the same MQTT topic it is also subscribed to.
 - alias: "Set Thermostat Mode"
-  trigger:
+  triggers:
     platform: state
     entity_id: input_select.thermostat_mode
-  action:
+  actions:
     action: mqtt.publish
     data:
       topic: "thermostatMode"

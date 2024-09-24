@@ -104,10 +104,10 @@ If there is an automation that handles that event, it will be automatically trig
 
 ```yaml
 - alias: "Capture Event"
-  trigger:
+  triggers:
     platform: event
     event_type: event_light_state_changed
-  action:
+  actions:
     - action: notify.notify
       data:
         message: "Light is turned {{ trigger.event.data.state }}"

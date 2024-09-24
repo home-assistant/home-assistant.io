@@ -147,14 +147,14 @@ Using the lock operation sensors, you can detect when a user operates a lock and
 - id: "1583706446906"
   alias: "joe_doe_front_door_operate"
   description: John Doe locks or unlocks the Front Door
-  trigger:
+  triggers:
   - entity_id: sensor.front_door_operator
     platform: state
     to: John Doe
-  condition:
+  conditions:
   - condition: template
     value_template: "{{ not state_attr('sensor.front_door_operator', 'remote') }}"
-  action:
+  actions:
   - data: {}
     entity_id: camera.inside
     action: camera.turn_off

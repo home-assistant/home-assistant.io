@@ -45,10 +45,10 @@ In addition, the entity can have the following states:
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 
 ```yaml
-trigger:
+triggers:
   - platform: state
     entity_id: event.doorbell
-action:
+actions:
   - action: notify.frenck
     data:
       message: "Ding Dong! Someone is at the door!"
@@ -63,10 +63,10 @@ This allows you, for example, to trigger a different action when the button on a
 When combining that with the [choose action](/docs/scripts/#choose-a-group-of-actions) script, you can assign multiple different actions to a single event entity. In the following example, short- or long-pressing the button on the remote will trigger a different scene:
 
 ```yaml
-trigger:
+triggers:
   - platform: state
     entity_id: event.hue_remote_control
-action:
+actions:
   - alias: "Choose an action based on the type of event"
     choose:
       - conditions:

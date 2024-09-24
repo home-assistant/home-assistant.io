@@ -204,11 +204,11 @@ Example:
 # Example automation for webhooks based Netatmo events
 - alias: "Netatmo event example"
   description: "Count all events pushed by the Netatmo API"
-  trigger:
+  triggers:
     - event_data: {}
       event_type: netatmo_event
       platform: event
-  action:
+  actions:
     - data: {}
       entity_id: counter.event_counter
       action: counter.increment
@@ -222,12 +222,12 @@ Example:
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
+  triggers:
     - event_type: netatmo_event
       platform: event
       event_data:
         type: movement
-  action:
+  actions:
     - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
@@ -246,12 +246,12 @@ Example:
 # Example automation for Netatmo Presence
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
+  triggers:
     - event_type: netatmo_event
       platform: event
       event_data:
         type: human # other possible types: animal, vehicle
-  action:
+  actions:
     - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
@@ -270,7 +270,7 @@ Example:
 # Example automation
 - alias: "Door or window open or movement"
   description: "Notifies which door or window is open or was moved"
-  trigger:
+  triggers:
     - event_type: netatmo_event
       platform: event
       event_data:
@@ -283,7 +283,7 @@ Example:
       platform: event
       event_data:
         type: tag_small_move
-  action:
+  actions:
     - data:
         message: >
           {{ trigger.event.data["data"]["message"] }}

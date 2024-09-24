@@ -86,13 +86,13 @@ An example using two automations:
 - id: "SOME_UNIQUE_ID"
   alias: "Entrance Motion Image Processing"
   description: "Send a camera image to sighthound, when motion is detected at the entrance"
-  trigger:
+  triggers:
     - type: motion
       platform: device
       device_id: YOUR_DEVICE_ID
       entity_id: binary_sensor.my_motion_sensor
       domain: binary_sensor
-  action:
+  actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.sighthound_my_cam
@@ -101,10 +101,10 @@ An example using two automations:
 - id: "ANOTHER_UNIQUE_ID"
   alias: "Arriving Vehicle Notification"
   description: "Send a notification to a phone, when a vehicle is detected at the entrance"
-  trigger:
+  triggers:
     - platform: event
       event_type: sighthound.vehicle_detected
-  action:
+  actions:
     - action: notify.mobile_app_my_iphone
       data:
         message: "Somebody has just arrived by car."

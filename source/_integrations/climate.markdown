@@ -52,10 +52,10 @@ Turn auxiliary heater on/off for climate device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_aux_heat
       target:
         entity_id: climate.kitchen
@@ -78,10 +78,10 @@ reflecting a situation where the climate device is set to save energy. For examp
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_preset_mode
       target:
         entity_id: climate.kitchen
@@ -106,10 +106,10 @@ Set target temperature of climate device
 ```yaml
 ### Set temperature to 24 in heat mode
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -121,10 +121,10 @@ automation:
 ```yaml
 ### Set temperature range to 20 to 24 in heat_cool mode
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -147,10 +147,10 @@ Set target humidity of climate device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_humidity
       target:
         entity_id: climate.kitchen
@@ -171,10 +171,10 @@ Set fan operation for climate device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_fan_mode
       target:
         entity_id: climate.kitchen
@@ -195,10 +195,10 @@ Set climate device's HVAC mode
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_hvac_mode
       target:
         entity_id: climate.kitchen
@@ -219,10 +219,10 @@ Set swing operation mode for climate device
 
 ```yaml
 automation:
-  trigger:
+  triggers:
     platform: time
     at: "07:15:00"
-  action:
+  actions:
     - action: climate.set_swing_mode
       target:
         entity_id: climate.kitchen

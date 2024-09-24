@@ -84,12 +84,12 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 # Example configuration.yaml automation entry
 automation:
   - alias: "Off on Remote"
-    trigger:
+    triggers:
       platform: event
       event_type: ir_command_received
       event_data:
         button_name: KEY_0
-    action:
+    actions:
       action: homeassistant.turn_off
       target:
         entity_id: group.a_lights

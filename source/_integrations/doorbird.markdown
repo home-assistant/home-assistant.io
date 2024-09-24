@@ -104,10 +104,10 @@ The example automation below shows how to turn on a light when somebody presses 
 
 ```yaml
 - alias: "Doorbird Ring"
-  trigger:
+  triggers:
     platform: event
     event_type: doorbird_driveway_gate_somebody_pressed_the_button
-  action:
+  actions:
     action: light.turn_on
       target:
         entity_id: light.side_entry_porch

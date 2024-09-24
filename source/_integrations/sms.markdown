@@ -33,7 +33,7 @@ To use notifications, please see the [getting started with automation page](/get
 ### Send message
 
 ```yaml
-action:
+actions:
   action: notify.sms
   data:
     message: "This is a message for you!"
@@ -45,7 +45,7 @@ action:
 Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
 
 ```yaml
-action:
+actions:
   action: notify.sms
   data:
     message: "This is a message for you in ANSI"
@@ -97,10 +97,10 @@ notify_sms_user1:
 
 ```yaml
 - alias: "Forward SMS"
-  trigger:
+  triggers:
   - platform: event
     event_type: sms.incoming_sms
-  action:
+  actions:
   - action: script.notify_sms_user1
     data:
       message: |

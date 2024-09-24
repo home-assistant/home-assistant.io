@@ -65,10 +65,10 @@ Here are the automations for the above screenshot:
 # Rich Text Example 1.
 # Show a one line message with a red banner
 - alias: "Notify On Build Failing"
-  trigger:
+  triggers:
     - platform: webhook
       webhook_id: build_failed
-  action:
+  actions:
     action: notify.cisco_webex_teams_notify
     data:
       message: "<blockquote class=danger>Build 0.89.5 compile failed."
@@ -78,10 +78,10 @@ Here are the automations for the above screenshot:
 # Show a title and multi-line message with a yellow banner, 
 # with lists, a person mention and a link
 - alias: "Notify On Build Unstable"
-  trigger:
+  triggers:
     - platform: webhook
       webhook_id: build_unstable
-  action:
+  actions:
     action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>Build 0.89.6 is unstable.</strong>"
@@ -101,10 +101,10 @@ Here are the automations for the above screenshot:
 # Show a title and multi-line message with a blue banner, 
 # with lists, a person mention and a link
 - alias: "Notify On Build Passing"
-  trigger:
+  triggers:
     - platform: webhook
       webhook_id: build_passed
-  action:
+  actions:
     action: notify.cisco_webex_teams_notify
     data:
       title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"

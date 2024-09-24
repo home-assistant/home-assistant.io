@@ -40,30 +40,30 @@ An example automation:
 ```yaml
 automation:
   - alias: Notify CallerID
-    trigger:
+    triggers:
       platform: state
       entity_id: sensor.phone_modem
       to: "callerid"
-    action:
+    actions:
       action: notify.notify
       data:
         message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
   - alias: Notify CallerID webui
-    trigger:
+    triggers:
       platform: state
       entity_id: sensor.phone_modem
       to: "callerid"
-    action:
+    actions:
       action: persistent_notification.create
       data:
         title: "Call from"
         message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
   - alias: Say CallerID
-    trigger:
+    triggers:
       platform: state
       entity_id: sensor.phone_modem
       to: "callerid"
-    action:
+    actions:
       action: tts.google_say
       data:
         message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"

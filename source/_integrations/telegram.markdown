@@ -176,7 +176,7 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 ...
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"
@@ -210,7 +210,7 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: Send an images
@@ -286,7 +286,7 @@ homeassistant:
 
 ```yaml
 ...
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: Send a video
@@ -347,7 +347,7 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: Send a document
@@ -407,7 +407,7 @@ inline_keyboard:
 ```yaml
 ...
 
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: Send location
@@ -441,7 +441,7 @@ inline_keyboard:
 
 ```yaml
 ...
-action:
+actions:
   action: notify.NOTIFIER_NAME
   data:
     title: "*Send a message*"

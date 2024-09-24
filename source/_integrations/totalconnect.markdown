@@ -39,32 +39,32 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
-    trigger:
+    triggers:
       platform: state
       entity_id: alarm_control_panel.total_connect
       to: "disarmed"
-    condition:
+    conditions:
       condition: sun
       before: sunset
-    action:
+    actions:
       action: scene.turn_on
       target:
         entity_id: scene.OnDisarmedDaytime
   - alias: "Alarm: Armed Away"
-    trigger:
+    triggers:
       platform: state
       entity_id: alarm_control_panel.total_connect
       to: "armed_away"
-    action:
+    actions:
       action: scene.turn_on
       target:
         entity_id: scene.OnArmedAway
   - alias: "Alarm: Arm Home Instant at Sunset"
-    trigger:
+    triggers:
       platform: sun
       event: sunset
       offset: '0'
-    action:
+    actions:
       action: totalconnect.arm_home_instant
       target:
         entity_id: alarm_control_panel.total_connect

@@ -436,14 +436,14 @@ Using this {% term trigger %} in an {% term automation %} will allow you to dete
 # Example automations.yaml entry
 alias: Doorbell Pressed
 description: "Trigger when Amcrest Button Press Event Fires"
-trigger:
+triggers:
   - platform: event
     event_type: amcrest
     event_data:
       event: "CallNoAnswered"
       payload:
         action: "Start"
-action:
+actions:
   - type: flash
     entity_id: light.living_room
     domain: light

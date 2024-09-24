@@ -81,10 +81,10 @@ See the example below for how an automation trigger translates to a message on t
 ```yaml
 automation:
   - alias: "Sunset Service Bus message"
-    trigger:
+    triggers:
       platform: sun
       event: sunset
-    action:
+    actions:
       action: notify.test_queue
       data:
         message: "Sun is going down"

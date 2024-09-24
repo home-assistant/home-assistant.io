@@ -145,7 +145,7 @@ Increasing the default maximum message size (2048 bytes) could have a negative i
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: event
         event_type: "imap_content"
         id: "custom_event"
@@ -196,15 +196,15 @@ The example below filters the event trigger by `entry_id`, fetches the message a
 ```yaml
 alias: imap fetch and seen example
 description: Fetch and mark an incoming message as seen
-trigger:
+triggers:
   - platform: event
     event_type: imap_content
     event_data:
       entry_id: 91fadb3617c5a3ea692aeb62d92aa869
-condition:
+conditions:
   - condition: template
     value_template: "{{ trigger.event.data['sender'] == 'info@example.com' }}"
-action:
+actions:
   - action: imap.fetch
     data:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
@@ -231,7 +231,7 @@ The following example shows the usage of the IMAP email content sensor to scan t
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: event
         event_type: "imap_content"
         id: "custom_event"
@@ -269,7 +269,7 @@ Below is the template sensor which extracts the information from the body of the
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: event
         event_type: "imap_content"
         id: "custom_event"
@@ -318,7 +318,7 @@ The example below will only set the state to the subject of the email of templat
 
 ```yaml
 template:
-  - trigger:
+  - triggers:
       - platform: event
         event_type: "imap_content"
         id: "custom_event"

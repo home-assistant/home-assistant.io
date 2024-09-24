@@ -95,11 +95,11 @@ The following example show how to implement an automation for the **button_press
 # Example configuration.yaml Automation entry
 automation:
   alias: "Point button press"
-  trigger:
+  triggers:
   - platform: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
-  action:
+  actions:
   - action: persistent_notification.create
     data:
       title: Point button press
@@ -116,14 +116,14 @@ The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant 
 # Example configuration.yaml Automation entry
 automation:
   alias: "Point button press (webhook)"
-  trigger:
+  triggers:
   - platform: event
     event_type: point_webhook_received
     event_data: {}
-  condition:
+  conditions:
     condition: template
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
-  action:
+  actions:
   - action: persistent_notification.create
     data:
       title: Point button press (webhook)

@@ -199,27 +199,27 @@ You can also create automations using YAML, for example:
 
 ```yaml
 - alias: "Toggle living room light"
-  trigger:
+  triggers:
     platform: event
     event_type: shelly.click
     event_data:
       device: shellyswitch25-AABBCC
       channel: 1
       click_type: single
-  action:
+  actions:
     action: light.toggle
     target:
       entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
-  trigger:
+  triggers:
     platform: event
     event_type: shelly.click
     event_data:
       device: shellyswitch25-AABBCC
       channel: 2
       click_type: long
-  action:
+  actions:
     action: light.toggle
     target:
       entity_id: light.lamp_living_room

@@ -129,10 +129,10 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 ```yaml
 automation:
   - alias: "Update image when weather changes"
-    trigger:
+    triggers:
       - platform: state
         entity_id: weather.home
-    action:
+    actions:
       - alias: "Ask OpenAI to generate an image"
         action: openai_conversation.generate_image
         response_variable: generated_image
@@ -148,7 +148,7 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - trigger:
+  - triggers:
       alias: "Update image when a new weather image is generated"
       platform: event
       event_type: new_weather_image
