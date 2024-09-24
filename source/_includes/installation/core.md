@@ -3,23 +3,18 @@
 {% if page.installation_type == 'windows' %}
 ### Install WSL
 
-To install Home Assistant Core on Windows, you will need to use the Windows Subsystem for Linux (WSL). Follow the [WSL installation instructions](https://docs.microsoft.com/windows/wsl/install-win10) and install Ubuntu from the Windows Store.
+To install {% term "Home Assistant Core" %}  on Windows, you will need to use the Windows Subsystem for Linux (WSL). Follow the [WSL installation instructions](https://docs.microsoft.com/windows/wsl/install-win10) and install Ubuntu from the Windows Store.
 
-As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running Home Assistant Core directly on Windows is not supported.
+As an alternative, Home Assistant OS can be installed in a Linux guest VM. Running {% term "Home Assistant Core" %}  directly on Windows is not supported.
 {% endif %}
 
-<div class='note warning'>
-
+{% caution %}
 This is an advanced installation process, and some steps might differ on your system. Considering the nature of this installation type, we assume you can handle subtle differences between this document and the system configuration you are using. When in doubt, please consider one of the [other installation methods](/installation/), as they might be a better fit instead.
+{% endcaution %}
 
-</div>
-
-<div class='note'>
-<b>Prerequisites</b>
+### Prerequisites
 
 This guide assumes that you already have an operating system setup and have installed Python {{site.installation.versions.python}} (including the package `python3-dev`) or newer.
-
-</div>
 
 ### Install dependencies
 
@@ -87,6 +82,8 @@ Once you have installed the required Python package, it is now time to install H
 pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
 
+**Troubleshooting**: If you do not see the above version of Home Assistant package in your environment, make sure you have the correct Python version installed, as defined under the [Prerequisites](#prerequisites).
+
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
 ```bash
@@ -97,8 +94,8 @@ You can now reach your installation via the web interface on `http://homeassista
 
 If this address doesn't work you may also try `http://localhost:8123` or `http://X.X.X.X:8123` (replace X.X.X.X with your machines’ IP address).
 
-<div class='note'>
+{% note %}
 
 When you run the `hass` command for the first time, it will download, install and cache the necessary libraries/dependencies. This procedure may take anywhere between 5 to 10 minutes. During that time, you may get a **site cannot be reached** error when accessing the web interface. This will only happen the first time. Subsequent restarts will be much faster.
 
-</div>
+{% endnote %}

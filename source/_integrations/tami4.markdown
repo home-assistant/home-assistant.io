@@ -10,6 +10,7 @@ ha_codeowners:
   - '@Guy293'
 ha_domain: tami4
 ha_platforms:
+  - button
   - sensor
 ha_integration_type: integration
 ---
@@ -17,6 +18,7 @@ ha_integration_type: integration
 Support for [Tami4 Edge / Edge+ by Strauss](https://www.tami4.co.il/tami4edge-collection) in Home Assistant.
 
 You can boil water and get filter / UV information, such as when you need to replace them.
+Also, all of your personal drinks will be available as buttons for you to use.
 
 You can easily pair your device by confirming your phone number which is registered with your Edge app account.
 

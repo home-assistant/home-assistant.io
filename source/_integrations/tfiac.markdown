@@ -12,13 +12,17 @@ ha_domain: tfiac
 ha_platforms:
   - climate
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `tfiac` integration integrates several vendors air conditioning systems, that uses the Tfiac mobile app, into Home Assistant. App currently available at [Play Store](https://play.google.com/store/apps/details?id=com.tcl.export) and [App Store](https://itunes.apple.com/app/tfiac/id1059938398).
+The `tfiac` {% term integration %} integrates several vendors air conditioning systems, that uses the Tfiac mobile app, into Home Assistant. App currently available at [Play Store](https://play.google.com/store/apps/details?id=com.tcl.export) and [App Store](https://itunes.apple.com/app/tfiac/id1059938398).
 
 ## Configuration
 
-To add your Tfiac device into your Home Assistant installation, add the following to your `configuration.yaml` file:
+To add your Tfiac {% term integration %} into your Home Assistant installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Full manual example configuration.yaml entry

@@ -9,15 +9,43 @@ ha_domain: sensor
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Sensors are a basic integration in Home Assistant. They monitor the states and conditions of a variety of entities. An entity can be many things. This can include a physical device like a motion sensor that reports the battery level, a web service that retrieves the weather temperature, a built-in function that calculates the sun's elevation relative to your GPS position, or even a custom sensor you may have created to report the free space on your laptop. These are all _things_ reporting different types of information.
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
+## The state of a sensor entity
+
+The state of a sensor entity is its currently detected value, which can be either text or a number.
+
+<p class='img'>
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
+Screenshot showing the state of a sensor entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
-The type of data a sensor returns impacts how it is displayed in the frontend. This is controlled by the sensor's device class designation. Built-in sensors and many created from an integration will have this designation predefined. Those can be modified in the [customize section](/docs/configuration/customizing-devices/). When manually creating a new sensor the device class may be optionally assigned. A full list of available sensor device classes is below:
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing different device classes for sensors:
+
+<p class='img'>
+<img src='/images/screenshots/sensor_device_classes_icons.png' />
+Example of various device class icons for sensors.
+</p>
+
+The following device classes are supported for sensors:
 
 - **None**: Generic sensor. This is the default and doesn't need to be set.
 - **apparent_power**: Apparent power in VA.
@@ -32,8 +60,8 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **date**: Date string (ISO 8601)
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in d, h, min, or s
-- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
-- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
+- **energy**: Energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
+- **energy_storage**: Stored energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
@@ -58,7 +86,7 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
-- **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph or mm/d
+- **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)
@@ -70,9 +98,4 @@ The type of data a sensor returns impacts how it is displayed in the frontend. T
 - **volume_storage**: Generic stored volume in L, mL, gal, fl. oz., m³, ft³, or CCF
 - **water**: Water consumption in L, gal, m³, ft³, or CCF
 - **weight**: Generic mass in kg, g, mg, µg, oz, lb, or st
-- **wind_speed**: Wind speed in ft/s, km/h, kn, m/s, or mph
-
-<p class='img'>
-<img src='/images/screenshots/sensor_device_classes_icons.png' />
-Example of various device class icons for sensors.
-</p>
+- **wind_speed**: Wind speed in Beaufort, ft/s, km/h, kn, m/s, or mph

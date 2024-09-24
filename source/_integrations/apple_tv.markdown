@@ -35,10 +35,10 @@ This entity will display the active app and playback controls.
 
 ### Launching apps
 
-You can launch apps using the `media_player.select_source` service, or using the
+You can launch apps using the `media_player.select_source` action, or using the
 “Apps” folder in the media browser.
 
-Using the `media_player.play_media` service, you can also use `Deep Links` to
+Using the `media_player.play_media` action, you can also use `Deep Links` to
 launch specific content in applications.
 
 Examples of some `Deep Links` for popular applications:
@@ -62,7 +62,7 @@ Examples:
 
 ```yaml
 # Open the Netflix app at a specific title
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: https://www.netflix.com/title/80234304
@@ -72,7 +72,7 @@ target:
 
 ```yaml
 # Open a specific YouTube video:
-service: media_player.play_media
+action: media_player.play_media
 data:
   media_content_type: url
   media_content_id: youtube://www.youtube.com/watch?v=dQw4w9WgXcQ
@@ -91,7 +91,6 @@ The following commands are currently available:
 - `wakeup`
 - `suspend`
 - `home`
-- `home_hold`
 - `top_menu`
 - `menu`
 - `select`
@@ -110,14 +109,15 @@ The following commands are currently available:
 
 **NOTE:** Not all commands are supported by all Apple TV versions.
 
-### Service `send_command`
+### Action `send_command`
 
-| Service data<br>attribute | Optional | Description                                                                                    |
-| ------------------------- | -------- | ---------------------------------------------------------------------------------------------- |
-| `entity_id`               | no       | `entity_id` of the Apple TV                                                                    |
-| `command`                 | no       | Command, or list of commands to be sent                                                        |
-| `num_repeats`             | yes      | Number of times to repeat the commands                                                         |
-| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc. |
+| Service data<br>attribute | Optional | Description                                                                                                                   |
+| ------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`               | no       | `entity_id` of the Apple TV                                                                                                   |
+| `command`                 | no       | Command, or list of commands to be sent                                                                                       |
+| `num_repeats`             | yes      | Number of times to repeat the commands                                                                                        |
+| `delay_secs`              | yes      | Interval in seconds between one send and another <br> This is a `float` value e.g. 1, 1.2 etc.                                |
+| `hold_secs`               | yes      | Number of seconds to hold the button. <br> This is a `float` value but please use 0 for not hold and 1 for holding the button |
 
 ### Examples
 
@@ -128,7 +128,7 @@ being in a fixed place on the home screen:
 lounge_appletv_netflix:
   alias: "Select Netflix"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
@@ -140,22 +140,29 @@ lounge_appletv_netflix:
           - select
 ```
 
-Script using the `home_hold` command to send your Apple TV to sleep and turn off
+Script using the quick action menu to send your Apple TV to sleep and turn off
 the Media Player:
 
 ```yaml
 apple_tv_sleep:
   alias: "Make the Apple TV sleep"
   sequence:
-    - service: remote.send_command
+    - action: remote.send_command
+      target:
+        entity_id: remote.lounge_appletv
+      data:
+        hold_secs: 1
+        delay_secs: 1
+        command:
+          - home
+    - action: remote.send_command
       target:
         entity_id: remote.lounge_appletv
       data:
         delay_secs: 1
         command:
-          - home_hold
           - select
-    - service: media_player.turn_off
+    - action: media_player.turn_off
       target:
         entity_id: media_player.lounge_appletv
 ```
@@ -163,7 +170,7 @@ apple_tv_sleep:
 Send 3 `left` commands with delay between each:
 
 ```yaml
-service: remote.send_command
+action: remote.send_command
 target:
   entity_id: remote.apple_tv
 data:
@@ -178,7 +185,7 @@ data:
 ### My Apple TV does not turn on/off when I press on/off in the frontend
 
 That is correct; it only toggles the power state in Home Assistant. See the
-example above to use the `home_hold` command. This can be used on Apple TVs
+example above to use the quick action menu. This can be used on Apple TVs
 running tvOS 14.0 or later.
 
 ### Is it possible to see if a device is on without interacting with it

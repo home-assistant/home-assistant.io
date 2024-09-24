@@ -41,35 +41,35 @@ The port string used in the user interface or the configuration file can have 2 
 - For a TCP/IP device: `127.0.0.1:3678`
 - For the VMBSIG module: `tls://192.168.1.9:27015`
 
-## Services
+## Actions
 
 - `velbus.sync clock`: Synchronize Velbus time to local clock.
 - `velbus.scan`: Scan the bus for new devices.
 - `velbus.set_memo_text`: Show memo text on Velbus display modules.
 - `velbus.clear_cache`: Clear the full velbuscache or the cache for one module only.
 
-### Service `velbus.sync_clock`
+### Action `velbus.sync_clock`
 
-You can use the service `velbus.sync_clock` to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
+You can use the `velbus.sync_clock` action to synchronize the clock of the Velbus modules to the clock of the machine running Home Assistant. This is the same as the 'sync clock' button at the VelbusLink software.
 
-| Service data attribute | Optional | Description                              |
+| Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 
-### Service `velbus.scan`
+### Action `velbus.scan`
 
-You can use the service `velbus.scan` to synchronize the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
+You can use the `velbus.scan` action to synchronize the modules between the bus and Home Assistant. This is the same as the 'scan' button at the VelbusLink software.
 
-| Service data attribute | Optional | Description                              |
+| Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 
 
-### Service `velbus.set_memo_text`
+### Action `velbus.set_memo_text`
 
-You can use the service `velbus.set_memo_text` to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
+You can use the `velbus.set_memo_text` action to provide the memo text to be displayed at Velbus modules like VMBGPO(D) and VMBELO.
 
-| Service data attribute | Optional | Description                              |
+| Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `interface`            | no       | The port used to connect to the bus (the same one as used during configuration). |
 | `address`              | no       | The module address in decimal format, which is displayed at the device list at the integration page. |
@@ -86,15 +86,15 @@ script:
         address: 65
         memo_text: "It's trash day"
         interface: "tls://192.168.1.9:27015"
-      service: velbus.set_memo_text
+      action: velbus.set_memo_text
 ```
 
-### Service `velbus.clear_cache`
+### Action `velbus.clear_cache`
 
-You can use the service `velbus.clear_cache` to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
-Use this service when you make changes to your configuration via velbuslink.
+You can use the `velbus.clear_cache` action to clear the cache of one module or the full cache. Once the clear happens, the integration will start a new scan.
+Use this action when you make changes to your configuration via velbuslink.
 
-| Service data attribute | Optional | Description                              |
+| Data attribute | Optional | Description                              |
 | ---------------------- | -------- | ---------------------------------------- |
 | `interface`            | no       | The port used to connect to the bus (the same one used during configuration). |
 | `address`              | no       | The module address in decimal format, which is displayed on the device list on the integration page, if provided the service will only clear the cache for this model, without an address, the full velbuscache will be cleared. |
@@ -124,27 +124,27 @@ The actual linking can be realized by two automation rules. One rule to control 
 # Control light living from Velbus push_button_10
 - id: 'Control_light_living_from_Velbus'
   alias: "Control light living using Velbus push_button_10"
-  trigger:
+  triggers:
   - entity_id: binary_sensor.push_button_10
     platform: state
     to: "on"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - entity_id: light.living
-    service: light.toggle
+    action: light.toggle
 
 # Keep status LED push_button_10 in sync to status light living
 - id: 'Update LED of push_button_10'
   alias: "Update LED state of push_button_10"
-  trigger:
+  triggers:
   - entity_id: light.living
     platform: state
     to: "on"
   - entity_id: light.living
     platform: state
     to: "off"
-  condition: []
-  action:
+  conditions: []
+  actions:
   - condition: or
     conditions:
     - condition: and
@@ -164,5 +164,5 @@ The actual linking can be realized by two automation rules. One rule to control 
         entity_id: light.living
         state: "on"
   - entity_id: light.led_push_button_10
-    service: light.toggle
+    action: light.toggle
 ```

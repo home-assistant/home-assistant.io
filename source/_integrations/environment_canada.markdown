@@ -28,7 +28,7 @@ The **Environment Canada** {% term integration %} provides meteorological data f
 
 The integration automatically determines the closest weather station based on the latitude and longitude specified. If integration-specific coordinates are not provided, the coordinates configured for Home Assistant are used.
 
-You can also specify a weather station to use by providing a identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
+You can also specify a weather station to use by providing an identification code of the form `AB/s0000123`, based on those listed in [this CSV file](https://dd.weather.gc.ca/citypage_weather/docs/site_list_towns_en.csv).
 
 ## Entities
 
@@ -41,7 +41,7 @@ The integration will create the entities listed below. Some of the entities are 
 
 ### Camera
 
-- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the service described below.
+- Loop of radar imagery from the last 3 hours (disabled by default). Also, by default, this entity uses the radar rain layer from 1 April to 30 November and the snow layer from 1 December to 31 March. The rain/snow layer can be changed using the action described below.
 
 ### Sensors
 
@@ -100,7 +100,7 @@ Although infrequent, there have been some outages and instabilities of the Envir
 2022-10-05 12:25:08.619 ERROR (MainThread) [homeassistant.components.environment_canada] Timeout fetching environment_canada weather data
 ```
 
-The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://lists.ec.gc.ca/pipermail/dd_info/) ([example message](https://lists.ec.gc.ca/pipermail/dd_info/2022-October/000542.html)). The next course of action is to post on the forum. The answers are usually already known by someone.
+The first course of action should be to check if there are known problems with the service. Look for recent messages on the [Environment Canada mailing list](https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/) ([example message](https://comm.collab.science.gc.ca/mailman3/hyperkitty/list/dd_info@comm.collab.science.gc.ca/thread/QJHBU7C5MWICGFHETGQ5752MUWR6OZ6G/)). The next course of action is to post on the forum. The answers are usually already known by someone.
 
 ### Sensor `unavailable` or `unknown`
 
@@ -133,13 +133,13 @@ template:
 {% endraw %}
 
 
-## Services
+## Actions
 
-### Service `environment_canada.set_radar_type`
+### Action `environment_canada.set_radar_type`
 
 Sets the type of radar to retrieve for the camera.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | Camera to set the radar type for.
 | `radar_type` | no | One of "Auto", "Rain", or "Snow".

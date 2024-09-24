@@ -3,9 +3,16 @@ type: card
 title: "Tile card"
 sidebar_label: Tile
 description: "The tile card gives you a quick overview of your entity. The card allows you to toggle the entity, show the more-info dialog, or custom actions."
+related:
+  - docs: /dashboards/actions/
+    title: Card actions
+  - docs:  /dashboards/features/
+    title: Card features
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
-The tile card gives you a quick overview of your entity. The card allows you to toggle the entity and show the more info dialog. A badge is shown for some entities like the [climate](/integrations/climate) or [person](/integrations/person) entities.
+The tile card gives you a quick overview of your {% term entity %}. The card allows you to toggle the {% term entity %} and show the more info dialog. A badge is shown for some {% term entities %} like the [climate](/integrations/climate) or [person](/integrations/person) {% term entities %}.
 
 <p class='img'>
   <img src='/images/dashboards/tile_card.png' alt='Screenshot of tile cards'>
@@ -33,7 +40,7 @@ icon:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-color-tokens) or hex color code.
+  description: Set the color when the entity is active. By default, the color is based on `state`, `domain`, and `device_class` of your entity. It accepts [color token](/dashboards/tile/#available-colors) or hex color code.
   type: string
   default: state
 show_entity_picture:
@@ -54,7 +61,7 @@ hide_state:
 state_content:
   required: false
   description: >
-    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
 tap_action:
   required: false
@@ -71,6 +78,14 @@ double_tap_action:
 icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
+  type: map
+icon_hold_action:
+  required: false
+  description: Action taken on icon tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+icon_double_tap_action:
+  required: false
+  description: Action taken on icon double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 features:
   required: false
@@ -126,6 +141,19 @@ features:
       - return_home
 ```
 
-## Available color tokens
+## Available colors
 
-Some color tokens are available to colorize the tile card : `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+You want to colorize the tile card? Choose one of the following colors: `primary`, `accent`, `disabled`, `red`, `pink`, `purple`, `deep-purple`, `indigo`, `blue`, `light-blue`, `cyan`, `teal`, `green`, `light-green`, `lime`, `yellow`, `amber`, `orange`, `deep-orange`, `brown`, `grey`, `blue-grey`, `black` and `white`.
+
+## Reordering features
+
+Some features of the tile card, such as the presets or the HVAC modes of a
+thermostat, can show many buttons. While you can limit the buttons you’d
+like to see, they may not be in the desired order.
+
+For your thermostat, that means you can reorder the HVAC modes or presets.
+
+<p class='img'>
+    <img src="/images/blog/2024-05/tile-card-reorder-features.gif" alt=" Screen recording showing how you can now reorder the HVAC modes on the thermostat shown in a tile card."/>
+    You can now reorder the features of the tile card.
+</p>

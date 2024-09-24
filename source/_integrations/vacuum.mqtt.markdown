@@ -84,6 +84,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -268,15 +272,15 @@ If params are provided service sends JSON as payload with such structure:
 }
 ```
 
-Service trigger example:
+Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
+    triggers:
       - platform: state
         entity_id: sensor.sensor
-    action:
-      service: vacuum.send_command
+    actions:
+      action: vacuum.send_command
       target:
         entity_id: vacuum.vacuum_entity
       data:

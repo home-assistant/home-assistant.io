@@ -9,6 +9,9 @@ ha_domain: anel_pwrctrl
 ha_platforms:
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `anel_pwrctrl` switch platform allows you to control [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 6.x and older. [ANEL PwrCtrl](https://en.anel.eu/index.htm?src=/produkte/produkte.htm) devices on firmware 7.x are not supported.
@@ -19,7 +22,8 @@ Supported devices (tested):
 - PwrCtrl Advanced
 - PwrCtrl Advanced Power
 
-To add this platform to your installation, add the following to your `configuration.yaml` file:
+To add this platform to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -55,8 +59,6 @@ password:
   type: string
 {% endconfiguration %}
 
-<div class="note">
-
+{% note %}
 If no **host** is given the platform will try to auto-discover all devices on the network, that are listening on the given **port_recv**.
-
-</div>
+{% endnote %}

@@ -36,11 +36,13 @@ This integration lets you control all [Freedompro](https://freedompro.eu/) acces
 
 ## Preliminary steps
 
-You will need to obtain an API key from [Freedompro Cloud](https://home.freedompro.eu/) to use this integration.
+You will need to obtain an API key from Freedompro's app to use this integration.
 
-1. Login to [Freedompro Cloud](https://home.freedompro.eu/).
-2. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
-3. Click on your photo profile.
-4. Generate the API key.
+1. Download the app on your phone: ([Android](https://play.google.com/store/apps/details?id=eu.freedompro.app&hl=en&gl=US) / [iOS](https://apps.apple.com/en/app/freedompro/id1598082027)).
+2. Register and create your first home.
+3. Make sure you have at least one accessory paired with the Freedompro Cloud before starting integration.
+4. Switch to the **Profile** tab (bottom right corner).
+5. Scroll down to the **Developper tools** and tap **Api Key**.
+6. Generate an API key.
 
 {% include integrations/config_flow.md %}

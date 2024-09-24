@@ -21,7 +21,7 @@ You will need to sign up for the Zillow API at the following link [Zillow API](h
 
 For example, the White House zpid is 84074482 and can be found in its Zillow URL: [https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/](https://www.zillow.com/homedetails/1600-Pennsylvania-Ave-NW-Washington-DC-20006/84074482_zpid/)
 
-To enable this sensor, add the following lines to your `configuration.yaml`.
+To enable this sensor, add the following lines to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 sensor:

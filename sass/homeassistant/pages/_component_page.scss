@@ -1,0 +1,333 @@
+#components-page {
+  .filter-button-group {
+    label {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .005em;
+      color: $gray;
+      text-transform: uppercase;
+    }
+  }
+  .component-search {
+    margin-bottom: 24px;
+
+    input {
+      width: 100%;
+      padding: 10px;
+
+      background-color: #fefefe;
+      border-radius: 8px;
+      border: 1px solid;
+      border-color: #7c7c7c #c3c3c3 #ddd;
+    }
+  }
+  select {
+    font-family: $sans-serif;
+    border: 0;
+    background-color: $grayLighter;
+    border-radius: 16px;
+    padding: 4px 16px;
+  }
+  .category_select {
+    display: none;
+  }
+}
+
+
+// styles for the cards
+.hass-option-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 24px;
+
+  div.alert, p.alert-content {
+    width: 100%;
+  }
+
+  .option-card {
+    flex: 0 0 auto;
+    aspect-ratio: 1;
+    display: inline-block;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    border: 1px solid rgba(0, 0, 0, .12);
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    align-content: center;
+    transition: box-shadow .33s;
+
+    .img-container {
+      height: 64px;
+      margin: 12px 16px;
+      font: 0/0 a;
+      border-radius: 0;
+
+      &:before {
+        /* create a full-height inline block pseudo=element */
+        content: " ";
+        display: inline-block;
+        vertical-align: middle; /* vertical alignment of the inline element */
+        height: 100%;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 64px;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        vertical-align: middle;
+      }
+    }
+
+    .title {
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+      text-decoration: none;
+      font-size: 16px;
+      color: #000;
+      line-height: 1.25em;
+      height: 40px;
+      margin-top: 20px;
+      padding: 0 8px;
+    }
+  }
+
+  // fade-in animation
+  &.show-items .option-card {
+    opacity: 0;
+    -webkit-animation: new-item-animation 0.2s linear forwards;
+    -o-animation: new-item-animation 0.2s linear forwards;
+    animation: new-item-animation 0.2s linear forwards;
+  }
+
+  // fade-out animation
+  &.remove-items .option-card {
+    -webkit-animation: removed-item-animation 0.2s
+      cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    -o-animation: removed-item-animation 0.2s
+      cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    animation: removed-item-animation 0.2s cubic-bezier(0.55, -0.04, 0.91, 0.94)
+      forwards;
+  }
+}
+
+a.option-card:hover {
+  z-index: 2;
+  box-shadow: 0 -2px 4px hsla(180, 100%, 50%, .05), 0 12px 24px hsla(207, 100%, 10%, 0.25);
+}
+
+@for $i from 1 through 40 {
+  .option-card:nth-child(#{$i}) {
+    animation-delay: #{$i * 0.025}s !important;
+    @media only screen and (max-width: $palm-end) {
+      animation-delay: #{$i * 0.05}s !important;
+    }
+  }
+}
+
+@media only screen and (max-width: $palm-end) {
+  .hass-option-cards {
+    grid-template-columns: 1fr;
+
+    .option-card {
+      width: 100% !important;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      height: 80px;
+
+      .img-container {
+        margin: 8px;
+
+        img {
+          max-width: 48px;
+          max-height: 48px;
+        }  
+      }
+
+      .title {
+        height: auto;
+        margin: 8px;
+      }
+    }
+  }
+  #components-page {
+    .hass-option-cards {
+      .option-card {
+
+      }
+    }
+    .category_select {
+      display: block;
+    }
+    .category_list {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: $lap-end) {
+  #components-page {
+    .filter-button-group {
+      display: flex;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+      align-items: flex-end;
+      gap: 8px;
+
+      &>div {
+        margin-right: 8px;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-right: 4px;
+        margin-bottom: 0;
+        padding: 4px 16px;
+        font-size: 1rem;
+        background: $grayLighter;
+        box-shadow: none;
+        color: $link-color;
+
+        &.active {
+          font-weight: bold;
+        }
+      }
+    }
+    .category_select {
+      display: block;
+    }  
+    .category_list {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (min-width: $desk-start) {
+  #components-page {
+
+    .filter-button-group {
+      .active {
+        font-weight: bold;
+      }
+
+      .featured {
+        margin: 12px 0;
+      }
+
+      .version_select {
+        margin: 12px 0 12px 0;
+      }
+
+      .version_select > select {
+        width: 100%;
+      }
+
+      .btn {
+        font-size: 1rem;
+        display: block;
+        background: 0;
+        color: black;
+        box-shadow: none;
+        text-shadow: none;
+        padding: 4px 0;
+        border-radius: 0;
+
+        &.current {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}
+
+// animations for fade-in and fade-out effects of option-cards
+@keyframes new-item-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes new-item-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-o-keyframes new-item-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+// space blocker animation
+@keyframes openspace {
+  to {
+    height: auto;
+  }
+}
+
+@-webkit-keyframes openspace {
+  to {
+    height: auto;
+  }
+}
+@-o-keyframes openspace {
+  to {
+    height: auto;
+  }
+}
+
+// removal animation
+@keyframes removed-item-animation {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes removed-item-animation {
+  from {
+    opacity: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-o-keyframes removed-item-animation {
+  from {
+    opacity: 1;
+    -o-transform: scale(1);
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+  }
+}

@@ -18,6 +18,10 @@ The Twitch integration will allow you to monitor [Twitch](https://www.twitch.tv/
 
 ## Get Twitch application credentials
 
-Create a new app at **Register Your Application** in the [Twitch developer portal](https://dev.twitch.tv/console/apps). Enter `https://my.home-assistant.io/redirect/oauth` in the **OAuth Redirect URL** field. Then, get the **Client ID** and **Client secret** from the new application.
+Create a new app at **Register Your Application** in the [Twitch developer portal](https://dev.twitch.tv/console/apps):
+
+- Enter a **Name** for your app. Note that it needs to be unique all over Twitch.
+- Enter `https://my.home-assistant.io/redirect/oauth` in the **OAuth Redirect URL** field. 
+- Get the **Client ID** and **Client secret** from the new application, you need them to complete the integration setup in Home Assistant. 
 
 {% include integrations/config_flow.md %}

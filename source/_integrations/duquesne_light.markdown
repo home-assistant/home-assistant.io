@@ -4,7 +4,7 @@ description: Get energy usage from Duquesne Light using the Opower integration
 ha_category:
   - Energy
   - Sensor
-ha_release: 2024.2
+ha_release: 2023.8
 ha_domain: duquesne_light
 ha_integration_type: virtual
 ha_supporting_domain: opower

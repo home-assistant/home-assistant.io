@@ -3,6 +3,13 @@ type: card
 title: "Entity card"
 sidebar_label: Entity
 description: "The entity card gives you a quick overview of your entity's state"
+related:
+  - docs: /integrations/frontend/
+    title: Themes
+  - docs: /dashboards/header-footer/
+    title: Card header and footer
+  - docs: /dashboards/cards/
+    title: Dashboard cards
 ---
 
 The entity card gives you a quick overview of your entity's state.

@@ -1,0 +1,1 @@
+A device class is a measurement categorization in Home Assistant. It influences how the entity is represented in the [dashboard](/dashboards/). This can be modified in the [customize section](/docs/configuration/customizing-devices/). For example, different states may be represented by different icons, colors, or text.

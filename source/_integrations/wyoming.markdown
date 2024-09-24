@@ -9,7 +9,7 @@ ha_codeowners:
   - '@balloob'
   - '@synesthesiam'
 ha_domain: wyoming
-ha_integration_type: integration
+ha_integration_type: service
 ha_platforms:
   - binary_sensor
   - number
@@ -17,6 +17,7 @@ ha_platforms:
   - stt
   - switch
   - tts
+  - wake_word
 ha_config_flow: true
 ha_zeroconf: true
 ---

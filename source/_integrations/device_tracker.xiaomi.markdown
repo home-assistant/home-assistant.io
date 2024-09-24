@@ -11,7 +11,7 @@ The `xiaomi` platform offers presence detection by looking at connected devices 
 
 ## Setup
 
-To use an Xiaomi router in your installation, add the following to your `configuration.yaml` file:
+To use an Xiaomi router in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry

@@ -11,9 +11,12 @@ ha_domain: netdata
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `netdata` sensor platform allows you to display information collected by [Netdata](https://www.netdata.cloud/).
+The `netdata` sensor {% term integration %} allows you to display information collected by [Netdata](https://www.netdata.cloud/).
 
 ## Prerequisites
 
@@ -69,11 +72,12 @@ Alternatively you can browse to the built in Netdata API in your browser `http:/
 	},
 ```
 
-Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your `configuration.yaml` like the example below. 
+Once the `data_group` "system.load" and the `element` "load15" have been identified from the JSON it can be configured in your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ## Configuration
 
-Add the following to your `configuration.yaml`.
+Add the following to your {% term "`configuration.yaml`" %}.
 
 ```yaml
 # Example configuration.yaml entry

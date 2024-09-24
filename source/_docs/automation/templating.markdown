@@ -201,12 +201,12 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 ```yaml
 # Example configuration.yaml entries
 automation:
-  trigger:
+  triggers:
     - platform: state
       entity_id: device_tracker.paulus
       id: paulus_device
-  action:
-    - service: notify.notify
+  actions:
+    - action: notify.notify
       data:
         message: >
           Paulus just changed from {{ trigger.from_state.state }}
@@ -215,17 +215,17 @@ automation:
           This was triggered by {{ trigger.id }}
 
 automation 2:
-  trigger:
+  triggers:
     - platform: mqtt
       topic: "/notify/+"
-  action:
-    service: >
+  actions:
+    action: >
       notify.{{ trigger.topic.split('/')[-1] }}
     data:
       message: "{{ trigger.payload }}"
 
 automation 3:
-  trigger:
+  triggers:
     # Multiple entities for which you want to perform the same action.
     - platform: state
       entity_id:
@@ -235,14 +235,14 @@ automation 3:
       to: "on"
       # Trigger when someone leaves one of those lights on for 10 minutes.
       for: "00:10:00"
-  action:
-    - service: light.turn_off
+  actions:
+    - action: light.turn_off
       target:
         # Turn off whichever entity triggered the automation.
         entity_id: "{{ trigger.entity_id }}"
 
 automation 4:
-  trigger:
+  triggers:
     # When an NFC tag is scanned by Home Assistant...
     - platform: event
       event_type: tag_scanned
@@ -251,13 +251,13 @@ automation 4:
         user_id:
           - 06cbf6deafc54cf0b2ffa49552a396ba
           - 2df8a2a6e0be4d5d962aad2d39ed4c9c
-  condition:
+  conditions:
     # Check NFC tag (ID) is the one by the front door
     - condition: template
       value_template: "{{ trigger.event.data.tag_id == '8b6d6755-b4d5-4c23-818b-cf224d221ab7'}}"
-  action:
+  actions:
     # Turn off various lights
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id:
           - light.kitchen

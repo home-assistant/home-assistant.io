@@ -26,130 +26,149 @@ The HEOS integration adds support for [HEOS](https://www.denon.com/en-gb/categor
 
 {% include integrations/config_flow.md %}
 
-<div class='note info'>
+{% note %}
 A connection to a single device enables control for all devices on the network. If you have multiple HEOS devices, enter the host of one that is connected to the LAN via wire or has the strongest wireless signal.
-</div>
+{% endnote %}
 
-## Services
+## Actions
 
-### Service `heos.sign_in`
+### Action `heos.sign_in`
 
-Use the sign-in service (go to Developer Tools -> Services and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example service data payload:
+Use the sign-in action (go to **Developer Tools** > **Actions** and then run the `heos.sign_in` with your username and password. Use the "Fill example data" first, then change it with your data. Check the logs right after, there you should see if the sign-in was successful or not) to sign the connected controller into a HEOS account so that it can retrieve and play HEOS favorites and playlists. An error message is logged if sign-in is unsuccessful. Example action data payload:
 
 ```yaml
-username: "example@example.com"
-password: "password"
+action: heos.sign_in
+data:
+  username: "example@example.com"
+  password: "password"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `username`             | no       | The username or email of the HEOS account.
-| `password`             | no       | The password of the HEOS account.
+| Data attribute | Optional | Description                                |
+| ---------------------- | -------- | ------------------------------------------ |
+| `username`             | no       | The username or email of the HEOS account. |
+| `password`             | no       | The password of the HEOS account.          |
 
-### Service `heos.sign_out`
+### Action `heos.sign_out`
 
-Use the sign-out service to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this service.
+Use the sign-out action to sign the connected controller out of a HEOS account. An error message is logged if sign-out is unsuccessful. There are no parameters to this action.
 
-### Service `media_player.play_media`
+### Action `media_player.play_media`
 
 #### Play favorite
 
-You can play a HEOS favorite by number or name with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS favorite by number or name with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "favorite"
-media_content_id: "1"
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "favorite"
+  media_content_id: "1"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      |  `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `favorite`
-| `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite
+| Data attribute | Optional | Description                                                         |
+| ---------------------- | -------- | ------------------------------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)                                        |
+| `media_content_type`   | no       | Set to the value `favorite`                                         |
+| `media_content_id`     | no       | (i.e., `1`) or name (i.e., `Thumbprint Radio`) of the HEOS favorite |
 
 #### Play playlist
 
-You can play a HEOS playlist with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS playlist with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "playlist"
-media_content_id: "Awesome Music"
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "playlist"
+  media_content_id: "Awesome Music"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `playlist`
-| `media_content_id`     | no       | The name of the HEOS playlist
+| Data attribute | Optional | Description                   |
+| ---------------------- | -------- | ----------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)  |
+| `media_content_type`   | no       | Set to the value `playlist`   |
+| `media_content_id`     | no       | The name of the HEOS playlist |
 
 #### Play Quick Select
 
-You can play a HEOS Quick Select by number or name with the `media_player.play_media` service. Example service data payload:
+You can play a HEOS Quick Select by number or name with the `media_player.play_media` action. Example action data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "quick_select"
-media_content_id": "1"
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "quick_select"
+  media_content_id": "1"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s)
-| `media_content_type`   | no       | Set to the value `quick_select`
-| `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`)
+| Data attribute | Optional | Description                                                          |
+| ---------------------- | -------- | -------------------------------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s)                                         |
+| `media_content_type`   | no       | Set to the value `quick_select`                                      |
+| `media_content_id`     | no       | The quick select number (i.e., `1`) or name (i.e., `Quick Select 1`) |
 
 #### Play URL
 
-You can play a URL through a HEOS media player using the `media_player.play_media` service. The HEOS player must be able to reach the URL. Example service data payload:
+You can play a URL through a HEOS media player using the `media_player.play_media` action. The HEOS player must be able to reach the URL. Example action data payload:
 
 ```yaml
-entity_id: media_player.office
-media_content_type: "url"
-media_content_id: "http://path.to/stream.mp3"
+action: media_player.play_media
+data:
+  entity_id: media_player.office
+  media_content_type: "url"
+  media_content_id: "http://path.to/stream.mp3"
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL
-| `media_content_type`   | no       | Set to the value `url`
-| `media_content_id`     | no       | The full URL to the stream
+| Data attribute | Optional | Description                                  |
+| ---------------------- | -------- | -------------------------------------------- |
+| `entity_id`            | yes      | `entity_id` of the player(s) to play the URL |
+| `media_content_type`   | no       | Set to the value `url`                       |
+| `media_content_id`     | no       | The full URL to the stream                   |
 
-### Service `media_player.join`
+### Action `media_player.join`
 
-For grouping HEOS media players together for synchronous playback you can use the `media_player.join` service. With the example service data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
+For grouping HEOS media players together for synchronous playback you can use the `media_player.join` action. With the example action data payload down below you'll expand playback of `media_player.office` to the `media_player.kitchen` and `media_player.bathroom` players. Please note that all of the media players need to be HEOS players.
 
 ```yaml
-entity_id: media_player.office
-group_members:
-  - media_player.kitchen
-  - media_player.bathroom
+action: media_player.join
+data:
+  entity_id: media_player.office
+  group_members:
+    - media_player.kitchen
+    - media_player.bathroom
 ```
 
-| Service data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`.
-| `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.
+| Data attribute | Optional | Description                                                                                          |
+| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`            | yes      | The media player entity whose playback will be expanded to the players specified in `group_members`. |
+| `group_members`        | no       | The player entities which will be synced with the playback from `entity_id`.                         |
 
 
-### Service `media_player.unjoin`
+### Action `media_player.unjoin`
 
-For removing a HEOS player from a group you can use the `media_player.unjoin` service.
+For removing a HEOS player from a group you can use the `media_player.unjoin` action.
 
-| Service data attribute | Optional | Description                                          |
-| ---------------------- | -------- | ---------------------------------------------------- |
-| `entity_id`            |      yes | Unjoin this media player from any player groups.     |
+```yaml
+action: media_player.unjoin
+data:
+  entity_id: media_player.office
+```
+
+| Data attribute | Optional | Description                                      |
+| ---------------------- | -------- | ------------------------------------------------ |
+| `entity_id`            | yes      | Unjoin this media player from any player groups. |
 
 ## Notes
 
 - Receivers with multiple zones are represented as a single media player. They will be turned on when playback is started, but cannot be turned off by the integration at this time.
+- [Denon AVR](/integrations/denonar/) and HEOS media players can be combined into a [Universal Media Player](/integrations/universal/#denon-avr--heos)
 
-## Troubleshooing
+## Troubleshooting
 
 ### Debugging
 
-The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the `configuration.yaml` to enable debug logging:
+The HEOS integration will log additional information about commands, events, and other messages when the log level is set to `debug`. Add the relevant line below to the {% term "`configuration.yaml`" %} to enable debug logging:
 
 ```yaml
 logger:
@@ -161,7 +180,7 @@ logger:
 
 ### Missing Favorites
 
-If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the service `media_player.play_media` for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
-> IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' service to sign-in to a HEOS account
+If the HEOS controller is not signed in to a HEOS account, HEOS favorites will not be populated in the media player source selection and the `media_player.play_media` action for `favorite` and `playlist` will fail. Additionally, the following warning will be logged at startup:
+> IP_ADDRESS is not logged in to a HEOS account and will be unable to retrieve HEOS favorites: Use the 'heos.sign_in' action to sign-in to a HEOS account
 
-To resolve this issue, use the `heos.sign_in` service to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.
+To resolve this issue, use the `heos.sign_in` action to sign the controller into an account as documented above. This only needs to be performed once, as the controller will remain signed in while the account credentials are valid.

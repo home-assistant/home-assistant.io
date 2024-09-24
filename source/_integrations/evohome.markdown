@@ -14,6 +14,9 @@ ha_platforms:
   - climate
   - water_heater
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The **Evohome** {% term integration %} links Home Assistant with all _non-US_ [Honeywell Total Connect Comfort (TCC)](https://international.mytotalconnectcomfort.com/Account/Login) CH/DHW systems, such as:
@@ -29,7 +32,8 @@ For your system to be compatible with this integration, then you must be able to
 
 ## Configuration
 
-To set up this integration, add the following to your `configuration.yaml` file:
+To set up this integration, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -112,21 +116,21 @@ Some locations have a hidden mode, **AutoWithReset**, that will behave as **Auto
 
 In the Home Assistant schema, all this is done via a combination of `HVAC_MODE` and `PRESET_MODE` (but also see the state attributes `system_mode_status` and `setpoint_status`, below).
 
-## Service calls
+## Action calls
 
-This integration provides its own service calls to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
+This integration provides its own actions to expose the full functionality of TCC systems beyond the limitations of Home Assistant's standardized schema. Mostly, this relates to specifying the duration of mode changes, after which time the entities revert to **Auto** or **FollowSchedule** (for locations and zones, respectively).
 
-It is recommended to use the native service calls (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic service calls for integration with 3rd party systems such as Amazon Alexa or Google Home.
+It is recommended to use the native actions (e.g., `evohome.set_system_mode`) instead of Home Assistant's generic equivalents (e.g., `climate.set_hvac_mode`) whenever possible. However, it may be necessary to use the generic actions for integration with 3rd party systems such as Amazon Alexa or Google Home.
 
 ### evohome.set_system_mode
 
-This service call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is permanent.
+This action call will set the operating `mode` of the system for a specified period of time, after which it will revert to **Auto**. However, if no period of time is provided, then the change is permanent.
 
 For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 
 ```yaml
-- action:
-    - service: evohome.set_system_mode
+- actions:
+    - action: evohome.set_system_mode
       data:
         mode: AutoWithEco
         duration: {hours: 1, minutes: 30}
@@ -135,8 +139,8 @@ For **AutoWithEco**, the period of time is a `duration` is up to 24 hours.
 For the other modes, such as **Away**, the duration is a `period` of days, where 1 day will revert at midnight tonight, and 2 days reverts at midnight tomorrow.
 
 ```yaml
-- action:
-    - service: evohome.set_system_mode
+- actions:
+    - action: evohome.set_system_mode
       data:
         mode: Away
         period: {days: 30}
@@ -144,21 +148,21 @@ For the other modes, such as **Away**, the duration is a `period` of days, where
 
 ### evohome.reset_system
 
-This service call will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
+This action will set the operating mode of the system to **AutoWithReset**, and reset all the zones to **FollowSchedule**.
 
 Not all systems support this feature.
 
 ### evohome.refresh_system
 
-This service call will immediately pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
+This action will immediately pull the latest state data from the vendor's servers rather than waiting for the next `scan_interval`.
 
 ### evohome.set_zone_override
 
-This service call will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided (c.f. a duration of 0, below), then the change is permanent (**PermanentOverride**).
+This action will set the `setpoint` of a zone, as identified by its `entity_id`, for a specified period of time (**TemporaryOverride**). However, if no period of time is provided (c.f. a duration of 0, below), then the change is permanent (**PermanentOverride**).
 
 ```yaml
-- action:
-    - service: evohome.set_zone_override
+- actions:
+    - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom
       data:
@@ -168,8 +172,8 @@ This service call will set the `setpoint` of a zone, as identified by its `entit
 The `duration` can be up to 24 hours, after which the zone mode will revert to schedule (**FollowSchedule**). If the `duration` is 0 hours, then the change will be until the next setpoint.
 
 ```yaml
-- action:
-    - service: evohome.set_zone_override
+- actions:
+    - action: evohome.set_zone_override
       target:
         entity_id: climate.loungeroom
       data:
@@ -179,7 +183,7 @@ The `duration` can be up to 24 hours, after which the zone mode will revert to s
 
 ### evohome.clear_zone_override
 
-This service call is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
+This action is used to set a zone, as identified by its `entity_id`, to **FollowSchedule**.
 
 ## Useful Jinja templates
 

@@ -9,13 +9,17 @@ ha_domain: pushsafer
 ha_platforms:
   - notify
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The [Pushsafer service](https://www.pushsafer.com/) is a platform for the notify integration. This allows you to send messages to the user using Pushsafer.
 
 In order to get a private or alias key you need to go to the [Pushsafer website](https://www.pushsafer.com) and register.
 
-To use Pushsafer notifications, add the following to your `configuration.yaml` file:
+To use Pushsafer notifications, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -27,7 +31,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -42,8 +46,8 @@ private_key:
 Message to two devices with formatted text.
 
 ```yaml
-action:
-  service: notify.notify
+actions:
+  action: notify.notify
   data:
     title: "Test to 2 devices"
     message: "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]"
@@ -60,8 +64,8 @@ action:
 Message to one device with formatted text and image from an external URL.
 
 ```yaml
-action:
-  service: notify.notify
+actions:
+  action: notify.notify
   data:
     title: "Test to 1 device with image from an url"
     message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
@@ -80,8 +84,8 @@ action:
 Message to two devices and one device group with formatted text and local image.
 
 ```yaml
-action:
-  service: notify.notify
+actions:
+  action: notify.notify
   data:
     title: "Test to 3 devices with local image"
     message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"

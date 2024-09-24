@@ -14,6 +14,7 @@ ha_ssdp: true
 ha_platforms:
   - camera
   - light
+  - sensor
   - switch
 ha_integration_type: integration
 ---
@@ -71,6 +72,10 @@ Please note that only the currently live Hyperion priority can be streamed, and 
 streamable sources will actually stream content (e.g., USB Capture Devices will work, but
 static colors will not).
 
+## Sensors
+
+A sensor (Visible Priority) provides the effect currently displayed by the Hyperion server for the selected instance. Attributes of this sensor provide more details on the nature of the effect. For a detailed description, refer to the [Hyperion API](https://docs.hyperion-project.org/en/json/ServerInfo.html#priorities).
+
 ## Advanced entities
 
 The Hyperion integration comes with a series of disabled-by-default entities for
@@ -108,12 +113,12 @@ To start Hyperion with an effect, use the following automation:
 automation:
 - id: one
   alias: "Turn Hyperion effect on when light goes on"
-  trigger:
+  triggers:
     - platform: state
       entity_id: light.hyperion
       to: "on"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -124,7 +129,7 @@ To have the lights playing an effect when pausing, idle or turn off a media play
 
 ```yaml
 - alias: "Set hyperion effect after playback"
-  trigger:
+  triggers:
     - platform: state
       entity_id: media_player.plex
       to: "off"
@@ -134,8 +139,8 @@ To have the lights playing an effect when pausing, idle or turn off a media play
     - platform: state
       entity_id: media_player.plex.plex
       to: "idle"
-  action:
-    - service: light.turn_on
+  actions:
+    - action: light.turn_on
       target:
         entity_id: light.hyperion
       data:
@@ -146,12 +151,12 @@ To capture the screen on a USB capture device, when playing something on a media
 
 ```yaml
 - alias: "Set hyperion when playback starts"
-  trigger:
+  triggers:
     - platform: state
       entity_id: media_player.plex
       to: "playing"
-  action:
-    - service: switch.turn_on
+  actions:
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_usb_capture
 ```
@@ -160,18 +165,18 @@ To toggle the LED device together with the light entity in order to turn light o
 
 ```yaml
 - alias: "Turn LED device on when Hyperion light is activated"
-  trigger:
+  triggers:
     - platform: state
       entity_id:
         - light.hyperion
       from: "off"
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: switch.[instance]_component_led_device
       state: "off"
-  action:
-    - service: switch.turn_on
+  actions:
+    - action: switch.turn_on
       target:
         entity_id: switch.[instance]_component_led_device
 ```

@@ -34,8 +34,26 @@ Supported devices:
 - Switcher V4
 - Switcher Breeze
 - Switcher Runner
+- Switcher Runner S11
+
+Devices that require a token:
+
+- Switcher Runner S11
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
+
+## Prerequisites
+
+To enhance security, certain Switcher devices require a token for operation. In order to integrate your token-based Switcher devices with Home Assistant, you'll need the following information:
+
+- **The username of your Switcher Account**: To find the username, open the Switcher app.
+- **Local control key token**: To find the local control key token, browse to the
+  [Switcher GetKey API][token], enter your Switcher account username (which is an email address), and press
+  **Send Me The Code**.
+
+  The token will be sent to you by email. It will look something like this: `zvVvd7JxtN7CgvkD1Psujw==`
+
+[token]: https://switcher.co.il/GetKey/
 
 {% include integrations/config_flow.md %}
 
@@ -59,33 +77,33 @@ For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switche
 
 *Currently not supported for Switcher Power Plug
   
-## Services
+## Actions
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
 
-### Service: `switcher_kis.set_auto_off`
+### Action: `switcher_kis.set_auto_off`
 
-You can use the `switcher_kis.set_auto_off` service to set the auto-off configuration setting for the device.
+You can use the `switcher_kis.set_auto_off` action to set the auto-off configuration setting for the device.
 
 Meaning the device will turn itself off when reaching the auto-off configuration limit.
 
-| Service Field | Mandatory | Description                                                                            | Example                    |
+| Data attribute | Mandatory | Description                                                                            | Example                    |
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `auto_off`    | Yes       | Time period string containing hours and minutes                                        | "02:30"                    |
 
-### Service: `switcher_kis.turn_on_with_timer`
+### Action: `switcher_kis.turn_on_with_timer`
 
-You can use the `switcher_kis.turn_on_with_timer` service to turn on the switcher device with timer.
+You can use the `switcher_kis.turn_on_with_timer` action to turn on the switcher device with timer.
 
 Meaning the device will turn itself off when timer ends.
 Note: This does not affect the auto off timer.
-| Service Field | Mandatory | Description                                                                            | Example                    |
+| Data attribute | Mandatory | Description                                                                            | Example                    |
 | ------------- | --------- | -------------------------------------------------------------------------------------- | -------------------------- |
 | `entity_id`   | Yes       | Name of the entity id associated with the integration, used for permission validation  | switch.switcher_kis_boiler |
 | `timer_minutes`    | Yes       | Integer containing timer minutes (valid range 1 to 150)                                      | 90                    |
 
 ## Notes
 
-Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
+Make sure that Home Assistant host's firewall allows incoming traffic on UDP ports 10002, 10003, 20002 & 20003 and outgoing connections to Switcher device(s) on TCP ports 9957 & 10000.
 If Home Assistant and the Switcher device(s) are not on the same network, you will also need to have their traffic properly forwarded between the two networks.

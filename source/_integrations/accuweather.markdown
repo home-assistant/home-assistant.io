@@ -1,6 +1,6 @@
 ---
 title: AccuWeather
-description: Instructions on how to integrate Accuweather within Home Assistant.
+description: Instructions on how to integrate AccuWeather within Home Assistant.
 ha_category:
   - Weather
 ha_release: 0.114
@@ -42,9 +42,7 @@ You can test your newly created API key [here](https://developer.accuweather.com
 
 {% include integrations/config_flow.md %}
 
-<div class="note warning">
-
+{% important %}
 Due to limitations of the terms of use of AccuWeather free API key, it is possible to configure only one integration instance.
 The Limited Trial account only allows 50 API calls per day.
-
-</div>
+{% endimportant %}

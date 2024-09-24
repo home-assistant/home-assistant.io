@@ -9,7 +9,7 @@ layout: null
 # General use redirects
 /join-chat https://discord.gg/home-assistant
 /twitter https://twitter.com/home_assistant/
-/newsletter https://building.open-home.io/
+/newsletter https://newsletter.openhomefoundation.org/
 /suggest-community-highlight https://docs.google.com/forms/d/e/1FAIpQLSd9VWPeVM0xg0swWL6kT3wkQUKt8vWsTL5WtPO95LAy-0cYZw/viewform
 /get-blueprints https://community.home-assistant.io/c/blueprints-exchange/53
 /merch https://home-assistant-store.creator-spring.com
@@ -33,6 +33,10 @@ layout: null
 /amber https://yellow.home-assistant.io
 /yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
+
+# Design & User research
+/join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
+/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -205,7 +209,6 @@ layout: null
 /components/image_processing.* /integrations/:splat
 /components/light.* /integrations/:splat
 /components/lock.* /integrations/:splat
-/components/mailbox.* /integrations/:splat
 /components/media_player.* /integrations/:splat
 /components/notify.* /integrations/:splat
 /components/remote.* /integrations/:splat
@@ -251,9 +254,12 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+/skyconnect /connectzbt1#from-skyconnect
+
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
+
 /docs/assist/troubleshooting/ /voice_control/troubleshooting/
 /docs/assist/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
 /projects/worlds-most-private-voice-assistant/ /voice_control/worlds-most-private-voice-assistant/
@@ -261,6 +267,11 @@ layout: null
 /draw_assist /voice_control/s3-box-customize/#to-draw-your-own-images
 /projects/thirteen-usd-voice-remote/ /voice_control/thirteen-usd-voice-remote/
 /docs/backend/updater /integrations/analytics
+/docs/configuration/basic/#allowlist_external_urls /integrations/homeassistant/#allowlist_external_urls
+/docs/configuration/basic/#allowlist_external_dirs /integrations/homeassistant/#allowlist_external_dirs
+/docs/configuration/basic/#external_urls /integrations/homeassistant/#external_urls
+/docs/configuration/customizing-devices/#device-class /integrations/homeassistant/#device-class
+/docs/configuration/customizing-devices/#customizing-entities /integrations/homeassistant/#editing-the-entity-settings-in-yaml
 /docs/ecosystem/ios/ https://companion.home-assistant.io/
 /docs/ecosystem/ios/devices_file https://companion.home-assistant.io/
 /docs/ecosystem/ios/integration https://companion.home-assistant.io/docs/integrations/integrations
@@ -300,7 +311,7 @@ layout: null
 /docs/z-wave/events /integrations/zwave_js#events
 /docs/z-wave/installation /integrations/zwave_js#configuration
 /docs/z-wave/query-stage /integrations/zwave_js
-/docs/z-wave/services /integrations/zwave_js#services
+/docs/z-wave/services /integrations/zwave_js#actions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -327,18 +338,16 @@ layout: null
 /getting-started/automation-trigger /docs/automation/trigger
 /getting-started/automation-templating /docs/automation/templating
 /getting-started/basic /docs/configuration/basic
-/getting-started/browsers /docs/frontend/browsers
 /getting-started/customizing-devices /docs/configuration/customizing-devices
 /getting-started/installation /docs/installation
 /getting-started/installation-docker /docs/installation/docker
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-service-calls /docs/scripts/perform-actions/
+/docs/scripts/service-calls /docs/scripts/perform-actions/
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/troubleshooting
-/getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /integrations/zwave_js
@@ -355,6 +364,8 @@ layout: null
 /topics/state_object /docs/configuration/state_object
 /topics/templating /docs/configuration/templating
 /common-tasks /common-tasks/os
+/common-tasks/os/#flashing-an-odroid-m1s /installation/odroid#flashing-an-odroid-m1s
+/common-tasks/os/#flashing-an-odroid-n2 /installation/odroid#flashing-an-odroid-n2
 /docs/installation /installation
 /docs/installation/docker /installation
 /docs/installation/raspberry-pi /installation
@@ -380,6 +391,10 @@ layout: null
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
+/examples /
+
+# Moved marketing pages / rebranding
+/skyconnect /connectzbt1
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -465,6 +480,7 @@ layout: null
 /docs/tools/credstash/ /docs/configuration/secrets
 /docs/scripts/editor/ /docs/scripts
 /getting-started/devices /integrations
+/integrations/map /dashboards/map/
 
 # Blog
 /blog/2019/05/29/release-94 /blog/2019/06/05/release-94
@@ -474,11 +490,16 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
+/integrations/ambiclimate /more-info/removed-integration 301
 /integrations/apns /more-info/removed-integration 301
 /integrations/arlo /more-info/removed-integration 301
 /integrations/arduino /more-info/removed-integration 301
+/integrations/asterisk_cdr /more-info/removed-integration 301
+/integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
@@ -487,6 +508,7 @@ layout: null
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
 /integrations/bom /more-info/removed-integration 301
+/integrations/circuit /more-info/removed-integration 301
 /integrations/ciscospark /more-info/removed-integration 301
 /integrations/coinmarketcap /more-info/removed-integration 301
 /integrations/coronavirus /more-info/removed-integration 301
@@ -497,13 +519,14 @@ layout: null
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
 /integrations/ee_brightbox /more-info/removed-integration 301
 /integrations/eight_sleep /more-info/removed-integration 301
 /integrations/envirophat /more-info/removed-integration 301
-/integrations/eq3btsmart /more-info/removed-integration 301
+/integrations/epsonworkforce /more-info/removed-integration 301
 /integrations/essent /more-info/removed-integration 301
 /integrations/facebox /more-info/removed-integration 301
 /integrations/fedex /more-info/removed-integration 301
@@ -530,10 +553,12 @@ layout: null
 /integrations/linky /more-info/removed-integration 301
 /integrations/liveboxplaytv /more-info/removed-integration 301
 /integrations/lockitron /more-info/removed-integration 301
+/integrations/logi_circle /more-info/removed-integration 301
 /integrations/loop_energy /more-info/removed-integration 301
 /integrations/loopenergy /more-info/removed-integration 301
 /integrations/lyft /more-info/removed-integration 301
 /integrations/magicseaweed /more-info/removed-integration 301
+/integrations/mailbox /more-info/removed-integration 301
 /integrations/mazda /more-info/removed-integration 301
 /integrations/mcp23017 /more-info/removed-integration 301
 /integrations/mhz19 /more-info/removed-integration 301
@@ -549,8 +574,10 @@ layout: null
 /integrations/nuimo_controller /more-info/removed-integration 301
 /integrations/openalpr /more-info/removed-integration 301
 /integrations/openalpr_local /more-info/removed-integration 301
+/integrations/opencv /more-info/removed-integration 301
 /integrations/orangepi_gpio /more-info/removed-integration 301
 /integrations/ozw /more-info/removed-integration 301
+/integrations/panel_iframe /more-info/removed-integration 301
 /integrations/pcal9535a /more-info/removed-integration 301
 /integrations/pi4ioe5v9xxxx /more-info/removed-integration 301
 /integrations/piglow /more-info/removed-integration 301
@@ -584,6 +611,7 @@ layout: null
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/ue_smart_radio /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301

@@ -19,6 +19,9 @@ _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the
 The JSON messages can contain different values like `1`, `"1"`,
 `TRUE`, `true`, `on`, or `open`. If the value is nested then use a
 [template](/docs/configuration/templating/#processing-incoming-data).
+If the endpoint returns XML with the `text/xml`, `application/xml`, or 
+`application/xhtml+xml` content type, it will automatically be converted 
+to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html).
 
 ```json
 {
@@ -33,7 +36,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 ## Configuration
 
 To enable this sensor,
-add the following lines to your `configuration.yaml` file for a GET request:
+add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry

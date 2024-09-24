@@ -1,5 +1,14 @@
 ---
 title: "Creating a cloud Assist pipeline"
+related:
+  - docs: /voice_control/install_wake_word_add_on/
+    title: Enabling a wake word
+  - docs: /voice_control/create_wake_word/
+    title: Create your own wake word
+  - docs: /voice_control/voice_remote_local_assistant/
+    title: Creating a local assistant
+  - docs: /voice_control/voice_remote_expose_devices/
+    title: Exposing devices to Assist
 ---
 
 In Home Assistant, the Assist pipelines are made up of various components that together form a voice assistant.
@@ -42,10 +51,3 @@ To have the fastest processing voice assistant experience, follow these steps:
 6. That's it. You can now speak to your device, and the device can answer in the language you defined.
 7. If you haven't done so yet, [expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices).
    - Otherwise you won't be able to control them by voice.
-
-## Related topics
-
-- [Enable Home Assistant Cloud](https://www.nabucasa.com/config/)
-- [Enabling a wake word](/voice_control/install_wake_word_add_on/)
-- [Create your own wake word](/voice_control/create_wake_word/)
-- [Expose your devices to Assist](/voice_control/voice_remote_expose_devices/#exposing-your-devices)

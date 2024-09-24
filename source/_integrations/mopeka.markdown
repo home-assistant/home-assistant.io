@@ -21,6 +21,23 @@ Integrates [Mopeka](https://www.mopekaiot.com/) devices into Home Assistant.
 
 The Mopeka integration will automatically discover devices once the [Bluetooth](/integrations/bluetooth) integration is enabled and functional.
 
+When setting up or changing options for a device, a medium, the substance the sensor measures, such as propane, can be chosen. The sensor needs to use the type of medium to adjust the coefficients used in the ultrasonic sensor calculations.
+
+## Supported Mediums
+
+- Propane (default)
+- Air (for unpressurized top-down sensors like water tanks)
+- Fresh Water (for bottom-up sensors)
+- Waste Water
+- Live Well
+- Black Water
+- Raw Water
+- Gasoline
+- Diesel
+- LNG
+- Oil
+- Hydraulic Oil
+
 ## Supported devices
 
 - [Pro Plus](https://www.mopekaiot.com/product/mopeka-pro-plus-sensor) (M1015)

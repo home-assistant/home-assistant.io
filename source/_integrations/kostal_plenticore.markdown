@@ -28,9 +28,9 @@ The integration uses the REST-API interface which is also used by the integrated
 
 The integration disables most of the sensors per default. You can enable it in the *Entity* page. The sensors are split into two sets, one for the process data and one for the setting values.
 
-<div class='note'>
+{% note %}
 The Plenticore inverter provides much more data endpoints, some of them are also dependent of the version of the firmware. If you are missing process data values, open an issue with the necessary information or make an pull request.
-</div>
+{% endnote %}
 
 ### Process Data Sensors
 
@@ -122,9 +122,9 @@ The following sensors are available in the library:
 | Energy to Grid Total | kWh | Energy fed into the grid in total, since the system was installed. |
 | Sum power of all PV DC inputs | W | Total sum of power provided by all PV inputs together. |
 
-<div class='note'>
+{% note %}
 The inverter does not provide any data about the energy that is fed into the grid directly, but the `pykoplenti` library provides it via virtual process data.
-</div>
+{% endnote %}
 
 #### Configuration of the energy dashboard
 
@@ -136,9 +136,9 @@ The following sensors can be used in the [energy dashboard](/docs/energy/):
 | Solar production | Energy PV1 Total, Energy PV2 Total, Energy PV3 Total |
 | Battery systems  | Battery Discharge Total, Battery Charge from PV Total |
 
-<div class='note'>
+{% note %}
 Some of the energy is measured on the DC side and some on the AC side, so the values may differ slightly due to losses between DC and AC.
-</div>
+{% endnote %}
 
 ### Settings Sensors
 
@@ -151,9 +151,9 @@ The following sensors are available in the library:
 | Battery Strategy        |      | RW | Battery strategy. |
 | Shadow Management       |      | RW | PV string shadow management. |
 
-<div class='note'>
+{% note %}
 Setting values change less often, therefore these sensors are only polled every 5 minutes.
-</div>
+{% endnote %}
 
 #### Battery Strategy
 

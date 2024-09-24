@@ -1,6 +1,6 @@
 ---
-title: "MacOS"
-description: "Install Home Assistant on a MacOS"
+title: "macOS"
+description: "Install Home Assistant on macOS"
 installation_type: macos
 ---
 {% comment %}

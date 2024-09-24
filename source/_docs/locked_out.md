@@ -1,15 +1,22 @@
 ---
 title: "I'm locked out!"
 description: "Options for regaining access"
+related:
+  - docs: /common-tasks/os/#listing-all-users-from-the-command-line
+    title: Listing all usernames via command line
+  - url: https://yellow.home-assistant.io/guides/factory-reset/
+    title: Reset the Yellow
+  - url: https://green.home-assistant.io/guides/reset/
+    title: Reset the Green
 ---
 
 The sections below deal with recovering from a situation where you are not able to sign in,
 or need to recover your data.
 
-## Forgot user name
+## Forgot username
 
 If you’ve forgotten your username, ask the owner to help you.
-If you are the owner and have forgotten your user name, then you need to [prepare the system to start a new onboarding process](/docs/locked_out/#to-prepare-the-system-to-start-a-new-onboarding-process).
+If you are using the {% term "Home Assistant Operating System" %} and have access to the Home Assistant server, you can connect a terminal and enter the `auth list` command. This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
 
@@ -40,20 +47,21 @@ Use this procedure only if the following conditions are met:
 - You know the username.
 - You can access the [Home Assistant console](/hassio/commandline/) **on the device itself** (not via the SSH terminal from the add-ons).
 
-1. Connect to the console of the Home Assistant server:
-   - If you are using a virtual machine, connect to your virtual machine console.
+1. If you are using a Home Assistant Yellow or Green, refer to their documentation.
    - If you are using a Home Assistant Yellow, refer to the following procedure:
-     - [Using the serial console on Windows](https://yellow.home-assistant.io/guides/use-serial-console-windows/)
-     - [Using the serial console on macOS / Linux](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/)
+     - [Resetting the owner password on Home Assistant Yellow](https://yellow.home-assistant.io/faq/#i-forgot-the-owner-password-for-home-assistant-how-can-i-reset-it)
    - If you are using a Home Assistant Green, refer to the following procedure:
-     - [Using the terminal](https://green.home-assistant.io/guides/use-terminal/)
-   - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Green in the step above.
-2. Once you have opened the Home Assistant command line, enter the following command:
-   - Note: `existing_user` is a placeholder. Replace it with your user name.
+     - [Resetting the owner password on Home Assistant Green](https://green.home-assistant.io/faq/#i-forgot-the-owner-password-for-the-home-assistant-green-how-can-i-reset-it)
+2. If you are not using a Yellow or Green: Connect to the console of the Home Assistant server:
+   - If you are using a virtual machine, connect to your virtual machine console.
+   - If you are using another board, connect a keyboard and monitor to your device and access the terminal. The procedure is likely very similar to the one described for the Home Assistant Green.
+3. Once you have opened the Home Assistant command line, enter the following command:
+   - Note: `existing_user` is a placeholder. Replace it with your username.
    - Note: `new_password` is a placeholder. Replace it with your new password.
    - **Command**: `auth reset --username existing_user --password new_password`
+     ![Screencast showing how to enter the ha auth reset command](/images/docs/troubleshooting/home-assistant-cli.webp)
    - **Troubleshooting**: If you see the message `zsh: command not found: auth`, you likely did not enter the command in the serial console connected to the device itself, but in the terminal within Home Assistant.
-3. You can now log in to Home Assistant using this new password.
+4. You can now log in to Home Assistant using this new password.
 
 ### To reset a user's password, via the container command line
 

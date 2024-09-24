@@ -66,7 +66,7 @@ Please note, there are two versions of the hub: v1 and v2. v1 can be used with H
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key (password) from within the app following [this tutorial](https://www.domoticz.com/wiki/Xiaomi_Gateway_(Aqara)#Adding_the_Xiaomi_Gateway_to_Domoticz).
 
-To enable {{ page.title }} in your installation, go to **Settings** -> **Devices & Services**. Xiaomi Aqara gateways should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your aqara gateway does not show up automatically, click the + icon in the lower right. Then search for "xiaomi_aqara" and enter the setup. Multiple gateways can be configured by simply repeating the setup multiple times.
+To enable {{ page.title }} in your installation, go to **Settings** > **Devices & services**. Xiaomi Aqara gateways should be discovered automatically and should show up in the overview. Hit configure and go through the steps to specify the optional settings. If your Aqara gateway does not show up automatically, click the + icon in the lower right. Then, search for "xiaomi_aqara" and enter the setup. Multiple gateways can be configured by simply repeating the setup multiple times.
 
 {% configuration %}
 interface:
@@ -84,15 +84,15 @@ name:
   type: string
 {% endconfiguration %}
 
-### Services
+### Actions
 
-The gateway provides the following services:
+The gateway provides the following actions:
 
-#### Service `xiaomi_aqara.play_ringtone`
+#### Action `xiaomi_aqara.play_ringtone`
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
-| Service data attribute    | Optional | Description                                           |
+| Data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 | `ringtone_id`             |       no | One of the allowed ringtone ids                       |
@@ -128,27 +128,27 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### Service `xiaomi_aqara.stop_ringtone`
+#### Action `xiaomi_aqara.stop_ringtone`
 
 Stops a playing ringtone immediately.
 
-| Service data attribute    | Optional | Description                                           |
+| Data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### Service `xiaomi_aqara.add_device`
+#### Action `xiaomi_aqara.add_device`
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
-| Service data attribute    | Optional | Description                                           |
+| Data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 
-#### Service `xiaomi_aqara.remove_device`
+#### Action `xiaomi_aqara.remove_device`
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
-| Service data attribute    | Optional | Description                                           |
+| Data attribute    | Optional | Description                                           |
 |---------------------------|----------|-------------------------------------------------------|
 | `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
 | `device_id`               |       no | Hardware address of the device to remove              |
@@ -163,28 +163,28 @@ This example plays the sound of a dog barking when the button is held down and s
 
 ```yaml
 - alias: "Let a dog bark on long press"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
-  action:
-    service: xiaomi_aqara.play_ringtone
+  actions:
+    action: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
       ringtone_vol: 8
 
 - alias: "Stop barking immediately on single click"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
-  action:
-    service: xiaomi_aqara.stop_ringtone
+  actions:
+    action: xiaomi_aqara.stop_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
 ```
@@ -195,14 +195,14 @@ This example toggles the living room lamp on a double click of the button.
 
 ```yaml
 - alias: "Double Click to toggle living room lamp"
-  trigger:
+  triggers:
     platform: event
     event_type: xiaomi_aqara.click
     event_data:
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: double
-  action:
-    service: light.toggle
+  actions:
+    action: light.toggle
     target:
       entity_id: light.living_room_lamp
 ```
