@@ -145,7 +145,7 @@ name:
 
 ## Sensor
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *BOOL*, *BYTE*, *INT*, *UINT*, *SINT*, *USINT*, *DINT*, *UDINT*, *WORD*, *DWORD*, *REAL*, or *LREAL*.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
@@ -166,7 +166,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
+  description: The datatype of the ADS variable, possible values are bool, byte, int, uint, sint, usint, dint, udint, word, dword, real and lreal.
   default: int
   type: string
 name:
