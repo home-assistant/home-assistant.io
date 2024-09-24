@@ -44,6 +44,6 @@ The Tami4 Edge integration provides the following entities.
 
 **UV upcoming replacement**: Date when the UV lamp needs to be replaced.
 **UV installed**: Date when the UV lamp was installed.
-**Filter upcoming replacement**: Date the filter needs to be replaced.
+**Filter upcoming replacement**: Date when the filter needs to be replaced.
 **Filter installed**: Date when the filter was installed.
 **Filter water passed**: Amount of water (in liters) that has been filtered with the currently installed filter.
