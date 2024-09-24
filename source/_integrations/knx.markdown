@@ -1985,6 +1985,9 @@ The KNX switch platform is used as an interface to switching actuators.
 
 Switch entities can be created from the frontend in the KNX panel or via YAML.
 
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches that have a `state_address` configured request their current state from the KNX bus.
+
 <a name="configuration-swithc-yaml"></a>
 {% details "Configuration of KNX switch entities via YAML" %}
 
@@ -2031,9 +2034,6 @@ device_class:
 {% endconfiguration %}
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
-
-Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches that have a `state_address` configured request their current state from the KNX bus.
 
 {% enddetails %}
 
