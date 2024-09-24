@@ -26,4 +26,4 @@ These standards enable greater choice, giving our users access to decades of sma
 
 This is not the only example of our work being recognized by these standards organizations. Recently, the Thread Group selected Nabu Casa for an [Innovation Enabler Award](https://www.linkedin.com/posts/thread-group_threadgroup-internetofthings-smarthome-activity-7226619123235971072-8kHn), which is only awarded to two companies a year, and recognizes the "creative potential of [our] ideas and the use of Thread technology".
 
-[We believe in Z-Wave](/blog/2024/05/08/zwave-is-not-dead/) and we will continually push it to align with the Open Home, so it can bring better choice, privacy, and sustainability to the home.
+[We believe in Z-Wave](/blog/2024/05/08/zwave-is-not-dead/) and we will continually push it to align with the Open Home, so it can bring better choice, privacy, and sustainability to the home. If you want to learn more about the Z-Wave Alliance Board, read the [appointment announcement here](https://z-wavealliance.org/news_p/home-assistant-founder-joins-z-wave-alliance-board-of-directors/).
