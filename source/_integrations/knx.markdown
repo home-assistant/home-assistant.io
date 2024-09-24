@@ -973,7 +973,7 @@ fan_zero_mode:
   description: The fan mode for the zero speed, either `off` or `auto`. This affects the fan modes displayed in the UI.
   required: false
   type: string
-  default: off
+  default: "off"
 {% endconfiguration %}
 
 ## Cover
