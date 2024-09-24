@@ -11,9 +11,18 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-The fan integration allows you to control and monitor fan devices.
+The **Fan** {% term integration %} allows you to control and monitor fan devices.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a fan entity
+
+The state of a fan entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Actions
 

@@ -18,3 +18,8 @@ A speech-to-text (STT) entity allows other integrations or applications to strea
 
 Every speech-to-text entity keeps track of the timestamp of when the last time
 the speech-to-text entity was used to process speech.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.

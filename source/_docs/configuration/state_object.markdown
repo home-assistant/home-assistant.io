@@ -1,6 +1,9 @@
 ---
 title: "State objects"
 description: "Describes all there is to know about state objects in Home Assistant."
+related:
+  - docs: /docs/configuration/entities_domains/
+    title: Entities and domains
 ---
 
 Your {% term devices %} are represented in Home Assistant as entities. The {% term entities %} will write their current {% term state %} to the state machine for other entities/templates/frontend to access. States are a current representation of the {% term entity %}.
@@ -24,7 +27,7 @@ All states will always have an entity id, a state and a timestamp when last upda
 
 ## Attributes
 
-The attributes of an {% term entity %} are optional. There are a few attributes that are used by Home Assistant for representing the entity in a specific way. Each integration will also have its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.
+The attributes of an {% term entity %} are optional.There are a few attributes that are available on all entities, such as `friendly_name` and `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state.
 
 When using templates, attributes will be available by their name. For example `state.attributes.assumed_state`.
 

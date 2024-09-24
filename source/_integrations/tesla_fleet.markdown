@@ -3,9 +3,13 @@ title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Climate
+  - Cover
   - Device tracker
+  - Lock
+  - Media player
   - Number
   - Select
   - Sensor
@@ -18,9 +22,13 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - cover
   - device_tracker
   - diagnostics
+  - lock
+  - media_player
   - number
   - select
   - sensor
@@ -33,7 +41,7 @@ The Tesla Fleet API {% term integration %} exposes various sensors from Tesla ve
 
 ## Prerequisites
 
-You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector.
+You must have a [Tesla](https://tesla.com) account and a Tesla vehicle, PowerWall, Solar, or Wall Connector, and must not have disabled the [My Home Assistant](/integrations/my/) integration.
 
 {% details "Use a custom OAuth application" %}
 
@@ -88,10 +96,24 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Button|Flash lights|Yes|
+|Button|Homelink|Yes|
+|Button|Honk horn|Yes|
+|Button|Keyless driving|Yes|
+|Button|Play fart|Yes|
+|Button|Wake|Yes|
 |Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Sunroof|No|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
+|Lock|Charge cable lock|Yes|
+|Lock|Lock|Yes|
+|Media player|Media player|Yes|
 |Number|Charge current|Yes|
 |Number|Charge limit|Yes|
 |Select|Seat heater front left|Yes|
@@ -188,3 +210,11 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 ## Vehicle sleep
 
 Constant API polling will prevent most Model S and Model X vehicles manufactured before 2021 from sleeping, so the integration will stop polling these vehicles for 15 minutes, after 15 minutes of inactivity. You can call the `homeassistant.update_entity` service to force polling the API, which will reset the timer.
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.

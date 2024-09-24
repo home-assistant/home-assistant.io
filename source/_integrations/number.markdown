@@ -23,6 +23,15 @@ Keeps track on `number` entities in your environment, their state, and allows yo
 
 If you are looking for a way to create a number entity, please take a look at the [Number helper](/integrations/input_number).
 
+## The state of a number entity
+
+The state of a number entity is a number.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
@@ -65,7 +74,7 @@ The following device classes are supported for numbers:
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
-- **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph, or mm/d
+- **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **volatile_organic_compounds**: Concentration of volatile organic compounds in µg/m³
@@ -81,6 +90,6 @@ The following device classes are supported for numbers:
 
 The Number entities registers the following actions:
 
-| Action | Data | Description |
-| ------- | ---- | ----------- |
-| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities
+| Action      | Data                                      | Description                                 |
+| ----------- | ----------------------------------------- | ------------------------------------------- |
+| `set_value` | `value`<br>`entity_id(s)`<br>`area_id(s)` | Set the value of specific `number` entities |
