@@ -3,10 +3,17 @@ title: Tesla Fleet
 description: Instructions on how to integrate the Tesla Fleet API within Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Car
   - Climate
+  - Cover
   - Device tracker
+  - Lock
+  - Media player
+  - Number
+  - Select
   - Sensor
+  - Switch
 ha_release: 2024.8
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -15,10 +22,17 @@ ha_codeowners:
 ha_domain: tesla_fleet
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - cover
   - device_tracker
   - diagnostics
+  - lock
+  - media_player
+  - number
+  - select
   - sensor
+  - switch
 ha_quality_scale: gold
 ha_integration_type: integration
 ---
@@ -82,10 +96,34 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Tire pressure warning rear right|No|
 |Binary sensor|Trip charging|No|
 |Binary sensor|User present|Yes|
+|Button|Flash lights|Yes|
+|Button|Homelink|Yes|
+|Button|Honk horn|Yes|
+|Button|Keyless driving|Yes|
+|Button|Play fart|Yes|
+|Button|Wake|Yes|
 |Climate|Cabin overheat protection|No|
 |Climate|Climate|Yes|
+|Cover|Charge port door|Yes|
+|Cover|Frunk|Yes|
+|Cover|Sunroof|No|
+|Cover|Trunk|Yes|
+|Cover|Vent windows|Yes|
 |Device tracker|Location|Yes|
 |Device tracker|Route|Yes|
+|Lock|Charge cable lock|Yes|
+|Lock|Lock|Yes|
+|Media player|Media player|Yes|
+|Number|Charge current|Yes|
+|Number|Charge limit|Yes|
+|Select|Seat heater front left|Yes|
+|Select|Seat heater front right|Yes|
+|Select|Seat heater rear center|No|
+|Select|Seat heater rear left|No|
+|Select|Seat heater rear right|No|
+|Select|Seat heater third row left|No|
+|Select|Seat heater third row right|No|
+|Select|Steering wheel heater|Yes|
 |Sensor|Battery level|Yes|
 |Sensor|Battery range|Yes|
 |Sensor|Charge cable|No|
@@ -127,6 +165,12 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
 |Sensor|Usable battery level|No|
+|Switch|Auto seat climate left|Yes|
+|Switch|Auto seat climate right|Yes|
+|Switch|Auto steering wheel heater|Yes|
+|Switch|Charge|Yes|
+|Switch|Defrost|Yes|
+|Switch|Sentry mode|Yes|
 
 ### Energy sites
 
@@ -135,6 +179,10 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Number|Backup reserve|Yes|
+|Number|Off grid reserve|Yes|
+|Select|Allow export|Yes|
+|Select|Operation mode|Yes|
 |Sensor|Battery power|Yes|
 |Sensor|Energy left|Yes|
 |Sensor|Generator power|No|
@@ -147,6 +195,8 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Total pack energy|No|
 |Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
+|Switch|Allow charging from grid|Yes|
+|Switch|Storm watch|Yes|
 
 ### Wall connector
 

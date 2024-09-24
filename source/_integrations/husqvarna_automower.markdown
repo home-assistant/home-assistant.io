@@ -4,6 +4,7 @@ description: Instructions on how to integrate Husqvarna Automower lawn mowers in
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Device tracker
   - Lawn Mower
   - Number
@@ -18,6 +19,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - device_tracker
   - diagnostics
   - lawn_mower
@@ -107,7 +109,14 @@ The integration will create the following binary sensors:
 
 ### Button (if available)
 
-The integration will create a button entity for confirming minor mower errors.
+The integration will create the following buttons:
+
+- **Confirm Error** (if available): For confirming minor mower errors.
+- **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
+
+### Calendar
+
+The integration will create a calendar entity for all mowers. The calendar shows all current and upcoming schedules.
 
 ### Device tracker (if available)
 

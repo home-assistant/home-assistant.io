@@ -451,6 +451,7 @@ source/_integrations/ld2410_ble.markdown @930913
 source/_integrations/leaone.markdown @bdraco
 source/_integrations/led_ble.markdown @bdraco
 source/_integrations/legrand.markdown @cgtobi
+source/_integrations/lektrico.markdown @lektrico
 source/_integrations/leviton_z_wave.markdown @home-assistant/z-wave
 source/_integrations/lg_netcast.markdown @Drafteed @splinter98
 source/_integrations/lidarr.markdown @tkdrob
@@ -633,7 +634,7 @@ source/_integrations/prometheus.markdown @knyar
 source/_integrations/prosegur.markdown @dgomes
 source/_integrations/proximity.markdown @mib1185
 source/_integrations/proxmoxve.markdown @jhollowe @Corbeno
-source/_integrations/prusalink.markdown @balloob @Skaronator
+source/_integrations/prusalink.markdown @balloob
 source/_integrations/ps4.markdown @ktnrg45
 source/_integrations/pse.markdown @tronikos
 source/_integrations/psoklahoma.markdown @tronikos
