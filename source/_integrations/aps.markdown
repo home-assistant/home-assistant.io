@@ -4,7 +4,7 @@ description: Get energy usage from Arizona Public Service (APS) using the Opower
 ha_category:
   - Energy
   - Sensor
-ha_release: 2024.10
+ha_release: "2024.10"
 ha_domain: aps
 ha_integration_type: virtual
 ha_supporting_domain: opower
