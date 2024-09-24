@@ -904,7 +904,7 @@ For a summary in a more readable format:
 [@tmenguy]: https://github.com/tmenguy
 [@zweckj]: https://github.com/zweckj
 
-## Release 2024.9.3 - September 23
+## Release 2024.9.3 - September 24
 
 - Fix wall connector state in Teslemetry ([@Bre77] - [#124149])
 - Fix set brightness for Netatmo lights ([@cgtobi] - [#126075])

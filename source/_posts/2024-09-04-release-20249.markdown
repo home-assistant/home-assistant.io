@@ -42,7 +42,7 @@ Enjoy the release!
 - [Patch releases](#patch-releases)
   - [2024.9.1 - September 6](#202491---september-6)
   - [2024.9.2 - September 16](#202492---september-16)
-  - [2024.9.3 - September 23](#202493---september-23)
+  - [2024.9.3 - September 24](#202493---september-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -384,7 +384,7 @@ week (around Friday).
 [@tmenguy]: https://github.com/tmenguy
 [@zweckj]: https://github.com/zweckj
 
-### 2024.9.3 - September 23
+### 2024.9.3 - September 24
 
 - Fix wall connector state in Teslemetry ([@Bre77] - [#124149])
 - Fix set brightness for Netatmo lights ([@cgtobi] - [#126075])
