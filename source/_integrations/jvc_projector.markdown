@@ -26,7 +26,7 @@ This integration is intended for the automation of any modern JVC Projector with
 
 ## Prerequisites
 
-JVC is requiring newer models (e.g., DLA-NZ800/DLA-RS3200 and DLA-NZ900/DLA-RS4200) to use a user-generated password to access the network port for security reasons.
+JVC is requiring newer 2024+ models to use a user-generated password to access the network port for security reasons.
 
 To set up these models:
 
