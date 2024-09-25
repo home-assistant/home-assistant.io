@@ -77,7 +77,5 @@ The integration provides detailed information about power, current, and voltage 
 | phase2_current           | A            | Phase 2 current                                        |
 | phase3_current           | A            | Phase 3 current                                        |
 | frequency                | Hz           | Frequency                                              |
-| non_resettable_counter_x | Wh/varh/VAh | Non resettable energy counters as configured on device |
+| non_resettable_counter_x | Wh/varh/VAh | Non-resettable energy counters as configured on device |
 | resettable_counter_x     | Wh/varh/VAh | Resettable energy counters as configured on device     |
-
-
