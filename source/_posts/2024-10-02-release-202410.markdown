@@ -166,6 +166,8 @@ action:
       entity_id: light.living_room
 ```
 
+After:
+
 ```yaml
 # Automation example:
 alias: "My automation"
