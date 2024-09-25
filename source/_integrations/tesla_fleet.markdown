@@ -179,6 +179,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
 |Select|Allow export|Yes|
