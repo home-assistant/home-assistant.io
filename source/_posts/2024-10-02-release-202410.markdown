@@ -97,13 +97,13 @@ be split into multiple subsections.
 
 Gist:
   - Replaces the headings of sections, which are automatically migrated on upgrade.
-  - Two types of headers: Header and Subheader.
-  - You can add multiple (sub)header cards to a section.
+  - Two types of heading styles: Title & Subtitle
+  - You can add multiple headers cards to a section, allowing you to create a "subsection" kinda style.
   - A heading can have an action, for example a link to a more detailed view
   - Heading cards can have entities, that are shown in the top right of the header
   - The display of these entities can be customized:
     - Color; default they have a text color, but can be color to the state color of the entity used, or by providing a custom color for an active state.
-    - Default to icon + state, but what is hows, can be fully customized.
+    - Default to icon + state, but what is shown can be fully customized.
     - Can be shown conditionally, using the visibility options
 
 Headers and subheaders with entities:
@@ -126,7 +126,7 @@ statistic.
 Gist:
   - Previously only available via developer tools
   - Was a bit hidden, causing people not to be aware of issues
-  - No we raise repair issue for the ones that need a decision.
+  - Now we raise repair issue for the ones that need a decision.
 
 ## Improved YAML syntax for automations
 
@@ -380,7 +380,7 @@ noteworthy changes this release:
 
 - Add detail to the device+entity_id rename dialog (#21952) @karwosts (frontend)
 
-### The source of an repair
+### The source of a repair
 
 Integrations can raise issues in your repairs dashboard, they can raise issues
 for themselves, but also for other integrations. An example of such an issue,
@@ -402,7 +402,7 @@ in the issue dialog.
 [@naps62] has been busy improving the YAML editor we show in the user interface
 of Home Assistant.
 
-We now have a indention-based vertical line, making it easier to see the
+We now have a indentation-based vertical line, making it easier to see the
 indentation of your YAML configuration, making it easier to spot and prevent
 indentation errors.
 
