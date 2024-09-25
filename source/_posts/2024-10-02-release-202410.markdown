@@ -1,0 +1,753 @@
+---
+layout: post
+title: "2024.10: Beta release notes"
+description: "Beta release notes for Home Assistant 2024.10"
+date: 2024-09-25 00:00:00
+date_formatted: "October 2, 2024"
+author: Franck Nijhof
+author_twitter: frenck
+comments: true
+categories:
+  - Release-Notes
+  - Core
+og_image: /images/blog/2024-10/social.png
+---
+
+<lite-youtube videoid="_X2-encNyrA" videotitle="Home Assistant 2024.10 Release Party"></lite-youtube>
+
+{% note %}
+
+**Welcome to the beta release notes for Home Assistant 2024.10** 🎉
+
+<br />
+
+Please note that these release notes are a work in progress. 👷‍♀️ We will be
+completing them over the next couple of days. Not all features might be final
+yet, and some features _**may not** make it into the final release_.
+
+<br />
+
+**Want to help test the beta?** Awesome! ❤️ We have documented how you
+[can join our beta channel and install the beta here](/common-tasks/os/#running-a-beta-version).
+
+<br />
+
+While running the beta, we highly recommend joining our _#beta_ channel on
+the [Home Assistant Discord chat](/join-chat)! 💬 Most developers and beta
+testers are in this channel during the beta period to share experiences, ideas,
+and iterate over new features, fine-tuning them before the final release.
+It's a really fun place to hang out. 😎
+
+<br />
+
+**Reporting issues**: As this is a beta test, you might encounter unexpected
+behavior or issues. 🐞 We use the GitHub issue tracker to track beta issues.
+You can find our issue trackers and the reported issues during beta here:
+
+<br />
+
+- [Report(ed) beta **dashboards/UI/frontend** issues](https://github.com/home-assistant/frontend/milestone/124)
+- [Report(ed) beta **integrations/automations/backend/core** issues](https://github.com/home-assistant/core/milestone/695)
+- [Report(ed) beta **documentation** issues](https://github.com/home-assistant/home-assistant.io/milestone/131)
+
+🙏 When reporting issues, **make sure to mention the exact beta version you are
+running** in the issue description. This will help us identify and track the
+issue correctly. Read more about [reporting issues here](/help/reporting_issues/).
+
+<br />
+
+Issues introduced in the beta are processed with priority. 🔝
+
+{% endnote %}
+
+{% tip %}
+
+Don't forget to [join our release party live stream on YouTube](https://www.youtube.com/watch?v=_X2-encNyrA)
+2 October 2024, at 20:00 GMT / 12:00 PST / 21:00 CEST!
+
+{% endtip %}
+
+Home Assistant 2024.10! 🎉
+
+Enjoy the (beta) release!
+
+../Frenck
+
+<!--more-->
+
+- [Heading in the right direction](#heading-in-the-right-direction)
+- [Repairs for long term statistics](#repairs-for-long-term-statistics)
+- [Improved YAML syntax for automations](#improved-yaml-syntax-for-automations)
+- [Faster upgrades when using custom integrations](#faster-upgrades-when-using-custom-integrations)
+- [Integrations](#integrations)
+  - [New integrations](#new-integrations)
+  - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
+  - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+- [Matter](#matter)
+- [Other noteworthy changes](#other-noteworthy-changes)
+  - [The source of a repair](#the-source-of-a-repair)
+  - [YAML-editor improvements](#yaml-editor-improvements)
+- [Need help? Join the community!](#need-help-join-the-community)
+- [Backward-incompatible changes](#backward-incompatible-changes)
+- [All changes](#all-changes)
+
+## Heading in the right direction
+
+New heading card! 
+
+Note: This chapter can possibily use some examples and be split into multiple
+subsections.
+
+Gist:
+  - Replaces the existing section title, which are automatically migrated on upgrade.
+  - Two types of heading styles: Title & Subtitle.
+  - You can add multiple heading cards to a section, allowing you to create a "subsection" sort of style.
+  - A heading can have an action, for example a link to a more detailed view.
+  - Heading cards can have entities, that are shown in the top right of the heading.
+  - The display of these entities can be customized:
+    - Color; default they have a text color, but can be color to the state color of the entity used, or by providing a custom color for an active state.
+    - Default to icon + state, but what is shown can be fully customized.
+    - Can be shown conditionally, using the visibility options
+
+Multiple heading cards used as titles and subtitles.
+
+![CleanShot 2024-09-17 at 14 01 15@2x](https://github.com/user-attachments/assets/4e6c63a0-5669-406a-89ce-83bbcbc61434)
+
+Ability to select the entity color behavior:
+
+![CleanShot 2024-09-24 at 17 41 16](https://github.com/user-attachments/assets/32231d3d-748a-47c2-82b1-aff401ffa388)
+
+Result with custom colors:
+
+![CleanShot 2024-09-24 at 14 25 24](https://github.com/user-attachments/assets/9075e6b6-6773-4d58-8ede-3d0447c5f6aa)
+
+## Repairs for long term statistics
+
+We now raise a repair issue when Home Assistant detects issues with a long term
+statistic.
+
+Gist:
+  - Previously only available via developer tools
+  - Was a bit hidden, causing people not to be aware of issues
+  - Now we raise repair issue for the ones that need a decision.
+
+## Improved YAML syntax for automations
+
+Improvements to the YAML-sytnax for automations.
+Gist:
+  - Follow up on the `service` to `action` rename/change 2 releases ago.
+  - Goal is to make the syntax more natrual, easier to grasp and read.
+  - The top level `trigger` key is now `triggers` (plural)
+  - The top level `condition` key is now `conditions` (plural)
+  - The top level `action` key is now `actions` (plural)
+  - The `platform` key of a trigger definition is now `trigger`
+  - Result: The YAML automation syntax now has `triggers` with multiple `trigger` definitions, `conditions` with multiple `condition` definitions, and `actions` with multiple `action` definitions. This makes it consistent and easier to read.
+  - Not a breaking change, no deprecation. Existing syntax will continue to work and there are no plans to remove the old syntax.
+  - The new syntax is recommended, and all documentation and examples have been updated to use the new syntax.
+  - Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
+
+Before:
+
+```yaml
+# Automation example:
+alias: "My automation"
+description: "This is my automation"
+trigger:
+  - platform: state
+    entity_id: light.kitchen
+    to: "on"
+condition:
+  - condition: state
+    entity_id: binary_sensor.motion
+    state: "on"
+action:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+```
+
+After:
+
+```yaml
+# Automation example:
+alias: "My automation"
+description: "This is my automation"
+triggers:
+  - trigger: state
+    entity_id: light.kitchen
+    to: "on"
+conditions:
+  - condition: state
+    entity_id: binary_sensor.motion
+    state: "on"
+actions:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+```
+
+Additonal bonus (or noteworthy maybe) we also support nested triggers now:
+
+```yaml
+triggers:
+  - triggers:
+    - trigger: state
+      entity_id: light.kitchen
+      to: "on"
+```
+
+This is mainly useful for blueprint authors, but can be used by users to group triggers together as well.
+
+Add a syntax for merging lists of triggers ([@karwosts] - [#117698])
+
+## Faster upgrades when using custom integrations
+
+Bit of a technical item, still cool.
+
+Gist:
+  - On each upgrade, all dependencies needed for custom integrations are downloaded and installed. 
+  - We are now using `uv` internally to download and install dependencies. It is a faster and more efficient way to download and install dependencies.
+  - `uv` is what makes our release process so fast nowadays, [developer backstory](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/)
+  - This speeds up the upgrade process, especially for custom integrations with many dependencies or installation with many custom integrations.
+  - This change is fully transparent to the user, and no action is required.
+  - Just sit down, relax, and enjoy the faster upgrade process!
+  - Use uv at runtime too ([@edenhaus] - [#125110])
+
+## Integrations
+
+Thanks to our community for keeping pace with the new {% term integrations %}
+and improvements to existing ones! You’re all awesome 🥰
+
+### New integrations
+
+We welcome the following new integrations in this release:
+
+- **[Cambridge Audio]**, added by [@noahhusby]  
+  Control all receivers and streamers that support the [StreamMagic app].
+- **[Deako Smart Lighting]**, added by [@Balake]  
+  Control and automated your [Deako] devices.
+- **[Duke Energy]**, added by [@hunterjm]  
+  Import your energy usage data from Duke Energy into the Home Assistant energy dashboard.
+- **[Google Photos]**, added by [@allenporter]  
+  View and use your [Google Photos library] as a [media source], but also provides actions to upload new photos.
+- **[Iskra]**, added by [@iskrakranj]  
+  Monitor your energy and power usage from Iskra energy meter.
+- **[Lektrico Charging Station]**, added by [@Lektrico]  
+  Get in control of your [Lektrico EV charger] from Home Assistant and optimize your energy usage.
+- **[Monarch Money]**, added by [@jeeftor]  
+  Monitor your account balance from the [Monarch Money personal finance service].
+- **[NYT Games]**, added by [@joostlek]  
+  Keep track of your [New York Times games] progress, like Spelling Bee and Wordle.
+- **[Sensoterra]**, added by [@markruys]  
+  Monitor your soil moisture and temperature using [Sensoterra sensors].
+- **[TRIGGERcmd]**, added by [@rvmey]  
+  Execute commands on your computer(s) using the [TRIGGERcmd cloud service].
+- **[Weheat]**, added by [@jesperraemaekers]  
+  Manage and monitor your [Weheat heatpump], keeping your home warm and cozy.
+- **[WMS WebControl pro]**, added by [@mback2k]  
+  Control your [WAREMA] sun shading covers fully locally. 
+
+[@allenporter]: https://github.com/allenporter
+[@Balake]: https://github.com/Balake
+[@hunterjm]: https://github.com/hunterjm
+[@iskrakranj]: https://github.com/iskrakranj
+[@jeeftor]: https://github.com/jeeftor
+[@jesperraemaekers]: https://github.com/jesperraemaekers
+[@joostlek]: https://github.com/joostlek
+[@Lektrico]: https://github.com/Lektrico
+[@markruys]: https://github.com/markruys
+[@mback2k]: https://gitbub.com/mback2k
+[@noahhusby]: https://github.com/noahhusby
+[@rvmey]: https://github.com/rvmey
+[Cambridge Audio]: /integrations/cambridge_audio
+[Deako Smart Lighting]: /integrations/deako
+[Deako]: https://www.deako.com/
+[Duke Energy]: /integrations/duke_energy
+[Google Photos library]: https://photos.google.com/
+[Google Photos]: /integrations/google_photos
+[Iskra]: /integrations/iskra
+[Lektrico Charging Station]: /integrations/lektrico
+[Lektrico EV charger]: https://lektri.co/
+[media source]: /integrations/media_source
+[Monarch Money personal finance service]: https://www.monarchmoney.com/
+[Monarch Money]: /integrations/monarch_money
+[New York Times games]: https://www.nytimes.com/games
+[NYT Games]: /integrations/nyt_games
+[Sensoterra sensors]: https://www.sensoterra.com/sensors/
+[Sensoterra]: /integrations/sensoterra
+[StreamMagic app]: https://www.cambridgeaudio.com/usa/en/products/streammagic
+[TRIGGERcmd cloud service]: https://triggercmd.com
+[TRIGGERcmd]: /integrations/triggercmd
+[WAREMA]: https://www.warema.com/
+[Weheat heatpump]: https://www.weheat.nl/
+[Weheat]: /integrations/weheat
+[WMS WebControl pro]: /integrations/wmspro
+
+This release also has a new virtual integration. Virtual integrations
+are stubs that are handled by other (existing) integrations to help with
+findability. this one is new:
+
+- **[Arizona Public Service (APS)]**, provided by [Opower], added by [@seferino-fernandez]
+
+[@seferino-fernandez]: https://github.com/seferino-fernandez
+[Arizona Public Service (APS)]: /integrations/aps
+[Opower]: /integrations/opower
+
+### Noteworthy improvements to existing integrations
+
+It is not just new {% term integrations %} that have been added; existing
+integrations are also being constantly improved. Here are some of the noteworthy
+changes to existing integrations:
+
+- [@Bre77] has been busy with the [Tesla Fleet] integration, adding a bunch of
+  new features and entities to control your Tesla vehicle. It now supports
+  climate, media player, cover, number, select, button, and lock entities.
+- You can now control the volume, ringtone and status light of your [Reolink]
+  Hub! Cool, [@starkillerOG]! 
+- [@daniel-k] added support for controlling the volume on [Ring] devices.
+  Nice!
+- The [Switchbot Cloud] integration now supports the [K10+ Mini Robot Vacuum].
+  Thanks, [@Gigatrappeur]!
+
+[@Bre77]: https://github.com/Bre77
+[@daniel-k]: https://github.com/daniel-k
+[@Gigatrappeur]: https://github.com/Gigatrappeur
+[@starkillerOG]: https://github.com/starkillerOG
+[K10+ Mini Robot Vacuum]: https://eu.switch-bot.com/products/switchbot-mini-robot-vacuum-k10
+[Reolink]: /integrations/reolink
+[Ring]: /integrations/ring
+[Switchbot Cloud]: /integrations/switchbot_cloud
+[Tesla Fleet]: /integrations/tesla_fleet
+
+{% details "Potential changes to process" icon="mdi:scale-balance" %}
+
+Processed up to _#126603_.
+
+- Add support for total YouTube views ([@Alexwijn] - [#123144]) ([youtube docs])
+- Support Z-Wave JS dimming lights using color intensity ([@AlCalzone] - [#122639]) ([zwave_js docs])
+- Add hot water target temp number entity in ViCare integration ([@CFenner] - [#123633]) ([vicare docs])
+- Add squeezebox service sensors ([@pssc] - [#125349]) ([squeezebox docs]) (new-platform) (noteworthy)
+- Add favorites support to Media Browser for Squeezebox integration ([@rajlaud] - [#124732]) ([squeezebox docs])
+- Allow Switchbot users to force nightlatch ([@Michal4K] - [#124326]) ([switchbot docs])
+- Add voice settings to ElevenLabs options flow ([@sorgfresser] - [#123265]) ([elevenlabs docs])
+- Add select platform to opentherm_gw ([@mvn23] - [#125585]) ([opentherm_gw docs]) (new-platform) (noteworthy)
+- Add calendar to Husqvarna Automower ([@Thomas55555] - [#120775]) ([husqvarna_automower docs]) (new-platform)
+- Add sensor platform to laundrify integration ([@xLarry] - [#121378]) ([laundrify docs]) (new-platform)
+- Add Home Connect light entity for cooling appliances ([@beastie29a] - [#126090]) ([home_connect docs])
+- Add motion detection switch entity to ring ([@sdb9696] - [#126278]) ([ring docs])
+- Add velbus HVAC options ([@RZomermanMS] - [#106570]) ([velbus docs])
+- Add battery data to Autarco integration ([@klaasnicolaas] - [#125924]) ([autarco docs]) (noteworthy)
+- Link mold_indicator entity to device from humidity sensor ([@gjohansson-ST] - [#125528]) ([mold_indicator docs]) (noteworthy)
+- Add Switcher Runner S11 support ([@YogevBokobza] - [#123578]) ([switcher_kis docs]) (noteworthy)
+
+{% enddetails %}
+
+### Now available to set up from the UI
+
+While most {% term integrations %} can be set up directly from the Home Assistant
+user interface, some were only available using YAML configuration. We keep moving
+more integrations to the UI, making them more accessible for everyone
+to set up and use.
+
+The following integrations are now available via the Home Assistant UI:
+
+- **[Emoncms]**, done by [@alexandrecuer]
+- **[Google Cloud Platform]**, done by [@tronikos]
+- **[HTML5 Push Notifications]**, done by [@alexyao2015]
+- **[Mold Indicator]**, done by [@gjohansson-ST]
+
+[@alexandrecuer]: https://github.com/alexandrecuer
+[@alexyao2015]: https://github.com/alexyao2015
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@tronikos]: https://github.com/tronikos
+[Emoncms]: /integrations/emoncms
+[Google Cloud Platform]: /integrations/google_cloud
+[HTML5 Push Notifications]: /integrations/html5
+[Mold Indicator]: /integrations/mold_indicator
+
+## Matter
+
+At this point, our [Matter intergration] is almost becomming a monthly recurring
+topic in our release notes. For a good reason! The development is moving forward
+at a strong pace; running toward the certification finish line!
+
+In terms of stability, we have improved the robustness of the integration to
+ensure the integration set ups correctly every time, even if an issue with one
+of your devices occurs. Besides the usual bugfixes and improvements, this
+release has some cool new features and additions:
+
+- **Button entities**  
+  New button entitites that allow you to perform an action on a device. For
+  example, to identify a device or reset the filter state.
+- **Valve entities**  
+  Support for water valves, allowing you to control the flow of fluids or gases.
+- **Support for operation states**  
+  Control and monitor the operation state of, for example, Dishwashers
+  and other household equipment.
+- **Support for Smoke and CO sensors**  
+  Monitor the air quality in your home with smoke and CO sensors.
+- **Add support for Matter 1.3 power/energy sensors**  
+  Especially the energy sensors are great to use with the energy dashboard.
+
+[Matter intergration]: /integrations/matter
+
+## Other noteworthy changes
+
+There are many more improvements in this release; here are some of the other
+noteworthy changes this release:
+
+- In June, we added support for adding [Model IDs to devices], this release
+  has lots of integrations that add them. Including [Matter], [Plugwise],
+  [Wallbox], and [Govee]. We are calling contributions to add model IDs to
+  more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
+- We now have a new unit of measurement for energy entities: calories. Usefull,
+  for like devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
+- [@Travoschirmer] did something simalar, and added a new unit of speed:
+  mm/s and in/s. Thank you!
+- When you rename a device, you will now see more details about the rename
+  operation. Including a preview of the new entity IDs. Nice, [@karwosts]!
+- [@gjohansson-ST] added a new template function [`merge_response`] that
+  allows you to merge multiple response of single or multiple actions into
+  a single response. This is useful when you want to combine the responses
+  of multiple services into a single response. Nice!
+- [Trigger-based templates] now have support for adding conditions! Just like
+  automations, you can now add conditions to these entities to control when
+  they are rendered. Thanks, [@chammp]! 
+- More template fun! You can now set up your templated alarm control panel
+  straight from the UI. Thanks, [@gjohansson-ST]!
+- There is a new entity in town, the [`assist satellite` entity](/integrations/assist_satellite/).
+  It is a building block for remote sattelites devices that use [Assist]. This
+  is in preparation for our upcoming sattelite hardware. Stay tuned!
+
+[@karwosts]: https://github.com/karwosts
+[@chammp]: https://github.com/chammp
+[@dudanov]: https://github.com/dudanov
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[`merge_response`]: /docs/configuration/templating/#merge-action-responses
+[Assist]: /voice_control
+[Govee]: /integrations/govee_light_local
+[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Matter]: /integrations/matter
+[Model IDs to devices]: https://developers.home-assistant.io/blog/2024/06/15/model-ids
+[Plugwise]: /integrations/plugwise
+[Trigger-based templates]: /integrations/template/#trigger-based-template-binary-sensors-buttons-images-numbers-selects-and-sensors
+[Wallbox]: /integrations/wallbox
+
+### The source of a repair
+
+Integrations can raise issues in your repairs dashboard, they can raise issues
+for themselves, but also for other integrations. An example of such an issue,
+is an integration that connects to your device that raises an issue on an
+automation that controls it.
+
+The result, is an automation issue in your repair center. This is cool, but
+you might want to know which integration raised the issue in the first place.
+
+Thanks to [@wendevlin], we now show the source integration of the repair issue
+in the issue dialog.
+
+![image](https://github.com/user-attachments/assets/a2b57c86-5acf-48d3-8676-1dc2a5bfbb57)
+
+[@wendevlin]: https://github.com/wendevlin
+
+### YAML-editor improvements
+
+[@naps62] has been busy improving the YAML editor we show in the user interface
+of Home Assistant.
+
+We now have a indentation-based vertical line, making it easier to see the
+indentation of your YAML configuration, making it easier to spot and prevent
+indentation errors.
+
+![image](https://github.com/user-attachments/assets/c2254e0b-98ca-46b0-874f-0420c60d3626)
+
+But he didn't stop there, you can now also collapse and expand sections of your
+YAML configuration based on the indentation level.
+
+![CleanShot 2024-09-25 at 13 19 19](https://github.com/user-attachments/assets/c14fa4bc-fac2-4c40-9f26-ec5aa9d8cf62)
+
+[@naps62]: https://github.com
+
+Ref:
+ - https://github.com/home-assistant/frontend/pull/21966
+ - https://github.com/home-assistant/frontend/pull/21972
+
+## Need help? Join the community!
+
+Home Assistant has a great community of users who are all more than willing
+to help each other out. So, join us!
+
+Our very active [Discord chat server](/join-chat) is an excellent place to be
+at, and don't forget to join our amazing [forums](https://community.home-assistant.io/).
+
+Found a bug or issue? Please report it in our [issue tracker](https://github.com/home-assistant/core/issues),
+to get it fixed! Or, check [our help page](/help) for guidance for more
+places you can go.
+
+Are you more into email? [Sign-up for our Building the Open Home Newsletter](/newsletter)
+to get the latest news about features, things happening in our community and
+other news about building an Open Home; straight into your inbox.
+
+## Backward-incompatible changes
+
+We do our best to avoid making changes to existing functionality that might
+unexpectedly impact your Home Assistant installation. Unfortunately, sometimes,
+it is inevitable.
+
+We always make sure to document these changes to make the transition as easy as
+possible for you. This release has the following backward-incompatible changes:
+
+{% details "Climate" %}
+
+We have added more validation to the `climate.set_humidity` action which
+enforces that the set target humidity is within the min and max humidity
+levels of the targeted entity.
+
+You might need to adjust automations and scripts to use valid values if you
+are using this action.
+
+([@gjohansson-ST] - [#125242]) ([documentation](/integrations/climate))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125242]: https://github.com/home-assistant/core/pull/125242
+
+{% enddetails %}
+
+{% details "ecobee" %}
+
+The previously deprecated `aux_heat` attribute has been removed from the
+provided climate entity.
+
+([@gjohansson-ST] - [#125246]) ([documentation](/integrations/ecobee))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125246]: https://github.com/home-assistant/core/pull/125246
+
+{% enddetails %}
+
+{% details "Honeywell Total Connect Comfort (US)" %}
+
+The previously deprecated `aux_heat` attribute has been removed from the
+provided climate entity.
+
+([@gjohansson-ST] - [#125248]) ([documentation](/integrations/honeywell))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125248]: https://github.com/home-assistant/core/pull/125248
+
+{% enddetails %}
+
+{% details "Humidifier" %}
+
+We have added more validation to the `humidifier.set_humidity` action, which
+enforces that the set target humidity is within the min and max humidity
+levels of the targeted entity.
+
+You might need to adjust automations and scripts to use valid values if you
+are using this action.
+
+([@gjohansson-ST] - [#125863]) ([documentation](/integrations/humidifier))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125863]: https://github.com/home-assistant/core/pull/125863
+
+{% enddetails %}
+
+{% details "Nexia/American Standard/Trane" %}
+
+The `aux_heat` attribute of the climate entity is now deprecated and will be
+removed in Home Assistant 2025.4.0. Use the newly provided emergency heat
+switch entity instead.
+
+([@gjohansson-ST] - [#125250]) ([documentation](/integrations/nexia))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125250]: https://github.com/home-assistant/core/pull/125250
+
+{% enddetails %}
+
+{% details "Nuki" %}
+
+The previously deprecated `nuki_id` and `battery_critical` attributes have
+been removed from the Nuki entities. If you are using these attributes in
+automations or scripts, you need to update those.
+
+([@steffenrapp] - [#125348]) ([documentation](/integrations/nuki))
+
+[@steffenrapp]: https://github.com/steffenrapp
+[#125348]: https://github.com/home-assistant/core/pull/125348
+
+{% enddetails %}
+
+{% details "OpenTherm Gateway" %}
+
+In order to modernize the OpenTherm Gateway integration, all entities have
+been split into different devices. As a result, the OpenTherm Gateway climate
+entity has been moved to a new OpenTherm Thermostat device.
+
+Configurations that look for the climate entity by device must be adjusted
+accordingly.
+
+In the process, all entities were reviewed and some were found to be irrelevant
+or superfluous. These entities have been removed. All removed entities were
+previously disabled by default, so anyone who has never manually enabled an
+entity in the OpenTherm Gateway integration is not affected by this.
+
+All other users should review their configuration for the use of OpenTherm
+Gateway entities that no longer exist or that have been assigned to another
+device.
+
+([@mvn23] - [#124869]) ([documentation](/integrations/opentherm_gw))
+
+[@mvn23]: https://github.com/mvn23
+[#124869]: https://github.com/home-assistant/core/pull/124869
+
+{% enddetails %}
+
+{% details "Pentair ScreenLogic" %}
+
+Support for use of an area, device, or entity as a target for ScreenLogic
+actions has been removed. Instead, use `config_entry` with the
+`entry_id` of the desired ScreenLogic
+
+([@dieselrabbit] - [#123432]) ([documentation](/integrations/screenlogic))
+
+[@dieselrabbit]: https://github.com/dieselrabbit
+[#123432]: https://github.com/home-assistant/core/pull/123432
+
+{% enddetails %}
+
+{% details "Ping" %}
+
+The binary sensor attributes this integration provided have been
+replaced with sensor entities in Home Assistant 2024.4. These deprecated
+attributes have now been removed.
+
+([@jpbede] - [#125760]) ([documentation](/integrations/ping))
+
+[@jpbede]: https://github.com/jpbede
+[#125760]: https://github.com/home-assistant/core/pull/125760
+
+{% enddetails %}
+
+{% details "Ring" %}
+
+The `ring.update` action was deprecated in the 2024.4 release and now has
+been removed. Please use `homeassistant.update_entity` if you need
+a replacement.
+
+([@jpbede] - [#125762]) ([documentation](/integrations/ring))
+
+[@jpbede]: https://github.com/jpbede
+[#125762]: https://github.com/home-assistant/core/pull/125762
+
+{% enddetails %}
+
+{% details "Squeezebox (Lyrion Music Server)" %}
+
+We previously gave notice that the squeezebox platform had deprecated
+the `squeezebox_sync` and `squeezebox_unsync` actions and the `sync_group`
+entity attribute in favor of the newer "join" framework common to all
+media players.
+
+These deprecated actions and entity attributes have now been removed.
+
+([@rajlaud] - [#125271]) ([documentation](/integrations/squeezebox))
+
+[@rajlaud]: https://github.com/rajlaud
+[#125271]: https://github.com/home-assistant/core/pull/125271
+
+{% enddetails %}
+
+{% details "Templates" %}
+
+Limit maximum template render output to 256KiB to ensure template renders do
+not inject an unreasonable amount of data into the system and cause a crash.
+
+256KiB is likely to still block Home Assistant's event loop for an unreasonable
+amount of time but its likely someone is using the template engine for large
+blocks of data so we want a limit which still allows that but has a reasonable
+safety to prevent the system from crashing down.
+
+([@bdraco] - [#124946])
+
+[@bdraco]: https://github.com/bdraco
+[#124946]: https://github.com/home-assistant/core/pull/124946
+
+{% enddetails %}
+
+{% details "ThermoWorks Smoke" %}
+
+The ThermoWorks Smoke integration is disabled because it creates
+an unresolvable dependency conflict.
+
+Contributions to fix this conflict are greatly appreciated.
+
+([@edenhaus] - [#125661]) ([documentation](/integrations/thermoworks_smoke))
+
+[@edenhaus]: https://github.com/edenhaus
+[#125661]: https://github.com/home-assistant/core/pull/125661
+
+{% enddetails %}
+
+{% details "Tfiac" %}
+
+The Tfiac integration is disabled because we cannot create valid Python wheels
+for it's dependencies.
+
+Contributions to fix this issue are greatly appreciated.
+
+([@edenhaus] - [#125692]) ([documentation](/integrations/tfiac))
+
+[@edenhaus]: https://github.com/edenhaus
+[#125692]: https://github.com/home-assistant/core/pull/125692
+
+{% enddetails %}
+
+{% details "Z-Wave" %}
+
+With this release, you will need to update your `zwave-js-server` instance.
+You must use `zwave-js-server` 1.37.0 or greater (schema 37).
+
+- If you use the Z-Wave JS add-on, you need at least version `0.7.0`.
+- If you use the Z-Wave JS UI add-on, you need at least version [`3.9.0`](https://github.com/hassio-addons/addon-zwave-js-ui/releases/tag/v3.9.0).
+- If you use the Z-Wave JS UI Docker container, you need at least version [`9.16.0`](https://github.com/zwave-js/zwave-js-ui/releases/tag/v9.16.0).
+- If you run your own Docker container or some other installation method, you will need to update your zwave-js-server instance to at least `1.37.0`.
+
+([@MartinHjelmare] - [#125666]) ([documentation](/integrations/zwave_js))
+
+[@MartinHjelmare]: https://github.com/MartinHjelmare
+[#125666]: https://github.com/home-assistant/core/pull/125666
+
+{% enddetails %}
+
+{% details "Zigbee Home Automation (ZHA)" %}
+
+The previously deprecated `aux_heat` attribute has been removed from the
+provided climate entity.
+
+([@gjohansson-ST] - [#125247]) ([documentation](/integrations/zha))
+
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[#125247]: https://github.com/home-assistant/core/pull/125247
+
+{% enddetails %}
+
+If you are a custom integration developer and want to learn about changes and
+new features available for your integration: Be sure to follow our
+[developer blog][devblog]. The following are the most notable for this release:
+
+- [Calories added to energy class sensors](https://developers.home-assistant.io/blog/2024/09/10/calories-units)
+- [Deprecating constants for Media Player](https://developers.home-assistant.io/blog/2024/09/23/constants-media-player-deprecation)
+- [Deprecating feature flag constants for Vacuum](https://developers.home-assistant.io/blog/2024/09/23/feature-flag-constants-vacuum-deprecation)
+- [Deprecating state constants for camera](https://developers.home-assistant.io/blog/2024/09/23/state-constants-camera-deprecation)
+- [Deprecating state constants for lock](https://developers.home-assistant.io/blog/2024/09/23/state-constants-lock-deprecation)
+- [Enforce SourceType and add shorthand attributes and EntityDescription to device_tracker](https://developers.home-assistant.io/blog/20240924-device-tracker-entity-description)
+- [Extend deprecation period of @bind_hass and hass.components](https://developers.home-assistant.io/blog/2024/09/11/extending-deprecation-hass-components)
+
+[devblog]: https://developers.home-assistant.io/blog/
+
+## All changes
+
+Of course, there is a lot more in this release. You can find a list of
+all changes made here: [Full changelog for Home Assistant Core 2024.10](/changelogs/core-2024.10)

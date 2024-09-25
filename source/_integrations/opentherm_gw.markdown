@@ -2,8 +2,8 @@
 title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
-  - Button
   - Binary sensor
+  - Button
   - Climate
   - Hub
   - Select
@@ -15,8 +15,8 @@ ha_codeowners:
   - '@mvn23'
 ha_domain: opentherm_gw
 ha_platforms:
-  - button
   - binary_sensor
+  - button
   - climate
   - select
   - sensor

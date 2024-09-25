@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 

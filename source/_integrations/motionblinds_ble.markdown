@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - button
   - cover
+  - diagnostics
   - select
   - sensor
 ha_integration_type: device

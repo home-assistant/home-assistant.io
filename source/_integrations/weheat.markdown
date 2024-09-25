@@ -2,15 +2,14 @@
 title: Weheat
 description: Instructions on setting up Weheat within Home Assistant.
 ha_category:
-  - Energy
   - Climate
+  - Energy
   - Sensor
 ha_iot_class: Cloud Polling
-ha_release: "2024.10"
+ha_release: '2024.10'
 ha_config_flow: true
 ha_codeowners:
   - '@jesperraemaekers'
-  - '@kjell-van-straaten'
 ha_domain: weheat
 ha_platforms:
   - sensor

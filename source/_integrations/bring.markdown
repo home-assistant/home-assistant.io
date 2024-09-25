@@ -12,8 +12,9 @@ ha_codeowners:
 ha_domain: bring
 ha_integration_type: service
 ha_platforms:
-  - todo
+  - diagnostics
   - sensor
+  - todo
 related:
   - docs: /integrations/todo
     title: To-do list integration documentation

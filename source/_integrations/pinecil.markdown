@@ -2,6 +2,7 @@
 title: Pinecil
 description: Connect and control your Pinecil devices using the IronOS integration
 ha_category:
+  - Number
   - Sensor
 ha_release: 2024.8
 ha_domain: pinecil
