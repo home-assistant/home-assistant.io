@@ -341,13 +341,29 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Matter
 
-- Button platform (for example to identify a device or reset the filter state)
-- Valve platform (water valves)
-- Operation State support (dishwashers and other household equipment)
-- Lots of small bugfix (e.g. that prevents the integartion to start when there is something wrong)
-- Smoke (and CO) sensor support
-- Add discovery schemas for Matter 1.3 power/energy sensors ([@marcelveldt] - [#125403]) ([matter docs])
-- Add Matter BatVoltage attribute from PowerSource cluster ([@lboue] - [#125503]) ([matter docs])
+At this point, our [Matter intergration] is almost becomming a monthly recurring
+topic in our release notes. For a good reason! The development is moving forward
+at a strong pace; running toward the certification finish line!
+
+In terms of stability, we have improved the robustness of the integration to
+ensure the integration set ups correctly every time, even if an issue with one
+of your devices occurs. Besides the usual bugfixes and improvements, this
+release has some cool new features and additions:
+
+- **Button entities**  
+  New button entitites that allow you to perform an action on a device. For
+  example, to identify a device or reset the filter state.
+- **Valve entities**  
+  Support for water valves, allowing you to control the flow of fluids or gases.
+- **Support for operation states**  
+  Control and monitor the operation state of, for example, Dishwashers
+  and other household equipment.
+- **Support for Smoke and CO sensors**  
+  Monitor the air quality in your home with smoke and CO sensors.
+- **Add support for Matter 1.3 power/energy sensors**  
+  Especially the energy sensors are great to use with the energy dashboard.
+
+[Matter intergration]: /integrations/matter
 
 ## Other noteworthy changes
 
