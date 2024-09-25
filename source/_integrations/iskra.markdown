@@ -9,7 +9,7 @@ ha_codeowners:
   - '@iskramis'
 ha_config_flow: true
 ha_domain: iskra
-ha_iot_class: local_polling
+ha_iot_class: Local Polling
 ha_platforms:
   - sensor
 ha_integration_type: integration
@@ -19,6 +19,8 @@ ha_integration_type: integration
 The [Iskra](https://www.iskra.eu/) {% term integration %} allows you to connect Iskra energy meters and power quality analyzers to Home Assistant. Data is polled using Modbus TCP or the Iskra Smart Gateway's REST API.
 
 ## Supported devices
+
+This integration supports Iskra's devices, which should not be confused with Iskraemeco, another manufacturer of energy meters commonly used by electrical distributors for billing purposes.
 
 ### Energy meters
 
@@ -60,22 +62,22 @@ If your device supports a direct internet connection, such as PQ meters (iMC/MC 
 
 The integration provides detailed information about power, current, and voltage for each phase. The data is updated every minute.
 
-| Name                | Unit | Description                                                                 |
-| ------------------- | ---- | :-------------------------------------------------------------------------- |
-| total_active_power  | W    | Total active power.                                                         |
-| total_reactive_power| var  | Total reactive power.                                                       |
-| total_apparent_power| VA   | Total apparent power.                                                       |
-| phase1_power        | W    | Active power of phase 1.                                                    |
-| phase2_power        | W    | Active power of phase 2.                                                    |
-| phase3_power        | W    | Active power of phase 3.                                                    |
-| phase1_voltage      | V    | Voltage of phase 1.                                                         |
-| phase2_voltage      | V    | Voltage of phase 2.                                                         |
-| phase3_voltage      | V    | Voltage of phase 3.                                                         |
-| phase1_current      | A    | Current of phase 1.                                                         |
-| phase2_current      | A    | Current of phase 2.                                                         |
-| phase3_current      | A    | Current of phase 3.                                                         |
-| frequency           | Hz   | Frequency.                                                                  |
+| Name                     | Unit         | Description                                            |
+| ------------------------ | ------------ | ------------------------------------------------------ |
+| total_active_power       | W            | Total active power                                     |
+| total_reactive_power     | var          | Total reactive power                                   |
+| total_apparent_power     | VA           | Total apparent power                                   |
+| phase1_power             | W            | Phase 1 active power                                   |
+| phase2_power             | W            | Phase 2 active power                                   |
+| phase3_power             | W            | Phase 3 active power                                   |
+| phase1_voltage           | V            | Phase 1 voltage                                        |
+| phase2_voltage           | V            | Phase 2 voltage                                        |
+| phase3_voltage           | V            | Phase 3 voltage                                        |
+| phase1_current           | A            | Phase 1 current                                        |
+| phase2_current           | A            | Phase 2 current                                        |
+| phase3_current           | A            | Phase 3 current                                        |
+| frequency                | Hz           | Frequency                                              |
+| non_resettable_counter_x | Wh/varh/VAh | Non resettable energy counters as configured on device |
+| resettable_counter_x     | Wh/varh/VAh | Resettable energy counters as configured on device     |
 
-## Note
 
-This integration supports Iskra's energy meters, not Iskra Emeco ones.
