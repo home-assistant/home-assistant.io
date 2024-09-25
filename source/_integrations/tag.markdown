@@ -9,7 +9,7 @@ ha_codeowners:
   - '@dmulcahey'
 ha_domain: tag
 ha_quality_scale: internal
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
 <p class='img'>

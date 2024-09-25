@@ -9,7 +9,7 @@ ha_codeowners:
   - '@balloob'
   - '@synesthesiam'
 ha_domain: assist_pipeline
-ha_integration_type: integration
+ha_integration_type: system
 ha_quality_scale: internal
 ha_platforms:
   - select

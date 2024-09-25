@@ -11,8 +11,8 @@ ha_codeowners:
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
-  - media_player
   - binary_sensor
+  - media_player
   - sensor
 ha_integration_type: integration
 ---

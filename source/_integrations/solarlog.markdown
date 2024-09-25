@@ -12,6 +12,7 @@ ha_codeowners:
   - '@dontinelli'
 ha_domain: solarlog
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
