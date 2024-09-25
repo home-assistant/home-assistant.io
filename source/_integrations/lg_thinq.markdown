@@ -105,7 +105,7 @@ A read-only property which has only two states that can be toggled is represente
 
 The properties for controlling the clean operations of the appliance are represented as a vacuum platform.
 
-| Device Property |
+| Device | Property |
 | ------ | -------- |
 | [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Battery level<br>Operation mode<br>Current state |
 
