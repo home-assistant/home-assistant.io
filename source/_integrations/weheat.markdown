@@ -35,7 +35,14 @@ The **Weheat** {% term integration %} allows you to display your [Weheat](https:
 
 The Weheat integration provides the following sensors:
 
-- **Output power**:
-- **Input power**:
-- **COP**:
-
+- **Output power**: Thermal power added to the water in Watts
+- **Input power**: Electrical power in Watts
+- **COP**: The Coefficient of performance between the above two power measurements
+- **Water inlet temperature"**: The heat pump water inlet temperature in °C
+- **Water outlet temperature**: The heat pump water outlet temperature in °C
+- **Central heating inlet temperature**: The central heating inlet temperature in °C
+- **Outside temperature**: Outside temperature in °C
+- **Electricity used**: Total electricity used in kWh
+- **State**: The current heat pump state
+- **DHW top temperature**: The domestic hot water temperature in the top of the vessel in °C (optional)
+- **DHW bottom temperature"**: The domestic hot water temperature in the bottom of the vessel in °C (optional)
