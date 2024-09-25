@@ -252,7 +252,7 @@ WebSocket notifications received from the device are fired as events in Home Ass
 
 
 ### Device triggers
-Device triggers for most of the physical controls are available for all devices. 
+Device triggers for most of the physical controls are available for all devices.
 
 Device triggers for the [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one) are supported. Enter the submenus __Control__ or __Light__ by pressing __Right__ and trigger any of the renamable functions. Additionally, the __Control__ and __Light__ submenus can be entered by pressing __Select__, which will make most of the buttons trigger an event. Each compatible button press will send a __KeyPress__ and a __KeyRelease__ event, and therefore also a __KeyPress__ and a __KeyRelease__ device trigger.
 
