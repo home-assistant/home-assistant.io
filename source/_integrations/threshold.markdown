@@ -80,7 +80,7 @@ name:
 
 ### Sensor value rising
 
-| set           | turns on when           | turns off when          |
+| Set           | Turns on when           | Turns off when          |
 | ------------- | ----------------------- | ----------------------- |
 | only upper    | sensor > (upper + hyst) | never                   |
 | only lower    | never                   | sensor > (lower + hyst) |
@@ -88,7 +88,7 @@ name:
 
 ### Sensor value falling
 
-| set           | turns on when           | turns off when          |
+| Set           | Turns on when           | Turns off when          |
 | ------------- | ----------------------- | ----------------------- |
 | only upper    | never                   | sensor < (upper - hyst) |
 | only lower    | sensor < (lower - hyst) | never                   |
