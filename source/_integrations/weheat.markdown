@@ -38,7 +38,7 @@ The Weheat integration provides the following sensors:
 - **Output power**: Thermal power added to the water in Watts
 - **Input power**: Electrical power in Watts
 - **COP**: The Coefficient of performance between the above two power measurements
-- **Water inlet temperature"**: The heat pump water inlet temperature in °C
+- **Water inlet temperature**: The heat pump water inlet temperature in °C
 - **Water outlet temperature**: The heat pump water outlet temperature in °C
 - **Central heating inlet temperature**: The central heating inlet temperature in °C
 - **Outside temperature**: Outside temperature in °C
