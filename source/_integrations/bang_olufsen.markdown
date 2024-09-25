@@ -250,6 +250,11 @@ data:
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
 
+### Device triggers
+Device triggers for most of the physical controls are available for all devices. 
+
+Device triggers for the [Beoremote One](https://www.bang-olufsen.com/en/dk/accessories/beoremote-one) are supported. To trigger these triggers, enter the `Control` or `Light` submenus by pressing `Select` and press any of the compatible buttons, or enter the submenus by pressing `Right` and trigger any of the renamable functions (Enable debug logging to see what IDs are associated with the different functions). Each button press will send a `KeyPress` and a `KeyRelease` event and therefore also a `KeyPress` and a `KeyRelease` device trigger.
+
 ### Getting Deezer URIs
 
 To find Deezer playlist, album URIs, and user IDs for Deezer flows, the Deezer website has to be accessed. When navigating to an album, the URL will look something like: <https://www.deezer.com/en/album/ALBUM_ID>, and this needs to be converted to: `album:ALBUM_ID` and the same applies to playlists, which have the format: `playlist:PLAYLIST_ID`.
