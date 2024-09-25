@@ -25,7 +25,7 @@ The `state` prefix indicates that this information is part of the state object (
 | `state.object_id`     | Object ID of entity. Example: `kitchen`.                                                                                                                                                        |
 | `state.name`          | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.                                                                                 |
 | `state.last_changed`  | Time the state changed in the state machine in UTC time. This is not updated if only state attributes change. Example: `2017-10-28 08:13:36.715874+00:00`.                                      |
-| `state.last_reported` | Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any change to the state or a state attribute. Example: `2017-10-28 08:13:36.715874+00:00`. |
+| `state.last_reported` | Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any changes to the state or state attributes. Example: `2017-10-28 08:13:36.715874+00:00`. |
 | `state.last_updated`  | Time the state or state attributes changed in the state machine in UTC time. This is not updated if neither state nor state attributes changed. Example: `2017-10-28 08:13:36.715874+00:00`.    |
 | `state.attributes`    | A dictionary with extra attributes related to the current state.                                                                                                                                |
 | `state.context`       | A dictionary with extra attributes related to the context of the state.                                                                                                                         |
@@ -42,7 +42,7 @@ The screenshot shows three lights in different states (the `state.state`): `on`,
 The `state.state` is the heart of the [state object](#about-the-state-object). State holds the information of interest of an entity. For example, if a
 light is on or off, the current temperature, or the amount of energy used. The state object stores 3
 timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
-entity has exactly one state and the state only holds one value at a time.
+entity has exactly one state, and the state only holds one value at a time.
 
 ### About entity state attributes
 
