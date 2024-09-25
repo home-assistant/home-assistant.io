@@ -85,7 +85,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
 - [Matter](#matter)
 - [Other noteworthy changes](#other-noteworthy-changes)
-  - [The source of an repair](#the-source-of-an-repair)
+  - [The source of a repair](#the-source-of-a-repair)
   - [YAML-editor improvements](#yaml-editor-improvements)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -93,21 +93,23 @@ Enjoy the (beta) release!
 
 ## Heading in the right direction
 
-New header card! This section can possibily use some examples and
-be split into multiple subsections.
+New heading card! 
+
+Note: This chapter can possibily use some examples and be split into multiple
+subsections.
 
 Gist:
-  - Replaces the headings of sections, which are automatically migrated on upgrade.
-  - Two types of heading styles: Title & Subtitle
-  - You can add multiple headers cards to a section, allowing you to create a "subsection" kinda style.
-  - A heading can have an action, for example a link to a more detailed view
-  - Heading cards can have entities, that are shown in the top right of the header
+  - Replaces the existing section title, which are automatically migrated on upgrade.
+  - Two types of heading styles: Title & Subtitle.
+  - You can add multiple heading cards to a section, allowing you to create a "subsection" sort of style.
+  - A heading can have an action, for example a link to a more detailed view.
+  - Heading cards can have entities, that are shown in the top right of the heading.
   - The display of these entities can be customized:
     - Color; default they have a text color, but can be color to the state color of the entity used, or by providing a custom color for an active state.
     - Default to icon + state, but what is shown can be fully customized.
     - Can be shown conditionally, using the visibility options
 
-Headers and subheaders with entities:
+Multiple heading cards used as titles and subtitles.
 
 ![CleanShot 2024-09-17 at 14 01 15@2x](https://github.com/user-attachments/assets/4e6c63a0-5669-406a-89ce-83bbcbc61434)
 
@@ -134,6 +136,7 @@ Gist:
 Improvements to the YAML-sytnax for automations.
 Gist:
   - Follow up on the `service` to `action` rename/change 2 releases ago.
+  - Goal is to make the syntax more natrual, easier to grasp and read.
   - The top level `trigger` key is now `triggers` (plural)
   - The top level `condition` key is now `conditions` (plural)
   - The top level `action` key is now `actions` (plural)
@@ -142,6 +145,26 @@ Gist:
   - Not a breaking change, no deprecation. Existing syntax will continue to work and there are no plans to remove the old syntax.
   - The new syntax is recommended, and all documentation and examples have been updated to use the new syntax.
   - Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
+
+Before:
+
+```yaml
+# Automation example:
+alias: "My automation"
+description: "This is my automation"
+trigger:
+  - platform: state
+    entity_id: light.kitchen
+    to: "on"
+condition:
+  - condition: state
+    entity_id: binary_sensor.motion
+    state: "on"
+action:
+  - action: light.turn_on
+    target:
+      entity_id: light.living_room
+```
 
 ```yaml
 # Automation example:
@@ -281,29 +304,31 @@ changes to existing integrations:
   Hub! Cool, [@starkillerOG]! 
 - [@daniel-k] added support for controlling the volume on [Ring] devices.
   Nice!
+- The [Switchbot Cloud] integration now supports the [K10+ Mini Robot Vacuum].
+  Thanks, [@Gigatrappeur]!
 
 [@Bre77]: https://github.com/Bre77
 [@daniel-k]: https://github.com/daniel-k
+[@Gigatrappeur]: https://github.com/Gigatrappeur
 [@starkillerOG]: https://github.com/starkillerOG
+[K10+ Mini Robot Vacuum]: https://eu.switch-bot.com/products/switchbot-mini-robot-vacuum-k10
 [Reolink]: /integrations/reolink
 [Ring]: /integrations/ring
+[Switchbot Cloud]: /integrations/switchbot_cloud
 [Tesla Fleet]: /integrations/tesla_fleet
 
 {% details "Potential changes to process" icon="mdi:scale-balance" %}
 
 Processed up to _#126603_.
 
+- Add support for total YouTube views ([@Alexwijn] - [#123144]) ([youtube docs])
 - Support Z-Wave JS dimming lights using color intensity ([@AlCalzone] - [#122639]) ([zwave_js docs])
 - Add hot water target temp number entity in ViCare integration ([@CFenner] - [#123633]) ([vicare docs])
+- Add squeezebox service sensors ([@pssc] - [#125349]) ([squeezebox docs]) (new-platform) (noteworthy)
 - Add favorites support to Media Browser for Squeezebox integration ([@rajlaud] - [#124732]) ([squeezebox docs])
-- Add support for total YouTube views ([@Alexwijn] - [#123144]) ([youtube docs])
 - Allow Switchbot users to force nightlatch ([@Michal4K] - [#124326]) ([switchbot docs])
-- Add service to 17track to archive package ([@shaiu] - [#123493]) ([seventeentrack docs])
-- Add YoLink temperature sensor YS8008 support ([@matrixd2] - [#125408]) ([yolink docs])
-- Add balanced grid import/export to enphase_envoy ([@catsmanac] - [#123154]) ([enphase_envoy docs])
 - Add voice settings to ElevenLabs options flow ([@sorgfresser] - [#123265]) ([elevenlabs docs])
 - Add select platform to opentherm_gw ([@mvn23] - [#125585]) ([opentherm_gw docs]) (new-platform) (noteworthy)
-- Add k10+ vacuum in switchbot cloud integration ([@Gigatrappeur] - [#125457]) ([switchbot_cloud docs]) (new-platform)
 - Add calendar to Husqvarna Automower ([@Thomas55555] - [#120775]) ([husqvarna_automower docs]) (new-platform)
 - Add sensor platform to laundrify integration ([@xLarry] - [#121378]) ([laundrify docs]) (new-platform)
 - Add Home Connect light entity for cooling appliances ([@beastie29a] - [#126090]) ([home_connect docs])
@@ -311,7 +336,6 @@ Processed up to _#126603_.
 - Add velbus HVAC options ([@RZomermanMS] - [#106570]) ([velbus docs])
 - Add battery data to Autarco integration ([@klaasnicolaas] - [#125924]) ([autarco docs]) (noteworthy)
 - Link mold_indicator entity to device from humidity sensor ([@gjohansson-ST] - [#125528]) ([mold_indicator docs]) (noteworthy)
-- Add squeezebox service sensors ([@pssc] - [#125349]) ([squeezebox docs]) (new-platform) (noteworthy)
 - Add Switcher Runner S11 support ([@YogevBokobza] - [#123578]) ([switcher_kis docs]) (noteworthy)
 
 {% enddetails %}
