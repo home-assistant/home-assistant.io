@@ -94,7 +94,7 @@ And an automation rule to breathe life into it:
 automation:
   alias: "Keyboard all lights on"
   triggers:
-    platform: event
+    trigger: event
     event_type: keyboard_remote_command_received
     event_data:
       device_descriptor: "/dev/input/event0"
@@ -125,7 +125,7 @@ Here's an automation example that plays a sound through a media player whenever 
 automation:
   - alias: "Keyboard Connected"
     triggers:
-      platform: event
+      trigger: event
       event_type: keyboard_remote_connected
     actions:
       - action: media_player.play_media
@@ -137,7 +137,7 @@ automation:
 
   - alias: "Bluetooth Keyboard Disconnected"
     triggers:
-      platform: event
+      trigger: event
       event_type: keyboard_remote_disconnected
       event_data:
         device_name: "00:58:56:4C:C0:91"

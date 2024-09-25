@@ -96,7 +96,7 @@ The following example show how to implement an automation for the **button_press
 automation:
   alias: "Point button press"
   triggers:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
   actions:
@@ -117,7 +117,7 @@ The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant 
 automation:
   alias: "Point button press (webhook)"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: point_webhook_received
     event_data: {}
   conditions:

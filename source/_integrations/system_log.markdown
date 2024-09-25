@@ -91,7 +91,7 @@ counter:
 automation:
   - alias: "Count warnings"
     triggers:
-      platform: event
+      trigger: event
       event_type: system_log_event
       event_data:
         level: WARNING
@@ -111,7 +111,7 @@ This automation will create a persistent notification whenever an error or warni
 automation:
   - alias: "Create notifications for 'action' errors"
     triggers:
-      platform: event
+      trigger: event
       event_type: system_log_event
     conditions:
       condition: template
@@ -133,7 +133,7 @@ This automation will create a new log entry when the door is opened:
 automation:
   - alias: "Log door opened"
     triggers:
-      platform: state
+      trigger: state
       entity_id: binary_sensor.door
       from: "off"
       to: "on"

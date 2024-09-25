@@ -41,7 +41,7 @@ An example automation:
 automation:
   - alias: Notify CallerID
     triggers:
-      platform: state
+      trigger: state
       entity_id: sensor.phone_modem
       to: "callerid"
     actions:
@@ -50,7 +50,7 @@ automation:
         message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
   - alias: Notify CallerID webui
     triggers:
-      platform: state
+      trigger: state
       entity_id: sensor.phone_modem
       to: "callerid"
     actions:
@@ -60,7 +60,7 @@ automation:
         message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
   - alias: Say CallerID
     triggers:
-      platform: state
+      trigger: state
       entity_id: sensor.phone_modem
       to: "callerid"
     actions:

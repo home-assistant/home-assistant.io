@@ -54,7 +54,7 @@ You can then consume that information with the following automation:
 ```yaml
 automation:
   triggers:
-    platform: event
+    trigger: event
     event_type: mailgun_message_received
     event_data:
       action: call_service
@@ -103,7 +103,7 @@ The following automation reacts to an event by sending out an email with two att
 # Example automation using Mailgun notifications
 automation:
   triggers:
-    platform: event
+    trigger: event
     event_type: SPECIAL_EVENT
   actions:
     action: notify.mailgun

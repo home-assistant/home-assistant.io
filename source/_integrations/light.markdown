@@ -80,7 +80,7 @@ automation:
 - id: one
   alias: "Turn on light when motion is detected"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: binary_sensor.motion_1
       to: "on"
   actions:
@@ -97,7 +97,7 @@ automation:
   alias: "Stair morning on"
   triggers:
   - at: '05:00'
-    platform: time
+    trigger: time
   actions:
     - action: light.turn_on
       target:

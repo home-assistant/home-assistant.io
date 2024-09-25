@@ -225,7 +225,7 @@ Velocity controls the speed of the shade. The default speed from Hunter Douglas 
 ``` yaml
 alias: "Blinds closed at night"
 triggers:
-  platform: time
+  trigger: time
   at: "18:00:00"
 actions:
   - action: scene.turn_on
@@ -242,7 +242,7 @@ alias: Force Update
 description: 'Update the position of defined shades'
 mode: single
 triggers:
-  - platform: time_pattern
+  - trigger: time_pattern
     hours: '1'
 actions:
   - action: homeassistant.update_entity

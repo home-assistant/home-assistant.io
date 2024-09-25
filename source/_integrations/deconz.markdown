@@ -195,7 +195,7 @@ automation:
   - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
@@ -208,7 +208,7 @@ automation:
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
@@ -225,7 +225,7 @@ automation:
   - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
@@ -242,7 +242,7 @@ automation:
   - alias: 'Turn lamp on when turning cube clockwise'
     initial_state: "on"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
@@ -263,7 +263,7 @@ automation:
 automation:
   - alias: "React to color wheel changes"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: tint_remote_1
@@ -289,7 +289,7 @@ automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
     mode: single
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.doorbell_motion
         to: "on"
     actions:

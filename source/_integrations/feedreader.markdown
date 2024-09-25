@@ -30,7 +30,7 @@ Feedreader events can be used out of the box to trigger automation actions, e.g.
 automation:
   - alias: "Trigger action when new element(s) in RSS feed"
     triggers:
-      platform: event
+      trigger: event
       event_type: feedreader
     actions:
       action: script.turn_on
@@ -44,7 +44,7 @@ automation:
 automation:
   - alias: "Send notification of RSS feed title when updated"
     triggers:
-      platform: event
+      trigger: event
       event_type: feedreader
       event_data:
         feed_url: "https://hasspodcast.io/feed/podcast"

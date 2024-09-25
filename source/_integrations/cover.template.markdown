@@ -292,7 +292,7 @@ script:
 automation:
   - alias: "Close covers at night"
     triggers:
-      - platform: sun
+      - trigger: sun
         event: sunset
         offset: "+00:30:00"
     actions:

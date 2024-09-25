@@ -55,7 +55,7 @@ Example usage in an {% term automation %}, taking the album art present on a Chr
 - alias: "Chromecast to Shelf Lights"
 
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.chromecast
 
   actions:
@@ -72,7 +72,7 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
 - alias: "Nicer Chromecast to Shelf Lights"
 
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.chromecast
 
   actions:

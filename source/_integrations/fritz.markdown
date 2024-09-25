@@ -117,7 +117,7 @@ fritz_box_reconnect:
 automation:
 - alias: "Reconnect FRITZ!Box"
   triggers:
-    - platform: time
+    - trigger: time
       at: "05:00:00"
   actions:
     - action: button.press
@@ -132,7 +132,7 @@ automation:
 automation:
   - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
     actions:

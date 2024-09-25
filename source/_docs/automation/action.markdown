@@ -15,7 +15,7 @@ You can also perform the action to activate [a scene](/integrations/scene/) whic
 automation:
   # Change the light in the kitchen and living room to 150 brightness and color red.
   triggers:
-    - platform: sun
+    - trigger: sun
       event: sunset
   actions:
     - action: light.turn_on
@@ -30,7 +30,7 @@ automation:
 automation 2:
   # Notify me on my mobile phone of an event
   triggers:
-    - platform: sun
+    - trigger: sun
       event: sunset
       offset: -00:30
   variables:
@@ -54,7 +54,7 @@ Conditions can also be part of an action. You can combine multiple actions and c
 automation:
 - alias: "Office at evening"
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: sensor.office_occupancy
       to: "on" 
   actions:

@@ -46,7 +46,7 @@ Because the state of an event entity in Home Assistant is a timestamp, it means 
 
 ```yaml
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: event.doorbell
 actions:
   - action: notify.frenck
@@ -64,7 +64,7 @@ When combining that with the [choose action](/docs/scripts/#choose-a-group-of-ac
 
 ```yaml
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: event.hue_remote_control
 actions:
   - alias: "Choose an action based on the type of event"

@@ -70,7 +70,7 @@ Set mode for the humidifier device. This action is only available if the device 
 ```yaml
 automation:
   triggers:
-    - platform: time
+    - trigger: time
       at: "07:15:00"
   actions:
     - action: humidifier.set_mode
@@ -94,7 +94,7 @@ Set target humidity of the humidifier device
 ```yaml
 automation:
   triggers:
-    - platform: time
+    - trigger: time
       at: "07:15:00"
   actions:
     - action: humidifier.set_humidity

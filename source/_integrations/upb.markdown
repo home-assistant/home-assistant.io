@@ -179,7 +179,7 @@ Start a scene blinking.
 - alias: "'Specific scene activated'"
   description: "Trigger when scene 9 on network 42 is activated"
   triggers:
-    platform: event
+    trigger: event
     event_type: upb.scene_changed
     event_data:
       command: activated

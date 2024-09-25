@@ -66,7 +66,7 @@ Here are the automations for the above screenshot:
 # Show a one line message with a red banner
 - alias: "Notify On Build Failing"
   triggers:
-    - platform: webhook
+    - trigger: webhook
       webhook_id: build_failed
   actions:
     action: notify.cisco_webex_teams_notify
@@ -79,7 +79,7 @@ Here are the automations for the above screenshot:
 # with lists, a person mention and a link
 - alias: "Notify On Build Unstable"
   triggers:
-    - platform: webhook
+    - trigger: webhook
       webhook_id: build_unstable
   actions:
     action: notify.cisco_webex_teams_notify
@@ -102,7 +102,7 @@ Here are the automations for the above screenshot:
 # with lists, a person mention and a link
 - alias: "Notify On Build Passing"
   triggers:
-    - platform: webhook
+    - trigger: webhook
       webhook_id: build_passed
   actions:
     action: notify.cisco_webex_teams_notify

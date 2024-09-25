@@ -112,7 +112,7 @@ Sample automation to switch lights on and off:
 automation:
   - alias: "Hall light switches"
     triggers:
-      platform: event
+      trigger: event
       event_type: button_pressed
       event_data:
         id: [0xYY, 0xYY, 0xYY, 0xYY]

@@ -296,7 +296,7 @@ So, for example, to trigger an action when somebody presses the doorbell, you wo
 *Automation trigger:*
 
 ```yaml
-- platform: event
+- trigger: event
   event_type: rfxtrx_event
   event_data:
     packet_type: 22
@@ -321,7 +321,7 @@ scene:
 automation:
   - alias: "Use doorbell button to trigger scene"
     triggers:
-    - platform: event
+    - trigger: event
       event_type: rfxtrx_event
       event_data:
         packet_type: 22

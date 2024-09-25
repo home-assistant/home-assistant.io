@@ -455,7 +455,7 @@ The key name will be available in the event data in the `key_name` field. Exampl
 ```yaml
 automation:
   triggers:
-    platform: event
+    trigger: event
     event_type: homekit_tv_remote_key_pressed
     event_data:
       key_name: arrow_right
@@ -475,7 +475,7 @@ The HomeKit integration emits `homekit_state_change` events. These events can be
 # Example for handling a HomeKit event
 automation:
   triggers:
-    - platform: event
+    - trigger: event
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door

@@ -93,7 +93,7 @@ A `shopping_list_updated` event is triggered when items in the list are modified
 ```yaml
 alias: "Notify on new shopping list item"
 triggers:
-  - platform: event
+  - trigger: event
     event_type: shopping_list_updated
     event_data:
       action: "add"

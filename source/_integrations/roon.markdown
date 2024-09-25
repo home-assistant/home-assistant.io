@@ -79,7 +79,7 @@ Here is an example automation using an IR blaster to control `media_player_study
 alias: Roon Study Volume
 description: ""
 triggers:
-  - platform: state
+  - trigger: state
     entity_id:
       - event.study_roon_volume
 actions:

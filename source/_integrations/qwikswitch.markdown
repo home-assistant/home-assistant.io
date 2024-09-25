@@ -109,7 +109,7 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 automation:
   - alias: "Action - Respond to A button press"
     triggers:
-      platform: event
+      trigger: event
       event_type: qwikswitch.button.@12df34
 ```
 

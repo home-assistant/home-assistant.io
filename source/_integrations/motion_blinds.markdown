@@ -215,7 +215,7 @@ Example YAML automation for custom polling interval (every minute):
 alias: Motionblinds polling automation
 mode: single
 triggers:
-  - platform: time_pattern
+  - trigger: time_pattern
     minutes: "/1"
 actions:
   - action: homeassistant.update_entity

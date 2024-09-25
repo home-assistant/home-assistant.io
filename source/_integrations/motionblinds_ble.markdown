@@ -63,7 +63,7 @@ This can also be automated using a YAML automation. For instance, the following 
 alias: Motionblinds Bluetooth polling automation
 mode: single
 triggers:
-  - platform: time_pattern
+  - trigger: time_pattern
     hours: "/24"
 actions:
   - action: homeassistant.update_entity

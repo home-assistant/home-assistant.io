@@ -17,7 +17,7 @@ Example of using condition:
 automation:
   - alias: "Turn on office lights"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: sensor.office_motion_sensor
         to: "on"
     conditions:
@@ -45,7 +45,7 @@ The `condition` option of an automation, also accepts a single condition templat
 automation:
   - alias: "Turn on office lights"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: sensor.office_motion_sensor
         to: "on"
     condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"

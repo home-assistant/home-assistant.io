@@ -129,7 +129,7 @@ This example uses the [Latest release](#latest-release) entity provided by this 
 
 ```yaml
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: sensor.awesome_repository_latest_release
 actions:
   - action: notify.notify
@@ -151,7 +151,7 @@ This example uses the [Stars](#diagnostic-entities) diagnostic entity provided b
 
 ```yaml
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: sensor.awesome_repository_stars
 actions:
   - action: notify.notify

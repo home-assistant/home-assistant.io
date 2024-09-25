@@ -85,7 +85,7 @@ The LIRC integration fires `ir_command_received` events on the bus. You can capt
 automation:
   - alias: "Off on Remote"
     triggers:
-      platform: event
+      trigger: event
       event_type: ir_command_received
       event_data:
         button_name: KEY_0

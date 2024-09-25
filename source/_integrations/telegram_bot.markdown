@@ -347,7 +347,7 @@ Simple ping pong example.
 ```yaml
 alias: 'Telegram bot that reply pong to ping'
 triggers:
-  platform: event
+  trigger: event
   event_type: telegram_command
   event_data:
     command: "/ping"
@@ -361,7 +361,7 @@ An example that shows keyboard interaction with `notify.telegram`
 
 ```yaml
 triggers:
-  platform: event
+  trigger: event
   event_type: telegram_command
   event_data:
     command: "/start"
@@ -379,7 +379,7 @@ and an automation to trigger a related command "/siren".
 
 ```yaml
 triggers:
-  platform: event
+  trigger: event
   event_type: telegram_command
   event_data:
     command: "/siren"
@@ -401,7 +401,7 @@ An example to show the use of event_data in action:
 ```yaml
 - alias: 'Kitchen Telegram Speak'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_command
     event_data:
       command: "/speak"
@@ -429,7 +429,7 @@ Text repeater:
 ```yaml
 - alias: 'Telegram bot that repeats text'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_text
   actions:
     - action: telegram_bot.send_message
@@ -452,7 +452,7 @@ Message editor:
 ```yaml
 - alias: 'Telegram bot that edits the last sent message'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_callback
     event_data:
       command: "/edit_msg"
@@ -485,7 +485,7 @@ Keyboard editor:
 ```yaml
 - alias: 'Telegram bot that edits the keyboard'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_callback
     event_data:
       command: "/remove_button"
@@ -511,7 +511,7 @@ Only acknowledges the 'NO' answer:
 ```yaml
 - alias: 'Telegram bot that simply acknowledges'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_callback
     event_data:
       command: "/do_nothing"
@@ -531,7 +531,7 @@ Telegram callbacks also support arguments and commands the same way as normal me
 ```yaml
 - alias: 'Telegram bot repeats arguments on callback query'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_callback
     event_data:
       command: "/repeat"
@@ -554,7 +554,7 @@ Receiving `chat_id` and `message_id` identifiers of sent messages by the `telegr
 ```yaml
 - alias: 'Notifications about messages sent by Telegram bot'
   triggers:
-    platform: event
+    trigger: event
     event_type: telegram_sent
     event_data:
       message_tag: "msg_start"

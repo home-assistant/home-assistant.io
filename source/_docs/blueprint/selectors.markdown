@@ -1535,7 +1535,7 @@ The output of this selector is a list of triggers. For example:
 
 ```yaml
 # Example trigger selector output result
-- platform: numeric_state
+- trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
 ```

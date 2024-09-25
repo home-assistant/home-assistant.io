@@ -244,7 +244,7 @@ Example automation configuration
 - alias: Single group address trigger
   description: ''
   triggers:
-  - platform: knx.telegram
+  - trigger: knx.telegram
     destination: 1/2/3
     group_value_read: false
     outgoing: false
@@ -369,7 +369,7 @@ address:
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
   - triggers:
-      - platform: knx.telegram
+      - trigger: knx.telegram
         # Cover move trigger
         destination: "0/4/20"
     actions:
@@ -380,7 +380,7 @@ automation:
           address: "0/4/21"
 
   - triggers:
-      - platform: homeassistant
+      - trigger: homeassistant
         event: start
     actions:
       # Register the group address to trigger a knx_event
@@ -596,7 +596,7 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 # Example automation.yaml entry
 automation:
   - triggers:
-      platform: numeric_state
+      trigger: numeric_state
       entity_id: binary_sensor.livingroom_switch
       attribute: counter
       above: 0
@@ -609,7 +609,7 @@ automation:
       - entity_id: light.hue_color_lamp_1
         action: light.turn_on
   - triggers:
-      platform: numeric_state
+      trigger: numeric_state
       entity_id: binary_sensor.livingroom_switch
       attribute: counter
       above: 1

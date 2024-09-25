@@ -136,7 +136,7 @@ The following example shows the usage of the `input_select.select_option` action
 automation:
   - alias: "example automation"
     triggers:
-      platform: event
+      trigger: event
       event_type: MY_CUSTOM_EVENT
     actions:
       - action: input_select.select_option
@@ -153,7 +153,7 @@ To dynamically set the `input_select` options you can call `input_select.set_opt
 automation:
   - alias: "example automation"
     triggers:
-      platform: event
+      trigger: event
       event_type: MY_CUSTOM_EVENT
     actions:
       - action: input_select.set_options
@@ -186,7 +186,7 @@ input_select:
  # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
 - alias: "Set Thermostat Mode Selector"
   triggers:
-    platform: mqtt
+    trigger: mqtt
     topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   actions:
@@ -200,7 +200,7 @@ input_select:
  # It publishes its value to the same MQTT topic it is also subscribed to.
 - alias: "Set Thermostat Mode"
   triggers:
-    platform: state
+    trigger: state
     entity_id: input_select.thermostat_mode
   actions:
     action: mqtt.publish

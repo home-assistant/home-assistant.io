@@ -111,7 +111,7 @@ The state, including attributes, of trigger-based sensors and binary sensors is 
 # Example configuration entry
 template:
   - triggers:
-      - platform: time_pattern
+      - trigger: time_pattern
         # This will update every night
         hours: 0
         minutes: 0
@@ -502,7 +502,7 @@ Template entities can be triggered using any automation trigger, including webho
 ```yaml
 template:
   - trigger:
-      - platform: webhook
+      - trigger: webhook
         webhook_id: my-super-secret-webhook-id
     sensor:
       - name: "Webhook Temperature"
@@ -537,7 +537,7 @@ You can use a trigger-based template entity to convert any event or other automa
 ```yaml
 template:
   - trigger:
-      platform: event
+      trigger: event
       event_type: my_event
     binary_sensor:
       - name: Event recently fired
@@ -554,7 +554,7 @@ This example shows how to store the last valid value of a temperature sensor. It
 ```yaml
 template:
   - trigger:
-      platform: state
+      trigger: state
       entity_id: sensor.outside_temperature
     condition:
       - condition: template
@@ -753,9 +753,9 @@ The binary sensor turns on and sets the matching icon when the appropriate event
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: YOUR_EVENT
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.doorbell_rang
         to: "off"
     binary_sensor:
@@ -820,7 +820,7 @@ and use the response in a template.
 ```yaml
 template:
   - trigger:
-      - platform: time_pattern
+      - trigger: time_pattern
         hours: /1
     action:
       - action: weather.get_forecasts

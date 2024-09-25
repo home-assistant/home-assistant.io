@@ -60,7 +60,7 @@ To receive notifications of the entering flights using the [Home Assistant Compa
 automation:
   - alias: "Flight entry notification"
     triggers:
-      platform: event
+      trigger: event
       event_type: opensky_entry
     actions:
       action: notify.mobile_app_<device_name>
@@ -77,7 +77,7 @@ One can also get a direct link to the OpenSky website to see the flight using th
 automation:
   - alias: "Flight entry notification"
     triggers:
-      platform: event
+      trigger: event
       event_type: opensky_entry
     actions:
       action: notify.mobile_app_<device_name>

@@ -118,7 +118,7 @@ automation:
 # Turns on bedroom light at the time specified.
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: input_datetime.bedroom_alarm_clock_time
   actions:
     action: light.turn_on

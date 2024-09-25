@@ -35,7 +35,7 @@ The state is the last reading from Nightscout, and you can see other information
   alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
   triggers:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.blood_glucose
     below: "65" 
   conditions:

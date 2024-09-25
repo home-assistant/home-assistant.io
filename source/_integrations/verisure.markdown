@@ -54,7 +54,7 @@ The `changed_by` attribute enables one to be able to take different actions depe
 automation:
   - alias: "Alarm status changed"
     triggers:
-      - platform: state
+      - trigger: state
         entity_id: alarm_control_panel.alarm_1
     actions:
       - action: notify.notify

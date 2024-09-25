@@ -58,7 +58,7 @@ Valves that allow setting a specific position may also be controlled with `valve
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: valve.close
@@ -80,7 +80,7 @@ Set the position of one or multiple valves if they support setting a specific po
 ```yaml
 automation:
   triggers:
-    platform: time
+    trigger: time
     at: "07:15:00"
   actions:
     - action: valve.set_position

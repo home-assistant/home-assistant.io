@@ -46,7 +46,7 @@ The integration will poll the inverter for new values every 10 seconds. If you w
 ```yaml
 - alias: "Goodwe inverter data polling"
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       hours: "*"
       minutes: "*"
       seconds: "/30"

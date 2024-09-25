@@ -40,7 +40,7 @@ wake_on_lan: # enables `wake_on_lan` integration
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
     triggers:
-      - platform: lg_netcast.turn_on
+      - trigger: lg_netcast.turn_on
         entity_id: media_player.lg_netcast_smart_tv
     actions:
       - action: wake_on_lan.send_magic_packet

@@ -202,7 +202,7 @@ These are the properties available for a [Zone trigger](/docs/automation/trigger
 # Example configuration.yaml entries
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: device_tracker.paulus
       id: paulus_device
   actions:
@@ -216,7 +216,7 @@ automation:
 
 automation 2:
   triggers:
-    - platform: mqtt
+    - trigger: mqtt
       topic: "/notify/+"
   actions:
     action: >
@@ -227,7 +227,7 @@ automation 2:
 automation 3:
   triggers:
     # Multiple entities for which you want to perform the same action.
-    - platform: state
+    - trigger: state
       entity_id:
         - light.bedroom_closet
         - light.kiddos_closet
@@ -244,7 +244,7 @@ automation 3:
 automation 4:
   triggers:
     # When an NFC tag is scanned by Home Assistant...
-    - platform: event
+    - trigger: event
       event_type: tag_scanned
       # ...By certain people
       context:

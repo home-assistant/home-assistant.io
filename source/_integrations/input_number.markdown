@@ -128,7 +128,7 @@ input_number:
 automation:
   - alias: "Bedroom Light - Adjust Brightness"
     triggers:
-      platform: state
+      trigger: state
       entity_id: input_number.bedroom_brightness
     actions:
       - action: light.turn_on
@@ -167,7 +167,7 @@ input_number:
 automation:
   - alias: "Bedroom Light - Custom"
     triggers:
-      platform: state
+      trigger: state
       entity_id: input_select.scene_bedroom
       to: CUSTOM
     actions:
@@ -200,7 +200,7 @@ input_number:
 automation:
   - alias: "Set temp slider"
     triggers:
-      platform: mqtt
+      trigger: mqtt
       topic: "setTemperature"
     actions:
       action: input_number.set_value
@@ -213,7 +213,7 @@ automation:
 # It publishes its value to the same MQTT topic it is also subscribed to.
   - alias: "Temp slider moved"
     triggers:
-      platform: state
+      trigger: state
       entity_id: input_number.target_temp
     actions:
       action: mqtt.publish
@@ -251,7 +251,7 @@ input_number:
 automation:
  - alias: "turn something off after x time after turning it on"
    triggers:
-     platform: state
+     trigger: state
      entity_id: switch.something
      to: "on"
    actions:

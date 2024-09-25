@@ -165,7 +165,7 @@ To add a notification sound, icon, cycles, or priority override,
 ```yaml
 - alias: "Send notification on arrival at school"
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.tom_mobile
     from: "not_home"
     to: "school"

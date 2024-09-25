@@ -117,7 +117,7 @@ The following is an example implementation of an automation:
 - id: amp_volume_up
   alias: "Increase amplifier volume"
   triggers:
-  - platform: event
+  - trigger: event
     event_type: roku_command
     event_data:
       source_name: Home Assistant

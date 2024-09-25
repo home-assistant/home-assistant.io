@@ -79,13 +79,13 @@ Example automation to use the `last_added_item` attribute on library sensors to 
 ```yaml
 alias: Plex - New media added
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: sensor.plex_library_movies
     id: movie
-  - platform: state
+  - trigger: state
     entity_id: sensor.plex_library_music
     id: album
-  - platform: state
+  - trigger: state
     entity_id: sensor.plex_library_tv_shows
     id: episode
 
@@ -117,7 +117,7 @@ play_plex_on_tv:
       data:
         source: "Plex"
     - wait_for_trigger:
-        - platform: state
+        - trigger: state
           entity_id: media_player.smart_tv
           to: "on"
       timeout:

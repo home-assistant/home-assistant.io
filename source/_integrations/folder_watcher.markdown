@@ -54,7 +54,7 @@ Automations can be triggered on file system events data using a template. The fo
 automation:
   alias: "New file alert"
   triggers:
-    platform: state
+    trigger: state
     entity_id: event.created
   actions:
     action: notify.notify

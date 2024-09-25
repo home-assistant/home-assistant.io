@@ -102,7 +102,7 @@ Scenes can be activated using the `scene.turn_on` action (there is no `scene.tur
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
@@ -120,7 +120,7 @@ With the `scene.apply` action you are able to apply a scene without first defini
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
@@ -149,7 +149,7 @@ light will transition to the scene in 2.5 seconds.
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: device_tracker.sweetheart
     from: "not_home"
     to: "home"
@@ -186,7 +186,7 @@ This video tutorial explains how scenes work and how you can utilize scenes on t
 # Example automation using entities
 automation:
   triggers:
-    platform: homeassistant
+    trigger: homeassistant
     event: start
   actions:
     action: scene.create
@@ -214,7 +214,7 @@ If the scene was not previously created by `scene.create`, the action will fail 
 # Example automation
 automation:
   triggers:
-    platform: state
+    trigger: state
     entity_id: sun.sun
     to: below_horizon
   actions:
@@ -229,7 +229,7 @@ The following example turns off some entities as soon as a window opens. The sta
 # Example automation using snapshot
 - alias: "Window opened"
   triggers:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.window
     from: "off"
     to: "on"
@@ -251,7 +251,7 @@ The following example turns off some entities as soon as a window opens. The sta
       hvac_mode: "off"
 - alias: "Window closed"
   triggers:
-  - platform: state
+  - trigger: state
     entity_id: binary_sensor.window
     from: "on"
     to: "off"

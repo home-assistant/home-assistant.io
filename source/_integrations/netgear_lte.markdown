@@ -99,7 +99,7 @@ The following automation example processes incoming SMS messages with the [Conve
 automation:
   - alias: "SMS conversation"
     triggers:
-      - platform: event
+      - trigger: event
         event_type: netgear_lte_sms
     actions:
       - action: conversation.process

@@ -267,7 +267,7 @@ The allows you to do something when the device "Millennium Falcon" enters the de
 
 ```yaml
 triggers:
-  - platform: state
+  - trigger: state
     entity_id: sensor.millennium_falcon_geofence
     to: 'Tatooine'
 actions:
@@ -286,7 +286,7 @@ The allows you to do something when the device "Millennium Falcon" exceeds a def
 
 ```yaml
 triggers:
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.millennium_falcon_speed
     above: 1337
 actions:

@@ -50,7 +50,7 @@ If you have a sensor session running, and once you have enabled the Dexcom integ
   triggers:
   - below: '65'
     entity_id: sensor.dexcom_YOUR_USERNAME_glucose_value
-    platform: numeric_state
+    trigger: numeric_state
   condition: time
     after: "22:00:00"
     before: "06:00:00"

@@ -93,7 +93,7 @@ A Home Assistant `isy994_control` event is emitted for every "control" event in 
 automation:
   - alias: "turn off living room on double tap lightswitch"
     triggers:
-      platform: event
+      trigger: event
       event_type: isy994_control
       event_data:
         entity_id: light.lr_track_lights_front

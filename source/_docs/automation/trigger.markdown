@@ -47,13 +47,13 @@ This video tutorial explains how trigger IDs work.
 ```yaml
 automation:
   triggers:
-    - platform: event
+    - trigger: event
       event_type: "MY_CUSTOM_EVENT"
       id: "custom_event"
-    - platform: mqtt
+    - trigger: mqtt
       topic: "living_room/switch/ac"
       id: "ac_on"
-    - platform: state  # This trigger will be assigned id="2"
+    - trigger: state  # This trigger will be assigned id="2"
       entity_id:
         - device_tracker.paulus
         - device_tracker.anne_therese
@@ -75,7 +75,7 @@ automation:
   trigger_variables:
     my_event: example_event
   triggers:
-    - platform: event
+    - trigger: event
       # Able to use `trigger_variables`
       event_type: "{{ my_event }}"
       # These variables are evaluated and set when this trigger is triggered
@@ -94,7 +94,7 @@ Events can be fired by integrations or via the API. There is no limitation to th
 ```yaml
 automation:
   triggers:
-    - platform: event
+    - trigger: event
       event_type: "MY_CUSTOM_EVENT"
       # optional
       event_data:
@@ -112,7 +112,7 @@ event that contain no, or similar, data and contexts.
 ```yaml
 automation:
   triggers:
-    - platform: event
+    - trigger: event
       event_type:
         - automation_reloaded
         - scene_reloaded
@@ -133,7 +133,7 @@ automation:
     node: ac
     value: on
   triggers:
-    - platform: event
+    - trigger: event
       event_type: "{{ 'MY_CUSTOM_EVENT_' ~ sub_event }}"
 ```
 
@@ -146,7 +146,7 @@ Fires when Home Assistant starts up or shuts down.
 ```yaml
 automation:
   triggers:
-    - platform: homeassistant
+    - trigger: homeassistant
       # Event can also be 'shutdown'
       event: start
 ```
@@ -162,7 +162,7 @@ Fires when a specific message is received on given MQTT topic. Optionally can ma
 ```yaml
 automation:
   triggers:
-    - platform: mqtt
+    - trigger: mqtt
       topic: "living_room/switch/ac"
       # Optional
       payload: "on"
@@ -177,7 +177,7 @@ The trigger in the example below will trigger only when the message received on 
 ```yaml
 automation:
   triggers:
-    - platform: mqtt
+    - trigger: mqtt
       topic: "living_room/switch/ac"
       payload: "on"
       value_template: "{{ value_json.state }}"
@@ -200,7 +200,7 @@ automation:
     node: "ac"
     value: "on"
   triggers:
-    - platform: mqtt
+    - trigger: mqtt
       topic: "{{ room ~ '/switch/' ~ node}}"
       # Optional
       payload: "{{ 'state:' ~ value }}"
@@ -223,7 +223,7 @@ If the current state of your entity is `50` and you set the threshold to `below:
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.temperature
       # If given, will trigger when the value of the given attribute for the given entity changes..
       attribute: attribute_name
@@ -248,7 +248,7 @@ When the `attribute` option is specified the trigger is compared to the given `a
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: climate.kitchen
       attribute: current_temperature
       above: 23
@@ -265,7 +265,7 @@ The state of the entity can be referenced like this:
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.temperature
       value_template: "{{ state.state | float * 9 / 5 + 32 }}"
       above: 70
@@ -280,7 +280,7 @@ Attributes of the entity can be referenced like this:
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: climate.kitchen
       value_template: "{{ state.attributes.current_temperature - state.attributes.temperature_set_point }}"
       above: 3
@@ -300,7 +300,7 @@ However, the comparison will only be made when the entity specified in the trigg
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.outside_temperature
       # Other entity ids can be specified for above and/or below thresholds
       above: sensor.inside_temperature
@@ -313,7 +313,7 @@ The `for:` can also be specified as `HH:MM:SS` like this:
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id: sensor.temperature
       # At least one of the following required
       above: 17
@@ -332,7 +332,7 @@ You can also use templates in the `for` option.
 ```yaml
 automation:
   triggers:
-    - platform: numeric_state
+    - trigger: numeric_state
       entity_id:
         - sensor.temperature_1
         - sensor.temperature_2
@@ -379,7 +379,7 @@ This automation triggers if either Paulus or Anne-Therese are home for one minut
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - device_tracker.paulus
         - device_tracker.anne_therese
@@ -399,7 +399,7 @@ It's possible to give a list of `from` states or `to` states:
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: vacuum.test
       from:
         - "cleaning"
@@ -412,7 +412,7 @@ If you want to trigger on all state changes, but not on attribute changes, you c
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: vacuum.test
       to:
 ```
@@ -422,7 +422,7 @@ If you want to trigger on all state changes *except* specific ones, use `not_fro
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: vacuum.test
       not_from:
         - "unknown"
@@ -443,7 +443,7 @@ For example, this trigger only fires when the boiler has been heating for 10 min
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       attribute: hvac_action
       to: "heating"
@@ -455,7 +455,7 @@ This trigger fires whenever the boiler's `hvac_action` attribute changes:
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: climate.living_room
       attribute: hvac_action
 ```
@@ -470,7 +470,7 @@ state for 30 seconds:
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: light.office
       # Must stay "on" for 30 seconds
       to: "on"
@@ -489,7 +489,7 @@ the time specified, but doesn't care about "playing" or "paused".
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.kitchen
       # Not "off" for 30 minutes
       from: "off"
@@ -505,7 +505,7 @@ same for `for` the time specified, regardless of the current state value.
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id: media_player.kitchen
       # The media player remained in its current state for 1 hour
       for: "01:00:00"
@@ -518,7 +518,7 @@ You can also use templates in the `for` option.
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - device_tracker.paulus
         - device_tracker.anne_therese
@@ -557,7 +557,7 @@ Since the duration of twilight is different throughout the year, it is recommend
 ```yaml
 automation:
   triggers:
-    - platform: sun
+    - trigger: sun
       # Possible values: sunset, sunrise
       event: sunset
       # Optional time offset. This example will trigger 45 minutes before sunset.
@@ -574,7 +574,7 @@ Sometimes you may want more granular control over an automation than simply suns
 automation:
   - alias: "Exterior Lighting on when dark outside"
     triggers:
-      - platform: numeric_state
+      - trigger: numeric_state
         entity_id: sun.sun
         attribute: elevation
         # Can be a positive or negative number
@@ -608,7 +608,7 @@ scanned using the Home Assistant Companion mobile application.
 ```yaml
 automation:
   triggers:
-    - platform: tag
+    - trigger: tag
       tag_id: A7-6B-90-5F
 ```
 
@@ -618,7 +618,7 @@ device/scanner by setting the `device_id`:
 ```yaml
 automation:
   triggers:
-    - platform: tag
+    - trigger: tag
       tag_id: A7-6B-90-5F
       device_id: 0e19cd3cf2b311ea88f469a7512c307d
 ```
@@ -628,7 +628,7 @@ Or trigger on multiple possible devices for multiple tags:
 ```yaml
 automation:
   triggers:
-    - platform: tag
+    - trigger: tag
       tag_id:
         - "A7-6B-90-5F"
         - "A7-6B-15-AC"
@@ -650,7 +650,7 @@ With template triggers you can also evaluate attribute changes by using is_state
 ```yaml
 automation:
   triggers:
-    - platform: template
+    - trigger: template
       value_template: "{% if is_state('device_tracker.paulus', 'home') %}true{% endif %}"
 
       # If given, will trigger when template remains true for X time.
@@ -666,7 +666,7 @@ You can also use templates in the `for` option.
 ```yaml
 automation:
   triggers:
-    - platform: template
+    - trigger: template
       value_template: "{{ is_state('device_tracker.paulus', 'home') }}"
       for:
         minutes: "{{ states('input_number.minutes')|int(0) }}"
@@ -695,7 +695,7 @@ A string that represents a time to fire on each day. Can be specified as `HH:MM`
 ```yaml
 automation:
   - triggers:
-    - platform: time
+    - trigger: time
       # Military time format. This trigger will fire at 3:32 PM
       at: "15:32:00"
 ```
@@ -715,7 +715,7 @@ The entity ID of an [input datetime](/integrations/input_datetime/).
 ```yaml
 automation:
   - triggers:
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.motion
         to: "on"
     actions:
@@ -730,7 +730,7 @@ automation:
             {{ (now().timestamp() + 2*60*60)
                | timestamp_custom('%Y-%m-%d %H:%M:%S') }}
   - triggers:
-      - platform: time
+      - trigger: time
         at: input_datetime.turn_off_ac
     actions:
       - action: climate.turn_off
@@ -747,7 +747,7 @@ The Entity ID of a [sensor](/integrations/sensor/) with the "timestamp" device c
 ```yaml
 automation:
   - triggers:
-      - platform: time
+      - trigger: time
         at: sensor.phone_next_alarm
     actions:
       - action: light.turn_on
@@ -764,7 +764,7 @@ For example, this trigger fires 5 minutes before the phone alarm goes off.
 ```yaml
 automation:
   - triggers:
-      - platform: time
+      - trigger: time
         at:
           entity_id: sensor.phone_next_alarm
           offset: -00:05:00
@@ -785,7 +785,7 @@ Multiple times can be provided in a list. All formats can be intermixed.
 ```yaml
 automation:
   triggers:
-    - platform: time
+    - trigger: time
       at:
         - input_datetime.leave_for_work
         - "18:30:00"
@@ -800,20 +800,20 @@ With the time pattern trigger, you can match if the hour, minute or second of th
 ```yaml
 automation:
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       # Matches every hour at 5 minutes past whole
       minutes: 5
 
 automation 2:
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       # Trigger once per minute during the hour of 3
       hours: "3"
       minutes: "*"
 
 automation 3:
   triggers:
-    - platform: time_pattern
+    - trigger: time_pattern
       # You can also match on interval. This will match every 5 minutes
       minutes: "/5"
 ```
@@ -829,7 +829,7 @@ Persistent notification triggers are fired when a `persistent_notification` is `
 ```yaml
 automation:
   triggers:
-    - platform: persistent_notification
+    - trigger: persistent_notification
       update_type:
         - added
         - removed
@@ -845,7 +845,7 @@ Webhook trigger fires when a web request is made to the webhook endpoint: `/api/
 ```yaml
 automation:
   triggers:
-    - platform: webhook
+    - trigger: webhook
       webhook_id: "some_hook_id"
       allowed_methods:
         - POST
@@ -893,7 +893,7 @@ Zone trigger fires when an entity is entering or leaving the zone. The entity ca
 ```yaml
 automation:
   triggers:
-    - platform: zone
+    - trigger: zone
       entity_id: person.paulus
       zone: zone.home
       # Event is either enter or leave
@@ -912,7 +912,7 @@ This isn't for use with `device_tracker` entities. For those look above at the `
 ```yaml
 automation:
   triggers:
-    - platform: geo_location
+    - trigger: geo_location
       source: nsw_rural_fire_service_feed
       zone: zone.bushfire_alert_zone
       # Event is either enter or leave
@@ -939,7 +939,7 @@ An optional time offset can be given to have it fire a set time before or after 
 ```yaml
 automation:
   triggers:
-    - platform: calendar
+    - trigger: calendar
       # Possible values: start, end
       event: start
       # The calendar entity_id
@@ -960,7 +960,7 @@ Sentences are allowed to use some basic [template syntax](https://developers.hom
 ```yaml
 automation:
   triggers:
-    - platform: conversation
+    - trigger: conversation
       command:
         - "[it's ]party time"
         - "happy (new year|birthday)"
@@ -1004,10 +1004,10 @@ It is possible to specify multiple triggers for the same rule. To do so just pre
 automation:
   triggers:
     # first trigger
-    - platform: time_pattern
+    - trigger: time_pattern
       minutes: 5
       # our second trigger is the sunset
-    - platform: sun
+    - trigger: sun
       event: sunset
 ```
 
@@ -1018,7 +1018,7 @@ It is possible to specify multiple entities for the same trigger. To do so add m
 ```yaml
 automation:
   triggers:
-    - platform: state
+    - trigger: state
       entity_id:
         - sensor.one
         - sensor.two
@@ -1037,11 +1037,11 @@ automation:
     # This trigger will not trigger, as it is disabled.
     # This automation does not run when the sun is set.
     - enabled: false
-      platform: sun
+      trigger: sun
       event: sunset
 
     # This trigger will fire, as it is not disabled.
-    - platform: time
+    - trigger: time
       at: "15:32:00"
 ```
 
@@ -1067,10 +1067,10 @@ blueprint:
     _enable_number: !input input_number
 
   triggers:
-    - platform: sun
+    - trigger: sun
       event_type: sunrise
       enabled: !input input_boolean
-    - platform: sun
+    - trigger: sun
       event_type: sunset
       enabled: "{{ _enable_number < 50 }}"
 ```
@@ -1095,7 +1095,7 @@ blueprint:
         trigger:
 
 triggers:
-  - platform: event
+  - trigger: event
     event_type: manual_event
   - triggers: !input usertrigger
 ```

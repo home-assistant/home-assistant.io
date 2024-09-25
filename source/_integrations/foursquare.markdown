@@ -59,7 +59,7 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 automation:
   - alias: "Trigger action when you check into a venue."
     triggers:
-      platform: event
+      trigger: event
       event_type: foursquare.push
     actions:
       action: script.turn_on

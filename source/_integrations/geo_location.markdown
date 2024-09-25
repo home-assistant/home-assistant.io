@@ -57,7 +57,7 @@ zone:
 automation:
   - alias: "Bush Fire Alert"
     triggers:
-      platform: geo_location
+      trigger: geo_location
       source: nsw_rural_fire_service_feed
       zone: zone.bush_fire_alert_zone
       event: enter

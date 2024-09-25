@@ -206,7 +206,7 @@ The example below shows how to control an `input_boolean` switch using the Harmo
 automation:
   - alias: "Watch TV started from harmony hub"
     triggers:
-      platform: state
+      trigger: state
       entity_id: remote.family_room
     conditions:
       condition: template
@@ -217,7 +217,7 @@ automation:
         entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
     triggers:
-      platform: state
+      trigger: state
       entity_id: remote.family_room
     conditions:
       condition: template

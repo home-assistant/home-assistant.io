@@ -51,7 +51,7 @@ automation:
   alias: KLF reboot on hass stop event
   description: Reboots the KLF200 in order to avoid SSL Handshake issue
   triggers:
-    - platform: homeassistant
+    - trigger: homeassistant
       event: shutdown
   actions:
     - action: velux.reboot_gateway

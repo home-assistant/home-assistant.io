@@ -49,7 +49,7 @@ To send an alert if the CV pressure is too low or too high, consider the followi
 ```yaml
 - alias: "Low CV Pressure Alert"
   triggers:
-    platform: numeric_state
+    trigger: numeric_state
     entity_id: sensor.cv_pressure
     below: 1.0
   actions:

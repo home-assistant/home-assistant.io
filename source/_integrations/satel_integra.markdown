@@ -173,7 +173,7 @@ For example:
 ```yaml
   alias: "Flick the input switch when movement in bedroom detected"
   triggers:
-      platform: state
+      trigger: state
       entity_id: "binary_sensor.bedroom"
       to: "on"
   actions:
