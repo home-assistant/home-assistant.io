@@ -76,8 +76,8 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Heading in the right direction](#heading-in-the-right-direction)
-- [Improved YAML syntax for automations](#improved-yaml-syntax-for-automations)
 - [Repairs for long term statistics](#repairs-for-long-term-statistics)
+- [Improved YAML syntax for automations](#improved-yaml-syntax-for-automations)
 - [Faster upgrades when using custom integrations](#faster-upgrades-when-using-custom-integrations)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
@@ -85,6 +85,7 @@ Enjoy the (beta) release!
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
 - [Matter](#matter)
 - [Other noteworthy changes](#other-noteworthy-changes)
+  - [The source of an repair](#the-source-of-an-repair)
   - [YAML-editor improvements](#yaml-editor-improvements)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
@@ -120,7 +121,7 @@ Result with custom colors:
 
 ## Repairs for long term statistics
 
-We now raise repair issue when Home Assistant detects issues with a long term
+We now raise a repair issue when Home Assistant detects issues with a long term
 statistic.
 
 Gist:
@@ -140,7 +141,7 @@ Gist:
   - Result: The YAML automation syntax now has `triggers` with multiple `trigger` definitions, `conditions` with multiple `condition` definitions, and `actions` with multiple `action` definitions. This makes it consistent and easier to read.
   - Not a breaking change, no deprecation. Existing syntax will continue to work and there are no plans to remove the old syntax.
   - The new syntax is recommended, and all documentation and examples have been updated to use the new syntax.
-  - Automated managed by the automation editor, will automatically be migrated to the new syntax when saving an automation.
+  - Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
 
 ```yaml
 # Automation example:
@@ -171,6 +172,8 @@ triggers:
 ```
 
 This is mainly useful for blueprint authors, but can be used by users to group triggers together as well.
+
+Add a syntax for merging lists of triggers ([@karwosts] - [#117698])
 
 ## Faster upgrades when using custom integrations
 
@@ -271,29 +274,27 @@ It is not just new {% term integrations %} that have been added; existing
 integrations are also being constantly improved. Here are some of the noteworthy
 changes to existing integrations:
 
-- The [Lorem ipsum] integration now supports slipsum! Thanks [@frenck]!
+- [@Bre77] has been busy with the [Tesla Fleet] integration, adding a bunch of
+  new features and entities to control your Tesla vehicle. It now supports
+  climate, media player, cover, number, select, button, and lock entities.
+- You can now control the volume, ringtone and status light of your [Reolink]
+  Hub! Cool, [@starkillerOG]! 
+- [@daniel-k] added support for controlling the volume on [Ring] devices.
+  Nice!
 
-[@frenck]: https://github.com/frenck
-[Lorem ipsum]: /integrations/lorem_ipsum
+[@Bre77]: https://github.com/Bre77
+[@daniel-k]: https://github.com/daniel-k
+[@starkillerOG]: https://github.com/starkillerOG
+[Reolink]: /integrations/reolink
+[Ring]: /integrations/ring
+[Tesla Fleet]: /integrations/tesla_fleet
 
 {% details "Potential changes to process" icon="mdi:scale-balance" %}
 
 Processed up to _#126603_.
 
-
-- Add Reolink Home Hub ringtone control ([@starkillerOG] - [#126390]) ([reolink docs])
-- Add Reolink hub status light ([@starkillerOG] - [#126388]) ([reolink docs])
-
-- Add media player to Tesla Fleet ([@Bre77] - [#126416]) ([tesla_fleet docs]) (new-platform)
-- Add cover platform to Tesla Fleet ([@Bre77] - [#126411]) ([tesla_fleet docs]) (new-platform)
-- Add number platform to Tesla Fleet ([@Bre77] - [#125985]) ([tesla_fleet docs])
-- Add select platform to Tesla Fleet ([@Bre77] - [#125931]) ([tesla_fleet docs]) (new-platform)
-- Add button platform to Tesla Fleet ([@Bre77] - [#126410]) ([tesla_fleet docs]) (new-platform)
-- Add lock platform to Tesla Fleet ([@Bre77] - [#126412]) ([tesla_fleet docs]) (new-platform)
-
 - Support Z-Wave JS dimming lights using color intensity ([@AlCalzone] - [#122639]) ([zwave_js docs])
 - Add hot water target temp number entity in ViCare integration ([@CFenner] - [#123633]) ([vicare docs])
-- Add climate platform to Tesla Fleet ([@Bre77] - [#123169]) ([tesla_fleet docs]) (new-platform) (noteworthy)
 - Add favorites support to Media Browser for Squeezebox integration ([@rajlaud] - [#124732]) ([squeezebox docs])
 - Add support for total YouTube views ([@Alexwijn] - [#123144]) ([youtube docs])
 - Allow Switchbot users to force nightlatch ([@Michal4K] - [#124326]) ([switchbot docs])
@@ -302,7 +303,6 @@ Processed up to _#126603_.
 - Add balanced grid import/export to enphase_envoy ([@catsmanac] - [#123154]) ([enphase_envoy docs])
 - Add voice settings to ElevenLabs options flow ([@sorgfresser] - [#123265]) ([elevenlabs docs])
 - Add select platform to opentherm_gw ([@mvn23] - [#125585]) ([opentherm_gw docs]) (new-platform) (noteworthy)
-- Add Reolink hub volume number entities ([@starkillerOG] - [#126389]) ([reolink docs])
 - Add k10+ vacuum in switchbot cloud integration ([@Gigatrappeur] - [#125457]) ([switchbot_cloud docs]) (new-platform)
 - Add calendar to Husqvarna Automower ([@Thomas55555] - [#120775]) ([husqvarna_automower docs]) (new-platform)
 - Add sensor platform to laundrify integration ([@xLarry] - [#121378]) ([laundrify docs]) (new-platform)
@@ -312,7 +312,6 @@ Processed up to _#126603_.
 - Add battery data to Autarco integration ([@klaasnicolaas] - [#125924]) ([autarco docs]) (noteworthy)
 - Link mold_indicator entity to device from humidity sensor ([@gjohansson-ST] - [#125528]) ([mold_indicator docs]) (noteworthy)
 - Add squeezebox service sensors ([@pssc] - [#125349]) ([squeezebox docs]) (new-platform) (noteworthy)
-- Allow setting volume on Ring devices ([@daniel-k] - [#125773]) ([ring docs]) (new-platform) (noteworthy)
 - Add Switcher Runner S11 support ([@YogevBokobza] - [#123578]) ([switcher_kis docs]) (noteworthy)
 
 {% enddetails %}
@@ -355,30 +354,42 @@ The following integrations are now available via the Home Assistant UI:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-  Thanks [@frenck]!
+- In June, we added support for adding [Model IDs to devices], this release
+  has lots of integrations that add them. Including [Matter], [Plugwise],
+  [Wallbox], and [Govee]. We are calling contributions to add model IDs to
+  more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
+- We now have a new unit of measurement for energy entities: calories. Usefull,
+  for like devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
+- [@Travoschirmer] did something simalar, and added a new unit of speed:
+  mm/s and in/s. Thank you!
+- When you rename a device, you will now see more details about the rename
+  operation. Including a preview of the new entity IDs. Nice, [@karwosts]!
+- [@gjohansson-ST] added a new template function [`merge_response`] that
+  allows you to merge multiple response of single or multiple actions into
+  a single response. This is useful when you want to combine the responses
+  of multiple services into a single response. Nice!
+- [Trigger-based templates] now have support for adding conditions! Just like
+  automations, you can now add conditions to these entities to control when
+  they are rendered. Thanks, [@chammp]! 
+- More template fun! You can now set up your templated alarm control panel
+  straight from the UI. Thanks, [@gjohansson-ST]!
+- There is a new entity in town, the [`assist satellite` entity](/integrations/assist_satellite/).
+  It is a building block for remote sattelites devices that use [Assist]. This
+  is in preparation for our upcoming sattelite hardware. Stay tuned!
 
-[@frenck]: https://github.com/frenck
-
-- Add assist satellite entity component ([@synesthesiam] - [#125351]) ([assist_pipeline docs]) ([assist_satellite docs]) (new-integration)
-- Migrate ESPHome to assist satellite ([@balloob] - [#125383]) ([esphome docs])
-
-- Add model ID to linkplay ([@balloob] - [#125370]) ([linkplay docs])
-- Add model ID to WallboxEntity ([@hesselonline] - [#125434]) ([wallbox docs])
-- Add model ID to Matter DeviceInfo ([@marcelveldt] - [#125341]) ([matter docs])
-- Replace SW version by model ID in renault device info ([@epenet] - [#125399]) ([renault docs])
-- Add model_id to MotionMount integration ([@RJPoelstra] - [#125650]) ([motionmount docs])
-- Implement model_id's in Plugwise ([@bouwew] - [#126069]) ([plugwise docs])
-- Set model id on Govee lights ([@joostlek] - [#126211]) ([govee_light_local docs])
-
-- New template merge_response ([@gjohansson-ST] - [#114204])
-- Add calories to energy sensor device class ([@dudanov] - [#122796]) ([sensor docs])
-- Add condition to trigger template entities ([@chammp] - [#119689]) ([template docs])
-- Add config flow to template alarm_control_panel ([@gjohansson-ST] - [#125861]) ([template docs])
-- Add mm/s and in/s As Unit Of Speed ([@TrevorSchirmer] - [#125044]) ([weather docs]) ([sensor docs])
-- Add a syntax for merging lists of triggers ([@karwosts] - [#117698]) (noteworthy)
-
-- Add detail to the device+entity_id rename dialog (#21952) @karwosts (frontend)
+[@karwosts]: https://github.com/karwosts
+[@chammp]: https://github.com/chammp
+[@dudanov]: https://github.com/dudanov
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[`merge_response`]: /docs/configuration/templating/#merge-action-responses
+[Assist]: /voice_control
+[Govee]: /integrations/govee_light_local
+[Hacktoberfest]: https://hacktoberfest.digitalocean.com/
+[Matter]: /integrations/matter
+[Model IDs to devices]: https://developers.home-assistant.io/blog/2024/06/15/model-ids
+[Plugwise]: /integrations/plugwise
+[Trigger-based templates]: /integrations/template/#trigger-based-template-binary-sensors-buttons-images-numbers-selects-and-sensors
+[Wallbox]: /integrations/wallbox
 
 ### The source of a repair
 
