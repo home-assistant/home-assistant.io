@@ -18,8 +18,7 @@ ha_integration_type: service
 
 The Stookwijzer integration queries the [Atlas Leefomgeving Stookwijzer](https://www.atlasleefomgeving.nl/stookwijzer) API for windspeed and air quality index. Based on these values, Stookwijzer advises people not to burn pallets or wood, or not to use the barbecue. This can help prevent health issues for people in the area.
 
-Beside the actual state, the **Stookwijzer** sensor also has forecast attributes.
-Both the state and forecast can provide three different levels of recommendations:
+The state can provide three different levels of recommendations:
 
 - **Code Yellow**: Please note: burning wood causes discomfort and air pollution.
 - **Code Orange**: It is recommended not to burn wood now.
@@ -27,7 +26,7 @@ Both the state and forecast can provide three different levels of recommendation
 
 Additionally, various sensor and binary sensor entities are provided:
 
-- **Stookalert**: Binary sensor indicating whether there is a Stookalert in the region or province. This sensor also has forecast attributes.
+- **Stookalert**: Binary sensor indicating whether there is a Stookalert in the region or province.
 - **Windspeed**: Sensor containing the current windspeed at the selected location.
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
