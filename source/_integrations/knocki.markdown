@@ -43,14 +43,4 @@ c. Select "State" as the type of entity change.
 12. Select "+ADD ACTION" and choose whatever action(s) you’d like the automation to trigger.
 13. Finally, test the action by tapping the associated gesture pattern. If the new automation isn’t triggering successfully, you need to select the "reload" option from the devices page for Knocki on Home Assistant, and it should start working.
 
-## Troubleshooting
-
-### My Knocki devices or entities in aren’t showing up (or aren’t updating) on Home Assistant
-
-Knocki devices and entities will not be listed in Home Assistant until you’ve added a Home Assistant tasks via the Knocki mobile app. See steps 1-7. If they still aren’t showing up or aren’t updating, please select “reload” from the device’s menu in Home Assistant.
-
-### There’s another issue I need help with
-
-If you’re experiencing any other issues or need general help, please reach out to [support@knocki.com](mailto:support@knocki.com).
-
 {% include integrations/config_flow.md %}
