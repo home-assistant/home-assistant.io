@@ -333,6 +333,46 @@ The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata f
 Notification of an OTA update for a Matter device
 </p>
 
+## Automating on a button press
+
+To start an automation triggered by a button press (or a button press pattern), follow these steps.
+
+### Prerequisites
+
+- You have a Matter device that takes button presses as inputs, such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters.
+- The device has been added to Home Assistant
+
+### To automate on a button press
+
+1. If you like, give your button event entity a friendly name.
+   - Under {% my integrations title="**Settings** > **Devices & services**" %}, select the **Matter** integration card and select the device.
+   - On the **Events** card, select the button entity.
+     ![Select the button entity](/images/integrations/matter/matter_button_event_entity.png)
+   - Under **Name**, enter the new friendly name.
+     ![Change the entity name](/images/integrations/matter/matter_button_rename.png)
+2. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and select **Create Automation**.
+
+    ![The automation editor.](/images/getting-started/automation-editor.png)
+
+   - Then, select **Create new automation**. This brings up an empty automation page.
+
+     ![The start of a new automation.](/images/getting-started/new-automation.png)
+3. Define what should {% term trigger %} the automation to run.
+   - Select **Add trigger**, then, select **Entity** > **State**.
+   - Type `event` and select your button entity.
+   - Leave the other fields empty.
+     ![Select button event as trigger](/images/integrations/matter/matter_trigger_on_button_event.png)
+4. Define the condition when something should happen.
+   - Under **Then do**, select **Add action**.
+   - Type `choose` and select **Add condition**.
+   - Select **Entity** > **State** and select your button event entity from the list.
+   - Under **Attribute**, select **Event type**.
+   - Under **State**, select the state change you want, for example **Pressed once**.
+   - If you like, repeat these steps for each condition you want to monitor. For example, if you want to monitor on **Pressed twice** or **Held down** as well.
+     ![Condition - button pressed](/images/integrations/matter/matter_condition_button_pressed.png)
+5. Define what should happen when your automation is triggered (when the button is pressed, for example).
+   - Select **Add action** and define your action.
+
 ## Experiment with Matter using a ESP32 dev board
 
 You do not yet have any Matter-compatible hardware but you do like to try it out or maybe create your own DIY Matter device? We have [prepared a page for you](https://nabucasa.github.io/matter-example-apps/) where you can easily flash Matter firmware to a supported ESP32 development board. We recommend the M5 Stamp C3 device running the Lighting app.
