@@ -17,7 +17,7 @@ The `heatmiser` climate platform lets you control [Heatmiser DT/DT-E/PRT/PRT-E](
 
 Further work would be required to get this setup to connect over Wi-Fi, but the HeatmiserV3 Python module being used is a full implementation of the V3 protocol.
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 climate:

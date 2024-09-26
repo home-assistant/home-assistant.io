@@ -9,9 +9,18 @@ ha_domain: event
 ha_codeowners:
   - '@home-assistant/core'
 ha_integration_type: entity
+related:
+  - docs: /docs/automation/trigger/#event-trigger
+    title: Event triggers
+  - docs: /docs/configuration/customizing-devices/
+    title: Customizing devices
+  - docs: /dashboards/
+    title: Dashboard
 ---
 
 Events are signals that are emitted when something happens, for example, when a user presses a physical button like a doorbell or when a button on a remote control is pressed.
+
+The **Event** {% term integration %} provides {% term entities %} that trigger state change events, as do all other entity integrations.
 
 These events do not capture a state in the traditional sense. For example, a doorbell does not have a state such as "on" or "off" but instead is momentarily pressed. Some events can have variations in the type of event that is emitted. For example, maybe your remote control is capable of emitting a single press, a double press, or a long press.
 
@@ -21,12 +30,17 @@ The event entity can capture these events in the physical world and makes them a
 
 ## The state of an event entity
 
-The event entity does not capture a state such as `on` or `off`. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
+The event entity does not capture a state such as **On** or **Off**. Instead, an event entity keeps track of the timestamp when the emitted event has last been detected.
 
 <p class='img'>
   <img src='/images/integrations/event/event_timestamp.png' alt='Event entity with timestamp value in state and event type "pressed"'>
   Event entity with a timestamp value in state and event type "pressed".
 </p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 Because the state of an event entity in Home Assistant is a timestamp, it means we can use it in our automations. For example:
 
@@ -35,7 +49,7 @@ trigger:
   - platform: state
     entity_id: event.doorbell
 action:
-  - service: notify.frenck
+  - action: notify.frenck
     data:
       message: "Ding Dong! Someone is at the door!"
 ```
@@ -75,7 +89,16 @@ action:
 
 When creating automations in the automation editor in the UI, the event types are available as a dropdown list, depending on the event entity you are using. This means you don't have to remember the different event types and can easily select them.
 
-## Device classes
+## Device class
+
+{% include integrations/device_class_intro.md %}
+
+The screenshot shows different icons representing device classes of the event entity:
+
+<p class='img'>
+<img src='/images/integrations/event/device_class_event_icons.png' alt='Screenshot showing different icons representing device classes of the event entity' />
+Example of different icons representing device classes of the event entity.
+</p>
 
 The following device classes are supported by event entities:
 

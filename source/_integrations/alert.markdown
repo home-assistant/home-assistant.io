@@ -11,6 +11,9 @@ ha_codeowners:
   - '@home-assistant/core'
   - '@frenck'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -23,17 +26,18 @@ Alerts will add an entity to the front end.
 This entity allows you to silence an alert until it is resolved and has three
 possible states:
 
-State | Description
--|-
-`idle` | The condition for the alert is false.
-`on` | The condition for the alert is true.
-`off` | The condition for the alert is true but it was acknowledged.
+| State  | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `idle` | The condition for the alert is false.                        |
+| `on`   | The condition for the alert is true.                         |
+| `off`  | The condition for the alert is true but it was acknowledged. |
 
 ### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
 setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
-Then, add the following to your configuration file:
+Then, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -131,7 +135,7 @@ provided by the `alert` integration:
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -287,7 +291,7 @@ but you will still receive the done message.
       event_data:
         data: "/garage_acknowledge"
   action:
-    - service: alert.turn_off
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
 ```

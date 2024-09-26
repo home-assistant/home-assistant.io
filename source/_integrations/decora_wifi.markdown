@@ -9,6 +9,9 @@ ha_domain: decora_wifi
 ha_platforms:
   - light
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Support for [Leviton Decora Wi-Fi](https://www.leviton.com/products/residential/automation-smart-home/decora-smart-all/decora-smart-with-wifi-technology) dimmers/switches via the MyLeviton API.
@@ -20,7 +23,8 @@ Supported devices (tested):
 - - [DW15S-1BZ](https://www.leviton.com/products/dw15s-1bz) (Decora Smart Wi-Fi 15A Switch)
 - [D215S-2RW](https://store.leviton.com/products/decora-smart-wi-fi-switch-2nd-gen-d215s-2rw) (Decora Smart Wi-Fi 15A Switch - 2nd Gen)
 
-To enable these lights, add the following lines to your `configuration.yaml` file:
+To enable these lights, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -32,7 +36,7 @@ light:
 
 {% configuration %}
 username:
-  description: Your "My Leviton" app email address/user name.
+  description: Your "My Leviton" app email address/username.
   required: true
   type: string
 password:

@@ -10,9 +10,12 @@ ha_domain: geofency
 ha_platforms:
   - device_tracker
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-This integration sets up integration with [Geofency](https://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
+This {% term integration %} sets up integration with [Geofency](https://www.geofency.com/). Geofency is a paid app for iOS that lets users to configure a request that will be sent when a geofence or iBeacon region is entered or exited. This can be configured with Home Assistant to update your location.
 
 ## Configuration
 
@@ -20,7 +23,8 @@ To configure Geofency, you must set it up via the integrations panel in the conf
 
 Geofency will automatically generate the device tracker name used for geofences, and you will find it in the integrations section after the first request. For beacons, the device name will be `beacon_<name from Geofency>`, e.g., `device_tracker.beacon_car`.
 
-When using mobile beacons (optional) an entry in `configuration.yaml` is still needed as this can't be added via the integrations panel.
+When using mobile beacons (optional) an entry in {% term "`configuration.yaml`" %} file is still needed as this can't be added via the integrations panel.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 {% configuration %}
 mobile_beacons:

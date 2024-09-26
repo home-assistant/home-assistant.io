@@ -9,9 +9,12 @@ ha_domain: supervisord
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `supervisord` platform allows you to track the states of [Supervisord](http://supervisord.org/).
+The `supervisord` {% term integration %} allows you to track the states of [Supervisord](http://supervisord.org/).
 
 It required that you enable the HTTP feature in the `/etc/supervisord.conf` configuration file.
 
@@ -26,7 +29,8 @@ After a restart of `supervisord` you should be able to access the web interface.
   <img src='/images/screenshots/supervisor.png' />
 </p>
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+To use this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

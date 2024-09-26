@@ -11,9 +11,12 @@ ha_domain: watson_tts
 ha_platforms:
   - tts
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `watson_tts` text-to-speech platform that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
+The `watson_tts` text-to-speech {% term integration %} that works with [IBM Watson Cloud](https://www.ibm.com/watson/services/text-to-speech/) to create the spoken output.
 Watson is a paid service via IBM Cloud but there is a decent [free tier](https://www.ibm.com/cloud/watson-text-to-speech/pricing) which offers 10000 free characters every month.
 
 ## Setup
@@ -24,7 +27,8 @@ To get started please read the [Getting started tutorial](https://cloud.ibm.com/
 
 ## Configuration
 
-To configure Watson TTS, add the following lines to your `configuration.yaml`:
+To configure Watson TTS, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -66,7 +70,7 @@ output_format:
 Say to all `media_player` device entities:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: "Hello from Watson"
 ```
@@ -74,7 +78,7 @@ Say to all `media_player` device entities:
 or
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: >
       <speak>
@@ -85,7 +89,7 @@ or
 Say to the `media_player.living_room` device entity:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   target:
     entity_id: media_player.living_room
   data:
@@ -98,7 +102,7 @@ Say to the `media_player.living_room` device entity:
 Say with break:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: >
       <speak>
@@ -111,7 +115,7 @@ Say with break:
 Optionally, specify a voice for the message:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: "Hello from Watson"
   options:

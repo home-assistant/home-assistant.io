@@ -37,7 +37,7 @@ Upper limit:
 
 Alternatively, this integration can be configured and set up manually via YAML
 instead. To enable the Integration sensor in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,6 +75,24 @@ name:
   type: string
   default: Threshold
 {% endconfiguration %}
+
+## Matrix of state change behavior
+
+### Sensor value rising
+
+| Set           | Turns on when           | Turns off when          |
+| ------------- | ----------------------- | ----------------------- |
+| only upper    | sensor > (upper + hyst) | never                   |
+| only lower    | never                   | sensor > (lower + hyst) |
+| upper & lower | sensor > (lower + hyst) | sensor > (upper + hyst) |
+
+### Sensor value falling
+
+| Set           | Turns on when           | Turns off when          |
+| ------------- | ----------------------- | ----------------------- |
+| only upper    | never                   | sensor < (upper - hyst) |
+| only lower    | sensor < (lower - hyst) | never                   |
+| upper & lower | sensor < (upper - hyst) | sensor < (lower - hyst) |
 
 ## Examples
 

@@ -12,6 +12,9 @@ ha_codeowners:
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 [IAMMETER](https://www.iammeter.com/) provides both a bi-directional single-phase energy meter([WEM3080](https://www.iammeter.com/products/single-phase-meter)) and a bi-directional three-phase energy monitor ([WEM3080T](https://www.iammeter.com/products/three-phase-meter)). Both of them can be integrated into Home Assistant.
@@ -20,11 +23,10 @@ The WEM3050T provides nearly all of the features the WEM3080T provides, with the
 The WEM3050T can be integrated into Home Assistant by [all of the methods](https://community.home-assistant.io/t/four-ways-to-integrate-the-electricity-usage-monitor-iammeter-into-the-home-assistant/485520/) that WEM3080T supports.
 Because there is no cloud service by default, the WEM3050T is much cheaper than the WEM3080T.
 
-
-
 ## Configuration
 
-To use this sensor in your installation, add the following to your `configuration.yaml` file:
+To use this {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

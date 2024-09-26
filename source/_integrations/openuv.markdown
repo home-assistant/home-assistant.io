@@ -20,11 +20,11 @@ ha_integration_type: service
 
 The OpenUV integration displays UV and Ozone data from [openuv.io](https://www.openuv.io/).
 
-<div class='note warning'>
+{% warning %}
 The guidelines within this documentation constitute estimates which are intended to help
 informed decision making. They should not replace analysis, advice, or diagnosis from a
 trained medical professional.
-</div>
+{% endwarning %}
 
 ## Generating an API Key
 
@@ -50,16 +50,16 @@ To generate an API key, log in at [the OpenUV website](https://www.openuv.io/).
 
 ## Updating data
 
-<div class='note warning'>
+{% important %}
 OpenUV does _not_ automatically update data for its entities! Users must manually
-update data via the `homeassistant.update_entity` service.
-</div>
+update data via the `homeassistant.update_entity` action.
+{% endimportant %}
 
 Beginning February 1, 2019, the "Limited" plan (which is what new users are given by
 default) is limited to 50 API requests per day. Because different API plans and
 locations will have different requirements, the OpenUV integration does not automatically
 query the API for new data after it initially loads. To request new data, the
-`homeassistant.update_entity` service should be used.
+`homeassistant.update_entity` action should be used.
 
 Note that in the case of UV and ozone data, selecting any one of:
 
@@ -74,7 +74,7 @@ Note that in the case of UV and ozone data, selecting any one of:
 - Skin Type 5 Safe Exposure Time
 - Skin Type 6 Safe Exposure Time
 
-...as the target for the `homeassistant.update_entity` service will update the data for
+...as the target for the `homeassistant.update_entity` action will update the data for
 _all_ of these entities.
 
 To protect against possible API call waste, all calls to `homeassistant.update_entity`
@@ -110,7 +110,7 @@ automation:
       value_template: "{{ state.attributes.elevation }}"
       above: 10
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
@@ -125,7 +125,7 @@ automation:
       platform: time
       at: "12:00:00"
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
 ```
@@ -151,7 +151,7 @@ automation:
         before: sunset
         # The last call will most likely fall before the sunset, leaving the UV index at
         # something other than 0 for the remainder of the night; to fix this, we allow
-        # one more service call after the sun has set:
+        # one more action after the sun has set:
         before_offset: "+00:45:00"
       - condition: template
         # We check if the last trigger has been 40 minutes or more ago so we don't run
@@ -165,7 +165,7 @@ automation:
             ) >= timedelta(hours = 0, minutes = 40)
           }}
     action:
-      service: homeassistant.update_entity
+      action: homeassistant.update_entity
       target:
         entity_id:
           # Update both UV and protection window data:

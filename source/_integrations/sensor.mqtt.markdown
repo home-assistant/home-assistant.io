@@ -12,7 +12,7 @@ This `mqtt` sensor platform uses the MQTT message payload as the sensor value. I
 
 ## Configuration
 
-To use your MQTT sensor in your installation, add the following to your `configuration.yaml` file:
+To use your MQTT sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,6 +88,10 @@ device:
       description: The model of the device.
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: The name of the device.
       required: false
@@ -161,6 +165,10 @@ object_id:
   description: Used instead of `name` for automatic generation of `entity_id`
   required: false
   type: string
+options:
+  description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` should be set to `enum`. Cannot be used together with `state_class` or `unit_of_measurement`.
+  required: false
+  type: list
 payload_available:
   description: The payload that represents the available state.
   required: false
@@ -263,7 +271,7 @@ Payload: `1707294116`
 To set the state of the sensor manually:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -u username -p some_password -t pump/timestamp_on -m '1707294116'
+mosquitto_pub -h 127.0.0.1 -p 1883 -u username -P some_password -t pump/timestamp_on -m '1707294116'
 ```
 
 Make sure the IP address of your MQTT broker is used and that user credentials have been set up correctly.
@@ -350,7 +358,11 @@ mqtt:
 
 {% endraw %}
 
-The state and the attributes of the sensor by design do not update in a synchronous manner if they share the same MQTT topic. Temporal mismatches between the state and the attribute data may occur if both the state and the attributes are changed simultaneously by the same MQTT message. An automation that triggers on any state change of the sensor will also trigger both on the change of the state or a change of the attributes. Such automations will be triggered twice if both the state and the attributes change. Please use a [MQTT trigger](/docs/automation/trigger/#mqtt-trigger) and process the JSON in the automation directly via the {% raw %}`{{ trigger.payload_json }}`{% endraw %} [trigger data](/docs/automation/templating/#mqtt) for automations that must synchronously handle multiple JSON values within the same MQTT message.
+{% warning %}
+If `json_attributes_topic` and `state_topic` share the same topic, a state update will happen only once, unless the state update did not change the state or `force_update` was set to `true`.
+
+Setting up MQTT sensor's with extra state attributes that contain values that change at every update, like timestamps, or enabling the `force_update` option, is discouraged, as this will trigger state writes for every update. This can have a serious impact on the total system performance. A better option is creating separate sensors instead.
+{% endwarning %}
 
 ### Usage of `entity_id` in the template
 
@@ -432,7 +444,7 @@ mqtt:
       state_topic: "office/sensor1"
       suggested_display_precision: 1
       unit_of_measurement: "°C"
-      value_template: "{{ value_json.temperature }}
+      value_template: "{{ value_json.temperature }}"
     - name: "Humidity"
       state_topic: "office/sensor1"
       unit_of_measurement: "%"
@@ -443,7 +455,7 @@ mqtt:
 
 ### Get sensor value from a device with ESPEasy
 
-Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the `configuration.yaml` file.
+Assuming that you have flashed your ESP8266 unit with [ESPEasy](https://github.com/letscontrolit/ESPEasy). Under "Config" set a name ("Unit Name:") for your device (here it's "bathroom"). A "Controller" for MQTT with the protocol "OpenHAB MQTT" is present and the entries ("Controller Subscribe:" and "Controller Publish:") are adjusted to match your needs. In this example the topics are prefixed with "home". Please keep in mind that the ESPEasy default topics start with a `/` and only contain the name when writing your entry for the {% term "`configuration.yaml`" %} file.
 
 - **Controller Subscribe**: `home/%sysname%/#` (instead of `/%sysname%/#`)
 - **Controller Publish**: `home/%sysname%/%tskname%/%valname%` (instead of `/%sysname%/%tskname%/%valname%`)

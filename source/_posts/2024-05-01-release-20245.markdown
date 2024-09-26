@@ -50,6 +50,11 @@ Anyway, I will not hold you any longer. Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
 - [New integrations](#new-integrations)
 - [Integrations now available to set up from the UI](#integrations-now-available-to-set-up-from-the-ui)
+- [Release 2024.5.1 - May 3](#release-202451---may-3)
+- [Release 2024.5.2 - May 6](#release-202452---may-6)
+- [Release 2024.5.3 - May 10](#release-202453---may-10)
+- [Release 2024.5.4 - May 17](#release-202454---may-17)
+- [Release 2024.5.5 - May 24](#release-202455---may-24)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
@@ -71,7 +76,7 @@ so we've added a bunch of them in this release. 😎
 One of the most requested features of these new tables' new
 [item grouping](/blog/2024/04/03/release-20244/#item-grouping) was the
 ability to collapse them, and we’ve added that!
- 
+
 <p class='img'>
     <img src="/images/blog/2024-05/collapse-groups.gif" alt="Screenrecording showing items grouped in our data tables can now be collapsed."/>
     Each item group can now be collapsed and expanded.
@@ -114,15 +119,15 @@ without leaving it:
 
 ## Lock features for the tile card
 
-The tile card is already amazing, but [@marcgeurts] made it even better by 
+The tile card is already amazing, but [@marcgeurts] made it even better by
 adding new features to the tile card: Locks!
 
 When you now add a lock entity to the tile card, and if your lock supports it,
 you can now add two new features to the tile card:
 
-- [**Lock commands**](/dashboards/features/#lock-commands)  
+- [**Lock commands**](/dashboards/features/#lock-commands)
   Adds buttons to your tile card to lock or unlock the lock.
-- [**Lock open door**](/dashboards/features/#lock-open-door)  
+- [**Lock open door**](/dashboards/features/#lock-open-door)
   Adds a button to open/unlatch the door (with confirmation).
 
 <img class="no-shadow" src='/images/blog/2024-05/tile-lock-features.png' alt='Screenshots showing different tile cards with the new lock features.'>
@@ -185,7 +190,7 @@ In conjunction with [the latest release of ESPHome] (2024.4), we are bringing
 a much improved and more reliable communication between [ESPHome] and
 Home Assistant for transferring voice audio, guaranteeing no audio is lost in the process.
 
-Hear the difference in this side-by-side comparison: 
+Hear the difference in this side-by-side comparison:
 
 <lite-youtube videoid="6z7FIbTgLU4" videotitle="Improved audio with ESPHome for Assist"></lite-youtube>
 
@@ -255,7 +260,7 @@ We welcome the following new {% term integrations %} in this release:
 - **[Arve]**, added by [@ikalnyi]<br />
   Monitor real-life air quality data from your Arve devices.
 - **[Energenie Power-Sockets]**, added by [@gnumpi]<br />
-  Control your Energie Power-Strips over USB.
+  Control your Energenie Power-Strips over USB.
 - **[Epic Games Store]**, added by [@Quentame]<br />
   Provides a calendar for the Epic Games Store to monitor discounts and free games.
 - **[eQ-3 Bluetooth Smart Thermostats]**, added by [@EuleMitKeule]<br />
@@ -271,7 +276,7 @@ We welcome the following new {% term integrations %} in this release:
 [@tomaszsluszniak]: https://github.com/tomaszsluszniak
 [Ambient Weather Network]: /integrations/ambient_network
 [Arve]: /integrations/arve
-[Energenie Power-Sockets]: /integratoins/egps
+[Energenie Power-Sockets]: /integrations/energenie_power_sockets
 [Epic Games Store]: /integrations/epic_games_store
 [eQ-3 Bluetooth Smart Thermostats]: /integrations/eq3btsmart
 [Sanix]: /integrations/sanix
@@ -290,6 +295,335 @@ The following {% term integrations %} are now available via the Home Assistant U
 [Enigma2 (OpenWebif)]: /integrations/enigma2
 [Folder watcher]: /integrations/folder_watcher
 [LG Netcast]: /integrations/lg_netcast
+
+## Release 2024.5.1 - May 3
+
+- Fix nws forecast coordinators and remove legacy forecast handling ([@MatthewFlamm] - [#115857])
+- Bump opentherm_gw to 2.2.0 ([@GraceGRD] - [#116527])
+- Add a lock to homekit_controller platform loads ([@bdraco] - [#116539])
+- Fix MQTT discovery cooldown too short with large setup ([@jbouwh] - [#116550])
+- Bump upb_lib to 0.5.6 ([@gwww] - [#116558])
+- Bump elkm1_lib to 2.2.7 ([@gwww] - [#116564])
+- Fix Matter startup when Matter bridge is present ([@marcelveldt] - [#116569])
+- Bump sanix to 1.0.6 ([@tomaszsluszniak] - [#116570])
+- Fix Airthings BLE model names ([@LaStrada] - [#116579])
+- Improve coordinator in Ondilo ico ([@joostlek] - [#116596])
+- Fix inheritance order for KNX notify ([@farmio] - [#116600])
+- Bump Airthings BLE to 0.8.0 ([@LaStrada] - [#116616])
+- Bump pywaze to 1.0.1 ([@eifinger] - [#116621])
+- Add constraint for tuf ([@cdce8p] - [#116627])
+- Bump aiounifi to v77 ([@Kane610] - [#116639])
+- Bump govee-light-local library and fix wrong information for Govee lights ([@Galorhallen] - [#116651])
+- Bump ZHA dependency bellows to 0.38.4 ([@puddly] - [#116660])
+- Bump habluetooth to 2.8.1 ([@bdraco] - [#116661])
+- Bump env_canada lib to 0.6.2 ([@gwww] - [#116662])
+- Block dreame_vacuum versions older than 1.0.4 ([@bdraco] - [#116673])
+- Fix fyta test timezone handling ([@cdce8p] - [#116689])
+- Fix BroadlinkRemote._learn_command() ([@felipediel] - [#116692])
+
+[#115857]: https://github.com/home-assistant/core/pull/115857
+[#116527]: https://github.com/home-assistant/core/pull/116527
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116539]: https://github.com/home-assistant/core/pull/116539
+[#116550]: https://github.com/home-assistant/core/pull/116550
+[#116558]: https://github.com/home-assistant/core/pull/116558
+[#116564]: https://github.com/home-assistant/core/pull/116564
+[#116569]: https://github.com/home-assistant/core/pull/116569
+[#116570]: https://github.com/home-assistant/core/pull/116570
+[#116579]: https://github.com/home-assistant/core/pull/116579
+[#116596]: https://github.com/home-assistant/core/pull/116596
+[#116600]: https://github.com/home-assistant/core/pull/116600
+[#116616]: https://github.com/home-assistant/core/pull/116616
+[#116621]: https://github.com/home-assistant/core/pull/116621
+[#116627]: https://github.com/home-assistant/core/pull/116627
+[#116639]: https://github.com/home-assistant/core/pull/116639
+[#116651]: https://github.com/home-assistant/core/pull/116651
+[#116660]: https://github.com/home-assistant/core/pull/116660
+[#116661]: https://github.com/home-assistant/core/pull/116661
+[#116662]: https://github.com/home-assistant/core/pull/116662
+[#116673]: https://github.com/home-assistant/core/pull/116673
+[#116689]: https://github.com/home-assistant/core/pull/116689
+[#116692]: https://github.com/home-assistant/core/pull/116692
+[@Galorhallen]: https://github.com/Galorhallen
+[@GraceGRD]: https://github.com/GraceGRD
+[@Kane610]: https://github.com/Kane610
+[@LaStrada]: https://github.com/LaStrada
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@bdraco]: https://github.com/bdraco
+[@cdce8p]: https://github.com/cdce8p
+[@eifinger]: https://github.com/eifinger
+[@farmio]: https://github.com/farmio
+[@felipediel]: https://github.com/felipediel
+[@frenck]: https://github.com/frenck
+[@gwww]: https://github.com/gwww
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@marcelveldt]: https://github.com/marcelveldt
+[@puddly]: https://github.com/puddly
+[@tomaszsluszniak]: https://github.com/tomaszsluszniak
+
+## Release 2024.5.2 - May 6
+
+- Add workaround for data entry flow show progress ([@emontnemery] - [#116704])
+- Improve logging of _TrackPointUTCTime objects ([@bdraco] - [#116711])
+- Bump aiohttp-isal to 0.3.1 ([@bdraco] - [#116720])
+- Fix Bosch-SHC switch state ([@joostlek] - [#116721])
+- Remove suggested UoM from Opower ([@joostlek] - [#116728])
+- Refactor statistics to avoid creating tasks ([@bdraco] - [#116743])
+- Bump bluetooth-adapters to 0.19.2 ([@bdraco] - [#116785])
+- fix UnboundLocalError on modified_statistic_ids in compile_statistics ([@pdecat] - [#116795])
+- Ensure all synology_dsm coordinators handle expired sessions ([@bdraco] - [#116796])
+- Fix IMAP config entry setup ([@jbouwh] - [#116797])
+- Fix airthings-ble data drop outs when Bluetooth connection is flakey ([@bdraco] - [#116805])
+- Hide conversation agents that are exposed as agent entities ([@balloob] - [#116813])
+- Fix non-thread-safe state write in lutron event ([@bdraco] - [#116829])
+- Increase default timeout to 30 seconds in Synology DSM ([@mib1185] - [#116836])
+- Avoid duplicate data fetch during Synologs DSM setup ([@mib1185] - [#116839])
+- Bump androidtvremote2 to v0.0.15 ([@tronikos] - [#116844])
+- Bump goodwe to 0.3.4 ([@mletenay] - [#116849])
+- Fix non-thread-safe operations in amcrest ([@bdraco] - [#116859])
+- fix radarr coordinator updates ([@tkdrob] - [#116874])
+- Fix initial mqtt subcribe cooldown timeout ([@jbouwh] - [#116904])
+- Update frontend to 20240501.1 ([@bramkragten] - [#116939])
+
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116704]: https://github.com/home-assistant/core/pull/116704
+[#116711]: https://github.com/home-assistant/core/pull/116711
+[#116720]: https://github.com/home-assistant/core/pull/116720
+[#116721]: https://github.com/home-assistant/core/pull/116721
+[#116728]: https://github.com/home-assistant/core/pull/116728
+[#116743]: https://github.com/home-assistant/core/pull/116743
+[#116785]: https://github.com/home-assistant/core/pull/116785
+[#116795]: https://github.com/home-assistant/core/pull/116795
+[#116796]: https://github.com/home-assistant/core/pull/116796
+[#116797]: https://github.com/home-assistant/core/pull/116797
+[#116805]: https://github.com/home-assistant/core/pull/116805
+[#116813]: https://github.com/home-assistant/core/pull/116813
+[#116829]: https://github.com/home-assistant/core/pull/116829
+[#116836]: https://github.com/home-assistant/core/pull/116836
+[#116839]: https://github.com/home-assistant/core/pull/116839
+[#116844]: https://github.com/home-assistant/core/pull/116844
+[#116849]: https://github.com/home-assistant/core/pull/116849
+[#116859]: https://github.com/home-assistant/core/pull/116859
+[#116874]: https://github.com/home-assistant/core/pull/116874
+[#116904]: https://github.com/home-assistant/core/pull/116904
+[#116939]: https://github.com/home-assistant/core/pull/116939
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bramkragten]: https://github.com/bramkragten
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@mib1185]: https://github.com/mib1185
+[@mletenay]: https://github.com/mletenay
+[@pdecat]: https://github.com/pdecat
+[@tkdrob]: https://github.com/tkdrob
+[@tronikos]: https://github.com/tronikos
+
+## Release 2024.5.3 - May 10
+
+- Fix Sonos select_source timeout error ([@PeteRager] - [#115640])
+- Update strings for Bring notification service ([@tr4nt0r] - [#116181])
+- Bump Yolink api to 0.4.4 ([@matrixd2] - [#116967])
+- Update jinja2 to 3.1.4 ([@cdce8p] - [#116986])
+- Simplify MQTT subscribe debouncer execution ([@bdraco] - [#117006])
+- Log an exception mqtt client call back throws ([@jbouwh] - [#117028])
+- Bump rokuecp to 0.19.3 ([@ctalkington] - [#117059])
+- Bump pyenphase to 1.20.3 ([@catsmanac] - [#117061])
+- Add a missing `addon_name` placeholder to the SkyConnect config flow ([@puddly] - [#117089])
+- Goodwe Increase max value of export limit to 200% ([@mletenay] - [#117090])
+- Improve config entry has already been setup error message ([@bdraco] - [#117091])
+- Fix nws blocking startup ([@MatthewFlamm] - [#117094])
+- Make the mqtt discovery update tasks eager and fix race ([@jbouwh] - [#117105])
+- Bump goodwe to 0.3.5 ([@mletenay] - [#117115])
+- Handle tilt position being None in HKC ([@bdraco] - [#117141])
+- Fix typo in xiaomi_ble translation strings ([@jbouwh] - [#117144])
+- Bump pytrydan to 0.6.0 ([@dgomes] - [#117162])
+- Bump deebot-client to 7.2.0 ([@edenhaus] - [#117189])
+
+[#115640]: https://github.com/home-assistant/core/pull/115640
+[#116181]: https://github.com/home-assistant/core/pull/116181
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#116967]: https://github.com/home-assistant/core/pull/116967
+[#116986]: https://github.com/home-assistant/core/pull/116986
+[#117006]: https://github.com/home-assistant/core/pull/117006
+[#117028]: https://github.com/home-assistant/core/pull/117028
+[#117059]: https://github.com/home-assistant/core/pull/117059
+[#117061]: https://github.com/home-assistant/core/pull/117061
+[#117089]: https://github.com/home-assistant/core/pull/117089
+[#117090]: https://github.com/home-assistant/core/pull/117090
+[#117091]: https://github.com/home-assistant/core/pull/117091
+[#117094]: https://github.com/home-assistant/core/pull/117094
+[#117105]: https://github.com/home-assistant/core/pull/117105
+[#117115]: https://github.com/home-assistant/core/pull/117115
+[#117141]: https://github.com/home-assistant/core/pull/117141
+[#117144]: https://github.com/home-assistant/core/pull/117144
+[#117162]: https://github.com/home-assistant/core/pull/117162
+[#117189]: https://github.com/home-assistant/core/pull/117189
+[@MatthewFlamm]: https://github.com/MatthewFlamm
+[@PeteRager]: https://github.com/PeteRager
+[@bdraco]: https://github.com/bdraco
+[@catsmanac]: https://github.com/catsmanac
+[@cdce8p]: https://github.com/cdce8p
+[@ctalkington]: https://github.com/ctalkington
+[@dgomes]: https://github.com/dgomes
+[@edenhaus]: https://github.com/edenhaus
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@matrixd2]: https://github.com/matrixd2
+[@mletenay]: https://github.com/mletenay
+[@puddly]: https://github.com/puddly
+[@tr4nt0r]: https://github.com/tr4nt0r
+
+## Release 2024.5.4 - May 17
+
+- Fix Fully Kiosk set config service ([@amura11] - [#112840])
+- Mark Duotecno entities unavailable when tcp goes down ([@Cereal2nd] - [#114325])
+- Catch auth exception in husqvarna automower ([@Thomas55555] - [#115365])
+- Avoid exceptions when Gemini responses are blocked ([@tronikos] - [#116847])
+- Reduce update interval in Ondilo Ico ([@nijel] - [#116989])
+- Add reauth for missing token scope in Husqvarna Automower ([@Thomas55555] - [#117098])
+- Fix issue changing Insteon Hub configuration ([@teharris1] - [#117204])
+- Bump SoCo to 0.30.4 ([@jjlawren] - [#117212])
+- Fix zwave_js discovery logic for node device class ([@raman325] - [#117232])
+- Increase MQTT broker socket buffer size ([@jbouwh] - [#117267])
+- Fix Aurora naming ([@joostlek] - [#117314])
+- Call Google Assistant SDK service using async_add_executor_job ([@tronikos] - [#117325])
+- Fix squeezebox blocking startup ([@bdraco] - [#117331])
+- Fix Lutron Serena Tilt Only Wood Blinds set tilt function ([@wujiaqi] - [#117374])
+- Fix Kodi on/off status ([@mk-81] - [#117436])
+- Update wled to 0.17.1 ([@frenck] - [#117444])
+- Bump pyduotecno to 2024.5.0 ([@Cereal2nd] - [#117446])
+- Fix non-thread-safe state write in tellduslive ([@bdraco] - [#117487])
+- Reolink fix not unregistering webhook during ReAuth ([@starkillerOG] - [#117490])
+- Fix API creation for passwordless pi_hole ([@emontnemery] - [#117494])
+- Bump reolink-aio to 0.8.10 ([@starkillerOG] - [#117501])
+- Handle uncaught exceptions in Analytics insights ([@joostlek] - [#117558])
+- Fix poolsense naming ([@joostlek] - [#117567])
+- Improve syncing light states to deCONZ groups ([@Kane610] - [#117588])
+
+[#112840]: https://github.com/home-assistant/core/pull/112840
+[#114325]: https://github.com/home-assistant/core/pull/114325
+[#115365]: https://github.com/home-assistant/core/pull/115365
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116847]: https://github.com/home-assistant/core/pull/116847
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#116989]: https://github.com/home-assistant/core/pull/116989
+[#117098]: https://github.com/home-assistant/core/pull/117098
+[#117203]: https://github.com/home-assistant/core/pull/117203
+[#117204]: https://github.com/home-assistant/core/pull/117204
+[#117212]: https://github.com/home-assistant/core/pull/117212
+[#117232]: https://github.com/home-assistant/core/pull/117232
+[#117267]: https://github.com/home-assistant/core/pull/117267
+[#117314]: https://github.com/home-assistant/core/pull/117314
+[#117325]: https://github.com/home-assistant/core/pull/117325
+[#117331]: https://github.com/home-assistant/core/pull/117331
+[#117374]: https://github.com/home-assistant/core/pull/117374
+[#117436]: https://github.com/home-assistant/core/pull/117436
+[#117444]: https://github.com/home-assistant/core/pull/117444
+[#117446]: https://github.com/home-assistant/core/pull/117446
+[#117487]: https://github.com/home-assistant/core/pull/117487
+[#117490]: https://github.com/home-assistant/core/pull/117490
+[#117494]: https://github.com/home-assistant/core/pull/117494
+[#117501]: https://github.com/home-assistant/core/pull/117501
+[#117558]: https://github.com/home-assistant/core/pull/117558
+[#117567]: https://github.com/home-assistant/core/pull/117567
+[#117588]: https://github.com/home-assistant/core/pull/117588
+[@Cereal2nd]: https://github.com/Cereal2nd
+[@Kane610]: https://github.com/Kane610
+[@Thomas55555]: https://github.com/Thomas55555
+[@amura11]: https://github.com/amura11
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@jbouwh]: https://github.com/jbouwh
+[@jjlawren]: https://github.com/jjlawren
+[@joostlek]: https://github.com/joostlek
+[@mk-81]: https://github.com/mk-81
+[@nijel]: https://github.com/nijel
+[@raman325]: https://github.com/raman325
+[@starkillerOG]: https://github.com/starkillerOG
+[@teharris1]: https://github.com/teharris1
+[@tronikos]: https://github.com/tronikos
+[@wujiaqi]: https://github.com/wujiaqi
+
+## Release 2024.5.5 - May 24
+
+- Fix Sonos album artwork performance ([@PeteRager] - [#116391])
+- Filter out HTML greater/less than entities from huawei_lte sensor values ([@scop] - [#117209])
+- Add options-property to Plugwise Select ([@bouwew] - [#117655])
+- Fix setting MQTT socket buffer size with WebsocketWrapper ([@bdraco] - [#117672])
+- Bump pyrisco to 0.6.2 ([@OnFreund] - [#117682])
+- Consider only active config entries as media source in Synology DSM ([@mib1185] - [#117691])
+- Bump aranet4 to 2.3.4 ([@Anrijs] - [#117738])
+- Bump crownstone-sse to 2.0.5, crownstone-cloud to 1.4.11 ([@RicArch97] - [#117748])
+- Block older versions of custom integration mydolphin_plus since they cause crashes ([@bdraco] - [#117751])
+- Fix race in config entry setup ([@bdraco] - [#117756])
+- Update wled to 0.18.0 ([@frenck] - [#117790])
+- Account for disabled ZHA discovery config entries when migrating SkyConnect integration ([@puddly] - [#117800])
+- Tesla Wall Connector fix spelling error/typo ([@bajansen] - [#117841])
+- Prevent time pattern reschedule if cancelled during job execution ([@swoga] - [#117879])
+- Update philips_js to 3.2.1 ([@elupus] - [#117881])
+- Bump pyrympro to 0.0.8 ([@OnFreund] - [#117919])
+- Add Shelly debug logging for async_reconnect_soon ([@thecode] - [#117945])
+- Update pySwitchbot to 0.46.0 to fix lock key retrieval ([@bdraco] - [#118005])
+- Improve async_get_issue_tracker for custom integrations ([@emontnemery] - [#118016])
+- Bump pySwitchbot to 0.46.1 ([@bdraco] - [#118025])
+- Extend the blocklist for Matter transitions with more models ([@marcelveldt] - [#118038])
+- Fix rc pylint warning in MQTT ([@frenck] - [#118050])
+- Add state check to config entry setup to ensure it cannot be setup twice ([@bdraco] - [#117193])
+
+[#116391]: https://github.com/home-assistant/core/pull/116391
+[#116538]: https://github.com/home-assistant/core/pull/116538
+[#116696]: https://github.com/home-assistant/core/pull/116696
+[#116937]: https://github.com/home-assistant/core/pull/116937
+[#117193]: https://github.com/home-assistant/core/pull/117193
+[#117203]: https://github.com/home-assistant/core/pull/117203
+[#117209]: https://github.com/home-assistant/core/pull/117209
+[#117631]: https://github.com/home-assistant/core/pull/117631
+[#117655]: https://github.com/home-assistant/core/pull/117655
+[#117672]: https://github.com/home-assistant/core/pull/117672
+[#117682]: https://github.com/home-assistant/core/pull/117682
+[#117691]: https://github.com/home-assistant/core/pull/117691
+[#117738]: https://github.com/home-assistant/core/pull/117738
+[#117748]: https://github.com/home-assistant/core/pull/117748
+[#117751]: https://github.com/home-assistant/core/pull/117751
+[#117756]: https://github.com/home-assistant/core/pull/117756
+[#117790]: https://github.com/home-assistant/core/pull/117790
+[#117800]: https://github.com/home-assistant/core/pull/117800
+[#117841]: https://github.com/home-assistant/core/pull/117841
+[#117879]: https://github.com/home-assistant/core/pull/117879
+[#117881]: https://github.com/home-assistant/core/pull/117881
+[#117919]: https://github.com/home-assistant/core/pull/117919
+[#117945]: https://github.com/home-assistant/core/pull/117945
+[#118005]: https://github.com/home-assistant/core/pull/118005
+[#118016]: https://github.com/home-assistant/core/pull/118016
+[#118025]: https://github.com/home-assistant/core/pull/118025
+[#118038]: https://github.com/home-assistant/core/pull/118038
+[#118050]: https://github.com/home-assistant/core/pull/118050
+[@Anrijs]: https://github.com/Anrijs
+[@OnFreund]: https://github.com/OnFreund
+[@PeteRager]: https://github.com/PeteRager
+[@RicArch97]: https://github.com/RicArch97
+[@bajansen]: https://github.com/bajansen
+[@balloob]: https://github.com/balloob
+[@bdraco]: https://github.com/bdraco
+[@bouwew]: https://github.com/bouwew
+[@elupus]: https://github.com/elupus
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@marcelveldt]: https://github.com/marcelveldt
+[@mib1185]: https://github.com/mib1185
+[@puddly]: https://github.com/puddly
+[@scop]: https://github.com/scop
+[@swoga]: https://github.com/swoga
+[@thecode]: https://github.com/thecode
 
 ## Need help? Join the community!
 
@@ -400,6 +734,19 @@ sidebar, has moved to the integration page in
 
 {% enddetails %}
 
+{% details "LG Netcast" %}
+
+Turn on action for turning the TV on via a custom script
+within `configuration.yaml` has been changed to use a custom automation trigger
+`lg_netcast.turn_on` or a device trigger that can be set up from the UI.
+
+([@splinter98] - [#104913]) ([documentation](/integrations/lg_netcast))
+
+[@splinter98]: https://github.com/splinter98
+[#104913]: https://github.com/home-assistant/core/pull/104913
+
+{% enddetails %}
+
 {% details "Netatmo" %}
 
 The state of the Netatmo wind and gust direction sensor provided by
@@ -425,12 +772,12 @@ now exposes the state in lowercase.
 {% details "Recorder" %}
 
 Previously, `recorder.purge_entities` called with no arguments would purge all
-entities. This PR makes this call raise an error instead. 
+entities. This PR makes this call raise an error instead.
 
 It was too easy for users to accidentally purge their entire database using the
 old logic. Users who want to purge all entities can still use
 the `recorder.purge` service to achieve the same effect, and that service
-is more obvious in how it behaves. 
+is more obvious in how it behaves.
 
 ([@karwosts] - [#110066]) ([documentation](/integrations/recorder))
 

@@ -23,27 +23,27 @@ Home Assistant currently supports free web services some of which require regist
 
 ## State and state attributes
 
-A weather {% term entity %}'s state is used to indicate the current overall conditions, e.g. 'cloudy' or 'sunny'.
+A weather {% term entity %}'s state is used to indicate the current overall conditions, such as 'cloudy' or 'sunny'.
 
 ### Condition mapping
 
 The `weather` {% term entity %} can provide the conditions listed below as its state:
 
-- 'clear-night'
-- 'cloudy'
-- 'fog'
-- 'hail'
-- 'lightning'
-- 'lightning-rainy'
-- 'partlycloudy'
-- 'pouring'
-- 'rainy'
-- 'snowy'
-- 'snowy-rainy'
-- 'sunny'
-- 'windy'
-- 'windy-variant'
-- 'exceptional'
+- **Clear-night**: The sky is clear during the night.
+- **Cloudy**: There are many clouds in the sky.
+- **Fog**: There is a thick mist or fog reducing visibility.
+- **Hail**: Hailstones are falling.
+- **Lightning**: Lightning/thunderstorms are occurring.
+- **Lightning-rainy**: Lightning/thunderstorm is occurring along with rain.
+- **Partly cloudy**: The sky is partially covered with clouds.
+- **Pouring**: It is raining heavily.
+- **Rainy**: It is raining.
+- **Snowy**: It is snowing.
+- **Snowy-rainy**: It is snowing and raining at the same time.
+- **Sunny**: The sky is clear and the sun is shining.
+- **Windy**: It is windy.
+- **Windy-variant**: It is windy and cloudy.
+- **Exceptional**: Exceptional weather conditions are occurring.
 
 ### State attributes
 
@@ -68,17 +68,17 @@ wind_speed: 35.17
 wind_speed_unit: km/h
 ```
 
-## Service `weather.get_forecasts`
+## Action `weather.get_forecasts`
 
-This service populates [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of weather services and their associated forecasts.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `type` | no | The type of forecast, must be one of `daily`, `twice_daily`, or `hourly`. The default is `daily`. | daily
 
 ```yaml
-service: weather.get_forecasts
+action: weather.get_forecasts
 target:
   entity_id:
     - weather.tomorrow_io_home_nowcast
@@ -125,7 +125,7 @@ template:
       - platform: time_pattern
         hours: /1
     action:
-      - service: weather.get_forecasts
+      - action: weather.get_forecasts
         data:
           type: hourly
         target:
@@ -144,7 +144,7 @@ template:
 {% enddetails %}
 
 
-{% details "Example service response" %}
+{% details "Example action response" %}
 
 ```yaml
 weather.tomorrow_io_home_nowcast:

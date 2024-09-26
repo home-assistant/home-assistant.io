@@ -69,7 +69,7 @@ Before you can import new illustrations, you need to install the ESPHome add-on 
 ### Option 1: Using images from a community repository
 
 If you want new images but don't want to create your own, you can use images from the community.
-If you want to use your own images, skip this procedure and go to [Option 2: Using your own imagess](#option-2-using-your-own-illustrations) instead.
+If you want to use your own images, skip this procedure and go to [Option 2: Using your own images](#option-2-using-your-own-illustrations) instead.
 
 #### To use images from the community
 

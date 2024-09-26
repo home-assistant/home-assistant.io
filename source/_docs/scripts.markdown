@@ -2,7 +2,6 @@
 title: "Script Syntax"
 description: "Documentation for the Home Assistant Script Syntax."
 toc: true
-no_toc: true
 ---
 
 Scripts are a sequence of {% term actions %} that Home Assistant will execute. Scripts are available as an entity through the standalone [Script integration] but can also be embedded in {% term automations %} and [Alexa/Amazon Echo] configurations.
@@ -22,24 +21,24 @@ script:
     sequence:
       # This is written using the Script Syntax
       - alias: "Turn on ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
       - alias: "Notify that ceiling light is turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turned on the ceiling light!"
 ```
 
 {{ page.content | markdownify | toc_only }}
 
-## Call a service
+## Perform an action
 
-The most important one is the action to call a {% term service %}. This can be done in various ways. For all the different possibilities, have a look at the [service calls page].
+Performing an action can be done in various ways. For all the different possibilities, have a look at the [actions page].
 
 ```yaml
 - alias: "Bedroom lights on"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: group.bedroom
   data:
@@ -48,7 +47,7 @@ The most important one is the action to call a {% term service %}. This can be d
 
 ### Activate a scene
 
-Scripts may also use a shortcut syntax for activating {% term scenes %} instead of calling the `scene.turn_on` service.
+Scripts may also use a shortcut syntax for activating {% term scenes %} instead of calling the `scene.turn_on` action.
 
 ```yaml
 - scene: scene.morning_living_room
@@ -68,7 +67,7 @@ The variables {% term action %} allows you to set/override variables that will b
       - light.living_room
     brightness: 100
 - alias: "Control lights"
-  service: light.turn_on
+  action: light.turn_on
   target:
     entity_id: "{{ entities }}"
   data:
@@ -86,7 +85,7 @@ Variables can be templated.
   variables:
     blind_state_message: "The blind is {{ states('cover.blind') }}."
 - alias: "Notify about the state of the blind"
-  service: notify.mobile_app_iphone
+  action: notify.mobile_app_iphone
   data:
     message: "{{ blind_state_message }}"
 ```
@@ -116,11 +115,11 @@ sequence:
       - variables:
           people: "{{ people + 1 }}"
       # At this scope, people will now be 1 ...
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "There are {{ people }} people home" # "There are 1 people home"
   # ... but at this scope it will still be 0
-  - service: notify.notify
+  - action: notify.notify
     data:
       message: "There are {{ people }} people home" # "There are 0 people home"
 ```
@@ -131,11 +130,9 @@ sequence:
 
 While executing a script you can add a condition in the main sequence to stop further execution. When a condition does not return `true`, the script will stop executing. For documentation on the many different conditions refer to the [conditions page].
 
-<div class='note'>
-
+{% note %}
 The `condition` {% term action %} only stops executing the current sequence block. When it is used inside a [repeat](#repeat-a-group-of-actions) action, only the current iteration of the `repeat` loop will stop. When it is used inside a [choose](#choose-a-group-of-actions) action, only the {% term actions %} within that `choose` will stop.
-
-</div>
+{% endnote %}
 
 ```yaml
 # If paulus is home, continue to execute the script below these lines
@@ -186,6 +183,7 @@ Delays are useful for temporarily suspending your script and start it at a later
 ```yaml
 # Supports milliseconds, seconds, minutes, hours, days
 # Can be used in combination, at least one required
+# When using milliseconds, consider that delay as *at least* X milliseconds. It won´t be exact.
 # Waits 1 minute
 - delay:
     minutes: 1
@@ -281,11 +279,11 @@ Without `continue_on_timeout: false` the script will always continue since the d
 
 After each time a wait completes, either because the condition was met, the event happened, or the timeout expired, the variable `wait` will be created/updated to indicate the result.
 
-Variable | Description
--|-
-`wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise
-`wait.trigger` | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired
-`wait.remaining` | Timeout remaining, or `none` if a timeout was not specified
+| Variable         | Description                                                                                                                                                                                                                             |
+| ---------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `wait.completed` | Exists only after `wait_template`. `true` if the condition was met, `false` otherwise                                                                                                                                                   |
+| `wait.trigger`   | Exists only after `wait_for_trigger`. Contains information about which trigger fired. (See [Available-Trigger-Data](/docs/automation/templating/#available-trigger-data).) Will be `none` if no trigger happened before timeout expired |
+| `wait.remaining` | Timeout remaining, or `none` if a timeout was not specified                                                                                                                                                                             |
 
 This can be used to take different actions based on whether or not the condition was met, or to use more than one wait sequentially while implementing a single timeout overall.
 
@@ -298,9 +296,9 @@ This can be used to take different actions based on whether or not the condition
 - if:
     - "{{ not wait.completed }}"
   then:
-    - service: script.door_did_not_open
+    - action: script.door_did_not_open
   else:
-    - service: script.turn_on
+    - action: script.turn_on
       target:
         entity_id:
           - script.door_did_open
@@ -310,7 +308,7 @@ This can be used to take different actions based on whether or not the condition
 - wait_template: "{{ is_state('binary_sensor.door_1', 'on') }}"
   timeout: 10
   continue_on_timeout: false
-- service: switch.turn_on
+- action: switch.turn_on
   target:
     entity_id: switch.some_light
 - wait_for_trigger:
@@ -320,7 +318,7 @@ This can be used to take different actions based on whether or not the condition
       for: 2
   timeout: "{{ wait.remaining }}"
   continue_on_timeout: false
-- service: switch.turn_off
+- action: switch.turn_off
   target:
     entity_id: switch.some_light
 ```
@@ -382,7 +380,7 @@ The following {% term automation %} example shows how to capture the custom even
     - platform: event
       event_type: event_light_state_changed
   action:
-    - service: notify.notify
+    - action: notify.notify
       data:
         message: "kitchen light is turned {{ trigger.event.data.state }}"
 ```
@@ -406,7 +404,7 @@ script:
   flash_light:
     mode: restart
     sequence:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: "light.{{ light }}"
       - alias: "Cycle light 'count' times"
@@ -414,13 +412,13 @@ script:
           count: "{{ count|int * 2 - 1 }}"
           sequence:
             - delay: 2
-            - service: light.toggle
+            - action: light.toggle
               target:
                 entity_id: "light.{{ light }}"
   flash_hallway_light:
     sequence:
       - alias: "Flash hallway light 3 times"
-        service: script.flash_light
+        action: script.flash_light
         data:
           light: hallway
           count: 3
@@ -447,7 +445,7 @@ repeat:
     - "kitchen"
     - "office"
   sequence:
-    - service: light.turn_off
+    - action: light.turn_off
       target:
         entity_id: "light.{{ repeat.item }}"
 ```
@@ -467,7 +465,7 @@ repeat:
     - language: Dutch
       message: Hallo Wereld
   sequence:
-    - service: notify.phone
+    - action: notify.phone
       data:
         title: "Message in {{ repeat.item.language }}"
         message: "{{ repeat.item.message }}!"
@@ -486,7 +484,7 @@ is run. The sequence will be run _as long as_ the condition(s) evaluate to true.
 script:
   do_something:
     sequence:
-      - service: script.get_ready_for_something
+      - action: script.get_ready_for_something
       - alias: "Repeat the sequence AS LONG AS the conditions are true"
         repeat:
           while:
@@ -497,7 +495,7 @@ script:
             - condition: template
               value_template: "{{ repeat.index <= 20 }}"
           sequence:
-            - service: script.something
+            - action: script.something
 ```
 
 {% endraw %}
@@ -540,7 +538,7 @@ automation:
         repeat:
           sequence:
             # Run command that for some reason doesn't always work
-            - service: shell_command.turn_something_on
+            - action: shell_command.turn_something_on
             # Give it time to complete
             - delay:
                 milliseconds: 200
@@ -571,11 +569,11 @@ For example:
 A variable named `repeat` is defined within the repeat {% term action %} (i.e., it is available inside `sequence`, `while` & `until`.)
 It contains the following fields:
 
-field | description
--|-
-`first` | True during the first iteration of the repeat sequence
-`index` | The iteration number of the loop: 1, 2, 3, ...
-`last` | True during the last iteration of the repeat sequence, which is only valid for counted loops
+| field   | description                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------- |
+| `first` | True during the first iteration of the repeat sequence                                       |
+| `index` | The iteration number of the loop: 1, 2, 3, ...                                               |
+| `last`  | True during the last iteration of the repeat sequence, which is only valid for counted loops |
 
 ## If-then
 
@@ -592,12 +590,12 @@ script:
         state: 0
     then:
       - alias: "Then start cleaning already!"
-        service: vacuum.start
+        action: vacuum.start
         target:
           area_id: living_room
     # The `else` is fully optional and can be omitted
     else:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: "Skipped cleaning, someone is home!"
 ```
@@ -635,24 +633,24 @@ automation:
               - condition: template
                 value_template: "{{ now().hour < 9 }}"
             sequence:
-              - service: script.sim_morning
+              - action: script.sim_morning
           # ELIF day
           - conditions:
               - condition: template
                 value_template: "{{ now().hour < 18 }}"
             sequence:
-              - service: light.turn_off
+              - action: light.turn_off
                 target:
                   entity_id: light.living_room
-              - service: script.sim_day
+              - action: script.sim_day
         # ELSE night
         default:
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: light.kitchen
           - delay:
               minutes: "{{ range(1, 11)|random }}"
-          - service: light.turn_off
+          - action: light.turn_off
             target:
               entity_id: all
 ```
@@ -675,22 +673,22 @@ automation:
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'on') }}
             sequence:
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: true
           - conditions: >
               {{ trigger.to_state.state == 'Home' and
                  is_state('binary_sensor.all_clear', 'off') }}
             sequence:
-              - service: script.turn_on
+              - action: script.turn_on
                 target:
                   entity_id: script.flash_lights
-              - service: script.arrive_home
+              - action: script.arrive_home
                 data:
                   ok: false
           - conditions: "{{ trigger.to_state.state == 'Away' }}"
             sequence:
-              - service: script.left_home
+              - action: script.left_home
 ```
 
 {% endraw %}
@@ -715,7 +713,7 @@ automation:
           below: 4
       action:
         # This must always apply
-        - service: light.turn_on
+        - action: light.turn_on
           data:
             brightness: 255
             color_temp: 366
@@ -730,7 +728,7 @@ automation:
                   entity_id: binary_sensor.livingroom_tv
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -743,7 +741,7 @@ automation:
                   entity_id: binary_sensor.studio_pc
                   state: "on"
               sequence:
-                - service: light.turn_on
+                - action: light.turn_on
                   data:
                     brightness: 255
                     color_temp: 366
@@ -752,6 +750,48 @@ automation:
 ```
 
 {% endraw %}
+
+## Grouping actions
+
+The `sequence` {% term action %} allows you to group multiple {% term actions %}
+together. Each action will be executed in order, meaning the next action will
+only be executed after the previous action has been completed.
+
+Grouping actions in a sequence can be useful when you want to be able to
+collapse related groups in the user interface for organizational purposes.
+
+Combined with the [`parallel`](#parallelizing-actions) action, it can also be
+used to run multiple groups of actions in a sequence in parallel.
+
+In the example below, two separate groups of actions are executed in sequence,
+one for turning on devices, the other for sending notifications. Each group of
+actions is executed in order, this includes the actions in each group and the
+groups themselves. In total, four actions are executed, one after the other.
+
+```yaml
+automation:
+  - trigger:
+      - platform: state
+        entity_id: binary_sensor.motion
+        to: "on"
+    action:
+      - alias: "Turn on devices"
+        sequence:
+          - action: light.turn_on
+            target:
+              entity_id: light.ceiling
+          - action: siren.turn_on
+            target:
+              entity_id: siren.noise_maker
+      - alias: "Send notifications"
+        sequence:
+          - action: notify.person1
+            data:
+              message: "The motion sensor was triggered!"
+          - action: notify.person2
+            data:
+              message: "Oh oh, someone triggered the motion sensor..."
+```
 
 ## Parallelizing actions
 
@@ -773,10 +813,10 @@ automation:
         to: "on"
     action:
       - parallel:
-          - service: notify.person1
+          - action: notify.person1
             data:
               message: "These messages are sent at the same time!"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "These messages are sent at the same time!"
 ```
@@ -794,16 +834,15 @@ script:
                   - platform: state
                     entity_id: binary_sensor.motion
                     to: "on"
-              - service: notify.person1
+              - action: notify.person1
                 data:
                   message: "This message awaited the motion trigger"
-          - service: notify.person2
+          - action: notify.person2
             data:
               message: "I am sent immediately and do not await the above action!"
 ```
 
-<div class='note'>
-
+{% warning %}
 Running {% term actions %} in parallel can be helpful in many cases, but use it with
 caution and only if you need it.
 
@@ -811,8 +850,7 @@ There are some caveats (see below) when using parallel actions.
 
 While it sounds attractive to parallelize, most of the time, just the regular
 sequential {% term actions %} will work just fine.
-
-</div>
+{% endwarning %}
 
 Some of the caveats of running {% term actions %} in parallel:
 
@@ -863,8 +901,8 @@ By default, a sequence of {% term actions %} will be halted when one of the {% t
 that sequence encounters an error. The {% term automation %} or script will be halted,
 an error is logged, and the {% term automation %} or script run is marked as errored.
 
-Sometimes these errors are expected, for example, because you know the service
-you call can be problematic at times, and it doesn't matter if it fails.
+Sometimes these errors are expected, for example, because you know the action
+you perform can be problematic at times, and it doesn't matter if it fails.
 You can set `continue_on_error` for those cases on such an {% term action %}.
 
 The `continue_on_error` is available on all {% term actions %} and is set to
@@ -877,12 +915,12 @@ it encounters an error; it will continue to the next {% term action %}.
 ```yaml
 - alias: "If this one fails..."
   continue_on_error: true
-  service: notify.super_unreliable_service_provider
+  action: notify.super_unreliable_service_provider
   data:
     message: "I'm going to error out..."
 
 - alias: "This one will still run!"
-  service: persistent_notification.create
+  action: persistent_notification.create
   data:
     title: "Hi there!"
     message: "I'm fine..."
@@ -905,16 +943,35 @@ script:
       # The message will not be sent.
       - enabled: false
         alias: "Notify that the ceiling light is being turned on"
-        service: notify.notify
+        action: notify.notify
         data:
           message: "Turning on the ceiling light!"
 
       # This action will run, as it is not disabled
       - alias: "Turn on the ceiling light"
-        service: light.turn_on
+        action: light.turn_on
         target:
           entity_id: light.ceiling
 ```
+
+Actions can also be disabled based on limited templates or blueprint inputs.
+
+{% raw %}
+
+```yaml
+blueprint:
+  input:
+    input_boolean:
+      name: Boolean
+      selector: 
+        boolean:
+
+  action:
+    - delay: 0:35
+      enabled: !input input_boolean
+```
+
+{% endraw %}
 
 ## Respond to a conversation
 
@@ -949,7 +1006,7 @@ will not be used by anything.
 [Script integration]: /integrations/script/
 [automations]: /docs/automation/action/
 [Alexa/Amazon Echo]: /integrations/alexa/
-[service calls page]: /docs/scripts/service-calls/
+[actions page]: /docs/scripts/perform-actions/
 [conditions page]: /docs/scripts/conditions/
 [shorthand-template]: /docs/scripts/conditions/#template-condition-shorthand-notation
 [script variables]: /integrations/script/#configuration-variables

@@ -11,14 +11,18 @@ ha_domain: xiaomi_tv
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `xiaomi_tv` platform allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).
+The `xiaomi_tv` {% term integration %} allows you to control a [Xiaomi TV](https://www.mi.com/global/mitv3s/65flat/).
 The Xiaomi TV integration only supports Xiaomi TVs running MIUI.
 
 You need to make sure the TV is connected to the internet, and that your Home Assistant instance is on the same network.
 
-To add a TV to your installation, add the following to your `configuration.yaml` file:
+To add a TV to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -26,9 +30,9 @@ media_player:
   - platform: xiaomi_tv
 ```
 
-<div class='note warning'>
+{% important %}
 When starting or restarting Home Assistant make sure your TV is off. This is a flaw in the TV itself.
-</div>
+{% endimportant %}
 
 {% configuration %}
 host:
@@ -54,6 +58,6 @@ media_player:
     name: YOUR_TV_NAME
 ```
 
-<div class='note info'>
+{% note %}
 The platform will never turn your TV off. Instead, it will be put to sleep and woken up. This can be useful, because the selected source of the TV will remain the same. It will essentially turn your TV into a dumb TV.
-</div>
+{% endnote %}

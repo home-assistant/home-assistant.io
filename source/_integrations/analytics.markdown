@@ -46,7 +46,7 @@ If you are running Home Assistant Operating System, this will also contain:
 - The board type you are using
 - The version of the Operating System
 
-{% details Example payload %}
+{% details "Example payload" %}
 
 ```json
 {
@@ -87,7 +87,7 @@ If your system includes the Supervisor, this will also contain:
   - If protection mode is enabled
   - If auto update is enabled
 
-{% details Example payload %}
+{% details "Example payload" %}
 
 ```json
 {
@@ -140,7 +140,7 @@ If your system includes the Supervisor, this will also contain:
 
 - Number of installed add-ons
 
-{% details Example payload %}
+{% details "Example payload" %}
 
 ```json
 {

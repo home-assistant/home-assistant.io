@@ -3,7 +3,7 @@ title: "Assist - custom sentences"
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
-  - docs: /docs/scripts/#respond-to-a-conversation/
+  - docs: /docs/scripts/#respond-to-a-conversation
     title: Conversation response script action
   - docs: /docs/automation/trigger/#sentence-trigger
     title: Sentence triggers

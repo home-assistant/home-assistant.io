@@ -37,16 +37,20 @@ Note that it depends on the appliance and on API permissions which of the featur
 
 1. Visit [https://developer.home-connect.com](https://developer.home-connect.com) and sign up for a developer account.
 2. Enter the email of your login for the original Home Connect App from Bosch/Siemens under "Default Home Connect User Account for Testing" in the sign up process.
-3. Under [Applications](https://developer.home-connect.com/applications), register a new App:
+3. Go to the [Applications](https://developer.home-connect.com/applications) page and select [Register Application](https://developer.home-connect.com/application/add):
 
 - Application ID: Home Assistant (or whatever name makes sense to you)
 - OAuth Flow: Authorization Code Grant Flow
 - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+- Go to `https://my.home-assistant.io/` and make sure that your Home Assistant URL is set there. For example: `http://homeassistant:8123/` or `http://homeassistant.local:8123`
+
+4. On success, you will be redirected to the **Applications** page. Select **Details** for your app. Make note of the client ID and secret - you will need it for the next step. Log out of the Home Connect developer portal.
+5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
 
 *Important*:
  - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
  - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on. 
- - After performing the steps above **log out** of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+ - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
  - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
  - All changes in the developer portal take 15 minutes before the change is implemented.
 
@@ -67,54 +71,54 @@ Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://hom
 
 The integration configuration will ask for the *Client ID* and *Client Secret* created above. See [Application Credentials](/integrations/application_credentials) for more details.
 
-## Services
+## Actions
 
-The Home Connect integration makes various services available.
-Available services: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
+The Home Connect integration makes various actions available.
+Available actions: `set_option_active`, `set_option_selected`, `pause_program`, `resume_program`, `select_program`, `start_program` and `change_setting`
 
-### Service `home_connect.set_option_active`
+### Action `home_connect.set_option_active`
 
 Sets an option for the active program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.set_option_selected`
+### Action `home_connect.set_option_selected`
 
 Sets an option for the selected program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the option. |
 | `value` | no | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.pause_program`
+### Action `home_connect.pause_program`
 
 Pauses the current running program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 
-### Service `home_connect.resume_program`
+### Action `home_connect.resume_program`
 
 Resumes a paused program.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 
-### Service `home_connect.select_program`
+### Action `home_connect.select_program`
 
 Selects a program without starting it.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
@@ -122,11 +126,11 @@ Selects a program without starting it.
 | `value` | yes | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.start_program`
+### Action `home_connect.start_program`
 
 Selects a program and starts it.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `program` | no | Program to select. |
@@ -134,11 +138,11 @@ Selects a program and starts it.
 | `value` | yes | Value of the option. |
 | `unit` | yes | Unit for the option. |
 
-### Service `home_connect.change_setting`
+### Action `home_connect.change_setting`
 
 Changes a setting.
 
-| Service data attribute    | Optional | Description                                      |
+| Data attribute    | Optional | Description                                      |
 |---------------------------|----------|--------------------------------------------------|
 | `device_id` | no | Id of a device associated with the home appliance. |
 | `key` | no | Key of the setting. |

@@ -39,11 +39,12 @@ Integrates [Sensibo](https://sensibo.com) devices into Home Assistant.
 ## Prerequisites
 
 Please click [here](https://home.sensibo.com/me/api) and register to obtain the API key.
-<div class="note">
+
+{% tip %}
 If you create the API key using a dedicated user (and not your main user),
 then in the Sensibo app log you will be able to distinguish between actions
 done in the app and actions done by Home Assistant.
-</div>
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -136,25 +137,25 @@ For climate devices, these switches are available:
 
 Support to enable/disable a timer to delay a start or stop (depending on the current state) of your device.
 
-The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` service. See [Timer](#timer).
+The switch uses a timer of 60 minutes delay. You can choose a custom delay using the custom `sensibo.enable_timer` action. See [Timer](#timer).
 
 Support to enable/disable Climate React
 
-Usage of the Climate React switch requires that the service has been configured previously in the app or by using the custom `sensibo.enable_climate_react` service. See [Climate React](#climate-react)
+Usage of the Climate React switch requires that the action has been configured previously in the app or by using the custom `sensibo.enable_climate_react` action. See [Climate React](#climate-react)
 
 For Pure devices, this integration provides support to enable/disable Pure Boost.
 
-To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` service. See [Pure Boost](#pure-boost)
+To customize the settings of Pure Boost, you can use the custom `sensibo.enable_pure_boost` action. See [Pure Boost](#pure-boost)
 
-## Custom services
+## Custom actions
 
 ### Full state
 
-You can send a full state command to Sensibo instead of single commands using the service `sensibo.full_state`.
+You can send a full state command to Sensibo instead of single commands using the `sensibo.full_state` action.
 
 All fields are required to be according to Sensibo API specifications and are case-sensitive.
 
-To see the options for each field to use this service:
+To see the options for each field to use this action:
 
 1. Switch to the relevant HVAC mode (not all HVAC modes have the same options).
 2. Retrieve the options for `fan_modes` and `swing_modes` from the climate entity's attributes.
@@ -162,29 +163,29 @@ To see the options for each field to use this service:
 
 ### Assume state
 
-For devices which are also controlled in other ways or often goes out of sync with Sensibo there is a `sensibo.assume_state` service.
+For devices which are also controlled in other ways or often goes out of sync with Sensibo there is a `sensibo.assume_state` action.
 
-With this service you can tell Sensibo if your device is currently running or not without sending a new command to you device.
+With this action you can tell Sensibo if your device is currently running or not without sending a new command to you device.
 
 ### Pure Boost
 
-You can configure your Pure Boost settings using the services `sensibo.enable_pure_boost`.
+You can configure your Pure Boost settings using the `sensibo.enable_pure_boost` action.
 
-- Enable Pure Boost will enable the service with configured settings
+- Enable Pure Boost will enable the action with configured settings
 
 Using Geo integration for Pure Boost is only possible by pre-configuration of Presence within the app.
 
 ### Timer
 
-You can enable a timer with a custom delay using the service `sensibo.enable_timer` that is provided.
+You can enable a timer with a custom delay using the `sensibo.enable_timer` action that is provided.
 
 ### Climate React
 
-You can configure your Climate React settings using the services `sensibo.enable_climate_react`.
+You can configure your Climate React settings using the `sensibo.enable_climate_react` action.
 
-- Configuring this service also turns Climate React on
+- Configuring this action also turns Climate React on
 
-When using the service, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it. From that point, you can see what the API requires and how to write from the Climate React switch attribute.
+When using the action, the state needs to be set to precisely what Sensibo API expects. The first time it's recommended to use the app to configure it. From that point, you can see what the API requires and how to write from the Climate React switch attribute.
 
 Example for low threshold state:
 
@@ -217,13 +218,13 @@ switch:
         friendly_name: "AC"
         value_template: "{{ is_state('climate.ac', 'cool') or is_state('climate.ac', 'heat') or is_state('climate.ac', 'dry') or is_state('climate.ac', 'fan_only') }}"
         turn_on:
-          service: climate.set_hvac_mode
+          action: climate.set_hvac_mode
           target:
             entity_id: climate.ac
           data:
             hvac_mode: "cool"
         turn_off:
-          service: climate.set_hvac_mode
+          action: climate.set_hvac_mode
           target:
             entity_id: climate.ac
           data:
