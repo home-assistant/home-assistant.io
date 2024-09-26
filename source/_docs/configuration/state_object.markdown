@@ -10,7 +10,7 @@ Devices are represented in Home Assistant as {% term entities %}. The state of a
 
 ## State versus state object
 
-In Home Assistant, the state is the current representation of the {% term entity %} with all its attributes at a given moment in time. This state is recorded in the _state object_. Entities constantly keep track of their state and write it into a state object, so that other entities/templates/frontend can access it. In the example&mdash;the light is on, at 50% brightness in orange&mdash;_on_ is the actual state of the light. 50% brightness and the color are entity state attributes.
+In Home Assistant, the state is the current representation of the {% term entity %} with all its attributes at a given moment in time. This state is recorded as a _state object_. Entities constantly keep track of their state and write it into a state object, so that other entities/templates/frontend can access it. In the example&mdash;the light is on, at 50% brightness in orange&mdash;_on_ is the actual state of the light. 50% brightness and the color are entity state attributes.
 
 ### About the state object
 
@@ -23,10 +23,10 @@ The `state` prefix indicates that this information is part of the state object (
 | `state.entity_id`     | Entity ID. Format: `<domain>.<object_id>`. Example: `light.kitchen`.                                                                                                                            |
 | `state.domain`        | Domain of the entity. Example: `light`.                                                                                                                                                         |
 | `state.object_id`     | Object ID of entity. Example: `kitchen`.                                                                                                                                                        |
-| `state.name`          | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen Ceiling`.                                                                                 |
-| `state.last_changed`  | Time the state changed in the state machine in UTC time. This is not updated if only state attributes change. Example: `2017-10-28 08:13:36.715874+00:00`.                                      |
-| `state.last_reported` | Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any changes to the state or state attributes. Example: `2017-10-28 08:13:36.715874+00:00`. |
-| `state.last_updated`  | Time the state or state attributes changed in the state machine in UTC time. This is not updated if neither state nor state attributes changed. Example: `2017-10-28 08:13:36.715874+00:00`.    |
+| `state.name`          | Name of the entity. Based on `friendly_name` attribute with fall back to object ID. Example: `Kitchen ceiling`.                                                                                 |
+| `state.last_changed`  | Time the state changed in the state machine in UTC time. This is not updated if only state attributes change. Example: `2013-09-17 07:32:51.715874+00:00`.                                      |
+| `state.last_reported` | Time the state was written to the state machine in UTC time. This timestamp is updated regardless of any changes to the state or state attributes. Example: `2013-09-17 07:32:51.715874+00:00`. |
+| `state.last_updated`  | Time the state or state attributes changed in the state machine in UTC time. This is not updated if neither state nor state attributes changed. Example: `2013-09-17 07:32:51.715874+00:00`.    |
 | `state.attributes`    | A dictionary with extra attributes related to the current state.                                                                                                                                |
 | `state.context`       | A dictionary with extra attributes related to the context of the state.                                                                                                                         |
 
