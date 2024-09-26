@@ -30,7 +30,11 @@
     {%- if page.ha_brand -%}
       The {{ page.title | default: page.name }} brand was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}.
     {%- else -%}
-      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }} was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}
+      The {{ page.title | default: page.name }} {{ page.ha_integration_type | default: "integration" }}
+      {%- if page.ha_integration_type == "virtual" -%}
+        integration
+      {%- endif -%}
+    was introduced in Home Assistant {{ page.ha_release | default: "unknown" }}
 
       {%- if page.ha_iot_standard or page.ha_integration_type == "entity" -%}
         .
@@ -55,9 +59,9 @@
       &nbsp;Its IoT class is <a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'>{{ page.ha_iot_class }}.</a>
     </div>
     {%- endif -%}
-  
+
   {%- if page.ha_quality_scale %}
-  <div class='section'>  
+  <div class='section'>
     {% if page.ha_quality_scale == "silver" %}🥈 This is a great integration!<br />{%- endif -%}
     {% if page.ha_quality_scale == "gold" %}🥇 This is a solid integration!<br />{%- endif -%}
     {% if page.ha_quality_scale == "platinum" %}🏆 Best of the best!<br />{%- endif -%}
@@ -65,7 +69,7 @@
     It scores {{page.ha_quality_scale}} on our <a href='/docs/quality_scale/'>quality scale</a>
   </div>
   {%- endif -%}
-  
+
   {% if page.works_with %}
     {%- for type in page.works_with -%}
       <div class="section">
@@ -94,7 +98,7 @@
                 {% assign ha_project = true %}
             {% endif %}
         {% endfor %}
-        
+
           {% if ha_project %}
           <div class="section">
             This integration is being maintained by the Home Assistant project.
