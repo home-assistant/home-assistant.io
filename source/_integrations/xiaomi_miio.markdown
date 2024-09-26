@@ -223,6 +223,7 @@ Supported devices:
 | Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
 | Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
 | Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
+| Air Purifier 3C        | zhimi.airp.mb4a         |              |
 | Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
 | Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
 | Air Purifier 4 PRO     | zhimi.airp.vb4          | AC-M15-SC    |
@@ -531,7 +532,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier 3C (zhimi.airpurifier.mb4)
+### Air Purifier 3C (zhimi.airpurifier.mb4/zhimi.airp.mb4a)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
