@@ -77,31 +77,31 @@ If you've unlocked the class system, button controls for casting player and part
 
 ### Mage
 
-- **Cast ethereal surge:** You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
-- **Cast earthquake:** Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
+- **Cast ethereal surge**: You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
+- **Cast earthquake**: Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
 - **Cast chilling frost:** With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
 
 ### Warrior
 
-- **Cast defensive stance:** You crouch low and gain a buff to constitution. (based on: unbuffed CON)
-- **Cast valorous presence:** Your boldness buffs your whole party's strength. (based on: unbuffed STR)
+- **Cast defensive stance**: You crouch low and gain a buff to constitution. (based on: unbuffed CON)
+- **Cast valorous presence**: Your boldness buffs your whole party's strength. (based on: unbuffed STR)
 - **Cast intimidating gaze:** Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
 
 ### Rogue
 
-- **Cast tools of the trade:**: Your tricky talents buff your whole party's perception. (based on: unbuffed PER)
-- **Cast stealth:** With each cast, a few of your undone dailies won't cause damage tonight. Their streaks and colors won't change. (based on: PER)
+- **Cast tools of the trade**: Your tricky talents buff your whole party's perception. (based on: unbuffed PER)
+- **Cast stealth**: With each cast, a few of your undone dailies won't cause damage tonight. Their streaks and colors won't change. (based on: PER)
 
 ### Healer
 
-- **Cast healing light:** Shining light restores your health. (based on: CON and INT)
-- **Cast searing brightness:** A burst of light makes your tasks more blue/less red. (based on: INT)
-- **Cast protective aura:** You shield your party by buffing their constitution. (based on: unbuffed CON)
-- **Cast blessing:** Your soothing spell restores your whole party's health. (based on: CON and INT)
+- **Cast healing light**: Shining light restores your health. (based on: CON and INT)
+- **Cast searing brightness**: A burst of light makes your tasks more blue/less red. (based on: INT)
+- **Cast protective aura**: You shield your party by buffing their constitution. (based on: unbuffed CON)
+- **Cast blessing**: Your soothing spell restores your whole party's health. (based on: CON and INT)
 
 ## Switch controls
 
-- **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+- **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
 ## Actions
 
