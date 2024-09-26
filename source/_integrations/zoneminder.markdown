@@ -105,7 +105,7 @@ Once loaded, the `zoneminder` platform will expose an action (`set_run_state`) t
 For example, if your ZoneMinder instance was configured with a run state called "Home", you could write an [automation](/getting-started/automation/) that changes ZoneMinder to the "Home" run state by including the following [action](/getting-started/automation-action/):
 
  ```yaml
-action:
+actions:
   action: zoneminder.set_run_state
   data:
     id: ZM_HOST

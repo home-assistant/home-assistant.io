@@ -15,7 +15,16 @@ This integration allows you to track and control various light bulbs. Read the i
 
 {% include integrations/building_block_integration.md %}
 
-### Default turn-on values
+## State and attributes of a light entity
+
+Light {% term entities %} can have the following {% term states %}: `on` or `off`. The list of available attributes depends on the {% term device %}. Refer to the integration documentation of your light.
+
+<p class='img'>
+  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with differents states: `on`, `off`, or `unavailable`'>
+  Three lights with differents states: `on`, `off`, or `unavailable`.
+</p>
+
+## Default turn-on values
 
 To set the default color, brightness and transition values when the light is turned on, create a custom `light_profiles.csv`, normally located in the default configuration folder where you find {% term "`configuration.yaml`" %}.
 
@@ -33,7 +42,7 @@ The `.default` suffix should be added to the entity identifier of each light to 
 If a light entity is in the `on` state, the default profile brightness will only be applied if it is called in the action data attribute `profile`, like any other named profile. The transition attribute will be applied for all `light.turn_on`, `light.toggle`, and `light.turn_off` actions, unless specified otherwise in the action data.
 {% endnote %}
 
-### Action `light.turn_on`
+## Action `light.turn_on`
 
 Turns one light on or multiple lights on using [groups](/integrations/group/).
 
@@ -68,13 +77,12 @@ In order to apply attributes to an entity, you will need to add `data:` to the c
 ```yaml
 # Example configuration.yaml entry
 automation:
-- id: one
-  alias: "Turn on light when motion is detected"
-  trigger:
-    - platform: state
+- alias: "Turn on light when motion is detected"
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.motion_1
       to: "on"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.living_room
@@ -84,12 +92,11 @@ automation:
 ```
 ```yaml
 # Ledlist morning on, red
-- id: llmor
-  alias: "Stair morning on"
-  trigger:
-  - at: '05:00'
-    platform: time
-  action:
+- alias: "Stair morning on"
+  triggers:
+    - trigger: time
+      at: '05:00'
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.ledliststair
@@ -101,7 +108,7 @@ automation:
 If no data is sent, and a default profile exists, the default profile will be applied.
 {% endnote %}
 
-### Action `light.turn_off`
+## Action `light.turn_off`
 
 Turns one or multiple lights off.
 
@@ -111,7 +118,7 @@ Turns one or multiple lights off.
 | `transition`           | yes      | Integer that represents the time the light should take to transition to the new state in seconds.               |
 | `flash`                | yes      | Tell light to flash, can be either value `short` or `long`.                                                     |
 
-### Action `light.toggle`
+## Action `light.toggle`
 
 Toggles the state of one or multiple lights. Takes the same arguments as the [`light.turn_on`](#action-lightturn_on) action.
 

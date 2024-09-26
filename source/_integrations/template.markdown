@@ -110,8 +110,8 @@ The state, including attributes, of trigger-based sensors and binary sensors is 
 ```yaml
 # Example configuration entry
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         # This will update every night
         hours: 0
         minutes: 0
@@ -138,7 +138,7 @@ condition:
   required: false
   type: list
 action:
-  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
+  description: Define actions to be executed when the trigger fires. Optional. Variables set by the action script are available when evaluating entity templates. This can be used to interact with anything using actions, in particular actions with [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data). [See action documentation](/docs/automation/action).
   required: false
   type: list
 sensor:
@@ -156,7 +156,7 @@ sensor:
       type: string
       default: None
     state_class:
-      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value."
+      description: "The [state_class](https://developers.home-assistant.io/docs/core/entity/sensor#available-state-classes) of the sensor. This will also display the value based on the user profile Number Format setting and influence the graphical presentation in the history visualization as a continuous value. If you desire to include the sensor in long-term statistics, include this key and assign it the appropriate value"
       required: false
       type: string
       default: None
@@ -502,7 +502,7 @@ Template entities can be triggered using any automation trigger, including webho
 ```yaml
 template:
   - trigger:
-      - platform: webhook
+      - trigger: webhook
         webhook_id: my-super-secret-webhook-id
     sensor:
       - name: "Webhook Temperature"
@@ -537,7 +537,7 @@ You can use a trigger-based template entity to convert any event or other automa
 ```yaml
 template:
   - trigger:
-      platform: event
+      trigger: event
       event_type: my_event
     binary_sensor:
       - name: Event recently fired
@@ -554,7 +554,7 @@ This example shows how to store the last valid value of a temperature sensor. It
 ```yaml
 template:
   - trigger:
-      platform: state
+      trigger: state
       entity_id: sensor.outside_temperature
     condition:
       - condition: template
@@ -753,9 +753,9 @@ The binary sensor turns on and sets the matching icon when the appropriate event
 ```yaml
 template:
   - trigger:
-      - platform: event
+      - trigger: event
         event_type: YOUR_EVENT
-      - platform: state
+      - trigger: state
         entity_id: binary_sensor.doorbell_rang
         to: "off"
     binary_sensor:
@@ -812,7 +812,7 @@ template:
 
 ### Trigger based handling of action response data
 
-This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/service-calls/#use-templates-to-handle-response-data)
+This example demonstrates how to use an `action` to call a [action with response data](/docs/scripts/perform-actions/#use-templates-to-handle-response-data)
 and use the response in a template.
 
 {% raw %}
@@ -820,7 +820,7 @@ and use the response in a template.
 ```yaml
 template:
   - trigger:
-      - platform: time_pattern
+      - trigger: time_pattern
         hours: /1
     action:
       - action: weather.get_forecasts

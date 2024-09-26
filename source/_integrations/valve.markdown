@@ -16,9 +16,21 @@ related:
     title: Dashboard
 ---
 
-The valve entity in Home Assistant provides an interface to control valves such as water, gas, or air valves.
+The **Valve** entity in Home Assistant provides an interface to control valves such as water, gas, or air valves.
 
 {% include integrations/building_block_integration.md %}
+
+## The state of a valve entity
+
+The valve {% term entity %} can have the following states:
+
+- **Open**: The valve is fully open.
+- **Opening**: The valve is in the process of opening.
+- **Closed**: The valve is fully closed.
+- **Closing**: The valve is in the process of closing.
+- **Stopped**: The valve has stopped moving before reaching a fully open or closed position.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Device class
 
@@ -45,10 +57,10 @@ Valves that allow setting a specific position may also be controlled with `valve
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: valve.close
       target:
         entity_id: valve.demo
@@ -67,10 +79,10 @@ Set the position of one or multiple valves if they support setting a specific po
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: valve.set_position
       target:
         entity_id: valve.demo

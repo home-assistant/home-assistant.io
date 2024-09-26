@@ -36,38 +36,41 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 **Require Code:** if enabled, you must enter the user code to disarm the alarm.
 
 ## Automation example
+
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "disarmed"
-    condition:
-      condition: sun
-      before: sunset
-    action:
-      action: scene.turn_on
-      target:
-        entity_id: scene.OnDisarmedDaytime
-  - alias: "Alarm: Armed Away"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "armed_away"
-    action:
-      action: scene.turn_on
-      target:
-        entity_id: scene.OnArmedAway
-  - alias: "Alarm: Arm Home Instant at Sunset"
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '0'
-    action:
-      action: totalconnect.arm_home_instant
-      target:
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.total_connect
+        to: "disarmed"
+    conditions:
+      - condition: sun
+        before: sunset
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_disarmed_day_time
+
+  - alias: "Alarm: Armed Away"
+    triggers:
+      - trigger: state
+        entity_id: alarm_control_panel.total_connect
+        to: "armed_away"
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_armed_away
+
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+        offset: 0
+    actions:
+      - action: totalconnect.arm_home_instant
+        target:
+          entity_id: alarm_control_panel.total_connect
 ```
 
 {% details "Notes for Home Assistant Core Installations" %}

@@ -86,11 +86,11 @@ Then you can use the following automation, with the entities from your system, w
 ```yaml
 automation:
   alias: "Save the video when the doorbell is pushed"
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id: binary_sensor.front_doorbell_ding
     to: "on"
-  action:
+  actions:
   - action: downloader.download_file
     data:
       url: "{{ state_attr('camera.front_door', 'video_url') }}"

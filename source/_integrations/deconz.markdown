@@ -194,26 +194,26 @@ If you have a Zigbee remote that is not yet supported you can request support fo
 automation:
   - alias: "'Toggle lamp from dimmer'"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 1002
-    action:
+    actions:
       - action: light.toggle
         target:
           entity_id: light.lamp
 
   - alias: "Increase brightness of lamp from dimmer"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 2002
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.lamp
@@ -224,13 +224,13 @@ automation:
 
   - alias: "Decrease brightness of lamp from dimmer"
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           event: 3002
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.lamp
@@ -241,13 +241,13 @@ automation:
 
   - alias: 'Turn lamp on when turning cube clockwise'
     initial_state: "on"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: remote_control_1
           gesture: 7
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.lamp
@@ -262,13 +262,13 @@ automation:
 ```yaml
 automation:
   - alias: "React to color wheel changes"
-    trigger:
-      - platform: event
+    triggers:
+      - trigger: event
         event_type: deconz_event
         event_data:
           id: tint_remote_1
           event: 6002
-    action:
+    actions:
       - action: light.turn_on
         data:
           xy_color:
@@ -287,12 +287,11 @@ Note: Requires `on: true` to change color while the Philips Hue bulb is off. If 
 ```yaml
 automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
-    mode: single
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: binary_sensor.doorbell_motion
         to: "on"
-    action:
+    actions:
       - action: deconz.configure
         data:
           entity: light.hue_lamp

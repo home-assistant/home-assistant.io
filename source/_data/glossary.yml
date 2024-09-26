@@ -155,6 +155,9 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+- term: Custom integration
+  definition: >-
+    A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
 - term: Customize
   definition: >-
     Customization allows you to overwrite the default parameters of your devices
@@ -219,7 +222,7 @@
     properties of entities are related to the state. Entities have optional
     attributes such as friendly name, unit of measurement, and an icon or
     picture that can be displayed in the frontend.
-  link: /docs/configuration/state_object/
+  link: /docs/configuration/entities_domains/
   excerpt: >
     An entity represents a sensor, actor, or function in Home Assistant.
     Entities are used to monitor physical properties or to control other
@@ -228,7 +231,7 @@
     - entities
 - term: Event
   definition: >-
-    An event is when something happens.
+    Every time something happens in Home Assistant, an event is fired. There are different types of events, such as state change events, when an action was triggered, or the time changed. All entities produce state change events. Every time a state changes, a state change event is produced. Events can be used to trigger automations or scripts. For example, you can trigger an automation when a light is turned on, then a speaker turns on in that room. Events can also be used to trigger actions in the frontend. For example, you can trigger an action when a button is pressed.
   link: /docs/configuration/events/
   aliases:
     - events
@@ -350,7 +353,7 @@
   excerpt: >
     Integrations connect and integrate Home Assistant with your devices,
     services, and more.
-  link: /integrations/
+  link: /getting-started/concepts-terminology/#integrations
   aliases:
     - integrations
 - term: Intent
@@ -489,20 +492,19 @@
     entities for organic, paper, and packaging waste. In terms of functionality,
     the information service is like a device. It is called *service* to avoid
     confusion, as it does not come with a piece of hardware.
-  link: /docs/scripts/service-calls/
+  link: /docs/scripts/perform-actions/
   aliases:
     - services
 - term: State
   definition: |-
     The state holds the information of interest of an entity. For example, if a
-    light is on or off, the current temperature, or the amount of energy used.
-    The data type of state is `string` (a textual value). Entities store 2
-    timestamps related to the state: `last_updated` and `last_changed`. Each
+    light is on or off, the current temperature, or the amount of energy used. Entities store 3
+    timestamps related to the state: `last_updated`, `last_changed`, and `last_reported`. Each
     entity has exactly one state and the state only holds one value at a time.
     However, entities can store attributes related to that state. For example,
     the state of a light is _on_, and the related state attributes could be its
-    current brightness and color values. State changes can be used as the source
-    of triggers. The current state can be used in conditions.
+    current brightness and color values. State change events can be used as triggers.
+    The current state can be used in conditions.
 
   link: /docs/configuration/state_object/
   aliases:

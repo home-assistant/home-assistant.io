@@ -15,6 +15,20 @@ The **Climate** {% term integration %} allows you to control and monitor HVAC (h
 
 {% include integrations/building_block_integration.md %}
 
+## The state of an HVAC entity
+
+An HVAC entity can have the following states, depending on the specific climate device and its capabilities.
+
+- **Off**: The device is turned off.
+- **Heat**: The device is set to heat to a target temperature.
+- **Cool**: The device is set to cool to a target temperature.
+- **Heat/Cool**: The device is set to heat/cool to a target temperature range.
+- **Auto**: The device is set to a schedule, learned behavior, AI.
+- **Dry**: The device is set to dry/humidity mode.
+- **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Actions
 
 ### Climate control actions
@@ -38,10 +52,10 @@ Turn auxiliary heater on/off for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_aux_heat
       target:
         entity_id: climate.kitchen
@@ -64,10 +78,10 @@ reflecting a situation where the climate device is set to save energy. For examp
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_preset_mode
       target:
         entity_id: climate.kitchen
@@ -92,10 +106,10 @@ Set target temperature of climate device
 ```yaml
 ### Set temperature to 24 in heat mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -107,10 +121,10 @@ automation:
 ```yaml
 ### Set temperature range to 20 to 24 in heat_cool mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
@@ -133,10 +147,10 @@ Set target humidity of climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_humidity
       target:
         entity_id: climate.kitchen
@@ -157,15 +171,15 @@ Set fan operation for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_fan_mode
       target:
         entity_id: climate.kitchen
       data:
-        fan_mode: "On Low"
+        fan_mode: "low"
 ```
 
 ### Action `climate.set_hvac_mode`
@@ -181,10 +195,10 @@ Set climate device's HVAC mode
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_hvac_mode
       target:
         entity_id: climate.kitchen
@@ -205,10 +219,10 @@ Set swing operation mode for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: climate.set_swing_mode
       target:
         entity_id: climate.kitchen

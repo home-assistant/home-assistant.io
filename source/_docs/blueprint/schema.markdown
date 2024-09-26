@@ -72,9 +72,10 @@ homeassistant:
   keys:
     min_version:
       description: >
-        Minimum required version of Home Assistant to use the blueprint. For example,
-        `2022.4.0`. It is important to set this if the blueprint uses any features
-        introduced in recent releases to head off issues.
+        Minimum required version of Home Assistant to use the blueprint in the format of
+        *major*.*minor*.*patch* (all parts are required). For example, `2022.4.0`. It is
+        important to set this if the blueprint uses any features introduced in recent
+        releases to head off issues.
       type: string
       required: false
 input:
@@ -149,12 +150,14 @@ A blueprint can have as many inputs as you like.
 ### Blueprint input sections
 
 One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
-allows an optional description, and optionally allows for collapsing those inputs. 
+allows an optional description, and optionally allows for collapsing those inputs. Note that the section only impacts how 
+inputs are displayed to the user when they fill in the blueprint. Inputs must have unique names and be referenced directly
+by their name; not by section and name.
 
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
 {% caution %}
-Input sections are a new feature in version 2024.6. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions. 
+Input sections are a new feature in version 2024.6.0. Set the `min_version` for the blueprint to at least this version if using input sections. Otherwise, the blueprint will generate errors on older versions.
 {% endcaution %}
 
 The full configuration for a section is below:
@@ -264,20 +267,20 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
+actions:
   - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
-      platform: state
-      entity_id: !input motion_entity
-      from: "on"
-      to: "off"
+      - trigger: state
+        entity_id: !input motion_entity
+        from: "on"
+        to: "off"
   - delay: !input no_motion_wait
   - action: light.turn_off
     target: !input light_target

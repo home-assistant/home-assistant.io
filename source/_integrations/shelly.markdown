@@ -199,30 +199,30 @@ You can also create automations using YAML, for example:
 
 ```yaml
 - alias: "Toggle living room light"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 1
-      click_type: single
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 1
+        click_type: single
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 2
-      click_type: long
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.lamp_living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 2
+        click_type: long
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`
@@ -316,7 +316,7 @@ shelly:
 
 ## Virtual components
 
-Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
+Shelly generation 2 devices (Pro models with firmware 1.4.0 or later) and generation 3 devices (with firmware 1.2.0 or later) allow the creation of virtual components. Virtual components are a special set of components that do not initially exist on the device and are dynamically created by the user to interact with Shelly scripts. You can add virtual components to the device configuration in the **Components** section in the device's web panel.
 
 The integration supports the following virtual components:
 

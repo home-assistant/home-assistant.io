@@ -16,11 +16,11 @@ Example of using condition:
 ```yaml
 automation:
   - alias: "Turn on office lights"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.office_motion_sensor
         to: "on"
-    condition:
+    conditions:
       - or:
         - condition: numeric_state
           entity_id: sun.sun
@@ -29,7 +29,7 @@ automation:
         - condition: numeric_state
           entity_id: sensor.office_lux_sensor
           below: 10
-    action:
+    actions:
       - action: scene.turn_on
         target:
           entity_id: scene.office_lights
@@ -44,12 +44,12 @@ The `condition` option of an automation, also accepts a single condition templat
 ```yaml
 automation:
   - alias: "Turn on office lights"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.office_motion_sensor
         to: "on"
-    condition: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
-    action:
+    conditions: "{{ state_attr('sun.sun', 'elevation') < 4 }}"
+    actions:
       - action: scene.turn_on
         target:
           entity_id: scene.office_lights

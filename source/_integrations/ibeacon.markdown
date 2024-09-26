@@ -91,23 +91,22 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 
 ```yaml
 alias: "The black trash can has left the building"
-mode: single
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.black_trash_bin_estimated_distance
     to: "unavailable"
     for:
       hours: 0
       minutes: 5
       seconds: 0
-  - platform: numeric_state
+  - trigger: numeric_state
     entity_id: sensor.black_trash_bin_estimated_distance
     for:
       hours: 0
       minutes: 5
       seconds: 0
     above: 20
-action:
+actions:
   - action: notify.notify
     data:
       message: "The black trash can has left the building"

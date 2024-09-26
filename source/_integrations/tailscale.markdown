@@ -34,11 +34,11 @@ this, please consult the [Tailscale documentation](https://tailscale.com/kb/).
 
 ## Prerequisites
 
-To use the Tailscale integration, you will need to obtain an API key,
-you can create one in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/authkeys).
+To use the Tailscale integration, you will need to obtain an API access token,
+you can create one in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/keys).
 
 Additionally, you will need to know the Tailnet name of your Tailscale network.
-You can find it in the top left corner in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/authkeys)
+You can find it in the top left corner in the [Tailscale Admin Panel](https://login.tailscale.com/admin/settings/keys)
 (beside the Tailscale logo).
 
 {% include integrations/config_flow.md %}

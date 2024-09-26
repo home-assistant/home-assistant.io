@@ -48,16 +48,16 @@ The phone number used in **target** should be registered with Facebook messenger
 # Example automation notification entry
 automation:
   - alias: "Evening Greeting"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      action: notify.facebook
-      data:
-        message: "Good Evening"
-        target:
-          - '+919413017584'
-          - '+919784516314'
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.facebook
+        data:
+          message: "Good Evening"
+          target:
+            - '+919413017584'
+            - '+919784516314'
 ```
 
 You can also send messages to users that do not have stored their phone number on Facebook, but this requires a bit more work. The Messenger platform uses page-specific user IDs instead of a global user ID. You will need to enable a webhook for the "messages" event in Facebook's developer console. Once a user writes a message to a page, that webhook will then receive the user's page specific ID as part of the webhook's payload. Below is a simple PHP script that reacts to the message "get my id" and sends a reply containing the user's ID: 

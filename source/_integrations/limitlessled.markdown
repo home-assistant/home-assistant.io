@@ -111,9 +111,9 @@ Note that the `brightness`, `color` and `temperature` attributes cannot be used 
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id:
