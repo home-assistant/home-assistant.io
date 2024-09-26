@@ -75,11 +75,11 @@ For example, the following action in an automation would send an `hls` live stre
 
 ```yaml
 actions:
-  action: camera.play_stream
-  target:
-    entity_id: camera.yourcamera
-  data:
-    media_player: media_player.chromecast
+  - action: camera.play_stream
+    target:
+      entity_id: camera.yourcamera
+    data:
+      media_player: media_player.chromecast
 ```
 
 ### Action `record`
@@ -103,11 +103,11 @@ For example, the following action in an automation would take a recording from "
 
 ```yaml
 actions:
-  action: camera.record
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
+  - action: camera.record
+    target:
+      entity_id: camera.yourcamera
+    data:
+      filename: '/tmp/{{ entity_id.name }}_{{ now().strftime("%Y%m%d-%H%M%S") }}.mp4'
 ```
 
 {% endraw %}
@@ -129,11 +129,11 @@ For example, the following action in an automation would take a snapshot from "y
 
 ```yaml
 actions:
-  action: camera.snapshot
-  target:
-    entity_id: camera.yourcamera
-  data:
-    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+  - action: camera.snapshot
+    target:
+      entity_id: camera.yourcamera
+    data:
+      filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 {% endraw %}

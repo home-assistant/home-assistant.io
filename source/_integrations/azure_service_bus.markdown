@@ -82,19 +82,19 @@ See the example below for how an automation trigger translates to a message on t
 automation:
   - alias: "Sunset Service Bus message"
     triggers:
-      trigger: sun
-      event: sunset
+      - trigger: sun
+        event: sunset
     actions:
-      action: notify.test_queue
-      data:
-        message: "Sun is going down"
-        title: "Good evening"
+      - action: notify.test_queue
         data:
-          sun_direction: "Down"
-          custom_field: 123
-          custom_object:
-            trigger_more: true
-            explain: "It's starting to get dark"
+          message: "Sun is going down"
+          title: "Good evening"
+          data:
+            sun_direction: "Down"
+            custom_field: 123
+            custom_object:
+              trigger_more: true
+              explain: "It's starting to get dark"
 ```
 
 The message that can be retrieved from a queue or topic subscription:

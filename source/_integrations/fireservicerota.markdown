@@ -118,18 +118,18 @@ These are documented below.
 automation:
   - alias: "Switch on a light when incident is received"
     triggers:
-      trigger: state
-      entity_id: sensor.incidents
+      - trigger: state
+        entity_id: sensor.incidents
     actions:
-      action: light.turn_on
-      target:
-        entity_id: light.bedroom
+      - action: light.turn_on
+        target:
+          entity_id: light.bedroom
 
   - alias: "Play TTS incident details when incident is received"
     triggers:
-      trigger: state
-      entity_id: sensor.incidents
-      attribute: message_to_speech_url
+      - trigger: state
+        entity_id: sensor.incidents
+        attribute: message_to_speech_url
     conditions:
       - condition: not
         conditions:
@@ -139,7 +139,7 @@ automation:
             state: None
     actions:
       - action: media_player.play_media
-        data_template:
+        data:
           entity_id: media_player.nest_hub_bedroom
           media_content_id: >
               {{ state_attr('sensor.incidents','message_to_speech_url') }}
@@ -147,22 +147,22 @@ automation:
 
   - alias: "Send response acknowledgement when a button is pressed"
     triggers:
-      trigger: state
-      entity_id: switch.response_button
+      - trigger: state
+        entity_id: switch.response_button
     actions:
-      action: homeassistant.turn_on
-      target:
-        entity_id: switch.incident_response
+      - action: homeassistant.turn_on
+        target:
+          entity_id: switch.incident_response
 
   - alias: "Cast FireServiceRota dashboard to Nest Hub"
-    trigger: 
-      trigger: homeassistant
-      event: start
+    triggers: 
+      - trigger: homeassistant
+        event: start
     actions:
-      action: cast.show_lovelace_view
-      data: 
-        entity_id: media_player.nest_hub_bedroom
-        view_path: fsr
+      - action: cast.show_lovelace_view
+        data: 
+          entity_id: media_player.nest_hub_bedroom
+          view_path: fsr
 ```
 
 

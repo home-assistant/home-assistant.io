@@ -58,14 +58,14 @@ Scenes can be activated using the action `scene.turn_on` (there is no 'scene.tur
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -76,21 +76,21 @@ With the `scene.apply` action you are able to apply a scene without first defini
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.apply
-    data:
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+    - action: scene.apply
+      data:
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: "HDMI 1"
 ```
 
 ## Using scene transitions
@@ -105,16 +105,16 @@ light will transition to the scene in 2.5 seconds.
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
-    data:
-      transition: 2.5
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
+      data:
+        transition: 2.5
 ```
 
 Transitions are currently only support by lights, which in their turn, have

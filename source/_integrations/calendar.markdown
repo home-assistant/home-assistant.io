@@ -98,7 +98,7 @@ This example automation consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Calendar notification
+  - alias: "Calendar notification"
     triggers:
       - trigger: calendar
         event: start
@@ -125,7 +125,7 @@ This example consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Front Light Schedule
+  - alias: "Front Light Schedule"
     triggers:
       - trigger: calendar
         event: start
@@ -141,10 +141,12 @@ automation:
           - "{{ trigger.event == 'start' }}"
         then:
           - action: light.turn_on
-            entity_id: light.front
+            target:
+              entity_id: light.front
         else:
           - action: light.turn_off
-            entity_id: light.front
+            target:
+              entity_id: light.front
 ```
 {% endraw %}
 

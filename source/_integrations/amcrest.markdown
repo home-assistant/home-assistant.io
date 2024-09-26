@@ -434,7 +434,7 @@ Using this {% term trigger %} in an {% term automation %} will allow you to dete
 
 ```yaml
 # Example automations.yaml entry
-alias: Doorbell Pressed
+alias: "Doorbell Pressed"
 description: "Trigger when Amcrest Button Press Event Fires"
 triggers:
   - trigger: event

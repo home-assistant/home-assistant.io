@@ -136,14 +136,14 @@ The following example shows the usage of the `input_select.select_option` action
 automation:
   - alias: "example automation"
     triggers:
-      trigger: event
-      event_type: MY_CUSTOM_EVENT
+      - trigger: event
+        event_type: MY_CUSTOM_EVENT
     actions:
       - action: input_select.select_option
         target:
           entity_id: input_select.who_cooks
         data:
-          option: Paulus
+          option: "Paulus"
 ```
 
 To dynamically set the `input_select` options you can call `input_select.set_options` in an automation:
@@ -153,8 +153,8 @@ To dynamically set the `input_select` options you can call `input_select.set_opt
 automation:
   - alias: "example automation"
     triggers:
-      trigger: event
-      event_type: MY_CUSTOM_EVENT
+      - trigger: event
+        event_type: MY_CUSTOM_EVENT
     actions:
       - action: input_select.set_options
         target:
@@ -186,28 +186,28 @@ input_select:
  # It sets the value selector on the GUI. This selector also had its own automation when the value is changed.
 - alias: "Set Thermostat Mode Selector"
   triggers:
-    trigger: mqtt
-    topic: "thermostatMode"
+    - trigger: mqtt
+      topic: "thermostatMode"
    # entity_id: input_select.thermostat_mode
   actions:
-    action: input_select.select_option
-    target:
-      entity_id: input_select.thermostat_mode
-    data:
-      option: "{{ trigger.payload }}"
+    - action: input_select.select_option
+      target:
+        entity_id: input_select.thermostat_mode
+      data:
+        option: "{{ trigger.payload }}"
 
  # This automation script runs when the thermostat mode selector is changed.
  # It publishes its value to the same MQTT topic it is also subscribed to.
 - alias: "Set Thermostat Mode"
   triggers:
-    trigger: state
-    entity_id: input_select.thermostat_mode
+    - trigger: state
+      entity_id: input_select.thermostat_mode
   actions:
-    action: mqtt.publish
-    data:
-      topic: "thermostatMode"
-      retain: true
-      payload: "{{ states('input_select.thermostat_mode') }}"
+    - action: mqtt.publish
+      data:
+        topic: "thermostatMode"
+        retain: true
+        payload: "{{ states('input_select.thermostat_mode') }}"
 ```
 
 {% endraw %}

@@ -83,10 +83,10 @@ helper and an automation.
 automation:
   - alias: "run_set_ac"
     triggers:
-      trigger: state
-      entity_id: input_number.ac_temperature
+      - trigger: state
+        entity_id: input_number.ac_temperature
     actions:
-      action: shell_command.set_ac_to_slider
+      - action: shell_command.set_ac_to_slider
 
 input_number:
   ac_temperature:

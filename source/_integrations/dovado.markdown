@@ -77,13 +77,13 @@ This is a notify platform and thus can be controlled by calling the notify actio
 automation:
   - alias: "The sun has set"
     triggers:
-      trigger: sun
-      event: sunset
+      - trigger: sun
+        event: sunset
     actions:
-      action: notify.dovado
-      data:
-        message: "The sun has set"
-        target: "+14151234567"
+      - action: notify.dovado
+        data:
+          message: "The sun has set"
+          target: "+14151234567"
 ```
 
 ## Sensor

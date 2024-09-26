@@ -165,7 +165,7 @@ automation:
   triggers:
     - trigger: event
       event_type: lcn_transponder
-  condition: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
+  conditions: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
   actions:
     ...
 ```

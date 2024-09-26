@@ -672,23 +672,23 @@ This trigger platform can be used to trigger automations on any Z-Wave JS value 
 ```yaml
 # Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
 triggers:
-  trigger: zwave_js.value_updated
-  # At least one `device_id` or `entity_id` must be provided
-  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-  entity_id:
-    - lock.front_lock
-    - lock.back_door
-  # `property` and `command_class` are required
-  command_class: 98 # Door Lock CC
-  property: "latchStatus"
-  # `property_key` and `endpoint` are optional
-  property_key: null
-  endpoint: 0
-  # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
-  from:
-    - "closed"
-    - "jammed"
-  to: "opened"
+  - trigger: zwave_js.value_updated
+    # At least one `device_id` or `entity_id` must be provided
+    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+    entity_id:
+      - lock.front_lock
+      - lock.back_door
+    # `property` and `command_class` are required
+    command_class: 98 # Door Lock CC
+    property: "latchStatus"
+    # `property_key` and `endpoint` are optional
+    property_key: null
+    endpoint: 0
+    # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
+    from:
+      - "closed"
+      - "jammed"
+    to: "opened"
 ```
 
 #### Available trigger data
@@ -722,21 +722,21 @@ There is strict validation in place based on all known event types, so if you co
 ```yaml
 # Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
 triggers:
-  trigger: zwave_js.event
-  # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
-  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-  entity_id:
-    - lock.front_lock
-    - lock.back_door
-  config_entry_id:
-  # `event_source` and `event` are required
-  event_source: node   # options are node, controller, and driver
-  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
-  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
-  event_data:
-    args:
-      isFinal: true
-  partial_dict_match: true  # defaults to false
+  - trigger: zwave_js.event
+    # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
+    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+    entity_id:
+      - lock.front_lock
+      - lock.back_door
+    config_entry_id:
+    # `event_source` and `event` are required
+    event_source: node   # options are node, controller, and driver
+    event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
+    # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
+    event_data:
+      args:
+        isFinal: true
+    partial_dict_match: true  # defaults to false
 ```
 
 #### Available trigger data

@@ -102,14 +102,14 @@ Scenes can be activated using the `scene.turn_on` action (there is no `scene.tur
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
 ```
 
 ## Applying a scene without defining it
@@ -120,21 +120,21 @@ With the `scene.apply` action you are able to apply a scene without first defini
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.apply
-    data:
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+    - action: scene.apply
+      data:
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: HDMI 1
 ```
 
 ## Using scene transitions
@@ -149,16 +149,16 @@ light will transition to the scene in 2.5 seconds.
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: device_tracker.sweetheart
-    from: "not_home"
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.sweetheart
+      from: "not_home"
+      to: "home"
   actions:
-    action: scene.turn_on
-    target:
-      entity_id: scene.romantic
-    data:
-      transition: 2.5
+    - action: scene.turn_on
+      target:
+        entity_id: scene.romantic
+      data:
+        transition: 2.5
 ```
 
 Transitions are currently only support by lights, which in their turn, have
@@ -186,20 +186,20 @@ This video tutorial explains how scenes work and how you can utilize scenes on t
 # Example automation using entities
 automation:
   triggers:
-    trigger: homeassistant
-    event: start
+    - trigger: homeassistant
+      event: start
   actions:
-    action: scene.create
-    data:
-      scene_id: my_scene
-      entities:
-        light.tv_back_light:
-          state: "on"
-          brightness: 100
-        light.ceiling: off
-        media_player.sony_bravia_tv:
-          state: "on"
-          source: HDMI 1
+    - action: scene.create
+      data:
+        scene_id: my_scene
+        entities:
+          light.tv_back_light:
+            state: "on"
+            brightness: 100
+          light.ceiling: off
+          media_player.sony_bravia_tv:
+            state: "on"
+            source: HDMI 1
 ```
 
 ## Deleting dynamically created scenes
@@ -214,9 +214,9 @@ If the scene was not previously created by `scene.create`, the action will fail 
 # Example automation
 automation:
   triggers:
-    trigger: state
-    entity_id: sun.sun
-    to: below_horizon
+    - trigger: state
+      entity_id: sun.sun
+      to: "below_horizon"
   actions:
     - action: scene.delete
       data:

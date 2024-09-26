@@ -20,15 +20,15 @@ Test multiple conditions in one condition statement. Passes if all embedded cond
 
 ```yaml
 conditions:
-  alias: "Paulus home AND temperature below 20"
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - condition: numeric_state
-      entity_id: "sensor.temperature"
-      below: 20
+  - alias: "Paulus home AND temperature below 20"
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: "device_tracker.paulus"
+        state: "home"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
 ```
 
 If you do not want to combine AND and OR conditions, you can list them sequentially.
@@ -52,7 +52,7 @@ The AND condition also has a shorthand form. The following configuration works t
 ```yaml
 conditions:
   alias: "Paulus home AND temperature below 20"
-  and:
+  - and:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -67,29 +67,29 @@ Test multiple conditions in one condition statement. Passes if any embedded cond
 
 ```yaml
 conditions:
-  alias: "Paulus home OR temperature below 20"
-  condition: or
-  conditions:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - condition: numeric_state
-      entity_id: "sensor.temperature"
-      below: 20
+  - alias: "Paulus home OR temperature below 20"
+    condition: or
+    conditions:
+      - condition: state
+        entity_id: "device_tracker.paulus"
+        state: "home"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
 ```
 
 The OR condition also has a shorthand form. The following configuration works the same as the one listed above:
 
 ```yaml
 conditions:
-  alias: "Paulus home OR temperature below 20"
-  or:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - condition: numeric_state
-      entity_id: "sensor.temperature"
-      below: 20
+  - alias: "Paulus home OR temperature below 20"
+    or:
+      - condition: state
+        entity_id: "device_tracker.paulus"
+        state: "home"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
 ```
 
 ### Mixed AND and OR conditions
@@ -99,26 +99,26 @@ This allows you to mix several AND and OR conditions together.
 
 ```yaml
 conditions:
-  condition: and
-  conditions:
-    - condition: state
-      entity_id: "device_tracker.paulus"
-      state: "home"
-    - condition: or
-      conditions:
-        - condition: state
-          entity_id: sensor.weather_precip
-          state: "rain"
-        - condition: numeric_state
-          entity_id: "sensor.temperature"
-          below: 20
+  - condition: and
+    conditions:
+      - condition: state
+        entity_id: "device_tracker.paulus"
+        state: "home"
+      - condition: or
+        conditions:
+          - condition: state
+            entity_id: sensor.weather_precip
+            state: "rain"
+          - condition: numeric_state
+            entity_id: "sensor.temperature"
+            below: 20
 ```
 
 Or in shorthand form:
 
 ```yaml
 conditions:
-  and:
+  - and:
     - condition: state
       entity_id: "device_tracker.paulus"
       state: "home"
@@ -137,15 +137,15 @@ Test multiple conditions in one condition statement. Passes if all embedded cond
 
 ```yaml
 conditions:
-  alias: "Paulus not home AND alarm not disarmed"
-  condition: not
-  conditions:
-    - condition: state
-      entity_id: device_tracker.paulus
-      state: "home"
-    - condition: state
-      entity_id: alarm_control_panel.home_alarm
-      state: disarmed
+  - alias: "Paulus not home AND alarm not disarmed"
+    condition: not
+    conditions:
+      - condition: state
+        entity_id: device_tracker.paulus
+        state: "home"
+      - condition: state
+        entity_id: alarm_control_panel.home_alarm
+        state: "disarmed"
 ```
 
 The NOT condition also has a shorthand form. The following configuration works the same as the one listed above:
@@ -170,11 +170,11 @@ If both `below` and `above` are specified, both tests have to pass.
 
 ```yaml
 conditions:
-  alias: "Temperature between 17 and 25 degrees"
-  condition: numeric_state
-  entity_id: sensor.temperature
-  above: 17
-  below: 25
+  - alias: "Temperature between 17 and 25 degrees"
+    condition: numeric_state
+    entity_id: sensor.temperature
+    above: 17
+    below: 25
 ```
 
 You can optionally use a `value_template` to process the value of the state before testing it.
@@ -183,12 +183,12 @@ You can optionally use a `value_template` to process the value of the state befo
 
 ```yaml
 conditions:
-  condition: numeric_state
-  entity_id: sensor.temperature
-  above: 17
-  below: 25
-  # If your sensor value needs to be adjusted
-  value_template: "{{ float(state.state) + 2 }}"
+  - condition: numeric_state
+    entity_id: sensor.temperature
+    above: 17
+    below: 25
+    # If your sensor value needs to be adjusted
+    value_template: "{{ float(state.state) + 2 }}"
 ```
 
 {% endraw %}
@@ -198,11 +198,11 @@ The condition will pass if **all** entities match the thresholds.
 
 ```yaml
 conditions:
-  condition: numeric_state
-  entity_id:
-    - sensor.kitchen_temperature
-    - sensor.living_room_temperature
-  below: 18
+  - condition: numeric_state
+    entity_id:
+      - sensor.kitchen_temperature
+      - sensor.living_room_temperature
+    below: 18
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -210,11 +210,11 @@ The condition will pass if the attribute value of the entity matches the thresho
 
 ```yaml
 conditions:
-  condition: numeric_state
-  entity_id: climate.living_room_thermostat
-  attribute: temperature
-  above: 17
-  below: 25
+  - condition: numeric_state
+    entity_id: climate.living_room_thermostat
+    attribute: temperature
+    above: 17
+    below: 25
 ```
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
@@ -223,11 +223,11 @@ options to make the condition more dynamic.
 
 ```yaml
 conditions:
-  condition: numeric_state
-  entity_id: climate.living_room_thermostat
-  attribute: temperature
-  above: input_number.temperature_threshold_low
-  below: input_number.temperature_threshold_high
+  - condition: numeric_state
+    entity_id: climate.living_room_thermostat
+    attribute: temperature
+    above: input_number.temperature_threshold_low
+    below: input_number.temperature_threshold_high
 ```
 
 ## State condition
@@ -236,15 +236,15 @@ Tests if an entity has a specified state.
 
 ```yaml
 conditions:
-  alias: "Paulus not home for an hour and a bit"
-  condition: state
-  entity_id: device_tracker.paulus
-  state: "not_home"
-  # optional: Evaluates to true only if state was this for last X time.
-  for:
-    hours: 1
-    minutes: 10
-    seconds: 5
+  - alias: "Paulus not home for an hour and a bit"
+    condition: state
+    entity_id: device_tracker.paulus
+    state: "not_home"
+    # optional: Evaluates to true only if state was this for last X time.
+    for:
+      hours: 1
+      minutes: 10
+      seconds: 5
 ```
 
 It is also possible to test the condition against multiple entities at once.
@@ -252,11 +252,11 @@ The condition will pass if **all** entities match the state.
 
 ```yaml
 conditions:
-  condition: state
-  entity_id:
-    - light.kitchen
-    - light.living_room
-  state: "on"
+  - condition: state
+    entity_id:
+      - light.kitchen
+      - light.living_room
+    state: "on"
 ```
 
 Instead of matching all, it is also possible if one of the entities matches.
@@ -264,12 +264,12 @@ In the following example the condition will pass if **any** entity matches the s
 
 ```yaml
 conditions:
-  condition: state
-  entity_id:
-    - binary_sensor.motion_sensor_left
-    - binary_sensor.motion_sensor_right
-  match: any
-  state: "on"
+  - condition: state
+    entity_id:
+      - binary_sensor.motion_sensor_left
+      - binary_sensor.motion_sensor_right
+    match: any
+    state: "on"
 ```
 
 Testing if an entity is matching a set of possible conditions;
@@ -277,11 +277,11 @@ The condition will pass if the entity matches one of the states given.
 
 ```yaml
 conditions:
-  condition: state
-  entity_id: alarm_control_panel.home
-  state:
-    - "armed_away"
-    - "armed_home"
+  - condition: state
+    entity_id: alarm_control_panel.home
+    state:
+      - "armed_away"
+      - "armed_home"
 ```
 
 Or, combine multiple entities with multiple states. In the following example,
@@ -289,13 +289,13 @@ both media players need to be either paused or playing for the condition to pass
 
 ```yaml
 conditions:
-  condition: state
-  entity_id:
-    - media_player.living_room
-    - media_player.kitchen
-  state:
-    - "playing"
-    - "paused"
+  - condition: state
+    entity_id:
+      - media_player.living_room
+      - media_player.kitchen
+    state:
+      - "playing"
+      - "paused"
 ```
 
 Alternatively, the condition can test against a state attribute.
@@ -303,10 +303,10 @@ The condition will pass if the attribute matches the given state.
 
 ```yaml
 conditions:
-  condition: state
-  entity_id: climate.living_room_thermostat
-  attribute: fan_mode
-  state: "auto"
+  - condition: state
+    entity_id: climate.living_room_thermostat
+    attribute: fan_mode
+    state: "auto"
 ```
 
 Finally, the `state` option accepts helper entities (also known as `input_*`
@@ -315,9 +315,9 @@ of the given helper entity.
 
 ```yaml
 conditions:
-  condition: state
-  entity_id: alarm_control_panel.home
-  state: input_select.guest_mode
+  - condition: state
+    entity_id: alarm_control_panel.home
+    state: input_select.guest_mode
 ```
 
 You can also use templates in the `for` option.
@@ -326,12 +326,12 @@ You can also use templates in the `for` option.
 
 ```yaml
 conditions:
-  condition: state
-  entity_id: device_tracker.paulus
-  state: "home"
-  for:
-    minutes: "{{ states('input_number.lock_min')|int }}"
-    seconds: "{{ states('input_number.lock_sec')|int }}"
+  - condition: state
+    entity_id: device_tracker.paulus
+    state: "home"
+    for:
+      minutes: "{{ states('input_number.lock_min')|int }}"
+      seconds: "{{ states('input_number.lock_sec')|int }}"
 ```
 
 {% endraw %}
@@ -346,18 +346,18 @@ The sun state can be used to test if the sun has set or risen.
 
 ```yaml
 conditions:
-  alias: "Sun up"
-  condition: state  # 'day' condition: from sunrise until sunset
-  entity_id: sun.sun
-  state: "above_horizon"
+  - alias: "Sun up"
+    condition: state  # 'day' condition: from sunrise until sunset
+    entity_id: sun.sun
+    state: "above_horizon"
 ```
 
 ```yaml
 conditions:
-  alias: "Sun down"
-  condition: state  # from sunset until sunrise
-  entity_id: sun.sun
-  state: "below_horizon"
+  - alias: "Sun down"
+    condition: state  # from sunset until sunrise
+    entity_id: sun.sun
+    state: "below_horizon"
 ```
 
 ### Sun elevation condition
@@ -371,12 +371,12 @@ For an in-depth explanation of sun elevation, see [sun elevation trigger][sun_el
 
 ```yaml
 conditions:
-  condition: and  # 'twilight' condition: dusk and dawn, in typical locations
-  conditions:
-    - condition: template
-      value_template: "{{ state_attr('sun.sun', 'elevation') < 0 }}"
-    - condition: template
-      value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
+  - condition: and  # 'twilight' condition: dusk and dawn, in typical locations
+    conditions:
+      - condition: template
+        value_template: "{{ state_attr('sun.sun', 'elevation') < 0 }}"
+      - condition: template
+        value_template: "{{ state_attr('sun.sun', 'elevation') > -6 }}"
 ```
 
 {% endraw %}
@@ -406,9 +406,9 @@ The sunset/sunrise conditions do not work in locations inside the polar circles,
 This is an example of 1 hour offset before sunset:
 ```yaml
 conditions:
-  condition: sun
-  after: sunset
-  after_offset: "-01:00:00"
+  - condition: sun
+    after: sunset
+    after_offset: "-01:00:00"
 ```
 
 This is 'when dark' - equivalent to a state condition on `sun.sun` of `below_horizon`:
@@ -441,9 +441,9 @@ The template condition tests if the [given template][template] renders a value e
 
 ```yaml
 conditions:
-  alias: "Iphone battery above 50%"
-  condition: template
-  value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
+  - alias: "Iphone battery above 50%"
+    condition: template
+    value_template: "{{ (state_attr('device_tracker.iphone', 'battery_level')|int) > 50 }}"
 ```
 
 {% endraw %}
@@ -488,12 +488,12 @@ and [`not`](#not-condition) conditions:
 
 ```yaml
 conditions:
-  condition: or
-  conditions:
-    - "{{ is_state('device_tracker.iphone', 'away') }}"
-    - condition: numeric_state
-      entity_id: "sensor.temperature"
-      below: 20
+  - condition: or
+    conditions:
+      - "{{ is_state('device_tracker.iphone', 'away') }}"
+      - condition: numeric_state
+        entity_id: "sensor.temperature"
+        below: 20
 ```
 
 {% endraw %}
@@ -540,15 +540,15 @@ The time condition can test if it is after a specified time, before a specified 
 
 ```yaml
 conditions:
-  alias: "Time 15~02"
-  condition: time
-  # At least one of the following is required.
-  after: "15:00:00"
-  before: "02:00:00"
-  weekday:
-    - mon
-    - wed
-    - fri
+  - alias: "Time 15~02"
+    condition: time
+    # At least one of the following is required.
+    after: "15:00:00"
+    before: "02:00:00"
+    weekday:
+      - mon
+      - wed
+      - fri
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -587,31 +587,31 @@ The trigger condition can test if an automation was triggered by a certain trigg
 
 ```yaml
 conditions:
-  condition: trigger
-  id: event_trigger
+  - condition: trigger
+    id: event_trigger
 ```
 
 For a trigger identified by its index, both a string and integer is allowed:
 ```yaml
 conditions:
-  condition: trigger
-  id: "0"
+  - condition: trigger
+    id: "0"
 ```
 
 ```yaml
 conditions:
-  condition: trigger
-  id: 0
+  - condition: trigger
+    id: 0
 ```
 
 It is possible to give a list of triggers:
 
 ```yaml
 conditions:
-  condition: trigger
-  id:
-    - event_1_trigger
-    - event_2_trigger
+  - condition: trigger
+    id:
+      - event_1_trigger
+      - event_2_trigger
 ```
 
 ## Zone condition
@@ -620,10 +620,10 @@ Zone conditions test if an entity is in a certain zone. For zone automation to w
 
 ```yaml
 conditions:
-  alias: "Paulus at home"
-  condition: zone
-  entity_id: device_tracker.paulus
-  zone: zone.home
+  - alias: "Paulus at home"
+    condition: zone
+    entity_id: device_tracker.paulus
+    zone: zone.home
 ```
 
 It is also possible to test the condition against multiple entities at once.
@@ -631,11 +631,11 @@ The condition will pass if all entities are in the specified zone.
 
 ```yaml
 conditions:
-  condition: zone
-  entity_id:
-    - device_tracker.frenck
-    - device_tracker.daphne
-  zone: zone.home
+  - condition: zone
+    entity_id:
+      - device_tracker.frenck
+      - device_tracker.daphne
+    zone: zone.home
 ```
 
 Testing if an entity is matching a set of possible zones;
@@ -643,11 +643,11 @@ The condition will pass if the entity is in one of the zones.
 
 ```yaml
 conditions:
-  condition: zone
-  entity_id: device_tracker.paulus
-  state:
-    - zone.home
-    - zone.work
+  - condition: zone
+    entity_id: device_tracker.paulus
+    state:
+      - zone.home
+      - zone.work
 ```
 
 Or, combine multiple entities with multiple zones. In the following example,
@@ -701,10 +701,10 @@ For example:
 ```yaml
 # This condition will always pass, as it is disabled.
 conditions:
-  enabled: false
-  condition: state
-  entity_id: sun.sun
-  state: "above_horizon"
+  - enabled: false
+    condition: state
+    entity_id: sun.sun
+    state: "above_horizon"
 ```
 
 Conditions can also be disabled based on limited templates or blueprint inputs.

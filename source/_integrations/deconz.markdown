@@ -287,7 +287,6 @@ Note: Requires `on: true` to change color while the Philips Hue bulb is off. If 
 ```yaml
 automation:
   - alias: "Flash Hue Bulb with Doorbell Motion"
-    mode: single
     triggers:
       - trigger: state
         entity_id: binary_sensor.doorbell_motion

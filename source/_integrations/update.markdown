@@ -148,13 +148,13 @@ the update for a light bulb becomes available.
 automation:
   - alias: "Send notification when update available"
     triggers:
-      trigger: state
-      entity_id: update.my_light_bulb
-      to: "on"
+      - trigger: state
+        entity_id: update.my_light_bulb
+        to: "on"
     actions:
-      alias: "Send notification to my phone about the update"
-      action: notify.iphone
-      data:
-        title: "New update available"
-        message: "New update available for my_light_bulb!"
+      - alias: "Send notification to my phone about the update"
+        action: notify.iphone
+        data:
+          title: "New update available"
+          message: "New update available for my_light_bulb!"
 ```

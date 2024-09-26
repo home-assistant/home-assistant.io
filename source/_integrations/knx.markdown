@@ -241,16 +241,14 @@ Example automation configuration
 {% raw %}
 
 ```yaml
-- alias: Single group address trigger
-  description: ''
+- alias: "Single group address trigger"
   triggers:
-  - trigger: knx.telegram
-    destination: 1/2/3
-    group_value_read: false
-    outgoing: false
+    - trigger: knx.telegram
+      destination: 1/2/3
+      group_value_read: false
+      outgoing: false
   conditions: "{{ trigger.value == 0 }}"
-  action: []
-  mode: single
+  actions: []
 ```
 
 {% endraw %}
@@ -352,7 +350,7 @@ response:
 
 ```yaml
 # Example script to send a fixed value and the state of an entity
-alias: My Script
+alias: "My Script"
 sequence:
   - action: knx.send
     data:
@@ -623,33 +621,36 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 # Example automation.yaml entry
 automation:
   - triggers:
-      trigger: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 0
-      below: 2
-    condition: 
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 0
+        below: 2
+    condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
     actions:
-      - entity_id: light.hue_color_lamp_1
-        action: light.turn_on
+      - action: light.turn_on
+        entity_id: light.hue_color_lamp_1
+
   - triggers:
-      trigger: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 1
-      below: 3
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 1
+        below: 3
     conditions:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
     actions:
-      - entity_id: light.hue_bloom_1
-        action: homeassistant.turn_on
-      - entity_id: light.hue_bloom_2
-        action: homeassistant.turn_on
+      - action: light.turn_on
+        target:
+          entity_id: 
+            - light.hue_bloom_1
+            - light.hue_bloom_2
+        
 ```
 
 {% configuration %}

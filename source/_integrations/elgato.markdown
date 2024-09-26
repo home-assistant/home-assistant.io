@@ -81,7 +81,7 @@ Example automation, in YAML format, that triggers a visual notification when
 a binary sensor (a doorbell) is triggered:
 
 ```yaml
-- alias: Visual doorbell notification example
+- alias: "Visual doorbell notification example"
   triggers:
     - trigger: state
       entity_id: binary_sensor.doorbell

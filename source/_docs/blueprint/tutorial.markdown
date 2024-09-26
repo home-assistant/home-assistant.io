@@ -45,18 +45,18 @@ The automation we're going to use in this tutorial controls a light based on a m
 
 ```yaml
 triggers:
-  trigger: state
-  entity_id: binary_sensor.motion_kitchen
+  - trigger: state
+    entity_id: binary_sensor.motion_kitchen
 
 actions:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target:
-    entity_id: light.kitchen
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target:
+      entity_id: light.kitchen
 ```
 
 {% endraw %}
@@ -92,8 +92,8 @@ Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blu
 
 ```yaml
 triggers:
-  trigger: state
-  entity_id: !input motion_sensor
+  - trigger: state
+    entity_id: !input motion_sensor
 ```
 
 For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the action can contain references to areas, devices, and/or entities, so that's what we will use.
@@ -104,13 +104,13 @@ Inputs are not limited to strings. They can contain complex objects too. So in t
 
 ```yaml
 actions:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}

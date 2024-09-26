@@ -121,8 +121,8 @@ automation:
     event_type: point_webhook_received
     event_data: {}
   conditions:
-    condition: template
-    value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
+    - condition: template
+      value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   actions:
   - action: persistent_notification.create
     data:
