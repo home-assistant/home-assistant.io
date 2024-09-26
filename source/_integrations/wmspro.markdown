@@ -39,4 +39,5 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 - The integration and library *may* already support other types of awnings with a single motor.
 
 ## Scenes
+
 - Scenes can be activated, but not changed or monitored.
