@@ -60,8 +60,7 @@ Since Motionblinds Bluetooth motors require a Bluetooth connection to control th
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update its state in Home Assistant:
 
 ```yaml
-alias: Motionblinds Bluetooth polling automation
-mode: single
+alias: "Motionblinds Bluetooth polling automation"
 triggers:
   - trigger: time_pattern
     hours: "/24"

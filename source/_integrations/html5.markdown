@@ -111,11 +111,11 @@ Example of adding a tag to your notification. This won't create new notification
       - trigger: state
         entity_id: sensor.sensor
     actions:
-      action: notify.html5
-      data:
-        message: "Last known sensor state is {{ states('sensor.sensor') }}."
+      - action: notify.html5
         data:
-          tag: "notification-about-sensor"
+          message: "Last known sensor state is {{ states('sensor.sensor') }}."
+          data:
+            tag: "notification-about-sensor"
 ```
 
 {% endraw %}
@@ -208,8 +208,8 @@ notification is received on the device.
 ```yaml
 - alias: "HTML5 push notification received and displayed on device"
   triggers:
-    trigger: event
-    event_type: html5_notification.received
+    - trigger: event
+      event_type: html5_notification.received
 ```
 
 #### clicked event
@@ -219,8 +219,8 @@ You will receive an event named `html5_notification.clicked` when the notificati
 ```yaml
 - alias: "HTML5 push notification clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.clicked
+    - trigger: event
+      event_type: html5_notification.clicked
 ```
 
 or
@@ -228,10 +228,10 @@ or
 ```yaml
 - alias: "HTML5 push notification action button clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.clicked
-    event_data:
-      action: open_door
+    - trigger: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: open_door
 ```
 
 #### closed event
@@ -241,8 +241,8 @@ You will receive an event named `html5_notification.closed` when the notificatio
 ```yaml
 - alias: "HTML5 push notification clicked"
   triggers:
-    trigger: event
-    event_type: html5_notification.closed
+    - trigger: event
+      event_type: html5_notification.closed
 ```
 
 ### Making notifications work with NGINX proxy

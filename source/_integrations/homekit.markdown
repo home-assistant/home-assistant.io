@@ -455,16 +455,16 @@ The key name will be available in the event data in the `key_name` field. Exampl
 ```yaml
 automation:
   triggers:
-    trigger: event
-    event_type: homekit_tv_remote_key_pressed
-    event_data:
-      key_name: arrow_right
+    - trigger: event
+      event_type: homekit_tv_remote_key_pressed
+      event_data:
+        key_name: arrow_right
 
   # Send the arrow right key via a broadlink IR blaster
   actions:
-    action: broadlink.send
-    host: 192.168.1.55
-    packet: XXXXXXXX
+    - action: broadlink.send
+      host: 192.168.1.55
+      packet: XXXXXXXX
 ```
 
 ## Events

@@ -82,11 +82,11 @@ script:
   trash_memo:
     alias: "Trash memo text"
     sequence:
-    - data:
+    - action: velbus.set_memo_text
+      data:
         address: 65
         memo_text: "It's trash day"
         interface: "tls://192.168.1.9:27015"
-      action: velbus.set_memo_text
 ```
 
 ### Action `velbus.clear_cache`
@@ -122,47 +122,46 @@ The actual linking can be realized by two automation rules. One rule to control 
 
 ```yaml
 # Control light living from Velbus push_button_10
-- id: 'Control_light_living_from_Velbus'
-  alias: "Control light living using Velbus push_button_10"
+- alias: "Control light living using Velbus push_button_10"
   triggers:
-  - entity_id: binary_sensor.push_button_10
-    trigger: state
-    to: "on"
-  conditions: []
+    - trigger: state
+      entity_id: binary_sensor.push_button_10
+      to: "on"
   actions:
-  - entity_id: light.living
-    action: light.toggle
+    - action: light.toggle
+      entity_id: light.living
+      
 
 # Keep status LED push_button_10 in sync to status light living
-- id: 'Update LED of push_button_10'
-  alias: "Update LED state of push_button_10"
+- alias: "Update LED state of push_button_10"
   triggers:
-  - entity_id: light.living
-    trigger: state
-    to: "on"
-  - entity_id: light.living
-    trigger: state
-    to: "off"
-  conditions: []
+    - trigger: state
+      entity_id: light.living
+      to: "on"
+    - trigger: state
+      entity_id: light.living
+      to: "off"
+  conditions:
+    - condition: or
+      conditions:
+        - condition: and
+          conditions:
+          - condition: state
+            entity_id: light.led_push_button_10
+            state: "on"
+          - condition: state
+            entity_id: light.living
+            state: "off"
+        - condition: and
+          conditions:
+            - condition: state
+              entity_id: light.led_push_button_10
+              state: "off"
+            - condition: state
+              entity_id: light.living
+              state: "on"
   actions:
-  - condition: or
-    conditions:
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.led_push_button_10
-        state: "on"
-      - condition: state
-        entity_id: light.living
-        state: "off"
-    - condition: and
-      conditions:
-      - condition: state
-        entity_id: light.led_push_button_10
-        state: "off"
-      - condition: state
-        entity_id: light.living
-        state: "on"
-  - entity_id: light.led_push_button_10
-    action: light.toggle
+    - action: light.toggle
+      entity_id: light.led_push_button_10
+      
 ```

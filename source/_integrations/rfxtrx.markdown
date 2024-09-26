@@ -330,9 +330,9 @@ automation:
         values:
           Sound: 9
     actions:
-      action: scene.turn_on
-      target:
-        entity_id: scene.welcomescene
+      - action: scene.turn_on
+        target:
+          entity_id: scene.welcomescene
 ```
 
 ## Actions
@@ -346,9 +346,9 @@ Simulate a button being pressed:
 ```yaml
 ...
 actions:
-  action: rfxtrx.send
-  data:
-    event: 0b1111e003af16aa10000060
+  - action: rfxtrx.send
+    data:
+      event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:

@@ -51,8 +51,8 @@ Sets the speed percentage for fan device.
 ```yaml
 automation:
   triggers:
-    trigger: time
-    at: "07:15:00"
+    - trigger: time
+      at: "07:15:00"
   actions:
     - action: fan.set_percentage
       target:
@@ -75,8 +75,8 @@ Sets a preset mode for the fan device. Available preset modes are defined by the
 ```yaml
 automation:
   triggers:
-    trigger: time
-    at: "07:15:00"
+    - trigger: time
+      at: "07:15:00"
   actions:
     - action: fan.set_preset_mode
       target:
@@ -99,8 +99,8 @@ Sets the rotation for fan device.
 ```yaml
 automation:
   triggers:
-    trigger: time
-    at: "07:15:00"
+    - trigger: time
+      at: "07:15:00"
   actions:
     - action: fan.set_direction
       target:
@@ -123,8 +123,8 @@ Sets the oscillation for fan device.
 ```yaml
 automation:
   triggers:
-    trigger: time
-    at: "07:15:00"
+    - trigger: time
+      at: "07:15:00"
   actions:
     - action: fan.oscillate
       target:
@@ -157,8 +157,8 @@ Turn fan device off. This is only supported if the fan device supports being tur
 ```yaml
 automation:
   triggers:
-    trigger: time
-    at: "07:15:00"
+    - trigger: time
+      at: "07:15:00"
   actions:
     - action: fan.turn_off
       target:

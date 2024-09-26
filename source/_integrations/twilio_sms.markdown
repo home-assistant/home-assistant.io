@@ -52,16 +52,16 @@ Media can be included with messages by setting the optional `media_url` variable
 automation:
   - alias: "The sun has set"
     triggers:
-      trigger: sun
-      event: sunset
+      - trigger: sun
+        event: sunset
     actions:
-      action: notify.twilio_sms
-      data:
-        message: "The sun has set"
-        target:
-          - '+14151234567'
-          - '+15105555555'
+      - action: notify.twilio_sms
         data:
-          media_url: 
-            - "https://www.home-assistant.io/images/supported_brands/home-assistant.png"
+          message: "The sun has set"
+          target:
+            - '+14151234567'
+            - '+15105555555'
+          data:
+            media_url:
+              - "https://www.home-assistant.io/images/supported_brands/home-assistant.png"
 ```

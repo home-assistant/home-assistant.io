@@ -219,10 +219,10 @@ automation 2:
     - trigger: mqtt
       topic: "/notify/+"
   actions:
-    action: >
-      notify.{{ trigger.topic.split('/')[-1] }}
-    data:
-      message: "{{ trigger.payload }}"
+    - action: >
+        notify.{{ trigger.topic.split('/')[-1] }}
+      data:
+        message: "{{ trigger.payload }}"
 
 automation 3:
   triggers:

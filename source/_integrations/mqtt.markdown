@@ -1063,14 +1063,14 @@ Use as [`script`](/integrations/script/) in automations.
 automation:
   alias: "Send me a message when I get home"
   triggers:
-    trigger: state
-    entity_id: device_tracker.me
-    to: "home"
+    - trigger: state
+      entity_id: device_tracker.me
+      to: "home"
   actions:
-    action: script.notify_mqtt
-    data:
-      target: "me"
-      message: "I'm home"
+    - action: script.notify_mqtt
+      data:
+        target: "me"
+        message: "I'm home"
 
 script:
   notify_mqtt:

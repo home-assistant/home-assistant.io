@@ -149,9 +149,9 @@ automation:
 
 template:
   - triggers:
-      alias: "Update image when a new weather image is generated"
-      trigger: event
-      event_type: new_weather_image
+      - alias: "Update image when a new weather image is generated"
+        trigger: event
+        event_type: new_weather_image
     image:
       name: "AI generated image of New York"
       url: "{{ trigger.event.data.url }}"

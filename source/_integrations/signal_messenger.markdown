@@ -81,12 +81,12 @@ A few examples on how to use this integration to send notifications from automat
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
-    ## Optional
+  - action: notify.NOTIFIER_NAME
     data:
-      text_mode: styled
+      message: "That's an example that sends a simple text message to the recipients specified in the configuration.yaml. If text mode is 'styled', you can use *italic*, **bold** or ~strikethrough~ ."
+      ## Optional
+      data:
+        text_mode: styled
 ```
 
 | Attribute   | Optional | Default |Description                                                                                                                                                                                          |
@@ -100,13 +100,13 @@ This example assumes you have an image stored in the default `www`-folder in Hom
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "Alarm in the living room!"
+  - action: notify.NOTIFIER_NAME
     data:
-      attachments:
-        - "/config/www/surveillance_camera.jpg"
-      text_mode: styled
+      message: "Alarm in the living room!"
+      data:
+        attachments:
+          - "/config/www/surveillance_camera.jpg"
+        text_mode: styled
 ```
 
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |
@@ -119,14 +119,14 @@ actions:
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    message: "Person detected on Front Camera!"
+  - action: notify.NOTIFIER_NAME
     data:
-      verify_ssl: false
-      urls:
-        - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
-      text_mode: styled
+      message: "Person detected on Front Camera!"
+      data:
+        verify_ssl: false
+        urls:
+          - "http://homeassistant.local/api/frigate/notifications/<event-id>/thumbnail.jpg"
+        text_mode: styled
 ```
 
 | Data attribute   | Optional | Default |Description                                                                                                                                                                                          |

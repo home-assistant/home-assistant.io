@@ -91,14 +91,14 @@ counter:
 automation:
   - alias: "Count warnings"
     triggers:
-      trigger: event
-      event_type: system_log_event
-      event_data:
-        level: WARNING
+      - trigger: event
+        event_type: system_log_event
+        event_data:
+          level: WARNING
     actions:
-      action: counter.increment
-      target:
-        entity_id: counter.warning_counter
+      - action: counter.increment
+        target:
+          entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages
@@ -111,16 +111,16 @@ This automation will create a persistent notification whenever an error or warni
 automation:
   - alias: "Create notifications for 'action' errors"
     triggers:
-      trigger: event
-      event_type: system_log_event
+      - trigger: event
+        event_type: system_log_event
     conditions:
-      condition: template
-      value_template: '{{ "action" in trigger.event.data.message[0] }}'
+      - condition: template
+        value_template: '{{ "action" in trigger.event.data.message[0] }}'
     actions:
-      action: persistent_notification.create
-      data:
-        title: Something bad happened
-        message: "{{ trigger.event.data.message[0] }}"
+      - action: persistent_notification.create
+        data:
+          title: "Something bad happened"
+          message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}
@@ -133,13 +133,13 @@ This automation will create a new log entry when the door is opened:
 automation:
   - alias: "Log door opened"
     triggers:
-      trigger: state
-      entity_id: binary_sensor.door
-      from: "off"
-      to: "on"
+      - trigger: state
+        entity_id: binary_sensor.door
+        from: "off"
+        to: "on"
     actions:
-      action: system_log.write
-      data:
-        message: "Door opened!"
-        level: info
+      - action: system_log.write
+        data:
+          message: "Door opened!"
+          level: info
 ```

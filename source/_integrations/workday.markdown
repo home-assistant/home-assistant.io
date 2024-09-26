@@ -84,14 +84,14 @@ Example usage for automation:
 automation:
   alias: "Turn on heater on workdays"
   triggers:
-    trigger: time
-    at: "08:00:00"
+    - trigger: time
+      at: "08:00:00"
   conditions:
-    condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: "on"
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
   actions:
-    action: switch.turn_on
-    target:
-      entity_id: switch.heater
+    - action: switch.turn_on
+      target:
+        entity_id: switch.heater
 ```

@@ -39,34 +39,36 @@ An example automation:
 
 ```yaml
 automation:
-  - alias: Notify CallerID
+  - alias: "Notify CallerID"
     triggers:
-      trigger: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
     actions:
-      action: notify.notify
-      data:
-        message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
-  - alias: Notify CallerID webui
+      - action: notify.notify
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+
+  - alias: "Notify CallerID webui"
     triggers:
-      trigger: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
     actions:
-      action: persistent_notification.create
-      data:
-        title: "Call from"
-        message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
-  - alias: Say CallerID
+      - action: persistent_notification.create
+        data:
+          title: "Call from"
+          message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
+
+  - alias: "Say CallerID"
     triggers:
-      trigger: state
-      entity_id: sensor.phone_modem
-      to: "callerid"
+      - trigger: state
+        entity_id: sensor.phone_modem
+        to: "callerid"
     actions:
-      action: tts.google_say
-      data:
-        message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
+      - action: tts.google_say
+        data:
+          message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
 ```
 
 {% endraw %}

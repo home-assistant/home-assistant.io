@@ -54,14 +54,14 @@ You can then consume that information with the following automation:
 ```yaml
 automation:
   triggers:
-    trigger: event
-    event_type: mailgun_message_received
-    event_data:
-      action: call_service
+    - trigger: event
+      event_type: mailgun_message_received
+      event_data:
+        action: call_service
   actions:
-    action: light.turn_on
-    target:
-      entity_id: light.office
+    - action: light.turn_on
+      target:
+        entity_id: light.office
 ```
 
 ## Notifications
@@ -103,15 +103,15 @@ The following automation reacts to an event by sending out an email with two att
 # Example automation using Mailgun notifications
 automation:
   triggers:
-    trigger: event
-    event_type: SPECIAL_EVENT
+    - trigger: event
+      event_type: SPECIAL_EVENT
   actions:
-    action: notify.mailgun
-    data:
-      title: "Something special has happened"
-      message: "This a test message from Home Assistant"
+    - action: notify.mailgun
       data:
-        images:
-          - /home/pi/pic_test1.png
-          - /home/pi/pic_test2.png
+        title: "Something special has happened"
+        message: "This a test message from Home Assistant"
+        data:
+          images:
+            - /home/pi/pic_test1.png
+            - /home/pi/pic_test2.png
 ```

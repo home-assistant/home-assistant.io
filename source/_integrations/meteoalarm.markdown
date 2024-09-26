@@ -92,9 +92,9 @@ Example automation
 automation:
   - alias: "Alert me about weather warnings"
     triggers:
-      trigger: state
-      entity_id: binary_sensor.meteoalarm
-      from: 'off'
+      - trigger: state
+        entity_id: binary_sensor.meteoalarm
+        from: "off"
     actions:
       - action: notify.notify
         data:

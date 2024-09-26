@@ -80,16 +80,16 @@ The name of the action is `notify.bmw_connected_drive_<your_vehicle>`.
 ```yaml
 ...
 actions:
-  action: notify.bmw_connected_drive_<your_vehicle>
-  data:
-    message: The name of the POI # this is shown on the iDrive dashboard
+  - action: notify.bmw_connected_drive_<your_vehicle>
     data:
-      latitude: 48.177024
-      longitude: 11.559107
-      street: Street name  # Optional
-      city: City name  # Optional
-      postal_code: Postal Code  # Optional
-      country: Country  # Optional
+      message: The name of the POI # this is shown on the iDrive dashboard
+      data:
+        latitude: 48.177024
+        longitude: 11.559107
+        street: Street name  # Optional
+        city: City name  # Optional
+        postal_code: Postal Code  # Optional
+        country: Country  # Optional
 ```
 
 ## Lock

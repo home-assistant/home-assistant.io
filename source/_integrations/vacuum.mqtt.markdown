@@ -280,13 +280,13 @@ Action trigger example:
       - trigger: state
         entity_id: sensor.sensor
     actions:
-      action: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`

@@ -228,7 +228,7 @@ Additional details about the values provided by the sensors can be found in Kale
 A typical automation might look like the example below, which turns up the lights when the _media_location_ sensor leaves the _content_ state.
 
 ```yaml
-- alias: kaleidescape_theater_lights_up
+- alias: "Kaleidescape theater lights up"
   triggers:
     - trigger: state
       entity_id: sensor.kaleidescape_theater_media_location

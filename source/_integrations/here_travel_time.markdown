@@ -68,8 +68,7 @@ You can also use the `homeassistant.update_entity` action to update the sensor o
 
 ```yaml
 automation:
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
   triggers:
     - trigger: time_pattern

@@ -91,7 +91,6 @@ To get the Estimated distance sensor to work, in most cases, it has to be calibr
 
 ```yaml
 alias: "The black trash can has left the building"
-mode: single
 triggers:
   - trigger: state
     entity_id: sensor.black_trash_bin_estimated_distance

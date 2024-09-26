@@ -77,7 +77,7 @@ In addition to the item count, the last added media item (movie, album, or episo
 
 Example automation to use the `last_added_item` attribute on library sensors to notify when new media has been added:
 ```yaml
-alias: Plex - New media added
+alias: "Plex - New media added"
 triggers:
   - trigger: state
     entity_id: sensor.plex_library_movies

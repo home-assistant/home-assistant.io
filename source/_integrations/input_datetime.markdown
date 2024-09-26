@@ -118,12 +118,12 @@ automation:
 # Turns on bedroom light at the time specified.
 automation:
   triggers:
-    trigger: time
-    at: input_datetime.bedroom_alarm_clock_time
+    - trigger: time
+      at: input_datetime.bedroom_alarm_clock_time
   actions:
-    action: light.turn_on
-    target:
-      entity_id: light.bedroom
+    - action: light.turn_on
+      target:
+        entity_id: light.bedroom
 ```
 
 To dynamically set the `input_datetime` you can call

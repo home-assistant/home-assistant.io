@@ -532,7 +532,6 @@ automation:
       - condition: state
         entity_id: binary_sensor.something
         state: "off"
-    mode: single
     actions:
       - alias: "Repeat the sequence UNTIL the conditions are true"
         repeat:

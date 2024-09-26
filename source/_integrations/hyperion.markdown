@@ -111,8 +111,7 @@ To start Hyperion with an effect, use the following automation:
 
 ```yaml
 automation:
-- id: one
-  alias: "Turn Hyperion effect on when light goes on"
+- alias: "Turn Hyperion effect on when light goes on"
   triggers:
     - trigger: state
       entity_id: light.hyperion
