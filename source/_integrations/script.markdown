@@ -177,15 +177,15 @@ Aside from the automation editor UI, variables can be passed to scripts within t
 # Example configuration.yaml entry
 automation:
   triggers:
-    trigger: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
+    - trigger: state
+      entity_id: light.bedroom
+      from: "off"
+      to: "on"
   actions:
-    action: script.notify_pushover
-    data:
-      title: "State change"
-      message: "The light is on!"
+    - action: script.notify_pushover
+      data:
+        title: "State change"
+        message: "The light is on!"
 ```
 {% endraw %}
 
@@ -196,18 +196,18 @@ This example shows using `script.turn_on` action:
 # Example configuration.yaml entry
 automation:
   triggers:
-    trigger: state
-    entity_id: light.bedroom
-    from: "off"
-    to: "on"
+    - trigger: state
+      entity_id: light.bedroom
+      from: "off"
+      to: "on"
   actions:
-    action: script.turn_on
-    target:
-      entity_id: script.notify_pushover
-    data:
-      variables:
-        title: "State change"
-        message: "The light is on!"
+    - action: script.turn_on
+      target:
+        entity_id: script.notify_pushover
+      data:
+        variables:
+          title: "State change"
+          message: "The light is on!"
 ```
 {% endraw %}
 

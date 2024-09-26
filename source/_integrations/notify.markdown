@@ -127,9 +127,9 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 
 ```yaml
 actions:
-  action: notify.persistent_notification
-  data:
-    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
+  - action: notify.persistent_notification
+    data:
+      message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
 {% endraw %}
@@ -138,9 +138,9 @@ actions:
 
 ```yaml
 actions:
-  action: notify.persistent_notification
-  data:
-    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
+  - action: notify.persistent_notification
+    data:
+      message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
 
 {% endraw %}

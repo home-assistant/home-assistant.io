@@ -147,11 +147,11 @@ In an [action](/getting-started/automation-action/) of your [automation setup](/
 
 ```yaml
 actions:
-  action: androidtv.adb_command
-  target:
-    entity_id: media_player.androidtv_tv_living_room
-  data:
-    command: "HOME"
+  - action: androidtv.adb_command
+    target:
+      entity_id: media_player.androidtv_tv_living_room
+    data:
+      command: "HOME"
 ```
 
 Available key commands include:

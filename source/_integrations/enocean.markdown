@@ -112,15 +112,15 @@ Sample automation to switch lights on and off:
 automation:
   - alias: "Hall light switches"
     triggers:
-      trigger: event
-      event_type: button_pressed
-      event_data:
-        id: [0xYY, 0xYY, 0xYY, 0xYY]
-        pushed: 0
+      - trigger: event
+        event_type: button_pressed
+        event_data:
+          id: [0xYY, 0xYY, 0xYY, 0xYY]
+          pushed: 0
     actions:
-      action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
-      target:
-        entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
+      - action: "{% if trigger.event.data.onoff %} light.turn_on {% else %} light.turn_off {%endif %}"
+        target:
+          entity_id: "{% if trigger.event.data.which == 1 %} light.hall_left {% else %} light.hall_right {%endif %}"
 ```
 
 {% endraw %}

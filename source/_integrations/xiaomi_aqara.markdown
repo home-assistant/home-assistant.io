@@ -164,29 +164,29 @@ This example plays the sound of a dog barking when the button is held down and s
 ```yaml
 - alias: "Let a dog bark on long press"
   triggers:
-    trigger: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: long_click_press
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: long_click_press
   actions:
-    action: xiaomi_aqara.play_ringtone
-    data:
-      gw_mac: xxxxxxxxxxxx
-      ringtone_id: 8
-      ringtone_vol: 8
+    - action: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
+        ringtone_id: 8
+        ringtone_vol: 8
 
 - alias: "Stop barking immediately on single click"
   triggers:
-    trigger: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: single
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: single
   actions:
-    action: xiaomi_aqara.stop_ringtone
-    data:
-      gw_mac: xxxxxxxxxxxx
+    - action: xiaomi_aqara.stop_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
 ```
 
 ### Double click on smart button
@@ -196,15 +196,15 @@ This example toggles the living room lamp on a double click of the button.
 ```yaml
 - alias: "Double Click to toggle living room lamp"
   triggers:
-    trigger: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: double
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: double
   actions:
-    action: light.toggle
-    target:
-      entity_id: light.living_room_lamp
+    - action: light.toggle
+      target:
+        entity_id: light.living_room_lamp
 ```
 
 ## Troubleshooting

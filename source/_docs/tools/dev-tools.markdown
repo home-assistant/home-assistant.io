@@ -105,8 +105,8 @@ If there is an automation that handles that event, it will be automatically trig
 ```yaml
 - alias: "Capture Event"
   triggers:
-    trigger: event
-    event_type: event_light_state_changed
+    - trigger: event
+      event_type: event_light_state_changed
   actions:
     - action: notify.notify
       data:

@@ -243,7 +243,6 @@ actions:
     data:
       keep_days: 5
       entity_id: sensor.power_sensor_0
-mode: single
 ```
 
 ### Action `disable`

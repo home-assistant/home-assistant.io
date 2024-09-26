@@ -177,14 +177,14 @@ To use notifications, please see the [getting started with automation page](/get
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+  - action: notify.NOTIFIER_NAME
     data:
-      inline_keyboard:
-        - 'Task 1:/command1, Task 2:/command2'
-        - 'Task 3:/command3, Task 4:/command4'
+      title: "*Send a message*"
+      message: "That's an example that _sends_ a *formatted* message with a custom inline keyboard."
+      data:
+        inline_keyboard:
+          - 'Task 1:/command1, Task 2:/command2'
+          - 'Task 3:/command3, Task 4:/command4'
 ```
 
 {% configuration %}
@@ -211,19 +211,19 @@ inline_keyboard:
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send an images
-    message: "That's an example that sends an image."
+  - action: notify.NOTIFIER_NAME
     data:
-      photo:
-        - url: http://192.168.1.28/camera.jpg
-          username: admin
-          password: secret
-        - file: /tmp/picture.jpg
-          caption: Picture Title xy
-        - url: http://somebla.ie/video.png
-          caption: i.e., for a Title
+      title: "Send an images"
+      message: "That's an example that sends an image."
+      data:
+        photo:
+          - url: http://192.168.1.28/camera.jpg
+            username: "admin"
+            password: "secret"
+          - file: /tmp/picture.jpg
+            caption: "Picture Title xy"
+          - url: http://somebla.ie/video.png
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -287,19 +287,19 @@ homeassistant:
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send a video
-    message: "That's an example that sends a video."
+  - action: notify.NOTIFIER_NAME
     data:
-      video:
-        - url: http://192.168.1.28/camera.mp4
-          username: admin
-          password: secret
-        - file: /tmp/video.mp4
-          caption: Video Title xy
-        - url: http://somebla.ie/video.mp4
-          caption: i.e., for a Title
+      title: "Send a video"
+      message: "That's an example that sends a video."
+      data:
+        video:
+          - url: http://192.168.1.28/camera.mp4
+            username: "admin"
+            password: "secret"
+          - file: /tmp/video.mp4
+            caption: "Video Title xy"
+          - url: http://somebla.ie/video.mp4
+            caption: "i.e., for a Title"
 ```
 
 {% configuration %}
@@ -348,17 +348,17 @@ inline_keyboard:
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send a document
-    message: "That's an example that sends a document and a custom keyboard."
+  - action: notify.NOTIFIER_NAME
     data:
-      document:
-        file: /tmp/whatever.odf
-        caption: Document Title xy
-      keyboard:
-        - '/command1, /command2'
-        - '/command3, /command4'
+      title: "Send a document"
+      message: "That's an example that sends a document and a custom keyboard."
+      data:
+        document:
+          file: /tmp/whatever.odf
+          caption: "Document Title xy"
+        keyboard:
+          - '/command1, /command2'
+          - '/command3, /command4'
 ```
 
 {% configuration %}
@@ -408,14 +408,14 @@ inline_keyboard:
 ...
 
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: Send location
-    message: Location updated.
+  - action: notify.NOTIFIER_NAME
     data:
-      location:
-        latitude: 32.87336
-        longitude: 117.22743
+      title: "Send location"
+      message: "Location updated."
+      data:
+        location:
+          latitude: 32.87336
+          longitude: 117.22743
 ```
 
 {% configuration %}
@@ -442,17 +442,17 @@ inline_keyboard:
 ```yaml
 ...
 actions:
-  action: notify.NOTIFIER_NAME
-  data:
-    title: "*Send a message*"
-    message: |-
-      That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
-      <a href="https://www.home-assistant.io/">HA site</a>
+  - action: notify.NOTIFIER_NAME
     data:
-      parse_mode: html
-      message_tag: "example_tag"
-      disable_notification: True
-      disable_web_page_preview: True
+      title: "*Send a message*"
+      message: |-
+        That's an example that sends a message with message_tag, disable_notification and disable_web_page_preview.
+        <a href="https://www.home-assistant.io/">HA site</a>
+      data:
+        parse_mode: html
+        message_tag: "example_tag"
+        disable_notification: True
+        disable_web_page_preview: True
 ```
 
 {% configuration %}

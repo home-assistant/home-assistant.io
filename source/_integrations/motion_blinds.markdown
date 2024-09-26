@@ -212,8 +212,7 @@ You only have to create one automation with only one Motionblinds cover as entit
 Example YAML automation for custom polling interval (every minute):
 
 ```yaml
-alias: Motionblinds polling automation
-mode: single
+alias: "Motionblinds polling automation"
 triggers:
   - trigger: time_pattern
     minutes: "/1"

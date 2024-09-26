@@ -252,17 +252,17 @@ Here's an example of how to use these events for automations:
 
 ```yaml
 automation:
-   triggers:
-     trigger: event
-     event_type: homematic.keypress
-     event_data:
-       name: "Kitchen Switch"
-       channel: 1
-       param: PRESS_SHORT
-   actions:
-     action: switch.turn_on
-     target:
-       entity_id: switch.Kitchen_Ambience
+  triggers:
+    - trigger: event
+      event_type: homematic.keypress
+      event_data:
+        name: "Kitchen Switch"
+        channel: 1
+        param: PRESS_SHORT
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.Kitchen_Ambience
 ```
 
 The channel parameter is equal to the channel of the button you are configuring the automation for. You can view the available channels in the UI you use to pair your devices.
@@ -307,11 +307,11 @@ Simulate a button being pressed:
 ```yaml
 ...
 actions:
-  action: homematic.virtualkey
-  data:
-    address: "BidCoS-RF"
-    channel: 1
-    param: PRESS_LONG
+  - action: homematic.virtualkey
+    data:
+      address: "BidCoS-RF"
+      channel: 1
+      param: PRESS_LONG
 ```
 
 Open KeyMatic:
@@ -319,11 +319,11 @@ Open KeyMatic:
 ```yaml
 ...
 actions:
-  action: homematic.virtualkey
-  data:
-    address: "LEQ1234567"
-    channel: 1
-    param: OPEN
+  - action: homematic.virtualkey
+    data:
+      address: "LEQ1234567"
+      channel: 1
+      param: OPEN
 ```
 
 Set boolean variable to true:
@@ -331,12 +331,12 @@ Set boolean variable to true:
 ```yaml
 ...
 actions:
-  action: homematic.set_variable_value
-  target:
-    entity_id: homematic.ccu2
-  data:
-    name: "Variablename"
-    value: true
+  - action: homematic.set_variable_value
+    target:
+      entity_id: homematic.ccu2
+    data:
+      name: "Variablename"
+      value: true
 ```
 
 #### Advanced examples
@@ -349,12 +349,12 @@ Manually turn on a switch actor:
 ```yaml
 ...
 actions:
-  action: homematic.set_device_value
-  data:
-    address: "LEQ1234567"
-    channel: 1
-    param: STATE
-    value: true
+  - action: homematic.set_device_value
+    data:
+      address: "LEQ1234567"
+      channel: 1
+      param: STATE
+      value: true
 ```
 
 Manually set temperature on thermostat:
@@ -362,12 +362,12 @@ Manually set temperature on thermostat:
 ```yaml
 ...
 actions:
-  action: homematic.set_device_value
-  data:
-    address: "LEQ1234567"
-    channel: 4
-    param: SET_TEMPERATURE
-    value: 23.0
+  - action: homematic.set_device_value
+    data:
+      address: "LEQ1234567"
+      channel: 4
+      param: SET_TEMPERATURE
+      value: 23.0
 ```
 
 Manually set the active profile on thermostat:
@@ -375,13 +375,13 @@ Manually set the active profile on thermostat:
 ```yaml
 ...
 actions:
-  action: homematic.set_device_value
-  data:
-    address: "LEQ1234567"
-    channel: 1
-    param: ACTIVE_PROFILE
-    value: 1
-    value_type: int
+  - action: homematic.set_device_value
+    data:
+      address: "LEQ1234567"
+      channel: 1
+      param: ACTIVE_PROFILE
+      value: 1
+      value_type: int
 ```
 
 Set the week program of a wall thermostat:
@@ -389,13 +389,13 @@ Set the week program of a wall thermostat:
 ```yaml
 ...
 actions:
-  action: homematic.put_paramset
-  data:
-    interface: wireless
-    address: "LEQ1234567"
-    paramset_key: MASTER
-    paramset:
-      WEEK_PROGRAM_POINTER: 1
+  - action: homematic.put_paramset
+    data:
+      interface: wireless
+      address: "LEQ1234567"
+      paramset_key: MASTER
+      paramset:
+        WEEK_PROGRAM_POINTER: 1
 ```
 
 Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF only):
@@ -403,14 +403,14 @@ Set the week program of a wall thermostat with explicit `rx_mode` (BidCos-RF onl
 ```yaml
 ...
 actions:
-  action: homematic.put_paramset
-  data:
-    interface: wireless
-    address: "LEQ1234567"
-    paramset_key: MASTER
-    rx_mode: WAKEUP
-    paramset:
-      WEEK_PROGRAM_POINTER: 1
+  - action: homematic.put_paramset
+    data:
+      interface: wireless
+      address: "LEQ1234567"
+      paramset_key: MASTER
+      rx_mode: WAKEUP
+      paramset:
+        WEEK_PROGRAM_POINTER: 1
 ```
 
 BidCos-RF devices have an optional parameter for put_paramset which defines the way the configuration data is sent to the device.
@@ -424,9 +424,9 @@ Manually set lock on KeyMatic devices:
 ```yaml
 ...
 actions:
-  action: lock.lock
-  target:
-    entity_id: lock.leq1234567
+  - action: lock.lock
+    target:
+      entity_id: lock.leq1234567
 ```
 
 Manually set unlock on KeyMatic devices:
@@ -434,9 +434,9 @@ Manually set unlock on KeyMatic devices:
 ```yaml
 ...
 actions:
-  action: lock.unlock
-  target:
-    entity_id: lock.leq1234567
+  - action: lock.unlock
+    target:
+      entity_id: lock.leq1234567
 ```
 
 
@@ -489,12 +489,12 @@ template:
 automation:
   - alias: "Homematic Reconnect"
     triggers:
-      trigger: state
-      entity_id: binary_sensor.homematic_is_sending_updates
-      to: "off"
+      - trigger: state
+        entity_id: binary_sensor.homematic_is_sending_updates
+        to: "off"
     actions:
       # Reconnect, if sensor has not been updated for over 10 minutes
-      action: homematic.reconnect
+      - action: homematic.reconnect
 ```
 
 {% endraw %}
@@ -535,10 +535,10 @@ automation:
      automation:
        - alias: "Homematic CCU Reboot"
          triggers:
-           trigger: state
-           entity_id: sensor.v_last_reboot
+           - trigger: state
+             entity_id: sensor.v_last_reboot
          actions:
-           action: homematic.reconnect
+           - action: homematic.reconnect
      ```
 
 ## Notifications

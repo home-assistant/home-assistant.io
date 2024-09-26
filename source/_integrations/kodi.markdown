@@ -43,8 +43,7 @@ These automations can be configured through the UI (see [device triggers](/docs/
 
 ```yaml
 automation:
-  - id: kodi_turn_on
-    alias: "Kodi: turn on"
+  - alias: "Kodi: turn on"
     triggers:
       - trigger: device
         device_id: !secret kodi_device_id
@@ -54,8 +53,7 @@ automation:
     actions:
       - action: script.kodi_turn_on
 
-  - id: kodi_turn_off
-    alias: "Kodi: turn off"
+  - alias: "Kodi: turn off"
     triggers:
       - trigger: device
         device_id: !secret kodi_device_id

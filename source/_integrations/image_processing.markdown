@@ -35,11 +35,11 @@ The `found_plate` event is triggered after OpenALPR has found a new license plat
 automation:
 - alias: "Open garage door"
   triggers:
-    trigger: event
-    event_type: image_processing.found_plate
-    event_data:
-      entity_id: openalpr.camera_garage_1
-      plate: BE2183423
+    - trigger: event
+      event_type: image_processing.found_plate
+      event_data:
+        entity_id: openalpr.camera_garage_1
+        plate: BE2183423
 ...
 ```
 
@@ -56,11 +56,11 @@ The `detect_face` event is triggered after a Face entity has found a face.
 automation:
 - alias: "Known person in front of my door"
   triggers:
-    trigger: event
-    event_type: image_processing.detect_face
-    event_data:
-      entity_id: image_processing.door
-      name: "Hans Maier"
+    - trigger: event
+      event_type: image_processing.detect_face
+      event_data:
+        entity_id: image_processing.door
+        name: "Hans Maier"
 ...
 ```
 

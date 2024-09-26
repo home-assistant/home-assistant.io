@@ -194,8 +194,8 @@ The example below filters the event trigger by `entry_id`, fetches the message a
 {% raw %}
 
 ```yaml
-alias: imap fetch and seen example
-description: Fetch and mark an incoming message as seen
+alias: "imap fetch and seen example"
+description: "Fetch and mark an incoming message as seen"
 triggers:
   - trigger: event
     event_type: imap_content
@@ -215,10 +215,8 @@ actions:
       entry: 91fadb3617c5a3ea692aeb62d92aa869
       uid: "{{ trigger.event.data['uid'] }}"
   - action: persistent_notification.create
-    metadata: {}
     data:
       message: "{{ message_text['subject'] }}"
-mode: single
 ```
 
 {% endraw %}

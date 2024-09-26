@@ -163,15 +163,15 @@ The icon can be overridden for individual notifications by providing a path to a
 automation:
   - alias: "Front door motion"
     triggers:
-      trigger: state
-      entity_id: binary_sensor.front_door_motion
-      to: "on"
+      - trigger: state
+        entity_id: binary_sensor.front_door_motion
+        to: "on"
     actions:
-      action: notify.livingroom_tv
-      data:
-        message: "Movement detected: Front Door"
+      - action: notify.livingroom_tv
         data:
-          icon: "/home/homeassistant/images/doorbell.png"
+          message: "Movement detected: Front Door"
+          data:
+            icon: "/home/homeassistant/images/doorbell.png"
 ```
 
 ## Notes

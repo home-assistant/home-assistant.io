@@ -1500,9 +1500,8 @@ Inline array:
 automation:
   - alias: "Test vacuum zone3"
     triggers:
-      - event: start
-        trigger: homeassistant
-    conditions: []
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
@@ -1521,9 +1520,8 @@ Array with inline zone:
 automation:
   - alias: "Test vacuum zone3"
     triggers:
-      - event: start
-        trigger: homeassistant
-    conditions: []
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
@@ -1543,9 +1541,8 @@ Array mode:
 automation:
   - alias: "Test vacuum zone3"
     triggers:
-      - event: start
-        trigger: homeassistant
-    conditions: []
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
@@ -1580,9 +1577,8 @@ Multiple segments:
 automation:
   - alias: "Vacuum kitchen and living room"
     triggers:
-      - event: start
-        trigger: homeassistant
-    conditions: []
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
@@ -1597,9 +1593,8 @@ Single segment:
 automation:
   - alias: "Vacuum kitchen"
     triggers:
-      - event: start
-        trigger: homeassistant
-    conditions: []
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
@@ -1614,8 +1609,8 @@ The original app for Xiaomi vacuum has a nice feature of room cleaning with repe
 automation:
   - alias: "Vacuum kitchen"
     triggers:
-      - event: start
-        trigger: homeassistant
+      - trigger: homeassistant
+        event: start
     actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:

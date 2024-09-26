@@ -57,13 +57,13 @@ zone:
 automation:
   - alias: "Bush Fire Alert"
     triggers:
-      trigger: geo_location
-      source: nsw_rural_fire_service_feed
-      zone: zone.bush_fire_alert_zone
-      event: enter
+      - trigger: geo_location
+        source: nsw_rural_fire_service_feed
+        zone: zone.bush_fire_alert_zone
+        event: enter
     conditions:
-      condition: template
-      value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
+      - condition: template
+        value_template: "{{ trigger.to_state.attributes.type == 'Bush Fire' }}"
     actions:
       - action: persistent_notification.create
         data:

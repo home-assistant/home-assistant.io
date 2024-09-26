@@ -194,9 +194,9 @@ automation:
       entity_id: alarm_control_panel.home_alarm
       state: armed_away
   actions:
-    action: alarm_control_panel.alarm_trigger
-    target:
-      entity_id: alarm_control_panel.home_alarm
+    - action: alarm_control_panel.alarm_trigger
+      target:
+        entity_id: alarm_control_panel.home_alarm
 ```
 
 Sending a notification when the alarm is triggered.

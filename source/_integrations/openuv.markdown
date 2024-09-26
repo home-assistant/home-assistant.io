@@ -102,17 +102,17 @@ horizon:
 automation:
   - alias: "Update OpenUV"
     triggers:
-      trigger: time_pattern
-      minutes: "/20"
+      - trigger: time_pattern
+        minutes: "/20"
     conditions:
-      condition: numeric_state
-      entity_id: sun.sun
-      value_template: "{{ state.attributes.elevation }}"
-      above: 10
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state.attributes.elevation }}"
+        above: 10
     actions:
-      action: homeassistant.update_entity
-      target:
-        entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
+      - action: homeassistant.update_entity
+        target:
+          entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
 
@@ -122,12 +122,12 @@ Update the protection window once a day at 12:00pm:
 automation:
   - alias: "Update OpenUV"
     triggers:
-      trigger: time
-      at: "12:00:00"
+      - trigger: time
+        at: "12:00:00"
     actions:
-      action: homeassistant.update_entity
-      target:
-        entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
+      - action: homeassistant.update_entity
+        target:
+          entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
 ```
 
 To perform an optimal amount of API calls in locations where the amount of daylight
@@ -165,12 +165,12 @@ automation:
             ) >= timedelta(hours = 0, minutes = 40)
           }}
     actions:
-      action: homeassistant.update_entity
-      target:
-        entity_id:
-          # Update both UV and protection window data:
-          - binary_sensor.LATITUDE_LONGITUDE_protection_window
-          - sensor.LATITUDE_LONGITUDE_current_uv_index
+      - action: homeassistant.update_entity
+        target:
+          entity_id:
+            # Update both UV and protection window data:
+            - binary_sensor.LATITUDE_LONGITUDE_protection_window
+            - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
 

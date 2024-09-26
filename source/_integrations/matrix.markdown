@@ -128,26 +128,27 @@ notify:
     default_room: "#hasstest:matrix.org"
 
 automation:
-  - alias: 'React to !testword'
+  - alias: "React to !testword"
     triggers:
-      trigger: event
-      event_type: matrix_command
-      event_data:
-        command: testword
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: testword
     actions:
-      action: notify.matrix_notify
-      data:
-        message: "It looks like you wrote !testword"
-  - alias: 'React to an introduction'
+      - action: notify.matrix_notify
+        data:
+          message: "It looks like you wrote !testword"
+
+  - alias: "React to an introduction"
     triggers:
-      trigger: event
-      event_type: matrix_command
-      event_data:
-        command: introduction
+      - trigger: event
+        event_type: matrix_command
+        event_data:
+          command: introduction
     actions:
-      action: notify.matrix_notify
-      data:
-        message: "Hello {{trigger.event.data.args['name']}}"
+      - action: notify.matrix_notify
+        data:
+          message: "Hello {{trigger.event.data.args['name']}}"
 ```
 
 {% endraw %}
@@ -197,12 +198,12 @@ Supported formats are: `text` (default), and `html`.
 ```yaml
 # Example of notification as HTML
 actions:
-  action: notify.matrix_notify
-  data:
-    message: >-
-      <h1>Hello, world!</h1>
+  - action: notify.matrix_notify
     data:
-      format: "html"
+      message: >-
+        <h1>Hello, world!</h1>
+      data:
+        format: "html"
 ```
 
 ### Images in notification
@@ -212,12 +213,12 @@ It is possible to send images with notifications. To do so, add a list of paths 
 ```yaml
 # Example of notification with images
 actions:
-  action: notify.matrix_notify
-  data:
-    message: "Test with images"
+  - action: notify.matrix_notify
     data:
-      images:
-        - /path/to/picture.jpg
+      message: "Test with images"
+      data:
+        images:
+          - /path/to/picture.jpg
 ```
 
 {% important %}

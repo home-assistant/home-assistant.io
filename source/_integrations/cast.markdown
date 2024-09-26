@@ -39,11 +39,11 @@ Home Assistant has its own Cast application to show the Home Assistant UI on any
 cast_downstairs_on_kitchen:
   alias: "Show Downstairs on kitchen"
   sequence:
-    - data:
+    - action: cast.show_lovelace_view
+      data:
         dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
-      action: cast.show_lovelace_view
 ```
 
 {% important %}
@@ -242,7 +242,8 @@ Optional:
 'cast_bubbleupnp_to_my_chromecast':
   alias: "Cast a video to My Chromecast using BubbleUPNP"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -252,7 +253,6 @@ Optional:
             "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             "media_type": "video/mp4"
           }'
-      action: media_player.play_media
 ```
 
 ### [NRK Radio](https://radio.nrk.no)
@@ -277,7 +277,8 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
 'cast_nrkradio_to_chromecast':
   alias: "Cast NRK Radio to Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.chromecast
       data:
         media_content_type: cast
@@ -286,7 +287,6 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
             "app_name": "nrkradio",
             "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
           }'
-      action: media_player.play_media
 ```
 
 ### [NRK TV](https://tv.nrk.no)
@@ -309,7 +309,8 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
 'cast_nrktv_to_chromecast':
   alias: "Cast NRK TV to Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.chromecast
       data:
         media_content_type: cast
@@ -318,7 +319,6 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
             "app_name": "nrktv",
             "media_id": "OUHA43000207"
           }'
-      action: media_player.play_media
 ```
 
 ### Plex
@@ -367,7 +367,8 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
 'cast_supla_to_my_chromecast':
   alias: "Cast supla to My Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -376,7 +377,6 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
             "app_name": "supla",
             "media_id": "3601824"
           }'
-      action: media_player.play_media
 ```
 
 ### YouTube
@@ -399,7 +399,8 @@ Optional:
 'cast_youtube_to_my_chromecast':
   alias: "Cast YouTube to My Chromecast"
   sequence:
-    - target:
+    - action: media_player.play_media
+      target:
         entity_id: media_player.my_chromecast
       data:
         media_content_type: cast
@@ -408,7 +409,6 @@ Optional:
             "app_name": "youtube",
             "media_id": "dQw4w9WgXcQ"
           }'
-      action: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery

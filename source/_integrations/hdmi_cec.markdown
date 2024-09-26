@@ -171,7 +171,7 @@ So an Automation action using the example above would look something like this.
 
 ```yaml
 actions:
-  action: hdmi_cec.select_device
+  - action: hdmi_cec.select_device
     data:
       device: Chromecast
 ```
@@ -184,7 +184,7 @@ An Automation action using the example above would look something like this.
 
 ```yaml
 actions:
-  action: hdmi_cec.power_on
+  - action: hdmi_cec.power_on
 ```
 
 ### Standby
@@ -195,7 +195,7 @@ An Automation action using the example above would look something like this.
 
 ```yaml
 actions:
-  action: hdmi_cec.standby
+  - action: hdmi_cec.standby
 ```
 
 ### Change volume level

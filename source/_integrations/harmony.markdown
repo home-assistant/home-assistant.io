@@ -206,26 +206,26 @@ The example below shows how to control an `input_boolean` switch using the Harmo
 automation:
   - alias: "Watch TV started from harmony hub"
     triggers:
-      trigger: state
-      entity_id: remote.family_room
+      - trigger: state
+        entity_id: remote.family_room
     conditions:
-      condition: template
-      value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
+      - condition: template
+        value_template: '{{ trigger.to_state.attributes.current_activity == "Kodi" }}'
     actions:
-      action: input_boolean.turn_on
-      target:
-        entity_id: input_boolean.notify
+      - action: input_boolean.turn_on
+        target:
+          entity_id: input_boolean.notify
   - alias: "PowerOff started from harmony hub"
     triggers:
-      trigger: state
-      entity_id: remote.family_room
+      - trigger: state
+        entity_id: remote.family_room
     conditions:
-      condition: template
-      value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
+      - condition: template
+        value_template: '{{ trigger.to_state.attributes.current_activity == "PowerOff" }}'
     actions:
-      action: input_boolean.turn_off
-      target:
-        entity_id: input_boolean.notify
+      - action: input_boolean.turn_off
+        target:
+          entity_id: input_boolean.notify
 ```
 
 {% endraw %}

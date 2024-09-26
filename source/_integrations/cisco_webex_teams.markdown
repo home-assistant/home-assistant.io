@@ -69,9 +69,9 @@ Here are the automations for the above screenshot:
     - trigger: webhook
       webhook_id: build_failed
   actions:
-    action: notify.cisco_webex_teams_notify
-    data:
-      message: "<blockquote class=danger>Build 0.89.5 compile failed."
+    - action: notify.cisco_webex_teams_notify
+      data:
+        message: "<blockquote class=danger>Build 0.89.5 compile failed."
 
 
 # Rich Text Example 2.
@@ -82,20 +82,20 @@ Here are the automations for the above screenshot:
     - trigger: webhook
       webhook_id: build_unstable
   actions:
-    action: notify.cisco_webex_teams_notify
-    data:
-      title: "<strong>Build 0.89.6 is unstable.</strong>"
-      message: "<blockquote class=warning>Version 0.89.6 failed verifications.
-      
-      <ul>
-        <li> test_osx
-        <li> test_win_lint
+    - action: notify.cisco_webex_teams_notify
+      data:
+        title: "<strong>Build 0.89.6 is unstable.</strong>"
+        message: "<blockquote class=warning>Version 0.89.6 failed verifications.
+        
+        <ul>
+          <li> test_osx
+          <li> test_win_lint
 
-        <li>... and 4 more.
-      </ul>
-      <p><@personEmail:sparkbotjeeves@sparkbot.io></p>
-      <p><small><i>View <a href='https://demo/testReport/'>Test Report</a></i></small><br></p>
-      "
+          <li>... and 4 more.
+        </ul>
+        <p><@personEmail:sparkbotjeeves@sparkbot.io></p>
+        <p><small><i>View <a href='https://demo/testReport/'>Test Report</a></i></small><br></p>
+        "
 
 # Rich Text Example 3.
 # Show a title and multi-line message with a blue banner, 
@@ -105,19 +105,19 @@ Here are the automations for the above screenshot:
     - trigger: webhook
       webhook_id: build_passed
   actions:
-    action: notify.cisco_webex_teams_notify
-    data:
-      title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"
-      message: "<blockquote class=info>Version 0.89.7 passed all verifications.
-      
-      <ul>
-        <li> test_cov
-        <li> test_osx
-        <li> test_win
-        <li> test_linux
-        <li>... and 45 more.
-      </ul>
-      "
+    - action: notify.cisco_webex_teams_notify
+      data:
+        title: "<strong>✅ Version 0.89.7 passed all tests and deployed to production!</strong>"
+        message: "<blockquote class=info>Version 0.89.7 passed all verifications.
+        
+        <ul>
+          <li> test_cov
+          <li> test_osx
+          <li> test_win
+          <li> test_linux
+          <li>... and 45 more.
+        </ul>
+        "
 ```
 
 The following is a list of the allowed html tags and attributes:

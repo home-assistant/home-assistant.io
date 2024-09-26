@@ -43,11 +43,11 @@ To use notifications, please see the [getting started with automation page](/get
 
 ```yaml
 actions:
-  action: notify.send_message
-  data:
-    entity_id: notify.tibber
-    title: Your title
-    message: This is a message for you!
+  - action: notify.send_message
+    data:
+      entity_id: notify.tibber
+      title: "Your title"
+      message: "This is a message for you!"
 ```
 
 ## Sensor
@@ -144,12 +144,12 @@ The electricity price can be used to make automations. The sensor has a `max_pri
 ```yaml
 - alias: "Electricity price"
   triggers:
-    trigger: time_pattern
-  # Matches every hour at 1 minutes past whole
-    minutes: 1
+    - trigger: time_pattern
+      # Matches every hour at 1 minutes past whole
+      minutes: 1
   conditions:
-    condition: template
-    value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
+    - condition: template
+      value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
   actions:
    - action: notify.pushbullet
      data:
@@ -157,7 +157,5 @@ The electricity price can be used to make automations. The sensor has a `max_pri
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
-
-
 
 {% endraw %}
