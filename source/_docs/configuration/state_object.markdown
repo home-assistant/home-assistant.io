@@ -10,7 +10,7 @@ Devices are represented in Home Assistant as {% term entities %}. The state of a
 
 ## State versus state object
 
-In Home Assistant, the state is the current representation of the {% term entity %} with all its attributes at a given moment in time. This state is recorded as a _state object_. Entities constantly keep track of their state and write it into a state object, so that other entities/templates/frontend can access it. In the example&mdash;the light is on, at 50% brightness in orange&mdash;_on_ is the actual state of the light. 50% brightness and the color are entity state attributes.
+In Home Assistant, the state object is the current representation of the {% term entity %} with all its attributes at a given moment in time. This state is recorded as a _state object_. Entities constantly keep track of their state and write it into a state object, so that other entities/templates/frontend can access it. In the example&mdash;the light is on, at 50% brightness in orange&mdash;_on_ is the actual state of the light. 50% brightness and the color are entity state attributes.
 
 ### About the state object
 
