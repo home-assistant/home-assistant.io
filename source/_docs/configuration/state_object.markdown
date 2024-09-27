@@ -66,9 +66,9 @@ The table lists some common state attributes that may be present, depending on t
 | `entity_picture`      | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.                           |
 | `assumed_state`       | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`. |
 | `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.                       |
-| `attribution`         | Used to specify the provider of the data. For example, "Data provided by rejseplanen.dk", "Data provided by openSenseMap" |
-| `device_class`        | Specify the type of device that an entity represents. Used to display device specific information in the UI.|
-| `supported_features`  | Lists the features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control`|
+| `attribution`         | The provider of the data. For example, "Data provided by rejseplanen.dk", "Data provided by openSenseMap" |
+| `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.|
+| `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control`|
 
 When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
