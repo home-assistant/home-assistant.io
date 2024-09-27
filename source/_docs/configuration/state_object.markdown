@@ -69,7 +69,7 @@ When an attribute contains spaces, you can retrieve it like this: `state_attr('s
 
 ## Context
 
-Context is a property used in state objects and events. It ties {% term events %} and {% term states %} together in Home Assistant. Whenever an {% term automation %} or user interaction causes a state to change, a new context is assigned in the state object. This context will be attached to all events and states that happen as result of the change.
+Context is a property used in state objects and events. It ties {% term events %} and {% term states %} together in Home Assistant. Whenever an {% term automation %} or user interaction causes a state to change, a new context is assigned in the state object. This context will be attached to all events and states that happen as a result of the change.
 
 | Field        | Description                                                                                                                                                                  |
 | ------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
