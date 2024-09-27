@@ -211,6 +211,11 @@ component_config_glob:
       type: [string, list]
       description: The list of attribute names to ignore when reporting to InfluxDB. Will be merged with the default `ignore_attributes` list when processing a state change event for a particular entity.
       required: false
+override_event_timestamp:
+  description: Use the `override_event_timestamp` attribute (RFC3339 format) as the timestamp if available; otherwise, use the event-fired timestamp. This is useful for sensors where sampling time differs from transmission time.
+  required: false
+  type: boolean
+  default: false
 {% endconfiguration %}
 
 ## Configure filter
