@@ -31,7 +31,7 @@ You are the **owner** of the Home Assistant server and you cannot login because 
      - [to access the console from Linux or macOS](https://yellow.home-assistant.io/guides/use-serial-console-linux-macos/).
    - If you are using another system, connect keyboard and monitor. The procedure might be similar the one used for Green.
    - If you are using a Home Assistant OVA (virtualization image):
-     - Access the system console by opening the terminal through your virtualization platform's interface (for example, VMware, VirtualBox). 
+     - Access the system console by opening the terminal through your virtualization platform's interface (for example, Proxmox, VMware, VirtualBox). 
      - Follow the platform-specific steps to interact with the virtual machine's console.
 3. In the terminal, enter the `auth list` command.
    - This command lists all users that are registered on your Home Assistant.
