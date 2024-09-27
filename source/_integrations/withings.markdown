@@ -30,22 +30,25 @@ The **Withings** {% term integration %} consumes data from various health produc
 
 ### Creating a Withings developer account
 
-You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+You must have a developer account to distribute the data.
 
-Create a Withings application:
+{% note %}
+  You only need one developer account. The same account and credentials are used for each Withings configuration.
+{% endnote %}
 
-1. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
-2. Select **Create an application**.
-3. Under **Application creation**, select **Public API integration**.
+1. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
+2. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+3. Select **Create an application**.
+4. Under **Application creation**, select **Public API integration**.
    - Read and accept the terms and select **Next**.
-4. Under **Information**:
+5. Under **Information**:
    - **Target environment**: *Development*
    - **Application name**: [any name]
    - **Application description**: [any description]
    - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
      - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
    - **Change logo**: Optional
-5. **Save** your changes.
+6. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.
    - Copy and store them in a save place. You will need these in the next step.
 
@@ -66,8 +69,6 @@ Withings will validate (with HTTP HEAD) these requirements each time you save yo
   - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
-
-Note: You will only need one developer account; the same account and credentials are used for each Withings configuration.
 
 {% include integrations/config_flow.md %}
 
