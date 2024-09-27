@@ -23,7 +23,12 @@ The **Withings** {% term integration %} consumes data from various health produc
 
 ## Prerequisites
 
-### Create a Withings developer account
+- Withings account
+- Withings app installed
+- Withings device setup in the app
+- [Withings developer account](#create-a-withings-developer-account) to get a *ClientID* and *Secret* to connect to be able to get the data from the Withings cloud API
+
+### Creating a Withings developer account
 
 You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
 
@@ -42,7 +47,7 @@ Create a Withings application:
    - **Change logo**: Optional
 5. **Save** your changes.
    - Once saved, the *ClientID* and *Secret* fields will be populated.
-   - You will need these in the next step.
+   - Copy and store them in a save place. You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
