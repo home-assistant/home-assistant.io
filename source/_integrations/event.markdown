@@ -125,10 +125,13 @@ This section shows a similar example to the example automation shown above in YA
    - Under **Attribute**, select **Event type**.
    - Under **State**, select the state change you want to act as trigger, for example **Pressed once**.
      - **Pressed once** is the event type. But the state of this event is the timestamp of when the button was pressed. This is why we automate on the state change so that it is triggered every time the button is pressed.
-   - If you like, repeat these steps for each event type you want to monitor. For example, if you want to monitor on **Pressed twice** or **Held down** as well.
      ![Condition - button pressed](/images/integrations/event/matter_condition_button_pressed.png)
 5. Define what should happen when your automation is triggered (when the button is pressed, for example).
    - Select **Add action** and define your action.
+6. Repeat these steps for each event type you want to monitor.
+   - In this example, we want to do something else when the button was pressed twice.
+     ![Condition - add another option when the button is pressed twice](/images/integrations/event/matter_button_option_2.png)
+7. **Save** the automation.
 
 ## Device class
 
