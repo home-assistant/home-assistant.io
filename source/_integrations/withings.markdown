@@ -21,23 +21,28 @@ ha_quality_scale: platinum
 
 The **Withings** {% term integration %} consumes data from various health products produced by [Withings](https://www.withings.com).
 
-## Create a Withings developer account
+## Prerequisites
+
+### Create a Withings developer account
 
 You must have a developer account to distribute the data. [Create a free developer account](https://account.withings.com/partner/add_oauth2).
 
-Create an application:
-1. Ensure you have selected *Withings public cloud* (instead of Withings US medical cloud)
-2. Create an application
-3. Application creation: Public API integration
-  - Read and accept the terms if you're happy by pressing **Next**
-4. Information:
-  - Target environment: *Development*
-  - Application name: [any name]
-  - Application description: [any description]
-  - Registered URLs: `https://my.home-assistant.io/redirect/oauth`
-  - Change logo: Optional.
+Create a Withings application:
 
-Once saved, the *ClientID* and *Secret* fields will be populated. You will need these in the next step.
+1. Make sure to select **Withings public cloud** (and not Withings US medical cloud or similar).
+2. Select **Create an application**.
+3. Under **Application creation**, select **Public API integration**.
+   - Read and accept the terms and select **Next**.
+4. Under **Information**:
+   - **Target environment**: *Development*
+   - **Application name**: [any name]
+   - **Application description**: [any description]
+   - **Registered URLs**: `https://my.home-assistant.io/redirect/oauth`
+     - Do not test this URL. It won't work at this stage. It will be setup once you install the integration in Home Assistant.
+   - **Change logo**: Optional
+5. **Save** your changes.
+   - Once saved, the *ClientID* and *Secret* fields will be populated.
+   - You will need these in the next step.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -51,9 +56,9 @@ authentication process.
 Withings will validate (with HTTP HEAD) these requirements each time you save your Withings developer account. When these checks fail, the Withings UI is not always clear about why.
 
 - Home Assistant (For create/update of Withings developer account):
-    - Publicly accessible.
-    - Running on a fully qualified domain name.
-    - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
+  - Publicly accessible.
+  - Running on a fully qualified domain name.
+  - Running over HTTPS signed by a globally recognized Certificate Authority. Let's Encrypt will work.
 
 {% enddetails %}
 
