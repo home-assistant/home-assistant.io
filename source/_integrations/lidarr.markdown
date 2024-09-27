@@ -20,10 +20,16 @@ The Lidarr integration pulls data from a specified [Lidarr](https://lidarr.audio
 
 To retrieve your API key, open your Lidarr web interface and navigate to Settings, then General tab. Your Lidarr API Key will be listed on this page under the Security section.
 
+## Binary Sensors
+
+The Lidarr integration will add the following sensors:
+
+- **Health**: Shows if the Lidarr instance is healthy. This is determined to have a problem if Lidarr cannot communicate with any enabled download clients or no indexers are available for RSS feeds or searches.
+  
 ## Sensors
 
 The Lidarr integration will add the following sensors:
 
-- Available disk space for each root folder.
+- **Disk Space**: Available disk space for each root folder.
 - The number of tracks in the queue.
 - The number of albums still wanted.
