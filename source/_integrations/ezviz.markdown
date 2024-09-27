@@ -158,6 +158,18 @@ Once triggered, the siren will automatically deactivate after 60 seconds (EZVIZ 
 
 If your camera supports motion detection warning sounds, you can use this entity to select the level.
 
+### Work mode
+
+For battery powered cameras, you can use this entity to select the work mode to optimize your battery consumption.
+
+| Work Mode              | Description                                                                                          |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| Plugged in             | The camera will keep recording. The camera should be plugged in.                                     |
+| High performance       | One video clip is longer but saves less power.                                                       |
+| Power save             | One video clip is shorter and saves more power.                                                      |
+| Super power saving     | Sleep mode is on. Active live view can wake up the camera.                                           |
+| Custom                 | The camera will use the schedule(s) registered in the app                                            |
+
 ### Light entity
 
 A light entity will be added to cameras + light combos. You can turn it on/off and set the brightness.
