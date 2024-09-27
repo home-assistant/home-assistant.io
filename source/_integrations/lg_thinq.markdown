@@ -12,6 +12,7 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - fan
   - vacuum
 ha_integration_type: integration
 ---
@@ -85,6 +86,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
 - [Switch](#switch)
+- [Fan](#fan)
 - [Vacuum](#vacuum)
 
 
@@ -100,6 +102,14 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Fan
+
+The properties for controlling the wind strength of the appliance are represented as a fan platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Celing Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/) | Operation mode<br>Wind strength |
 
 ### Vacuum
 
