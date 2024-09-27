@@ -15,14 +15,6 @@ or need to recover your data.
 
 ## Forgot username
 
-### Symptom: I'm not the owner and I forgot my username
-
-You are **not the owner** of the Home Assistant server and you cannot login to Home Assistant because you forgot your username.
-
-#### Remedy
-
-Ask the owner to help you.
-
 ### Symptom: I'm the owner and I forgot my username
 
 You are the **owner** of the Home Assistant server and you cannot login because you forgot your username.
@@ -42,19 +34,6 @@ You are the **owner** of the Home Assistant server and you cannot login because 
    - This command lists all users that are registered on your Home Assistant.
 
 ## Forgot password
-
-### Symptom: I'm not the owner and I forgot my password
-
-- You are not the owner or do not have administrator rights.
-  - If you are unsure what your role is:
-    - In the navigation pane on the left, check if you see the **Settings** menu listed above the **Notifications**.
-    - If you don't, you do not have administrator rights.
-- You cannot login to Home Assistant because you forgot your password.
-- You know your username.
-
-#### Remedy
-
-Ask the owner to give you a new password.
 
 ### Symptom: I'm the owner and I forgot my password
 
