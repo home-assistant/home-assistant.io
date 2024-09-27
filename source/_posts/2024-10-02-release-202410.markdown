@@ -256,7 +256,7 @@ We welcome the following new integrations in this release:
 [@joostlek]: https://github.com/joostlek
 [@Lektrico]: https://github.com/Lektrico
 [@markruys]: https://github.com/markruys
-[@mback2k]: https://gitbub.com/mback2k
+[@mback2k]: https://github.com/mback2k
 [@noahhusby]: https://github.com/noahhusby
 [@rvmey]: https://github.com/rvmey
 [Cambridge Audio]: /integrations/cambridge_audio
@@ -428,7 +428,7 @@ noteworthy changes this release:
 [Govee]: /integrations/govee_light_local
 [Hacktoberfest]: https://hacktoberfest.digitalocean.com/
 [Matter]: /integrations/matter
-[Model IDs to devices]: https://developers.home-assistant.io/blog/2024/06/15/model-ids
+[Model IDs to devices]: https://developers.home-assistant.io/blog/2024/07/16/device-info-model-id
 [Plugwise]: /integrations/plugwise
 [Trigger-based templates]: /integrations/template/#trigger-based-template-binary-sensors-buttons-images-numbers-selects-and-sensors
 [Wallbox]: /integrations/wallbox
