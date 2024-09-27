@@ -95,7 +95,7 @@ This section shows a similar example to the example automation shown above in YA
 
 ### Prerequisites
 
-- You have a device that takes button presses as inputs, such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters.
+- You have a device that takes button presses as inputs, such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters
 - The device has been added to Home Assistant
 
 ### To automate on a button press
