@@ -53,9 +53,11 @@ The current state can be used in [conditions](/docs/automation/condition/).
 
 ### About entity attributes
 
-Entities have some attributes that are not related to its state. There are a few attributes that are available on all entities, such as `friendly_name`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
+Entities have some attributes that are not related to its state, such as `friendly_name`. A few attributes are available on all entities, such as `friendly_name` or `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
 
 When using templates, attributes will be available by their name. For example `state.attributes.assumed_state`.
+
+The table lists some common state attributes that may be present, depending on the entity domain.
 
 | Attribute             | Description                                                                                                                                   |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -64,6 +66,9 @@ When using templates, attributes will be available by their name. For example `s
 | `entity_picture`      | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.                           |
 | `assumed_state`       | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`. |
 | `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.                       |
+| `attribution`         | Used to specify the provider of the data. For example, "Data provided by rejseplanen.dk", "Data provided by openSenseMap" |
+| `device_class`        | Specify the type of device that an entity represents. Used to display device specific information in the UI.|
+| `supported_features`  | Lists the features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control`|
 
 When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
