@@ -116,7 +116,7 @@ This section shows a similar example to the example automation shown above in YA
 3. Define what should {% term trigger %} the automation to run.
    - Select **Add trigger**, then, select **Entity** > **State**.
    - Type `event` and select your button entity.
-   - Leave the other fields empty.
+   - **Important**: Leave the other fields **empty**.
      ![Select button event as trigger](/images/integrations/event/matter_trigger_on_button_event.png)
 4. Define the condition when something should happen.
    - Under **Then do**, select **Add action**.
