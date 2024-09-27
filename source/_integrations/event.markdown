@@ -123,7 +123,7 @@ This section shows a similar example to the example automation shown above in YA
    - Type `choose` and select **Add condition**.
    - Select **Entity** > **State** and select your button event entity from the list.
    - Under **Attribute**, select **Event type**.
-   - Under **State**, select the state change you want, for example **Pressed once**.
+   - Under **State**, select the state change you want to act as trigger, for example **Pressed once**.
    - If you like, repeat these steps for each event type you want to monitor. For example, if you want to monitor on **Pressed twice** or **Held down** as well.
      ![Condition - button pressed](/images/integrations/event/matter_condition_button_pressed.png)
 5. Define what should happen when your automation is triggered (when the button is pressed, for example).
