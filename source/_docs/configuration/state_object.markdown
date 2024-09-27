@@ -53,7 +53,7 @@ The current state can be used in [conditions](/docs/automation/condition/).
 
 ### About entity attributes
 
-Entities have some attributes that are not related to its state. There are a few attributes that are available on all entities, such as `friendly_name` and `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
+Entities have some attributes that are not related to its state. There are a few attributes that are available on all entities, such as `friendly_name`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
 
 When using templates, attributes will be available by their name. For example `state.attributes.assumed_state`.
 
