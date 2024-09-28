@@ -38,7 +38,7 @@ A water heater entity can have the following states:
 
 ### Water heater control actions
 
-Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`
+Available actions: `water_heater.set_temperature`, `water_heater.turn_away_mode_on`, `water_heater.turn_away_mode_off`, `water_heater.set_operation_mode`, `water_heater.turn_on`, `water_heater.turn_off`
 
 {% tip %}
 Not all water heater actions may be available for your platform. Be sure to check the available actions Home Assistant has enabled by checking **Developer Tools** > **Actions**.
@@ -117,3 +117,19 @@ automation:
       data:
         away_mode: true
 ```
+
+### Action `water_heater.turn_on`
+
+Turn water heater device on.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`.
+
+### Action `water_heater.turn_off`
+
+Turn water heater device off.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`.
