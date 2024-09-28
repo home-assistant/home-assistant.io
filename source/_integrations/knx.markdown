@@ -348,6 +348,33 @@ response:
   default: false
 {% endconfiguration %}
 
+{% raw %}
+
+```yaml
+# Example script to send a fixed value and the state of an entity
+alias: My Script
+sequence:
+  - action: knx.send
+    data:
+      address: 1/1/1
+      type: percent
+      payload: 50
+      response: false
+  - action: knx.send
+    data:
+      address: 1/1/1
+      payload: [128]  # 50 % as 1-byte raw value
+      response: false
+  - action: knx.send
+    data:
+      address: 3/3/3
+      type: temperature
+      payload: "{{ states('sensor.dew_point') }}"
+      response: false
+```
+
+{% endraw %}
+
 ### Read
 
 You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
@@ -1241,15 +1268,10 @@ The KNX light integration is used as an interface to control KNX actuators for l
 - LED controllers
 - DALI gateways
 
-To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+Light entities can be created from the frontend in the KNX panel or via YAML.
 
-```yaml
-# Example configuration.yaml entry
-knx:
-  light:
-    - name: "Kitchen"
-      address: "1/0/9"
-```
+<a name="configuration-light-yaml"></a>
+{% details "Configuration of KNX light entities via YAML" %}
 
 {% configuration %}
 address:
@@ -1382,11 +1404,9 @@ entity_category:
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
-For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address`.
+For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-*Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
-
-### Extended configuration examples
+### YAML configuration examples
 
 ```yaml
 knx:
@@ -1471,6 +1491,8 @@ knx:
       address: "1/0/5"
       state_address: "1/0/5"
 ```
+
+{% enddetails %}
 
 ## Notify
 
@@ -1988,6 +2010,14 @@ knx:
 
 The KNX switch platform is used as an interface to switching actuators.
 
+Switch entities can be created from the frontend in the KNX panel or via YAML.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches that have a `state_address` configured request their current state from the KNX bus.
+
+<a name="configuration-switch-yaml"></a>
+{% details "Configuration of KNX switch entities via YAML" %}
+
 ```yaml
 knx:
   switch:
@@ -2032,8 +2062,7 @@ device_class:
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
-Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches that have a `state_address` configured request their current state from the KNX bus.
+{% enddetails %}
 
 ## Text
 

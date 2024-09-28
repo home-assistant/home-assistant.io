@@ -59,7 +59,7 @@ not be activated yet. Recent policy changes limit the API access for new registe
 | Name      | Name of the integration                                   |
 | Latitude  | Latitude for weather forecast and sensor                  |
 | Longitude | Longitude for weather forecast and sensor                 |
-| Mode      | API version, `v2.5` (deprecated), `v3.0` new API version. |
+| Mode      | <li>`v3.0` (new API version) with daily forecast for 8 days, and 1-hour steps for 48 hours</li><li>`v2.5` (deprecated One Call API version), same forcasts as `v3.0`</li><li>`current` (current weather data only, no forecast)</li><li>`forecast` (forecast only, in 3-hour steps for 5 days, no current weather data)</li> |
 | Language  | Language for receiving data (only for `sensor`)           |
 
 A `sensor` entity will be created for each supported condition. Their IDs will follow the format:
