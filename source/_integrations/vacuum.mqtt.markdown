@@ -214,7 +214,6 @@ unique_id:
 mqtt:
   - vacuum:
       name: "MQTT Vacuum"
-      schema: state
       supported_features:
         - start
         - pause
@@ -227,7 +226,6 @@ mqtt:
         - fan_speed
         - send_command
       command_topic: "vacuum/command"
-      state_topic: "vacuum/state"
       set_fan_speed_topic: "vacuum/set_fan_speed"
       fan_speed_list:
         - min
