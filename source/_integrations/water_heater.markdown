@@ -124,7 +124,7 @@ Turn water heater device on.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`.
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`. 
 
 ### Action `water_heater.turn_off`
 
@@ -132,4 +132,4 @@ Turn water heater device off.
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`.
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of water heater device(s) to control. To target all water heater devices, use `all`. 
