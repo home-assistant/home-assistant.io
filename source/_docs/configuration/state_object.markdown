@@ -49,7 +49,7 @@ entity has exactly one state, and the state only holds one value at a time.
 The state only holds one value at a time. However, entities can store related entity state attributes in the state object. For example,
 the state of a light is _on_, and the related attributes could be its
 current brightness and color values. [State change events](/docs/configuration/events/#events-and-state-changes) can be used as triggers.
-The current state can be used in [conditions](/docs/automation/condition/). The example below show three lights with different entity state attributes.
+The current state can be used in [conditions](/docs/automation/condition/). The example below shows three lights with different entity state attributes.
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
