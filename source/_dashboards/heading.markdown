@@ -60,7 +60,7 @@ badges:
 
 ## Heading badges
 
-Each heading card can contain small badges in addition of the heading text. These badges are similar to regular [badges](/dashboards/badges/) but they are smaller and without background. They are useful to display sensor information next the heading text in a compact and minimal style.
+Each heading card can contain small badges in addition of the heading text. These badges are similar to regular [badges](/dashboards/badges/) but they are smaller and without background. They can be used useful to display sensor information in a compact and minimal style.
 
 ```yaml
 type: entity
