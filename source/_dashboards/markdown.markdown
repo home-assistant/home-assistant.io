@@ -151,12 +151,9 @@ content: |
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
 ```
 
-
 ## ha-qr-code
 
 You can also create QR-Codes in the Markdown card.
-
-
 
 Available parameters:
 - data: The actual data to encode in the QR-Code
@@ -165,7 +162,6 @@ Available parameters:
 - margin: A margin around the QR code
 - error-correction-level: low; medium; quartile; high)
 - center-image: An image to place on top of the qr code (might need a higher error-correction-level)
-
 
 ```yaml
 type: markdown
