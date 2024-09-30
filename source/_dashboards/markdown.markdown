@@ -173,6 +173,5 @@ content: >-
 
   <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
   center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
-
 ```
 
