@@ -150,3 +150,39 @@ content: |
   <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
 ```
+
+
+## ha-qr-code
+
+You can also create QR-Codes in the Markdown card.
+
+Example:
+
+<p class='img'>
+<img src='/images/dashboards/markdown_ha-qr-code.png' alt='Screenshot of a QR-Code in a markdown card'>
+Screenshot of the ha-qr-code element in a markdown card.
+</p>
+
+
+available parameters:
+data: The actual data to encode in the QR-Code
+scale: A scale factor for the QR-Code, default is 4
+width: Width of the QR-Code in pixels
+margin: A margin around the qr code
+error-correction-level: low; medium; quartile; high)
+center-image: An image to place on top of the qr code (might need a higher error-correction-level)
+
+
+```yaml
+type: markdown
+content: >-
+  <ha-qr-code data='hallo' width="180"></ha-qr-code>
+
+  <ha-qr-code data='hallo' scale="6" margin="0"
+  center-image="/static/icons/favicon-192x192.png"></ha-qr-code>
+
+  <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
+  center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
+
+```
+
