@@ -156,21 +156,15 @@ content: |
 
 You can also create QR-Codes in the Markdown card.
 
-Example:
-
-<p class='img'>
-<img src='/images/dashboards/markdown_ha-qr-code.png' alt='Screenshot of a QR-Code in a markdown card'>
-Screenshot of the ha-qr-code element in a markdown card.
-</p>
 
 
-available parameters:
-data: The actual data to encode in the QR-Code
-scale: A scale factor for the QR-Code, default is 4
-width: Width of the QR-Code in pixels
-margin: A margin around the qr code
-error-correction-level: low; medium; quartile; high)
-center-image: An image to place on top of the qr code (might need a higher error-correction-level)
+Available parameters:
+- data: The actual data to encode in the QR-Code
+- scale: A scale factor for the QR code, default is 4
+- width: Width of the QR code in pixels
+- margin: A margin around the QR code
+- error-correction-level: low; medium; quartile; high)
+- center-image: An image to place on top of the qr code (might need a higher error-correction-level)
 
 
 ```yaml
