@@ -24,8 +24,10 @@ icon: mdi:sofa
 badges:
   - type: entity
     entity_id: sensor.living_room_sensor_temperature
+    color: red
   - type: entity
     entity_id: sensor.living_room_sensor_humidity
+    color: deep-purple
 ```
 
 {% configuration entity %}
@@ -34,7 +36,7 @@ type:
   description: "`heading`"
   type: string
 heading:
-  required: true
+  required: false
   description: Heading text
   type: string
 heading_style:
