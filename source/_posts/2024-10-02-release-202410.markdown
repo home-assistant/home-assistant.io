@@ -76,6 +76,7 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Heading in the right direction](#heading-in-the-right-direction)
+  - [Another headline feature](#another-headline-feature)
 - [Repairs for long term statistics](#repairs-for-long-term-statistics)
 - [Improved YAML syntax for automations](#improved-yaml-syntax-for-automations)
 - [Faster upgrades when using custom integrations](#faster-upgrades-when-using-custom-integrations)
@@ -93,58 +94,42 @@ Enjoy the (beta) release!
 
 ## Heading in the right direction
 
-New heading card! 
-
-Note: This chapter can possibily use some examples and be split into multiple
-subsections.
-
-Gist:
-  - Replaces the existing section title, which are automatically migrated on upgrade.
-  - Two types of heading styles: Title & Subtitle.
-  - You can add multiple heading cards to a section, allowing you to create a "subsection" sort of style.
-  - A heading can have an action, for example a link to a more detailed view.
-  - Heading cards can have entities, that are shown in the top right of the heading.
-  - The display of these entities can be customized:
-    - Color; default they have a text color, but can be color to the state color of the entity used, or by providing a custom color for an active state.
-    - Default to icon + state, but what is shown can be fully customized.
-    - Can be shown conditionally, using the visibility options
-
-Multiple heading cards used as titles and subtitles.
+Update after update [Sections](/dashboards/sections/) continues to become a customization powerhouse, and this month is no exception. Section titles are being replaced with their own card, called the heading card. Making them a card rather than an inline title gives you a lot more flexibility, allowing you to put them nearly anywhere. The heading card can be used to make titles, but also subtitles, which are half the height and have smaller, lighter text. So, if you have ever had a section that needs to be subdivided, slap a subtitle in there.
 
 ![CleanShot 2024-09-17 at 14 01 15@2x](https://github.com/user-attachments/assets/4e6c63a0-5669-406a-89ce-83bbcbc61434)
 
-Ability to select the entity color behavior:
+Titles and subtitles can be made clickable, displaying a chevron `›` when you can interact with them.  This can perform an action or navigate to a subpage, like having an energy section title navigate to the full energy dashboard.
 
-![CleanShot 2024-09-24 at 17 41 16](https://github.com/user-attachments/assets/32231d3d-748a-47c2-82b1-aff401ffa388)
+Best of all, if you've already added titles to your sections, they will be migrated automatically to the new card.
 
-Result with custom colors:
+### Another headline feature
+
+We had such a fantastic reaction when we released our [renewed badges](/dashboards/badges/), and this new heading card has something very similar and equally as visually appealing. It can show multiple entity states to the right of the title or subtitle.
 
 ![CleanShot 2024-09-24 at 14 25 24](https://github.com/user-attachments/assets/9075e6b6-6773-4d58-8ede-3d0447c5f6aa)
 
+Either in a subtle "no color" default or add a splash of color when the entity is in an active state. Other customization options for these entities include changing the icon, visibility, and what happens when you click it.
+
+![CleanShot 2024-09-24 at 17 41 16](https://github.com/user-attachments/assets/32231d3d-748a-47c2-82b1-aff401ffa388)
+
 ## Repairs for long term statistics
 
-We now raise a repair issue when Home Assistant detects issues with a long term
-statistic.
+[Long-term statistics](https://data.home-assistant.io/docs/statistics/) are great; they downsample and store the data produced by your sensors, allowing Home Assistant to store data indefinitely in a fraction of the space the original readings took up. Take a look back at your energy usage from two years ago, or see if your living room really is colder this year compared to last.
 
-Gist:
-  - Previously only available via developer tools
-  - Was a bit hidden, causing people not to be aware of issues
-  - Now we raise repair issue for the ones that need a decision.
+![statistics repair in the settings menu](/images/blog/2024-10/statistics-repair.jpg)
+
+In the past, if a statistic encountered an issue, it might be quietly broken until you dig into the statistics page. Now it will raise a repair notification when Home Assistant detects issues with a long-term statistic and give you options for fixing the issue.
 
 ## Improved YAML syntax for automations
 
-Improvements to the YAML-sytnax for automations.
-Gist:
-  - Follow up on the `service` to `action` rename/change 2 releases ago.
-  - Goal is to make the syntax more natrual, easier to grasp and read.
+Recently, we renamed `service` to `action` in the [Home Assistant UI and YAML](/blog/2024/08/07/release-20248/#goodbye-service-calls-hello-actions-). This was done with the goal of making the syntax more natural allowing it to be easier to grasp and read. We want to continue this work to improve the YAML syntax, this time focusing on automations, and we've made the following changes,
+
   - The top level `trigger` key is now `triggers` (plural)
   - The top level `condition` key is now `conditions` (plural)
   - The top level `action` key is now `actions` (plural)
   - The `platform` key of a trigger definition is now `trigger`
-  - Result: The YAML automation syntax now has `triggers` with multiple `trigger` definitions, `conditions` with multiple `condition` definitions, and `actions` with multiple `action` definitions. This makes it consistent and easier to read.
-  - Not a breaking change, no deprecation. Existing syntax will continue to work and there are no plans to remove the old syntax.
-  - The new syntax is recommended, and all documentation and examples have been updated to use the new syntax.
-  - Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
+
+The result of all this is YAML automation syntax now has `triggers` with multiple `trigger` definitions, `conditions` with multiple `condition` definitions, and `actions` with multiple `action` definitions.
 
 Before:
 
@@ -186,7 +171,9 @@ actions:
       entity_id: light.living_room
 ```
 
-Additonal bonus (or noteworthy maybe) we also support nested triggers now:
+As with the other syntax changes we've done recently, this is not a breaking change, and there will be no deprecation. Existing syntax will continue to work, and there are no plans to remove the old syntax. The new syntax is recommended, and all documentation and examples have been updated to use it. Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
+
+Additionally, we also support nested triggers now, thanks to the work of [@karwosts].
 
 ```yaml
 triggers:
@@ -198,20 +185,13 @@ triggers:
 
 This is mainly useful for blueprint authors, but can be used by users to group triggers together as well.
 
-Add a syntax for merging lists of triggers ([@karwosts] - [#117698])
-
 ## Faster upgrades when using custom integrations
 
-Bit of a technical item, still cool.
+We want Home Assistant to continue to work on a wide range of hardware. If you look at our [opt-in analytics](https://analytics.home-assistant.io/) you'll see a sizable amount of homes running it on single-board computers from the mid-2010s. A lot of effort has been put into keeping Home Assistant lean, and this release has some good improvements. This is specially for users of custom integrations, and this follows HACS getting a great [speed boost for downloads](/blog/2024/08/21/hacs-the-best-way-to-share-community-made-projects/#faster-downloads).
 
-Gist:
-  - On each upgrade, all dependencies needed for custom integrations are downloaded and installed. 
-  - We are now using `uv` internally to download and install dependencies. It is a faster and more efficient way to download and install dependencies.
-  - `uv` is what makes our release process so fast nowadays, [developer backstory](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/)
-  - This speeds up the upgrade process, especially for custom integrations with many dependencies or installation with many custom integrations.
-  - This change is fully transparent to the user, and no action is required.
-  - Just sit down, relax, and enjoy the faster upgrade process!
-  - Use uv at runtime too ([@edenhaus] - [#125110])
+On each upgrade, all dependencies needed for custom integrations are now downloaded and installed. We are now using `uv` internally to download and install dependencies, which is a faster and more efficient way to download and install dependencies. If you're not aware, `uv` is what makes our release process so fast nowadays, and [@edenhaus](https://github.com/edenhaus) has done an interesting [developer backstory](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/) on our move from `pip` to `uv` (saving us 200+ hours of execution time a month).  [@edenhaus] has also implemented `uv` at runtime as well.
+
+This speeds up the upgrade process, especially for custom integrations with many dependencies, or installations with many custom integrations. This change is fully transparent to the user, and no action is required. Just sit down, relax, and enjoy the faster upgrade process!
 
 ## Integrations
 
@@ -245,7 +225,7 @@ We welcome the following new integrations in this release:
 - **[Weheat]**, added by [@jesperraemaekers]  
   Manage and monitor your [Weheat heatpump], keeping your home warm and cozy.
 - **[WMS WebControl pro]**, added by [@mback2k]  
-  Control your [WAREMA] sun shading covers fully locally. 
+  Control your [WAREMA] sun shading covers fully locally.
 
 [@allenporter]: https://github.com/allenporter
 [@Balake]: https://github.com/Balake
@@ -303,7 +283,7 @@ changes to existing integrations:
   new features and entities to control your Tesla vehicle. It now supports
   climate, media player, cover, number, select, button, and lock entities.
 - You can now control the volume, ringtone and status light of your [Reolink]
-  Hub! Cool, [@starkillerOG]! 
+  Hub! Cool, [@starkillerOG]!
 - [@daniel-k] added support for controlling the volume on [Ring] devices.
   Nice!
 - The [Switchbot Cloud] integration now supports the [K10+ Mini Robot Vacuum].
@@ -367,17 +347,17 @@ The following integrations are now available via the Home Assistant UI:
 
 ## Matter
 
-At this point, our [Matter intergration] is almost becomming a monthly recurring
+At this point, our [Matter integration] is almost becoming a monthly recurring
 topic in our release notes. For a good reason! The development is moving forward
 at a strong pace; running toward the certification finish line!
 
 In terms of stability, we have improved the robustness of the integration to
-ensure the integration set ups correctly every time, even if an issue with one
+ensure it sets up correctly every time, even if an issue with one
 of your devices occurs. Besides the usual bugfixes and improvements, this
 release has some cool new features and additions:
 
 - **Button entities**  
-  New button entitites that allow you to perform an action on a device. For
+  New button entities that allow you to perform an action on a device. For
   example, to identify a device or reset the filter state.
 - **Valve entities**  
   Support for water valves, allowing you to control the flow of fluids or gases.
@@ -389,7 +369,7 @@ release has some cool new features and additions:
 - **Add support for Matter 1.3 power/energy sensors**  
   Especially the energy sensors are great to use with the energy dashboard.
 
-[Matter intergration]: /integrations/matter
+[Matter integration]: /integrations/matter
 
 ## Other noteworthy changes
 
@@ -400,9 +380,9 @@ noteworthy changes this release:
   has lots of integrations that add them. Including [Matter], [Plugwise],
   [Wallbox], and [Govee]. We are calling contributions to add model IDs to
   more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
-- We now have a new unit of measurement for energy entities: calories. Usefull,
+- We now have a new unit of measurement for energy entities: calories. Useful,
   for like devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
-- [@Travoschirmer] did something simalar, and added a new unit of speed:
+- [@Travoschirmer] did something similar, and added a new unit of speed:
   mm/s and in/s. Thank you!
 - When you rename a device, you will now see more details about the rename
   operation. Including a preview of the new entity IDs. Nice, [@karwosts]!
@@ -416,8 +396,8 @@ noteworthy changes this release:
 - More template fun! You can now set up your templated alarm control panel
   straight from the UI. Thanks, [@gjohansson-ST]!
 - There is a new entity in town, the [`assist satellite` entity](/integrations/assist_satellite/).
-  It is a building block for remote sattelites devices that use [Assist]. This
-  is in preparation for our upcoming sattelite hardware. Stay tuned!
+  It is a building block for remote satellites devices that use [Assist]. This
+  is in preparation for our upcoming satellite hardware. Stay tuned!
 
 [@karwosts]: https://github.com/karwosts
 [@chammp]: https://github.com/chammp
@@ -466,7 +446,7 @@ YAML configuration based on the indentation level.
 
 ![CleanShot 2024-09-25 at 13 19 19](https://github.com/user-attachments/assets/c14fa4bc-fac2-4c40-9f26-ec5aa9d8cf62)
 
-[@naps62]: https://github.com
+[@naps62]: https://github.com/naps62
 
 Ref:
  - https://github.com/home-assistant/frontend/pull/21966
