@@ -3,25 +3,14 @@ title: "Entities and domains"
 description: "Describes what entities and domains are in Home Assistant."
 related:
   - docs: /docs/configuration/state_object/
-    title: State object, entity state
+    title: State object, entity state and attributes
 ---
 
-Your devices are represented in Home Assistant as entities. Entities are the basic building blocks to hold data in Home Assistant. An entity represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have [states](/docs/configuration/state_object/) and [attributes](#entity-attributes).
+Your devices are represented in Home Assistant as entities. Entities are the basic building blocks to hold data in Home Assistant. An entity represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other entities. An entity is usually part of a {% term device %} or a {% term service %}. Entities have [states](/docs/configuration/state_object/) and [state attributes](/docs/configuration/state_object/#about-entity-state-attributes).
 
 All your entities are listed in the entities table, under {% my entities title="**Settings** > **Devices & services** > **Entities**" %}.
 
 <p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
-
-## Entity attributes
-
-Many entities have attributes. There are a few attributes that are available on all entities, such as `friendly_name` and `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. The list of available attributes depends on the {% term device %}.
-
-<p class='img'>
-  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
-  Example showing three lights with differents states and different attributes.
-</p>
-
-For more information on entity attributes, refer to the [attributes](/docs/configuration/state_object/#attributes) section on the state objects page.
 
 ## Domains
 

@@ -49,26 +49,29 @@ entity has exactly one state, and the state only holds one value at a time.
 The state only holds one value at a time. However, entities can store related entity state attributes in the state object. For example,
 the state of a light is _on_, and the related attributes could be its
 current brightness and color values. [State change events](/docs/configuration/events/#events-and-state-changes) can be used as triggers.
-The current state can be used in [conditions](/docs/automation/condition/).
+The current state can be used in [conditions](/docs/automation/condition/). The example below shows three lights with different entity state attributes.
 
-### About entity attributes
+<p class='img'>
+  <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
+  Example showing three lights with different entity state attributes.
+</p>
 
 Entities have some attributes that are not related to its state, such as `friendly_name`. A few attributes are available on all entities, such as `friendly_name` or `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
 
 When using templates, attributes will be available by their name. For example `state.attributes.assumed_state`.
 
-The table lists some common state attributes that may be present, depending on the entity domain.
+The table lists common state attributes that may be present, depending on the entity domain.
 
-| Attribute             | Description                                                                                                                                   |
-| --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `friendly_name`       | Name of the entity. Example: `Kitchen Ceiling`.                                                                                               |
-| `icon`                | Icon to use for the entity in the frontend. Example: `mdi:home`.                                                                              |
-| `entity_picture`      | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.                           |
-| `assumed_state`       | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`. |
-| `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.                       |
-| `attribution`         | The provider of the data. For example, "Data provided by rejseplanen.dk", "Data provided by openSenseMap" |
-| `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.|
-| `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control`|
+| Attribute             | Description                                                                                                                                                                                                  |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `friendly_name`       | Name of the entity. Example: `Kitchen Ceiling`.                                                                                                                                                              |
+| `icon`                | Icon to use for the entity in the frontend. Example: `mdi:home`.                                                                                                                                             |
+| `entity_picture`      | URL to a picture that should be used instead of showing the domain icon. Example: `http://example.com/picture.jpg`.                                                                                          |
+| `assumed_state`       | Boolean if the current state is an assumption. [More info](/blog/2016/02/12/classifying-the-internet-of-things/#classifiers) Example: `True`.                                                                |
+| `unit_of_measurement` | The unit of measurement the state is expressed in. Used for grouping graphs or understanding the entity. Example: `°C`.                                                                                      |
+| `attribution`         | The provider of the data. For example, "Data provided by rejseplanen.dk", "Data provided by openSenseMap"                                                                                                    |
+| `device_class`        | The type of device that an entity represents. Used to display device specific information in the UI.                                                                                                         |
+| `supported_features`  | The features an entity supports. For covers, for example, it might list `opening`, `closing`, `stopping`, `setting position`. For media players, it might list `play`, `pause`, `stop`, and `volume control` |
 
 When an attribute contains spaces, you can retrieve it like this: `state_attr('sensor.livingroom', 'Battery numeric')`.
 
