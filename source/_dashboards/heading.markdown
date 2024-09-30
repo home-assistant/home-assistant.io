@@ -60,7 +60,7 @@ badges:
 
 ## Heading badges
 
-Each heading card can contain small badges in addition of the heading text. These badges are similar to regular [badges](/dashboards/badges/) but they are smaller and without background. They can be used useful to display sensor information in a compact and minimal style.
+In addition to the heading text, each heading card can show small badges. They are smaller than regular [badges](/dashboards/badges/) and don't have a background. The heading badges can display sensor information in a compact and minimal style.
 
 ```yaml
 type: entity
@@ -86,7 +86,7 @@ icon:
   type: string
 color:
   required: false
-  description: Set the color when the entity is active. By default it will not be colored. It can be set to the `state` special token to dynamically color the icon based on `state`, `domain`, and `device_class` of your entity. It also accepts [color token](/dashboards/tile/#available-colors) or hex color code.
+  description: Set the color when the entity is active. By default, it will not be colored. It can be set to the `state` special token to dynamically color the icon based on `state`, `domain`, and `device_class` of your entity. It also accepts [color token](/dashboards/tile/#available-colors) or hex color code.
   type: string
   default: none
 show_icon:

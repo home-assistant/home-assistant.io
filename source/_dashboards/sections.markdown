@@ -53,9 +53,9 @@ Once you have created a sections view, you can populate it with sections and car
 
 2. To add a new section, select the **Create section** button.
 3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
-   - You can edit it by clicking on it.
-   - Delete this card if you don't want a heading title at the top of the section
-   - The title can be added again like any other card.
+   - To edit it, select the card.
+   - If you don't want a heading title at the top of the section,  delete this card.
+   - The title can be added again later, like any other card.
 4. If you want this section to be visible only to specific users or under a certain condition, you can define those conditions:
    - On the **Visibility** tab, select **Add condition**.
    - Select the type of condition, and enter the parameters.
