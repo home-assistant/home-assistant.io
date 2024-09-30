@@ -129,7 +129,6 @@ content: |
 
 {% endraw %}
 
-
 ## ha-alert
 
 You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
@@ -155,12 +154,18 @@ content: |
 
 You can also create QR-Codes in the Markdown card.
 
+<p class='img'>
+<img src='/images/dashboards/markdown_card_qr_code.png' alt='Screenshot of the markdown card with QR codes'>
+Screenshot of the Markdown card with QR codes.
+</p>
+
 Available parameters:
+
 - data: The actual data to encode in the QR-Code
 - scale: A scale factor for the QR code, default is 4
 - width: Width of the QR code in pixels
 - margin: A margin around the QR code
-- error-correction-level: low; medium; quartile; high)
+- error-correction-level: low; medium; quartile; high
 - center-image: An image to place on top of the qr code (might need a higher error-correction-level)
 
 ```yaml
@@ -174,4 +179,3 @@ content: >-
   <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
   center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
 ```
-
