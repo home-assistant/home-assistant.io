@@ -82,6 +82,10 @@ lock:
     description: Defines an action to run when the lock is unlocked.
     required: true
     type: action
+  open:
+    description: Defines an action to run to when the lock is opened. Is normally used to shortly unlock the lock, to let somebody in.
+    required: false
+    type: action
   optimistic:
     description: Flag that defines if lock works in optimistic mode.
     required: false
