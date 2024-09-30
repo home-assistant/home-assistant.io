@@ -14,7 +14,7 @@ The Heading card structures your dashboard by providing title, icon and navigati
 
 <p class='img'>
   <img src='/images/dashboards/heading_card.png' alt='Screenshot of heading cards'>
-  Screenshot of heading cards.
+  Screenshot of a heading card with a title, badges, and a subtitle.
 </p>
 
 ```yaml
