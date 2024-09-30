@@ -61,7 +61,7 @@ The lock platform requires a code for unlocking but no code for locking.
 
 ## Select
 
-Provides support for setting the volume on locks, available options are "High", "Low" and "Off". Entity is only available for supported door locks.
+Provides support for setting the volume on locks, available options are "High", "Low" and "Off". The entity is only available for supported door locks.
 
 ## Sensor
 
