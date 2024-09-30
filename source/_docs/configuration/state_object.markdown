@@ -53,7 +53,7 @@ The current state can be used in [conditions](/docs/automation/condition/). The 
 
 <p class='img'>
   <img src='/images/integrations/light/state_light.png' alt='Screenshot showing three lights with different states and attributes'>
-  Example showing three lights with different states and different entity state attributes.
+  Example showing three lights with different entity state attributes.
 </p>
 
 Entities have some attributes that are not related to its state, such as `friendly_name`. A few attributes are available on all entities, such as `friendly_name` or `icon`. In addition to those, each integration has its own attributes to represent extra state data about the entity. For example, the light integration has attributes for the current brightness and color of the light. When an attribute is not available, Home Assistant will not write it to the state. Entity attributes are optional.
