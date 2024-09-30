@@ -2,7 +2,7 @@
 type: card
 title: "Heading card"
 sidebar_label: Heading
-description: "The Heading card structures your dashboard by providing title, icon and navigation."
+description: "The Heading card structures your dashboard by providing title, icon, navigation and badges."
 related:
   - docs: /dashboards/actions/
     title: Card actions
@@ -50,7 +50,7 @@ icon:
   type: string
 tap_action:
   required: false
-  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing. If an action is configured, an arrow will appear next to the heading text.
+  description: Action taken on card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will do nothing. If an action is configured, a chevron will appear next to the heading text.
   type: map
 badges:
   required: false
