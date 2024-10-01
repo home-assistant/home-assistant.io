@@ -21,6 +21,6 @@ than the go2rtc binary is already preinstalled in the container and the config f
 
 {% include integrations/config_flow.md %}
 
-If you are running {% term Home Assistant Core %}, than you need to setup a go2rtc instance and provide the url in the config flow.
+If you are running {% term Home Assistant Core %}, than you need to setup a go2rtc instance and provide the URL in the config flow.
 Please refer to https://github.com/AlexxIT/go2rtc/
 
