@@ -31,7 +31,7 @@ notify:
 
 {% configuration %}
 name:
-  description: "Setting the  parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`."
+  description: "Setting the  parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action."
   required: true
   type: string
 verify_ssl:
@@ -47,7 +47,7 @@ resource:
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
-A full example of a service call:
+A full example of an action:
 
 ```json
 {"message": "This is a test message", 

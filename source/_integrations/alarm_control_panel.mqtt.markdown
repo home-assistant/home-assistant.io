@@ -135,6 +135,10 @@ device:
       description: "The model of the device."
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: "The name of the device."
       required: false
@@ -341,8 +345,7 @@ mqtt:
 
 {% endraw %}
 
-<div class='note warning'>
-
+{% caution %}
 When your MQTT connection is not secured, this will send your secret code over the network unprotected!
-
-</div>
+{% endcaution %}
+ 

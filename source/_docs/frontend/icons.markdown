@@ -32,11 +32,9 @@ The most common way you can find icons is by using the icon picker built right i
   <img src='/images/screenshots/icon-picker.png' alt='Icon Picker in Home Assistant' />
 </p>
 
-<div class='note info'>
-
-  The icon picker will filter by icon name and by aliases applied to the icon by the MDI project. For example, typing "user" will show you most "account"-named icons.
-
-</div>
+{% tip %}
+The icon picker will filter by icon name and by aliases applied to the icon by the MDI project. For example, typing "user" will show you most "account"-named icons.
+{% endtip %}
 
 For more detailed steps on customizing entities, including their icon, refer to [customizing entities](/docs/configuration/customizing-devices/).
 
@@ -48,31 +46,25 @@ The easiest way to browse and find icons outside of Home Assistant is with the o
   <img src='/images/screenshots/mdi-picker.png' alt='Material Design Icons Picker' />
 </p>
 
-<div class='note info'>
-
-  Not all icons that appear in the MDI Picker Browser Extension may be available in Home Assistant (yet!). While the browser extension is updated as MDI releases new packages, Home Assistant may lag behind until its next release.
-
-</div>
+{% note %}
+Not all icons that appear in the MDI Picker Browser Extension may be available in Home Assistant (yet!). While the browser extension is updated as MDI releases new packages, Home Assistant may lag behind until its next release.
+{% endnote %}
 
 ### Material design icons on the Pictogrammers website
 
 The last way to browse through available icons is by viewing the library on the Pictogrammers website, [https://pictogrammers.com/library/mdi/](https://pictogrammers.com/library/mdi/). Select an icon you'd like to use, then click "Home Assistant" to see an example of its usage.
 
-<div class='note info'>
-
-  The Pictogrammers website will always show the latest release of the material design icons library. However, you may find icons that may not yet be available in Home Assistant (yet!). Watch the Home Assistant release notes for announcements on upgrades of the Material Design Icons library.
-
-</div>
+{% note %}
+The Pictogrammers website will always show the latest release of the material design icons library. However, you may find icons that may not yet be available in Home Assistant (yet!). Watch the Home Assistant release notes for announcements on upgrades of the Material Design Icons library.
+{% endnote %}
 
 ## Suggesting or contributing new icons
 
 Being open-source like Home Assistant, the material design icons library is always accepting suggestions and contributions to expand the library.
 
-<div class='note info'>
-
-  Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. (e.g. "user", "person", "account")
-
-</div>
+{% note %}
+Before suggesting or creating a new icon, it is very important that you [search the current library](https://pictogrammers.com/library/mdi/) and [search all issues](https://github.com/Templarian/MaterialDesign/issues?q=is%3Aissue), open and closed, on their GitHub. Try searching with different terms that might mean the same thing. (e.g. "user", "person", "account")
+{% endnote %}
 
 ### Suggesting a new icon
 

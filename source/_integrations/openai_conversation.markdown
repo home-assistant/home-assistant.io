@@ -77,15 +77,15 @@ Top P:
 
 You can use an OpenAI Conversation integration to [talk to Super Mario and, if desired, have it control devices](/voice_control/assist_create_open_ai_personality/) in your home.
 
-## Services
+## Actions
 
-### Service `openai_conversation.generate_image`
+### Action `openai_conversation.generate_image`
 
-Allows you to ask OpenAI to generate an image based on a prompt. This service
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+Allows you to ask OpenAI to generate an image based on a prompt. This action
+populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with the requested image.
 
-| Service data attribute | Optional | Description                                            | Example          |
+| Data attribute | Optional | Description                                            | Example          |
 | ---------------------- | -------- | ------------------------------------------------------ | ---------------- |
 | `config_entry`         | no       | Integration entry ID to use.                           |                  |
 | `prompt`               | no       | The text to turn into an image.                        | Picture of a dog |
@@ -95,7 +95,7 @@ with the requested image.
 
 {% raw %}
 ```yaml
-service: openai_conversation.generate_image
+action: openai_conversation.generate_image
 data:
   config_entry: abce6b8696a15e107b4bd843de722249
   prompt: "Cute picture of a dog chasing a herd of cats"
@@ -117,7 +117,7 @@ to generate a new image of New York in the current weather state.
 The resulting image entity can be used in, for example, a card on your dashboard.
 
 The *config_entry* is installation specific. To get the value, make sure the integration has been installed.
-Then, go to {% my developer_services title="**Developer Tools** > **Services**" %}. Ensure you are in UI mode and enter the following below:
+Then, go to {% my developer_services title="**Developer Tools** > **Actions**" %}. Ensure you are in UI mode and enter the following below:
 
 ![Open AI Conversation UI Mode](/images/integrations/openai_conversation/openai_developer_tools_ui.png)
 
@@ -134,7 +134,7 @@ automation:
         entity_id: weather.home
     action:
       - alias: "Ask OpenAI to generate an image"
-        service: openai_conversation.generate_image
+        action: openai_conversation.generate_image
         response_variable: generated_image
         data:
           config_entry: abce6b8696a15e107b4bd843de722249

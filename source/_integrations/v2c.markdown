@@ -11,6 +11,7 @@ ha_codeowners:
 ha_domain: v2c
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - number
   - sensor
   - switch

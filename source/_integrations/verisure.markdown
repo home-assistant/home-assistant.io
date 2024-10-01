@@ -57,7 +57,7 @@ automation:
       - platform: state
         entity_id: alarm_control_panel.alarm_1
     action:
-      - service: notify.notify
+      - action: notify.notify
         data:
           message: >
             Alarm changed from {{ trigger.from_state.state }}
@@ -67,7 +67,7 @@ automation:
 
 {% endraw %}
 
-## Services
+## Actions
 
 | Service | Description |
 | ------- | ----------- |

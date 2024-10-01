@@ -19,11 +19,9 @@ There is currently support for the following device types within Home Assistant:
 - [Binary sensor](#binary-sensor)
 - [Sensor](#sensor)
 
-<div class='note'>
-
+{% warning %}
 The option `server_host` should only be used on a Home Assistant Core installation!
-
-</div>
+{% endwarning %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -88,7 +86,7 @@ ssl_profile:
   default: modern
 {% endconfiguration %}
 
-The sample below shows a configuration entry with possible values:
+The sample below shows a configuration entry in the {% term "`configuration.yaml`" %} file with possible values:
 
 ```yaml
 # Example configuration.yaml entry
@@ -150,17 +148,13 @@ After a ban is added a Persistent Notification is populated to the Home Assistan
 
 If you want to use Home Assistant to host or serve static files then create a directory called `www` under the configuration path (`/config`). The static files in `www/` can be accessed by the following URL `http://your.domain:8123/local/`, for example `audio.mp3` would be accessed as `http://your.domain:8123/local/audio.mp3`.
 
-<div class='note'>
+{% important %}
+If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
+{% endimportant %}
 
-  If you've had to create the `www/` folder for the first time, you'll need to restart Home Assistant.
-
-</div>
-
-<div class='note warning'>
-
-  Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
-
-</div>
+{% caution %}
+Files served from the `www` folder (`/local/` URL), aren't protected by the Home Assistant authentication. Files stored in this folder, if the URL is known, can be accessed by anybody without authentication.
+{% endcaution %}
 
 ## Binary sensor
 
@@ -174,9 +168,9 @@ The URL for a binary sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/binary_sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
 The JSON payload must contain the new state and can have a friendly name. The friendly name is used in the frontend to name the sensor.
 
@@ -259,9 +253,9 @@ The URL for a sensor looks like the example below:
 http://IP_ADDRESS:8123/api/states/sensor.DEVICE_NAME
 ```
 
-<div class='note'>
+{% important %}
 You should choose a unique device name (DEVICE_NAME) to avoid clashes with other devices.
-</div>
+{% endimportant %}
 
  The JSON payload must contain the new state and should include the unit of measurement and a friendly name. The friendly name is used in the frontend to name the sensor.
 

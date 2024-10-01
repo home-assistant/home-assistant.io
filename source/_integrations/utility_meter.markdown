@@ -22,11 +22,11 @@ The **Utility Meter** {% term integration %} provides functionality to track con
 
 From a user perspective, utility meters operate in cycles (usually monthly) for billing purposes. This sensor will track a source sensor values, automatically resetting the meter based on the configured cycle. On reset an attribute will store the previous meter value, providing the means for comparison operations (e.g., "did I spend more or less this month?") or billing estimation (e.g., through a sensor template that multiplies the metered value per the charged unit amount).
 
-Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts your consumptions in accordance. When tariffs are defined a new {% term entity %} will show up indicating the current tariff. In order to change the tariff, the user must call a service, usually through an automation that can be based in time or other external source (eg. a REST sensor).
+Some utility providers have different tariffs according to time/resource availability/etc. The utility meter enables you to define the various tariffs supported by your utility provider and accounts for your consumption accordingly. When tariffs are defined a new {% term entity %} will show up, indicating the current tariff. In order to change the tariff, the user must perform an action, usually through an automation that can be based on time or other external sources (for example, a REST sensor).
 
-<div class='note'>
+{% note %}
 Sensors created with this {% term integration %} are persistent, so values are retained across restarts of Home Assistant. The first cycle for each sensor will be incomplete; a sensor tracking daily usage will start to be accurate the next day after the {% term integration %} was activated. A sensor tracking monthly usage will present accurate data starting the first of the next month after being added to Home Assistant.
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 {% configuration_basic %}
@@ -137,9 +137,9 @@ always_available:
   type: boolean
 {% endconfiguration %}
 
-<p class='note warning'>
+{% important %}
 When using the `offset` configuration parameter, the defined period must not be longer than 28 days.
-</p>
+{% endimportant %}
 
 ### Time period dictionary example
 
@@ -151,23 +151,23 @@ offset:
   minutes: 0
 ```
 
-## Services
+## Actions
 
-Some of the services are only available if tariffs are configured.
+Some of the actions are only available if tariffs are configured.
 
-### Service `utility_meter.reset`
+### Action `utility_meter.reset`
 
 Reset the Utility Meter. All sensors tracking tariffs will be reset to 0.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 
-### Service `utility_meter.calibrate`
+### Action `utility_meter.calibrate`
 
 Calibrate the Utility Meter. Change the value of a given sensor.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | no | String or list of strings that point at `entity_id`s of utility_meters.
 | `value` | no | Number | Value to calibrate the sensor with | 
@@ -222,12 +222,12 @@ automation:
       variables:
         tariff: "offpeak"
   action:
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.daily_energy
       data:
         option: "{{ tariff }}"
-    - service: select.select_option
+    - action: select.select_option
       target:
         entity_id: select.monthly_energy
       data:

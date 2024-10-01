@@ -16,11 +16,9 @@ ha_integration_type: service
 
 The seventeentrack {% term integration %} allows users to get package data tied to their [17track.net](https://www.17track.net) account. The integration creates both summary sensors, which show the number of packages in a current state (e.g., "In Transit"), as well as individual sensors for each package within the account.
 
-<div class='note warning'>
-
+{% important %}
 Although the 17track.net website states that account passwords cannot be longer than 16 characters, users can technically set longer-than-16-character passwords. These passwords **will not** work with the used API. Therefore, please ensure that your 17track.net password does not exceed 16 characters.
-
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}
 
@@ -64,7 +62,7 @@ type: markdown
 title: Packages in transit
 content: >
   {% for package in
-  states.sensor.seventeentrack_packages_in_transit.attributes.packages %}
+  states.sensor['17track_in_transit'].attributes.packages %}
 
   >- **{{ package.friendly_name }} ({{ package.tracking_number }}):** {{
   package.info_text }}
@@ -75,21 +73,21 @@ content: >
 
 {% endraw %}
 
-## Services
+## Actions
 
-### Service `seventeentrack.get_packages`
+### Action `seventeentrack.get_packages`
 
-The `seventeentrack.get_packages` service allows you to query the 17track API for the latest package data.
+The `seventeentrack.get_packages` action allows you to query the 17track API for the latest package data.
 
 
-| Service data attribute | Optional | Description                                 |
+| Data attribute | Optional | Description                                 |
 |------------------------|----------|---------------------------------------------|
 | `config_entry_id`      | No       | The ID of the 17Track service config entry. |
 | `package_state`        | yes      | A list of the package states.                |
 
 ```yaml
 # Example automation action to retrieve packages with specific states from 17Track
-- service: seventeentrack.get_packages
+- action: seventeentrack.get_packages
   data:
     config_entry_id: 2b4be47a1fa7c3764f14cf756dc98991
     package_state: ["Delivered", "In transit"]

@@ -81,8 +81,9 @@ In the following steps, we will create a new dashboard and edit some card settin
 4. Open your new dashboard and in the top right of the screen, select the <img height="28px" src="/images/blog/2024-03-dashboard-chapter-1/mdi-edit.png" alt="Edit icon"/> button.
 5. By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
-     - To continue, in the dialog, select the three dots menu, then select **Take control**.
+     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
      - Read and accept this before continuing.
+     - You can't get this specific dashboard back to update automatically. However. you can create a new default dashboard.
 6. Your dashboard might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
    - In this example, some Bluetooth temperature sensors and an AV receiver connected automatically.
@@ -91,7 +92,7 @@ In the following steps, we will create a new dashboard and edit some card settin
     ![Dashboard after onboarding a new device](/images/getting-started/onboarding_dashboard_01.png)
 7. Next, we want to edit the weather card.
    - Select the weather card.
-   - Then, select the cogwheel.
+   - Then, select the cogwheel {% icon "mdi:cog-outline" %}.
 
    ![Weather details](/images/getting-started/weather_card_details_01.png)
 
@@ -101,7 +102,7 @@ In the following steps, we will create a new dashboard and edit some card settin
    ![Weather details](/images/getting-started/onboarding_card_settings_01.png)
 
 9. Next, we want to add a new card for this weather {% term service %}.
-   - Select the weather card again, select the three dots, then **Device info**.
+   - Select the weather card again, select the three dots {% icon "mdi:dots-vertical" %}, then **Device info**.
    - Under **Sensors**, select **Add to dashboard**, then **Pick different card**.
    ![Dashboard - change the card type](/images/getting-started/onboarding_pick_different_card_01.png)
 

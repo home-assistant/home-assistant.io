@@ -43,7 +43,8 @@ Variants without pre-installed Home Assistant:
 
 {% if page.installation_type == 'generic-x86-64' %}
 
-<div class='note'>
+{% important %}
+
 <b>Prerequisites</b>
 
 This guide assumes that you have a dedicated {{ site.installation.types[page.installation_type].board }} PC to exclusively run the {% term "Home Assistant Operating System" %}.
@@ -57,7 +58,7 @@ This guide assumes that you have a dedicated {{ site.installation.types[page.ins
 1. First, you will need to configure your {{ site.installation.types[page.installation_type].board }} PC to use UEFI boot mode.
 2. Then, write the {% term "Home Assistant Operating System" %} disk image to your boot medium.
 
-</div>
+{% endimportant %}
 
 ## Configure the BIOS on your x86-64 hardware
 
@@ -80,9 +81,9 @@ The BIOS configuration is now complete.
 
 Next, you need to write the Home Assistant Operating System image to the *boot medium*, which is the medium your x86-64 hardware will boot from when it is running Home Assistant.
 
-<div class='note'>
+{% note %}
 HAOS has no integrated installer that writes the image automatically. You will write it manually using either the <b>Disks</b> utility from Ubuntu or Balena Etcher.
-</div>
+{% endnote %}
 
 Typically, an internal medium like S-ATA hard disk, S-ATA SSD, M.2 SSD, or a non-removable eMMC is used for the x86-64 boot medium. Alternatively, an external medium can be used such as a USB SDD, though this is not recommended.
 
@@ -119,7 +120,7 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 6. In Ubuntu, in the bottom left corner, select **Show Applications**.
 7. In the applications, search and open **Disks** and start restoring the HAOS image:
    1. In **Disks**, on the left side, select the internal disk device you want to install HAOS onto.
-   2. On top of the screen, select the three dots menu and select **Restore Disk Image...**.
+   2. On top of the screen, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Restore Disk Image...**.
       ![Restore disk image: select three dots menu](/images/installation/ubuntu_restore_disk_image.png)
    3. Select the image you just downloaded.
       ![Restore disk image: select image](/images/installation/select_haos.png)
@@ -140,9 +141,9 @@ To write the HAOS image to the boot medium on your x86-64 hardware, there are 2 
 
 ### Method 2: Installing HAOS directly from a boot medium
 
-<div class='note warning'>
+{% note %}
 Use this method only if Method 1 does not work for you.
-</div>
+{% endnote %}
 
 #### Required material
 
@@ -234,7 +235,7 @@ Use this method only if Method 1 does not work for you.
    - Note: Internet is required because the newly installed Home Assistant OS does not contain all Home Assistant components yet. It downloads the latest version of Home Assistant Core on first start.
 2. Power the system on. If you have a screen connected to the {{site.installation.types[page.installation_type].board}} system, after a minute or so the Home Assistant welcome banner will appear in the console.
 
-<div class="note">
+{% note %}
 
 If the machine complains about not being able to find a bootable medium, you might need to specify the EFI entry in your BIOS.
 This can be accomplished either by using a live operating system (e.g. Ubuntu) and running the following command (replace `<drivename>` with the appropriate drive name assigned by Linux, typically this will be `sda` or `nvme0n1` on NVMe SSDs):
@@ -253,7 +254,7 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
   \EFI\BOOT\bootx64.efi
   ```
 
-</div>
+{% endnote %}
 
 {% else %}
 
@@ -265,9 +266,9 @@ Or else, the BIOS might provide you with a tool to add boot options, there you c
 
 3. In the browser of your desktop system, within a few minutes you will be able to reach your new Home Assistant at <a href="http://homeassistant.local:8123" target="_blank">homeassistant.local:8123</a>.
 
-<div class="note">
+{% note %}
 If you are running an older Windows version or have a stricter network configuration, you might need to access Home Assistant at <a href="http://homeassistant:8123" target="_blank">homeassistant:8123</a> or `http://X.X.X.X:8123` (replace X.X.X.X with your {{site.installation.types[page.installation_type].board}}’s IP address).
-</div>
+{% endnote %}
 
 {% else %}
 
@@ -317,24 +318,21 @@ Minimum recommended assignments:
     3. Under **Hardware**, select the amount of memory and number of CPUs. Then, select **Enable EFI**.
        - Make sure **EFI** is enabled. If EFI is not enabled, HAOS won't boot.
     4. Under **Hard Disk**, select **Use an existing virtual hard disk file**, select the unzipped VDI file from above.
-    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.
-    <div class="note warning">
-    Please keep in mind that the bridged adapter only functions over a hardwired Ethernet connection.
-    Using Wi-Fi on your VirtualBox host is unsupported.
-    </div>
+    5. Then go to **Network** > **Adapter 1**. Choose **Bridged Adapter** and choose your network adapter.  
+      {% icon "mdi:alert-outline" %} Please keep in mind that the bridged
+      adapter only functions over a hardwired Ethernet connection.
+      Using Wi-Fi on your VirtualBox host is unsupported.
     6. Then go to <b>Audio</b> and choose <b>Intel HD Audio</b> as audio controller.
-    <div class="note info">
 
-    By default, VirtualBox does not free up unused disk space. To automatically shrink the vdi disk image
-    the `discard` option must be enabled using your host machine's terminal:
+    {% icon "mdi:alert-outline" %}  By default, VirtualBox does not
+    free up unused disk space. To automatically shrink the vdi disk image the `discard` option must
+    be enabled using your host machine's terminal:
 
     ```bash
     VBoxManage storageattach <VM name> --storagectl "SATA" --port 0 --device 0 --nonrotational on --discard on
     ```
 
     More details can be found about the command can be found [here](https://www.virtualbox.org/manual/ch08.html#vboxmanage-storageattach).
-
-    </div>
 
 {% unless page.installation_type == 'macos' %}
 
@@ -376,9 +374,9 @@ Minimum recommended assignments:
     virt-install --name haos --description "Home Assistant OS" --os-variant=generic --ram=4096 --vcpus=2 --disk <PATH TO QCOW2 FILE>,bus=scsi --controller type=scsi,model=virtio-scsi --import --graphics none --boot uefi
     ```
 
-    <div class="note info">
-    If you have a USB dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can discover these IDs via the `lsusb` command.
-    As example, if `lsusb` output is:
+    {% icon "mdi:alert-outline" %} If you have a USB
+    dongle to attach, you need to add the option `--hostdev busID.deviceId`. You can
+    discover these IDs via the `lsusb` command. As example, if `lsusb` output is:
 
     ```bash
        Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
@@ -399,7 +397,6 @@ Minimum recommended assignments:
 
     Note that this configuration (bus 003, device 003) is just an example, your dongle could be on another bus and/or with another device ID.
     Please check the correct IDs of your USB dongle with `lsusb`.
-    </div>
 
 {% endunless %}
 
@@ -449,9 +446,7 @@ Minimum recommended assignments:
 {% if page.installation_type == 'windows' %}
 - title: Hyper-V
   content: |
-    <div class='note warning'>
-        Hyper-V does not have USB support
-    </div>
+    ⚠️ Hyper-V does not have USB support
 
     1. Create a new virtual machine.
     2. Select **Generation 2**.
@@ -484,7 +479,7 @@ With the Home Assistant Operating System installed and accessible, you can conti
 
 {% endif %}
 
-[generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
+[generic-x86-64]: {{release_url}}/{{site.data.version_data.hassos['generic-x86-64']}}/haos_generic-x86-64-{{site.data.version_data.hassos['generic-x86-64']}}.img.xz
 [vmdk]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vmdk.zip
 [vhdx]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vhdx.zip
 [vdi]: {{release_url}}/{{site.data.version_data.hassos['ova']}}/haos_ova-{{site.data.version_data.hassos['ova']}}.vdi.zip

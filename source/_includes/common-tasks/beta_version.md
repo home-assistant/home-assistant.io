@@ -15,10 +15,10 @@ If you would like to test next release before anyone else, you can install the b
     4. Go to the {% my configuration title="**Configuration**" %} panel.
     5. Install the update that is presented to you.
        - **Troubleshooting**: If you do not see that notification:
-         - In the top right corner, select the three dots menu and select **Check for updates**.
+         - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
          - Go to {% my updates title="**System** > **Updates**" %}.
            - Select the update notification.
-           - Select the cogwheel, then set **Visible** to active.
+           - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
 
 - title: From the CLI
   content: |

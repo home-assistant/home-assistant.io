@@ -28,10 +28,9 @@ Once the application is ready, create a [bot](https://discordapp.com/developers/
 
 Retrieve the **Application ID** from the 'General Information' section and the (hidden) **Token** of your bot for later.
 
-<div class='note'>
-  
-The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify service. For example: if you enter "Discord Chat", the service will be named `notify.discord_chat`.
-</div>
+{% note %}
+The name you give your application on the [Discord My Apps page](https://discordapp.com/developers/applications/me) will determine the name of the notify action. For example: if you enter "Discord Chat", the action will be named `notify.discord_chat`.
+{% endnote %}
 
 ### Setting up the bot
 
@@ -57,7 +56,7 @@ Once the bot has been added to your server, get the channel ID of the channel yo
 
 Right click channel name and copy the channel ID (**Copy ID**).
 
-This channel or a user ID has to be used as the target when calling the notification service. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
+This channel or a user ID has to be used as the target when calling the notification action. Multiple channel or user IDs can be specified, across multiple servers or direct messages.
 
 ## Add Discord integration to Home Assistant
 
@@ -87,9 +86,9 @@ You can use standard Discord methods to ping users, roles, and channels within t
 | `Role`    | `<@&roleID>`   |
 | `Channel` | `<#channelID>` |
 
-## Discord service data
+## Discord action data
 
-The following attributes can be placed inside the `data` key of the service call for extended functionality:
+The following attributes can be placed inside the `data` key of the action for extended functionality:
 
 | Attribute    | Optional | Description                                                                                                                                  |
 | ------------ | -------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -112,10 +111,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
 | `image`       | yes      | Sets the image for the embed content.                                                                |
 | `fields`      | yes      | Adds a field to the embed object.  `name` and `value` are *required*, `inline` is *true* by default. |
 
-### Example service call
+### Example action
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -125,10 +124,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
       - "/tmp/garage.jpg"
 ```
 
-### Example service call with attachments sourced from remote URLs
+### Example action with attachments sourced from remote URLs
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: "A message from Home Assistant"
     target: ["1234567890", "0987654321"]
@@ -141,10 +140,10 @@ To include messages with embedding, use these attributes underneath the `embed` 
 
 Note that `verify_ssl` defaults to `True`, and that any remote hosts will need to be in your [`allowlist_external_urls`](/integrations/homeassistant/#allowlist_external_urls) list. Discord limits attachment size to 8MB, so anything exceeding this will be skipped and noted in the error log.
 
-### Example embed service call
+### Example embed action
 
 ```yaml
-- service: notify.discord
+- action: notify.discord
   data:
     message: ""
     target: ["1234567890", "0987654321"]

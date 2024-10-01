@@ -19,6 +19,6 @@ The **Volumio** {% term integration %} allows you to control a [Volumio](https:/
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 Volumio versions 2.799 and below do not have a unique id when manually configured, so you will not be able to rename your {% term entity %} or add your device to an area. If discovery does not work for you, it is advised to upgrade Volumio before configuring.
-</div>
+{% endnote %}

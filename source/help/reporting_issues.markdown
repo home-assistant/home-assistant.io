@@ -1,7 +1,6 @@
 ---
 title: "Reporting issues"
 description: "Reporting issues about Home Assistant"
-sidebar: false
 related:
   - docs: /docs/configuration/
     title: Configuration.yaml file

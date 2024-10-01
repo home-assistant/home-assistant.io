@@ -63,21 +63,17 @@ The integration supports the following device types within Home Assistant:
   - [Binary sensor](#binary-sensor)
   - [Sensor](#sensor)
 
-<div class='note'>
-
+{% note %}
 The Point is just active occasionally so the [sensors](#sensor) are only updated every hour or so. The [binary sensors](#binary-sensor) are however updated via [Cloud Push](/blog/2016/02/12/classifying-the-internet-of-things/#cloud-pushing-new-state), making the changes close to instant.
-
-</div>
+{% endnote %}
 
 ## Alarm
 
 Each home configured in the Point mobile application will show up as a separate alarm control panel. The panels allow **arming** and **disarming** of the Point home alarm system.
 
-<div class="note">
-
+{% note %}
 The Point only supports a Arm/Disarm action, so it is only `Arm Away` that is implemented.
-
-</div>
+{% endnote %}
 
 ## Binary sensor
 
@@ -99,11 +95,9 @@ Each Point exposes the following binary sensors:
 - **tamper**: `On` means the point was removed, `Off` means normal
 - **tamper_old**: `On` means the point was removed or attached, `Off` means normal (this is only supported on some "old" devices)
 
-<div class="note">
-
+{% note %}
 The binary sensors **button_press**, **sound** and **tamper** are switched `On` for a brief moment and are then switched back to `Off`.
-
-</div>
+{% endnote %}
 
 ### Automation example
 
@@ -118,7 +112,7 @@ automation:
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press
       message: Point button was pressed.
@@ -142,7 +136,7 @@ automation:
     condition: template
     value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
   action:
-  - service: persistent_notification.create
+  - action: persistent_notification.create
     data:
       title: Point button press (webhook)
       message: "Button press on Point {{ trigger.event.data.event.device_id }}"

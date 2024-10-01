@@ -68,9 +68,9 @@ There are some rules for packages that will be merged:
 
 3. Any integration that is not a platform [1], or dictionaries with Entity ID keys [2] can only be merged if its keys, except those for lists, are solely defined once.
 
-<div class='note tip'>
+{% tip %}
 Integrations inside packages can only specify platform entries using configuration style 1, where all the platforms are grouped under the integration name.
-</div>
+{% endtip %}
 
 ## Create a packages folder
 
@@ -114,10 +114,8 @@ homeassistant:
 ```
 
 
-<div class='note warning'>
-
+{% important %}
 If you are moving configuration to packages, `auth_providers` must stay within ‘configuration.yaml’. See the general documentation for [Authentication Providers](/docs/authentication/providers/#configuring-auth-providers).
 
 This is because Home Assistant processes the authentication provided early in the start-up process, even before packages are processed.
-
-</div>
+{% endimportant %}

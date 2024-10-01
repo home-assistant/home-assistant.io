@@ -31,7 +31,7 @@ After creating a config entry, you can change the entry name, the name of the no
 
 To use notifications in automations or scripts, see the [getting started with automation page](/getting-started/automation/).
 
-Use the `notify.send_message` entity service to store notification messages.
+Use the `notify.send_message` entity to store notification messages.
 
 ## Sensor
 

@@ -39,7 +39,7 @@ hosts:
 
 ### Effects
 
-EverLights patterns saved to the control box can be activated using the effect parameter to the `light.turn_on` service. If an effect is specified, then the color and brightness are ignored.
+EverLights patterns saved to the control box can be activated using the effect parameter to the `light.turn_on` action. If an effect is specified, then the color and brightness are ignored.
 
 ### Limitations
 

@@ -69,7 +69,7 @@ The `play_media` function can be used in scripts to change channels:
 #
 change_channel:
   sequence:
-    service: media_player.play_media
+    action: media_player.play_media
     target:
       entity_id: media_player.mediaroom_stb
     data:
@@ -88,7 +88,7 @@ The `play_media` function can also be used to trigger actions on the set-up-box 
 #
 press_button:
   sequence:
-    service: media_player.play_media
+    action: media_player.play_media
     target:
       entity_id: media_player.mediaroom_stb
     data:

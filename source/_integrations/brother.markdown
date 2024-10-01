@@ -24,11 +24,9 @@ The integration monitors every supported part.
 
 {% include integrations/config_flow.md %}
 
-<div class="note warning">
-
+{% note %}
 Some very old Brother printers use different data format and these models are not supported. The integration will show information about that during configuration.
-
-</div>
+{% endnote %}
 
 ## Configuring the printer
 

@@ -41,6 +41,7 @@ ha_platforms:
   - valve
 ha_integration_type: device
 ha_dhcp: true
+ha_quality_scale: platinum
 works_with:
   - local
 ---
@@ -49,9 +50,9 @@ This integration allows [ESPHome](https://esphome.io) devices to connect directl
 
 {% include integrations/config_flow.md %}
 
-## Home Assistant service calls
+## Home Assistant actions
 
-ESPHome devices can make service calls to any [Home Assistant service](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
+ESPHome devices can perform actions to any [Home Assistant action](https://esphome.io/components/api.html#homeassistant-service-action). This functionality is not enabled by default for newly configured device, but can be turned on the options flow on a per device basis.
 
 {% include integrations/option_flow.md %}
 

@@ -13,6 +13,13 @@ ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
   - diagnostics
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
+  - docs: /integrations/default_config/
+    title: Default config
+  - url: https://esphome.io/projects/?type=bluetooth
+    title: Bluetooth proxy page
 ---
 
 The **Bluetooth** {% term integration %} will detect nearby Bluetooth devices. Discovered devices will show up in the discovered section on the integrations page in the configuration panel.
@@ -53,7 +60,7 @@ For Bluetooth to function on Linux systems:
 
 ### Additional details for Container, Core, and Supervised installs
 
-{% details Making the DBus socket available in the Docker container %}
+{% details "Making the DBus socket available in the Docker container" %}
 
 For most systems, the Dbus socket is in `/run/dbus`. The socket must be available in the container for Home Assistant to be able to connect to Dbus and access the Bluetooth adapter. When starting with `docker run`, this can be accomplished by adding `-v /run/dbus:/run/dbus:ro` to the command. If the Dbus socket is in `/var/run/dbus` on the host system, use `-v /var/run/dbus:/run/dbus:ro` instead.
 
@@ -66,13 +73,13 @@ volumes:
 
 {% enddetails %}
 
-{% details Switching from dbus-daemon to dbus-broker %}
+{% details "Switching from dbus-daemon to dbus-broker" %}
 
 Follow [the instructions](https://github.com/bus1/dbus-broker/wiki) to switch to dbus-broker.
 
 {% enddetails %}
 
-{% details Installing BlueZ %}
+{% details "Installing BlueZ" %}
 
 On Debian based host systems, the `sudo apt-get -y install bluez` command will install BlueZ.
 
@@ -121,11 +128,11 @@ These adapters generally offer the fastest connect times and do not require addi
 
 #### Broadcom (BCM) based adapters
 
-<div class='note warning'>
+{% warning %}
 These adapters may require additional patch files available at <a href="https://github.com/winterheart/broadcom-bt-firmware">https://github.com/winterheart/broadcom-bt-firmware</a> for stable operation.
   
 There is currently no supported method to install these patch files when using Home Assistant Operating System.
-</div>
+{% endwarning %}
   
 - ASUS USB-BT400 (BCM20702A0)
 - Cable Matters 604002-BLK (BCM20702A0)
@@ -171,15 +178,15 @@ Performance testing used the following hardware:
 
 ### Known working adapters
 
-<div class='note'>
+{% note %}
 Known working adapters list adapters that do not meet high-performance requirements but will generally work. These adapters vary widely in performance and may take as long as thirty seconds or more to establish a connection. These adapters may also miss advertisements such as button presses or temperature updates.
-</div>
+{% endnote %}
 
 #### Realtek RTL8761BU adapters
 
-<div class='note warning'>
+{% warning %}
 These adapters do not have a reset pin. If they stop responding, there is currently no way for the kernel to reset them automatically. A generic USB reset for these adapters has been introduced in Linux kernel 6.1 and later.
-</div>
+{% endwarning %}
 
 - ASUS USB-BT500 (RTL8761BU)
 - Avantree DG45 (RTL8761BU)

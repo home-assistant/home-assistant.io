@@ -5,8 +5,6 @@ ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@janiversen'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -16,7 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -1392,11 +1390,9 @@ sensors:
       type: string
 {% endconfiguration %}
 
-<div class='note'>
-
+{% note %}
 If you specify scale or offset as floating point values, double precision floating point arithmetic will be used to calculate final value. This can cause loss of precision for values that are larger than 2^53.
-
-</div>
+{% endnote %}
 
 ### Example: sensor configuration
 
@@ -1604,11 +1600,11 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# modbus services
+# Actions
 
-The modbus integration provides two generic write services in addition to the platform-specific services.
+The modbus integration provides two generic write actions in addition to the platform-specific actions.
 
-| Service               | Description                 |
+| Action                | Description                 |
 | --------------------- | --------------------------- |
 | modbus.write_register | Write register or registers |
 | modbus.write_coil     | Write coil or coils         |
@@ -1623,25 +1619,12 @@ Description:
 | value     | (write_register) A single value or an array of 16-bit values. Single value will call modbus function code 0x06. Array will call modbus function code 0x10. Values might need reverse ordering. E.g., to set 0x0004 you might need to set `[4,0]`, this depend on the byte order of your CPU |
 | state     | (write_coil) A single boolean or an array of booleans. Single boolean will call modbus function code 0x05. Array will call modbus function code 0x0F                                                                                                                                        |
 
-The modbus integration also provides communication stop/restart services. These services will not do any reconfiguring, but simply stop/start the modbus communication layer.
-
-| Service        | Description                                   |
-| -------------- | --------------------------------------------- |
-| modbus.stop    | Stop communication                            |
-| modbus.restart | Restart communication (Stop first if running) |
-
-Description:
-
-| Attribute | Description                                      |
-| --------- | ------------------------------------------------ |
-| hub       | Hub name (defaults to 'modbus_hub' when omitted) |
-
 ## Example: writing a float32 type register
 
 To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
-service: modbus.write_register
+action: modbus.write_register
 data:
   address: <target register address>
   slave: <target slave address>
@@ -1649,17 +1632,17 @@ data:
   value: [0x4120, 0x0000]
 ```
 
-## Service `modbus.set-temperature`
+## Action `modbus.set-temperature`
 
-| Service         | Description                                                                                                                                   |
+| Action          | Description                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-## Service `modbus.set_hvac_mode`
+## Action `modbus.set_hvac_mode`
 
-| Service       | Description                                                                                                                                                                                                                                                                                                                           |
+| Action        | Description                                                                                                                                                                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
+| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 
 # Opening an issue

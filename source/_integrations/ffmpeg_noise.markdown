@@ -16,11 +16,11 @@ related:
 
 The `ffmpeg` {% term integration %} allows you to use any video or audio feed with [FFmpeg](https://www.ffmpeg.org/) for various sensors in Home Assistant.
 
-<div class='note'>
+{% note %}
 
-If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of sensor, use the service `ffmpeg.start`, `ffmpeg.stop`, `ffmpeg.restart`.
+If the `ffmpeg` process is broken, the sensor will be unavailable. To control the FFmpeg process of sensor, use the `ffmpeg.start`, `ffmpeg.stop`, and `ffmpeg.restart` actions.
 
-</div>
+{% endnote %}
 
 ## Configuration
 

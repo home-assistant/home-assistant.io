@@ -70,7 +70,7 @@ output_format:
 Say to all `media_player` device entities:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: "Hello from Watson"
 ```
@@ -78,7 +78,7 @@ Say to all `media_player` device entities:
 or
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: >
       <speak>
@@ -89,7 +89,7 @@ or
 Say to the `media_player.living_room` device entity:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   target:
     entity_id: media_player.living_room
   data:
@@ -102,7 +102,7 @@ Say to the `media_player.living_room` device entity:
 Say with break:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: >
       <speak>
@@ -115,7 +115,7 @@ Say with break:
 Optionally, specify a voice for the message:
 
 ```yaml
-- service: tts.watson_tts_say
+- action: tts.watson_tts_say
   data:
     message: "Hello from Watson"
   options:

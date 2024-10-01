@@ -121,7 +121,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 
 Find out if you already have Thread networks:
 
-- Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+- Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - If you do not see a **Thread** integration, add it.
 - Then, select **Configure** and check if you see any Thread networks on the overview page.
 - Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
@@ -131,12 +131,10 @@ Find out if you already have Thread networks:
 
 Follow these steps if you want to turn Home Assistant into a Thread border router using the Thread radio of Yellow, Connect&nbsp;ZBT-1, or another compatible radio and you do not have any third-party Thread networks present yet. This will automatically create a new Thread network with the name `ha-thread-xxxx`. The last for digits are a network-specific identifier (PAN ID).
 
-Note: To add Matter devices to this Thread network, an Android phone is required. Adding Matter devices to this Thread network using an iOS phone is not yet supported.
-
 #### Prerequisites
 
 - Device with a Thread-capable radio, such as Home Assistant Yellow, Connect&nbsp;ZBT-1, or another compatible radio
-- Android phone
+- Android phone or iPhone
 - No third-party Thread networks present
 
 #### To make Home Assistant your first Thread network
@@ -147,7 +145,7 @@ Note: To add Matter devices to this Thread network, an Android phone is required
 
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
-   - Go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
+   - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
    - Then, select **Configure**.
    - You should see the Home Assistant logo under **Preferred network**.
 
@@ -155,9 +153,13 @@ Note: To add Matter devices to this Thread network, an Android phone is required
 
 3. Before you can add Matter-based Thread devices, your phone needs to know the credentials of your newly created Thread network.
    - To share the credentials with your Android phone, open the Home Assistant Companion app.
-   - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
-   - Follow the instructions on screen.
-   - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
+     - In the Companion app, go to **Settings** > **Companion app** > **Troubleshooting**, then select **Sync Thread credentials**.
+     - Follow the instructions on screen.
+     - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
+   - To share the credentials with your iPhone, open the Home Assistant Companion app.
+     - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+     - Select **Configure** under **Services**.
+     - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
 ### Case 2: Creating a HA border router when there is an existing network
@@ -180,9 +182,10 @@ Note: the steps and images here show the process with a Google Thread network. B
 
 1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
 2. First you need to import the Thread credentials of your Google thread network.
-   - In the companion app, go to {% my integrations title="**Settings** > **Devices & Services**" %}, select the **Thread** integration.
-   - Then, select **Configure** and **Import Credentials**.
-   - **Result**: You should see a notification that the credentials are imported.
+   - In the companion app, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
+   - On Android, select **Configure** and **Import Credentials**.
+     - **Result**: You should see a notification that the credentials are imported.
+   - On iOS, select **Send credentials to Home Assistant**.
 3. Refresh the screen.
    - You should now see an <img width="30px" src='/images/integrations/thread/information-outline.png'> icon, indicating that Home Assistant now has the credentials of that network.
 4. Select **Make preferred network**.
@@ -220,11 +223,9 @@ Home Assistant discovers all Thread border routers in your network because they 
 
 The intention of the **Preferred network** in Home Assistant is that it will be used as the default network when adding Thread⁻based devices.
 
-<div class="note">
-
+{% note %}
 The **preferred network** function isn't completely implemented yet. In particular, when adding {% term Matter %} devices through the companion apps, the preferred network of the mobile device is being used.
-
-</div>
+{% endnote %}
 
 #### Making a network your preferred network
 

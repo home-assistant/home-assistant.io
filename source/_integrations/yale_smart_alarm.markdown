@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Alarm control panel
 
-Services provided are `armed_away`, `armed_home`, and `disarmed`.
+Actions provided are `armed_away`, `armed_home`, and `disarmed`.
 
 No code is required to operate the alarm.
 
