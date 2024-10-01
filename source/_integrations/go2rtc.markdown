@@ -15,11 +15,11 @@ The go2rtc {% term integration %} will connect to a go2rtc instance and will pro
 
 {% include integrations/config_flow.md %}
 
-If you are running Home Assistan with
+If you are running Home Assistant with
 
-    - {% term "Home Assistant Operating System" %}
-    - {% term "Home Assistant Supervised" %}
-    - {% term "Home Assistant Container" %}
+- {% term "Home Assistant Operating System" %}
+- {% term "Home Assistant Supervised" %}
+- {% term "Home Assistant Container" %}
     
 than the go2rtc binary is already preinstalled in the container and the config flow will pick it automatically.
 
