@@ -16,7 +16,7 @@ The binary sensor has support for GET and POST requests.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-If the endpoint returns one of the values of these tuples: `0`/`1`,
+If the endpoint returns one of the values of these pairs: `0`/`1`,
 `"0"`/`"1"`, `FALSE`/`TRUE`, `false`/`true`, `off`/`on` or `closed`/`open`
 it can be used as-is. If the return value differs, use a
 [template](/docs/configuration/templating/#processing-incoming-data).
