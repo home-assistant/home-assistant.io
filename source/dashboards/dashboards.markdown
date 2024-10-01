@@ -96,6 +96,7 @@ This will leave the default dashboard intact.
    - The **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
+     - Once you've taken control, ou can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
 
@@ -181,7 +182,7 @@ mode:
   type: string
 resources:
   required: false
-  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
+  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:

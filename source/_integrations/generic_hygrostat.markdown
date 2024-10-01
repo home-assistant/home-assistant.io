@@ -33,7 +33,7 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 Alternatively, this integration can be configured and set up manually via YAML
 as well. To enable the generic hygrostat in your installation, add the
-following to your `configuration.yaml` file:
+following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -85,12 +85,12 @@ min_cycle_duration:
   required: false
   type: [time, integer]
 dry_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` service.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched on. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will start when the sensor equals or goes below 42. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
   required: false
   default: 3
   type: float
 wet_tolerance:
-  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` service.
+  description: Set a minimum amount of difference between the humidity read by the sensor specified in the *target_sensor* option and the target humidity that must change prior to being switched off. For example, if the target humidity is 45 and the tolerance is 3 the humidifier will stop when the sensor equals or goes above 48. It is advised to set this parameter equal or above your sensor precision. This parameter is only used on *target_sensor* changes and is ignored on initialization, on manual operation or `humidifier.turn_on` action.
   required: false
   default: 3
   type: float
@@ -121,6 +121,8 @@ sensor_stale_duration:
 Time for `min_cycle_duration` and `keep_alive` must be set as "hh:mm:ss" or it must contain at least one of the following entries: `days:`, `hours:`, `minutes:`, `seconds:` or `milliseconds:`. Alternatively, it can be an integer that represents time in seconds.
 
 ## Full YAML configuration example
+
+To be added to the {% term "`configuration.yaml`" %} file.
 
 ```yaml
 generic_hygrostat:

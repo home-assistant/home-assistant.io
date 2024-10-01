@@ -24,7 +24,7 @@ The supported database solutions are:
 - [MariaDB](https://mariadb.org/) ≥ 10.3
 - [MySQL](https://www.mysql.com/) ≥ 8.0
 - [PostgreSQL](https://www.postgresql.org/) ≥ 12
-- [SQLite](https://www.sqlite.org/) ≥ 3.31.0
+- [SQLite](https://www.sqlite.org/) ≥ 3.40.1
 
 Although SQLAlchemy supports database solutions in addition to the ones supported by Home Assistant, it will behave differently on different databases, and features relied on by the recorder may work differently, or not at all, in different databases.
 
@@ -70,12 +70,12 @@ recorder:
       default: 3
       type: integer 
     auto_purge:
-      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically.
+      description: Automatically purge the database every night at 04:12 local time. Purging keeps the database from growing indefinitely, which takes up disk space and can make Home Assistant slow. If you disable `auto_purge` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically.
       required: false
       default: true
       type: boolean
     auto_repack:
-      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#service-purge) periodically. This flag has no effect if `auto_purge` is disabled.
+      description: Automatically repack the database every second sunday after the auto purge. Without a repack, the database may not decrease in size even after purging, which takes up disk space and can make Home Assistant slow. If you disable `auto_repack` it is recommended that you create an automation to call the [`recorder.purge`](#action-purge) periodically. This flag has no effect if `auto_purge` is disabled.
       required: false
       default: true
       type: boolean
@@ -149,7 +149,7 @@ recorder:
 
 {% include common-tasks/filters.md %}
 
-If you only want to hide events from your history, take a look at the [`history` integration](/integrations/history/). The same goes for the [logbook](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
+If you only want to hide events from your logbook, take a look at the [logbook integration](/integrations/logbook/). But if you have privacy concerns about certain events or want them in neither the history or logbook, you should use the `exclude`/`include` options of the `recorder` integration. That way they aren't even in your database, you can reduce storage and keep the database small by excluding certain often-logged events (like `sensor.last_boot`).
 
 #### Common filtering examples
 
@@ -172,7 +172,7 @@ recorder:
       - sensor.last_boot # Comes from 'systemmonitor' sensor platform
       - sun.sun # Don't record sun data
     event_types:
-      - call_service # Don't record service calls
+      - call_service # Don't record actions
 ```
 
 Defining domains and entities to record by using the `include` configuration (i.e. allowlist) is convenient if you have a lot of entities in your system and your `exclude` lists possibly get very large, so it might be better just to define the entities or domains to record.
@@ -205,24 +205,24 @@ recorder:
       - sensor.weather_*
 ```
 
-## Services
+## Actions
 
-### Service `purge`
+### Action `purge`
 
-Call the service `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` service data.
+Perform the action `recorder.purge` to start a purge task which deletes events and states older than x days, according to `keep_days` action data.
 Note that purging will not immediately decrease disk space usage but it will significantly slow down further growth.
 
-| Service data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
+| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                             |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `keep_days`            | yes      | The number of history days to keep in recorder database (defaults to the integration `purge_keep_days` configuration)                                                                                                                                                                                                   |
 | `repack`               | yes      | When using SQLite or PostgreSQL this will rewrite the entire database. When using MySQL or MariaDB it will optimize or recreate the events and states tables. This is a heavy operation that can cause slowdowns and increased disk space usage while it runs. Only supported by SQLite, PostgreSQL, MySQL and MariaDB. |
 | `apply_filter`         | yes      | Apply entity_id and event_type filter in addition to time based purge. Useful in combination with `include` / `exclude` filter to remove falsely added states and events. Combine with `repack: true` to reduce database size.                                                                                          |
 
-### Service `purge_entities`
+### Action `purge_entities`
 
-Call the service `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
+Perform the action `recorder.purge_entities` to start a task that purges events and states from the recorder database that match any of the specified `entity_id`, `domains`, and `entity_globs` fields. At least one of the three selection criteria fields must be provided.
 
-| Service data attribute | Optional | Description                                                                                                           |
+| Data attribute | Optional | Description                                                                                                           |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | A list of entity_ids that should be purged from the recorder database.                                                |
 | `domains`              | yes      | A list of domains that should be purged from the recorder database.                                                   |
@@ -239,20 +239,20 @@ trigger:
   - platform: time
     at: "04:15:00"
 action:
-  - service: recorder.purge_entities
+  - action: recorder.purge_entities
     data:
       keep_days: 5
       entity_id: sensor.power_sensor_0
 mode: single
 ```
 
-### Service `disable`
+### Action `disable`
 
-Call the service `recorder.disable` to stop saving events and states to the database.
+Perform the action `recorder.disable` to stop saving events and states to the database.
 
-### Service `enable`
+### Action `enable`
 
-Call the service `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
+Perform the action `recorder.enable` to start again saving events and states to the database. This is the opposite of `recorder.disable`.
 
 ## Handling disk corruption and hardware failures
 
@@ -330,14 +330,14 @@ If you want to use Unix Sockets for PostgreSQL you need to modify the `pg_hba.co
 
 ### Database startup
 
-If you are running a database server instance on the same server as Home Assistant then you must ensure that this service starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
+If you are running a database server instance on the same server as Home Assistant then you must ensure that this action starts before Home Assistant. For a Linux instance running Systemd (Raspberry Pi, Debian, Ubuntu and others) you should edit the service file.
 To help facilitate this, db_max_retry and db_retry_wait variables have been added to ensure the recorder retries the connection to your database enough times, for your database to start up.
 
 ```bash
 sudo nano /etc/systemd/system/home-assistant@homeassistant.service
 ```
 
-and add the service for the database, for example, PostgreSQL:
+and add the action for the database, for example, PostgreSQL:
 
 ```txt
 [Unit]

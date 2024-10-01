@@ -96,7 +96,7 @@ action:
       calendar_duration: !input calendar_duration
       prompt: !input prompt
   - alias: Fetch Weather Forecast
-    service: weather.get_forecasts
+    action: weather.get_forecasts
     data:
       type: hourly
     target:
@@ -107,14 +107,14 @@ action:
       forecast_entity: "{{ daily_forecast[weather_entity] }}"
       forecast: "{{ forecast_entity.forecast[0] }}"
   - alias: Fetch Calendar Agenda
-    service: calendar.get_events
+    action: calendar.get_events
     data:
       duration: !input calendar_duration
     target:
       entity_id: !input calendar_entity
     response_variable: events_response
   - alias: "Conversation Agent Notification Text"
-    service: conversation.process
+    action: conversation.process
     data:
       text: |-
         Time: {{ now().strftime("%A %B %d %H:%M %p") }}
@@ -123,7 +123,7 @@ action:
         Forecast: {{ forecast.condition }} ({{ forecast.temperature }}{{ temperature_unit }}, {{ forecast.precipitation }}% precipitation)
         {%- endif %}
 
-        Calendar "{{ state_attr(calendar_entity, 'friendly_name') }}" events for the next {{ calendar_duration.hours }}:
+        Calendar "{{ state_attr(calendar_entity, 'friendly_name') }}" events for the next {{ calendar_duration.hours }} hours:
         {%- set agenda = (events_response | items | first)[1] %}
         {%- if agenda.events %}
           {%- for event in agenda.events %}
@@ -144,7 +144,7 @@ action:
       agent_id: !input conversation_agent
     response_variable: agent
   - alias: "Send notification"
-    service: !input notify_service
+    action: !input notify_service
     data:
       target: !input notify_target
       title: "{{ now().strftime('%A') }} Agenda"

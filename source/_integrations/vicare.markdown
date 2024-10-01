@@ -3,6 +3,7 @@ title: Viessmann ViCare
 description: Instructions how to integrate Viessmann heating devices with Home Assistant
 ha_category:
   - Climate
+  - Fan
   - Water heater
 ha_release: 0.99
 ha_iot_class: Cloud Polling
@@ -13,6 +14,7 @@ ha_platforms:
   - button
   - climate
   - diagnostics
+  - fan
   - number
   - sensor
   - water_heater
@@ -71,6 +73,10 @@ Represents the heating controls of your device.
 Viessmann devices with room temperature sensing will show the current room temperature via `current_temperature`. All other devices will show the current supply temperature of the heating circuit.
 {% endnote %}
 
+### Fan
+
+Ventilation units are displayed as fans and enable the change of speed and use of presets.
+
 ### Water heater
 
 Represents the domestic hot water controls of your device.
@@ -91,33 +97,33 @@ Button entities are available for triggering like a one-time charge of the water
 
 Number entities are available to adjust values like the predefined temperature for different heating programs or the heating curve shift and slope.
 
-## Services
+## Actions
 
-The following services of the [climate integration](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
+The following actions of the [climate integration](/integrations/climate/) are provided by the ViCare integration: `set_temperature`, `set_hvac_mode`, `set_preset_mode` 
 
-The following services of the [water_heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
+The following actions of the [water_heater integration](/integrations/water_heater/) are provided by the ViCare integration: `set_temperature`
 
-### Service `vicare.set_vicare_mode`
+### Action `vicare.set_vicare_mode`
 
-Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#service-climateset_hvac_mode) for a mapping to Home Assistant Climate modes. This allows more-fine grained control of the heating modes.
+Set the mode for the climate device as defined by Viessmann (see [set_hvac_mode](#action-climateset_hvac_mode) for a mapping to Home Assistant Climate modes. This allows more-fine grained control of the heating modes.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use the `all` keyword instead of entity_id. |
 | `vicare_mode` | no | New value of ViCare mode. For supported values, see the `vicare_modes` attribute of the climate {% term entity %}. |
 
-### Service `climate.set_temperature`
+### Action `climate.set_temperature`
 
 Sets the target temperature to the given temperature.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `temperature` | no | Desired target temperature. |
 
 Note that `set_temperature` will always affect the current normal temperature or, if a preset is set, the temperature of the preset (i.e., Viessman program like eco or comfort).
 
-### Service `climate.set_hvac_mode`
+### Action `climate.set_hvac_mode`
 
 Set HVAC mode for the climate device. The following modes are supported:
 
@@ -129,26 +135,26 @@ The ViCare {% term integration %} has the following mapping of HVAC modes to Vie
 | `heat` | `ForcedNormal` | Permanently set heating to normal temperature. |
 | `auto` | `DHWandHeating` | Switches between reduced and normal temperature as by the heating schedule programmed in your device. |
  
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `hvac_mode` | no | New value of HVAC mode. |
 
-### Service `climate.set_preset_mode`
+### Action `climate.set_preset_mode`
 
 Sets the preset mode. Supported preset modes are *eco* and *comfort*. These are identical to the respective Viessmann programs and are only active temporarily for 8 hours.
 Eco mode reduces the target temperature by 3°C, whereas Comfort mode sets the target temperature to a configurable value. Please consult your heating device manual for more information.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. To target all entities, use `all` keyword instead of entity_id. |
 | `preset_mode` | no | New value of preset mode. |
 
-### Service `water_heater.set_temperature`
+### Action `water_heater.set_temperature`
 
 Sets the target temperature of domestic hot water to the given temperature.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that point at `entity_id`'s of climate devices to control. |
 | `temperature` | no | New target temperature for water heater. |
@@ -177,4 +183,4 @@ Invalid data from Vicare server: {
 }
 ```
 
-Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway. 
+Usually, this resolves itself after a while, but if this state persists, try to power cycle your gateway.

@@ -6,6 +6,7 @@ ha_category:
   - Button
   - Camera
   - Doorbell
+  - Event
   - Hub
   - Light
   - Lock
@@ -26,6 +27,7 @@ ha_platforms:
   - button
   - camera
   - diagnostics
+  - event
   - light
   - lock
   - media_player
@@ -118,7 +120,7 @@ Each UniFi Protect camera will get a device in Home Assistant with the following
 
 - **Camera** - A camera for each camera channel and RTSP(S) combination found for each camera (up to 7). Only the highest resolution RTSPS camera {% term entity %} will be enabled by default.
   - If your camera is a G4 Doorbell Pro, an additional camera {% term entity %} will be added for the Package Camera. The Package Camera {% term entity %} will _not_ have streaming capabilities regardless of whether RTSPS is enabled on the channel or not. This is due to the Package Camera having a very low FPS that does not make it compatible with HLS streaming.
-- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say Service](/integrations/tts/#service-say).
+- **Media Player** - If your camera has a speaker, you will get a media player {% term entity %} that allows you to play audio to your camera's speaker. Any audio file URI that is playable by FFmpeg will be able to be played to your speaker, including via the [TTS Say action](/integrations/tts/#action-say).
 - **Privacy Mode** - If your camera allows for Privacy Masks, there will be a configuration switch to toggle a "Privacy Mode" that disables recording, microphone, and a black privacy zone over the whole camera.
 - **Sensors** - Sensors include "Is Dark", "Motion Detected", detected object sensors (if the camera supports smart detections), and "Doorbell Chime" (if the camera has a chime). Several diagnostics sensors are added including sensors on uptime, network connection stats, and storage stats. Doorbells will also have a "Voltage" sensor for troubleshooting electrical issues.
   - There is one detected object sensor per Smart Detection supported by the camera and a combined sensor for if _any_ object is detected.
@@ -214,40 +216,40 @@ Below are the accepted identifiers to resolve media. Since events do not necessa
 | `{nvr_id}:event:{event_id}`      | MP4 video clip for specific event. |
 | `{nvr_id}:eventthumb:{event_id}` | JPEG thumbnail for specific event. |
 
-## Services
+## Actions
 
-### Service unifiprotect.add_doorbell_text
+### Action unifiprotect.add_doorbell_text
 
 Adds a new custom message for Doorbells.
 
-| Service data attribute | Optional | Description                                                                                                 |
+| Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | New custom message to add for Doorbells. Must be less than 30 characters.                                   |
 
-### Service unifiprotect.remove_doorbell_text
+### Action unifiprotect.remove_doorbell_text
 
 Removes an existing message for Doorbells.
 
-| Service data attribute | Optional | Description                                                                                                 |
+| Data attribute | Optional | Description                                                                                                 |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Any device from the UniFi Protect instance you want to change. In case you have multiple Protect instances. |
 | `message`              | No       | Existing custom message to remove for Doorbells.                                                            |
 
-### Service unifiprotect.set_chime_paired_doorbells
+### Action unifiprotect.set_chime_paired_doorbells
 
 Use to set the paired doorbell(s) with a smart chime.
 
-| Service data attribute | Optional | Description                                                                                             |
+| Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | The device ID of the Chime you want to pair or unpair doorbells to.                                     |
 | `doorbells`            | Yes      | A target selector for any number of doorbells you want to pair to the chime. No value means unpair all. |
 
-### Service unifiprotect.remove_privacy_zone
+### Action unifiprotect.remove_privacy_zone
 
 Use to remove a privacy zone from a camera.
 
-| Service data attribute | Optional | Description                                                                                             |
+| Data attribute | Optional | Description                                                                                             |
 | ---------------------- | -------- | ------------------------------------------------------------------------------------------------------- |
 | `device_id`            | No       | Camera you want to remove privacy zone from.                                                            |
 | `name`                 | No       | The name of the zone to remove.                                                                         |
@@ -256,7 +258,7 @@ Use to remove a privacy zone from a camera.
 
 The {% term integrations %} provides two proxy views to proxy media content from your Home Assistant instance so you can access thumbnails and video clips from within the context of Home Assistant without having to expose your UniFi Protect NVR Console. As with the media identifiers, all IDs are UniFi Protect IDs as they may not map to specific Home Assistant entities depending on how you have configured your {% term integrations %}.
 
-These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify service](/integrations/notify/).
+These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
 
 | View URL                                                     | Description                                                                                                                                                            |
 | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -266,6 +268,8 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
+
+When a Doorbell rings, there is a specific event {% term entity %} that provides the `event_id`. You can use this to get the thumbnail, for example, `event.g4_doorbell_pro_doorbell`.
 
 ## Troubleshooting
 

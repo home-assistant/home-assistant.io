@@ -62,7 +62,7 @@ The Insteon configuration panel allows for product specific configuration of Ins
 
 To open the Insteon configuration panel:
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Insteon** {% term integration %}. Then, select **Configure** to open the Insteon configuration panel.
 
 The following capabilities are available in the Insteon configuration panel:
@@ -122,7 +122,7 @@ Editing a device's All-Link Database can cause the device to become unresponsive
 
 ## Triggering Insteon scenes
 
-Triggering an Insteon scene on or off is done via automations. Two services are provided to support this feature:
+Triggering an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The Insteon scene number to trigger.
@@ -135,7 +135,7 @@ automation:
   - id: trigger_scene_25_on
     alias: "Turn on scene 25"
     action:
-      - service: insteon.scene_on
+      - action: insteon.scene_on
         group: 25
 ```
 
@@ -168,7 +168,7 @@ automation:
         entity_id: light.some_light
         state: "off"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 
@@ -185,14 +185,14 @@ automation:
         entity_id: light.some_light
         state: "off"
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 ```
 
-## Services
+## Actions
 
-The following services are available:
+The following actions are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.

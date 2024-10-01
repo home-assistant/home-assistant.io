@@ -255,6 +255,7 @@ layout: null
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
+/glossary/ /docs/glossary/
 
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
@@ -311,7 +312,7 @@ layout: null
 /docs/z-wave/events /integrations/zwave_js#events
 /docs/z-wave/installation /integrations/zwave_js#configuration
 /docs/z-wave/query-stage /integrations/zwave_js
-/docs/z-wave/services /integrations/zwave_js#services
+/docs/z-wave/services /integrations/zwave_js#actions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -344,7 +345,8 @@ layout: null
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-service-calls /docs/scripts/perform-actions/
+/docs/scripts/service-calls /docs/scripts/perform-actions/
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
 /getting-started/updating /common-tasks/os
@@ -498,6 +500,7 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
@@ -609,6 +612,7 @@ layout: null
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/ue_smart_radio /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301

@@ -9,8 +9,10 @@ ha_category:
   - Light
   - Lock
   - Number
+  - Select
   - Sensor
   - Switch
+  - Update
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -27,8 +29,10 @@ ha_platforms:
   - light
   - lock
   - number
+  - select
   - sensor
   - switch
+  - update
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
@@ -178,7 +182,7 @@ This guide describes how to add a new device. This will use the Bluetooth connec
    - Scan the QR code.
    - When prompted to **Choose an app**, make sure to select Home Assistant.
    - Once the process is complete, select **Done**, then select **Add device**.
-4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+4. If you did not see a pop-up, go to {% my integrations title="**Settings** > **Devices & services**" %}.
    - On the **Devices** tab, select the **Add device** button, and select **Add Matter device**.
    - In the dialog, select **No, it's new.**.
    - Scan the QR-code of the Matter device with your phone camera or select **Setup without QR-code** to manually enter the commission code.
@@ -317,6 +321,21 @@ This section provides a bit more information on some of the categories:
 **Network name**: Name of the network the device joined when it was commissioned.
 
 **IP addresses**: Typically more than one IPv6 address is shown: link local, unique local, and global unicast. In some cases a device also supports IPv4. In that case there will also be listed an IPv4 address here.
+
+## Matter OTA device updates
+
+The Matter protocol supports OTA (Over-the-Air) software updates. But the OTA software update is an optional feature for Matter devices, so not all Matter devices implement it. Home Assistant creates an update entity for every Matter device which does support Matter updates.
+
+The CSA operates a Distributed Compliance Ledger (DCL) which provides metadata for firmware updates. By default, the Matter update entities check the DCL every 12 hours for updates. If you want to force an update check, use the `homeassistant.update_entity` [action](/integrations/homeassistant/), with the update entity as the target. Currently, Eve and Nanoleaf are using the DCL to provide updates. It is expected that in future, more and more firmware updates become available through the DCL.
+
+<p class='img'>
+<img src='/images/integrations/matter/matter_ota_message.png' alt='Matter device OTA update message'>
+Notification of an OTA update for a Matter device
+</p>
+
+## Automate on a button press
+
+You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
 
 ## Experiment with Matter using a ESP32 dev board
 

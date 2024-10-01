@@ -2,7 +2,7 @@
 title: "Clear up storage"
 description: "More information on how to clear up storage in Home Assistant."
 related:
-  - docs: /integrations/recorder/#service-purge
+  - docs: /integrations/recorder/#action-purge
     title: purge the contents of the database
   - docs: /common-tasks/os/#network-storage
     title: Add network storage

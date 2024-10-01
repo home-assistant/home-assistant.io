@@ -28,7 +28,7 @@ There are a few tools to group your assets: [Areas](#areas), [floors](#floors), 
 - Groups {% term devices %} and {% term entities %}.
 - Can be assigned to one floor.
 - Reflects a physical area (or room) in your home.
-- Can be used in automations: Allows targeting an entire group of devices with a service call. For example, turning off all the lights in the living room.
+- Can be used in automations: Allows targeting an entire group of devices with an action. For example, turning off all the lights in the living room.
 
 - Areas can also be used to automatically generate cards, such as the [Area card](/dashboards/area/).
 
@@ -44,7 +44,7 @@ There are a few tools to group your assets: [Areas](#areas), [floors](#floors), 
 ## Labels
 
 - Can be assigned to areas, devices, entities, automations, scenes, scripts, and helpers.
-- Can be used in automations and scripts as a target for actions and services.
+- Can be used in automations and scripts as a target for actions.
 - Labels can also be used to filter data in tables. For example, you can filter the list of devices to show only devices with the label `heavy energy usage` or turn these devices off when there is not a lot of solar energy available.
 
 <img class="no-shadow" src='/images/organizing/labels.png' alt='Screenshots showing the new labels assigned to automations.'>

@@ -1,16 +1,18 @@
 ---
-title: History stats
+title: History Stats
 description: Instructions about how to integrate historical statistics into Home Assistant.
 ha_category:
+  - Helper
   - Sensor
   - Utility
 ha_iot_class: Local Polling
 ha_release: 0.39
 ha_quality_scale: internal
 ha_domain: history_stats
+ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -26,7 +28,28 @@ Examples of what you can track:
 - How long the lights were ON yesterday
 - How long you watched TV today
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information and examples about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name the sensor should have.
+Entity:
+  description: The entity that provides the input.
+State:
+  description: Which states of the input entity is counted in the statistics.
+Type:
+  description: Any of `time`, `ratio` or `count`.
+Start:
+  description: When to start the measure (timestamp or datetime). Can be a template.
+End:
+  description: When to stop the measure (timestamp or datetime). Can be a template.
+Duration:
+  description: Duration of the measure.
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To enable the history statistics sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -149,7 +172,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() }}"
+    start: "{{ today_at('00:00') }}"
     end: "{{ now() }}"
 ```
 
@@ -160,7 +183,7 @@ Here are some examples of periods you could work with, and what to write in your
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       hours: 24
 ```
@@ -186,7 +209,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at() - timedelta(days=now().weekday()) }}"
+    start: "{{ today_at('00:00') - timedelta(days=now().weekday()) }}"
     end: "{{ now() }}"
 ```
 
@@ -197,7 +220,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ today_at().replace(day=1) }}"
+    start: "{{ today_at('00:00').replace(day=1) }}"
     end: "{{ now() }}"
 ```
 
@@ -208,8 +231,8 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    start: "{{ (today_at().replace(day=1) - timedelta(days=1)).replace(day=1) }}"
-    end: "{{ today_at().replace(day=1) }}"
+    start: "{{ (today_at('00:00').replace(day=1) - timedelta(days=1)).replace(day=1) }}"
+    end: "{{ today_at('00:00').replace(day=1) }}"
 ```
 
 {% endraw %}
@@ -231,7 +254,7 @@ Here, last Monday is today at 00:00, minus the current weekday (the weekday is 0
 {% raw %}
 
 ```yaml
-    end: "{{ today_at() }}"
+    end: "{{ today_at('00:00') }}"
     duration:
       days: 30
 ```

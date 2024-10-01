@@ -79,7 +79,7 @@ Note that if you already have an assistant installed and wish to replace it then
 
 Make sure that a microphone is plugged to the Raspberry Pi. If you are having trouble setting up audio, we have written a guide on [Raspberry Pi Microphones](https://docs.snips.ai/articles/raspberrypi/hardware/microphones).
 
-Start the Snips Voice Platform by starting the `snips-*` services:
+Start the Snips Voice Platform by starting the `snips-*` actions:
 
 ```bash
 sudo systemctl start "snips-*"
@@ -151,7 +151,7 @@ snips:
 intent_script:
   ActivateLightColor:
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: 'light.{{ objectLocation | replace(" ","_") }}'
         data:
@@ -178,7 +178,7 @@ SetTimer:
     type: plain
     text: "Set a timer"
   action:
-    service: script.set_timer
+    action: script.set_timer
     data:
       name: "{{ timer_name }}"
       duration: "{{ timer_duration }}"
@@ -192,19 +192,19 @@ SetTimer:
 
 ### Sending TTS Notifications
 
-You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` services. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
+You can send TTS notifications to Snips using the `snips.say` and `snips.say_action` actions. `say_action` starts a session and waits for user response, "Would you like me to close the garage door?", "Yes, close the garage door".
 
-#### Service `snips.say`
+#### Action `snips.say`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |
 | `custom_data`          |      yes | custom data that will be included with all messages in this session. |
 
-#### Service `snips.say_action`
+#### Action `snips.say_action`
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 |------------------------|----------|--------------------------------------------------------|
 | `text`                 |       no | Text to say.                                           |
 | `site_id`              |      yes | Site to use to start session.                          |
@@ -223,7 +223,7 @@ intent_script:
       type: plain
       text: "OK, turning on the light"
     action:
-      service: light.turn_on
+      action: light.turn_on
 ```
 
 ##### Open a Garage Door
@@ -235,7 +235,7 @@ intent_script:
       type: plain
       text: "OK, opening the garage door"
     action:
-      - service: cover.open_cover
+      - action: cover.open_cover
         target:
           entity_id: garage_door
 ```
@@ -255,7 +255,7 @@ automation:
         for:
           minutes: 10
     sequence:
-      service: snips.say_action
+      action: snips.say_action
         data:
           text: "Garage door has been open 10 minutes, would you like me to close it?"
           intent_filter:
@@ -268,7 +268,7 @@ intent_script:
       type: plain
       text: "OK, closing the garage door"
     action:
-      - service: script.garage_door_close
+      - action: script.garage_door_close
 ```
 
 ##### Weather

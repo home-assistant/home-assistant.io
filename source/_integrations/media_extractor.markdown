@@ -24,23 +24,23 @@ Media extractor doesn't transcode streams, it just tries to find a stream that m
 
 {% include integrations/config_flow.md %}
 
-### Play media service
+### Play media actions
 
-Navigate to the **Services** tab inside **Developer Tools**. From the "Service" dropdown menu select `media_extractor.play_media` and then press the "Fill Example Data" button at the bottom of the page. Use the "Entity ID" dropdown to select your media player and then press the **Call Service** button.
+Navigate to the **Actions** tab inside **Developer Tools**. From the **Actions** dropdown menu select `media_extractor.play_media` and then press the "Fill Example Data" button at the bottom of the page. Use the "Entity ID" dropdown to select your media player and then press the **Perform action** button.
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description                                                                                               |
+| Data attribute | Optional | Description                                                                                               |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | yes      | Name(s) of entities to seek media on, e.g., `media_player.living_room_chromecast`. Defaults to all.       |
 | `media_content_id`     | no       | The ID of the content to play. Platform dependent.                                                        |
 | `media_content_type`   | no       | The type of the content to play. Must be one of MUSIC, TVSHOW, VIDEO, EPISODE, CHANNEL or PLAYLIST MUSIC. |
 
-### Extract media URL service
+### Extract media URL action
 
-There is also a service that will directly return the URL in the response of the service.
+There is also a action that will directly return the URL in the response of the action.
 
-| Service data attribute | Optional | Description                                            |
+| Data attribute | Optional | Description                                            |
 | ---------------------- | -------- | ------------------------------------------------------ |
 | `url`                  | no       | The URL of the media to extract.                       |
 | `format_query`         | yes      | The query that will be used to select the right media. |

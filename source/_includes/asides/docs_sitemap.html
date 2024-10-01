@@ -12,7 +12,7 @@
         <li>{% active_link /docs/automation/condition/ Conditions %}</li>
         <li>{% active_link /docs/automation/action/ Actions %}</li>
         <li>{% active_link /docs/automation/modes/ Run modes %}</li>
-        <li>{% active_link /docs/automation/services/ Services %}</li>
+        <li>{% active_link /docs/automation/services/ Automation actions %}</li>
         <li>{% active_link /docs/automation/templating/ Templates %}</li>
         <li>{% active_link /docs/automation/yaml/ YAML %}</li>
         <li>{% active_link /docs/automation/troubleshooting/ Troubleshooting automation %}</li>
@@ -41,7 +41,7 @@
       {% icon "mdi:script-text" %} {% active_link /docs/scripts/ Scripts %}
       {% if doc == 'scripts' or include.docs_index %}
       <ul>
-        <li>{% active_link /docs/scripts/service-calls/ Service calls %}</li>
+        <li>{% active_link /docs/scripts/perform-actions/ Actions %}</li>
         <li>{% active_link /docs/scripts/conditions/ Conditions %}</li>
       </ul>
       {% endif %}
@@ -208,7 +208,8 @@
     <li>{% active_link /docs/configuration/packages/ Packages %}</li>
     <li>{% active_link /docs/configuration/secrets/ Storing secrets %}</li>
     <li>{% active_link /docs/configuration/events/ Events %}</li>
-    <li>{% active_link /docs/configuration/state_object/ State objects %}</li>
+    <li>{% active_link /docs/configuration/state_object/ State and state object %}</li>
+    <li>{% active_link /docs/configuration/entities_domains/ Entities and domains %}</li>
     <li>{% active_link /docs/configuration/templating/ Templating %}</li>
     <li>{% active_link /docs/configuration/platform_options/ Entity component platform options %}</li>
   </ul>
@@ -259,7 +260,7 @@
     <li>{% active_link /integrations/mqtt/#broker-configuration Broker %}</li>
     <li>{% active_link /integrations/mqtt/#advanced-broker-configuration Certificate %}</li>
     <li>{% active_link /integrations/mqtt/#mqtt-discovery Discovery %}</li>
-    <li>{% active_link /integrations/mqtt/#publish--dump-services Publish service %}</li>
+    <li>{% active_link /integrations/mqtt/#publish--dump-actions Publish action %}</li>
     <li>{% active_link /integrations/mqtt/#birth-and-last-will-messages Birth and last will messages %}</li>
     <li>{% active_link /integrations/mqtt/#testing-your-setup Testing your setup %}</li>
     <li>{% active_link /integrations/mqtt/#logging Logging %}</li>

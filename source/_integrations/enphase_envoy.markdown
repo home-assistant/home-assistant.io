@@ -11,7 +11,6 @@ ha_config_flow: true
 ha_codeowners:
   - '@bdraco'
   - '@cgarwood'
-  - '@dgomes'
   - '@joostlek'
   - '@catsmanac'
 ha_platforms:
@@ -24,7 +23,16 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S). Firmware version 3.9 or newer is required.
+An integration for the [Enphase Envoy](https://enphase.com/en-us/products-and-services/envoy-and-combiner) solar energy gateway. This integration works with older models that only have production metrics (ie. Envoy-C) and newer models that offer both production and consumption metrics (ie. Envoy-S).
+
+## Prerequisites
+
+- The Envoy must be configured and commissioned.
+- The Envoy must be on your local network with IPV4 connectivity from Home Assistant.
+- Envoy firmware version 3.9 or newer.
+- With Envoy firmware 7 and greater
+  - an Enlighten cloud username and password.
+  - Home Assistant 2023.9 or newer.
 
 {% include integrations/config_flow.md %}
 
@@ -97,7 +105,7 @@ When the relay mode is set to battery level, the relays will turn on and off bas
 
 ## Polling interval
 
-The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the service using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
+The default polling interval is 60 seconds. To customize the polling interval, refer to [defining a custom polling interval](/common-tasks/general/#defining-a-custom-polling-interval). Specify one single entity from the envoy device as target of the action using the `+ choose entity` button. Updating one entity will update all entities of the Envoy and the related devices like the inverters; there is no need to specify multiple or all entities or add (all) inverter entities. When using multiple Envoys, add one entity for each envoy as targets or create separate custom polling intervals with a single entity as needed.
 
 ## Credentials or device IP address update
 

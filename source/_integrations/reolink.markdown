@@ -35,7 +35,8 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 
 {% include integrations/config_flow.md %}
 
-On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
+- On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
+- The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
@@ -116,6 +117,7 @@ Depending on the supported features of the camera, number entities are added for
 - Image saturation* (default 128)
 - Image sharpness* (default 128)
 - Image hue* (default 128)
+- Chime volume
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -147,11 +149,11 @@ Depending on the supported features of the camera, button entities are added for
 
 **Guard set current position** will set the current position as the new guard position.
 
-### Service reolink.ptz_move
+### Action reolink.ptz_move
 
-Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` service can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` service, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
+Some Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> cameras can move at different speeds. For those cameras, the `reolink.ptz_move` action can be used in combination with the **PTZ left**, **right**, **up**, **down**, **zoom in**, or **zoom out** entity which allows specifying the speed attribute. If the <abbr title="pan, tilt, and zoom">PTZ</abbr> button entities for a specific camera are not shown under **Choose entity** under **targets** of the `reolink.ptz_move` action, it means that this camera does not support custom <abbr title="pan, tilt, and zoom">PTZ</abbr> speeds.
 
-| Service data attribute | Optional | Description                                                                                                                         |
+| Data attribute | Optional | Description                                                                                                                         |
 | ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`            | no       | Name of the Reolink <abbr title="pan, tilt, and zoom">PTZ</abbr> button entity to control. For example, `button.trackmix_ptz_left`. |
 | `speed`                | no       | <abbr title="pan, tilt, and zoom">PTZ</abbr> move speed. For example `10`.                                                          |
@@ -167,17 +169,30 @@ Depending on the supported features of the camera, select entities are added for
 - Auto quick reply message
 - Auto track method (Digital, Digital first, Pan/Tilt first)
 - Doorbell LED (Stay off, Auto, Auto & always on at night)
+- HDR* (Off, On, Auto)
+- Chime motion ringtone
+- Chime person ringtone
+- Chime visitor ringtone
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
 
+### Action reolink.play_chime
+
+To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
+
+| Data attribute | Optional | Description                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
+| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
+
 ## Siren entities
 
 If the camera supports a siren, a siren entity will be created.
-When using the siren turn-on service, the siren will continue to sound until the siren turn-off service is called.
+When using the siren turn-on action, the siren will continue to sound until the siren turn-off action is called.
 
-In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on service supports setting a volume and a duration (no turn-off service call is needed in that case).
+In some camera models, there is a delay of up to 5 seconds between the turn-off command and the sound stopping. The siren turn-on action supports setting a volume and a duration (no turn-off action call is needed in that case).
 
 ## Switch entities
 
@@ -199,7 +214,7 @@ Depending on the supported features of the camera, switch entities are added for
 - FTP upload
 - PIR enabled*
 - PIR reduce false alarm*
-- HDR*
+- Chime LED
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
@@ -287,13 +302,14 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLN16-410 NVR](https://reolink.com/product/rln16-410/)
 - [RLN36 NVR](https://reolink.com/product/rln36/)
 - [RLN12W NVR](https://reolink.com/product/rln12w/)
+- [Reolink Chime](https://reolink.com/product/reolink-chime/) (when connected to a doorbell)
 - [Reolink Duo WiFi](https://reolink.com/product/reolink-duo-wifi-v1/)
 - [Reolink Duo 2 WiFi](https://reolink.com/product/reolink-duo-wifi/)
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
-- Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
+- Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [PoE White](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 

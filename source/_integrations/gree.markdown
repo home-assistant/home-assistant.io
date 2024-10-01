@@ -45,12 +45,12 @@ Any Gree Smart device working with the Gree+ app should be supported, including 
 
 The `gree` climate platform integrates Gree HVAC systems into Home Assistant, enabling control of setting the following parameters:
 
-- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
-- [`target temperature`](/integrations/climate#service-climateset_temperature)
-- [`turn on/off`](/integrations/climate#service-climateturn_on)
-- [`fan mode`](/integrations/climate#service-climateset_fan_mode)
-- [`swing mode`](/integrations/climate#service-climateset_swing_mode)
-- [`set_preset_mode`](/integrations/climate#service-climateset_preset_mode)
+- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
+- [`target temperature`](/integrations/climate#action-climateset_temperature)
+- [`turn on/off`](/integrations/climate#action-climateturn_on)
+- [`fan mode`](/integrations/climate#action-climateset_fan_mode)
+- [`swing mode`](/integrations/climate#action-climateset_swing_mode)
+- [`set_preset_mode`](/integrations/climate#action-climateset_preset_mode)
 
 {% note %}
 Preset mode **Away** represents Gree's "8°C heating mode."

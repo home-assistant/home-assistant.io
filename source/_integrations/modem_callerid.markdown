@@ -45,7 +45,7 @@ automation:
       entity_id: sensor.phone_modem
       to: "callerid"
     action:
-      service: notify.notify
+      action: notify.notify
       data:
         message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }} at {{ state_attr('sensor.phone_modem', 'cid_number') }} "
   - alias: Notify CallerID webui
@@ -54,7 +54,7 @@ automation:
       entity_id: sensor.phone_modem
       to: "callerid"
     action:
-      service: persistent_notification.create
+      action: persistent_notification.create
       data:
         title: "Call from"
         message: "{{ state_attr('sensor.phone_modem', 'cid_time').strftime("%I:%M %p") }} {{ state_attr('sensor.phone_modem', 'cid_name') }}  {{ state_attr('sensor.phone_modem', 'cid_number') }} "
@@ -64,7 +64,7 @@ automation:
       entity_id: sensor.phone_modem
       to: "callerid"
     action:
-      service: tts.google_say
+      action: tts.google_say
       data:
         message: "Call from {{ state_attr('sensor.phone_modem', 'cid_name') }}"
 ```

@@ -37,7 +37,7 @@ Integrates [YoLink](https://www.yosmart.com/) Devices into Home Assistant.
 
 {% details "Using custom application credentials" %}
 Home Assistant will use account linking provided by Nabu Casa for authenticating with YoLink, this service is provided for free and does not require a Nabu Casa subscription. The steps below are thus not required.
-If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & Services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
+If you want to use separate credentials, please contact <service@yosmart.com> to obtain a `client_id` and `client_secret`. Then you can add your credentials via application credentials. Settings > Devices & services > click the menu (three dots at the top right of the screen) and then **Application Credentials**. Enter your credentials in the pop-up window.
 {% enddetails %}
 
 ## Supported device list
@@ -98,14 +98,15 @@ The integration is tested and verified for the following devices from YoLink:
 - YS5006-UC (FlowSmart Control)
 - YS5007-UC (FlowSmart Meter)
 - YS5008-UC (FlowSmart All-in-One)
+- YS8017-UC (Thermometer)
 
-## Services
+## Actions
 
 ### `Play on SpeakerHub`
 
-With this service, you can convert text to speech for playback on SpeakerHub.
+With this action, you can convert text to speech for playback on SpeakerHub.
 
-Service data attribute | Optional | Description
+Data attribute | Optional | Description
 -|-|-
 `target_device` | no| SpeakerHub device ID for audio playback.
 `message` | no| Text for speech conversion.

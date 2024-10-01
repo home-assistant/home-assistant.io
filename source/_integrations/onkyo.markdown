@@ -91,11 +91,11 @@ List of source names:
 - `xm`
 - `sirius`
 
-### Service `onkyo_select_hdmi_output`
+### Action `onkyo_select_hdmi_output`
 
 Changes HDMI output of your receiver
 
-| Service data attribute | Optional | Description                                                     |
+| Data attribute | Optional | Description                                                     |
 | ---------------------- | -------- | --------------------------------------------------------------- |
 | `entity_id`            | no       | String or list of a single `entity_id` that will change output. |
 | `hdmi_output`          | no       | The desired output code.                                        |
@@ -117,10 +117,10 @@ script:
  radio1:
     alias: "Radio 1"
     sequence:
-      - service: media_player.turn_on
+      - action: media_player.turn_on
         target:
           entity_id: media_player.onkyo
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.onkyo
         data:
@@ -137,7 +137,7 @@ script:
  hdmi_sub:
     alias: "Hdmi out projector"
     sequence:
-      - service: media_player.onkyo_select_hdmi_output
+      - action: media_player.onkyo_select_hdmi_output
         data:
           entity_id: media_player.onkyo
           hdmi_output: out-sub

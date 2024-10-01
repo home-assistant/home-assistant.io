@@ -5,8 +5,6 @@ ha_category:
   - Hub
 ha_release: pre 0.7
 ha_iot_class: Local Polling
-ha_codeowners:
-  - '@janiversen'
 ha_domain: modbus
 ha_platforms:
   - binary_sensor
@@ -16,7 +14,7 @@ ha_platforms:
   - light
   - sensor
   - switch
-ha_quality_scale: platinum
+ha_quality_scale: silver
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
@@ -1602,11 +1600,11 @@ Some parameters exclude other parameters, the following tables show what can be 
 | swap: word_byte | No     | No     | No  | Yes | Yes |
 
 
-# modbus services
+# Actions
 
-The modbus integration provides two generic write services in addition to the platform-specific services.
+The modbus integration provides two generic write actions in addition to the platform-specific actions.
 
-| Service               | Description                 |
+| Action                | Description                 |
 | --------------------- | --------------------------- |
 | modbus.write_register | Write register or registers |
 | modbus.write_coil     | Write coil or coils         |
@@ -1626,7 +1624,7 @@ Description:
 To write a float32 datatype register use network format like `10.0` == `0x41200000` (network order float hexadecimal).
 
 ```yaml
-service: modbus.write_register
+action: modbus.write_register
 data:
   address: <target register address>
   slave: <target slave address>
@@ -1634,17 +1632,17 @@ data:
   value: [0x4120, 0x0000]
 ```
 
-## Service `modbus.set-temperature`
+## Action `modbus.set-temperature`
 
-| Service         | Description                                                                                                                                   |
+| Action          | Description                                                                                                                                   |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | set_temperature | Set temperature. Requires `value` to be passed in, which is the desired target temperature. `value` should be in the same type as `data_type` |
 
-## Service `modbus.set_hvac_mode`
+## Action `modbus.set_hvac_mode`
 
-| Service       | Description                                                                                                                                                                                                                                                                                                                           |
+| Action        | Description                                                                                                                                                                                                                                                                                                                           |
 | ------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Calling this service will also set the On/Off register to an appropriate value, if such a register is defined. |
+| set_hvac_mode | Set HVAC mode. Requires `value` to be passed in, which is the desired mode. `value` should be a valid HVAC mode. A mapping between the desired state and the value to be written to the HVAC mode register must exist. Performing this action will also set the On/Off register to an appropriate value, if such a register is defined. |
 
 
 # Opening an issue

@@ -18,7 +18,7 @@ The `flic` {% term integration %} allows you to receive click events from [flic]
 
 The {% term integration %} does not directly interact with the buttons, *but communicates with a flic service* that manages the buttons. The service can run on the same instance as Home Assistant or any other reachable machine.
 
-## Service setup
+## Action setup
 
 If you are using the Home Assistant Operating System, you can run the service locally by [installing](/common-tasks/os#installing-third-party-add-ons) the flicd add-on from [pschmitt's repository](https://github.com/pschmitt/home-assistant-addons).
 
@@ -85,7 +85,7 @@ automation:
         button_name: flic_81e4ac74b6d2
         click_type: single
     action:
-      service: homeassistant.turn_on
+      action: homeassistant.turn_on
       target:
         entity_id: group.lights_livingroom
 ```
@@ -108,7 +108,7 @@ automation:
       platform: event
       event_type: flic_click
     action:
-      - service: notify.html5
+      - action: notify.html5
         data:
           title: "flic click"
           message: "flic {{ trigger.event.data.button_name }} was {{ trigger.event.data.click_type }} clicked"

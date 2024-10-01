@@ -33,7 +33,7 @@ Ignore CEC:
 
 ## Home Assistant Cast
 
-Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` service. The service takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the service call):
+Home Assistant has its own Cast application to show the Home Assistant UI on any Chromecast device.  You can use it by adding the [Cast entity row](/dashboards/entities/#cast) to your dashboards, or by calling the `cast.show_lovelace_view` action. The action takes the path of a dashboard view and an entity ID of a Cast device to show the view on. A `path` has to be defined in your dashboard's YAML for each view, as outlined in the [views documentation](/dashboards/views/#path). The `dashboard_path` is the part of the dashboard URL that follows the defined `base_url`, typically "`lovelace`". The following is a full configuration for a script that starts casting the `downstairs` tab of the `lovelace-cast` path (note that `entity_id` is specified under `data` and not for the action):
 
 ```yaml
 cast_downstairs_on_kitchen:
@@ -43,7 +43,7 @@ cast_downstairs_on_kitchen:
         dashboard_path: lovelace-cast
         entity_id: media_player.kitchen
         view_path: downstairs
-      service: cast.show_lovelace_view
+      action: cast.show_lovelace_view
 ```
 
 {% important %}
@@ -66,11 +66,11 @@ Chromecasts can play many kinds of modern [media (image/audio/video) formats](ht
 
 The media needs to be accessible via HTTP(S). Chromecast devices do not support other protocols like DLNA or playback from an SMB file share.
 
-You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` service, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
+You can play MP3 streams like net radios, FLAC files or videos from your local network with the `media_player.play_media` action, as long as the media is accessible via HTTP(S). You need to set the `media_content_id` to the media URL and `media_content_type` to a matching content type.
 
 ```yaml
 # Play a video file from the local network:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -80,7 +80,7 @@ data:
 
 ```yaml
 # Show a jpeg image:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -88,12 +88,12 @@ data:
   media_content_id: "http://via.placeholder.com/1024x600.jpg/0B6B94/FFFFFF/?text=Hello,%20Home%20Assistant!"
 ```
 
-Extra media metadata (for example title, subtitle, artist or album name) can be passed into the service and that will be shown on the Chromecast display.
+Extra media metadata (for example title, subtitle, artist or album name) can be passed into the action and that will be shown on the Chromecast display.
 For the possible metadata types and values check [Google cast documentation > MediaInformation > metadata field](https://developers.google.com/cast/docs/reference/messages#MediaInformation).
 
 ```yaml
 # Play a movie from the internet, with extra metadata provided:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -110,7 +110,7 @@ data:
 
 ```yaml
 # Play a netradio, with extra metadata provided:
-service: media_player.play_media
+action: media_player.play_media
 target:
   entity_id: media_player.chromecast
 data:
@@ -161,7 +161,7 @@ Example values to cast [this episode](https://www.bbc.co.uk/iplayer/episode/b09w
 ```yaml
   alias: "Cast BBC iPlayer to My Chromecast"
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.my_chromecast
       data:
@@ -202,7 +202,7 @@ Example values to cast [BBC Radio 1](https://www.bbc.co.uk/sounds/play/live:bbc_
 ```yaml
   alias: "Cast BBC Sounds to My Chromecast"
   sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.my_chromecast
       data:
@@ -252,7 +252,7 @@ Optional:
             "media_id": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
             "media_type": "video/mp4"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### [NRK Radio](https://radio.nrk.no)
@@ -286,7 +286,7 @@ Example values to cast the item at <https://radio.nrk.no/podkast/tazte_priv/l_84
             "app_name": "nrkradio",
             "media_id": "l_8457deb0-4f2c-4ef3-97de-b04f2c6ef314"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### [NRK TV](https://tv.nrk.no)
@@ -318,18 +318,18 @@ Example values to cast the item at <https://tv.nrk.no/serie/uti-vaar-hage/sesong
             "app_name": "nrktv",
             "media_id": "OUHA43000207"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### Plex
 
-To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#service-media_playerplay_media) and prepend the `media_content_id` with `plex://`:
+To cast media directly from a configured Plex server, set the fields [as documented in the Plex integration](/integrations/plex/#action-media_playerplay_media) and prepend the `media_content_id` with `plex://`:
 
 ```yaml
 'cast_plex_to_chromecast':
   alias: "Cast Plex to Chromecast"
   sequence:
-  - service: media_player.play_media
+  - action: media_player.play_media
     target:
       entity_id: media_player.chromecast
     data:
@@ -376,7 +376,7 @@ Example values to cast the item at <https://www.supla.fi/audio/3601824>
             "app_name": "supla",
             "media_id": "3601824"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ### YouTube
@@ -408,7 +408,7 @@ Optional:
             "app_name": "youtube",
             "media_id": "dQw4w9WgXcQ"
           }'
-      service: media_player.play_media
+      action: media_player.play_media
 ```
 
 ## Troubleshooting automatic discovery

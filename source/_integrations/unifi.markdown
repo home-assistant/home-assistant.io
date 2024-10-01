@@ -34,7 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Image](#image)
 - [Presence detection](#presence-detection)
-- [Services](#services)
+- [Actions](#actions)
 - [Switch](#switch)
 - [Sensor](#sensor)
 - [Firmware updates](#firmware-updates)
@@ -94,17 +94,17 @@ If Home Assistant and the UniFi Network application are running on separate mach
 
 [Related Issue](https://github.com/home-assistant/home-assistant/issues/10507)
 
-## Services
+## Actions
 
-### Service unifi.reconnect_client
+### Action unifi.reconnect_client
 
 Try to get a wireless client to reconnect to the network.
 
-| Service data attribute | Optional | Description                                                                 |
+| Data attribute | Optional | Description                                                                 |
 | ---------------------- | -------- | --------------------------------------------------------------------------- |
 | `device_id`            | No       | String representing a device ID related to a UniFi Network {% term integration %} .     |
 
-### Service unifi.remove_clients
+### Action unifi.remove_clients
 
 Clean up clients on the UniFi Network application that has only been associated with the Network application for a short period of time. The difference between first seen and last seen needs to be less than 15 minutes and the client can not have a fixed IP, hostname or name associated with it.
 

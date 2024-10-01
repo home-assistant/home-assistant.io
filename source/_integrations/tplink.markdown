@@ -75,16 +75,29 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 [^2]: Newer versions require authentication  
 [^3]: Devices may work across TAPO/KASA branded hubs
 
+## Unavailable entities
+
+Some entities might be showing as Unavailable if they have been removed from the integration.
+
+### Total consumption
+
+This entity is only reported by older kasa devices.
+Currently, Tapo devices and newer Kasa devices do not report total consumption, although briefly during 2024.6, they incorrectly reported today's consumption as "total consumption." You can safely delete this entity if it is reported as unavailable on a newer Kasa or Tapo device.
+
+### Update
+
+This entity has been removed from the integration due to stability issues, calling the TPLink cloud API to check for updates. It will be replaced in a future release with a new Update entity, but if you have an Unavailable entity ID starting with `binary_sensor.` and ending with `update`, you can safely delete it.
+
 ## Light effects
 
 If light effects are supported by a device they can be selected from the bottom of the light card.
 They are currently not supported on Kasa bulbs.
 
-### Random Effect - Service `tplink.random_effect`
+### Random Effect - Action `tplink.random_effect`
 
 Light strips allow setting a random effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `init_states` | Initial HSV sequence |
@@ -101,8 +114,8 @@ Light strips allow setting a random effect.
 | `random_seed` | Random seed |
 
 ```yaml
-#Example Service Call
-service: tplink.random_effect
+#Example action
+action: tplink.random_effect
 target:
   entity_id:
     - light.strip
@@ -129,11 +142,11 @@ data:
   random_seed: 80
 ```
 
-### Sequence Effect - Service `tplink.sequence_effect`
+### Sequence Effect - Action `tplink.sequence_effect`
 
 Light strips allow setting a sequence effect.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | The entity_id of the light strip to set the effect on |
 | `sequence` | List of HSV sequences (Max 16) |
@@ -146,8 +159,8 @@ Light strips allow setting a sequence effect.
 | `direction` | Direction |
 
 ```yaml
-#Example Service Call
-service: tplink.sequence_effect
+#Example action
+action: tplink.sequence_effect
 target:
   entity_id:
     - light.strip

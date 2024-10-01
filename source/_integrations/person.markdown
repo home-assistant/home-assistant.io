@@ -119,4 +119,4 @@ person:
       - device_tracker.beacon
 ```
 
-If you change the YAML, you can reload it by calling the `person.reload` service.
+If you change the YAML, you can reload it by calling the `person.reload` action.

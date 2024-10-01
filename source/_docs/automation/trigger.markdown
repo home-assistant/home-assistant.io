@@ -85,7 +85,7 @@ automation:
 
 ## Event trigger
 
-Fires when an event is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
+An event trigger fires when an [event](/docs/configuration/events/) is being received. Events are the raw building blocks of Home Assistant. You can match events on just the event name or also require specific event data or context to be present.
 
 Events can be fired by integrations or via the API. There is no limitation to the types. A list of built-in events can be found [here](/docs/configuration/events/).
 
@@ -292,8 +292,8 @@ In the example above, the trigger would fire a single time if a numeric_state go
 {% endnote %}
 
 Number helpers (`input_number` entities), `number`, `sensor`, and `zone` entities
-that contain a numeric value, can be used in the `above` and `below` thresholds,
-making the trigger more dynamic, like:
+that contain a numeric value, can be used in the `above` and `below` thresholds.
+However, the comparison will only be made when the entity specified in the trigger is updated. This would look like:
 
 ```yaml
 automation:
@@ -339,7 +339,7 @@ automation:
         minutes: "{{ states('input_number.high_temp_min')|int }}"
         seconds: "{{ states('input_number.high_temp_sec')|int }}"
   action:
-    - service: persistent_notification.create
+    - action: persistent_notification.create
       data:
         message: >
           {{ trigger.to_state.name }} too high for {{ trigger.for }}!
@@ -357,12 +357,22 @@ If for your use case this is undesired, you could consider using the automation 
 
 ## State trigger
 
-Fires when the state of any of given entities changes. If only `entity_id` is given, the trigger will fire for all state changes, even if only state attributes change.
-If at least one of `from`, `to`, `not_from`, or `not_to` are given, the trigger will fire on any matching state change, but not if only attributes change. To trigger on all state changes, but not on changed attributes, set at least one of `from`, `to`, `not_from`, or `not_to` to `null`.
+In general, the state trigger fires when the state of any of given entities **changes**. The behavior is as follows:
 
-{% note %}
-The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by looking in the _States_ menu under _Developer tools_.
-{% endnote %}
+- If only the `entity_id` is given, the trigger fires for **all** state changes, even if only a state attribute changed.
+- If at least one of `from`, `to`, `not_from`, or `not_to` are given, the trigger fires on any matching state change, but not if only an attribute changed.
+  - To trigger on all state changes, but not on changed attributes, set at least one of `from`, `to`, `not_from`, or `not_to` to `null`.
+- Use of the `for` option doesn't survive a Home Assistant restart or the reload of automations. 
+  - During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
+  - If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
+
+{% tip %}
+The values you see in your overview will often not be the same as the actual state of the entity. For instance, the overview may show `Connected` when the underlying entity is actually `on`. You should check the state of the entity by checking the states in the developer tool, under {% my developer_states title="**Developer Tools** > **States**" %}.
+{% endtip %}
+
+### Examples
+
+This automation triggers if either Paulus or Anne-Therese are home for one minute.
 
 ```yaml
 automation:
@@ -395,7 +405,7 @@ automation:
       to: "error"
 ```
 
-Trigger on all state changes, but not attributes by setting `to` to `null`:
+If you want to trigger on all state changes, but not on attribute changes, you can `to` to `null` (this would also work by setting `from`, `not_from`, or `not_to` to `null`):
 
 ```yaml
 automation:
@@ -405,7 +415,7 @@ automation:
       to:
 ```
 
-The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state. This can be useful to  trigger on all state changes, except specific ones.
+If you want to trigger on all state changes *except* specific ones, use `not_from` or `not_to`  The `not_from` and `not_to` options are the counter parts of `from` and `to`. They can be used to trigger on state changes that are **not** the specified state.
 
 ```yaml
 automation:
@@ -423,8 +433,8 @@ You cannot use `from` and `not_from` at the same time. The same applies to `to` 
 ### Triggering on attribute changes
 
 When the `attribute` option is specified, the trigger only fires
-when the specified attribute changes. Changes to other attributes or the
-state are ignored.
+when the specified attribute **changes**. Changes to other attributes or
+state changes are ignored.
 
 For example, this trigger only fires when the boiler has been heating for 10 minutes:
 
@@ -465,8 +475,8 @@ automation:
       for: "00:00:30"
 ```
 
-Please note, that when holding a state, changes to attributes are ignored and
-do not cancel the hold time.
+When holding a state, changes to attributes are ignored. Changes to attributes
+don't cancel the hold time.
 
 You can also fire the trigger when the state value changed from a specific
 state, but hasn't returned to that state value for the specified time.
@@ -515,7 +525,7 @@ automation:
         minutes: "{{ states('input_number.lock_min')|int }}"
         seconds: "{{ states('input_number.lock_sec')|int }}"
   action:
-    - service: lock.lock
+    - action: lock.lock
       target:
         entity_id: lock.my_place
 ```
@@ -527,12 +537,6 @@ The `for` template(s) will be evaluated when an entity changes as specified.
 {% tip %}
 Use quotes around your values for `from` and `to` to avoid the YAML parser from interpreting values as booleans.
 {% endtip %}
-
-{% important %}
-Use of the `for` option will not survive Home Assistant restart or the reload of automations. During restart or reload, automations that were awaiting `for` the trigger to pass, are reset.
-
-If for your use case this is undesired, you could consider using the automation to set an [`input_datetime`](/integrations/input_datetime) to the desired time and then use that [`input_datetime`](/integrations/input_datetime) as an automation trigger to perform the desired actions at the set time.
-{% endimportant %}
 
 ## Sun trigger
 
@@ -574,7 +578,7 @@ automation:
         # Can be a positive or negative number
         below: -4.0
     action:
-      - service: switch.turn_on
+      - action: switch.turn_on
         target:
           entity_id: switch.exterior_lighting
 ```
@@ -713,10 +717,10 @@ automation:
         entity_id: binary_sensor.motion
         to: "on"
     action:
-      - service: climate.turn_on
+      - action: climate.turn_on
         target:
           entity_id: climate.office
-      - service: input_datetime.set_datetime
+      - action: input_datetime.set_datetime
         target:
           entity_id: input_datetime.turn_off_ac
         data:
@@ -727,7 +731,7 @@ automation:
       - platform: time
         at: input_datetime.turn_off_ac
     action:
-      - service: climate.turn_off
+      - action: climate.turn_off
         target:
           entity_id: climate.office
 ```
@@ -744,7 +748,7 @@ automation:
       - platform: time
         at: sensor.phone_next_alarm
     action:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
 ```

@@ -70,7 +70,7 @@ notify:
 
 ### Usage
 
-This is a notify platform and thus can be controlled by calling the notify service [as described here](/integrations/notify/). It will send an SMS notification to a single phone number in the notification **target**.
+This is a notify platform and thus can be controlled by calling the notify action [as described here](/integrations/notify/). It will send an SMS notification to a single phone number in the notification **target**.
 
 ```yaml
 # Example automation notification entry
@@ -80,7 +80,7 @@ automation:
       platform: sun
       event: sunset
     action:
-      service: notify.dovado
+      action: notify.dovado
       data:
         message: "The sun has set"
         target: "+14151234567"

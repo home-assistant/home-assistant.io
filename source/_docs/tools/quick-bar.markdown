@@ -57,7 +57,7 @@ Run various commands from anywhere without having to navigate to another view.
 Type | Available |
 | ------------- | ------------- |
 | Navigate | All entries in the sidebar and settings |
-| Reload | All currently-supported "Reload {domain}" services.<br />*(E.g., "Reload Scripts")* |
+| Reload | All currently-supported "Reload {domain}" actions.<br />*(E.g., "Reload Scripts")* |
 | Server | Restart/Stop |
 
 ## My links
