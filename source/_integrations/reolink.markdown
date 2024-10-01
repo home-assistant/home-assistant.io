@@ -296,6 +296,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
