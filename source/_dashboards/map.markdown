@@ -16,7 +16,7 @@ related:
     title: Getting started tutorial on presence detection
 ---
 
-The map card allows you to display entities on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
+The map card allows you to display your home zone, entities, and other predefined zones on a map. This card is used on the [Map dashboard](/dashboards/dashboards/#map-dashboard), which is one of the default dashboards.
 
 <p class='img'>
 <img src='/images/dashboards/map_card.png' alt='Screenshot of the map card'>
@@ -29,19 +29,19 @@ Screenshot of the map card.
    - If this is your first time editing a dashboard, the **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
-     - Once you've taken control, you can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
+     - Once you've taken control, you can't set this dashboard to update automatically anymore. However, you can create a new default dashboard.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 2. [Add the map card](/dashboards/cards/#adding-cards-to-your-dashboard) to your dashboard.
 3. By default, you see the house {% icon "mdi:house" %} icon on your map. It represents your [home zone](/integrations/zone/#about-the-home-zone).
    - To change the location of your home, you need to [edit your home's location in the general settings](/docs/configuration/basic/#editing-the-general-settings).
 
     ![Edit map card settings](/images/dashboards/map_card_config.png)
-4. To learn how to show additional zones to your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
+4. To learn how to show additional zones on your map, follow the steps on [adding a new zone](/integrations/zone/#adding-a-new-zone-or-editing-zones).
 5. To show other elements on the map, either add them under **Entities**, or use the **Geolocation sources**.
    - For a description of the options, refer to the [YAML configuration](#yaml-configuration) section. It also applies to the options shown in the UI.
    - {% icon "mdi:info" %} **Info**: The list of entities shows the device trackers available for your home, such as a mobile phone with the companion app.
-     - If you want to see a trace of the past location of your entities, you need to define a timeframe under **Hours to show**.
-   - For more information about presence detection, refer to the [Getting started tutorial on presence detection](/getting-started/presence-detection/).
+     - If you want to see a trace of the past locations of your entities, you need to define a time frame under **Hours to show**.
+   - For more information about presence detection, refer to the [getting started tutorial on presence detection](/getting-started/presence-detection/).
 
 ## Configuration options
 
