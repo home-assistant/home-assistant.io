@@ -34,18 +34,17 @@ Each `account` is set up as a device in Home Assistant and contain the following
 |Age| This sensor shows when the data was retrieved by Monarch's back end |
 
 
-
-
 ## Actions: Get Holdings
 
 This integration registers the `get_holdings` which will reutrn a data structure of the various holdings associated with a set of Monarch Money accounts. 
 
+
 ### Using the action
 
-In the frontend open **Settings**. Select **Developer tools**, click **Actions**. From the **Action** dropdown menu choose `monarch_money.get_holdings` from the list of available actions. Select 1 or more Devices or Entities. Now select Perform action.
+In the frontend open **Settings**. Select **Developer tools**, click **Actions**. From the **Action** dropdown menu choose `monarch_money.get_holdings` from the list of available actions. Select 1 or more Devices or Entities. Now select **Perform action**.
 
 
-## Holding Template Sensors
+## Holdings Template Sensors
 
 If you want to expose data regarding holdings you can use template sensors - unfortunately the syntax is somewhat complex. The following example shows how to expose the allocations of an account made up of a 3-fund portfolio consiting of `VTI` `BND` and `VXUS`
 
