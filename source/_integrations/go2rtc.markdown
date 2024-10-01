@@ -14,13 +14,13 @@ related:
 The go2rtc {% term integration %} will connect to a go2rtc instance and will provide a WebRTC proxy for all your cameras.
 
 If you are running Home Assistan with
-    - {% term Home Assistant Operating System %}
-    - {% term Home Assistant Supervised %}
-    - {% term Home Assistant Container %}
+    - {% term "Home Assistant Operating System" %}
+    - {% term "Home Assistant Supervised" %}
+    - {% term "Home Assistant Container" %}
 than the go2rtc binary is already preinstalled in the container and the config flow will pick it automatically.
 
 {% include integrations/config_flow.md %}
 
-If you are running {% term Home Assistant Core %}, than you need to setup a go2rtc instance and provide the URL in the config flow.
+If you are running {% term "Home Assistant Core" %}, than you need to setup a go2rtc instance and provide the URL in the config flow.
 Please refer to https://github.com/AlexxIT/go2rtc/
 
