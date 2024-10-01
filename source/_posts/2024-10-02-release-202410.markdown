@@ -432,11 +432,10 @@ in the issue dialog.
 
 ### YAML-editor improvements
 
-[@naps62] has been busy improving the YAML editor we show in the user interface
-of Home Assistant.
+[@naps62] has been busy improving the YAML editor found in the Home Assistant user interface.
 
 We now have a indentation-based vertical line, making it easier to see the
-indentation of your YAML configuration, making it easier to spot and prevent
+indentation of your YAML configuration, allowing you to spot and prevent
 indentation errors.
 
 ![image](https://github.com/user-attachments/assets/c2254e0b-98ca-46b0-874f-0420c60d3626)
