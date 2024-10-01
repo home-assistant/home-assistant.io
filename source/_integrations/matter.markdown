@@ -14,6 +14,7 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -35,6 +36,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - valve
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/
