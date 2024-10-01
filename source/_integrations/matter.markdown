@@ -335,7 +335,7 @@ Notification of an OTA update for a Matter device
 
 ## Automate on a button press
 
-You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
+You have a device that takes button presses as inputs (such as a Tuo Smart Button, VTM31SN dimmer by Inovelli, or the Matter Pushbutton Module by Innovation Matters) and now want to trigger an automation based on that button press. To learn how to create an automation triggered by a button press, refer to this [tutorial](/integrations/event/#automating-on-a-button-press).
 
 ## Experiment with Matter using a ESP32 dev board
 
