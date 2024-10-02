@@ -167,7 +167,7 @@ keeping Home Assistant lean, and this release has some good improvements. This
 is specially for users of custom integrations, and this follows HACS getting a
 great [speed boost for downloads].
 
-On each upgrade, all dependencies needed for {% term custom integrations %}
+On each upgrade, all dependencies needed for {% term "custom integrations" %}
 are now downloaded and installed. We are now using `uv` internally to download
 and install dependencies, which is a faster and more efficient way to download
 and install dependencies. If you're not aware, `uv` is what makes our release
