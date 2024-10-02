@@ -347,6 +347,8 @@ At this point, our [Matter integration] is almost becoming a monthly recurring
 topic in our release notes. For a good reason! The development is moving forward
 at a strong pace; running toward the certification finish line!
 
+<center><img src='/images/supported_brands/matter.png' alt='Matter logo' class='no-shadow'></center><br>
+
 In terms of stability, we have improved the robustness of the integration to
 ensure it sets up correctly every time, even if an issue with one
 of your devices occurs. Besides the usual bugfixes and improvements, this
