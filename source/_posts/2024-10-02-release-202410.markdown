@@ -430,24 +430,23 @@ in the issue dialog.
 
 ### YAML-editor improvements
 
-[@naps62] has been busy improving the YAML editor found in the Home Assistant user interface.
+[@naps62] has been busy improving the YAML editor found in the Home Assistant
+user interface.
 
-We now have a indentation-based vertical line, making it easier to see the
-indentation of your YAML configuration, allowing you to spot and prevent
+We now have a vertical line based on indentation, which makes it easier to see
+the indentation of your YAML configuration and allows you to spot and prevent
 indentation errors.
 
-![image](https://github.com/user-attachments/assets/c2254e0b-98ca-46b0-874f-0420c60d3626)
+<img class="no-shadow" src="/images/blog/2024-10/YAML-editor-improvements.png" alt="Screenshot showing the YAML editor with collapsed sections and the vertical indentation line.">
 
-But he didn't stop there, you can now also collapse and expand sections of your
-YAML configuration based on the indentation level.
+But he didn’t stop there. You can now collapse and expand sections of your
+YAML configuration based on the indentation level; which is also demonstrated
+in the screenshot above.
 
-![CleanShot 2024-09-25 at 13 19 19](https://github.com/user-attachments/assets/c14fa4bc-fac2-4c40-9f26-ec5aa9d8cf62)
+Nice work [@naps62]!
+
 
 [@naps62]: https://github.com/naps62
-
-Ref:
- - https://github.com/home-assistant/frontend/pull/21966
- - https://github.com/home-assistant/frontend/pull/21972
 
 ## Need help? Join the community!
 
