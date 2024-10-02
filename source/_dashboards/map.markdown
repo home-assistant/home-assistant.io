@@ -84,7 +84,7 @@ aspect_ratio:
   type: string
 default_zoom:
   required: false
-  description: The default zoom level of the map. use a lower number to zoomed out, a higher number to zoom in.
+  description: The default zoom level of the map. Use a lower number to zoom out and a higher number to zoom in.
   type: integer
   default: 14 (or whatever zoom level is required to fit all visible markers)
 theme_mode:
