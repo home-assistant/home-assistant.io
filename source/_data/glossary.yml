@@ -584,7 +584,7 @@
   link: /docs/scripts/#variables
 - term: Zone
   definition: >-
-    Zones are areas that can be used for presence detection.
+    Zones allow you to specify certain regions on a map. They enable zone presence-detection and can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
   link: /integrations/zone/
   aliases:
     - zones

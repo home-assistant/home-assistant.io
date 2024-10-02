@@ -94,7 +94,7 @@ Not all models include motion sensors and support for locks with built-in doorbe
 
 ## Camera
 
-The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yale.com/) device in Home Assistant.
+The `yale` camera platform allows you to view the latest camera image (triggered by motion) by your [Yale](https://yalehome.com/) device in Home Assistant.
 
 ## Sensor
 

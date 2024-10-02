@@ -35,6 +35,26 @@ The command structure uses the same keywords as the [official documentation](htt
 
 Using these commands, you can create a digital remote in the UI.
 
+Example:
+
+```yaml
+# Command with parameters
+action: remote.send_command
+data:
+  command: KeyPress, SETTINGS
+target:
+  entity_id: remote.madvr_envy
+```
+
+```yaml
+# Single command
+action: remote.send_command
+data:
+  command: Restart
+target:
+  entity_id: remote.madvr_envy
+```
+
 ### Single Commands
 
 These are commands that can be sent standalone, no parameters.
