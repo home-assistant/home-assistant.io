@@ -198,17 +198,20 @@ We welcome the following new integrations in this release:
 - **[Cambridge Audio]**, added by [@noahhusby]  
   Control all receivers and streamers that support the [StreamMagic app].
 - **[Deako Smart Lighting]**, added by [@Balake]  
-  Control and automated your [Deako] devices.
+  Control and automate your [Deako] devices.
 - **[Duke Energy]**, added by [@hunterjm]  
-  Import your energy usage data from Duke Energy into the Home Assistant energy dashboard.
+  Import your energy usage data from Duke Energy into the Home Assistant energy
+  dashboard.
 - **[Google Photos]**, added by [@allenporter]  
-  View and use your [Google Photos library] as a [media source], but also provides actions to upload new photos.
+  Upload photos to your [Google Photos library] and use as a [media source].
+  Note that only images uploaded by the integration can use viewed and used.
 - **[Iskra]**, added by [@iskrakranj]  
-  Monitor your energy and power usage from Iskra energy meter.
+  Monitor your energy and power usage from a Iskra energy meter.
 - **[Lektrico Charging Station]**, added by [@Lektrico]  
-  Get in control of your [Lektrico EV charger] from Home Assistant and optimize your energy usage.
+  Get in control of your [Lektrico EV charger] from Home Assistant and optimize
+  your energy usage.
 - **[Monarch Money]**, added by [@jeeftor]  
-  Monitor your account balance from the [Monarch Money personal finance service].
+  Monitor your account balance using the [Monarch Money personal finance service].
 - **[NYT Games]**, added by [@joostlek]  
   Keep track of your [New York Times games] progress, like Spelling Bee and Wordle.
 - **[Sensoterra]**, added by [@markruys]  
@@ -218,7 +221,7 @@ We welcome the following new integrations in this release:
 - **[Weheat]**, added by [@jesperraemaekers]  
   Manage and monitor your [Weheat heatpump], keeping your home warm and cozy.
 - **[WMS WebControl pro]**, added by [@mback2k]  
-  Control your [WAREMA] sun shading covers fully locally.
+  Control your [WAREMA] sun shading covers entirely locally.
 
 [@allenporter]: https://github.com/allenporter
 [@Balake]: https://github.com/Balake
@@ -258,7 +261,7 @@ We welcome the following new integrations in this release:
 
 This release also has a new virtual integration. Virtual integrations
 are stubs that are handled by other (existing) integrations to help with
-findability. this one is new:
+findability. This one is new:
 
 - **[Arizona Public Service (APS)]**, provided by [Opower], added by [@seferino-fernandez]
 
