@@ -15,8 +15,7 @@ We've found an issue in Home Assistant Connect ZBT-1 that has affected a small n
 
 Though Home Assistant SkyConnect is identical to the ZBT-1 under the hood, it is not affected. The design is not what's at fault, but instead, a defective voltage regulator that was used in this specific batch that is causing the issue. When a ZBT-1 is inserted into certain USB-A ports, the voltage regulator can fail, fully bricking the device. We used high-quality manufacturing and quality control in this and previous batches. We are undertaking an investigation to find out how this could happen and most importantly, to avoid a repeat of anything remotely similar in the future.
 
-We're sorry for any inconvenience this may cause you. Below are details on our investigation, how devices are affected, and the replacement program this issue with your device until a replacement is delivered to you.
-
+We're sorry for any inconvenience this may cause you. Below are details on our investigation, how devices are affected, and the replacement program.
 - [Background](#background)
 - [Pausing sales](#pausing-sales)
 - [Replacement Program](#replacement-program)
