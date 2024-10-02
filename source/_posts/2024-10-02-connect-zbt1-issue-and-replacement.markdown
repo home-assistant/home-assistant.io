@@ -7,7 +7,7 @@ date_formatted: "October 2, 2024"
 author: Andy Gill
 comments: true
 categories: Public-Service-Announcement
-og_image: /images/blog/2024-10-zbt1-issue/art.jpg'
+og_image: /images/blog/2024-10-zbt1-issue/art.jpg
 ---
 <img src='/images/blog/2024-10-zbt1-issue/art.jpg' alt="Home Assistant Connect ZBT-1 issue and replacement">
 
