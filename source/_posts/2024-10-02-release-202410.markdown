@@ -77,7 +77,7 @@ Enjoy the (beta) release!
 
 - [Heading in the right direction](#heading-in-the-right-direction)
   - [Another headline feature](#another-headline-feature)
-- [Repairs for long term statistics](#repairs-for-long-term-statistics)
+- [Repairs for long-term statistics](#repairs-for-long-term-statistics)
 - [Improved YAML syntax for automations](#improved-yaml-syntax-for-automations)
 - [Faster upgrades when using custom integrations](#faster-upgrades-when-using-custom-integrations)
 - [Integrations](#integrations)
@@ -112,13 +112,23 @@ Either in a subtle "no color" default or add a splash of color when the entity i
 
 ![CleanShot 2024-09-24 at 17 41 16](https://github.com/user-attachments/assets/32231d3d-748a-47c2-82b1-aff401ffa388)
 
-## Repairs for long term statistics
+## Repairs for long-term statistics
 
-[Long-term statistics](https://data.home-assistant.io/docs/statistics/) are great; they downsample and store the data produced by your sensors, allowing Home Assistant to store data indefinitely in a fraction of the space the original readings took up. Take a look back at your energy usage from two years ago, or see if your living room really is colder this year compared to last.
+[Long-term statistics] are great; they downsample and store the data produced
+by your {% term sensors %}, allowing Home Assistant to store data indefinitely
+in a fraction of the space the original readings took up. Take a look back at
+[your energy usage] from two years ago, or see if your living room really is
+colder this year compared to last.
 
-![statistics repair in the settings menu](/images/blog/2024-10/statistics-repair.jpg)
+![Screenshot showing a long-term statistic repair showing up in the settings menu](/images/blog/2024-10/statistics-repair.jpg)
 
-In the past, if a statistic encountered an issue, it might be quietly broken until you dig into the statistics page. Now it will raise a repair notification when Home Assistant detects issues with a long-term statistic and give you options for fixing the issue.
+In the past, if a statistic encountered an issue, it might be quietly broken
+until you dig into the statistics page. Now, Home Assistant will raise a repair
+notification when it detects issues with a long-term statistic and give
+you options for fixing the issue.
+
+[your energy usage]: /docs/energy/
+[Long-term statistics]: https://data.home-assistant.io/docs/statistics/
 
 ## Improved YAML syntax for automations
 
