@@ -27,21 +27,3 @@ The **Fluss+** {% term integration %} allows you to control [Fluss+](https://flu
    - You can find the API key in your Fluss+ app.
 
 {% include integrations/config_flow.md %}
-1. Go to your instance of Home Assistant.
-2. Navigate to **Settings**.
-3. Go to **Devices & Services**.
-4. Click the **+ Integration** button.
-5. Search for **Fluss+**.
-
-
-{% details "Manual Configuration" %}
-
-To enable Fluss+ in your installation, add the following to your `configuration.yaml` file:
-
-```yaml
-# Example configuration.yaml entry for Fluss+ with additional options
-```yaml
-# Example configuration.yaml entry
-fluss:
-  api_key: YOUR_API_KEY
-{% enddetails %}
