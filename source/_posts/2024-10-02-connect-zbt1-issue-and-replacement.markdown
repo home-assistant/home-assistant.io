@@ -25,7 +25,7 @@ We're sorry for any inconvenience this may cause you. Below are details on our i
 
 ## Background
 
-Around a month ago, we were contacted about one of our latest (and recently rebranded) Home Assistant Connect ZBT-1s not being detected and showing a small mark on the housing. A couple more similar issues were reported, and we began a dialogue with the small number of people who were affected, having them send us the devices to test.
+Around a month ago, we were contacted about one of our latest (and [recently rebranded](/blog/2024/06/13/zbt1-annoucement/)) Home Assistant Connect ZBT-1s not being detected and showing a small mark on the housing. A couple more similar issues were reported, and we began a dialogue with the small number of people who were affected, having them send us the devices to test.
 
 <p class='img'><img src='/images/blog/2024-10-zbt1-issue/zbt1-issue.jpg' style='border: 0;box-shadow: none;' alt="ZBT-1 case deformation and faulty voltage regulator">Circled in red the deformation on the case and the board showing the failed chip</p>
 
@@ -33,7 +33,7 @@ When we opened them, we found a dead voltage regulator. The mark in the outer ca
 
 We replaced the voltage regulator on the devices we tested, and the devices sprang back to life. We found our culprit, but why was it failing? As mentioned, the SkyConnect internal design and the manufacturing were effectively identical to the ZBT-1, and we received no reports of any such failures in the literally tens of thousands of them in the wild. In manufacturing runs there is always a little variance, and in this run, something went wrong with the voltage regulator that was sourced - again, we're looking into this.
 
-It took us a couple of weeks to replicate the problem with our own units. We went down some wrong paths, but eventually found it was triggered only by certain devices, specifically certain desktop PCs (internally, we have only found one desktop that causes this failure). We have not observed the failure occur when the device has only been connected to a Home Assistant Green, Raspberry Pi, or even a Mac. If you have plugged your ZBT-1 into a different device, specifically a desktop PC, inspect it for this deformation pictured above. Another sign is it not being detected at all when plugged into Home Assistant OS. Obviously, we want you to be able to use the device with any hardware, and even if only a small number of devices from this batch have reported issues, it is still unacceptable to us.
+It took us a couple of weeks to replicate the problem with our own units. We went down some wrong paths, but eventually found it was triggered only by certain devices, specifically certain desktop PCs (internally, we have only found one desktop that causes this failure). We have not observed the failure occur when the device has only been connected to a Home Assistant Green, Raspberry Pi, or even a Mac. If you have plugged your ZBT-1 into a different device, specifically a desktop PC, and it is not recognized by that system, inspect it for this deformation pictured above. Obviously, we want you to be able to use the device with any hardware, and even if only a small number of devices from this batch have reported issues, it is still unacceptable to us.
 
 ## Pausing sales
 
