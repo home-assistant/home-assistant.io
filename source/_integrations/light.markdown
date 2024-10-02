@@ -77,13 +77,12 @@ In order to apply attributes to an entity, you will need to add `data:` to the c
 ```yaml
 # Example configuration.yaml entry
 automation:
-- id: one
-  alias: "Turn on light when motion is detected"
-  trigger:
-    - platform: state
+- alias: "Turn on light when motion is detected"
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.motion_1
       to: "on"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.living_room
@@ -93,12 +92,11 @@ automation:
 ```
 ```yaml
 # Ledlist morning on, red
-- id: llmor
-  alias: "Stair morning on"
-  trigger:
-  - at: '05:00'
-    platform: time
-  action:
+- alias: "Stair morning on"
+  triggers:
+    - trigger: time
+      at: '05:00'
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.ledliststair

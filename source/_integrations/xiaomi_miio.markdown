@@ -223,6 +223,7 @@ Supported devices:
 | Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
 | Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
 | Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
+| Air Purifier 3C        | zhimi.airp.mb4a         |              |
 | Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
 | Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
 | Air Purifier 4 PRO     | zhimi.airp.vb4          | AC-M15-SC    |
@@ -531,7 +532,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier 3C (zhimi.airpurifier.mb4)
+### Air Purifier 3C (zhimi.airpurifier.mb4/zhimi.airp.mb4a)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -1499,11 +1500,10 @@ Inline array:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1520,11 +1520,10 @@ Array with inline zone:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1542,11 +1541,10 @@ Array mode:
 ```yaml
 automation:
   - alias: "Test vacuum zone3"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_zone
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1579,11 +1577,10 @@ Multiple segments:
 ```yaml
 automation:
   - alias: "Vacuum kitchen and living room"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1596,11 +1593,10 @@ Single segment:
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
-      - event: start
-        platform: homeassistant
-    condition: []
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum
@@ -1613,10 +1609,10 @@ The original app for Xiaomi vacuum has a nice feature of room cleaning with repe
 ```yaml
 automation:
   - alias: "Vacuum kitchen"
-    trigger:
-      - event: start
-        platform: homeassistant
-    action:
+    triggers:
+      - trigger: homeassistant
+        event: start
+    actions:
       - action: xiaomi_miio.vacuum_clean_segment
         target:
           entity_id: vacuum.xiaomi_vacuum

@@ -53,16 +53,16 @@ Automations can be triggered on file system events data using a template. The fo
 #Send notification for new image (including the image itself)
 automation:
   alias: "New file alert"
-  trigger:
-    platform: state
-    entity_id: event.created
-  action:
-    action: notify.notify
-    data:
-      title: New image captured!
-      message: "Created {{ trigger.to_state.attributes.file }} in {{ trigger.to_state.attributes.folder }}"
-      data:
-        file: "{{ trigger.to_state.attributes.file }}"
+  triggers:
+    - trigger: state
+      entity_id: event.created
+  actions:
+    - action: notify.notify
+      data:
+        title: New image captured!
+        message: "Created {{ trigger.to_state.attributes.file }} in {{ trigger.to_state.attributes.folder }}"
+        data:
+          file: "{{ trigger.to_state.attributes.file }}"
 ```
 
 {% endraw %}

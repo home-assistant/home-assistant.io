@@ -410,7 +410,6 @@ data:
   data:
     image: "{{ trigger.event.data.attachment.image }}"
     video: "{{ trigger.event.data.attachment.video }}"
-mode: single
 ```
 
 {% endraw %}

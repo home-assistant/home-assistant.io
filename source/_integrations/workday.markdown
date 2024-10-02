@@ -14,6 +14,7 @@ ha_codeowners:
 ha_domain: workday
 ha_platforms:
   - binary_sensor
+  - diagnostics
 ha_integration_type: integration
 ---
 
@@ -83,15 +84,15 @@ Example usage for automation:
 ```yaml
 automation:
   alias: "Turn on heater on workdays"
-  trigger:
-    platform: time
-    at: "08:00:00"
-  condition:
-    condition: state
-    entity_id: binary_sensor.workday_sensor
-    state: "on"
-  action:
-    action: switch.turn_on
-    target:
-      entity_id: switch.heater
+  triggers:
+    - trigger: time
+      at: "08:00:00"
+  conditions:
+    - condition: state
+      entity_id: binary_sensor.workday_sensor
+      state: "on"
+  actions:
+    - action: switch.turn_on
+      target:
+        entity_id: switch.heater
 ```

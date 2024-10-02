@@ -212,16 +212,16 @@ a time based automation can be used:
 
 ```yaml
 automation:
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "09:00:00"
       variables:
         tariff: "peak"
-    - platform: time
+    - trigger: time
       at: "21:00:00"
       variables:
         tariff: "offpeak"
-  action:
+  actions:
     - action: select.select_option
       target:
         entity_id: select.daily_energy

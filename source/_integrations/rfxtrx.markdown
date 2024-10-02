@@ -296,7 +296,7 @@ So, for example, to trigger an action when somebody presses the doorbell, you wo
 *Automation trigger:*
 
 ```yaml
-- platform: event
+- trigger: event
   event_type: rfxtrx_event
   event_data:
     packet_type: 22
@@ -320,8 +320,8 @@ scene:
 
 automation:
   - alias: "Use doorbell button to trigger scene"
-    trigger:
-    - platform: event
+    triggers:
+    - trigger: event
       event_type: rfxtrx_event
       event_data:
         packet_type: 22
@@ -329,10 +329,10 @@ automation:
         id_string: "00:90"
         values:
           Sound: 9
-    action:
-      action: scene.turn_on
-      target:
-        entity_id: scene.welcomescene
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.welcomescene
 ```
 
 ## Actions
@@ -345,10 +345,10 @@ Simulate a button being pressed:
 
 ```yaml
 ...
-action:
-  action: rfxtrx.send
-  data:
-    event: 0b1111e003af16aa10000060
+actions:
+  - action: rfxtrx.send
+    data:
+      event: 0b1111e003af16aa10000060
 ```
 
 Alternatively:

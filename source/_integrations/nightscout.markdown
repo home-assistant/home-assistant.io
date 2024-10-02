@@ -31,18 +31,17 @@ The state is the last reading from Nightscout, and you can see other information
 ### Example automation
 
 ```yaml
-- id: "1234567890123"
-  alias: "overnight_low_kitchen_lights"
+- alias: "overnight_low_kitchen_lights"
   description: Turn on the lights in the kitchen if my blood sugar drops low overnight
-  trigger:
-  - platform: numeric_state
+  triggers:
+  - trigger: numeric_state
     entity_id: sensor.blood_glucose
     below: "65" 
-  condition:
+  conditions:
     - condition: time
       after: "22:00:00"
       before: "06:00:00"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.kitchen

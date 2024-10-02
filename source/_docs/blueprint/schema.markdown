@@ -267,20 +267,20 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
+actions:
   - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
-      platform: state
-      entity_id: !input motion_entity
-      from: "on"
-      to: "off"
+      - trigger: state
+        entity_id: !input motion_entity
+        from: "on"
+        to: "off"
   - delay: !input no_motion_wait
   - action: light.turn_off
     target: !input light_target

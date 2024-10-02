@@ -266,11 +266,11 @@ The allows you to do something when the device "Millennium Falcon" enters the de
 {% details "Show me the YAML!" %}
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.millennium_falcon_geofence
     to: 'Tatooine'
-action:
+actions:
   ...
 ```
 
@@ -285,11 +285,11 @@ The allows you to do something when the device "Millennium Falcon" exceeds a def
 {% details "Show me the YAML!" %}
 
 ```yaml
-trigger:
-  - platform: numeric_state
+triggers:
+  - trigger: numeric_state
     entity_id: sensor.millennium_falcon_speed
     above: 1337
-action:
+actions:
   ...
 ```
 
@@ -298,9 +298,9 @@ If you want to include the speed in a notification, you can use the `{{ trigger.
 Partial example:
 
 ```yaml
-trigger:
+triggers:
   ...
-action:
+actions:
   - action: notify.notify
     data:
       message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
