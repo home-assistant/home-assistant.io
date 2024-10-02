@@ -8,6 +8,7 @@ ha_category:
   - Doorbell
   - Event
   - Light
+  - Number
   - Sensor
   - Switch
 ha_release: 0.42
@@ -23,6 +24,7 @@ ha_platforms:
   - diagnostics
   - event
   - light
+  - number
   - sensor
   - siren
   - switch
@@ -42,6 +44,7 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Light](#light)
+- [Number](#number)
 
 {% note %}
 This integration does NOT allow for live viewing of your Ring camera within Home Assistant.
@@ -97,7 +100,7 @@ automation:
 
 {% endraw %}
 
-You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file: 
+You may consider some modifications in the subdirectory and the filename to suit your needs. For example, you can add the date and the time and extension to the downloaded file:
 
 {% raw %}
 ```yaml
@@ -140,9 +143,21 @@ hass.services.call("downloader", "download_file", data)
 
 The event entity captures events like doorbell rings, motion alerts, and intercom unlocking.
 
+### Realtime event stability
+
+If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
+Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
+If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
+This can cause issues receiving ring alerts.
+You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
+(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
+If you have too many `Authorised Client Devices` to delete them individually, it might be easier to `Remove all devices` and then re-authorize your required devices.
+
 ## Sensor
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports doorbell, external chimes and stickup cameras.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the sensor platform. Currently, it supports battery level and Wi-Fi signal.
+
+The volume sensors are being replaced with the number entity which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
 ## Switch
 
@@ -151,3 +166,8 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 ## Light
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the light platform. This will add a light for every camera that supports a light (such as a floodlight).
+
+## Number
+
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the number platform.
+Currently, it supports showing and setting the volume of the doorbell/chime ring, intercom voice volume, and intercom microphone volume.

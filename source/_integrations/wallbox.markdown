@@ -25,26 +25,28 @@ The **Wallbox** {% term integration %} pulls data from the [MyWallbox Portal](ht
 
 The {% term integration %} adds the following sensors:
 
-- Added energy
-- Added range
-- Charging power
+- Added energy (kWh)
+- Added range (km)
+- Charging power (kW)
 - Charging speed
 - Charging time
-- Cost
+- Cost ([default currency])
 - Current mode
-- Depot price
-- Energy price
-- Max available power
-- State of charge
+- Depot price ([default currency]/kWh)
+- Energy price ([default currency]/kWh)
+- Max available power (A)
+- State of charge (%)
 - Status description
-- Max charging current
+- Max charging current (A)
+- Max ICP current (A)
 
 ## Number
 
 The {% term integration %} adds the following number entities:
 
-- Max charging current
-- Energy price
+- Max charging current (A)
+- Max ICP current; this is the maximum current available for load balancing (A)
+- Energy price ([default currency]/kWh)
 
 The number {% term entity %} is only loaded if the supplied username has sufficient rights to change the Max. Charging Current.
 

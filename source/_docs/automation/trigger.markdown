@@ -31,6 +31,8 @@ An {% term automation %} can be triggered by an {% term event %}, a certain {% t
 - [Sentence trigger](#sentence-trigger)
 - [Multiple triggers](#multiple-triggers)
 - [Multiple Entity IDs for the same Trigger](#multiple-entity-ids-for-the-same-trigger)
+- [Disabling a trigger](#disabling-a-trigger)
+- [Merging lists of triggers](#merging-lists-of-triggers)
 
 ## Trigger ID
 
@@ -749,9 +751,32 @@ automation:
           entity_id: light.bedroom
 ```
 
+### Sensors of datetime device class with offsets
+
+When the time is provided using a sensor of the timestamp device class, an offset can be provided. This offset will be added to (or subtracted from when negative) the sensor value.
+
+For example, this trigger fires 5 minutes before the phone alarm goes off.
+
+```yaml
+automation:
+  - trigger:
+      - platform: time
+        at:
+          entity_id: sensor.phone_next_alarm
+          offset: -00:05:00
+    action:
+      - service: light.turn_on
+        target:
+          entity_id: light.bedroom
+```
+
+{% important %}
+When using a positive offset the trigger might never fire. This is due to the sensor changing before the offset is reached. For example, when using a phone alarm as a trigger, the sensor value will change to the new alarm time when the alarm goes off, which means this trigger will change to the new time as well.
+{% endimportant %}
+
 ### Multiple times
 
-Multiple times can be provided in a list. Both formats can be intermixed.
+Multiple times can be provided in a list. All formats can be intermixed.
 
 ```yaml
 automation:
@@ -760,6 +785,8 @@ automation:
       at:
         - input_datetime.leave_for_work
         - "18:30:00"
+        - entity_id: sensor.bus_arrival
+          offset: "-00:10:00"
 ```
 
 ## Time pattern trigger
@@ -1045,3 +1072,28 @@ blueprint:
 ```
 
 {% endraw %}
+
+## Merging lists of triggers
+
+{% caution %}
+This feature requires Home Assistant version 2024.10 or later. If using this in a blueprint, set the `min_version` for the blueprint to at least this version.
+{% endcaution %}
+
+In some advanced cases (like for blueprints with trigger selectors), it may be necessary to insert a second list of triggers into the main trigger list. This can be done by adding a dictionary in the main trigger list with the sole key `triggers`, and the value for that key contains a second list of triggers. These will then be flattened into a single list of triggers. For example:
+
+```yaml
+blueprint:
+  name: Nested Trigger Blueprint
+  domain: automation
+  input:
+    usertrigger:
+      selector:
+        trigger:
+
+trigger:
+  - platform: event
+    event_type: manual_event
+  - triggers: !input usertrigger
+```
+
+This blueprint automation can then be triggered either by the fixed manual_event trigger, or additionally by any triggers selected in the trigger selector. This is also applicable for `wait_for_trigger` action.

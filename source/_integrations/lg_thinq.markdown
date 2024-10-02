@@ -13,6 +13,8 @@ ha_platforms:
   - switch
   - binary_sensor
   - climate
+  - fan
+  - vacuum
 ha_integration_type: integration
 ---
 
@@ -86,6 +88,9 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Binary sensor](#binary-sensor)
 - [Climate](#climate)
 - [Switch](#switch)
+- [Fan](#fan)
+- [Vacuum](#vacuum)
+
 
 ### Binary sensor
 
@@ -108,6 +113,22 @@ The properties for controlling both the temperature and wind strength of the app
 | ------ | -------- |
 | [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Fan mode<br>HVAC mode<br>Preset mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
 | [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | HVAC mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
+
+### Fan
+
+The properties for controlling the wind strength of the appliance are represented as a fan platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Celing Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/) | Operation mode<br>Wind strength |
+
+### Vacuum
+
+The properties for controlling the clean operations of the appliance are represented as a vacuum platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Battery level<br>Operation mode<br>Current state |
 
 ### Switch
 
