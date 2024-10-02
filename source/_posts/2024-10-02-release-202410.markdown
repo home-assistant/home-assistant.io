@@ -133,7 +133,7 @@ definitions, and `actions` with multiple `action` definitions.
 Here is a small example of an automation highlighting these changes.
 
 <p class="img">
-<img src="/images/blog/2024-10/YAML-automation-syntax-changes.png" alt="Screenshots; left showing the old automation YAML style, on the right shows the new style. The differences between them have been highlighted.">
+<img src="/images/blog/2024-10/YAML-automation-syntax-changes.png" alt="Screenshots; left showing the old automation YAML style, right showing the new style. The differences between them have been highlighted.">
 The 2024.9 release on the left and this 2024.10 release on the right.
 </p>
 
