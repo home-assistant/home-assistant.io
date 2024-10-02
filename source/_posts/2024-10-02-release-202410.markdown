@@ -388,9 +388,12 @@ noteworthy changes this release:
   has lots of integrations that add them. Including [Matter], [Plugwise],
   [Wallbox], and [Govee]. We are calling contributions to add model IDs to
   more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
+- When you unignore an or integration or device on the integrations page,
+  Home Assistant will instantly try to rediscover it again! Nice! Thanks,
+  [@emontnemery]!
 - We now have a new unit of measurement for energy entities: calories. Useful,
   for like devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
-- [@Travoschirmer] did something similar, and added a new unit of speed:
+- [@TrevorSchirmer] did something similar, and added a new unit of speed:
   mm/s and in/s. Thank you!
 - When you rename a device, you will now see more details about the rename
   operation. Including a preview of the new entity IDs. Nice, [@karwosts]!
@@ -407,10 +410,12 @@ noteworthy changes this release:
   It is a building block for remote satellites devices that use [Assist]. This
   is in preparation for our upcoming satellite hardware. Stay tuned!
 
-[@karwosts]: https://github.com/karwosts
 [@chammp]: https://github.com/chammp
 [@dudanov]: https://github.com/dudanov
+[@emontnemery]: https://github.com/emontnemery
 [@gjohansson-ST]: https://github.com/gjohansson-ST
+[@karwosts]: https://github.com/karwosts
+[@TrevorSchirmer]: https://github.com/TrevorSchirmer
 [`merge_response`]: /docs/configuration/templating/#merge-action-responses
 [Assist]: /voice_control
 [Govee]: /integrations/govee_light_local
