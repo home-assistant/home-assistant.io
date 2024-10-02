@@ -110,7 +110,7 @@ The state, including attributes, of trigger-based sensors and binary sensors is 
 ```yaml
 # Example configuration entry
 template:
-  - triggers:
+  - trigger:
       - trigger: time_pattern
         # This will update every night
         hours: 0
