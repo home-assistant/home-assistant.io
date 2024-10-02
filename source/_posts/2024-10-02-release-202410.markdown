@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2024.10: Beta release notes"
+title: "2024.10: Heading in the right direction"
 description: "Beta release notes for Home Assistant 2024.10"
 date: 2024-09-25 00:00:00
 date_formatted: "October 2, 2024"
@@ -423,10 +423,10 @@ noteworthy changes this release:
 
 ### The source of a repair
 
-Integrations can raise issues in your repairs dashboard, they can raise issues
-for themselves, but also for other integrations. An example of such an issue,
-is an integration that connects to your device that raises an issue on an
-automation that controls it.
+{% term Integrations %} can raise issues in your repairs dashboard, they can
+raise issues for themselves, but also for other integrations. An example of
+such an issue, is an integration that connects to your device that raises an
+issue on an {% term automation %} that controls it.
 
 The result, is an automation issue in your repair center. This is cool, but
 you might want to know which integration raised the issue in the first place.
@@ -434,7 +434,7 @@ you might want to know which integration raised the issue in the first place.
 Thanks to [@wendevlin], we now show the source integration of the repair issue
 in the issue dialog.
 
-![image](https://github.com/user-attachments/assets/a2b57c86-5acf-48d3-8676-1dc2a5bfbb57)
+<img class="no-shadow" src="/images/blog/2024-10/repair-issue-reported-by.png" alt="Screenshot showing the YAML editor with collapsed sections and the vertical indentation line.">
 
 [@wendevlin]: https://github.com/wendevlin
 
