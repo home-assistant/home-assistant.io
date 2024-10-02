@@ -16,7 +16,7 @@ ha_platforms:
 ha_integration_type: system
 ---
 
-The Home Assistant Cloud allows you to quickly integrate your local Home Assistant with various cloud services like Amazon Alexa and Google Assistant. [Learn more.](/cloud)
+Home Assistant Cloud is a subscription service provided by our partner Nabu Casa, Inc. [Learn more.](/cloud)
 
 ## Configuration
 
