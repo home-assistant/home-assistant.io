@@ -3,11 +3,11 @@ title: "Automation YAML"
 description: "How to use the automation integration with YAML."
 ---
 
-Automations are created in Home Assistant via the UI, but are stored in a {% term YAML %} format. If you want to edit the {% term YAML %} of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
+Automations are created in Home Assistant via the UI, but are stored in a YAML format. If you want to edit the YAML of an {% term automation %}, select the automation, click on the menu button in the top right then on **Edit in YAML**.
 
 The UI will write your automations to `automations.yaml`. This file is managed by the UI and should not be edited manually.
 
-It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other {% term YAML %} files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
+It is also possible to write your automations directly inside {% term "`configuration.yaml`" %} or other YAML files. You can do this by adding a labeled `automation` block to your `configuration.yaml`:
 
 ```yaml
 # The configuration required for the UI to work
@@ -125,9 +125,10 @@ action:
   <img src='/images/integrations/script/script_modes.jpg'>
 </p>
 
+
 ## YAML example
 
-Example of a {% term YAML %} based automation that you can add to {% term "`configuration.yaml`" %}.
+Example of a YAML based automation that you can add to {% term "`configuration.yaml`" %}.
 
 {% raw %}
 
@@ -206,7 +207,7 @@ automation my_lights:
 
 ## Extra options
 
-When writing automations directly in {% term YAML %}, you will have access to advanced options that are not available in the user interface.
+When writing automations directly in YAML, you will have access to advanced options that are not available in the user interface.
 
 ### Automation initial state
 
@@ -222,7 +223,7 @@ automation:
 
 ### Number of debug traces stored
 
-When using {% term YAML %} you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `trace`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
+When using YAML you can configure the number of debugging traces stored for an automation. This is controlled with the `stored_traces` option under `trace`. Set `stored_traces` to the number of traces you wish to store for the particular automation. If not specified the default value of 5 will be used.
 
 ```yaml
 automation:
@@ -262,7 +263,7 @@ If you want to migrate your manual automations to use the editor, you'll have to
 
 ### Deleting automations
 
-When automations remain visible in the Home Assistant dashboard, even after having deleted in the {% term YAML %} file, you have to delete them in the UI.
+When automations remain visible in the Home Assistant dashboard, even after having deleted in the YAML file, you have to delete them in the UI.
 
 To delete them completely, go to UI {% my entities title="**Settings** > **Devices & services** > **Entities**" %} and find the automation in the search field or by scrolling down.
 

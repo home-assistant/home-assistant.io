@@ -582,10 +582,6 @@
     Variables are used to store values in memory that can be processed for
     example, in a script.
   link: /docs/scripts/#variables
-- term: YAML
-  definition: >-
-    YAML is a human-readable data serialization language. It is used to store and transmit data in a structured format. In Home Assistant, YAML is used for configuration, for example in the `configuration.yaml` or `automations.yaml` files.
-  link: /docs/configuration/yaml/
 - term: Zone
   definition: >-
     Zones allow you to specify certain regions on a map. They enable zone presence-detection and can be used in automations. For example, to start the vacuum after you left home or start the heating at home when you leave the office.
