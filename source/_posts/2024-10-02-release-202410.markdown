@@ -122,68 +122,41 @@ In the past, if a statistic encountered an issue, it might be quietly broken unt
 
 ## Improved YAML syntax for automations
 
-Recently, we renamed `service` to `action` in the [Home Assistant UI and YAML](/blog/2024/08/07/release-20248/#goodbye-service-calls-hello-actions-). This was done with the goal of making the syntax more natural allowing it to be easier to grasp and read. We want to continue this work to improve the YAML syntax, this time focusing on automations, and we've made the following changes,
+Recently, we renamed `service` to `action` in the [Home Assistant UI and YAML].
+This was done with the goal of making the syntax more natural allowing it
+to be easier to grasp and read. We want to continue this work to improve the
+YAML syntax, this time focusing on {% term automations %}, and we've made the
+following changes,
 
-  - The top level `trigger` key is now `triggers` (plural)
-  - The top level `condition` key is now `conditions` (plural)
-  - The top level `action` key is now `actions` (plural)
-  - The `platform` key of a trigger definition is now `trigger`
+- The top-level `trigger` key is now `triggers` (plural)
+- The top-level `condition` key is now `conditions` (plural)
+- The top-level `action` key is now `actions` (plural)
+- The `platform` key of a trigger definition is now `trigger`
 
-The result of all this is YAML automation syntax now has `triggers` with multiple `trigger` definitions, `conditions` with multiple `condition` definitions, and `actions` with multiple `action` definitions.
+The result of all this is YAML automation syntax now has `triggers` with
+multiple `trigger` definitions, `conditions` with multiple `condition`
+definitions, and `actions` with multiple `action` definitions.
 
-Before:
+Here is a small example of an automation that highlighting these changes.
 
-```yaml
-# Automation example:
-alias: "My automation"
-description: "This is my automation"
-trigger:
-  - platform: state
-    entity_id: light.kitchen
-    to: "on"
-condition:
-  - condition: state
-    entity_id: binary_sensor.motion
-    state: "on"
-action:
-  - action: light.turn_on
-    target:
-      entity_id: light.living_room
-```
+<p class="img">
+<img src="/images/blog/2024-10/YAML-automation-syntax-changes.png" alt="Screenshots; left showing the old automation YAML style, on the right shows the new style. The differences between them have been highlighted.">
+The 2024.9 release on the left and this 2024.10 release on the right.
+</p>
 
-After:
+As with the other syntax changes we've done recently, this is
+**not a breaking change**, and there will be no deprecation. The previous syntax
+will continue to work, and there are no plans to remove the old syntax. The new
+syntax is recommended, and all documentation and examples have been updated.
+Automations managed by the automation editor will automatically be migrated to
+the new syntax when saving an automation.
 
-```yaml
-# Automation example:
-alias: "My automation"
-description: "This is my automation"
-triggers:
-  - trigger: state
-    entity_id: light.kitchen
-    to: "on"
-conditions:
-  - condition: state
-    entity_id: binary_sensor.motion
-    state: "on"
-actions:
-  - action: light.turn_on
-    target:
-      entity_id: light.living_room
-```
+This is not the only change to our syntax, thanks to [@karwosts] we now support
+[merging a list of triggers], which is mostly useful for
+{% term blueprint blueprint %} authors.
 
-As with the other syntax changes we've done recently, this is not a breaking change, and there will be no deprecation. Existing syntax will continue to work, and there are no plans to remove the old syntax. The new syntax is recommended, and all documentation and examples have been updated to use it. Automations managed by the automation editor will automatically be migrated to the new syntax when saving an automation.
-
-Additionally, we also support nested triggers now, thanks to the work of [@karwosts].
-
-```yaml
-triggers:
-  - triggers:
-    - trigger: state
-      entity_id: light.kitchen
-      to: "on"
-```
-
-This is mainly useful for blueprint authors, but can be used by users to group triggers together as well.
+[merging a list of triggers]: /docs/automation/trigger/#merging-lists-of-triggers
+[Home Assistant UI and YAML]: /blog/2024/08/07/release-20248/#goodbye-service-calls-hello-actions-
 
 ## Faster upgrades when using custom integrations
 
