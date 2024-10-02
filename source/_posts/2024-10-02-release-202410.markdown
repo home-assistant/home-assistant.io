@@ -707,6 +707,7 @@ If you are a custom integration developer and want to learn about changes and
 new features available for your integration: Be sure to follow our
 [developer blog][devblog]. The following are the most notable for this release:
 
+- [Additional validation in Climate set temperature](https://developers.home-assistant.io/blog/2024/09/24/climate-set-temp-validation)
 - [Calories added to energy class sensors](https://developers.home-assistant.io/blog/2024/09/10/calories-units)
 - [Deprecating constants for Media Player](https://developers.home-assistant.io/blog/2024/09/23/constants-media-player-deprecation)
 - [Deprecating feature flag constants for Vacuum](https://developers.home-assistant.io/blog/2024/09/23/feature-flag-constants-vacuum-deprecation)
@@ -714,6 +715,8 @@ new features available for your integration: Be sure to follow our
 - [Deprecating state constants for lock](https://developers.home-assistant.io/blog/2024/09/23/state-constants-lock-deprecation)
 - [Enforce SourceType and add shorthand attributes and EntityDescription to device_tracker](https://developers.home-assistant.io/blog/20240924-device-tracker-entity-description)
 - [Extend deprecation period of @bind_hass and hass.components](https://developers.home-assistant.io/blog/2024/09/11/extending-deprecation-hass-components)
+- [Introducing the Assist satellite entity](https://developers.home-assistant.io/blog/2024/10/01/assist-satellite-entity/)
+- [Version compare for Update platform can now be overwritten](https://developers.home-assistant.io/blog/2024/09/28/update-version-compare)
 
 [devblog]: https://developers.home-assistant.io/blog/
 
