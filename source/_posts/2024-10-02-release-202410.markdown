@@ -406,6 +406,8 @@ noteworthy changes this release:
   they are rendered. Thanks, [@chammp]! 
 - More template fun! You can now set up your templated alarm control panel
   straight from the UI. Thanks, [@gjohansson-ST]!
+- The statistics developer tools have been improved. They now has the new-style
+  data tables and the ability to bulk select items to action. Awesome [@karwosts]!
 - There is a new entity in town, the [`assist satellite` entity](/integrations/assist_satellite/).
   It is a building block for remote satellites devices that use [Assist]. This
   is in preparation for our upcoming satellite hardware. Stay tuned!
