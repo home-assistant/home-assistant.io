@@ -288,45 +288,46 @@ changes to existing integrations:
 - [@Bre77] has been busy with the [Tesla Fleet] integration, adding a bunch of
   new features and entities to control your Tesla vehicle. It now supports
   climate, media player, cover, number, select, button, and lock entities.
-- You can now control the volume, ringtone and status light of your [Reolink]
+- You can now control the volume, ringtone, and status light of your [Reolink]
   Hub! Cool, [@starkillerOG]!
-- [@daniel-k] added support for controlling the volume on [Ring] devices.
-  Nice!
+- [@daniel-k] added support for controlling the volume and [@sdb9696] added a
+  switch for controlling motion detection on [Ring] devices; Nice work team!
 - The [Switchbot Cloud] integration now supports the [K10+ Mini Robot Vacuum].
   Thanks, [@Gigatrappeur]!
+- [@sorgfresser] extended the [ElevenLabs] integration with integration options
+  to control the voice settings. Nice!
+- The [Squeezebox (Lyrion Music Server)] integration now has new service sensors,
+  and support for  your favorites straight from the media browser.
+  Thanks, [@pssc] and [@rajlaud]!
+- [@tronikos] added [Google Cloud] speech-to-text (STT) to Home Assistant. This
+  allows you to use Google's Cloud speech-to-text with [Assist]! Awesome!
+- If you are using the [Husqvarna Automower], you can now view the calendar
+  it provides, thanks to [@Thomas55555]!
+- [@klaasnicolaas] added support for home batteries to the [Autarco]
+  integration so you can use them in your energy dashboard. Great!
 
 [@Bre77]: https://github.com/Bre77
 [@daniel-k]: https://github.com/daniel-k
 [@Gigatrappeur]: https://github.com/Gigatrappeur
+[@klaasnicolaas]: https://github.com/klaasnicolaas
+[@pssc]: https://github.com/pssc
+[@rajlaud]: https://github.com/rajlaud
+[@sdb9696]: https://github.com/sdb9696
+[@sorgfresser]: https://github.com/sorgfresser
 [@starkillerOG]: https://github.com/starkillerOG
+[@Thomas55555]: https://github.com/Thomas55555
+[@tronikos]: https://github.com/tronikos
+[Assist]: /voice_control
+[Autarco]: /integrations/autarco
+[ElevenLabs]: /integrations/elevenlabs
+[Google Cloud]: /integrations/google_cloud
+[Husqvarna Automower]: /integrations/husqvarna_automower
 [K10+ Mini Robot Vacuum]: https://eu.switch-bot.com/products/switchbot-mini-robot-vacuum-k10
 [Reolink]: /integrations/reolink
 [Ring]: /integrations/ring
+[Squeezebox (Lyrion Music Server)]: /integrations/squeezebox
 [Switchbot Cloud]: /integrations/switchbot_cloud
 [Tesla Fleet]: /integrations/tesla_fleet
-
-{% details "Potential changes to process" icon="mdi:scale-balance" %}
-
-Processed up to _#126603_.
-
-- Add support for total YouTube views ([@Alexwijn] - [#123144]) ([youtube docs])
-- Support Z-Wave JS dimming lights using color intensity ([@AlCalzone] - [#122639]) ([zwave_js docs])
-- Add hot water target temp number entity in ViCare integration ([@CFenner] - [#123633]) ([vicare docs])
-- Add squeezebox service sensors ([@pssc] - [#125349]) ([squeezebox docs]) (new-platform) (noteworthy)
-- Add favorites support to Media Browser for Squeezebox integration ([@rajlaud] - [#124732]) ([squeezebox docs])
-- Allow Switchbot users to force nightlatch ([@Michal4K] - [#124326]) ([switchbot docs])
-- Add voice settings to ElevenLabs options flow ([@sorgfresser] - [#123265]) ([elevenlabs docs])
-- Add select platform to opentherm_gw ([@mvn23] - [#125585]) ([opentherm_gw docs]) (new-platform) (noteworthy)
-- Add calendar to Husqvarna Automower ([@Thomas55555] - [#120775]) ([husqvarna_automower docs]) (new-platform)
-- Add sensor platform to laundrify integration ([@xLarry] - [#121378]) ([laundrify docs]) (new-platform)
-- Add Home Connect light entity for cooling appliances ([@beastie29a] - [#126090]) ([home_connect docs])
-- Add motion detection switch entity to ring ([@sdb9696] - [#126278]) ([ring docs])
-- Add velbus HVAC options ([@RZomermanMS] - [#106570]) ([velbus docs])
-- Add battery data to Autarco integration ([@klaasnicolaas] - [#125924]) ([autarco docs]) (noteworthy)
-- Link mold_indicator entity to device from humidity sensor ([@gjohansson-ST] - [#125528]) ([mold_indicator docs]) (noteworthy)
-- Add Switcher Runner S11 support ([@YogevBokobza] - [#123578]) ([switcher_kis docs]) (noteworthy)
-
-{% enddetails %}
 
 ### Now available to set up from the UI
 
