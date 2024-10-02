@@ -64,6 +64,7 @@ The following bridges are reported to work with this integration:
 - SIRO Connect SI7002
 - SIRO Connect SI7005
 - Heicko Smart Stick 1ST
+- DD7006A Smart Home bridge
 
 {% include integrations/config_flow.md %}
 
