@@ -58,9 +58,9 @@ Enjoy the release!
 
 ## Heading in the right direction
 
-Update after update [Sections] continues to become a customization powerhouse,
+Update after update, [Sections] continues to become a customization powerhouse,
 and this month is no exception. Section titles are replaced with their own card,
-called the heading card. Making them a card rather than an inline title gives
+called the [heading card]. Making them a card rather than an inline title gives
 you a lot more flexibility, allowing you to put them nearly anywhere.
 
 The heading card can be used to make titles, but also subtitles, which are half
@@ -78,6 +78,7 @@ Best of all, if you've already added titles to your sections, they will be
 migrated automatically to the new card. 😎
 
 [Sections]: /dashboards/sections/
+[heading card]: /dashboards/heading/
 
 ### Another headline feature
 
@@ -86,7 +87,7 @@ and this new heading card has something very similar and equally as visually
 appealing. It can show multiple entity states to the right of the title or
 subtitle.
 
-![Screenshot showing a dashboard with additional entities show on card headings](/images/blog/2024-10/heading-with-entities.png)
+![Screenshot showing a dashboard with additional entities shown on card headings](/images/blog/2024-10/heading-with-entities.png)
 
 Either in a subtle "no color" default or add a splash of color when the entity
 is in an active state. Other customization options for these entities include
@@ -115,7 +116,7 @@ you options for fixing the issue.
 ## Improved YAML syntax for automations
 
 Recently, we renamed `service` to `action` in the [Home Assistant UI and YAML].
-This was done with the goal of making the syntax more natural allowing it
+This was done with the goal of making the syntax more natural, allowing it
 to be easier to grasp and read. We want to continue this work to improve the
 YAML syntax, this time focusing on {% term automations %}, and we've made the
 following changes,
@@ -125,11 +126,11 @@ following changes,
 - The top-level `action` key is now `actions` (plural)
 - The `platform` key of a trigger definition is now `trigger`
 
-The result of all this is YAML automation syntax now has `triggers` with
+The result of all this is that YAML automation syntax now has `triggers` with
 multiple `trigger` definitions, `conditions` with multiple `condition`
 definitions, and `actions` with multiple `action` definitions.
 
-Here is a small example of an automation that highlighting these changes.
+Here is a small example of an automation highlighting these changes.
 
 <p class="img">
 <img src="/images/blog/2024-10/YAML-automation-syntax-changes.png" alt="Screenshots; left showing the old automation YAML style, on the right shows the new style. The differences between them have been highlighted.">
@@ -145,7 +146,7 @@ the new syntax when saving an automation.
 
 This is not the only change to our syntax, thanks to [@karwosts] we now support
 [merging a list of triggers], which is mostly useful for
-{% term blueprint blueprint %} authors.
+{% term blueprint %} authors.
 
 [merging a list of triggers]: /docs/automation/trigger/#merging-lists-of-triggers
 [Home Assistant UI and YAML]: /blog/2024/08/07/release-20248/#goodbye-service-calls-hello-actions-
@@ -196,9 +197,9 @@ We welcome the following new integrations in this release:
   dashboard.
 - **[Google Photos]**, added by [@allenporter]  
   Upload photos to your [Google Photos library] and use as a [media source].
-  Note that only images uploaded by the integration can use viewed and used.
+  Note that only images uploaded by the integration can be viewed and used.
 - **[Iskra]**, added by [@iskrakranj]  
-  Monitor your energy and power usage from a Iskra energy meter.
+  Monitor your energy and power usage from an Iskra energy meter.
 - **[Lektrico Charging Station]**, added by [@Lektrico]  
   Get in control of your [Lektrico EV charger] from Home Assistant and optimize
   your energy usage.
@@ -353,9 +354,9 @@ release has some cool new features and additions:
 - **Valve entities**  
   Support for water valves, allowing you to control the flow of fluids or gases.
 - **Support for operation states**  
-  Control and monitor the operation state of, for example, Dishwashers
+  Control and monitor the operation state of, for example, dishwashers
   and other household equipment.
-- **Support for Smoke and CO sensors**  
+- **Support for smoke and CO sensors**  
   Monitor the air quality in your home with smoke and CO sensors.
 - **Add support for Matter 1.3 power/energy sensors**  
   Especially the energy sensors are great to use with the energy dashboard.
@@ -367,34 +368,36 @@ release has some cool new features and additions:
 There are many more improvements in this release; here are some of the other
 noteworthy changes this release:
 
-- In June, we added support for adding [Model IDs to devices], this release
-  has lots of integrations that add them. Including [Matter], [Plugwise],
-  [Wallbox], and [Govee]. We are calling contributions to add model IDs to
+- In June, we added support for adding [Model IDs to devices]. This release
+  has lots of integrations that add them, including [Matter], [Plugwise],
+  [Wallbox], and [Govee]. We are calling for contributions to add model IDs to
   more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
-- When you unignore an or integration or device on the integrations page,
+- [@bmesuere] improved the accessibility of all graphs by adjusting all the
+  default colors used in those graphs! You are an hero!
+- When you unignore an integration or device on the integrations page,
   Home Assistant will instantly try to rediscover it again! Nice! Thanks,
   [@emontnemery]!
 - We now have a new unit of measurement for energy entities: calories. Useful,
-  for like devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
+  for devices like a treadmill or an exercise bike. Thanks, [@dudanov]!
 - [@TrevorSchirmer] did something similar, and added a new unit of speed:
   mm/s and in/s. Thank you!
 - When you rename a device, you will now see more details about the rename
   operation. Including a preview of the new entity IDs. Nice, [@karwosts]!
 - [@gjohansson-ST] added a new template function [`merge_response`] that
-  allows you to merge multiple response of single or multiple actions into
-  a single response. This is useful when you want to combine the responses
-  of multiple services into a single response. Nice!
+  allows you to merge multiple responses of a single action or multiple actions
+  into a single response. Nice!
 - [Trigger-based templates] now have support for adding conditions! Just like
   automations, you can now add conditions to these entities to control when
   they are rendered. Thanks, [@chammp]! 
 - More template fun! You can now set up your templated alarm control panel
   straight from the UI. Thanks, [@gjohansson-ST]!
-- The statistics developer tools have been improved. They now has the new-style
+- The statistics developer tools have been improved. They now have the new-style
   data tables and the ability to bulk select items to action. Awesome [@karwosts]!
 - There is a new entity in town, the [`assist satellite` entity](/integrations/assist_satellite/).
   It is a building block for remote satellites devices that use [Assist]. This
   is in preparation for our upcoming satellite hardware. Stay tuned!
 
+[@bmesuere]: https://github.com/bmesuere
 [@chammp]: https://github.com/chammp
 [@dudanov]: https://github.com/dudanov
 [@emontnemery]: https://github.com/emontnemery
@@ -415,16 +418,16 @@ noteworthy changes this release:
 
 {% term Integrations %} can raise issues in your repairs dashboard, they can
 raise issues for themselves, but also for other integrations. An example of
-such an issue, is an integration that connects to your device that raises an
+such an issue is an integration that connects to your device that raises an
 issue on an {% term automation %} that controls it.
 
-The result, is an automation issue in your repair center. This is cool, but
+The result is an automation issue in your repair center. This is cool, but
 you might want to know which integration raised the issue in the first place.
 
 Thanks to [@wendevlin], we now show the source integration of the repair issue
 in the issue dialog.
 
-<img class="no-shadow" src="/images/blog/2024-10/repair-issue-reported-by.png" alt="Screenshot showing the YAML editor with collapsed sections and the vertical indentation line.">
+<img class="no-shadow" src="/images/blog/2024-10/repair-issue-reported-by.png" alt="Screenshot showing the new repairs dialog reporting the integration that raised it.">
 
 [@wendevlin]: https://github.com/wendevlin
 
@@ -526,19 +529,6 @@ are using this action.
 
 [@gjohansson-ST]: https://github.com/gjohansson-ST
 [#125863]: https://github.com/home-assistant/core/pull/125863
-
-{% enddetails %}
-
-{% details "Nexia/American Standard/Trane" %}
-
-The `aux_heat` attribute of the climate entity is now deprecated and will be
-removed in Home Assistant 2025.4.0. Use the newly provided emergency heat
-switch entity instead.
-
-([@gjohansson-ST] - [#125250]) ([documentation](/integrations/nexia))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#125250]: https://github.com/home-assistant/core/pull/125250
 
 {% enddetails %}
 
