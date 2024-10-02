@@ -54,7 +54,7 @@ A `0` exit code means the commands completed successfully without error. In case
 
 ## Response
 
-Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/service-calls#use-templates-to-handle-response-data).
+Shell commands provide an action response in a dictionary containing `stdout`, `stderr`, and `returncode`. These can be used in automations to act upon the command results using [`response_variable`](/docs/scripts/perform-actions#use-templates-to-handle-response-data).
 
 ## Examples
 
@@ -82,11 +82,11 @@ helper and an automation.
 # Apply value of a GUI slider to the shell_command
 automation:
   - alias: "run_set_ac"
-    trigger:
-      platform: state
-      entity_id: input_number.ac_temperature
-    action:
-      action: shell_command.set_ac_to_slider
+    triggers:
+      - trigger: state
+        entity_id: input_number.ac_temperature
+    actions:
+      - action: shell_command.set_ac_to_slider
 
 input_number:
   ac_temperature:
@@ -110,9 +110,9 @@ The following example shows how the shell command response may be used in automa
 # Create a ToDo notification based on file contents
 automation:
   - alias: "run_set_ac"
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - action: shell_command.get_file_contents
         data:
           filename: "todo.txt"

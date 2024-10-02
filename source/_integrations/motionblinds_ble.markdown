@@ -55,17 +55,16 @@ The following entities are available for a Motionblinds Bluetooth device:
 
 ## Actions
 
-Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/service-calls/#homeassistant-actions) action on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
+Since Motionblinds Bluetooth motors require a Bluetooth connection to control them, Home Assistant does not get automatic updates of the motor's state by default. Therefore, you can use the [homeassistant.update_entity](https://www.home-assistant.io/docs/scripts/perform-actions/#homeassistant-actions) action on any entity belonging to a Motionblinds Bluetooth device, which will connect to your Motionblinds Bluetooth motor and update the state of all entities belong to that device. However, be aware that doing so may impact battery life.
 
 This can also be automated using a YAML automation. For instance, the following automation connects to your Motionblind every 24 hours to update its state in Home Assistant:
 
 ```yaml
-alias: Motionblinds Bluetooth polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds Bluetooth polling automation"
+triggers:
+  - trigger: time_pattern
     hours: "/24"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade

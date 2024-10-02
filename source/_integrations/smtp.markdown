@@ -90,19 +90,16 @@ A notify integration will be created using the name without spaces. In the above
 
 ```yaml
 - alias: "Send E-Mail Every Morning"
-  description: ""
-  trigger:
+  triggers:
     - platform: time
       at: "08:00:00"
-  condition: []
-  action:
+  actions:
     - action: notify.NOTIFIER_NAME
       data:
           title: "Good Morning"
           message: "Rise and shine"
           target:
             - "morning@example.com"
-  mode: single
 ```
 
 The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`

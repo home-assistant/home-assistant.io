@@ -95,9 +95,9 @@ The LIFX platform supports several software-controlled light effects and one har
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.office, light.kitchen

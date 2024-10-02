@@ -112,14 +112,14 @@ You can also use the `nissan_leaf.update` action to request an on-demand update.
 - id: update_when_driver_not_home
   alias: "Update when driver not home"
   initial_state: on
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/30"
-  condition:
+  conditions:
     - condition: state
       entity_id: device_tracker.drivername   # replace
       state: "not_home"
-  action:
+  actions:
     - action: nissan_leaf.update
       data:
         vin: "1HGBH41JXMN109186"             # replace

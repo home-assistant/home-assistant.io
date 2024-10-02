@@ -105,7 +105,7 @@ The `media_player.select_source` action may be used to launch specific applicati
 ### Examples
 
 ```yaml
-action:
+actions:
 - action: media_player.select_source
   target:
     entity_id: media_player.roku
@@ -116,7 +116,7 @@ action:
 Alternatively, the application id can be used for `source`. See [Obtaining Application IDs](#obtaining-application-ids).
 
 ```yaml
-action:
+actions:
   - action: media_player.select_source
     target:
       entity_id: media_player.roku
@@ -143,7 +143,7 @@ The `media_player.play_media` action may be used to tune to specific channels on
 ### Example
 
 ```yaml
-action:
+actions:
   - action: media_player.play_media
     target:
       entity_id: media_player.roku
@@ -167,7 +167,7 @@ The `media_player.play_media` action may be used to deep-link to content within 
 ### Example
 
 ```yaml
-action:
+actions:
   - action: media_player.play_media
     target:
       entity_id: media_player.roku

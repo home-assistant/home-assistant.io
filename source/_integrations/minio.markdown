@@ -88,12 +88,12 @@ Automations can be triggered on new files created on the Minio server using the 
 #Automatically upload new local files
 automation:
 - alias: "Upload camera snapshot"
-  trigger:
-    platform: event
-    event_type: folder_watcher
-    event_data:
-      event_type: created
-  action:
+  triggers:
+    - trigger: event
+      event_type: folder_watcher
+      event_data:
+        event_type: created
+  actions:
     - delay: "00:00:01"
     - action: minio.put
       data:
@@ -106,17 +106,17 @@ automation:
         file: "{{ trigger.event.data.path }}"
 
 - alias: "Download new Minio file"
-  trigger:
-  - platform: event
-    event_type: minio
+  triggers:
+    - trigger: event
+      event_type: minio
 
-  condition: []
-  action:
-  - action: minio.get
-    data:
-      bucket: "{{trigger.event.data.bucket}}"
-      key: "{{trigger.event.data.key}}"
-      file_path: "/tmp/{{ trigger.event.data.file_name }}"
+  conditions: []
+  actions:
+    - action: minio.get
+      data:
+        bucket: "{{trigger.event.data.bucket}}"
+        key: "{{trigger.event.data.key}}"
+        file_path: "/tmp/{{ trigger.event.data.file_name }}"
 ```
 
 {% endraw %}

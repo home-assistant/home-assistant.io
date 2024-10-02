@@ -4,7 +4,9 @@ description: Control Nice G.O. garage doors
 ha_release: '2024.9'
 ha_category:
   - Cover
+  - Event
   - Light
+  - Switch
 ha_iot_class: Cloud Push
 ha_config_flow: true
 ha_codeowners:
@@ -13,7 +15,9 @@ ha_domain: nice_go
 ha_platforms:
   - cover
   - diagnostics
+  - event
   - light
+  - switch
 ha_integration_type: integration
 ---
 
@@ -29,6 +33,14 @@ Make sure you have a working account with the Nice G.O. app and have your email 
 
 Garage doors linked to your Nice G.O. account will appear as covers.
 
+## Event
+
+The barrier obstructed event entity will be triggered whenever the barrier gets obstructed. This could be triggered by anything that results in the closure being unsuccessful. This may include beam block during closure, beam block before closure, and an object in the way.
+
 ## Light
 
 Lights on your garage door will appear as lights.
+
+## Switch
+
+A switch for turning vacation mode on and off will be made available for each device. Vacation mode prevents the operation of the door from physical control points such as a wall station, wireless keypad, remote control, or HomeLink. It can still be controlled from Home Assistant.

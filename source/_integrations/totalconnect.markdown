@@ -33,39 +33,44 @@ Give the user access to your Location, along with a user code, usually a 4 digit
 
 **Auto Bypass Low Battery:** if enabled, TotalConnect zones will immediately be bypassed when they report low battery. This option helps because zones tend to report low battery in the middle of the night. The downside of this option is that when the alarm system is armed, the bypassed zone will not be monitored.
 
+**Require Code:** if enabled, you must enter the user code to disarm the alarm.
+
 ## Automation example
+
 ```yaml
 automation:
   - alias: "Alarm: Disarmed Daytime"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "disarmed"
-    condition:
-      condition: sun
-      before: sunset
-    action:
-      action: scene.turn_on
-      target:
-        entity_id: scene.OnDisarmedDaytime
-  - alias: "Alarm: Armed Away"
-    trigger:
-      platform: state
-      entity_id: alarm_control_panel.total_connect
-      to: "armed_away"
-    action:
-      action: scene.turn_on
-      target:
-        entity_id: scene.OnArmedAway
-  - alias: "Alarm: Arm Home Instant at Sunset"
-    trigger:
-      platform: sun
-      event: sunset
-      offset: '0'
-    action:
-      action: totalconnect.arm_home_instant
-      target:
+    triggers:
+      - trigger: state
         entity_id: alarm_control_panel.total_connect
+        to: "disarmed"
+    conditions:
+      - condition: sun
+        before: sunset
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_disarmed_day_time
+
+  - alias: "Alarm: Armed Away"
+    triggers:
+      - trigger: state
+        entity_id: alarm_control_panel.total_connect
+        to: "armed_away"
+    actions:
+      - action: scene.turn_on
+        target:
+          entity_id: scene.on_armed_away
+
+  - alias: "Alarm: Arm Home Instant at Sunset"
+    triggers:
+      - trigger: sun
+        event: sunset
+        offset: 0
+    actions:
+      - action: totalconnect.arm_home_instant
+        target:
+          entity_id: alarm_control_panel.total_connect
 ```
 
 {% details "Notes for Home Assistant Core Installations" %}

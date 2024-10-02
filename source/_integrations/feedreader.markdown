@@ -29,13 +29,13 @@ Feedreader events can be used out of the box to trigger automation actions, e.g.
 ```yaml
 automation:
   - alias: "Trigger action when new element(s) in RSS feed"
-    trigger:
-      platform: event
-      event_type: feedreader
-    action:
-      action: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: feedreader
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 {% raw %}
@@ -43,17 +43,17 @@ automation:
 ```yaml
 automation:
   - alias: "Send notification of RSS feed title when updated"
-    trigger:
-      platform: event
-      event_type: feedreader
-      event_data:
-        feed_url: "https://hasspodcast.io/feed/podcast"
-    action:
-      action: persistent_notification.create
-      data:
-        title: "New HA Podcast available"
-        message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
-        notification_id: "{{ trigger.event.data.title }}"
+    triggers:
+      - trigger: event
+        event_type: feedreader
+        event_data:
+          feed_url: "https://hasspodcast.io/feed/podcast"
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "New HA Podcast available"
+          message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
+          notification_id: "{{ trigger.event.data.title }}"
 ```
 
 {% endraw %}

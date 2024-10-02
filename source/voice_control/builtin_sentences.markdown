@@ -48,7 +48,7 @@ These sentences allow you, for example, to:
 - **Run a script**
     - *"Run stealth mode script"*
 - **Activate a scene**
-    - *"Activate dinner scence"*
+    - *"Activate dinner scene"*
     - *"Turn kitchen dinner scene on"*
 - **Inquire about people (that have device tracking activated in Home Assistant)**
     - *"How many people are in the kitchen"*

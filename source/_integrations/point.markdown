@@ -19,44 +19,32 @@ ha_platforms:
   - sensor
 ha_integration_type: integration
 related:
-  - docs: /docs/configuration/
-    title: Configuration file
+  - docs: /integrations/application_credentials/
+    title: Application credentials
 ---
 
-The Point hub enables integration with the [Minut Point](https://minut.com/). To connect with Point, you will have to [sign up for a developer account and have a Pro subscription](https://minut.com/community/developers/) and get a `client_id` and `client_secret` with the `callback url` configured as your Home Assistant URL + `/api/minut`, e.g.,  `http://homeassistant.local:8123/api/minut`. The `client_id` and `client_secret` should be used as below.
+The Point hub enables integration with the [Minut Point](https://minut.com/).
 
-Once Home Assistant is started, a configurator will pop up asking you to Authenticate your Point account via a link. When you follow the link and click on **Accept** you will be redirected to the `callback url` and the Point integration will be automatically configured and you can go back to the original dialog and press **Submit**.
 
-There is currently support for the following device types within Home Assistant:
+## Prerequisites
 
-- [Alarm](#alarm)
-- [Binary sensor](#binary-sensor)
-- [Sensor](#sensor)
+Before adding the integration to Home Assistant, you need to get Minut Point application credentials.
 
-### Configuration
+1. Navigate to the [API-client | Minut](https://web.minut.com/settings/api-clients) dashboard and **Create client**:
 
-To use the Minut Point {% term integration %} in your installation, add it to your {% term "`configuration.yaml`" %} file.
-{% include integrations/restart_ha_after_config_inclusion.md %}
+   - Enter a **Name** for your client (this is just an identifier).
+   - Enter `https://my.home-assistant.io/redirect/oauth` in the **Redirect URI** field.
+2. Get the **ClientID** and **ClientSecret** for the new client and store them in a safe place. You need them to complete the integration setup in Home Assistant.
 
-```yaml
-# Example configuration.yaml entry
-point:
-  client_id: CLIENT_ID
-  client_secret: CLIENT_SECRET
-```
+<div class='note'>
 
-{% configuration %}
-client_id:
-  description: Your Minut Point developer client ID.
-  required: true
-  type: string
-client_secret:
-  description: Your Minut Point developer client secret.
-  required: true
-  type: string
-{% endconfiguration %}
+If you are a Kickstarter backer, you need to send an email to hello@minut.com to retrieve the **ClientID** and **ClientSecret**. Don't forget to mention that the **Redirect URI** should be `https://my.home-assistant.io/redirect/oauth`.
 
-# Device types
+</div>
+
+{% include integrations/config_flow.md %}
+
+## Device types
 
 The integration supports the following device types within Home Assistant:
   - [Alarm](#alarm)
@@ -107,11 +95,11 @@ The following example show how to implement an automation for the **button_press
 # Example configuration.yaml Automation entry
 automation:
   alias: "Point button press"
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id: binary_sensor.point_button_press  # Change this accordingly
     to: "on"
-  action:
+  actions:
   - action: persistent_notification.create
     data:
       title: Point button press
@@ -128,14 +116,14 @@ The events shown as [binary sensors](#binary-sensor) are sent to Home Assistant 
 # Example configuration.yaml Automation entry
 automation:
   alias: "Point button press (webhook)"
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: point_webhook_received
     event_data: {}
-  condition:
-    condition: template
-    value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
-  action:
+  conditions:
+    - condition: template
+      value_template: "{{ trigger.event.data.event.type == 'short_button_press' }}"
+  actions:
   - action: persistent_notification.create
     data:
       title: Point button press (webhook)

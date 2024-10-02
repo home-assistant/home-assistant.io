@@ -74,10 +74,6 @@ There is currently support for the following device types within Home Assistant:
 - [Time](#time)
 - [Weather](#weather)
 
-## Free KNX online training
-
-As a Home Assistant KNX user, you can start a FREE KNX online training and get a discounted ETS Home license on the [KNX website](https://www.knx.org/knx-en/for-your-home/home-assistant/).
-
 {% include integrations/config_flow.md %}
 
 ## Basic configuration
@@ -213,12 +209,12 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 - `trigger.dpt_sub` Destination group address sub datapoint type number
 - `trigger.dpt_name` DPT value type name - see Sensor value types
 - `trigger.payload` Raw telegram payload. DPT 1, 2, and 3 yield integers 0..255; other DPT yield lists of integers 0..255
-- `telegram.source` Source individual address
-- `telegram.source_name` Source name
-- `telegram.telegramtype` APCI type of telegram
-- `telegram.timestamp` Timestamp
-- `telegram.unit` Unit according to group address DPT
-- `telegram.value` Decoded telegram payload according to DPT
+- `trigger.source` Source individual address
+- `trigger.source_name` Source name
+- `trigger.telegramtype` APCI type of telegram
+- `trigger.timestamp` Timestamp
+- `trigger.unit` Unit according to group address DPT
+- `trigger.value` Decoded telegram payload according to DPT
 
 | Template variable          | Type                        | Project data required |
 |----------------------------|-----------------------------|-----------------------|
@@ -229,12 +225,12 @@ In addition to the [standard automation trigger data](/docs/automation/templatin
 | `trigger.dpt_sub`          | integer                     | yes                   |
 | `trigger.dpt_name`         | string                      | yes                   |
 | `trigger.payload`          | integer or list of integers | no                    |
-| `telegram.source`          | string                      | no                    |
-| `telegram.source_name`     | string                      | yes                   |
-| `telegram.telegramtype`    | string                      | no                    |
-| `telegram.timestamp`       | timestamp                   | no                    |
-| `telegram.unit`            | string                      | yes                   |
-| `telegram.value`           | any                         | yes                   |
+| `trigger.source`           | string                      | no                    |
+| `trigger.source_name`      | string                      | yes                   |
+| `trigger.telegramtype`     | string                      | no                    |
+| `trigger.timestamp`        | timestamp                   | no                    |
+| `trigger.unit`             | string                      | yes                   |
+| `trigger.value`            | any                         | yes                   |
 
 For values that require project data: if the information was not found, or if no project file was provided, data will be set to `null`.
 
@@ -242,24 +238,26 @@ For values that require project data: if the information was not found, or if no
 
 Example automation configuration
 
+{% raw %}
+
 ```yaml
-- alias: Single group address trigger
-  description: ''
-  trigger:
-  - platform: knx.telegram
-    destination: 1/2/3
-    group_value_read: false
-    outgoing: false
-  condition: []
-  action: []
-  mode: single
+- alias: "Single group address trigger"
+  triggers:
+    - trigger: knx.telegram
+      destination: 1/2/3
+      group_value_read: false
+      outgoing: false
+  conditions: "{{ trigger.value == 0 }}"
+  actions: []
 ```
+
+{% endraw %}
 
 Example trigger data
 
 ```yaml
 variables:
-  trigger:
+  triggers:
     id: "0"
     idx: "0"
     alias: null
@@ -348,6 +346,33 @@ response:
   default: false
 {% endconfiguration %}
 
+{% raw %}
+
+```yaml
+# Example script to send a fixed value and the state of an entity
+alias: "My Script"
+sequence:
+  - action: knx.send
+    data:
+      address: 1/1/1
+      type: percent
+      payload: 50
+      response: false
+  - action: knx.send
+    data:
+      address: 1/1/1
+      payload: [128]  # 50 % as 1-byte raw value
+      response: false
+  - action: knx.send
+    data:
+      address: 3/3/3
+      type: temperature
+      payload: "{{ states('sensor.dew_point') }}"
+      response: false
+```
+
+{% endraw %}
+
 ### Read
 
 You can use the `homeassistant.update_entity` action call to issue GroupValueRead requests for all `*state_address` of an entity.
@@ -368,21 +393,21 @@ address:
 ```yaml
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
-  - trigger:
-      - platform: knx.telegram
+  - triggers:
+      - trigger: knx.telegram
         # Cover move trigger
         destination: "0/4/20"
-    action:
+    actions:
       - delay: 0:0:10
       - action: knx.read
         data:
           # Cover position address
           address: "0/4/21"
 
-  - trigger:
-      - platform: homeassistant
+  - triggers:
+      - trigger: homeassistant
         event: start
-    action:
+    actions:
       # Register the group address to trigger a knx_event
       - action: knx.event_register
         data:
@@ -595,34 +620,37 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 ```yaml
 # Example automation.yaml entry
 automation:
-  - trigger:
-      platform: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 0
-      below: 2
-    condition: 
-      - condition: state
-        entity_id: binary_sensor.cover_abstell
-        state: "on"
-    action:
-      - entity_id: light.hue_color_lamp_1
-        action: light.turn_on
-  - trigger:
-      platform: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 1
-      below: 3
+  - triggers:
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 0
+        below: 2
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
-    action:
-      - entity_id: light.hue_bloom_1
-        action: homeassistant.turn_on
-      - entity_id: light.hue_bloom_2
-        action: homeassistant.turn_on
+    actions:
+      - action: light.turn_on
+        entity_id: light.hue_color_lamp_1
+
+  - triggers:
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 1
+        below: 3
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: "on"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: 
+            - light.hue_bloom_1
+            - light.hue_bloom_2
+        
 ```
 
 {% configuration %}
@@ -946,6 +974,29 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
+fan_speed_address:
+  description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+fan_speed_state_address:
+  description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+fan_max_step:
+  description: The maximum amount of steps for the fan.
+  required: false
+  type: integer
+  default: 3
+fan_speed_mode:
+  description: Fan speed group address data type. `percent` for *DPT 5.001* and `step` for *DPT 5.010*.
+  required: false
+  type: string
+  default: percent
+fan_zero_mode:
+  description: The fan mode for the zero speed, either `off` or `auto`. This affects the fan modes displayed in the UI.
+  required: false
+  type: string
+  default: "off"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
@@ -1241,15 +1292,10 @@ The KNX light integration is used as an interface to control KNX actuators for l
 - LED controllers
 - DALI gateways
 
-To use your KNX light in your installation, add the following lines to your top level [KNX Integration](/integrations/knx) configuration key in `configuration.yaml`:
+Light entities can be created from the frontend in the KNX panel or via YAML.
 
-```yaml
-# Example configuration.yaml entry
-knx:
-  light:
-    - name: "Kitchen"
-      address: "1/0/9"
-```
+<a name="configuration-light-yaml"></a>
+{% details "Configuration of KNX light entities via YAML" %}
 
 {% configuration %}
 address:
@@ -1382,11 +1428,9 @@ entity_category:
 
 Many KNX devices can change their state internally without a message to the switch address on the KNX bus, e.g., if you configure a scene or a timer on a channel. The optional `state_address` can be used to inform Home Assistant about these state changes. If a KNX message is seen on the bus addressed to the given `state_address` (in most cases from the light actuator), it will overwrite the state of the object.
 
-For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address`.
+For switching/light actuators that are only controlled by a single group address and don't have dedicated state group objects you can set `state_address` to the same value as `address` if it is readable from the bus.
 
-*Note on tunable white:* Home Assistant uses Mireds as the unit for color temperature, whereas KNX typically uses Kelvin. The Kelvin/Mireds relationship is reciprocal, not linear, therefore the color temperature pickers (sliders) in Home Assistant may not align with ones of KNX visualizations. This is the expected behavior.
-
-### Extended configuration examples
+### YAML configuration examples
 
 ```yaml
 knx:
@@ -1471,6 +1515,8 @@ knx:
       address: "1/0/5"
       state_address: "1/0/5"
 ```
+
+{% enddetails %}
 
 ## Notify
 
@@ -1988,6 +2034,14 @@ knx:
 
 The KNX switch platform is used as an interface to switching actuators.
 
+Switch entities can be created from the frontend in the KNX panel or via YAML.
+
+Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
+Switches that have a `state_address` configured request their current state from the KNX bus.
+
+<a name="configuration-switch-yaml"></a>
+{% details "Configuration of KNX switch entities via YAML" %}
+
 ```yaml
 knx:
   switch:
@@ -2032,8 +2086,7 @@ device_class:
 
 The optional `state_address` can be used to inform Home Assistant about state changes not triggered by a telegram to the `address` e.g., if you configure a timer on a channel. If a KNX message is seen on the bus addressed to the given state address, this will overwrite the state of the switch object.
 
-Switch entities without a `state_address` will restore their last known state after Home Assistant was restarted.
-Switches that have a `state_address` configured request their current state from the KNX bus.
+{% enddetails %}
 
 ## Text
 

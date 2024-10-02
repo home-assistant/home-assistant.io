@@ -51,10 +51,10 @@ wake_on_lan: # enables `wake_on_lan` integration
 
 automation:
   - alias: "Turn On Living Room TV with WakeOnLan"
-    trigger:
-      - platform: webostv.turn_on
+    triggers:
+      - trigger: webostv.turn_on
         entity_id: media_player.lg_webos_smart_tv
-    action:
+    actions:
       - action: wake_on_lan.send_magic_packet
         data:
           mac: aa:bb:cc:dd:ee:ff
@@ -162,16 +162,16 @@ The icon can be overridden for individual notifications by providing a path to a
 ```yaml
 automation:
   - alias: "Front door motion"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.front_door_motion
-      to: "on"
-    action:
-      action: notify.livingroom_tv
-      data:
-        message: "Movement detected: Front Door"
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.front_door_motion
+        to: "on"
+    actions:
+      - action: notify.livingroom_tv
         data:
-          icon: "/home/homeassistant/images/doorbell.png"
+          message: "Movement detected: Front Door"
+          data:
+            icon: "/home/homeassistant/images/doorbell.png"
 ```
 
 ## Notes
