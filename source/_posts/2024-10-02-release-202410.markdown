@@ -160,11 +160,31 @@ This is not the only change to our syntax, thanks to [@karwosts] we now support
 
 ## Faster upgrades when using custom integrations
 
-We want Home Assistant to continue to work on a wide range of hardware. If you look at our [opt-in analytics](https://analytics.home-assistant.io/) you'll see a sizable amount of homes running it on single-board computers from the mid-2010s. A lot of effort has been put into keeping Home Assistant lean, and this release has some good improvements. This is specially for users of custom integrations, and this follows HACS getting a great [speed boost for downloads](/blog/2024/08/21/hacs-the-best-way-to-share-community-made-projects/#faster-downloads).
+We want Home Assistant to continue to work on a wide range of hardware. If you
+look at our [opt-in analytics] you'll see a sizable amount of homes running it
+on single-board computers from the mid-2010s. A lot of effort has been put into
+keeping Home Assistant lean, and this release has some good improvements. This
+is specially for users of custom integrations, and this follows HACS getting a
+great [speed boost for downloads].
 
-On each upgrade, all dependencies needed for custom integrations are now downloaded and installed. We are now using `uv` internally to download and install dependencies, which is a faster and more efficient way to download and install dependencies. If you're not aware, `uv` is what makes our release process so fast nowadays, and [@edenhaus](https://github.com/edenhaus) has done an interesting [developer backstory](https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/) on our move from `pip` to `uv` (saving us 200+ hours of execution time a month).  [@edenhaus] has also implemented `uv` at runtime as well.
+On each upgrade, all dependencies needed for custom integrations are now
+downloaded and installed. We are now using `uv` internally to download and
+install dependencies, which is a faster and more efficient way to download and
+install dependencies. If you're not aware, `uv` is what makes our release
+process so fast nowadays, and [@edenhaus] has done an interesting
+[developer backstory] on our move from `pip` to `uv` (saving us 200+ hours
+of execution time a month). [@edenhaus] has also implemented `uv` at runtime
+as well.
 
-This speeds up the upgrade process, especially for custom integrations with many dependencies, or installations with many custom integrations. This change is fully transparent to the user, and no action is required. Just sit down, relax, and enjoy the faster upgrade process!
+This speeds up the upgrade process, especially for custom integrations with many
+dependencies, or installations with many custom integrations. This change is
+fully transparent to the user, and no action is required. Just sit down, relax,
+and enjoy the faster upgrade process!
+
+[@edenhaus]: https://github.com/edenhaus
+[developer backstory]: https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/
+[opt-in analytics]: https://analytics.home-assistant.io/
+[speed boost for downloads]: /blog/2024/08/21/hacs-the-best-way-to-share-community-made-projects/#faster-downloads
 
 ## Integrations
 
