@@ -478,12 +478,12 @@ possible for you. This release has the following backward-incompatible changes:
 
 {% details "Climate" %}
 
-We have added more validation to the `climate.set_humidity` action which
-enforces that the set target humidity is within the min and max humidity
-levels of the targeted entity.
+We have added more validation to the `climate.set_humidity` action, which
+enforces that the set target humidity is within the targeted entity's minimum
+and maximum humidity levels.
 
-You might need to adjust automations and scripts to use valid values if you
-are using this action.
+You should adjust automations and scripts to use valid values if you are using
+this action.
 
 ([@gjohansson-ST] - [#125242]) ([documentation](/integrations/climate))
 
@@ -519,8 +519,8 @@ provided climate entity.
 {% details "Humidifier" %}
 
 We have added more validation to the `humidifier.set_humidity` action, which
-enforces that the set target humidity is within the min and max humidity
-levels of the targeted entity.
+enforces that the target humidity is within the targeted entity's minimum
+and maximum humidity levels.
 
 You might need to adjust automations and scripts to use valid values if you
 are using this action.
@@ -560,9 +560,9 @@ automations or scripts, you need to update those.
 
 {% details "OpenTherm Gateway" %}
 
-In order to modernize the OpenTherm Gateway integration, all entities have
-been split into different devices. As a result, the OpenTherm Gateway climate
-entity has been moved to a new OpenTherm Thermostat device.
+To modernize the OpenTherm Gateway integration, all entities have been split
+into different devices. As a result, the OpenTherm Gateway climate entity
+has been moved to a new OpenTherm Thermostat device.
 
 Configurations that look for the climate entity by device must be adjusted
 accordingly.
@@ -572,9 +572,8 @@ or superfluous. These entities have been removed. All removed entities were
 previously disabled by default, so anyone who has never manually enabled an
 entity in the OpenTherm Gateway integration is not affected by this.
 
-All other users should review their configuration for the use of OpenTherm
-Gateway entities that no longer exist or that have been assigned to another
-device.
+All other users should review their configuration for using OpenTherm Gateway
+entities that no longer exist or have been assigned to another device.
 
 ([@mvn23] - [#124869]) ([documentation](/integrations/opentherm_gw))
 
@@ -588,6 +587,10 @@ device.
 Support for use of an area, device, or entity as a target for ScreenLogic
 actions has been removed. Instead, use `config_entry` with the
 `entry_id` of the desired ScreenLogic
+
+Support for using an area, device, or entity as a target for ScreenLogic
+actions has been removed. Instead, use `config_entry` with the `entry_id` of
+the desired ScreenLogic.
 
 ([@dieselrabbit] - [#123432]) ([documentation](/integrations/screenlogic))
 
@@ -611,7 +614,7 @@ attributes have now been removed.
 
 {% details "Ring" %}
 
-The `ring.update` action was deprecated in the 2024.4 release and now has
+The `ring.update` action was deprecated in the 2024.4 release and has now
 been removed. Please use `homeassistant.update_entity` if you need
 a replacement.
 
@@ -624,7 +627,7 @@ a replacement.
 
 {% details "Squeezebox (Lyrion Music Server)" %}
 
-We previously gave notice that the squeezebox platform had deprecated
+We previously noticed that the squeezebox platform had deprecated
 the `squeezebox_sync` and `squeezebox_unsync` actions and the `sync_group`
 entity attribute in favor of the newer "join" framework common to all
 media players.
@@ -640,13 +643,13 @@ These deprecated actions and entity attributes have now been removed.
 
 {% details "Templates" %}
 
-Limit maximum template render output to 256KiB to ensure template renders do
-not inject an unreasonable amount of data into the system and cause a crash.
+Limit maximum template render output to 256KiB to ensure template renders
+do not inject unreasonable data into the system and cause a crash.
 
-256KiB is likely to still block Home Assistant's event loop for an unreasonable
-amount of time but its likely someone is using the template engine for large
-blocks of data so we want a limit which still allows that but has a reasonable
-safety to prevent the system from crashing down.
+256KiB is likely to still block Home Assistant’s event loop for an unreasonable
+amount of time, but it's likely someone is using the template engine for large
+blocks of data, so we want a limit that still allows that but has a reasonable
+safety margin to prevent the system from crashing down.
 
 ([@bdraco] - [#124946])
 
@@ -660,7 +663,7 @@ safety to prevent the system from crashing down.
 The ThermoWorks Smoke integration is disabled because it creates
 an unresolvable dependency conflict.
 
-Contributions to fix this conflict are greatly appreciated.
+Contributions to fixing this conflict are greatly appreciated.
 
 ([@edenhaus] - [#125661]) ([documentation](/integrations/thermoworks_smoke))
 
@@ -672,9 +675,9 @@ Contributions to fix this conflict are greatly appreciated.
 {% details "Tfiac" %}
 
 The Tfiac integration is disabled because we cannot create valid Python wheels
-for it's dependencies.
+for its dependencies.
 
-Contributions to fix this issue are greatly appreciated.
+Contributions to fixing this issue are greatly appreciated.
 
 ([@edenhaus] - [#125692]) ([documentation](/integrations/tfiac))
 
@@ -697,18 +700,6 @@ You must use `zwave-js-server` 1.37.0 or greater (schema 37).
 
 [@MartinHjelmare]: https://github.com/MartinHjelmare
 [#125666]: https://github.com/home-assistant/core/pull/125666
-
-{% enddetails %}
-
-{% details "Zigbee Home Automation (ZHA)" %}
-
-The previously deprecated `aux_heat` attribute has been removed from the
-provided climate entity.
-
-([@gjohansson-ST] - [#125247]) ([documentation](/integrations/zha))
-
-[@gjohansson-ST]: https://github.com/gjohansson-ST
-[#125247]: https://github.com/home-assistant/core/pull/125247
 
 {% enddetails %}
 
