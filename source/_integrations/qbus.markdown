@@ -18,7 +18,7 @@ The `Qbus` **term integration** allows you to integrate your [Qbus Control](http
 
 There is currently support for the following device types within Home Assistant:
 
-- Switch (in Qbus: Bistabiel and Timers)
+- Switch (in Qbus: Bistabiel (toggle switches) and Timers)
 
 ### Extra configuration of the integration
 
@@ -26,13 +26,14 @@ This integration communicates with a Qbus controller over an MQTT server.
 
 The controllers cannot communicate directly with MQTT. Therefore, we developed a gateway which you must install before enabling this Integration. Our gateway is a softwaretool that runs on all Linux platforms. It can simply be installed by running a script our a docker container. For detailed instructions, please refer to the [Qbus MQTT Gateway documentation](https://github.com/Qbus-iot/qbus-mqttgw).
 
-We also host a site which contains a [Manual](https://iot.qbus.be/) where you can find lots of information to set up Home Assistant with a Qbus controller (for the moment only in Dutch but translations will be made available).
+We also host a site which contains a [Manual](https://iot.qbus.be/) where you can find lots of information to set up Home Assistant with a Qbus controller (currently only available in Dutch, with translations planned for the future).
 
-When you have your controller connected to the MQTT Server, you have to set up a Client in Home Assistant [MQTT](https://www.home-assistant.io/integrations/mqtt/), that connects to the same MQTT Server.
+When you have your controller connected to the MQTT Server, you need to set up an MQTT client in Home Assistant to enable communication between Home Assistant and your Qbus system. This client should connect to the same MQTT Server as your Qbus controller. For detailed instructions, refer to the [MQTT integration documentation](https://www.home-assistant.io/integrations/mqtt/).
 
 For detailed instructions on setting up the MQTT integration in Home Assistant, please refer to the [MQTT integration documentation](https://www.home-assistant.io/integrations/mqtt/#configuration).
 
 The config flow provides a user-friendly interface in the Home Assistant UI to guide you through the setup process for the Qbus integration. To start the config flow:
+
 1. Go to Configuration > Integrations in your Home Assistant instance.
 2. Click the "+ ADD INTEGRATION" button.
 3. Search for "Qbus" and select it.
