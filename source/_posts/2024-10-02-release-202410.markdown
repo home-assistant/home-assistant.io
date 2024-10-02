@@ -58,23 +58,41 @@ Enjoy the release!
 
 ## Heading in the right direction
 
-Update after update [Sections](/dashboards/sections/) continues to become a customization powerhouse, and this month is no exception. Section titles are being replaced with their own card, called the heading card. Making them a card rather than an inline title gives you a lot more flexibility, allowing you to put them nearly anywhere. The heading card can be used to make titles, but also subtitles, which are half the height and have smaller, lighter text. So, if you have ever had a section that needs to be subdivided, slap a subtitle in there.
+Update after update [Sections] continues to become a customization powerhouse,
+and this month is no exception. Section titles are replaced with their own card,
+called the heading card. Making them a card rather than an inline title gives
+you a lot more flexibility, allowing you to put them nearly anywhere.
 
-![CleanShot 2024-09-17 at 14 01 15@2x](https://github.com/user-attachments/assets/4e6c63a0-5669-406a-89ce-83bbcbc61434)
+The heading card can be used to make titles, but also subtitles, which are half
+the height and have smaller, lighter text. So, if you have ever had a section
+that needs to be subdivided, slap a subtitle in there.
 
-Titles and subtitles can be made clickable, displaying a chevron `›` when you can interact with them.  This can perform an action or navigate to a subpage, like having an energy section title navigate to the full energy dashboard.
+![Screenshot showing a dashboard using heading cards with titles and subtitles](/images/blog/2024-10/headings.png)
 
-Best of all, if you've already added titles to your sections, they will be migrated automatically to the new card.
+Titles and subtitles can be made clickable, displaying a chevron
+{% icon "mdi:chevron-right" %} when you can interact with them. This can
+perform an action or navigate to a subpage, like having an energy section title
+navigate to the full energy dashboard.
+
+Best of all, if you've already added titles to your sections, they will be
+migrated automatically to the new card. 😎
+
+[Sections]: /dashboards/sections/
 
 ### Another headline feature
 
-We had such a fantastic reaction when we released our [renewed badges](/dashboards/badges/), and this new heading card has something very similar and equally as visually appealing. It can show multiple entity states to the right of the title or subtitle.
+We had such a fantastic reaction when we released our [renewed badges],
+and this new heading card has something very similar and equally as visually
+appealing. It can show multiple entity states to the right of the title or
+subtitle.
 
-![CleanShot 2024-09-24 at 14 25 24](https://github.com/user-attachments/assets/9075e6b6-6773-4d58-8ede-3d0447c5f6aa)
+![Screenshot showing a dashboard with additional entities show on card headings](/images/blog/2024-10/heading-with-entities.png)
 
-Either in a subtle "no color" default or add a splash of color when the entity is in an active state. Other customization options for these entities include changing the icon, visibility, and what happens when you click it.
+Either in a subtle "no color" default or add a splash of color when the entity
+is in an active state. Other customization options for these entities include
+changing the icon, visibility, and what happens when you select it.
 
-![CleanShot 2024-09-24 at 17 41 16](https://github.com/user-attachments/assets/32231d3d-748a-47c2-82b1-aff401ffa388)
+[renewed badges]: /dashboards/badges/
 
 ## Repairs for long-term statistics
 
