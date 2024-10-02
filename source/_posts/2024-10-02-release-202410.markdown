@@ -373,7 +373,7 @@ noteworthy changes this release:
   [Wallbox], and [Govee]. We are calling for contributions to add model IDs to
   more integrations! Maybe a cool suggestion for an [Hacktoberfest] contribution!
 - [@bmesuere] improved the accessibility of all graphs by adjusting all the
-  default colors used in those graphs! You are an hero!
+  default colors used in those graphs! You are a hero!
 - When you unignore an integration or device on the integrations page,
   Home Assistant will instantly try to rediscover it again! Nice! Thanks,
   [@emontnemery]!
