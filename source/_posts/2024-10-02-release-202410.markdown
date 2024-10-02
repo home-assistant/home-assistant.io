@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "2024.10: Heading in the right direction"
-description: "Beta release notes for Home Assistant 2024.10"
-date: 2024-09-25 00:00:00
+description: "A brand new heading card, improved YAML syntax for automations, long-term stats repairs, faster upgrades, and more!"
+date: 2024-10-02 00:00:00
 date_formatted: "October 2, 2024"
 author: Franck Nijhof
 author_twitter: frenck
