@@ -17,8 +17,6 @@ The sidebar view has 2 columns, a wide one and a smaller one on the right.
 Screenshot of the sidebar view used for the energy dashboard.
 </p>
 
-This view doesn't have support for badges.
-
 You can set if a card should be placed in the main (left) column of the sidebar column (right), by selecting the arrow right or left arrow in the bar underneath the card.
 
 <p class='img'>
