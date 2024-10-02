@@ -100,7 +100,7 @@ The only characters valid in entity names are:
 - Numbers
 - Underscores
 
-The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the YAML file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
+The entity name must not start or end with an underscore. If you create an entity with other characters from the UI, Home Assistant validates the name. If you change the name directly in the {% term YAML %} file, then Home Assistant may not generate an error for that entity. However, attempts to use that entity will generate errors (or possibly fail silently).
 
 For instructions on how to change an entity name, refer to the section on [customizing entities](/docs/configuration/customizing-devices/).
 
