@@ -10,7 +10,7 @@ comments: true
 categories:
   - Release-Notes
   - Core
-og_image: /images/blog/2024-10/social.png
+og_image: /images/blog/2024-10/social.jpg
 ---
 
 <lite-youtube videoid="_X2-encNyrA" videotitle="Home Assistant 2024.10 Release Party"></lite-youtube>
