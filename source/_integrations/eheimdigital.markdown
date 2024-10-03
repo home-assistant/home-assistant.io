@@ -22,6 +22,9 @@ The **EHEIM Digital** {% term integration %} allows you to control your [EHEIM D
 
 Currently, the following devices and features are supported:
 
-- EHEIM classicLEDcontrol+e
-  - Controlling the light of channel 0 and 1
-  - Enabling daycyle mode
+### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
+
+- Controlling the brightness of both light channels
+- Enabling the daycycle mode, which automatically controls the brightness based on the daytime as configured on the device
+
+Support for additional EHEIM Digital devices will be added in future updates.
