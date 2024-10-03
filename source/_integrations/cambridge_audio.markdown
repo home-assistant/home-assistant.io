@@ -31,7 +31,8 @@ This integration allows you to connect the following devices:
 - Cambridge Audio CXR120
 - Cambridge Audio CXR200
 - Cambridge Audio 851N
-- Cambridge Audio Edge NQ
+- Cambridge Audio MXN10
+- Cambridge Audio AXN10
 
 Older, RS-232 serial-based amplifiers like the [CXA series](https://www.cambridgeaudio.com/usa/en/products/hi-fi/cx-series-2/cxa81)
 use a different protocol and are not currently supported.
