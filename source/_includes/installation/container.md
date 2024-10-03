@@ -112,7 +112,7 @@ In order to use Zigbee or other integrations that require access to devices, you
 
 The Home Assistant Container is using an alternative memory allocation library [jemalloc](http://jemalloc.net/) for better memory management and Python runtime speedup.
 
-As the jemalloc configuration used can cause issues on certain hardware featuring a page size larger than 4K (e.g. some specific ARM64-based SoCs), it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example:
+As the jemalloc configuration used can cause issues on certain hardware featuring a page size larger than 4K (like some specific ARM64-based SoCs), it can be disabled by passing the environment variable `DISABLE_JEMALLOC` with any value, for example:
 
 {% tabbed_block %}
 
