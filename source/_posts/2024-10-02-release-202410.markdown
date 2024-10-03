@@ -30,7 +30,7 @@ entities to them. The new section dashboard gets better and better with every
 release, which is super exciting!
 
 We also introduce some small YAML automation syntax changes. If you are still
-a sucker for writing your automations in YAML (like me), I’m sure you’ll love
+a sucker for writing your automations in {% term YAML %} (like me), I’m sure you’ll love
 these little tweaks that make it all feel more natural.
 
 Enjoy the release!
@@ -118,7 +118,7 @@ you options for fixing the issue.
 Recently, we renamed `service` to `action` in the [Home Assistant UI and YAML].
 This was done with the goal of making the syntax more natural, allowing it
 to be easier to grasp and read. We want to continue this work to improve the
-YAML syntax, this time focusing on {% term automations %}, and we've made the
+{% term YAML %} syntax, this time focusing on {% term automations %}, and we've made the
 following changes,
 
 - The top-level `trigger` key is now `triggers` (plural)
