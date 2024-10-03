@@ -37,8 +37,10 @@ It is not possible to migrate dashboards into sections view.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections (experimental)**.
-3. Select the maximum number of columns you want to see in the new sections view.
-4. When you are done, select **Save**.
+3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
+   - This will remove some gaps, but it also means you have less control over the order of the cards.
+5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
 
@@ -61,8 +63,6 @@ Once you have created a sections view, you can populate it with sections and car
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
-
-   ![Define visibility](/images/dashboards/section-visibility.png)
 
 ## Deleting a section
 
