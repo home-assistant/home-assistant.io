@@ -21,7 +21,7 @@ If you are running Home Assistant with
 - {% term "Home Assistant Supervised" %}
 - {% term "Home Assistant Container" %}
     
-than the go2rtc binary is already preinstalled in the container and the config flow will pick it automatically.
+the go2rtc binary is already preinstalled in the container and the config flow will pick it automatically.
 
 If you are running {% term "Home Assistant Core" %}, than you need to setup a go2rtc instance and provide the URL in the config flow.
 Please refer to https://github.com/AlexxIT/go2rtc/
