@@ -5,6 +5,7 @@ ha_category:
   - Fan
   - Hub
   - Sensor
+  - Switch
 ha_iot_class: Local Polling
 ha_release: 0.95
 ha_codeowners:
@@ -14,6 +15,7 @@ ha_platforms:
   - binary_sensor
   - fan
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -24,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 
-The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read:
+The integration has a fan platform to view and control the ventilation speed, a switch platform to activate boost mode, and a sensors platform to read:
 
 - Outdoor air temperature
 - Extract air temperature
