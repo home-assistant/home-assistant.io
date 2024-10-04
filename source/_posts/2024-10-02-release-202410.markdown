@@ -52,6 +52,8 @@ Enjoy the release!
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [The source of a repair](#the-source-of-a-repair)
   - [YAML-editor improvements](#yaml-editor-improvements)
+- [Patch releases](#patch-releases)
+  - [2024.10.1 - October 4](#2024101---october-4)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -450,6 +452,48 @@ Nice work [@naps62]!
 
 
 [@naps62]: https://github.com/naps62
+
+## Patch releases
+
+We will also release patch releases for Home Assistant 2024.10 in October. These
+patch releases only contain bug fixes. Our goal is to release a patch release
+every Friday.
+
+### 2024.10.1 - October 4
+
+- Fix device id support for alarm control panel template ([@piitaya] - [#127340])
+- Bump pysmlight 0.1.2 ([@tl-sl] - [#127376])
+- Remove assumption in ConfigEntryItems about unique unique_id ([@emontnemery] - [#127399])
+- Add missing number platform to init of Tesla Fleet ([@Bre77] - [#127406])
+- Bump aiomealie to 0.9.3 ([@andrew-codechimp] - [#127454])
+- Fix int value in unique_id for Tellduslive ([@robinostlund] - [#127526])
+- Bump matrix-nio to 0.25.2 ([@PaarthShah] - [#127535])
+- Adjust polling rate of Rituals Perfume Genie ([@frenck] - [#127544])
+- Create new clientsession for NYT Games ([@joostlek] - [#127547])
+- Strip the NYT Games token ([@joostlek] - [#127548])
+- Revert "Bump pychromecast to 14.0.2 (#127333)" ([@joostlek] - [#127555])
+
+[#126782]: https://github.com/home-assistant/core/pull/126782
+[#127340]: https://github.com/home-assistant/core/pull/127340
+[#127376]: https://github.com/home-assistant/core/pull/127376
+[#127399]: https://github.com/home-assistant/core/pull/127399
+[#127406]: https://github.com/home-assistant/core/pull/127406
+[#127454]: https://github.com/home-assistant/core/pull/127454
+[#127526]: https://github.com/home-assistant/core/pull/127526
+[#127535]: https://github.com/home-assistant/core/pull/127535
+[#127544]: https://github.com/home-assistant/core/pull/127544
+[#127547]: https://github.com/home-assistant/core/pull/127547
+[#127548]: https://github.com/home-assistant/core/pull/127548
+[#127555]: https://github.com/home-assistant/core/pull/127555
+[@Bre77]: https://github.com/Bre77
+[@PaarthShah]: https://github.com/PaarthShah
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@piitaya]: https://github.com/piitaya
+[@robinostlund]: https://github.com/robinostlund
+[@tl-sl]: https://github.com/tl-sl
 
 ## Need help? Join the community!
 

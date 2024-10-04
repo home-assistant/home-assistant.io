@@ -1151,6 +1151,42 @@ For a summary in a more readable format:
 - Bump pychromecast to 14.0.2 ([@emontnemery] - [#127333])
 - Bump intents to 2024.10.2 ([@synesthesiam] - [#127338])
 
+## Release 2024.10.1 - October 4
+
+- Fix device id support for alarm control panel template ([@piitaya] - [#127340])
+- Bump pysmlight 0.1.2 ([@tl-sl] - [#127376])
+- Remove assumption in ConfigEntryItems about unique unique_id ([@emontnemery] - [#127399])
+- Add missing number platform to init of Tesla Fleet ([@Bre77] - [#127406])
+- Bump aiomealie to 0.9.3 ([@andrew-codechimp] - [#127454])
+- Fix int value in unique_id for Tellduslive ([@robinostlund] - [#127526])
+- Bump matrix-nio to 0.25.2 ([@PaarthShah] - [#127535])
+- Adjust polling rate of Rituals Perfume Genie ([@frenck] - [#127544])
+- Create new clientsession for NYT Games ([@joostlek] - [#127547])
+- Strip the NYT Games token ([@joostlek] - [#127548])
+- Revert "Bump pychromecast to 14.0.2 (#127333)" ([@joostlek] - [#127555])
+
+[#126782]: https://github.com/home-assistant/core/pull/126782
+[#127340]: https://github.com/home-assistant/core/pull/127340
+[#127376]: https://github.com/home-assistant/core/pull/127376
+[#127399]: https://github.com/home-assistant/core/pull/127399
+[#127406]: https://github.com/home-assistant/core/pull/127406
+[#127454]: https://github.com/home-assistant/core/pull/127454
+[#127526]: https://github.com/home-assistant/core/pull/127526
+[#127535]: https://github.com/home-assistant/core/pull/127535
+[#127544]: https://github.com/home-assistant/core/pull/127544
+[#127547]: https://github.com/home-assistant/core/pull/127547
+[#127548]: https://github.com/home-assistant/core/pull/127548
+[#127555]: https://github.com/home-assistant/core/pull/127555
+[@Bre77]: https://github.com/Bre77
+[@PaarthShah]: https://github.com/PaarthShah
+[@andrew-codechimp]: https://github.com/andrew-codechimp
+[@emontnemery]: https://github.com/emontnemery
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@piitaya]: https://github.com/piitaya
+[@robinostlund]: https://github.com/robinostlund
+[@tl-sl]: https://github.com/tl-sl
+
 [#102371]: https://github.com/home-assistant/core/pull/102371
 [#106570]: https://github.com/home-assistant/core/pull/106570
 [#112806]: https://github.com/home-assistant/core/pull/112806
