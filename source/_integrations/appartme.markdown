@@ -7,12 +7,13 @@ ha_iot_class: "cloud_polling"
 ha_codeowners:
   - "@MiloszSlabs"
 ha_domain: "appartme"
+ha_config_flow: true
 ha_platforms:
-    - switch
-    - light
-    - valve
-    - climate
-    - sensor
+  - switch
+  - light
+  - valve
+  - climate
+  - sensor
 ---
 
 The **Appartme** integration allows you to interact with your Appartme System by communicating with the Main Module through the Appartme PaaS API.
@@ -24,7 +25,7 @@ The **Appartme** integration allows you to interact with your Appartme System by
 To use this integration, you will need:
 
 - **An Appartme account**: You can create an account using the Appartme mobile app.
-- **Main Module added to your account**: Ensure that your Main Module is properly set up and linked to your Appartme account.
+- **Main Module added to your account**: Ensure that your Main Module (the central control unit of your Appartme System) is properly set up and linked to your Appartme account.
 - **OAuth Client ID and OAuth Secret**: You can request these credentials via the [Appartme OAuth Credentials Request Form](https://tally.so/r/w5vP0d).
 
 ## Configuration
@@ -37,6 +38,7 @@ To set up the Appartme integration:
 4. Search for **Appartme** and select it from the list.
 5. Enter your **OAuth Client ID** and **OAuth Secret** when prompted.
 6. Follow the on-screen instructions to complete the setup process.
+7. Once completed, you should see the Appartme integration listed in your Integrations page, and the associated devices and entities should be available in Home Assistant.
 
 ## Capabilities
 
@@ -167,7 +169,7 @@ No, this integration is only compatible with the Appartme Main Module. It does n
 
 ### How do I change the default temperatures for comfort and eco modes?
 
-You can adjust the default temperatures by setting the target temperature while in the desired preset mode (`comfort` or `eco`). The integration will use the new temperature as the default for that mode.
+You can adjust the default temperatures by setting the target temperature while the thermostat is in the desired preset mode (`comfort` or `eco`). The integration will then use this new temperature as the default for that mode.
 
 ## Support
 
