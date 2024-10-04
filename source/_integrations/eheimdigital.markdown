@@ -18,13 +18,15 @@ The **EHEIM Digital** {% term integration %} allows you to control your [EHEIM D
 
 {% include integrations/config_flow.md %}
 
-## Supported devices
+## Supported devices and entities
 
-Currently, the following devices and features are supported:
+Currently, the following devices and entities are supported:
 
 ### [EHEIM classicLEDcontrol+e](https://eheim.com/en_GB/aquatics/technology/lighting-control/classicledcontrol-e/classicledcontrol-e)
 
-- Controlling the brightness of both light channels
-- Enabling the daycycle mode, which automatically controls the brightness based on the daytime as configured on the device
+#### Lights
 
-Support for additional EHEIM Digital devices will be added in future updates.
+- **Brightness**: Controlling the brightness of both light channels
+- **Daycycle mode effect**: Automatically controls the brightness based on the daytime as configured on the device
+
+Support for additional EHEIM Digital devices and entities will be added in future updates.
