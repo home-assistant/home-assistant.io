@@ -512,7 +512,7 @@ To create your first template entity based on a blueprint, open up your `configu
 # Example configuration.yaml template entity based on a blueprint located in config/blueprints/homeassistant/inverted_binary_sensor.yaml
 template:
   - use_blueprint:
-      path: homeassistant/inverted_binary_sensor.yaml
+      path: homeassistant/inverted_binary_sensor.yaml # relative to config/blueprints/template/
       input:
         reference_entity: binary_sensor.foo
     name: Inverted foo
@@ -532,8 +532,9 @@ Home Assistant can import blueprints from the Home Assistant forums, GitHub, and
       https://github.com/home-assistant/core/blob/dev/homeassistant/components/template/blueprints/inverted_binary_sensor.yaml
       ```
 
-2. Use a config similar to the one above to create a new template entity based on the blueprint you just imported.
-3. Make sure to fill in all required inputs.
+2. Download the file and place it under `config/blueprints/template/<source or author>/<blueprint name>.yaml`
+3. Use a config similar to the one above to create a new template entity based on the blueprint you just imported.
+4. Make sure to fill in all required inputs.
 
 The blueprint can now be used for creating template entities.
 
