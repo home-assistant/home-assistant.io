@@ -137,7 +137,6 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Distance to arrival|Yes|
 |Sensor|Driver temperature setting|No|
 |Sensor|Estimate battery range|No|
-|Sensor|Exterior color|No|
 |Sensor|Fast charger type|No|
 |Sensor|Ideal battery range|No|
 |Sensor|Inside temperature|Yes|
@@ -145,23 +144,13 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Outside temperature|Yes|
 |Sensor|Passenger temperature setting|No|
 |Sensor|Power|No|
-|Sensor|Roof color|No|
-|Sensor|Scheduled charging mode|No|
-|Sensor|Scheduled charging start time|No|
-|Sensor|Scheduled departure time|No|
 |Sensor|Shift state|No|
 |Sensor|Speed|No|
 |Sensor|State of charge at arrival|No|
-|Sensor|Time at arrival|Yes|
-|Sensor|Time at full charge|Yes|
 |Sensor|Time to arrival|Yes|
 |Sensor|Time to full charge|Yes|
 |Sensor|Tire pressure front left|No|
 |Sensor|Tire pressure front right|No|
-|Sensor|Tire pressure last measured front left|No|
-|Sensor|Tire pressure last measured front right|No|
-|Sensor|Tire pressure last measured rear left|No|
-|Sensor|Tire pressure last measured rear right|No|
 |Sensor|Tire pressure rear left|No|
 |Sensor|Tire pressure rear right|No|
 |Sensor|Traffic delay|No|
