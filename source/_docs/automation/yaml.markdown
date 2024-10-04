@@ -156,7 +156,7 @@ automation my_lights:
         after: "16:00:00"
         before: "23:00:00"
     actions:
-      # With a single service entry, we don't need a '-' before service - though you can if you want to
+      # With a single action entry, we don't need a '-' before action - though you can if you want to
       - action: homeassistant.turn_on
         target:
           entity_id: group.living_room
