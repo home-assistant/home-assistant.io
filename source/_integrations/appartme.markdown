@@ -174,7 +174,7 @@ You can adjust the default temperatures by setting the target temperature while 
 If you encounter any issues or have questions:
 
 - **Contact Appartme Support**: [support@appartme.com](mailto:support@appartme.com)
-- **Home Assistant Community Forum**: [Appartme Integration Discussion](https://community.home-assistant.io)
+- **Home Assistant Community Forum**: [Appartme Integration Discussion](https://community.home-assistant.io/t/appartme-integration-discussion/777682)
 
 ## References
 
