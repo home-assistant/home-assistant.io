@@ -769,7 +769,7 @@ automation:
           entity_id: sensor.phone_next_alarm
           offset: -00:05:00
     actions:
-      - service: light.turn_on
+      - action: light.turn_on
         target:
           entity_id: light.bedroom
 ```
