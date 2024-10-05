@@ -69,7 +69,7 @@ For Switcher Breeze the integration provides the following buttons:
 
 ## Covers
 
-For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific position and get information about the cover direction (UP/DOWN/STOP).
+For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switcher Runner S12) the integration allows you to control its covers open/close state, set specific covers position and get information about the cover direction (UP/DOWN/STOP).
 
 ## Lights
 
