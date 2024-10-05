@@ -84,9 +84,6 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
-
-
-
 ## API Service
 
 At runtime, you will be able to use the API for each respective user by their Habitica's username.
