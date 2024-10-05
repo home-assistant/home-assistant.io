@@ -7,11 +7,13 @@ ha_release: '2024.10'
 ha_iot_class: Local Push
 ha_domain: cambridge_audio
 ha_platforms:
+  - diagnostics
   - media_player
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
-ha_integration_type: integration
+ha_integration_type: device
+ha_zeroconf: true
 ---
 
 The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
@@ -29,7 +31,8 @@ This integration allows you to connect the following devices:
 - Cambridge Audio CXR120
 - Cambridge Audio CXR200
 - Cambridge Audio 851N
-- Cambridge Audio Edge NQ
+- Cambridge Audio MXN10
+- Cambridge Audio AXN10
 
 Older, RS-232 serial-based amplifiers like the [CXA series](https://www.cambridgeaudio.com/usa/en/products/hi-fi/cx-series-2/cxa81)
 use a different protocol and are not currently supported.

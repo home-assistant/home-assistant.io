@@ -16,6 +16,7 @@ ha_platforms:
   - binary_sensor
   - cover
   - light
+  - select
   - sensor
   - switch
   - valve
@@ -23,6 +24,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@mrpasztoradam'
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.

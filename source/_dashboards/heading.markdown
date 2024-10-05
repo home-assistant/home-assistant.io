@@ -26,7 +26,7 @@ badges:
     entity_id: sensor.living_room_sensor_temperature
     color: red
   - type: entity
-    entity_id: sensor.living_room_sensor_humidity
+    entity: sensor.living_room_sensor_humidity
     color: deep-purple
 ```
 

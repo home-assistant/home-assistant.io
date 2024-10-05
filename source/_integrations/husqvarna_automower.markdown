@@ -221,7 +221,7 @@ This will override all your schedules during this time. The duration can be give
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule
+service: husqvarna_automower.override_schedule_work_area
 target:
   entity_id: lawn_mower.<name>
 data:
