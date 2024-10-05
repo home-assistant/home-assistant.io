@@ -12,6 +12,8 @@ ha_codeowners:
 ha_domain: bring
 ha_integration_type: service
 ha_platforms:
+  - diagnostics
+  - sensor
   - todo
 related:
   - docs: /integrations/todo
@@ -29,6 +31,13 @@ The **Bring!** integration allows you to interact with your [Bring!](https://www
 For authentication, the integration requires the `email` and `password` you used for your Bring! account. If you want to automatically receive notifications via the Bring! app when Home Assistant adds or removes an item from the list, you should use a dedicated account (such as `email: your.name+ha@gmail.com`) to connect Home Assistant with [Bring!](https://www.getbring.com/).
 
 {% include integrations/config_flow.md %}
+
+## Sensors
+
+- **Urgent:** Shows the number of items tagged with the **Urgent** badge on the shopping list. Completed items are excluded.
+- **On occasion:** Displays the count of items marked with the **If convenient** badge.
+- **Discount only:** Indicates the number of items tagged with the **Offer** badge.
+- **Region & Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
 
 ## Actions
 
@@ -57,12 +66,12 @@ The **Bring** integration offers an action to send push notifications to the Bri
 
 ```yaml
 ...
-action:
-  action: bring.send_message
-  target:
-    entity_id: todo.bring_shoppinglist
-  data:
-    message: going_shopping 
+actions:
+  - action: bring.send_message
+    target:
+      entity_id: todo.bring_shoppinglist
+    data:
+      message: going_shopping 
 ```
 
 ### Sending an urgent message notification
@@ -71,11 +80,11 @@ Note that for the notification type `urgent_message` the attribute `item` is **r
 
 ```yaml
 ...
-action:
-  action: bring.send_message
-  target:
-    entity_id: todo.bring_shoppinglist
-  data:
-    message: urgent_message
-    item: Cilantro
+actions:
+  - action: bring.send_message
+    target:
+      entity_id: todo.bring_shoppinglist
+    data:
+      message: urgent_message
+      item: Cilantro
 ```

@@ -11,6 +11,7 @@ ha_codeowners:
   - '@exxamalte'
 ha_domain: gdacs
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service

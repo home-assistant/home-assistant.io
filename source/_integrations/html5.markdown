@@ -13,6 +13,8 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@alexyao2015'
 ---
 
 The `html5` notification {% term integration %} enables you to receive push notifications to Chrome or Firefox, no matter where you are in the world. `html5` also supports Chrome and Firefox on Android, which enables native-app-like integrations without actually needing a native app.
@@ -107,15 +109,15 @@ Example of adding a tag to your notification. This won't create new notification
 
 ```yaml
   - alias: "Push/update notification of sensor state with tag"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      action: notify.html5
-      data:
-        message: "Last known sensor state is {{ states('sensor.sensor') }}."
+    actions:
+      - action: notify.html5
         data:
-          tag: "notification-about-sensor"
+          message: "Last known sensor state is {{ states('sensor.sensor') }}."
+          data:
+            tag: "notification-about-sensor"
 ```
 
 {% endraw %}
@@ -207,9 +209,9 @@ notification is received on the device.
 
 ```yaml
 - alias: "HTML5 push notification received and displayed on device"
-  trigger:
-    platform: event
-    event_type: html5_notification.received
+  triggers:
+    - trigger: event
+      event_type: html5_notification.received
 ```
 
 #### clicked event
@@ -218,20 +220,20 @@ You will receive an event named `html5_notification.clicked` when the notificati
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.clicked
+  triggers:
+    - trigger: event
+      event_type: html5_notification.clicked
 ```
 
 or
 
 ```yaml
 - alias: "HTML5 push notification action button clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.clicked
-    event_data:
-      action: open_door
+  triggers:
+    - trigger: event
+      event_type: html5_notification.clicked
+      event_data:
+        action: open_door
 ```
 
 #### closed event
@@ -240,9 +242,9 @@ You will receive an event named `html5_notification.closed` when the notificatio
 
 ```yaml
 - alias: "HTML5 push notification clicked"
-  trigger:
-    platform: event
-    event_type: html5_notification.closed
+  triggers:
+    - trigger: event
+      event_type: html5_notification.closed
 ```
 
 ### Making notifications work with NGINX proxy

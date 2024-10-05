@@ -26,11 +26,11 @@ According to the [API documentation](https://www.weather.gov/documentation/servi
 
 Providing a METAR station code is optional, and if not supplied, the closest station to the latitude and longitude will be chosen. A list of nearby stations is printed to the log with level `DEBUG` if no station is supplied. Stations can also be found on the [NOAA website](https://www.cnrfc.noaa.gov/metar.php). Codes with only three characters, for example, `ADW` should be prefixed with the letter K, `KADW`.
 
-One weather entity is created for each entry in the configuration. Hourly and day/night forecasts are provided through the [`weather.get_forecasts` action](/integrations/weather/action--weatherget_forecasts). The time supplied for each forecast is the start time for the forecast. Sensors are also created as disabled entities after configuration and can be enabled by the user.
+One weather entity is created for each entry in the configuration. Hourly and day/night forecasts are provided through the [`weather.get_forecasts` action](/integrations/weather#action-weatherget_forecasts). The time supplied for each forecast is the start time for the forecast. Sensors are also created as disabled entities after configuration and can be enabled by the user.
 
 ## Action `nws.get_forecasts_extra` 
 
-`nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather/action--weatherget_forecasts).
+`nws.get_forecasts_extra` provides extra data in a form similar to `weather.get_forecasts`. See [`weather.get_forecasts` documentation](/integrations/weather#action-weatherget_forecasts).
 
 | Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|

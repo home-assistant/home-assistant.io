@@ -13,18 +13,12 @@ Integrations are pieces of software that allow Home Assistant to connect to othe
 Some integration cards show an icon:
 
 - The cloud icon <img height="28px" src="/images/getting-started/cloud-icon.png" alt="Cloud icon"/> indicates that this integration depends on the cloud.
-- The YAML icon <img height="28px" src="/images/getting-started/yaml-icon.png" alt="Yaml icon"/>indicates that this integration was not setup via the UI. You have either set it up in YAML or it is a dependency set up by an other integration. If you want to configure it, you will need to do so in your configuration.yaml file.
+The file icon <img height="28px" src="/images/getting-started/config-file_icon.png" alt="Configuration file icon"/> indicates that this integration was not set up via the UI. You have either set it up in your {% term "`configuration.yaml`" %} file, or it is a dependency set up by another integration. If you want to configure it, you will need to do so in your {% term "`configuration.yaml`" %} file.
 - The custom icon <img height="28px" src="/images/getting-started/custom-icon.png" alt="Custom icon"/> indicates that this is not an official Home Assistant integration but that it was custom made. It could be imported from another source, for example downloaded from HACS.
 
 For a full list of compatible {% term integrations %}, refer to the [integrations](/integrations) documentation.
 
 Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices).
-
-## Entities
-
-Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
-
-<p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
 ## Devices
 
@@ -39,6 +33,12 @@ Devices and entities are used throughout Home Assistant. To name a few examples:
 - A predefined color and brightness setting for a light saved as a [scene](#scenes).
 
 ![Home Assistant device](/images/getting-started/home-assistant-device_02.png)
+
+## Entities
+
+Entities are the basic building blocks to hold data in Home Assistant. An {% term entity %} represents a {% term sensor %}, actor, or function in Home Assistant. Entities are used to monitor physical properties or to control other {% term entities %}. An {% term entity %} is usually part of a {% term device %} or a {% term service %}. Entities have {% term states %}.
+
+<p class='img'><img src='/images/getting-started/entities.png' style='border: 0;box-shadow: none;' alt="Screenshot showing the Entities table">Screenshot of the Entities table. Each line represents an entity.</p>
 
 ## Areas
 

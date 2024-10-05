@@ -17,7 +17,6 @@ ha_domain: lutron_caseta
 ha_config_flow: true
 ha_codeowners:
   - '@swails'
-  - '@bdraco'
   - '@danaues'
   - '@eclair4151'
 ha_zeroconf: true

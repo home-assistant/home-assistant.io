@@ -27,6 +27,7 @@ More than 175 utilities use Opower. Currently only the following utilities are s
   - Kentucky Power
   - Public Service Company of Oklahoma (PSO)
   - Southwestern Electric Power Company (SWEPCO)
+- Arizona Public Service (APS)
 - City of Austin Utilities
 - Consolidated Edison (ConEd) and subsidiaries
   - Orange & Rockland Utilities (ORU)

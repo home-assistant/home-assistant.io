@@ -88,13 +88,13 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Button|Wake|Yes|
 |Climate|Cabin overheat protection|Yes|
 |Climate|Climate|Yes|
-|Device tracker|Location|Yes|
-|Device tracker|Route|Yes|
 |Cover|Charge port door|Yes|
 |Cover|Frunk|Yes|
 |Cover|Sunroof|No|
 |Cover|Trunk|Yes|
 |Cover|Vent windows|Yes|
+|Device tracker|Location|Yes|
+|Device tracker|Route|Yes|
 |Lock|Charge cable lock|Yes|
 |Lock|Lock|Yes|
 |Lock|Speed limit|Yes|
@@ -167,22 +167,38 @@ These are the entities available in the Teslemetry integration. Not all entities
 |Binary sensor|Backup capable|Yes|
 |Binary sensor|Grid services active|Yes|
 |Binary sensor|Grid services enabled|Yes|
+|Binary sensor|Storm watch active|Yes|
 |Number|Backup reserve|Yes|
 |Number|Off grid reserve|Yes|
+|Select|Allow export|Yes|
+|Select|Operation mode|Yes|
 |Sensor|Battery power|Yes|
+|Sensor|Consumer imported from battery|No|
+|Sensor|Consumer imported from generator|No|
+|Sensor|Consumer imported from grid|No|
+|Sensor|Consumer imported from solar|No|
 |Sensor|Energy left|Yes|
+|Sensor|Generator exported|Yes|
 |Sensor|Generator power|No|
+|Sensor|Grid exported|Yes|
+|Sensor|Grid exported from battery|No|
+|Sensor|Grid exported from generator|No|
+|Sensor|Grid exported from solar|No|
+|Sensor|Grid imported|No|
 |Sensor|Grid power|Yes|
+|Sensor|Grid services exported|No|
+|Sensor|Grid services imported|No|
 |Sensor|Grid services power|Yes|
+|Sensor|Home usage|Yes|
 |Sensor|Island status|Yes|
 |Sensor|Load power|Yes|
 |Sensor|Percentage charged|Yes|
+|Sensor|Solar exported|No|
+|Sensor|Solar generated|Yes|
 |Sensor|Solar power|Yes|
 |Sensor|Total pack energy|No|
-|Sensor|VPP backup reserve|Yes|
 |Sensor|Version|Yes|
-|Select|Allow export|Yes|
-|Select|Operation mode|Yes|
+|Sensor|VPP backup reserve|Yes|
 |Switch|Allow charging from grid|Yes|
 |Switch|Storm watch|Yes|
 
@@ -268,3 +284,11 @@ Teslemetry provides various custom actions to interact with the Tesla Fleet API 
 |---------------|------------------------------|------------------------------------------------------------------------------------------------------------------|
 | device_id     | The energy site's device ID  | 0d462c0c4c0b064b1a91cdbd1ffcbd31                                                                                 |
 | tou_settings  | Time of use settings         | See [Tesla Fleet API documentation](https://developer.tesla.com/docs/fleet-api#time_of_use_settings) for details |
+
+## Energy dashboard
+
+The Tesla Fleet API only provides power data for Powerwall and Solar products. This means they cannot be used on the energy dashboard directly.
+
+Energy flows can be calculated from `Battery power` and `Grid power` sensors using a [Template Sensor](/integrations/template/) to separate the positive and negative values into positive import and export values.
+The `Load power`, `Solar power`, and the templated sensors can then use a [Riemann Sum](/integrations/integration/) to convert their instant power (kW) values into cumulative energy values (kWh),
+which then can be used within the energy dashboard.

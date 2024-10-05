@@ -1,5 +1,5 @@
 ---
-title: Google Cloud Platform
+title: Google Cloud
 description: Google Cloud Platform integration.
 ha_category:
   - Speech-to-text

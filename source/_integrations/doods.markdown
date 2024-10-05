@@ -215,11 +215,11 @@ image_processing:
 ```yaml
 # Example advanced automations.yaml entry
 - alias: "Doods scanning"
-  trigger:
-     - platform: state
+  triggers:
+     - trigger: state
        entity_id:
          - binary_sensor.driveway
-  action:
+  actions:
     - action: image_processing.scan
       target:
         entity_id: image_processing.doods_camera_driveway

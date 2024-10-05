@@ -91,22 +91,20 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
 {% raw %}
 
 ```yaml
-- id: mysensor_on
-  trigger:
-    platform: state
-    entity_id: sensor.mysensor
-    to: on
-  action:
+- triggers:
+    - trigger: state
+      entity_id: sensor.mysensor
+      to: "on"
+  actions:
     - action: remember_the_milk.myaccount_create_task
       data:
         name: "Please switch off {{trigger.entity_id}}"
         id: "{{trigger.entity_id}}"
-- id: mysensor_off
-  trigger:
-    platform: state
-    entity_id: sensor.mysensor
-    to: off
-  action:
+- triggers:
+    - trigger: state
+      entity_id: sensor.mysensor
+      to: "off"
+  actions:
     - action: remember_the_milk.myaccount_complete_task
       data:
         id: "{{trigger.entity_id}}"

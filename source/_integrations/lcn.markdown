@@ -23,13 +23,23 @@ ha_platforms:
   - scene
   - sensor
   - switch
+ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `lcn` integration for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
+The **LCN** {% term integration %} for Home Assistant allows you to connect to [LCN](https://www.lcn.eu/) hardware devices.
 
-The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. Alternatively, an LCN-PKE coupler can be used which offers two PCHK licenses.
-With this setup sending and receiving commands to and from LCN modules is possible.
+## Prerequisites
+
+- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. 
+- Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
+With this setup, sending and receiving commands to and from LCN modules is possible.
+
+The `lcn` integration allows connections to more than one hardware coupler. For each coupler, a new integration entry needs to be created.
+
+{% include integrations/config_flow.md %}
+
+## Supported device types
 
 There is currently support for the following device types within Home Assistant:
 
@@ -47,375 +57,16 @@ Therefore the `lcn` integration offers a variety of [events](#events), [device t
 They are ideal to be used in automation scripts or for the `template` platforms.
 {% endnote %}
 
-## Configuration
 
-To use your LCN system in your installation, add the following lines to your {% term "`configuration.yaml`" %} file.
-You have to specify at least one IP/port with login credentials for a PCHK host.
-Consider to store your credentials in a [`secrets.yaml`](/docs/configuration/secrets).
+## Setting up devices and entites
 
-```yaml
-lcn:
-  connections:
-    - name: myhome
-      host: 192.168.2.41
-      port: 4114
-      username: lcn
-      password: lcn
+The `lcn` hardware modules and groups are represented by Home Assistant *devices*. The periphery of each `lcn` module is represented by Home Assistant *entities*. Peripheries are, for example, the output ports, relays, and variables of a module. Refer to the description of each [platform](#platforms) to learn about which entity should be used for which periphery.
 
-  binary_sensors:
-    - name: Kitchen window
-      address: myhome.s0.m7
-      source: binsensor1
+The configuration of the `lcn` devices and entities is completely done using a web user interface (configuration panel).
 
-  climates:
-    - name: Temperature bedroom
-      address: myhome.s0.m7
-      source: var1
-      setpoint: r1varsetpoint
-      min_temp: 17.
-      max_temp: 30.
-      lockable: true
-      unit_of_measurement: °C
+Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
-  covers:
-    - name: Living room cover
-      address: myhome.s0.m7
-      motor: motor1
-
-  lights:
-    - name: Bedroom light
-      address: myhome.s0.m7
-      output: output1
-      dimmable: true
-      transition: 5
-
-  scenes:
-    - name: Romantic
-      address: myhome.s0.m7
-      register: 1
-      scene: 4
-      outputs: [output1, output2, relais1, relais3, relais4]
-      transition: 5
-
-  sensors:
-    - name: Temperature
-      address: myhome.s0.m7
-      source: var3
-      unit_of_measurement: °C
-
-  switches:
-    - name: Sprinkler switch
-      address: myhome.s0.m7
-      output: relay1
-```
-
-{% configuration %}
-connections:
-  description: List of your connections.
-  required: true
-  type: map
-  keys:
-    host:
-      description: IP address of the LCN-PCHK host.
-      required: true
-      type: string
-    port:
-      description: Port of the LCN-PCHK host.
-      required: true
-      type: integer
-    username:
-      description: Login username for the LCN-PCHK host.
-      required: true
-      type: string
-    password:
-      description: Login password for the LCN-PCHK host.
-      required: true
-      type: string
-    name:
-      description: Optional connection identifier. If omitted, the connections will be named consecutively as _pchk_, _pchk1_, _pchk2_, ...
-      required: false
-      default: pchk
-      type: string
-    sk_num_tries:
-      description: Segment coupler scans. Increase this number if you have at least one segment coupler in your system.
-      required: false
-      default: 0
-      type: integer
-    dim_mode:
-      description: "Dimming mode for connected modules. The operation mode is programmed into the LCN modules by the LCN-PRO software and depends on their firmware. If you experience unexpected dimming behavior, the connection is probably in the wrong operation mode. Possible values: _steps50_, _steps200_"
-      required: false
-      default: steps50
-      type: string
-
-binary_sensors:
-  description: List of your binary sensors.
-  required: false
-  type: map
-  keys:
-    name:
-      description: "Name of the sensor."
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    source:
-      description: "Sensor source ([BINSENSOR](#ports), [SETPOINT](#variables-and-units), [KEYS](#keys))."
-      required: true
-      type: string
-
-climates:
-  description: List of your climate devices.
-  required: false
-  type: map
-  keys:
-    name:
-      description: "Name of the climate controller."
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    source:
-      description: "Current temperature source ([VARIABLE](#variables-and-units))."
-      required: true
-      type: string
-    setpoint:
-      description: "Setpoint for target temperature ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units))."
-      required: true
-      type: string
-    unit_of_measurement:
-      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
-      required: false
-      type: string
-      default: "celsius"
-    min_temp:
-      description: "Minimum target temperature."
-      required: false
-      type: float
-      default: 7.
-    max_temp:
-      description: "Maximum target temperature."
-      required: false
-      type: float
-      default: 35.
-    lockable:
-      description: "Climate control can be locked."
-      required: false
-      type: boolean
-      default: false
-
-covers:
-  description: List of your covers.
-  required: false
-  type: map
-  keys:
-    name:
-      description: Name of the cover.
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    motor:
-      description: "Motor port ([MOTOR_PORT](#ports))."
-      required: true
-      type: string
-    reverse_time:
-      description: "Reverse time ([REVERSE_TIME](#variables-and-units), see also [Cover](#cover))."
-      required: false
-      type: string
-
-lights:
-  description: List of your lights.
-  required: true
-  type: map
-  keys:
-    name:
-      description: Name of the light.
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    output:
-      description: "Light source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
-      required: true
-      type: string
-    dimmable:
-      description: Enable the dimming feature for this light.
-      required: false
-      type: boolean
-      default: false
-    transition:
-      description: Transition (ramp) time in seconds.
-      required: false
-      type: integer
-      default: 0
-
-scenes:
-  description: List of your scenes.
-  required: false
-  type: map
-  keys:
-    name:
-      description: "Name of the scene."
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    register:
-      description: Number of scene register (0..9).
-      required: true
-      type: integer
-    scene:
-      description: Number of scene (0..9).
-      required: true
-      type: integer
-    outputs:
-      description: "List of ports ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
-      required: false
-      type: list
-    transition:
-      description: Transition (ramp) time in seconds.
-      required: false
-      type: integer
-      default: None
-
-sensors:
-  description: List of your sensors.
-  required: false
-  type: map
-  keys:
-    name:
-      description: "Name of the sensor."
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    source:
-      description: "Sensor source ([VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units), [S0_INPUT](#variables-and-units), [LED_PORT](#ports), [LOGICOP_PORT](#ports))."
-      required: true
-      type: string
-    unit_of_measurement:
-      description: "Measurement unit ([VAR_UNIT](#variables-and-units))."
-      required: false
-      type: string
-      default: "native"
-
-switches:
-  description: List of your switches.
-  required: false
-  type: map
-  keys:
-    name:
-      description: "Name of the switch."
-      required: true
-      type: string
-    address:
-      description: "[Address](#lcn-addresses) of the module/group."
-      required: true
-      type: string
-    output:
-      description: "Switch source ([OUTPUT_PORT](#ports), [RELAY_PORT](#ports))."
-      required: true
-      type: string
-{% endconfiguration %}
-
-## LCN addresses
-
-LCN hardware devices connected to the LCN bus are called _modules_. LCN modules are addressed by their numeric id in the range (5..254).
-
-Modules can be arranged in _segments_. Segments can be addressed by their numeric id (5..128) or 0 (= no segment exist) or 3 (= target all segments).
-
-LCN Modules within the _same_ segment can be grouped by their group id (5..254) or 3 (= target all groups.)
-
-The LCN integration allows the connection to more than one hardware coupler. In this case, it has to be specified which hardware coupler should be used for addressing the specified module.
-
-Whenever the address of a module or a group has to be specified, it can be addressed using one of the following syntaxes:
-
-Example for modules:
-
-```txt
-connid.s000.m007
-connid.s0.m7
-s0.m7
-0.7
-```
-
-Example for groups:
-
-```txt
-connid.s000.g007
-connid.s0.g7
-s0.g7
-0.g7
-```
-
-Leading zeroes in the segment id or module/group id can be omitted. If the `connection_id` is omitted, the first connection defined in the [configuration](#configuration) will be used.
-
-## LCN constants
-
-The platforms and actions use several predefined constants as parameters.
-
-### Ports
-
-| Constant       | Values                                                                                                         |
-| -------------- | -------------------------------------------------------------------------------------------------------------- |
-| OUTPUT_PORT    | `output1`, `output2`, `output3`, `output4`                                                                     |
-| RELAY_PORT     | `relay1`, `relay2`, `relay3`, `relay4`, `relay5`, `relay6`, `relay7`, `relay8`                                 |
-| MOTOR_PORT     | `motor1`, `motor2`, `motor3`, `motor4`, `outputs`                                                              |
-| LED_PORT       | `led1`, `led2`, `led3`, `led4`, `led5`, `led6`, `led7`, `led8`, `led9`, `led10`, `led11`, `led12`              |
-| LOGICOP_PORT   | `logicop1`, `logicop2`, `logicop3`, `logicop4`                                                                 |
-| BINSENSOR_PORT | `binsensor1`, `binsensor2`, `binsensor3`, `binsensor4`, `binsensor5`, `binsensor6`, `binsensor7`, `binsensor8` |
-
-The [MOTOR_PORT](#ports) values specify which hardware relay or outputs configuration will be used:
-
-|  Motor   | Relay on/off | Relay up/down |
-| :------: | :----------: | :-----------: |
-| `motor1` |   `relay1`   |   `relay2`    |
-| `motor2` |   `relay3`   |   `relay4`    |
-| `motor3` |   `relay5`   |   `relay6`    |
-| `motor4` |   `relay7`   |   `relay8`    |
-
-|   Motor   | Output up | Output down |
-| :-------: | :-------: | :---------: |
-| `outputs` | `output1` |  `output2`  |
-
-
-### Variables and Units
-
-| Constant     | Values                                                                                                                                                                          |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VARIABLE     | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var`                                                     |
-| SETPOINT     | `r1varsetpoint`, `r2varsetpoint`                                                                                                                                                |
-| THRESHOLD    | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
-| S0_INPUT     | `s0input1`, `s0input2`, `s0input3`, `s0input4`                                                                                                                                  |
-| VAR_UNIT     | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree`                                                                                     |
-| TIME_UNIT    | `seconds`, `minutes`, `hours`, `days`                                                                                                                                           |
-| RELVARREF    | `current`, `prog`                                                                                                                                                               |
-| REVERSE_TIME | `rt70`, `rt600`, `rt1200`                                                                                                                                                       |
-
-### States:
-
-| Constant      | Values                             |
-| ------------- | ---------------------------------- |
-| LED_STATE     | `on`, `off`, `blink`, `flicker`    |
-| LOGICOP_STATE | `none`, `some`, `all`              |
-| KEY_STATE     | `hit`, `make`, `break`, `dontsend` |
-
-### Keys:
-
-Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
-Examples: `a1`, `a5`, `d8`.
+The detailed documentation for the LCN frontend panel can be found [here](https://github.com/alengwenus/lcn-frontend/blob/main/docs/lcn-frontend.md).
 
 ## Platforms
 
@@ -443,10 +94,11 @@ If you intend to leave the regulation to Home Assistant, you should consider usi
 ### Cover
 
 The `lcn` cover platform allows the control of [LCN](https://www.lcn.eu/) relays and output ports which have been configured as motor controllers.
+Refer to the [motors table](#motors) to learn about which motor uses which module periphery.
 
 Only for the module with firmware earlier than 190C:<br>
 The configuration allows the optional definition of reverse time. This is the time which is waited during the switching of the motor currents.
-The reverse time should only be defined when using the [MOTOR_PORT](#ports) value `OUTPUTS`. For all other configuration, the reverse time has to be defined in the LCN Pro software.
+The reverse time should only be defined when using the module's output ports for driving the cover. For all other configuration, the reverse time has to be defined in the LCN Pro software.
 For the reverse time, you may choose one of the following constants: `RT70` (70ms), `RT600` (600ms), `RT1200` (1,2s).
 
 {% important %}
@@ -510,11 +162,11 @@ Trigger on a transponder event and ensure that the received code is in the given
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transponder
-  condition: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
-  action:
+  conditions: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
+  actions:
     ...
 ```
 
@@ -593,8 +245,8 @@ receiver hardware is connected to module 7 in segment 0.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transmitter
       event_data:
         segment_id: 0
@@ -618,8 +270,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transponder
       event_data:
         code: 123abc
@@ -640,8 +292,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_fingerprint
       event_data:
         code: 123abc
@@ -662,8 +314,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_codelock
       event_data:
         code: 123abc
@@ -685,8 +337,8 @@ key `a1`.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_send_keys
       event_data:
         key: a1
@@ -1027,3 +679,50 @@ data:
   address: myhome.0.7
   pck: PIN4
 ```
+
+## LCN constants
+
+The [actions](#actions) use several predefined constants as parameters.
+
+### Ports
+
+| Constant       | Values                                                                                                         |
+| -------------- | -------------------------------------------------------------------------------------------------------------- |
+| OUTPUT_PORT    | `output1`, `output2`, `output3`, `output4`                                                                     |
+
+### Motors
+
+The motor values specify which hardware relay or outputs configuration will be used:
+
+|  Motor   | Relay on/off | Relay up/down |
+| :------: | :----------: | :-----------: |
+| `motor1` |   `relay1`   |   `relay2`    |
+| `motor2` |   `relay3`   |   `relay4`    |
+| `motor3` |   `relay5`   |   `relay6`    |
+| `motor4` |   `relay7`   |   `relay8`    |
+
+|   Motor   | Output up | Output down |
+| :-------: | :-------: | :---------: |
+| `outputs` | `output1` |  `output2`  |
+
+### Variables and units
+
+| Constant     | Values                                                                                                                                                                          |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VARIABLE     | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var`                                                     |
+| SETPOINT     | `r1varsetpoint`, `r2varsetpoint`                                                                                                                                                |
+| THRESHOLD    | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
+| VAR_UNIT     | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree`                                                                                     |
+| TIME_UNIT    | `seconds`, `minutes`, `hours`, `days`                                                                                                                                           |
+
+### States
+
+| Constant      | Values                             |
+| ------------- | ---------------------------------- |
+| LED_STATE     | `on`, `off`, `blink`, `flicker`    |
+| KEY_STATE     | `hit`, `make`, `break`, `dontsend` |
+
+### Keys
+
+Whenever a key has to be provided, it is defined by a joint string consisting of the table identifier (`a`, `b`, `c`, `d`) and the corresponding key number.
+Examples: `a1`, `a5`, `d8`.

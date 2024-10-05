@@ -54,11 +54,11 @@ Example usage in an {% term automation %}, taking the album art present on a Chr
 #automation.yaml
 - alias: "Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
+  actions:
     - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"
@@ -71,11 +71,11 @@ With a nicer transition period of 5 seconds and setting brightness to 100% each 
 #automation.yaml
 - alias: "Nicer Chromecast to Shelf Lights"
 
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: media_player.chromecast
 
-  action:
+  actions:
     - action: color_extractor.turn_on
       data_template:
         color_extract_url: "{{ states.media_player.chromecast.attributes.entity_picture }}"

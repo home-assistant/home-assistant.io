@@ -23,7 +23,7 @@ The sections view lets you organize your cards in sections on a grid.
 You can group cards without using horizontal or vertical stack cards.
 
 <p class='img'>
-    <img src="/images/blog/2024-03-dashboard-chapter-1/sections-example-dashboard.png" alt="A fully populated dashboard in Sections view layout"/>
+    <img src="/images/dashboards/section_view.png" alt="A fully populated dashboard in Sections view layout"/>
     A fully populated dashboard in Sections view layout
 </p>
 
@@ -37,8 +37,10 @@ It is not possible to migrate dashboards into sections view.
 1. If you have multiple dashboards, in the left sidebar, select the dashboard to which you want to add the sections view.
 2. Follow the steps on [adding a new view](/dashboards/views/#adding-a-view-to-a-dashboard).
    - Under **View type**, select **Sections (experimental)**.
-3. Select the maximum number of columns you want to see in the new sections view.
-4. When you are done, select **Save**.
+3. Under **Max number of sections wide**, select the maximum number of columns you want to see in the new sections view.
+4. Under **Dense section placement**, select if you want to allow the cards to be arranged automatically in order to fill gaps between cards.
+   - This will remove some gaps, but it also means you have less control over the order of the cards.
+5. When you are done, select **Save**.
    - You are now presented with a new, empty view.
    - If you chose a background image, the page is filled with that image.
 
@@ -49,18 +51,18 @@ Once you have created a sections view, you can populate it with sections and car
 1. To add a card, select the **Add card** button.
    - Follow the [steps on adding cards](/dashboards/cards/#adding-cards-to-your-dashboard).
 
-    ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
+   ![Add Section button](/images/dashboards/sections_view_add-card-or-section.png)
 
 2. To add a new section, select the **Create section** button.
-3. To edit the section title, select the edit {% icon "mdi:edit" %} button.
-   - If you leave the section title empty, this line will be hidden.
+3. A [heading card](/dashboards/heading) will be automatically added to the top of the section.
+   - To edit it, select the card.
+   - If you don't want a heading title at the top of the section, delete this card.
+   - The title can be added again later, like any other card.
 4. If you want this section to be visible only to specific users or under a certain condition, you can define those conditions:
    - On the **Visibility** tab, select **Add condition**.
    - Select the type of condition, and enter the parameters.
    - If you define multiple conditions, the section is only shown when all conditions are met.
    - If you did not define any conditions, the section is always shown, to all users.
-
-    ![Define visibility](/images/dashboards/section-visibility.png)
 
 ## Deleting a section
 
@@ -75,17 +77,17 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. To rearrange sections, hold the move {% icon "mdi:cursor-move" %} button and move the card.
 
-    <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-sections.gif" alt="Rearranging sections by dragging"/>
-        Rearranging sections by dragging
-    </p>
+<p class='img'>
+  <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
+  Rearranging sections by dragging
+</p>
 
 3. To rearrange cards, tap and hold the card and move it to your desired location.
 
-   <p class='img'>
-        <img src="/images/blog/2024-03-dashboard-chapter-1/drag-and-drop-cards.gif" alt="Rearranging cards by dragging"/>
-        Rearranging cards by dragging
-    </p>
+<p class='img'>
+  <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
+  Rearranging cards by dragging
+</p>
 
 ## Show or hide section conditionally
 

@@ -29,18 +29,26 @@ form of a stateless switch.
 The button {% term entity %} is stateless, as in, it cannot have a state like the `on` or
 `off` state that, for example, a normal switch entity has.
 
-Every button entity does keep track of the timestamp of when the last time
-the button entity has been pressed in the Home Assistant UI or pressed via
-an action.
+The state of a button is a timestamp showing the date and time of the last time the button had been pressed in the Home Assistant UI or via an action.
+
+<p class='img'>
+<img src='/images/integrations/button/state_button.png' alt='Screenshot showing the state of a button entity in the developer tools' />
+Screenshot showing the state of a button entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 Because the {% term state %} of a button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: button.my_button
-action:
+actions:
   - action: notify.frenck
     data:
       message: "My button has been pressed!"

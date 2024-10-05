@@ -269,6 +269,8 @@ These URLs work great when trying to send notifications. Home Assistant will aut
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
 
+When a Doorbell rings, there is a specific event {% term entity %} that provides the `event_id`. You can use this to get the thumbnail, for example, `event.g4_doorbell_pro_doorbell`.
+
 ## Troubleshooting
 
 ### Delay in video feed

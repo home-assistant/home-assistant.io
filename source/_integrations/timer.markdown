@@ -153,11 +153,11 @@ timer:
 - alias: "Timerswitch"
   id: "Timerstart"
   # Timer is started when the switch pumprun is set to on.
-  trigger:
-  - platform: state
+  triggers:
+  - trigger: state
     entity_id: switch.pumprun
     to: "on"
-  action:
+  actions:
   - action: timer.start
     target:
       entity_id: timer.test
@@ -165,12 +165,12 @@ timer:
 # When timer is stopped, the time run out, another message is sent
 - alias: "Timerstop"
   id: "Timerstop"
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: timer.finished
     event_data:
       entity_id: timer.test
-  action:
+  actions:
   - action: notify.nma
     data:
       message: "Timer stop"

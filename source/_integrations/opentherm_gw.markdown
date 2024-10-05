@@ -3,8 +3,10 @@ title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Hub
+  - Select
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
@@ -14,18 +16,15 @@ ha_codeowners:
 ha_domain: opentherm_gw
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
-
-The following device types are currently supported within Home Assistant:
-
-- Binary sensor
-- Climate
-- Sensor
 
 This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/common-tasks/general/#enabling-or-disabling-entities).
 
@@ -69,6 +68,16 @@ Temporary Setpoint Override Mode:
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
 {% endconfiguration_basic %}
+
+## Entities
+
+### Button
+
+The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
+
+### Select
+
+Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
 
 ## Actions
 
@@ -229,14 +238,14 @@ Possible modes and their meaning for the GPIO pins are listed here:
     Bulletpoints and numbers to match the LED mode layout below.
 {% endcomment %}
 
-- 1\. No function, default for both ports on a freshly flashed chip.
-- 2\. Ground - A permanently low output (0V). Could be used for a power LED.
-- 3\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
-- 4\. LED E - An additional LED if you want to present more than 4 LED functions.
-- 5\. LED F - An additional LED if you want to present more than 5 LED functions.
-- 6\. Home - Set thermostat to setback temperature when pulled low.
-- 7\. Away - Set thermostat to setback temperature when pulled high.
-- 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
+- 0\. Input - default for both ports on a freshly flashed chip.
+- 1\. Ground - A permanently low output (0V). Could be used for a power LED.
+- 2\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
+- 3\. LED E - An additional LED if you want to present more than 4 LED functions.
+- 4\. LED F - An additional LED if you want to present more than 5 LED functions.
+- 5\. Home - Set thermostat to setback temperature when pulled low.
+- 6\. Away - Set thermostat to setback temperature when pulled high.
+- 7\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
 
 ## LED modes
 
@@ -254,3 +263,11 @@ Possible LED modes and their meaning are listed here:
 - E. Transmission error has been detected.
 - M. Boiler requires maintenance.
 - P. Raised power mode active on thermostat interface.
+
+## Disabled configuration entities
+
+{% warning %}
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using the information in this section.
+{% endwarning %}
+For advanced control of your heating system, some `switch` configuration entities can be found on the added `OpenTherm Gateway` device.
+These entities are disabled by default, as they can cause your heating system to run continuously and/or increase your energy consumption significantly if used improperly. In most setups, these entities are not needed and should be left disabled.

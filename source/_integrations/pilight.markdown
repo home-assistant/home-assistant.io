@@ -8,8 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.26
 ha_iot_class: Local Push
-ha_codeowners:
-  - '@trekky12'
 ha_domain: pilight
 ha_platforms:
   - binary_sensor
