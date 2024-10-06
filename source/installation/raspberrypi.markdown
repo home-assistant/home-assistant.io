@@ -3,8 +3,9 @@ title: "Raspberry Pi"
 description: "Install Home Assistant on a Raspberry Pi"
 installation_type: raspberrypi
 ---
+
 {% comment %}
-Included section for this page is located under source/_includes/installation
+Included section for this page is located under source/\_includes/installation
 {% endcomment %}
 
 {% assign board = "Raspberry Pi" %}
@@ -35,20 +36,20 @@ If Raspberry Pi Imager is not supported by your platform, you can [download the 
 
 1. Download and install the Raspberry Pi Imager on your computer as described under [https://www.raspberrypi.com/software/](https://www.raspberrypi.com/software/).
 2. Open the Raspberry Pi Imager and select your Raspberry Pi device.
-    ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
+   ![Open Raspberry Pi Imager](/images/installation/rpi_imager_start.png)
 3. Choose the operating system:
    1. Select **Choose OS**.
    2. Select **Other specific-purpose OS** > **Home assistants and home automation** > **Home Assistant**.
    3. Choose the Home Assistant OS that matches your hardware (RPi&nbsp;3, RPi&nbsp;4, or RPi&nbsp;5).
-    ![Choose the operating system](/images/installation/rpi-ha.webp)
+      ![Choose the operating system](/images/installation/rpi-ha.webp)
 4. Choose the storage:
    1. Insert the SD card into the computer. Note: the contents of the card will be overwritten.
    2. Select your SD card.
-    ![Select the storage](/images/installation/rpi-select-sd-card.png)
+      ![Select the storage](/images/installation/rpi-select-sd-card.png)
 5. Write the installer onto the SD card:
    1. To start the process, select **Next**.
    2. Wait for the Home Assistant OS to be written to the SD card.
-    ![Select write](/images/installation/rpi_choose_next.png)
+      ![Select write](/images/installation/rpi_choose_next.png)
 6. Eject the SD card.
 
 ### Start up your Raspberry Pi
@@ -56,6 +57,14 @@ If Raspberry Pi Imager is not supported by your platform, you can [download the 
 1. Insert the SD card into your Raspberry Pi.
 2. Plug in an Ethernet cable and make sure the Raspberry Pi is connected to the same network as your computer and is connected to the internet.
 3. Connect the power supply to start up the device.
+
+### Alternately if you don't have Ethernet connection
+
+1. Connect the power supply to start up the device.
+2. Connect a display and keyboard to your Raspberry Pi.
+3. Type in "nmcli device wifi list", without quotes. This command brings out a list of wifi networks close to the Raspberry Pi.
+4. Then type in "nmcli device connect "wifi ssid" --ask". You need to put your wifi SSID in quotes.
+5. Then you will get prompted for your password. Type in and enter.
 
 ### Access Home Assistant
 
@@ -87,9 +96,9 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 - title: {{ variant.name }}
   content: |
 
-    ```text
-    https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
-    ```    
+  ```text
+  https://github.com/home-assistant/operating-system/releases/download/{{site.data.version_data.hassos[variant.key]}}/haos_{{ variant.key }}-{{site.data.version_data.hassos[variant.key]}}.img.xz
+  ```
 
 {% endfor %}
 {% endtabbed_block %}
@@ -99,7 +108,6 @@ To download the image to your computer, copy the correct URL for the Raspberry P
 With the Home Assistant Operating System installed and accessible, you can now continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
-
 
 <div style="margin-top:50px">
 <p>
