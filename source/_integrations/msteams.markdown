@@ -17,7 +17,7 @@ The `Microsoft Teams` platform allows you to send notifications from Home Assist
 
 {% note %}
 
-Please note that Microsoft announced the retirement of the Office 365 connectors within Microsoft Teams. Existing connectors will (continue to work until December 2025)[https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/].
+Please note that Microsoft announced the retirement of the Office 365 connectors within Microsoft Teams. Existing connectors will [continue to work until December 2025](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
 
 {% endnote %}
 
