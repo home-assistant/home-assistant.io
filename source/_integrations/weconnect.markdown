@@ -3,8 +3,6 @@ title: Volkswagen WeConnect
 description: Instructions on how to add Volkswagen WeConnect to Home Assistant.
 ha_category:
   - Car
-  - Device tracker
-  - Lock
   - Sensor
 ha_release: '2024.11'
 ha_iot_class: Cloud Polling
@@ -13,8 +11,6 @@ ha_codeowners:
   - '@krzysdabro'
 ha_domain: weconnect
 ha_platforms:
-  - device_tracker
-  - lock
   - sensor
 ha_integration_type: integration
 ---
