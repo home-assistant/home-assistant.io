@@ -38,6 +38,8 @@ This integration provides the following platforms:
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
+All feature requires at least *Pack EV Remote Control*. For device tracker it requires *Pack Smart Navigation*.
+
 ## Actions
 
 ### Action `renault.ac_start`
