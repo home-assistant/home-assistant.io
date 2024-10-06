@@ -61,11 +61,11 @@ If Raspberry Pi Imager is not supported by your platform, you can [download the 
 
 1. Connect the power supply to start up the device.
 2. Connect a display and keyboard to your Raspberry Pi.
-3. The Home Assistant terminal will come on. You have to type "login" to drop into shell command. It doesn't require a password.
-4. Then type in "nmcli device wifi list", without quotes. This command brings out a list of wifi networks close to the Raspberry Pi.
-5. Then type in "nmcli device connect "wifi ssid" --ask". You need to put your wifi SSID in quotes.
-6. Then you will get prompted for your password. Type in and enter.
-
+3.  When the Home Assistant terminal appears, type `login` and press Enter to access the shell. No password is required.
+4. To view available Wi-Fi networks, enter the following command: `nmcli device wifi list`. This will display a list of nearby Wi-Fi networks.
+5. To connect to your Wi-Fi network, use the following command, replacing "YOUR_WIFI_NAME" with your actual Wi-Fi network name (SSID): `nmcli device wifi connect "YOUR_WIFI_NAME" --ask`. Make sure to keep the quotes around your Wi-Fi name.
+6. When prompted, enter your Wi-Fi password and press Enter. Your Raspberry Pi is now connected to the internet.
+   
 ### Access Home Assistant
 
 Within a few minutes after connecting the Raspberry Pi, you will be able to reach your new Home Assistant.
