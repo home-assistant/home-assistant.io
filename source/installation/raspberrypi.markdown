@@ -61,9 +61,10 @@ If Raspberry Pi Imager is not supported by your platform, you can [download the 
 
 1. Connect the power supply to start up the device.
 2. Connect a display and keyboard to your Raspberry Pi.
-3. Type in "nmcli device wifi list", without quotes. This command brings out a list of wifi networks close to the Raspberry Pi.
-4. Then type in "nmcli device connect "wifi ssid" --ask". You need to put your wifi SSID in quotes.
-5. Then you will get prompted for your password. Type in and enter.
+3. The Home Assistant terminal will come on. You have to type "login" to drop into shell command. It doesn't require a password.
+4. Then type in "nmcli device wifi list", without quotes. This command brings out a list of wifi networks close to the Raspberry Pi.
+5. Then type in "nmcli device connect "wifi ssid" --ask". You need to put your wifi SSID in quotes.
+6. Then you will get prompted for your password. Type in and enter.
 
 ### Access Home Assistant
 
