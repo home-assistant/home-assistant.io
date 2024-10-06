@@ -5,7 +5,7 @@ installation_type: raspberrypi
 ---
 
 {% comment %}
-Included section for this page is located under source/\_includes/installation
+Included section for this page is located under source/_includes/installation
 {% endcomment %}
 
 {% assign board = "Raspberry Pi" %}
