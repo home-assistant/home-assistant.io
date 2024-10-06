@@ -28,5 +28,5 @@ You must have a [WeConnect](https://www.myvolkswagen.net/) account and a Volkswa
 {% include integrations/config_flow.md %}
 
 {% note %}
-In order to use lock feature you need to complete ID verification in WeConnect service and set S-PIN during integration configuration.
+To use the lock feature, you must complete ID verification in the WeConnect service and set up S-PIN during integration configuration.
 {% endnote %}
