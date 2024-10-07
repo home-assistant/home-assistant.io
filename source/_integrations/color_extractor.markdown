@@ -29,7 +29,7 @@ Passing the key `color_extract_url` to the {% term action %} call will download 
 | `entity_id`          | `light.shelf_leds`                    | The RGB capable light we'll set the color of                                   |
 
 {% important %}
-Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/docs/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
+Ensure any [external URLs](/integrations/homeassistant/#allowlist_external_urls) or [external files](/integrations/homeassistant/#allowlist_external_dirs) are authorized for use. You will receive error messages if this {% term integration %} is not allowed access to these external resources.
 {% endimportant %}
 
 ### URL Action
