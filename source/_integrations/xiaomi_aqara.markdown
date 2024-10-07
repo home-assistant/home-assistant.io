@@ -23,7 +23,12 @@ ha_integration_type: integration
 
 The **Xiaomi Gateway (Aqara)** {% term integration %} allows you to integrate [Xiaomi](https://www.mi.com/en/) Aqara-compatible devices into Home Assistant.
 
-Please note, there are two versions of the hub: v1 and v2. v1 can be used with Home Assistant without any problems, however, v2 might be less straight forward when it comes to enabling the local API, and might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline.
+{% note %}
+There are two versions of the hub: v1 and v2.
+
+- v1 can be used with Home Assistant without any problems.
+- v2 might be less straight forward when it comes to enabling the local API. It might even require you to open up your device in order to do so. Xiaomi has suggested this is in the pipeline. If you have a Hub 2 and are experiencing issues, checkout the [troubleshooting](#troubleshooting) section.
+{% endnote %}
 
 ## Supported devices
 
@@ -92,11 +97,11 @@ The gateway provides the following actions:
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-| `ringtone_id`             |       no | One of the allowed ringtone ids                       |
-| `ringtone_vol`            |      yes | The volume in percent                                 |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
+| `ringtone_id`  | no       | One of the allowed ringtone ids         |
+| `ringtone_vol` | yes      | The volume in percent                   |
 
 Allowed values of the `ringtone_id` are:
 
@@ -132,26 +137,26 @@ Allowed values of the `ringtone_id` are:
 
 Stops a playing ringtone immediately.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
 
 #### Action `xiaomi_aqara.add_device`
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
 
 #### Action `xiaomi_aqara.remove_device`
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-| `device_id`               |       no | Hardware address of the device to remove              |
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | ---------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway  |
+| `device_id`    | no       | Hardware address of the device to remove |
 
 ## Examples
 
