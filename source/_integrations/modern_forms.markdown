@@ -16,6 +16,7 @@ ha_domain: modern_forms
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - fan
   - light
   - sensor

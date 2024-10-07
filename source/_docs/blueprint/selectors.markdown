@@ -1381,7 +1381,7 @@ Targets are meant to be used with the `target` property of an action in
 a script sequence. For example:
 
 ```yaml
-action:
+actions:
   - action: light.turn_on
     target: !input lights
 ```
@@ -1535,7 +1535,7 @@ The output of this selector is a list of triggers. For example:
 
 ```yaml
 # Example trigger selector output result
-- platform: numeric_state
+- trigger: numeric_state
   entity_id: "sensor.outside_temperature"
   below: 20
 ```

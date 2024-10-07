@@ -162,11 +162,11 @@ Trigger on a transponder event and ensure that the received code is in the given
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transponder
-  condition: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
-  action:
+  conditions: "{{ trigger.event.data.code in ['aabbcc', 'ddeeff', '112233'] }}"
+  actions:
     ...
 ```
 
@@ -245,8 +245,8 @@ receiver hardware is connected to module 7 in segment 0.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transmitter
       event_data:
         segment_id: 0
@@ -270,8 +270,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_transponder
       event_data:
         code: 123abc
@@ -292,8 +292,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_fingerprint
       event_data:
         code: 123abc
@@ -314,8 +314,8 @@ any hardware module.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_codelock
       event_data:
         code: 123abc
@@ -337,8 +337,8 @@ key `a1`.
 
 ```yaml
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: lcn_send_keys
       event_data:
         key: a1

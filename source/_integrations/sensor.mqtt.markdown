@@ -166,7 +166,7 @@ object_id:
   required: false
   type: string
 options:
-  description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` should be set to `enum`. Cannot be used together with `state_class` or `unit_of_measurement`.
+  description: List of allowed sensor state value. An empty list is not allowed. The sensor's `device_class` must be set to `enum`. The `options` option cannot be used together with `state_class` or `unit_of_measurement`.
   required: false
   type: list
 payload_available:

@@ -274,17 +274,17 @@ Action trigger example:
 
 ```yaml
 - alias: "Push command based on sensor"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: sensor.sensor
-    action:
-      action: vacuum.send_command
-      target:
-        entity_id: vacuum.vacuum_entity
-      data:
-        command: "custom_command"
-        params:
-          - key: value
+    actions:
+      - action: vacuum.send_command
+        target:
+          entity_id: vacuum.vacuum_entity
+        data:
+          command: "custom_command"
+          params:
+            - key: value
 ```
 
 MQTT topic: `vacuum/send_command`

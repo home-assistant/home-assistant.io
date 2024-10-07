@@ -84,19 +84,31 @@ name:
   type: string
 {% endconfiguration %}
 
-### Actions
+## Entities
+
+The Xiaomi Gateway (Aqara) integration supports the following entities.
+
+### Locks
+
+An Aqara lock cannot be controlled by Home Assistant. However, the lock entity allows you to view the following data:
+
+- The property `changed_by` provides the user/key ID of the last successful unlock.
+
+- If someone tries to unlock the device but fails more than 3 times, the `verified_wrong_times` attribute will be incremented. The counter resets on a successful unlock.
+
+## Actions
 
 The gateway provides the following actions:
 
-#### Action `xiaomi_aqara.play_ringtone`
+### Action `xiaomi_aqara.play_ringtone`
 
 Play a specific ringtone. The version of the gateway firmware must be `1.4.1_145` at least. Take a look at the examples below.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-| `ringtone_id`             |       no | One of the allowed ringtone ids                       |
-| `ringtone_vol`            |      yes | The volume in percent                                 |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
+| `ringtone_id`  | no       | One of the allowed ringtone ids         |
+| `ringtone_vol` | yes      | The volume in percent                   |
 
 Allowed values of the `ringtone_id` are:
 
@@ -128,30 +140,30 @@ Allowed values of the `ringtone_id` are:
   - 29 - Thinker
 - Custom ringtones (uploaded by the Mi Home app) starting from 10001
 
-#### Action `xiaomi_aqara.stop_ringtone`
+### Action `xiaomi_aqara.stop_ringtone`
 
 Stops a playing ringtone immediately.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
 
-#### Action `xiaomi_aqara.add_device`
+### Action `xiaomi_aqara.add_device`
 
 Enables the join permission of the Xiaomi Aqara Gateway for 30 seconds. A new device can be added afterwards by pressing the pairing button once.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
+| Data attribute | Optional | Description                             |
+| -------------- | -------- | --------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway |
 
-#### Action `xiaomi_aqara.remove_device`
+### Action `xiaomi_aqara.remove_device`
 
 Removes a specific device. The removal is required if a device shall be paired with another gateway.
 
-| Data attribute    | Optional | Description                                           |
-|---------------------------|----------|-------------------------------------------------------|
-| `gw_mac`                  |       no | MAC address of the Xiaomi Aqara Gateway               |
-| `device_id`               |       no | Hardware address of the device to remove              |
+| Data attribute | Optional | Description                              |
+| -------------- | -------- | ---------------------------------------- |
+| `gw_mac`       | no       | MAC address of the Xiaomi Aqara Gateway  |
+| `device_id`    | no       | Hardware address of the device to remove |
 
 ## Examples
 
@@ -163,30 +175,30 @@ This example plays the sound of a dog barking when the button is held down and s
 
 ```yaml
 - alias: "Let a dog bark on long press"
-  trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: long_click_press
-  action:
-    action: xiaomi_aqara.play_ringtone
-    data:
-      gw_mac: xxxxxxxxxxxx
-      ringtone_id: 8
-      ringtone_vol: 8
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: long_click_press
+  actions:
+    - action: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
+        ringtone_id: 8
+        ringtone_vol: 8
 
 - alias: "Stop barking immediately on single click"
-  trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: single
-  action:
-    action: xiaomi_aqara.stop_ringtone
-    data:
-      gw_mac: xxxxxxxxxxxx
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: single
+  actions:
+    - action: xiaomi_aqara.stop_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
 ```
 
 ### Double click on smart button
@@ -195,16 +207,16 @@ This example toggles the living room lamp on a double click of the button.
 
 ```yaml
 - alias: "Double Click to toggle living room lamp"
-  trigger:
-    platform: event
-    event_type: xiaomi_aqara.click
-    event_data:
-      entity_id: binary_sensor.switch_158d000xxxxxc2
-      click_type: double
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.living_room_lamp
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: double
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room_lamp
 ```
 
 ## Troubleshooting

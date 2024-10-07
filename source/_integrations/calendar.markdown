@@ -63,8 +63,8 @@ An example of a calendar {% term trigger %} in YAML:
 
 ```yaml
 automation:
-  - trigger:
-    - platform: calendar
+  - triggers:
+    - trigger: calendar
       # Possible values: start, end
       event: start
       # The calendar entity_id
@@ -98,12 +98,12 @@ This example automation consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Calendar notification
-    trigger:
-      - platform: calendar
+  - alias: "Calendar notification"
+    triggers:
+      - trigger: calendar
         event: start
         entity_id: calendar.personal
-    action:
+    actions:
       - action: persistent_notification.create
         data:
           message: >-
@@ -125,26 +125,28 @@ This example consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Front Light Schedule
-    trigger:
-      - platform: calendar
+  - alias: "Front Light Schedule"
+    triggers:
+      - trigger: calendar
         event: start
         entity_id: calendar.device_automation
-      - platform: calendar
+      - trigger: calendar
         event: end
         entity_id: calendar.device_automation
-    condition:
+    conditions:
       - condition: template
         value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
-    action:
+    actions:
       - if:
           - "{{ trigger.event == 'start' }}"
         then:
           - action: light.turn_on
-            entity_id: light.front
+            target:
+              entity_id: light.front
         else:
           - action: light.turn_off
-            entity_id: light.front
+            target:
+              entity_id: light.front
 ```
 {% endraw %}
 

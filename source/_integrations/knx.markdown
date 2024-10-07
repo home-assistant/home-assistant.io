@@ -241,16 +241,14 @@ Example automation configuration
 {% raw %}
 
 ```yaml
-- alias: Single group address trigger
-  description: ''
-  trigger:
-  - platform: knx.telegram
-    destination: 1/2/3
-    group_value_read: false
-    outgoing: false
-  condition: "{{ trigger.value == 0 }}"
-  action: []
-  mode: single
+- alias: "Single group address trigger"
+  triggers:
+    - trigger: knx.telegram
+      destination: 1/2/3
+      group_value_read: false
+      outgoing: false
+  conditions: "{{ trigger.value == 0 }}"
+  actions: []
 ```
 
 {% endraw %}
@@ -259,7 +257,7 @@ Example trigger data
 
 ```yaml
 variables:
-  trigger:
+  triggers:
     id: "0"
     idx: "0"
     alias: null
@@ -352,7 +350,7 @@ response:
 
 ```yaml
 # Example script to send a fixed value and the state of an entity
-alias: My Script
+alias: "My Script"
 sequence:
   - action: knx.send
     data:
@@ -395,21 +393,21 @@ address:
 ```yaml
 # Example automation to update a cover position after 10 seconds of movement initiation
 automation:
-  - trigger:
-      - platform: knx.telegram
+  - triggers:
+      - trigger: knx.telegram
         # Cover move trigger
         destination: "0/4/20"
-    action:
+    actions:
       - delay: 0:0:10
       - action: knx.read
         data:
           # Cover position address
           address: "0/4/21"
 
-  - trigger:
-      - platform: homeassistant
+  - triggers:
+      - trigger: homeassistant
         event: start
-    action:
+    actions:
       # Register the group address to trigger a knx_event
       - action: knx.event_register
         data:
@@ -622,34 +620,37 @@ Let's pretend you have a binary sensor with the name `Livingroom.Switch` and you
 ```yaml
 # Example automation.yaml entry
 automation:
-  - trigger:
-      platform: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 0
-      below: 2
-    condition: 
-      - condition: state
-        entity_id: binary_sensor.cover_abstell
-        state: "on"
-    action:
-      - entity_id: light.hue_color_lamp_1
-        action: light.turn_on
-  - trigger:
-      platform: numeric_state
-      entity_id: binary_sensor.livingroom_switch
-      attribute: counter
-      above: 1
-      below: 3
+  - triggers:
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 0
+        below: 2
     condition:
       - condition: state
         entity_id: binary_sensor.cover_abstell
         state: "on"
-    action:
-      - entity_id: light.hue_bloom_1
-        action: homeassistant.turn_on
-      - entity_id: light.hue_bloom_2
-        action: homeassistant.turn_on
+    actions:
+      - action: light.turn_on
+        entity_id: light.hue_color_lamp_1
+
+  - triggers:
+      - trigger: numeric_state
+        entity_id: binary_sensor.livingroom_switch
+        attribute: counter
+        above: 1
+        below: 3
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.cover_abstell
+        state: "on"
+    actions:
+      - action: light.turn_on
+        target:
+          entity_id: 
+            - light.hue_bloom_1
+            - light.hue_bloom_2
+        
 ```
 
 {% configuration %}
@@ -973,6 +974,29 @@ max_temp:
   description: Override the maximum temperature.
   required: false
   type: float
+fan_speed_address:
+  description: KNX group address for setting the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+fan_speed_state_address:
+  description: KNX group address for retrieving the percentage or step of the fan. *DPT 5.001* or *DPT 5.010*
+  required: false
+  type: [string, list]
+fan_max_step:
+  description: The maximum amount of steps for the fan.
+  required: false
+  type: integer
+  default: 3
+fan_speed_mode:
+  description: Fan speed group address data type. `percent` for *DPT 5.001* and `step` for *DPT 5.010*.
+  required: false
+  type: string
+  default: percent
+fan_zero_mode:
+  description: The fan mode for the zero speed, either `off` or `auto`. This affects the fan modes displayed in the UI.
+  required: false
+  type: string
+  default: "off"
 entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false

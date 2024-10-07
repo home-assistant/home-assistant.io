@@ -105,9 +105,9 @@ alias: "Notify: Slack Notification Template"
 sequence:
   - action: notify.YOUR_SLACK_TEAM
     data:
-      message: Fallback Text
+      message: "Fallback Text"
       target: "#test-channel"
-      title: Reminder
+      title: "Reminder"
       data:
         blocks:
           - type: section
@@ -116,7 +116,6 @@ sequence:
               text: >-
                 This is a mrkdwn section block *this is bold*, and ~this is
                 crossed out~, and <https://google.com|this is a link>
-mode: single
 ```
 
 Update the blocks array with valid Slack blocks. The easiest way to create this is using [Slack Block Kit Builder](https://app.slack.com/block-kit-builder).  Up to 50 blocks may be included per message.

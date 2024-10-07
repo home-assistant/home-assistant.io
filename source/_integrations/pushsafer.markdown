@@ -46,67 +46,67 @@ private_key:
 Message to two devices with formatted text.
 
 ```yaml
-action:
-  action: notify.notify
-  data:
-    title: "Test to 2 devices"
-    message: "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]"
+actions:
+  - action: notify.notify
     data:
-      icon: "2"
-      iconcolor: "#FF0000"
-      sound: "2"
-      vibration: "1"
-      url: "https://www.home-assistant.io/"
-      urltitle: "Open Home Assistant"
-      time2live: "0"
+      title: "Test to 2 devices"
+      message: "Attention [b]bold[/b] text[br][url=https://www.pushsafer.com]Link to Pushsafer[/url]"
+      data:
+        icon: "2"
+        iconcolor: "#FF0000"
+        sound: "2"
+        vibration: "1"
+        url: "https://www.home-assistant.io/"
+        urltitle: "Open Home Assistant"
+        time2live: "0"
 ```
 
 Message to one device with formatted text and image from an external URL.
 
 ```yaml
-action:
-  action: notify.notify
-  data:
-    title: "Test to 1 device with image from an url"
-    message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
+actions:
+  - action: notify.notify
     data:
-      icon: "14"
-      iconcolor: "#FFFF00"
-      sound: "22"
-      vibration: "31"
-      url: "https://www.home-assistant.io/"
-      urltitle: "Open Home Assistant"
-      time2live: "60"
-      picture1:
-        url: "https://www.home-assistant.io/images/integrations/alexa/alexa-512x512.png"
+      title: "Test to 1 device with image from an url"
+      message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
+      data:
+        icon: "14"
+        iconcolor: "#FFFF00"
+        sound: "22"
+        vibration: "31"
+        url: "https://www.home-assistant.io/"
+        urltitle: "Open Home Assistant"
+        time2live: "60"
+        picture1:
+          url: "https://www.home-assistant.io/images/integrations/alexa/alexa-512x512.png"
 ```
 
 Message to two devices and one device group with formatted text and local image.
 
 ```yaml
-action:
-  action: notify.notify
-  data:
-    title: "Test to 3 devices with local image"
-    message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
-    target: ["1111","2222","gs3333"],
+actions:
+  - action: notify.notify
     data:
-      icon: "20"
-      iconcolor: "#FF00FF"
-      sound: "33"
-      vibration: "0"
-      url: "https://www.home-assistant.io/"
-      urltitle: "Open Home Assistant"
-      time2live: "10"
-      priority: "2"
-      retry: "60"
-      expire: "600"
-      confirm: "10"
-      answer: "1"
-      answeroptions: "yes|no|maybe"
-      answerforce: "1"
-      picture1: {
-        path: "C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
+      title: "Test to 3 devices with local image"
+      message: "Attention [i]italic[/i] Text[br][url=https://www.home-assistant.io/]Testlink[/url]"
+      target: ["1111","2222","gs3333"],
+      data:
+        icon: "20"
+        iconcolor: "#FF00FF"
+        sound: "33"
+        vibration: "0"
+        url: "https://www.home-assistant.io/"
+        urltitle: "Open Home Assistant"
+        time2live: "10"
+        priority: "2"
+        retry: "60"
+        expire: "600"
+        confirm: "10"
+        answer: "1"
+        answeroptions: "yes|no|maybe"
+        answerforce: "1"
+        picture1: {
+          path: "C:\\Users\\Kevin\\AppData\\Roaming\\.homeassistant\\image-760-testimage.jpg"
 ```
 
 To customize your push-notification you can take a look at the [Pushsafer API description](https://www.pushsafer.com/en/pushapi).

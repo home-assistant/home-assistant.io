@@ -79,6 +79,14 @@ icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
   type: map
+icon_hold_action:
+  required: false
+  description: Action taken on icon tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+icon_double_tap_action:
+  required: false
+  description: Action taken on icon double tap. See [action documentation](/dashboards/actions/#double-tap-action).
+  type: map
 features:
   required: false
   description: Additional widgets to control your entity. See [available features](/dashboards/features).

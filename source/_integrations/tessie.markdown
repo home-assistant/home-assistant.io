@@ -227,6 +227,7 @@ The integration will show vehicle software updates and their installation progre
 - Backup capable
 - Grid services enabled
 - Grid services active
+- Storm watch active
 
 ### Number
 

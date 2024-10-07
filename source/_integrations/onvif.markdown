@@ -66,6 +66,7 @@ To help with development of this integration, enable `info` level logging for `h
 | Motion alarm | Binary sensor | Motion | Generic motion alarm. |
 | Field detection | Binary sensor | Motion | Polygonal field detection determines if each object in the scene is inside or outside the polygon. |
 | Cell motion detection | Binary sensor | Motion | Cell based motion detection determined by placing a grid over the video source and determining changes. |
+| Human shape detection | Binary sensor | Motion | Detection of human shapes by on-camera recognition algorithm. |
 | Motion region detector | Binary sensor | Motion | Detects any motion against the specified motion region. The rule is configured for an area defined by a polygon. |
 | Detected sound | Binary sensor | Sound | Device detected sound. |
 | Digital input | Binary sensor | None | A digital input was triggered on the device. Amcrest is known to use this as a doorbell button press on the AD410. |

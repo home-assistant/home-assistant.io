@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: madvr
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - remote
   - sensor
 ha_integration_type: device

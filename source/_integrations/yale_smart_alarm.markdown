@@ -7,6 +7,7 @@ ha_category:
   - Button
   - Lock
   - Sensor
+  - Switch
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -20,6 +21,7 @@ ha_platforms:
   - diagnostics
   - lock
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
@@ -32,6 +34,7 @@ There is currently support for the following device types within Home Assistant:
 - Button
 - Lock
 - Sensor
+- Switch
 
 {% include integrations/config_flow.md %}
 
@@ -56,5 +59,9 @@ The lock platform requires a code for unlocking but no code for locking.
 ## Sensor
 
 Provides support for smoke detector temperature sensors.
+
+## Switch
+
+Provides support for enable/disable autolock on locks. Entity is only available for supported door locks.
 
 The {% term integration %} can be configured to provide a default code that is used if no code is supplied and the number of digits required.

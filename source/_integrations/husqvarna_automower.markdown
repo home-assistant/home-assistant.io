@@ -4,6 +4,7 @@ description: Instructions on how to integrate Husqvarna Automower lawn mowers in
 ha_category:
   - Binary sensor
   - Button
+  - Calendar
   - Device tracker
   - Lawn Mower
   - Number
@@ -18,6 +19,7 @@ ha_codeowners:
 ha_platforms:
   - binary_sensor
   - button
+  - calendar
   - device_tracker
   - diagnostics
   - lawn_mower
@@ -121,7 +123,14 @@ The integration will create the following binary sensors:
 
 ### Button (if available)
 
-The integration will create a button entity for confirming minor mower errors.
+The integration will create the following buttons:
+
+- **Confirm Error** (if available): For confirming minor mower errors.
+- **Sync clock**: Syncs the clock of the mower with the time set in Home Assistant.
+
+### Calendar
+
+The integration will create a calendar entity for all mowers. The calendar shows all current and upcoming schedules.
 
 ### Device tracker (if available)
 
@@ -179,6 +188,10 @@ The integration will create a switch for each stay-out zone defined for your mow
 
 The integration will create a switch to enable or disable the schedule of the mower. If the switch is on, the mower will mow according to the schedule. If the switch is off the mower will return to the dock and park until further notice.
 
+#### Work area (if available)
+
+The integration will create a switch for each work area defined for your mower. When the switch is on, the mower mows the corresponding area. When the switch is off, the mower doesn't mow the corresponding area.
+
 ## Actions
 
 The integration offers the following actions:
@@ -208,7 +221,7 @@ This will override all your schedules during this time. The duration can be give
 
 ```yaml
 # Replace <name> with the name of your mower.
-service: husqvarna_automower.override_schedule
+service: husqvarna_automower.override_schedule_work_area
 target:
   entity_id: lawn_mower.<name>
 data:
