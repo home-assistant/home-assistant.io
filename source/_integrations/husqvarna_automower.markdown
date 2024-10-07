@@ -163,7 +163,7 @@ The integration will create the following sensors:
 
 For each work area with activated systematic mowing these sensors are created:
 
-- Progress
+- Progress (in percent)
 - Last time completed
 
 ### Switch
