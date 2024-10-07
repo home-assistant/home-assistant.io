@@ -66,6 +66,25 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Actions
+
+### Action `habitica.cast_skill`
+
+Use a skill or spell from your Habitica character on a specific task to affect its progress or status.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character to cast the skill.                                                                 |
+| `skill`        | no       |  Skill or spell you want to cast on the task. Only skills available to your character's class can be used.        |
+| `task`         | no       |  The name of the task to target. Alternatively, you can use the `task ID` or **alias**. Supported task types are **to-do**, **habit**, and **daily**. |
+
+#### Available skills
+
+- **Rogue:** `pickpocket`, `backstab`
+- **Warrior:** `smash`
+- **Mage:** `fireball`
+
+To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
 ## API Service
 
