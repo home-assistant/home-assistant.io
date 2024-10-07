@@ -72,7 +72,7 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `config_entry` | no       |  Config entry of the character to cast the skill                                                                  |
+| `config_entry` | no       |  Config entry of the character to cast the skill.                                                                 |
 | `skill`        | no       |  Skill or spell you want to cast on the task. Only skills available to your character's class can be used.        |
 | `task`         | no       |  The name of the task to target. Alternatively, you can use the `task ID` or **alias**. Supported task types are **to-do**, **habit**, and **daily**. |
 
