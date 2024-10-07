@@ -45,6 +45,8 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 - **Next level:** Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
 - **Habits:** Shows the number of habits being tracked (for example, "4 tasks").
 - **Rewards:** Displays the rewards that can be redeemed (for example, "1 task")
+- **Gems:** Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
+- **Mystic hourglasses:** Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 
 ## To-do lists
 
