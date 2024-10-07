@@ -93,6 +93,16 @@ name:
 
 The Xiaomi Gateway (Aqara) integration supports the following entities.
 
+### Covers
+
+The  cover entity allows you to control connected Aquara covers. You can do the following:
+
+- Open the cover.
+- Close the cover.
+- Stop the cover motion.
+- Move the cover to a specific position.
+- See the current position of the cover.
+
 ### Locks
 
 An Aqara lock cannot be controlled by Home Assistant. However, the lock entity allows you to view the following data:
