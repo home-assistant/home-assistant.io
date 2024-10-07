@@ -2,7 +2,7 @@
 title: Habitica
 description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
-  - Hub
+  - To-do list
   - Sensor
 ha_release: 0.78
 ha_iot_class: Cloud Polling
@@ -18,6 +18,15 @@ ha_codeowners:
   - '@tr4nt0r'
 ha_config_flow: true
 ha_integration_type: integration
+related:
+  - docs: /integrations/todo
+    title: To-do list integration documentation
+  - docs: /integrations/#to-do-list
+    title: List of to-do list integrations
+  - docs: /dashboards/todo-list/
+    title: To-do list card
+  - url: https://habitica.com/
+    title: Habitica
 ---
 
 The Habitca {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
