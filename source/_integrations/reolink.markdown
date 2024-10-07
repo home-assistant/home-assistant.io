@@ -386,10 +386,17 @@ Test if you can access the camera by its IP address in your browser `https://<yo
 
 Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
-## Showing the camera in the dashboard
+## Examples
+
+### Showing the camera in the dashboard
 
 1. One way to show the camera in the dashboard is by using the picture glance card.
 2. For example, you can place arrow buttons on the card to [control the camera](/dashboards/picture-glance/#creating-a-card-to-control-the-camera).
+
+### Sending rich notifications
+
+Using Home Assistant you can receive rich notifications on your phone when someone rings a Reolink doorbell or a Reolink camera detects a event like motion or a person.
+[This guide](https://github.com/starkillerOG/reolink_aio/blob/main/doc/Rich%20notifications%20using%20Home%20Assistant.pdf) will show the nessesary steps to create the automation.
 
 ## Troubleshooting
 
