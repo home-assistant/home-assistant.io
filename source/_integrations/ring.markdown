@@ -41,7 +41,9 @@ There is currently support for the following device types within Home Assistant:
 - [Button](#button)
 - [Camera](#camera)
   - [Saving the videos captured by your Ring Door Bell](#saving-the-videos-captured-by-your-ring-door-bell)
+- [Event](#event)
 - [Sensor](#sensor)
+- [Siren](#siren)
 - [Switch](#switch)
 - [Light](#light)
 - [Number](#number)
@@ -159,9 +161,17 @@ Once you have enabled the [Ring integration](/integrations/ring), you can start 
 
 The volume sensors are being replaced with the number entity which allows setting the volume. You should migrate any automations using the volume sensors to the number entity by release 2025.4.0.
 
+## Siren
+
+- Adds a siren entity for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+- Adds a sirent entity for chimes to play the test sound.
+
 ## Switch
 
-Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform. This will add a switch for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
+Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform.
+
+- Motion detection - Switches motion detection on and off for cameras.
+- In-home chime - Switches on and off a mechanical or digital chime connected to a ring doorbell. 
 
 ## Light
 
