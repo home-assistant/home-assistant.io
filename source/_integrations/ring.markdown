@@ -164,14 +164,14 @@ The volume sensors are being replaced with the number entity which allows settin
 ## Siren
 
 - Adds a siren entity for every camera that supports a siren. Note the siren will only turn on for 30 seconds before automatically turning off.
-- Adds a sirent entity for chimes to play the test sound.
+- Adds a siren entity for chimes to play the test sound.
 
 ## Switch
 
 Once you have enabled the [Ring integration](/integrations/ring), you can start using the switch platform.
 
 - Motion detection - Switches motion detection on and off for cameras.
-- In-home chime - Switches on and off a mechanical or digital chime connected to a ring doorbell. 
+- In-home chime - Switches on and off a mechanical or digital chime connected to a ring doorbell.
 
 ## Light
 
