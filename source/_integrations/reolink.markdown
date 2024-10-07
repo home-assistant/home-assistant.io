@@ -395,8 +395,8 @@ Set up the Reolink integration in Home Assistant using the credentials you set i
 
 ### Sending rich notifications
 
-Using Home Assistant you can receive rich notifications on your phone when someone rings a Reolink doorbell or a Reolink camera detects a event like motion or a person.
-[This guide](https://github.com/starkillerOG/reolink_aio/blob/main/doc/Rich%20notifications%20using%20Home%20Assistant.pdf) will show the nessesary steps to create the automation.
+Using Home Assistant you can receive rich notifications on your phone when someone rings a Reolink doorbell or a Reolink camera detects an event like motion or a person.
+[This guide](https://github.com/starkillerOG/reolink_aio/blob/main/doc/Rich%20notifications%20using%20Home%20Assistant.pdf) will show the necessary steps to create the automation.
 
 ## Troubleshooting
 
