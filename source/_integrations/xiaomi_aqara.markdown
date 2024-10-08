@@ -95,13 +95,23 @@ The Xiaomi Gateway (Aqara) integration supports the following entities.
 
 ### Covers
 
-The  cover entity allows you to control connected Aquara covers. You can do the following:
+The cover entity allows you to control connected Aquara covers. You can do the following:
 
 - Open the cover.
 - Close the cover.
 - Stop the cover motion.
 - Move the cover to a specific position.
 - See the current position of the cover.
+
+### Lights
+
+The light entity allows you to control the internal light of the Xiaomi gateway. The entity is called `light. gateway_light_28ffffffffff`. You can do the following:
+
+- Turn the light on and off.
+- Set the brightness.
+- Set the color using HS or RGB color coding.
+
+The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
 
 ### Locks
 
@@ -117,24 +127,24 @@ The binary sensor entities allow you to get data from your [Xiaomi](https://www.
 
 #### Type of binary sensors supported
 
-| Name | Zigbee entity | Model no. | States | Event | Event key | Event values |
-| ---- | ------------- | --------- | ------ | ----- | --------- | ------------ |
-| Motion Sensor (1st gen) | motion | RTCGQ01LM | on, off | `xiaomi_aqara.motion` | | |
-| Motion Sensor (2nd gen) | sensor_motion.aq2 | RTCGQ11LM | on, off | `xiaomi_aqara.motion` | | |
-| Xiaomi Door and Window Sensor (1st gen) | magnet | MCCGQ01LM | on, off | | | |
-| Aqara Door and Window Sensor (2nd gen) | sensor_magnet.aq2 | MCCGQ11LM | on, off | | | |
-| Smoke Detector | smoke | JTYJ-GD-01LM/BW | on, off | | | |
-| Gas Leak Detector | natgas | JTQJ-BF-01LM/BW | on, off | | | |
-| Water Leak Sensor | sensor_wleak.aq1 | SJCGQ11LM | on, off | | | |
-| Button (1st gen) | switch | WXKG01LM | on (through long_click_press), off | `xiaomi_aqara.click`| `click_type`| `long_click_press`, `hold`, `single`, `double` |
-| Button (2nd gen) | sensor_switch.aq2, remote.b1acn01 | WXKG11LM | on (through long_click_press), off | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `hold` |
-| Button (2nd gen, model b) | sensor_switch.aq3 | WXKG12LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long_click_press`, `shake` |
-| Aqara Wireless Switch (Single) | 86sw1 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single` |
-| Aqara Wireless Switch (Double) | 86sw2 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `both` |
-| Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01 | WXKG03LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long` |
-| Aqara Wireless Switch (Double) (2nd gen) | remote.b286acn01 | WXKG02LM | off (always) | `xiaomi_aqara.click` | `click_type` | `single`, `double`, `long`, `both`, `double_both`, `long_both` |
-| Cube | cube | MFKZQ01LM | off (always) | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
-| Vibration Sensor | vibration | DJT11LM | off (always) | `xiaomi_aqara.movement` | `movement_type` | `vibrate`, `tilt`, `free_fall` |
+| Name                                     | Zigbee entity                     | Model no.       | States                             | Event                      | Event key                              | Event values                                                                                                             |
+| ---------------------------------------- | --------------------------------- | --------------- | ---------------------------------- | -------------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| Motion Sensor (1st gen)                  | motion                            | RTCGQ01LM       | on, off                            | `xiaomi_aqara.motion`      |                                        |                                                                                                                          |
+| Motion Sensor (2nd gen)                  | sensor_motion.aq2                 | RTCGQ11LM       | on, off                            | `xiaomi_aqara.motion`      |                                        |                                                                                                                          |
+| Xiaomi Door and Window Sensor (1st gen)  | magnet                            | MCCGQ01LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Aqara Door and Window Sensor (2nd gen)   | sensor_magnet.aq2                 | MCCGQ11LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Smoke Detector                           | smoke                             | JTYJ-GD-01LM/BW | on, off                            |                            |                                        |                                                                                                                          |
+| Gas Leak Detector                        | natgas                            | JTQJ-BF-01LM/BW | on, off                            |                            |                                        |                                                                                                                          |
+| Water Leak Sensor                        | sensor_wleak.aq1                  | SJCGQ11LM       | on, off                            |                            |                                        |                                                                                                                          |
+| Button (1st gen)                         | switch                            | WXKG01LM        | on (through long_click_press), off | `xiaomi_aqara.click`       | `click_type`                           | `long_click_press`, `hold`, `single`, `double`                                                                           |
+| Button (2nd gen)                         | sensor_switch.aq2, remote.b1acn01 | WXKG11LM        | on (through long_click_press), off | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long_click_press`, `hold`                                                                           |
+| Button (2nd gen, model b)                | sensor_switch.aq3                 | WXKG12LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long_click_press`, `shake`                                                                          |
+| Aqara Wireless Switch (Single)           | 86sw1                             | WXKG03LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`                                                                                                                 |
+| Aqara Wireless Switch (Double)           | 86sw2                             | WXKG02LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `both`                                                                                                         |
+| Aqara Wireless Switch (Single) (2nd gen) | remote.b186acn01                  | WXKG03LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long`                                                                                               |
+| Aqara Wireless Switch (Double) (2nd gen) | remote.b286acn01                  | WXKG02LM        | off (always)                       | `xiaomi_aqara.click`       | `click_type`                           | `single`, `double`, `long`, `both`, `double_both`, `long_both`                                                           |
+| Cube                                     | cube                              | MFKZQ01LM       | off (always)                       | `xiaomi_aqara.cube_action` | `action_type`, `action_value` (rotate) | `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value) |
+| Vibration Sensor                         | vibration                         | DJT11LM         | off (always)                       | `xiaomi_aqara.movement`    | `movement_type`                        | `vibrate`, `tilt`, `free_fall`                                                                                           |
 
 #### Automation examples for  binary sensors
 
