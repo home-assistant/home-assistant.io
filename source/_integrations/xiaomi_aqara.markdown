@@ -485,19 +485,15 @@ The sensor entity allows you to read data from your [Xiaomi](https://www.mi.com/
 
 The following sensor types are supported:
 
-- Temperature
-- Humidity
+- Battery level (in percentage)
+- Bed activity / vibration (in micrometers)
+- Humidity (in percentage)
 - Illumination (in lux)
-- Pressure
-- Motion
-- Bed activity / vibration
-- Tilt angle
-- Battery level (in percent)
-- Gas leak detector (reports alarm and density)
-- Smoke detector (reports alarm and density)
 - Power consumed (in kWh)
 - Power load (in Watt)
-- Air conditioning
+- Pressure (in hPa)
+- Temperature (depends on UI settings, Celsius or Fahrenheit)
+- Tilt angle
 
 ## Actions
 
