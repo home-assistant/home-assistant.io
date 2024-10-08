@@ -57,3 +57,27 @@ The {% term integration %} adds a lock {% term entity %}, allowing you to lock t
 ## Switch
 
 The {% term integration %} adds a switch {% term entity %}, allowing you to pause/resume the charging process.
+
+## Actions
+
+Available actions: `get_sessions`.
+
+### Action `wallbox.get_sessions`
+
+Get all the charging sessions between the start and end timestamps.
+
+| Data attribute | Optional | Description                                           |
+| ---------------------- | -------- | ----------------------------------------------------- |
+| `serial`               | no       | Serial number of the Wallbox.                         |
+| `start_date_time`      | no       | Return charging sessions after this time.             |
+| `end_date_time`       | no      | Return charging sessions before this time.        |
+
+This is an example of a {% term service %} call in YAML:
+```yaml
+action: wallbox.get_sessions
+data:
+  start_date_time: "2024-09-01 00:00:00"
+  end_date_time: "2024-10-01 00:00:00"
+  serial: "123456"
+
+```
