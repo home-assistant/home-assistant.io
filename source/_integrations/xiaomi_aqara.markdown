@@ -479,6 +479,26 @@ This automation toggles the living room lamp on vibration/tilt.
         entity_id: light.living_room_lamp
 ```
 
+### Sensors
+
+The sensor entity allows you to read data from your [Xiaomi](https://www.mi.com/en/) sensors.
+
+The following sensor types are supported:
+
+- Temperature
+- Humidity (1st and 2nd generation)
+- Illumination
+- Pressure
+- Motion (1st and 2nd generation)
+- Bed activity / vibration
+- Tilt angle
+- Battery level
+- Gas Leak Detector (reports alarm and density)
+- Smoke Detector (reports alarm and density)
+- Plug aka Socket (Zigbee version, reports power consumed, power load, state and if the device is in use)
+- Wall Plug (reports power consumed, power load, and state)
+- Aqara Air Conditioning Companion (lumi.acpartner.v3)
+
 ## Actions
 
 The gateway provides the following actions:
