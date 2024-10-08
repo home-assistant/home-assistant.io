@@ -204,14 +204,12 @@ Example:
 # Example automation for webhooks based Netatmo events
 - alias: "Netatmo event example"
   description: "Count all events pushed by the Netatmo API"
-  trigger:
-    - event_data: {}
+  triggers:
+    - trigger: event
       event_type: netatmo_event
-      platform: event
-  action:
-    - data: {}
+  actions:
+    - action: counter.increment
       entity_id: counter.event_counter
-      action: counter.increment
 ```
 
 Example:
@@ -222,18 +220,18 @@ Example:
 # Example automation for Netatmo Welcome
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: movement
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
-        title: Netatmo event
-      action: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}
@@ -246,18 +244,18 @@ Example:
 # Example automation for Netatmo Presence
 - alias: "Motion at home"
   description: "Motion detected at home"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: human # other possible types: animal, vehicle
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}  
           at {{ trigger.event.data["data"]["home_name"] }}
         title: Netatmo event
-      action: persistent_notification.create
 ```
 
 {% endraw %}
@@ -270,25 +268,25 @@ Example:
 # Example automation
 - alias: "Door or window open or movement"
   description: "Notifies which door or window is open or was moved"
-  trigger:
-    - event_type: netatmo_event
-      platform: event
+  triggers:
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_open
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_big_move
-    - event_type: netatmo_event
-      platform: event
+    - trigger: event
+      event_type: netatmo_event
       event_data:
         type: tag_small_move
-  action:
-    - data:
+  actions:
+    - action: persistent_notification.create
+      data:
         message: >
           {{ trigger.event.data["data"]["message"] }}
-        title: Netatmo event
-      action: persistent_notification.create
+        title: "Netatmo event"
 ```
 
 {% endraw %}

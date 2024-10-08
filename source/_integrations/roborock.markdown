@@ -196,7 +196,6 @@ We plan to make the process simpler in the future, but for now, it is a multi-st
       action: roborock.get_maps
       target:
         entity_id: vacuum.s7_roborock
-      data: {}
       ```
 
    - **Result**: You will get a response like this:

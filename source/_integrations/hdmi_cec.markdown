@@ -170,8 +170,8 @@ Use the `hdmi_cec.select_device` action with the name of the device from configu
 So an Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.select_device
+actions:
+  - action: hdmi_cec.select_device
     data:
       device: Chromecast
 ```
@@ -183,8 +183,8 @@ Use the `hdmi_cec.power_on` action (no arguments) to power on any devices that s
 An Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.power_on
+actions:
+  - action: hdmi_cec.power_on
 ```
 
 ### Standby
@@ -194,8 +194,8 @@ Use the `hdmi_cec.standby` action (no arguments) to place in standby any devices
 An Automation action using the example above would look something like this.
 
 ```yaml
-action:
-  action: hdmi_cec.standby
+actions:
+  - action: hdmi_cec.standby
 ```
 
 ### Change volume level

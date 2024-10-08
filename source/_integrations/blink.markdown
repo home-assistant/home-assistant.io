@@ -133,16 +133,15 @@ This example automation will arm your blink sync module to detect motion on any 
 Here, this example assumes your blink module is named `My Sync Module` and that you have [device trackers](/integrations/device_tracker) set up for presence detection.
 
 ```yaml
-- id: arm_blink_when_away
-  alias: "Arm Blink When Away"
-  trigger:
-    platform: state
-    entity_id: all
-    to: "not_home"
-  action:
-    action: alarm_control_panel.alarm_arm_away
-    target:
-      entity_id: alarm_control_panel.blink_my_sync_module
+- alias: "Arm Blink When Away"
+  triggers:
+    - trigger: state
+      entity_id: all
+      to: "not_home"
+  actions:
+    - action: alarm_control_panel.alarm_arm_away
+      target:
+        entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Disarm Blink when home
@@ -150,16 +149,15 @@ Here, this example assumes your blink module is named `My Sync Module` and that 
 Similar to the previous example, this automation will disarm blink when arriving home.
 
 ```yaml
-- id: disarm_blink_when_home
-  alias: "Disarm Blink When Home"
-  trigger:
-    platform: state
-    entity_id: all
-    to: "home"
-  action:
-    action: alarm_control_panel.alarm_disarm
-    target:
-      entity_id: alarm_control_panel.blink_my_sync_module
+- alias: "Disarm Blink When Home"
+  triggers:
+    - trigger: state
+      entity_id: all
+      to: "home"
+  actions:
+    - action: alarm_control_panel.alarm_disarm
+      target:
+        entity_id: alarm_control_panel.blink_my_sync_module
 ```
 
 ### Save most recent video locally when motion detected
@@ -171,13 +169,12 @@ The following example assumes your camera's name (in the Blink app) is `My Camer
 {% raw %}
 
 ```yaml
-- id: save_blink_video_on_motion
-  alias: "Save Blink Video on Motion"
-  trigger:
-    platform: state
-    entity_id: binary_sensor.blink_my_camera_motion_detected
-    to: "on"
-  action:
+- alias: "Save Blink Video on Motion"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.blink_my_camera_motion_detected
+      to: "on"
+  actions:
     -  action: blink.save_video
        target:
          entity_id: camera.blink_my_camera
@@ -200,12 +197,11 @@ The file will be saved to `/tmp/videos/YYYYMMDD_HHmmSS_MyCamera.mp4`.
 The file name of the downloaded video file is not configurable.
 
 ```yaml
-- id: save_recent_clips_from_my_camera
-  alias: "Save Recent Clips from My Camera"
-  trigger:
-    - platform: time_pattern
+- alias: "Save Recent Clips from My Camera"
+  triggers:
+    - trigger: time_pattern
       minutes: /3
-  action:
+  actions:
     - action: blink.save_recent_clips
       target:
         entity_id: camera.my_camera

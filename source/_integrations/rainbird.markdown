@@ -76,10 +76,10 @@ zone switch entity and allows a custom duration unlike the switch.
 # Example configuration.yaml automation entry
 automation:
   - alias: "Turn irrigation on"
-    trigger:
-      - platform: time
+    triggers:
+      - trigger: time
         at: "5:30:00"
-    action:
+    actions:
       - action: rainbird.start_irrigation
         data:
           entity_id: switch.rain_bird_sprinkler_1

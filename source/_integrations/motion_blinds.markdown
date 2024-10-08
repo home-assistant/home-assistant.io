@@ -64,6 +64,7 @@ The following bridges are reported to work with this integration:
 - SIRO Connect SI7002
 - SIRO Connect SI7005
 - Heicko Smart Stick 1ST
+- DD7006A Smart Home bridge
 
 {% include integrations/config_flow.md %}
 
@@ -212,12 +213,11 @@ You only have to create one automation with only one Motionblinds cover as entit
 Example YAML automation for custom polling interval (every minute):
 
 ```yaml
-alias: Motionblinds polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds polling automation"
+triggers:
+  - trigger: time_pattern
     minutes: "/1"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade

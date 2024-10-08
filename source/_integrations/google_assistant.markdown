@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: integration
+ha_integration_type: system
 ha_platforms:
   - button
   - diagnostics

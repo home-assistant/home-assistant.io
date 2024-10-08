@@ -55,13 +55,13 @@ Due to the instability of the Honeywell total connect system, actions within aut
 ```yaml
 alias: "No one home"
 description: "Everyone has left home"
-trigger:
-  - platform: numeric_state
+triggers:
+  - trigger: numeric_state
     entity_id: zone.home
     for:
       minutes: 10
     below: 1
-action:
+actions:
   - repeat:
       sequence:
         - action: climate.set_temperature

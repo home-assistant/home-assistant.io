@@ -96,7 +96,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
+actions:
   action: notify.send_message
   data:
     entity_id: notify.my_direct_message_notifier
@@ -126,10 +126,10 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
 {% endraw %}
@@ -137,10 +137,10 @@ action:
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
 
 {% endraw %}

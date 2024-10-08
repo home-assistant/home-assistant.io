@@ -48,14 +48,14 @@ Twilio is a notification platform and thus can be controlled by calling the noti
 # Example automation notification entry
 automation:
   - alias: "The sun has set"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      action: notify.twilio_call
-      data:
-        message: "The sun has set"
-        target:
-          - +14151234567
-          - +15105555555
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.twilio_call
+        data:
+          message: "The sun has set"
+          target:
+            - +14151234567
+            - +15105555555
 ```
