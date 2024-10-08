@@ -22,7 +22,7 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 ## The state of a cover
 
-A can have the following states:
+A cover can have the following states:
 
 - **Opening**: The cover is in the process of opening to reach a set position.
 - **Open**: The cover has reached the open position.
@@ -75,10 +75,10 @@ Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, 
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: cover.open_cover
       target:
         entity_id: cover.demo
@@ -97,10 +97,10 @@ Set cover position of one or multiple covers.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: cover.set_cover_position
       target:
         entity_id: cover.demo
@@ -121,10 +121,10 @@ Set cover tilt position of one or multiple covers.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: cover.set_cover_tilt_position
       target:
         entity_id: cover.demo

@@ -82,11 +82,11 @@ helper and an automation.
 # Apply value of a GUI slider to the shell_command
 automation:
   - alias: "run_set_ac"
-    trigger:
-      platform: state
-      entity_id: input_number.ac_temperature
-    action:
-      action: shell_command.set_ac_to_slider
+    triggers:
+      - trigger: state
+        entity_id: input_number.ac_temperature
+    actions:
+      - action: shell_command.set_ac_to_slider
 
 input_number:
   ac_temperature:
@@ -110,9 +110,9 @@ The following example shows how the shell command response may be used in automa
 # Create a ToDo notification based on file contents
 automation:
   - alias: "run_set_ac"
-    trigger:
+    triggers:
       - ...
-    action:
+    actions:
       - action: shell_command.get_file_contents
         data:
           filename: "todo.txt"

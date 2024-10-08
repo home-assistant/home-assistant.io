@@ -67,10 +67,10 @@ Because the state of a input button entity in Home Assistant is a timestamp, it
 means we can use it in our automations. For example:
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: input_button.my_button
-action:
+actions:
   - action: notify.frenck
     data:
       message: "My button has been pressed!"

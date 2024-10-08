@@ -202,11 +202,11 @@ Here is an example of all of these put together into an automation:
 
 ```yaml
 - alias: "Turn on WLED rain effect when weather changes to rainy"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: sensor.weather_condition
       to: "rainy"
-  action:
+  actions:
     - action: light.turn_on
       target:
         entity_id: light.wled

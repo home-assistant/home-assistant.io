@@ -91,17 +91,17 @@ Each such entity has a state attribute that will contain a list of any such issu
 
 ```yaml
 - alias: "GeniusHub Error Alerts"
-  trigger:
-    platform: numeric_state
-    entity_id: sensor.geniushub_errors
-    above: 0
-  action:
-  - action: notify.pushbullet_notifier
-    data:
-      title: "Genius Hub has errors"
-      message: >-
-        Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
-        {{ state_attr('sensor.geniushub_errors', 'error_list') }}
+  triggers:
+    - trigger: numeric_state
+      entity_id: sensor.geniushub_errors
+      above: 0
+  actions:
+    - action: notify.pushbullet_notifier
+      data:
+        title: "Genius Hub has errors"
+        message: >-
+          Genius Hub has the following {{ states('sensor.geniushub_errors') }} errors:
+          {{ state_attr('sensor.geniushub_errors', 'error_list') }}
 ```
 
 {% endraw %}
@@ -112,16 +112,16 @@ This alert may be useful to see if the CH is being turned on whilst you're on a 
 
 ```yaml
 - alias: "GeniusHub CH State Change Alert"
-  trigger:
-    platform: state
-    entity_id: binary_sensor.dual_channel_receiver_2_1
-  action:
-  - action: notify.pushbullet_notifier
-    data:
-      title: "Warning: CH State Change!"
-      message: >-
-        {{ trigger.to_state.attributes.friendly_name }} has changed
-        from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.dual_channel_receiver_2_1
+  actions:
+    - action: notify.pushbullet_notifier
+      data:
+        title: "Warning: CH State Change!"
+        message: >-
+          {{ trigger.to_state.attributes.friendly_name }} has changed
+          from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}.
 ```
 
 {% endraw %}

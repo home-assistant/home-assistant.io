@@ -18,7 +18,7 @@ ha_platforms:
   - event
   - light
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 The **Nice G.O.** {% term integration %} lets you control Nice G.O. garage doors through Home Assistant. Device names in Home Assistant are generated based on the names defined in your Nice G.O. mobile app.

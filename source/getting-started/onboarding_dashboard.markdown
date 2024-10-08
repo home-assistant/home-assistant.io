@@ -83,6 +83,7 @@ In the following steps, we will create a new dashboard and edit some card settin
      - This means that it is no longer automatically updated when new dashboard elements become available.
      - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
      - Read and accept this before continuing.
+     - You can't get this specific dashboard back to update automatically. However. you can create a new default dashboard.
 6. Your dashboard might not have much on it yet.
    - If you have smart home devices in your home, some may have been connected automatically.
    - In this example, some Bluetooth temperature sensors and an AV receiver connected automatically.
