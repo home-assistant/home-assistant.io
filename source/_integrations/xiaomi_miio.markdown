@@ -519,7 +519,7 @@ Supported devices:
 | Learn Mode | Turn on/off the learn mode |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4/zhimi.airpurifier.mb3)
+### Air Purifier 3/3H (2019) (zhimi.airpurifier.ma4, zhimi.airpurifier.mb3)
 
 This model uses newer MiOT communication protocol.
 
@@ -560,7 +560,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier Pro H/Pro H EU (zhimi.airpurifier.va1/zhimi.airpurifier.vb2)
+### Air Purifier Pro H, Pro H EU (zhimi.airpurifier.va1, zhimi.airpurifier.vb2)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Fan)
@@ -599,7 +599,7 @@ This model uses newer MiOT communication protocol.
 | Buzzer     | Turn on/off the buzzer     |
 | Child Lock | Turn on/off the child lock |
 
-### Air Purifier 3C (zhimi.airpurifier.mb4/zhimi.airp.mb4a)
+### Air Purifier 3C (zhimi.airpurifier.mb4, zhimi.airp.mb4a)
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite)
@@ -692,7 +692,7 @@ This model uses newer MiOT communication protocol.
 | Child Lock | Turn on/off the child lock |
 | LED        | Turn on/off the LED        |
 
-### Air Purifier 4/4 PRO (zhimi.airp.mb5/zhimi.airp.vb4)
+### Air Purifier 4/4 PRO (zhimi.airp.mb5, zhimi.airp.vb4)
 
 These models use newer MiOT communication protocol.
 
@@ -1072,7 +1072,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the child lock |
 | Dry Mode   | Turn on/off the dry mode   |
 
-### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq/deerma.humidifier.jsq1/deerma.humidifier.mjjsq)
+### Air Humidifier JSQ/JSQ1/MJJSQ (deerma.humidifier.jsq, deerma.humidifier.jsq1, deerma.humidifier.mjjsq)
 
 - On, Off
 - Operation modes (low, medium, high, humidity)
@@ -1206,7 +1206,7 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Child Lock | Turn on/off the Child Lock |
 | LED        | Turn on/off the LED        |
 
-### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9/dmaker.fan.p10/dmaker.fan.p11)
+### Tower Fan/Standing Fan 2/Standing Fan Pro (dmaker.fan.p9, dmaker.fan.p10, dmaker.fan.p11)
 
 - Power (on, off)
 - Operation modes (Normal, Nature)
