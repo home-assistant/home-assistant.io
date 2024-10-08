@@ -486,16 +486,16 @@ The sensor entity allows you to read data from your [Xiaomi](https://www.mi.com/
 The following sensor types are supported:
 
 - Temperature
-- Humidity (1st and 2nd generation)
+- Humidity
 - Illumination
 - Pressure
-- Motion (1st and 2nd generation)
+- Motion
 - Bed activity / vibration
 - Tilt angle
 - Battery level
 - Gas leak detector (reports alarm and density)
 - Smoke detector (reports alarm and density)
-- Plug aka socket (Zigbee version, reports power consumed, power load, state and if the device is in use)
+- Plug aka socket (Zigbee version, reports power consumed, power load, state, and if the device is in use)
 - Wall plug (reports power consumed, power load, and state)
 - Air conditioning
 
