@@ -58,7 +58,7 @@ The following device classes are supported for sensors:
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB or YiB
 - **date**: Date string (ISO 8601)
-- **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
+- **distance**: Generic distance in km, m, cm, mm, mi, nmi, yd, or in
 - **duration**: Duration in d, h, min, or s
 - **energy**: Energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
 - **energy_storage**: Stored energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
