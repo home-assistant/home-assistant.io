@@ -95,13 +95,23 @@ The Xiaomi Gateway (Aqara) integration supports the following entities.
 
 ### Covers
 
-The  cover entity allows you to control connected Aquara covers. You can do the following:
+The cover entity allows you to control connected Aquara covers. You can do the following:
 
 - Open the cover.
 - Close the cover.
 - Stop the cover motion.
 - Move the cover to a specific position.
 - See the current position of the cover.
+
+### Lights
+
+The light entity allows you to control the internal light of the Xiaomi gateway. The entity is called `light.gateway_light_28ffffffffff`. You can do the following:
+
+- Turn the light on and off.
+- Set the brightness.
+- Set the color using HS or RGB color coding.
+
+The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
 
 ### Locks
 
