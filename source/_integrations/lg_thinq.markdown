@@ -143,7 +143,7 @@ A writable property which has a list of selectable values is represensted as a s
 | [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Wind strength |
 | [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Operation mode |
 | [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Operation mode |
-| Humidifier | Warm mode<br>Wind strength<br>Light level, Current job mode<br>Hygiene dry mode<br> |
+| Humidifier | Warm mode<br>Wind strength<br>Light level<br>Current job mode<br>Hygiene dry mode<br> |
 | [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Cook mode<br>Operation mode<br> |
 | [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Express mode<br>Rapid freeze<br> |
 | [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Operation mode |
