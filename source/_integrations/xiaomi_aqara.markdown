@@ -581,6 +581,23 @@ This automation toggles the living room lamp on vibration/tilt.
         entity_id: light.living_room_lamp
 ```
 
+### Sensors
+
+The sensor entity allows you to read data from your [Xiaomi](https://www.mi.com/en/) sensors.
+
+The following sensor types are supported:
+
+- Battery level (in percentage)
+- Bed activity / vibration (in micrometers)
+- Coordination
+- Humidity (in percentage)
+- Illumination (in lux)
+- Power consumed (in kWh)
+- Power load (in Watt)
+- Pressure (in hPa)
+- Temperature (depends on UI settings, Celsius or Fahrenheit)
+- Tilt angle
+
 ## Switches
 
 The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi.com/en/) switches and to switch between states.
