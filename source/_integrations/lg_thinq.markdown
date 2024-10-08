@@ -136,10 +136,13 @@ A read-wirte property which has only two states that can be toggled is represens
 
 | Device | Property |
 | ------ | -------- |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Enable power save mode |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode<br>UV sterilization |
 | [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode |
 | [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode |
-| Humidifier | Humidifier operation mode |
+| Humidifier | Humidifier operation mode<br>Warm mode<br>Mood lamp state<br>Auto mode<br>Sleep mode |
+[Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Express mode<br>Rapid freeze<br> |
+| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Operation mode<br>Enable hot water mode |
 
 ## Troubleshooting
 
