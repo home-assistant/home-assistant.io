@@ -481,7 +481,7 @@ This automation toggles the living room lamp on vibration/tilt.
 
 ## Switches
 
-The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi.com/en/) switches.
+The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi.com/en/) switches and to switch between states.
 
 ## Actions
 
