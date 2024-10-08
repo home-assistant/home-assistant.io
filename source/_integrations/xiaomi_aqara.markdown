@@ -487,6 +487,7 @@ The following sensor types are supported:
 
 - Battery level (in percentage)
 - Bed activity / vibration (in micrometers)
+- Coordination
 - Humidity (in percentage)
 - Illumination (in lux)
 - Power consumed (in kWh)
