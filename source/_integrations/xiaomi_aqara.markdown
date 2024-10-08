@@ -117,7 +117,7 @@ The binary sensor entities allow you to get data from your [Xiaomi](https://www.
 
 #### Type of binary sensors supported
 
-List of supported binary sensors, including the following properties (if available): name, model no., zigbee entity, states, and, event, event, key, and event values.
+List of supported binary sensors, including the following properties (if available): name, model no., Zigbee entity, states, and, event, event, key, and event values.
 
 - **Motion Sensor (1st gen)**
   - Model no.: RTCGQ01LM
