@@ -105,7 +105,7 @@ The cover entity allows you to control connected Aquara covers. You can do the f
 
 ### Lights
 
-The light entity allows you to control the internal light of the Xiaomi gateway. The entity is called `light. gateway_light_28ffffffffff`. You can do the following:
+The light entity allows you to control the internal light of the Xiaomi gateway. The entity is called `light.gateway_light_28ffffffffff`. You can do the following:
 
 - Turn the light on and off.
 - Set the brightness.
