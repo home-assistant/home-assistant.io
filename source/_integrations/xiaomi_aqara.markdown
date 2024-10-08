@@ -487,16 +487,16 @@ The following sensor types are supported:
 
 - Temperature
 - Humidity
-- Illumination
+- Illumination (in lux)
 - Pressure
 - Motion
 - Bed activity / vibration
 - Tilt angle
-- Battery level
+- Battery level (in percent)
 - Gas leak detector (reports alarm and density)
 - Smoke detector (reports alarm and density)
-- Plug aka socket (Zigbee version, reports power consumed, and power load)
-- Wall plug (reports power consumed, and power load)
+- Power consumed (in kWh)
+- Power load (in Watt)
 - Air conditioning
 
 ## Actions
