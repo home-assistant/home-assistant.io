@@ -495,8 +495,8 @@ The following sensor types are supported:
 - Battery level
 - Gas leak detector (reports alarm and density)
 - Smoke detector (reports alarm and density)
-- Plug aka socket (Zigbee version, reports power consumed, power load, state, and if the device is in use)
-- Wall plug (reports power consumed, power load, and state)
+- Plug aka socket (Zigbee version, reports power consumed, and power load)
+- Wall plug (reports power consumed, and power load)
 - Air conditioning
 
 ## Actions
