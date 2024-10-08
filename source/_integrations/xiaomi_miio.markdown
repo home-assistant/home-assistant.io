@@ -272,57 +272,53 @@ The Air Purifiers, Air Humidifiers and Standing Fans use multiple platforms to a
 
 Supported devices:
 
-| Name                   | Model                   | Model no.    |
-| ---------------------- | ----------------------- | ------------ |
-| Air Purifier           | zhimi.airpurifier.v1    |              |
-| Air Purifier 2         | zhimi.airpurifier.v2    | FJY4006CN    |
-| Air Purifier V3        | zhimi.airpurifier.v3    |              |
-| Air Purifier V5        | zhimi.airpurifier.v5    |              |
-| Air Purifier Pro       | zhimi.airpurifier.v6    |              |
-| Air Purifier Pro V7    | zhimi.airpurifier.v7    |              |
-| Air Purifier 2 (mini)  | zhimi.airpurifier.m1    |              |
-| Air Purifier (mini)    | zhimi.airpurifier.m2    |              |
-| Air Purifier MA1       | zhimi.airpurifier.ma1   |              |
-| Air Purifier MA2       | zhimi.airpurifier.ma2   |              |
-| Air Purifier 2S        | zhimi.airpurifier.mc1   |              |
-| Air Purifier Super     | zhimi.airpurifier.sa1   |              |
-| Air Purifier Super 2   | zhimi.airpurifier.sa2   |              |
-| Air Purifier 3 (2019)  | zhimi.airpurifier.ma4   | AC-M6-SC     |
-| Air Purifier 3H (2019) | zhimi.airpurifier.mb3   |              |
-| Air Purifier Pro H     | zhimi.airpurifier.va1   |              |
-| Air Purifier Pro H EU  | zhimi.airpurifier.vb2   |              |
-| Air Purifier 3C        | zhimi.airpurifier.mb4   |              |
-| Air Purifier 3C        | zhimi.airp.mb4a         |              |
-| Air Purifier ZA1       | zhimi.airpurifier.za1   |              |
-| Air Purifier 4         | zhimi.airp.mb5          | AC-M16-SC    |
-| Air Purifier 4 PRO     | zhimi.airp.vb4          | AC-M15-SC    |
-| Air Fresh A1           | dmaker.airfresh.a1      | MJXFJ-150-A1 |
-| Air Fresh VA2          | zhimi.airfresh.va2      |              |
-| Air Fresh VA4          | zhimi.airfresh.va4      |              |
-| Air Fresh T2017        | dmaker.airfresh.t2017   | MJXFJ-300-G1 |
-| Air Humidifier         | zhimi.humidifier.v1     |              |
-| Air Humidifier CA1     | zhimi.humidifier.ca1    |              |
-| Air Humidifier CA4     | zhimi.humidifier.ca4    |              |
-| Air Humidifier CB1     | zhimi.humidifier.cb1    |              |
-| Air Humidifier JSQ     | deerma.humidifier.jsq   |              |
-| Air Humidifier JSQ1    | deerma.humidifier.jsq1  |              |
-| Air Humidifier MJJSQ   | deerma.humidifier.mjjsq |              |
-| Standing Fan 1X        | dmaker.fan.p5           |              |
-| Inverter Pedestal Fan  | zhimi.fan.za1           |              |
-| Standing Fan 2         | zhimi.fan.za3           |              |
-| Standing Fan 2S        | zhimi.fan.za4           |              |
-| Standing Fan           | zhimi.fan.sa1           |              |
-| DC Pedestal Fan        | zhimi.fan.v2            |              |
-| DC Pedestal Fan        | zhimi.fan.v3            |              |
-| Standing Fan 1C        | dmaker.fan.1c           |              |
-| Tower Fan              | dmaker.fan.p9           |              |
-| Standing Fan 2         | dmaker.fan.p10          |              |
-| Standing Fan Pro       | dmaker.fan.p11          |              |
-| Standing Fan 3         | zhimi.fan.za5           |              |
+The list includes device name, model number (if available), and model.
 
-### Features
-
-### Air Purifier 2 (zhimi.airpurifier.v2)
+- **Air Purifier**: `zhimi.airpurifier.v1`
+- **Air Purifier 2** (FJY4006CN): `zhimi.airpurifier.v2`
+- **Air Purifier V3**: `zhimi.airpurifier.v3`
+- **Air Purifier V5**: `zhimi.airpurifier.v5`
+- **Air Purifier Pro**: `zhimi.airpurifier.v6`
+- **Air Purifier Pro V7**: `zhimi.airpurifier.v7`
+- **Air Purifier 2 (mini)**: `zhimi.airpurifier.m1`
+- **Air Purifier (mini)**: `zhimi.airpurifier.m2`
+- **Air Purifier MA1**: `zhimi.airpurifier.ma1`
+- **Air Purifier MA2**: `zhimi.airpurifier.ma2`
+- **Air Purifier 2S**: `zhimi.airpurifier.mc1`
+- **Air Purifier Super**: `zhimi.airpurifier.sa1`
+- **Air Purifier Super 2**: `zhimi.airpurifier.sa2`
+- **Air Purifier 3 (2019) (AC-M6-SC)**: `zhimi.airpurifier.ma4`
+- **Air Purifier 3H (2019)**: `zhimi.airpurifier.mb3`
+- **Air Purifier Pro H**: `zhimi.airpurifier.va1`
+- **Air Purifier Pro H EU**: `zhimi.airpurifier.vb2`
+- **Air Purifier 3C**: `zhimi.airpurifier.mb4`
+- **Air Purifier 3C**: `zhimi.airp.mb4a`
+- **Air Purifier ZA1**: `zhimi.airpurifier.za1`
+- **Air Purifier 4 (AC-M16-SC)**: `zhimi.airp.mb5`
+- **Air Purifier 4 PRO (AC-M15-SC)**: `zhimi.airp.vb4`
+- **Air Fresh A1 (MJXFJ-150-A1)**: `dmaker.airfresh.a1`
+- **Air Fresh VA2**: `zhimi.airfresh.va2`
+- **Air Fresh VA4**: `zhimi.airfresh.va4`
+- **Air Fresh T2017 (MJXFJ-300-G1)**: `dmaker.airfresh.t2017`
+- **Air Humidifier**: `zhimi.humidifier.v1`
+- **Air Humidifier CA1**: `zhimi.humidifier.ca1`
+- **Air Humidifier CA4**: `zhimi.humidifier.ca4`
+- **Air Humidifier CB1**: `zhimi.humidifier.cb1`
+- **Air Humidifier JSQ**: `deerma.humidifier.jsq`
+- **Air Humidifier JSQ1**: `deerma.humidifier.jsq1`
+- **Air Humidifier MJJSQ**: `deerma.humidifier.mjjsq`
+- **Standing Fan 1X**: `dmaker.fan.p5`
+- **Inverter Pedestal Fan**: `zhimi.fan.za1`
+- **Standing Fan 2**: `zhimi.fan.za3`
+- **Standing Fan 2S**: `zhimi.fan.za4`
+- **Standing Fan**: `zhimi.fan.sa1`
+- **DC Pedestal Fan**: `zhimi.fan.v2`
+- **DC Pedestal Fan**: `zhimi.fan.v3`
+- **Standing Fan 1C**: `dmaker.fan.1c`
+- **Tower Fan**: `dmaker.fan.p9`
+- **Standing Fan 2**: `dmaker.fan.p10`
+- **Standing Fan Pro**: `dmaker.fan.p11`
+- **Standing Fan 3**: `zhimi.fan.za5`
 
 - Power (on, off)
 - Operation modes (Auto, Silent, Favorite, Idle)
