@@ -82,17 +82,44 @@ The most common problems are:
 
 The `xiaomi_miio` gateway {% term integration %} allows you to control the gateway and its connected subdevices.
 
-### Supported Xiaomi gateway models:
+### Supported Xiaomi gateway models
 
-| Gateway name       | Zigbee id           | model                    | supported                      |
-| ------------------ | ------------------- | ------------------------ | ------------------------------ |
-| Chinese version    | lumi.gateway.v3     | DGNWG02LM                | yes                            |
-| European version   | lumi.gateway.mieu01 | ZHWG11LM-763 / DGNWQ05LM | yes (cloud credentials needed) |
-| Aqara hub          | lumi.gateway.aqhm01 | ZHWG11LM                 | yes                            |
-| Mijia Zigbee 3.0   | lumi.gateway.mgl03  | ZNDMWG03LM               | yes                            |
-| Aqara AC Companion | lumi.acpartner.v1   | KTBL01LM                 | untested                       |
-| Mi AC Companion    | lumi.acpartner.v2   | KTBL02LM                 | untested                       |
-| Aqara AC Companion | lumi.acpartner.v3   | KTBL11LM                 | yes                            |
+The following list shows the Gateway name, the model number, the Zigbee ID, and whether the model is supported or not in Home Assistant.
+
+- **Chinese version**
+  - Model: DGNWG02LM
+  - Zigbee ID: lumi.gateway.v3
+  - Supported: Yes
+
+- **European version**
+  - Model: ZHWG11LM-763 / DGNWQ05LM
+  - Zigbee ID: lumi.gateway.mieu01
+  - Supported: Yes (cloud credentials needed)
+
+- **Aqara hub**
+  - Model: ZHWG11LM
+  - Zigbee ID: lumi.gateway.aqhm01
+  - Supported: Yes
+
+- **Mijia Zigbee 3.0**
+  - Model: ZNDMWG03LM
+  - Zigbee ID: lumi.gateway.mgl03
+  - Supported: Yes
+
+- **Aqara AC Companion**
+  - Model: KTBL01LM
+  - Zigbee ID: lumi.acpartner.v1
+  - Supported: Untested
+
+- **Mi AC Companion**
+  - Model: KTBL02LM
+  - Zigbee ID: lumi.acpartner.v2
+  - Supported: Untested
+
+- **Aqara AC Companion**
+  - Model: KTBL11LM
+  - Zigbee ID: lumi.acpartner.v3
+  - Supported: Yes
 
 Some gateways (lumi.gateway.mieu01) do not support getting the connected subdevices locally. For those gateways, cloud credentials can be specified during the config flow and the "Use cloud to get connected subdevices" can be enabled in the options flow (after setting up the {% term integration %}, click Configuration in the sidebar, then click Integrations and then click Options on the already set up Xiaomi Miio Gateway {% term integration %}). The connected subdevices will then be retrieved from the Xiaomi Miio cloud (internet), control and status updates of those subdevices will then further take place over local network connection. A re-authentication flow may be triggered when no cloud credentials are provided yet and are needed for that particular gateway model.
 
@@ -111,65 +138,107 @@ Not yet implemented features (but possible):
 
 These subdevices are fully implemented in HomeAssistant:
 
-| Subdevice name                   | Zigbee id             | model      | features                                         |
-| -------------------------------- | --------------------- | ---------- | ------------------------------------------------ |
-| Weather sensor                   | lumi.sensor_ht        | WSDCGQ01LM | readout `temperature` and `humidity`             |
-| Weather sensor                   | lumi.weather.v1       | WSDCGQ11LM | readout `temperature`, `humidity` and `pressure` |
-| Wall switch single               | lumi.ctrl_ln1         | QBKG11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch single               | lumi.ctrl_ln1.aq1     | QBKG11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch no neutral           | lumi.ctrl_neutral1.v1 | QBKG04LM   | status, turn_on, turn_off, toggle                |
-| Wall switch double               | lumi.ctrl_ln2         | QBKG12LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch double               | lumi.ctrl_ln2.aq1     | QBKG12LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall switch double no neutral    | lumi.ctrl_neutral2    | QBKG03LM   | status, turn_on, turn_off, toggle                |
-| D1 wall switch triple            | lumi.switch.n3acn3    | QBKG26LM   | load_power, status, turn_on, turn_off, toggle    |
-| D1 wall switch triple no neutral | lumi.switch.l3acn3    | QBKG25LM   | load_power, status, turn_on, turn_off, toggle    |
-| Wall outlet                      | lumi.ctrl_86plug.v1   | QBCZ11LM   | status, turn_on, turn_off, toggle                |
-| Wall outlet                      | lumi.ctrl_86plug.aq1  | QBCZ11LM   | load_power, status, turn_on, turn_off, toggle    |
-| Plug                             | lumi.plug             | ZNCZ02LM   | load_power, status, turn_on, turn_off, toggle    |
-| Relay                            | lumi.relay.c2acn01    | LLKZMK11LM | load_power, status, turn_on, turn_off, toggle    |
-| Smart bulb E27                   | lumi.light.aqcn02     | ZNLDP12LM  | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1545g12 | LED1545G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1546g12 | LED1546G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb E12 white        | ikea.light.led1536g5  | LED1536G5  | on/off, brightness, color temperature            |
-| IKEA smart bulb GU10 white       | ikea.light.led1537r6  | LED1537R6  | on/off, brightness, color temperature            |
-| IKEA smart bulb E27 white        | ikea.light.led1623g12 | LED1623G12 | on/off, brightness, color temperature            |
-| IKEA smart bulb GU10 white       | ikea.light.led1650r5  | LED1650R5  | on/off, brightness, color temperature            |
-| IKEA smart bulb E12 white        | ikea.light.led1649c5  | LED1649C5  | on/off, brightness, color temperature            |
+- **Weather sensor (WSDCGQ01LM)**
+  - Zigbee ID: `lumi.sensor_ht`
+  - Features: readout `temperature` and `humidity`
+- **Weather sensor (WSDCGQ11LM)**
+  - Zigbee ID: `lumi.weather.v1`
+  - Features: readout `temperature`, `humidity` and `pressure`
+- **Wall switch single (QBKG11LM)**
+  - Zigbee ID: `lumi.ctrl_ln1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch single (QBKG11LM)**
+  - Zigbee ID: `lumi.ctrl_ln1.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch no neutral (QBKG04LM)**
+  - Zigbee ID: `lumi.ctrl_neutral1.v1`
+  - Features: status, turn_on, turn_off, toggle
+- **Wall switch double (QBKG12LM)**
+  - Zigbee ID: `lumi.ctrl_ln2`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch double (QBKG12LM)**
+  - Zigbee ID: `lumi.ctrl_ln2.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall switch double no neutral (QBKG03LM)**
+  - Zigbee ID: `lumi.ctrl_neutral2`
+  - Features: status, turn_on, turn_off, toggle
+- **D1 wall switch triple (QBKG26LM)**
+  - Zigbee ID: `lumi.switch.n3acn3`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **D1 wall switch triple no neutral (QBKG25LM)**
+  - Zigbee ID: `lumi.switch.l3acn3`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Wall outlet (QBCZ11LM)**
+  - Zigbee ID: `lumi.ctrl_86plug.v1`
+  - Features: status, turn_on, turn_off, toggle
+- **Wall outlet (QBCZ11LM)**
+  - Zigbee ID: `lumi.ctrl_86plug.aq1`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Plug (ZNCZ02LM)**
+  - Zigbee ID: `lumi.plug`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Relay (LLKZMK11LM)**
+  - Zigbee ID: `lumi.relay.c2acn01`
+  - Features: load_power, status, turn_on, turn_off, toggle
+- **Smart bulb E27 (ZNLDP12LM)**
+  - Zigbee ID: `lumi.light.aqcn02`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1545G12)**
+  - Zigbee ID: `ikea.light.led1545g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1546G12)**
+  - Zigbee ID: `ikea.light.led1546g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E12 white (LED1536G5)**
+  - Zigbee ID: `ikea.light.led1536g5`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb GU10 white (LED1537R6)**
+  - Zigbee ID: `ikea.light.led1537r6`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E27 white (LED1623G12)**
+  - Zigbee ID: `ikea.light.led1623g12`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb GU10 white (LED1650R5)**
+  - Zigbee ID: `ikea.light.led1650r5`
+  - Features: on/off, brightness, color temperature
+- **IKEA smart bulb E12 white (LED1649C5)**
+  - Zigbee ID: `ikea.light.led1649c5`
+  - Features: on/off, brightness, color temperature
 
 ### Recognized subdevices (not yet implemented)
 
 These subdevices are recognized by the python-miio code but are still being worked on (not yet implemented).
 
-| Subdevice name                 | Zigbee id               | model           |
-| ------------------------------ | ----------------------- | --------------- |
-| Button                         | lumi.sensor_switch      | WXKG01LM        |
-| Button                         | lumi.sensor_switch.aq2  | WXKG11LM 2015   |
-| Button                         | lumi.sensor_switch.aq3  | WXKG12LM        |
-| Button                         | lumi.remote.b1acn01     | WXKG11LM 2018   |
-| Cube                           | lumi.sensor_cube.v1     | MFKZQ01LM       |
-| Cube                           | lumi.sensor_cube.aqgl01 | MFKZQ01LM       |
-| Motion sensor                  | lumi.sensor_motion      | RTCGQ01LM       |
-| Motion sensor                  | lumi.sensor_motion.aq2  | RTCGQ11LM       |
-| Door sensor                    | lumi.sensor_magnet      | MCCGQ01LM       |
-| Door sensor                    | lumi.sensor_magnet.aq2  | MCCGQ11LM       |
-| Vibration sensor               | lumi.vibration.aq1      | DJT11LM         |
-| Honeywell smoke detector       | lumi.sensor_smoke       | JTYJ-GD-01LM/BW |
-| Honeywell natural gas detector | lumi.sensor_natgas      | JTQJ-BF-01LM/BW |
-| Water leak sensor              | lumi.sensor_wleak.aq1   | SJCGQ11LM       |
-| Remote switch single           | lumi.sensor_86sw1.v1    | WXKG03LM 2016   |
-| Remote switch single           | lumi.remote.b186acn01   | WXKG03LM 2018   |
-| D1 remote switch single        | lumi.remote.b186acn02   | WXKG06LM        |
-| Remote switch double           | lumi.sensor_86sw2.v1    | WXKG02LM 2016   |
-| Remote switch double           | lumi.remote.b286acn01   | WXKG02LM 2018   |
-| D1 remote switch double        | lumi.remote.b286acn02   | WXKG07LM        |
-| Curtain                        | lumi.curtain            | ZNCLDJ11LM      |
-| Curtain                        | lumi.curtain.aq2        | ZNGZDJ11LM      |
-| Curtain B1                     | lumi.curtain.hagl04     | ZNCLDJ12LM      |
-| Door lock S1                   | lumi.lock.aq1           | ZNMS11LM        |
-| Door lock S2                   | lumi.lock.acn02         | ZNMS12LM        |
-| Door lock S2 pro               | lumi.lock.acn03         | ZNMS13LM        |
-| Vima cylinder lock             | lumi.lock.v1            | A6121           |
-| Thermostat S2                  | lumi.airrtc.tcpecn02    | KTWKQ03ES       |
+The list shows the device name, the model number, and the Zigbee ID.
+
+- **Button** (WXKG01LM): `lumi.sensor_switch`
+- **Button** (WXKG11LM 2015): `lumi.sensor_switch.aq2`
+- **Button** (WXKG12LM): `lumi.sensor_switch.aq3`
+- **Button** (WXKG11LM 2018): `lumi.remote.b1acn01`
+- **Cube** (MFKZQ01LM): `lumi.sensor_cube.v1`
+- **Cube** (MFKZQ01LM): `lumi.sensor_cube.aqgl01`
+- **Motion sensor** (RTCGQ01LM): `lumi.sensor_motion`
+- **Motion sensor** (RTCGQ11LM): `lumi.sensor_motion.aq2`
+- **Door sensor** (MCCGQ01LM): `lumi.sensor_magnet`
+- **Door sensor** (MCCGQ11LM): `lumi.sensor_magnet.aq2`
+- **Vibration sensor** (DJT11LM): `lumi.vibration.aq1`
+- **Honeywell smoke detector** (JTYJ-GD-01LM/BW): `lumi.sensor_smoke`
+- **Honeywell natural gas detector** (JTQJ-BF-01LM/BW): `lumi.sensor_natgas`
+- **Water leak sensor** (SJCGQ11LM): `lumi.sensor_wleak.aq1`
+- **Remote switch single** (WXKG03LM 2016): `lumi.sensor_86sw1.v1`
+- **Remote switch single** (WXKG03LM 2018): `lumi.remote.b186acn01`
+- **D1 remote switch single** (WXKG06LM): `lumi.remote.b186acn02`
+- **Remote switch double** (WXKG02LM 2016): `lumi.sensor_86sw2.v1`
+- **Remote switch double** (WXKG02LM 2018): `lumi.remote.b286acn01`
+- **D1 remote switch double** (WXKG07LM): `lumi.remote.b286acn02`
+- **Curtain** (ZNCLDJ11LM): `lumi.curtain`
+- **Curtain** (ZNGZDJ11LM): `lumi.curtain.aq2`
+- **Curtain B1** (ZNCLDJ12LM): `lumi.curtain.hagl04`
+- **Door lock S1** (ZNMS11LM): `lumi.lock.aq1`
+- **Door lock S2** (ZNMS12LM): `lumi.lock.acn02`
+- **Door lock S2 pro** (ZNMS13LM): `lumi.lock.acn03`
+- **Vima cylinder lock** (A6121): `lumi.lock.v1`
+- **Thermostat S2** (KTWKQ03ES): `lumi.airrtc.tcpecn02`
 
 ## Xiaomi device tracker (Xiaomi Mi WiFi Repeater 2)
 
@@ -275,16 +344,14 @@ Supported devices:
 
 - Sensor entities
 
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining life of the filter                              | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- **Filter Lifetime Remaining**: The remaining life of the filter. Enabled by default.
+- **Filter Use**: Filter usage time in hours. Enabled by default.
+- **Humidity**: The current humidity measured. Enabled by default.
+- **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+- **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+- **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+- **Temperature**: The current temperature measured. Enabled by default.
+- **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
