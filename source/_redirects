@@ -160,6 +160,7 @@ layout: null
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
 /integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
 /integrations/climate.mysensors /integrations/mysensors#climate
@@ -167,6 +168,7 @@ layout: null
 /integrations/cover.group /integrations/group
 /integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/cover.xiaomi_aqara/ /integrations/xiaomi_aqara/#covers
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
 /integrations/fan.group /integrations/group
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
@@ -174,6 +176,7 @@ layout: null
 /integrations/light.knx /integrations/knx#light
 /integrations/light.mysensors /integrations/mysensors#light
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
+/integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
 /integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
 /integrations/media_player.group /integrations/group
 /integrations/notify.command_line /integrations/command_line#Notify
@@ -188,10 +191,12 @@ layout: null
 /integrations/sensor.mysensors /integrations/mysensors#sensor
 /integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#sensors
 /integrations/switch.command_line /integrations/command_line#Switch
 /integrations/switch.knx /integrations/knx#switch
 /integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
