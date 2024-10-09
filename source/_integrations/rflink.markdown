@@ -221,9 +221,9 @@ This will give you output looking like this:
 
 ## Binary sensor
 
-The RFLink integration does not know the difference between a `binary_sensor`, a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+The RFLink integration does not know the difference between a `binary_sensor`, a `switch`, and a `light`. Therefore, all switchable devices are automatically added as `light` by default.
 
-RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
 Once the ID of a binary sensor is known, it can be used to configure it as a binary sensor type in Home Assistant, for example, to hide it or configure a nice name.
 
@@ -254,7 +254,7 @@ devices:
           default: RFLink ID
           type: string
         aliases:
-          description: Alternative RFLink ID's this device is known by.
+          description: Alternative RFLink IDs this device is known by.
           required: false
           type: list
         device_class:
