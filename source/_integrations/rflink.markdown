@@ -273,7 +273,7 @@ devices:
       type: map
       keys:
         name:
-          description: Name for the device.
+          description: Name of the device.
           required: false
           default: RFLink ID
           type: string
@@ -295,7 +295,7 @@ devices:
           required: false
           type: [list, string]
         fire_event:
-          description: Fire a `button_pressed` event if this device is turned on or off.
+          description: Fire a `button_pressed` event when this device is turned on or off.
           required: false
           default: false
           type: boolean
