@@ -169,6 +169,7 @@ layout: null
 /integrations/cover.group /integrations/group
 /integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/cover.rflink /integrations/rflink/#cover
 /integrations/cover.xiaomi_aqara/ /integrations/xiaomi_aqara/#covers
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
 /integrations/fan.group /integrations/group
