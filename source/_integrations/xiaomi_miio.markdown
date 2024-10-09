@@ -378,19 +378,16 @@ The list includes device name, model number (if available), and model.
 | Volume         | Set the volume         |
 
 - Sensor entities
-
-| Sensor                | Description                                                   | Enabled by default |
-| --------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Life Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use            | Filter usage time in hours                                    | True               |
-| Humidity              | The current humidity measured                                 | True               |
-| Illuminance           | The current illuminance measured                              | True               |
-| Motor Speed           | The current motor speed measured in rpm                       | True               |
-| PM2.5                 | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume         | The volume of purified air in qubic meter                     | False              |
-| Second Motor Speed    | The current second motor speed measured in rpm                | True               |
-| Temperature           | The current temperature measured                              | True               |
-| Use Time              | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Life Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -416,18 +413,15 @@ The list includes device name, model number (if available), and model.
 | Volume         | Set the volume         |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Illuminance               | The current illuminance measured                              | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Second Motor Speed        | The current second motor speed measured in rpm                | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -459,17 +453,14 @@ The list includes device name, model number (if available), and model.
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                     | Enabled by default |
-| ------------------------- | --------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                            | True               |
-| Filter Use                | Filter usage time in hours                                      | True               |
-| Humidity                  | The current humidity measured                                   | True               |
-| Motor Speed               | The current motor speed measured in rpm                         | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                     | True               |
-| Temperature               | The current temperature measured                                | True               |
-| Illuminance               | The current illuminance meassured on top of the device 0-200lux | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use   | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Illuminance**: The current illuminance measured on top of the device (0-200 lux). Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -495,16 +486,13 @@ The list includes device name, model number (if available), and model.
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -537,17 +525,14 @@ This model uses newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -576,17 +561,14 @@ This model uses newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -607,13 +589,10 @@ This model uses newer MiOT communication protocol.
 | LED Brightness       | Set the LED brightness       |
 
 - Sensor entities
-
-| Sensor                    | Description                                 | Enabled by default |
-| ------------------------- | ------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter        | True               |
-| Filter Use                | Filter usage time in hours                  | True               |
-| Motor Speed               | The current motor speed measured in rpm     | True               |
-| PM2.5                     | The current particulate matter 2.5 measured | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
 
 - Switch entities
 
@@ -633,16 +612,13 @@ This model uses newer MiOT communication protocol.
 | Favorite Level | Set the favorite level |
 
 - Sensor entities
-
-| Sensor                    | Description                                                    | Enabled by default |
-| ------------------------- | -------------------------------------------------------------- | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                           | True               |
-| Filter Use                | Filter usage time in hours                                     | True               |
-| Motor Speed               | The current motor speed measured in rpm                        | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                    | True               |
-| Humidity                  | The current humidity measured                                  | True               |
-| Temperature               | The current temperature measured                               | True               |
-| TVOC                      | The current concentration of Total Organic Volatile Components | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **TVOC**: The current concentration of Total Organic Volatile Components. Enabled by default.
 
 - Switch entities
 
@@ -667,18 +643,16 @@ This model uses newer MiOT communication protocol.
   - `extra_features`
   - `use_time`
   - `button_pressed`
-- Sensor entities
 
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Illuminance               | The current illuminance measured                              | True               |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Motor Speed               | The current motor speed measured in rpm                       | True               |
-| Second Motor Speed        | The current second motor speed measured in rpm                | True               |
-| Purify Volume             | The volume of purified air in qubic meter                     | False              |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Illuminance**: The current illuminance measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Second Motor Speed**: The current second motor speed measured in rpm. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -709,18 +683,15 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the Display (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor                    | Description                                            | Enabled by default |
-| ------------------------- | ------------------------------------------------------ | ------------------ |
-| Filter Lifetime Remaining | The remaining lifetime of the filter in %              | True               |
-| Filter Time Left          | The remaining lifetime of the filter in days           | True               |
-| Filter Use                | Filter usage time in hours                             | True               |
-| Humidity                  | The current humidity measured                          | True               |
-| Motor Speed               | The current motor speed measured in rpm                | True               |
-| PM2.5                     | The current particulate matter 2.5 measured            | True               |
-| PM10                      | The current particulate matter 10 measured(4 PRO only) | True               |
-| Purify Volume             | The volume of purified air in qubic meter              | False              |
-| Temperature               | The current temperature measured                       | True               |
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter in %. Enabled by default.
+  - **Filter Time Left**: The remaining lifetime of the filter in days. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Motor Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **PM10**: The current particulate matter 10 measured (4 PRO only). Enabled by default.
+  - **Purify Volume**: The volume of purified air in cubic meter. Disabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
 
 - Switch entities
 
@@ -774,17 +745,14 @@ These models use newer MiOT communication protocol.
 - Attributes (fan platform)
   - `use_time`
   - `extra_features`
-- Sensor entities
-
-| Sensor                    | Description                                                   | Enabled by default |
-| ------------------------- | ------------------------------------------------------------- | ------------------ |
-| Carbon Dioxide            | The current carbon dioxide measured in ppm                    | True               |
-| Filter Lifetime Remaining | The remaining lifetime of the filter                          | True               |
-| Filter Use                | Filter usage time in hours                                    | True               |
-| Humidity                  | The current humidity measured                                 | True               |
-| PM2.5                     | The current particulate matter 2.5 measured                   | True               |
-| Temperature               | The current temperature measured                              | True               |
-| Use Time                  | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities|
+  - **Carbon Dioxide**: The current carbon dioxide measured in ppm. Enabled by default.
+  - **Filter Lifetime Remaining**: The remaining lifetime of the filter. Enabled by default.
+  - **Filter Use**: Filter usage time in hours. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **PM2.5**: The current particulate matter 2.5 measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Select entities
 
@@ -839,38 +807,26 @@ These models use newer MiOT communication protocol.
 - Power (on, off)
 - Operation modes (Auto, Sleep, Favorite)
 - Binary sensor entities
-
-| Binary sensor         | Description                            |
-| --------------------- | -------------------------------------- |
-| Auxiliary Heat Status | Indicates if the heater is actually on |
+  - **Auxiliary Heat Status**: Indicates if the heater is actually on
 
 - Button entities
-
-| Button             | Description                                          |
-| ------------------ | ---------------------------------------------------- |
-| Reset Dust Filter  | Resets filter lifetime and usage of the dust filter  |
-| Reset Upper Filter | Resets filter lifetime and usage of the upper filter |
+  - **Reset Dust Filter**: Resets filter lifetime and usage of the dust filter
+  - **Reset Upper Filter**: Resets filter lifetime and usage of the upper filter
 
 - Select entities
-
-| Select               | Description                                                    |
-| -------------------- | -------------------------------------------------------------- |
-| Auxiliary Heat Level | Controls the level of the heater (Low, Medium, High)           |
-| Display Orientation  | Controls the orientation of the display (Forward, Left, Right) |
+  - **Auxiliary Heat Level**: Controls the level of the heater (Low, Medium, High)
+  - **Display Orientation**: Controls the orientation of the display (Forward, Left, Right)
 
 - Sensor entities
-
-| Sensor                               | Description                                        |
-| ------------------------------------ | -------------------------------------------------- |
-| Carbon Dioxide                       | The current carbon dioxide in ppm                  |
-| Dust filter lifetime remaining       | The remaining lifetime of the dust filter          |
-| Dust filter lifetime remaining days  | The remaining lifetime of the dust filter in days  |
-| Upper filter lifetime remaining      | The remaining lifetime of the upper filter         |
-| Upper filter lifetime remaining days | The remaining lifetime of the upper filter in days |
-| PM2.5                                | The current particulate matter 2.5                 |
-| Temperature                          | The current outside temperature                    |
-| Control Speed                        | The current motor speed in rpm                     |
-| Favorite Speed                       | The favorite motor speed in rpm                    |
+  - **Carbon Dioxide**: The current carbon dioxide in ppm
+  - **Dust filter lifetime remaining**: The remaining lifetime of the dust filter
+  - **Dust filter lifetime remaining days**: The remaining lifetime of the dust filter in days
+  - **Upper filter lifetime remaining**: The remaining lifetime of the upper filter
+  - **Upper filter lifetime remaining days**: The remaining lifetime of the upper filter in days
+  - **PM2.5**: The current particulate matter 2.5
+  - **Temperature**: The current outside temperature
+  - **Control Speed**: The current motor speed in rpm
+  - **Favorite Speed**: The favorite motor speed in rpm
 
 - Switch entities
 
@@ -909,13 +865,10 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -952,13 +905,10 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -1002,14 +952,11 @@ These models use newer MiOT communication protocol.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor       | Description                                                   | Enabled by default |
-| ------------ | ------------------------------------------------------------- | ------------------ |
-| Actual Speed | The current motor speed measured in rpm                       | True               |
-| Humidity     | The current humidity measured                                 | True               |
-| Temperature  | The current temperature measured                              | True               |
-| Use Time     | The accumulative number of seconds the device has been in use | False              |
-| Water Level  | The current water level percentage measured                   | True               |
+  - **Actual Speed**: The current motor speed measured in rpm. Enabled by default.
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -1052,13 +999,10 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | LED Brightness | Controls the brightness of the LEDs (bright, dim, off) |
 
 - Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
-| Water Level | The current water level percentage measured                   | True               |
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
+  - **Water Level**: The current water level percentage measured. Enabled by default.
 
 - Switch entities
 
@@ -1090,13 +1034,10 @@ Clean mode and Motor speed can only be set when the device is turned on.
 | Water Tank       | Indicates whether the water tank is connected or not |
 | Water Tank Empty | Indicates whether the water tank is empty or not     |
 
-- Sensor entities
-
-| Sensor      | Description                                                   | Enabled by default |
-| ----------- | ------------------------------------------------------------- | ------------------ |
-| Humidity    | The current humidity measured                                 | True               |
-| Temperature | The current temperature measured                              | True               |
-| Use Time    | The accumulative number of seconds the device has been in use | False              |
+- Sensor entities|
+  - **Humidity**: The current humidity measured. Enabled by default.
+  - **Temperature**: The current temperature measured. Enabled by default.
+  - **Use Time**: The accumulative number of seconds the device has been in use. Disabled by default.
 
 - Switch entities
 
@@ -1549,11 +1490,17 @@ In addition to all of the actions provided by the `vacuum` {% term integration %
 
 Start the cleaning operation in the areas selected for the number of repeats indicated.
 
-| Data attribute | Optional | Description                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                                                                                                                                                                                                                                                                                                                                                                                                                              |
-| `zone`                 | no       | List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone. |
-| `repeats`              | no       | Number of cleaning repeats for each zone between 1 and 3.                                                                                                                                                                                                                                                                                                                                                                                                 |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+
+- **Data attribute**: `zone`
+  - **Description**: List of zones. Each zone is an array of four integer values. These values represent two sets of x- and y-axis coordinates that describe the beginning and ending points of a square or rectangle cleaning zone. For example, `[[23510,25311,25110,26361]]` creates a box that starts in one corner at the 23510, 25311 (x- and y-axis) coordinates and then is expanded diagonally to the 25110, 26361 coordinates to create a rectangular cleaning zone.
+  - **Optional**: No.
+
+- **Data attribute**: `repeats`
+  - **Description**: Number of cleaning repeats for each zone between 1 and 3.
+  - **Optional**: No.
 
 Example of `xiaomi_miio.vacuum_clean_zone` use:
 
@@ -1628,10 +1575,12 @@ automation:
 
 Clean the specified segment/room. A room is identified by a number. Instructions on how to find the valid room numbers and determine what rooms they map to, read the section [Retrieving room numbers](#retrieving-room-numbers).
 
-| Data attribute | Optional | Description                                           |
-| ---------------------- | -------- | ----------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                          |
-| `segments`             | no       | List of segment numbers or one single segment number. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `segments`
+  - **Description**: List of segment numbers or one single segment number.
+  - **Optional**: No.
 
 Example of `xiaomi_miio.vacuum_clean_segment` use:
 
@@ -1687,11 +1636,15 @@ automation:
 
 Go the specified coordinates.
 
-| Data attribute | Optional | Description                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                                            |
-| `x_coord`              | no       | X-coordinate, integer value. The dock is located at x-coordinate 25500. |
-| `y_coord`              | no       | Y-coordinate, integer value. The dock is located at y-coordinate 25500. |
+- **Data attribute**: `entity_id`
+  - **Description**: Only act on a specific robot.
+  - **Optional**: No.
+- **Data attribute**: `x_coord`
+  - **Description**: X-coordinate, integer value. The dock is located at x-coordinate 25500.
+  - **Optional**: No.
+- **Data attribute**: `y_coord`
+  - **Description**: Y-coordinate, integer value. The dock is located at y-coordinate 25500.
+  - **Optional**: No.
 
 Note: If your vacuum is in motion and does not respond to the `xiaomi_miio.vacuum_goto` command, call the `vacuum.pause` or `vacuum.stop` action first.
 
@@ -1711,27 +1664,23 @@ Exit the remote control mode of the robot.
 | ---------------------- | -------- | ---------------------------- |
 | `entity_id`            | no       | Only act on a specific robot |
 
-### Action `xiaomi_miio.vacuum_remote_control_move`
+### Action `xiaomi_miio.vacuuNm_remote_control_move`
 
 Remote control the robot. Please ensure you first set it in remote control mode with `remote_control_start`.
 
-| Data attribute | Optional | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                              |
-| `velocity`             | no       | Speed: between -0.29 and 0.29                             |
-| `rotation`             | no       | Rotation: between -179 degrees and 179 degrees            |
-| `duration`             | no       | The number of milliseconds that the robot should move for |
+- `entity_id`: Only act on a specific robot. Not optional.
+- `velocity`: Speed: between -0.29 and 0.29. Not optional.
+- `rotation`: Rotation: between -179 degrees and 179 degrees. Not optional.
+- `duration`: The number of milliseconds that the robot should move for. Not optional.
 
 ### Action `xiaomi_miio.vacuum_remote_control_move_step`
 
 Enter remote control mode, make one move, stop, and exit remote control mode.
 
-| Data attribute | Optional | Description                                               |
-| ---------------------- | -------- | --------------------------------------------------------- |
-| `entity_id`            | no       | Only act on a specific robot                              |
-| `velocity`             | no       | Speed: between -0.29 and 0.29                             |
-| `rotation`             | no       | Rotation: between -179 degrees and 179 degrees            |
-| `duration`             | no       | The number of milliseconds that the robot should move for |
+- **entity_id**: Only act on a specific robot. Not optional.
+- **velocity**: Speed: between -0.29 and 0.29. Not optional.
+- **rotation**: Rotation: between -179 degrees and 179 degrees. Not optional.
+- **duration**: The number of milliseconds that the robot should move for. Not optional.
 
 ### Buttons
 
