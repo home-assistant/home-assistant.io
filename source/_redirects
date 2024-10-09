@@ -196,6 +196,7 @@ layout: null
 /integrations/switch.knx /integrations/knx#switch
 /integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.rflink /integrations/rflink/#switch
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
