@@ -168,6 +168,7 @@ layout: null
 /integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/device_tracker.xiaomi/ /integrations/xiaomi/#router
 /integrations/fan.group /integrations/group
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
 /integrations/light.group /integrations/group
