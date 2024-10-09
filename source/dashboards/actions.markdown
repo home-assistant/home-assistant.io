@@ -103,7 +103,7 @@ tap_action:
       default: none
     entity_id:
       required: false
-      description: "Overrides the default entity to show when when the `action` is defined as `more-info`"
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string
       default: none
 {% endconfiguration %}
@@ -175,9 +175,9 @@ hold_action:
       default: none
     entity_id:
       required: false
-      description: "Overrides the default entity to show when when the `action` is defined as `more-info`"
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string
-      default: none      
+      default: none
 {% endconfiguration %}
 
 ## Double tap action
@@ -247,9 +247,9 @@ double_tap_action:
       default: none
     entity_id:
       required: false
-      description: "Overrides the default entity to show when when the `action` is defined as `more-info`"
+      description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string
-      default: none      
+      default: none
 {% endconfiguration %}
 
 ## Options for confirmation
