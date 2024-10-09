@@ -175,6 +175,7 @@ layout: null
 /integrations/light.group /integrations/group
 /integrations/light.knx /integrations/knx#light
 /integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.rflink /integrations/rflink#light
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
 /integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
