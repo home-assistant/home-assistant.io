@@ -178,7 +178,6 @@ cover:
 
 This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
 
-
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
@@ -218,6 +217,86 @@ This will give you output looking like this:
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] decoded packet: {'firmware': 'RFLink Gateway', 'revision': '45', 'node': 'gateway', 'protocol': 'unknown', 'hardware': 'Nodo RadioFrequencyLink', 'version': '1.1'}
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got event: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
 17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+```
+
+## Binary sensor
+
+The RFLink integration does not know the difference between a `binary_sensor`, a `switch`, and a `light`. Therefore, all switchable devices are automatically added as `light` by default.
+
+RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+
+Once the ID of a binary sensor is known, it can be used to configure it as a binary sensor type in Home Assistant, for example, to hide it or configure a nice name.
+
+Configuring a device as a binary sensor:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+   - platform: rflink
+     devices:
+       pt2262_00174754_0: {}
+```
+
+{% configuration %}
+devices:
+  description: A list of binary sensors.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        aliases:
+          description: Alternative RFLink IDs this device is known by.
+          required: false
+          type: list
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        off_delay:
+          description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+          required: false
+          type: integer
+        force_update:
+          description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
+          required: false
+          type: boolean
+          default: false
+{% endconfiguration %}
+
+### Sensor state
+
+Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
+
+### Device support
+
+See [device support](/integrations/rflink/#device-support)
+
+### Additional configuration examples
+
+Multiple sensors with custom name and device class and set off_delay
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+   - platform: rflink
+     devices:
+       pt2262_00174754_0:
+         name: PIR Entrance
+         device_class: motion
+         off_delay: 5
+       pt2262_00174758_0:
+         name: PIR Living Room
+         device_class: motion
+         off_delay: 5
 ```
 
 ## Cover
@@ -442,3 +521,428 @@ cover:
         name: habitaciones
         fire_event: true
 ```
+
+## Lights
+
+After configuring the RFLink hub, lights will be automatically discovered and added.
+
+RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+
+Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
+
+Configuring devices as a light:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    devices:
+      NewKaku_02a48800_0: {}
+      newkaku_0000c6c2_1: {}
+      Ansluta_ce30_0: {}
+      Maclean_0d82_01: {}
+```
+
+{% configuration %}
+device_defaults:
+  description: The defaults for the devices.
+  required: false
+  type: map
+  keys:
+    fire_event:
+      description: Set default `fire_event` for RFLink switch devices (see below).
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      required: false
+      default: 1
+      type: integer
+automatic_add:
+  description: Automatically add new/unconfigured devices to Home Assistant if detected.
+  required: false
+  default: true
+  type: boolean
+devices:
+  description: A list of lights.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name of the device.
+          required: false
+          default: RFLink ID
+          type: string
+        type:
+          description: "Override automatically detected type of the light device, can be: switchable, dimmable, hybrid or toggle. See [Light Types](/integrations/light.rflink/#light-types) below."
+          required: false
+          default: switchable
+          type: string
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliases:
+          description: "`aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: "`aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+        fire_event:
+          description: Fire a `button_pressed` event when this device is turned on or off.
+          required: false
+          default: false
+          type: boolean
+        signal_repetitions:
+          description: Repeat every RFLink command this number of times.
+          required: false
+          default: 1
+          type: integer
+        group:
+          description: Allow light to respond to group commands (ALLON/ALLOFF).
+          required: false
+          default: true
+          type: boolean
+{% endconfiguration %}
+
+### Light state
+
+Initially the state of a light is unknown. When the light is turned on or off (via frontend or remote) the state is known and will be shown in the frontend.
+
+Sometimes a light is controlled by multiple remotes, each remote has its own code programmed in the light. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1:
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+```
+
+Any on/off command from any alias ID updates the current state of the light. However when sending a command through the frontend only the primary ID is used.
+
+### Light types
+
+Light devices can come in different forms. Some only switch on and off, other support dimming. Dimmable devices might not always respond nicely to repeated `on` command as they turn into a pulsating state until `on` is pressed again (for example KlikAanKlikUit). The RFLink integration support three types of lights to make things work in every situation:
+
+- *Hybrid*: This type sends a `dim` followed by an `on` command; and `off` commands. This will make dimmable devices turn on at the requested dim level and on/off devices on. One caveat is this type is not compatible with signal repetition as multiple `on` signals will cause dimmers to go into disco mode.
+- *Switchable*: Device type that sends only `on` and `off` commands. It works for both on/off and dimmable type switches. However, dimmable devices might have issues with signal repetition (see above).
+- *Dimmable*: Sends only `dim` and `off` commands. This does not work on on/off type devices as they don't understand the `dim` command. For dimmers this does not cause issues with signal repetitions.
+- *Toggle*: Device type that sends only `on` commands to turn on or off the device. Some switches like for example Livolo light switches use the same 'on' command to switch on and switch off the lights. If the light is on and 'on' gets sent, the light will turn off and if the light is off and 'on' gets sent, the light will turn on. If the device has an unknown state, it will assume it is off by default.
+
+By default new lights are assigned the `switchable` type. Protocol supporting dimming are assigned the `hybrid` type. Currently only `newkaku` protocol is detected as dimmable. Please refer to Device Support to get your dimmers supported.
+
+### Hiding/ignoring lights
+
+Lights are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
+
+- Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
+- Hide unwanted devices using [customizations](/getting-started/customizing-devices/)
+- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
+
+### Device support
+
+See [device support](/integrations/rflink/#device-support)
+
+### Additional configuration examples
+
+Multiple lights with `signal_repetitions` and custom names
+
+```yaml
+# Example configuration.yaml entry
+light:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    automatic_add: true
+    devices:
+      NewKaku_02a48800_0:
+        name: Kitchen
+        type: hybrid
+      newkaku_0000c6c2_1:
+        name: Living room
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+      Ansluta_ce30_0:
+        name: Kitchen Under Counter Lights
+      Maclean_0d82_01:
+        name: Bedroom Lamp
+```
+
+## Sensors
+
+After configuring the RFLink hub, sensors will be automatically discovered and added.
+
+RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
+
+Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group or configure a nice name.
+
+Configuring a device as a sensor:
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rflink
+    devices:
+      alectov1_0334_temp: {}
+```
+
+{% configuration %}
+automatic_add:
+  description: Automatically add new/unconfigured devices to Home Assistant if detected.
+  required: false
+  default: true
+  type: boolean
+devices:
+  description: A list of sensors.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        sensor_type:
+          description: Override automatically detected type of sensor. For list of [values](/integrations/sensor.rflink/#sensors-types) see below.
+          required: true
+          type: string
+        unit_of_measurement:
+          description: Override automatically detected unit of sensor.
+          required: false
+          type: string
+        aliases:
+          description: "Alternative RFLink ID's this device is known by."
+          required: false
+          type: [list, string]
+{% endconfiguration %}
+
+### Sensor types
+
+Sensor type values:
+
+- average_windspeed
+- barometric_pressure
+- battery
+- co2_air_quality
+- command
+- current_phase_1
+- current_phase_2
+- current_phase_3
+- distance
+- doorbell_melody
+- firmware
+- hardware
+- humidity
+- humidity_status
+- kilowatt
+- light_intensity
+- meter_value
+- noise_level
+- rain_rate
+- revision
+- temperature
+- timestamp
+- total_rain
+- uv_intensity
+- version
+- voltage
+- watt
+- weather_forecast
+- windchill
+- winddirection
+- windgusts
+- windspeed
+- windtemp
+
+### Hiding/ignoring sensors
+
+Sensors are added automatically when the RFLink gateway intercepts a wireless command in the ether. To prevent cluttering the frontend use any of these methods:
+
+- Disable automatically adding of unconfigured new sensors (set `automatic_add` to `false`).
+- [Ignore devices on a platform level](/integrations/rflink/#ignoring-devices)
+
+### Device support
+
+See [device support](/integrations/rflink/#device-support)
+
+### Additional configuration examples
+
+Multiple sensors with `automatic_add` disabled and `aliases`
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: rflink
+    automatic_add: false
+    devices:
+      oregontemp_0d93_temp:
+        sensor_type: temperature
+      oregontemp_0d93_bat:
+        sensor_type: battery
+      tunex_c001_temp:
+        sensor_type: temperature
+        aliases:
+          - xiron_4001_temp
+      tunex_c001_hum:
+        sensor_type: humidity
+        aliases:
+          - xiron_4001_hum
+      tunex_c001_bat:
+        sensor_type: battery
+        aliases:
+          - xiron_4001_bat
+```
+
+## Switch
+
+The RFLink integration does not know the difference between a `switch`, a `binary_sensor`, and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+
+RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+
+Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group or configure a nice name.
+
+Configuring devices as switch :
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1: {}
+      conrad_00785c_0a: {}
+```
+
+{% configuration %}
+device_defaults:
+  description: The defaults for the devices.
+  required: false
+  type: map
+  keys:
+    fire_event:
+      description: Set default `fire_event` for RFLink switch devices (see below).
+      required: false
+      default: False
+      type: boolean
+    signal_repetitions:
+      description: Set default `signal_repetitions` for RFLink switch devices (see below).
+      required: false
+      default: 1
+      type: integer
+devices:
+  description: A list of switches.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliases:
+          description: "`aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: "`aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+        fire_event:
+          description: Fire a `button_pressed` event if this device is turned on or off.
+          required: false
+          default: false
+          type: boolean
+        signal_repetitions:
+          description: Set default `signal_repetitions` for RFLink switch devices (see below).
+          required: false
+          default: 1
+          type: integer
+        group:
+          description: Allow switch to respond to group commands (ALLON/ALLOFF).
+          required: false
+          default: true
+          type: boolean
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: [list, string]
+        group_aliases:
+          description: "`aliases` which only respond to group commands."
+          required: false
+          type: [list, string]
+        no_group_aliases:
+          description: "`aliases` which do not respond to group commands."
+          required: false
+          type: [list, string]
+{% endconfiguration %}
+
+### Switch state
+
+Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
+
+Sometimes a switch is controlled by multiple wireless remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rflink
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+        aliases:
+          - newkaku_000000001_2
+          - kaku_000001_a
+```
+
+Any on/off command from any alias ID updates the current state of the switch. However, when sending a command through the frontend only the primary ID is used.
+
+### Device support
+
+See [device support](/integrations/rflink/#device-support)
+
+#### Additional configuration examples
+
+Multiple switches with signal repetitions and custom names
+
+```yaml
+# Example configuration.yaml entry
+switch:
+  - platform: rflink
+    device_defaults:
+      fire_event: true
+      signal_repetitions: 2
+    devices:
+      newkaku_0000c6c2_1:
+        name: Ceiling fan
+      conrad_00785c_0a:
+        name: Motion sensor kitchen
+```
+
+

@@ -159,6 +159,7 @@ layout: null
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/binary_sensor.rflink /integrations/rflink/#binary-sensor
 /integrations/binary_sensor.template /integrations/template/#binary_sensor
 /integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
@@ -176,6 +177,7 @@ layout: null
 /integrations/light.group /integrations/group
 /integrations/light.knx /integrations/knx#light
 /integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.rflink /integrations/rflink#light
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
 /integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
 /integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
@@ -190,6 +192,7 @@ layout: null
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
 /integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.rflink /integrations/rflink/#sensor
 /integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
 /integrations/sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#sensors
@@ -197,6 +200,7 @@ layout: null
 /integrations/switch.knx /integrations/knx#switch
 /integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.rflink /integrations/rflink/#switch
 /integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
