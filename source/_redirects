@@ -190,6 +190,7 @@ layout: null
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
 /integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.rflink /integrations/rflink/#sensor
 /integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
 /integrations/sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#sensors
