@@ -178,7 +178,6 @@ cover:
 
 This configuration uses `0a0a0a` to control the inverted shutter (send UP to close and Down to open) and listen commands sent by `0f1f2f` remote control.
 
-
 ### Device support
 
 Even though a lot of devices are supported by RFLink, not all have been tested/implemented. If you have a device supported by RFLink but not by this integration please consider testing and adding support yourself.
@@ -218,4 +217,84 @@ This will give you output looking like this:
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] decoded packet: {'firmware': 'RFLink Gateway', 'revision': '45', 'node': 'gateway', 'protocol': 'unknown', 'hardware': 'Nodo RadioFrequencyLink', 'version': '1.1'}
 17-03-07 20:12:05 DEBUG (MainThread) [rflink.protocol] got event: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
 17-03-07 20:12:05 DEBUG (MainThread) [homeassistant.components.rflink] event of type unknown: {'version': '1.1', 'firmware': 'RFLink Gateway', 'revision': '45', 'hardware': 'Nodo RadioFrequencyLink', 'id': 'rflink'}
+```
+
+## Binary sensor
+
+The RFLink integration does not know the difference between a `binary_sensor`, a `switch` and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+
+RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+
+Once the ID of a binary sensor is known, it can be used to configure it as a binary sensor type in Home Assistant, for example, to hide it or configure a nice name.
+
+Configuring a device as a binary sensor:
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+   - platform: rflink
+     devices:
+       pt2262_00174754_0: {}
+```
+
+{% configuration %}
+devices:
+  description: A list of binary sensors.
+  required: false
+  type: list
+  keys:
+    rflink_ids:
+      description: RFLink ID of the device
+      required: true
+      type: map
+      keys:
+        name:
+          description: Name for the device.
+          required: false
+          default: RFLink ID
+          type: string
+        aliases:
+          description: Alternative RFLink ID's this device is known by.
+          required: false
+          type: list
+        device_class:
+          description: Sets the [class of the device](/integrations/binary_sensor/), changing the device state and icon that is displayed on the frontend.
+          required: false
+          type: string
+        off_delay:
+          description: For sensors that only sends 'On' state updates, this variable sets a delay after which the sensor state will be updated back to 'Off'.
+          required: false
+          type: integer
+        force_update:
+          description: Sends update events even if the value has not changed. Useful for sensors that only sends `On`.
+          required: false
+          type: boolean
+          default: false
+{% endconfiguration %}
+
+### Sensor state
+
+Initially, the state of a binary sensor is unknown. When a sensor update is received, the state is known and will be shown in the frontend.
+
+### Device support
+
+See [device support](/integrations/rflink/#device-support)
+
+### Additional configuration examples
+
+Multiple sensors with custom name and device class and set off_delay
+
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+   - platform: rflink
+     devices:
+       pt2262_00174754_0:
+         name: PIR Entrance
+         device_class: motion
+         off_delay: 5
+       pt2262_00174758_0:
+         name: PIR Living Room
+         device_class: motion
+         off_delay: 5
 ```
