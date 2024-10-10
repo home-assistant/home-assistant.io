@@ -22,12 +22,12 @@ related:
 
 The `rflink` {% term integration %} supports devices that use [RFLink gateway firmware](https://www.rflink.nl/download.php), for example, the [Nodo RFLink Gateway](https://www.nodo-shop.nl/21-rflink-). RFLink Gateway is an Arduino Mega firmware that allows two-way communication with a multitude of RF wireless devices using cheap hardware (Arduino + transceiver).
 
-The 433 MHz spectrum is used by many manufacturers mostly using their own protocol/standard and includes devices like: light switches, blinds, weather stations, alarms and various other sensors.
+The 433 MHz spectrum is used by many manufacturers. Mostly using their own protocol/standard, they use this spectrum to communicate with devices such as light switches, blinds, weather stations, alarms, and various other sensors.
 
-RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers and transceiver modules for 433MHz, 868MHz and 2.4 GHz.
+The RFLink Gateway supports a number of RF frequencies, using a wide range of low-cost hardware. [Their website](https://www.rflink.nl) provides details for various RF transmitters, receivers, and transceiver modules for 433MHz, 868MHz, and 2.4 GHz.
 
 {% note %}
-Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1 and MySensors devices.
+Versions later than R44 add support for IKEA Ansluta, Philips Living Colors Gen1, and MySensors devices.
 {% endnote %}
 
 A complete list of devices supported by RFLink can be found [here](https://www.rflink.nl/devlist.php).
@@ -62,7 +62,7 @@ wait_for_ack:
   default: true
   type: boolean
 ignore_devices:
-  description: List of device id's to ignore. Supports wildcards (`*`, `?`).
+  description: List of device IDs to ignore. Supports wildcards (`*`, `?`).
   required: false
   type: [list, string]
 reconnect_interval:
@@ -94,6 +94,7 @@ rflink:
 TCP mode allows you to connect to an RFLink device over a TCP/IP network. This is useful if placing the RFLink device next to the HA server is not optimal or desired (eg: bad reception).
 
 The following command can be used to expose the USB/serial interface over TCP on a different host (Linux). The arguments are separated by spaces, further info on all arguments can be found for example [on the Debian manpages](https://manpages.debian.org/stretch/socat/socat.1.en.html).
+
 - `/dev/ttyACM0,b57600,rawer` specifies the device location, a `b57600` 57600 baud rate, and `rawer` causes socat to ignore control sequences sent via the port (for example, it makes socat pass all information 'rawest form', rather than picking up control characters such as control-C which would close socat).
 - `TCP-LISTEN:1234,reuseaddr,range=192.168.0.0/16` listens on IPV4 on the specified port (1234, change as suits your needs), the details behind the `reuseaddr` option [are fairly complex](https://stackoverflow.com/a/3233022/1049701) but it allows faster reconnects from the client (Home Assistant) in case of connection drops. An important security option is `range=192.168.0.0/16`, which specifies that socat should only accept connections from a certain range of IP addresses - the /16 subnet mask specifies a range from 192.168.0.0 to 192.168.255.255. Change this as required for your LAN network.
 
@@ -138,7 +139,7 @@ sensor:
 
 [RFLink Switches](/integrations/switch.rflink/) and [RFLink Binary Sensors](/integrations/binary_sensor.rflink/) cannot be added automatically.
 
-The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
+The RFLink integration does not know the difference between a binary sensor, a switch and a light. Therefore, all switchable devices are automatically added as light by default. However, once the ID of a switch is known, it can be used to configure it as a switch or a binary sensor type in Home Assistant, for example, to add it to a different group or configure a nice name.
 
 ### Ignoring devices
 
@@ -190,7 +191,7 @@ If you find a device is recognized differently, with different protocols or the 
 
 - The`rflink` Python module is an asyncio transport/protocol which is setup to fire a callback for every (valid/supported) packet received by the RFLink gateway.
 - This integration uses this callback to distribute 'rflink packet events' over [Home Assistant's event bus](/docs/configuration/events/) which can be subscribed to by entities/platform implementations.
-- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet ID's.
+- The platform implementation takes care of creating new devices (if enabled) for unseen incoming packet IDs.
 - Device entities take care of matching to the packet ID, interpreting and performing actions based on the packet contents. Common entity logic is maintained in this main component.
 
 ### Debug Logging
@@ -249,7 +250,7 @@ devices:
       type: map
       keys:
         name:
-          description: Name for the device.
+          description: Name of the device.
           required: false
           default: RFLink ID
           type: string
@@ -341,7 +342,7 @@ RTS Record: 15 Address: FFFFFF RC: FFFF
 
 After configuring the RFLink Somfy RTS you have to add the cover to the {% term "`configuration.yaml`" %} file like any other RFlink device.
 
-RFLink cover ID's are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
+RFLink cover IDs are composed of: protocol, id, and gateway. For example: `RTS_0100F2_0`.
 
 Once the ID of a cover is known, it can be used to configure the cover in Home Assistant, for example, to add it to a different group or set a nice name.
 
@@ -383,12 +384,12 @@ devices:
       type: map
       keys:
         name:
-          description: Name for the device.
+          description: Name of the device.
           required: false
           default: RFLink ID
           type: string
         aliases:
-          description: Alternative RFLink ID's this device is known by.
+          description: Alternative RFLink IDs this device is known by.
           required: false
           type: [list, string]
         fire_event:
@@ -526,7 +527,7 @@ cover:
 
 After configuring the RFLink hub, lights will be automatically discovered and added.
 
-RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
 Once the ID of a light is known, it can be used to configure the light in HA, for example to add it to a different group or configure a nice name.
 
@@ -585,7 +586,7 @@ devices:
           default: switchable
           type: string
         aliases:
-          description: Alternative RFLink ID's this device is known by.
+          description: Alternative RFLink IDs this device is known by.
           required: false
           type: [list, string]
         group_aliases:
@@ -686,7 +687,7 @@ light:
 
 After configuring the RFLink hub, sensors will be automatically discovered and added.
 
-RFLink sensor ID's are composed of: protocol, id and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
+RFLink sensor IDs are composed of: protocol, ID and type (optional). For example: `alectov1_0334_temp`. Some sensors emit multiple types of data. Each will be created as its own.
 
 Once the ID of a sensor is known, it can be used to configure the sensor in Home Assistant, for example to add it to a different group or configure a nice name.
 
@@ -717,7 +718,7 @@ devices:
       type: map
       keys:
         name:
-          description: Name for the device.
+          description: Name of the device.
           required: false
           default: RFLink ID
           type: string
@@ -730,7 +731,7 @@ devices:
           required: false
           type: string
         aliases:
-          description: "Alternative RFLink ID's this device is known by."
+          description: "Alternative RFLink IDs this device is known by."
           required: false
           type: [list, string]
 {% endconfiguration %}
@@ -814,9 +815,9 @@ sensor:
 
 ## Switch
 
-The RFLink integration does not know the difference between a `switch`, a `binary_sensor`, and a `light`. Therefore all switchable devices are automatically added as `light` by default.
+The RFLink integration does not know the difference between a `switch`, a `binary_sensor`, and a `light`. Therefore, all switchable devices are automatically added as `light` by default.
 
-RFLink binary_sensor/switch/light ID's are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
+RFLink binary_sensor/switch/light IDs are composed of: protocol, id, switch/channel. For example: `newkaku_0000c6c2_1`.
 
 Once the ID of a switch is known, it can be used to configure it as a switch type in HA and, for example, to add it to a different group or configure a nice name.
 
@@ -858,12 +859,12 @@ devices:
       type: map
       keys:
         name:
-          description: Name for the device.
+          description: Name of the device.
           required: false
           default: RFLink ID
           type: string
         aliases:
-          description: Alternative RFLink ID's this device is known by.
+          description: Alternative RFLink IDs this device is known by.
           required: false
           type: [list, string]
         group_aliases:
@@ -890,7 +891,7 @@ devices:
           default: true
           type: boolean
         aliases:
-          description: Alternative RFLink ID's this device is known by.
+          description: Alternative RFLink IDs this device is known by.
           required: false
           type: [list, string]
         group_aliases:
@@ -907,7 +908,7 @@ devices:
 
 Initially, the state of a switch is unknown. When the switch is turned on or off (via frontend or wireless remote) the state is known and will be shown in the frontend.
 
-Sometimes a switch is controlled by multiple wireless remotes, each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes add the corresponding remote codes as aliases:
+Sometimes a switch is controlled by multiple wireless remotes. Each remote has its own code programmed in the switch. To allow tracking of the state when switched via other remotes, add the corresponding remote codes as aliases:
 
 ```yaml
 # Example configuration.yaml entry
