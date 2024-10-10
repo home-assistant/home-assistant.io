@@ -41,3 +41,4 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 ## Scenes
 
 - Scenes can be activated, but not changed or monitored.
+- Scenes are accessible via a virtual device per room.
