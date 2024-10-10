@@ -198,7 +198,7 @@ step:
   type: float
   default: 1
 unique_id:
-  description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Number. If two Numbers have the same unique ID Home Assistant will raise an exception. Required when used with device based discovery.
   required: false
   type: string
 unit_of_measurement:

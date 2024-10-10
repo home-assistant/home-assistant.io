@@ -173,7 +173,7 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this notify entity. If two notify entities have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this notify entity. If two notify entities have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
   required: false
   type: string
 {% endconfiguration %}

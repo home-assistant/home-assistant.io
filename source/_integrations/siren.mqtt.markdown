@@ -237,7 +237,7 @@ support_volume_set:
   type: boolean
   default: true
 unique_id:
-  description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
   required: false
   type: string
 {% endconfiguration %}

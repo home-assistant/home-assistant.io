@@ -375,7 +375,7 @@ state_value_template:
   required: false
   type: template
 unique_id:
-  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
   required: false
   type: string
 white_command_topic:
@@ -724,7 +724,7 @@ supported_color_modes:
   required: false
   type: list
 unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
    required: false
    type: string
 white_scale:
@@ -1083,7 +1083,7 @@ state_topic:
   required: false
   type: string
 unique_id:
-   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this light. If two lights have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
    required: false
    type: string
 {% endconfiguration %}

@@ -310,7 +310,7 @@ tilt_status_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this cover. If two covers have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
   required: false
   type: string
 value_template:

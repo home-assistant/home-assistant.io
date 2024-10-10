@@ -261,7 +261,7 @@ temperature_unit:
   required: false
   type: string
 unique_id:
-   description: An ID that uniquely identifies this water heater device. If two water heater devices have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this water heater device. If two water heater devices have the same unique ID, Home Assistant will raise an exception. Required when used with device based discovery.
    required: false
    type: string
 value_template:
