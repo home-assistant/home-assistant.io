@@ -362,7 +362,7 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key should are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform.
+The components id's under the `components` (`cmp`) key should are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity based components.
 
 To remove the components, publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
@@ -437,30 +437,38 @@ After the component has been removed an other update should be send where the pa
 
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option.
+A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option.
 
 </div>
 
 ##### Migration from single component to device based discovery
 
-To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to migrate back. To indicate discovery migration should happen, add the `discovery_migration` option to the new discovery payload. This will allow to clean up the old discovery payload without the item to be removed.
+To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload, and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to roll back.
 
-**Example (device automation):**
-Discovery topic single: `homeassistant/device_automation/0AFFD2/bla/config`
-Discovery id: `0AFFD2 bla` *(both `0AFFD2` and `bla` from the discovery topic)*
+To allow discovery migration to a new device based config, the following payload must be send to all exiting single component discovery topics:
+
+```json
+{"migrate_discovery": true }
+```
+
+After the discovery has been initiated, the discovery topic can be switched over to the device based discovery topic for all included components.
+
+**Example with a device automation and sensor:**
+
+Discovery topic single: `homeassistant/device_automation/0AFFD2/bla1/config`
+Discovery id: `0AFFD2 bla1` *(both `0AFFD2` and `bla1` from the discovery topic)*
 Discovery payload single:
 
 ```json
 {
-  "automation_type": "trigger",
   "device": {
-    "identifiers": [
-      "0AFFD2"
-    ]
+    "identifiers": ["0AFFD2"],
+    "name": "Test device"
   },
   "o": {
     "name": "foobar"
   },
+  "automation_type": "trigger",
   "payload": "short_press",
   "topic": "foobar/triggers/button1",
   "type": "button_short_press",
@@ -468,7 +476,40 @@ Discovery payload single:
 }
 ```
 
-**Device discovery with migration support:**
+Discovery topic single: `homeassistant/sensor/0AFFD2/bla2/config`
+Discovery id: `0AFFD2 bla2` *(both `0AFFD2` and `bla2` from the discovery topic)*
+Discovery payload single:
+
+```json
+{
+  "device": {
+    "identifiers": ["0AFFD2"],
+    "name": "Test device"
+  },
+  "o": {
+    "name": "foobar"
+  },
+  "state_topic": "foobar/sensor/sensor1",
+  "unique_id": "bla_sensor001"
+}
+```
+
+When these single component discovery payloads are processed and we want to initiate migration to a device based discovery we need to publish ...
+
+```json
+{"migrate_discovery": true }
+```
+
+... to both discovery topics ...
+
+- `homeassistant/device_automation/0AFFD2/bla1/config`
+- `homeassistant/sensor/0AFFD2/bla2/config`
+
+{% important %}
+Check the logs to ensure this step is executed correctly.
+{% endimportant %}
+
+**Start device discovery migration:**
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
 Discovery payload device:
@@ -484,20 +525,43 @@ Discovery payload device:
     "name": "foobar"
   },
   "cmp": {
-    "bla": {
+    "bla1": {
+      "platform": "device_automation",
       "automation_type": "trigger",
       "payload": "short_press",
       "topic": "foobar/triggers/button1",
       "type": "button_short_press",
-      "subtype": "button_1",
-      "platform": "device_automation"
+      "subtype": "button_1"
+    },
+    "bla2": {
+      "platform": "sensor",
+      "state_topic": "foobar/sensor/sensor1",
+      "unique_id": "bla_sensor001"
     }
   },
-  "migrate_discovery": true
 }
 ```
 
-If the new device discovery payload has the same `discovery_id` and comes after the single discovery payload. Home Assistant will deactivate the previous discovery topic, so that it can be removed without side effects. This avoids rediscovery when Home Assistant restarts.
+{% important %}
+Check the logs to ensure the migration was successful.
+{% endimportant %}
+
+**Cleanup after migration:**
+After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them.
+The logs should indicate if the discovery migration was successful.
+
+**Rollback the discovery migration:**
+To rollback publish ...
+
+```json
+{"migrate_discovery": true }
+```
+
+To the device based discovery topic(s).
+After that, re-publish the single component discovery payloads.
+At last cleanup the device based discovery payloads by publishing an empty payload.
+
+Check the logs for every step.
 
 #### Single component discovery payload
 
