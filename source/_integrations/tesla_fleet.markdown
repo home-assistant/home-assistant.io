@@ -64,7 +64,7 @@ Tesla restricts open-source integrations to the ["Discovery" plan](https://devel
 
 ## Command signing
 
-Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. You will need to use Tesla's [command line tools](https://github.com/teslamotors/vehicle-command/blob/main/README.md#installation-and-configuration) to generate a key pair and install the public key on your vehicle.
+Certain vehicles, including all vehicles manufactured since late 2023, require vehicle commands to be signed with a private key. You will need to use Tesla's [command line tools](https://github.com/teslamotors/vehicle-command/blob/main/README.md#installation-and-configuration) to generate a key pair and install the public key on your vehicle using Bluetooth.
 
 ```
 tesla-keygen -key-file tesla_fleet.key create > tesla_fleet.pem
