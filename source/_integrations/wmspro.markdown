@@ -13,6 +13,7 @@ ha_config_flow: true
 ha_platforms:
   - cover
   - diagnostics
+  - scene
 ha_integration_type: hub
 related:
   - url: https://www.warema.com/en/smart-home/wms-webcontrol-pro/
@@ -26,7 +27,7 @@ The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA
 
 This integration uses a local API which is available with firmware container version 11H.
 
-See device section for support information: [covers](#covers).
+See device section for support information: [covers](#covers) and [scenes](#scenes).
 
 {% include integrations/config_flow.md %}
 
@@ -36,3 +37,8 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 - *Patio awnings* can be opened, closed, set to a certain position and their movement stopped.
 - The integration and library *may* already support other types of awnings with a single motor.
+
+## Scenes
+
+- Scenes can be activated, but not changed or monitored.
+- Scenes are accessible via a virtual device per room.
