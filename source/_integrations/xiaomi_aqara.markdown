@@ -93,6 +93,26 @@ name:
 
 The Xiaomi Gateway (Aqara) integration supports the following entities.
 
+### Covers
+
+The cover entity allows you to control connected Aquara covers. You can do the following:
+
+- Open the cover.
+- Close the cover.
+- Stop the cover motion.
+- Move the cover to a specific position.
+- See the current position of the cover.
+
+### Lights
+
+The light entity allows you to control the internal light of the Xiaomi gateway. The entity is called `light.gateway_light_28ffffffffff`. You can do the following:
+
+- Turn the light on and off.
+- Set the brightness.
+- Set the color using HS or RGB color coding.
+
+The requirement is that you have setup [Xiaomi aqara](/integrations/xiaomi_aqara/).
+
 ### Locks
 
 An Aqara lock cannot be controlled by Home Assistant. However, the lock entity allows you to view the following data:
@@ -100,6 +120,487 @@ An Aqara lock cannot be controlled by Home Assistant. However, the lock entity a
 - The property `changed_by` provides the user/key ID of the last successful unlock.
 
 - If someone tries to unlock the device but fails more than 3 times, the `verified_wrong_times` attribute will be incremented. The counter resets on a successful unlock.
+
+### Binary sensors
+
+The binary sensor entities allow you to get data from your [Xiaomi](https://www.mi.com/en/) binary sensors.
+
+#### Type of binary sensors supported
+
+List of supported binary sensors, including the following properties (if available): name, model no., Zigbee entity, states, and, event, event, key, and event values.
+
+- **Motion Sensor (1st gen)**
+  - Model no.: RTCGQ01LM
+  - Zigbee entity: motion
+  - States: on, off
+  - Event: `xiaomi_aqara.motion`
+
+- **Motion Sensor (2nd gen)**
+  - Model no.: RTCGQ11LM
+  - Zigbee entity: sensor_motion.aq2
+  - States: on, off
+  - Event: `xiaomi_aqara.motion`
+
+- **Xiaomi Door and Window Sensor (1st gen)**
+  - Model no.: MCCGQ01LM
+  - Zigbee entity: magnet
+  - States: on, off
+
+- **Aqara Door and Window Sensor (2nd gen)**
+  - Model no.: MCCGQ11LM
+  - Zigbee entity: sensor_magnet.aq2
+  - States: on, off
+
+- **Smoke Detector**
+  - Model no.: JTYJ-GD-01LM/BW
+  - Zigbee entity: smoke
+  - States: on, off
+
+- **Gas Leak Detector**
+  - Model no.: JTQJ-BF-01LM/BW
+  - Zigbee entity: natgas
+  - States: on, off
+
+- **Water Leak Sensor**
+  - Model no.: SJCGQ11LM
+  - Zigbee entity: sensor_wleak.aq1
+  - States: on, off
+
+- **Button (1st gen)**
+  - Model no.: WXKG01LM
+  - Zigbee entity: switch
+  - States: on (through long_click_press), off
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `long_click_press`, `hold`, `single`, `double`
+
+- **Button (2nd gen)**
+  - Model no.: WXKG11LM
+  - Zigbee entity: sensor_switch.aq2, remote.b1acn01
+  - States: on (through long_click_press), off
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`, `double`, `long_click_press`, `hold`
+
+- **Button (2nd gen, model b)**
+  - Model no.: WXKG12LM
+  - Zigbee entity: sensor_switch.aq3
+  - States: off (always)
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`, `double`, `long_click_press`, `shake`
+
+- **Aqara Wireless Switch (Single)**
+  - Model no.: WXKG03LM
+  - Zigbee entity: 86sw1
+  - States: off (always)
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`
+
+- **Aqara Wireless Switch (Double)**
+  - Model no.: WXKG02LM
+  - Zigbee entity: 86sw2
+  - States: off (always)
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`, `both`
+
+- **Aqara Wireless Switch (Single) (2nd gen)**
+  - Model no.: WXKG03LM
+  - Zigbee entity: remote.b186acn01
+  - States: off (always)
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`, `double`, `long`
+
+- **Aqara Wireless Switch (Double) (2nd gen)**
+  - Model no.: WXKG02LM
+  - Zigbee entity: remote.b286acn01
+  - States: off (always)
+  - Event: `xiaomi_aqara.click`
+  - Event key: `click_type`
+  - Event values: `single`, `double`, `long`, `both`, `double_both`, `long_both`
+
+- **Cube**
+  - Model no.: MFKZQ01LM
+  - Zigbee entity: cube
+  - States: off (always)
+  - Event: `xiaomi_aqara.cube_action`
+  - Event key: `action_type`, `action_value` (rotate)
+  - Event values: `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall`, `rotate` (degrees at action_value)
+
+- **Vibration Sensor**
+  - Model no.: DJT11LM
+  - Zigbee entity: vibration
+  - States: off (always)
+  - Event: `xiaomi_aqara.movement`
+  - Event key: `movement_type`
+  - Event values: `vibrate`, `tilt`, `free_fall`
+
+#### Automation examples for binary sensors
+
+##### Motion
+
+```yaml
+- alias: "If there is motion and it's dark turn on the gateway light"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
+      from: "off"
+      to: "on"
+  conditions:
+    - condition: numeric_state
+      entity_id: sensor.illumination_34ce00xxxx11
+      below: 300
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_34ce00xxxx11
+      data:
+        brightness: 5
+    - action: automation.turn_on
+      target:
+        entity_id: automation.MOTION_OFF
+- alias: "If there no motion for 5 minutes turn off the gateway light"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.motion_sensor_158d000xxxxxc2
+      from: "on"
+      to: "off"
+      for:
+        minutes: 5
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.gateway_light_34ce00xxxx11
+    - action: automation.turn_off
+      target:
+        entity_id: automation.Motion_off
+```
+
+##### Door and/or indow binary sensors
+
+```yaml
+- alias: "If the window is open turn off the radiator"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
+      from: "off"
+      to: "on"
+  actions:
+    - action: climate.set_operation_mode
+      target:
+        entity_id: climate.livingroom
+      data:
+        operation_mode: "Off"
+- alias: "If the window is closed for 5 minutes turn on the radiator again"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.door_window_sensor_158d000xxxxxc2
+      from: "on"
+      to: "off"
+      for:
+        minutes: 5
+  actions:
+    - action: climate.set_operation_mode
+      target:
+        entity_id: climate.livingroom
+      data:
+        operation_mode: "Smart schedule"
+- alias: "Notify if door is opened when away"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.door_window_sensor_15xxxxxxc9xx6b
+      from: "off"
+      to: "on"
+  conditions:
+    - condition: state
+      entity_id: group.family
+      state: "not_home"
+  actions:
+    - action: notify.notify_person
+      data:
+        message: "The door has been opened"
+```
+
+#### Smoke
+
+```yaml
+- alias: "Send notification on fire alarm"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.smoke_sensor_158d0001574899
+      from: "off"
+      to: "on"
+  actions:
+    - action: notify.html5
+      data:
+        title: "Fire alarm!"
+        message: "Fire/Smoke detected!"
+    - action: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
+        ringtone_id: 2
+        ringtone_vol: 100
+```
+
+#### Gas
+
+{% raw %}
+
+```yaml
+- alias: "Send notification on gas alarm"
+  triggers:
+    - trigger: state
+      entity_id: binary_sensor.natgas_sensor_158dxxxxxxxxxx
+      from: "off"
+      to: "on"
+  actions:
+    - action: notify.html5
+      data:
+        title: "Gas alarm!"
+        message: "Gas with a density of {{ state_attr('binary_sensor.natgas_sensor_158dxxxxxxxxxx', 'density') }} detected."
+```
+
+{% endraw %}
+
+#### Xiaomi Wireless Button
+
+There are 3 versions of the Xiaomi Wireless button:
+
+- For the round shaped button, the available events are `single`, `double`, `hold`, `long_click_press` and `long_click_release`.
+- Aqara branded buttons are square shaped. Model WXKG11LM only supports `single`, `double`, `long_click_press`and `hold` events. WXKG12LM supports `single`, `double`, `long_click_press` and `shake` events.
+
+For the Aqara versions, the delay between two clicks to generate a double-click must be larger than with the round button. Clicking too quickly generates a single-click event.
+
+```yaml
+- alias: "Toggle dining light on single press"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: single
+  actions:
+    - action: switch.toggle
+      target:
+        entity_id: switch.wall_switch_left_158d000xxxxx01
+- alias: "Toggle couch light on double click"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: double
+  actions:
+    - action: switch.toggle
+      target:
+        entity_id: switch.wall_switch_right_158d000xxxxx01
+- alias: "Let a dog bark on long press"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.switch_158d000xxxxxc2
+        click_type: long_click_press
+  actions:
+    - action: xiaomi_aqara.play_ringtone
+      data:
+        gw_mac: xxxxxxxxxxxx
+        ringtone_id: 8
+        ringtone_vol: 8
+```
+
+##### Xiaomi Cube
+
+Available events are `flip90`, `flip180`, `move`, `tap_twice`, `shake_air`, `swing`, `alert`, `free_fall` and `rotate`. The integration stores the last action as the attribute `last_action`.
+
+```yaml
+- alias: "Cube event flip90"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+        action_type: flip90
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
+      data:
+        color_name: "springgreen"
+- alias: "Cube event flip180"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+        action_type: flip180
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
+      data:
+        color_name: "darkviolet"
+- alias: "Cube event move"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+        action_type: move
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
+      data:
+        color_name: "gold"
+- alias: "Cube event tap_twice"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+        action_type: tap_twice
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
+      data:
+        color_name: "deepskyblue"
+- alias: "Cube event shake_air"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.cube_action
+      event_data:
+        entity_id: binary_sensor.cube_15xxxxxxxxxxxx
+        action_type: shake_air
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_28xxxxxxxxxx
+      data:
+        color_name: "blue"
+```
+
+##### Aqara Wireless Switch
+
+The Aqara Wireless Switch is available as single-key and double-key version. Each key behaves like the Wireless Button limited to the click event `single`. The double key version adds a third device called `binary_sensor.wall_switch_both_158xxxxxxxxx12` which reports a click event called `both` if both keys are pressed.
+
+{% raw %}
+
+```yaml
+- alias: "Decrease brightness of the gateway light"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.wall_switch_left_158xxxxxxxxx12
+        click_type: single
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_34xxxxxxxx13
+      data:
+        brightness: >-
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+            {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60 >= 10 %}
+              {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') - 60}}
+            {% else %}
+              {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
+            {% endif %}
+          {% else %}
+            10
+          {% endif %}
+
+- alias: "Increase brightness of the gateway light"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.wall_switch_right_158xxxxxxxxx12
+        click_type: single
+  actions:
+    - action: light.turn_on
+      target:
+        entity_id: light.gateway_light_34xxxxxxxx13
+      data:
+        brightness: >-
+          {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') %}
+            {% if state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60 <= 255 %}
+              {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness') + 60}}
+            {% else %}
+              {{state_attr('light.gateway_light_34xxxxxxxx13', 'brightness')}}
+            {% endif %}
+          {% else %}
+            10
+          {% endif %}
+
+- alias: "Turn off the gateway light"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.click
+      event_data:
+        entity_id: binary_sensor.wall_switch_both_158xxxxxxxxx12
+        click_type: both
+  actions:
+    - action: light.turn_off
+      target:
+        entity_id: light.gateway_light_34xxxxxxxx13
+```
+
+{% endraw %}
+
+#### Vibration sensor
+
+This automation toggles the living room lamp on vibration/tilt.
+
+```yaml
+- alias: "Turn on Living Room Lamp on vibration"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.movement
+      event_data:
+        entity_id: binary_sensor.vibration_xxxx000000
+        movement_type: vibrate
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room_lamp
+- alias: "Turn on Living Room Lamp on tilt"
+  triggers:
+    - trigger: event
+      event_type: xiaomi_aqara.movement
+      event_data:
+        entity_id: binary_sensor.vibration_xxxx000000
+        movement_type: tilt
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room_lamp
+```
+
+### Sensors
+
+The sensor entity allows you to read data from your [Xiaomi](https://www.mi.com/en/) sensors.
+
+The following sensor types are supported:
+
+- Battery level (in percentage)
+- Bed activity / vibration (in micrometers)
+- Coordination
+- Humidity (in percentage)
+- Illumination (in lux)
+- Power consumed (in kWh)
+- Power load (in Watt)
+- Pressure (in hPa)
+- Temperature (depends on UI settings, Celsius or Fahrenheit)
+- Tilt angle
+
+## Switches
+
+The switch entity allows you to get data from your [Xiaomi aqara](https://www.mi.com/en/) switches and to switch between states.
 
 ## Actions
 
