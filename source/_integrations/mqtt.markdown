@@ -310,7 +310,7 @@ Best practice for entities with a `unique_id` is to set `<object_id>` to `unique
 A device can send a discovery payload to expose all components for a device.
 The `<component>` part in the discovery topic must be set to `device`.
 
-As an alternative it is also possible a device [can send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
+As an alternative, it is also possible a device [can send a discovery payload for each component](/integrations/mqtt/#single-component-discovery-payload) it wants to set up.
 
 The shared options are at root level of the JSON message and must include the `device` mapping (abbreviated as `dev`) and `origin` mapping (abbreviated as `o`). The `device` and `origin` mappings are required options and cannot be overridden at entity/component level.
 
@@ -441,19 +441,23 @@ A component config part in a device discovery payload must have the `platform` o
 
 </div>
 
-##### Migration from single component to device based discovery
+##### Migration from single component to device-based discovery
 
-To allow a smooth migration from single component discovery to device based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload, and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to roll back.
+To allow a smooth migration from single component discovery to device-based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload, and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to roll back.
 
-To allow discovery migration to a new device based config, the following payload must be send to all exiting single component discovery topics:
+To allow discovery migration to a new device-based config, the following payload must be send to all exiting single component discovery topics:
 
 ```json
 {"migrate_discovery": true }
 ```
 
-After the discovery has been initiated, the discovery topic can be switched over to the device based discovery topic for all included components.
+After the discovery has been initiated, the discovery topic can be switched over to the device-based discovery topic for all included components. The device-based discovery message will take over from the single discovery topics. In a final step, the single component discovery messages can be cleaned up with an empty payload. During all steps `INFO` messages are logged to inform about the progress of the migration.
 
-**Example with a device automation and sensor:**
+{% important %}
+Consider testing the migration process in a non-production environment before applying it to a live system.
+{% endimportant %}
+
+**Discovery migration example with a device automation and a sensor:**
 
 Discovery topic single: `homeassistant/device_automation/0AFFD2/bla1/config`
 Discovery id: `0AFFD2 bla1` *(both `0AFFD2` and `bla1` from the discovery topic)*
@@ -494,7 +498,7 @@ Discovery payload single:
 }
 ```
 
-When these single component discovery payloads are processed and we want to initiate migration to a device based discovery we need to publish ...
+When these single component discovery payloads are processed and we want to initiate migration to a device-based discovery we need to publish ...
 
 ```json
 {"migrate_discovery": true }
@@ -509,7 +513,7 @@ When these single component discovery payloads are processed and we want to init
 Check the logs to ensure this step is executed correctly.
 {% endimportant %}
 
-**Start device discovery migration:**
+**Start the device discovery migration:**
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
 Discovery payload device:
@@ -557,16 +561,16 @@ To rollback publish ...
 {"migrate_discovery": true }
 ```
 
-To the device based discovery topic(s).
+To the device-based discovery topic(s).
 After that, re-publish the single component discovery payloads.
-At last cleanup the device based discovery payloads by publishing an empty payload.
+At last cleanup the device-based discovery payloads by publishing an empty payload.
 
 Check the logs for every step.
 
 #### Single component discovery payload
 
-The `<component>` part in the discovery topic must be one of the supported MQTT platforms.
-The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be sent for the other components, and it is then recommended to use [device based discovery](/integrations/mqtt/#device-discovery-payload) instead.
+The `<component>` part in the discovery topic must be one of the supported MQTT-platforms.
+The options in the payload are only used to set up one specific component. If there are more components, more discovery payloads need to be sent for the other components, and it is then recommended to use [device-based discovery](/integrations/mqtt/#device-discovery-payload) instead.
 
 Example discovery payload:
 
