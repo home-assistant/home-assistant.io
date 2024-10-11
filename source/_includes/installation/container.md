@@ -36,7 +36,7 @@ Once the Home Assistant Container is running Home Assistant should be accessible
 
 If you are running with Docker Desktop for Windows or Mac, you will need to map port 8123 in the docker container to port 8123 of your host.  Do this by adding the following within the `homeassistant` section of your docker compose file:
 
-```
+```yaml
     ports:
       - "8123:8123"
 ```
