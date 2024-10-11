@@ -1,4 +1,3 @@
-# See options at https://github.com/coogie/oscailte
 # ----------------------- #
 #      Main Configs       #
 # ----------------------- #
@@ -13,23 +12,17 @@ description: >-
   Powered by a worldwide community of tinkerers and DIY enthusiasts.
   Perfect to run on a Raspberry Pi or a local server.
 
-# Default date format is "ordinal" (resulting in "July 22nd 2007")
-# You can customize the format as defined in
-# http://www.ruby-doc.org/core-1.9.2/Time.html#method-i-strftime
-# Additionally, %o will give you the ordinal representation of the day
 date_format: "ordinal"
 
-# RSS / Email (optional) subscription links (change if using something like Feedburner)
+# RSS / Email (optional) subscription links
 subscribe_rss: /atom.xml
-subscribe_email:
-# RSS feeds can list your email address if you like
-email:
+subscribe_email: ""
 
 # ----------------------- #
 #    Jekyll & Plugins     #
 # ----------------------- #
 
-permalink: /blog/:year/:month/:day/:title/
+permalink: /blog/:title/
 source: source
 destination: public/
 plugins_dir: plugins
@@ -50,16 +43,15 @@ highlighter: none
 plugins:
   - jekyll-toc
 
-paginate: 10 # Posts per page on the blog index
-paginate_path: "blog/posts/:num" # Directory base for pagination URLs eg. /posts/2/
-recent_posts: 5 # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;" # "Continue reading" link text at the bottom of excerpted articles
+paginate: 10
+paginate_path: "blog/page:num"
+recent_posts: 5
+excerpt_link: "Read on &rarr;"
 excerpt_separator: "<!--more-->"
 
-titlecase: true # Converts page and post titles to titlecase
+titlecase: true
 
-# Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
-# and add an array with the asides you want to use.
+# Each layout uses the default asides, but they can have their own asides instead.
 # blog_index_asides:
 # post_asides:
 # page_asides:
@@ -80,16 +72,13 @@ collections:
 #   3rd Party Settings    #
 # ----------------------- #
 
-#Search
+# Search
 algolia:
-  api_key: "ba6f7e6d97b3d3d2f778978c742a47c6"
+  api_key: ""
 
 # Twitter
 twitter_user: balloob
 twitter_tweet_button: true
-
-# Google Analytics
-# google_analytics_tracking_id: UA-57927901-1
 
 # Facebook Like
 facebook_like: true
@@ -111,13 +100,7 @@ current_minor_version: 10
 current_patch_version: 1
 date_released: 2024-10-04
 
-# Either # or the anchor link to latest release notes in the blog post.
-# Must be prefixed with a # and have double quotes around it.
-# Major release:
-patch_version_notes: ""
-# Minor release (Example #release-0431---april-25):
-
-# Set Front matter defaults
+# Front matter defaults
 defaults:
   # Defaults for all pages
   - scope:
@@ -129,6 +112,7 @@ defaults:
       sharing: true
       sidebar: true
       featured: false
+
   # Defaults for blogs posts
   - scope:
       path: ""
@@ -140,60 +124,25 @@ defaults:
       sharing: true
       sidebar: true
       toc: true
-  # Enable table of contents for integrations and installations
-  #
-  # To set toc as a default value, we need to set the scope with an empty path
-  # and the collection as type
-  # https://github.com/toshimaru/jekyll-toc/issues/116#issuecomment-644205770
-  #
+
+  # Enable table of contents
   - scope:
       path: ""
-      type: dashboards
+      type: [dashboards, integrations, docs, installation, common-tasks, getting-started, more-info, voice_control, hassio]
     values:
       toc: true
-  - scope:
-      path: ""
-      type: integrations
-    values:
-      toc: true
-  - scope:
-      path: ""
-      type: docs
-    values:
-      toc: true
-  - scope:
-      path: "installation/*"
-    values:
-      toc: true
-  - scope:
-      path: "common-tasks/*"
-    values:
-      toc: true
-  - scope:
-      path: "getting-started/*"
-    values:
-      toc: true
-  - scope:
-      path: "more-info/*"
-    values:
-      toc: true
-  - scope:
-      path: "voice_control/*"
-    values:
-      toc: true
-  - scope:
-      path: "hassio/*"
-    values:
-      toc: true
+
   # Remove some resources from sitemap
   - scope:
       path: "google*.html"
     values:
       sitemap: false
+
   - scope:
       path: "static/fonts/**/*.html"
     values:
       sitemap: false
+
   - scope:
       path: "static/mdi-demo.html"
     values:
@@ -212,10 +161,9 @@ include:
   - ".well-known"
 
 # Table of contents
-# https://github.com/toshimaru/jekyll-toc
 toc:
-  min_level: 2 # default: 1
-  max_level: 3 # default: 6
+  min_level: 2
+  max_level: 3
 
 # Configuration for installation pages
 installation:
