@@ -113,17 +113,16 @@ To work with the results:
 
 ### Action `search`
 
-This action . The result of the query will be stored in the 'query_result' attribute of the player.
+This action allows you to search the LMS music library for albums, artists, genres, tracks and playlists. You can also search for favorites and players. The result of the search will be stored in the 'query_result' attribute of the player.
 
-See documentation for this interface on `http://HOST:PORT/html/docs/cli-api.html?player=` where HOST and PORT are the host name and port for your Lyrion Music Server.
+| Data attribute  | Optional | Description                                                                                                                       |
+| --------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`     | no       | Name(s) of the Squeezebox entities where to run the search.                                                                       |
+| `command`       | no       | Items to search on the Lyrion Music Server. This must be one of albums, artists, genres, tracks, playlists, favorites or players. |
+| `return_items`  | no       | The maximum numbers of items to return.                                                                                           |
+| `search_string` | yes      | Limit the search to those items matching the search string                                                                        |
 
-| Data attribute | Optional | Description                                                                                           |
-| -------------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| `entity_id`    | no       | Name(s) of the Squeezebox entities where to run the API method.                                       |
-| `command`      | no       | Command to pass to Lyrion Music Server (p0 in the CLI documentation).                                 |
-| `parameters`   | yes      | Array of additional parameters to pass to Lyrion Music Server (p1, ..., pN in the CLI documentation). |
-
-This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of albums available by an artist like this:
-`hass.services.call("squeezebox", "call_query", { "entity_id": "media_player.kitchen", "command": "albums", "parameters": ["0", "20", "search:beatles", "tags:al"] })`
+This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of the first 20 albums containing the word "classic" like this:
+`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": 20, "search_string":"classic"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
