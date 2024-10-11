@@ -32,7 +32,16 @@ Installation with Docker is straightforward. Adjust the following command so tha
   {% include installation/container/cli.md %}
 {% endif %}
 
-Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). You can continue with onboarding.
+Once the Home Assistant Container is running Home Assistant should be accessible using `http://<host>:8123` (replace <host> with the hostname or IP of the system). 
+
+If you are running with Docker Desktop for Windows or Mac, you will need to map port 8123 in the docker container to port 8123 of your host.  Do this by adding the following within the `homeassistant` section of your docker compose file:
+
+```
+    ports:
+      - "8123:8123"
+```
+
+You can continue with onboarding.
 
 {% include getting-started/next_step.html step="Onboarding" link="/getting-started/onboarding/" %}
 
