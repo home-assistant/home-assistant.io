@@ -708,7 +708,18 @@ schema:
   type: string
   default: default
 state_topic:
-  description: 'The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light.'
+  description: >
+    The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the following elements:
+    ```json
+    {
+      "state": "ON",  // "ON" the light is on, "OFF" the light is off, `null` the state is unknown
+      "color_mode": "rgb",  // one of the `supported_color_modes`
+      "color": {},  // A dict* with the color attributes
+      "brightness": 255,  // The brightness value
+      "color_temp": 153,  // The color temperature
+      "effect": "color_loop"  // The current effect
+    }
+    ```
   required: false
   type: string
 supported_color_modes:
@@ -726,7 +737,7 @@ white_scale:
   default: 255
 {% endconfiguration %}
 
-*The `color` attribute in the JSON state payload should contain the following keys based on the `color_mode`:
+*The `color` attribute dict in the JSON state payload should contain the following keys based on the `color_mode`:
 
 - `hs`:
   - `h`: The hue value
