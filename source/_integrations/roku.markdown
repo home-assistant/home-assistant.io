@@ -93,6 +93,13 @@ data:
 
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device.
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Play Media Application ID:
+  description: The application ID to use when launching media playback. This application must support the PlayOnRoku API.
+{% endconfiguration_basic %}
+
 ## Source Automation
 
 The `media_player.select_source` action may be used to launch specific applications/streaming channels on your Roku device.
