@@ -198,7 +198,7 @@ qos:
   type: integer
   default: 0
 state_topic:
-  description: The MQTT topic subscribed to receive sensor's state. Valid states are `OFF` and `ON`. Custom values can be set with `payload_off` and `payload_on`.
+  description: The MQTT topic subscribed to receive sensor's state. Valid states are `OFF` and `ON`. Custom `OFF` and `ON` values can be set with the `payload_off` and `payload_on` config options.
   required: true
   type: string
 unique_id:
