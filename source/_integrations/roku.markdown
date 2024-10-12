@@ -163,7 +163,7 @@ actions:
 
 The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device.
 
-This feature previously made use of the built-in PlayOnRoku application that was available prior to Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+This feature previously made use of the built-in PlayOnRoku application that was available before Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
 The following Applications have been tested with this integration:
 
@@ -174,7 +174,7 @@ The following Applications have been tested with this integration:
 | `entity_id` | no | Target a specific media player. | 
 | `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
 | `media_content_type` | no | A media type. | `url`
-| `extra.format` | no | A media format. Should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.format` | no | A media format. It should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
 | `extra.thumbnail` | yes | A thumbnail URL for the media. | 
 | `extra.artist_name` | yes | The name of the media artist. | Blender
