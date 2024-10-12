@@ -363,7 +363,7 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored. Other valid state payloads are `OFF` and `ON`. The accepted payloads can be overridden with the `payload_off` and `payload_on` config option.
   required: false
   type: string
 state_value_template:
@@ -708,7 +708,8 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive state updates in a JSON-format.. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light.
+ A "None" payload resets to an `unknown` state. An empty payload is ignored.
   required: false
   type: string
 supported_color_modes:
@@ -725,6 +726,16 @@ white_scale:
   type: integer
   default: 255
 {% endconfiguration %}
+
+*The `color` attribute in the JSON state payload received on `state_topic` is used with the color modes `hs`, `xy`, `rgb`, `rgbw`, `rgbww`. Depending on the `color_mode`, the corresponding color attributes need to be provisioned.
+
+`hs`: `"h"` The hue value, `"s"` the saturation value.
+`xy`: `"x"` and `"y"` color values.
+`rgb`, `rgbw`, `rgbww`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value.
+`rgbw`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value, `"w"`: white value.
+`rgbww`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value, `"c"`: cool white value, `"w"`: warm white value.
+
+More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
 
 {% important %}
 Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.

@@ -210,7 +210,7 @@ state_on:
   type: string
   default: "`payload_on` if defined, else ON"
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored. Other valid state payloads are `OFF` and `ON`. The accepted payloads can be overridden with the `payload_off` and `payload_on` config option.
   required: false
   type: string
 unique_id:
