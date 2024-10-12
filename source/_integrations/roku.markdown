@@ -153,7 +153,10 @@ actions:
 ```
 
 ## Play on Roku
-The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device. This feature makes use of the built-in PlayOnRoku application.
+The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device.
+
+This feature previously made use of the built-in PlayOnRoku application that was available prior to Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. | 
