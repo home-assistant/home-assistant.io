@@ -153,6 +153,7 @@ actions:
 ```
 
 ## Play on Roku
+
 The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device.
 
 This feature previously made use of the built-in PlayOnRoku application that was available prior to Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
@@ -166,6 +167,7 @@ This feature previously made use of the built-in PlayOnRoku application that was
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
 | `extra.thumbnail` | yes | A thumbnail URL for the media. | 
 | `extra.artist_name` | yes | The name of the media artist. | Blender
+
 ### Example
 ```yaml
 action:
@@ -179,8 +181,11 @@ action:
         format: mp4
         name: Big Buck Bunny
 ```
+
 ## Camera Stream Integration
-The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the built-in PlayOnRoku application.
+
+The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the PlayOnRoku API.
+
 ### Example
 ```yaml
 action:
