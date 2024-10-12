@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - media_player
   - sensor
+  - update
 ha_integration_type: integration
 ---
 
@@ -67,6 +68,11 @@ transporter_toslink:
 - **Total duration**: Duration of all tracks in service (HHHH:MM:SS).
 - **Total genres**: Total number of genres used in current service.
 - **Total songs**: Total number of music files currently in service.
+
+### Updates
+
+-- **Lyrion Music Server**: Update of the server software is available.
+-- **Updated plugins**: Named Plugins will be updated on the next restart. For some installation types, the service will be restarted automatically after the **Install** button has been selected. Allow enough time for the service to restart. It will become briefly unavailable.
 
 ## Actions
 
