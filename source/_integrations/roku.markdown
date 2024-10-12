@@ -165,7 +165,7 @@ The `media_player.play_media` service may be used to send media URLs (primarily 
 
 This feature previously made use of the built-in PlayOnRoku application that was available before Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
-The following Applications have been tested with this integration:
+The following third-party applications have been tested with this integration:
 
 - [Media Assistant](https://channelstore.roku.com/details/625f8ef7740dff93df7d85fc510303b4/media-assistant) (ID: 782875)
 
