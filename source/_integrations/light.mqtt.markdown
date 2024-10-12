@@ -726,13 +726,29 @@ white_scale:
   default: 255
 {% endconfiguration %}
 
-*The `color` attribute in the JSON state payload received on `state_topic` is used with the color modes `hs`, `xy`, `rgb`, `rgbw`, `rgbww`. Depending on the `color_mode`, the corresponding color attributes need to be provisioned.
+*The `color` attribute in the JSON state payload should contain the following keys based on the `color_mode`:
 
-`hs`: `"h"` The hue value, `"s"` the saturation value.
-`xy`: `"x"` and `"y"` color values.
-`rgb`, `rgbw`, `rgbww`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value.
-`rgbw`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value, `"w"`: white value.
-`rgbww`: `"r"`: red color value, `"g"`: green color value, `"blue"` color value, `"c"`: cool white value, `"w"`: warm white value.
+- `hs`:
+  - `h`: The hue value
+  - `s`: The saturation value
+- `xy`:
+  - `x`: X color value
+  - `y`: Y color value
+- `rgb`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+- `rgbw`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `w`: White value
+- `rgbww`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `c`: Cool white value
+  - `w`: Warm white value
 
 More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
 
