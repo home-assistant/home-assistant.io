@@ -332,7 +332,7 @@ The integration supports the following virtual components:
 
 ## Scripts (generation 2 and 3)
 
-For each device script, the integration creates a switch entity that allows you to control the script. These entities are disabled by default.
+For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
 
 ## Additional info
 
