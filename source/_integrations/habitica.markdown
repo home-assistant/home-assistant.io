@@ -4,6 +4,7 @@ description: Instructions on enabling Habitica support for your Home Assistant
 ha_category:
   - Hub
   - Sensor
+  - Calendar
 ha_release: 0.78
 ha_iot_class: Cloud Polling
 ha_domain: habitica
@@ -12,6 +13,7 @@ ha_platforms:
   - sensor
   - switch
   - todo
+  - calendar
 ha_codeowners:
   - '@ASMfreaK'
   - '@leikoilja'
@@ -54,6 +56,11 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **To-Do's:** Displays a comprehensive list of active and completed to-dos. Each to-do includes its due date if applicable, allowing you to check them off, edit them, delete them, and create new to-dos seamlessly.
 - **Dailies:** Shows the daily tasks that need to be completed today or in the future. Tasks completed yesterday can still be marked off as "yesterdailies" until a new day starts.
+
+## Calendars
+
+- **To-Do calendar:** Lists the due dates for all active to-do tasks. Each event on this calendar represents a to-do item that has a set due date, making it easy to track upcoming deadlines and plan accordingly.
+- **Dailies calendar:** Displays all daily tasks that are scheduled for today and are still active. It also shows all tasks scheduled for future dates, helping you stay organized and track upcoming routines. The calendar sensor will be active if there are unfinished tasks for today and display the next due daily (based on sort order if there are multiple tasks due for that day).
 
 ## Button controls
 
