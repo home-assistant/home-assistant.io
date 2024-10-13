@@ -4,6 +4,8 @@ description: Instructions on how to integrate WAREMA devices via WMS WebControl 
 ha_category:
   - Cover
   - Hub
+  - Light
+  - Scene
 ha_release: '2024.10'
 ha_iot_class: Local Polling
 ha_codeowners:
@@ -13,6 +15,7 @@ ha_config_flow: true
 ha_platforms:
   - cover
   - diagnostics
+  - light
   - scene
 ha_integration_type: hub
 related:
@@ -27,7 +30,7 @@ The **WMS WebControl pro** {% term integration %} allows you to integrate WAREMA
 
 This integration uses a local API which is available with firmware container version 11H.
 
-See device section for support information: [covers](#covers) and [scenes](#scenes).
+See device section for support information: [covers](#covers), [lights](#lights) and [scenes](#scenes).
 
 {% include integrations/config_flow.md %}
 
@@ -37,6 +40,10 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 - *Patio awnings* can be opened, closed, set to a certain position and their movement stopped.
 - The integration and library *may* already support other types of awnings with a single motor.
+
+## Lights
+
+- Dimmers (regarding their brightness) and switches are fully supported.
 
 ## Scenes
 
