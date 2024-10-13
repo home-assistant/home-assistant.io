@@ -330,6 +330,10 @@ The integration supports the following virtual components:
 - `text` in `field` mode, for which a `text` platform entity is created
 - `text` in `label` mode, for which a `sensor` platform entity is created
 
+## Scripts (generation 2 and 3)
+
+For each device script, the integration creates a `switch` entity that allows you to control the script. These entities are disabled by default.
+
 ## Additional info
 
 Shelly devices rely on [SNTP](https://en.wikipedia.org/wiki/Network_Time_Protocol#SNTP) for features like power measurement.
