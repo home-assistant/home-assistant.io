@@ -279,6 +279,21 @@ Fetch tasks from your Habitica account, with optional filters to narrow down the
 | tag            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
 | keyword        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
 
+### Action `habitica.update_reward`
+
+Updates a specific reward for the selected Habitica character.
+
+| Data attribute | Optional | Description                                                                                  |
+| -------------- | -------- | -------------------------------------------------------------------------------------------- |
+| `config_entry` | no       | Select the Habitica account to update a reward.                                              |
+| `task`         | no       | The name (or task ID) of the reward you want to update.                                      |
+| `rename`       | yes      | The new title for the Habitica reward.                                                       |
+| `description`  | yes      | The new description for the Habitica reward.                                                 |
+| `cost`         | yes      | Update the cost of a reward.                                                                 |
+| `tag`          | yes      | Add tags to the Habitica reward. If a tag does not already exist, a new one will be created. |
+| `remove_tag`   | yes      | Remove tags from the Habitica reward.                                                        |
+| `alias`        | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
