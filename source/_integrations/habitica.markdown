@@ -86,6 +86,16 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
+### Action `habitica.get_tasks`
+
+Returns user's Habitica character task list with option to filter. Task filtering can be done on:
+
+- Task types   [habit, daily, todo, reward]
+- Task priorities [trivial, easy, medium, hard]
+- Task names
+- Tags
+- Keywords
+
 ## API Service
 
 At runtime, you will be able to use the API for each respective user by their Habitica's username.
