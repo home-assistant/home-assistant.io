@@ -224,6 +224,16 @@ Use a transformation item from your Habitica character's inventory on a member o
 - **Seafoam**: `seafoam` (transforms into a starfish)
 - **Shiny seed** `shiny_seed` (transforms into flower)
 
+### Action `habitica.get_tasks`
+
+Returns user's Habitica character task list with option to filter. Task filtering can be done on:
+
+- Task types   [habit, daily, todo, reward]
+- Task priorities [trivial, easy, medium, hard]
+- Task names
+- Tags
+- Keywords
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
