@@ -86,6 +86,35 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
+### Action update habita tasks
+
+Update Habita tasks attributes by task id. Four service exist one for each task type:
+
+- `habita.update_daily`
+- `habita.update_habit`
+- `habita.update_reward`
+- `habita.update_todo`
+
+Attributes that can be updated:
+
+- text
+- notes
+- priority
+- reminders (add/remove/remove all)
+- due date (update/remove)
+- tags (update/remove)
+- alias
+- cost
+- checklist items (add/remove)
+- score-list items (add/remove)
+- frequency
+- up-down
+- start-date
+- repeat
+- streak
+- counter-up
+- counter-down
+
 ## API Service
 
 At runtime, you will be able to use the API for each respective user by their Habitica's username.
