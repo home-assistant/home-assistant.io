@@ -43,7 +43,7 @@ The WMS WebControl pro *may* also be discovered on your local network via DHCP.
 
 ## Lights
 
-- Dimmers (regarding their brightness) and switches are fully supported.
+- Dimmers (with brightness control) and switches are fully supported.
 
 ## Scenes
 
