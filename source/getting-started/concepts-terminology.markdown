@@ -20,6 +20,10 @@ For a full list of compatible {% term integrations %}, refer to the [integration
 
 Once an {% term integration %} has been added, the hardware and/or data are represented in Home Assistant as [devices and entities](#devices).
 
+## Domains
+
+Domains are categories that group related items such as {% term devices %}, {% term entities %}, and {% term actions %} together. Each domain represents a specific device type or functionality. For example, smart lightbulbs belong to the "light" domain, while smart outlets typically fall under the "switch" domain. Domains form are part of the entity_id, which follows the format "domain.entity" (e.g., "light.dinner_table").
+
 ## Devices
 
 Devices are a logical grouping for one or more {% term entities %}. A {% term device %} may represent a physical {% term device %}, which can have one or more sensors. The sensors appear as entities associated with the {% term device %}. For example, a motion sensor is represented as a {% term device %}. It may provide motion detection, temperature, and light levels as {% term entities %}. Entities have states such as *detected* when motion is detected and *clear* when there is no motion.
@@ -63,6 +67,10 @@ To learn the basics about {% term automations %}, refer to the [automation basic
 Similar to {% term automations %}, scripts are repeatable {% term actions %} that can be run. The difference between {% term scripts %} and {% term automations %} is that {% term scripts %} do not have triggers. This means that {% term scripts %} cannot automatically run unless they are used in an {% term automations %}. Scripts are particularly useful if you perform the same {% term actions %} in different {% term automations %} or trigger them from a dashboard. For information on how to create {% term scripts %}, refer to the [scripts](/integrations/script/) documentation.
 
 ![Scripts](/images/getting-started/script_01.png)
+
+## Actions
+
+Actions can be performed on {% term entities %} to control related {% term devices %}. Each {% term domain %} typically provides one or more actions. Actions can be called manually, triggered by {% term automations %}, or invoked by {% term scripts %}. Examples include "light.turn_on" to activate a light, "switch.toggle" to flip a switch, or "notify.send" to dispatch a notification. They often accept parameters to customize their behavior, such as specifying brightness when turning on a light.
 
 ## Scenes
 
