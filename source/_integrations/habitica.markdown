@@ -88,13 +88,16 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 
 ### Action `habitica.get_tasks`
 
-Returns user's Habitica character task list with option to filter. Task filtering can be done on:
+Fetch tasks from your Habitica account, with optional filters to narrow down the results for more precise task retrieval.
 
-- Task types   [habit, daily, todo, reward]
-- Task priorities [trivial, easy, medium, hard]
-- Task names
-- Tags
-- Keywords
+| Data attribute | Optional | Description                                                                                              |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------- |
+| config_entry   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
+| type           | yes      | Filter tasks by type.                                                                                    |
+| priority       | yes      | Filter tasks by difficulty.                                                                              |
+| task           | yes      | Select specific tasks by matching their name (or task ID).                                               |
+| tag            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
+| keyword        | yes      | Filter tasks by keyword, searching across titles, notes, and checklists.                                 |
 
 ## API Service
 
