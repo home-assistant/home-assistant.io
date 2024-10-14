@@ -80,8 +80,10 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
 
 4. Download and install the new version
 
+N.B. If you have not previously installed core using uv [install uv](https://docs.astral.sh/uv/getting-started/installation/).
+
     ```bash
-    pip3 install --upgrade homeassistant
+    uv pip install --upgrade homeassistant
     ```
 
 5. When that is complete start the service again for it to use the new files.

@@ -14,7 +14,9 @@ This is an advanced installation process, and some steps might differ on your sy
 
 ### Prerequisites
 
-This guide assumes that you already have an operating system setup and have installed Python {{site.installation.versions.python}} (including the package `python3-dev`) or newer.
+This guide assumes that you already have an operating system setup.
+The instructions below will guide you through installing [uv](https://docs.astral.sh/uv/) which ships with downloadable python installations for most platforms.
+If for some reason it cannot find a python download for your operating system you will need to install Python {{site.installation.versions.python}} yourself.
 
 ### Install dependencies
 
@@ -28,7 +30,7 @@ sudo apt-get upgrade -y
 Install the dependencies:
 
 ```bash
-sudo apt-get install -y python3 python3-dev python3-venv python3-pip bluez libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff6 libturbojpeg0-dev tzdata ffmpeg liblapack3 liblapack-dev libatlas-base-dev
+sudo apt-get install -y bluez libffi-dev libssl-dev libjpeg-dev zlib1g-dev autoconf build-essential libopenjp2-7 libtiff6 libturbojpeg0-dev tzdata ffmpeg liblapack3 liblapack-dev libatlas-base-dev
 ```
 
 The above-listed dependencies might differ or missing, depending on your system or personal use of Home Assistant.
@@ -52,37 +54,40 @@ sudo useradd -rm homeassistant
 
 {% endif %}
 
-### Create the virtual environment
+### Create the homeassistant user
 
-First we will create a directory for the installation of Home Assistant Core and change the owner to the `homeassistant` account.
+First we will create a directory for the installation of Home Assistant Core, change the owner to the `homeassistant` account, and login as the new user.
 
 ```bash
 sudo mkdir /srv/homeassistant
 sudo chown homeassistant:homeassistant /srv/homeassistant
+sudo -u homeassistant -H -s
 ```
+
+### Install uv
+
+This will install the uv package and project manager.
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+source $HOME/.cargo/env
+```
+
+### Create the virtual environment
 
 Next up is to create and change to a virtual environment for Home Assistant Core. This will be done as the `homeassistant` account.
 
 ```bash
-sudo -u homeassistant -H -s
 cd /srv/homeassistant
-python3 -m venv .
+uv venv --python {{ site.installation.versions.python }} .
 source bin/activate
 ```
 
-Once you have activated the virtual environment (notice the prompt change to `(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $`) you will need to run the following command to install a required Python package.
+Once you have activated the virtual environment (notice the prompt change to `(homeassistant) homeassistant@raspberrypi:/srv/homeassistant $`) it is now time to install Home Assistant Core!
 
 ```bash
-python3 -m pip install wheel
+uv pip install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
 ```
-
-Once you have installed the required Python package, it is now time to install Home Assistant Core!
-
-```bash
-pip3 install homeassistant=={{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}
-```
-
-**Troubleshooting**: If you do not see the above version of Home Assistant package in your environment, make sure you have the correct Python version installed, as defined under the [Prerequisites](#prerequisites).
 
 Start Home Assistant Core for the first time. This will complete the installation for you, automatically creating the `.homeassistant` configuration directory in the `/home/homeassistant` directory, and installing any basic dependencies.
 
