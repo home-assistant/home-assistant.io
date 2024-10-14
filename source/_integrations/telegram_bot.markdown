@@ -17,7 +17,7 @@ If you don't need to receive messages, you can use the [broadcast](/integrations
 
 ## Notification actions
 
-Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `answer_callback_query`, `delete_message` and `leave_chat`.
+Available actions: `send_message`, `send_photo`, `send_video`, `send_animation`, `send_voice`, `send_sticker`, `send_document`, `send_location`, `edit_message`, `edit_caption`, `edit_replymarkup`, `set_message_reaction`, `answer_callback_query`, `delete_message` and `leave_chat`.
 
 ### Action `telegram_bot.send_message`
 
@@ -257,6 +257,17 @@ Edit the inline keyboard of a previously sent message.
 | `chat_id`                  | no       | The chat_id where to edit the reply_markup.                                                                                                                                                                                                                                                               |
 | `disable_web_page_preview` | yes      | True/false for disable link previews for links in the message.                                                                                                                                                                                                                                            |
 | `inline_keyboard`          | yes      | List of rows of commands, comma-separated, to make a custom inline keyboard with buttons with associated callback data or external URL (https-only). Example: `["/button1, /button2", "/button3"]` or `[[["Text btn1", "/button1"], ["Text btn2", "/button2"]], [["Google link", "https://google.com"]]]` |
+
+### Action `telegram_bot.set_message_reaction`
+
+Set the bot's emoji reaction to a message.
+
+| Data attribute | Optional | Description                                                                                                                         |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `message_id`   | no       | Id of the chat containing the message.                                                                                              |
+| `chat_id`      | no       | Id of the message to react to.                                                                                                      |
+| `reaction`     | no       | List of the emoji to react to the message with. As of writing, bots are not premium users and therefore can only send one reaction. |
+| `is_big`       | yes      | True/false, whether a large variant of the reaction animation should be used.                                                       |
 
 ### Action `telegram_bot.answer_callback_query`
 
