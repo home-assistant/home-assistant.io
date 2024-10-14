@@ -72,7 +72,7 @@ docker pull {{ site.installation.container }}:beta
 4. Download and install the beta version.
 
     ```bash
-    pip3 install --pre --upgrade homeassistant
+    uv pip install --pre --upgrade homeassistant
     ```
 
 5. When that is complete, start the service again for it to use the new files.

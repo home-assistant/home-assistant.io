@@ -49,7 +49,7 @@ docker pull {{ site.installation.container }}:{{current_version}}
 4. Download and install the version you want.
 
     ```bash
-    pip3 install homeassistant=={{current_version}}
+    uv pip install homeassistant=={{current_version}}
     ```
 
 5. When that is complete start the service again for it to use the new files.

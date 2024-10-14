@@ -55,7 +55,7 @@ docker pull {{ site.installation.container }}:dev
 4. Download and install the version you want.
 
     ```bash
-    pip3 install --upgrade git+https://github.com/home-assistant/core.git@dev
+    uv pip install --upgrade git+https://github.com/home-assistant/core.git@dev
     ```
 
 5. When that is complete, start the service again for it to use the new files.
