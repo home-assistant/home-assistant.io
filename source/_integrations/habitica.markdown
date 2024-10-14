@@ -86,34 +86,72 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
-### Action update habita tasks
+### Task update actions
 
-Update Habita tasks attributes by task id. Four service exist one for each task type:
+The Habitica integration offers four actions to update the details and configuration of dailies, to-do's, habits and rewards.
 
-- `habita.update_daily`
-- `habita.update_habit`
-- `habita.update_reward`
-- `habita.update_todo`
+#### Common attributes
 
-Attributes that can be updated:
+Habitica tasks share a common set of details and configuration options, and as such, the attributes listed below are available for all task update actions.
 
-- text
-- notes
-- priority
-- reminders (add/remove/remove all)
-- due date (update/remove)
-- tags (update/remove)
-- alias
-- cost
-- checklist items (add/remove)
-- score-list items (add/remove)
-- frequency
-- up-down
-- start-date
-- repeat
-- streak
-- counter-up
-- counter-down
+| Data attribute         | Optional | Description                                                                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| config_entry           | no       | Select the Habitica account to update a task.                                                                                                           |
+| task                   | no       | The name (or task ID) of the daily you want to update.                                                                                                  |
+| rename                 | yes      | The new title for the Habitica task.                                                                                                                    |
+| description            | yes      | The new description for the Habitica task.                                                                                                              |
+| priority               | yes      | Update the difficulty of a task. (not available for rewards)                                                                                            |
+| tag                    | yes      | Add tags to the Habitica task. If a tag does not already exist, a new one will be created.                                                              |
+| remove_tag             | yes      | Remove tags from the Habitica task.                                                                                                                     |
+| alias                  | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+#### Action `habita.update_daily`
+
+| Data attribute         | Optional | Description                                                                                                                                             |
+| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| add_checklist_item     | yes      | Add new checklist items to a task's checklist.                                                                                                          |
+| remove_checklist_item  | yes      | Remove checklist items from a task's checklist.                                                                                                         |
+| score_checklist_item   | yes      | Mark checklist items from a task's checklist as completed.                                                                                              |
+| unscore_checklist_item | yes      | Undo completion of checklist items from a task's checklist.                                                                                             |
+| start_date             | yes      | Update the start date of a daily to define when it becomes active. Also determines the specific weekday or day of the month on which the habit repeats. |
+| frequency              | yes      | Update the repetition interval of a daily.                                                                                                              |
+| every_x                | yes      | Set the number of days, weeks, months, or years after which the daily repeats. A value of 0 means the daily will never be due (a grey daily).           |
+| repeat                 | yes      | Update the days of the week the daily repeats.                                                                                                          |
+| repeat_monthly         | yes      | Update if a monthly recurring task repeats on the same day or the same week and weekday of the month, determined by the start date.                     |
+| reminder_time          | yes      | Add reminders to a Habitica task.                                                                                                                       |
+| remove_reminder_time   | yes      | Remove specific reminders from a Habitica task.                                                                                                         |
+| clear_reminder         | yes      | Remove all reminders from a Habitica task.                                                                                                              |
+| streak                 | yes      | Adjust or reset the streak counter of the daily.                                                                                                        |
+
+#### Action `habita.update_todo`
+
+| Data attribute         | Optional  | Description                                                                                                       |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| add_checklist_item     | yes       | Add new checklist items to a task's checklist.                                                                    |
+| remove_checklist_item  | yes       | Remove checklist items from a task's checklist.                                                                   |
+| score_checklist_item   | yes       | Mark checklist items from a task's checklist as completed.                                                        |
+| unscore_checklist_item | yes       | Undo completion of checklist items from a task's checklist.                                                       |
+| priority               | yes       | Update the difficulty of a task.                                                                                  |
+| date                   | yes       | Update or set the to-do's due date.                                                                               |
+| clear_date             | yes       | Remove the due date from the to-do.                                                                               |
+| reminder               | yes       | Add reminders to a Habitica task.                                                                                 |
+| remove_reminder        | yes       | Remove specific reminders from a Habitica task.                                                                   |
+| clear_reminder         | yes       | Remove all reminders from a Habitica task.                                                                        |
+
+#### Action `habita.update_habit`
+
+| Data attribute         | Optional  | Description                                                                                                       |
+| ---------------------- | --------- | ----------------------------------------------------------------------------------------------------------------- |
+| up_down                | yes       | Update if the habit is good and rewarding (positive), bad and penalizing (negative), or both.                     |
+| frequency              | yes       | Update the reset frequency of a habit's counter: daily at the start of a new day, weekly after Sunday night, and monthly at the end of the month. |
+| counter_up             | yes       | Update the up counter of a positive habit.                                                                        |
+| counter_down           | yes       | Update the down counter of a negative habit.                                                                      |
+
+#### Action `habita.update_reward`
+
+| Data attribute | Optional  | Description                  |
+| -------------- | --------- | -----------------------------|
+| cost           | yes       | Update the cost of a reward. |
 
 ## API Service
 
