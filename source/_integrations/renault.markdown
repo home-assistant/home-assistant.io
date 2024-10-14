@@ -38,7 +38,7 @@ This integration provides the following platforms:
 
 All vehicles linked to the account should then get added as devices, with sensors added as linked entity.
 
-In some situation features may require subscription like *Pack EV Remote Control* and/or *Pack Smart Navigation*.
+In some situations, some of the features may require a subscription such as the *Pack EV Remote Control* and/or the *Pack Smart Navigation* subscription.
 
 ## Actions
 
