@@ -18,14 +18,16 @@ Integration between the [ebusd](https://github.com/john30/ebusd/) daemon (used f
 
 ## Configuration
 
-Enable the sensor by adding the following to your {% term "`configuration.yaml`" %} file.
+Enable the sensor by adding the following to your {% term "`configuration.yaml`" %} file. The integration will only monitor conditions explicitly specified as `monitored_conditions`. Their availability depends on your heater, ebusd configuration and specific setup.
 {% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
 ebusd:
-  host: 127.0.0.1
+  host: localhost
   circuit: "700"
+  monitored_conditions:
+    - FlowTemp
 ```
 
 {% configuration %}
@@ -50,7 +52,7 @@ name:
 monitored_conditions:
   description: List of conditions to monitor. Note that not all monitored_conditions listed here can be supported by your circuit. This integration maps limited set of keys to circuit specific ebusd values.
   type: list
-  required: false
+  required: true
   keys:
     ActualFlowTemperatureDesired:
       description: Heating circuit flow temperature desired.
