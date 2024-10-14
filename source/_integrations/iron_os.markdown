@@ -4,6 +4,7 @@ description: Instructions on how to integrate IronOS-based Pinecil V2 devices wi
 ha_category:
   - Number
   - Sensor
+  - Update
 ha_iot_class: Local Polling
 ha_release: 2024.8
 ha_config_flow: true
@@ -14,6 +15,7 @@ ha_integration_type: integration
 ha_platforms:
   - number
   - sensor
+  - update
 ---
 
 The **IronOS** {% term integration %} seamlessly connects Home Assistant with PINE64's Pinecil V2 soldering irons, allowing for remote monitoring and control. This integration provides real-time updates on temperature, power, and various other settings and diagnostic information.
@@ -43,3 +45,8 @@ The **IronOS** {% term integration %} seamlessly connects Home Assistant with PI
 - **Tip resistance:** Indicates the resistance of the currently inserted soldering iron tip (for example, "6.2 Ω" for short tips, "8 Ω" for normal tips)
 - **Uptime:** Tracks the total operating time of the soldering iron since its last power-on.
 - **Hall effect strength:** (Optional) This feature requires the device to be [modified with a hall effect sensor](https://wiki.pine64.org/wiki/Pinecil_Hall_Effect_Sensor). If a neodymium magnet is attached to the stand, it enables proximity detection and can be utilized to calibrate when the iron enters sleep mode based on its proximity to the stand.
+
+
+## Update
+
+- **Firmware:** The update entity indicates if the firmware is up-to-date or if there is a newer IronOS version available for your device. For more information on how to update your device, please refer to the [IronOS documentation](https://ralim.github.io/IronOS/).
