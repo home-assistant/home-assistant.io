@@ -33,7 +33,11 @@ The integration has a fan platform to view and control the ventilation speed, an
 - Supply fan speed rpm
 - Alarm
 - Warning
-- Filter Change Timer
+- Filter Change Timer Days Left
+- Filter Change Timer Expiring Date
+- System State
+- Software Version
+- Configuration Version
 
 ## Configuration
 
