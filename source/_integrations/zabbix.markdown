@@ -17,13 +17,19 @@ related:
 
 The **Zabbix** {% term integration %} is the main {% term integration %} to connect to a [Zabbix](https://www.zabbix.com/) monitoring instance via the Zabbix API.
 
-It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD). In order to make setup in Zabbix easy, you can use this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) for the host.
+It is possible to publish Home Assistant state changes to Zabbix. In Zabbix a host has to be created which will contain the Home Assistant states as individual items. These items are automatically created using Zabbix Low-Level Discovery (LLD).\
+Required Zabbix template with the LLD rules and the host in Zabbix to be used as "publish states host" are created automatically during Zabbix integration setup via config flow UI.\
+Alternatively, template can be created in Zabbix manually using this [template](/assets/integrations/zabbix/zbx_template_home_assistant.xml) to import and then linking it with the manually created host.
 
 There is currently also support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+For the details about filter configuration on step "Publish filter configuration" check ([Configure Filter](#configure-filter))
+
+### Configuration via {% term "`configuration.yaml`" %} (Deprecated)
 
 To set the Zabbix {% term integration %} up, add the following information to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -116,7 +122,7 @@ zabbix:
       - sensor.time
 ```
 
-## Configure filter
+#### Configure filter
 
 By default, no entity will be excluded. To limit which entities are being published to Zabbix, you can use the `include` and `exclude` parameters.
 
