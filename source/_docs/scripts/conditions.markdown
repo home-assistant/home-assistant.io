@@ -534,9 +534,9 @@ It's also supported in script or automation `condition` actions:
 [template]: /docs/configuration/templating/
 [automation-templating]: /getting-started/automation-templating/
 
-## Time condition
+## Time, date or datetime conditions
 
-The time condition can test if it is after a specified time, before a specified time or if it is a certain day of the week.
+The time, date or datetime conditions respectively can test if it is after a specified time, date or both, before a specified time, date or both or if it is a certain day of the week.
 
 ```yaml
 conditions:
@@ -549,6 +549,9 @@ conditions:
       - mon
       - wed
       - fri
+  - alias: "DateTime 14th october 11am"
+    condition: datetime
+    after: "2024-10-14 11:00:00"
 ```
 
 Valid values for `weekday` are `mon`, `tue`, `wed`, `thu`, `fri`, `sat`, `sun`.
@@ -572,13 +575,16 @@ conditions:
     before: input_datetime.house_silent_hours_end
 
   - alias: "Example referencing another sensor"
-    after: sensor.groceries_delivery_time
+    condition: date
+    after: sensor.shipping_delivery_date
 ```
 
 {% note %}
 Note that the time condition only takes the time into account. If
 a referenced sensor or helper entity contains a timestamp with a date, the
 date part is fully ignored.
+The same way, date condition only takes the date into account and not the time.
+Only datetime uses both.
 {% endnote %}
 
 ## Trigger condition
