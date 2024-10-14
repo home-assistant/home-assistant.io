@@ -16,6 +16,7 @@ ha_codeowners:
   - '@murtas'
   - '@Eloston'
   - '@dsypniewski'
+  - '@nickconway'
 ha_domain: switchbot
 ha_bluetooth: true
 ha_platforms:
@@ -66,6 +67,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Lock Pro (WoLockPro)](https://www.switch-bot.com/pages/switchbot-lock-pro)
 - [Blind Tilt (WoBlindTilt)](https://switch-bot.com/pages/switchbot-blind-tilt)
 - [Hub 2 (WoHub2)](https://switch-bot.com/pages/switchbot-hub-2) (currently only supports retrieving sensor data, does not yet support device control)
+- [Keypad (WoKeypad)](https://switch-bot.com/pages/switchbot-keypad) (currently only supports retrieving battery level and if a successful attempt was made)
 
 ## SwitchBot Entity
 
