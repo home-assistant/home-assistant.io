@@ -161,6 +161,9 @@ You can verify that the `emulated_hue` integration has been loaded and is respon
 
 - `http://<HA IP Address>:80/description.xml` - This URL should return a descriptor file in the form of an XML file.
 - `http://<HA IP Address>:80/api/v2/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
+  
+You can use the "curl" command to switch a light on or off:
+- `curl -X PUT -d '{"on":true}' http://<HA IP Address>/api/v2/lights/219/state` - This command switches light 219 on.
 
 Verify that the URLs above are using port 80, rather than port 8300 (i.e., `http://<HA IP Address>:80/description.xml`). Both Google Home and Amazon Alexa/Echo (as of the 2019-08 firmware) require port 80.
 
