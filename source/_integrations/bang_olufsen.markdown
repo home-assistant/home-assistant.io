@@ -4,11 +4,13 @@ description: Instructions on how to integrate Bang & Olufsen devices into Home A
 ha_category:
   - Media Player
   - Multimedia
+  - Event
 ha_release: 2024.2
 ha_iot_class: Local Push
 ha_domain: bang_olufsen
 ha_platforms:
   - media_player
+  - event
 ha_codeowners:
   - '@mj23000'
 ha_config_flow: true
@@ -197,7 +199,7 @@ Bang & Olufsen Cloud TTS messages are limited to 100 unique messages a day and a
 
 Extra keys available:
 
-| Data attribute    | Optional | Description                                                                                       |
+| Data attribute            | Optional | Description                                                                                       |
 | ------------------------- | -------- | ------------------------------------------------------------------------------------------------- |
 | `overlay_absolute_volume` | yes      | Specify an absolute volume for the overlay.                                                       |
 | `overlay_offset_volume`   | yes      | Specify a volume offset to be added to the current volume level.                                  |
@@ -249,6 +251,31 @@ data:
 ## Automations
 
 WebSocket notifications received from the device are fired as events in Home Assistant. These can be received by listening to `bang_olufsen_websocket_event` event types, where `device_id` or `serial_number` can be used to differentiate devices.
+
+### Button events
+
+Event entities are created for each of the physical "buttons" on your device. These buttons usually have their own behaviors, so using them for automations is not always ideal.
+
+Available buttons:
+- Bluetooth
+- Microphone
+- Next
+- Play / Pause
+- Favourite 1
+- Favourite 2
+- Favourite 3
+- Favourite 4
+- Previous
+- Volume
+
+All of these buttons support the following events:
+- Release of short press
+- Long press
+- Release of long press
+- Very long press
+- Release of very long press
+
+All devices except the [Beoconnect Core](https://www.bang-olufsen.com/en/dk/accessories/beoconnect-core) support device controls.
 
 ### Getting Deezer URIs
 
