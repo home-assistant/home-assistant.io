@@ -58,4 +58,4 @@ The Govee BLE integration will automatically discover devices once the [Bluetoot
 - 5183 Meat Thermometer
 - 5184 Meat Thermometer
 - 5185 Meat Thermometer
-- [5198 Meat Thermometer](https://us.govee.com/products/govee-wi-fi-grilling-meat-thermometer-with-4-probes)
+- 5198 Meat Thermometer
