@@ -2,6 +2,7 @@
 title: Salda Smarty
 description: Instructions on how to integrate Salda Smarty 2X/3X/4X P/V ventilation systems into Home Assistant.
 ha_category:
+  - Button
   - Fan
   - Hub
   - Sensor
@@ -12,6 +13,7 @@ ha_codeowners:
 ha_domain: smarty
 ha_platforms:
   - binary_sensor
+  - button
   - fan
   - sensor
 ha_integration_type: hub
@@ -24,7 +26,7 @@ There is currently support for the following device types within Home Assistant:
 - Fan
 - Sensor
 
-The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read:
+The integration has a fan platform to view and control the ventilation speed, a button platform to reset the filters timer, and a sensors platform to read:
 
 - Outdoor air temperature
 - Extract air temperature
