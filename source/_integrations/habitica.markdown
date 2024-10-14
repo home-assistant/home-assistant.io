@@ -115,7 +115,7 @@ Habitica tasks share a common set of details and configuration options, and as s
 | unscore_checklist_item | yes      | Undo completion of checklist items from a task's checklist.                                                                                             |
 | start_date             | yes      | Update the start date of a daily to define when it becomes active. Also determines the specific weekday or day of the month on which the habit repeats. |
 | frequency              | yes      | Update the repetition interval of a daily.                                                                                                              |
-| every_x                | yes      | Set the number of days, weeks, months, or years after which the daily repeats. A value of 0 means the daily will never be due (a grey daily).           |
+| every_x                | yes      | Set the number of days, weeks, months, or years after which the daily repeats. A value of 0 means the daily will never be due (a 'Grey-Daily').           |
 | repeat                 | yes      | Update the days of the week the daily repeats.                                                                                                          |
 | repeat_monthly         | yes      | Update if a monthly recurring task repeats on the same day or the same week and weekday of the month, determined by the start date.                     |
 | reminder_time          | yes      | Add reminders to a Habitica task.                                                                                                                       |
