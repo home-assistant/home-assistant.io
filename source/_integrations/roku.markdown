@@ -161,9 +161,9 @@ actions:
 
 ## Play on Roku
 
-The `media_player.play_media` service may be used to send media URLs (primarily videos) for direct playback on your device.
+The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
 
-This feature previously made use of the built-in PlayOnRoku application that was available before Roku OS 11.5. Since Home Assistant v2024.10.3, you can set a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+This feature previously made use of the built-in PlayOnRoku application that was available before Roku OS 11.5. You can also configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
 The following third-party applications have been tested with this integration:
 
@@ -172,7 +172,7 @@ The following third-party applications have been tested with this integration:
 | Service data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | ------- |
 | `entity_id` | no | Target a specific media player. | 
-| `media_content_id` | no | A media URL. | http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+| `media_content_id` | no | A media URL. | `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
 | `media_content_type` | no | A media type. | `url`
 | `extra.format` | no | A media format. It should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
 | `extra.name` | yes | A name for the media. | Big Buck Bunny
@@ -181,26 +181,26 @@ The following third-party applications have been tested with this integration:
 
 ### Example
 ```yaml
-action:
-  - service: media_player.play_media
+actions:
+  - action: media_player.play_media
     target:
       entity_id: media_player.roku
     data:
-      media_content_id: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+      media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
       media_content_type: url
       extra:
-        format: mp4
-        name: Big Buck Bunny
+        format: "mp4"
+        name: "Big Buck Bunny"
 ```
 
 ## Camera Stream Integration
 
-The `camera.play_stream` service may be used to send camera streams (HLS) directly to your device. This feature requires the `stream` integration and makes use of the PlayOnRoku API.
+The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and makes use of the PlayOnRoku API.
 
 ### Example
 ```yaml
-action:
-  service: camera.play_stream
+actions:
+  - action: camera.play_stream
     target:
       entity_id: camera.camera
     data:
