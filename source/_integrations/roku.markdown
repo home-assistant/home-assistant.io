@@ -163,7 +163,7 @@ actions:
 
 The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
 
-This feature previously made use of the built-in PlayOnRoku application that was available before Roku OS 11.5. You can also configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+This feature makes use of the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
 
 The following third-party applications have been tested with this integration:
 
