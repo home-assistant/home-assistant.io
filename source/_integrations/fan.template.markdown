@@ -24,9 +24,13 @@ ability to run scripts or invoke actions for each of the `turn_on`, `turn_off`, 
 
 ## Configuration
 
-{% note %}
-UI configuration is not available for template fans.
-{% endnote %}
+{% include integrations/config_flow.md %}
+
+{% important %}
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+## YAML configuration
 
 To enable template fans in your installation, add the following to your
 {% term "`configuration.yaml`" %} file:
