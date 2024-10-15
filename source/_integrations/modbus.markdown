@@ -686,6 +686,16 @@ climates:
         value 1 is written."
       required: false
       type: integer
+    hvac_on_value:
+      description: "The value that will be written to the `hvac_onoff_register` to turn the HVAC system on.
+        If not specified, the default value is 1."
+      required: false
+      type: integer
+    hvac_off_value:
+      description: "The value that will be written to the `hvac_onoff_register` to turn the HVAC system off.
+        If not specified, the default value is 0."
+      required: false
+      type: integer
     swing_mode_register:
       description: "Configuration of the register for swing mode"
       required: false
