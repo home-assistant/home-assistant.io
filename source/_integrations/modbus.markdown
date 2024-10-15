@@ -680,8 +680,9 @@ climates:
               type: integer
     hvac_onoff_register:
       description: "Address of On/Off state.
-        When zero is read from this register, the HVAC state is set to Off, otherwise the `hvac_mode_register`
-        dictates the state of the HVAC. If no such register is defined, it defaults to Auto.
+        When the value defined by `hvac_off_value` is read from this register, the HVAC
+        state is set to Off. Otherwise, the `hvac_mode_register` dictates the state
+        of the HVAC. If no such register is defined, it defaults to Auto.
         When the HVAC mode is set to Off, the value defined by `hvac_off_value` is written to
         the register, otherwise the value defined by `hvac_on_value` is written."
       required: false
