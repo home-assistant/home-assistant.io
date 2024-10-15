@@ -24,6 +24,10 @@ ability to run scripts or invoke actions for each of the `turn_on`, `turn_off`, 
 
 ## Configuration
 
+{% note %}
+UI configuration is not available for template fans.
+{% endnote %}
+
 To enable template fans in your installation, add the following to your
 {% term "`configuration.yaml`" %} file:
 
@@ -31,16 +35,14 @@ To enable template fans in your installation, add the following to your
 
 ```yaml
 # Example configuration.yaml entry
-fan:
-  - platform: template
-    fans:
-      bedroom_fan:
-        friendly_name: "Bedroom fan"
-        value_template: "{{ states('input_boolean.state') }}"
-        percentage_template: "{{ states('input_number.percentage') }}"
-        preset_mode_template: "{{ states('input_select.preset_mode') }}"
-        oscillating_template: "{{ states('input_select.osc') }}"
-        direction_template: "{{ states('input_select.direction') }}"
+template:
+  - fan:
+      - name: "Bedroom fan"
+        state: "{{ states('input_boolean.state') }}"
+        percentage: "{{ states('input_number.percentage') }}"
+        preset_mode: "{{ states('input_select.preset_mode') }}"
+        oscillating: "{{ states('input_select.osc') }}"
+        direction: "{{ states('input_select.direction') }}"
         turn_on:
           action: script.fan_on
         turn_off:
@@ -71,12 +73,12 @@ fan:
 {% endraw %}
 
 {% configuration %}
-  fans:
+  fan:
     description: List of your fans.
     required: true
     type: map
     keys:
-      friendly_name:
+      name:
         description: Name to use in the frontend.
         required: false
         type: string
@@ -84,27 +86,27 @@ fan:
         description: An ID that uniquely identifies this fan. Set this to a unique value to allow customization through the UI.
         required: false
         type: string
-      value_template:
+      state:
         description: "Defines a template to get the state of the fan. Valid values: `on`, `off`"
         required: true
         type: template
-      percentage_template:
+      percentage:
         description: Defines a template to get the speed percentage of the fan.
         required: false
         type: template
-      preset_mode_template:
+      preset_mode:
         description: Defines a template to get the preset mode of the fan.
         required: false
         type: template
-      oscillating_template:
+      oscillating:
         description: "Defines a template to get the osc state of the fan. Valid values: `true`, `false`"
         required: false
         type: template
-      direction_template:
+      direction:
         description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`"
         required: false
         type: template
-      availability_template:
+      availability:
         description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
         required: false
         type: template
@@ -168,12 +170,10 @@ the example shows multiple actions for `set_percentage`.
 {% raw %}
 
 ```yaml
-fan:
-  - platform: template
-    fans:
-      helper_fan:
-        friendly_name: "Helper Fan"
-        value_template: "{{ states('input_boolean.state') }}"
+template:
+  - fan:
+      - name: "Helper Fan"
+        state: "{{ states('input_boolean.state') }}"
         turn_on:
           - action: input_boolean.turn_on
             target:
@@ -182,7 +182,7 @@ fan:
           - action: input_boolean.turn_off
             target:
               entity_id: input_boolean.state
-        percentage_template: >
+        percentage: >
           {{ states('input_number.percentage') if is_state('input_boolean.state', 'on') else 0 }}
         speed_count: 6
         set_percentage:
@@ -206,12 +206,10 @@ percentage value into useable preset modes without a helper entity.
 {% raw %}
 
 ```yaml
-fan:
-  - platform: template
-    fans:
-      preset_mode_fan:
-        friendly_name: "Preset Mode Fan Example"
-        value_template: "{{ states('fan.percentage_fan') }}"
+template:
+  - fan:
+      - name: "Preset Mode Fan Example"
+        state: "{{ states('fan.percentage_fan') }}"
         turn_on:
           - action: fan.turn_on
             target:
@@ -220,7 +218,7 @@ fan:
           - action: fan.turn_off
             target:
               entity_id: fan.percentage_fan
-        percentage_template: >
+        percentage: >
           {{ state_attr('fan.percentage_fan', 'percentage') }}
         speed_count: 3
         set_percentage:
@@ -234,7 +232,7 @@ fan:
           - "low"
           - "medium"
           - "high"
-        preset_mode_template: >
+        preset_mode: >
           {% if is_state('fan.percentage_fan', 'on') %}
             {% if state_attr('fan.percentage_fan', 'percentage') == 100  %}
               high
