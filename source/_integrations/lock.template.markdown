@@ -30,9 +30,13 @@ In optimistic mode, the lock will immediately change state after every command. 
 
 ## Configuration
 
-{% note %}
-UI configuration is not available for template locks.
-{% endnote %}
+{% include integrations/config_flow.md %}
+
+{% important %}
+To be able to add **{% my helpers title="Helpers" %}** via the user interface, you should have `default_config:` in your {% term "`configuration.yaml`" %}. It should already be there by default unless you removed it.
+{% endimportant %}
+
+## YAML configuration
 
 To enable Template Locks in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
