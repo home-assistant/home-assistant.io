@@ -70,11 +70,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Entities (sensors, binary sensors, buttons, fans, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, fans, images, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -288,6 +288,65 @@ button:
       description: Defines actions to run to press the button.
       required: true
       type: action
+fan:
+  description: List of fans
+  required: true
+  type: map
+  keys:
+    state:
+      description: "Defines a template to get the state of the fan. Valid values: `on`, `off`."
+      required: true
+      type: template
+    percentage:
+      description: Defines a template to get the speed percentage of the fan.
+      required: false
+      type: template
+    preset_mode:
+      description: Defines a template to get the preset mode of the fan.
+      required: false
+      type: template
+    oscillating:
+      description: "Defines a template to get the oscillating state of the fan. Valid values: `true`, `false`"
+      required: false
+      type: template
+    direction:
+      description: "Defines a template to get the direction of the fan. Valid values: `forward`, `reverse`"
+      required: false
+      type: template
+    turn_on:
+      description: Defines an action to run when the fan is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action to run when the fan is turned off.
+      required: true
+      type: action
+    set_percentage:
+      description: Defines an action to run when the fan is given a speed percentage command.
+      required: false
+      type: action
+    set_preset_mode:
+      description: Defines an action to run when the fan is given a preset command.
+      required: false
+      type: action
+    set_oscillating:
+      description: Defines an action to run when the fan is given an oscillation state command.
+      required: false
+      type: action
+    set_direction:
+      description: Defines an action to run when the fan is given a direction command.
+      required: false
+      type: action
+    speed_count:
+      description: The number of speeds the fan supports. Used to calculate the percentage step for the `fan.increase_speed` and `fan.decrease_speed` actions.
+      required: false
+      default: 100
+      type: integer
+    preset_modes:
+      description: List of preset modes the fan is capable of. This is an arbitrary list of strings and must not contain any speeds.
+      required: false
+      default: []
+      type: [string, list]
 image:
   description: List of images
   required: true
@@ -387,7 +446,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, fan, image, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
