@@ -16,6 +16,8 @@ ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
+  - docs: /integrations/template/
+    title: Template entities
 ---
 
 The **Template** {% term integration %} creates fans that combine integrations and provides the
