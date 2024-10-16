@@ -164,7 +164,6 @@ The properties for controlling the clean operations of the appliance are represe
 | ------ | -------- |
 | [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Battery level<br>Operation mode<br>Current state |
 
-
 ### Switch
 
 A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
