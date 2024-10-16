@@ -129,13 +129,13 @@ A common read-only property is represented as a sensor platform.
 | [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Air filter mode<br>Filter used time |
 | [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Current state<br>Current job mode<br>Running time |
 | [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Battery percent<br>Current job mode<br>Current state |
-| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| Washcombo Main | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| Washcombo Mini | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
-| [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Current state<br>Start timer<br>Stop timer<br>Remain timer<br>Total timer |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| Washcombo Main | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| Washcombo Mini | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
 | [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
 | [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Purification mode<br>Sterilizing mode<br>Water type |
 
