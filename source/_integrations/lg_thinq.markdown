@@ -12,7 +12,10 @@ ha_domain: lg_thinq
 ha_platforms:
   - switch
   - binary_sensor
+  - climate
+  - fan
   - number
+  - vacuum
 ha_integration_type: integration
 ---
 
@@ -84,8 +87,12 @@ LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.c
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
-- [Number](#number)
+- [Climate](#climate)
 - [Switch](#switch)
+- [Fan](#fan)
+- [Number](#number)
+- [Vacuum](#vacuum)
+
 
 ### Binary sensor
 
@@ -99,6 +106,23 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Climate
+
+The properties for controlling both the temperature and wind strength of the appliance are represented as a climate platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Fan mode<br>HVAC mode<br>Preset mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
+| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | HVAC mode<br>Current temperature<br>Target temperature<br>Target temperature high<br>Target temperature low<br>Unit |
+
+### Fan
+
+The properties for controlling the wind strength of the appliance are represented as a fan platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Celing Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/) | Operation mode<br>Wind strength |
 
 ### Number
 
@@ -116,16 +140,27 @@ A read-wirte property which has numeric value is represensted as a number platfo
 | [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Stop timer |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Light status<br>Target temperature |
 
+### Vacuum
+
+The properties for controlling the clean operations of the appliance are represented as a vacuum platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Battery level<br>Operation mode<br>Current state |
+
 ### Switch
 
 A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
 
 | Device | Property |
 | ------ | -------- |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Enable power save mode |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Fan operation mode<br>UV sterilization |
 | [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Air purifier operation mode |
 | [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Dehumidifier operation mode |
-| Humidifier | Humidifier operation mode |
+| Humidifier | Humidifier operation mode<br>Warm mode<br>Mood lamp state<br>Auto mode<br>Sleep mode |
+[Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Express mode<br>Rapid freeze<br> |
+| [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Operation mode<br>Enable hot water mode |
 
 ## Troubleshooting
 
