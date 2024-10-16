@@ -113,15 +113,15 @@ A common read-only property is represented as a sensor platform.
 
 | Device | Property |
 | ------ | -------- |
-| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor level<br>Total polution level<br>Filter lifetime<br>Start timer<br>Stop timer<br>Sleep timer |
-| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Odor level<br>Total polution level<br>Sleep timer |
-| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Monitoring always or on operation<br>Odor level<br>Total polution level<br>Current job mode<br>Personalizaion mode (preset) |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor level<br>Total pollution level<br>Filter lifetime<br>Start timer<br>Stop timer<br>Sleep timer |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Odor level<br>Total pollution level<br>Sleep timer |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Monitoring always or on operation<br>Odor level<br>Total pollution level<br>Current job mode<br>Personalizaion mode (preset) |
 | [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/) | Current state<br>Power level<br>Remained time |
 | [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Current job mode<br>Current state |
 | [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Current course<br>Rinse level<br>Softening level<br>Current state<br>Start timer<br>Remained time<br>Total time |
 | [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total time |
 | [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Recipe<br>Wort info<br>Yeast info<br>Hop oil info<br>Flavor<br>Remained beer<br>Current state<br>Elapsed days on state<br>Elapsed days in total |
-| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Total polution level<br>Start timer<br>Stop timer<br>Sleep timer |
+| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Total pollution level<br>Start timer<br>Stop timer<br>Sleep timer |
 | Kimchi Refrigerator | Air filter mode<br>Target temperature |
 | [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state<br>Remained time |
 | [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state<br>Target temperature<br>Remained time<br>Target time |
