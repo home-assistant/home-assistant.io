@@ -362,9 +362,9 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key should are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity based components.
+The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity based components.
 
-To remove the components, publish an empty string to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
+To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
 An empty config can be published as an update to remove a single component from the device discovery. Note that adding the platform option is still required.
 
@@ -437,13 +437,13 @@ After the component has been removed an other update should be send where the pa
 
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option.
+A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
 
 </div>
 
 ##### Migration from single component to device-based discovery
 
-To allow a smooth migration from single component discovery to device-based discovery, the `discovery_id` for an `mqtt` item must be the same. Migration is only supported from the single component discovery, if has **both** a `node_id` and an `object_id`. After migration the `object_id` moves inside the discovery payload, and the previous `node_id` becomes the new `object_id` of the device discovery topic. Note that is also is supported to roll back.
+To allow a smooth migration from single component discovery to device-based discovery, ensure all entities have a `unique_id` and a `device` context. The `object_id` can be moved inside the discovery payload, and the previous `node_id` may becomes the new `object_id` of the device discovery topic. Important is to ensure the `unique_id` matches and the `device` context has the correct identifiers.
 
 To allow discovery migration to a new device-based config, the following payload must be send to all exiting single component discovery topics:
 
@@ -451,7 +451,7 @@ To allow discovery migration to a new device-based config, the following payload
 {"migrate_discovery": true }
 ```
 
-After the discovery has been initiated, the discovery topic can be switched over to the device-based discovery topic for all included components. The device-based discovery message will take over from the single discovery topics. In a final step, the single component discovery messages can be cleaned up with an empty payload. During all steps `INFO` messages are logged to inform about the progress of the migration.
+This will onload the discovered item, but retain it's settings. After the discovery has been initiated, the discovery topic can be switched over to the device-based discovery topic for all included components. The device-based discovery message will take over from the single discovery topics. In a final step, the single component discovery messages can be cleaned up with an empty payload. During the migration steps `INFO` messages should be logged to inform you about the progress of the migration.
 
 {% important %}
 Consider testing the migration process in a non-production environment before applying it to a live system.
