@@ -201,6 +201,10 @@ payload_reset:
   required: false
   type: string
   default: '"None"'
+platform:
+  description: Must be `lock`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -241,7 +245,7 @@ state_unlocking:
   type: string
   default: UNLOCKING
 unique_id:
-   description: An ID that uniquely identifies this lock. If two locks have the same unique ID, Home Assistant will raise an exception.
+   description: An ID that uniquely identifies this lock. If two locks have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
    required: false
    type: string
 value_template:
