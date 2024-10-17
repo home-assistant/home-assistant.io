@@ -317,7 +317,7 @@ The shared options are at root level of the JSON message and must include the `d
 Supported shared options are:
 
 - The `availability` [options](/integrations/mqtt/#using-availability-topics).
-- The `origin` (required) [options](/integrations/mqtt/#adding-information-about-the-origin-af-a-discovery-message)
+- The `origin` (required) [options](/integrations/mqtt/#adding-information-about-the-origin-of-a-discovery-message)
 - `command_topic`
 - `state_topic`
 - `qos`
@@ -917,7 +917,7 @@ support_url:
 
 #### Adding information about the origin of a discovery message
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. For device-based discovery, adding shared `origin` info is required. Note that these options also support abbreviations. The origin information will be in the core event log when an item is discovered or updated.
+It is recommended to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. For device-based discovery, adding shared `origin` info is required. Note that these options also support abbreviations. The origin information will be in the core event log when an item is discovered or updated.
 
 {% configuration_basic %}
 name:
