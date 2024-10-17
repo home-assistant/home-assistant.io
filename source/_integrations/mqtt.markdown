@@ -362,7 +362,7 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity based components.
+The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
@@ -403,7 +403,7 @@ An empty config can be published as an update to remove a single component from 
 
 This will explicitly cleanup the humidity sensor and its entry.
 
-After the component has been removed an other update should be send where the part for the humidity sensor is left away:
+After the component has been removed, another update should be send where the part for the humidity sensor is left away:
 
 ```json
 {
@@ -443,9 +443,9 @@ A component config part in a device discovery payload must have the `platform` o
 
 ##### Migration from single component to device-based discovery
 
-To allow a smooth migration from single component discovery to device-based discovery, ensure all entities have a `unique_id` and a `device` context. The `object_id` can be moved inside the discovery payload, and the previous `node_id` may becomes the new `object_id` of the device discovery topic. Important is to ensure the `unique_id` matches and the `device` context has the correct identifiers.
+To allow a smooth migration from single component discovery to device-based discovery, ensure all entities have a `unique_id` and a `device` context. The `object_id` can be moved inside the discovery payload, and the previous `node_id` may become the new `object_id` of the device discovery topic. Important is to ensure the `unique_id` matches and the `device` context has the correct identifiers.
 
-To allow discovery migration to a new device-based config, the following payload must be send to all exiting single component discovery topics:
+To allow discovery migration to a new device-based config, the following payload must be sent to all exiting single component discovery topics:
 
 ```json
 {"migrate_discovery": true }
@@ -498,7 +498,7 @@ Discovery payload single:
 }
 ```
 
-When these single component discovery payloads are processed and we want to initiate migration to a device-based discovery we need to publish ...
+When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery we need to publish ...
 
 ```json
 {"migrate_discovery": true }
@@ -563,7 +563,7 @@ To rollback publish ...
 
 To the device-based discovery topic(s).
 After that, re-publish the single component discovery payloads.
-At last cleanup the device-based discovery payloads by publishing an empty payload.
+At last, clean up the device-based discovery payloads by publishing an empty payload.
 
 Check the logs for every step.
 
@@ -933,6 +933,7 @@ support_url:
     'sw':                  'sw_version',
     'url':                 'support_url',
 ```
+
 {% enddetails %}
 
 ### Discovery messages en availability
