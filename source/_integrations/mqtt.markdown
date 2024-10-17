@@ -443,21 +443,31 @@ A component config part in a device discovery payload must have the `platform` o
 
 ##### Migration from single component to device-based discovery
 
-To allow a smooth migration from single component discovery to device-based discovery, ensure all entities have a `unique_id` and a `device` context. The `object_id` can be moved inside the discovery payload, and the previous `node_id` may become the new `object_id` of the device discovery topic. Important is to ensure the `unique_id` matches and the `device` context has the correct identifiers.
+To allow a smooth migration from single component discovery to device-based discovery:
 
-To allow discovery migration to a new device-based config, the following payload must be sent to all exiting single component discovery topics:
+1. Ensure all entities have a `unique_id` and a `device` context.
+2. Move the `object_id` inside the discovery payload, if that is available, or use a unique ID or the component.
+3. Consider using the previous `node_id` as the new `object_id` of the device discovery topic.
+4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
+5. Send the following payload to all existing single component discovery topics:
 
 ```json
 {"migrate_discovery": true }
 ```
 
-This will onload the discovered item, but retain it's settings. After the discovery has been initiated, the discovery topic can be switched over to the device-based discovery topic for all included components. The device-based discovery message will take over from the single discovery topics. In a final step, the single component discovery messages can be cleaned up with an empty payload. During the migration steps, `INFO` messages should be logged to inform you about the progress of the migration.
+This will unload the discovered item, but it's settings will be retained.
+6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
+7. Clean up the single component discovery messages with an empty payload.
+
+During the migration steps, INFO messages will be logged to inform you about the progress of the migration.
 
 {% important %}
 Consider testing the migration process in a non-production environment before applying it to a live system.
 {% endimportant %}
 
-**Discovery migration example with a device automation and a sensor:**
+#### Discovery migration example with a device automation and a sensor
+
+**Step 1: Original single component discovery configurations:**
 
 Discovery topic single: `homeassistant/device_automation/0AFFD2/bla1/config`
 Discovery id: `0AFFD2 bla1` *(both `0AFFD2` and `bla1` from the discovery topic)*
@@ -498,6 +508,8 @@ Discovery payload single:
 }
 ```
 
+**Step 2: Initiate migration by publishing to both discovery topics:**
+
 When these single component discovery payloads are processed, and we want to initiate migration to a device-based discovery, we need to publish ...
 
 ```json
@@ -513,7 +525,8 @@ When these single component discovery payloads are processed, and we want to ini
 Check the logs to ensure this step is executed correctly.
 {% endimportant %}
 
-**Start the device discovery migration:**
+**Step 3: Publish the new device-based discovery configuration:**
+
 Discovery topic device: `homeassistant/device/0AFFD2/config`
 Discovery id: `0AFFD2 bla` *(`0AFFD2`from discovery topic, `bla`: The key under `cmp` in the discovery payload)*
 Discovery payload device:
@@ -550,11 +563,13 @@ Discovery payload device:
 Check the logs to ensure the migration was successful.
 {% endimportant %}
 
-**Cleanup after migration:**
+**Step 4: Clean up after successful migration:**
+
 After the logs show a successful migration, the single component discovery topics can be cleaned up safely by publishing an empty payload to them.
 The logs should indicate if the discovery migration was successful.
 
-**Rollback the discovery migration:**
+**Optional: Rolling back the migration:**
+
 To rollback publish ...
 
 ```json
@@ -1302,7 +1317,6 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 The following software has built-in support for MQTT discovery:
 
-
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
 - [ble2mqtt](https://github.com/devbis/ble2mqtt)
@@ -1437,7 +1451,6 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 | `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
 | `retain`               | yes      | If message should have the retain flag set. (default: false) |
 
-
 {% note %}
 When `payload` is rendered from [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) in a YAML script or automation, and the template renders to a `bytes` literal, the outgoing MQTT payload will only be sent as `raw` data, if the `evaluate_payload` option flag is set to `true`.
 {% endnote %}
@@ -1445,7 +1458,6 @@ When `payload` is rendered from [template](/docs/configuration/templating/#using
 {% important %}
 You must include either `topic` or `topic_template`, but not both. If providing a payload, you need to include either `payload` or `payload_template`, but not both.
 {% endimportant %}
-
 
 ```yaml
 topic: homeassistant/light/1/command
