@@ -163,7 +163,7 @@ command_line:
         command:
           description: The action to take.
           required: true
-          type: string
+          type: template
         command_timeout:
           description: Defines number of seconds for command timeout.
           required: false
