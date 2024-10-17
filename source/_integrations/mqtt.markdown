@@ -1302,9 +1302,6 @@ In the example above, the entity_id will be `sensor.my_super_device` instead of 
 
 The following software has built-in support for MQTT discovery:
 
-### Support by third-party tools
-
-The following software has built-in support for MQTT discovery:
 
 - [ArduinoHA](https://github.com/dawidchyrzynski/arduino-home-assistant)
 - [Arilux AL-LC0X LED controllers](https://github.com/smrtnt/Arilux_AL-LC0X)
