@@ -401,9 +401,9 @@ An empty config can be published as an update to remove a single component from 
 }
 ```
 
-This will explicitly cleanup the humidity sensor and its entry.
+This will explicitly remove the humidity sensor and its entry.
 
-After the component has been removed, another update should be send where the part for the humidity sensor is left away:
+After removing a component, you should send another update with the removed component omitted from the configuration. This ensures that Home Assistant has the most up-to-date device configuration. For example:
 
 ```json
 {
@@ -613,11 +613,13 @@ In the value of configuration variables ending with `_topic`, `~` will be replac
 
 Configuration variable names in the discovery payload may be abbreviated to conserve memory when sending a discovery message from memory constrained devices.
 
-It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. Note that these options also support abbreviations. Information of the origin will be logged to the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
+It is recommended to add information about the origin of MQTT entities by including the `origin` option (abbreviated as `o`) in the discovery payload. For device-based discovery, this information is required. The origin details will be logged in the core event log when an item is discovered or updated. Adding origin information helps with troubleshooting and provides valuable context about the source of MQTT messages in your Home Assistant setup.
+
+Note: These options also support abbreviations, as shown in the table below.
 
 {% configuration_basic %}
 name:
-  description: The name of the application that is the origin of the discovered MQTT item. This option is required.
+  description: The name of the application that is the origin of the discovered MQTT item. (Required)
 sw_version:
   description: Software version of the application that supplies the discovered MQTT item.
 support_url:
@@ -913,7 +915,7 @@ support_url:
 
 {% enddetails %}
 
-#### Adding information about the origin af a discovery message
+#### Adding information about the origin of a discovery message
 
 It is encouraged to add additional information about the origin that supplies MQTT entities via MQTT discovery by adding the `origin` option (can be abbreviated to `o`) to the discovery payload. For device-based discovery, adding shared `origin` info is required. Note that these options also support abbreviations. The origin information will be in the core event log when an item is discovered or updated.
 
