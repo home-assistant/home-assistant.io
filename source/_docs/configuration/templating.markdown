@@ -1034,7 +1034,7 @@ The numeric functions and filters raise an error if the input is not a valid num
 
 - `float(value, default)` function will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
 - `float(default)` filter will attempt to convert the input to a `float`. If that fails, returns the `default` value, or if omitted raises an error.
-- `is_number` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
+- `is_number(arg)` will return `True` if the input can be parsed by Python's `float` function and the parsed input is not `inf` or `nan`, in all other cases returns `False`. Note that a Python `bool` will return `True` but the strings `"True"` and `"False"` will both return `False`. Can be used as a filter.
 - `int(value, default)` function is similar to `float`, but converts to an `int` instead. Like `float`, it has a filter form, and an error is raised if the `default` value is omitted. Fractional part is discarded: `int("1.5")` is `1`.
 - `bool(value, default)` function converts the value to either `true` or `false`.
   The following values are considered to be `true`: boolean `true`, non-zero `int`s and `float`s, and the strings `"true"`, `"yes"`, `"on"`, `"enable"`, and `"1"` (case-insensitive). `false` is returned for the opposite values: boolean `false`, integer or floating-point `0`, and the strings `"false"`, `"no"`, `"off"`, `"disable"`, and `"0"` (also case-insensitive).
@@ -1069,6 +1069,56 @@ The numeric functions and filters raise an error if the input is not a valid num
 - Filter `ord` will return for a string of length one an integer representing the Unicode code point of the character when the argument is a Unicode object, or the value of the byte when the argument is an 8-bit string.
 - Filter `multiply(arg)` will convert the input to a number and multiply it by `arg`. Useful in list operations in conjunction with `map`.
 - Filter `add(arg)` will convert the input to a number and add it to `arg`. Useful in list operations in conjunction with `map`.
+
+### Color conversion functions and filters
+
+There are numerous ways to represent colors, and different devices may use different representations. For most devices, Home Assistant will automatically convert between color representations as needed, so explicit color conversions are unnecessary. However, there may be cases where explicit color conversions are useful. The following functions/filters may be used for such conversions.
+
+{% note %}
+All of the following can be used as either a function or a [filter](https://jinja.palletsprojects.com/en/latest/templates/#id11). In cases where more than one parameter is required or permitted, the parameters may be passed either as normal function parameters or as a single iterable object (`tuple`, `list`, etc). In other words, any of the following is permitted:
+{% raw %}
+
+- `{{ color_rgb_to_hex(255, 128, 0) }}`
+- `{% set rgb = (255, 128, 0) %}{{ color_rgb_to_hex(rgb) }}`
+- `{{ (255, 128, 0) | color_rgb_to_hex }}`
+- `{{ color_rgb_to_hex(color_name_to_rgb("red")) }}`
+- `{{ "red" | color_name_to_rgb | color_rgb_to_hex }}`
+
+{% endraw %}
+{% endnote %}
+
+- `color_name_to_rgb(name)` accepts a [SVG](https://www.w3.org/TR/SVG11/types.html#ColorKeywords) / [CSS](https://www.w3.org/TR/css-color-3/#svg-color) color name (str), and returns a RGB color as a `(r, g, b)` int tuple, or returns `None` if the specified color name is not recognized.
+
+- `color_rgb_to_hex(r, g, b)` accepts a RGB color (int values), and returns a web hex color string like `#FFFFFF`.
+- `color_hex_to_rgb(hex)` accepts a web hex color (str) like `#FFFFFF`, and returns a RGB color as a `(r, g, b)` int tuple. The specified hex color may optionally omit the leading `#` and/or use lowercase characters.
+
+- `color_rgb_to_hs(r, g, b)` accepts a RGB color (int values), and returns a HS color as a `(h, s)` float tuple.
+- `color_hs_to_rgb(h, s)` accepts a HS color (float values), and returns a RGB color as a `(r, g, b)` int tuple.
+- `color_rgb_to_hsv(r, g, b)` accepts a RGB color (int values), and returns a HSV color as a `(h, s, v)` float tuple.
+- `color_hsv_to_rgb(h, s, v)` accepts a HSV color (float values), and returns a RGB color as a `(r, g, b)` int tuple.
+- `color_hsb_to_rgb(h, s, b)` accepts a HSB color (float values), and returns a RGB color as a `(r, g, b)` int tuple.
+
+- `color_rgb_to_xy(r, g, b, Gamut=None)` accepts a RGB color (int values) and optionally a Gamut object (created using `color_gamut()`), and returns a XY color as a `(x, y)` float tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+- `color_xy_to_rgb(x, y, Gamut=None)` accepts a XY color (float values) and optionally a Gamut object (created using `color_gamut()`), and returns a RGB color as a `(r, g, b)` int tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+- `color_rgb_to_xyb(r, g, b, Gamut=None)` accepts a RGB color (int values) and optionally a Gamut object (created using `color_gamut()`), and returns a XYB color as a `(x, y, b)` float/float/int tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+- `color_xyb_to_rgb(x, y, b, Gamut=None)` accepts a XYB color (float/float/int values) and optionally a Gamut object (created using `color_gamut()`), and returns a RGB color as a `(r, g, b)` int tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+
+- `color_hs_to_xy(h, s, Gamut=None)` accepts a HS color (float values) and optionally a Gamut object (created using `color_gamut()`), and returns a XY color as a `(x, y)` float tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+- `color_xy_to_hs(x, y, Gamut=None)` accepts a XY color (float values) and optionally a Gamut object (created using `color_gamut()`), and returns a HS color as a `(h, s)` float tuple. If Gamut is provided, then the closest color that falls within the specified Gamut is returned.
+
+- `color_rgb_to_rgbcw(r, g, b, min, max)` accepts a RGB color (int values) and min/max Kelvin (int values), and returns a RGBCW color as a `(r, g, b, c, w)` int tuple.
+- `color_rgbcw_to_rgb(r, g, b, c, w, min, max)` accepts a RGBCW color (int values) and min/max Kelvin (int values), and returns a RGB color as a `(r, g, b)` int tuple.
+
+- `color_temp_to_rgb(k)` accepts Kelvin color temperature (int), and returns a RGB color as a `(r, g, b)` int tuple.
+- `color_temp_to_rgbcw(k, b, min, max)` accepts Kelvin color temperature (int) and brightness (int) and min/max Kelvin (int values), and returns a RGBCW color as a `(r, g, b, c, w)` int tuple.
+- `color_rgbcw_to_temp(r, g, b, c, w, min, max)` accepts a RGBCW color (int values) and min/max Kelvin (int values), and returns Kelvin color temperature and brightness as a `(k, b)` int tuple.
+- `color_temp_to_hs(k)` accepts Kelvin color temperature (int), and returns a HS color as a `(h, s)` float tuple.
+- `color_xy_to_temp(x, y)` accepts a XY color (float values), and returns Kelvin color temperature (int).
+
+- `color_temp_kelvin_to_mired(k)` accepts Kelvin color temperature (int), and returns Mired color temperature (int).
+- `color_temp_mired_to_kelvin(k)` accepts Mired color temperature (int), and returns Kelvin color temperature (int).
+
+- `color_gamut((rx, ry), (gx, gy), (bx, by))` accepts RGB XY pairs (3x float pair tuples), and returns a "Gamut" object for use with other color conversion functions/filters.
 
 ### Complex type checking
 
