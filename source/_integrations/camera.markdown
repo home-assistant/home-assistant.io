@@ -104,7 +104,7 @@ For example, the following action in an automation would take a recording from "
 ```yaml
 actions:
   - variables:
-      entity_id: camera.yourcamera
+      entity_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
   - action: camera.record
     target:
       entity_id: '{{ entity_id }}'
@@ -132,7 +132,7 @@ For example, the following action in an automation would take a snapshot from "y
 ```yaml
 actions:
   - variables:
-      entity_id: camera.yourcamera
+      entity_id: camera.yourcamera  # Store the camera entity_id in a variable for reuse
   - action: camera.snapshot
     target:
       entity_id: '{{ entity_id }}'
