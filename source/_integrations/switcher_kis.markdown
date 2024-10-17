@@ -66,6 +66,10 @@ For Switcher Breeze the integration provides the following buttons:
 
 - For devices which do not support swing status for the vertical swing, the integration provides separate `Vertical swing on` & `Vertical swing off` buttons.
 
+## Lights
+
+For Switcher light control devices (Switcher Runner S11) the integration allows you to control its lights on/off state.
+  
 ## Sensors
 
 For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
