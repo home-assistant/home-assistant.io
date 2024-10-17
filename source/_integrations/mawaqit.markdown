@@ -29,16 +29,16 @@ This platform calculates prayer times from MAWAQIT.net.
 
 The following sensors are added by the integration:
 
-sensors:
-  - fajr: Show the fajr prayer time for today.
-  - shuruq: Show the sunrise for today which is the end of fajr prayer. This is a calculated field and may not necessarily be the same as the astronomical sunrise.
-  - dhuhr: Show the dhuhr prayer time for today.
-  - asr: Show the asr prayer time for today.
-  - maghrib: Show the maghrib prayer time for today.
-  - isha: Show the isha prayer time for today.
-  - next prayer: Show the time of the next prayer.
-  - jumua: Show the jumua time for the week.
-  - ...
+- **fajr**: Shows the fajr prayer time for today.
+- **shuruq**: Shows the sunrise for today, which is the end of fajr prayer. This is a calculated field and may not necessarily be the same as the astronomical sunrise.
+- **dhuhr**: Shows the dhuhr prayer time for today.
+- **asr**: Shows the asr prayer time for today.
+- **maghrib**: Shows the maghrib prayer time for today.
+- **isha**: Shows the isha prayer time for today.
+- **next prayer**: Shows the time of the next prayer.
+- **jumua**: Shows the jumua time for the week.
+- **my_mosque**: displays information about your favorite mosque.
+For every prayer, you get an iqama sensor.
 
 ## Configuration
 
