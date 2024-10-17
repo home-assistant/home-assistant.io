@@ -51,6 +51,8 @@ All configuration options are offered from the front end. Enter what UniFi Netwo
 
 The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
 
+If you want to create a local-only user, you need to switch to the classic UniFi interface for the option to become available.
+
 ### UniFi OS
 
 For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. For some self hosted servers the port will be 8443.

@@ -861,7 +861,6 @@ a.material-card:hover {
   }
 }
 
-
 h1:hover a.title-link,
 h2:hover a.title-link,
 h3:hover a.title-link,
@@ -1360,9 +1359,14 @@ a.my {
   }
 }
 
+// Prevent headings from disappearing behind the site header when linked to
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
 :target {
   display: block;
-  position: relative;
+  position: absolute;
   top: -100px;
   visibility: hidden;
 }
