@@ -3,8 +3,8 @@ title: MAWAQIT Prayer Times
 description: Instructions on how to integrate the MAWAQIT Prayer Times integration within Home Assistant.
 ha_category:
   - Sensor
-ha_iot_class: Calculated
-ha_release: 0.85
+ha_iot_class: cloud_polling
+ha_release: 2024.10.2
 ha_config_flow: true
 ha_domain: mawaqit
 ha_codeowners:
