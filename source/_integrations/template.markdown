@@ -70,11 +70,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Entities (sensors, binary sensors, buttons, images, locks, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, images, locks, numbers, selects and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -302,6 +302,40 @@ image:
       required: false
       type: boolean
       default: true
+lock:
+  description: List of locks
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the lock.
+      required: true
+      type: template
+    availability:
+      description: >-
+        Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+      required: false
+      type: template
+      default: true
+    code_format:
+      description: >-
+        Defines a template to get the `code_format` attribute of the entity. This template must evaluate to a valid [Python regular expression](https://docs.python.org/3/library/re.html#regular-expression-syntax) or `None`. If it evaluates to a not-`None` value, the user is prompted to enter a code when interacting with the lock. The code will be matched against the regular expression, and only if it matches, the lock/unlock actions will be executed. The actual _validity_ of the entered code must be verified within these actions. If there's a syntax error in the template, the entity will be unavailable. If the template fails to render for other reasons or if the regular expression is invalid, no code will be accepted and the lock/unlock actions will never be invoked.
+      required: false
+      type: template
+      default: None
+    lock:
+      description: Defines an action to run when the lock is locked.
+      required: true
+      type: action
+    unlock:
+      description: Defines an action to run when the lock is unlocked.
+      required: true
+      type: action
+    optimistic:
+      description: Flag that defines if lock works in optimistic mode.
+      required: false
+      type: boolean
+      default: false
 weather:
   description: List of weather entities
   required: true
@@ -387,7 +421,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, image, lock, number, select, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map
