@@ -15,7 +15,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q350-tr)/[Q450](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q450-tr)/[Q600](https://www.international.zehnder-systems.com/products-and-systems/comfosystems/zehnder-comfoair-q600-st)
+The `comfoconnect` integration lets you control Zehnder ComfoAir [Q350](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q350-tr)/[Q450](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q450-tr)/[Q600](https://products.zehnder-systems.com/en/product/zehnder-comfoair-q600-st)
 ventilation units from Home Assistant. You need a [ComfoConnect LAN C](https://www.zehnder.co.uk/products-and-systems/comfortable-indoor-ventilation/ms-comfoair-q/ideal-control#node-21233)
 bridge to connect the unit to your local network.
 
@@ -24,7 +24,8 @@ the unofficial [pycomfoconnect](https://github.com/michaelarnauts/comfoconnect) 
 
 The integration has a fan platform to view and control the ventilation speed, and a sensors platform to read out the outdoor temperature and humidity, the indoor temperature and humidity, and the extract and supply air flow (in m³ per hour).
 
-To set it up, add the following information to your `configuration.yaml` file:
+To set it up, add the following information to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 comfoconnect:
@@ -58,7 +59,7 @@ pin:
   type: integer
 {% endconfiguration %}
 
-To register the sensors, add the following to your `configuration.yaml` file:
+To register the sensors, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 sensor:
@@ -89,7 +90,7 @@ sensor:
 
 The list above indicates all supported sensors. It is recommended to only include the ones you need.
 
-<div class='note'>
+{% note %}
 Note that multiple connections to the bridge only work version >= U1.2.6 of the ComfoConnect LAN C bridge.
 In older versions it's not possible to have multiple connections to the bridge at the same time. This integration will then keep the connection open, and if you open the app, it will ask you to disconnect Home Assistant. If you close the app again, Home Assistant will reconnect automatically.
-</div>
+{% endnote %}

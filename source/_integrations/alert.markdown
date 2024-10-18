@@ -9,7 +9,11 @@ ha_quality_scale: internal
 ha_domain: alert
 ha_codeowners:
   - '@home-assistant/core'
+  - '@frenck'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `alert` integration is designed to notify you when problematic issues arise.
@@ -22,17 +26,18 @@ Alerts will add an entity to the front end.
 This entity allows you to silence an alert until it is resolved and has three
 possible states:
 
-State | Description
--|-
-`idle` | The condition for the alert is false.
-`on` | The condition for the alert is true.
-`off` | The condition for the alert is true but it was acknowledged.
+| State  | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| `idle` | The condition for the alert is false.                        |
+| `on`   | The condition for the alert is true.                         |
+| `off`  | The condition for the alert is true but it was acknowledged. |
 
-### Basic Example
+### Basic example
 
 The `alert` integration makes use of any of the `notification` integrations. To
-setup the `alert` integration, first, you must setup a `notification` integration.
-Then, add the following to your configuration file:
+setup the `alert` integration, first, you must set up a [notification integration](/integrations/notify).
+Then, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -77,7 +82,7 @@ repeat:
   required: true
   type: [integer, list]
 can_acknowledge:
-  description: Allows the alert to be unacknowledgeable.
+  description: Control whether the notification can be acknowledged; set to `false` if the alert should not be acknowledgeable.
   required: false
   type: boolean
   default: true
@@ -103,7 +108,7 @@ done_message:
   type: template
 notifiers:
   description: "List of `notification` integrations to use for alerts."
-  required: true
+  required: false
   type: list
 data:
   description: "Dictionary of extra parameters to send to the notifier."
@@ -124,13 +129,13 @@ you specify a `target` parameter when sending the notification), you can use the
 `group` notification to wrap them for an alert.
 Simply create a `group` notification type with a single notification member
 (such as `twilio_sms`) specifying the required parameters other than `message`
-provided by the `alert` component:
+provided by the `alert` integration:
 
 ```yaml
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -148,7 +153,7 @@ alert:
       - john_phone_sms
 ```
 
-### Complex Alert Criteria
+### Complex alert criteria
 
 By design, the `alert` integration only handles very simple criteria for firing.
 That is, it only checks if a single entity's state is equal to a value. At some
@@ -183,7 +188,7 @@ This example will begin firing as soon as the entity `sensor.motion`'s `battery`
 attribute falls below 15. It will continue to fire until the battery attribute
 raises above 15 or the alert is acknowledged on the frontend.
 
-### Dynamic Notification Delay Times
+### Dynamic notification delay times
 
 It may be desirable to have the delays between alert notifications dynamically
 change as the alert continues to fire. This can be done by setting the `repeat`
@@ -214,7 +219,7 @@ following notification.
 For example, if the garage door opens at 2:00, a notification will be
 sent at 2:15, 2:45, 3:45, 4:45, etc., continuing every 60 minutes.
 
-### Message Templates
+### Message templates
 
 It may be desirable to have the alert notifications include information
 about the state of the entity. [Templates][template]
@@ -280,15 +285,34 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
-    - service: alert.turn_off
+  actions:
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
+```
+
+Notifications sent to Home Assistant Companion apps support [replacing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) and [clearing](https://companion.home-assistant.io/docs/notifications/notifications-basic/#replacing) notifications. To use these functions with alerts, set a `tag` in the message data, send `clear_notification` as the `done_message`, and use `mobile_app_*` as the notifier:
+
+```yaml
+alert:
+  garage_door:
+    name: Garage is open
+    done_message: clear_notification
+    entity_id: input_boolean.garage_door
+    state: "on"
+    repeat: 30
+    can_acknowledge: true
+    skip_first: true
+    notifiers:
+      - mobile_app_ryan
+      - mobile_app_kristen
+    data:
+      tag: garage-door
 ```
 
 [template]: /docs/configuration/templating/

@@ -27,10 +27,17 @@
     <meta name="twitter:title" content="{% if post.title %}{{ post.title }}{% elsif page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
     <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | truncate: 200 }}">
     <meta name="twitter:image" content="{{ page.og_image | default: "/images/default-social.png" | prepend: site.url }}">
+    {% if site.social.mastodon.account %}<link rel="me" href="{{ site.social.mastodon.account }}">{% endif %}
 
+    <link href="https://cdn.jsdelivr.net/npm/@docsearch/css@3/dist/style.min.css" rel="stylesheet" />
     <link href="{{ '/stylesheets/prism.css' | cache_buster }}" rel="stylesheet">
     <link href="{{ '/stylesheets/screen.css' | cache_buster }}" media="screen, projection, print" rel="stylesheet">
     <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{ site.title }}" type="application/atom+xml">
     <link rel='shortcut icon' href='/images/favicon.ico' />
     <link rel='icon' type='image/png' href='/images/favicon-192x192.png' sizes='192x192' />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;family=Instrument+Sans:ital,wdth,wght@0,99,400..700;1,99,400..700&amp;" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
   </head>

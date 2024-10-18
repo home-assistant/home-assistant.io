@@ -67,7 +67,7 @@ Enjoy the release (and upcoming events)!
 - [Release 2022.6.6 - June 14](#release-202266---june-14)
 - [Release 2022.6.7 - June 22](#release-202267---june-22)
 - [Need help? Join the community!](#need-help-join-the-community)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -177,7 +177,7 @@ or a reminder 15 minutes before a meeting.
 
 <img class="no-shadow" src='/images/blog/2022-06/calendar-offset.png' alt='Screenshot showing the calendar trigger using an offset'>
 
-<div class='note' data-title=" / Pro-tip!">
+{% tip %}
   <b>Use the calendar trigger to schedule anything in your home!</b><br>
   <br>
   Create a calendar and add events to it as a schedule, for example, for your
@@ -186,7 +186,7 @@ or a reminder 15 minutes before a meeting.
   <br>
   This way, you can create complex schedules with repeating patterns
   and schedule exceptions, with the ease of using your calendar.
-</div>
+{% endtip %}
 
 ## Improved scene editor
 
@@ -727,9 +727,9 @@ Are you more into email? [Sign-up for our Building the Open Home Newsletter](/ne
 to get the latest news about features, things happening in our community and
 other news about building an Open Home; straight into your inbox.
 
-## Breaking Changes
+## Backward-incompatible changes
 
-Below is a listing of the breaking changes for this release, per subject or
+Below is a listing of the backward-incompatible changes for this release, per subject or
 integration. Click on one of those to read more about the breaking change
 for that specific item.
 

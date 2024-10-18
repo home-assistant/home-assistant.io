@@ -8,6 +8,7 @@ author_twitter: balloob
 categories:
 - Release-Notes
 - Core
+- Dashboard
 og_image: /images/blog/2018-06-release-0.72/lovelace.png
 ---
 
@@ -73,7 +74,7 @@ Enjoy this release and have a good weekend all!
 Experiencing issues introduced by this release? Please report them in our [issue tracker](https://github.com/home-assistant/home-assistant/issues). Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## Breaking Changes
+## Backward-incompatible changes
 
 - For developers of custom panel: Remove ability to register panels directly with the frontend component. Register with custom panel component instead. ([@balloob] - [#14805]) ([frontend docs]) (breaking change)
 - Rename Hive hub friendly name to include "Hive" name ([@SteveEdson] - [#14747]) ([sensor.hive docs]) (breaking change)

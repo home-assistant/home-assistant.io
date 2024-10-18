@@ -12,76 +12,107 @@ ha_homekit: true
 ha_platforms:
   - binary_sensor
   - button
+  - diagnostics
   - light
+  - select
+  - sensor
 ha_integration_type: integration
-ha_codeowners:
-  - '@bdraco'
-  - '@Djelibeybi'
-ha_quality_scale: platinum
 ha_dhcp: true
+ha_codeowners:
+  - '@Djelibeybi'
 ---
 
-The LIFX integration automatically discovers [LIFX](https://www.lifx.com) bulbs on your network and adds them to Home Assistant.
+The LIFX integration automatically discovers [LIFX](https://www.lifx.com) lights on each network that is enabled in Home Assistant's [network configuration](/integrations/network). Suppose any of your LIFX lights are not automatically discovered. In that case, you can add them manually using the user interface by following the configuration steps below for each light you want to add:
 
 {% include integrations/config_flow.md %}
 
 ## Set state
 
-The LIFX bulbs allow a change of color and brightness even when they are turned off. This way you can control the light during the day so its settings are correct when events for turning on are received, for example from motion detectors or external buttons.
+LIFX lights allow a change of color and brightness even when they are turned off. This way, you can control the light during the day, so its settings are correct when events for turning on are received, for example, from motion detectors or external buttons.
 
-The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own service call that allows color changes without affecting the current power state.
+The normal `light.turn_on` call cannot be used for this because it always turns the power on. Thus, LIFX has its own `set_state` action that allows color changes without affecting the current power state.
 
-### Service `lifx.set_state`
+### Action `lifx.set_state`
 
 Change the light to a new state.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `transition` | Duration (in seconds) for the light to fade to the new state.
-| `zones` | List of integers for the zone numbers to affect (each LIFX Z strip has 8 zones, starting at 0).
+| `zones` | List of integers for the zone numbers to affect. See **Calculating zones to affect** below for more detail.
 | `power` | Turn the light on (`True`) or off (`False`). Leave out to keep the power as it is.
-| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#service-lightturn_on) to specify the new state.
+| `...` | Use `color_name`, `brightness` etc. from [`light.turn_on`](/integrations/light/#action-lightturn_on) to specify the new state.
+
+#### Calculating zones to affect
+
+The LIFX Z and LIFX Lightstrip each have eight (8) zones per segment. You can connect up to ten (10) segments to a single controller, which results in a maximum zone count of 80.
+
+The LIFX Beam has ten (10) zones per segment and one (1) zone per corner piece. You can connect up to eight (8) segments and two (2) corner pieces to a single controller, which results in a maximum zone count of 82.
+
+All devices start counting zones at zero (0), which means the zone numbers for the `zones` attribute of the `lifx.set_state` action range from 0 to 79 for the LIFX Z and Lightstrip and 0 to 81 for the LIFX Beam.
 
 ## Set HEV cycle state
 
-You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state` service. The service can start or stop a HEV (or "Clean") cycle either using the default duration configured on the bulb or for a custom duration specified when calling the service. Home Assistant will return or log an error if an incompatible bulb is specified when calling the service.
+You can control the HEV LEDs in LIFX Clean bulbs using the `set_hev_cycle_state` action. The action can start or stop a HEV (or "Clean") cycle either using the default duration configured on the bulb or for a custom duration specified when performing the action. Home Assistant will return or log an error if an incompatible bulb is specified when performing the action.
 
 To determine whether or not a HEV cycle is currently running, Home Assistant exposes a Clean Cycle binary sensor for all HEV-enabled bulbs. This sensor can be used to trigger automations to occur when a HEV cycle starts or stops. To reduce network load, HEV cycle status is only checked every 10 seconds so this sensor may not update instantaneously.
 
-### Service `lifx.set_hev_cycle_state`
+### Action `lifx.set_hev_cycle_state`
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of LIFX Clean bulbs.
 | `power` | Start a HEV cycle (`True`) or stop a cycle (`False`).
 | `duration` | Duration (in seconds) for the HEV cycle. The default duration of two hours (7200 seconds) is used if this attribute is omitted.
 
+## Sensors
+
+The following sensors are available depending on the LIFX model:
+
+| Sensor | Description |
+| ------ | ----------- |
+| Clean cycle | Indicates whether a HEV cycle is currently active on a LIFX Clean bulb |
+| Infrared brightness | Controls the infrared brightness amount on a LIFX Nightvision bulb |
+| RSSI | Indicates the current WiFi signal strength on any LIFX bulb (disabled by default) |
+
+Note that these sensors are only updated every 30 seconds and may not reflect the current state if changes are made externally to Home Assistant.
+
+## Themes
+
+Home Assistant provides a collection of predefined themes for LIFX matrix and multizone lights, each designed to mimic the theme of the same name from the LIFX smartphone app.
+
+To apply a theme interactively, use the theme selection drop-down box found on the device configuration screen.
+
+To apply a theme as part of an automation, use the `select.select_option` action call. You can also apply a theme when calling the `lifx.effect_move` action. See the **Light effects** section below for more details, including how to set a custom theme for that effect.
+
+The following themes are available: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence_day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+
 ## Light effects
 
-The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#service-lightturn_on) service, for example like this:
+The LIFX platform supports several software-controlled light effects and one hardware based effect. You can start these effects with default options by using the `effect` attribute of the normal [`light.turn_on`](/integrations/light/#action-lightturn_on) action, for example like this:
 
 ```yaml
 automation:
   - alias: "..."
-    trigger:
+    triggers:
       # ...
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.office, light.kitchen
         data:
           effect: lifx_effect_pulse
 ```
 
-However, if you want to fully control a light effect, you have to use its dedicated service call, like this:
+However, if you want to fully control a light effect, you have to use its dedicated action, like this:
 
 ```yaml
 script:
   colorloop_start:
     alias: "Start colorloop"
     sequence:
-      - service: lifx.effect_colorloop
+      - action: lifx.effect_colorloop
         target:
           entity_id: group.livingroom
         data:
@@ -91,57 +122,137 @@ script:
           change: 35
 ```
 
-The `lifx.effect_move` effect is hardware effect that is only available on LIFX multizone devices like the LIFX Z, Lightstrip or Beam. Note that if all the LEDs of the multizone device are set to the same color, the effect will not be visible. The effect can be stopped and started regardless of the power state of the device, but the default is to turn the device on when starting the effect. Set the `power_on` attribute of the `lifx.effect_move` service to `false` to override the default.
+### Hardware effects
+
+The Flame (`lifx.effect_flame`), Morph (`lifx.effect_morph`), Sky (`lifx.effect_sky`), and Move (`lifx.effect_move`) effects are hardware-based and only work on specific LIFX devices. Flame and Morph are available on the LIFX Tile, Candle, Path, Spot, and Ceiling while the Sky effect is only available on the Ceiling. The Move effect requires a LIFX Z, Lightstrip, Beam, Neon, or String.
+
+All hardware-based effects can be stopped and started regardless of the device's power state, but the default behavior for each action is to turn the device on when starting an effect. Set the `power_on` attribute of the action to `false` to override this default.
 
 All the available light effects and their options are listed below.
 
-### Service `lifx.effect_pulse`
+### Action `lifx.effect_pulse`
 
-Run a flash effect by changing to a color and then back.
+Run a software-based flash effect by changing to a color and then back.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 | `color_name` | A color name such as `red` or `green`.
 | `rgb_color` | A list containing three integers representing the RGB color you want the light to be.
-| `brightness` | Integer between 0 and 255 for how bright the color should be.
+| `brightness` | Integer between 1 and 255 for how bright the color should be.
+| `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 for how bright the color should be.
 | `period` | The duration of a single pulse (in seconds).
 | `cycles` | The total number of pulses.
 | `mode` | The way to change between colors. Valid modes: `blink` (default - direct transition to new color for 'period' time with original color between cycles), `breathe` (color fade transition to new color and back to original), `ping` (short pulse of new color), `strobe` (light turns off between color changes), `solid`(light does not return to original color between cycles).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `lifx.effect_colorloop`
+### Action `lifx.effect_colorloop`
 
-Run an effect with colors looping around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
+Run a software-based effect that continuously loops colors around the color wheel. All participating lights will coordinate to keep similar (but not identical) colors.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
-| `brightness` | Number between 0 and 255 indicating brightness of the effect. Leave this out to maintain the current brightness of each participating light.
+| `brightness` | Number between 1 and 255 indicating the brightness of the effect. Leave this out to maintain the current brightness of each participating light.
+| `brightness_pct` | Alternative to `brightness`. Specify in percent between 1 and 100 how bright each participating light should be.
+| `saturation_min` | Number between 1 and 100 indicating the minimum saturation of the colors in the loop. Leave this out to use the default of 80%.
+| `saturation_max` | Number between 1 and 100 indicating the maximum saturation of the colors in the loop. Leave this out to use the default of 100%.
 | `period` | Duration (in seconds) between starting a new color change.
 | `transition` | Duration (in seconds) where lights are actively changing color.
 | `change` | Hue movement per period, in degrees on a color wheel (ranges from 0 to 359).
 | `spread` | Maximum color difference between participating lights, in degrees on a color wheel (ranges from 0 to 359).
 | `power_on` | Set this to False to skip the effect on lights that are turned off (defaults to True).
 
-### Service `lifx.effect_move`
+### Action `lifx.effect_flame`
 
-A harware-based effect available on LIFX multizone devices that creates a movement animation of the colors currently set on the device. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the colors of the effect while it is running using the `lifx.set_state` service.
+Run a hardware-based effect on LIFX matrix devices that creates a flame effect on the device. The device will be powered on by default, but this can be overridden by setting `power_on` to `false`. The `speed` attribute controls the speed of the flames.
+
+| Data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of matrix lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
+### Action `lifx.effect_morph`
+
+Run a hardware-based effect on LIFX matrix devices that animates blobs of colors across the device. The `speed` attribute controls the speed of the movement.
+
+You must provide a `palette` or `theme` to use for the effect, but not both. The `palette` attribute allows you to select the colors used by the effect, while the `theme` attribute allows you to select one of the pre-configured themes which match those found in the LIFX smartphone app.
+
+The device will be powered on by default, but this can be overridden by setting `power_on` to `false`.
+
+| Data attribute | Description |
+| ---------------------- | ----------- |
+| `entity_id` | String or list of strings that point at `entity_id`s of matrix lights.
+| `speed` | Duration in seconds for the effect to travel the length of the device (min: 1s, max: 25s)
+| `palette` | A list of at least 2 and at most 16 HSBK values to use for this effect.
+| `theme` | The theme to use for the effect. Must be one of: `autumn`, `blissful`, `cheerful`, `dream`, `energizing`, `epic`, `exciting`, `focusing`, `halloween`, `hanukkah`, `holly`, `independence` `day`, `intense`, `mellow`, `peaceful`, `powerful`, `relaxing`, `santa`, `serene`, `soothing`, `sports`, `spring`, `tranquil`, `warming`.
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
+
+### Action `lifx.effect_sky`
+
+Run a hardware-based effect on LIFX Ceiling devices that animates a sky scene across the device. The effect emulates three different types of sky: Sunrise, Sunset, and Clouds.
+The default values and palette used by each sky type match those used by the LIFX smartphone app.
+
+| Data attribute | Description                                                                         |
+| ---------------------- | ----------------------------------------------------------------------------------- |
+| `entity_id`            | String or list of strings containing the `entity_id` of one or more Ceiling devices |
+| `speed` | Duration in seconds for the effect to complete (optional, min: 1s, max: 86400s, default: 50s)      |
+| `palette` | A list of 6 colors to use for this effect (optional, see below for details)                      |
+| `power_on` | Whether to turn the light on before starting the effect (optional, default: true)               |
+| `sky_type` | Either "Sunrise", "Sunset" or "Clouds"                                                          |
+| `cloud_saturation_min` | The minimum cloud saturation for the Cloud sky type (optional, default: 50)         |
+| `cloud_saturation_max` | The maximum cloud saturation for the Cloud sky type (optional, default: 180)        |
+
+The palette for the Sky effect is shared between all three sky types. To use a custom palette, you must specify all six color values as hue (0-360), saturation (0-100), brightness (0-100), and kelvin (1500-9000) in the following order to modify the effect:
+
+1. Sky: The color of the background sky when the Clouds sky type is used. All pixels on the light are given this color, and the "clouds" are made by applying a range of saturation values to the pixels.
+2. Night sky: The starting (or finishing) color of the sky when no sun is visible for Sunrise or Sunset sky type. The Sunrise sky type starts with the light completely this color, then fades to a lighter color before starting to bring up the "sun". The Sunset sky type is the Sunrise sky type but in reverse.
+3. Dawn sky: The color of the sky just as the sun appears. This is the color that the light fades to after starting at the "night sky" color.
+4. Dawn sun: The color of the sun just as the sun appears. The background is still the "dawn sky" above, but now the sun is starting to rise with a warm color.
+5. Full sun: The color of the sun as it covers the whole light. As the sun rises, it fades from the "dawn sun" color to this "full sun" color. The background stays at "dawn sky" but gets washed out by the bright sun colors.
+6. Final sun: The color of the full sun at the end of the effect. After the sun has risen by covering the whole light, there is a phase where it fades to a cooler, bright daylight. This is the "final sun" color.
+
+For example, the following YAML will trigger the Sky effect with the Sunrise sky type to run for five minutes using the same palette as the LIFX smartphone app:
+
+```yaml
+action: lifx.effect_sky
+target:
+  entity_id: light.lifx_ceiling
+data:
+  power_on: true
+  speed: 600
+  sky_type: Sunrise
+  cloud_saturation_min: 50
+  cloud_saturation_max: 180
+  palette:
+    - [200, 100, 100, 3500]  # Sky: blue
+    - [241, 100, 1, 3500]  # Night sky: dark purple
+    - [189, 100, 8, 3500]  # Dawn sky: dark blue
+    - [40, 100, 100, 3500]  # Dawn sun: warm white
+    - [40, 50, 100, 3500]  # Full sun: medium white
+    - [40, 0, 100, 6500]  # Final sun: cool white
+```
+
+### Action `lifx.effect_move`
+
+Run a hardware-based effect on LIFX multizone devices that move the current colors on the device in a particular direction. The direction and speed of the animation are controlled by the `speed` and `direction` attributes. You can change the effect's colors while running using the `lifx.set_state` action.
 
 The effect will not be visible if all LEDs on the device are set to the same color and is ignored by unsupported devices.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of multizone lights.
 | `speed` | Duration in seconds for the effect to travel the length of the device (min: 0.1s, max: 60s)
 | `direction` | The direction in which the effect will travel, either "right" or "left" (default: right)
+| `theme` | The name of a pre-defined theme to apply to the multizone device before starting the effect.
 | `power_on` | Whether to turn the light on before starting the effect (optional, default: true)
 
-### Service `lifx.effect_stop`
+### Action `lifx.effect_stop`
 
 Run an effect that does nothing, thereby stopping any software or hardware effect that might be running.
 
-| Service data attribute | Description |
+| Data attribute | Description |
 | ---------------------- | ----------- |
 | `entity_id` | String or list of strings that point at `entity_id`s of lights. Use `entity_id: all` to target all.
 
@@ -171,7 +282,7 @@ The LIFX integration currently has to poll the device every few seconds, as oppo
 
 Discoveries from control protocols that are not desired can be ignored in the UI. LIFX devices that support HAP will be discovered by both methods if they have not been added to native HomeKit using an Apple iOS or macOS device. It is possible to set up control of the device in Home Assistant using both protocols simultaneously by configuring both the LIFX integration and the HomeKit Controller integration for the same device.
 
-## LIFX Switch
+## LIFX switch
 
 The LIFX integration does not support the LIFX Switch. However, the [HomeKit Controller](/integrations/homekit_controller) integration can be used instead for
 [LIFX Switch running firmware 3.90](https://support.lifx.com/en_us/switch-3-90-update-rk4zYiXVq) or higher. Follow the LIFX
@@ -181,7 +292,7 @@ When using the [HomeKit Controller](/integrations/homekit_controller) integratio
 [stateless switch](/integrations/homekit_controller#stateless-switches-and-sensors) and will not appear as an entity in Home Assistant.
 Relays that are configured as wired to non-LIFX devices will appear as normal switches in Home Assistant.
 
-## Troubleshooting Discovery
+## Troubleshooting discovery
 
 ### Lights
 

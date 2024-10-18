@@ -15,7 +15,7 @@ They presented about their research into lowering grid demand by reducing thermo
 
 <lite-youtube videoid="6ZMXE5PXPqU" videotitle="State of the Open Home 2021" videoStartAt="8042" posterquality="maxresdefault"></lite-youtube>
 
-With Home Assistant we want every home to be about [privacy, choice and durability](/blog/2021/12/23/the-open-home/) and it's how we built Home Assistant. Because we believe in choice, all data in Home Assistant is accessible and one can extend or built on top of our platform.
+With Home Assistant we want every home to be about [privacy, choice and sustainability](/blog/2021/12/23/the-open-home/) and it's how we built Home Assistant. Because we believe in choice, all data in Home Assistant is accessible and one can extend or built on top of our platform.
 
 This architecture made it possible for Prof. Kane to create a custom version of Home Assistant for his research that gathers data about all devices, surveys users based on changes to devices and exports all this data back to their research lab. For this they leverage device integrations, added a custom survey feature to the UI and push notifications from the Home Assistant companion app to draw the user's attention to the surveys.
 

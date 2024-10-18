@@ -14,18 +14,18 @@ ha_codeowners:
   - '@engrbm87'
 ---
 
-The [Pushover service](https://pushover.net/) is a platform for the notify component. This allows integrations to send messages to the user using Pushover.
+The [Pushover service](https://pushover.net/) is a platform for the notify integration. This allows integrations to send messages to the user using Pushover.
 
 ## Configuration
 
-In order to get an API key you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
+In order to get an API key, you need to [register an application](https://pushover.net/apps/clone/home_assistant) on the Pushover website. Your Pushover user key can be found on the [Pushover dashboard](https://pushover.net/dashboard).
 
 {% include integrations/config_flow.md %}
 
 Example Automation:
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
   data:
     message: "This is the message"
     title: "Title of message"
@@ -36,14 +36,14 @@ Example Automation:
       attachment: "local/image.png"
 ```
 
-Component specific values in the nested `data` section are optional.
+Integration-specific values in the nested `data` section are optional.
 
 Image attachments can be added using the `attachment` parameter, which can either be a local file reference (ex: `/tmp/image.png`).
 
 To use a specific Pushover device, set it using `target`. If one of the entered devices doesn't exist or is disabled in your Pushover account it will send a message to all you devices. To send to all devices, just skip the target attribute.
 
 ```yaml
-- service: notify.entity_id
+- action: notify.entity_id
   data:
     message: "This is the message"
     title: "Title of message"
@@ -55,6 +55,21 @@ To use a specific Pushover device, set it using `target`. If one of the entered 
       priority: 0
 ```
 
+To use the highest priority, which repeats the notification every x seconds (`retry`) for the duration of y seconds (`expire`), you MUST specify these parameters. The minimal time for the `retry` parameter is 30 seconds. The `expire` parameter has a maximum of 10800 seconds (3 hours). If you target more than one device, make sure to enable the advanced option "Notification dismissal sync" in the app to be able to dismiss the alert on all devices simultaneously.
+
+```yaml
+- action: notify.entity_id
+  data:
+    message: "This is the message"
+    title: "Title of message"
+    target:
+      - iphone11pro
+    data:
+      priority: 2
+      sound: "siren"
+      expire: 300
+      retry: 30
+```
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
@@ -70,10 +85,9 @@ alexa:
   intents:
     LocateIntent:
       action:
-        service: notify.notify
+        action: notify.notify
         data:
           message: "The location of {{ User }} has been queried via Alexa."
-        data:
           title: "Home Assistant"
           target: pixel
           data:

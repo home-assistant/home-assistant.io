@@ -1,23 +1,27 @@
 ---
-title: "IFTTT Alarm Control Panel"
+title: "IFTTT Alarm control panel"
 description: "Instructions on how to integrate IFTTT-controlled security systems into Home Assistant."
 ha_category:
   - Alarm
 ha_release: 0.66
 ha_domain: ifttt
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `ifttt` platform allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/discover).
+The `ifttt` {% term integration %} allows you to integrate security systems that have no open API but can be controlled through [IFTTT](https://ifttt.com/explore).
 
-This platform depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
+This {% term integration %} depends on the [IFTTT](/integrations/ifttt/) Home Assistant integration. See the integrations documentation to set it up.
 
-<div class='note'>
+{% note %}
 It is important to note that this platform fully relies on IFTTT to receive updates when the security system's state changes. Therefore, this platform shows an assumed state.
-</div>
+{% endnote %}
 
 ## Configuration
 
-To enable this, add the following lines to your `configuration.yaml` file:
+To enable this, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -75,25 +79,25 @@ optimistic:
   default: false
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 
-It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](https://home-assistant.io/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
+It is strongly discouraged to use this platform when you don't use encryption; otherwise, your API password will be send unprotected through the IFTTT Webhooks. It is advised to [setup encryption using Let's Encrypt](/blog/2017/09/27/effortless-encryption-with-lets-encrypt-and-duckdns/).
 
-</div>
+{% endwarning %}
 
 ### Required IFTTT applets
 
 Next, you will need to set up the required IFTTT applets as listed below.
 
-This platform supports the services `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night`. For each of these services, an IFTTT webhook will be triggered.
+This platform supports the `alarm_disarm`, `alarm_arm_away`, `alarm_arm_home` and `alarm_arm_night` actions. For each of these actions, an IFTTT webhook will be triggered.
 
 For this system to operate correctly, the following IFTTT applets have to be setup. Obviously, if your alarm device does not support some states, no applets have to be provided for those.
 
-* **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
-* **IF** Webhook event `YOUR_ARM_HOME_EVENT` is called, **THEN** set the alarm system to armed home.
-* **IF** Webhook event `YOUR_ARM_NIGHT_EVENT` is called, **THEN** set the alarm system to armed away.
-* **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** set the alarm system to armed night.
-* **IF** the alarm system was disarmed, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "disarmed"}`.
-* **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
-* **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
-* **IF** the alarm system state changed to armed night, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_night"}`.
+- **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** disarm the alarm system.
+- **IF** Webhook event `YOUR_ARM_HOME_EVENT` is called, **THEN** set the alarm system to armed home.
+- **IF** Webhook event `YOUR_ARM_NIGHT_EVENT` is called, **THEN** set the alarm system to armed away.
+- **IF** Webhook event `YOUR_DISARM_EVENT` is called, **THEN** set the alarm system to armed night.
+- **IF** the alarm system was disarmed, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "disarmed"}`.
+- **IF** the alarm system state changed to armed home, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_home"}`.
+- **IF** the alarm system state changed to armed away, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_away"}`.
+- **IF** the alarm system state changed to armed night, **THEN** perform a Webhook `POST` web request to URL `https://HASS_URL/api/services/ifttt/push_alarm_state?api_password=API_PASSWORD` with content type `application/json` and body `{"entity_id": "alarm_control_panel.DEVICE_NAME", "state": "armed_night"}`.

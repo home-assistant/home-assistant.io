@@ -3,7 +3,7 @@ title: Abode
 description: Instructions on integrating Abode home security with Home Assistant.
 ha_category:
   - Alarm
-  - Binary Sensor
+  - Binary sensor
   - Camera
   - Cover
   - Hub
@@ -30,15 +30,15 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `abode` integration will allow users to integrate their Abode Home Security systems into Home Assistant and use its alarm system and sensors to automate their homes.
+The **Abode** {% term integration %} allows you to integrate your Abode Home Security systems into Home Assistant and use its alarm system and sensors to trigger automations.
 
 Please visit the [Abode website](https://goabode.com/) for further information about Abode Security.
 
-There is currently support for the following device types within Home Assistant:
+There is currently support for the following {% term device %} types within Home Assistant:
 
-- **Alarm Control Panel**: Reports on the current alarm status and can be used to arm and disarm the system.
-- **Binary Sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` sensors (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
-- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#service-turn_off) and [`camera.turn_on`](/integrations/camera/#service-turn_on) services.
+- **Alarm control panel**: Reports on the current alarm status and can be used to arm and disarm the system.
+- **Binary sensor**: Reports on `Quick Actions`, `Door Contacts`, `Connectivity` {% term sensors %} (remotes, keypads, and status indicators), `Moisture` sensors, and `Motion` or `Occupancy` sensors.
+- **Camera**: Reports on `Camera` devices and will download and show the latest captured still image. Can be turned off and on using the [`camera.turn_off`](/integrations/camera/#action-turn_off) and [`camera.turn_on`](/integrations/camera/#action-turn_on) {% term actions %}.
 - **Cover**: Reports on `Secure Barriers` and can be used to open and close the cover.
 - **Lock**: Reports on `Door Locks` and can be used to lock and unlock the door.
 - **Light**: Reports on `Dimmer` lights and can be used to dim or turn the light on and off.
@@ -49,7 +49,7 @@ There is currently support for the following device types within Home Assistant:
 
 ## Events
 
-There are a number of events that can be triggered from Abode.
+There are a number of {% term events %} that can be triggered from Abode.
 They are grouped into the below events:
 
 - **abode_alarm**: Fired when an alarm event is triggered from Abode. This includes Smoke, CO, Panic, and Burglar alarms.
@@ -64,51 +64,55 @@ They are grouped into the below events:
 - **abode_capture**: Fired when an image is captured.
 - **abode_device**: Fired for device changes/additions/deletions.
 
-All events have the fields:
+All {% term events %} have the fields:
 
-Field | Description
------ | -----------
-`device_id` | The Abode device ID of the event.
-`device_name` | The Abode device name of the event.
-`device_type` | The Abode device type of the event.
-`event_code` | The event code of the event.
-`event_name` | The name of the event.
-`event_type` | The type of the event.
-`event_utc` | The UTC timestamp of the event.
-`user_name` | The Abode user that triggered the event, if applicable.
-`app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.).
-`event_by` | The keypad user that triggered the event.
-`date` | The date of the event in the format `MM/DD/YYYY`.
-`time` | The time of the event in the format `HH:MM AM`.
+| Field | Description |
+| ----- | ----------- |
+| `device_id` | The Abode device ID of the event. |
+| `device_name` | The Abode device name of the event. |
+| `device_type` | The Abode device type of the event. |
+| `event_code` | The event code of the event. |
+| `event_name` | The name of the event. |
+| `event_type` | The type of the event. |
+| `event_utc` | The UTC timestamp of the event. |
+| `user_name` | The Abode user that triggered the event, if applicable. |
+| `app_type` | The Abode app that triggered the event (e.g.,  web app, iOS app, etc.). |
+| `event_by` | The keypad user that triggered the event. |
+| `date` | The date of the event in the format `MM/DD/YYYY`. |
+| `time` | The time of the event in the format `HH:MM AM`. |
 
-There is a unique list of known event_codes that can be found
-[here](https://github.com/MisterWil/abodepy/files/1262019/timeline_events.txt).
+There is a unique list of known event_codes are defined in
+[events.csv](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/events.csv)
+and the inferred groups and their ranges of event codes are defined in
+[timeline.py](https://github.com/jaraco/jaraco.abode/blob/main/jaraco/abode/helpers/timeline.py).
 
-## Services
+## Actions
 
-### Service `change_setting`
+Available {% term actions %}: `change_setting`, `capture_image`, `trigger_automation`
+
+### Action `change_setting`
 
 Change settings on your Abode system.
 For a full list of settings and valid values, consult the
-[AbodePy settings section](https://github.com/MisterWil/abodepy/blob/master/README.rst#settings).
+[`jaraco.abode` settings section](https://github.com/jaraco/jaraco.abode/blob/main/README.rst#settings).
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `setting` | No | The setting you wish to change.
-| `value` | No | The value you wish to change the setting to.
+| `setting` | No | The setting you wish to change. |
+| `value` | No | The value you wish to change the setting to. |
 
-### Service `capture_image`
+### Action `capture_image`
 
 Request a new still image from your Abode camera.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras.
+| `entity_id` | No | String or list of strings that point at `entity_id`s of Abode cameras. |
 
-### Service `trigger_automation`
+### Action `trigger_automation`
 
 Trigger an automation on your Abode system.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations.
+| `entity_id` | No | String or list of strings that point at `entity_id`s of switches that represent your Abode automations. |

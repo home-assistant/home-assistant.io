@@ -11,7 +11,7 @@ ha_platforms:
   - sensor
 ha_codeowners:
   - '@tkdrob'
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
 Integrate your [Efergy](https://efergy.com) meter information into Home Assistant.
@@ -27,7 +27,7 @@ To get an app token:
 3. Click on App tokens
 4. Click "Add token"
 
-## Integration Entities
+## Integration entities
 
 The following sensors will be created:
 

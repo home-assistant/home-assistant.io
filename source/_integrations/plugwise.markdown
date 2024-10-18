@@ -2,7 +2,8 @@
 title: Plugwise
 description: Plugwise Smile platform integration.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
+  - Button
   - Climate
   - Number
   - Select
@@ -13,33 +14,34 @@ ha_release: 0.98
 ha_codeowners:
   - '@CoMPaTech'
   - '@bouwew'
-  - '@brefra'
   - '@frenck'
 ha_config_flow: true
 ha_domain: plugwise
 ha_zeroconf: true
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - diagnostics
   - number
   - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: hub
 ---
 
-This enables [Plugwise](https://www.plugwise.com) components with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
-The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the [Stretch](https://www.plugwise.com/nl_NL/het-systeem) products. See below list for more details.
+This enables [Plugwise](https://www.plugwise.com) integrations with a central Smile gateway to be integrated. This integration talks locally to your **Smile** interface, and you will need its password and IP address.
+The platform supports [Anna](https://www.plugwise.com/en_US/products/anna), [Adam (zonecontrol)](https://www.plugwise.com/en_US/zonecontrol), [P1](https://www.plugwise.com/en_US/products/smile-p1) Smile products and the Stretch products (not in sale). See below list for more details.
 
 Platforms available - depending on your Smile and setup include:
 
- - `climate` (for the Anna and Lisa products, or a single Tom)
+ - `climate` (for the Anna, Jip and Lisa products, or a single Tom)
+ - `button` (for the Adam and the non-legacy Anna and P1 gateways)
  - `sensor` (for all relevant products including the Smile P1)
  - `binary_sensor` (for showing the status of e.g. domestic hot water heating or secondary heater)
- - `switch` (for Plugs connected to Adam or Stealths and Circles connected to a Stretch)
- - `select` (for changing a thermostat schedule)
- - `number` (for changing a boiler setpoint)
+ - `switch` (for Plugs connected to Adam, or Circles and Stealths connected to a Stretch)
+ - `select` (for changing a thermostat schedule, a regulation mode (Adam only))
+ - `number` (for changing a boiler setpoint, Circlesa temperature offset)
 
 The password can be found on the bottom of your Smile or Stretch, the ID, it should consist of 8 characters. To find your IP address use the Plugwise App: 
 
@@ -67,53 +69,95 @@ For a thermostat, the active schedule can be deactivated or reactivated via the 
 
 Auto means the schedule is active, Heat means it's not active. The active thermostat schedule can be changed via the connected thermostat select-entity. Please note: that only schedules that have two or more schedule points will be shown as select options.
 
-### Services
+### Actions
 
 #### Update Smile data
 
-Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` service with your Smile entity as the target.
+Forced update of data from your Smile can be triggered by calling the generic `homeassistant.update_entity` action with your Smile entity as the target.
 
 ```yaml
 # Example script change the temperature
 script:
   force_adam_update:
     sequence:
-      - service: homeassistant.update_entity
+      - action: homeassistant.update_entity
         target:
           entity_id: climate.anna
 ```
 
-#### Set HVAC mode (limited to schedule active / not active)
+#### Reboot the Plugwise gateway
 
-Service: `climate.set_hvac_mode`
+action: `button.press`
 
-Available options include `auto`, `heat`, and `cool` (only when there is a cooling option available). The meaning of `auto` is that a schedule is active and the thermostat will change presets accordingly. The meaning of `heat/cool` is that there is no schedule active, i.e., the active preset or manually set temperature is used to control the climate in your house or rooms.
+```yaml
+# Example script change the thermostat schedule
+script:
+  reboot_gateway:
+    sequence:
+      - action: button.press
+        target:
+          entity_id: button.adam_reboot
+```
+
+#### Set HVAC mode
+
+action: `climate.set_hvac_mode`
+
+Available options include `off` (Adam only) `auto`, `cool`, `heat`, and `heat_cool` (Anna with Elga only).
+
+The meaning of `off` is that the Adam regulation is set to off. This means that the connected HVAC-system does not heat or cool, only the domestic hot water heating function, when available, is active.
+
+The meaning of `cool` or `heat` is that there is no schedule active. For example, if the system is manually set to cooling- or heating-mode, the system will be active if the room temperature is above/below the thermostat setpoint.
+
+The meaning of `heat/cool` is that there is no schedule active. For example, if the system is in automatic cooling- or heating-mode, the active preset or manually set temperature is used to control the HVAC system.
+
+The meaning of `auto` is that a schedule is active and the thermostat will change presets/setpoints accordingly.
+
 The last schedule that was active is determined the same way long-tapping the top of Anna works.
 
 Example:
 
 ```yaml
-# Example script set hvac_mode to auto = schedule active
+# Example script climate.set_hvac_mode to auto = schedule active
 script:
   lisa_reactivate_last_schedule:
     sequence:
-      - service: climate.set_hvac_mode
+      - action: climate.set_hvac_mode
         target:
           entity_id: climate.lisa_bios
         data:
           hvac_mode: auto
 ```
 
+#### Turn on / turn off
+
+action: `climate.turn_off`, `climate.turn_on` (Adam only)
+
+These actions will switch the Adam regulation mode (= HVAC system mode) to off or on, affecting the operation of all connected thermostats.
+`climate.turn_on` will activate the previously selected heating or cooling mode.
+
+Example:
+
+```yaml
+# Example script climate.turn_off
+script:
+  turn_heating_on:
+    sequence:
+      - action: climate.turn_off
+        target:
+          entity_id: climate.lisa_bios
+```
+
 #### Change climate schedule
 
-Service: `select.select_option`
+action: `select.select_option`
 
 ```yaml
 # Example script change the thermostat schedule
 script:
   lisa_change_schedule:
     sequence:
-      - service: select.select_option
+      - action: select.select_option
         target:
           entity_id: select.lisa_bios_thermostat_schedule
         data:
@@ -122,14 +166,14 @@ script:
 
 #### Change boiler setpoint
 
-Service: `number.set_value`
+action: `number.set_value`
 
 ```yaml
 # Example script change the boiler setpoint
 script:
   change_max_boiler_tempeture_setpoint:
     sequence:
-      - service: number.set_value
+      - action: number.set_value
         target:
           entity_id: number.opentherm_max_boiler_temperature_setpoint
         data:
@@ -138,7 +182,7 @@ script:
 
 #### Set temperature
 
-Service: `climate.set_temperature`
+action: `climate.set_temperature`
 
 Example:
 
@@ -147,7 +191,7 @@ Example:
 script:
   anna_set_predefined_temperature:
     sequence:
-      - service: climate.set_temperature
+      - action: climate.set_temperature
         target:
           entity_id: climate.anna
         data:
@@ -156,7 +200,7 @@ script:
 
 #### Set preset mode
 
-Service: `climate.set_preset_mode`
+action: `climate.set_preset_mode`
 
 Available options include: `home`, `vacation` (Anna only), `no_frost`, `asleep` & `away`.
 
@@ -167,7 +211,7 @@ Example:
 script:
   anna_activate_preset_asleep:
     sequence:
-      - service: climate.set_preset_mode
+      - action: climate.set_preset_mode
         data:
           preset_mode: asleep
 ```
@@ -183,11 +227,14 @@ Adam (zone_control) with On/Off, OpenTherm, and Loria/Thermastage heating and co
 
  - Devices supported are Anna, Lisa, Jip, Floor, Tom, Plug, Aqara Smart Plug, and Koen (a Koen always comes with a Plug, the active part)
 
-Anna (thermostat) with OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
+Anna (thermostat) with OnOff, OpenTherm heating, and Elga and Loria/Thermastage with heating and cooling support:
 
  - v4.x
  - v3.x
  - v1.x
+
+On the Elga, the cooling-mode can only be turned on, or off, via a switch present on the device, not via a toggle in the Plugwise App.
+Please make sure to reload the Plugwise integration after the cooling-mode-switch is turned off after being on, or the other way around. This will ensure that the Plugwise integration is being adapted to the change in function of the Elga.
 
 Smile P1 (DSMR):
 

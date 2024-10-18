@@ -1,15 +1,25 @@
 ---
 type: view
-title: Panel View
+title: Panel view
 sidebar_label: Panel
-description: "The panel view shows 1 card in the fullwidth of the screen."
+description: "The panel view shows a single card in the full width of the screen."
+related:
+  - docs: /dashboards/masonry/
+    title: Masonry view
+  - docs: /dashboards/sidebar/
+    title: Sidebar view
 ---
 
-In this view the first card is rendered full-width, other cards in the view will not be rendered. 
+The panel view must have exactly one card. This card is rendered full-width.
+
+<p class='img'>
+<img src='/images/dashboards/panel_view.png' alt='Screenshot of the panel view'>
+Screenshot of the panel view.
+</p>
 
 This view doesn't have support for badges.
 
-This view is good when using cards like `map`, `stack` or `picture-elements`.
+This view is good when using cards like [map](/dashboards/map/), [horizontal stack](/dashboards/horizontal-stack/), [vertical stack](/dashboards/vertical-stack/), [picture elements](/dashboards/picture-elements/), or [picture glance](/dashboards/picture-glance/).
 
 {% configuration %}
 type:

@@ -19,7 +19,7 @@ the email and password you used to in the configuration for this sensor in order
 
 ## Configuration
 
-To add the sensors to your installation, add the following to your `configuration.yaml` file:
+To add the sensors to your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -107,16 +107,16 @@ input_number:
 
 automation:
   - alias: "Alert when My Smoke Probe 1 is above threshold"
-    trigger:
-      platform: template
-      value_template: >-
-        {% if (states("sensor.my_smoke_probe_1") | float) > (states("input_number.smoke_probe_1_threshold") | float) %}
-          True
-        {% else %}
-          False
-        {% endif %}
-    action:
-      - service: notify.all
+    triggers:
+      - trigger: template
+        value_template: >-
+          {% if (states("sensor.my_smoke_probe_1") | float) > (states("input_number.smoke_probe_1_threshold") | float) %}
+            True
+          {% else %}
+            False
+          {% endif %}
+    actions:
+      - action: notify.all
         data:
           message: >
             {{- state_attr('sensor.my_smoke_probe_1','friendly_name') }} is above

@@ -6,29 +6,21 @@ ha_category:
 ha_release: pre 0.7
 ha_quality_scale: internal
 ha_domain: downloader
+ha_codeowners:
+  - '@erwindouna'
 ha_integration_type: integration
+ha_config_flow: true
 ---
 
-The `downloader` integration provides a service to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user that is running Home Assistant.
+The **Downloader** {% term integration %} provides an action to download files. It will raise an error and not continue to set itself up when the download directory does not exist. The directory needs to be writable for the user who is running Home Assistant.
 
-To enable it, add the following lines to your `configuration.yaml` file:
+{% include integrations/config_flow.md %}
 
-```yaml
-# Example configuration.yaml entry
-downloader:
-  download_dir: downloads
-```
+If the path is not absolute, it’s assumed to be relative to the Home Assistant configuration directory (for example, `/config/downloads`). So if you have a folder called `/config/my_download_folder`, when prompted to **Select a location to get to store downloads**, enter `my_download_folder`. Home Assistant checks if the directory exists.
 
-{% configuration %}
-download_dir:
-  description: "If the path is not absolute, it's assumed to be relative to the Home Assistant configuration directory (eg. `.homeassistant/downloads`)."
-  required: true
-  type: string
-{% endconfiguration %}
+### Use the action
 
-### Use the service
-
-Go to the "Developer Tools", then to "Services", and choose `downloader/download_file` from the list of available services. Fill the "Service Data" field as shown in the example below and hit "CALL SERVICE".
+Go to the "Developer Tools", then to "Actions", and choose `downloader.download_file` from the list of available actions. Fill the "data" field as shown in the example below and select "Perform action".
 
 ```json
 {"url":"http://domain.tld/path/to/file"}
@@ -36,14 +28,14 @@ Go to the "Developer Tools", then to "Services", and choose `downloader/download
 
 This will download the file from the given URL.
 
-| Service data attribute | Optional | Description                                    |
+| Data attribute | Optional | Description                                    |
 | ---------------------- | -------- | ---------------------------------------------- |
 | `url`                  |       no | The URL of the file to download.               |
 | `subdir`               |      yes | Download into subdirectory of **download_dir** |
 | `filename`             |      yes | Determine the filename.                        |
 | `overwrite`            |      yes | Whether to overwrite the file or not, defaults to `false`. |
 
-### Download Status Events
+### Download status events
 
 When a download finished successfully, Home Assistant will emit a `downloader_download_completed` event to the event bus which you can use to write automations against.
 In case download failed another event `downloader_download_failed` is emitted to indicate that the download did not complete successfully.
@@ -55,16 +47,16 @@ Along with the event the following payload parameters are available:
 | `url`  | The `url` that was requested.|                                                                                                                                      
 | `filename`    | The `name` of the file that was being downloaded.|
 
-#### Example Automation:
+#### Example automation:
 
 ```yaml
 - alias: "Download Failed Notification"
-  trigger:
-    platform: event
-    event_type: downloader_download_failed
-  action:
-    service: persistent_notification.create
-    data:
-      message: "{{trigger.event.data.filename}} download failed"
-      title: "Download Failed"
+  triggers:
+    - trigger: event
+      event_type: downloader_download_failed
+  actions:
+    - action: persistent_notification.create
+      data:
+        message: "{{trigger.event.data.filename}} download failed"
+        title: "Download Failed"
  ```

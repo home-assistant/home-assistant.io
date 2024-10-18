@@ -60,7 +60,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - MQTT Cover: Fixed status reporting for range with non-zero base ([@cribbstechnologies])
 
 <!--more-->
-## Breaking changes
+## Backward-incompatible changes
 
 - Python Open Z-Wave made a release that fixed string processing. This was backwards incompatible. We have updated our code so you'll have to update to the latest Python Open Z-Wave with this release. You can also wait one release, as next release we'll introduce automatic installing of Python Open Z-Wave. ([@keatontaylor] - [#7266]) ([climate.zwave docs]) (breaking change)
 - InfluxDB configuration to blacklist domains has been updated to allow more features. ([@janLo] - [#7264]) (breaking change)

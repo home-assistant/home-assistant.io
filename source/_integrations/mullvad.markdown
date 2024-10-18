@@ -2,7 +2,7 @@
 title: Mullvad VPN
 description: Instructions on how to integrate Mullvad VPN api data into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Network
 ha_iot_class: Cloud Polling
 ha_release: 2021.3

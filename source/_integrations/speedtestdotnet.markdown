@@ -3,7 +3,7 @@ title: Speedtest.net
 description: How to integrate Speedtest.net within Home Assistant.
 ha_category:
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Cloud Polling
 ha_config_flow: true
@@ -22,9 +22,11 @@ The Speedtest.net integration uses the [Speedtest.net](https://speedtest.net/) w
 
 Most Speedtest.net servers require TCP port 8080 outbound to function. Without this port open you may experience significant delays or no results at all. See note on their [help page](https://www.speedtest.net/help).
 
-By default, a speed test will be run every hour. You can update frequency in the integration configuration.
+By default, a speed test will be run every hour. You can disable polling using system options and use the `update_entity` action to automate the speed test frequency.
 
-## Integration Sensors
+{% include common-tasks/define_custom_polling.md %}
+
+## Integration sensors
 
 The following sensors are added by the integration:
 
@@ -39,7 +41,7 @@ Please be aware of the potential [inconsistencies](https://github.com/sivel/spee
 
 ## Examples
 
-In this section you will find some real-life examples of how to use this component.
+In this section you will find some real-life examples of how to use this integration.
 ### Using as a trigger in an automation
 
 {% raw %}
@@ -48,18 +50,18 @@ In this section you will find some real-life examples of how to use this compone
 # Example configuration.yaml entry
 automation:
   - alias: "Internet Speed Glow Connect Great"
-    trigger:
-      - platform: template
+    triggers:
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float >= 10 }}"
-    action:
-      - service: shell_command.green
+    actions:
+      - action: shell_command.green
 
   - alias: "Internet Speed Glow Connect Poor"
-    trigger:
-      - platform: template
+    triggers:
+      - trigger: template
         value_template: "{{ states('sensor.speedtest_download')|float < 10 }}"
-    action:
-      - service: shell_command.red
+    actions:
+      - action: shell_command.red
 ```
 
 {% endraw %}

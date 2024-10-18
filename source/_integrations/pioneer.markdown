@@ -2,18 +2,22 @@
 title: Pioneer
 description: Instructions on how to integrate a Pioneer Network Receivers into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.19
 ha_iot_class: Local Polling
 ha_domain: pioneer
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `pioneer` platform allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
+The `pioneer` {% term integration %} allows you to control Pioneer Network Receivers. Please note, however, that the more recent Pioneer models work with [Onkyo](/integrations/onkyo) platform instead.
 
-To add a Pioneer receiver to your installation, add the following to your `configuration.yaml` file:
+To add a Pioneer receiver to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -50,7 +54,7 @@ sources:
 
 Notes:
 
-- Some Pioneer AVRs use the port 23 default and some are reported to use 8102.
+- Some Pioneer AVRs use the port 23 default and some are reported to use 8102. Depending on the model you may be able to configure the port setting through the receiver's HTTP interface, e.g. `http://192.168.0.10/1000/port_number.asp`. On models that can listen to multiple ports you could consider leaving the default port for use by hardcoded tools, and open another port for configurable tools such as Home Assistant.
 - `timeout` is a socket level option and should only be configured if you know what you are doing.
 
 ### Source codes

@@ -54,7 +54,7 @@ Enjoy the release!
 - [Release 2021.1.4 - January 16](#release-202114---january-16)
 - [Release 2021.1.5 - January 23](#release-202115---january-23)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -267,7 +267,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -494,7 +494,7 @@ Avri has changed their API and it seems not possible to use the new one.
 - Revert "Change http to auto for cast media image url" ([@emontnemery] - [#44327]) ([cast docs])
 - Refactor Airly config flow ([@bieniu] - [#44330]) ([airly docs])
 - Update ReCollect docs to use proper name ([@bachya] - [#44291]) ([recollect_waste docs])
-- Upgrade Telegram lib, refactor component for breaking changes ([@ofalvai] - [#44147]) ([telegram_bot docs])
+- Upgrade Telegram lib, refactor component for backward-incompatible changes ([@ofalvai] - [#44147]) ([telegram_bot docs])
 - Add new sensors to meteo_france ([@mbo18] - [#44150]) ([meteo_france docs])
 - Convert filter tests to use pytest style ([@chrisgramberg678] - [#41743]) ([filter docs])
 - Alphabetize hyperion const.py ([@dermotduffy] - [#44343]) ([hyperion docs])

@@ -1,19 +1,23 @@
 ---
 title: GStreamer
-description: Instructions on how to integrate Gstreamer into Home Assistant.
+description: Instructions on how to integrate GStreamer into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.39
 ha_iot_class: Local Push
 ha_domain: gstreamer
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `gstreamer` platform allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.
+The `gstreamer` {% term integration %} allows you to play audio via a [gstreamer](https://gstreamer.freedesktop.org/) pipeline. Practically, this means you can play audio directly on the computer running Home Assistant. It is particularly suited for playing TTS. Advanced users can specify a pipeline to transform the audio stream and/or redirect it elsewhere.
 
-To add a `gstreamer` media player to your installation, add the following to your `configuration.yaml` file:
+To add a `gstreamer` media player to your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +72,7 @@ On a Raspberry Pi, you may need to add the Home Assistant user to the `audio` gr
 sudo usermod -a -G audio <ha_user>
 ```
 
-## Example Usage
+## Example usage
 
 ### Using with TTS
 
@@ -81,7 +85,7 @@ media_player:
 script:
   tts:
     sequence:
-      - service: tts.google_say # or amazon_polly, voicerss, etc
+      - action: tts.google_say # or amazon_polly, voicerss, etc
         target:
           entity_id: media_player.gstreamer
         data:

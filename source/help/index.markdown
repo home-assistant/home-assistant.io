@@ -9,7 +9,8 @@ There are various ways to get in touch with the Home Assistant community. It doe
 
 - [Forum][forum]
 - [Discord Chat Server][discord] for general Home Assistant discussions and questions.
-- Follow us on [Twitter][twitter], use [@home_assistant][twitter]
+- Follow us on Mastodon, use [@homeassistant@fosstodon.org][mastodon]
+- Follow us on X, use [@home_assistant][x-twitter]
 - Join the [Facebook community][facebook]
 - Join the Reddit in [/r/homeassistant][reddit]
 
@@ -72,7 +73,7 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Smart Home Home Assistant Konfiguration mit YAML](https://onesmarthome.de/smart-home-home-assistant-konfiguration/) - July 2017
 - [Why can't we have the Internet of Nice Things?](https://opensource.com/article/17/7/home-automation-primer) - July 2017
 - [Smart Home Home Assistant Raspberry Pi Installation Hassbian](http://onesmarthome.de/smart-home-home-assistant-raspberry-pi-installation-hassbian/) - July 2017
-- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.jupiterbroadcasting.com/115566/no-privacy-compromise-home-automation/) - June 2017
+- [Jupiter Broadcasting - No Privacy Compromise Home Automation](https://www.youtube.com/watch?v=LQbOtUmITv8) - June 2017
 - [Monitor IoT devices with Home Assistant and Datadog](https://www.datadoghq.com/blog/monitor-home-assistant/) - June 2017
 - [Castálio Podcast - Episódio 102: Marcelo Mello - Red Hat e Automação Residencial com Home Assistant](https://youtu.be/hZq8ucpzjCs) - May 2017
 - [Paulus Schoutsen and Home Assistant - Episode 8](https://codepop.com/open-sourcecraft/episodes/paulus-schoutsen/) - March 2017
@@ -88,7 +89,8 @@ Don't miss the regular [Home Assistant podcasts](https://hasspodcast.io/).
 - [Home Assistant – Open Source Python Home Automation Platform](https://www.automatedhome.co.uk/new-products/home-assistant-open-source-python-home-automation-platform.html) - January 2015
 
 [forum]: https://community.home-assistant.io/
-[twitter]: https://twitter.com/home_assistant
+[mastodon]: https://fosstodon.org/@homeassistant
+[x-twitter]: https://x.com/home_assistant
 [facebook]: https://www.facebook.com/homeassistantio
 [reddit]: https://reddit.com/r/homeassistant
-[discord]: https://discord.gg/c5DvZ4e
+[discord]: /join-chat

@@ -49,6 +49,6 @@ These devices have been sold under many brands, including:
 - REYSURPIUS
 - SUPERNIGHT
 - Triones
-- Zengee
+- [Zengge](http://www.zengge.com/sy)
 - YONEDA
 - Zerproc

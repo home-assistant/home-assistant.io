@@ -2,7 +2,7 @@
 title: QwikSwitch QSUSB
 description: Instructions on how to integrate the QwikSwitch QSUSB Hub into Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Hub
   - Light
   - Sensor
@@ -18,13 +18,16 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `qwikswitch` integration is the main integration to integrate various [QwikSwitch](https://www.qwikswitch.co.za/) devices with Home Assistant. The integration requires the QSUSB Modem device and connects to the QS Mobile application.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Light
 - [Sensor](#qwikswitch-sensors)
 - [Switch](#switch)
@@ -32,6 +35,9 @@ There is currently support for the following device types within Home Assistant:
 The `qwikswitch` integration discovers all devices from QS Mobile. Currently, Relays and LED dimmers are discovered in Home Assistant. Relay devices are lights by default, and can be configured as [switches](#switch).
 
 ## Configuration
+
+To use the QwickSwitch integration in your installation, add it to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -102,9 +108,9 @@ QwikSwitch devices (i.e., transmitter buttons) will fire events on the Home Assi
 ```yaml
 automation:
   - alias: "Action - Respond to A button press"
-    trigger:
-      platform: event
-      event_type: qwikswitch.button.@12df34
+    triggers:
+      - trigger: event
+        event_type: qwikswitch.button.@12df34
 ```
 
 `event_type` names should be in the format **qwikswitch.button.@_QS_id_**. where **@_QS_id_** will be captured in the Home Assistant log when pressing the button. Alternatively, you can also get the device ID from the QS Mobile application or by using the listen API call by browsing to `http://127.0.0.1:2020/&listen` and then pressing the button.
@@ -121,7 +127,7 @@ The list of recognized commands can be extended for Keyfobs, door sensors, and P
 
 On some QS Mobile servers button events are only generated for switches added to the QS Mobile application, so it might be best to test button presses through the `/&listen` API
 
-### Qwikswitch Sensors
+### Qwikswitch sensors
 
 The sensor configuration is a list of sensors. Depending on the type of sensor, it will be a sensor or binary_sensor.
 

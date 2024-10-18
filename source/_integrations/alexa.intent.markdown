@@ -5,11 +5,14 @@ ha_category:
   - Voice
 ha_release: "0.10"
 ha_domain: alexa
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 ## I want to build custom commands to use with Echo
 
-The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and call services within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
+The built-in Alexa integration allows you to integrate Home Assistant into Alexa/Amazon Echo. This integration will allow you to query information and perform actions within Home Assistant by using your voice. Home Assistant offers no built-in sentences but offers a framework for you to define your own.
 
 <lite-youtube videoid="1Ke3mtWd_cQ" videotitle="Home Assistant integration for Amazon Echo" posterquality="maxresdefault"></lite-youtube>
 
@@ -70,7 +73,7 @@ Next you need to create a Lambda function.
 - Click your Lambda Function icon in the middle of the diagram and scroll down, you will see a `Function code` window.
 - Clear the example code and copy the Python script from this [GitHub Gist](https://gist.github.com/lpomfrey/97381cf4316553b03622c665ae3a47da).
 - Click the `Deploy` button of the `Function code` window.
-- Scroll down again and you will find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
+- Scroll down again and pick the `Configuration' tab, select it and on the left you will now find `Environment variables`, click on `Edit` button and add the following environment variables as needed:
   - BASE_URL *(required)*: your Home Assistant instance's Internet accessible URL with port if needed. *Do not include the trailing `/`*.
   - NOT_VERIFY_SSL *(optional)*: set to *True* to ignore the SSL issue, if you don't have a valid SSL certificate or you are using self-signed certificate.
   - DEBUG *(optional)*: set to *True* to log debugging messages.
@@ -80,7 +83,7 @@ Next you need to create a Lambda function.
   - Go back to your Alexa skill and go to the Custom->Endpoint menu option on the left.
   - Paste the ARN value in the "Default Region". Note: you will not be able to do this until you have completed the step above adding the Alexa Skills Kit trigger (done in the previous step) to the AWS Lambda Function.
 
-### Account Linking
+### Account linking
 
 Alexa can link your Amazon account to your Home Assistant account. Therefore Home Assistant can make sure only authenticated Alexa requests are actioned. In order to link the account, you have to make sure your Home Assistant instance can be accessed from the Internet.
 
@@ -159,7 +162,8 @@ This means that we can now ask Alexa things like:
 
 When activated, the Alexa integration will have Home Assistant's native intent support handle the incoming intents. If you want to run actions based on intents, use the [`intent_script`](/integrations/intent_script) integration.
 
-To enable Alexa, add the following entry to your `configuration.yaml` file:
+To enable Alexa, add the following entry to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 alexa:
@@ -195,6 +199,8 @@ The names must exactly match the scene names (minus underscores - Amazon discard
 
 In the new Alexa Skills Kit, you can also create synonyms for slot type values, which can be used in place of the base value in utterances. Synonyms will be replaced with their associated slot value in the intent request sent to the Alexa API endpoint, but only if there are not multiple synonym matches. Otherwise, the value of the synonym that was spoken will be used.
 
+If you want to use the `Optional ID` field next to or instead of the Synonym value, you can simply append "_Id" at the end of the template variable e.g. `Scene_Id`.
+
 <p class='img'>
 <img src='/images/integrations/alexa/scene_slot_synonyms.png' />
 Custom slot values with synonyms.
@@ -214,9 +220,11 @@ Then add the intent to your `intent_script` section in your HA configuration fil
 intent_script:
   ActivateSceneIntent:
     action:
-      service: scene.turn_on
+      action: scene.turn_on
       target:
         entity_id: scene.{{ Scene | replace(" ", "_") }}
+      data:
+        id: {{ Scene_Id }}
     speech:
       type: plain
       text: OK
@@ -228,7 +236,7 @@ Here we are using [templates] to take the name we gave to Alexa e.g., `downstair
 
 Now say `Alexa ask Home Assistant to activate <some scene>` and Alexa will activate that scene for you.
 
-### Adding Scripts
+### Adding scripts
 
 We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:
 
@@ -266,7 +274,7 @@ Then add the intent to your intent_script section in your HA configuration file:
 intent_script:
   RunScriptIntent:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.{{ Script | replace(" ", "_") }}
     speech:
@@ -296,7 +304,7 @@ The configuration is the same as an intent with the exception being you will use
 intent_script:
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444:
     action:
-      service: script.turn_on
+      action: script.turn_on
       target:
         entity_id: script.red_alert
     speech:
@@ -329,7 +337,7 @@ intent_script:
     speech:
       text: Done. Good night!
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1
@@ -339,7 +347,7 @@ intent_script:
       text: Alright
   amzn1.ask.skill.08888888-7777-6666-5555-444444444444.SessionEndedRequest:
     action:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id:
           - switch.room1
@@ -391,8 +399,18 @@ text: !include alexa_confirm.yaml
 
 Alexa will now respond with a random phrase each time. You can use the include for as many different intents as you like so you only need to create the list once.
 
+## Workaround for having to say the skill's name
+
+Sometimes, you want to run script or scene intents without using the skill's name. For example, 'Alexa `<some script>`' instead of 'Alexa ask Home Assistant to run `<some script>`' because it is shorter.
+
+You can do this by using Alexa routines. 
+1. Configure a routine in the Alexa app that responds to the command you want to use:
+   -  For example, 'Alexa, turn on the dryer'. 
+2.  Make sure this routine includes a customized action that contains the full phrase you configured in your skill:
+     - For example, 'Alexa, ask Home Assistant to run the dryer on script'.
+
 [amazon-dev-console]: https://developer.amazon.com
 [large-icon]: /images/integrations/alexa/alexa-512x512.png
 [small-icon]: /images/integrations/alexa/alexa-108x108.png
-[templates]: /topics/templating/
-[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/en/auth_api.html#long-lived-access-token
+[templates]: /docs/configuration/templating/
+[generate-long-lived-access-token]: https://developers.home-assistant.io/docs/auth_api/#long-lived-access-token

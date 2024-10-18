@@ -167,7 +167,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __Google Assistant__ - You will now have to say a pin code before being able to control locks, doors and garage doors. You can set this pin in configuration -> cloud or, for manual installs, add `secure_devices_pin` to your config. ([@balloob] - [#23223]) ([cloud docs]) ([google_assistant docs]) (breaking change) (beta fix)
 - __Google Assistant__ - Migrate light setting trait to use HSV color spectrum. If you have lights with colors, please run a Google Assistant SYNC after you update to this version. It will result in improved color representation. ([@balloob] - [#22980]) ([google_assistant docs])
@@ -175,9 +175,9 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - __Amcrest__ - Remove Build Date, Version and Serial Number attributes from sensors. These values do not change during the life of the device and are not appropriate for state attributes. ([@pnbruckner] - [#22418]) ([amcrest docs])
 - __Insteon__ - Placeholders that forwarded users from insteon_plm and insteon_local to insteon component have been removed. ([@balloob] - [#22710])
 - __Logi Circle__ - This is a breaking change to the Logi Circle integration which migrates from Logitech's private API to their public API.
-  * Authentication with Logi Circle's API is now performed using an authorization code grant, and is managed by the Integrations page. It's no longer possible to authenticate with a username and password directly. Please remove any existing configuration for the logi_circle integration and follow the directions here to configure the logi_circle integration with at least a client_id, client_secret, api_key and redirect_uri.
-   * Logi Circle camera and sensor entities are now auto-discovered once the integration is authenticated. Users should remove the logi_circle integration from camera and sensor platforms as this is no longer supported.
-   * Logi Circle services have been moved from the camera domain to the logi_circle domain
+  - Authentication with Logi Circle's API is now performed using an authorization code grant, and is managed by the Integrations page. It's no longer possible to authenticate with a username and password directly. Please remove any existing configuration for the logi_circle integration and follow the directions here to configure the logi_circle integration with at least a client_id, client_secret, api_key and redirect_uri.
+   - Logi Circle camera and sensor entities are now auto-discovered once the integration is authenticated. Users should remove the logi_circle integration from camera and sensor platforms as this is no longer supported.
+   - Logi Circle services have been moved from the camera domain to the logi_circle domain
 
    Please check the documentation for further details. ([@evanjd] - [#20624]) ([logi_circle docs])
 - __Introduction__ - The introduction integration has been removed. It used to be part of the initially created configuration but no longer served a purpose. ([@balloob] - [#22944]) ([introduction docs])

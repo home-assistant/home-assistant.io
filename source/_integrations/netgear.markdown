@@ -2,7 +2,7 @@
 title: NETGEAR
 description: Instructions on how to integrate NETGEAR routers into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
   - Update
 ha_iot_class: Local Polling
 ha_release: pre 0.7
@@ -71,9 +71,10 @@ The following router features can be turned on/off, and the status can be read:
 
 ### Speed test data
 
-The "Average Ping", "Downlink Bandwidth" and "Uplink Bandwidth" can be tracked by performing a speed test every 30 minutes.
-If these sensor entities are enabled they will first show as Unknown since the first speed test does only happen 30 minutes after the integration loads, previous results will be restored on subsequent restarts.
-The speed test interval is chosen to be 30 minutes to not put unnecessary load on the network.
+The "Average Ping", "Downlink Bandwidth," and "Uplink Bandwidth" can be tracked by performing a speed test every 2 hours.
+If these sensor entities are enabled, they will first show previous results on integration load. The first new speed tests happens 2 hours after the integration loads.
+The speed test interval is chosen to be 2 hours not to put unnecessary load on the network and reduce data usage.
+When one or more of the three sensors is enabled, the speed tests will be performed. Note that this can cause high data usage depending on your internet connection speed which might be relevant when using metered/limited networks.
 
 ### Ethernet link status
 
@@ -108,3 +109,7 @@ Displays the current link rate of the device indicating the maximum possible dat
 ### Link type
 
 Displays the current link type: wired, 2.4GHz or 5GHz.
+
+## Troubleshooting
+
+- If you get a "Connection or login error" when trying to setup the NETGEAR integration, please try using the IP address of the router (often "192.168.1.1") as host instead of the default "routerlogin.net".

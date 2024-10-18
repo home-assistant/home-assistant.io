@@ -33,11 +33,11 @@ To use notifications, please see the [getting started with automation page](/get
 ### Send message
 
 ```yaml
-action:
-  service: notify.sms
-  data:
-    message: "This is a message for you!"
-    target: "+5068081-8181"
+actions:
+  - action: notify.sms
+    data:
+      message: "This is a message for you!"
+      target: "+5068081-8181"
 ```
 
 ### Sending SMS using GSM alphabet
@@ -45,13 +45,13 @@ action:
 Some devices (receiving or sending) do not support Unicode (the default encoding). For these you can disable Unicode:
 
 ```yaml
-action:
-  service: notify.sms
-  data:
-    message: "This is a message for you in ANSI"
-    target: "+5068081-8181"
+actions:
+  - action: notify.sms
     data:
-      unicode: False
+      message: "This is a message for you in ANSI"
+      target: "+5068081-8181"
+      data:
+        unicode: False
 ```
 
 ### Getting SMS messages
@@ -81,11 +81,10 @@ notify_sms_user1:
       description: "The message content"
       example: "The light is on!"
   sequence:
-  - service: notify.sms
+  - action: notify.sms
     data:
       message: "{{ message }}"
       target: "{{ states('sensor.user1_phone_number') }}"
-  mode: single
   icon: mdi:chat-alert
 ```
 
@@ -97,20 +96,20 @@ notify_sms_user1:
 
 ```yaml
 - alias: "Forward SMS"
-  trigger:
-  - platform: event
+  triggers:
+  - trigger: event
     event_type: sms.incoming_sms
-  action:
-  - service: script.notify_sms_user1
+  actions:
+  - action: script.notify_sms_user1
     data:
       message: |
         From: {{trigger.event.data.phone}}
-        {{trigger.event.data.text}}  mode: single
+        {{trigger.event.data.text}}
 ```
 
 {% endraw %}
 
-## Required Hardware
+## Required hardware
 
 You will need a USB GSM stick modem or device like SIM800L v2 connected via USB UART.
 
@@ -119,9 +118,10 @@ You will need a USB GSM stick modem or device like SIM800L v2 connected via USB 
 - [SIM800C](https://www.amazon.com/gp/product/B087Z6F953/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 - [Huawei E3372](https://www.amazon.com/gp/product/B01N6P3HI2/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)(
 Note: E3372h-153 and E3372h-510 need to be unlocked [this guide](http://blog.asiantuntijakaveri.fi/2015/07/convert-huawei-e3372h-153-from.html), The Huawei E3372h-320 won't work at all, since it is locked down too much)
-- [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1) (note: Devices with firmare versions 22.XX need to be unlocked using [this guide](https://community.home-assistant.io/t/trouble-setting-up-huawei-e3531s-2-with-sms-notifications-via-gsm-modem-integration/462737/9?u=alexschmitz222))
+- [Huawei E3531](https://www.amazon.com/Modem-Huawei-Unlocked-Caribbean-Desbloqueado/dp/B011YZZ6Q2/ref=sr_1_1?keywords=Huawei+E3531&qid=1581447800&sr=8-1) (note: Devices with firmware versions 22.XX need to be unlocked using [this guide](https://community.home-assistant.io/t/trouble-setting-up-huawei-e3531s-2-with-sms-notifications-via-gsm-modem-integration/462737/9?u=alexschmitz222))
 - [Huawei E3272](https://www.amazon.com/Huawei-E3272s-506-Unlocked-Americas-Europe/dp/B00HBL51OQ)
 - ZTE K3565-Z
+- Lenovo F5521gw (mPCI-E)
 
 ### List of modems known to NOT work
 
@@ -183,6 +183,8 @@ ACTION=="add" \
 Re-plug the USB stick, reboot the device, run `lsusb` again.
 The resulting product id now should be different and the brand id should be the same.
 And `ls -l /dev/*USB*` should now report your device.
+
+Note: if you have multiple USB devices, USB number order can change on boot. For this reason, it's preferable to use your device ID and look in `/dev/serial/by-id/*`. For example,  `/dev/serial/by-id/usb-HUAWEI_MOBILE_HUAWEI_MOBILE-if00-port0`.
 
 If the device is still not recognized, remove the parameter -X from the usb_modeswitch command and reboot again.
 

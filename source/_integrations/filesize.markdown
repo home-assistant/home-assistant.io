@@ -1,6 +1,6 @@
 ---
-title: File Size
-description: Component for monitoring the size of a file.
+title: File size
+description: Integration for monitoring the size of a file.
 ha_category:
   - Sensor
   - Utility
@@ -15,12 +15,14 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The `filesize` sensor is for displaying the size in MB of a file.
+The **File size** {% term integration %} is for displaying the size in MB of a file.
 
-<div class='note'>
+{% important %}
 
-File paths must also be added to [allowlist_external_dirs](/docs/configuration/basic/) in your `configuration.yaml`.
+File paths must also be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
 
-</div>
+File paths should be absolute paths. For example: `/config/home-assistant_v2.db` to monitor the size of the default database.
+
+{% endimportant %}
 
 {% include integrations/config_flow.md %}

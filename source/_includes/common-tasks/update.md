@@ -1,13 +1,11 @@
-## Update
+Best practice for updating Home Assistant Core:
 
-Best practice for updating a Home Assistant installation:
-
-1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the backup functionality Home Assistant offers{% endif %}.
-1. Check the release notes for breaking changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Breaking Changes**.
+1. Backup your installation{% if page.installation == "os" or page.installation == "supervised" %}, using the [backup functionality](/common-tasks/os/#backups) Home Assistant offers{% endif %}.
+2. Check the release notes for backward-incompatible changes on [Home Assistant release notes](/blog/categories/core/). Be sure to check all release notes between the version you are running and the one you are upgrading to. Use the search function in your browser (`CTRL + f` / `CMD + f`) and search for **Backward-incompatible changes**.
 {% if page.installation == "os" or page.installation == "supervised" %}
-1. Select "Create backup before updating" in case you encounter an issue that requires a rollback.
-1. Update Home Assistant.
-1. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
+3. Select **Create backup before updating** in case you encounter an issue that requires a rollback.
+4. Update Home Assistant.
+5. Review persistent notifications and log to see if there are any issues with your configuration that need to be addressed.
 {% endif %}
 
 {% if page.installation == "os" or page.installation == "supervised" %}
@@ -19,11 +17,14 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
 - title: Using the UI
   content: |
 
-    1. Open your Home Assistant UI
-    2. Navigate to the Settings panel
-    3. On the top you will be presented with an update notification
-
-    _If you do not see that notification you can click the overflow menu in the top right and select "Check for updates"._
+    1. Open your Home Assistant UI.
+    2. Navigate to the **Settings** panel.
+    3. On the top you will be presented with an update notification.
+       - **Troubleshooting**: If you do not see that notification:
+         - In the top right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Check for updates**.
+         - Go to {% my updates title="**System** > **Updates**" %}.
+           - Select the update notification.
+           - Select the cogwheel {% icon "mdi:cog-outline" %}, then set **Visible** to active.
 
 - title: Using the CLI
   content: |
@@ -55,8 +56,8 @@ To update Home Assistant Core when you run Home Assistant {{ page.installation_n
   content: |
 
     ```bash
-    docker-compose pull homeassistant
-    docker-compose up -d
+    docker compose pull homeassistant
+    docker compose up -d
     ```
 
 {% endtabbed_block %}

@@ -11,7 +11,7 @@ ha_codeowners:
 ha_domain: geonetnz_volcano
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: service
 ---
 
 The `geonetnz_volcano` integration lets you use a GeoJSON feed provided by 
@@ -35,19 +35,17 @@ The data is updated every 5 minutes.
   <img src='/images/integrations/geonetnz_volcano/sensor.png' />
 </p>
 
-<div class='note'>
-
+{% note %}
 The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](http://creativecommons.org/licenses/by/3.0/nz/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
 Please refer to the [creator's disclaimer notice](https://www.geonet.org.nz/disclaimer) and [data policy](https://www.geonet.org.nz/policy) for more information.
 
 We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science and LINZ, for providing data/images used in this integration.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
-## State Attributes
+## State attributes
 
 The following state attributes are available for each entity in addition to 
 the standard ones:
@@ -63,7 +61,7 @@ the standard ones:
 | last update            | Timestamp of the last update from the feed.  |
 | last update successful | Timestamp of the last successful update from the feed.  |
 
-## Full Configuration
+## Full configuration
 
 ```yaml
 # Example configuration.yaml entry

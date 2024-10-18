@@ -7,8 +7,8 @@ ha_category:
   - Cover
   - Light
   - Switch
-ha_release: 2022.10
-ha_iot_class: local Polling
+ha_release: '2022.10'
+ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
   - '@jafar-atili'

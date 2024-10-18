@@ -1,21 +1,22 @@
 ---
 title: Martec
-description: Connect and control your Martec devices using the Motion Blinds integration
+description: Connect and control your Martec devices using the Motionblinds integration
 ha_category:
   - Cover
 ha_domain: martec
+ha_integration_type: virtual
+ha_supporting_domain: motion_blinds
+ha_supporting_integration: Motionblinds
+ha_release: 2020.12
 ha_codeowners:
   - '@starkillerOG'
-ha_integration_type: integration
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_iot_class: Local Push
 ha_dhcp: true
-ha_supporting_domain: motion_blinds
-ha_supporting_integration: Motion Blinds
-ha_release: 2020.12
 ---
 
 {% include integrations/supported_brand.md %}

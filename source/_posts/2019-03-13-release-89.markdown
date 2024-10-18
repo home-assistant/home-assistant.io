@@ -17,7 +17,7 @@ It's time for release 0.89. It's another great new release with some cool new fe
 
 This release introduces a new mobile app component. [@robbiet480], who also works on the iOS app, has taken the best parts of the Home Assistant iOS app component and turned it into a standardized API that any mobile app can build upon. This will allow any mobile apps to integrate with Home Assistant with a great user experience. If you are a mobile app developer, please check the updated [app integration docs](https://developers.home-assistant.io/docs/api/native-app-integration/). We will be fine tuning the API in upcoming releases. Feedback is welcome.
 
-## Noteworthy Breaking Changes
+## Noteworthy backward-incompatible changes
 
 __Custom Components file structure change:__ A significant change in how the "under the hood" of Home Assistant works has led to forcing platforms to be resolved based off the component path, if it exists.
 
@@ -121,7 +121,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __HomeMatic component's wireless actors__ are having two RSSI values. The way the component was programmed one of them was being overwritten. With this new change, the __`rssi` attribute of HomeMatic entities has been removed.__ As a replacement the attributes rssi_device and rssi_peer have been added. The attribute of `rssi` will no longer be available, you'll need to __update to `rssi_device`,__ and you can add `rssi_peer` now as well! (fixes #20900) ([@dagobert] - [#20902]) ([homematic docs]) (breaking change)
 - You can now specifiy an action when calling the __yeelight_start_flow service__ on your yeelights. The __default action will be 'recover'__ if you do not specify something else. This action will be taken after the flow stops.  ([@zewelor] - [#21195]) ([light.yeelight docs]) (breaking change)
@@ -133,7 +133,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 - Add ADB server functionality to __Fire TV.__ This change __removes the `get_source`__ configuration option. ([@JeffLIrion] - [#21221]) ([media_player.firetv docs]) (breaking change)
 - With the addition of the __SmartThings Cover__ platform, the SmartThings __Sensor platform will no longer represent Door, Garage Door and Window Share attributes.__ Additionally, if the cover device reports battery status, the value will be present as a __state attribute__ (battery_level) and not a discrete sensor. ([@andrewsayre] - [#21192]) ([cover docs]) ([smartthings docs]) (breaking change) (new-platform)
 - The __Toon component__ was broken some time ago, so now requires a Toon API developer account and __can be configured using the Home Assistant integrations.__ Support for Switches & Smoke detectors has been removed. ([@frenck] - [#21186]) ([toon docs]) (breaking change) (new-platform)
-- Addition of config for __trusted networks auth provider.__ It is a breaking changes for users who __manually configured__ trusted network auth provider. An invalid config error will be thrown and HA won't be able to fully started. (It is NOT a breaking changes for user who didn't manual configured trusted network auth provider.) ([@awarecan] - [#21111]) (breaking change)
+- Addition of config for __trusted networks auth provider.__ It is a backward-incompatible changes for users who __manually configured__ trusted network auth provider. An invalid config error will be thrown and HA won't be able to fully started. (It is NOT a backward-incompatible changes for user who didn't manual configured trusted network auth provider.) ([@awarecan] - [#21111]) (breaking change)
 - For some __HomeMatic devices the `sabotage` attribute is replaced by `error`.__ The value (if not 0) is a device specific error code. ([@dagobert] - [#21009]) ([homematic docs]) (breaking change)
 
 ## Beta Fixes

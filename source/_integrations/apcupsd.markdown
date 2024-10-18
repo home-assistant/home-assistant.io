@@ -1,10 +1,10 @@
 ---
-title: apcupsd
+title: APC UPS Daemon
 description: Instructions on how to integrate apcupsd status with Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Sensor
-  - System Monitor
+  - System monitor
 ha_release: 0.13
 ha_iot_class: Local Polling
 ha_domain: apcupsd
@@ -13,15 +13,17 @@ ha_codeowners:
   - '@yuxincs'
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - sensor
 ha_integration_type: integration
+ha_quality_scale: silver
 ---
 
 [apcupsd](http://www.apcupsd.org/) status information can be integrated into Home Assistant when the Network Information Server (NIS) [is configured](http://www.apcupsd.org/manual/manual.html#nis-server-client-configuration-using-the-net-driver) on the APC device.
 
 There is currently support for the following device types within Home Assistant:
 
-- [Binary Sensor](#binary-sensor)
+- [Binary sensor](#binary-sensor)
 - [Sensor](#sensors)
 
 ## Home Assistant add-on installation
@@ -32,11 +34,11 @@ After installation, follow the instructions on the GitHub page to configure the 
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
+{% note %}
 
 If you get `ConnectionRefusedError: Connection refused` errors in the Home Assistant logs, ensure the [apcupsd](http://www.apcupsd.org/) configuration directives used by its Network Information Server is set to permit connections from all addresses [NISIP 0.0.0.0](http://www.apcupsd.org/manual/manual.html#configuration-directives-used-by-the-network-information-server), else non-local addresses will not connect.
 
-</div>
+{% endnote %}
 
 
 ## Binary sensor
@@ -49,11 +51,11 @@ This integration provides a binary sensor for the following information from apc
 
 This integration provides sensors for the following information from apcupsd based on their availability. Each sensor is listed here along with their corresponding resource name obtained from `apcaccess`. 
 
-<div class='note'>
+{% note %}
 
 Some sensors are disabled by default, since they provide information that is only useful for advanced users. You can manually enable them in **{% my entities title="Settings -> Devices & Services -> Entities" %}** -> the sensor entity you want to enable -> Advanced settings -> Enabled.
 
-</div>
+{% endnote %}
 
 - UPS Alarm Delay (ALARMDEL)
 - UPS Ambient Temperature (AMBTEMP)
@@ -106,7 +108,8 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Register 2 Fault (REG2)
 - UPS Register 3 Fault (REG3)
 - UPS Restore Requirement (RETPCT)
-- UPS Last Self Test (SELFTEST)
+- UPS Last Self Test (LASTSTEST)
+- UPS Self Test Result (SELFTEST)
 - UPS Sensitivity (SENSE)
 - UPS Serial Number (SERIALNO)
 - UPS Startup Time (STARTTIME)
@@ -121,4 +124,3 @@ Some sensors are disabled by default, since they provide information that is onl
 - UPS Transfer from Battery (XOFFBAT)
 - UPS Transfer from Battery (XOFFBATT)
 - UPS Transfer to Battery (XONBATT)
-

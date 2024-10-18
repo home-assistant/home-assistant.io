@@ -11,11 +11,14 @@ ha_domain: geo_rss_events
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `geo_rss_events` sensor retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
+The `geo_rss_events` {% term integration %} retrieves events from a GeoRSS feed and shows information of those events filtered by distance to Home Assistant's location and grouped by category.
 
-This sensor is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
+This {% term integration %} is particularly useful if events occur unexpectedly in the vicinity of the home while the GeoRSS feed also contains many events representing distant unrelated entries. Typical examples are bush fires alerts or earthquakes.
 
 <p class='img'>
   <img src='/images/screenshots/geo-rss-incidents-group-screenshot.png' />
@@ -29,7 +32,9 @@ The data is updated every 5 minutes.
 
 ## Configuration
 
-To enable the GeoRSS events sensor, add the following lines to your `configuration.yaml`. This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
+To enable the GeoRSS events sensor, add the following lines to your {% term "`configuration.yaml`" %} file.
+This is an example configuration showing bush fire incidents from the NSW Rural Fire Service.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,7 +88,7 @@ unit_of_measurement:
 
 ## Example Feeds
 
-**Bush Fire Alerts**
+### Bush Fire Alerts
 
 ```yaml
 sensor:
@@ -92,8 +97,8 @@ sensor:
     url: https://www.qfes.qld.gov.au/data/alerts/bushfireAlert.xml
     unit_of_measurement: "Alerts"
   - platform: geo_rss_events
-    name: Tas Fire Service
-    url: http://www.fire.tas.gov.au/Show?pageId=colBushfireSummariesRss
+    name: TasALERT
+    url: https://alert.tas.gov.au/data/incidents-and-alerts.xml
     unit_of_measurement: "Alerts"
   - platform: geo_rss_events
     name: WA Department of Fire and Emergency Services
@@ -103,8 +108,7 @@ sensor:
     url: https://www.esa.act.gov.au/feeds/currentincidents.xml
 ```
 
-
-**Earthquake Alerts**
+### Earthquake Alerts
 
 ```yaml
 sensor:
@@ -115,13 +119,13 @@ sensor:
       - 'Past Hour'
       - 'Past Day'
   - platform: geo_rss_events
-    name: BGS Worlwide Earthquakes
-    url: https://www.bgs.ac.uk/feeds/worldSeismology.xml
+    name: BGS Worldwide Earthquakes
+    url: http://earthquakes.bgs.ac.uk/feeds/WorldSeismology.xml
     categories:
       - 'EQMH'
   - platform: geo_rss_events
     name: Recent significant earthquake reports (Canada)
-    url: http://www.earthquakescanada.nrcan.gc.ca/index-en.php?tpl_region=canada&tpl_output=rss
+    url: https://www.earthquakescanada.nrcan.gc.ca/cache/earthquakes/canada-en.atom
     categories:
       - 'Earthquake Report'
 ```

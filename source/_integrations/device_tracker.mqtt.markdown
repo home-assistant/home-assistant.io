@@ -1,87 +1,33 @@
 ---
-title: "MQTT Device Tracker"
+title: "MQTT device tracker"
 description: "Instructions on how to use MQTT to track devices in Home Assistant."
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_iot_class: Configurable
 ha_release: 0.7.3
 ha_domain: mqtt
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 
-The `mqtt` device tracker platform allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in `configuration.yaml` and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
-
-<div class='note info'>
-  At the moment, manual configured device trackers can only reloaded by restarting Home Assistant.
-</div>
+The `mqtt` device tracker {% term integration %} allows you to define new device_trackers through [manual YAML configuration](#yaml-configuration) in {% term "`configuration.yaml`" %} and also to automatically discover device_trackers [using the MQTT Discovery protocol](#using-the-discovery-protocol).
 
 ## Configuration
 
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-  - name: "annetherese_n4"
-    state_topic: "location/annetherese"
-  - name: "paulus_oneplus"
-    state_topic: "location/paulus"
+  - device_tracker:
+      name: "annetherese_n4"
+      state_topic: "location/annetherese"
+  - device_tracker:
+      name: "paulus_oneplus"
+      state_topic: "location/paulus"
 ```
-
-{% details "Previous configuration format" %}
-
-The configuration format of manual configured MQTT items has changed.
-The old format that places configurations under the `switch` platform key
-should no longer be used and is deprecated.
-
-The above example shows the new and modern way,
-this is the previous/old example and deprecated configuration schema:
-
-```yaml
-device_tracker:
-  - platform: mqtt
-    devices:
-      paulus_oneplus: "location/paulus"
-      annetherese_n4: "location/annetherese"
-```
-
-To set the state of the device_tracker then you need to publish a JSON message to the topic (e.g., via mqtt.publish service). As an example, the following JSON message would set the `paulus_oneplus` device_tracker to `home`:
-
-```json
-{
-  "topic": "location/paulus",
-  "payload": "home"
-}
-```
-
-{% configuration %}
-devices:
-  description: List of devices with their topic.
-  required: true
-  type: list
-qos:
-  description: The QoS level of the topic.
-  required: false
-  type: integer
-payload_home:
-  description: The payload value that represents the 'home' state for the device.
-  required: false
-  type: string
-  default: "home"
-payload_not_home:
-  description: The payload value that represents the 'not_home' state for the device.
-  required: false
-  type: string
-  default: "not_home"
-source_type:
-  description: Attribute of a device tracker that affects state when being used to track a [person](/integrations/person/). Valid options are `gps`, `router`, `bluetooth`, or `bluetooth_le`.
-  required: false
-  type: string
-  default: gps
-{% endconfiguration %}
-
-{% enddetails %}
 
 {% configuration %}
 availability:
@@ -126,13 +72,13 @@ device:
   type: map
   keys:
     configuration_url:
-      description: 'A link to the webpage that can manage the configuration of this device. Can be either an HTTP or HTTPS link.'
+      description: 'A link to the webpage that can manage the configuration of this device. Can be either an `http://`, `https://` or an internal `homeassistant://` URL.'
       required: false
       type: string
     connections:
-      description: "A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `'connections': ['mac', '02:5b:26:a8:dc:12']`."
+      description: 'A list of connections of the device to the outside world as a list of tuples `[connection_type, connection_identifier]`. For example the MAC address of a network interface: `"connections": [["mac", "02:5b:26:a8:dc:12"]]`.'
       required: false
-      type: [list, map]
+      type: list
     hw_version:
       description: The hardware version of the device.
       required: false
@@ -147,6 +93,10 @@ device:
       type: string
     model:
       description: The model of the device.
+      required: false
+      type: string
+    model_id:
+      description: The model identifier of the device.
       required: false
       type: string
     name:
@@ -174,7 +124,14 @@ json_attributes_template:
   required: false
   type: template
 json_attributes_topic:
-  description: The MQTT topic subscribed to receive a JSON dictionary payload and then set as device_tracker attributes. Usage example can be found in [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation.
+  description: "The MQTT topic subscribed to receive a JSON dictionary message containing device tracker attributes.
+  This topic can be used to set the location of the device tracker under the following conditions:
+
+- If the attributes in the JSON message include `longitude`, `latitude`, and `gps_accuracy` (optional).\n
+- If the device tracker is within a configured [zone](/integrations/zone/).\n
+
+  If these conditions are met, it is not required to configure `state_topic`.\n\n
+  Be aware that any location message received at `state_topic`  overrides the location received via `json_attributes_topic` until a message configured with `payload_reset` is received at `state_topic`. For a more generic usage example of the `json_attributes_topic`, refer to the [MQTT sensor](/integrations/sensor.mqtt/#json-attributes-topic-configuration) documentation."
   required: false
   type: string
 name:
@@ -205,8 +162,13 @@ payload_not_home:
   required: false
   type: string
   default: not_home
+payload_reset:
+  description: The payload value that will have the device's location automatically derived from Home Assistant's zones.
+  required: false
+  type: string
+  default: '"None"'
 qos:
-  description: The maximum QoS level of the state topic.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -215,8 +177,8 @@ source_type:
   required: false
   type: string
 state_topic:
-  description: The MQTT topic subscribed to receive device tracker state changes.
-  required: true
+  description: The MQTT topic subscribed to receive device tracker state changes. The states defined in `state_topic` override the location states defined by the `json_attributes_topic`. This state override is turned inactive if the `state_topic` receives a message containing `payload_reset`. The `state_topic` can only be omitted if `json_attributes_topic` is used. An empty payload is ignored. Valid payloads are `not_home`, `home` or any other custom location or zone name. Payloads for `not_home`, `home` can be overridden with the `payload_not_home`and `payload_home` config options.
+  required: false
   type: string
 unique_id:
   description: "An ID that uniquely identifies this device_tracker. If two device_trackers have the same unique ID, Home Assistant will raise an exception."
@@ -232,7 +194,7 @@ value_template:
 
 ### Using the discovery protocol
 
-The device_tracker can be created via a discovery topic that follows the following topic name convention: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
+The device_tracker can be created via publishing to a discovery topic that follows the following [MQTT Discovery](/integrations/mqtt/#mqtt-discovery#discovery-topic) topic name format: `<discovery_prefix>/device_tracker/[<node_id>/]<object_id>/config`.
 
 You can use the command line tool `mosquitto_pub` shipped with `mosquitto` or the `mosquitto-clients` package to send MQTT messages.
 
@@ -259,6 +221,8 @@ If the device supports GPS coordinates then they can be sent to Home Assistant b
 - Attributes topic: `a4567d663eaf/attributes`
 - Example attributes payload:
 
+Example message to be received at topic `a4567d663eaf/attributes`:
+
 ```json
 {
   "latitude": 32.87336,
@@ -270,13 +234,19 @@ If the device supports GPS coordinates then they can be sent to Home Assistant b
 To create the device_tracker with GPS coordinates support:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"state_topic": "a4567d663eaf/state", "name": "My Tracker", "payload_home": "home", "payload_not_home": "not_home", "json_attributes_topic": "a4567d663eaf/attributes"}'
+mosquitto_pub -h 127.0.0.1 -t homeassistant/device_tracker/a4567d663eaf/config -m '{"json_attributes_topic": "a4567d663eaf/attributes", "name": "My Tracker"}'
 ```
+
+{% note %}
+
+Using `state_topic` is optional when using `json_attributes_topic` to determine the state of the device tracker.
+
+{% endnote %}
 
 To set the state of the device tracker to specific coordinates:
 
 ```bash
-mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/state -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
+mosquitto_pub -h 127.0.0.1 -t a4567d663eaf/attributes -m '{"latitude": 32.87336, "longitude": -117.22743, "gps_accuracy": 1.2}'
 ```
 
 
@@ -289,8 +259,8 @@ The following example shows how to configure the same device tracker through con
 ```yaml
 # Example configuration.yaml entry
 mqtt:
-  device_tracker:
-    - name: "My Tracker"
+  - device_tracker:
+      name: "My Tracker"
       state_topic: "a4567d663eaf/state"
       payload_home: "home"
       payload_not_home: "not_home"

@@ -13,7 +13,7 @@ ha_platforms:
   - diagnostics
   - sensor
 ha_quality_scale: platinum
-ha_integration_type: integration
+ha_integration_type: device
 ---
 
 The PVOutput integration consumes information from [PVOutput](https://pvoutput.org/) which was uploaded by your solar photovoltaic (PV) system.

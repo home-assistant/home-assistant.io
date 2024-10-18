@@ -12,6 +12,7 @@ ha_codeowners:
   - '@danielhiversen'
 ha_platforms:
   - binary_sensor
+  - button
   - cover
   - sensor
 ha_integration_type: integration

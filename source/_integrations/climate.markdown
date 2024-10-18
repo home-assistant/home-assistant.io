@@ -8,28 +8,42 @@ ha_quality_scale: internal
 ha_domain: climate
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: entity
 ---
 
-The Climate integration allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
+The **Climate** {% term integration %} allows you to control and monitor HVAC (heating, ventilating, and air conditioning) devices and thermostats.
 
-## Services
+{% include integrations/building_block_integration.md %}
 
-### Climate control services
+## The state of an HVAC entity
 
-Available services: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`
+An HVAC entity can have the following states, depending on the specific climate device and its capabilities.
 
-<div class='note'>
+- **Off**: The device is turned off.
+- **Heat**: The device is set to heat to a target temperature.
+- **Cool**: The device is set to cool to a target temperature.
+- **Heat/Cool**: The device is set to heat/cool to a target temperature range.
+- **Auto**: The device is set to a schedule, learned behavior, AI.
+- **Dry**: The device is set to dry/humidity mode.
+- **Fan only**: The device only has the fan on. No heating or cooling is taking place.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
-Not all climate services may be available for your platform. You can check which climate services are available under **Developer Tools** -> **Services**.
+## Actions
 
-</div>
+### Climate control actions
 
-### Service `climate.set_aux_heat`
+Available actions: `climate.set_aux_heat`, `climate.set_preset_mode`, `climate.set_temperature`, `climate.set_humidity`, `climate.set_fan_mode`, `climate.set_hvac_mode`, `climate.set_swing_mode`, `climate.turn_on`, `climate.turn_off`, `climate.toggle`
+
+{% tip %}
+Not all climate {% term actions %}  may be available for your platform. You can check which climate action are available under **Developer Tools** -> **Actions**.
+{% endtip %}
+
+### Action `climate.set_aux_heat`
 
 Turn auxiliary heater on/off for climate device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `aux_heat` | no | New value of auxiliary heater.
@@ -38,24 +52,24 @@ Turn auxiliary heater on/off for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_aux_heat
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_aux_heat
       target:
         entity_id: climate.kitchen
       data:
         aux_heat: true
 ```
 
-### Service `climate.set_preset_mode`
+### Action `climate.set_preset_mode`
 
 Set preset mode for climate device. Away mode changes the target temperature permanently to a temperature
 reflecting a situation where the climate device is set to save energy. For example, this may be used to emulate a
 "vacation mode."
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `preset_mode` | no | New value of preset mode.
@@ -64,22 +78,22 @@ reflecting a situation where the climate device is set to save energy. For examp
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_preset_mode
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_preset_mode
       target:
         entity_id: climate.kitchen
       data:
         preset_mode: "eco"
 ```
 
-### Service `climate.set_temperature`
+### Action `climate.set_temperature`
 
 Set target temperature of climate device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `temperature` | yes | New target temperature for climate device (commonly referred to as a *setpoint*). Do not use if `hvac_mode` is `heat_cool`.
@@ -92,11 +106,11 @@ Set target temperature of climate device
 ```yaml
 ### Set temperature to 24 in heat mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_temperature
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
       data:
@@ -107,11 +121,11 @@ automation:
 ```yaml
 ### Set temperature range to 20 to 24 in heat_cool mode
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_temperature
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_temperature
       target:
         entity_id: climate.kitchen
       data:
@@ -120,11 +134,11 @@ automation:
         hvac_mode: heat_cool
 ```
 
-### Service `climate.set_humidity`
+### Action `climate.set_humidity`
 
 Set target humidity of climate device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `humidity` | no | New target humidity for climate device
@@ -133,22 +147,22 @@ Set target humidity of climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_humidity
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_humidity
       target:
         entity_id: climate.kitchen
       data:
         humidity: 60
 ```
 
-### Service `climate.set_fan_mode`
+### Action `climate.set_fan_mode`
 
 Set fan operation for climate device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `fan_mode` | no | New value of fan mode
@@ -157,22 +171,22 @@ Set fan operation for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_fan_mode
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_fan_mode
       target:
         entity_id: climate.kitchen
       data:
-        fan_mode: "On Low"
+        fan_mode: "low"
 ```
 
-### Service `climate.set_hvac_mode`
+### Action `climate.set_hvac_mode`
 
 Set climate device's HVAC mode
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `hvac_mode` | no | New value of HVAC mode
@@ -181,22 +195,22 @@ Set climate device's HVAC mode
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_hvac_mode
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_hvac_mode
       target:
         entity_id: climate.kitchen
       data:
         hvac_mode: heat
 ```
 
-### Service `climate.set_swing_mode`
+### Action `climate.set_swing_mode`
 
 Set swing operation mode for climate device
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 | `swing_mode` | no | New value of swing mode
@@ -205,30 +219,38 @@ Set swing operation mode for climate device
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: climate.set_swing_mode
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: climate.set_swing_mode
       target:
         entity_id: climate.kitchen
       data:
         swing_mode: 1
 ```
 
-### Service `climate.turn_on`
+### Action `climate.turn_on`
 
 Turn climate device on. This is only supported if the climate device supports being turned off.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 
-### Service `climate.turn_off`
+### Action `climate.turn_off`
 
 Turn climate device off. This is only supported if the climate device has the HVAC mode `off`.
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
+
+### Action `climate.toggle`
+
+Toggle climate device. This is only supported if the climate device supports being turned on and off.
+
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `entity_id` | yes | String or list of strings that define the entity ID(s) of climate device(s) to control. To target all climate devices, use `all`.
 

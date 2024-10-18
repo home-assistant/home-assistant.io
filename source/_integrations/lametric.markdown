@@ -5,6 +5,7 @@ ha_category:
   - Button
   - Notifications
   - Number
+  - Select
   - Sensor
   - Switch
 ha_iot_class: Local Polling
@@ -12,21 +13,110 @@ ha_release: 0.49
 ha_codeowners:
   - '@robbiet480'
   - '@frenck'
+  - '@bachya'
 ha_domain: lametric
 ha_platforms:
   - button
+  - diagnostics
   - notify
   - number
+  - select
   - sensor
   - switch
-ha_integration_type: integration
+ha_integration_type: device
 ha_config_flow: true
 ha_ssdp: true
+ha_dhcp: true
+ha_quality_scale: platinum
 ---
 
 [LaMetric TIME](https://lametric.com/) is a smart clock that can be used to access applications, listen to web radio and display notifications.
 
 {% include integrations/config_flow.md %}
+
+## Actions
+
+The LaMetric integration provides actions to interact with your LaMetric
+device(s). Those action can be used in, for example, automations.
+
+### Action `lametric.chart`
+
+The {% my developer_call_service service="lametric.chart" title="`lametric.chart`" %}
+action allows you to display a little chart to your LaMetric.
+
+{% my developer_call_service badge service="lametric.chart" %}
+
+{% configuration "lametric.chart" %}
+device_id:
+  description: The ID of the device to send the message to.
+  required: true
+  type: string
+data:
+  description: The data points in the chart, as a list of numbers. For example `[1, 2, 3, 2, 1]`.
+  required: true
+  type: list
+cycles:
+  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
+  required: false
+  type: integer
+  default: 1
+priority:
+  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
+  required: false
+  type: string
+  default: info
+icon_type:
+  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
+  required: false
+  type: string
+  default: none
+sound:
+  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
+  required: false
+  type: string
+{% endconfiguration %}
+
+### Action `lametric.message`
+
+The {% my developer_call_service service="lametric.message" title="`lametric.message`" %}
+action allows you to send a message to your LaMetric. These
+messages can be enrichted with icons and sounds.
+
+{% my developer_call_service badge service="lametric.message" %}
+
+{% configuration "lametric.message" %}
+device_id:
+  description: The ID of the device to send the message to.
+  required: true
+  type: string
+message:
+  description: The message to send to the LaMetric device.
+  required: true
+  type: string
+icon:
+  description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
+  required: false
+  type: string
+cycles:
+  description: "Defines how long the notification will be displayed. Set to `0` to require manual dismissal."
+  required: false
+  type: integer
+  default: 1
+priority:
+  description: "Defines the priority of the notification. Allowed values are `info`, `warning`, and `critical`."
+  required: false
+  type: string
+  default: info
+icon_type:
+  description: "Defines the nature of notification. Allowed values are `none`, `info`, and `alert`."
+  required: false
+  type: string
+  default: none
+sound:
+  description: "Defines the sound of the notification. Allowed are listed [below](#list-of-notification-sounds)."
+  required: false
+  type: string
+{% endconfiguration %}
 
 ## Notifications
 
@@ -34,14 +124,14 @@ You can send notifications to your LaMetric device using
 the [Notifications](/integrations/notify) integration.
 
 Each LaMetric device added to your Home Assistant will have its own
-`notify.` service. The service name matches the name of your device
+`notify.` actions. The action name matches the name of your device
 as shown in your LaMetric account. For example, if you have a device
-called "My LaMetric", the service would become `notify.my_lametric`.
+called "My LaMetric", the action would become `notify.my_lametric`.
 
-The notification service call against an LaMetric device can take the
+The notification performed action against an LaMetric device can take the
 following, additional, optional parameters:
 
-{% configuration %}
+{% configuration "notification" %}
 icon:
   description: "An icon or animation. List of all icons available at [https://developer.lametric.com/icons](https://developer.lametric.com/icons)."
   required: false
@@ -74,27 +164,27 @@ To add a notification sound, icon, cycles, or priority override,
 
 ```yaml
 - alias: "Send notification on arrival at school"
-  trigger:
-    platform: state
-    entity_id: device_tracker.tom_mobile
-    from: "not_home"
-    to: "school"
-  action:
-    service: notify.my_lametric
-    data:
-      message: "Tom has arrived at school!"
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.tom_mobile
+      from: "not_home"
+      to: "school"
+  actions:
+    - action: notify.my_lametric
       data:
-        sound: "notification"
-        icon: "51"
-        cycles: 0
-        priority: "critical"
-        icon_type: "info"
+        message: "Tom has arrived at school!"
+        data:
+          sound: "notification"
+          icon: "51"
+          cycles: 0
+          priority: "critical"
+          icon_type: "info"
 ```
 
 ## List of notification sounds
 
 The following notification sounds can be used with the `sound` parameter on
-notify service calls:
+notify action:
 
 - `alarm1`
 - `alarm10`
@@ -160,12 +250,12 @@ your LaMetric devices, use the following steps:
 1. Log in with your LaMetric device account to [developer.lametric.com](https://developer.lametric.com).
 2. Click the Create button and choose [Notification](https://developer.lametric.com/applications/createsource) app.
 3. Fill in the form. You can put almost anything in the fields, they just need to be populated:
-  * App Name: Home Assistant 
-  * Description: Home Assistant
-  * Redirect URI: `https://my.home-assistant.io/redirect/oauth`
-  * Privacy Policy: `http://localhost/`
-  * Check the "basic" and "read_devices" permission boxes
-  * Click Save
+  - App Name: Home Assistant 
+  - Description: Home Assistant
+  - Redirect URI: `https://my.home-assistant.io/redirect/oauth`
+  - Privacy Policy: `http://localhost/`
+  - Check the "basic" and "read_devices" permission boxes
+  - Click Save
 4. You should be directed to your [Notification Apps list](https://developer.lametric.com/applications/sources),
    click on "Home Assistant", copy your client ID and Client Secret.
 

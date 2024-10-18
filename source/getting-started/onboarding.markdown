@@ -3,30 +3,55 @@ title: "Onboarding Home Assistant"
 description: "Instructions to get Home Assistant configured."
 ---
 
-Alright, you made it here. The tough part is done.
+After Home Assistant has been [installed](/installation/) on your device, there are 5 steps to complete setting up Home Assistant.
 
-With Home Assistant installed, it's time to configure it. Here you will create the owner account of Home Assistant. This account will be an administrator and will always be able to change everything. Enter a name, username, password and click on "create account".
+1. Enter the following URL into the browser's address bar: [http://homeassistant.local:8123/](http://homeassistant.local:8123/).
+   - **Result**: You now see the **Preparing Home Assistant** page. Depending on your hardware and internet connection, preparation may take a while.
+     - Home Assistant downloads the latest version of {% term "Home Assistant Core" %} (about 700&nbsp;MB).
+   - If you ran into issues with this step, refer to the [installation troubleshooting](/installation/troubleshooting/).
+   - Once preparation is finished, the welcome screen is shown.
 
-![Set your username and password.](/images/getting-started/username.png)
+    ![Home Assistant preparation](/images/getting-started/onboarding_preparing_01_.png)
 
-Next, you can enter a name for your home and set your location and unit system. Click "DETECT" to find your location and set your time zone and unit system based on that location. If you'd rather not send your location, you can set these values manually.
+2. You can either create a new installation or recover an existing installation from a backup:
+   - **Option 1: new installation**: If this is your initial installation, we will now create the owner's account of Home Assistant.
+     - {% icon "mdi:information-outline" %} This account is an administrator account. It will always be able to change everything.
+     - Select **Create my smart home**.
+     - Enter a name, username, and password.
+       - Make sure the username is lowercase and contains no whitespace.
+     - Store the name, username, and password somewhere safe. There is no way to recover the owner credentials.
+     - Select **Create account**.
 
-![Set your location, time zone, and unit system.](/images/getting-started/location.png)
+    ![Set your username and password.](/images/getting-started/username.png)
 
-Once you are done, click Next. In this screen, Home Assistant will show any devices that it has discovered on your network. Don't be alarmed if you see fewer items than what is shown below; you can always manually add devices later.
+   - **Option 2: restore from backup**: If you want to restore a backup of a previous installation, select **Restore from backup**.
+     - Ignore the rest of this procedure and continue with the procedure on [restoring from backup](/common-tasks/os/#restoring-a-backup).
+       - If you have a Home Assistant Yellow, start with the [Yellow documentation on restoring from backup](https://yellow.home-assistant.io/guides/restore-backup/).
+       - If you have a Home Assistant Green, start with the [Green documentation on restoring from backup](https://green.home-assistant.io/guides/restore-backup/).
 
-![Discovery of devices on your network.](/images/getting-started/devices.png)
+3. Enter the location of your home.
+   - The home location is used to configure the time zone, unit system, and currency.
+   - It is also used to create the home [zone](/integrations/zone/), which designates the area of your home with a default radius of 100&nbsp;m.
+   - You can always change this information later in the settings.
+   - This home zone can be used for automations such as showing the weather, opening the shades at sunrise, or starting the vacuum when you leave the home.
+   - After finding your location, select **Next**.
 
-Finally, click Finish. Now you're brought to the Home Assistant web interface. This screen will show all of your devices. So let's get that screen filled up!
+    ![Define your location.](/images/getting-started/onboarding_location.png)
 
-![The Home Assistant user interface.](/images/getting-started/lovelace.png)
+4. Select which information you are willing to share.
+    - Sharing is disabled by default. However, we would like to encourage you to share some of this data.
+    - This information helps us find out which platforms we need to support and where to focus our efforts.
+    - The data is anonymized and aggregated. To see the charts we generate out of this data, take a look at our [analytics page](https://analytics.home-assistant.io/).
+    - To confirm, select **Next**.
+   ![Share anonymized data](/images/getting-started/onboarding_share_anonymized_info.png)
 
-From the side bar, click on {% my integrations title="Settings -> Devices & Services" %}. At this screen you will be able to set up integrations with Home Assistant. You might notice a "discovered" section. This section contains integrations that were found on your network and can easily be added with a few clicks. If your integrations are not discovered, click the **Add integration** button in the lower right and search for your integration in that list.
+5. Check out the {% term devices %} Home Assistant has discovered on your network.
+    - Don't be alarmed if you see fewer items than shown below; you can always manually add devices later.
+    - Select **Finish**.
+    ![Discovery of devices on your network.](/images/getting-started/onboarding_devices.png)
 
-![The integrations page in the configurations panel shows you all your configured integrations.](/images/getting-started/integrations.png)
+6. {% icon "mdi:party-popper" %} You’ve now got Home Assistant up and running.
+   - You now see the default [dashboard](/dashboards/).
+   - If some of your devices were discovered and set up automatically, this shows those devices.
 
-When each integration is done setting up, it will ask you to put the new devices in areas. Areas allow you to organize all the devices in your home.
-
-When you're done, navigate back to the web interface and voila, your devices are ready for you to control.
-
-{% include getting-started/next_step.html step="Automate Home Assistant" link="/getting-started/automation/" %}
+{% include getting-started/next_step.html step="Concepts & Terminology" link="/getting-started/concepts-terminology/" %}

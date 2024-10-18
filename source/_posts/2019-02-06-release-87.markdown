@@ -23,7 +23,7 @@ This release also includes a UI to manage the entity registry. The entity regist
 
 We didn't forget about the frontend in this release. In the last release we introduced Lovelace, so for this release we focused on bug squashing, performance improvements and usability. The YAML editor is now rendered using a full editor including line numbers thanks to [@bramkragten]. There is also a new system health component that will help users diagnose problems from the "info" developer tool. [See changelog for the frontend.](https://github.com/home-assistant/home-assistant-polymer/releases/tag/20190130.1)
 
-In this release we have also upgraded the Material Design Icons to 3.3.92, which renames some icons. Make sure to check [their changelog](https://dev.materialdesignicons.com/upgrade).
+In this release we have also upgraded the Material Design Icons to 3.3.92, which renames some icons. Make sure to check [their changelog](https://pictogrammers.com/docs/library/mdi/releases/changelog/).
 
 If you prefer a podcast over release notes, check out [the Hass Podcast](https://hasspodcast.io/ha043/) in which Phil and Rohan discuss each new Home Assistant release and keep a tap on what's happening in the home automation space.
 
@@ -92,12 +92,12 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - SolarEdge sensors: This PR changes the **entity names** of this sensor and the **monitoring condition keys** in the configuration: `sensor.solaredge_current_power` -> `sensor.solaredge_current_power`, `sensor.solaredge_last_day_data` -> `sensor.solaredge_energy_today`, `sensor.solaredge_last_month_data` -> `sensor.solaredge_energy_this_month`, `sensor.solaredge_last_year_data` -> `sensor.solaredge_energy_this_year`, `sensor.solaredge_life_time_data` -> `sensor.solaredge_lifetime_energy`, ([@LouisMT] - [#20109]) ([sensor.solaredge docs]) (breaking change)
 - Geolocation is no longer creating a default group. ([@exxamalte] - [#20338]) ([geo_location docs]) (breaking change)
 - The Dovado sensor platform has been broken up into a Dovado component with sensor and notify platforms. The configuration variables have been changed. Please refer to the documentation for the correct configuration. ([@rohankapoorcom] - [#20339]) ([dovado docs]) ([sensor.dovado docs]) (breaking change)
-- Brottsplatskartan: The incident type count is reset every day. Before this change, it didn't reset until you restarted Home assistant. ([@chrillux] - [#20117]) ([sensor.brottsplatskartan docs]) (breaking change)
+- Brottsplatskartan: The incident type count is reset every day. Before this change, it didn't reset until you restarted Home Assistant. ([@chrillux] - [#20117]) ([sensor.brottsplatskartan docs]) (breaking change)
 - Ambient PWS has new configuration and entity IDs will change. Configure it now via the integrations page. ([@bachya] - [#20332]) ([ambient_station docs]) ([sensor.ambient_station docs]) (breaking change)
 - New Transmission component. With the introduction of the Transmission component, the configuration for Transmission sensor and switch has been moved to the component configuration. Configuration must be changed accordingly. ([@MatteGary] - [#19230]) ([transmission docs]) ([sensor.transmission docs]) (breaking change) (new-platform)
 - The alarm control panel will now flag mistyped configs from `configuration.yaml` correctly as invalid, instead of just ignoring them. ([@emontnemery] - [#20224]) ([alarm_control_panel docs]) (breaking change)

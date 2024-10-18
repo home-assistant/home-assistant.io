@@ -2,7 +2,7 @@
 title: Sense
 description: Instructions on how to integrate Sense within Home Assistant.
 ha_category:
-  - Binary Sensor
+  - Binary sensor
   - Energy
   - Sensor
 ha_iot_class: Cloud Polling
@@ -22,7 +22,7 @@ Integrate your [Sense](https://sense.com) meter information into Home Assistant.
 
 There is currently support for the following device types within Home Assistant:
 
-- Binary Sensor
+- Binary sensor
 - Sensor
 
 {% include integrations/config_flow.md %}
@@ -47,8 +47,6 @@ Binary sensors are created for each of the devices detected by your Sense monito
 
 Sensors are created for each of the devices detected by your Sense monitor to show their power usage in Watts.
 
-<div class='note'>
-
+{% note %}
 The [Emulated Kasa](/integrations/emulated_kasa) integration can be used to expose devices in Home Assistant to the Sense Monitor by emulating TP-Link Kasa Smart Plugs.
-
-</div>
+{% endnote %}

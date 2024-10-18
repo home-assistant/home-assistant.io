@@ -43,7 +43,7 @@ Enjoy another great release! Be sure to tune into [the 2021.9 Release Party on Y
 - [Release 2021.9.6 - September 11](#release-202196---september-11)
 - [Release 2021.9.7 - September 18](#release-202197---september-18)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
 ## Home Energy Management updates
@@ -629,7 +629,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change
@@ -1440,7 +1440,7 @@ developer blog about it:
 - Add Gas device class to DSMR Reader ([@frenck] - [#54748]) ([dsmr_reader docs])
 - Tibber data coordinator ([@Danielhiversen] - [#53619]) ([tibber docs])
 - Add select platform for Xiaomi Miio fans ([@bieniu] - [#54702]) ([xiaomi_miio docs]) (breaking-change)
-- Bump async-upnp-client to 0.20.0, adapt to breaking changes ([@bdraco] - [#54782]) ([upnp docs]) ([dlna_dmr docs]) ([ssdp docs])
+- Bump async-upnp-client to 0.20.0, adapt to backward-incompatible changes ([@bdraco] - [#54782]) ([upnp docs]) ([dlna_dmr docs]) ([ssdp docs])
 - Remove unused last_reset from Toon ([@emontnemery] - [#54798]) ([toon docs])
 - Remove last_reset and update state class for Atome energy ([@emontnemery] - [#54801]) ([atome docs])
 - Remove distro from updater requirements ([@ludeeus] - [#54804]) ([updater docs])

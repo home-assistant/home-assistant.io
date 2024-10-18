@@ -7,9 +7,15 @@ ha_release: 0.26
 ha_iot_class: Cloud Push
 ha_domain: foursquare
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `foursquare` integration accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.
+
+To enable Foursquare, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -41,7 +47,7 @@ https://foursquare.com/oauth2/authenticate?client_id=CLIENT_ID&response_type=tok
 
 and change the `CLIENT_ID` and `YOUR_REGISTERED_REDIRECT_URL` to your actual values.
 You will receive an OAuth request landing page, asking you if you want to connect your Foursquare account to your newly created app. Say "Yes".
-After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your `configuration.yaml` as the `access_token`.
+After that, you will get redirected to your `REDIRECT_URL` with the `access_token` as an HTTP GET variable. Copy everything after the = and paste it in your {% term "`configuration.yaml`" %} as the `access_token`.
 
 ### Real-Time API
 
@@ -52,18 +58,18 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 ```yaml
 automation:
   - alias: "Trigger action when you check into a venue."
-    trigger:
-      platform: event
-      event_type: foursquare.push
-    action:
-      service: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: foursquare.push
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 ### Check ins
 
-To check a user in, use the `foursquare/checkin` service.
+To check a user in, use the `foursquare/checkin` action.
 
 Parameters:
 
@@ -71,7 +77,7 @@ Parameters:
 - **eventId** (*Optional*): The event the user is checking in to.
 - **shout** (*Optional*): A message about your check-in. The maximum length of this field is 140 characters.
 - **mentions** (*Optional*): Mentions in your check-in. This parameter is a semicolon-delimited list of mentions. A single mention is of the form "start,end,userid", where start is the index of the first character in the shout representing the mention, end is the index of the first character in the shout after the mention, and userid is the userid of the user being mentioned. If userid is prefixed with "fbu-", this indicates a Facebook userid that is being mention. Character indices in shouts are 0-based.
-- **broadcast** (*Optional*): "Who to broadcast this check-in to. Accepts a comma-delimited list of values: private (off the grid) or public (share with friends), Facebook share on Facebook, Twitter share on Twitter, followers share with followers (celebrity mode users only), If no valid value is found, the default is public."
+- **broadcast** (*Optional*): "Who to broadcast this check-in to. Accepts a comma-delimited list of values: private (off the grid) or public (share with friends), Facebook share on Facebook, X share on X, followers share with followers (celebrity mode users only), If no valid value is found, the default is public."
 - **ll** (*Optional*): Latitude and longitude of the user's location. Only specify this field if you have a GPS or other device reported location for the user at the time of check-in.
 - **llAcc** (*Optional*): Accuracy of the user's latitude and longitude, in meters.
 - **alt** (*Optional*): Altitude of the user's location, in meters.

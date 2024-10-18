@@ -17,13 +17,12 @@ Supported platforms (tested):
 
 - Aruba ClearPass 6.7.5
 
-<div class='note warning'>
-
+{% important %}
 You must first create an API client [here](https://www.arubanetworks.com/techdocs/ClearPass/6.6/Guest/Content/AdministrationTasks1/CreateEditAPIclient.htm).
+{% endimportant %}
 
-</div>
-
-To use this device tracker in your installation, add the following to your `configuration.yaml` file:
+To use this device tracker in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

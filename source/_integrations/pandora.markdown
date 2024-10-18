@@ -2,26 +2,29 @@
 title: Pandora
 description: Instructions on how to integrate Pandora radio into Home Assistant.
 ha_category:
-  - Media Player
+  - Media player
 ha_release: 0.22
 ha_iot_class: Local Polling
 ha_domain: pandora
 ha_platforms:
   - media_player
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 If you have a Pandora account, you can control it from Home Assistant with this media player.
 
-<div class='note'>
+{% important %}
 This integration is only available on Home Assistant Core installation types. Unfortunately, it cannot be used with Home Assistant OS, Supervised or Container.
-</div>
+{% endimportant %}
 
 ### Installation of Pianobar
 
 This media player uses the [Pianobar command-line Pandora client](https://github.com/PromyLOPh/pianobar), which you have to install separately. This can be done on a Raspberry Pi 2/3 with Raspbian Jessie as follows . _(Note: Other platforms may have different installation processes)_
 
-The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with FFmpeg, so you should make sure you go through the backport process documented in [The FFmpeg component](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
+The version of pianobar that comes with Jessie has a bug, so you have to build a more recent version. The latest version depends on a recent version of libraries associated with FFmpeg, so you should make sure you go through the backport process documented in [The FFmpeg integration](/integrations/ffmpeg/) before doing this. Install the following basic dependencies:
 
 ```bash
 sudo apt-get install git libao-dev libgcrypt11-dev libfaad-dev libmad0-dev libjson-c-dev make pkg-config  libcurl4-openssl-dev
@@ -53,7 +56,8 @@ Test it out by running `pianobar` in the command line. You should be able to lis
 
 ### Configuration in Home Assistant
 
-The Pandora player can be loaded by adding the following lines to your `configuration.yaml`:
+The Pandora player can be loaded by adding the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

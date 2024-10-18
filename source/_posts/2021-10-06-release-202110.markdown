@@ -65,7 +65,7 @@ Enjoy the release!
 - [Release 2021.10.6 - October 18](#release-2021106---october-18)
 - [Release 2021.10.7 - November 1](#release-2021107---november-1)
 - [If you need help...](#if-you-need-help)
-- [Breaking Changes](#breaking-changes)
+- [Backward-incompatible changes](#backward-incompatible-changes)
 - [Farewell to the following](#farewell-to-the-following)
 - [All changes](#all-changes)
 
@@ -160,9 +160,9 @@ Some really useful new MDI icons have been added in this release!
 Several icons have been removed or renamed in v6, but we have ensured
 they will keep working for the upcoming two releases. Home Assistant will
 write warnings in the logs in case you are using one of the affected icons.
-The breaking changes section has more information about this.
+The backward-incompatible changes section has more information about this.
 
-[mdi]: https://materialdesignicons.com/
+[mdi]: https://pictogrammers.com/library/mdi/
 
 ## Encrypted communications support for ESPHome
 
@@ -527,7 +527,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 Below is a listing of the breaking change for this release, per subject or
 integration. Click on one of those to read more about the breaking change

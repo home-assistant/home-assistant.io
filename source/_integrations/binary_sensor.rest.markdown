@@ -1,8 +1,8 @@
 ---
-title: "RESTful Binary Sensor"
+title: "RESTful binary sensor"
 description: "Instructions on how to integrate REST binary sensors into Home Assistant."
 ha_category:
-  - Binary Sensor
+  - Binary sensor
 ha_release: "0.10"
 ha_iot_class: Local Polling
 ha_domain: rest
@@ -16,9 +16,13 @@ The binary sensor has support for GET and POST requests.
 
 _Tip:_ If you want to create multiple `sensors` using the same endpoint, use the [RESTful](/integrations/rest) configuration instructions.
 
-The JSON messages can contain different values like `1`, `"1"`,
-`TRUE`, `true`, `on`, or `open`. If the value is nested then use a
+If the endpoint returns one of the values of these pairs: `0`/`1`,
+`"0"`/`"1"`, `FALSE`/`TRUE`, `false`/`true`, `off`/`on` or `closed`/`open`
+it can be used as-is. If the return value differs, use a
 [template](/docs/configuration/templating/#processing-incoming-data).
+If the endpoint returns XML with the `text/xml`, `application/xml`, or 
+`application/xhtml+xml` content type, it will automatically be converted 
+to JSON according to this [specification](https://www.xml.com/pub/a/2006/05/31/converting-between-xml-and-json.html).
 
 ```json
 {
@@ -33,7 +37,7 @@ The JSON messages can contain different values like `1`, `"1"`,
 ## Configuration
 
 To enable this sensor,
-add the following lines to your `configuration.yaml` file for a GET request:
+add the following lines to your {% term "`configuration.yaml`" %} file for a GET request:
 
 ```yaml
 # Example configuration.yaml entry
@@ -83,8 +87,20 @@ method:
 name:
   description: Name of the REST binary sensor.
   required: false
-  type: string
+  type: template
   default: REST Binary Sensor
+icon:
+  description: Defines a template for the icon of the entity.
+  required: false
+  type: template
+picture:
+  description: Defines a template for the entity picture of the entity.
+  required: false
+  type: template
+availability:
+  description: Defines a template if the entity state is available or not.
+  required: false
+  type: template
 device_class:
   description: Sets the [class of the device](/integrations/binary_sensor/#device-class), changing the device state and icon that is displayed on the frontend.
   required: false

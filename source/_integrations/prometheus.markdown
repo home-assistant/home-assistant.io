@@ -9,13 +9,17 @@ ha_domain: prometheus
 ha_codeowners:
   - '@knyar'
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `prometheus` integration exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
+The `prometheus` {% term integration %} exposes metrics in a format which [Prometheus](https://prometheus.io/) can read.
 
 ## Configuration
 
-To use the `prometheus` integration in your installation, add the following to your `configuration.yaml` file:
+To use the `prometheus` {% term integration %} in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -68,7 +72,7 @@ override_metric:
 component_config:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -77,7 +81,7 @@ component_config:
 component_config_domain:
   type: string
   required: false
-  description: This attribute contains domain-specific component override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains domain-specific integration override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
@@ -86,13 +90,17 @@ component_config_domain:
 component_config_glob:
   type: string
   required: false
-  description: This attribute contains component-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
+  description: This attribute contains integration-specific override values. See [Customizing devices and services](/getting-started/customizing-devices/) for format.
   keys:
     override_metric:
       type: string
       description: Metric name to use instead of unit or default metric. This will store all data points in a single metric.
       required: false
-
+requires_auth:
+  type: boolean
+  description: "This makes authentication optional for the `/api/prometheus` endpoint."
+  required: false
+  default: true
 {% endconfiguration %}
 
 ### Configure Filter
@@ -196,3 +204,9 @@ For example:
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
 ```
+
+## Supported metrics
+
+Metrics are exported only for the following domains:
+
+`alarm_control_panel`, `automation`, `binary_sensor`, `climate`, `cover`, `counter`, `device_tracker`, `fan`, `humidifier`, `input_boolean`, `input_number`, `light`, `lock`, `number`, `person`, `sensor`, `switch`, `update`

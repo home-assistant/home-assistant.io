@@ -30,9 +30,6 @@ Notes:
 
 - Origin and Destination can be the address or the GPS coordinates of the location (GPS coordinates have to be separated by a comma). You can also enter an entity ID that provides this information in its state, an entity ID with latitude and longitude attributes, or zone friendly name (case sensitive).
 
-## Manual Polling
-
-Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling in your config entry's System Options. To manually trigger a polling request, call the [`homeassistant.update_entity` service](/integrations/homeassistant/#service-homeassistantupdate_entity) as needed, either manually or via automations.
 
 ## Dynamic Configuration
 
@@ -65,16 +62,17 @@ Destination: Eddies House
 
 ## Updating sensors on-demand using Automation
 
-You can also use the `homeassistant.update_entity` service to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
+Using automatic polling can lead to calls that exceed your API limit, especially when you are tracking multiple travel times using the same API key. To use more granular polling, disable automated polling.
+
+You can use the `homeassistant.update_entity` action to update the sensor on-demand. For example, if you want to update `sensor.morning_commute` every 2 minutes on weekday mornings, you can use the following automation:
 
 ```yaml
-- id: update_morning_commute_sensor
-  alias: "Commute - Update morning commute sensor"
+- alias: "Commute - Update morning commute sensor"
   initial_state: "on"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       minutes: "/2"
-  condition:
+  conditions:
     - condition: time
       after: "08:00:00"
       before: "11:00:00"
@@ -85,8 +83,14 @@ You can also use the `homeassistant.update_entity` service to update the sensor 
         - wed
         - thu
         - fri
-  action:
-    - service: homeassistant.update_entity
+  actions:
+    - action: homeassistant.update_entity
       target:
         entity_id: sensor.morning_commute
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

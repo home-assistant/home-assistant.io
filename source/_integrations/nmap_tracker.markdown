@@ -2,7 +2,7 @@
 title: Nmap Tracker
 description: Instructions on how to integrate Nmap into Home Assistant.
 ha_category:
-  - Presence Detection
+  - Presence detection
 ha_release: 0.7
 ha_iot_class: Local Polling
 ha_domain: nmap_tracker
@@ -14,17 +14,15 @@ ha_integration_type: integration
 
 As an alternative to the router-based device tracking, it is possible to directly scan the network for devices by using Nmap. The IP addresses to scan can be specified in any format that Nmap understands, including the network-prefix notation (`192.168.1.1/24`) and the range notation (`192.168.1.1-255`).
 
-<div class='note'>
+{% note %}
   Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</div>
+{% endnote %}
 
-<div class='note'>
-
+{% note %}
 If you are running Home Assistant Core in a Python virtual environment, you might have to install the packages for `arp` and `nmap`.
 On Debian based hosts (for example Raspbian) do so by running `sudo apt-get install net-tools nmap`.
 On a Fedora host run `sudo dnf -y install nmap`.
-
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 
@@ -41,7 +39,7 @@ Minimum number of minutes between scans of active devices:
   required: true
   type: integer
 Network addresses to exclude from scanning:
-  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.50`.
+  description: A comma-separated list of IP addresses not to scan. The above example will skip `192.168.1.8`.
   required: false
   type: string
 Raw configurable scan options for Nmap:

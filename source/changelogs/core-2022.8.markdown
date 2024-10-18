@@ -435,7 +435,7 @@ For a summary in a more readable format:
 - Bump pymazda to 0.3.7 ([@bdr99] - [#75546]) ([mazda docs]) (dependency)
 - Hide inactive repairs issues ([@emontnemery] - [#75556]) ([repairs docs])
 - Add sync methods for create/deleting issues in repairs ([@frenck] - [#75557]) ([repairs docs])
-- Update icons for breaking changes in MDI 7.0.96 ([@bramkragten] - [#75560]) ([huawei_lte docs]) ([icloud docs]) ([netgear docs]) (breaking-change) (noteworthy)
+- Update icons for backward-incompatible changes in MDI 7.0.96 ([@bramkragten] - [#75560]) ([huawei_lte docs]) ([icloud docs]) ([netgear docs]) (breaking-change) (noteworthy)
 - Add websocket command recorder/import_statistics ([@titilambert] - [#73937]) ([recorder docs]) (noteworthy)
 - Improve http decorator typing ([@cdce8p] - [#75541]) ([http docs]) ([auth docs]) ([repairs docs])
 - Deprecate U.S. Citizenship and Immigration Services (USCIS) integration ([@frenck] - [#75562]) ([uscis docs]) (deprecation)

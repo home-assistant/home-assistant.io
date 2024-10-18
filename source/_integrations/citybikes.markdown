@@ -9,18 +9,23 @@ ha_domain: citybikes
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `citybikes` sensor platform monitors bike availability at bike sharing stations in a chosen area. The data is provided by [CityBikes](https://citybik.es/#about), which supports bike sharing systems all around the world.
 
 ## Configuration
 
-To enable it, add the following lines to your `configuration.yaml`:
+To enable it, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry (using radius)
 sensor:
   - platform: citybikes
+    radius: 200
 ```
 
 {% configuration %}
@@ -44,11 +49,11 @@ longitude:
   default: Defaults to the longitude in your `configuration.yaml` file.
   type: string
 radius:
-  description: The radius (in meters or feet, depending on the Home Assistant configuration) around the monitored location. Only stations closer than this distance will be monitored.
+  description: The radius (in meters or feet, depending on the Home Assistant configuration) around the monitored location. Only stations closer than this distance will be monitored. Either `radius` or `stations` are required.
   required: false
   type: integer
 stations:
-  description: A list of specific stations to monitor. The list should contain station `ID`s or `UID`s, which can be obtained from the CityBikes API.
+  description: A list of specific stations to monitor. The list should contain station `ID`s or `UID`s, which can be obtained from the CityBikes API. Either `radius` or `stations` are required.
   required: false
   type: list
 {% endconfiguration %}

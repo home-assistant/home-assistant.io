@@ -9,6 +9,9 @@ ha_domain: tank_utility
 ha_platforms:
   - sensor
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 Add [Tank Utility](https://www.tankutility.com/) propane tank monitors to Home Assistant.
@@ -31,7 +34,7 @@ The device item value is the last segment of the URL path, e.g., the URL
 1. Obtain your personal token:
 
    ```bash
-   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken`
+   curl --user <my_username>:<my_password> https://data.tankutility.com/api/getToken
    ```
 
    The JSON response structure should resemble:
@@ -54,7 +57,8 @@ The device item value is the last segment of the URL path, e.g., the URL
 
 ## Configuration
 
-To enable the component, add the following lines to your `configuration.yaml` file:
+To enable the {% term integration %}, add the following lines to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry

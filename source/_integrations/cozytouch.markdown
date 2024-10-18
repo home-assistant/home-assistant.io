@@ -2,8 +2,8 @@
 title: Atlantic Cozytouch
 description: Connect and control your Atlantic Cozytouch devices using the Overkiz integration
 ha_category:
-  - Alarm Control Panel
-  - Binary Sensor
+  - Alarm
+  - Binary sensor
   - Button
   - Climate
   - Cover
@@ -16,12 +16,19 @@ ha_category:
   - Sensor
   - Siren
   - Switch
+  - Water heater
 ha_domain: cozytouch
+ha_integration_type: virtual
+ha_supporting_domain: overkiz
+ha_supporting_integration: Overkiz
+ha_release: 2022.2
 ha_codeowners:
   - '@imicknl'
   - '@vlebourl'
   - '@tetienne'
-ha_integration_type: integration
+  - '@nyroDev'
+  - '@tronix117'
+  - '@alexfp14'
 ha_config_flow: true
 ha_platforms:
   - alarm_control_panel
@@ -38,12 +45,10 @@ ha_platforms:
   - sensor
   - siren
   - switch
-ha_iot_class: Cloud Polling
-ha_zeroconf: true
+  - water_heater
+ha_iot_class: Local Polling
 ha_dhcp: true
-ha_supporting_domain: overkiz
-ha_supporting_integration: Overkiz
-ha_release: 2022.2
+ha_zeroconf: true
 ---
 
 {% include integrations/supported_brand.md %}

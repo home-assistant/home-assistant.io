@@ -38,6 +38,7 @@ Further data that is read from the device is added as diagnostic entities:
 - Ownership number
 - Volume previous year (m3)
 - Heat previous year (MWh)
+- Heat previous year (GJ)
 - Error number
 - Device number
 - Measurement period minutes
@@ -59,7 +60,7 @@ Further data that is read from the device is added as diagnostic entities:
 - Settings and firmware
 - Flow hours
 
-## Energy Dashboard
+## Energy dashboard
 
 Either heat usage or volume usage can be used as "Gas" on the energy dashboard. If you want to supply a price per MWh, make sure to apply the conversion factor first.
 
@@ -67,21 +68,25 @@ Either heat usage or volume usage can be used as "Gas" on the energy dashboard. 
 
 Polling is by default done only once per day (and once right after adding the integration). Every time the Heat Meter values are read, battery time of the device will (supposedly) go down by about 30 minutes.
 
-For detailed control on polling and time of polling, consider disabling polling in the integration panel and poll manually. For instructions, see below.
-
 ### Polling manually (optional)
 
 For detailed control on when the device is polled, disable the default polling for this integration and create an automation that will update one of the entities (the other entities will be updated as well)
 
-If you're comfortable with YAML, this game could be used:
+If you're comfortable with YAML, this code could be used:
 
 ```yaml
 alias: "Heat Meter manual update"
-trigger:
-  - platform: time
+triggers:
+  - trigger: time
     at: "23:30:00"
-action:
-  - service: homeassistant.update_entity
+actions:
+  - action: homeassistant.update_entity
     target:
       entity_id: sensor.heat_meter_heat_usage_gj
 ```
+
+For more detailed steps on how to define a custom polling interval, follow the procedure below.
+
+#### Defining a custom polling interval
+
+{% include common-tasks/define_custom_polling.md %}

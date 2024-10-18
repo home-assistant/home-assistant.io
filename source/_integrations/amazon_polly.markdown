@@ -9,6 +9,11 @@ ha_iot_class: Cloud Push
 ha_platforms:
   - tts
 ha_integration_type: integration
+ha_codeowners:
+  - '@jschlyter'
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
 The `amazon_polly` text-to-speech platform that works with [Amazon Polly](https://aws.amazon.com/polly/) to create the spoken output.
@@ -16,13 +21,14 @@ Polly is a paid service via Amazon Web Services.  There is a [free tier](https:/
 
 ## Setup
 
-For more information, please read the [AWS General Reference regarding Security Credentials](https://docs.aws.amazon.com/general/latest/gr/aws-security-credentials.html) to get the needed details. Also, check the [boto3 Documentation](https://boto3.readthedocs.io/en/latest/guide/configuration.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region) for available regions.
+For more information, please read the [AWS General Reference regarding Security Credentials](https://docs.aws.amazon.com/IAM/latest/UserGuide/security-creds.html) to get the needed details. Also, check the [boto3 Documentation](https://boto3.amazonaws.com/v1/documentation/api/latest/guide/credentials.html#shared-credentials-file) about the profiles and the [AWS Regions and Endpoints Reference](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints) for available regions.
 
 Available voices are listed in the [Amazon Documentation](https://docs.aws.amazon.com/polly/latest/dg/voicelist.html).
 
 ## Configuration
 
-To get started, add the following lines to your `configuration.yaml` (example for Amazon Polly):
+To get started, add the following lines to your {% term "`configuration.yaml`" %} file (example for Amazon Polly).
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -48,7 +54,7 @@ profile_name:
 region_name:
   description: The region identifier to connect to.
   required: false
-  type: [string, list]
+  type: string
   default: us-east-1
 text_type:
   description: "Whether to interpret messages as `text` or as [`ssml`](https://docs.aws.amazon.com/polly/latest/dg/ssml.html) by default."
@@ -70,7 +76,7 @@ sample_rate:
   type: string
   default:  22050 for MP3 and Ogg Vorbis, 16000 for pcm
 engine:
-  description: "Override the default engine. Can be either of `standard` or `neural`. See Amazon documentation for compatible regions and voices."
+  description: "Override the default engine. Can be either of [`standard`](https://docs.aws.amazon.com/polly/latest/dg/standard-voices.html), [`neural`](https://docs.aws.amazon.com/polly/latest/dg/neural-voices.html), [`long-form`](https://docs.aws.amazon.com/polly/latest/dg/long-form-voices.html) or [`generative`](https://docs.aws.amazon.com/polly/latest/dg/generative-voices.html). See Amazon documentation for compatible regions and voices."
   required: false
   type: string
   default: standard  
@@ -81,7 +87,7 @@ engine:
 Say to all `media_player` device entities:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: "<speak>Hello from Amazon Polly</speak>"
 ```
@@ -89,7 +95,7 @@ Say to all `media_player` device entities:
 or
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: >
       <speak>
@@ -100,7 +106,7 @@ or
 Say to the `media_player.living_room` device entity:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   target:
     entity_id: media_player.living_room
     message: >
@@ -112,7 +118,7 @@ Say to the `media_player.living_room` device entity:
 Say with break:
 
 ```yaml
-- service: tts.amazon_polly_say
+- action: tts.amazon_polly_say
   data:
     message: >
       <speak>
@@ -120,4 +126,41 @@ Say with break:
           <break time=".9s" />
           Amazon Polly
       </speak>
+```
+
+Say with specific voice and engine as options:
+
+```yaml
+- service: tts.amazon_polly_say
+  data:
+    message: "Hello from Amazon Polly"
+    entity_id: media_player.living_room
+    language: en-GB
+    options:
+      voice: Amy
+      engine: generative
+```
+
+
+## Advanced usage
+Amazon Polly supports accented bilingual voices and you may find that you'd prefer the voice you like be slowed down, or speeded up. If the speed of the voice is a concern, Amazon Polly provides the ability to modify this using SSML tags. First enable SSML in configuration:
+
+```yaml
+  - platform: amazon_polly
+    ...
+    text_type: ssml
+    ...
+```
+
+Note: You now need to enclose all new and previous TTS input within the `<speak></speak>` tags. To use SSML in automation, you can follow these steps, for instance:
+
+```yaml
+action: tts.amazon_polly_say
+data:
+  cache: true
+  entity_id: media_player.mpd
+  message: >-
+    <speak> <prosody rate="75%">나는  <prosody rate="75%">천천히</prosody> <lang
+    xml:lang="fr-FR">parle</lang>.하고 있다식기세척!</speak>
+  language: ko-KR
 ```

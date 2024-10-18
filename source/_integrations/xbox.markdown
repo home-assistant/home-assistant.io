@@ -2,9 +2,9 @@
 title: Xbox
 description: Instructions on how to set up Xbox devices in Home Assistant.
 ha_category:
-  - Binary Sensor
-  - Media Player
-  - Media Source
+  - Binary sensor
+  - Media player
+  - Media source
   - Remote
 ha_iot_class: Cloud Polling
 ha_release: 0.117
@@ -20,7 +20,7 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The Xbox integration allows you to control Xbox One (or newer) consoles from Home Assistant.
+The **Xbox** {% term integration %} allows you to control Xbox One (or newer) consoles from Home Assistant.
 
 Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assistant Cloud account linking service.
 
@@ -28,23 +28,21 @@ Home Assistant authenticates with Xbox Live through OAuth2 using the Home Assist
 
 Note that for the media player and remote entities to be added your Xbox will need to have remote features enabled via **Settings -> Devices & connections -> Remote features** (you may need to upgrade your controller firmware).
 
-<div class='note'>
+{% important %}
+Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your {% term "`configuration.yaml`" %}.
+{% endimportant %}
 
-Because it uses the Home Assistant Cloud account linking service you **must** have either `cloud:` or `default_config:` in your `configuration.yaml`.
+## Media player
 
-</div>
+The Xbox media player platform will create media player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
 
-## Media Player
-
-The Xbox media player platform will create Media Player entities for each console linked to your Microsoft account. These entities will display the active app and playback controls as well as a media browser implementation, allowing you to launch any installed application.
-
-### Service `play_media`
+### Action `play_media`
 
 Launches an application on the Xbox console using the application's product ID. Also supports "Home" and "TV" to navigate to the dashboard or Live TV respectively.
 
 You can find Product IDs using the **{% my developer_events title="Developer Tools -> Events" %}** tab and listening to the `call_service` event. In a new browser tab, navigate to the media browser for your console and click on an App/Game to see the product ID in the event.
 
-| Service data attribute | Description                           |
+| Data attribute | Description                           |
 | ---------------------- | --------------------------------------|
 | `entity_id`            | `entity_id` of the Xbox media player  |
 | `media_content_id`     | "Home"/"TV"/{product_id}              |
@@ -68,9 +66,9 @@ media_content_id: "9WZDNCRFJ3TJ" # Netflix
 
 The Xbox remote platform will create Remote entities for each console linked to your Microsoft Account. These entities will allow you to turn on/off and send controller or text input to your console.
 
-### Service `send_command`
+### Action `send_command`
 
-| Service data attribute | Optional | Description                                                            |
+| Data attribute | Optional | Description                                                            |
 | ---------------------- | -------- | ---------------------------------------------------------------------- |
 | `entity_id`            | no       | `entity_id` of the Xbox remote.                                                      |
 | `command`              | no       | List of the controller commands or text input to be sent.<br />Commands: A, B, X, Y, Up, Down, Left, Right |
@@ -99,7 +97,7 @@ command:
 delay_sec: 0.1
 ```
 
-### Picture Elements Card
+### Picture elements card
 
 Below is a picture elements card that can be added to a dashboard to provide an Xbox controller interface in your frontend. It utilizes the services detailed above. Replace `remote.xboxone_remote` and `media_player.xboxone` with the names of your entities and enjoy! Courtesy of [@SeanPM5](https://github.com/SeanPM5) and [@hunterjm](https://github.com/hunterjm).
 
@@ -115,7 +113,7 @@ image: >-
 elements:
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Up
@@ -127,7 +125,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Down
@@ -139,7 +137,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Left
@@ -151,7 +149,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: Right
@@ -163,7 +161,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "A"
@@ -176,7 +174,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "X"
@@ -189,7 +187,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "B"
@@ -202,7 +200,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.send_command
+    action: remote.send_command
     service_data:
       entity_id: remote.xboxone_remote
       command: "Y"
@@ -215,7 +213,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: remote.toggle
+    action: remote.toggle
     service_data:
       entity_id: remote.xboxone_remote
     style:
@@ -227,7 +225,7 @@ elements:
       overflow: hidden
   - type: service-button
     title: ""
-    service: media_player.play_media
+    action: media_player.play_media
     service_data:
       entity_id: media_player.xboxone
       media_content_type: ""
@@ -241,7 +239,7 @@ elements:
       overflow: hidden
 ```
 
-## Binary Sensor
+## Binary sensor
 
 The Xbox binary sensor platform automatically keeps track of your "**Favorite** friends". In your friends list, select **Change friendship -> Favorite** to have that person automatically pulled into Home Assistant.
 
@@ -267,19 +265,19 @@ Just like the binary sensors, the Xbox sensor platform automatically keeps track
 | `sensor.{gamertag}_account_tier` | Disabled | Shows your friend's Xbox Live account tier (Gold or Silver).             |
 | `sensor.{gamertag}_gold_tenure`  | Disabled | Shows how long your friend has had Xbox Live Gold.                       |
 
-## Media Source
+## Media source
 
-The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source integration, you are also able to send these clips to supported media players like Chromecast.
+The Xbox media source platform allows you to use the Media Browser panel to view both your own, and community, gameclips or screenshots for games that you have installed on any of your consoles. As with any other media source {% term integration %}, you are also able to send these clips to supported media players like Chromecast.
 
-<div class="note">
+{% important %}
 It can take up to a couple of days for newly installed applications to appear in the media browser.
-</div>
+{% endimportant %}
 
-## Manual Configuration
+## Manual configuration
 
-<div class="note">
+{% warning %}
 These steps are not required, nor will they be supported if issues are encountered.
-</div>
+{% endwarning %}
 
 If you prefer not to use the Home Assistant account linking service, you may manually configure a local implementation if your instance is exposed externally over HTTPS using the following steps:
 
@@ -291,7 +289,7 @@ If you prefer not to use the Home Assistant account linking service, you may man
 - On the App Page, navigate to "Certificates & secrets"
   - Generate a new client secret and save for later use
 
-You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the integration.
+You may then add the credentials to [Application Credentials](/integrations/application_credentials/) and then setup the {% term integration %}.
 
 {% details "I have manually disabled My Home Assistant" %}
 

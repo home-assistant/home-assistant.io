@@ -1,5 +1,5 @@
 ---
-title: Manual MQTT Alarm Control Panel
+title: Manual MQTT Alarm control panel
 description: Instructions on how to integrate manual alarms into Home Assistant with MQTT support.
 ha_category:
   - Alarm
@@ -9,19 +9,23 @@ ha_iot_class: Local Push
 ha_platforms:
   - alarm_control_panel
 ha_integration_type: integration
+related:
+  - docs: /docs/configuration/
+    title: Configuration file
 ---
 
-The `mqtt` platform extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
+The `mqtt` {% term integration %} extends the [manual alarm](/integrations/manual) by adding support for MQTT control of the alarm by a remote device. It can be used to create external keypads which simply change the state of the manual alarm in Home Assistant.
 
 It's essentially the opposite of the [MQTT Alarm Panel](/integrations/alarm_control_panel.mqtt/) which allows Home Assistant to observe an existing, fully-featured alarm where all of the alarm logic is embedded in that physical device.
 
-The integration will accept the following commands from your Alarm Panel via the `command_topic`:
+The {% term integration %} will accept the following commands from your Alarm Panel via the `command_topic`:
 
 - `DISARM`
 - `ARM_HOME`
 - `ARM_AWAY`
 - `ARM_NIGHT`
 - `ARM_VACATION`
+- `ARM_CUSTOM_BYPASS`
 
 When the state of the manual alarm changes, Home Assistant will publish one of the following states to the `state_topic`:
 
@@ -30,12 +34,14 @@ When the state of the manual alarm changes, Home Assistant will publish one of t
 - 'armed_away'
 - 'armed_night'
 - 'armed_vacation'
+- 'armed_custom_bypass'
 - 'pending'
 - 'triggered'
 
 ## Configuration
 
-To use your panel in your installation, add the following to your `configuration.yaml` file:
+To use your panel in your installation, add the following to your {% term "`configuration.yaml`" %} file.
+{% include integrations/restart_ha_after_config_inclusion.md %}
 
 ```yaml
 # Example configuration.yaml entry
@@ -93,7 +99,7 @@ disarm_after_trigger:
   required: false
   type: boolean
   default: false
-armed_home/armed_away/armed_night/armed_vacation/disarmed/triggered:
+armed_home/armed_away/armed_night/armed_vacation/armed_custom_bypass/disarmed/triggered:
   description: State specific settings
   required: false
   type: list
@@ -126,7 +132,7 @@ command_topic:
   required: true
   type: string
 qos:
-  description: The maximum QoS level for subscribing and publishing to MQTT messages.
+  description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
   type: integer
   default: 0
@@ -155,6 +161,11 @@ payload_arm_vacation:
   required: false
   type: string
   default: ARM_VACATION
+payload_arm_custom_bypass:
+  description: The payload to set armed-custom bypass mode on this Alarm Panel.
+  required: false
+  type: string
+  default: ARM_CUSTOM_BYPASS
 {% endconfiguration %}
 
 ## Examples
@@ -186,7 +197,7 @@ alarm_control_panel:
 
 Refer to the [Manual Alarm Control page](/integrations/manual#examples) for more real-life examples on how to use this panel.
 
-## MQTT Control
+## MQTT control
 
 The state of this alarm can be controlled using [MQTT](/integrations/mqtt/). Ensure you've configured that before adding this component.
 
@@ -197,6 +208,7 @@ To change the state of the alarm, publish one of the following messages to the `
  - `ARM_AWAY`
  - `ARM_NIGHT`
  - `ARM_VACATION`
+ - `ARM_CUSTOM_BYPASS`
 
 To receive state updates from HA, subscribe to the `state_topic`. Home Assistant will publish a new message whenever the state changes:
 
@@ -205,5 +217,6 @@ To receive state updates from HA, subscribe to the `state_topic`. Home Assistant
  - `armed_away`
  - `armed_night`
  - `armed_vacation`
+ - `armed_custom_bypass`
  - `pending`
  - `triggered`

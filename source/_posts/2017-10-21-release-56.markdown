@@ -75,7 +75,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - Simplify track_same_state ([@balloob] - [#9795]) ([automation.numeric_state docs]) ([automation.state docs]) ([binary_sensor.template docs]) (breaking change)
 - Split map panel out into its own component ([@cgarwood] - [#9814]) ([map docs]) (breaking change) (new-platform)

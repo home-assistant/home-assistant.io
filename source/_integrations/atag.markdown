@@ -4,7 +4,7 @@ description: Instructions on how to setup Atag integration.
 ha_category:
   - Climate
   - Sensor
-  - Water Heater
+  - Water heater
 ha_release: 0.109
 ha_iot_class: Local Polling
 ha_domain: atag
@@ -18,11 +18,11 @@ ha_platforms:
 ha_integration_type: integration
 ---
 
-The `Atag` integration allows Home Assistant to connect to [Atag One](https://atag-one.com) thermostats, reporting and setting its status.
+The `Atag` integration allows Home Assistant to connect to [Atag One](https://www.atagverwarming.nl) thermostats, reporting and setting its status.
 The integration implements the following platforms:
 
 - Climate
-- Water Heater
+- Water heater
 - Sensor
 
 {% include integrations/config_flow.md %}
@@ -42,29 +42,29 @@ port:
 
 The `Atag` climate platform provides current and target temperature information for the heating system, boiler status and HVAC mode.
 
-### Integration services
+### Integration actions
 
-This integration supports the following services (see [Climate](/integrations/climate/)).
+This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#service-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-climateset_temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
   - `heat` for thermostat mode
   - `auto` for weather-based mode
-- [`set_preset_mode`](/integrations/climate/#service-climateset_preset_mode)
+- [`set_preset_mode`](/integrations/climate/#action-climateset_preset_mode)
   - `Manual` enable manual operation
   - `Auto` enable schedule based operation
   - `Extend` delay the next scheduled temperature update by the default extend period
   - `away` enable the vacation mode for 1 day or until another preset is activated
   - `boost` enable fireplace mode
 
-<div class='note'>
+{% note %}
 `HVAC mode Auto` (Weather based) should not be confused with `Preset mode Auto` (Scheduled, thermostat mode).
 Currently selection of custom timeframes in Extend, Away and boost modes is not supported. The default settings can be changed on the device.
-</div>
+{% endnote %}
 
-## Water Heater
+## Water heater
 
-The Water Heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
+The water heater reports current and target temperature for Domestic Hot Water demand, as well as boiler status (heating or idle). This can be used to detect hot water demand, such as a running shower or tap water.
 Setting target values is currently not supported.
 
 ## Sensor

@@ -1,4 +1,4 @@
-[![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://discord.gg/CxqDrfU)
+[![Discord](https://img.shields.io/discord/330944238910963714.svg)](https://www.home-assistant.io/join-chat/)
 [![License: CC BY-NC-SA 4.0](https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 [![Deploys by netlify](https://www.netlify.com/img/global/badges/netlify-color-bg.svg)](https://www.netlify.com)
@@ -40,3 +40,5 @@ When you're done working on the site, run the following command to move the post
 ```bash
 bundle exec rake integrate
 ```
+
+[![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)

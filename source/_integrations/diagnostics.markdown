@@ -8,17 +8,17 @@ ha_quality_scale: internal
 ha_domain: diagnostics
 ha_codeowners:
   - '@home-assistant/core'
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
-The diagnostics integration provides a way to download diagnostic data from
-a device or integration, that can be shared in issue reports. Sharing
+The diagnostics {% term integration %} provides a way to download diagnostic data from
+a {% term device %} or {% term integration %}, that can be shared in issue reports. Sharing
 diagnostics data when reporting an issue allows developers to diagnose 
 and fix your reported problem quicker.
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='Screenshot showing the Download Diagnostics button on a Sonos device page'>
-Screenshot of the Download Diagnostics button on the device page
+Screenshot of the download diagnostics button on the device page
 </p>
 
 Diagnostics data is provided by an integration, and can be downloaded

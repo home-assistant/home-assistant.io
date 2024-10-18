@@ -272,7 +272,7 @@ Experiencing issues introduced by this release? Please report them in our [issue
 
 <!--more-->
 
-## Breaking Changes
+## Backward-incompatible changes
 
 - __OpenTherm__ - Adds support for more than one OpenTherm Gateway device which changes the configuration structure. ([@mvn23] - [#22932]) ([opentherm_gw docs])
 

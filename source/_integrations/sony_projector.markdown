@@ -15,7 +15,7 @@ The `sony_projector` switch platform allows you to control the state of SDCP com
 
 ## Configuration
 
-To use your Sony Projector in your installation, add the following to your `configuration.yaml` file:
+To use your Sony Projector in your installation, add the following to your {% term "`configuration.yaml`" %} file:
 
 ```yaml
 # Example configuration.yaml entry
@@ -35,3 +35,7 @@ name:
   required: false
   type: string
 {% endconfiguration %}
+
+Under your projector's web interface **Advanced Menu**, you may need to:
+- Enable/start the **PJ Talk** service.
+- Add the IP of your Home Assistant server to the **Host Address** field.

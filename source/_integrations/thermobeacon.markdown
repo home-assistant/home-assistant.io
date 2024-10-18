@@ -19,6 +19,7 @@ Integrates [ThermoBeacon](http://www.seven-like.com/) devices into Home Assistan
 
 ## Supported devices
 
+- SensorBlue WS03
 - SensorBlue WS07
 - SensorBlue WS08
 
