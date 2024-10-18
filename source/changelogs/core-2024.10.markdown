@@ -1376,6 +1376,58 @@ For a summary in a more readable format:
 [@tr4nt0r]: https://github.com/tr4nt0r
 [@tronikos]: https://github.com/tronikos
 
+## Release 2024.10.3 - October 18
+
+- Update home-assistant-bluetooth to 1.13.0 ([@cdce8p] - [#127691])
+- Fix printer uptime fluctuations in IPP ([@mib1185] - [#127725])
+- Improve discovery of WMS WebControl pro by updating IP address ([@mback2k] - [#128007])
+- Use the same ZHA database path during startup and when loading device triggers ([@puddly] - [#128130])
+- Fix playing media via roku ([@ctalkington] - [#128133])
+- Bump yt-dlp to 2024.10.07 ([@joostlek] - [#128182])
+- Fix daikin entities not refreshing quickly ([@adampetrovic] - [#128230])
+- Keep the provided name when creating a tag ([@silamon] - [#128240])
+- Update aioairzone to v0.9.4 ([@Noltari] - [#127792])
+- Update aioairzone to v0.9.5 ([@Noltari] - [#128265])
+- Bump gcal_sync to 6.1.6 ([@allenporter] - [#128270])
+- Bump solarlog_cli to 0.3.2 ([@dontinelli] - [#128293])
+- Bump pyblu to 1.0.4 ([@LouisChrist] - [#128482])
+- Increase Z-Wave fallback thermostat range to 0-50 C ([@MindFreeze] - [#128543])
+- Bump pyotgw to 2.2.2 ([@mvn23] - [#128594])
+
+[#126782]: https://github.com/home-assistant/core/pull/126782
+[#127566]: https://github.com/home-assistant/core/pull/127566
+[#127691]: https://github.com/home-assistant/core/pull/127691
+[#127725]: https://github.com/home-assistant/core/pull/127725
+[#127792]: https://github.com/home-assistant/core/pull/127792
+[#128007]: https://github.com/home-assistant/core/pull/128007
+[#128130]: https://github.com/home-assistant/core/pull/128130
+[#128133]: https://github.com/home-assistant/core/pull/128133
+[#128176]: https://github.com/home-assistant/core/pull/128176
+[#128182]: https://github.com/home-assistant/core/pull/128182
+[#128230]: https://github.com/home-assistant/core/pull/128230
+[#128240]: https://github.com/home-assistant/core/pull/128240
+[#128265]: https://github.com/home-assistant/core/pull/128265
+[#128270]: https://github.com/home-assistant/core/pull/128270
+[#128293]: https://github.com/home-assistant/core/pull/128293
+[#128482]: https://github.com/home-assistant/core/pull/128482
+[#128543]: https://github.com/home-assistant/core/pull/128543
+[#128594]: https://github.com/home-assistant/core/pull/128594
+[@LouisChrist]: https://github.com/LouisChrist
+[@MindFreeze]: https://github.com/MindFreeze
+[@Noltari]: https://github.com/Noltari
+[@adampetrovic]: https://github.com/adampetrovic
+[@allenporter]: https://github.com/allenporter
+[@cdce8p]: https://github.com/cdce8p
+[@ctalkington]: https://github.com/ctalkington
+[@dontinelli]: https://github.com/dontinelli
+[@frenck]: https://github.com/frenck
+[@joostlek]: https://github.com/joostlek
+[@mback2k]: https://github.com/mback2k
+[@mib1185]: https://github.com/mib1185
+[@mvn23]: https://github.com/mvn23
+[@puddly]: https://github.com/puddly
+[@silamon]: https://github.com/silamon
+
 [#102371]: https://github.com/home-assistant/core/pull/102371
 [#106570]: https://github.com/home-assistant/core/pull/106570
 [#112806]: https://github.com/home-assistant/core/pull/112806
