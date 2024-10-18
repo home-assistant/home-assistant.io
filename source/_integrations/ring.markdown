@@ -147,13 +147,25 @@ The event entity captures events like doorbell rings, motion alerts, and interco
 
 ### Realtime event stability
 
+#### Step 1
+
 If you are experiencing issues with receiving ring alerts, the reason could be that you have too many authenticated devices on your ring account.
 Prior to version 2023.12.0, the Home Assistant ring integration would register a new entry in `Authorized Client Devices` in the `Control Centre` at [ring.com](https://account.ring.com/account/control-center/authorized-devices) every time it restarted.
 If you have been using the ring integration before this, you may have many `Authorized Client Devices` in the `Control Centre` on [ring.com](https://account.ring.com/account/control-center/authorized-devices).
 This can cause issues receiving ring alerts.
 You should delete all authorised devices from [ring.com](https://account.ring.com/account/control-center/authorized-devices) `Control Centre` which are from Home Assistant
-(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are named `ring-doorbell:HomeAssistant/something` or `Python`).
+(i.e. do not delete those named `iPhone` or `Android`; Home Assistant authorized devices are usually named `ring-doorbell:HomeAssistant/something` or `Python`).
 If you have too many `Authorised Client Devices` to delete them individually, it might be easier to `Remove all devices` and then re-authorize your required devices.
+
+#### Step 2
+
+If after that you are still experiencing issues it could be that you need to run the reconfigure step to generate a new unique id for the Home Assisstant ring integration instance.
+Do this via the `Reconfigure` option in the drop down on the integration entry.
+Do not try this step before clearing down all the excess `Authorised Client Devices` as per Step 1, or it will simply invalidate the reconfigured entry.
+
+#### Step 3
+
+Some users have reported that toggling the "Motion Warning" setting on and off on their devices via the ring.com website has restarted their alerts.
 
 ## Sensor
 
