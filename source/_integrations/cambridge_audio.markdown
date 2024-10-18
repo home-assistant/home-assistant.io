@@ -51,7 +51,10 @@ Host:
 ## Available configuration entities
 
 The integration provides a few entities to configure the device settings. The following entities are supported:
+
 - Display brightness
+- Pre-Amp
+- Early Update
 
 ## Troubleshooting
 
