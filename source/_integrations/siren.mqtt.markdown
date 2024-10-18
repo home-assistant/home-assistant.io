@@ -194,6 +194,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `siren`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -233,7 +237,7 @@ support_volume_set:
   type: boolean
   default: true
 unique_id:
-  description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this siren device. If two sirens have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}
