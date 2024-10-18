@@ -158,3 +158,54 @@ template:
 ```
 
 {% endraw %}
+
+### Service `openai_conversation.generate_content`
+
+Allows you to ask OpenAI to generate a content based on a prompt. This service
+populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+with the response from OpenAI.
+
+| Service data attribute | Optional | Description                                             | Example              |
+| ---------------------- | -------- | ------------------------------------------------------- | -------------------- |
+| `config_entry`         | no       | Integration entry ID to use.                            |                      |
+| `prompt`               | no       | The text to generate content from.                      | Describe the weather |
+| `image_filename`       | yes      | List of file names for images to include in the prompt. | /tmp/image.jpg       |
+
+{% raw %}
+
+```yaml
+service: openai.generate_content
+data:
+  config_entry: abce6b8696a15e107b4bd843de722249
+  prompt: >-
+    Very briefly describe what you see in this image from my doorbell camera.
+    Your message needs to be short to fit in a phone notification. Don't
+    describe stationary objects or buildings.
+  image_filename: 
+    - /tmp/doorbell_snapshot.jpg
+response_variable: generated_content
+```
+
+{% endraw %}
+
+The response data field `text` will contain the generated content.
+
+Another example with multiple images:
+
+{% raw %}
+
+```yaml
+service: openai.generate_content
+data:
+  prompt: >-
+    Briefly describe what happened in the following sequence of images
+    from my driveway camera.
+  image_filename:
+    - /tmp/driveway_snapshot1.jpg
+    - /tmp/driveway_snapshot2.jpg
+    - /tmp/driveway_snapshot3.jpg
+    - /tmp/driveway_snapshot4.jpg
+response_variable: generated_content
+```
+
+{% endraw %}
