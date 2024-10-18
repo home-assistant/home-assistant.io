@@ -46,6 +46,9 @@ password:	password:
   type: string	  type: string
 security_protocol:	security_protocol:
   description: The protocol used to communicate with brokers. Use `SASL_SSL` for authentication.	  description: The security protocol used to communicate with brokers. Use `SSL` for secure or `SASL_SSL` for secure with SASL authentication. (only `SASL_PLAINTEXT` mechanism is supported)
+  required: false
+  default: PLAINTEXT
+  type: string
 topic:
   description: The Kafka topic to send data to.
   required: true
