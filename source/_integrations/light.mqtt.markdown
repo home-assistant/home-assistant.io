@@ -202,6 +202,10 @@ entity_category:
   description: The [category](https://developers.home-assistant.io/docs/core/entity#generic-properties) of the entity.
   required: false
   type: string
+entity_picture:
+  description: "Picture URL for the entity."
+  required: false
+  type: string
 effect_command_topic:
   description: "The MQTT topic to publish commands to change the light's effect state."
   required: false
