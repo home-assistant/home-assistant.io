@@ -121,7 +121,11 @@ Depending on the sensor type you choose, the `history_stats` integration can sho
 
 - **time**: The default value, which is the tracked time, in hours
 - **ratio**: The tracked time divided by the length of your period, as a percentage
-- **count**: How many times the tracked entity matched the configured state during the time period
+- **count**: How many times the tracked entity matched the configured state during the time period. Unlike a rising edge counter, this will also include a count if the entity is already in the matched state at the beginning of the time period.
+
+{% note %}
+For a count sensor with a time period that does not overlap (such as one that resets hourly, daily, or monthly), consider using [customization](/docs/configuration/customizing-devices/#customizing-an-entity-in-yaml) to change the `state_class` to `total_increasing` to generate useful statistics.
+{% endnote %}
 
 ## Time periods
 
@@ -156,6 +160,10 @@ duration:
 
 {% note %}
 If the duration exceeds the number of days of history stored by the `recorder` integration (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
+{% endnote %}
+
+{% note %}
+The history stats sensor will be updated when the source entity changes or once per minute if there is no source change. Keep this in mind when using fixed durations that aren't evenly divisible by one minute. 
 {% endnote %}
 
 ### Video tutorial
