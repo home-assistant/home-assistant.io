@@ -50,6 +50,7 @@ alert:
     repeat: 30
     can_acknowledge: true
     skip_first: true
+    throttle: 10
     notifiers:
       - ryans_phone
       - kristens_phone
@@ -93,6 +94,13 @@ skip_first:
   required: false
   type: boolean
   default: false
+throttle:
+  description: >
+    Minimum number of minutes that must pass between consecutive notifications.
+    This prevents receiving multiple notifications in a short time if the alert
+    condition rapidly changes between states.
+  required: false
+  type: integer
 message:
   description: >
     A message to be sent after an alert transitions from `idle` to `on`
