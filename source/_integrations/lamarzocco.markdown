@@ -118,7 +118,7 @@ Host:
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
 
 ## Supported devices
-Currently only devices from the `Home` range are supported. 
+Currently, only devices from the **"Home"** range are supported:
 
 That means
 
