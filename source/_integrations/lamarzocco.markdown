@@ -139,7 +139,7 @@ Currently, only devices from the **"Home"** range are supported:
 ## Troubleshooting
 **Problem: Connection to machine is not possible**
 
-Check the La Marzocco Home app if you are able to connect to your machine there. Remove the machine and add it again (follow instructions in La Marzocco App). 
+Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
 
 **Real time updates are not available**
 
