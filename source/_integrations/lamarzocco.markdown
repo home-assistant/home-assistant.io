@@ -134,7 +134,7 @@ Currently, only devices from the **"Home"** range are supported:
   
 ## Known Limitations
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
-- Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can of course build Home Assistant native automations to reflect the same functionality in Home Assistant.
+- Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
 ## Troubleshooting
 **Problem: Connection to machine is not possible**
