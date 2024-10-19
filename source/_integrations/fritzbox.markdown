@@ -29,7 +29,7 @@ ha_integration_type: hub
 ha_quality_scale: gold
 ---
 
-The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.avm.de/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats, shutter drivers or sensors as also trigger so called templates (_contains settings for Smart Home devices of the same type_).
+The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [AVM Smart Home](https://en.avm.de/products/smart-home/) (_former AVM FRITZ!DECT_) devices like plugs, thermostats or shutter drivers as also trigger so called smart home templates (_contains settings for Smart Home devices of the same type_).
 
 #### Tested devices
 
@@ -54,22 +54,22 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 {% include integrations/config_flow.md %}
 
 {% note %}
-The configuration in the UI asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
+The configuration asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
 {% endnote %}
 
-## Light
+## Light bulbs
 
-Light bulbs like the [FRITZ!DECT 500][fritzdect_500] or [Magenta SmartHome LED E27 Color][magenta_led_e27_color] will be integrated as {% term light %} {% term entities %}.
+Light bulbs like the [FRITZ!DECT 500][fritzdect_500] or [Magenta SmartHome LED E27 Color][magenta_led_e27_color] will be integrated as {% term light %} entities.
 
 {% note %}
-The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in Home Assistant that is not supported by the device, a color that comes close will be activated.
+The [FRITZ!DECT 500][fritzdect_500] light bulb supports only 36 colors. When a color is picked in Home Assistant that is not supported by the device, a color that comes close will be activated.
 {% endnote %}
 
 ## Plugs
 
-Plugs like the [FRITZ!DECT 200][fritzdect_200] or [FRITZ!DECT 210][fritzdect_210] will be integrated as {% term switch %} {% term entities %}.
+Plugs like the [FRITZ!DECT 200][fritzdect_200] or [FRITZ!DECT 210][fritzdect_210] will be integrated as {% term switch %} entities.
 
-Further there are additional {% term sensors "sensor" %} and {% term binary_sensor %} {% term entities %} created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term binary_sensor %} entities created for each device, based on its capabilities:
 
 - Button lock via UI
 - Button lock on device
@@ -81,15 +81,15 @@ Further there are additional {% term sensors "sensor" %} and {% term binary_sens
 
 ## Shutter drivers
 
-Shutter drivers like the [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213] will be integrated as {% term cover %} {% term entities %}.
+Shutter drivers like the [Rademacher RolloTron DECT 1213][rademacher_rollotron_dect_1213] will be integrated as {% term cover %} entities.
 
 ## Templates
 
-Self defined templates within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} {% term entities %} and those can be triggered from within Home Assistant.
+Self defined templates within the FRITZ!Box smart home configuration menu, will be integrated as {% term button %} entities and those can be triggered from within Home Assistant.
 
 ## Thermostats
 
-Thermostats like the [FRITZ!DECT 301][fritzdect_301], [FRITZ!DECT 302][fritzdect_302] or [Eurotronic Comet DECT][eurotronic_comet_dect] will be integrated as {% term climate %} {% term entities %}.
+Thermostats like the [FRITZ!DECT 301][fritzdect_301], [FRITZ!DECT 302][fritzdect_302] or [Eurotronic Comet DECT][eurotronic_comet_dect] will be integrated as {% term climate %} entities.
 
 These entities can have several attributes that can be useful for {% term automations %} and {% term templates %}:
 
@@ -101,7 +101,7 @@ These entities can have several attributes that can be useful for {% term automa
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7). |
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7). |
 
-Further there are additional {% term sensor %} and {% term binary_sensor %} {% term entities %} created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term binary_sensor %} entities created for each device, based on its capabilities:
 
 - Battery
 - Button lock via UI
@@ -113,11 +113,11 @@ Further there are additional {% term sensor %} and {% term binary_sensor %} {% t
 - Next Scheduled Preset
 - Next Scheduled Temperature
 
-## Sensors
+## Other devices
 
 Some devices like the [FRITZ!DECT 440][fritzdect_440] can't be controlled via this integration, but its sensors can still be integrated.
 
-The availability of these {% term sensor %} and {% term binary_sensor %} {% term entities %} depends on the features and capabilities of the connected FRITZ!DECT devices and can be one or multiple of:
+The availability of these {% term sensor %} and {% term binary_sensor %} entities depends on the features and capabilities of the connected device and can be one or multiple of:
 
 - Battery
 - Button lock via UI
