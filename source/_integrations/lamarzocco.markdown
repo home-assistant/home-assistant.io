@@ -120,8 +120,6 @@ Host:
 ## Supported devices
 Currently, only devices from the **"Home"** range are supported:
 
-That means
-
 - Linea Mini
 - Linea Mini R
 - Linea Micra
