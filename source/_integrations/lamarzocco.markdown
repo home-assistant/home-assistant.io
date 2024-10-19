@@ -143,6 +143,6 @@ Check the La Marzocco Home app to see if you can connect to your machine there. 
 
 **Real time updates are not available**
 
-Check the La Marzocco Home app if your machine is connected to the WiFi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration's options.
+Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 
 
