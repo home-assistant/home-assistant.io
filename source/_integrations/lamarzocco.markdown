@@ -138,15 +138,12 @@ That means
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can of course build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
 ## Troubleshooting
-<details>
-<summary>Connection to machine is not possible</summary>
-<br>
-Check the La Marzocco Home app if you are able to connect to your machine there. Remove the machine and add it again (follow instructions in La Marzocco App). 
-</details>
+**Problem: Connection to machine is not possible**
 
-<details>
-<summary>Real time updates are not available</summary>
-<br>
+Check the La Marzocco Home app if you are able to connect to your machine there. Remove the machine and add it again (follow instructions in La Marzocco App). 
+
+**Real time updates are not available**
+
 Check the La Marzocco Home app if your machine is connected to the WiFi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration's options.
-</details>
+
 
