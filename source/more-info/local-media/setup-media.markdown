@@ -22,6 +22,10 @@ homeassistant:
     recording: /mnt/recordings
 ```
 
+The above examples add two media folders to Home Assistant, and they will
+shown up as "media" and "recording" in the media browser. You can add
+as many media folders as you like, using any name you want.
+
 ## Home Assistant Container
 
 If you run the Home Assistant Container you'll need to
