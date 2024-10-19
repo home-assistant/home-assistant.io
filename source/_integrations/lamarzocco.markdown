@@ -118,6 +118,7 @@ Host:
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
 
 ## Supported devices
+
 Currently, only devices from the **"Home"** range are supported:
 
 - Linea Mini
@@ -133,10 +134,12 @@ Currently, only devices from the **"Home"** range are supported:
 - Turn on lights next to the machine while a brew is running.
   
 ## Known Limitations
+
 - Only La Marzocco native app accounts are supported, social logins (Google, Apple & WeChat) are not supported
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
 ## Troubleshooting
+
 **Problem: Connection to machine is not possible**
 
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
