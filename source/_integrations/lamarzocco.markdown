@@ -33,8 +33,6 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
 
-
-
 ## Pre-requisites
 
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
@@ -58,6 +56,7 @@ Host:
   type: boolean
 {% endconfiguration_basic %}
 
+# Available platforms & entities
 
 ## Buttons
 
@@ -122,6 +121,7 @@ Host:
 Currently only devices from the `Home` range are supported. 
 
 That means
+
 - Linea Mini
 - Linea Mini R
 - Linea Micra
