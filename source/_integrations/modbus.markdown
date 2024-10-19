@@ -1516,15 +1516,15 @@ switches:
             input:
               description: "Input register."
         state_on:
-          description: "Value(s) when switch is on."
+          description: "Value(s) when switch is on. The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_on`"
-          type: integer | list
+          type: [integer, list]
         state_off:
-          description: "Value(s) when switch is off."
+          description: "Value(s) when switch is off.  The value must be an `integer` or a list of integers."
           required: false
           default: "Same as `command_off`"
-          type: integer | list
+          type: [integer, list]
 
 {% endconfiguration %}
 
