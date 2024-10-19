@@ -179,6 +179,7 @@ These are the entities available in the Tesla Fleet integration. Not all entitie
 |Sensor|Generator power|No|
 |Sensor|Grid power|Yes|
 |Sensor|Grid services power|Yes|
+|Sensor|Grid status|Yes|
 |Sensor|Island status|Yes|
 |Sensor|Load power|Yes|
 |Sensor|Percentage charged|Yes|

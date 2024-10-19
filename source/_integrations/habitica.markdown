@@ -54,6 +54,8 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 - **Next level:** Indicates the remaining experience points needed to reach the next level (for example, "440 XP").
 - **Habits:** Shows the number of habits being tracked (for example, "4 tasks").
 - **Rewards:** Displays the rewards that can be redeemed (for example, "1 task")
+- **Gems:** Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
+- **Mystic hourglasses:** Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
 
 ## To-do lists
 
@@ -73,6 +75,25 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Actions
+
+### Action `habitica.cast_skill`
+
+Use a skill or spell from your Habitica character on a specific task to affect its progress or status.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character to cast the skill.                                                                 |
+| `skill`        | no       |  Skill or spell you want to cast on the task. Only skills available to your character's class can be used.        |
+| `task`         | no       |  The name of the task to target. Alternatively, you can use the `task ID` or **alias**. Supported task types are **to-do**, **habit**, and **daily**. |
+
+#### Available skills
+
+- **Rogue:** `pickpocket`, `backstab`
+- **Warrior:** `smash`
+- **Mage:** `fireball`
+
+To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
 ## API Service
 

@@ -140,6 +140,8 @@ This integration provides several values suitable for the energy dashboard:
 The integration provides a `configure` menu to configure the following options:
 
 - Collect test fixture data in [diagnostics report](#diagnostics) - No/Yes
+- Always use a new connection when requesting data from the Envoy - No/Yes
+  - Some older Envoy firmware may exhibit connection issues when using the, by default enabled, keep-alive connection and report failures. When set, this option disables the use of keep-alive and builds a new connection at each data request. This makes the communication more reliable for these firmware versions. Reported for the Envoy-R but may apply to other older firmware versions as well.
 
 ## Debug logs and diagnostics
 
