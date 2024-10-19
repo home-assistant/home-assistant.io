@@ -127,6 +127,7 @@ Currently, only devices from the **"Home"** range are supported:
 - GS3 MP
 
 ## Possible use-cases
+
 - Control your machine through voice, allowing you to change boiler temperatures quickly without opening the app.
 - Control your smart coffee scales (tare/timer start) when a brew starts.
 - Turn on lights next to the machine while a brew is running.
