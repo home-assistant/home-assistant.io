@@ -100,9 +100,9 @@ Details about the API are available in the [OpenWeatherMap documentation](https:
 ## Action `openweathermap.get_minutely_forecasts`
 
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with a mapping of minute-by-minute (i.e.: `minutely`) forecasts for the next hour.
+with a mapping of minute-by-minute (`minutely`) forecasts for the next hour.
 
-**Note:** Minutely forecasts are available only when the OWN integration mode is set to `v3.0`. The action will not be accessible if the mode is set to `current`, `forecast`, or `v2.5`.
+**Note:** Minutely forecasts are available only when the OWM integration mode is set to `v3.0`. The action will not be accessible if the mode is set to `current`, `forecast`, or `v2.5`.
 
 ```yaml
 action: openweathermap.get_minutely_forecasts
@@ -110,7 +110,7 @@ response_variable: weather_forecast
 ```
 
 The response data field is a mapping of `forecast` fields.
-`forecast` is a list of 60 forecasted conditions for a given minute over the next hour:
+`forecast` is a list of 60 forecasted precipitation levels; one for each minute of the next hour:
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
