@@ -69,7 +69,7 @@ The FRITZ!DECT 500 lightbulb supports only 36 colors. When a color is picked in 
 
 Plugs like the [FRITZ!DECT 200][fritzdect_200] or [FRITZ!DECT 210][fritzdect_210] will be integrated as {% term switch %} {% term entities %}.
 
-Further there are additional {% term sensors "sensor" %} and {% term binary-sensor %} {% term entities %} created for each device, based on its capabilities:
+Further there are additional {% term sensors "sensor" %} and {% term binary_sensor %} {% term entities %} created for each device, based on its capabilities:
 
 - Button lock via UI
 - Button lock on device
@@ -101,7 +101,7 @@ These entities can have several attributes that can be useful for {% term automa
 | `summer_mode` | The state of the summer mode (only available since Fritz!OS 7). |
 | `window_open` | The state of the window open detection (only available since Fritz!OS 7). |
 
-Further there are additional {% term sensor %} and {% term binary-sensor %} {% term entities %} created for each device, based on its capabilities:
+Further there are additional {% term sensor %} and {% term binary_sensor %} {% term entities %} created for each device, based on its capabilities:
 
 - Battery
 - Button lock via UI
@@ -117,7 +117,7 @@ Further there are additional {% term sensor %} and {% term binary-sensor %} {% t
 
 Some devices like the [FRITZ!DECT 440][fritzdect_440] can't be controlled via this integration, but its sensors can still be integrated.
 
-The availability of these {% term sensor %} and {% term binary-sensor %} {% term entities %} depends on the features and capabilities of the connected FRITZ!DECT devices and can be one or multiple of:
+The availability of these {% term sensor %} and {% term binary_sensor %} {% term entities %} depends on the features and capabilities of the connected FRITZ!DECT devices and can be one or multiple of:
 
 - Battery
 - Button lock via UI
