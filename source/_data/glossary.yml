@@ -87,6 +87,9 @@
     A binary sensor returns information about things that only have two states -
     such as on or off.
   link: /integrations/binary_sensor
+  aliases:
+    - binary_sensor
+    - binary_sensors
 - term: Blueprint
   definition: >-
     A blueprint is a script or automation configuration with certain parts
@@ -104,6 +107,13 @@
     configuration-specific settings.
   aliases:
     - blueprints
+- term: Button
+  definition: >-
+    A button entity can fire an event / trigger an action towards a device or
+    service but remains stateless from the Home Assistant perspective.
+  link: /integrations/button
+  aliases:
+    - buttons
 - term: Category
   definition: >-
     A category is an organization tool that allows grouping items in a table.
@@ -114,6 +124,13 @@
     have different categories than the scene, scripts, or helpers settings page.
   aliases:
     - categories
+- term: Climate
+  definition: >-
+    The Climate entity allows you to control and monitor HVAC (heating,
+    ventilating, and air conditioning) devices and thermostats.
+  link: /integrations/climate
+  aliases:
+    - climates
 - term: Commissioning
   definition: >-
     In the context of Matter devices, *commissioning* is the process of adding a
@@ -155,6 +172,8 @@
     Covers are devices such as blinds, garage doors, etc that can be opened and
     closed and optionally set to a specific position.
   link: /integrations/cover
+  aliases:
+    - covers
 - term: Custom integration
   definition: >-
     A custom integration is an integration that has been created by someone from the Home Assistant community and has been published for others to use at their own risk. Custom integrations are not supported by the Home Assistant project. They are not reviewed or tested by the Home Assistant development team and thus may negatively impact the stability of your Home Assistant instance. An example of a custom integration is the [Spook](https://spook.boo/) integration.
@@ -399,6 +418,8 @@
     A light has a brightness you can control, and optionally color temperature
     or RGB color control.
   link: /integrations/light
+  aliases:
+    - lights
 - term: Matter
   definition: >-
     Matter is an open-source standard that defines how to control smart home
