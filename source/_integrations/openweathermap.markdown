@@ -114,9 +114,8 @@ The response data field is a mapping of `forecast` fields.
 
 | Response data | Description | Example |
 | ---------------------- | ----------- | -------- |
-| `datetime` | The time of the forecasted conditions. | 2024-10-19T18:59:00+00:00
-| `precipitation` | The precipitation amount in mm/h. | 1.25
-
+| `datetime` | The time of the forecasted conditions. | 2024-10-19T18:59:00+00:00 |
+| `precipitation` | The precipitation amount in mm/h. | 1.25 |
 
 ## Examples
 
