@@ -16,7 +16,7 @@ ha_config_flow: true
 ha_integration_type: integration
 ---
 
-The **Microsoft Speech** {% term integration %} uses the [Microsoft Azure Cognitive Services Speech API](https://learn.microsoft.com/azure/cognitive-services/speech-service/overview) to provide both Speech-to-Text (STT) and Text-to-Speech (TTS) functionalities within Home Assistant. This integration requires an API key, which you can obtain by using your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
+The **Microsoft Speech** {% term integration %} uses the [Microsoft Azure Cognitive Services Speech API](https://learn.microsoft.com/azure/cognitive-services/speech-service/overview) to provide both Speech-to-text (STT) and Text-to-speech (TTS) functionalities within Home Assistant. This integration requires an API key, which you can obtain by using your [Azure subscription](https://azure.microsoft.com) to create an [Azure Speech resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices).
 
 ## Configuration
 
@@ -59,8 +59,8 @@ To enable Microsoft Speech integration with Home Assistant, follow these steps:
 The Microsoft Speech services are priced based ond usage. For detailed pricing information, visit the [Azure Cognitive Services Speech Pricing](https://azure.microsoft.com/pl-pl/pricing/details/cognitive-services/speech-services/).
 
 - **Free Tier:**
-  - **Speech-to-Text (STT):** 5 hours per month.
-  - **Text-to-Speech (TTS):** 0.5 million characters per month.
+  - **Speech-to-text (STT):** 5 hours per month.
+  - **Text-to-speech (TTS):** 0.5 million characters per month.
 
 - **Paid Tier:**
   - Pricing varies based on the region and the specific services used. Refer to the [Azure Speech Services Pricing](https://azure.microsoft.com/pl-pl/pricing/details/cognitive-services/speech-services/) page for comprehensive details.
