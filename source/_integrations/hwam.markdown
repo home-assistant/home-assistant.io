@@ -6,8 +6,8 @@ ha_category:
   - Sensor
   - Button
   - Switch
-ha_iot_class: Cloud Polling
-ha_release: 2024.?
+ha_iot_class: Local Polling
+ha_release: 2024.11
 ha_config_flow: true
 ha_codeowners:
   - '@lordyavin'
