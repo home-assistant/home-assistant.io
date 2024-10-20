@@ -178,6 +178,11 @@ The integration will create the following sensors:
 - Total searching time
 - Work area (if available). For example: *My lawn*, *Front lawn*, *Back lawn*
 
+For each work area with activated systematic mowing these sensors are created:
+
+- Progress (in percent)
+- Last time completed
+
 ### Switch
 
 #### Avoid (if available)
