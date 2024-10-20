@@ -3,7 +3,6 @@ title: Microsoft Speech (STT)
 description: Instructions on how to set up Microsoft Speech integration with Home Assistant.
 ha_category:
   - Speech-to-text
-  - Text-to-speech
 ha_iot_class: Cloud Push
 ha_release: 2024.11
 ha_domain: microsoft_speech
@@ -27,8 +26,7 @@ To enable Microsoft Speech integration with Home Assistant, follow these steps:
      - Go to the [Azure Portal](https://portal.azure.com/) and sign in with your Azure account.
 
    - **Navigate to Create Speech Resource:**
-     - Follow [this link](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to setup a Speech resource.
-
+     - Follow [this link](https://portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) to set up a Speech resource.
    - **Fill in the Required Details:**
      - **Subscription:** Choose your Azure subscription.
      - **Resource Group:** Select an existing resource group or create a new one.
