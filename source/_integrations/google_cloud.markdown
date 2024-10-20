@@ -148,7 +148,7 @@ Speech-to-text is priced based on the amount of audio successfully processed by 
 
 {% configuration %}
 stt_model:
-  description: "One of the transcription models [here](https://cloud.google.com/speech-to-text/docs/transcription-model). Defaults to `latest_short`."
+  description: "One of the transcription models [here](https://cloud.google.com/speech-to-text/docs/transcription-model). Defaults to `latest_short` because this is the recommended one. If you get: `400 Invalid recognition 'config': The requested model is currently not supported for language : <language code>` try changing this to the legacy `command_and_search`."
   required: false
   type: string
 {% endconfiguration %}

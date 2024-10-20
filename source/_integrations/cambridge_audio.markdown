@@ -3,12 +3,14 @@ title: Cambridge Audio
 description: Instructions on how to integrate Cambridge Audio Receivers into Home Assistant.
 ha_category:
   - Media player
+  - Select
 ha_release: '2024.10'
 ha_iot_class: Local Push
 ha_domain: cambridge_audio
 ha_platforms:
   - diagnostics
   - media_player
+  - select
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true
@@ -33,6 +35,8 @@ This integration allows you to connect the following devices:
 - Cambridge Audio 851N
 - Cambridge Audio MXN10
 - Cambridge Audio AXN10
+- Cambridge Audio EXN100
+- Cambridge Audio Edge NQ
 
 Older, RS-232 serial-based amplifiers like the [CXA series](https://www.cambridgeaudio.com/usa/en/products/hi-fi/cx-series-2/cxa81)
 use a different protocol and are not currently supported.
@@ -45,6 +49,11 @@ Host:
     required: true
     type: string
 {% endconfiguration_basic %}
+
+## Available configuration entities
+
+The integration provides a few entities to configure the device settings. The following entities are supported:
+- Display brightness
 
 ## Troubleshooting
 
