@@ -56,7 +56,7 @@ To enable Microsoft Speech integration with Home Assistant, follow these steps:
 
 ## Pricing
 
-The Microsoft Speech services are priced based on usage. For detailed pricing information, visit the [Azure Cognitive Services Speech Pricing](https://azure.microsoft.com/pl-pl/pricing/details/cognitive-services/speech-services/).
+The Microsoft Speech services are priced based ond usage. For detailed pricing information, visit the [Azure Cognitive Services Speech Pricing](https://azure.microsoft.com/pl-pl/pricing/details/cognitive-services/speech-services/).
 
 - **Free Tier:**
   - **Speech-to-Text (STT):** 5 hours per month.
