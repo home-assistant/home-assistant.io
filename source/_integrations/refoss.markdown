@@ -30,11 +30,12 @@ Integrate Refoss devices into Home Assistant.
 
 ### Supported device models
 
-| Model | Version            |             
-| ----------- |--------------------|
+| Model                               | Version            |             
+|-------------------------------------|--------------------|
 | `Refoss Smart Wi-Fi Switch, R10`    | `all`              |
 | `Refoss Smart Wi-Fi Switch, R20`    | `all`              |
 | `Refoss Smart Energy Monitor, EM06` | `v2.3.8 and above` |
+| `Refoss Smart Energy Monitor, EM16` | `v3.1.7 and above` |
  
 ### Discover device
 
