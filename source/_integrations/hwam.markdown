@@ -87,6 +87,11 @@ combustion chamber.
 - **Stove Temperature** (°C) (`stove_temperature`) - The temperature within the combustion chamber. Aka the temperature of the fire.
 - **Valve 1-3 Position** (%) (`valve[1-3]_position`) - The positions of the air valves.
 
+### Switch
+
+- **Night Lowering** (`night_lowering`) - Enable or disable night lowering.
+  Adjustment of the start and end time for night lowering is yet not supported.
+  
 ## Prerequisites
 
 You need a stove that is equipped with an Airbox that runs a compatible firmware
@@ -97,6 +102,7 @@ Tested firmware:
 
 - **fw version**  - 3.23.0
 - **wifi version** - 12.6.0
+
 ## Automation Examples
 
 The most simple automation is to shut down all thermostats when the stove is started
