@@ -49,9 +49,9 @@ The `persistent_notification.create` action takes in `message`, `title`, and `no
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
-| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
+| `message`              |       no | Body of the notification. |
+| `title`                |      yes | Title of the notification. |
+| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |
 
 Here is how an [action](/docs/automation/action) of your [automation setup](/getting-started/automation/) with static content could look like.
 
