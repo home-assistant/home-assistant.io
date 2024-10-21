@@ -29,7 +29,9 @@ The integration provides basic configuration and status of Omada devices control
 - Verify SSL Certificates: Enable to check the validity of the certificate presented by the Omada controller.
 - Username/Password: A user account with permissions to view & configure the site is required.
 
-**Note: A local account must be used for login. Do not turn on two-factor authentication for local accounts, or the integration will not be able to log in.**
+{% note %}
+A local account must be used for login. Do not turn on two-factor authentication for local accounts, or the integration will not be able to log in.
+{% endnote %}
 
 ### Multiple Sites
 
@@ -53,11 +55,11 @@ All adopted Omada devices expose:
 - CPU and Memory percentage sensors
 - Firmware updates
 
-### Network Switches
+### Network switches
 
 - Support for enabling/disabling Power over Ethernet on a per-port basis
 
-### Internet Gateways
+### Internet gateways
 
 - WAN/LAN Port connectivity sensors
 - WAN Port Online detection sensors
