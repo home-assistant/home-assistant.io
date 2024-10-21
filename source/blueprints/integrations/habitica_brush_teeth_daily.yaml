@@ -1,0 +1,87 @@
+blueprint:
+  name: "Habitica Daily: Complete toothbrushing tasks"
+  description: "Automatically mark your morning and evening toothbrushing dailies as complete when your toothbrush usage is detected."
+  author: tr4nt0r
+  homeassistant:
+    min_version: 2022.8.0
+  domain: automation
+  input:
+    toothbrush_state:
+      name: "Toothbrush usage sensor"
+      description: "Select the sensor that monitors the toothbrush's status. The automation triggers when the sensor detects the toothbrush is in use (status 'running')."
+      selector:
+        entity:
+          filter:
+            - domain: sensor
+              integration: oralb
+    habitica_dailies_list:
+      name: "Habitica dailies task list"
+      description: "Select the Habitica dailies task list where the morning and evening toothbrushing tasks are tracked."
+      selector:
+        entity:
+          filter:
+            - integration: habitica
+              domain: todo
+    actions:
+      name: "Morning routine pre-actions"
+      description: "Optional actions to run before completing your morning routine (e.g., check for unfinished Yester-Dailies and start the day. Your morning routine won't be tracked if you haven't started the day)."
+      default: []
+      selector:
+        action: {}
+    wakeup_routine_title:
+      name: "Morning toothbrushing task"
+      description: "Enter the name of the Habitica daily task for brushing your teeth in the morning."
+      default: "Brush your teeth in the morning 🪥"
+      selector:
+        text:
+    morning_time:
+      name: "Morning routine time window"
+      description: "Specify the time range during which you usually do your morning toothbrushing routine. You can add additional or change conditions if needed."
+      default:
+        [{ "condition": "time", "after": "05:00:00", "before": "12:00:00" }]
+      selector:
+        condition:
+    bedtime_routine_title:
+      name: "Evening toothbrushing task"
+      description: "Enter the name of the Habitica daily task for brushing your teeth in the evening."
+      default: "Brush your teeth before bed 🪥"
+      selector:
+        text:
+    bedtime_time:
+      name: "Evening routine time window"
+      description: "Specify the time range during which you usually do your evening toothbrushing routine. You can add additional or change conditions if needed."
+      default:
+        [{ "condition": "time", "after": "18:00:00", "before": "23:59:00" }]
+      selector:
+        condition:
+
+mode: single
+
+triggers:
+  - trigger: state
+    entity_id: !input toothbrush_state
+    to: "running"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10 # Time delay for debouncing to avoid false triggers
+
+actions:
+  - choose:
+      - conditions: !input morning_time
+        sequence:
+          - action: !input actions
+          - action: todo.update_item
+            data:
+              item: !input wakeup_routine_title
+              status: completed
+            target:
+              entity_id: !input habitica_dailies_list
+      - conditions: !input bedtime_time
+        sequence:
+          - action: todo.update_item
+            data:
+              item: !input bedtime_routine_title
+              status: completed
+            target:
+              entity_id: !input habitica_dailies_list
