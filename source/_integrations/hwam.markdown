@@ -89,7 +89,7 @@ combustion chamber.
 
 ## Prerequisites
 
-You need a stove that is equipped with a Airbox that runs a compatible firmware
+You need a stove that is equipped with an Airbox that runs a compatible firmware
 which is connected to your local network. You should find the IP address via your
 routers list of network devices. Auto discovery is yet not supported.
 
@@ -97,7 +97,6 @@ Tested firmware:
 
 - **fw version**  - 3.23.0
 - **wifi version** - 12.6.0
-
 ## Automation Examples
 
 The most simple automation is to shut down all thermostats when the stove is started
