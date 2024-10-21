@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - fan
+  - sensor
   - select
   - vacuum
 ha_integration_type: integration
@@ -90,6 +91,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Climate](#climate)
 - [Switch](#switch)
 - [Fan](#fan)
+- [Sensor](#sensor)
 - [Select](#select)
 - [Vacuum](#vacuum)
 
@@ -105,6 +107,38 @@ A read-only property which has only two states that can be toggled is represente
 | | Power saving mode  |
 | | Enable Sabbath mode |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Enable Sabbath mode |
+
+### Sensor
+
+A common read-only property is represented as a sensor platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | PM1<br>PM2<br>PM10<br>Humidity<br>Odor level<br>Total pollution level<br>Filter lifetime<br>Start timer<br>Stop timer<br>Sleep timer |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Odor level<br>Total pollution level<br>Sleep timer |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | PM1<br>PM2<br>PM10<br>Humidity<br>Monitoring always or on operation<br>Odor level<br>Total pollution level<br>Current job mode<br>Personalizaion mode (preset) |
+| [Cooktop](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Cooktop/) | Current state<br>Power level<br>Remained time |
+| [Dehumidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dehumidifier/) | Current job mode<br>Current state |
+| [Dish Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/dish-washer/) | Current course<br>Rinse level<br>Softening level<br>Current state<br>Start timer<br>Remained time<br>Total time |
+| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total time |
+| [Home Brew](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Home-Brew/)| Recipe<br>Wort info<br>Yeast info<br>Hop oil info<br>Flavor<br>Remained beer<br>Current state<br>Elapsed days on state<br>Elapsed days in total |
+| Humidifier | PM1<br>PM2<br>PM10<br>Humidity<br>Temperature<br>Monitoring always or on operation<br>Total pollution level<br>Start timer<br>Stop timer<br>Sleep timer |
+| Kimchi Refrigerator | Air filter mode<br>Target temperature |
+| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Current state<br>Remained time |
+| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/) | Current state<br>Target temperature<br>Remained time<br>Target time |
+| [Plant Cultivator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Plant-Cultivator/) | Light level<br>Duration<br>Current state<br>Growth mode<br>Wind volume<br>Daytime target temperature<br>Night target temperature<br>Temperature state<br>Light start time<br>Light end time |
+| [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Air filter mode<br>Filter used time |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Current state<br>Current job mode<br>Running time |
+| [Stick Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Stick-Cleaner/) | Battery percent<br>Current job mode<br>Current state |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| Washcombo Main | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| Washcombo Mini | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Current state<br>Start timer<br>Stop timer<br>Remained time<br>Total timer |
+| [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Temperature |
+| [Water Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/water-purifier/) | Purification mode<br>Sterilizing mode<br>Water type |
 
 ### Climate
 
