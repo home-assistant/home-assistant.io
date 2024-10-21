@@ -93,6 +93,13 @@ data:
 
 When the Home Assistant Roku integration is enabled and a Roku device has been configured, in the Home Assistant UI the Roku media player will show a listing of the installed channels, or apps, under “source”. Select one and it will attempt to launch the channel on your Roku device.
 
+{% include integrations/option_flow.md %}
+
+{% configuration_basic %}
+Play Media Application ID:
+  description: The application ID to use when launching media playback. This application must support the PlayOnRoku API.
+{% endconfiguration_basic %}
+
 ## Source Automation
 
 The `media_player.select_source` action may be used to launch specific applications/streaming channels on your Roku device.
@@ -150,6 +157,54 @@ actions:
     data:
       media_content_id: 5.1
       media_content_type: channel
+```
+
+## Play on Roku
+
+The `media_player.play_media` action may be used to send media URLs (primarily videos) for direct playback on your device.
+
+This feature makes use of the PlayOnRoku API. If you are using an older Roku OS (pre-11.5), the defaults of this integration should just work. Alternatively, you can configure a third-party application that supports the PlayOnRoku API via the `Play Media Roku Application ID` option.
+
+The following third-party applications have been tested with this integration:
+
+- [Media Assistant](https://channelstore.roku.com/details/625f8ef7740dff93df7d85fc510303b4/media-assistant) (ID: 782875)
+
+| Service data attribute | Optional | Description | Example |
+| ---------------------- | -------- | ----------- | ------- |
+| `entity_id` | no | Target a specific media player. | 
+| `media_content_id` | no | A media URL. | `http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4`
+| `media_content_type` | no | A media type. | `url`
+| `extra.format` | no | A media format. It should be one of `mp4` (supports mov and m4v), `mp3`, `hls`, `ism` (smooth streaming), `dash` (MPEG-DASH), `mkv`, `mka`, `mks` | `mp4`
+| `extra.name` | yes | A name for the media. | Big Buck Bunny
+| `extra.thumbnail` | yes | A thumbnail URL for the media. | 
+| `extra.artist_name` | yes | The name of the media artist. | Blender
+
+### Example
+```yaml
+actions:
+  - action: media_player.play_media
+    target:
+      entity_id: media_player.roku
+    data:
+      media_content_id: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+      media_content_type: url
+      extra:
+        format: "mp4"
+        name: "Big Buck Bunny"
+```
+
+## Camera Stream Integration
+
+The `camera.play_stream` action may be used to send camera streams (HLS) directly to your device. This feature requires the [`stream` integration](/integrations/stream) and makes use of the PlayOnRoku API.
+
+### Example
+```yaml
+actions:
+  - action: camera.play_stream
+    target:
+      entity_id: camera.camera
+    data:
+      media_player: media_player.roku
 ```
 
 ## Content Deeplinking
