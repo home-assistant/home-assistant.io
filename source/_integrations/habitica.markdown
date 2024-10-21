@@ -171,6 +171,8 @@ Automatically create a Habitica to-do when the dishwasher finishes its cycle.
 
 {% details "Example YAML configuration" %}
 
+{% raw %}
+
 ```yaml
 triggers:
   - trigger: state
@@ -187,6 +189,8 @@ actions:
     target:
       entity_id: todo.habitica_to_dos
 ```
+
+{% endraw %}
 
 {% enddetails %}
 
