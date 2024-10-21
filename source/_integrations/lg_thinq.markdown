@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - climate
   - fan
+  - number
   - select
   - vacuum
 ha_integration_type: integration
@@ -90,6 +91,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Climate](#climate)
 - [Switch](#switch)
 - [Fan](#fan)
+- [Number](#number)
 - [Select](#select)
 - [Vacuum](#vacuum)
 
@@ -122,6 +124,22 @@ The properties for controlling the wind strength of the appliance are represente
 | Device | Property |
 | ------ | -------- |
 | [Celing Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/ceiling-fan/) | Operation mode<br>Wind strength |
+
+### Number
+
+A read-wirte property which has numeric value is represensted as a number platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Start timer<br>Stop timer |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Wind temperature<br>Stop timer |
+| [Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Dryer/)<br>Washcombo Main<br>Washcombo Mini<br>[Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/washer/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Start timer<br>Stop timer |
+| [Hood](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Hood/) | Lamp brightness<br>Fan speed |
+| Humidifier | Target humidity<br>Stop timer |
+| [Microwave Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Microwave-Oven/) | Lamp brightness<br>Fan speed |
+| [Oven](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Oven/)<br>[Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/)<br>[Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Target temperature |
+| [Styler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/styler/) | Stop timer |
+| [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Light status<br>Target temperature |
 
 ### Vacuum
 
