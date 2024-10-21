@@ -57,6 +57,28 @@ The following controllable entities are available:
 
 - **Burn Level** (`burn_level`) - The burn level presets: 0-5
 
+#### Burn Levels
+
+- **Level 0** HWAM Smart Control runs at lowest
+possible combustion temperature to maintain correct combustion
+over the longest possible time, taking into account the room
+temperature.
+- **Level 1-4** At these levels, the system aims
+to achieve a constant room temperature. Therefore, once you
+have found the heat level that suits you best, do not turn the
+level up and down. At level 1-4, the system starts up gently
+until it finds the right level of flue gas temperature compared
+to the desired room temperature. For normal operation, levels
+2-3 are recommended.
+
+- **Level 5** Level 5 is a booster level intended only for situations
+where the stove needs to produce a lot of heat within a short
+period of time. The stove should NOT run at level 5 for a long
+period of time. NB! If level 5 is chosen, a lot of wood is needed
+to maintain correct combustion. Therefore, re-stoking alarms may
+sound even if there are still flames and unburned wood in the
+combustion chamber.
+
 ### Sensor
 
 - **Oxygen Level** (%) (`oxygen_level`) - The level of oxygen in the combustion gases.
