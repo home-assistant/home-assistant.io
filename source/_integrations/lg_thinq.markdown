@@ -15,6 +15,7 @@ ha_platforms:
   - climate
   - fan
   - select
+  - text
   - vacuum
 ha_integration_type: integration
 ---
@@ -91,6 +92,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Switch](#switch)
 - [Fan](#fan)
 - [Select](#select)
+- [Text](#text)
 - [Vacuum](#vacuum)
 
 ### Binary sensor
@@ -165,6 +167,15 @@ A read-wirte property which has only two states that can be toggled is represens
 | Humidifier | Humidifier operation mode<br>Warm mode<br>Mood lamp state<br>Auto mode<br>Sleep mode |
 [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Express mode<br>Rapid freeze<br> |
 | [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Operation mode<br>Enable hot water mode |
+
+### Text
+
+A read-wirte property which should specify the time in a specific format are is represensted as a text platform.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/)<br>[Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/)<br>[Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/)<br>Humidifier | Start timer<br>Stop timer |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Start timer |
 
 ## Troubleshooting
 
