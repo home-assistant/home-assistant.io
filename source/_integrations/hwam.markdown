@@ -70,7 +70,6 @@ level up and down. At level 1-4, the system starts up gently
 until it finds the right level of flue gas temperature compared
 to the desired room temperature. For normal operation, levels
 2-3 are recommended.
-
 - **Level 5** Level 5 is a booster level intended only for situations
 where the stove needs to produce a lot of heat within a short
 period of time. The stove should NOT run at level 5 for a long
@@ -82,7 +81,7 @@ combustion chamber.
 ### Sensor
 
 - **Oxygen Level** (%) (`oxygen_level`) - The level of oxygen in the combustion gases.
-- **Burning Phase** (`phase`)- The state/phase of the burning algorithm.
+- **Burning Phase** (`phase`) - The state/phase of the burning algorithm.
 - **Room Temperature** (°C) (`room_temperature`) - The room temperature as reported by the remote sensor.
 - **Stove Temperature** (°C) (`stove_temperature`) - The temperature within the combustion chamber. Aka the temperature of the fire.
 - **Valve 1-3 Position** (%) (`valve[1-3]_position`) - The positions of the air valves.
