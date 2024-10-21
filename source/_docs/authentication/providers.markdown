@@ -194,3 +194,40 @@ Any leading and trailing whitespace is stripped from usernames before they're pa
 {% note %}
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
 {% endnote %}
+
+### Webauthn
+
+The webauthn auth provider allows log in with a passkey. Passkeys are a secure and convenient way to authenticate users using web authentication standards.
+
+To configure the webauthn auth provider, add the following code to your {% term "`configuration.yaml`" %} file:
+
+```yaml
+homeassistant:
+  auth_providers:
+    - type: homeassistant
+    - type: webauthn
+      rp_id: localhost
+      expected_origin: http://localhost:8123
+```
+
+{% configuration %}
+rp_id:
+  description: The `rp_id` (relying party identifier) is a unique identifier for the relying party (for example, the server) that is relying on the WebAuthn authentication. It is used to ensure that the authentication request is intended for the correct server. The `rp_id` can be a domain name or an IP address. For example, if the `rp_id` is set to "example.com", the WebAuthn authentication will only be valid for requests originating from that domain.
+  required: true
+  type: string
+expected_origin:
+  description: The URL from which the user is accessing the login page for webauthn authentication.
+  required: true
+  type: string
+rp_name:
+  description: The name of the relying party (for example, the server) that is relying on the WebAuthn authentication.
+  required: false
+  default: "Home Assistant"
+  type: string
+{% endconfiguration %}
+
+Once configured, users will be able to log in using their webauthn passkeys. Passkeys can be registered and managed through the Home Assistant user interface.
+
+Please note that the webauthn auth provider requires compatible hardware and browser support. Make sure your devices and browsers support webauthn before enabling this authentication method.
+
+You can manage your passkeys in the UI. Go to {% my profile title="**User profile**" %} and open the  **Security** tab.
