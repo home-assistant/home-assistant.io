@@ -7,6 +7,7 @@ ha_category:
   - Climate
   - Select
   - Sensor
+  - Switch
   - Water heater
 ha_iot_class: Cloud Push
 ha_config_flow: true
@@ -17,6 +18,7 @@ ha_platforms:
   - diagnostics
   - select
   - sensor
+  - switch
   - water_heater
 ha_codeowners:
   - '@Noltari'
@@ -107,6 +109,10 @@ For each Airzone WebServer (HVAC Wi-Fi controller), the following *sensors* are 
 | Condition           | Description                                        |
 | :------------------ | :------------------------------------------------- |
 | rssi                | Wi-Fi RSSI.                                        |
+
+## Switch
+
+For each Airzone zone (thermostat), a switch entity is created to turn the thermostat on or off (without changing the HVAC mode).
 
 ## Water heater
 
