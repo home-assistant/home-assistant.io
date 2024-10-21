@@ -14,6 +14,7 @@ ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
   - media_player
+  - sensor
 ha_integration_type: service
 ---
 
@@ -152,3 +153,7 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
+
+## Sensors
+
+The Spotify provides sensors that display information of the current song playing.
