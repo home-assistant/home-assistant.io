@@ -1088,6 +1088,9 @@ This event has no additional data.
 
 Returning `None` in a binary sensor currently maps to `False`/`off` state.
 In order to avoid hard-breaking changes, a **temporary** function `none_sentinel` has been added, which can be used in a template to return `unknown` state:
+
+{% raw %}
+
 ```yaml
 # Example configuration.yaml entry
 binary_sensor:
@@ -1102,3 +1105,5 @@ binary_sensor:
           {{ states('binary_sensor.other') == 'off' }}
           {% endif %}
 ```
+
+{% endraw %}
