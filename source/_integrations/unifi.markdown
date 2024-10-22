@@ -29,6 +29,39 @@ ha_integration_type: hub
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
+## Prerequisites
+
+### Hardware support
+
+This integration supports all UniFi OS Consoles that run UniFi Network. It also supports self hosted versions of UniFi Network.
+
+### Software support
+
+It is recommended to run latest stable versions of UniFi Network and UniFi OS.
+
+{% important %}
+**Early Access and Release Candidate versions are not supported by Home Assistant.**
+
+Using Early Access Release Candidate versions of UniFi Network or UniFi OS can bring unexpected changes. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+{% endimportant %}
+
+### Local user
+
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
+
+1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
+   the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
+   UniFi Network app.
+2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
+3. Click on **Add New Admin**.
+4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for _Network_. _OS Settings_ are not used so can be set to **None**.
+5. Click **Add** in the bottom right.
+
+![UniFi OS User Creation](/images/integrations/unifi/user.png)
+
 There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
