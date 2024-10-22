@@ -68,7 +68,7 @@ The integration currently offers two sensors: A **battery** sensor, indicating t
 
 ## Possible use-cases
 
-- Auto lock-/unlock the door based on presence
+- Auto lock/unlock the door based on presence
 - Control your lock from smart home panels
 - Get alerts when battery is low
 
@@ -115,9 +115,9 @@ are not supported.
 ## Troubleshooting
 
 {% details "Lock state is not updated in real-time" %}
-Make sure your bridge can reach your Home Assistant instance. This means, if you use separate VLANs you need to configure your Firewall appropriately. Additionally, if you have configured a SSL enabled endpoint for your `Internal URL` (Settings -> System -> Network -> Home Assistant URL), you can try to set it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
+Make sure your bridge can reach your Home Assistant instance. This means, if you use separate VLANs you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL (Settings -> System -> Network -> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
 {% enddetails %}
 
 {% details "Authentication failures when trying to use the integration" %}
-The token that is used to talk to your lock is time limited. Sometimes there were issues when the clock of the Home Assistant host was slightly out of sync, so try to sync your hosts clock.
+The token that is used to talk to your lock is time limited. Sometimes there were issues when the clock of the Home Assistant host was slightly out of sync, so try to sync your host's clock.
 {% enddetails %}
