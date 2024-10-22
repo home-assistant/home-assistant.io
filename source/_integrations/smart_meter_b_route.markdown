@@ -23,7 +23,7 @@ This integration enables you to access and monitor your household energy consump
 
 ## Requirements
 
-1. **Compatible USB Dongle**: Tested with the Wi-SUN USB dongle from Ratok Systems.
+1. **Compatible USB Dongle**: Tested with the Wi-SUN USB dongle from [Ratoc Systems](https://www.ratocsystems.com/products/wisun/usb-wisun/rs-wsuha/).
 2. **B Route Credentials**: Obtain your B Route credentials from your utility company.
 3. **Smart Meter**: A smart meter that supports the B Route protocol. The installation is free, but if you are renting, you will need to contact your house management company.
 
