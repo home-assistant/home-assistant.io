@@ -221,9 +221,9 @@ This integration adds the Blebox device as a light entity to Home Assistant.
 
 This integration adds the Blebox device to Home Assistant as:
 
-* multiple MONO lights entities,
-* 1 or 2 lights CCT entities,
-* 1 light RGB or RGBW or RGBCCT entity.
+- multiple MONO lights entities,
+- 1 or 2 lights CCT entities,
+- 1 light RGB or RGBW or RGBCCT entity.
 
 #### Key supported features
 
@@ -246,9 +246,9 @@ This integration adds the Blebox device to Home Assistant as:
 
 This integration adds the Blebox device to Home Assistant as:
 
-* multiple MONO lights entities,
-* 1 or 2 lights CCT entities,
-* 1 light RGB or RGBW or RGBCCT entity.
+- multiple MONO lights entities,
+- 1 or 2 lights CCT entities,
+- 1 light RGB or RGBW or RGBCCT entity.
 
 #### Key supported features
 
