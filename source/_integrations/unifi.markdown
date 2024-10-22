@@ -221,12 +221,4 @@ logger:
   logs:
     aiounifi: debug
     homeassistant.components.unifi: debug
-    homeassistant.components.device_tracker.unifi: debug
-    homeassistant.components.switch.unifi: debug
 ```
-
-## FAQ
-
-### Understanding UniFi Naming (UniFi Network application is the UniFi Controller)
-
-Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their "UniFi Controller" application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. As a result, Ubiquiti has started rebranding "UniFi Controller" as the "UniFi Network" application. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for the UniFi Network application.**
