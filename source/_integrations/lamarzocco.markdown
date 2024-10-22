@@ -132,6 +132,42 @@ Currently, only devices from the **"Home"** range are supported:
 - Control your machine through voice, allowing you to change boiler temperatures quickly without opening the app.
 - Control your smart coffee scales (tare/timer start) when a brew starts.
 - Turn on lights next to the machine while a brew is running.
+
+## Automations
+
+Get started with these automation examples.
+
+### Turn steamboiler on when machine is turned on
+
+I often drink milk beverages in the morning and espresso in the afternoon, but forget to re-enable the steamboiler again, so this automation ensures that the steam boiler is always turned on, when the machine is turned on.
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+alias: Turn steamboiler on when machine is turned on
+description: Ensure the steamboiler is on, when the machine gets turned on
+triggers:
+  - trigger: state
+    entity_id:
+      - switch.mr000000
+    from: "off"
+    to: "on"
+conditions:
+  - condition: state
+    entity_id: switch.mr000000_steam_boiler
+    state: "off"
+actions:
+  - action: switch.turn_on
+    target:
+      entity_id: switch.mr000000_steam_boiler
+    data: {}
+mode: single
+
+```
+{% endraw %}
+{% enddetails %}
   
 ## Known Limitations
 
