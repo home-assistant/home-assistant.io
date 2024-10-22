@@ -56,7 +56,4 @@ User:
 Password:
   description: Password of user with enabled `API` module
 
-Home Assistant Address:
-  description: "(Optional) Home Assistant address from NASweb device perspective. Fill in when Home Assistant is behind proxy or port forwarding. Address required in form: `ip:port`, e.g. `192.168.1.100:8123`."
-
 {% endconfiguration_basic %}
