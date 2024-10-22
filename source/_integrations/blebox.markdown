@@ -260,6 +260,24 @@ This integration adds the Blebox device as a light entity to Home Assistant.
 - Effects
 - Brightness
 
+### dacBoxD DC
+
+This integration adds the Blebox device as 2 lights MONO or 1 light CCT entity to Home Assistant.
+
+#### Key supported features
+
+- On
+- Off
+- Brightness / linear percentage control (depends on device's settings)
+- White Temperature control (CCT mode only)
+- Effects
+
+#### Additional features
+- Option to change control mode (linear / gamma correction) is available in wBox app.
+- Option to change color mode (MONO/CCT) is available in wBox app.
+- Own effects are possible to create. Creator of effects is available in wBox app.
+- After settings change, device needs to be reloaded.
+
 ### wLightBoxS PRO
 
 This integration adds the Blebox device as a light entity to Home Assistant.
