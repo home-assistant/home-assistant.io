@@ -1084,7 +1084,21 @@ Event `event_template_reloaded` is fired when Template entities have been reload
 
 This event has no additional data.
 
-## Returning unknown state in a binary sensor
+## Returning `unknown` state in a binary sensor
 
-Returning `{{ None }}` in a binary sensor currently maps to `False`/`off` state.
-In order to avoid hard-breaking changes, a **temporary** function `none_sentinel` has been added, which can be used in a template `{{ none_sentinel() }}`
+Returning `None` in a binary sensor currently maps to `False`/`off` state.
+In order to avoid hard-breaking changes, a **temporary** function `none_sentinel` has been added, which can be used in a template to return `unknown` state:
+```yaml
+# Example configuration.yaml entry
+binary_sensor:
+  - platform: template
+    sensors:
+      inverted_other:
+        friendly_name: "Inverted other"
+        value_template: >
+          {% if states('binary_sensor.other') in ('unknown','unavailable') %}
+          {{ none_sentinel() }}
+          {% else %}
+          {{ states('binary_sensor.other') == 'off' }}
+          {% endif %}
+```
