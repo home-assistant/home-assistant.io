@@ -33,7 +33,7 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
 
-## Pre-requisites
+## Prerequisites
 
 - To be able to configure your machine in Home Assistant, your machine needs to be added to your account using the official La Marzocco app first.
 - Only login with username & password is supported. If you are currently using a social login, you need to create a new La Marzocco account and transfer your machine to it to be able to use this integration.
