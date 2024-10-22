@@ -102,7 +102,7 @@ actions:
 
 {% endraw %} {% enddetails %}
 
-## Kown Limitations
+## Known Limitations
 
 This integration only supports functionality that is available locally. This means that 
 
