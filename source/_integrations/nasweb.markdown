@@ -3,7 +3,7 @@ title: NASweb
 description: Integrate NASweb devices
 ha_category:
   - Switch
-ha_release: '2023.8'
+ha_release: '2024.11'
 ha_codeowners:
   - '@nasWebio'
 ha_iot_class: Local Push
@@ -18,7 +18,7 @@ ha_integration_type: hub
   ![](/images/integrations/nasweb/nasweb_scheme.png)
 
 NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions and configured actions.\
-[MORE INFO](https://autoidentyfikacja.pl/pl/p/NASweb/262)
+[MORE INFO](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
 
 ## NASweb device configuration for Home Assistant
 
