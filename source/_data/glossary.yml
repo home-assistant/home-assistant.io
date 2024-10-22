@@ -109,8 +109,8 @@
     - blueprints
 - term: Button
   definition: >-
-    A button entity can fire an event / trigger an action towards a device or
-    service but remains stateless from the Home Assistant perspective.
+    A button entity can fire an event, or trigger an action towards a device or
+    service. It can be compared to a physical push button. The button entity does not have a state like `on` or `off`, but keeps the timestamp of when it was last pressed in the Home Assistant UI or via an action.
   link: /integrations/button
   aliases:
     - buttons
