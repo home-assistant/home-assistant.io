@@ -83,7 +83,7 @@ Blueprints created by the community may go through multiple revisions. Sometimes
 the community provides feedback, new functionality is added.
 
 If you do not want to [re-import the blueprint](/docs/automation/using_blueprints/#re-importing-a-blueprint) for some reason, you can manually edit
-its YAML content to keep it up to date:
+its {% term YAML %} content to keep it up to date:
 
 1. Navigate to the blueprints directory (`blueprints/automation/`).
    The location of this directory depends on the installation method. It's
@@ -91,7 +91,7 @@ its YAML content to keep it up to date:
 2. Next, you must find the blueprint to update. The path name of a blueprint consists of:
    - The username of the user that created it. The name depends on the source of the blueprint:
      the forum, or GitHub.
-   - The name of the YAML file. For the forum it's the title of the topic in the URL, for GitHub
+   - The name of the {% term YAML %} file. For the forum it's the title of the topic in the URL, for GitHub
      it's the name of the YAML file.
 3. Open the YAML file with your editor and update its contents.
 4. Reload the automations for the changes to take effect.

@@ -11,6 +11,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_domain: tplink_tapo
 ha_release: 0.89
@@ -32,6 +33,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
 ha_iot_class: Local Polling
 ha_dhcp: true

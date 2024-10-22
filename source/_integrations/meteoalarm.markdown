@@ -91,11 +91,11 @@ Example automation
 ```yaml
 automation:
   - alias: "Alert me about weather warnings"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.meteoalarm
-      from: 'off'
-    action:
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.meteoalarm
+        from: "off"
+    actions:
       - action: notify.notify
         data:
           title: "{{state_attr('binary_sensor.meteoalarm', 'headline')}}"

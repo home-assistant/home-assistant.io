@@ -74,6 +74,8 @@ You can manually define that the previous boot slot is used. This can be useful 
     ha os boot-slot other
     ```
 
+Alternatively, if the Operating Systems runs on a platform that uses the GRUB bootloader, a boot menu is presented early in the boot. The alternative boot slot can be selected here, marking it active for future boots if the following boot attempt is successful.
+
 ### Updating Home Assistant Core
 
 {% include common-tasks/update.md %}

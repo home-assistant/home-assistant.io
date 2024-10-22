@@ -12,26 +12,31 @@ ha_codeowners:
   - '@dontinelli'
 ha_domain: solarlog
 ha_platforms:
+  - diagnostics
   - sensor
 ha_integration_type: integration
 ---
 
-The `solarlog` integration uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to allow you to get details from your Solar-Log device and integrate these into your Home Assistant installation.
+The **Solarlog** {% term integration %} uses the open JSON interface on [Solar-Log PV monitoring systems](https://www.solar-log.com/) to get details from your Solar-Log device and integrate these into your Home Assistant installation.
 
-Before being able to use the integration, you have to activate the open JSON interface on your Solar-Log device. This can be activated from the Configuration | System | Access control menu of your Solar-Log device. 
-When activating the interface, a red warning triangle with security information and risks is displayed.
+## Prerequisites
+
+Before you can use the integration, you either need the password of the Solar-Log user or you must activate the open JSON interface on your Solar-Log device. 
+- To activate the JSON interface on your Solar-Log device, on the device, go to the Configuration | System | Access control menu.
+- When activating the interface, a red warning triangle with security information and risks is displayed. For security reasons, it is recommended to activate password protection and use the integration with the respective password.
 
 The `solarlog` integration uses the default host address "http://solar-log" if you don't specify a host. If your device isn't accessible on this address, use its IP Address instead.
 
 {% important %}
-The open JSON interface is deactivated by default. To activate the open JSON interface, a user password must first be set. The password isn't needed for accessing the open JSON interface.
+If password protection for the general user is deactivated, the open JSON interface is activated by default. For security reasons, it is recommended to activate the user's password.
+Please note that the open JSON interface only exposes a limited amount of data. Even if the open JSON interface has been activated, without the user's password, only limited data is available in the integration [see available sensors](#sensors). For [full functionality](#additional-data), you either need the user's password or the user password should be deactivated (not recommended).
 {% endimportant %}
 
 {% include integrations/config_flow.md %}
 
 ## Additional template sensor
 
-In case you would like to convert the values, for example, to Wh instead of the default kWh, you can use the [template platform](/integrations/template/).
+In case you would like to get additional calculated sensors such as the amount of excess solar power available, you can use the [template platform](/integrations/template/).
 
 {% raw %}
 
@@ -47,7 +52,7 @@ template:
 
 ## Sensors
 
-The following sensors are available in the library:
+The following sensors are available via the open JSON intervace:
 
 | name                  | Unit   | Description   |
 |-----------------------|--------|:-------------------------------------------|
@@ -67,13 +72,31 @@ The following sensors are available in the library:
 | consumption_month     | kWh    | Total consumption for the month from all of the consumption meters. |
 | consumption_year      | kWh    | Total consumption for the year from all of the consumption meters. |
 | consumption_total     | kWh    | Accumulated total consumption from all consumption meters. |
-| self_consumption_year | kWh    | Accumulated total self-consumption. |
 | installed_peak_power  | W      | Installed solar peak power. |
 | alternator_loss       | W      | Altenator loss (equals to power_dc - power_ac) |
 | capacity              | %      | Capacity (equals to power_dc / total power) |
 | efficiency            | %      | Efficiency (equals to power_ac / power_dc) |
 | power_available       | W      | Available power (equals to power_ac - consumption_ac) | 
 | usage                 | %      | Usage (equals to consumption_ac / power_ac) |
+
+## Additional data
+
+{% important %}
+The additional data is only accessible if the user's password is available (or password protection is deactivated). Obviously, deactivating password protection is a security risk and should only be done in specific circumstances. In any event, you do this at your own risk.
+{% endimportant %}
+
+The following additional sensor becomes available:
+
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| self_consumption_year | kWh    | Annual self-consumed solar power.          |
+
+In addition, information from devices connected to the Solar-Log device becomes available. The following additional sensors become available (all values are per inverter/device):
+
+| Name                  | Unit   | Description   |
+|-----------------------|--------|:-------------------------------------------|
+| current_power         | W      | Current power provided/used by the device. |
+| consumption_year      | kWh    | Total energy provided/used by the device.  |
 
 {% note %}
 The solarlog integration is using the solarlog_cli pypi package to get the data from your Solar-Log device. The last five sensors are not reported by your Solar-Log device directly, but are computed by the library.

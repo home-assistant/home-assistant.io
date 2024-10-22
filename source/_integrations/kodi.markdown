@@ -43,26 +43,24 @@ These automations can be configured through the UI (see [device triggers](/docs/
 
 ```yaml
 automation:
-  - id: kodi_turn_on
-    alias: "Kodi: turn on"
-    trigger:
-      - platform: device
+  - alias: "Kodi: turn on"
+    triggers:
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
         type: turn_on
-    action:
+    actions:
       - action: script.kodi_turn_on
 
-  - id: kodi_turn_off
-    alias: "Kodi: turn off"
-    trigger:
-      - platform: device
+  - alias: "Kodi: turn off"
+    triggers:
+      - trigger: device
         device_id: !secret kodi_device_id
         domain: kodi
         entity_id: media_player.kodi
         type: turn_off
-    action:
+    actions:
       - action: script.kodi_turn_off
 ```
 
@@ -434,12 +432,12 @@ A example of a automation to turn up/down the volume of a receiver using the eve
 alias: Kodi keypress
 mode: parallel
 max: 10
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: kodi_keypress
     event_data:
       entity_id: media_player.kodi_livingroom
-action:
+actions:
   - choose:
       - conditions:
           - condition: template

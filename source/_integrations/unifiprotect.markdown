@@ -260,14 +260,21 @@ The {% term integrations %} provides two proxy views to proxy media content from
 
 These URLs work great when trying to send notifications. Home Assistant will automatically sign the URLs and make them safe for external consumption if used in an {% term automation %} or [notify action](/integrations/notify/).
 
-| View URL                                                     | Description                                                                                                                                                            |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/api/unifiprotect/thumbnail/{nvr_id}/{event_id}`            | Proxies a JPEG event thumbnail from UniFi Protect.                                                                                                                     |
-| `/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}` | Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html). |
+Two URLs for proxy API endpoints:
+
+`/api/unifiprotect/thumbnail/{nvr_id}/{event_id}:`
+
+- Proxies a JPEG event thumbnail from UniFi Protect.
+
+`/api/unifiprotect/video/{nvr_id}/{camera_id}/{start}/{end}`:
+
+- Proxies a MP4 video clip from UniFi Protect for a specific camera. Start and end must be in [ISO 8601 format](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 `nvr_id` can either be the UniFi Protect ID of your NVR or the config entry ID for your UniFi Protect {% term integrations %}. `camera_id` can either be the UniFi Protect ID of your camera or an entity ID of any {% term entity %} provided by the UniFi Protect {% term integrations %} that can be reversed to a UniFi Protect camera (i.e., an entity ID of a detected object sensor).
 
 The easiest way to find the `nvr_id`, `camera_id`, `start`, and `end` times is by viewing one of the videos from UniFi Protect in the Media browser. If you open the video in a new browser tab, you will see all these values in the URL. The `start` time is the last_changed timestamp of the event when the sensor started detecting motion. The `end` time is the last_changed timestamp of the event when the sensor stopped detecting motion. Similarly, to see the `event_id` of the image, go to {% my developer_states title="**Developer Tools** > **States**" %} and find the event when the sensor started detecting motion.
+
+When a Doorbell rings, there is a specific event {% term entity %} that provides the `event_id`. You can use this to get the thumbnail, for example, `event.g4_doorbell_pro_doorbell`.
 
 ## Troubleshooting
 

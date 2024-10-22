@@ -342,6 +342,47 @@ Force start playing the queue, allows switching from another stream (such as rad
 | `entity_id` | yes | String or list of `entity_id`s that will start playing. It must be the coordinator if targeting a group.
 | `queue_position` | yes | Position of the song in the queue to start playing from, starts at 0.
 
+### Action `sonos.get_queue`
+
+Returns the media_players queue.
+
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `entity_id` | no | media_player entity id. |
+
+This example script does the following: get the queue, loop through in reverse order, and remove media containing the words "holiday".
+
+{% raw %}
+
+```yaml
+  - action: sonos.get_queue
+    target:
+      entity_id: media_player.living_room
+    response_variable: queue
+  - variables:
+      queue_len: '{{ queue["media_player.living_room"] | length }}'
+  - repeat:
+      sequence:
+        - variables:
+            title: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_title"].lower() }}'
+            album: '{{ queue["media_player.living_room"][queue_len - repeat.index]["media_album_name"].lower() }}'
+            position: '{{ queue_len - repeat.index }}'
+        - if:
+            - '{{ "holiday" in title or "holiday" in album }}'
+          then:
+            - action: sonos.remove_from_queue
+              target:
+                entity_id: media_player.living_room
+              data:
+                queue_position: '{{position}}'
+      until:
+        - condition: template
+          value_template: '{{queue_len == repeat.index}}'
+
+```
+
+{% endraw %}
+
 ### Action `sonos.remove_from_queue`
 
 Removes an item from the queue.
@@ -355,30 +396,29 @@ Removes an item from the queue.
 ```yaml
 # Example automation to remove just played song from queue
 alias: "Remove last played song from queue"
-id: Remove last played song from queue
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: media_player.kitchen
-  - platform: state
+  - trigger: state
     entity_id: media_player.bathroom
-  - platform: state
+  - trigger: state
     entity_id: media_player.move
-condition:
-  condition: and
-  conditions:
-    # Coordinator
-    - condition: template
-      value_template: >
-        {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
-    # Going from queue to queue
-    - condition: template
-      value_template: >
-        {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
-    # Moving forward
-    - condition: template
-      value_template: >
-        {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
-action:
+conditions:
+  - condition: and
+    conditions:
+      # Coordinator
+      - condition: template
+        value_template: >
+          {{ state_attr( trigger.entity_id , 'group_members')[0] ==  trigger.entity_id }}
+      # Going from queue to queue
+      - condition: template
+        value_template: >
+          {{ 'queue_position' in trigger.from_state.attributes and 'queue_position' in trigger.to_state.attributes }}
+      # Moving forward
+      - condition: template
+        value_template: >
+          {{ trigger.from_state.attributes.queue_position < trigger.to_state.attributes.queue_position }}
+actions:
   - action: sonos.remove_from_queue
     target:
       entity_id: >

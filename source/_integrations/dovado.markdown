@@ -76,14 +76,14 @@ This is a notify platform and thus can be controlled by calling the notify actio
 # Example automation notification entry
 automation:
   - alias: "The sun has set"
-    trigger:
-      platform: sun
-      event: sunset
-    action:
-      action: notify.dovado
-      data:
-        message: "The sun has set"
-        target: "+14151234567"
+    triggers:
+      - trigger: sun
+        event: sunset
+    actions:
+      - action: notify.dovado
+        data:
+          message: "The sun has set"
+          target: "+14151234567"
 ```
 
 ## Sensor

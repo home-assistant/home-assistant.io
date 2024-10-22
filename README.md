@@ -40,3 +40,5 @@ When you're done working on the site, run the following command to move the post
 ```bash
 bundle exec rake integrate
 ```
+
+[![Home Assistant - A project from the Open Home Foundation](https://www.openhomefoundation.org/badges/home-assistant.png)](https://www.openhomefoundation.org/)

@@ -30,7 +30,7 @@ default unless you removed it. If you removed `default_config:` from your
 configuration, you must add `input_boolean:` to your {% term "`configuration.yaml`" %} first,
 then you can use the UI.
 
-Input booleans can also be configured via {% term "`configuration.yaml`" %}:
+Input booleans can also be configured via {% term "`configuration.yaml`" %} file:
 
 {% configuration %}
   input_boolean:
@@ -88,15 +88,15 @@ will only occur if the `input_boolean` is on.
 ```yaml
 automation:
   alias: "Arriving home"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.motion_garage
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.notify_home
       state: "on"
-  action:
+  actions:
     - action: notify.pushbullet
       data:
         title: ""
