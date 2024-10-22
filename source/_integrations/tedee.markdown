@@ -113,7 +113,7 @@ This integration only supports functionality that is available locally. This mea
 ## Troubleshooting
 
 {% details "Lock state is not updated in real-time" %}
-Make sure your bridge can reach your Home Assistant instance. This means that if you use separate VLANs, you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL ({% my network title="**Settings** > **System** > **Network**" %}> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
+Make sure your bridge can reach your Home Assistant instance. This means that if you use separate VLANs, you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL ({% my network title="Settings > System > Network" %}> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
 {% enddetails %}
 
 {% details "Authentication failures when trying to use the integration" %}
