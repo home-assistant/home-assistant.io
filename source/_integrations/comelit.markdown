@@ -40,3 +40,4 @@ There is support for the following platform types within Home Assistant:
 ## Alarm control panel
 
 The integration will create an alarm entity for each area. Additionally, it will create a sensor and a presence detection binary sensor for each zone, enhancing monitoring capabilities.
+It also creates a switch for each zone to include or exclude them from detection. This feature is useful, for example, when you need to temporarily exclude a zone while performing another action and then restore its state (alarmed or disarmed) afterward.
