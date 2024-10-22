@@ -74,27 +74,15 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-The user needs administrator privileges in order to control switches.
+{% note %}
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch {% term entity %}.
+{% endnote %}
 
 ### Extra configuration of the integration
 
 All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
-
-### Configuring Users
-
-The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
-
-If you want to create a local-only user, you need to switch to the classic UniFi interface for the option to become available.
-
-### UniFi OS
-
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. For some self hosted servers the port will be 8443.
-
-### Conflicts with MQTT
-
-The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT {% term integration %} as well.
-
-It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
 ## Button
 
