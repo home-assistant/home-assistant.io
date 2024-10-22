@@ -57,10 +57,10 @@ This integration supports
 
 ## Binary sensors
 
-- **Charging**: indicates whether the battery is currently charging
-- **Pullspring enabled**: is the pull spring setting enabled
-- **Semi locked**: indicates whether the lock is in a "semi-locked" position, meaning the lock has been turned manually and between its normal end positions. The lock itself will be unavailable in this position.
-- **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state"
+- **Charging**: indicates whether the battery is currently charging.
+- **Pullspring enabled**: indicates whether the pull spring setting is enabled.
+- **Semi locked**: indicates whether the lock is in a "semi-locked" position. "Semi-locked" means the lock has been turned manually and is between its normal end positions. The lock itself will be unavailable in this position.
+- **Lock uncalibrated** (disabled by default): Shows when the lock is in an "uncalibrated state".
 
 ## Sensors
 
@@ -104,18 +104,16 @@ actions:
 
 ## Known Limitations
 
-This integration only supports functionality that is available locally. This means that 
+This integration only supports functionality that is available locally. This means that the following elements are not supported:
 
 - Activity logs
 - Updates
-- Key Pads
-
-are not supported.
+- Key pads
 
 ## Troubleshooting
 
 {% details "Lock state is not updated in real-time" %}
-Make sure your bridge can reach your Home Assistant instance. This means, if you use separate VLANs you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL (Settings -> System -> Network -> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
+Make sure your bridge can reach your Home Assistant instance. This means that if you use separate VLANs, you need to configure your Firewall appropriately. Additionally, if you have configured an SSL-enabled endpoint for your Internal URL ({% my network title="**Settings** > **System** > **Network**" %}> Home Assistant URL), try setting it back to the IP address of your instance (or a non-HTTPS URL), as HTTPS sometimes leads to problems with the push updates.
 {% enddetails %}
 
 {% details "Authentication failures when trying to use the integration" %}
