@@ -97,7 +97,7 @@ Host:
 
 | Sensor name | Description | Available for machines | Remarks |
 |-------------|-------------| ---------------------- | ------- |
-| Current coffee temperature | Current temperature of the coffee boiler | all | - |
+| Current coffee temperature | Current temperature of the coffee boiler | all | Will be approximately 3 degrees higher than the `Target Temperature`, due to different measurement points |
 | Current steam temperature| Current temperature of the steam boiler | Linea Micra, GS3 AV, GS3 MP | - |
 | Total coffees made | Counter for total coffees made| all | - |
 | Total flushes made | Counter for total flushes done | all | - |
