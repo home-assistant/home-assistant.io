@@ -97,15 +97,18 @@ The Weather entity provides data only in English. Home Assistant automatically t
 
 Details about the API are available in the [OpenWeatherMap documentation](https://openweathermap.org/api).
 
-## Action `openweathermap.get_minute_forecasts`
+## Action `openweathermap.get_minute_forecast`
 
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with a mapping of minute-by-minute forecasts for the next hour.
 
-**Note:** Minute forecasts are available only when the OWM integration mode is set to `v3.0`. The action will not be accessible if the mode is set to `current`, `forecast`, or `v2.5`.
+**Note:** Minute forecast is available only when the OWM integration mode is set to `v3.0`. The action will fail if the mode is set to `current`, `forecast`, or `v2.5`.
 
 ```yaml
-action: openweathermap.get_minute_forecasts
+action: openweathermap.get_minute_forecast
+target:
+  entity_id:
+    - weather.openweathermap
 response_variable: weather_forecast
 ```
 
