@@ -181,7 +181,7 @@ mode: single
 Check the La Marzocco Home app to see if you can connect to your machine there. If not, remove the machine and add it again (follow the instructions in the La Marzocco App).
 {% enddetails %}
 
-{% details "Real time updates are not available" }
+{% details "Real time updates are not available" %}
 
 Check the La Marzocco Home app to see if your machine is connected to Wi-Fi. Ensure Home Assistant can reach the machine. Ensure you configured the host option in the integration options.
 {% enddetails %}
