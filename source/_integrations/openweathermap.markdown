@@ -100,7 +100,7 @@ Details about the API are available in the [OpenWeatherMap documentation](https:
 ## Action `openweathermap.get_minute_forecast`
 
 This action populates [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
-with a mapping of minute-by-minute forecasts for the next hour.
+with a mapping of minute-by-minute precipitation forecasts (rain or snow) for the next hour.
 
 **Note:** Minute forecast is available only when the OWM integration mode is set to `v3.0`. The action will fail if the mode is set to `current`, `forecast`, or `v2.5`.
 
