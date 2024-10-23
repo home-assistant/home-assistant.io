@@ -307,6 +307,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of temperature for all probes
 
+### floodSensor
+
+This integration adds the Blebox device as a moisture sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of moisture as either "detected" or "cleared".
+
 ### humiditySensor
 
 This integration adds the Blebox device as a sensor entity to Home Assistant.
