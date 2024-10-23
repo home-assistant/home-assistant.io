@@ -145,7 +145,7 @@ Increasing the default maximum message size (2048 bytes) could have a negative i
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -229,7 +229,7 @@ The following example shows the usage of the IMAP email content sensor to scan t
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -267,7 +267,7 @@ Below is the template sensor which extracts the information from the body of the
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
@@ -316,7 +316,7 @@ The example below will only set the state to the subject of the email of templat
 
 ```yaml
 template:
-  - triggers:
+  - trigger:
       - trigger: event
         event_type: "imap_content"
         id: "custom_event"
