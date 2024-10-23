@@ -19,7 +19,7 @@ Data polling is the process of querying a device or service at regular intervals
 
 Creating an automation for polling gives you more flexibility on when to poll:
 
-1. Not all integrations have a configurable polling interval. The homassistant.update_entity service on the other hand works with most of the integrations, no code changes required.
+1. Not all integrations have a configurable polling interval. The homeassistant.update_entity service, on the other hand, works with most of the integrations; no code changes are required.
 2. An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to lower/stop the polling at night but poll more frequently during the day.
 
 {% include common-tasks/define_custom_polling.md %}
