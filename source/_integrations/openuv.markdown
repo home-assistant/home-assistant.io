@@ -101,18 +101,18 @@ horizon:
 ```yaml
 automation:
   - alias: "Update OpenUV"
-    trigger:
-      platform: time_pattern
-      minutes: "/20"
-    condition:
-      condition: numeric_state
-      entity_id: sun.sun
-      value_template: "{{ state.attributes.elevation }}"
-      above: 10
-    action:
-      action: homeassistant.update_entity
-      target:
-        entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
+    triggers:
+      - trigger: time_pattern
+        minutes: "/20"
+    conditions:
+      - condition: numeric_state
+        entity_id: sun.sun
+        value_template: "{{ state.attributes.elevation }}"
+        above: 10
+    actions:
+      - action: homeassistant.update_entity
+        target:
+          entity_id: sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
 
@@ -121,13 +121,13 @@ Update the protection window once a day at 12:00pm:
 ```yaml
 automation:
   - alias: "Update OpenUV"
-    trigger:
-      platform: time
-      at: "12:00:00"
-    action:
-      action: homeassistant.update_entity
-      target:
-        entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
+    triggers:
+      - trigger: time
+        at: "12:00:00"
+    actions:
+      - action: homeassistant.update_entity
+        target:
+          entity_id: binary_sensor.LATITUDE_LONGITUDE_protection_window
 ```
 
 To perform an optimal amount of API calls in locations where the amount of daylight
@@ -139,13 +139,13 @@ running into the 50 API call limit per day:
 ```yaml
 automation:
   - alias: "Update OpenUV"
-    trigger:
+    triggers:
       # Time pattern of /45 will not work as expected, as it will sometimes be true
       # twice per hour (on the whole hour and on the whole hour + 45 minutes); use a
       # more frequent time pattern and a condition to get the intended behavior:
-      - platform: time_pattern
+      - trigger: time_pattern
         minutes: "/15"
-    condition:
+    conditions:
       - condition: sun
         after: sunrise
         before: sunset
@@ -164,13 +164,13 @@ automation:
               now() - state_attr('automation.update_openuv', 'last_triggered')
             ) >= timedelta(hours = 0, minutes = 40)
           }}
-    action:
-      action: homeassistant.update_entity
-      target:
-        entity_id:
-          # Update both UV and protection window data:
-          - binary_sensor.LATITUDE_LONGITUDE_protection_window
-          - sensor.LATITUDE_LONGITUDE_current_uv_index
+    actions:
+      - action: homeassistant.update_entity
+        target:
+          entity_id:
+            # Update both UV and protection window data:
+            - binary_sensor.LATITUDE_LONGITUDE_protection_window
+            - sensor.LATITUDE_LONGITUDE_current_uv_index
 ```
 {% endraw %}
 

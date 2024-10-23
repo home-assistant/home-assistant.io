@@ -13,6 +13,7 @@ ha_codeowners:
 ha_domain: madvr
 ha_platforms:
   - binary_sensor
+  - diagnostics
   - remote
   - sensor
 ha_integration_type: device
@@ -33,6 +34,26 @@ The madVR Envy remote platform will create a [remote](/integrations/remote/) ent
 The command structure uses the same keywords as the [official documentation](https://madvrenvy.com/wp-content/uploads/EnvyIpControl.pdf?r=113a) and simply sends the corresponding command to the device. Please refer to the official documentation for more details and usage.
 
 Using these commands, you can create a digital remote in the UI.
+
+Example:
+
+```yaml
+# Command with parameters
+action: remote.send_command
+data:
+  command: KeyPress, SETTINGS
+target:
+  entity_id: remote.madvr_envy
+```
+
+```yaml
+# Single command
+action: remote.send_command
+data:
+  command: Restart
+target:
+  entity_id: remote.madvr_envy
+```
 
 ### Single Commands
 

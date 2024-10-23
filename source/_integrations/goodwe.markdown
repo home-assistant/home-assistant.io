@@ -45,12 +45,12 @@ The integration will poll the inverter for new values every 10 seconds. If you w
 
 ```yaml
 - alias: "Goodwe inverter data polling"
-  trigger:
-    - platform: time_pattern
+  triggers:
+    - trigger: time_pattern
       hours: "*"
       minutes: "*"
       seconds: "/30"
-  action:
+  actions:
     - action: homeassistant.update_entity
       target:
         entity_id: sensor.ppv

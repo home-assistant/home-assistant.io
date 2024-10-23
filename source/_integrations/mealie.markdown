@@ -36,7 +36,7 @@ You create your API token on your Mealie installation:
 
 ## Available calendars
 
-The integration will create a calendar for every type of meal plan:
+The integration will create a calendar for every type of meal plan, which are updated once an hour:
 
 - Breakfast
 - Lunch
@@ -45,11 +45,12 @@ The integration will create a calendar for every type of meal plan:
 
 ## Shopping Lists
 
-The integration will create a to-do list for every Mealie shopping list.
+The integration will create a to-do list for every Mealie shopping list, which are updated every 5 minutes.
 
 ## Sensors
 
-The integration provides the following sensors for the statistics:
+The integration provides the following sensors for the statistics, which are updated every 15 minutes:
+
 - number of recipes
 - categories (such as beverage, dessert, Italian, seafood)
 - tags (such as alcohol)
@@ -132,10 +133,10 @@ Example template sensor that contains today's dinner meal plan entries:
 
 ```yaml
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         hours: /1
-    action:
+    actions:
       - action: mealie.get_mealplan
         data:
           config_entry_id: YOUR_MEALIE_CONFIG_ENTITY_ID

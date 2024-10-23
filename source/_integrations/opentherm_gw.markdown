@@ -3,8 +3,10 @@ title: OpenTherm Gateway
 description: Control your OpenTherm Gateway from Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Hub
+  - Select
   - Sensor
 ha_release: 0.81
 ha_iot_class: Local Push
@@ -14,20 +16,17 @@ ha_codeowners:
 ha_domain: opentherm_gw
 ha_platforms:
   - binary_sensor
+  - button
   - climate
+  - select
   - sensor
+  - switch
 ha_integration_type: integration
 ---
 
 The `opentherm_gw` integration is used to control the [OpenTherm Gateway](https://otgw.tclcode.com/) from Home Assistant.
 
-The following device types are currently supported within Home Assistant:
-
-- Binary sensor
-- Climate
-- Sensor
-
-This integration will add a single `climate` entity to Home Assistant for each configured gateway. Each gateway also has a collection of `sensor` and `binary_sensor` entities, which are disabled by default. These can be enabled from the `Devices` panel in the `Configuration` page of the web interface.
+This integration will add three devices to Home Assistant for each configured gateway. The main control of the integration is a single `climate` entity which can be found on the added `OpenTherm Thermostat` device. All added devices have a collection of `sensor` and `binary_sensor` entities, which are disabled by default. To enable them, follow the steps on [enabling entities](/common-tasks/general/#enabling-or-disabling-entities).
 
 {% note %}
 The OpenTherm protocol is based on polling. The thermostat sends requests to the boiler at specific intervals. As a result, it may take some time for changes to propagate between Home Assistant and the thermostat.
@@ -69,6 +68,16 @@ Temporary Setpoint Override Mode:
 Floor Temperature:
   description: "Some thermostats round all temperatures down to the lower value according to their precision. Default behavior for Home Assistant is to round temperatures to the nearest value. Enable this setting to override this behavior and round to the lower value according to the configured precision."
 {% endconfiguration_basic %}
+
+## Entities
+
+### Button
+
+The restart button on the `OpenTherm Gateway` device can be used to restart the OpenTherm Gateway.
+
+### Select
+
+Several `select` configuration entities can be found on the `OpenTherm Gateway` device. These can be used to configure the LEDs and GPIO pins of the OpenTherm Gateway. More information about the available modes can be found in the sections [LED modes](#led-modes) and [GPIO modes](#gpio-modes) or in the [commands documentation](https://otgw.tclcode.com/firmware.html#configuration) of the OpenTherm Gateway.
 
 ## Actions
 
@@ -222,315 +231,6 @@ Send a transparent [command](https://otgw.tclcode.com/firmware.html) to the Open
 | `transp_cmd`           | no       | The serial command to be sent to the OpenTherm Gateway.            |
 | `transp_arg`           | no       | The serial command argument to be sent to the OpenTherm Gateway.   |
 
-## Sensors
-
-The following `sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `sensor` entities are disabled by default.
-{% note %}
-Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
-{% endnote %}
-
-- **burner_hours**
-  Boiler flame on time.
-
-- **burner_starts**
-  Number of burner starts.
-
-- **ch_pump_hours**
-  Central heating pump running time.
-
-- **ch_pump_starts**
-  Number of central heating pump starts.
-
-- **ch_water_pressure**
-  Central heating water pressure.
-
-- **ch_water_temp**
-  Central heating water temperature.
-
-- **ch_water_temp_2**
-  Central heating 2 water temperature.
-
-- **control_setpoint**
-  Central heating water target temperature.
-
-- **control_setpoint_2**
-  Central heating 2 water target temperature.
-
-- **cooling_control**
-  Cooling control signal value.
-
-- **dhw_burner_hours**
-  Hot water flame on time.
-
-- **dhw_burner_starts**
-  Number of hot water burner starts.
-
-- **dhw_flow_rate**
-  Hot water flow rate.
-
-- **dhw_pump_hours**
-  Hot water pump running time.
-
-- **dhw_pump_starts**
-  Number of hot water pump starts.
-
-- **dhw_setpoint**
-  Hot water target temperature.
-
-- **dhw_temp**
-  Hot water temperature.
-
-- **dhw_temp_2**
-  Hot water 2 temperature.
-
-- **exhaust_temp**
-  Boiler exhaust temperature.
-
-- **master_memberid**
-  Thermostat member ID.
-
-- **master_ot_version**
-  Thermostat OpenTherm protocol version.
-
-- **master_product_type**
-  Thermostat product type.
-
-- **master_product_version**
-  Thermostat product version.
-
-- **max_ch_setpoint**
-  Boiler maximum central heating water temperature.
-
-- **oem_diag**
-  OEM diagnostic information.
-
-- **otgw_about**
-  OpenTherm Gateway firmware version.
-
-- **otgw_build**
-  OpenTherm Gateway firmware build date and time.
-
-- **otgw_clockmhz**
-  OpenTherm Gateway firmware design clock speed.
-
-- **otgw_dhw_ovrd**
-  OpenTherm Gateway hot water override status.
-
-- **otgw_gpio_a**
-  OpenTherm Gateway GPIO port A operating mode.
-
-- **otgw_gpio_b**
-  OpenTherm Gateway GPIO port B operating mode.
-
-- **otgw_led_a**
-  OpenTherm Gateway LED A operating mode.
-
-- **otgw_led_b**
-  OpenTherm Gateway LED B operating mode.
-
-- **otgw_led_c**
-  OpenTherm Gateway LED C operating mode.
-
-- **otgw_led_d**
-  OpenTherm Gateway LED D operating mode.
-
-- **otgw_led_e**
-  OpenTherm Gateway LED E operating mode.
-
-- **otgw_led_f**
-  OpenTherm Gateway LED F operating mode.
-
-- **otgw_mode**
-  OpenTherm Gateway operating mode.
-
-- **otgw_setback_temp**
-  OpenTherm Gateway setback temperature for `away mode`.
-
-- **otgw_setpoint_ovrd_mode**
-  OpenTherm Gateway central heating setpoint override mode.
-
-- **otgw_smart_pwr**
-  OpenTherm Gateway smart power operating mode.
-
-- **otgw_thermostat_detect**
-  OpenTherm Gateway automatic thermostat detection status.
-
-- **otgw_vref**
-  OpenTherm Gateway voltage reference setting.
-
-- **outside_temp**
-  Outside temperature as reported in the OpenTherm protocol.
-
-- **relative_mod_level**
-  Relative modulation level.
-
-- **return_water_temp**
-  Boiler return water temperature.
-
-- **room_setpoint**
-  Room target temperature.
-
-- **room_setpoint_2**
-  Room 2 target temperature.
-
-- **room_setpoint_ovrd**
-  Room target temperature override value.
-
-- **room_temp**
-  Current room temperature.
-
-- **slave_ch_max_setp**
-  Maximum boiler supported central heating water target temperature.
-
-- **slave_ch_min_setp**
-  Minimum boiler supported central heating water target temperature.
-
-- **slave_dhw_max_setp**
-  Maximum boiler supported hot water target temperature.
-
-- **slave_dhw_min_setp**
-  Minimum boiler supported hot water target temperature.
-
-- **slave_max_capacity**
-  Maximum boiler capacity.
-
-- **slave_max_relative_modulation**
-  Maximum boiler supported relative modulation.
-
-- **slave_memberid**
-  Boiler member ID.
-
-- **slave_min_mod_level**
-  Minimum boiler supported modulation level.
-
-- **slave_oem_fault**
-  Boiler OEM fault indication.
-
-- **slave_ot_version**
-  Boiler OpenTherm protocol version.
-
-- **slave_product_type**
-  Boiler product type.
-
-- **slave_product_version**
-  Boiler product version.
-
-- **solar_coll_temp**
-  Solar collector temperature.
-
-- **solar_storage_temp**
-  Solar storage unit temperature.
-
-
-## Binary sensors
-
-The following `binary_sensor` entities will be created for each configured gateway. The `entity_id` of every sensor will have a suffix containing the data source (`boiler`, `gateway` or `thermostat`) and the `gateway_id` of the gateway to which it belongs. All `binary_sensor` entities are disabled by default.
-{% note %}
-Not all boilers and thermostats properly support all OpenTherm features, so not all of the sensors will have useful values.
-{% endnote %}
-
-- **master_ch2_enabled**
-  Thermostat requests central heating 2 on.
-
-- **master_ch_enabled**
-  Thermostat requests central heating on.
-
-- **master_cooling_enabled**
-  Thermostat requests cooling.
-
-- **master_dhw_enabled**
-  Thermostat requests hot water to be heated.
-
-- **master_otc_enabled**
-  Thermostat is using outside temperature correction.
-
-- **otgw_gpio_a_state**
-  OpenTherm Gateway GPIO A state.
-
-- **otgw_gpio_b_state**
-  OpenTherm Gateway GPIO B state.
-
-- **otgw_ignore_transitions**
-  OpenTherm Gateway ignores ripples in the signal during high/low transitions.
-
-- **otgw_ovrd_high_byte**
-  OpenTherm Gateway overrides high byte with message ID 100.
-
-- **remote_rw_dhw**
-  Boiler supports writing hot water setpoint.
-
-- **remote_rw_max_ch**
-  Boiler supports writing maximum central heating setpoint.
-
-- **remote_transfer_dhw**
-  Boiler supports reading hot water setpoint.
-
-- **remote_transfer_max_ch**
-  Boiler supports reading maximum central heating setpoint.
-
-- **rovrd_auto_prio**
-  Programmed room setpoint change takes priority over remote override setting.
-
-- **rovrd_man_prio**
-  Manual room setpoint change takes priority over remote override setting.
-
-- **slave_air_pressure_fault**
-  Boiler reports air pressure fault.
-
-- **slave_ch2_active**
-  Boiler reports central heating 2 active.
-
-- **slave_ch2_present**
-  Boiler has a central heating 2 circuit.
-
-- **slave_ch_active**
-  Boiler reports central heating active.
-
-- **slave_control_type**
-  Boiler control type ('off' is modulating, 'on' is on/off).
-
-- **slave_cooling_active**
-  Boiler reports cooling active.
-
-- **slave_cooling_supported**
-  Boiler supports cooling.
-
-- **slave_dhw_active**
-  Boiler reports hot water active.
-
-- **slave_dhw_config**
-  Boiler hot water mode ('off' is instantaneous or unspecified, 'on' is storage tank).
-
-- **slave_dhw_present**
-  Boiler reports hot water present.
-
-- **slave_diagnostic_indication**
-  Boiler diagnostic indication.
-
-- **slave_fault_indication**
-  Boiler fault indication.
-
-- **slave_flame_on**
-  Boiler reports flame on.
-
-- **slave_gas_fault**
-  Boiler reports gas fault.
-
-- **slave_low_water_pressure**
-  Boiler reports low water pressure.
-
-- **slave_master_low_off_pump**
-  Boiler supports low-off and pump control commands (this sensor is inverted, 'on' is not supported, 'off' is supported)
-
-- **slave_remote_reset**
-  Boiler reports 'lockout-reset' supported.
-
-- **slave_service_required**
-  Boiler reports service required.
-
-- **slave_water_overtemp**
-  Boiler reports water overtemperature.
-
 ## GPIO modes
 
 Possible modes and their meaning for the GPIO pins are listed here:
@@ -538,14 +238,14 @@ Possible modes and their meaning for the GPIO pins are listed here:
     Bulletpoints and numbers to match the LED mode layout below.
 {% endcomment %}
 
-- 1\. No function, default for both ports on a freshly flashed chip.
-- 2\. Ground - A permanently low output (0V). Could be used for a power LED.
-- 3\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
-- 4\. LED E - An additional LED if you want to present more than 4 LED functions.
-- 5\. LED F - An additional LED if you want to present more than 5 LED functions.
-- 6\. Home - Set thermostat to setback temperature when pulled low.
-- 7\. Away - Set thermostat to setback temperature when pulled high.
-- 8\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
+- 0\. Input - default for both ports on a freshly flashed chip.
+- 1\. Ground - A permanently low output (0V). Could be used for a power LED.
+- 2\. Vcc - A permanently high output (5V). Can be used as a short-proof power supply for some external circuitry used by the other GPIO port.
+- 3\. LED E - An additional LED if you want to present more than 4 LED functions.
+- 4\. LED F - An additional LED if you want to present more than 5 LED functions.
+- 5\. Home - Set thermostat to setback temperature when pulled low.
+- 6\. Away - Set thermostat to setback temperature when pulled high.
+- 7\. DS1820 (GPIO port B only) - Data line for a DS18S20 or DS18B20 temperature sensor used to measure the outside temperature. A 4k7 resistor should be connected between GPIO port B and Vcc.
 
 ## LED modes
 
@@ -563,3 +263,11 @@ Possible LED modes and their meaning are listed here:
 - E. Transmission error has been detected.
 - M. Boiler requires maintenance.
 - P. Raised power mode active on thermostat interface.
+
+## Disabled configuration entities
+
+{% warning %}
+Please read [this information](http://otgw.tclcode.com/standalone.html) from the designer of the OpenTherm Gateway before considering using the information in this section.
+{% endwarning %}
+For advanced control of your heating system, some `switch` configuration entities can be found on the added `OpenTherm Gateway` device.
+These entities are disabled by default, as they can cause your heating system to run continuously and/or increase your energy consumption significantly if used improperly. In most setups, these entities are not needed and should be left disabled.

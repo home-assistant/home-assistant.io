@@ -10,6 +10,7 @@ ha_codeowners:
   - '@starkillerOG'
 ha_config_flow: true
 ha_platforms:
+  - button
   - cover
   - sensor
 ha_dhcp: true
@@ -30,6 +31,7 @@ Additionally the following brands have been reported to also work with this inte
 - [Dooya](http://www.dooya.com/)
 - [Gaviota](https://www.gaviotagroup.com/en/)
 - [Havana Shade](https://havanashade.com/)
+- [Heicko](https://heicko.de/en/tubular-motors/controls/e-smart-home/usb-smart-home-stick-bi-direktional-1-st.html)
 - [Hurrican Shutters Wholesale](https://www.hurricaneshutterswholesale.com/)
 - [Inspired Shades](https://www.inspired-shades.com/)
 - [iSmartWindow](https://www.ismartwindow.co.nz/)
@@ -61,6 +63,8 @@ The following bridges are reported to work with this integration:
 - Linx Hub USB
 - SIRO Connect SI7002
 - SIRO Connect SI7005
+- Heicko Smart Stick 1ST
+- DD7006A Smart Home bridge
 
 {% include integrations/config_flow.md %}
 
@@ -93,7 +97,18 @@ In the official Bloc Blinds app go to settings (three bars > gear icon), go to t
 
 ### Connector app
 
-Click the about page of the connector app 5 times to get the key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)).
+ To get the API key ([iOS app](https://apps.apple.com/us/app/connector/id1344058317), [Android app](https://play.google.com/store/apps/details?id=com.smarthome.app.connector)), follow these steps:
+ 
+  1. In the left sidebar of the app, open the **Settings** {% icon "mdi:gear-outline" %} (gear icon). 
+  2. Select the **About** page of the Connector app.
+  3. Tap the screen 5 times while being on the **About** page. 
+      - This opens a window with the API key.
+
+## Favorite position
+
+A **Go to favorite position** button entity allows you to move the blind to its favorite position. For this entity to show up, you first need to set the blind's favorite position in the mobile app, using a remote or physical buttons on the blind. Refer to the manual of your specific blind for instructions.
+
+The **Set current position as favorite** button entity allows you to change the favorite position. For this to work, the blind first needs to be put in programming mode by shortly pressing the reset button on the blind. It will start stepping (moving a small bit up-down repeatedly). You can then use the **Set current position as favorite** entity. After you are done, shortly press the reset button again to exit the programming mode.
 
 ## Top Down Bottom Up (TDBU) blinds
 
@@ -198,12 +213,11 @@ You only have to create one automation with only one Motionblinds cover as entit
 Example YAML automation for custom polling interval (every minute):
 
 ```yaml
-alias: Motionblinds polling automation
-mode: single
-trigger:
-  - platform: time_pattern
+alias: "Motionblinds polling automation"
+triggers:
+  - trigger: time_pattern
     minutes: "/1"
-action:
+actions:
   - action: homeassistant.update_entity
     target:
       entity_id: cover.motion_shade

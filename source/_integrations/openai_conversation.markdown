@@ -82,7 +82,7 @@ You can use an OpenAI Conversation integration to [talk to Super Mario and, if d
 ### Action `openai_conversation.generate_image`
 
 Allows you to ask OpenAI to generate an image based on a prompt. This action
-populates [Response Data](/docs/scripts/service-calls#use-templates-to-handle-response-data)
+populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with the requested image.
 
 | Data attribute | Optional | Description                                            | Example          |
@@ -129,10 +129,10 @@ Select **YAML Mode** to reveal the *config_entry* value to be used in the below 
 ```yaml
 automation:
   - alias: "Update image when weather changes"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: weather.home
-    action:
+    actions:
       - alias: "Ask OpenAI to generate an image"
         action: openai_conversation.generate_image
         response_variable: generated_image
@@ -148,10 +148,10 @@ automation:
           url: '{{ generated_image.url }}'
 
 template:
-  - trigger:
-      alias: "Update image when a new weather image is generated"
-      platform: event
-      event_type: new_weather_image
+  - triggers:
+      - alias: "Update image when a new weather image is generated"
+        trigger: event
+        event_type: new_weather_image
     image:
       name: "AI generated image of New York"
       url: "{{ trigger.event.data.url }}"

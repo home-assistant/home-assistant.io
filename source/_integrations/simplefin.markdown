@@ -2,6 +2,7 @@
 title: SimpleFin
 description: Instructions on the SimpleFIN Integration for personal finance.
 ha_category:
+  - Finance
   - Sensor
 ha_iot_class: Cloud Polling
 ha_release: 2024.8
@@ -11,6 +12,7 @@ ha_codeowners:
 ha_domain: simplefin
 ha_config_flow: true
 ha_platforms:
+  - binary_sensor
   - sensor
 ha_integration_type: service
 ---
@@ -31,5 +33,6 @@ Each `account` will be set up as a device in Home Assistant, and it will contain
 
 |Sensor|Description|
 |-------|---------------|
-|Balance|Account balance|
 |Age| This sensor shows when the data was retrieved by the SimpleFin API |
+|Balance|Account balance|
+|Problem| Binary sensor that indicates whether the account sync may have a problem |

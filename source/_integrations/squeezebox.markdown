@@ -1,6 +1,6 @@
 ---
 title: Squeezebox (Lyrion Music Server)
-description: Instructions on how to integrate a Squeezebox player into Home Assistant.
+description: Instructions on how to integrate Squeezebox players and a Lyrion Music Server (LMS)  into Home Assistant.
 ha_category:
   - Media player
 ha_release: pre 0.7
@@ -11,11 +11,15 @@ ha_codeowners:
 ha_config_flow: true
 ha_dhcp: true
 ha_platforms:
+  - binary_sensor
   - media_player
+  - sensor
 ha_integration_type: integration
 ---
 
-The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was previously known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+The Squeezebox integration allows you to control music players from the [Lyrion Music Server](https://lyrion.org/) (LMS) ecosystem.  Lyrion Music Server was formerly known as [Logitech Media Server](https://en.wikipedia.org/wiki/Squeezebox_%28network_music_player%29).
+
+This integration provides both media players connected to the server and supporting binary sensors for the server status.
 
 The Squeezebox music player ecosystem, which can be controlled through this integration, includes hardware audio players from Logitech, including [Squeezebox 3rd Generation, Squeezebox Boom, Squeezebox Receiver, Transporter, Squeezebox2, Squeezebox and SLIMP3](https://lms-community.github.io/players-and-controllers/hardware-comparison/), and many software emulators like [Squeezelite, SqueezeSlave, SoftSqueeze and SqueezePlay](https://sourceforge.net/projects/lmsclients/files/).
 
@@ -45,6 +49,26 @@ transporter_toslink:
         media_content_id: "source:toslink"
         media_content_type: "music"
 ```
+
+## Entities
+
+### Binary sensors
+
+- **Needs restart**:  Server Service needs to be restarted (typically, this is needed to apply updates).
+- **Library rescan**:  The music library is currently being scanned by LMS (depending on the type of scan, some content may be unavailable).
+
+### Sensors
+
+- **Last scan**: Date of the last library scan.
+- **Player count**: Number of players on the service.
+- **Player count off service**: Number of players not on this service.
+- **Total albums**: Total number of albums currently available in the service.
+- **Total artists**: Total number of artists currently available in the service.
+- **Total duration**: Duration of all tracks in service (HHHH:MM:SS).
+- **Total genres**: Total number of genres used in current service.
+- **Total songs**: Total number of music files currently in service.
+
+## Actions
 
 ### Action `call_method`
 

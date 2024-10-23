@@ -292,7 +292,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: up
@@ -304,7 +304,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: down
@@ -316,7 +316,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left
@@ -328,7 +328,7 @@ elements:
       bottom: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right
@@ -340,7 +340,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_up
@@ -352,7 +352,7 @@ elements:
       bottom: 50px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_up
@@ -364,7 +364,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: left_down
@@ -376,7 +376,7 @@ elements:
       bottom: 0px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: right_down
@@ -388,13 +388,13 @@ elements:
       right: 25px
     tap_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       service_data:
         entity_id: camera.lakehouse
         movement: zoom_in
     hold_action:
       action: call-service
-      action: amcrest.ptz_control
+      service: amcrest.ptz_control
       data:
         entity_id: camera.lakehouse
         movement: zoom_out
@@ -434,16 +434,16 @@ Using this {% term trigger %} in an {% term automation %} will allow you to dete
 
 ```yaml
 # Example automations.yaml entry
-alias: Doorbell Pressed
+alias: "Doorbell Pressed"
 description: "Trigger when Amcrest Button Press Event Fires"
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: amcrest
     event_data:
       event: "CallNoAnswered"
       payload:
         action: "Start"
-action:
+actions:
   - type: flash
     entity_id: light.living_room
     domain: light

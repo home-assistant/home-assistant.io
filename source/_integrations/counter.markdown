@@ -147,17 +147,16 @@ system_log:
 ```yaml
 # Example configuration.yaml entry
 automation:
-- id: 'errorcounterautomation'
-  alias: "Error Counting Automation"
-  trigger:
-    platform: event
-    event_type: system_log_event
-    event_data:
-      level: ERROR
-  action:
-    action: counter.increment
-    target:
-      entity_id: counter.error_counter
+- alias: "Error Counting Automation"
+  triggers:
+    - trigger: event
+      event_type: system_log_event
+      event_data:
+        level: ERROR
+  actions:
+    - action: counter.increment
+      target:
+        entity_id: counter.error_counter
     
 counter:
   error_counter:

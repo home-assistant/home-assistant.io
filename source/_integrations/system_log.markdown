@@ -90,15 +90,15 @@ counter:
 
 automation:
   - alias: "Count warnings"
-    trigger:
-      platform: event
-      event_type: system_log_event
-      event_data:
-        level: WARNING
-    action:
-      action: counter.increment
-      target:
-        entity_id: counter.warning_counter
+    triggers:
+      - trigger: event
+        event_type: system_log_event
+        event_data:
+          level: WARNING
+    actions:
+      - action: counter.increment
+        target:
+          entity_id: counter.warning_counter
 ```
 
 ### Conditional Messages
@@ -110,17 +110,17 @@ This automation will create a persistent notification whenever an error or warni
 ```yaml
 automation:
   - alias: "Create notifications for 'action' errors"
-    trigger:
-      platform: event
-      event_type: system_log_event
-    condition:
-      condition: template
-      value_template: '{{ "action" in trigger.event.data.message[0] }}'
-    action:
-      action: persistent_notification.create
-      data:
-        title: Something bad happened
-        message: "{{ trigger.event.data.message[0] }}"
+    triggers:
+      - trigger: event
+        event_type: system_log_event
+    conditions:
+      - condition: template
+        value_template: '{{ "action" in trigger.event.data.message[0] }}'
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "Something bad happened"
+          message: "{{ trigger.event.data.message[0] }}"
 ```
 
 {% endraw %}
@@ -132,14 +132,14 @@ This automation will create a new log entry when the door is opened:
 ```yaml
 automation:
   - alias: "Log door opened"
-    trigger:
-      platform: state
-      entity_id: binary_sensor.door
-      from: "off"
-      to: "on"
-    action:
-      action: system_log.write
-      data:
-        message: "Door opened!"
-        level: info
+    triggers:
+      - trigger: state
+        entity_id: binary_sensor.door
+        from: "off"
+        to: "on"
+    actions:
+      - action: system_log.write
+        data:
+          message: "Door opened!"
+          level: info
 ```

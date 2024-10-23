@@ -35,7 +35,8 @@ The integration allows you to control [Reolink](https://reolink.com/) NVRs or ca
 
 {% include integrations/config_flow.md %}
 
-On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
+- On the Reolink device, a user account with admin privileges is needed for the proper operation of this integration.
+- The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are, therefore, not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
@@ -89,7 +90,10 @@ Depending on the supported features of the camera, number entities are added for
 - Optical zoom control
 - Focus control
 - Floodlight turn on brightness
-- Volume
+- Volume (Camera)
+- Alarm volume (Home Hub)
+- Message volume (Home Hub)
+- Chime volume
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
@@ -116,7 +120,6 @@ Depending on the supported features of the camera, number entities are added for
 - Image saturation* (default 128)
 - Image sharpness* (default 128)
 - Image hue* (default 128)
-- Chime volume
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -172,10 +175,21 @@ Depending on the supported features of the camera, select entities are added for
 - Chime motion ringtone
 - Chime person ringtone
 - Chime visitor ringtone
+- Hub alarm ringtone
+- Hub visitor ringtone
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+
+### Action reolink.play_chime
+
+To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
+
+| Data attribute | Optional | Description                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
+| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
 
 ## Siren entities
 
@@ -199,7 +213,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record
 - Push notifications
-- Buzzer on event
+- Hub ringtone on event
 - Email on event
 - FTP upload
 - PIR enabled*
@@ -208,7 +222,7 @@ Depending on the supported features of the camera, switch entities are added for
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
-For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+For NVRs, a global switch for **Record**, **Push**, **Hub ringtone on event**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 **Push** notifications to a phone will only be provided if the following conditions are met: 
 - The **Push notifications** switch in Home Assistant is ON. 
@@ -234,6 +248,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- CPU usage*
 - HDD/SD storage*
 - Battery percentage
 - Battery temperature*
@@ -286,6 +301,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)
@@ -299,7 +315,7 @@ The following models have been tested and confirmed to work with a direct link t
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
-- Reolink Video Doorbell ([PoE](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi](https://reolink.com/product/reolink-video-doorbell-wifi/))
+- Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [PoE White](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
 *These models are discontinued and not sold anymore, they will continue to work with Home Assistant.
 
@@ -362,11 +378,7 @@ Normally, the digits are printed directly under the QR code. Alternatively, you 
 
 Then power up the camera while pointing it at the QR code. It takes about a minute to initialize, read the QR code, and connect to your Wi-Fi.
 
-### 2. Enabling HTTP/HTTPS ports
-
-Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
-
-### 3. Add integration in Home Assistant
+### 2. Add integration in Home Assistant
 
 Set up the Reolink integration in Home Assistant using the credentials you set in step 1.
 
@@ -378,7 +390,7 @@ Set up the Reolink integration in Home Assistant using the credentials you set i
 ## Troubleshooting
 
 - Older firmware versions do not expose the necessary information the integration needs to function. Ensure the camera is updated to the [latest firmware](https://reolink.com/download-center/) prior to setting up the integration. Note that Reolink auto update and check for update functions in the app/windows/web client often do not show the latest available firmware version. Therefore check the version in the [Reolink download center](https://reolink.com/download-center/) online.
-- Ensure at least one of the HTTP/HTTPS ports is enabled in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC), see [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
+- Test if you can access the camera by its IP address in your browser `https://<your-camera-ip>`. If you cannot, in the [Reolink mobile app, Windows, or Mac client](https://reolink.com/software-and-manual/) ensure at least one of the HTTP/HTTPS ports are enabled under **Settings** > **top camera model box** > **Network Information** > **Advanced** (mobile) or **Settings** > **Network** > **Advanced** > **Port Settings** (PC). See [additional instructions](https://support.reolink.com/hc/en-us/articles/900000621783-How-to-Set-up-Reolink-Ports-Settings/) on the Reolink site.
 - On some camera models, the RTMP port needs to be enabled in order for the HTTP(S) port to function properly. Make sure this port is also enabled if you get a `Cannot connect to host` error while one of the HTTP/HTTPS ports is already enabled.
 - Setting a static IP address for Reolink cameras/NVRs in your router is advisable to prevent (temporal) connectivity issues when the IP address changes.
 - Do not set a static IP in the Reolink device itself, but leave the **Connection Type** on **DHCP** under **Settings** > **Network** > **Network Information** > **Set Up**. If you set it to **static** on the Reolink device itself, this is known to cause incorrect DHCP requests on the network. The incorrect DHCP request causes Home Assistant to use the wrong IP address for the camera, resulting in connection issues. The issue originates from the Reolink firmware, which keeps sending DCHP requests even when you set a static IP address in the Reolink device.

@@ -8,6 +8,7 @@ ha_category:
   - Light
   - Sensor
   - Switch
+  - Valve
 ha_release: '0.60'
 ha_iot_class: Local Push
 ha_domain: ads
@@ -15,12 +16,16 @@ ha_platforms:
   - binary_sensor
   - cover
   - light
+  - select
   - sensor
   - switch
+  - valve
 ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_codeowners:
+  - '@mrpasztoradam'
 ---
 
 The ADS (automation device specification) describes a device-independent and fieldbus independent interface for communication between [Beckhoff](https://www.beckhoff.com/) automation devices running [TwinCAT](https://www.beckhoff.com/en-en/products/automation/twincat/) and other devices implementing this interface.
@@ -32,7 +37,10 @@ There is currently support for the following device types within Home Assistant:
 - [Sensor](#sensor)
 - [Switch](#switch)
 - [Cover](#cover)
+- [Select](#select)
+- [Valve](#valve)
 
+<!-- omit in toc -->
 ## Configuration
 
 To enable ADS, add the following lines to your {% term "`configuration.yaml`" %} file.
@@ -60,6 +68,7 @@ ip_address:
   type: string
 {% endconfiguration %}
 
+<!-- omit in toc -->
 ## Action
 
 The ADS integration will register the `write_by_name` action allowing you to write a value to a variable on your ADS device.
@@ -139,7 +148,7 @@ name:
 
 ## Sensor
 
-The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *INT*, *UINT*,  *BYTE*, *DINT* or *UDINT*.
+The `ads` sensor platform allows reading the value of a numeric variable on your ADS device. The variable can be of type *BOOL*, *BYTE*, *INT*, *UINT*, *SINT*, *USINT*, *DINT*, *UDINT*, *WORD*, *DWORD*, *REAL*, or *LREAL*.
 
 To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
 file:
@@ -160,7 +169,7 @@ adsvar:
   type: string
 adstype:
   required: false
-  description: The datatype of the ADS variable, possible values are int, uint, byte, dint, udint.
+  description: The datatype of the ADS variable, possible values are bool, byte, int, uint, sint, usint, dint, udint, word, dword, real and lreal.
   default: int
   type: string
 name:
@@ -252,4 +261,57 @@ device_class:
   required: false
   description: Sets the [class of the device](/integrations/cover/), changing the device state and icon that is displayed on the frontend.
   type: device_class
+{% endconfiguration %}
+
+## Select
+
+The `ads` select entity accesses an ENUM (int) variable on the connected ADS device. The variable is identified by its name. You have to set up a corresponding ENUM in the TwinCAT PLC. It is recommended to use explicit values starting from `0`.
+
+```yaml
+TYPE E_SampleA :
+(
+    e1 := 0,
+    e2 := 1,
+    e3 := 2, 
+);
+END_TYPE
+```
+
+## Valve
+
+The `ads` valve entity accesses a boolean variable on the connected ADS device. The variable is identified by its name.
+
+To use your ADS device, you first have to set up your [ADS hub](#configuration) and then add the following to your {% term "`configuration.yaml`" %}
+file:
+
+```yaml
+# Example configuration.yaml entry
+select:
+  - platform: ads
+    adsvar: MAIN.eMyEnum
+    options:
+      - "Off"
+      - "Setup"
+      - "Automatic"
+      - "Manual"
+      - "Guest"
+      - "Error"
+valve:
+  - platform: ads
+    adsvar: MAIN.bValveControl
+```
+
+{% configuration %}
+adsvar:
+  required: true
+  description: The name of the variable which you want to access on the ADS device.
+  type: string
+options:
+  required: true
+  description: The available options to select from.
+  type: string
+name:
+  required: false
+  description: An identifier for the valve in the frontend.
+  type: string
 {% endconfiguration %}

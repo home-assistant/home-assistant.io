@@ -37,6 +37,7 @@ This key is called the bindkey or beaconkey.
 
 There are a few ways to obtain a bindkey for your device:
 
+- For v4 and v5 devices, you can provide your Xiaomi Cloud account login credentials for the account to which the device is bound. Home Assistant will import the appropriate bind key from your account.
 - Extract the keys from Xiaomi Cloud using a [token extractor](https://github.com/PiotrMachowski/Xiaomi-cloud-tokens-extractor) tool.
 - Set your own. The [Telink Flasher](https://pvvx.github.io/ATC_MiThermometer/TelinkMiFlasher.html) by pvvx allows you to generate new bindkeys for devices it supports (LYWSD03MMC, MJWSD05MMC, MHO-C401, CGG1, and CGDK2). This online flashing tool also allows you to upload alternative firmware, with some improvements compared to the stock firmware, like faster sensor updates. Note that the new bind key works with Home Assistant, but the Mi Home app does not recognize the sensor anymore once the device has been activated by the TeLink flasher application. To use the sensor again with the Xiaomi Mi Home app, the device needs to be removed and then re-added inside the Mi Home app.
 - An alternative [Telink Flasher](https://atc1441.github.io/Temp_universal_mi_activate.html) by atc1441 also allows you to generate new bind keys, and supports even more Xiaomi devices compared to the Telink Flasher by pvvx.

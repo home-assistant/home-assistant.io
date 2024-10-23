@@ -52,11 +52,11 @@ An automation using this integration could look like this:
 ```yaml
 automation:
   - alias: "Catch QR code and arm the alarm system"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: image_processing.qr_front_door
         to: ARM_QR_CODE_VALUE
-    action:
+    actions:
       - action: alarm_control_panel.alarm_arm_away
         target:
           entity_id: alarm_control_panel.home_alarm

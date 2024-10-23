@@ -125,12 +125,13 @@ input_number:
     min: 0
     max: 254
     step: 1
+
 automation:
   - alias: "Bedroom Light - Adjust Brightness"
-    trigger:
-      platform: state
-      entity_id: input_number.bedroom_brightness
-    action:
+    triggers:
+      - trigger: state
+        entity_id: input_number.bedroom_brightness
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.bedroom
@@ -157,6 +158,7 @@ input_select:
       - Relax
       - 'OFF'
     initial: "Select"
+
 input_number:
   bedroom_brightness:
     name: Brightness
@@ -164,13 +166,14 @@ input_number:
     min: 0
     max: 254
     step: 1
+
 automation:
   - alias: "Bedroom Light - Custom"
-    trigger:
-      platform: state
-      entity_id: input_select.scene_bedroom
-      to: CUSTOM
-    action:
+    triggers:
+      - trigger: state
+        entity_id: input_select.scene_bedroom
+        to: "CUSTOM"
+    actions:
       - action: light.turn_on
         target:
           entity_id: light.bedroom
@@ -199,28 +202,28 @@ input_number:
 # It sets the value slider on the GUI. This slides also had its own automation when the value is changed.
 automation:
   - alias: "Set temp slider"
-    trigger:
-      platform: mqtt
-      topic: "setTemperature"
-    action:
-      action: input_number.set_value
-      target:
-        entity_id: input_number.target_temp
-      data:
-        value: "{{ trigger.payload }}"
+    triggers:
+      - trigger: mqtt
+        topic: "setTemperature"
+    actions:
+      - action: input_number.set_value
+        target:
+          entity_id: input_number.target_temp
+        data:
+          value: "{{ trigger.payload }}"
 
 # This second automation script runs when the target temperature slider is moved.
 # It publishes its value to the same MQTT topic it is also subscribed to.
   - alias: "Temp slider moved"
-    trigger:
-      platform: state
-      entity_id: input_number.target_temp
-    action:
-      action: mqtt.publish
-      data:
-        topic: "setTemperature"
-        retain: true
-        payload: "{{ states('input_number.target_temp') | int }}"
+    triggers:
+      - trigger: state
+        entity_id: input_number.target_temp
+    actions:
+      - action: mqtt.publish
+        data:
+          topic: "setTemperature"
+          retain: true
+          payload: "{{ states('input_number.target_temp') | int }}"
 ```
 
 {% endraw %}
@@ -249,16 +252,16 @@ input_number:
     step: 10
     
 automation:
- - alias: "turn something off after x time after turning it on"
-   trigger:
-     platform: state
-     entity_id: switch.something
-     to: "on"
-   action:
-     - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
-     - action: switch.turn_off
-       target:
-         entity_id: switch.something
+  - alias: "turn something off after x time after turning it on"
+    triggers:
+      - trigger: state
+        entity_id: switch.something
+        to: "on"
+    actions:
+      - delay: "00:{{ states('input_number.minutes') | int }}:{{ states('input_number.seconds') | int }}"
+      - action: switch.turn_off
+        target:
+          entity_id: switch.something
 ```
 
 {% endraw %}
