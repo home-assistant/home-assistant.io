@@ -78,16 +78,16 @@ The flic integration fires `flic_click` events on the bus. You can capture the e
 # Example configuration.yaml automation entry
 automation:
   - alias: "Turn on lights in the living room when flic is pressed once"
-    trigger:
-      platform: event
-      event_type: flic_click
-      event_data:
-        button_name: flic_81e4ac74b6d2
-        click_type: single
-    action:
-      action: homeassistant.turn_on
-      target:
-        entity_id: group.lights_livingroom
+    triggers:
+      - trigger: event
+        event_type: flic_click
+        event_data:
+          button_name: flic_81e4ac74b6d2
+          click_type: single
+    actions:
+      - action: homeassistant.turn_on
+        target:
+          entity_id: group.lights_livingroom
 ```
 
 Event data:
@@ -104,10 +104,10 @@ To help detect and debug flic button clicks, you can use this automation that se
 ```yaml
 automation:
   - alias: "FLIC Html5 notify on every click"
-    trigger:
-      platform: event
-      event_type: flic_click
-    action:
+    triggers:
+      - trigger: event
+        event_type: flic_click
+    actions:
       - action: notify.html5
         data:
           title: "flic click"

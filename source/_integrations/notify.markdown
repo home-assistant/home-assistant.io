@@ -17,16 +17,30 @@ If you want to send notifications to the Home Assistant web interface, you may u
 
 {% include integrations/building_block_integration.md %}
 
+## The state of a notify entity
+
+The state of a notify entity is the date and time when a message was last sent.
+
+<p class='img'>
+<img src='/images/integrations/notify/state_notify.png' alt='Screenshot showing the state of a notify entity in the developer tools' />
+Screenshot showing the state of a notify entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Action
 
 The legacy `notify` platform will expose a generic `notify` action that can be called to send notifications.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
-| `target`               |      yes | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported.
-| `data`                 |      yes | On platforms who have extended functionality. See your platform page if it is supported.
+| Data attribute | Optional | Description                                                                                                                |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `message`      | no       | Body of the notification.                                                                                                  |
+| `title`        | yes      | Title of the notification.                                                                                                 |
+| `target`       | yes      | Some platforms allow specifying a recipient that will receive the notification. See your platform page if it is supported. |
+| `data`         | yes      | On platforms who have extended functionality. See your platform page if it is supported.                                   |
 
 ## Usage
 
@@ -38,10 +52,10 @@ One notification integration is automatically included, the Persistent Notificat
 
 Integrations can also implement the notify entity platform. Entity platform implementations will replace the legacy notify action in time. There is an entity platform action `send_message` which allows you to send notification messages to multiple notify entities.
 
-| Data attribute | Optional | Description |
-| ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification.
-| `title`                |      yes | Title of the notification.
+| Data attribute | Optional | Description                |
+| -------------- | -------- | -------------------------- |
+| `message`      | no       | Body of the notification.  |
+| `title`        | yes      | Title of the notification. |
 
 ## Companion app notifications
 
@@ -82,7 +96,7 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
+actions:
   action: notify.send_message
   data:
     entity_id: notify.my_direct_message_notifier
@@ -112,10 +126,10 @@ The notify integration supports specifying [templates](/docs/configuration/templ
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "You have {{ states('todo.shopping_list') }} items on your shopping list."
 ```
 
 {% endraw %}
@@ -123,10 +137,10 @@ action:
 {% raw %}
 
 ```yaml
-action:
-  action: notify.persistent_notification
-  data:
-    message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
+actions:
+  - action: notify.persistent_notification
+    data:
+      message: "The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"
 ```
 
 {% endraw %}

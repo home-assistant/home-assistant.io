@@ -15,6 +15,12 @@ ha_integration_type: integration
 
 The `Microsoft Teams` platform allows you to send notifications from Home Assistant to a team channel in [Microsoft Teams](https://www.microsoft.com/microsoft-teams/group-chat-software).
 
+{% note %}
+
+Please note that Microsoft announced the retirement of the Office 365 connectors within Microsoft Teams. Existing connectors will [continue to work until December 2025](https://devblogs.microsoft.com/microsoft365dev/retirement-of-office-365-connectors-within-microsoft-teams/).
+
+{% endnote %}
+
 ## Setup
 
 To send a notification to teams, you need to add the Incoming Webhook app to your team channel. When the app is added, you will receive a webhook URL that needs to be added to your {% term "`configuration.yaml`" %}.

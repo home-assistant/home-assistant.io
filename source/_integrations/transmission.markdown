@@ -62,10 +62,10 @@ Example of an automation that notifies on successful download and removes the to
 
 ```yaml
 - alias: "Notify and remove completed torrent"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: transmission_downloaded_torrent
-  action:
+  actions:
     - action: notify.telegram_notifier
       data:
         title: "Torrent completed!"

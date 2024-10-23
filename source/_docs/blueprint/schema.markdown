@@ -150,7 +150,9 @@ A blueprint can have as many inputs as you like.
 ### Blueprint input sections
 
 One or more input sections can be added under the main `input` key. Each section visually groups the inputs in that section, 
-allows an optional description, and optionally allows for collapsing those inputs. 
+allows an optional description, and optionally allows for collapsing those inputs. Note that the section only impacts how 
+inputs are displayed to the user when they fill in the blueprint. Inputs must have unique names and be referenced directly
+by their name; not by section and name.
 
 A section is differentiated from an input by the presence of an additional `input` key within that section. 
 
@@ -265,20 +267,20 @@ blueprint:
 mode: restart
 max_exceeded: silent
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_entity
     from: "off"
     to: "on"
 
-action:
+actions:
   - action: light.turn_on
     target: !input light_target
   - wait_for_trigger:
-      platform: state
-      entity_id: !input motion_entity
-      from: "on"
-      to: "off"
+      - trigger: state
+        entity_id: !input motion_entity
+        from: "on"
+        to: "off"
   - delay: !input no_motion_wait
   - action: light.turn_off
     target: !input light_target

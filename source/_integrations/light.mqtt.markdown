@@ -164,6 +164,10 @@ device:
       description: 'The model of the device.'
       required: false
       type: string
+    model_id:
+      description: The model identifier of the device.
+      required: false
+      type: string
     name:
       description: 'The name of the device.'
       required: false
@@ -359,11 +363,11 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: "The MQTT topic subscribed to receive state updates. A \"None\" payload resets to an `unknown` state. An empty payload is ignored. By default, valid state payloads are `OFF` and `ON`. The accepted payloads can be overridden with the `payload_off` and `payload_on` config options."
   required: false
   type: string
 state_value_template:
-  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should return the `payload_on` and `payload_off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example, if the message is just `on`, your `state_value_template` should be `power {{ value }}`. When your `payload_on = 27`, `payload_off = 'off'`, then this template might be `'off' if value_json.my_custom_brightness_field <= 0 else 27`." 
+  description: "Defines a [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) to extract the state value. The template should return the `payload_on` and `payload_off` values, so if your light uses `power on` to turn on, your `state_value_template` string should return `power on` when the switch is on. For example, if the message is just `on`, your `state_value_template` should be `power {{ value }}`. When your `payload_on = 27` and `payload_off = 'off'`, then this template might be `'off' if value_json.my_custom_brightness_field <= 0 else 27`."
   required: false
   type: template
 unique_id:
@@ -704,7 +708,7 @@ schema:
   type: string
   default: default
 state_topic:
-  description: The MQTT topic subscribed to receive state updates. A "None" payload resets to an `unknown` state. An empty payload is ignored.
+  description: 'The MQTT topic subscribed to receive state updates in a JSON-format. The JSON payload may contain the elements: `"state"`: `"ON"` the light is on, `"OFF"` the light is off, `null` the state is `unknown`; `"color_mode"`: one of the `supported_color_modes`; `"color"`: A dict with the color attributes*; `"brightness"`: The brightness; `"color_temp"`: The color temperature; `"effect"`: The effect of the light.'
   required: false
   type: string
 supported_color_modes:
@@ -721,6 +725,32 @@ white_scale:
   type: integer
   default: 255
 {% endconfiguration %}
+
+*The `color` attribute dict in the JSON state payload should contain the following keys based on the `color_mode`:
+
+- `hs`:
+  - `h`: The hue value
+  - `s`: The saturation value
+- `xy`:
+  - `x`: X color value
+  - `y`: Y color value
+- `rgb`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+- `rgbw`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `w`: White value
+- `rgbww`:
+  - `r`: Red color value
+  - `g`: Green color value
+  - `b`: Blue color value
+  - `c`: Cool white value
+  - `w`: Warm white value
+
+More details about the different colors, color modes and range values [can be found here](https://www.home-assistant.io/integrations/light/).
 
 {% important %}
 Make sure that your topics match exact. `some-topic/` and `some-topic` are different topics.
@@ -930,7 +960,7 @@ command_off_template:
   required: true
   type: template
 command_on_template:
-  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `color_temp` is provided as integer representing mired units."
+  description: "The [template](/docs/configuration/templating/#using-templates-with-the-mqtt-integration) for *on* state changes. Available variables: `state`, `brightness`, `color_temp`, `red`, `green`, `blue`, `hue`, `sat`, `flash`, `transition` and `effect`. Values `red`, `green`, `blue`, `brightness` are provided as integers from range 0-255. Value of `hue` is provided as float from range 0-360. Value of `sat` is provided as float from range 0-100. Value of `color_temp` is provided as integer representing mired units."
   required: true
   type: template
 command_topic:

@@ -96,23 +96,43 @@ In the example above, `devicename` refers to the detected name of the device.  F
 | `picture`       | None                          | A picture that you can use to easily identify the person or device. You can also save the image file in a folder "www" in the same location (can be obtained from developer tools) where you have your `configuration.yaml` file and just use `picture: /local/favicon-192x192.png`. The path 'local' is mapped to the 'www' folder you create. |
 | `icon`          | mdi:account                   | An icon for this device (use as an alternative to `picture`).                                                                                                                                                                                                                                                                                   |
 | `gravatar`      | None                          | An email address for the device's owner. If provided, it will override `picture`.                                                                                                                                                                                                                                                               |
-| `track`         | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update.                                                                                                                                                                                                                                        |
-| `consider_home` | [uses platform setting]       | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level.                                                                                                                                                         |
+| `track`         | [uses platform setting]       | If  `yes`/`on`/`true` then the device will be tracked. Otherwise its location and state will not update. The `track` setting only applies for devices that were configured directly in YAML.                                                                                                                                                    |
+| `consider_home` | [uses platform setting]       | Seconds to wait till marking someone as not home after not being seen. Allows you to override the global `consider_home` setting from the platform configuration on a per device level. The `consider_home` setting only applies for devices that were configured directly in YAML.                                                             |
 
-## Device states
+## The state of a tracked device
 
-The state of your tracked device will be `'home'` if it is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth based presence detection. If you're using a presence detection method that includes coordinates then when it's in a zone the state will be the name of the zone (case sensitive). When a device isn't at home and isn't in any zone, the state will be `'not_home'`.
+The type of state a device tracker can have depends on whether it uses GPS or a router as the data source.
+
+A device tracker with **GPS** as a source can have any number of string states. The integration can return one of the following options:
+
+- Report GPS coordinates. The coordinates are then matched to a zone (which is set as state). If the home zone is matched, the state will be **Home**. If no zone was matched the state will be **Not home**.
+- Report a location. This could be any string which is set as state.
+
+A device tracker with **router** as a source can have one of two states: **Home**, or **Not home**.
+
+- **Home**: Your tracked device is in the [home zone](/integrations/zone#home-zone), detected by your network or Bluetooth-based presence detection. If you're using a presence detection method that includes coordinates: when it's in a zone, the state equals the name of the zone (case sensitive).
+- **Not home**: When a device isn't at home and isn't in any zone.
+
+<p class='img'>
+<img src='/images/integrations/device_tracker/state_device_tracker.png' alt='Screenshot showing the state of a device tracker entity in the developer tools' />
+Screenshot showing the state of a device tracker entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## `device_tracker.see` action
 
 The `device_tracker.see` action can be used to manually update the state of a device tracker:
 
-| Data attribute | Optional | Description                                                                             |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------- |
-| `dev_id`               | no       | The `object_id`, for example `tardis` for `device_tracker.tardis`                       |
-| `location_name`        | yes      | The location, `home`, `not_home`, or the name of the zone                               |
-| `host_name`            | yes      | The hostname of the device tracker                                                      |
-| `mac`                  | yes      | The MAC address of the entity (only specify if you're updating a network based tracker) |
-| `gps`                  | yes      | If you're providing a location, for example `[51.513845, -0.100539]`                    |
-| `gps_accuracy`         | yes      | The accuracy of the GPS fix                                                             |
-| `battery`              | yes      | The battery level of the device                                                         |
+| Data attribute  | Optional | Description                                                                             |
+| --------------- | -------- | --------------------------------------------------------------------------------------- |
+| `dev_id`        | no       | The `object_id`, for example `tardis` for `device_tracker.tardis`                       |
+| `location_name` | yes      | The location, `home`, `not_home`, or the name of the zone                               |
+| `host_name`     | yes      | The hostname of the device tracker                                                      |
+| `mac`           | yes      | The MAC address of the entity (only specify if you're updating a network based tracker) |
+| `gps`           | yes      | If you're providing a location, for example `[51.513845, -0.100539]`                    |
+| `gps_accuracy`  | yes      | The accuracy of the GPS fix                                                             |
+| `battery`       | yes      | The battery level of the device                                                         |

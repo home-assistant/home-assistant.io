@@ -11,6 +11,7 @@ ha_category:
   - Number
   - Select
   - Sensor
+  - Siren
   - Switch
 ha_release: 0.89
 ha_iot_class: Local Polling
@@ -30,6 +31,7 @@ ha_platforms:
   - number
   - select
   - sensor
+  - siren
   - switch
 ha_dhcp: true
 ha_quality_scale: platinum
@@ -74,6 +76,19 @@ Devices not listed below may work but if you encounter issues submit a bug repor
 [^1]: Requires authentication  
 [^2]: Newer versions require authentication  
 [^3]: Devices may work across TAPO/KASA branded hubs
+
+## Unavailable entities
+
+Some entities might be showing as Unavailable if they have been removed from the integration.
+
+### Total consumption
+
+This entity is only reported by older kasa devices.
+Currently, Tapo devices and newer Kasa devices do not report total consumption, although briefly during 2024.6, they incorrectly reported today's consumption as "total consumption." You can safely delete this entity if it is reported as unavailable on a newer Kasa or Tapo device.
+
+### Update
+
+This entity has been removed from the integration due to stability issues, calling the TPLink cloud API to check for updates. It will be replaced in a future release with a new Update entity, but if you have an Unavailable entity ID starting with `binary_sensor.` and ending with `update`, you can safely delete it.
 
 ## Light effects
 

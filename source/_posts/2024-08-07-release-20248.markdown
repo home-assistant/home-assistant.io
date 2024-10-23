@@ -61,6 +61,7 @@ Enjoy the release! 🎉
 - [Patch releases](#patch-releases)
   - [2024.8.1 - August 10](#202481---august-10)
   - [2024.8.2 - August 16](#202482---august-16)
+  - [2024.8.3 - August 25](#202483---august-25)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -596,7 +597,7 @@ Most popular {% term integrations %} and helpers can be set up directly from the
 Home Assistant user interface. However, we still have a lot of older or less
 used integrations that can only be set up using [manual YAML configuration](/docs/configuration/yaml/).
 We are working hard to move [more and more of these integrations to the UI](#now-available-to-set-up-from-the-ui),
-however, this takes time and effort. 
+however, this takes time and effort.
 
 The problem with these integrations is that they are not visible in the UI
 when they are set up using YAML. What we often see is that someone sets up
@@ -824,6 +825,104 @@ week (around Friday).
 [@pssc]: https://github.com/pssc
 [@timmo001]: https://github.com/timmo001
 [@wittypluck]: https://github.com/wittypluck
+
+### 2024.8.3 - August 25
+
+- Skip NextBus update if integration is still loading ([@drozycki] - [#123564])
+- Bump yalexs to 6.5.0 ([@bdraco] - [#123739])
+- Bump yalexs to 8.0.2 ([@bdraco] - [#123817])
+- Bump aioshelly to 11.2.4 ([@bdraco] - [#124080])
+- Add Alt Core300s model to vesync integration ([@cdnninja] - [#124091])
+- Bump pybravia to 0.3.4 ([@Drafteed] - [#124113])
+- Bump aiohomekit to 3.2.3 ([@bdraco] - [#124115])
+- Bump nest to 4.0.7 to increase subscriber deadline ([@allenporter] - [#124131])
+- Bump tplink-omada-api to 1.4.2 ([@MarkGodwin] - [#124136])
+- Bump aiohttp to 3.10.4 ([@bdraco] - [#124137])
+- Update Matter light transition blocklist to include GE Cync Undercabinet Lights ([@cjmaio] - [#124138])
+- Shelly RPC - do not stop BLE scanner if a sleeping device ([@thecode] - [#124147])
+- Fix shelly available check when device is not initialized ([@bdraco] - [#124182])
+- Bump pyhomeworks to 1.1.2 ([@emontnemery] - [#124199])
+- Bump aiohttp to 3.10.5 ([@bdraco] - [#124254])
+- Update xknx to 3.1.1 ([@farmio] - [#124257])
+- Bump python-roborock to 2.6.0 ([@allenporter] - [#124268])
+- Prevent KeyError when Matter device sends invalid value for StartUpOnOff ([@marcelveldt] - [#124280])
+- Don't abort airgradient user flow if flow in progress ([@joostlek] - [#124300])
+- Bump yalexs to 8.1.2 ([@bdraco] - [#124303])
+- Bump python-holidays to 0.54 ([@gjohansson-ST] - [#124170])
+- Bump python-holidays to 0.55 ([@gjohansson-ST] - [#124314])
+- Add missing strings for riemann options flow ([@karwosts] - [#124317])
+- Fix Spotify Media Browsing fails for new config entries ([@PeteRager] - [#124368])
+- update ttn_client - fix crash with SenseCAP devices ([@angelnu] - [#124370])
+- Add supported features for iZone ([@Swamp-Ig] - [#124416])
+- Bump yalexs to 8.1.4 ([@bdraco] - [#124425])
+- Bump aiohue to version 4.7.3 ([@idekker] - [#124436])
+- Don't raise WLED user flow unique_id check ([@joostlek] - [#124481])
+- Bump yalexs to 8.3.3 ([@bdraco] - [#124492])
+- Bump yalexs to 8.4.0 ([@bdraco] - [#124520])
+- Bump yalexs to 8.4.1 ([@bdraco] - [#124553])
+- Fix missing id in Habitica completed todos API response ([@tr4nt0r] - [#124565])
+- Only support remote activity on Alexa if feature is set and at least one feature is in the activity_list ([@jbouwh] - [#124567])
+- Revert "Exclude aiohappyeyeballs from license check" ([@bdraco] - [#124116])
+
+[#123276]: https://github.com/home-assistant/core/pull/123276
+[#123544]: https://github.com/home-assistant/core/pull/123544
+[#123564]: https://github.com/home-assistant/core/pull/123564
+[#123739]: https://github.com/home-assistant/core/pull/123739
+[#123817]: https://github.com/home-assistant/core/pull/123817
+[#124069]: https://github.com/home-assistant/core/pull/124069
+[#124080]: https://github.com/home-assistant/core/pull/124080
+[#124091]: https://github.com/home-assistant/core/pull/124091
+[#124113]: https://github.com/home-assistant/core/pull/124113
+[#124115]: https://github.com/home-assistant/core/pull/124115
+[#124131]: https://github.com/home-assistant/core/pull/124131
+[#124136]: https://github.com/home-assistant/core/pull/124136
+[#124137]: https://github.com/home-assistant/core/pull/124137
+[#124138]: https://github.com/home-assistant/core/pull/124138
+[#124147]: https://github.com/home-assistant/core/pull/124147
+[#124170]: https://github.com/home-assistant/core/pull/124170
+[#124182]: https://github.com/home-assistant/core/pull/124182
+[#124199]: https://github.com/home-assistant/core/pull/124199
+[#124254]: https://github.com/home-assistant/core/pull/124254
+[#124257]: https://github.com/home-assistant/core/pull/124257
+[#124268]: https://github.com/home-assistant/core/pull/124268
+[#124280]: https://github.com/home-assistant/core/pull/124280
+[#124300]: https://github.com/home-assistant/core/pull/124300
+[#124303]: https://github.com/home-assistant/core/pull/124303
+[#124314]: https://github.com/home-assistant/core/pull/124314
+[#124317]: https://github.com/home-assistant/core/pull/124317
+[#124368]: https://github.com/home-assistant/core/pull/124368
+[#124370]: https://github.com/home-assistant/core/pull/124370
+[#124416]: https://github.com/home-assistant/core/pull/124416
+[#124425]: https://github.com/home-assistant/core/pull/124425
+[#124436]: https://github.com/home-assistant/core/pull/124436
+[#124481]: https://github.com/home-assistant/core/pull/124481
+[#124492]: https://github.com/home-assistant/core/pull/124492
+[#124520]: https://github.com/home-assistant/core/pull/124520
+[#124553]: https://github.com/home-assistant/core/pull/124553
+[#124565]: https://github.com/home-assistant/core/pull/124565
+[#124567]: https://github.com/home-assistant/core/pull/124567
+[#124116]: https://github.com/home-assistant/core/pull/124116
+[@Drafteed]: https://github.com/Drafteed
+[@MarkGodwin]: https://github.com/MarkGodwin
+[@PeteRager]: https://github.com/PeteRager
+[@Swamp-Ig]: https://github.com/Swamp-Ig
+[@allenporter]: https://github.com/allenporter
+[@angelnu]: https://github.com/angelnu
+[@bdraco]: https://github.com/bdraco
+[@cdnninja]: https://github.com/cdnninja
+[@cjmaio]: https://github.com/cjmaio
+[@drozycki]: https://github.com/drozycki
+[@emontnemery]: https://github.com/emontnemery
+[@farmio]: https://github.com/farmio
+[@frenck]: https://github.com/frenck
+[@gjohansson-ST]: https://github.com/gjohansson-ST
+[@idekker]: https://github.com/idekker
+[@jbouwh]: https://github.com/jbouwh
+[@joostlek]: https://github.com/joostlek
+[@karwosts]: https://github.com/karwosts
+[@marcelveldt]: https://github.com/marcelveldt
+[@thecode]: https://github.com/thecode
+[@tr4nt0r]: https://github.com/tr4nt0r
 
 ## Need help? Join the community!
 
@@ -1109,6 +1208,17 @@ update them to use "1024x1024", "1024x1792", or "1792x1024" values.
 
 [@Shulyaka]: https://github.com/Shulyaka
 [#122388]: https://github.com/home-assistant/core/pull/122388
+
+{% enddetails %}
+
+{% details "Reolink" %}
+
+The password used for the Reolink device can only contain characters `a-z, A-Z, 0-9 or @$*~_-+=!?.,:;'()[]`. Other special characters will cause encoding issues in the video streams used by this integration and are therefore not allowed. When using an incompatible special character in the password, the integration will prompt you to change the password.
+
+([@StarkillerOG] - [#34196]) ([documentation](/integrations/reolink))
+
+[@StarkillerOG]: https://github.com/starkillerOG
+[#34196]: https://github.com/home-assistant/home-assistant.io/pull/34196
 
 {% enddetails %}
 

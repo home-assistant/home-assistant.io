@@ -116,10 +116,10 @@ fritz_box_reconnect:
 ```yaml
 automation:
 - alias: "Reconnect FRITZ!Box"
-  trigger:
-    - platform: time
+  triggers:
+    - trigger: time
       at: "05:00:00"
-  action:
+  actions:
     - action: button.press
       target:
         entity_id: button.fritzbox_7530_reconnect
@@ -131,11 +131,11 @@ automation:
 ```yaml
 automation:
   - alias: "Guests Wi-Fi Turned On -> Send Password To Phone"
-    trigger:
-      - platform: state
+    triggers:
+      - trigger: state
         entity_id: switch.fritzbox_7530_wifi_myssid
         to: "on"
-    action:
+    actions:
       - action: notify.notify
         data:
           title: "Guest Wi-Fi is enabled"

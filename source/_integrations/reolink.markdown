@@ -90,7 +90,10 @@ Depending on the supported features of the camera, number entities are added for
 - Optical zoom control
 - Focus control
 - Floodlight turn on brightness
-- Volume
+- Volume (Camera)
+- Alarm volume (Home Hub)
+- Message volume (Home Hub)
+- Chime volume
 - Guard return time
 - Motion sensitivity
 - PIR sensitivity
@@ -117,7 +120,6 @@ Depending on the supported features of the camera, number entities are added for
 - Image saturation* (default 128)
 - Image sharpness* (default 128)
 - Image hue* (default 128)
-- Chime volume
 
 **Floodlight turn on brightness** controls the brightness of the floodlight when it is turned on internally by the camera (see **Floodlight mode** select entity) or when using the **Floodlight** light entity.
 
@@ -173,10 +175,21 @@ Depending on the supported features of the camera, select entities are added for
 - Chime motion ringtone
 - Chime person ringtone
 - Chime visitor ringtone
+- Hub alarm ringtone
+- Hub visitor ringtone
 
 **PTZ preset** positions can be set in the Reolink app/windows/web client, the names of the presets will be loaded into Home Assistant at the start of the integration. When adding new preset positions, please restart the Reolink integration.
 
 **Play quick reply messages**/**Auto quick reply messages** can be recorded in the Reolink phone app where a name is also supplied. New or updated quick reply messages will be loaded into Home Assistant at the start of the integration. When adding new quick reply messages, please restart the Reolink integration.
+
+### Action reolink.play_chime
+
+To play a ringtone on a Reolink chime, the `reolink.play_chime` action can be used.
+
+| Data attribute | Optional | Description                                                                                                                                 |
+| ---------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `device_id`            | no       | List of device ids of the Reolink Chimes to control. For example, `- 12a34b56c7d8ef9ghijklm0n1op2345q`.                             |
+| `ringtone`             | no       | The ringtone to play. For example `operetta`.                                                                                       |
 
 ## Siren entities
 
@@ -200,7 +213,7 @@ Depending on the supported features of the camera, switch entities are added for
 - Record
 - Manual record
 - Push notifications
-- Buzzer on event
+- Hub ringtone on event
 - Email on event
 - FTP upload
 - PIR enabled*
@@ -209,7 +222,7 @@ Depending on the supported features of the camera, switch entities are added for
 
 When the **Infrared lights in night mode** entity is set to OFF, the infrared LEDs are always OFF. When the **Infrared lights in night mode** entity is set to ON, the infrared LEDs will be on when the camera is in night vision mode. For more information, see the **Day night mode** select entity.
 
-For NVRs, a global switch for **Record**, **Push**, **Buzzer**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
+For NVRs, a global switch for **Record**, **Push**, **Hub ringtone on event**, **Email**, and **FTP** will be available under the NVR device as well as a switch per channel of the NVR under the camera device. The respective feature will only be active for a given channel if both the global and that channel switch are enabled (as is also the case in the Reolink app/client).
 
 **Push** notifications to a phone will only be provided if the following conditions are met: 
 - The **Push notifications** switch in Home Assistant is ON. 
@@ -235,6 +248,7 @@ Depending on the supported features of the camera, the following sensor entities
 
 - PTZ pan position
 - Wi-Fi signal*
+- CPU usage*
 - HDD/SD storage*
 - Battery percentage
 - Battery temperature*
@@ -287,6 +301,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [RLC-823A](https://reolink.com/product/rlc-823a/)
 - [RLC-830A](https://reolink.com/product/rlc-830a/)
 - [RLC-833A](https://reolink.com/product/rlc-833a/)
+- [RLC-843A](https://reolink.com/product/rlc-843a/)
 - [RLC-1212A](https://reolink.com/product/rlc-1212a/)
 - [RLC-1224A](https://reolink.com/product/rlc-1224a/)
 - [RLN8-410 NVR](https://reolink.com/product/rln8-410/)

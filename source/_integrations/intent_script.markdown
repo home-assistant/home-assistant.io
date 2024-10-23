@@ -46,7 +46,7 @@ intent:
       description: List of domains that the entity supports.
       required: false
       type: list
-    action:
+    actions:
       description: Defines an action to run to intents.
       required: false
       type: action
@@ -109,7 +109,7 @@ conversation:
 
 intent_script:
   EventCountToday:
-    action:
+    actions:
       - action: calendar.get_events
         target:
           entity_id: calendar.my_calendar

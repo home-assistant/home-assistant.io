@@ -13,7 +13,7 @@ ha_codeowners:
 ha_domain: knocki
 ha_platforms:
   - event
-ha_integration_type: device
+ha_integration_type: hub
 ---
 
 The **Knocki** {% term integration %} can receive events for the triggers set up from your [Knocki devices](https://knocki.com/).

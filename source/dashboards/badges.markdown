@@ -71,11 +71,21 @@ show_entity_picture:
   description: If your entity has a picture, it will replace the icon.
   type: boolean
   default: false
-display_type:
+show_name:
   required: false
-  description: Type of display for the badge. It can be either `minimal` (icon only), `standard` (icon and state), or `complete` (icon, state, and name).
-  type: string
-  default: standard
+  description: Show the name
+  type: boolean
+  default: "false"
+show_icon:
+  required: false
+  description: Show the icon
+  type: boolean
+  default: "true"
+show_state:
+  required: false
+  description: Show the state.
+  type: boolean
+  default: "true"
 state_content:
   required: false
   description: >
@@ -141,10 +151,6 @@ icon:
   required: false
   description: Overwrites icon or entity picture. You can use any icon from [Material Design Icons](https://pictogrammers.com/library/mdi/). Prefix the icon name with `mdi:`, ie `mdi:home`.
   type: string
-image:
-  required: false
-  description: The URL of an image.
-  type: string
 conditions:
   required: false
   description: List of conditions to check. See [available conditions](#conditions-options).*
@@ -156,6 +162,8 @@ state_filter:
 {% endconfiguration %}
 
 *only one filter will be applied: `conditions` or `state_filter` if `conditions` is not present
+
+You may also add any additional configuration options to an entity which are supported by the chosen badge type (`Entity` badge type if no type is chosen).
 
 ## Conditions options
 

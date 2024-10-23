@@ -313,12 +313,12 @@ Update the location of the Home Assistant default zone (usually "Home").
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.set_location
-  data:
-    latitude: 32.87336
-    longitude: 117.22743
-    elevation: 120
+actions:
+  - action: homeassistant.set_location
+    data:
+      latitude: 32.87336
+      longitude: 117.22743
+      elevation: 120
 ```
 
 ### Action `homeassistant.toggle`
@@ -335,12 +335,12 @@ for example, a light and a switch can be toggled in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.toggle
-  target:
-    entity_id: 
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.toggle
+    target:
+      entity_id: 
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.turn_on`
@@ -357,12 +357,12 @@ for example, a light and a switch can be turned on in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.turn_on
-  target:
-    entity_id:
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.turn_on
+    target:
+      entity_id:
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.turn_off` 
@@ -379,12 +379,12 @@ for example, a light and a switch can be turned off in a single action.
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.turn_off
-  target:
-    entity_id:
-      - light.living_room
-      - switch.tv
+actions:
+  - action: homeassistant.turn_off
+    target:
+      entity_id:
+        - light.living_room
+        - switch.tv
 ```
 
 ### Action `homeassistant.update_entity`
@@ -398,12 +398,12 @@ Force one or more entities to update its data rather than wait for the next sche
 #### Example
 
 ```yaml
-action:
-  action: homeassistant.update_entity
-  target:
-    entity_id:
-    - light.living_room
-    - switch.coffe_pot
+actions:
+  - action: homeassistant.update_entity
+    target:
+      entity_id:
+      - light.living_room
+      - switch.coffe_pot
 ```
 
 ### Action `homeassistant.save_persistent_states`

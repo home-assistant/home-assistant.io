@@ -20,6 +20,20 @@ Sensors are a basic integration in Home Assistant. They monitor the states and c
 
 Some of these sensors are built-in to Home Assistant, some are created automatically when you add an integration (see this [list](/integrations/#sensor)), and some can be created manually. The [Statistics](/integrations/statistics) and [Template](/integrations/template) sensors are two examples of the last case.
 
+## The state of a sensor entity
+
+The state of a sensor entity is its currently detected value, which can be either text or a number.
+
+<p class='img'>
+<img src='/images/integrations/sensor/state_sensor.png' alt='Screenshot showing the state of a sensor entity in the developer tools' />
+Screenshot showing the state of a sensor entity in the developer tools.
+</p>
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
@@ -46,8 +60,8 @@ The following device classes are supported for sensors:
 - **date**: Date string (ISO 8601)
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
 - **duration**: Duration in d, h, min, or s
-- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
-- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
+- **energy**: Energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
+- **energy_storage**: Stored energy in J, kJ, MJ, GJ, Wh, kWh, MWh, cal, kcal, Mcal, or Gcal
 - **enum**: Has a limited set of (non-numeric) states
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³ or CCF
@@ -72,7 +86,7 @@ The following device classes are supported for sensors:
 - **reactive_power**: Reactive power in var
 - **signal_strength**: Signal strength in dB or dBm
 - **sound_pressure**: Sound pressure in dB or dBA
-- **speed**: Generic speed in ft/s, in/d, in/h, km/h, kn, m/s, mph or mm/d
+- **speed**: Generic speed in ft/s, in/d, in/h, in/s, km/h, kn, m/s, mph, mm/d, or mm/s
 - **sulphur_dioxide**: Concentration of sulphur dioxide in µg/m³
 - **temperature**: Temperature in °C, °F or K
 - **timestamp**: Datetime object or timestamp string (ISO 8601)

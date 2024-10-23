@@ -21,7 +21,6 @@ integrations page to find integrations offering calendar entities. For example, 
 
 {% include integrations/building_block_integration.md %}
 
-
 ## Viewing and managing calendars
 
 Each calendar is represented as its own {% term entity %} in Home Assistant and can be
@@ -33,6 +32,18 @@ directly from Home Assistant. In this case, you can add new events by selecting
 the **Add event** button in the lower right corner of the calendar dashboard.
 
 Also see [Actions](#actions) below.
+
+## The state of a calendar entity
+
+The state shows whether or not there is an active event:
+
+- On: The calendar has an active event.
+- Off: The calendar does not have an active event.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
 
 ## Automation
 
@@ -52,8 +63,8 @@ An example of a calendar {% term trigger %} in YAML:
 
 ```yaml
 automation:
-  - trigger:
-    - platform: calendar
+  - triggers:
+    - trigger: calendar
       # Possible values: start, end
       event: start
       # The calendar entity_id
@@ -87,12 +98,12 @@ This example automation consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Calendar notification
-    trigger:
-      - platform: calendar
+  - alias: "Calendar notification"
+    triggers:
+      - trigger: calendar
         event: start
         entity_id: calendar.personal
-    action:
+    actions:
       - action: persistent_notification.create
         data:
           message: >-
@@ -114,26 +125,28 @@ This example consists of:
 {% raw %}
 ```yaml
 automation:
-  - alias: Front Light Schedule
-    trigger:
-      - platform: calendar
+  - alias: "Front Light Schedule"
+    triggers:
+      - trigger: calendar
         event: start
         entity_id: calendar.device_automation
-      - platform: calendar
+      - trigger: calendar
         event: end
         entity_id: calendar.device_automation
-    condition:
+    conditions:
       - condition: template
         value_template: "{{ 'Front Lights' in trigger.calendar_event.summary }}"
-    action:
+    actions:
       - if:
           - "{{ trigger.event == 'start' }}"
         then:
           - action: light.turn_on
-            entity_id: light.front
+            target:
+              entity_id: light.front
         else:
           - action: light.turn_off
-            entity_id: light.front
+            target:
+              entity_id: light.front
 ```
 {% endraw %}
 
@@ -148,16 +161,16 @@ directly using {% term actions %}. The actions provided by some calendar {% term
 
 Add a new calendar event. A calendar `target` is selected with a [Target Selector](/docs/blueprint/selectors/#target-selector) and the `data` payload supports the following fields:
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `summary` | no | Acts as the title of the event. | Bowling
-| `description` | yes | The description of the event. | Birthday bowling
-| `start_date_time` | yes | The date and time the event should start. | 2019-03-10 20:00:00
-| `end_date_time` | yes | The date and time the event should end (exclusive). | 2019-03-10 23:00:00
-| `start_date` | yes | The date the whole day event should start. | 2019-03-10
-| `end_date` | yes | The date the whole day event should end (exclusive). | 2019-03-11
-| `in` | yes | Days or weeks that you want to create the event in. | "days": 2
-| `location` | yes | The location of the event. | Bowling center
+| Data attribute    | Optional | Description                                          | Example             |
+| ----------------- | -------- | ---------------------------------------------------- | ------------------- |
+| `summary`         | no       | Acts as the title of the event.                      | Bowling             |
+| `description`     | yes      | The description of the event.                        | Birthday bowling    |
+| `start_date_time` | yes      | The date and time the event should start.            | 2019-03-10 20:00:00 |
+| `end_date_time`   | yes      | The date and time the event should end (exclusive).  | 2019-03-10 23:00:00 |
+| `start_date`      | yes      | The date the whole day event should start.           | 2019-03-10          |
+| `end_date`        | yes      | The date the whole day event should end (exclusive). | 2019-03-11          |
+| `in`              | yes      | Days or weeks that you want to create the event in.  | "days": 2           |
+| `location`        | yes      | The location of the event.                           | Bowling center      |
 
 
 {% note %}
@@ -196,11 +209,11 @@ data:
 This action populates [Response Data](/docs/scripts/perform-actions#use-templates-to-handle-response-data)
 with calendar events within a date range. It can return events from multiple calendars.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `start_date_time` | yes | Return active events after this time (exclusive). When not set, defaults to now. | 2019-03-10 20:00:00
-| `end_date_time` | yes | Return active events before this time (exclusive). Cannot be used with `duration`. You must specify either `end_date_time` or `duration`.| 2019-03-10 23:00:00
-| `duration` | yes | Return active events from `start_date_time` until the specified duration. Cannot be used with `end_date_time`. You must specify either `duration` or `end_date_time`. | `days: 2`
+| Data attribute    | Optional | Description                                                                                                                                                           | Example             |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| `start_date_time` | yes      | Return active events after this time (exclusive). When not set, defaults to now.                                                                                      | 2019-03-10 20:00:00 |
+| `end_date_time`   | yes      | Return active events before this time (exclusive). Cannot be used with `duration`. You must specify either `end_date_time` or `duration`.                             | 2019-03-10 23:00:00 |
+| `duration`        | yes      | Return active events from `start_date_time` until the specified duration. Cannot be used with `end_date_time`. You must specify either `duration` or `end_date_time`. | `days: 2`           |
 
 {% note %}
 Use only one of `end_date_time` or `duration`.
@@ -221,13 +234,13 @@ response_variable: agenda
 The response data contains a field for every calendar entity (e.g. `calendar.school` and `calendar.work` in this case).
 Every calendar entity has a field `events` containing a list of events with these fields:
 
-| Response data | Description | Example |
-| ---------------------- | ----------- | -------- |
-| `summary` | The title of the event. | Bowling
-| `description` | The description of the event. | Birthday bowling
-| `start` | The date or date time the event starts. | 2019-03-10 20:00:00
-| `end` | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00
-| `location` | The location of the event. | Bowling center
+| Response data | Description                                       | Example             |
+| ------------- | ------------------------------------------------- | ------------------- |
+| `summary`     | The title of the event.                           | Bowling             |
+| `description` | The description of the event.                     | Birthday bowling    |
+| `start`       | The date or date time the event starts.           | 2019-03-10 20:00:00 |
+| `end`         | The date or date time the event ends (exclusive). | 2019-03-10 23:00:00 |
+| `location`    | The location of the event.                        | Bowling center      |
 
 This example uses a template with response data in another action:
 

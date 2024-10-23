@@ -73,7 +73,7 @@ The list below will help you diagnose and fix the problem:
 
 ## Shelly device configuration (generation 2 and 3)
 
-Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery operated devices** (even if USB connected) need manual outbound WebSocket configuration, Navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
+Generation 2 and 3 devices use the `RPC` protocol to communicate with the integration. **Battery-operated devices** (even if USB connected) may need manual outbound WebSocket configuration if Home Assistant cannot correctly determine your instance's internal URL or the outbound WebSocket was previously configured for a different Home Assistant instance. In this case, navigate to the local IP address of your Shelly device, **Settings** >> **Connectivity** >> **Outbound WebSocket** and check the box **Enable Outbound WebSocket**, under server enter the following address:
 
 `ws://` + `Home_Assistant_local_ip_address:Port` + `/api/shelly/ws` (for example: `ws://192.168.1.100:8123/api/shelly/ws`), click **Apply** to save the settings.
 In case your installation is set up to use SSL encryption (HTTP**S** with certificate), an additional `s` needs to be added to the WebSocket protocol, too, so that it reads `wss://` (for example: `wss://192.168.1.100:8123/api/shelly/ws`).
@@ -125,7 +125,15 @@ Names are set from the device web page:
 The integration uses the following strategy to name its entities:
 
 - If `Channel Name` is set in the device, the integration will use it to generate the entities' name, e.g. `Kitchen Light`
-- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 switch_0`.
+- If `Channel Name` is set to the default value, the integration will use the `Device ID` and default channel name to generate the entities' name, e.g. `ShellyPro4PM-9808D1D8B912 Switch 0`.
+
+## Cover entities
+
+Shelly 2PM Gen3 supports `tilt` for `cover` entities. To enable this feature, you need to configure the device:
+
+- Change the device profile to `Cover` (**Settings** > **Device profile**)
+- Calibrate the cover (**Home** > **Cover** > **Calibration** > **Start**)
+- Enable and configure **Slat control** (**Home** > **Cover** > **Slat control**)
 
 ## Binary input sensors
 
@@ -191,30 +199,30 @@ You can also create automations using YAML, for example:
 
 ```yaml
 - alias: "Toggle living room light"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 1
-      click_type: single
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 1
+        click_type: single
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.living_room
 
 - alias: "Toggle living room lamp"
-  trigger:
-    platform: event
-    event_type: shelly.click
-    event_data:
-      device: shellyswitch25-AABBCC
-      channel: 2
-      click_type: long
-  action:
-    action: light.toggle
-    target:
-      entity_id: light.lamp_living_room
+  triggers:
+    - trigger: event
+      event_type: shelly.click
+      event_data:
+        device: shellyswitch25-AABBCC
+        channel: 2
+        click_type: long
+  actions:
+    - action: light.toggle
+      target:
+        entity_id: light.lamp_living_room
 ```
 
 ### Possible values for `click_type`

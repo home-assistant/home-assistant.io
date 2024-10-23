@@ -173,7 +173,7 @@ A switch defined with the `wake_on_lan` platform will render in the UI with both
     - Continuing your example, the trigger YAML will look like this:
 
       ```yaml
-      platform: state
+      trigger: state
       entity_id:
         - input_button.wake_pc
       ```

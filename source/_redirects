@@ -159,7 +159,9 @@ layout: null
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/binary_sensor.rflink /integrations/rflink/#binary-sensor
 /integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
 /integrations/climate.mysensors /integrations/mysensors#climate
@@ -167,13 +169,19 @@ layout: null
 /integrations/cover.group /integrations/group
 /integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/cover.rflink /integrations/rflink/#cover
+/integrations/cover.xiaomi_aqara/ /integrations/xiaomi_aqara/#covers
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/device_tracker.xiaomi/ /integrations/xiaomi/#router
 /integrations/fan.group /integrations/group
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
 /integrations/light.group /integrations/group
 /integrations/light.knx /integrations/knx#light
 /integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.rflink /integrations/rflink#light
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
+/integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
+/integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
 /integrations/media_player.group /integrations/group
 /integrations/notify.command_line /integrations/command_line#Notify
 /integrations/notify.group /integrations/group#notify-groups
@@ -185,12 +193,16 @@ layout: null
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
 /integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.rflink /integrations/rflink/#sensor
 /integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#sensors
 /integrations/switch.command_line /integrations/command_line#Switch
 /integrations/switch.knx /integrations/knx#switch
 /integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.rflink /integrations/rflink/#switch
+/integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
@@ -255,6 +267,7 @@ layout: null
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
 /skyconnect /connectzbt1#from-skyconnect
+/glossary/ /docs/glossary/
 
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
@@ -499,6 +512,7 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301

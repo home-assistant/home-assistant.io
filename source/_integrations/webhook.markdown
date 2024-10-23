@@ -8,7 +8,7 @@ ha_quality_scale: internal
 ha_codeowners:
   - '@home-assistant/core'
 ha_domain: webhook
-ha_integration_type: integration
+ha_integration_type: system
 ---
 
 <script>location.href = '/docs/automation/trigger/#webhook-trigger';</script>
