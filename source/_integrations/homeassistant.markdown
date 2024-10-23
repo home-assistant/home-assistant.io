@@ -267,9 +267,9 @@ ice_servers:
   type: list
   keys:
     url:
-      description: STUN or TURN server URLs
+      description: STUN or TURN server URLs. This can either be a single URL or a list of URLs.
       required: true
-      type: string or list
+      type: string
     username:
       description: Username for TURN server authentication
       required: false
