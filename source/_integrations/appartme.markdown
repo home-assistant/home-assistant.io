@@ -131,7 +131,7 @@ The integration will create the following entities in Home Assistant:
 
 After the initial setup, you can adjust the following options:
 
-- **Update Interval**: Set the frequency (in seconds) at which the integration polls the Appartme API for updates.
+- **Update Interval**: Set the frequency (in seconds) at which the integration polls the Appartme API for updates. By default **Update Interval** is set to 60 seconds, which in our opinion is enough to enjoy responsive device state updating, but you can lower it to 30 seconds if needed.
 
 To change options:
 
