@@ -30,8 +30,8 @@ An example of a persistent notification trigger in YAML:
 
 ```yaml
 automation:
-  - trigger:
-      - platform: persistent_notification
+  - triggers:
+      - trigger: persistent_notification
         # Optional. Possible values: added, removed, updated, current
         update_type:
           - added
@@ -49,18 +49,18 @@ The `persistent_notification.create` action takes in `message`, `title`, and `no
 
 | Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
-| `message`              |       no | Body of the notification. Accepts [templates](/docs/configuration/templating/).
-| `title`                |      yes | Title of the notification. Accepts [templates](/docs/configuration/templating/).
-| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID.
+| `message`              |       no | Body of the notification. |
+| `title`                |      yes | Title of the notification. |
+| `notification_id`      |      yes | If `notification_id` is given, it will overwrite the notification if there already was a notification with that ID. |
 
 Here is how an [action](/docs/automation/action) of your [automation setup](/getting-started/automation/) with static content could look like.
 
 ```yaml
-action:
-  action: persistent_notification.create
-  data:
-    message: "Your message goes here"
-    title: "Custom subject"
+actions:
+  - action: persistent_notification.create
+    data:
+      message: "Your message goes here"
+      title: "Custom subject"
 ```
 
 If you want to show some runtime information, you have to use [templates](/docs/configuration/templating/).
@@ -68,12 +68,12 @@ If you want to show some runtime information, you have to use [templates](/docs/
 {% raw %}
 
 ```yaml
-action:
-  action: persistent_notification.create
-  data:
-    title: >
-      Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
-    message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
+actions:
+  - action: persistent_notification.create
+    data:
+      title: >
+        Thermostat is {{ state_attr('climate.thermostat', 'hvac_action') }}
+      message: "Temperature {{ state_attr('climate.thermostat', 'current_temperature') }}"
 ```
 
 {% endraw %}
@@ -87,17 +87,17 @@ The `persistent_notification.dismiss` action requires a `notification_id`.
 This action allows you to remove a notifications by script or automation.
 
 ```yaml
-action:
-  action: persistent_notification.dismiss
-  data:
-    notification_id: "1234"
+actions:
+  - action: persistent_notification.dismiss
+    data:
+      notification_id: "1234"
 ```
 
 The `persistent_notification.dismiss_all` action allows you to remove all notifications.
 
 ```yaml
-action:
-  action: persistent_notification.dismiss_all
+actions:
+  - action: persistent_notification.dismiss_all
 ```
 
 ### Markdown support

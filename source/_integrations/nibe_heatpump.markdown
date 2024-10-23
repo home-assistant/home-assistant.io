@@ -36,6 +36,7 @@ Supported devices:
 - F730
 - S735
 - F750
+- S1255
 - SMO40
 - SMOS40
 - VVM225

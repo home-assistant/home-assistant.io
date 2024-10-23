@@ -50,10 +50,10 @@ Sets the speed percentage for fan device.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: fan.set_percentage
       target:
         entity_id: fan.kitchen
@@ -74,10 +74,10 @@ Sets a preset mode for the fan device. Available preset modes are defined by the
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: fan.set_preset_mode
       target:
         entity_id: fan.kitchen
@@ -98,10 +98,10 @@ Sets the rotation for fan device.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: fan.set_direction
       target:
         entity_id: fan.kitchen
@@ -122,10 +122,10 @@ Sets the oscillation for fan device.
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: fan.oscillate
       target:
         entity_id: fan.kitchen
@@ -156,10 +156,10 @@ Turn fan device off. This is only supported if the fan device supports being tur
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
     - action: fan.turn_off
       target:
         entity_id: fan.kitchen
@@ -180,13 +180,13 @@ Increases the speed of the fan device.
 
 ```yaml
 automation:
-  trigger:
-  - platform: device
+  triggers:
+  - trigger: device
     device_id: 097cd9f706a86e9163acb64ba7d630da
     domain: lutron_caseta
     type: press
     subtype: raise
-  action:
+  actions:
   - action: fan.increase_speed
     target:
       entity_id: fan.dining_room_fan_by_front_door
@@ -205,13 +205,13 @@ Decreases the speed of the fan device.
 
 ```yaml
 automation:
-  trigger:
-  - platform: device
+  triggers:
+  - trigger: device
     device_id: 097cd9f706a86e9163acb64ba7d630da
     domain: lutron_caseta
     type: press
     subtype: lower
-  action:
+  actions:
   - action: fan.decrease_speed
     target:
       entity_id: fan.dining_room_fan_by_front_door

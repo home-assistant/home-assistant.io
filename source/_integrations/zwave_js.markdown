@@ -500,8 +500,8 @@ Notification event data can be used to trigger automations, both in the automati
 
 ```yaml
 # Fires whenever the lock is unlocked by the keypad.
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: zwave_js_notification
     event_data:
       node_id: 14
@@ -646,12 +646,12 @@ Value Updated example:
 This event can be used to trigger a refresh of values when the new state needs to be retrieved. Here's an example automation:
 
 ```yaml
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: zwave_js_value_updated
     event_data:
       entity_id: switch.in_wall_dual_relay_switch
-action:
+actions:
   - action: zwave_js.refresh_value
     data:
       entity_id:
@@ -671,24 +671,24 @@ This trigger platform can be used to trigger automations on any Z-Wave JS value 
 
 ```yaml
 # Fires whenever the `latchStatus` value changes from `closed` to `opened` on the three devices (devices will be derived from an entity ID).
-trigger:
-  platform: zwave_js.value_updated
-  # At least one `device_id` or `entity_id` must be provided
-  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-  entity_id:
-    - lock.front_lock
-    - lock.back_door
-  # `property` and `command_class` are required
-  command_class: 98 # Door Lock CC
-  property: "latchStatus"
-  # `property_key` and `endpoint` are optional
-  property_key: null
-  endpoint: 0
-  # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
-  from:
-    - "closed"
-    - "jammed"
-  to: "opened"
+triggers:
+  - trigger: zwave_js.value_updated
+    # At least one `device_id` or `entity_id` must be provided
+    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+    entity_id:
+      - lock.front_lock
+      - lock.back_door
+    # `property` and `command_class` are required
+    command_class: 98 # Door Lock CC
+    property: "latchStatus"
+    # `property_key` and `endpoint` are optional
+    property_key: null
+    endpoint: 0
+    # `from` and `to` will both accept lists of values and the trigger will fire if the value update matches any of the listed values
+    from:
+      - "closed"
+      - "jammed"
+    to: "opened"
 ```
 
 #### Available trigger data
@@ -721,22 +721,22 @@ There is strict validation in place based on all known event types, so if you co
 
 ```yaml
 # Fires whenever the `interview failed` event is fired on the three devices (devices will be derived from device and entity IDs).
-trigger:
-  platform: zwave_js.event
-  # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
-  device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
-  entity_id:
-    - lock.front_lock
-    - lock.back_door
-  config_entry_id:
-  # `event_source` and `event` are required
-  event_source: node   # options are node, controller, and driver
-  event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
-  # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
-  event_data:
-    args:
-      isFinal: true
-  partial_dict_match: true  # defaults to false
+triggers:
+  - trigger: zwave_js.event
+    # At least one `device_id` or `entity_id` must be provided for `node` events. For any other events, a `config_entry_id` needs to be provided.
+    device_id: 45d7d3230dbb7441473ec883dab294d4  # Garage Door Lock device ID
+    entity_id:
+      - lock.front_lock
+      - lock.back_door
+    config_entry_id:
+    # `event_source` and `event` are required
+    event_source: node   # options are node, controller, and driver
+    event: "interview failed"  # event names can be retrieved from the Z-Wave JS docs (see links above)
+    # `event_data` and `partial_dict_match` are optional. If `event_data` isn't included, all events of a given type for the given context will trigger the automation. When the `interview failed` event is fired, all argument live in a dictionary within the `event_data` dictionary under the `args` key. The default behavior is to require a full match of the event_data dictionary below and the dictionary that is passed to the event. By setting `partial_dict_match` to true, Home Assistant will check if the isFinal argument is true and ignore any other values in the dictionary. If this setting was false, this trigger would never fire because the dictionary always contains more keys than `isFinal` so the comparison check would never evaluate to true.
+    event_data:
+      args:
+        isFinal: true
+    partial_dict_match: true  # defaults to false
 ```
 
 #### Available trigger data
@@ -841,11 +841,13 @@ Additional devices may be discoverable, however only devices that have been conf
 
 Zwavejs2Mqtt was renamed Z-Wave JS UI in September 2022. They are synonymous with no difference between their capabilities.
 
-### Can I switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on?
+### Can I switch between Z-Wave JS and Z-Wave JS UI?
 
-You can, but you cannot run them both at the same time. Only one of them can be active at the same time.
+You can switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on. However, but you cannot run them both at the same time. Only one of them can be active at the same time.
 
-### How do I switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on?
+### How to switch between Z-Wave JS and Z-Wave JS UI?
+
+To switch between the official Z-Wave JS add-on and the Z-Wave JS UI add-on, follow these steps:
 
 Switching does not require renaming your devices.
 
@@ -863,13 +865,14 @@ Switching does not require renaming your devices.
 
 7. Enable the Z-Wave integration.
 
-### What's the benefit of using Z-Wave JS UI add-on over the official add-on?
+### What's the benefit of using Z-Wave JS UI add-on?
 
+You might wonder what the benefit is of using the Z-Wave JS UI add-on instead of the official add-on.
 The official add-on provides the Z-Wave Server in its bare minimum variant, just enough to serve the Home Assistant integration.
 
 The Z-Wave JS UI project includes the Z-Wave JS Server for convenience but also provides a Z-Wave control panel and the ability to serve your Z-Wave network to MQTT. This allows you to use the control panel, and if you so choose, to also use MQTT at the same time. For example, some users may use MQTT to interact with Z-Wave from other devices, while the Home Assistant integration still works (as long as you keep the WS Server enabled in Z-Wave JS UI).
 
-### Z-Wave JS UI seems to provide discovery of Home Assistant devices on its own too, now I'm confused
+### Z-Wave JS UI provides discovery of HA devices on its own too, now I'm confused
 
 Correct, the Z-Wave JS UI project existed before Home Assistant had plans to move to the Z-Wave JS Driver. You should use the integration for device discovery and _not_ the MQTT discovery provided by Z-Wave JS UI.
 
@@ -919,7 +922,7 @@ Entities will be created only after the node is ready (the interview is complete
 
 If you are certain that your device should have entities and you do not see them (even after a restart of Home Assistant Core), create an issue about your problem on the GitHub issue tracker.
 
-### My device does not automatically update its status in HA if I control it manually
+### My device doesn't automatically update its status in HA if I control it manually
 
 Your device might not send automatic status updates to the controller. While the best advice would be to update to recent Z-Wave Plus devices, there is a workaround with active polling (request the status).
 

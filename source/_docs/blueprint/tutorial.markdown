@@ -44,19 +44,19 @@ The automation we're going to use in this tutorial controls a light based on a m
 {% raw %}
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: binary_sensor.motion_kitchen
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.motion_kitchen
 
-action:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target:
-    entity_id: light.kitchen
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target:
+      entity_id: light.kitchen
 ```
 
 {% endraw %}
@@ -91,9 +91,9 @@ Now we have to decide what steps we want to make configurable. We want to make i
 Configurable parts in blueprints are called [inputs](/docs/blueprint/schema/#blueprint-inputs). To make the motion sensor entity configurable, we're replacing the entity ID with a custom YAML tag `!input`. This YAML tag has to be combined with the name of the input:
 
 ```yaml
-trigger:
-  platform: state
-  entity_id: !input motion_sensor
+triggers:
+  - trigger: state
+    entity_id: !input motion_sensor
 ```
 
 For the light, we can offer some more flexibility. We want to allow the user to be able to define any device or area as the target. The `target` property in the action can contain references to areas, devices, and/or entities, so that's what we will use.
@@ -103,14 +103,14 @@ Inputs are not limited to strings. They can contain complex objects too. So in t
 {% raw %}
 
 ```yaml
-action:
-  action: >
-    {% if trigger.to_state.state == "on" %}
-      light.turn_on
-    {% else %}
-      light.turn_off
-    {% endif %}
-  target: !input target_light
+actions:
+  - action: >
+      {% if trigger.to_state.state == "on" %}
+        light.turn_on
+      {% else %}
+        light.turn_off
+      {% endif %}
+    target: !input target_light
 ```
 
 {% endraw %}
@@ -233,11 +233,11 @@ blueprint:
           entity:
             - domain: light
 
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: !input motion_sensor
 
-action:
+actions:
   - action: >
       {% if trigger.to_state.state == "on" %}
         light.turn_on

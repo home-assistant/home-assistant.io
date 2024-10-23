@@ -3,13 +3,15 @@ title: Mold Indicator
 description: How to use the mold growth indication integration in Home Assistant
 ha_category:
   - Environment
+  - Helper
 ha_release: '0.20'
-ha_iot_class: Local Polling
+ha_iot_class: Calculated
 ha_quality_scale: internal
 ha_domain: mold_indicator
+ha_config_flow: true
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
@@ -19,7 +21,24 @@ The Mold Indicator sensor {% term integration %} uses data from two temperature 
 
 The sensor data may be used, for example, to detect bad air quality (high humidity) or automate the operation of indoor air humidifiers to keep the indoor humidity at an optimum.
 
-## Configuration
+{% include integrations/config_flow.md %}
+
+Further information about these configuration options can be found under the [YAML configuration](#yaml-configuration)
+
+{% configuration_basic %}
+Name:
+  description: The name of the sensor.
+Indoor temperature sensor:
+  description: The entity ID of the indoor temperature sensor.
+Indoor humidity sensor:
+  description: The entity ID of the indoor humidity sensor.
+Outdoor temperature sensor:
+  description: The entity ID of the outdoor temperature sensor.
+Calibration factor:
+  description: Needs to be calibrated to the critical point in the room.
+{% endconfiguration_basic %}
+
+## YAML Configuration
 
 To use the Mold Indicator sensor in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

@@ -36,18 +36,16 @@ You then need to consume that incoming information with the following automation
 
 ```yaml
 automation:
-- id: this_is_the_automation_id
-  alias: "The optional automation alias"
-  trigger:
-  - platform: event
-    event_type: ifttt_webhook_received
-    event_data:
-      action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
-  condition: []
-  action:
-  - action: '{{ trigger.event.data.service }}'
-    target:
-      entity_id: '{{ trigger.event.data.entity_id }}'
+- alias: "The optional automation alias"
+  triggers:
+    - trigger: event
+      event_type: ifttt_webhook_received
+      event_data:
+        action: call_service  # the same action 'name' you used in the Body section of the IFTTT recipe
+  actions:
+    - action: '{{ trigger.event.data.service }}'
+      target:
+        entity_id: '{{ trigger.event.data.entity_id }}'
     
 ```
 
@@ -143,12 +141,12 @@ Add the *Then That* action. The below example sends a notification to the IFTTT 
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    action: ifttt.trigger
-    data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: ifttt.trigger
+      data: {"event":"TestHA_Trigger", "value1":"Hello World!"}
 ```
 
 {% endraw %}
@@ -161,15 +159,15 @@ IFTTT can also be used in scripts and with templates. Here is the above automati
 # Example configuration.yaml Automation entry
 automation:
   alias: "Startup Notification"
-  trigger:
-    platform: homeassistant
-    event: start
-  action:
-    action: script.ifttt_notify
-    data:
-      value1: "HA Status:"
-      value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
-      value3: "{{ trigger.event.data.to_state.state }}"
+  triggers:
+    - trigger: homeassistant
+      event: start
+  actions:
+    - action: script.ifttt_notify
+      data:
+        value1: "HA Status:"
+        value2: "{{ trigger.event.data.entity_id.split('_')[1] }} is "
+        value3: "{{ trigger.event.data.to_state.state }}"
 ```
 
 {% endraw %}

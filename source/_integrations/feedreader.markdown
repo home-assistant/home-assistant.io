@@ -29,13 +29,13 @@ Feedreader events can be used out of the box to trigger automation actions, e.g.
 ```yaml
 automation:
   - alias: "Trigger action when new element(s) in RSS feed"
-    trigger:
-      platform: event
-      event_type: feedreader
-    action:
-      action: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: feedreader
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 {% raw %}
@@ -43,17 +43,17 @@ automation:
 ```yaml
 automation:
   - alias: "Send notification of RSS feed title when updated"
-    trigger:
-      platform: event
-      event_type: feedreader
-      event_data:
-        feed_url: "https://hasspodcast.io/feed/podcast"
-    action:
-      action: persistent_notification.create
-      data:
-        title: "New HA Podcast available"
-        message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
-        notification_id: "{{ trigger.event.data.title }}"
+    triggers:
+      - trigger: event
+        event_type: feedreader
+        event_data:
+          feed_url: "https://hasspodcast.io/feed/podcast"
+    actions:
+      - action: persistent_notification.create
+        data:
+          title: "New HA Podcast available"
+          message: "New Podcast available - {{ as_timestamp(now()) | timestamp_custom('%I:%M:%S %p %d%b%Y', true) }}"
+          notification_id: "{{ trigger.event.data.title }}"
 ```
 
 {% endraw %}
@@ -78,4 +78,4 @@ hass.bus.listen(EVENT_FEEDREADER, event_listener)
 
 To get started developing custom integrations, please refer to the [developers](/developers) documentation
 
-For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/master/config/packages/hasspodcast.yaml).
+For a drop in packaged complete example of Feedreader, you can use the [PodCast notifier](https://github.com/CCOSTAN/Home-AssistantConfig/blob/22c19375ac5dcb49e0648aa16c431537407aa5e4/config/packages/hasspodcast.yaml).

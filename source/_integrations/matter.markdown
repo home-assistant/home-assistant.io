@@ -3,6 +3,7 @@ title: Matter (BETA)
 description: Instructions on how to integrate Matter with Home Assistant.
 ha_category:
   - Binary sensor
+  - Button
   - Climate
   - Cover
   - Fan
@@ -13,6 +14,7 @@ ha_category:
   - Sensor
   - Switch
   - Update
+  - Valve
 ha_release: '2022.12'
 ha_iot_class: Local Push
 ha_config_flow: true
@@ -21,6 +23,7 @@ ha_codeowners:
 ha_domain: matter
 ha_platforms:
   - binary_sensor
+  - button
   - climate
   - cover
   - diagnostics
@@ -33,6 +36,7 @@ ha_platforms:
   - sensor
   - switch
   - update
+  - valve
 ha_integration_type: integration
 related:
   - docs: /integrations/thread/

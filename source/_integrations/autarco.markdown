@@ -41,3 +41,16 @@ Gain insight into how much energy an inverter produces. The integration will cre
 
 - AC output power (W)
 - AC output energy total (kWh)
+
+### Battery
+
+If you have a battery connected to your system, you can monitor the battery status and see how much energy it charges or discharges.
+
+- Power flow (W) - Positive values indicate charging, negative values indicate discharging
+- State of charge (%)
+- Discharged energy today (kWh)
+- Discharged energy this month (kWh)
+- Discharged energy total (kWh)
+- Charged energy today (kWh)
+- Charged energy this month (kWh)
+- Charged energy total (kWh)

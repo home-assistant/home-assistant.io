@@ -121,12 +121,12 @@ Play a live stream from a camera to selected media player(s). Requires [`stream`
 For example, the following action in an automation would send an `hls` live stream to your chromecast.
 
 ```yaml
-action:
-  action: camera.play_stream
-  target:
-    entity_id: camera.yourcamera
-  data:
-    media_player: media_player.chromecast
+actions:
+  - action: camera.play_stream
+    target:
+      entity_id: camera.yourcamera
+    data:
+      media_player: media_player.chromecast
 ```
 
 #### Action `enable_motion_detection`
@@ -161,12 +161,12 @@ For example, the following action is an automation that would take a snapshot fr
 {% raw %}
 
 ```yaml
-action:
-  action: camera.snapshot
-  target:
-    entity_id: camera.front_door_camera
-  data:
-    filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
+actions:
+  - action: camera.snapshot
+    target:
+      entity_id: camera.front_door_camera
+    data:
+      filename: '/tmp/yourcamera_{{ now().strftime("%Y%m%d-%H%M%S") }}.jpg'
 ```
 
 {% endraw %}

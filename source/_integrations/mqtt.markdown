@@ -215,7 +215,7 @@ MQTT Birth and Last Will messages can be customized or disabled from the UI. To 
 
 ## Testing your setup
 
-The `mosquitto` broker package ships command line tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost`, to can use [`mosquitto_pub`](https://mosquitto.org/man/mosquitto_pub-1.html), check the example below:
+The `mosquitto` broker package ships command line tools (often as `*-clients` package) to send and receive MQTT messages. For sending test messages to a broker running on `localhost`, you can use [`mosquitto_pub`](https://mosquitto.org/man/mosquitto_pub-1.html), check the example below:
 
 ```bash
 mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
@@ -1062,15 +1062,15 @@ Use as [`script`](/integrations/script/) in automations.
 ```yaml
 automation:
   alias: "Send me a message when I get home"
-  trigger:
-    platform: state
-    entity_id: device_tracker.me
-    to: "home"
-  action:
-    action: script.notify_mqtt
-    data:
-      target: "me"
-      message: "I'm home"
+  triggers:
+    - trigger: state
+      entity_id: device_tracker.me
+      to: "home"
+  actions:
+    - action: script.notify_mqtt
+      data:
+        target: "me"
+        message: "I'm home"
 
 script:
   notify_mqtt:

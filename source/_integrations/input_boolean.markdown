@@ -88,15 +88,15 @@ will only occur if the `input_boolean` is on.
 ```yaml
 automation:
   alias: "Arriving home"
-  trigger:
-    - platform: state
+  triggers:
+    - trigger: state
       entity_id: binary_sensor.motion_garage
       to: "on"
-  condition:
+  conditions:
     - condition: state
       entity_id: input_boolean.notify_home
       state: "on"
-  action:
+  actions:
     - action: notify.pushbullet
       data:
         title: ""
