@@ -295,7 +295,9 @@ homeassistant:
   webrtc:
     ice_servers:
     # Add an entry for each STUN or TURN server
-    - url: "stun:stun.l.google.com:19302"
+    - url:
+      - "stun:stun.l.google.com:19302"
+      - "stun:stun1.l.google.com:3478"
     - url: "turn:turn.domain.com"
       username: "username"
       credential: "abc123"
