@@ -102,14 +102,7 @@ Resume suspended integration.
 
 ## Tested devices
 
-Devices we know to be working with this integration based on the [documentation of used libraries](https://github.com/Salamek/huawei-lte-api/#huawei-lte-api) and reports by users:
+It is the intention and highly likely that this integration works with all devices
+[reported working with the underlying huawei-lte-api library](https://github.com/Salamek/huawei-lte-api#tested-on).
 
-- Huawei B310s-22
-- Huawei B315s-936
-- Huawei B525s-23a
-- Huawei E5186s-22a
-- Huawei B618
-- Huawei B529s-23a
-- Huawei B535s
-
-This is not a complete list. The integration can probably connect to other Huawei LTE devices running similar firmware.
+It will not work on ones noted as not working in that list.

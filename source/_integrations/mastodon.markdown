@@ -28,7 +28,7 @@ If you want to grant only required accesses, uncheck all checkboxes then check o
 
 ## Sensors
 
-The integration will create sensors for the Mastodon account showing total followers, following, and posts.
+The integration will create sensors for the Mastodon account showing total followers, following, and posts. Sensors are updated once an hour.
 
 ## Notifications
 
