@@ -30,11 +30,11 @@ To write information from Home Assistant to Emoncms, you can use the [`emoncms_h
 
 {% configuration_basic %}
 URL:
-  description: The url of the emoncms server starting with the protocol (http or https). Example : https://emoncms.org
+  description: The URL of the Emoncms server starting with the protocol (`http` or `https`). Example : <https://emoncms.org>
 API key:
-  description: The 32 bits read only API key needed for authentication. The read and write API key is not needed as this integration just reads feed datas from emoncms.
+  description: The 32 bits read only API key needed for authentication, found under "My Account > Read Only API Key" in Emoncms. The read and write API key is not needed as this integration just reads feed datas from Emoncms.
 Synchronization mode:
-  description: Two synchronization modes are available : manual and automatic. **The manual mode is the default one and the preferred option.** In manual mode, you can select the feeds to synchronize one by one. The automatic mode will synchronize all existing feeds automatically. The automatic mode is a feature for advanced users, to be used only if you really plan to use all your emoncms feeds in home assistant.
+  description: Two synchronization modes are available : manual and automatic. **The manual mode is the default one and the preferred option.** In manual mode, you can select the feeds to synchronize one by one. The automatic mode will synchronize all existing feeds automatically. The automatic mode is a feature for advanced users, to be used only if you really plan to use all your Emoncms feeds in Home Assistant.
 {% endconfiguration_basic %}
 
 ## Sensors
