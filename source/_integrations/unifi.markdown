@@ -52,13 +52,12 @@ It is recommended you use the Administrator or a user with full read/write acces
 but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
 use has.
 
-1. Login to your _Local Portal_ on your UniFi OS device, and click on _Users_. **Note**: This **must** be done from
-   the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the
-   UniFi Network app.
+1. Login to your _Local Portal_ on your UniFi OS device, and select  **Users**. 
+    - **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the UniFi Network app.
 2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
-3. Click on **Add New Admin**.
-4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for _Network_. _OS Settings_ are not used so can be set to **None**.
-5. Click **Add** in the bottom right.
+3. Select **Add New Admin**.
+4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+5. In the bottom right, select **Add**.
 
 ![UniFi OS User Creation](/images/integrations/unifi/user.png)
 
