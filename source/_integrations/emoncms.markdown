@@ -28,6 +28,13 @@ To write information from Home Assistant to Emoncms, you can use the [`emoncms_h
 
 {% include integrations/config_flow.md %}
 
+{% configuration_basic %}
+URL:
+  description: The URL of the Emoncms server starting with the protocol (`http` or  `https`) e.g. <https://emoncms.org>
+API key:
+  description: The 32 bits read only API key needed for authentication, found under "My Account > Read Only API Key" in Emoncms. The read and write API key is not needed as this integration just reads data from Emoncms.
+{% endconfiguration_basic %}
+
 ## Sensors
 
 - **energy** in Wh, kWh
