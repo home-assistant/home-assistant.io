@@ -261,18 +261,23 @@ It's possible to override the default list of STUN and TURN servers which are us
 Each STUN or TURN server can be configured as described in the table below.
 
 {% configuration webrtc %}
-friendly_name:
-  url: STUN or TURN server URLs
+ice_servers:
+  description: List of STUN and TURN server configurations
   required: true
-  type: string or a list of strings
-username:
-  description: Username
-  required: false
-  type: string
-credential:
-  description: Credential
-  required: false
-  type: string
+  type: list
+  keys:
+    url:
+      description: STUN or TURN server URLs
+      required: true
+      type: string or list
+    username:
+      description: Username for TURN server authentication
+      required: false
+      type: string
+    credential:
+      description: Credential for TURN server authentication
+      required: false
+      type: string
 {% endconfiguration %}
 
 ### WebRTC configuration example
@@ -291,7 +296,7 @@ homeassistant:
     ice_servers:
     # Add an entry for each STUN or TURN server
     - url: "stun:stun.l.google.com:19302"
-    - url: "turn:turn.domain.com'
+    - url: "turn:turn.domain.com"
       username: "username"
       credential: "abc123"
 ```
