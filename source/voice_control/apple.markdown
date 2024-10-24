@@ -30,6 +30,8 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
 2. Choose one of following options to activate Assist:
    - [Start Assist using a back tap](#to-start-assist-using-a-back-tap).
    - [Start Assist using the action button](#to-start-assist-using-the-action-button).
+   - [Start Assist using control center](#to-start-assist-using-control-center).
+   - [Start Assist from Lock Screen](#to-start-assist-from-lock-screen).
 3. [Give a command](/voice_control/custom_sentences/).
 
 #### To create a shortcut to Assist in App
@@ -50,6 +52,24 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
 2. Under **Home Assistant**, select **Assist**.
 3. Select your preferred pipeline.
 4. Start the Assist by holding the action button.
+
+For control center and lock screen:
+
+#### To start Assist using control center
+
+1. Open control center.
+2. Press and hold an empty space and look for **Home Assistant**.
+3. Select **Assist**.
+4. After you see the icon in control center, tap on it again to choose which pipeline you want to use.
+
+#### To start Assist from Lock Screen
+
+1. Tap and hold an empty space in Lock Screen.
+2. Choose one of the two bottom items where you want to replace using Assist.
+3. Remove the item.
+4. Tap on it to add a new item and find **Home Assistant Assist** in the list.
+5. After you see the icon in lock screen, tap once more to choose which pipeline you want to use.
+6. Alternatively you can execute the same steps but add a widget below the lock screen clock.
 
 ## Adjusting the language
 
