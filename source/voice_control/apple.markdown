@@ -12,6 +12,47 @@ Assist is integrated via [Home Assistant Companion](https://apps.apple.com/us/ap
 
 <lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
 
+## Assist on iPhones
+
+Assist is available on iPhones and tablets using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/).
+
+### Prerequisites
+
+- [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
+- Have an Assistant set up: either [cloud](https://www.home-assistant.io/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](https://www.home-assistant.io/voice_control/voice_remote_local_assistant/).
+- The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/)
+
+### Starting Assist on your iPhone using a shortcut
+
+This section was written using an iOS 18. Depending on your model and version, the exact steps may vary.
+
+To use Home Assistant Assist as your voice assistant, follow these steps:
+
+1. Create a shortcut to **Assist in App**
+2. Choose one of following options to activate Assist:
+   - [Start Assist using a back tap](#to-start-assist-using-a-back-tap).
+   - [Start Assist using the action button](#to-start-assist-using-the-action-button).
+3. [Give a command](/voice_control/custom_sentences/).
+
+#### To create a shortcut to Assist in App
+
+1. On the phone, open the **Shortcuts** app, and select **New**.
+2. Type `Home Assistant` and select **Assist in app**.
+3. **Choose** the pipeline.
+4. Select **Done**. You now have a shortcut to **Assist in app**.
+
+#### To start Assist using a back tap
+
+1. Follow the Apple documentation on [Running shortcuts by tapping the back of your iPhone](https://support.apple.com/en-gb/guide/shortcuts/apd897693606/ios) and select the shortcut to **Assist in app**.
+2. Start Assist by tapping the back of your phone.
+
+#### To start Assist using the Action button
+
+1. Go to **Settings** > **Action Button**, and scroll until you see **Controls**.
+2. Under **Home Assistant**, select **Assist**.
+3. Select your preferred pipeline.
+4. Start the Assist by holding the action button.
+
 ## Installation
 
 To get started make sure you're running the latest version of the [Home Assistant Companion app](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) and have updated your Apple devices. Then download the two shortcuts and open them to import them:
