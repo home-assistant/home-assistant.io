@@ -793,6 +793,34 @@ automation:
           offset: "-00:10:00"
 ```
 
+### Limited templates
+
+It's also possible to use [limited templates](/docs/configuration/templating/#limited-templates) for times.
+
+```yaml
+blueprint:
+  input:
+    alarm:
+      name: Alarm
+      selector: 
+        text:
+    hour:
+      name: Hour
+      selector:
+        number:
+          min: 0
+          max: 24
+
+  trigger_variables:
+    my_alarm: !input alarm
+    my_hour: !input hour
+  trigger:
+    - platform: time
+      at:
+      - "sensor.{{ my_alarm | slugify }}_time"
+      - "{{ my_hour }}:30:00"
+```
+
 ## Time pattern trigger
 
 With the time pattern trigger, you can match if the hour, minute or second of the current time matches a specific value. You can prefix the value with a `/` to match whenever the value is divisible by that number. You can specify `*` to match any value (when using the web interface this is required, the fields cannot be left empty).
