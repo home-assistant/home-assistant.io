@@ -661,6 +661,7 @@ source/_integrations/pvoutput.markdown @frenck
 source/_integrations/pvpc_hourly_pricing.markdown @azogue
 source/_integrations/pyload.markdown @tr4nt0r
 source/_integrations/qbittorrent.markdown @geoffreylagaisse @finder39
+source/_integrations/qbus.markdown @Qbus-iot
 source/_integrations/qingping.markdown @bdraco
 source/_integrations/qld_bushfire.markdown @exxamalte
 source/_integrations/qnap.markdown @disforw
