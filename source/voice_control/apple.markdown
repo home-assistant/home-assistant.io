@@ -2,11 +2,11 @@
 title: "Assist on Apple devices"
 ---
 
-Assist can be used on Apple devices via [Home Assistant Companion](https://apps.apple.com/us/app/home-assistant/id1099568401).
+Assist can be used on Apple devices via [Home Assistant Companion App](https://apps.apple.com/us/app/home-assistant/id1099568401).
 
 ## Assist on iPhones
 
-Assist is available on iPhones and tablets using the [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/).
+Assist is available on iPhones and tablets.
 
 ### Prerequisites
 
