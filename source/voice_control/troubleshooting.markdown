@@ -87,7 +87,9 @@ The example below shows common pitfalls when enquiring about the weather. While 
      ![Create alias for entity name](/images/assist/assist_create_alias.png)
 5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
 
-## My voice assistant understands me, processes the command, but I do not get back a voice response
+## I don't get a voice response
+
+My voice assistant understands me and processes the command, but I don't get a voice response.
 
 The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engines.
 The voice assistant device then fetches the audio file from Home Assistant and plays it back.
