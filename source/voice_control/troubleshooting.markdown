@@ -103,7 +103,6 @@ To fix the URL, follow these steps:
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
-Please note that, for most users, the automatic option works and is recommended.
 
 ## Tweaking the Assist audio configuration for your device
 
