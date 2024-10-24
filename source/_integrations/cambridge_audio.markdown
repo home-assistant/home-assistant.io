@@ -55,6 +55,41 @@ Host:
 The integration provides a few entities to configure the device settings. The following entities are supported:
 - Display brightness
 
+## Playing media
+
+Cambridge Audio supports playing a variety of formats using the `media_player.play_media` action. 
+
+### Examples:
+
+Cambridge Audio can recall any stored presets saved on the device. An example action using a preset:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "preset"
+  media_content_id: "1"
+```
+
+An example action using an Airable radio id:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "airable"
+  media_content_id: "12345678"
+```
+
+An example action using an internet radio url:
+```yaml
+action: media_player.play_media
+target:
+  entity_id: media_player.cambridge_audio
+data:
+  media_content_type: "internet_radio"
+  media_content_id: "https://example.com/internet-radio/station_abcd.mp3"
+```
 ## Troubleshooting
 
 ### The buttons to skip, shuffle, and repeat the track are missing
