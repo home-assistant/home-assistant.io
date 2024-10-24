@@ -29,6 +29,38 @@ ha_integration_type: hub
 
 [UniFi Network](https://www.ui.com/download-software/) by [Ubiquiti Networks, inc.](https://www.ui.com/) is a software that binds gateways, switches and wireless access points together with one graphical front end.
 
+## Prerequisites
+
+### Hardware support
+
+This integration supports all UniFi OS Consoles that run UniFi Network. It also supports self hosted versions of UniFi Network.
+
+### Software support
+
+It is recommended to run latest stable versions of UniFi Network and UniFi OS.
+
+{% important %}
+**Early Access and Release Candidate versions are not supported by Home Assistant.**
+
+Using Early Access Release Candidate versions of UniFi Network or UniFi OS can bring unexpected changes. If you choose to opt into either the Early Access or the Release Candidate release channel and anything breaks in Home Assistant, you will need to wait until that version goes to the official Stable Release channel before it is expected to work.
+{% endimportant %}
+
+### Local user
+
+You will need a local user created in your UniFi OS Console to log in with. Ubiquiti SSO Cloud Users will **not** work.
+It is recommended you use the Administrator or a user with full read/write access to get the most out of the integration,
+but it is not required. The entities that are created will automatically adjust based on the permissions of the user you
+use has.
+
+1. Login to your _Local Portal_ on your UniFi OS device, and select  **Users**. 
+    - **Note**: This **must** be done from the UniFi OS by accessing it directly by IP address (i.e. _Local Portal_), not via `unifi.ui.com` or within the UniFi Network app.
+2. Go to **Admins & Users** from the left hand side menu or [IP address]/admins/users e.g. 192.168.1.1/admins/users.
+3. Select **Add New Admin**.
+4. Check **Restrict to local access only** and fill out the fields for your user. Select **Full Management** for **Network**. **OS Settings** are not used, so they can be set to **None**.
+5. In the bottom right, select **Add**.
+
+![UniFi OS User Creation](/images/integrations/unifi/user.png)
+
 There is currently support for the following device types within Home Assistant:
 
 - [Button](#button)
@@ -41,27 +73,15 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-The user needs administrator privileges in order to control switches.
+{% note %}
+**Permissions**: The below sections on the features available to your Home Assistant instance assume you have full
+write access to each device. If the user you are using has limited access to some devices, you will get fewer entities
+and in many cases, get a read-only sensor instead of an editable switch {% term entity %}.
+{% endnote %}
 
 ### Extra configuration of the integration
 
 All configuration options are offered from the front end. Enter what UniFi Network {% term integration %} you want to change options on and press the cog wheel. Some advanced options are available when "Advanced Mode" is enabled on your user profile page.
-
-### Configuring Users
-
-The UniFi Network application allows you to create multiple users on it besides the main administrator. If all you want to use is the device tracker then it is recommended that you create a limited user that has `read-only` permissions for the UniFi Network device tracker. If you want blocking of network access, POE control, or firmware upgrades as well you would need to have 'admin' permissions.
-
-If you want to create a local-only user, you need to switch to the classic UniFi interface for the option to become available.
-
-### UniFi OS
-
-For UniFi OS a local-only user needs to be created. A user who uses the Ubiquiti cloud will not work. You can do this in the manage users section on the UniFi OS dashboard. Make sure to give it the right permissions for the functions you want to use. Note the Dream Machine Pro and Cloud Key Gen2 plus updated to UniFi OS needs the port to be 443. For some self hosted servers the port will be 8443.
-
-### Conflicts with MQTT
-
-The UniFi Network application can either be a UniFi OS console device (like the Cloud Key), or as software on any Linux system. If you run the UniFi Network application on the same operating system as Home Assistant there may be conflicts in ports if you have the MQTT {% term integration %} as well.
-
-It is recommended that you run the UniFi Network application in a dedicated virtual machine to avoid that situation.
 
 ## Button
 
@@ -200,12 +220,4 @@ logger:
   logs:
     aiounifi: debug
     homeassistant.components.unifi: debug
-    homeassistant.components.device_tracker.unifi: debug
-    homeassistant.components.switch.unifi: debug
 ```
-
-## FAQ
-
-### Understanding UniFi Naming (UniFi Network application is the UniFi Controller)
-
-Network management has always been Ubiquiti's main product and so UniFi for a while was always synonymous with their "UniFi Controller" application. However, UniFi has started branching and releasing other apps, like Protect, Talk and Access. As a result, Ubiquiti has started rebranding "UniFi Controller" as the "UniFi Network" application. [This post on the UniFi community](https://community.ui.com/questions/Clarifying-UniFi-Hardware-and-Software-Terminology/2557963a-e79d-4157-a78c-36d3f7b383fb) explains it pretty well. **This main UniFi Integration is _only_ for the UniFi Network application.**
