@@ -2,7 +2,7 @@
 layout: post
 title: "Help us make voice better in under a minute"
 description: "We’ve built a tool to allow you to help us make local and private voice better for all languages."
-date: 24-10-2024 00:00:01
+date: 2024-10-24 00:00:01
 date_formatted: "October 24, 2024"
 author: Mike Hansen
 comments: true
