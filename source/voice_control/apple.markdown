@@ -105,9 +105,3 @@ You can also use the share action to [add a Shortcut to your Home Screen](https:
 ## Troubleshooting
 
 The latest version of Siri on the Apple Watch contains an annoying bug where it will not remember that the shortcut is allowed to talk to Home Assistant. This requires the user to tap or say "Allow" for every invocation of the Assist shortcut. The workaround is to remove the Home Assistant application from your watch, which will have the shortcut execute on your phone which does not have this problem. Removing the app prevents you from triggering actions via the Home Assistant interface for Apple Watch. It does not prevent you from adding shortcuts to trigger assist from a complication.
-
-## Changelog
-
-### Version 1 - Jan 26, 2023
-
-Initial release
