@@ -232,6 +232,23 @@ To see OTA updates for a device, it's required that it both supports OTA updates
 Before updating a device, you should search for any disadvantages or if you even need to install an available update. Some firmware updates can break features you might use (e.g. group binding for IKEA devices). Some updates might also require changes to ZHA. In rare cases, you can even brick devices by installing a firmware update.
 {% endwarning %}
 
+### Global Options
+
+There are a few global options available once ZHA has been configured. Press **Configure** to access these settings.
+
+The options are as follows:
+
+{% configuration_basic %}
+Enable enhanced light color/temperature transition from an off-state:
+  description: "For older non Zigbee 3.0 lights, this still allows a proper transition from an off-state to a new color (without seeing the old color). _(default: off)_"
+Enable enhanced brightness slider during light transition:
+  description: "This avoids seeing intermediary brightness state when turning on lights with a transition. _(default: on)_"
+Always prefer XY color mode:
+  description: "This forces ZHA to always send colors in XY, never HS. _(default: on)_"
+Group members assume state of group:
+  description: "When using ZHA groups, turning on a ZHA group light makes the ZHA group members optimistically change their state to \"on\", instead of waiting and polling the lights when off. _(default: on)_"
+{% endconfiguration_basic %}
+
 ## Configuration - YAML
 
 For more advanced configuration, you can modify {% term "`configuration.yaml`" %} and restart Home Assistant
