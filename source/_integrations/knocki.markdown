@@ -22,7 +22,7 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
 
 - You must have a [Knocki device](http://knocki.com).
 
-- Completed the setup process in the knocki mobile app (steps 1-7)
+- Completed the setup process in the **Knocki** mobile app, as described in steps 1-7 below.
 
 1. Open the Knocki Mobile App. It’s a free download on [iOS](https://apps.apple.com/us/app/knocki/id1238395440) and [Android](https://play.google.com/store/apps/details?id=com.knocki.mobileapp).
 2. Using the app, log-in or create a new Knocki account.
