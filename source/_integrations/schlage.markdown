@@ -37,6 +37,12 @@ Once you have enabled the Schlage integration, you should see the following bina
 
 - **Keypad disabled** - Indicates that the keypad has been disabled, typically due to too many incorrect lock codes being attempted.
 
+## Select
+
+Once you have enabled the Schlage integration, you should see the following selects:
+
+- **Auto Lock Time** - Configure the time until the deadbolt automatically locks, or disable the auto-lock feature entirely.
+
 ## Sensor
 
 Once you have enabled the Schlage integration, you should see the following sensors:
