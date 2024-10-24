@@ -2,15 +2,7 @@
 title: "Assist on Apple devices"
 ---
 
-Assist is integrated via [Home Assistant Companion](https://apps.apple.com/us/app/home-assistant/id1099568401) into Apple devices using the [Shortcuts app](https://support.apple.com/guide/shortcuts/welcome/ios). Assist can be used in the following ways on Apple devices:
-
-- Activated by Siri by saying the shortcut name "Hey Siri, Assist"
-- Added to your iPhone home screen
-- Pinned to your Mac menu bar
-- Activated via a keyboard shortcut on your Mac
-- Added as an Apple Watch complication
-
-<lite-youtube videoid="sQ7X7jz1SrA" videotitle="Assist on Apple HomePod"></lite-youtube>
+Assist can be used on Apple devices via [Home Assistant Companion](https://apps.apple.com/us/app/home-assistant/id1099568401).
 
 ## Assist on iPhones
 
@@ -21,6 +13,12 @@ Assist is available on iPhones and tablets using the [Home Assistant Companion A
 - [Home Assistant Companion App](https://companion.home-assistant.io/docs/getting_started/) installed
 - Have an Assistant set up: either [cloud](https://www.home-assistant.io/voice_control/voice_remote_cloud_assistant/) (recommended, more performant) or [local](https://www.home-assistant.io/voice_control/voice_remote_local_assistant/).
 - The devices you want to control with Assist are [exposed to Assist](/voice_control/voice_remote_expose_devices/)
+
+### Starting Assist in Home Assistant
+
+1. On your phone, open Home Assistant.
+2. In the top-right corner, select the three-dots menu and select **Assist**.
+3. [Give a command](/voice_control/custom_sentences/).
 
 ### Starting Assist on your iPhone using a shortcut
 
@@ -53,20 +51,7 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
 3. Select your preferred pipeline.
 4. Start the Assist by holding the action button.
 
-## Installation
-
-To get started make sure you're running the latest version of the [Home Assistant Companion app](https://apps.apple.com/us/app/home-assistant/id1099568401?itsct=apps_box_badge&itscg=30200) and have updated your Apple devices. Then download the two shortcuts and open them to import them:
-
-- [Assist shortcut](https://www.icloud.com/shortcuts/4172210db1d74599bf9ae4f9e1e3d6ed)
-- [Assist Button shortcut](https://www.icloud.com/shortcuts/73ebb68ca1a24ae1811b7d6971203334)
-
-![Expanded Shortcuts Action](/images/assist/ios-expanded-shortcut-action.jpeg)
-
-There are two versions of the shortcut. The normal shortcut works better with Siri while the Button shortcut has the ability to use speech-to-text when triggered outside of Siri and can customize the input language (instead of relying on the OS language)
-
-[_Last updated: Jan 26, 2023_](#changelog)
-
-### Adjusting the language
+## Adjusting the language
 
 Shortcuts triggered via Siri will always use the same language as Siri is set to. The Assist Button shortcut is meant to be manually triggered and can be configured for any language.
 
