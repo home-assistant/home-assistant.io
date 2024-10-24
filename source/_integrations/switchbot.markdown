@@ -58,7 +58,7 @@ Some SwitchBot devices need to be configured within the app before being control
 - [Curtain 3 (WoCtn3)](https://switch-bot.com/pages/switchbot-curtain-3)
 - Humidifier (WoHumi)
 - Light Strip (WoStrip)
-- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH)
+- [Meter](https://switch-bot.com/pages/switchbot-meter) / [Meter Plus](https://switch-bot.com/pages/switchbot-meter-plus) (WoSensorTH) / [Meter Pro](https://www.switch-bot.com/products/switchbot-meter-pro)
 - [Indoor/Outdoor Meter](https://switch-bot.com/pages/switchbot-indoor-outdoor-thermo-hygrometer) (WoIOSensorTH)
 - [Motion Sensor (WoPresence)](https://switch-bot.com/pages/switchbot-motion-sensor)
 - Plug Mini (WoPlug), both the original (model W1901400) and HomeKit-enabled (model W1901401)
