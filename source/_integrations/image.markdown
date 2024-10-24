@@ -34,9 +34,10 @@ Available services: `snapshot`.
 
 Take a snapshot from an image.
 
-| Service data attribute | Optional | Description        |
-| ---------------------- | -------- | ------------------ |
-| `filename`             |      no  | Snapshot file name |
+| Data attribute | Optional | Description                                                                    |
+| -------------- | -------- | ------------------------------------------------------------------------------ |
+| `entity_id`    | no       | Name(s) of entities to create a snapshot from, e.g., `image.my_image`.         |
+| `filename`     | no       | Snapshot file name                                                             |
 
 The path part of `filename` must be an entry in the `allowlist_external_dirs` in your [`homeassistant:`](/docs/configuration/basic/) section of your `configuration.yaml` file.
 
