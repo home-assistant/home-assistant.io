@@ -89,16 +89,18 @@ The example below shows common pitfalls when enquiring about the weather. While 
 
 ## My voice assistant understands me, processes the command, but I do not get back a voice response
 
-The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engine.
+The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engines.
 The voice assistant device then fetches the audio file from Home Assistant and plays it back.
 
 For this fetching process to work, Home Assistant must communicate its own URL to the device.
 If you have a complex network setup, or if you changed this setting in the past, the URL communicated could be wrong.
 
-This is how you can fix it *(note: this process requires "Advanced mode" located in your user's setting)*
+To fix the URL, follow these steps:
 
-1. Go to [Setting > System > Network](https://my.home-assistant.io/redirect/network/)
+1. In {% my profile title="your user profile" %}, enable **Advanced Mode**.
+2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
 2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
+  - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
 Please note that, for most users, the automatic option works and is recommended.
