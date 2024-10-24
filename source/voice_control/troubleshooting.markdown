@@ -99,7 +99,7 @@ To fix the URL, follow these steps:
 
 1. In {% my profile title="your user profile" %}, enable **Advanced Mode**.
 2. Go to {% my network title="**Settings** > **System** > **Network**" %}.
-2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
+3. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
   - For most users, the **Automatic** option works and is recommended.
    ![Create alias for entity name](/images/assist/local_url.png)
 
