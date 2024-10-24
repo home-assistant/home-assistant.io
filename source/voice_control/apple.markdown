@@ -6,7 +6,7 @@ Assist can be used on Apple devices via [Home Assistant Companion App](https://a
 
 ## Assist on iPhones
 
-Assist is available on iPhones and tablets.
+Assist is available on iPhones, iPads, and Macbooks.
 
 ### Prerequisites
 
@@ -26,7 +26,7 @@ This section was written using an iOS 18. Depending on your model and version, t
 
 To use Home Assistant Assist as your voice assistant, follow these steps:
 
-1. Create a shortcut to **Assist in App**
+1. Create a shortcut to **Assist in app**
 2. Choose one of following options to activate Assist:
    - [Start Assist using a back tap](#to-start-assist-using-a-back-tap).
    - [Start Assist using the action button](#to-start-assist-using-the-action-button).
