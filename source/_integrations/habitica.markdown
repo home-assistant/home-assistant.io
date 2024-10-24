@@ -73,6 +73,85 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 - **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
+## Automations
+
+Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+### Create "Empty the dishwasher" to-do
+
+Automatically create a Habitica to-do when the dishwasher finishes its cycle.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/habitica_create_todo.yaml" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.dishwasher
+    from: "on"
+    to: "off"
+
+actions:
+  - action: todo.add_item
+    data:
+      item: "Empty the dishwasher 🥣🍽️"
+      due_date: "{{now().date()}}"
+      description: "Empty the clean dishes from the dishwasher and load any dirty dishes that are waiting."
+    target:
+      entity_id: todo.habitica_to_dos
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Complete toothbrushing tasks on your Habitica Dailies list
+
+Automatically mark your morning and evening toothbrushing dailies as complete when your toothbrush usage is detected.
+
+{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/habitica_brush_teeth_daily.yaml" %}
+
+{% details "Example YAML configuration" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.oralb_toothbrush_state
+    to: "running"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10 # Time delay for debouncing to avoid false triggers
+actions:
+  - choose:
+      - conditions:
+          - condition: time
+            after: "05:00:00"
+            before: "12:00:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth in the morning 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+      - conditions: 
+          - condition: time
+            after: "18:00:00"
+            before: "23:59:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth before bed 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+```
+
+{% enddetails %}
 
 ## API Service
 

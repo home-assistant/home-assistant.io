@@ -1,0 +1,73 @@
+blueprint:
+  name: "Habitica To-Do: Empty the Dishwasher"
+  description: Automatically create a Habitica to-do when the dishwasher finishes its cycle.
+  author: tr4nt0r
+  homeassistant:
+    min_version: 2022.8.0
+  domain: automation
+  input:
+    dishwasher_sensor:
+      name: "Dishwasher sensor"
+      description: "Select the sensor that indicates whether the dishwasher is running. The automation will trigger when the sensor changes from 'on' (running) to 'off' (finished)."
+      selector:
+        entity:
+          filter:
+            - domain: binary_sensor
+              device_class:
+                - power
+                - running
+    habitica_todo_list:
+      name: "Habitica To-Do List"
+      description: "Choose the Habitica to-do list where the **Empty the Dishwasher** task will be created."
+      selector:
+        entity:
+          filter:
+            - integration: habitica
+              domain: todo
+              supported_features:
+                - todo.TodoListEntityFeature.CREATE_TODO_ITEM
+    todo_title:
+      name: "To-Do Title"
+      description: "The title for the Habitica to-do."
+      default: Empty the dishwasher 🥣🍽️
+      selector:
+        text:
+    todo_description:
+      name: "To-Do Description"
+      description: "Optional description for the Habitica to-do item."
+      default: "Empty the clean dishes from the dishwasher and load any dirty dishes that are waiting."
+      selector:
+        text:
+          multiline: true
+    todo_duedate:
+      name: Due date
+      description: "Set today's date as the due date. To set a future due date, such as tomorrow, you can use the following template: `{{ (now().date() + timedelta(days=1)) }}`."
+      selector:
+        template:
+      default: "{{now().date()}}"
+    actions:
+      name: Actions
+      description: "Additional actions to run after creating the Habitica to-do, like send a notification to your mobile."
+      default: []
+      selector:
+        action: {}
+mode: restart
+triggers:
+  - trigger: state
+    entity_id: !input dishwasher_sensor
+    from: "on"
+    to: "off"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10 # Time delay for debouncing to avoid false triggers
+
+actions:
+  - action: todo.add_item
+    data:
+      item: !input todo_title
+      due_date: !input todo_duedate
+      description: !input todo_description
+    target:
+      entity_id: !input habitica_todo_list
+  - action: !input actions
