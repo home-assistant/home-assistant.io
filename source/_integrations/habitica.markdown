@@ -73,7 +73,7 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 
 ## Button controls for class skills
 
-If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected.
+If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-habiticacast_skill)
 
 ### Mage
 
