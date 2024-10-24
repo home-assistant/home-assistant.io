@@ -35,23 +35,4 @@ The integration has a fan platform to view and control the ventilation speed, an
 - Warning
 - Filter Change Timer
 
-## Configuration
-
-To set it up, add the following information to your {% term "`configuration.yaml`" %} file:
-
-```yaml
-smarty:
-  host: 192.168.0.10
-```
-
-{% configuration %}
-host:
-  description: The IP Address of the unit.
-  required: true
-  type: string
-name:
-  description: The name of this device as you want to see it in Home Assistant.
-  required: false
-  default: Smarty
-  type: string
-{% endconfiguration %}
+{% include integrations/config_flow.md %}
