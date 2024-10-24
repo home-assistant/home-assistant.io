@@ -169,6 +169,10 @@ pattern:
   description: A valid regular expression the text being set or received must match with.
   required: false
   type: string
+platform:
+  description: Must be `text`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -184,7 +188,7 @@ state_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this Select. If two Selects have the same unique ID Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:

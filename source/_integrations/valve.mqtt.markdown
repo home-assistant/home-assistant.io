@@ -222,6 +222,10 @@ payload_stop:
   description: The command payload that stops the valve. When not configured, the valve will not support the `valve.stop` action.
   required: false
   type: string
+platform:
+  description: Must be `valve`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 position_closed:
   description: Number which represents closed position. The valve's position will be scaled to the(`position_closed`...`position_open`) range when an action is performed and scaled back when a value is received.
   required: false
@@ -272,7 +276,7 @@ state_topic:
   required: false
   type: string
 unique_id:
-  description: An ID that uniquely identifies this valve. If two valves have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this valve. If two valves have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 value_template:

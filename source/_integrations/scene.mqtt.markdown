@@ -165,6 +165,10 @@ payload_on:
   required: false
   type: string
   default: "ON"
+platform:
+  description: Must be `scene`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -176,7 +180,7 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this scene entity. If two scenes have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this scene entity. If two scenes have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}

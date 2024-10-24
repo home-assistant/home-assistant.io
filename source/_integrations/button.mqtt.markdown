@@ -171,6 +171,10 @@ payload_press:
   required: false
   type: string
   default: "PRESS"
+platform:
+  description: Must be `button`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
@@ -182,7 +186,7 @@ retain:
   type: boolean
   default: false
 unique_id:
-  description: An ID that uniquely identifies this button entity. If two buttons have the same unique ID, Home Assistant will raise an exception.
+  description: An ID that uniquely identifies this button entity. If two buttons have the same unique ID, Home Assistant will raise an exception. Required when used with device-based discovery.
   required: false
   type: string
 {% endconfiguration %}

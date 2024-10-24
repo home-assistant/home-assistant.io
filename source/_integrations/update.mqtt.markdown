@@ -170,6 +170,10 @@ payload_install:
   description: The MQTT payload to start installing process.
   required: false
   type: string
+platform:
+  description: Must be `update`. Only allowed and required in [MQTT auto discovery device messages](/integrations/mqtt/#device-discovery-payload).
+  required: true
+  type: string
 qos:
   description: The maximum QoS level to be used when receiving and publishing messages.
   required: false
