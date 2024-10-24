@@ -87,6 +87,22 @@ The example below shows common pitfalls when enquiring about the weather. While 
      ![Create alias for entity name](/images/assist/assist_create_alias.png)
 5. If you just ask "What is the weather" when you have forecast entities for multiple entities, Assist always returns the data for the place that was first added. Currently, there is no way to change that.
 
+## My voice assistant understands me, processes the command, but I do not get back a voice response
+
+The voice response is generated in Home Assistant by one of our supported text-to-speech (or {% term TTS %}) engine.
+The voice assistant device then fetches the audio file from Home Assistant and plays it back.
+
+For this fetching process to work, Home Assistant must communicate its own URL to the device.
+If you have a complex network setup, or if you changed this setting in the past, the URL communicated could be wrong.
+
+This is how you can fix it *(note: this process requires "Advanced mode" located in your user's setting)*
+
+1. Go to [Setting > System > Network](https://my.home-assistant.io/redirect/network/)
+2. Change your Local Network Home Assistant URL to a URL that can be reached locally and that points to Home Assistant
+   ![Create alias for entity name](/images/assist/local_url.png)
+
+Please note that, for most users, the automatic option works and is recommended.
+
 ## Tweaking the Assist audio configuration for your device
 
 You think there is an issue with background noise or speaker volume? In some cases, it can help to tweak settings such as noise suppression and gain of your voice assistant device (such as the S32-S3-BOX-3).
