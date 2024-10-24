@@ -71,9 +71,37 @@ The following Habitica tasks are available as to-do lists in Home Assistant. You
 - **Buy a health potion:** Allows your character to purchase a health potion in Habitica. Instantly applies the potion upon purchase, healing 15 HP at a cost of 25 GP.
 - **Allocate all stat points**: Assigns all unallocated stat points based on the previously set automatic allocation method. If no method is set, all points are assigned to strength (STR).
 
+## Button controls for class skills
+
+If you've unlocked the class system, button controls for casting player and party skills will become available, depending on the class you've selected. For task skills see [action `habitica.cast_skill`](#action-habiticacast_skill)
+
+### Mage
+
+- **Ethereal surge**: You sacrifice Mana so the rest of your party, except for other mages, gains MP. (based on: INT)
+- **Earthquake**: Your mental power shakes the earth and buffs your party's intelligence. (based on: unbuffed INT)
+- **Chilling frost:** With one cast, ice freezes all your streaks so they won't reset to zero tomorrow.
+
+### Warrior
+
+- **Defensive stance**: You crouch low and gain a buff to constitution. (based on: unbuffed CON)
+- **Valorous presence**: Your boldness buffs your whole party's strength. (based on: unbuffed STR)
+- **Intimidating gaze:** Your fierce stare buffs your whole Party's constitution. (based on: unbuffed CON)
+
+### Rogue
+
+- **Tools of the trade**: Your tricky talents buff your whole party's perception. (based on: unbuffed PER)
+- **Stealth**: With each cast, a few of your undone dailies won't cause damage tonight. Their streaks and colors won't change. (based on: PER)
+
+### Healer
+
+- **Healing light**: Shining light restores your health. (based on: CON and INT)
+- **Searing brightness**: A burst of light makes your tasks more blue/less red. (based on: INT)
+- **Protective aura**: You shield your party by buffing their constitution. (based on: unbuffed CON)
+- **Blessing**: Your soothing spell restores your whole party's health. (based on: CON and INT)
+
 ## Switch controls
 
-- **Rest in the Inn:** When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
+- **Rest in the Inn**: When enabled, allows your character to rest in the inn in Habitica, pausing damage dealt from dailies and quest bosses.
 
 ## Actions
 
