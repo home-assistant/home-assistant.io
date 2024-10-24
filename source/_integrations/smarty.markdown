@@ -5,6 +5,7 @@ ha_category:
   - Fan
   - Hub
   - Sensor
+ha_config_flow: true
 ha_iot_class: Local Polling
 ha_release: 0.95
 ha_codeowners:
