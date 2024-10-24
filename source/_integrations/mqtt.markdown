@@ -455,7 +455,7 @@ To allow a smooth migration from single component discovery to device-based disc
 {"migrate_discovery": true }
 ```
 
-This will unload the discovered item, but it's settings will be retained.
+This will unload the discovered item, but its settings will be retained.
 6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
 7. Clean up the single component discovery messages with an empty payload.
 
