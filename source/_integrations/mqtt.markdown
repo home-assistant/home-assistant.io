@@ -341,16 +341,16 @@ The component specific options are placed as mappings under the `components` key
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support",
   },
-  "cmp": {
+  "cmps": {
     "some_unique_component_id1": {
-      "platform": "sensor",
+      "p": "sensor",
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
       "unique_id":"temp01ae_t",
     },
     "some_unique_id2": {
-      "platform": "sensor",
+      "p": "sensor",
       "device_class":"humidity",
       "unit_of_measurement":"%",
       "value_template":"{% raw %}{{ value_json.humidity}}{% endraw %}",
@@ -362,11 +362,11 @@ The component specific options are placed as mappings under the `components` key
 }
 ```
 
-The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
+The components id's under the `components` (`cmp`) key, are used as part of the discovery identification. A `platform` (`p`) config option is required for each component config that is added to identify the component platform. Also required is a `unique_id` for entity-based components.
 
 To remove the components, publish an empty (retained) string payload to the discovery topic. This will remove the component and clear the published discovery payload. It will also remove the device entry if there are no further references to it.
 
-An empty config can be published as an update to remove a single component from the device discovery. Note that adding the platform option is still required.
+An empty config can be published as an update to remove a single component from the device discovery. Note that adding the `platform` (`p`) option is still required.
 
 ```json
 {
@@ -384,16 +384,16 @@ An empty config can be published as an update to remove a single component from 
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support",
   },
-  "cmp": {
+  "cmps": {
     "some_unique_component_id1": {
-      "platform": "sensor",
+      "p": "sensor",
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
       "unique_id":"temp01ae_t",
     },
     "some_unique_id2": {
-      "platform": "sensor",
+      "p": "sensor",
     }
   },
   "state_topic":"sensorBedroom/state",
@@ -421,9 +421,9 @@ After removing a component, you should send another update with the removed comp
     "sw": "2.1",
     "url": "https://bla2mqtt.example.com/support",
   },
-  "cmp": {
+  "cmps": {
     "some_unique_component_id1": {
-      "platform": "sensor",
+      "p": "sensor",
       "device_class":"temperature",
       "unit_of_measurement":"°C",
       "value_template":"{% raw %}{{ value_json.temperature}}{% endraw %}",
@@ -437,7 +437,7 @@ After removing a component, you should send another update with the removed comp
 
 <div class='note warning'>
 
-A component config part in a device discovery payload must have the `platform` option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
+A component config part in a device discovery payload must have the `platform` (`p`) option set with the name of the `component` and also must have at least one component specific config option. Entity components must have set the `unique_id` option and have a `device` context.
 
 </div>
 
@@ -541,9 +541,9 @@ Discovery payload device:
   "o": {
     "name": "foobar"
   },
-  "cmp": {
+  "cmps": {
     "bla1": {
-      "platform": "device_automation",
+      "p": "device_automation",
       "automation_type": "trigger",
       "payload": "short_press",
       "topic": "foobar/triggers/button1",
@@ -551,7 +551,7 @@ Discovery payload device:
       "subtype": "button_1"
     },
     "bla2": {
-      "platform": "sensor",
+      "p": "sensor",
       "state_topic": "foobar/sensor/sensor1",
       "unique_id": "bla_sensor001"
     }
@@ -679,7 +679,7 @@ support_url:
     'cmd_on_tpl':          'command_on_template',
     'cmd_t':               'command_topic',
     'cmd_tpl':             'command_template',
-    'cmp':                 'components',
+    'cmps':                'components',
     'cod_arm_req':         'code_arm_required',
     'cod_dis_req':         'code_disarm_required',
     'cod_trig_req':        'code_trigger_required',
@@ -758,6 +758,7 @@ support_url:
     'osc_cmd_tpl':         'oscillation_command_template',
     'osc_stat_t':          'oscillation_state_topic',
     'osc_val_tpl':         'oscillation_value_template',
+    'platform':            'p',
     'pct_cmd_t':           'percentage_command_topic',
     'pct_cmd_tpl':         'percentage_command_template',
     'pct_stat_t':          'percentage_state_topic',
