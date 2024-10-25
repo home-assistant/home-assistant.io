@@ -66,7 +66,7 @@ The configuration of the `lcn` devices and entities is completely done using a w
 
 Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
-The detailed documentation for the LCN frontend panel can be found [here](https://github.com/alengwenus/lcn-frontend/blob/main/docs/lcn-frontend.md).
+The detailed documentation for the LCN frontend panel can be found [here](https://alengwenus.github.io/lcn-frontend/).
 
 ## Platforms
 
