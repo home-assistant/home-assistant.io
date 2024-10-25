@@ -90,7 +90,7 @@ The tutorial is using OpenAI, but this could also be done with the Google Genera
 
 ## Actions
 
-### Action `google_generative_ai_conversation.generate_content`
+### Generate content
 
 {% tip %}
 This action isn't tied to any integration entry, so it won't use the model, prompt, or any of the other settings in your options. If you only want to pass text, you should use the `conversation.process` action.
