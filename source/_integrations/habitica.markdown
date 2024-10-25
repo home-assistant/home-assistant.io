@@ -81,7 +81,7 @@ Get started with these automation examples for Habitica, each featuring ready-to
 
 Automatically create a Habitica to-do when the dishwasher finishes its cycle.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/habitica_create_todo.yaml" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-create-to-do-when-dishwasher-finishes-its-cycle/786625" %}
 
 {% details "Example YAML configuration" %}
 
@@ -112,7 +112,7 @@ actions:
 
 Automatically mark your morning and evening toothbrushing dailies as complete when your toothbrush usage is detected.
 
-{% my blueprint_import badge blueprint_url="https://www.home-assistant.io/blueprints/integrations/habitica_brush_teeth_daily.yaml" %}
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-complete-toothbrushing-tasks-on-your-habitica-dailies-list/786631" %}
 
 {% details "Example YAML configuration" %}
 
