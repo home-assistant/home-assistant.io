@@ -239,8 +239,8 @@ This integration adds the Blebox device to Home Assistant as:
 
 - Option to change control mode (linear / gamma correction) is available in wBox app.
 - Option to change color mode (MONO/CCT) is available in wBox app.
-- Own effects are possible to create. Creator of effects is available in wBox app.
-- After settings change, device needs to be reloaded.
+- You can create your own effects. Creator of effects is available in wBox app.
+- After a settings change, the device needs to be reloaded.
 
 ### wLightBox PRO
 
