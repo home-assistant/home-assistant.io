@@ -34,6 +34,10 @@ To use Home Assistant Assist as your voice assistant, follow these steps:
    - [Start Assist from Lock Screen](#to-start-assist-from-lock-screen).
 3. [Give a command](/voice_control/custom_sentences/).
 
+Demo showing Assist being triggered from the iPhone 15 Pro action button and from the lock screen widget.
+
+<lite-youtube videoid="AW_eslcO6AU" videotitle="Assist in Companion App for iOS"></lite-youtube>
+
 #### To create a shortcut to Assist in App
 
 1. On the phone, open the **Shortcuts** app, and select **New**.
@@ -91,4 +95,3 @@ The Assist shortcut works also if you have configured multiple Home Assistant se
 Open the shortcuts app and edit each Assist shortcut. The text in quotes will be shown in the language of your device.
 
 - Use the arrow to expand the _"Assist with `Provided Input`"_ action, and select your Home Assistant server.
-
