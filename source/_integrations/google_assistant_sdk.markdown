@@ -150,14 +150,14 @@ On the configure page, you can set the language code of the interactions with Go
 
 ## Actions
 
-### Action `google_assistant_sdk.send_text_command`
+### Send text command
 
 You can use the `google_assistant_sdk.send_text_command` action to send commands to Google Assistant.
 
-| Data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `command`              | no       | Command(s) to send to Google Assistant. | turn off kitchen TV |
-| `media_player`         | yes      | Name(s) of media player entities to play response on | media_player.living_room_speaker |
+| Data attribute | Optional | Description |
+| ---------------------- | -------- | ----------- |
+| `command`              | no       | Command(s) to send to Google Assistant. |
+| `media_player`         | yes      | Name(s) of media player entities to play response on |
 
 Examples:
 
