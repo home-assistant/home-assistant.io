@@ -54,7 +54,7 @@ The AVM FRITZ!SmartHome integration for Home Assistant allows you to integrate [
 {% include integrations/config_flow.md %}
 
 {% note %}
-The configuration asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting System -> FRITZ!Box Users -> Users. The username starts with "fritz" followed by four random numbers. Under properties on the right it says "created automatically". Prior to FRITZ!OS 7.24 the default username was "admin".
+The configuration asks for a username. Starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under **Properties** on the right, it says **created automatically**. Prior to FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
 
 ### Light bulbs
@@ -142,4 +142,4 @@ The availability of these {% term sensor %} and {% term binary_sensor "binary se
 
 ## Troubleshooting
 
-In any case when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, as soon as the issue re-occur stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
+In any case, when reporting an issue, please enable [debug logging](/docs/configuration/troubleshooting/#debug-logs-and-diagnostics), restart the integration, and as soon as the issue re-occurs stop the debug logging again (_download of debug log file will start automatically_). Further _if still possible_, please also download the [diagnostics](/integrations/diagnostics) data. If you have collected the debug log and the diagnostics data, provide them with the issue report.
