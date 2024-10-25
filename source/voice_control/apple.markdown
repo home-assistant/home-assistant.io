@@ -92,16 +92,3 @@ Open the shortcuts app and edit each Assist shortcut. The text in quotes will be
 
 - Use the arrow to expand the _"Assist with `Provided Input`"_ action, and select your Home Assistant server.
 
-## Customizing the Siri experience
-
-Siri allows activating shortcuts by their name. If you change the name of the "Assist" shortcut, you will also have to refer to it by its new name: "Hey Siri, my new name". Be aware that Siri can get confused and might not work if your shortcut name overlaps with actual Siri commands.
-
-It is possible to change the text that Siri says when activating the Assist shortcut. Open the shortcuts app and edit each your Assist shortcut. The text in quotes will be shown in the language of your device.
-
-- Find _"Ask for `Text`"_ and tap on _`How can I assist?`_ and change it to your desired prompt.
-
-You can also use the share action to [add a Shortcut to your Home Screen](https://support.apple.com/guide/shortcuts/apd735880972/ios) or set an [Accessibility Shortcut](https://support.apple.com/en-gb/HT204390) to run this Shortcut when you triple-click the Side button.
-
-## Troubleshooting
-
-The latest version of Siri on the Apple Watch contains an annoying bug where it will not remember that the shortcut is allowed to talk to Home Assistant. This requires the user to tap or say "Allow" for every invocation of the Assist shortcut. The workaround is to remove the Home Assistant application from your watch, which will have the shortcut execute on your phone which does not have this problem. Removing the app prevents you from triggering actions via the Home Assistant interface for Apple Watch. It does not prevent you from adding shortcuts to trigger assist from a complication.
