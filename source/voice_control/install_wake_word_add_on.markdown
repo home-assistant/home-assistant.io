@@ -2,7 +2,7 @@
 title: "Enabling a wake word"
 ---
 
-This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it. 
+This tutorial shows how you can *enable* a wake word in Home Assistant. It does not describe how to *use* it.
 
 To *use* the wake word, you need some extra hardware. A low cost option is the [M5Stack ATOM Echo Development Kit](https://shop.m5stack.com/products/atom-echo-smart-speaker-dev-kit?ref=NabuCasa). To set that up, follow the [$13 voice assistant for Home Assistant](/voice_control/thirteen-usd-voice-remote/).
 
@@ -24,7 +24,7 @@ Enabling a wake word consists of 2 steps:
 2. **Start** the add-on.
 3. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
    - Under **Discovered**, you should now see the **openWakeWord** integration.
-   - Select **Configure** and **Submit**.
+   - Select **Add** and **Submit**.
    - **Result**: You have successfully installed the openWakeWord add-on and Wyoming integration.
 
 ### Enabling wake word for your voice assistant

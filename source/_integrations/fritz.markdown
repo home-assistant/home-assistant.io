@@ -60,16 +60,16 @@ Set a new password for the guest wifi.
 The password must be between 8 and 63 characters long.
 If no password is given, it will be auto-generated.
 
-| Data attribute | Optional | Description                                                                                                    |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------- |
-| `device_id`            | no       | Only act on a specific  router                                                                                 |
-| `password`             | yes      | New password for the guest wifi                                                                                |
-| `length`               | yes      | Length of the auto-generated password. (_default 12_)                        |
+| Data attribute | Optional | Description                                           |
+| -------------- | -------- | ----------------------------------------------------- |
+| `device_id`    | no       | Only act on a specific  router                        |
+| `password`     | yes      | New password for the guest wifi                       |
+| `length`       | yes      | Length of the auto-generated password. (_default 12_) |
 
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **AVM FRITZ!Box Tools** integration, then select **Add**.
 
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home".
 - **Enable old discovery method**: Needed on some scenarios like no mesh support (fw <= 6.x), mixed brands network devices or LAN switches.

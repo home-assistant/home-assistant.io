@@ -123,7 +123,7 @@ Find out if you already have Thread networks:
 
 - Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 - If you do not see a **Thread** integration, add it.
-- Then, select **Configure** and check if you see any Thread networks on the overview page.
+- Then, select **Add** and check if you see any Thread networks on the overview page.
 - Case 1: If you do not have any Thread networks yet, follow [Case 1: Make Home Assistant your first Thread network](#case-1-making-home-assistant-your-first-thread-network)
 - Case 2: If you have existing networks, follow [Case 2: Create a HA border router when there is an existing network](#case-2-creating-a-ha-border-router-when-there-is-an-existing-network)
 
@@ -146,7 +146,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
 2. Make sure the Home Assistant Thread network is defined as preferred network.
    - This should happen automatically, but check to be sure.
    - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - Then, select **Configure**.
+   - Then, select **Add**.
    - You should see the Home Assistant logo under **Preferred network**.
 
      ![image](/images/integrations/thread/thread-preferred-network-ha-only.png)
@@ -158,7 +158,7 @@ Follow these steps if you want to turn Home Assistant into a Thread border route
      - **Result**: You will see a confirmation stating that Thread credentials from Home Assistant have been added to this device.
    - To share the credentials with your iPhone, open the Home Assistant Companion app.
      - Go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-     - Select **Configure** under **Services**.
+     - Select **Add** under **Services**.
      - At the bottom of the preferred network box, select **Send credentials to phone**.
 4. To add Matter-based Thread devices, follow the steps on [Adding a matter device to Home Assistant](/integrations/matter/#adding-a-matter-device-to-home-assistant).
 
@@ -183,7 +183,7 @@ Note: the steps and images here show the process with a Google Thread network. B
 1. Make sure you have an Android/iPhone phone and your phone is in the same Wi-Fi network as your Google border router.
 2. First you need to import the Thread credentials of your Google thread network.
    - In the companion app, go to {% my integrations title="**Settings** > **Devices & services**" %}, select the **Thread** integration.
-   - On Android, select **Configure** and **Import Credentials**.
+   - On Android, select **Add** and **Import Credentials**.
      - **Result**: You should see a notification that the credentials are imported.
    - On iOS, select **Send credentials to Home Assistant**.
 3. Refresh the screen.

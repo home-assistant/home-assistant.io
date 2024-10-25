@@ -89,7 +89,7 @@ api_key:
   <img src='/images/screenshots/ecobee-thermostat-card.png' />
 </p>
 
-You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration. Then, select **Configure** and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
+You must [restart Home Assistant](/docs/configuration/#reloading-changes) for the changes to take effect. After restarting, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration. Then, select **Add** and continue to authorize the app according to the above **Automatic Configuration**, starting at step 2.
 
 ## Notifications
 
@@ -175,73 +175,73 @@ Besides the standard actions provided by the Home Assistant [Climate](/integrati
 
 Creates a vacation on the selected ecobee thermostat.
 
-| Data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to create the vacation                                                    |
-| `vacation_name`        | no       | Name of the vacation to create. Must be unique on the thermostat                                     |
-| `cool_temp`            | no       | Cooling temperature during the vacation                                                              |
-| `heat_temp`            | no       | Heating temperature during the vacation                                                              |
-| `start_date`           | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
-| `start_time`           | yes      | Time the vacation starts in the local time zone. Must be in 24-hour format (HH:MM:SS)                |
-| `end_date`             | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
-| `end_time`             | yes      | Time the vacation ends in the local time zone. Must be in 24-hour format (HH:MM:SS)                  |
-| `fan_mode`             | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
-| `fan_min_on_time`      | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
+| Data attribute    | Optional | Description                                                                                          |
+| ----------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`       | no       | ecobee thermostat on which to create the vacation                                                    |
+| `vacation_name`   | no       | Name of the vacation to create. Must be unique on the thermostat                                     |
+| `cool_temp`       | no       | Cooling temperature during the vacation                                                              |
+| `heat_temp`       | no       | Heating temperature during the vacation                                                              |
+| `start_date`      | yes      | Date the vacation starts in YYYY-MM-DD format                                                        |
+| `start_time`      | yes      | Time the vacation starts in the local time zone. Must be in 24-hour format (HH:MM:SS)                |
+| `end_date`        | yes      | Date the vacation ends in YYYY-MM-DD format (14 days from now if not provided)                       |
+| `end_time`        | yes      | Time the vacation ends in the local time zone. Must be in 24-hour format (HH:MM:SS)                  |
+| `fan_mode`        | yes      | Fan mode of the thermostat during the vacation (auto or on) (auto if not provided)                   |
+| `fan_min_on_time` | yes      | Minimum number of minutes to run the fan each hour (0 to 60) during the vacation (0 if not provided) |
 
 ### Action `ecobee.delete_vacation`
 
 Delete a vacation on the selected ecobee thermostat.
 
-| Data attribute | Optional | Description                                       |
-| ---------------------- | -------- | ------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to delete the vacation |
-| `vacation_name`        | no       | Name of the vacation to delete                    |
+| Data attribute  | Optional | Description                                       |
+| --------------- | -------- | ------------------------------------------------- |
+| `entity_id`     | no       | ecobee thermostat on which to delete the vacation |
+| `vacation_name` | no       | Name of the vacation to delete                    |
 
 ### Action `ecobee.resume_program`
 
 Resumes the standard active schedule of presets. This cancels any manual temperature settings or selected preset. This will not cancel vacation events, use `delete_vacation`.
 
 | Data attribute | Optional | Description                                                                                                                |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`s of climate devices to control. Omit to target all ecobee thermostats. |
-| `resume_all`           | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often.       |
+| -------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that point at `entity_id`s of climate devices to control. Omit to target all ecobee thermostats. |
+| `resume_all`   | no       | `true` will resume the standard schedule. `false` will only cancel the latest active event, which is not used often.       |
 
 ### Action `ecobee.set_fan_min_on_time`
 
 Sets the minimum amount of time that the fan will run per hour.
 
-| Data attribute | Optional | Description                                                                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Omit to target all ecobee thermostats. |
-| `fan_min_on_time`      | no       | integer (e.g.,  5)                                                                                                          |
+| Data attribute    | Optional | Description                                                                                                                 |
+| ----------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
+| `entity_id`       | yes      | String or list of strings that point at `entity_id`'s of climate devices to control. Omit to target all ecobee thermostats. |
+| `fan_min_on_time` | no       | integer (e.g.,  5)                                                                                                          |
 
 ### Action `ecobee.set_dst_mode`
 
 Enable/disable automatic daylight savings time.
 
 | Data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set daylight savings time mode. Omit to target all ecobee thermostats. |
-| `dst_enabled`          | no       | true or false                                                                                        |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | ecobee thermostat on which to set daylight savings time mode. Omit to target all ecobee thermostats. |
+| `dst_enabled`  | no       | true or false                                                                                        |
 
 ### Action `ecobee.set_mic_mode`
 
 Enable/disable Alexa mic (only for ecobee 4).
 
 | Data attribute | Optional | Description                                                                            |
-| ---------------------- | -------- | -------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set the mic mode. Omit to target all ecobee thermostats. |
-| `mic_enabled`          | no       | true or false                                                                          |
+| -------------- | -------- | -------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | ecobee thermostat on which to set the mic mode. Omit to target all ecobee thermostats. |
+| `mic_enabled`  | no       | true or false                                                                          |
 
 ### Action `ecobee.set_occupancy_modes`
 
 Enable/disable Smart Home/Away and Follow Me modes.
 
 | Data attribute | Optional | Description                                                                               |
-| ---------------------- | -------- | ----------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
-| `auto_away`            | yes      | true or false                                                                             |
-| `follow_me`            | yes      | true or false                                                                             |
+| -------------- | -------- | ----------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | ecobee thermostat on which to set occupancy modes. Omit to target all ecobee thermostats. |
+| `auto_away`    | yes      | true or false                                                                             |
+| `follow_me`    | yes      | true or false                                                                             |
 
 ### Service `ecobee.set_sensors_in_climate`
 
@@ -249,7 +249,7 @@ Set which sensors are active on a termostat for a specific climate program.
 
 | Service data attribute | Optional | Description                                                                                                                                         |
 | ---------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                                |
-| `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                     |
+| `entity_id`            | no       | ecobee thermostat on which to set the active sensors.                                                                                               |
+| `preset_mode`          | yes      | Name of the climate program to set the sensors active on (defaults to currently active program).                                                    |
 | `sensors`              | no       | Sensors to set as participating for climate. This is the device ID of the sensor/thermostat. These can be found in the available_sensors attribute. |
 

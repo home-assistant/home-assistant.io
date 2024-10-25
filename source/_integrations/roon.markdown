@@ -21,7 +21,7 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 
 ## Configuration
 
-1. From the Home Assistant front-end, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Roon** integration. Then, select **Configure**.
+1. From the Home Assistant front-end, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Roon** integration. Then, select **Add**.
 2. Home Assistant will then try to find your Roon Core - if it is successful it will display `Authorize HomeAssistant in Roon`. Select **Submit** and skip to step 4.
 3. If your Roon Core is not automatically found, enter the `Hostname` or `IP address` for the Roon Core machine when requested and select **Submit**.
 4. Home Assistant will then contact your Roon Core and ask to be authorized. You will need to enable this extension in the Room Application. Go to **Settings** and then **Extensions**. There, you will see an entry for Home Assistant with a button next to it. Select **Enable**.
@@ -34,11 +34,11 @@ This integration uses Roon Core, a Roon application that runs on a machine on yo
 
 Roon uses a path based on the roon browser hierarchy to specify which media to play. You can find this by using the media browser, or by following the examples below. If roon can't follow the path you will find an error in the log that will show which part of the path roon could not follow, and the possibilities at that point.
 
-| Data attribute | Optional | Description                                                             |
-| ---------------------- | -------- | ----------------------------------------------------------------------- |
-| `entity_id`            | yes      | Target a specific media player. To target all media players, use `all`. |
-| `media_content_id`     | no       | A path to specify the media you want to play, see examples below.       |
-| `media_content_type`   | no       | Only `music` is supported                                               |
+| Data attribute       | Optional | Description                                                             |
+| -------------------- | -------- | ----------------------------------------------------------------------- |
+| `entity_id`          | yes      | Target a specific media player. To target all media players, use `all`. |
+| `media_content_id`   | no       | A path to specify the media you want to play, see examples below.       |
+| `media_content_type` | no       | Only `music` is supported                                               |
 
  For example to play the album Harvest by Neil Young you should set `media_content_id` to `Library/Artists/Neil Young/Harvest` and to play BBC Radio 4 you would set `media_content_id` to `My Live Radio/BBC Radio 4`
 
@@ -47,9 +47,9 @@ Roon uses a path based on the roon browser hierarchy to specify which media to p
 Transfer playback from one player to another.
 
 | Data attribute | Optional | Description                   |
-| ---------------------- | -------- | ----------------------------- |
-| `entity_id`            | yes      | id of the source player.      |
-| `transfer_id`          | no       | id of the destination player. |
+| -------------- | -------- | ----------------------------- |
+| `entity_id`    | yes      | id of the source player.      |
+| `transfer_id`  | no       | id of the destination player. |
 
 ## Roon endpoint volume control via Home Assistant
 

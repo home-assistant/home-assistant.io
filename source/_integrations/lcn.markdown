@@ -64,7 +64,7 @@ The `lcn` hardware modules and groups are represented by Home Assistant *devices
 
 The configuration of the `lcn` devices and entities is completely done using a web user interface (configuration panel).
 
-Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
+Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Add** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
 The detailed documentation for the LCN frontend panel can be found [here](https://github.com/alengwenus/lcn-frontend/blob/main/docs/lcn-frontend.md).
 
@@ -365,11 +365,11 @@ Refer to the [Performing actions](/docs/scripts/service-calls) page for examples
 Set absolute brightness of output port in percent.
 
 | Data attribute | Optional | Description                       | Values                |
-| ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
-| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
-| `brightness`           | Yes      | Absolute brightness in percent    | 0..100                |
-| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
+| -------------- | -------- | --------------------------------- | --------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses)     |
+| `output`       | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `brightness`   | Yes      | Absolute brightness in percent    | 0..100                |
+| `transition`   | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
@@ -387,11 +387,11 @@ data:
 Set relative brightness of output port in percent.
 
 | Data attribute | Optional | Description                       | Values                |
-| ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
-| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
-| `brightness`           | Yes      | Relative brightness in percent    | -100..100             |
-| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
+| -------------- | -------- | --------------------------------- | --------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses)     |
+| `output`       | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `brightness`   | Yes      | Relative brightness in percent    | -100..100             |
+| `transition`   | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
@@ -408,10 +408,10 @@ data:
 Toggle output port.
 
 | Data attribute | Optional | Description                       | Values                |
-| ---------------------- | -------- | --------------------------------- | --------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses)     |
-| `output`               | No       | Output port of module             | [OUTPUT_PORT](#ports) |
-| `transition`           | Yes      | Transition (ramp) time in seconds | 0..486                |
+| -------------- | -------- | --------------------------------- | --------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses)     |
+| `output`       | No       | Output port of module             | [OUTPUT_PORT](#ports) |
+| `transition`   | Yes      | Transition (ramp) time in seconds | 0..486                |
 
 Example:
 
@@ -431,9 +431,9 @@ Each character represents the state change of a relay (1=on, 0=off, t=toggle, -=
 Example states:  `t---001-`
 
 | Data attribute | Optional | Description                   | Values |
-| ---------------------- | -------- | ----------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `state`                | No       | Relay states as string        |
+| -------------- | -------- | ----------------------------- | ------ |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `state`        | No       | Relay states as string        |
 
 Example:
 
@@ -449,9 +449,9 @@ data:
 Set the LED status.
 
 | Data attribute | Optional | Description                   | Values               |
-| ---------------------- | -------- | ----------------------------- | -------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `state`                | No       | LED state as string           | [LED_STATE](#states) |
+| -------------- | -------- | ----------------------------- | -------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `state`        | No       | LED state as string           | [LED_STATE](#states) |
 
 Example:
 
@@ -469,12 +469,12 @@ Set the absolute value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Data attribute | Optional | Description                   | Values                                                             |
-| ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
-| `value`                | Yes      | Variable value                | _any positive number_                                              |
-| `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                   |
+| Data attribute        | Optional | Description                   | Values                                                             |
+| --------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
+| `address`             | No       | [LCN address](#lcn-addresses) |
+| `variable`            | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+| `value`               | Yes      | Variable value                | _any positive number_                                              |
+| `unit_of_measurement` | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                   |
 
 Example:
 
@@ -498,12 +498,12 @@ Set the relative value of a variable or setpoint.
 If `value` is not defined, it is assumed to be 0.
 If `unit_of_measurement` is not defined, it is assumed to be `native`.
 
-| Data attribute | Optional | Description                   | Values                                                                                                |
-| ---------------------- | -------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
-| `value`                | Yes      | Variable value                | _any positive or negative number_                                                                     |
-| `unit_of_measurement`  | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                                                      |
+| Data attribute        | Optional | Description                   | Values                                                                                                |
+| --------------------- | -------- | ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `address`             | No       | [LCN address](#lcn-addresses) |
+| `variable`            | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units), [THRESHOLD](#variables-and-units) |
+| `value`               | Yes      | Variable value                | _any positive or negative number_                                                                     |
+| `unit_of_measurement` | Yes      | Variable unit                 | [VAR_UNIT](#variables-and-units)                                                                      |
 
 Example:
 
@@ -526,9 +526,9 @@ Otherwise the module might show unexpected behavior or return error messages.
 Reset value of variable or setpoint.
 
 | Data attribute | Optional | Description                   | Values                                                             |
-| ---------------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `variable`             | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
+| -------------- | -------- | ----------------------------- | ------------------------------------------------------------------ |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `variable`     | No       | Variable name                 | [VARIABLE](#variables-and-units), [SETPOINT](#variables-and-units) |
 
 Example:
 
@@ -550,10 +550,10 @@ Locks a regulator setpoint.
 If `state` is not defined, it is assumed to be `False`.
 
 | Data attribute | Optional | Description                   | Values                           |
-| ---------------------- | -------- | ----------------------------- | -------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `setpoint`             | No       | Setpoint name                 | [SETPOINT](#variables-and-units) |
-| `state`                | Yes      | Lock state                    | true, false                      |
+| -------------- | -------- | ----------------------------- | -------------------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `setpoint`     | No       | Setpoint name                 | [SETPOINT](#variables-and-units) |
+| `state`        | Yes      | Lock state                    | true, false                      |
 
 Example:
 
@@ -574,12 +574,12 @@ The command allows the sending of keys immediately or deferred. For a deferred s
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Data attribute | Optional | Description                   | Values                            |
-| ---------------------- | -------- | ----------------------------- | --------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `keys`                 | No       | Keys string                   |
-| `state`                | Yes      | Keys state                    | [KEY_STATE](#states)              |
-| `time`                 | Yes      | Deferred time                 | 0..                               |
-| `time_unit`            | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
+| -------------- | -------- | ----------------------------- | --------------------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `keys`         | No       | Keys string                   |
+| `state`        | Yes      | Keys state                    | [KEY_STATE](#states)              |
+| `time`         | Yes      | Deferred time                 | 0..                               |
+| `time_unit`    | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
 
 Examples:
 
@@ -611,12 +611,12 @@ The command allows the locking of keys for a specified time period. For a time p
 If `time_unit` is not defined, it is assumed to be `seconds`.
 
 | Data attribute | Optional | Description                   | Values                            |
-| ---------------------- | -------- | ----------------------------- | --------------------------------- |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `table`                | Yes      | Table with keys to lock       |
-| `state`                | No       | Key lock states as string     | [KEY_STATE](#states)              |
-| `time`                 | Yes      | Time period to lock           | 0..                               |
-| `time_unit`            | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
+| -------------- | -------- | ----------------------------- | --------------------------------- |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `table`        | Yes      | Table with keys to lock       |
+| `state`        | No       | Key lock states as string     | [KEY_STATE](#states)              |
+| `time`         | Yes      | Time period to lock           | 0..                               |
+| `time_unit`    | Yes      | Time unit                     | [TIME_UNIT](#variables-and-units) |
 
 Examples:
 
@@ -647,10 +647,10 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 
 
 | Data attribute | Optional | Description                        | Values |
-| ---------------------- | -------- | ---------------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses)      |
-| `row`                  | No       | Text row 1..4                      |
-| `text`                 | No       | Text to send for the specified row |
+| -------------- | -------- | ---------------------------------- | ------ |
+| `address`      | No       | [LCN address](#lcn-addresses)      |
+| `row`          | No       | Text row 1..4                      |
+| `text`         | No       | Text to send for the specified row |
 
 Example:
 
@@ -667,9 +667,9 @@ data:
 Send arbitrary PCK command. Only the command part of the PCK command has to be specified in the `pck` string.
 
 | Data attribute | Optional | Description                   | Values |
-| ---------------------- | -------- | ----------------------------- | ------ |
-| `address`              | No       | [LCN address](#lcn-addresses) |
-| `pck`                  | No       | PCK command                   |
+| -------------- | -------- | ----------------------------- | ------ |
+| `address`      | No       | [LCN address](#lcn-addresses) |
+| `pck`          | No       | PCK command                   |
 
 Example:
 
@@ -686,9 +686,9 @@ The [actions](#actions) use several predefined constants as parameters.
 
 ### Ports
 
-| Constant       | Values                                                                                                         |
-| -------------- | -------------------------------------------------------------------------------------------------------------- |
-| OUTPUT_PORT    | `output1`, `output2`, `output3`, `output4`                                                                     |
+| Constant    | Values                                     |
+| ----------- | ------------------------------------------ |
+| OUTPUT_PORT | `output1`, `output2`, `output3`, `output4` |
 
 ### Motors
 
@@ -707,20 +707,20 @@ The motor values specify which hardware relay or outputs configuration will be u
 
 ### Variables and units
 
-| Constant     | Values                                                                                                                                                                          |
-| ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| VARIABLE     | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var`                                                     |
-| SETPOINT     | `r1varsetpoint`, `r2varsetpoint`                                                                                                                                                |
-| THRESHOLD    | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
-| VAR_UNIT     | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree`                                                                                     |
-| TIME_UNIT    | `seconds`, `minutes`, `hours`, `days`                                                                                                                                           |
+| Constant  | Values                                                                                                                                                                          |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| VARIABLE  | `var1`, `var2`, `var3`, `var4`, `var5`, `var6`, `var7`, `var8`, `var9`, `var10`, `var11`, `var12`, `tvar`, `r1var`, `r2var`                                                     |
+| SETPOINT  | `r1varsetpoint`, `r2varsetpoint`                                                                                                                                                |
+| THRESHOLD | `thrs1`, `thrs2`, `thrs3`, `thrs4`, `thrs5`, `thrs2_1`, `thrs2_2`, `thrs2_3`, `thrs2_4`, `thrs3_1`, `thrs3_2`, `thrs3_3`, `thrs3_4`, `thrs4_1`, `thrs4_2`, `thrs4_3`, `thrs4_4` |
+| VAR_UNIT  | `native`, `°C`, `°K`, `°F`, `lux_t`, `lux_i`, `m/s`, `%`, `ppm`, `volt`, `ampere`, `degree`                                                                                     |
+| TIME_UNIT | `seconds`, `minutes`, `hours`, `days`                                                                                                                                           |
 
 ### States
 
-| Constant      | Values                             |
-| ------------- | ---------------------------------- |
-| LED_STATE     | `on`, `off`, `blink`, `flicker`    |
-| KEY_STATE     | `hit`, `make`, `break`, `dontsend` |
+| Constant  | Values                             |
+| --------- | ---------------------------------- |
+| LED_STATE | `on`, `off`, `blink`, `flicker`    |
+| KEY_STATE | `hit`, `make`, `break`, `dontsend` |
 
 ### Keys
 

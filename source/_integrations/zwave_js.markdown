@@ -130,7 +130,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Adding a new device to the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the Z-Wave integration. Then select **Configure**.
+2. Select the Z-Wave integration. Then select **Add**.
 3. Select **Add device**.
    - The Z-Wave controller is now in inclusion mode.
 4. Check, if your device supports SmartStart:
@@ -157,7 +157,7 @@ While your Z-Wave mesh is permanently stored on your dongle, the additional meta
 ### Removing a device from the Z-Wave network
 
 1. In Home Assistant, go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Z-Wave** integration. Then, select **Configure**.
+2. Select the **Z-Wave** integration. Then, select **Add**.
 3. Select **Remove device**, then **Start exclusion**.
    - The Z-Wave controller is now in exclusion mode.
 4. Put the device you want to remove in exclusion mode. Refer to its manual how this is done.

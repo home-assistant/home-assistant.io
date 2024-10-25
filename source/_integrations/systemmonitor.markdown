@@ -65,7 +65,7 @@ All sensors are also marked as diagnostic and won't be automatically added to au
 
 ## Add `process` binary sensor
 
-The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Configure** to select which `process` binary sensors should be created.
+The `process` binary sensor needs to be configured by the config entry options. Go to **{% my integrations title="Settings > Devices & services" %}**, select the **System Monitor** integration and click **Add** to select which `process` binary sensors should be created.
 
 ## Disk usage
 

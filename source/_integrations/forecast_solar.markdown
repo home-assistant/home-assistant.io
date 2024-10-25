@@ -101,7 +101,7 @@ updates (based on a higher data resolution), you could [sign up for one
 of their plans](https://doc.forecast.solar/doku.php?id=account_models#compare_plans).
 
 To enable the use of the API key with this integration, go to {% my integrations %}. 
-Select the Forecast.Solar integration, then select **Configure**. Enter the
+Select the Forecast.Solar integration, then select **Add**. Enter the
 API key for your account.
 
 ## Tweaking the estimations
@@ -135,4 +135,4 @@ instance:
 1. Browse to your Home Assistant instance.
 2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. If multiple instances of {{ name }} are configured, choose the instance you want to configure.
-4. Select **Configure**.
+4. Select **Add**.

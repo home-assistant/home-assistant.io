@@ -147,7 +147,7 @@ Add the MQTT integration, then provide your broker's hostname (or IP address) an
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+3. Select **Add**, then **Re-configure MQTT**.
 
 {% important %}
 If you experience an error message like `Failed to connect due to exception: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed`, then turn on `Advanced options` and set [Broker certificate validation](/integrations/mqtt/#broker-certificate-validation) to `Auto`.
@@ -197,7 +197,7 @@ To change the settings, follow these steps:
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
 2. Select the MQTT integration.
-3. Select **Configure**, then **Re-configure MQTT**.
+3. Select **Add**, then **Re-configure MQTT**.
 4. To open the MQTT options page, select **Next**.
 
 ### Discovery options
@@ -224,7 +224,7 @@ mosquitto_pub -h 127.0.0.1 -t homeassistant/switch/1/on -m "Switch is ON"
 Another way to send MQTT messages manually is to use the **MQTT** integration in the frontend. Choose "Settings" on the left menu, click "Devices & services", and choose "Configure" in the "Mosquitto broker" tile. Enter something similar to the example below into the "topic" field under "Publish a packet" and press "PUBLISH" .
 
 1. Go to **{% my integrations title="Settings > Devices & services" %}**.
-2. Select the Mosquitto broker integration, then select **Configure**.
+2. Select the Mosquitto broker integration, then select **Add**.
 3. Enter something similar to the example below into the **topic** field under **Publish a packet**. Select **Publish**.
 
 ```bash
@@ -1090,13 +1090,13 @@ The MQTT integration will register the `mqtt.publish` action, which allows publi
 
 ### Action `mqtt.publish`
 
-| Data attribute | Optional | Description                                                  |
-| ---------------------- | -------- | ------------------------------------------------------------ |
-| `topic`                | no       | Topic to publish payload to.                                 |
-| `payload`              | no       | Payload to publish.                                          |
-| `evaluate_payload`     | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false)|
-| `qos`                  | yes      | Quality of Service to use. (default: 0)                      |
-| `retain`               | yes      | If message should have the retain flag set. (default: false) |
+| Data attribute     | Optional | Description                                                                                 |
+| ------------------ | -------- | ------------------------------------------------------------------------------------------- |
+| `topic`            | no       | Topic to publish payload to.                                                                |
+| `payload`          | no       | Payload to publish.                                                                         |
+| `evaluate_payload` | yes      | If a `bytes` literal in `payload` should be evaluated to publish raw data. (default: false) |
+| `qos`              | yes      | Quality of Service to use. (default: 0)                                                     |
+| `retain`           | yes      | If message should have the retain flag set. (default: false)                                |
 
 
 {% note %}
@@ -1186,9 +1186,9 @@ retain: true
 Listen to the specified topic matcher and dumps all received messages within a specific duration into the file `mqtt_dump.txt` in your configuration folder. This is useful when debugging a problem.
 
 | Data attribute | Optional | Description                                                                 |
-| ---------------------- | -------- | --------------------------------------------------------------------------- |
-| `topic`                | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
-| `duration`             | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
+| -------------- | -------- | --------------------------------------------------------------------------- |
+| `topic`        | no       | Topic to dump. Can contain a wildcard (`#` or `+`).                         |
+| `duration`     | yes      | Duration in seconds that we will listen for messages. Default is 5 seconds. |
 
 ```yaml
 topic: zigbee2mqtt/#

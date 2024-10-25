@@ -63,7 +63,7 @@ The Insteon configuration panel allows for product specific configuration of Ins
 To open the Insteon configuration panel:
 
 1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
-2. Select the **Insteon** {% term integration %}. Then, select **Configure** to open the Insteon configuration panel.
+2. Select the **Insteon** {% term integration %}. Then, select **Add** to open the Insteon configuration panel.
 
 The following capabilities are available in the Insteon configuration panel:
 
