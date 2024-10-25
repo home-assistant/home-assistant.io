@@ -71,7 +71,8 @@ data:
   media_content_id: "1"
 ```
 
-An example action using an Airable radio id:
+An example action using an Airable radio ID:
+
 ```yaml
 action: media_player.play_media
 target:
