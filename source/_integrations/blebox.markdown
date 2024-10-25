@@ -346,7 +346,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 ### floodSensor
 
-This integration adds the Blebox device as a moisture sensor entity to Home Assistant.
+This integration adds the Blebox device as a moisture binary sensor entity to Home Assistant.
 
 #### Key supported features
 
