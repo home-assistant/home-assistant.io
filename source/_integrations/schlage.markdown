@@ -41,7 +41,7 @@ Once you have enabled the Schlage integration, you should see the following bina
 
 Once you have enabled the Schlage integration, you should see the following selects:
 
-- **Auto Lock Time** - Configure the time until the deadbolt automatically locks, or disable the auto-lock feature entirely.
+- **Auto Lock Time** - Configure the time until the deadbolt automatically locks, or disable the auto-lock feature entirely. For example, `0`: auto-lock is disabled, `15`: auto-lock after 15 seconds, `300`: auto-lock after 5 minutes.
 
 ## Sensor
 
