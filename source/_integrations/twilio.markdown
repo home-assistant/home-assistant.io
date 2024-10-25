@@ -43,7 +43,7 @@ After configuring the base Twilio integration, add and configure either or both 
 
 To be able to receive events from Twilio, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#external_url) in Home Assistant.
 
-To set it up, go to the integrations page in the configuration screen and find Twilio. Click on configure. Follow the instructions on the screen to configure Twilio.
+To set it up, go to the integrations page in the configuration screen and find Twilio. Select **Add**. Follow the instructions on the screen to configure Twilio.
 
 You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To generate inbound events, you have to configure your [webhooks with Twilio](https://www.twilio.com/docs/glossary/what-is-a-webhook):
  - Go to your Twilio [console](https://www.twilio.com/console).

@@ -14,7 +14,7 @@ ha_integration_type: integration
 
 To be able to receive webhooks from Mailgun, your Home Assistant instance needs to be accessible from the web and you need to have the external URL [configured](/integrations/homeassistant/#allowlist_external_urls).
 
-To set it up, go to the integrations page in the configuration screen and find Mailgun. Click on configure. Follow the instructions on the screen to configure Mailgun.
+To set it up, go to the integrations page in the configuration screen and find Mailgun. Select **Add**. Follow the instructions on the screen to configure Mailgun.
 
 You will get a URL of the following format: `https://<home-assistant-domain>/api/webhook/9940e99a26fae4dcf6fe0a478124b6b58b578ea4c55c9a584beb1c9f5057bb91`. To receive webhooks from Mailgun, you need to provide that URL as a callback URL in the Webhooks tab of the Mailgun Control Panel.
 
