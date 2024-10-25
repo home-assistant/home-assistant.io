@@ -32,7 +32,7 @@ To write information from Home Assistant to Emoncms, you can use the [`emoncms_h
 URL:
   description: The URL of the Emoncms server starting with the protocol (`http` or  `https`). For cloud installations, use <https://emoncms.org> (trailing slash optional). For local installations, use your local server address (e.g., `http://localhost:8080`). Ensure the server is accessible from your Home Assistant instance.
 API key:
-  description: The 32-character read-only API key needed for authentication, found under "My Account > Read Only API Key" in Emoncms. The key should be a hexadecimal string. The read and write API key is not needed as this integration just reads data from Emoncms. If you receive authentication errors, verify that you've copied the entire key correctly.
+  description: The 32-character read-only API key needed for authentication is found under "My Account > Read Only API Key" in Emoncms. The key should be a hexadecimal string. The read-and-write API key is not needed as this integration reads data from Emoncms. If you receive authentication errors, verify that you've copied the entire key correctly.
 {% endconfiguration_basic %}
 
 ## Sensors
