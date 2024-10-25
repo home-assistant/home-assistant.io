@@ -425,7 +425,7 @@ Phase two requires configuring the device in wBox app:
    type "send URL"
 2. Enter the webhook URL copied from phase one as the URL address for the action
 
-Note: in order for this integration flow to work the webhook URL's host must be
+Note: in order for this integration flow to work the webhook URL host must be
 resolvable and accessible within the device network. If in doubt please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 
@@ -588,7 +588,7 @@ Phase two requires configuring the device in wBox app:
    type "send URL"
 2. Enter the webhook URL copied from phase one as the URL address for the action
 
-Note: in order for this integration flow to work the webhook URL's host must be
+Note: in order for this integration flow to work the webhook URL host must be
 resolvable and accessible within the device network. If in doubt please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 
