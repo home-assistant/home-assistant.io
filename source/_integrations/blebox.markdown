@@ -399,7 +399,7 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 ### actionBox, actionBoxS, and proxiBox
 
-This integration does not add direct support for actionBox, actionBox, and proxiBox
+This integration does not add direct support for actionBox, actionBoxS, and proxiBox
 devices. It is however possible to integrate these devices with Home Assistant using
 automations via webhooks and wBox mobile app.
 
@@ -408,7 +408,7 @@ Such configuration consists of two phases.
 Phase one requires generating the compatible webhook in Home Assistant:
 1. Open Home Assistant application and navigate to Automations and Scenes.
 2. Click on "Create Automation"
-3. Choose te "Webhook" as the trigger type
+3. Choose the "Webhook" as the trigger type
 4. Click on the "cog" icon next to the webhook ID allow the GET method
 5. Copy the webhook URL to clipboard by clicking the "copy" icon next to the webhook ID
 6. and save it for later reference
@@ -425,7 +425,7 @@ Phase two requires configuring the device in wBox app:
    type "send URL"
 2. Enter the webhook URL copied from phase one as the URL address for the action
 
-Note: in order for this integration flow to work the webhook URL host must be
+Note: in order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 
@@ -571,7 +571,7 @@ Such configuration consists of two phases.
 Phase one requires generating the compatible webhook in Home Assistant:
 1. Open Home Assistant application and navigate to Automations and Scenes.
 2. Click on "Create Automation"
-3. Choose te "Webhook" as the trigger type
+3. Choose the "Webhook" as the trigger type
 4. Click on the "cog" icon next to the webhook ID allow the GET method
 5. Copy the webhook URL to clipboard by clicking the "copy" icon next to the webhook ID
 6. and save it for later reference
@@ -584,11 +584,10 @@ that this is the only thing that authenticates webhooks within your network. Tre
 this ID like a password.
 
 Phase two requires configuring the device in wBox app:
-1. Configure the Blebox device (actionBox, actionBoxS, or proxiBox) by adding action of
-   type "send URL"
+1. Configure the Simon GO device by adding action of type "send URL"
 2. Enter the webhook URL copied from phase one as the URL address for the action
 
-Note: in order for this integration flow to work the webhook URL host must be
+Note: in order for this integration flow to work, the webhook URL host must be
 resolvable and accessible within the device network. If in doubt please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 
