@@ -27,7 +27,7 @@ If your receiver has second or third zone available, they are displayed as addit
 
 {% configuration_basic %}
 Host:
-  description: Hostname or IP address of the device, for example: `192.168.1.2`.
+  description: Hostname or IP address of the device, for example:`192.168.1.2`.
   type: string
 Volume Resolution:
   description: Number of steps it takes for the receiver to go from the lowest to the highest possible volume. Possible values are 50, 80, 100, 200. For older Onkyo receivers, this typically is 80; newer Onkyo receivers use 200.
@@ -69,7 +69,7 @@ which one to use seems to vary depending on model so you will have to try them o
 # Example onkyo_select_hdmi_output script
 #
 script:
- hdmi_sub:
+  hdmi_sub:
     alias: "Hdmi out projector"
     sequence:
       - action: media_player.onkyo_select_hdmi_output
@@ -87,7 +87,7 @@ Not working for NET radio.
 # Example play_media script
 #
 script:
- radio1:
+  radio1:
     alias: "Radio 1"
     sequence:
       - action: media_player.turn_on
