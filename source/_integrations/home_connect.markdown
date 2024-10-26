@@ -5,19 +5,24 @@ ha_category:
   - Binary sensor
   - Hub
   - Light
+  - Number
   - Sensor
   - Switch
+  - Time
 ha_iot_class: Cloud Push
 ha_release: '0.110'
 ha_domain: home_connect
 ha_codeowners:
   - '@DavidMStraub'
+  - '@Diegorro98'
 ha_config_flow: true
 ha_platforms:
   - binary_sensor
   - light
+  - number
   - sensor
   - switch
+  - time
 ha_integration_type: integration
 ---
 
@@ -28,10 +33,24 @@ The integration will add one Home Assistant device for each connected home appli
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
-- For hood's functional light a light switch including brightness control will be added.
-- For hood's and dishwasher's ambient light a light switch including brightness and color control will be added.
+- Light:
+  - Hoods:
+    - Functional light: on/off and brightness
+    - Ambient light: on/off, brightness, HSV and RGB
+  - Dishwasher: on/off, brightness, HS and RGB
+  - Cooling appliances: Both, external and internal lights, on/off and brightness
+- Numbers that sets the temperature of cooling appliances.
+- Time for alarm clock for cooktops and ovens.
+- Multiple sensors that report the different states and events reported by the appliance.
+- Binary sensors that shows binary states of the appliance.
 
+{% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
+{% endnote %}
+
+{% note %}
+Some devices only have the state `on` and turn off is not supported by the appliance, check [power state availability at Home Connect API documentation](https://api-docs.home-connect.com/settings/#power-state) for more information.
+{% endnote %}
 
 ## Prerequisites
 
