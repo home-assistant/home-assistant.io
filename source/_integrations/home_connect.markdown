@@ -39,7 +39,7 @@ The integration will add one Home Assistant device for each connected home appli
     - Ambient light: on/off, brightness, HSV and RGB
   - Dishwasher: on/off, brightness, HS and RGB
   - Cooling appliances: Both, external and internal lights, on/off and brightness
-- Numbers that sets the temperature of cooling appliances.
+- Numbers that set the temperature of cooling appliances.
 - Time for alarm clock for cooktops and ovens.
 - Multiple sensors that report the different states and events reported by the appliance.
 - Binary sensors that show binary states of the appliance.
