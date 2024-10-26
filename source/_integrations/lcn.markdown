@@ -66,7 +66,67 @@ The configuration of the `lcn` devices and entities is completely done using a w
 
 Once the integration is added to Home Assistant, you can access the `lcn` configuration panel by selecting the **Configure** button next to the respective integration entry on the [LCN integration page](https://my.home-assistant.io/redirect/integration/?domain=lcn).
 
-The detailed documentation for the LCN frontend panel can be found [here](https://alengwenus.github.io/lcn-frontend/).
+![Integration configuration](/images/integrations/lcn/lcn_integration_configuration.png)
+
+## Configuration panel
+
+From the LCN Configuration Panel, you can configure your LCN modules, groups, and entities within Home Assistant.
+
+![LCN Configuration Panel](/images/integrations/lcn/lcn_device_page.png)
+
+### Configuring devices
+
+You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](https://www.home-assistant.io/integrations/lcn/#actions) within scripts or automations. For examples, refer to the [Performing actions](https://www.home-assistant.io/docs/scripts/perform-actions/) page.
+
+The **Modules / Groups** tab provides an overview of your configured LCN modules and groups, showing their name, ID, and segment ID. The LCN Configuration Panel attempts to derive names from the LCN modules; if a module has no name or is part of a group, a standard name is assigned.
+
+#### Scanning modules
+
+To initiate a scan for LCN modules on the bus, click the three vertical dots in the upper right corner and select **Scan Modules**. This process polls each module for its name and serial number. When all module responses have been received, they will be listed in the device list.
+
+Scanning modules may take several seconds. The pop-up dialog will close automatically once the process is complete.
+
+#### Adding devices
+
+If module scanning fails or a module is unavailable on the bus, you can manually add it. Groups can also be created manually.
+
+To add a module or group manually, click the **Create Module/Group** button to open the dialog.
+
+![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
+
+Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. Click **Create** to add the new device.
+
+#### Deleting devices
+
+To delete a device, click the trash can icon next to it. This will remove the device from the device list and Home Assistant, including any associated entities.
+
+You can also delete multiple devices at once by enabling selection mode, selecting the desired entries, and clicking the **Delete Selected** button in the upper right.
+
+### Configuring entities
+
+Entities configured for all devices are listed on the **Entities** tab. To view entities for a specific device (module or group), click the device entry in the **Modules / Groups** tab. This will open the Entities tab, filtering entities to show only those for the selected device. You can also apply custom filters by enabling the filter option.
+
+![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
+
+#### Adding entities
+
+To create a new entity, click the **Create Entity** button, which opens the following dialog.
+
+![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
+
+Select the module or group for which to create the entity from the dropdown menu. (If a single module or group filter is applied, it will be pre-selected.)
+
+Choose the domain (platform) for the entity and enter a name. You can change this name later within the Home Assistant entity settings.
+
+Depending on the selected domain, additional options will be shown. Enter the required information and click **Create** to add the entity to the list and Home Assistant.
+
+#### Deleting entities
+
+To delete an entity, click the trash can icon next to it. This will remove the entity from the list and Home Assistant. To delete multiple entities, enable selection mode, select the desired entries, and click **Delete Selected** in the upper right.
+
+#### Displaying entity properties
+
+Once an entity is created, you can view and configure its properties by clicking on it in the entity list. This opens the Home Assistant dialog for entity properties, allowing you to configure the entity as you would from the general Home Assistant entity configuration panel.
 
 ## Platforms
 
