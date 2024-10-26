@@ -67,11 +67,12 @@ Some devices only have the state `on` and turn off is not supported by the appli
 5. In Home Assistant, find the Home Connect integration and launch it. You will be prompted to create an [Application Credential](https://www.home-assistant.io/integrations/application_credentials). You will need to provide a name (it's arbitrary) in addition to the Client ID and Secret from the previous step. Then, follow the steps in the UI to complete setup.
 
 *Important*:
- - **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
- - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on. 
- - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
- - The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
- - All changes in the developer portal take 15 minutes before the change is implemented.
+
+- **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
+- To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on.
+- After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
+- The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
+- All changes in the developer portal take 15 minutes before the change is implemented.
 
 {% details "I have manually disabled My Home Assistant" %}
 
@@ -82,7 +83,7 @@ instead.
 The `<HOME_ASSISTANT_URL>` must be the same as used during the configuration/
 authentication process.
 
-Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`." 
+Internal examples: `http://192.168.0.2:8123/auth/external/callback`, `http://homeassistant.local:8123/auth/external/callback`."
 
 {% enddetails %}
 
