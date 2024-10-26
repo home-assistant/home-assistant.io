@@ -42,7 +42,7 @@ The integration will add one Home Assistant device for each connected home appli
 - Numbers that sets the temperature of cooling appliances.
 - Time for alarm clock for cooktops and ovens.
 - Multiple sensors that report the different states and events reported by the appliance.
-- Binary sensors that shows binary states of the appliance.
+- Binary sensors that show binary states of the appliance.
 
 {% note %}
 Note that it depends on the appliance and on API permissions which of the features are supported.
@@ -68,10 +68,10 @@ Some devices only have the state `on` and turn off is not supported by the appli
 
 {% important %}
 
-- **Power on** all your appliances during the integration configuration process; otherwise appliance programs list will be empty.
+- **Power on** all your appliances during the integration configuration process; otherwise, appliance programs list will be empty.
 - To update the appliance programs list, you can reload the Home Connect integration when an appliance is turned on. If the re-initialization process is not triggered by reload, restart the Home Assistant when an appliance is turned on.
 - After performing the steps above, [log out](https://developer.home-connect.com/user/logout) of your Home Connect Developer account. If you don't do this, the configuration steps below will fail during OAuth authentication with the message `“error”: “unauthorized_client”`.
-- The provided Home Connect User Account email address **must** be all lowercase otherwise it will result in authentication failures.
+- The provided Home Connect User Account email address **must** be all lowercase; otherwise, it will result in authentication failures.
 - All changes in the developer portal take 15 minutes before the change is implemented.
 
 {% endimportant %}
