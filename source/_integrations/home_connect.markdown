@@ -6,6 +6,7 @@ ha_category:
   - Hub
   - Light
   - Number
+  - Select
   - Sensor
   - Switch
   - Time
@@ -20,6 +21,7 @@ ha_platforms:
   - binary_sensor
   - light
   - number
+  - select
   - sensor
   - switch
   - time
@@ -32,6 +34,7 @@ The integration will add one Home Assistant device for each connected home appli
 
 - A power switch
 - If the device has programs, switches for each of the individual programs will be added. Note that program options cannot be configured currently.
+- If the device has programs, a select entity that will allow you to select the program between the available ones.
 - If the device has programs, a timestamp sensor for remaining time and a numeric sensor for the progress percentage.
 - Light:
   - Hoods:
