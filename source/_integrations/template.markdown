@@ -69,11 +69,11 @@ If you need more specific features for your use case, the manual [YAML-configura
 
 ## YAML configuration
 
-Entities (sensors, binary sensors, buttons, images, numbers, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
+Entities (sensors, binary sensors, buttons, images, numbers, switches, and selections) are defined in your YAML configuration files under the `template:` key. You can define multiple configuration blocks as a list. Each block defines sensor/binary sensor/number/select entities and can contain an optional update trigger.
 
 _For old sensor/binary sensor configuration format, [see below](#legacy-binary-sensor-configuration-format)._
 
-### State-based template binary sensors, buttons, images, numbers, selects and sensors
+### State-based template binary sensors, buttons, images, numbers, selects, switches and sensors
 
 Template entities will by default update as soon as any of the referenced data in the template updates.
 
@@ -303,6 +303,24 @@ image:
       required: false
       type: boolean
       default: true
+switch:
+  description: List of switches
+  required: true
+  type: map
+  keys:
+    state:
+      description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+      required: false
+      type: template
+      default: optimistic
+    turn_on:
+      description: Defines an action or list of actions to run when the switch is turned on.
+      required: true
+      type: action
+    turn_off:
+      description: Defines an action or list of actions to run when the switch is turned off.
+      required: true
+      type: action
 weather:
   description: List of weather entities
   required: true
@@ -388,7 +406,7 @@ weather:
       description: Unit for precipitation output. Valid options are km, mi, ft, m, cm, mm, in, yd.
       required: false
       type: string
-"[all sensor, binary sensor, button, image, number, select, weather entities]":
+"[all sensor, binary sensor, button, image, number, select, switch, weather entities]":
   description: Fields that can be used above for sensors, binary sensors, buttons, numbers, and selects.
   required: false
   type: map

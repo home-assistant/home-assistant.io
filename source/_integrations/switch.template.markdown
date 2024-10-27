@@ -17,6 +17,8 @@ ha_integration_type: helper
 related:
   - docs: /docs/configuration/
     title: Configuration file
+  - docs: /integrations/template/
+    title: Template entities
 ---
 
 The `template` platform creates switches that combines components.
@@ -45,11 +47,10 @@ To enable Template Switches in your installation, add the following to your {% t
 
 ```yaml
 # Example configuration.yaml entry
-switch:
-  - platform: template
-    switches:
-      skylight:
-        value_template: "{{ is_state('sensor.skylight', 'on') }}"
+template:
+  - switch:
+      - name: Skylight 
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           action: switch.turn_on
           target:
@@ -63,45 +64,40 @@ switch:
 {% endraw %}
 
 {% configuration %}
-  switches:
-    description: List of your switches.
+  name:
+    description: Name to use in the frontend.
+    required: false
+    type: string
+  unique_id:
+    description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
+    required: false
+    type: string
+  state:
+    description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
+    required: false
+    type: template
+    default: optimistic
+  availability:
+    description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
+    required: false
+    type: template
+    default: true
+  turn_on:
+    description: Defines an action or list of actions to run when the switch is turned on.
     required: true
-    type: map
-    keys:
-      friendly_name:
-        description: Name to use in the frontend.
-        required: false
-        type: string
-      unique_id:
-        description: An ID that uniquely identifies this switch. Set this to a unique value to allow customization through the UI.
-        required: false
-        type: string
-      value_template:
-        description: Defines a template to set the state of the switch. If not defined, the switch will optimistically assume all commands are successful.
-        required: false
-        type: template
-        default: optimistic
-      availability_template:
-        description: Defines a template to get the `available` state of the entity. If the template either fails to render or returns `True`, `"1"`, `"true"`, `"yes"`, `"on"`, `"enable"`, or a non-zero number, the entity will be `available`. If the template returns any other value, the entity will be `unavailable`. If not configured, the entity will always be `available`. Note that the string comparison not case sensitive; `"TrUe"` and `"yEs"` are allowed.
-        required: false
-        type: template
-        default: true
-      turn_on:
-        description: Defines an action or list of actions to run when the switch is turned on.
-        required: true
-        type: action
-      turn_off:
-        description: Defines an action or list of actions to run when the switch is turned off.
-        required: true
-        type: action
-      icon_template:
-        description: Defines a template for the icon of the switch.
-        required: false
-        type: template
-      entity_picture_template:
-        description: Defines a template for the picture of the switch.
-        required: false
-        type: template
+    type: action
+  turn_off:
+    description: Defines an action or list of actions to run when the switch is turned off.
+    required: true
+    type: action
+  icon:
+    description: Defines a template for the icon of the switch.
+    required: false
+    type: template
+  picture:
+    description: Defines a template for the picture of the switch.
+    required: false
+    type: template
 {% endconfiguration %}
 
 ### Template and action variables
@@ -123,12 +119,11 @@ This example shows a switch that is the inverse of another switch.
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      invert:
-        value_template: "{{ not is_state('switch.target', 'on') }}"
-        availability_template: "{{ has_value('switch.target') }}"
+template:
+  - switch:
+      - name: Invert
+        state: "{{ not is_state('switch.target', 'on') }}"
+        availability: "{{ has_value('switch.target') }}"
         turn_on:
           action: switch.turn_off
           target:
@@ -148,12 +143,10 @@ This example shows a switch that takes its state from a sensor and toggles a swi
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      blind:
-        friendly_name: "Blind"
-        value_template: "{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"
+template:
+  - switch:
+      - name: Blind
+        state: "{{ is_state_attr('switch.blind_toggle', 'sensor_state', 'on') }}"
         turn_on:
           action: switch.toggle
           target:
@@ -173,11 +166,10 @@ This example shows multiple actions for turn_on and turn_off.
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      copy:
-        value_template: "{{ is_state('switch.source', 'on') }}"
+template:
+  - switch:
+      - name: Copy
+        state: "{{ is_state('switch.source', 'on') }}"
         turn_on:
           - action: switch.turn_on
             target:
@@ -206,12 +198,10 @@ momentary switches to control a device.
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      skylight:
-        friendly_name: "Skylight"
-        value_template: "{{ is_state('sensor.skylight', 'on') }}"
+template:
+  - switch:
+      - name: Skylight
+        state: "{{ is_state('sensor.skylight', 'on') }}"
         turn_on:
           action: switch.turn_on
           target:
@@ -231,11 +221,10 @@ This example shows how to change the icon based on the state of the garage door.
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      garage:
-        value_template: "{{ is_state('cover.garage_door', 'open') }}"
+template:
+  - switch:
+      - name: Garage
+        state: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           action: cover.open_cover
           target:
@@ -244,7 +233,7 @@ switch:
           action: cover.close_cover
           target:
             entity_id: cover.garage_door
-        icon_template: >-
+        icon: >-
           {% if is_state('cover.garage_door', 'open') %}
             mdi:garage-open
           {% else %}
@@ -261,11 +250,10 @@ This example shows how to change the entity picture based on the state of the ga
 {% raw %}
 
 ```yaml
-switch:
-  - platform: template
-    switches:
-      garage:
-        value_template: "{{ is_state('cover.garage_door', 'open') }}"
+template:
+  - switch:
+      - name: Garage
+        state: "{{ is_state('cover.garage_door', 'open') }}"
         turn_on:
           action: cover.open_cover
           target:
@@ -274,7 +262,7 @@ switch:
           action: cover.close_cover
           target:
             entity_id: cover.garage_door
-        entity_picture_template: >-
+        picture: >-
           {% if is_state('cover.garage_door', 'open') %}
             /local/garage-open.png
           {% else %}
