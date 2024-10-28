@@ -155,7 +155,7 @@ The properties for controlling both the temperature and wind strength of the app
 
 ### Event
 
-A notification message pushed from the server is represented as a event platform. Supported devices:
+A notification message pushed from the server is represented as an event platform. Supported devices:
 
 | Device | Property |
 | ------ | -------- |
