@@ -196,7 +196,7 @@ The properties for controlling the clean operations of the appliance are represe
 
 ### Select
 
-A writable property which has a list of selectable values is represensted as a select platform.
+A writable property which has a list of selectable values is represented as a select platform.
 
 | Device |Property |
 | ------ |-------- |
@@ -217,7 +217,7 @@ A writable property which has a list of selectable values is represensted as a s
 
 ### Switch
 
-A read-wirte property which has only two states that can be toggled is represensted as a switch platform.
+A read-write property which has only two states that can be toggled is represented as a switch platform.
 
 | Device | Property |
 | ------ | -------- |
