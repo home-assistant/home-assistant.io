@@ -114,7 +114,7 @@ A read-only property which has only two states that can be toggled is represente
 
 ### Sensor
 
-A common read-only property is represented as a sensor platform.
+LG ThinQ supports the following sensors. Sensors are read-only. Not all devices support all sensors. If a specific entity is supported, depends on the device.
 
 | Device | Property |
 | ------ | -------- |
