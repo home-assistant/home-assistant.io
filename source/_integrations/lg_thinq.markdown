@@ -235,7 +235,7 @@ A read-write property which has only two states that can be toggled is represent
 
 #### Aborted: The token is not valid
 
-This error occurs when the Personal Access Token (PAT) is invalid or entered incorrectly. Please visit the [Personal Access Token Page](https://d1jykc6oogauei.cloudfront.net/) page to check if your token is valid.
+This error occurs when the Personal Access Token (PAT) is invalid or entered incorrectly. Please visit the [Personal Access Token Page](https://connect-pat.lgthinq.com) page to check if your token is valid.
 
 #### Aborted: The country is not supported
 
