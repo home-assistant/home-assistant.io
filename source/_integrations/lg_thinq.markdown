@@ -172,7 +172,7 @@ The properties for controlling the wind strength of the appliance are represente
 
 ### Number
 
-A read-wirte property which has numeric value is represensted as a number platform.
+A read-write property which has numeric value is represented as a number platform.
 
 | Device | Property |
 | ------ | -------- |
