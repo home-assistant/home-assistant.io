@@ -123,6 +123,86 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
+## Automations
+
+Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+### Create "Empty the dishwasher" to-do
+
+Automatically create a Habitica to-do when the dishwasher finishes its cycle.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-create-to-do-when-dishwasher-finishes-its-cycle/786625" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.dishwasher
+    from: "on"
+    to: "off"
+
+actions:
+  - action: todo.add_item
+    data:
+      item: "Empty the dishwasher 🥣🍽️"
+      due_date: "{{now().date()}}"
+      description: "Empty the clean dishes from the dishwasher and load any dirty dishes that are waiting."
+    target:
+      entity_id: todo.habitica_to_dos
+```
+
+{% endraw %}
+
+{% enddetails %}
+
+### Complete toothbrushing tasks on your Habitica Dailies list
+
+Automatically mark your morning and evening toothbrushing dailies as complete when your toothbrush usage is detected.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-complete-toothbrushing-tasks-on-your-habitica-dailies-list/786631" %}
+
+{% details "Example YAML configuration" %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: sensor.oralb_toothbrush_state
+    to: "running"
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 10 # Time delay for debouncing to avoid false triggers
+actions:
+  - choose:
+      - conditions:
+          - condition: time
+            after: "05:00:00"
+            before: "12:00:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth in the morning 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+      - conditions: 
+          - condition: time
+            after: "18:00:00"
+            before: "23:59:00"
+        sequence:
+          - action: todo.update_item
+            data:
+              item: "Brush your teeth before bed 🪥"
+              status: completed
+            target:
+              entity_id: todo.habitica_dailies
+```
+
+{% enddetails %}
+
 ## API Service
 
 At runtime, you will be able to use the API for each respective user by their Habitica's username.
