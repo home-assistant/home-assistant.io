@@ -85,7 +85,7 @@ Host:
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
-| Smart standby enabled | Whether smart standby is on (machine will automatically standby after given time) | all |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all |
 
 ## Binary sensors
 
