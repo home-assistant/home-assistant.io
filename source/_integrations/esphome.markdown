@@ -95,3 +95,7 @@ sensor:
 ```
 
 The entity will be named `Temperature` and will default to having an entity_id of `sensor.temperature`.
+
+## Removing a device
+
+
