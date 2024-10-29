@@ -52,6 +52,7 @@ The following device classes are supported for sensors:
 - **aqi**: Air Quality Index (unitless).
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, mmHg, inHg, kPa, mbar, Pa or psi
 - **battery**: Percentage of battery that is left in %
+- **blood_sugar_level**: Blood sugar level in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke) in ppm
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG) in ppm
 - **current**: Current in A, mA
