@@ -43,6 +43,7 @@ The following device classes are supported for numbers:
 - **aqi**: Air Quality Index (unitless).
 - **atmospheric_pressure**: Atmospheric pressure in cbar, bar, hPa, inHg, kPa, mbar, Pa, psi
 - **battery**: Percentage of battery that is left
+- **blood_sugar_level**: Blood sugar level in mg/dL, mmol/L
 - **carbon_dioxide**: Carbon Dioxide in CO2 (Smoke)
 - **carbon_monoxide**: Carbon Monoxide in CO (Gas CNG/LPG)
 - **current**: Current in A, mA
