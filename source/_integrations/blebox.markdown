@@ -409,6 +409,7 @@ The configuration consists of two steps:
 
 
 #### Generating the compatible webhook in Home Assistant
+
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select the **Create Automation** button.
 2. Choose the **Webhook** as the trigger type
 3. Next to the webhook ID, select on the cog icon to allow the GET method.
