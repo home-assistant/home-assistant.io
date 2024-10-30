@@ -76,6 +76,7 @@ Host:
 | Prebrew on time | Time prebrew wets the puck | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Prebrew off time | Time prebrew waits before turning on the pump | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
 | Preinfusion time | Duration of preinfusion | Linea Micra, Linea Mini, GS3 AV | GS3 has this multiple times, one for each physical key (1-4), and the entities are disabled by default |
+| Smart standby time | Time until the machine will automatically stand by (if enabled) | all | - |
 
 
 ## Switches
@@ -84,6 +85,7 @@ Host:
 |-------------|-------------| ---------------------- |
 | Main        | Allows to turn machines on-/off | all |
 | Steam boiler | Allows to enable/disable the steam boiler | all |
+| Smart standby enabled | Whether smart standby is on (machine will automatically stand by after given time) | all |
 
 ## Binary sensors
 
@@ -116,6 +118,7 @@ Host:
 |-------------|-------------| ------------------------| ---------------------- |
 | Prebrew/-infusion mode | Whether to use prebrew, preinfusion, or neither | Disabled, Prebrew, Preinfusion | Linea Micra, Linea Mini, GS3 AV |
 | Steam level | The level your steam boiler should run at | 1,2,3 | Linea Micra |
+| Smart standby mode | The smart standby mode, that decides from which events the timer to standby will run. | Last brewing, Power on | all |
 
 ## Supported devices
 

@@ -397,6 +397,14 @@ This integration adds the Blebox device as a sensor entity to Home Assistant.
 
 - Periodic read of current wind speed
 
+### luxSensor
+
+This integration adds the Blebox device as a sensor entity to Home Assistant.
+
+#### Key supported features
+
+- Periodic read of illuminance (unit: lx)
+
 ------
 
 ## "BleBox inside" controllers

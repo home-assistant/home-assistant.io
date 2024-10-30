@@ -3,7 +3,7 @@ title: Husqvarna Automower BLE
 description: Instructions on how to integrate Husqvarna Automower BLE lawn mowers into Home Assistant.
 ha_category:
   - Lawn Mower
-ha_release: 2024.2
+ha_release: 2024.11
 ha_iot_class: Local Polling
 ha_config_flow: true
 ha_codeowners:

@@ -31,7 +31,7 @@ The **LCN** {% term integration %} for Home Assistant allows you to connect to [
 
 ## Prerequisites
 
-- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler. 
+- The integration requires one unused license of the coupling software LCN-PCHK (version >2.8) and an LCN hardware coupler.
 - Alternatively, an LCN-VISU or LCN-PKE coupler can be used which offers at least two PCHK licenses.
 With this setup, sending and receiving commands to and from LCN modules is possible.
 
@@ -75,8 +75,6 @@ The detailed documentation for the LCN frontend panel can be found [here](https:
 The `lcn` binary sensor platform allows the monitoring of the following [LCN](https://www.lcn.eu/) binary data sources:
 
 - Binary hardware sensors
-- Lock state of regulator setpoints
-- Lock state of keys
 
 The binary sensor can be used in automation scripts or in conjunction with `template` platforms.
 
@@ -141,6 +139,8 @@ The `lcn` switch platform allows the control of the following [LCN](https://www.
 
 - Output ports
 - Relays
+- Lock state of regulators
+- Lock state of keys
 
 ## Additional features
 
