@@ -71,7 +71,7 @@ media_content_id: 'The Best of Disco'
 
 ## Additional actions
 
-### Action `mass.play_media`
+### Action `music_assistant.play_media`
 
 Play media on a Music Assistant player with more fine grained control options.
 
@@ -84,7 +84,7 @@ Play media on a Music Assistant player with more fine grained control options.
 | `enqueue`      | No       | If the content should be played now or be added to the queue. Options are: play, replace, next. replace_next, add        | "replace"                          |
 | `radio_mode`   | No       | Enable radio mode to auto generate a playlist based on the selection.                                                    | "true"                             |
 
-### Action `mass.play_announcement`
+### Action `music_assistant.play_announcement`
 
 Play announcement on a Music Assistant player with more fine grained control options.
 
@@ -94,7 +94,7 @@ Play announcement on a Music Assistant player with more fine grained control opt
 | `use_pre_announce`     | No       | Use pre-announcement sound for the announcement. Omit to use the player default. | "true"                                    |
 | `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use player default.      | "75"                                      |
 
-### Action `mass.search`
+### Action `music_assistant.search`
 
 Perform a global search on the Music Assistant library and all providers.
 
@@ -107,7 +107,7 @@ Perform a global search on the Music Assistant library and all providers.
 | `limit`        | No       | Maximum number of items to return (per media type)                                                                | "25"                   |
 | `library_only` | No       | Only include results that are in the library.                                                                     | "true"                 |
 
-### Action `mass.transfer_queue`
+### Action `music_assistant.transfer_queue`
 
 Transfer the player's queue to another player.
 
