@@ -38,12 +38,11 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 
 - *Change kitchen lights brightness to 50%*
 - *Set bed light to green*
-- *set "light" brightness to 50%*
-- *set "light" to red*
-- *set "area" brightness to 50%*
+- *set bed light brightness to 50%*
+- *set living room brightness to 50%*
 - *set brightness to 50%*
   - Uses area of voice satellite
-- *set "area" lights to red*
+- *set kitchen lights to red*
 - *set lights to red*
   - Uses area of voice satellite
 - *turn on the lights in the living room*
@@ -112,7 +111,7 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 ### Cancelling
 
 - *cancel timer*
-  - can't cancel multiple timers
+  - can't cancel multiple timers yet
 - *cancel 5 minute timer*
 - *cancel pizza timer*
 - *cancel kitchen timer*
@@ -195,7 +194,7 @@ The list of supported sentences is constantly being updated for each language. T
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - "" mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+        - &lt;&gt; mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
 4. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
 5. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
