@@ -90,7 +90,7 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 | ---------------------- | -------- | ------------------------ |
 | `entry_id`             | no       | The integration entry_id |
 | `torrent`              | no       | Torrent to download      |
-| `download_path`        | yes      | Download directory       |
+| `download_path`        | yes      | Absolute path to the download directory. If not specified, Transmission's default directory will be used. |
 
 ### Action `remove_torrent`
 
