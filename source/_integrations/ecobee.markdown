@@ -158,6 +158,20 @@ The `ventilator 20 min` switch is behaving like the switch in the physical ecobe
 | `ventilator_min_on_time_home` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are home. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 | `ventilator_min_on_time_away` | The minimum amount of time (in minutes) that the ventilator will run per hour, when you are away. This is determined by the minimum ventilator runtime setting which can be changed in the ecobee app or on the thermostat itself. |
 
+## Auxiliary Heat
+
+### Concepts 
+
+When a HVAC system is equipped with a heat pump, a form of auxiliary heat is usually included. This may also be referred to as 'Emergency Heat'. You can control whether the thermostat requests only auxiliary heat, and adjust the outdoor temperature at which the heat pump compressor will no longer be used, for example, in response to utility costs or solar production in a hybrid system - that is, a system that does not use electricity for the auxilary heat (natural gas, propane, etc.). This applies more to air source heat pumps than geothermal. 
+
+### Switch
+
+The `Aux heat only` switch is provided to disable use of the heat pump, only using the auxilary heater. 
+
+### Number
+
+The `Aux Heat Cutover Threshold` number represents the outdoor temperature at which the heat pump will not run. This is represented in the temperature units you have selected in HomeAssistant; however, Ecobee allows configuration only in increments of 5 degrees Fahrenheit. This is represented in the thermostat user interface as well. 
+
 ## Actions
 
 Besides the standard actions provided by the Home Assistant [Climate](/integrations/climate/) integration, the following extra actions are provided by the ecobee integration:
