@@ -1,6 +1,6 @@
 ### Synology NAS
 
-Synology with DSM now supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/Docker>
+Synology with DSM now supports Docker, allowing you to install Home Assistant using Docker without the need for command-line. For details about the package (including compatibility-information, if your NAS is supported), see <https://www.synology.com/en-us/dsm/packages/ContainerManager>
 
 The steps would be:
 
