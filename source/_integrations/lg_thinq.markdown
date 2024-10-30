@@ -3,7 +3,7 @@ title: LG ThinQ
 description: Setup for LG ThinQ Integration.
 ha_category:
   - Hub
-ha_release: "2024.10"
+ha_release: "2024.11"
 ha_iot_class: Cloud Push
 ha_code_owners:
   - '@LG-ThinQ-Integration'
