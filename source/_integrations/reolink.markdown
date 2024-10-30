@@ -76,7 +76,7 @@ Depending on the supported features of the camera, binary sensors are added for:
 - AI package detection+
 - Sleep status
 
-\+ These sensors receive events using 4 methods in order: TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
+\+ These sensors receive events using the following 4 methods (in order): TCP push, ONVIF push, ONVIF long polling or fast polling (every 5 seconds).
 The latency for receiving the events is the best for TCP push and the worst for fast polling, the fastest available method that is detected to work will be used, and slower methods will not be used.
 For redundancy, these sensors are polled every 60 seconds together with the update of all other entities.
 To ensure you have the best latency possible, refer to the [Reducing latency of motion events](#reducing-latency-of-motion-events) section.
