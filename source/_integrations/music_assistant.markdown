@@ -4,7 +4,7 @@ description: Instructions on how to integrate Music Assistant into Home Assistan
 ha_category:
   - Media player
 featured: true
-ha_release: 2024.11.0
+ha_release: 2024.11
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
