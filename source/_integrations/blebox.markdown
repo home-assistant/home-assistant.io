@@ -425,7 +425,7 @@ this ID like a password.
 
 #### Configuring the device in the wBox app
 
-1. Configure the Blebox device (actionBox, actionBoxS, or proxiBox) by adding the action of
+1. Configure the device by adding the action of
    type "send URL".
 2. Enter the webhook URL that you copied when generating the webhook. It is the URL address for the action.
 
