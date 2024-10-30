@@ -27,7 +27,7 @@ All of the Home Assistant [Media Player Control Actions](https://www.home-assist
 
 ### Manual configuration
 
-Under normal circumstances, Home Assistant will automatically discover your running Music Assistant Server. If there is something special about the HA or MA setup (e.g. the MA server is running as a remote docker container) or discovery is not working, it is possible to manually specify the URL to your Music Assistant server. 
+Under normal circumstances, Home Assistant will automatically discover your running Music Assistant Server. If there is something special about the HA or MA setup (e.g. the MA server is running as a remote Docker container) or discovery is not working, it is possible to manually specify the URL to your Music Assistant server. 
 
 ## Media player
 
