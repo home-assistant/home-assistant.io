@@ -73,26 +73,26 @@ media_content_id: 'The Best of Disco'
 
 ### Action `music_assistant.play_media`
 
-Play media on a Music Assistant player with more fine grained control options.
+Play media on a Music Assistant player with more fine-grained control options.
 
-| Data attribute | Required | Description                                                                                                              | Example                            |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
+| Data attribute | Required | Description                                                                                                              | Example                           |
+| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
 | `media_id`     | Yes      | URI or name of the item you want to play. Specify a list if you want to play/enqueue multiple items.                     | "spotify://playlist/aabbccddeeff" |
-| `media_type`   | No       | The type of the content to play. Such as artist, album, track or playlist. Will be auto determined if omitted.           | "playlist"                        |
-| `artist`       | No       | When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name. | "Queen"                            |
-| `album`        | No       | When specifying a track by name in the Media ID field, you can optionally restrict results by this album name.           | "News of the world"                |
-| `enqueue`      | No       | If the content should be played now or be added to the queue. Options are: play, replace, next. replace_next, add        | "replace"                          |
-| `radio_mode`   | No       | Enable radio mode to auto generate a playlist based on the selection.                                                    | "true"                             |
+| `media_type`   | No       | The type of the content to play. Such as artist, album, track or playlist. Will be auto-determined if omitted.           | "playlist"                        |
+| `artist`       | No       | When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name. | "Queen"                           |
+| `album`        | No       | When specifying a track by name in the Media ID field, you can optionally restrict results by this album name.           | "News of the world"               |
+| `enqueue`      | No       | If the content should be played now or be added to the queue. Options are: play, replace, next, replace_next, add        | "replace"                         |
+| `radio_mode`   | No       | Enable radio mode to auto-generate a playlist based on the selection.                                                    | "true"                            |
 
 ### Action `music_assistant.play_announcement`
 
-Play announcement on a Music Assistant player with more fine grained control options.
+Play announcement on a Music Assistant player with more fine-grained control options.
 
-| Data attribute         | Required | Description                                                                      | Example                                   |
-| ---------------------- | -------- | -------------------------------------------------------------------------------- | ----------------------------------------- |
-| `url`                  | Yes      | URL to the notification sound.                                                   | "http://someremotesite.com/doorbell.mp3 " |
-| `use_pre_announce`     | No       | Use pre-announcement sound for the announcement. Omit to use the player default. | "true"                                    |
-| `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use player default.      | "75"                                      |
+| Data attribute         | Required | Description                                                                      | Example                                  |
+| ---------------------- | -------- | -------------------------------------------------------------------------------- | ---------------------------------------- |
+| `url`                  | Yes      | URL to the notification sound.                                                   | "http://someremotesite.com/doorbell.mp3" |
+| `use_pre_announce`     | No       | Use pre-announcement sound for the announcement. Omit to use the player default. | "true"                                   |
+| `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use player default.      | "75"                                     |
 
 ### Action `music_assistant.search`
 
