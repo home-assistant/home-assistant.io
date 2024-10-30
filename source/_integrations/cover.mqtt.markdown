@@ -537,6 +537,8 @@ mqtt:
 
 ### Full configuration using advanced templating
 
+The `position_template` can accept JSON, where `position` and `tilt_position` is provided at the same time.
+
 The example below shows a full example of how to set up a venetian blind which has a combined position and tilt topic. The blind in the example has moveable slats which tilt with a position change. In the example, it takes the blind 6% of the movement for a full rotation of the slats.
 
 Following variable might be used in `position_template`, `set_position_template`, `tilt_command_template` and `tilt_status_template`, `json_attributes_template` (only `entity_id`).
@@ -577,24 +579,20 @@ mqtt:
       position_template: |-
         {% if not state_attr(entity_id, "current_position") %}
           {
-            "position" : value,
-            "tilt_value" : 0
+            "position" : {{ value }},
+            "tilt_position" : 0
           }
         {% else %}
-          {% set position = state_attr(entity_id, "current_position") %}
-          {% set tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
+          {% set old_position = state_attr(entity_id, "current_position") %}
+          {% set old_tilt_percent = (state_attr(entity_id, "current_tilt_position")) %}
 
-          {% set movement = value | int - position %}
-          {% set tilt = (tilt_percent / 100 * (tilt_max - tilt_min)) %}
-          {% set tilt_value = min(max((tilt + movement), tilt_min), max) %}
+          {% set movement = value | int - old_position %}
+          {% set old_tilt_position = (old_tilt_percent / 100 * (tilt_max - tilt_min)) %}
+          {% set new_tilt_position = min(max((old_tilt_position + movement), tilt_min), tilt_max) %}
   
           {
-            "position": value,
-            "pos": position,
-            "tilt": tilt,
-            "tilt_value": tilt_value,
-            "tilt_percent" : tilt_percent,
-            "mov" : movement
+            "position": {{ value }},
+            "tilt_position": {{ new_tilt_position }}
           }
         {% endif %}
     tilt_command_template: >-
