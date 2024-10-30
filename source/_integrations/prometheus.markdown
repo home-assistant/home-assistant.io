@@ -199,7 +199,6 @@ When the Prometheus exporter starts (typically when Home Assistant starts), all 
 If an available entity goes into state unavailable or unknown, then it will automatically be unexported and return again automatically when available and known.
 
 {% note %}
-Prior to Home Assistant 2024.11, this component would continue to export the latest known value when an entity became unavailable or unknown, and set its corresponding `entity_available` metric to 0.
 
 To filter out these stale values, `entity_available` could be used in a query or recording rule. For example:
 
