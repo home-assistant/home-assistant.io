@@ -570,7 +570,10 @@ This integration does not add direct support for Simon 54 GO Control and Simon 5
 Control devices. It is however possible to integrate these devices with Home Assistant
 using automations via webhooks and wBox mobile app.
 
-Such configuration consists of two phases.
+The configuration consists of two steps:
+
+- [Generating the compatible webhook in Home Assistant](generating-the-compatible-webhook-in-home-assistant)
+- [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
 ### FAKRO FTP-V/FTU-V WiFi
 
