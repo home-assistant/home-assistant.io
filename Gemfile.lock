@@ -178,6 +178,7 @@ DEPENDENCIES
   rake (= 13.2.1)
   rubocop (= 1.67.0)
   ruby-lsp (= 0.20.1)
+  sass-embedded (= 1.80.4)
   sass-globbing (= 1.1.5)
   sassc (= 2.1.0)
   sinatra (= 4.0.0)
