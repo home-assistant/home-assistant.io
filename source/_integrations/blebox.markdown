@@ -404,6 +404,7 @@ devices. It is however possible to integrate these devices with Home Assistant u
 automations via webhooks and wBox mobile app.
 
 The configuration consists of two steps:
+
 - [Generating the compatible webhook in Home Assistant](#generating-the-compatible-webhook-in-home-assistant)
 - [Configuring the device in the wBox app](#configuring-the-device-in-the-wbox-app)
 
