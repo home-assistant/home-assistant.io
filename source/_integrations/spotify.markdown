@@ -165,7 +165,7 @@ Spotify provides sensors that display information about the song that is current
 - **Song key**: The estimated overall key of the track. If no key was detected, the value is unknown. For example, C sharp or E flat.
 - **Song liveness**: In percent.  Describes the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live.
 - **Song mode**: The modality (major or minor) of a song.
-- **Song speeciness**: In percent. Describes the presence of spoken words in a song. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the higher the value.
+- **Song speechiness**: In percent. Describes the presence of spoken words in a song. The more exclusively speech-like the recording (e.g. talk show, audio book, poetry), the higher the value.
 - **Song tempo**: The speed of the piece of music that is currently playing, in beats per minute (bpm).
 - **Song time signature**: The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). For example: 4/4, 6/8.
 - **Song valence**. In percent. Tracks with high valence sound more positive (happy, cheerful, euphoric), while tracks with low valence sound more negative (sad, depressed, angry).
