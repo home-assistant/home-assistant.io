@@ -194,9 +194,9 @@ Increase the positive or negative streak of a habit
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `config_entry` | no       |  Config entry of the character to for tracking the habit.                                                         |
+| `config_entry` | no       |  Config entry of the character for tracking the habit.                                                            |
 | `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
-| `direction`    | no       |  `up`if it is a positive or `down` if it is a negative progress you want to track for your habit                  |
+| `direction`    | no       |  `up` for a positive progress or `down` for a negative progress you want to track for your habit                  |
 
 ### Action `habitica.score_reward`
 
