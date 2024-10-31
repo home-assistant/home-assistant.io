@@ -344,7 +344,7 @@ in_progress:
   default: false
   type: boolean
 update_percentage:
-  description: Number between 0 and 100 to report the update process. A `null` value resets the in progress state.
+  description: Number between 0 and 100 to report the update process. A `null` value resets the in-progress state.
   required: false
   type: ["integer", "float"]
 {% endconfiguration %}
