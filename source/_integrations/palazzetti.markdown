@@ -11,11 +11,10 @@ ha_codeowners:
 ha_domain: palazzetti
 ha_platforms:
   - climate
-ha_quality_scale: platinum
 ha_integration_type: device
 ---
 
-The Palazzetti integration integrates the [Palazzetti](https://palazzettigroup.com/)
+The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
 stoves equipped with a [Connection Box](https://palazzettigroup.com/research-and-development/app/).
 It is accessing the device's local API.
 
