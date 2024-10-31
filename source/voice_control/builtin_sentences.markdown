@@ -1,5 +1,5 @@
 ---
-title: "Assist - default sentences"
+title: Assist - sentences starter kit
 related:
   - docs: /voice_control/aliases/
     title: Create aliases
@@ -19,99 +19,161 @@ related:
 
 Home Assistant comes with [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) contributed by the community for [dozens of languages](https://developers.home-assistant.io/docs/voice/intent-recognition/supported-languages).
 
-These sentences allow you, for example, to:
+## Prerequisites
 
-- **Turn entities on and off**
-    - *"turn on the living room light"*
-    - *"turn off ceiling fan"*
-    - *"turn on the TV"*
-    - *"lock all the doors"*
-    - *"open the main door"*
-- **Open, close covers, or ask about their state**
-    - *"Close the garage door"*
-    - *"Open kitchen window"*
-    - *"Which curtains are closed"*
-    - *"Set bedroom curtain to 50%"*
-- **Set the brightness and color of lights**
-    - *"Change kitchen lights brightness to 50%"*
-    - *"Set bed light to green"*
-- **Ask about the weather**
-    - *"What is the weather"*
-    - Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
-- **Add items to a list**
-    - *"Add bread to my shopping list"*
-    - *"Add decorating christmas tree to my december chores list"*
-- **Get information about a state**
-  - *"What is the amount of energy from solar production?"*
-  - *"what is the heat pump co2 sensor's co2 level?"*
-  - *"what is the battery level of my phone?"*
-- **Run a script**
-    - *"Run stealth mode script"*
-- **Activate a scene**
-    - *"Activate dinner scene"*
-    - *"Turn kitchen dinner scene on"*
-- **Inquire about people (that have device tracking activated in Home Assistant)**
-    - *"How many people are in the kitchen"*
-    - *"Who is in the garage"*
-    - *"Where is Anne"*
-- **Control the media player**
-    - *"next item on TV"*
-    - *"skip song on the TV"*
-    - *"skip track on the TV"*
-    - *"skip to the next song on the TV"*
-    - *"pause TV"*
-    - *"TV pause"*
-    - *"unpause TV"*
-    - *"TV unpause"*
-    - *"resume TV"*
-    - *"set TV volume to 90 percent"*
-    - *"change the TV volume to 90"*
-    - *"turn TV volume down to 90 percent"*
-- **Control the vacuum**
-    - *"return rover to base"*
-    - *"start rover"*
-- **Use timers**
-  - *“Create a timer for 5 minutes”*
-  - *“Create a 15-minute timer for pizza”*
-  - *“Cancel my timer”*
-  - *“Pause my timer”*
-  - *“Resume my timer”*
-  - *“Add 2 minutes to my 5-minute timer”*
-  - *“Remove 3 minutes from my pizza timer”*
+- The entities you want to control with Assist must be [exposed to Assist](/voice_control/voice_remote_expose_devices/).
+- When using the names of entities or areas, make sure to use them exactly as they are defined in Home Assistant, or, [create an alias](/voice_control/aliases/).
 
-  <p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3-Box-3B, with countdown text and a loading bar!</p>
+## Device control
+
+### Turning entities on and off
+
+- *turn on the living room light*
+- *turn off ceiling fan*
+- *turn on the TV*
+- *lock all the doors*
+- *open the main door*
+
+### Lights
+
+- *Change kitchen lights brightness to 50%*
+- *Set bed light to green*
+- *set bed light brightness to 50%*
+- *set living room brightness to 50%*
+- *set brightness to 50%*
+  - Uses area of voice satellite
+- *set kitchen lights to red*
+- *set lights to red*
+  - Uses area of voice satellite
+- *turn on the lights in the living room*
+
+### Covers
+
+- *Close the garage door*
+- *Open kitchen window*
+- *Which curtains are closed*
+- *Set bedroom curtain to 50%*
+
+### Scenes and scripts
+
+- *Run stealth mode script*
+- *Activate dinner scene*
+- *Turn kitchen dinner scene on*
+
+### Media player
+
+- *next item on TV*
+- *next track*
+- *next track in office*
+- *previous track*
+- *previous track in office*
+- *skip song on the TV*
+- *skip track on the TV*
+- *skip to the next song on the TV*
+- *pause|resume*
+  - pauses or resumes music on voice satellite or in current area
+- *pause|resume "area" music*
+  - pauses or resumes music in area
+- *pause|resume "entity"*
+  - pauses or resumes music on media player
+- *unpause TV*
+- *TV unpause*
+- *set TV volume to 90 percent*
+- *change the TV volume to 90*
+- *turn TV volume down to 90 percent*
+
+### Vacuum
+
+- *return rover to base*
+- *start rover*
+
+### Lists
+
+- *Add bread to my shopping list*
+- *Add decorating christmas tree to my december chores list*
+  - needs a todo list name "december chores"
+- *add clean out garage to weekend list*
+  - needs a todo list named "Weekend"
+
+## Date and time
+
+- *what time is it?*
+- *what's the date?*
+
+## Timers
+
+### Starting
+
+- *set a timer for 5 minutes*
+- *5 minute timer*
+- *set a 20 minute timer for pizza*
+
+### Cancelling
+
+- *cancel timer*
+  - can't cancel multiple timers yet
+- *cancel 5 minute timer*
+- *cancel pizza timer*
+- *cancel kitchen timer*
+  - Must have been set by a voice satellite in the kitchen
+
+### Adding/Removing Time
+
+- *add 5 minutes to pizza timer*
+- *add 5 minutes to kitchen timer*
+- *remove 1 minute from timer*
+- *remove 1 minute from 5 minute timer*
+
+### Status
+
+- *timer status*
+- *how much time is left on pizza timer?*
+- *how much time is left on kitchen timer?*
+- *how much time is left on 5 minute timer?*
+
+"p class='img'""lite-youtube videoid=v3mNdTsX4J0 videotitle=Voice timers with countdown text and loading bar""/lite-youtube"Timers running on an S3-Box-3B, with countdown text and a loading bar!"/p"
 
 To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_control/s3_box_voice_assistant/).
 
-- **Combine timers and device control to add a delay**
+### Combining timers and device control to add a delay
+
 Unlike regular voice timers, delayed commands cannot be canceled or modified.
-  - *“Turn off the lights in the living room in 5 minutes”*
-  - *“Pause TV in 10 minutes”*
-  - *“Open the blinds in 5 minutes”*
 
-- **Abort wake word**
-    - *"Nevermind"*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
+- *Turn off the lights in the living room in 5 minutes*
+- *Pause TV in 10 minutes*
+- *Open the blinds in 5 minutes*
 
-The sentences only work, if the {% term entities %} are available and are named exactly the way you call them. Check the [troubleshooting section](/voice_control/troubleshooting/) to see common errors when asking for the weather forecast.
+## Questions
 
-In addition to individual {% term entities %}, commands can target **areas**:
+### Get information about a state
 
-- *"turn on all lights in the living room"*
-- *"open windows in the kitchen"*
-- *"change office brightness to 50%"*
-- *"set bedroom lights to green"*
+- *What is the amount of energy from solar production?*
+- *what is the heat pump co2 sensor's co2 level?*
+- *what is the battery level of my phone?*
 
-Entity [aliases](/voice_control/aliases) are also matched so that multiple names can be used, even in different languages.
+### Ask about the weather
 
-You can extend the [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) or [add your own](/voice_control/custom_sentences) to trigger any action in Home Assistant.
+- *What is the weather*
+- Struggling with this one? Check the [troubleshooting section](/voice_control/troubleshooting/).
 
-## View existing sentences
+### Ask about people
+
+(that have device tracking activated in Home Assistant)
+
+- *How many people are in the kitchen*
+- *Who is in the garage*
+- *Where is Anne*
+
+## Aborting
+
+- *Nevermind*: If you triggered the wake word by mistake and want to stop Home Assistant from listening
+
+## Troubleshooting
 
 The list of supported sentences is constantly being updated for each language. There are so many possible sentences that they cannot be all listed here. To find out what works in your language, follow these steps.
 
-**Note**: If the voice assistant doesn't understand you, you may need to rephrase your sentence a bit. Or check if the {% term entity %} or {% term area %} name is correct for your environment.
-
-1. Take a look at the test sentences:
+1. If the voice assistant doesn't understand you, you may need to rephrase your sentence a bit. Or check if the {% term entity %} or {% term area %} name is correct for your environment.
+2. Take a look at the test sentences:
     - On GitHub, in the [tests](https://github.com/home-assistant/intents/tree/main/tests) folder, open the subfolder for your language.
     - Look through the test files to see the example sentences that have been tested.
     - The second part of the file name shows the {% term intent %}, the first part shows the {% term domain %}. For some {% term domains %}, such as covers, fans, and light, there are specific sentences.
@@ -124,7 +186,7 @@ The list of supported sentences is constantly being updated for each language. T
 
         ![Example of a set of test sentences](/images/assist/assist-test-file-light-turn-on.png)
 
-2. View the sentence definition for the tests:
+3. View the sentence definition for the tests:
     - On GitHub, in the [sentences](https://github.com/home-assistant/intents/tree/main/sentences) folder, open the subfolder for your language.
     - Open the file of interest.
 
@@ -132,8 +194,12 @@ The list of supported sentences is constantly being updated for each language. T
 
         - () mean alternative elements.
         - [] mean optional elements.
-        - <> mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
+        - &lt;&gt; mean an expansion rule. To view these rules, search for `expansion_rules` in the [_common.yaml](https://github.com/home-assistant/intents/blob/main/sentences/en/_common.yaml) file.
         - The syntax is explained in detail in the [template sentence syntax documentation](https://developers.home-assistant.io/docs/voice/intent-recognition/template-sentence-syntax/).
-3. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
-4. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
+4. View the [sentence definition](https://github.com/home-assistant/intents/tree/main/sentences) for your language.
+5. View the [response definition](https://github.com/home-assistant/intents/tree/main/responses)
+6. If there are issues when asking for the weather forecast, check the [troubleshooting section](/voice_control/troubleshooting/) to see common errors.
 
+## More sentences
+
+You can extend the [built-in sentences](https://github.com/home-assistant/intents/tree/main/sentences) or [add your own](/voice_control/custom_sentences) to trigger any action in Home Assistant.
