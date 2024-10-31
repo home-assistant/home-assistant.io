@@ -214,7 +214,7 @@ Use a transformation item from your Habitica character's inventory on a member o
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
 | `config_entry` | no       |  Config entry of the character to use the transformation item.                                                    |
-| `item`         | no       |  The transformation item you want to use. Item must be in the characters inventory.                               |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
 | `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username or user ID           |
 
 #### Available transformation items
