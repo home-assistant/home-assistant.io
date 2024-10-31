@@ -76,13 +76,17 @@ Enjoy the (beta) release!
 <!--more-->
 
 - [Sections dashboard now generally available](#sections-dashboard-now-generally-available)
+  - [Convert your old dashboards to sections dashboards](#convert-your-old-dashboards-to-sections-dashboards)
+  - [Precise sizing mode](#precise-sizing-mode)
 - [Low latency cameras using WebRTC](#low-latency-cameras-using-webrtc)
 - [Integrations](#integrations)
   - [New integrations](#new-integrations)
   - [Noteworthy improvements to existing integrations](#noteworthy-improvements-to-existing-integrations)
   - [Now available to set up from the UI](#now-available-to-set-up-from-the-ui)
+  - [Farewell to the following](#farewell-to-the-following)
 - [Other noteworthy changes](#other-noteworthy-changes)
   - [Live logs](#live-logs)
+  - [Assist for Canadian French](#assist-for-canadian-french)
 - [Need help? Join the community!](#need-help-join-the-community)
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
@@ -206,6 +210,17 @@ A bit technical maybe, but if you need to view the Home Assistant supervisor log
 can now view those live! No need to press refresh buttons anymore, and you can scroll back in time to see previous log items.
 
 _**Insert recording of it streaming**_
+
+### Assist for Canadian French
+
+When we started Year of the Voice in early 2023, we took the decision to split French and Canadian French into two different languages. This decision was unique among all the languages spoken in more than one country.
+
+Unfortunately the Canadian French sentences stopped being updated and a lot of new features never got implemented, such as timers, floor support, and area awareness to name a few.
+This release, we took the decision to merge both languages, this means that Canadian French users are getting a ton of great new voice features!
+
+![Screenshot showing a few commands in Canadian French before and after this release](/images/blog/2024-11/canadian-french-on-assist.png)
+
+French language leaders (@piitaya and @jlpouffier) are still looking for a Canadian French volunteer to help them with the French sentences, feel free to ping them if you are interested!
 
 ## Need help? Join the community!
 
