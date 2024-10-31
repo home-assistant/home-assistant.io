@@ -1,6 +1,6 @@
 ## Network storage
 
-You can configure both Network File Share (NFS) and Windows samba (CIFS) targets to be used within Home Assistant and add-ons.
+You can configure both Network File System (NFS) and Samba/Windows (CIFS) targets to be used within Home Assistant and add-ons.
 To list all your currently connected network storages, go to **{% my storage title="Settings > System > Storage" %}** in the UI.
 
 {% if page.installation == "os" %}
