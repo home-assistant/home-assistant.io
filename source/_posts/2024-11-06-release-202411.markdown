@@ -215,7 +215,7 @@ _**Insert recording of it streaming**_
 
 When we started Year of the Voice in early 2023, we took the decision to split French and Canadian French into two different languages. This decision was unique among all the languages spoken in more than one country.
 
-Unfortunately the Canadian French sentences stopped being updated and a lot of new features never got implemented, such as timers, floor support, and area awareness to name a few.
+Unfortunately, the Canadian French sentences stopped being updated, and a lot of new features never got implemented, such as timers, floor support, and area awareness, to name a few.
 This release, we took the decision to merge both languages, this means that Canadian French users are getting a ton of great new voice features!
 
 ![Screenshot showing a few commands in Canadian French before and after this release](/images/blog/2024-11/canadian-french-on-assist.png)
