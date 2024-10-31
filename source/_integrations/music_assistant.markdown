@@ -141,7 +141,7 @@ Perform a global search on the Music Assistant library and all providers.
   - **Optional**: Yes.
   - **Description**: Maximum number of items to return (per media type).
   - **Example**: `10`
-- **Data attribute**: `radio_mode`
+- **Data attribute**: `library_only`
   - **Optional**: Yes.
   - **Description**: Only include results that are in the library.
   - **Example**: `true`
