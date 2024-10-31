@@ -3,7 +3,7 @@ title: Music Assistant
 description: Instructions on how to integrate Music Assistant into Home Assistant.
 ha_category:
   - Media player
-ha_release: 2024.11
+ha_release: 2024.12
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_codeowners:
@@ -43,7 +43,7 @@ The `media_content_id` payload can be any of the following:
 - A track or album combined with the artist name (for example, "Queen - Innuendo")
 - A streaming provider URI (for example, `spotify://artist/12345`)
 
-#### Examples:
+#### Examples
 
 Play Adele's album 25
 
@@ -93,7 +93,12 @@ Play media on a Music Assistant player with more fine-grained control options.
   - **Example**: `News of the world`
 - **Data attribute**: `enqueue`
   - **Optional**: Yes.
-  - **Description**: If the content should be played now or be added to the queue. Options are: play, replace, next, replace_next, add.
+  - **Description**: If the content should be played now or be added to the queue. Options are:
+    -  play: Play now
+    -  replace: Replace the existing queue and play now
+    -  next: Add to the current queue after the currently playing item
+    -  replace_next: Replace the current queue after the currently playing item
+    -  add: Add to the end of the queue
   - **Example**: `replace`
 - **Data attribute**: `radio_mode`
   - **Optional**: Yes.
