@@ -75,46 +75,89 @@ media_content_id: 'The Best of Disco'
 
 Play media on a Music Assistant player with more fine-grained control options.
 
-| Data attribute | Required | Description                                                                                                              | Example                           |
-| -------------- | -------- | ------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
-| `media_id`     | Yes      | URI or name of the item you want to play. Specify a list if you want to play/enqueue multiple items.                     | "spotify://playlist/aabbccddeeff" |
-| `media_type`   | No       | The type of the content to play. Such as artist, album, track or playlist. Will be auto-determined if omitted.           | "playlist"                        |
-| `artist`       | No       | When specifying a track or album by name in the Media ID field, you can optionally restrict results by this artist name. | "Queen"                           |
-| `album`        | No       | When specifying a track by name in the Media ID field, you can optionally restrict results by this album name.           | "News of the world"               |
-| `enqueue`      | No       | If the content should be played now or be added to the queue. Options are: play, replace, next, replace_next, add        | "replace"                         |
-| `radio_mode`   | No       | Enable radio mode to auto-generate a playlist based on the selection.                                                    | "true"                            |
+- **Data attribute**: `media_id`
+  - **Optional**: No.
+  - **Description**: URI or name of the item to be play. Specify a list if it is desired to play/enqueue multiple items.
+  - **Example**: `spotify://playlist/aabbccddeeff`
+- **Data attribute**: `media_type`
+  - **Optional**: Yes.
+  - **Description**: The type of content to play. Select from artist, album, track, playlist or radio. Will be auto-determined if omitted.
+  - **Example**: `playlist` 
+- **Data attribute**: `artist`
+  - **Optional**: Yes.
+  - **Description**: When specifying a track or album in the Media ID field, you can optionally restrict results by this artist name.
+  - **Example**: `Queen`
+- **Data attribute**: `album`
+  - **Optional**: Yes.
+  - **Description**: When specifying a track in the Media ID field, you can optionally restrict results by this album name.
+  - **Example**: `News of the world`
+- **Data attribute**: `enqueue`
+  - **Optional**: Yes.
+  - **Description**: If the content should be played now or be added to the queue. Options are: play, replace, next, replace_next, add.
+  - **Example**: `replace`
+- **Data attribute**: `radio_mode`
+  - **Optional**: Yes.
+  - **Description**: Enable radio mode to auto-generate a playlist based on the selection.
+  - **Example**: `true`
 
 ### Action `music_assistant.play_announcement`
 
 Play announcement on a Music Assistant player with more fine-grained control options.
 
-| Data attribute         | Required | Description                                                                      | Example                                  |
-| ---------------------- | -------- | -------------------------------------------------------------------------------- | ---------------------------------------- |
-| `url`                  | Yes      | URL to the notification sound.                                                   | "http://someremotesite.com/doorbell.mp3" |
-| `use_pre_announce`     | No       | Use pre-announcement sound for the announcement. Omit to use the player default. | "true"                                   |
-| `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use the player default.      | "75"                                     |
+- **Data attribute**: `url`
+  - **Optional**: No.
+  - **Description**: URL to the notification sound.
+  - **Example**: `http://someremotesite.com/doorbell.mp3`
+- **Data attribute**: `use_pre_announce`
+  - **Optional**: Yes.
+  - **Description**: Use pre-announcement sound. Omit to use the player default.
+  - **Example**: `true` 
+- **Data attribute**: `announce_volume`
+  - **Optional**: Yes.
+  - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
+  - **Example**: `75` 
 
 ### Action `music_assistant.search`
 
 Perform a global search on the Music Assistant library and all providers.
 
-| Data attribute | Required | Description                                                                                                       | Example                |
-| ---------------| -------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `name`         | Yes      | The name/title to search for.                                                                                     | "We Are The Champions" |
-| `media_type`   | No       | The type of the content to search. Such as artist, album, track, radio, or playlist. All types if omitted.         | "playlist"             |
-| `artist`       | No       | When specifying a track or album name in the name field, you can optionally restrict results by this artist name. | "Queen"                |
-| `album`        | No       | When specifying a track name in the name field, you can optionally restrict results by this album name.           | "News of the world"    |
-| `limit`        | No       | Maximum number of items to return (per media type)                                                                | "25"                   |
-| `library_only` | No       | Only include results that are in the library.                                                                     | "true"                 |
+- **Data attribute**: `name`
+  - **Optional**: No.
+  - **Description**: The name/title to search for.
+  - **Example**: `We Are The Champions`
+- **Data attribute**: `media_type`
+  - **Optional**: Yes.
+  - **Description**: The type(s) of content to search for. Select from artist, album, track, radio, or playlist. All types if omitted.
+  - **Example**: `playlist` 
+- **Data attribute**: `artist`
+  - **Optional**: Yes.
+  - **Description**: When specifying a track or album in the name field, you can optionally restrict results by this artist name.
+  - **Example**: `Queen`
+- **Data attribute**: `album`
+  - **Optional**: Yes.
+  - **Description**: When specifying a track in the name field, you can optionally restrict results by this album name.
+  - **Example**: `News of the world`
+- **Data attribute**: `limit`
+  - **Optional**: Yes.
+  - **Description**: Maximum number of items to return (per media type).
+  - **Example**: `10`
+- **Data attribute**: `radio_mode`
+  - **Optional**: Yes.
+  - **Description**: Only include results that are in the library.
+  - **Example**: `true`
 
 ### Action `music_assistant.transfer_queue`
 
 Transfer the player's queue to another player.
 
-| Data attribute   | Required | Description                                                                                                            | Example                        |
-| ---------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `source_player`  | No       | The source media player which has the queue you want to transfer. When omitted, the first playing player will be used. | "media_player.kitchen_speaker" |
-| `auto_play`      | No       | Start playing the queue on the target player. Omit to use the default behavior.                                        | "true"                         |
+- **Data attribute**: `source_player`
+  - **Optional**: Yes.
+  - **Description**: The source media player which has the queue to be transferred. When omitted, the first playing player will be used.
+  - **Example**: `media_player.kitchen_speaker` 
+- **Data attribute**: `auto_play`
+  - **Optional**: Yes.
+  - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
+  - **Example**: `true` 
 
 ## Notes
 
