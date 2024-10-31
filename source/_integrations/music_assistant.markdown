@@ -39,9 +39,9 @@ Play media hosted on a Music Assistant server on a Music Assistant player. The a
 
 The `media_content_id` payload can be any of the following:
 
-- The name of a track, artist or album. (e.g. "Queen")
-- A track or album combined with the artist name (e.g. "Queen - Innuendo")
-- A streaming provider URI (e.g. `spotify://artist/12345`)
+- The name of a track, artist or album. (for example, "Queen")
+- A track or album combined with the artist name (for example, "Queen - Innuendo")
+- A streaming provider URI (for example, `spotify://artist/12345`)
 
 #### Examples:
 
@@ -92,7 +92,7 @@ Play announcement on a Music Assistant player with more fine-grained control opt
 | ---------------------- | -------- | -------------------------------------------------------------------------------- | ---------------------------------------- |
 | `url`                  | Yes      | URL to the notification sound.                                                   | "http://someremotesite.com/doorbell.mp3" |
 | `use_pre_announce`     | No       | Use pre-announcement sound for the announcement. Omit to use the player default. | "true"                                   |
-| `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use player default.      | "75"                                     |
+| `announce_volume`      | No       | Use a forced volume level for the announcement. Omit to use the player default.      | "75"                                     |
 
 ### Action `music_assistant.search`
 
@@ -101,7 +101,7 @@ Perform a global search on the Music Assistant library and all providers.
 | Data attribute | Required | Description                                                                                                       | Example                |
 | ---------------| -------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------- |
 | `name`         | Yes      | The name/title to search for.                                                                                     | "We Are The Champions" |
-| `media_type`   | No       | The type of the content to search. Such as artist, album, track, radio or playlist. All types if omitted.         | "playlist"             |
+| `media_type`   | No       | The type of the content to search. Such as artist, album, track, radio, or playlist. All types if omitted.         | "playlist"             |
 | `artist`       | No       | When specifying a track or album name in the name field, you can optionally restrict results by this artist name. | "Queen"                |
 | `album`        | No       | When specifying a track name in the name field, you can optionally restrict results by this album name.           | "News of the world"    |
 | `limit`        | No       | Maximum number of items to return (per media type)                                                                | "25"                   |
