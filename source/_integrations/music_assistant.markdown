@@ -53,7 +53,7 @@ media_content_type: MUSIC
 media_content_id: 'Adele - 25'
 ```
 
-Play all tracks from Stevie Wonder
+Play all tracks from Stevie Wonder in random order
 
 ```yaml
 entity_id: media_player.music_assistant_player
@@ -82,7 +82,7 @@ Play media on a Music Assistant player with more fine-grained control options.
 - **Data attribute**: `media_type`
   - **Optional**: Yes.
   - **Description**: The type of content to play. Select from artist, album, track, playlist or radio. Will be auto-determined if omitted.
-  - **Example**: `playlist` 
+  - **Example**: `playlist`
 - **Data attribute**: `artist`
   - **Optional**: Yes.
   - **Description**: When specifying a track or album in the Media ID field, you can optionally restrict results by this artist name.
@@ -107,15 +107,15 @@ Play announcement on a Music Assistant player with more fine-grained control opt
 - **Data attribute**: `url`
   - **Optional**: No.
   - **Description**: URL to the notification sound.
-  - **Example**: `http://someremotesite.com/doorbell.mp3`
+  - **Example**: `https://someremotesite.com/doorbell.mp3`
 - **Data attribute**: `use_pre_announce`
   - **Optional**: Yes.
   - **Description**: Use pre-announcement sound. Omit to use the player default.
-  - **Example**: `true` 
+  - **Example**: `true`
 - **Data attribute**: `announce_volume`
   - **Optional**: Yes.
   - **Description**: Use a forced volume level for the announcement. Omit to use the player default.
-  - **Example**: `75` 
+  - **Example**: `75`
 
 ### Action `music_assistant.search`
 
@@ -128,7 +128,7 @@ Perform a global search on the Music Assistant library and all providers.
 - **Data attribute**: `media_type`
   - **Optional**: Yes.
   - **Description**: The type(s) of content to search for. Select from artist, album, track, radio, or playlist. All types if omitted.
-  - **Example**: `playlist` 
+  - **Example**: `playlist`
 - **Data attribute**: `artist`
   - **Optional**: Yes.
   - **Description**: When specifying a track or album in the name field, you can optionally restrict results by this artist name.
@@ -153,11 +153,11 @@ Transfer the player's queue to another player.
 - **Data attribute**: `source_player`
   - **Optional**: Yes.
   - **Description**: The source media player which has the queue to be transferred. When omitted, the first playing player will be used.
-  - **Example**: `media_player.kitchen_speaker` 
+  - **Example**: `media_player.kitchen_speaker`
 - **Data attribute**: `auto_play`
   - **Optional**: Yes.
   - **Description**: Start playing the queue on the target player. Omit to use the default behavior.
-  - **Example**: `true` 
+  - **Example**: `true`
 
 ## Notes
 
