@@ -77,7 +77,7 @@ Play media on a Music Assistant player with more fine-grained control options.
 
 - **Data attribute**: `media_id`
   - **Optional**: No.
-  - **Description**: URI or name of the item to be play. Specify a list if it is desired to play/enqueue multiple items.
+  - **Description**: URI or name of the item to be played. Specify a list if it is desired to play/enqueue multiple items.
   - **Example**: `spotify://playlist/aabbccddeeff`
 - **Data attribute**: `media_type`
   - **Optional**: Yes.
