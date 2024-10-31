@@ -94,11 +94,11 @@ Play media on a Music Assistant player with more fine-grained control options.
 - **Data attribute**: `enqueue`
   - **Optional**: Yes.
   - **Description**: If the content should be played now or be added to the queue. Options are:
-    -  play: Play now
-    -  replace: Replace the existing queue and play now
-    -  next: Add to the current queue after the currently playing item
-    -  replace_next: Replace the current queue after the currently playing item
-    -  add: Add to the end of the queue
+    - play: Play now
+    - replace: Replace the existing queue and play now
+    - next: Add to the current queue after the currently playing item
+    - replace_next: Replace the current queue after the currently playing item
+    - add: Add to the end of the queue
   - **Example**: `replace`
 - **Data attribute**: `radio_mode`
   - **Optional**: Yes.
