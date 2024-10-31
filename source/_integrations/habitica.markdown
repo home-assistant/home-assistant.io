@@ -188,6 +188,25 @@ Cancel a quest that has not yet started. All accepted and pending invitations wi
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to cancel the quest.             |
 
+### Action `habitica.score_habit`
+
+Increase the positive or negative streak of a habit
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character to for tracking the habit.                                                         |
+| `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
+| `direction`    | no       |  `up`if it is a positive or `down` if it is a negative progress you want to track for your habit                  |
+
+### Action `habitica.score_reward`
+
+Buy a custom reward with gold.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
+| `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
