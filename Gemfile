@@ -13,7 +13,7 @@ group :development do
   # 1.80.5 breaks the build
   gem 'sass-embedded', '1.80.4'
   gem 'rubocop', '1.67.0'
-  gem 'ruby-lsp', '0.20.1'
+  gem 'ruby-lsp', '0.21.1'
   gem 'rackup', '2.1.0'
 end
 
