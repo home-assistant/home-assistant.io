@@ -135,6 +135,30 @@ Use a skill or spell from your Habitica character on a specific task to affect i
 
 To use task aliases, make sure **Developer Mode** is enabled under [**Settings -> Site Data**](https://habitica.com/user/settings/siteData). Task aliases can only be edited via the **Habitica** web client.
 
+### Action `habitica.accept_quest`
+
+Accept a pending invitation to a quest.
+
+### Action `habitica.reject_quest`
+
+Reject a pending invitation to a quest.
+
+### Action `habitica.leave_quest`
+
+Leave the current quest you are participating in.
+
+### Action `habitica.abort_quest` 🔒
+
+Terminate your party's ongoing quest. All progress will be lost and the quest roll returned to the owner's inventory. Only quest leader or group leader can perform this action.
+
+### Action `habitica.start_quest` 🔒
+
+Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only quest leader or group leader can perform this action.
+
+### Action `habitica.cancel_quest` 🔒
+
+Cancel a quest that has not yet startet. All accepted and pending invitations will be canceled and the quest roll returned to the owner's inventory. Only quest leader or group leader can perform this action.
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
