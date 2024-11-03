@@ -12,6 +12,7 @@ ha_domain: palazzetti
 ha_platforms:
   - climate
 ha_integration_type: device
+ha_dhcp: true
 ---
 
 The **Palazzetti** {% term integration %} integrates the [Palazzetti](https://palazzettigroup.com/)
