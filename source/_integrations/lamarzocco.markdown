@@ -24,6 +24,7 @@ ha_platforms:
   - switch
   - update
 ha_bluetooth: true
+ha_dhcp: true
 ha_codeowners:
   - '@zweckj'
 ha_integration_type: device
