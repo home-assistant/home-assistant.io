@@ -256,7 +256,7 @@ custom_quirks_path:
 
 The default configuration for OTA firmware updates is chosen by ZHA developers, so normal users should not need to change any configuration. Most of the config options listed in the zigpy section are just meant for development or advanced users.
 
-Further advanced configuration options are only provided in the [zigpy project's developers documentation](https://github.com/zigpy/zigpy).
+Further advanced configuration options are only provided in the [zigpy project's OTA configuration documentation](https://github.com/zigpy/zigpy/wiki/OTA-Configuration).
 
 However, if you want to disable OTA updates for a specific manufacturer, you can add the following lines to your `configuration.yaml` and restart Home Assistant.
 
@@ -264,12 +264,14 @@ However, if you want to disable OTA updates for a specific manufacturer, you can
 zha:
   zigpy_config:
     ota:
-      ikea_provider: false                       # Disable OTA update downloads for Trådfri devices
-      inovelli_provider: false                   # Disable OTA update downloads for INOVELLI devices
-      ledvance_provider: false                   # Disable OTA update downloads for LEDVANCE/OSRAM devices
-      salus_provider: false                      # Disable OTA update downloads for SALUS/Computime devices
-      sonoff_provider: false                     # Disable OTA update downloads for Sonoff (ITead) devices
-      thirdreality_provider: false               # Disable OTA update downloads for 3REALITY devices
+      disable_default_providers: [
+        ikea,                       # Disable OTA update downloads for IKEA devices
+        inovelli,                   # Disable OTA update downloads for Inovelli devices
+        ledvance,                   # Disable OTA update downloads for LEDVANCE/OSRAM devices
+        salus,                      # Disable OTA update downloads for SALUS/Computime devices
+        sonoff,                     # Disable OTA update downloads for Sonoff (ITEAD) devices
+        thirdreality,               # Disable OTA update downloads for Third Reality devices
+      ]
 ```
 
 ### Defining Zigbee channel to use
