@@ -19,13 +19,13 @@ related:
     title: List of to-do list integrations
   - docs: /dashboards/todo-list/
     title: To-do list card
-  - url: https://cookidoo.ch/
+  - url: https://cookidoo.international/
     title: Cookidoo
   - url: https://www.vorwerk.com/
     title: Vorwerk GmbH
 ---
 
-The **Cookidoo** integration allows you to interact with your [Cookidoo](https://www.getbring.com/) shopping lists within Home Assistant.
+The **Cookidoo** integration allows you to interact with your [Cookidoo](https://cookidoo.international/) shopping lists within Home Assistant.
 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
 
