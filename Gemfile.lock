@@ -100,9 +100,8 @@ GEM
       rack (>= 3.0.0, < 4)
     rack-session (2.0.0)
       rack (>= 3.0.0)
-    rackup (2.1.0)
+    rackup (2.2.0)
       rack (>= 3)
-      webrick (~> 1.8)
     rainbow (3.1.1)
     rake (13.2.1)
     rb-fsevent (0.11.2)
@@ -160,7 +159,7 @@ GEM
     tzinfo-data (1.2024.2)
       tzinfo (>= 1.0.0)
     unicode-display_width (2.6.0)
-    webrick (1.8.2)
+    webrick (1.9.0)
 
 PLATFORMS
   arm64-darwin-23
@@ -174,7 +173,7 @@ DEPENDENCIES
   jekyll-sitemap (= 1.4.0)
   jekyll-toc (= 0.19.0)
   nokogiri (= 1.16.7)
-  rackup (= 2.1.0)
+  rackup (= 2.2.0)
   rake (= 13.2.1)
   rubocop (= 1.68.0)
   ruby-lsp (= 0.21.2)
