@@ -33,7 +33,7 @@ For authentication, the integration requires the `email` and `password` you used
 
 ## To-do lists
 
-There are two non-sortable to-do lists added in this integration. One containing all ingredients which are part of a recipe and can therefore only be `checked` and **not** `created`, `delete` or `renamed`. The second to-do list contains additional items, which can be `created`, `delete`, and `updated` but do not have a `description`.
+There are two non-sortable to-do lists added in this integration. One containing all ingredients which are part of a recipe and can therefore only be `checked` and **not** `created`, `deleted` or `renamed`. The second to-do list contains additional items, which can be `created`, `deleted`, and `updated` but do not have a `description`.
 
 ## Actions
 
