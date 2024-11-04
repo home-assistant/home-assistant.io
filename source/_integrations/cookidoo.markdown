@@ -42,7 +42,7 @@ This integration provides two non-sortable to-do lists:
 1. **Recipe Ingredients List**
    - Contains ingredients from recipes
    - Items can only be `checked`
-   - Cannot be `created`, `deleted`, or `renamed`
+   - Items cannot be `created`, `deleted`, or `renamed`
 
 2. **Additional Items List**
    - Contains user-added items
