@@ -12,7 +12,7 @@ related:
     title: Configuration file
 ---
 
-The DuckDNS {% term integration %} allows you to keep your DuckDNS subdomain always in sync with your public IP address. [DuckDNS](https://www.duckdns.org) is a free service that allows you to bind your own favorite subdomain under `duckdns.org` to the public IP address in use from your router, even though such address is dynamically allocated by your internet service provider and therefore changes over time.
+The DuckDNS {% term integration %} allows you to keep your DuckDNS subdomain always in sync with your public IP address, whether IPv4 or IPv6. [DuckDNS](https://www.duckdns.org) is a free service that allows you to bind your own favorite subdomain under `duckdns.org` to the public IP address in use from your router, even though such address is dynamically allocated by your internet service provider and therefore changes over time.
 
 {% warning %}
 
@@ -40,6 +40,18 @@ duckdns:
   access_token:
     description: Your DuckDNS access token. Log in to the site to get one.
     required: true
+    type: string
+  ipv4_fetch_url:
+    description: The URL used to fetch your IPv4 address. Default: https://api.ipify.org
+    required: false
+    type: string
+  ipv6_fetch_url:
+    description: The URL used to fetch your IPv6 address. Default: https://api6.ipify.org
+    required: false
+    type: string
+  ip_update_mode:
+    description: The ip update mode ("ipv4", "ipv6", "both"). Default: ipv4 
+    required: false
     type: string
 {% endconfiguration %}
 
