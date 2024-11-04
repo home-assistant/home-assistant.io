@@ -29,14 +29,22 @@ The **Cookidoo** integration allows you to interact with your shopping lists of 
 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
 
+{% details "Security recommendation" %}
+As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protects your credentials accordingly.
+{% enddetails %}
+
 {% include integrations/config_flow.md %}
 
-## To-do list: Ingredients
+## To-do lists
 
-The ingredients to-do list contains all ingredients which are part of a recipe being added to the shopping list.
+This integration provides two non-sortable to-do lists:
 
-As this to-do list is based on the recipes, the list itself can only be used for checking ingredients off.
+1. **Recipe Ingredients List**
+   - Contains ingredients from recipes
+   - Items can only be `checked`
+   - Cannot be `created`, `deleted`, or `renamed`
 
-## To-do list: Additional items
-
-The additional items to-do list contains items independent of any recipe, and can be `created`, `deleted`, and `updated`, but they do not have a `description`.
+2. **Additional Items List**
+   - Contains user-added items
+   - Items can be `created`, `deleted`, and `updated`
+   - Items do not have a `description` field
