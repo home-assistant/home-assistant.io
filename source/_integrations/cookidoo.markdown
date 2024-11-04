@@ -39,12 +39,12 @@ As Cookidoo cannot share shopping lists between accounts and everybody interacti
 
 This integration provides two non-sortable to-do lists:
 
-1. **Recipe Ingredients List**
+1. **Shopping List**
    - Contains ingredients from recipes
    - Items can only be `checked`
    - Items cannot be `created`, `deleted`, or `renamed`
 
-2. **Additional Items List**
-   - Contains user-added items
+2. **Additional Purchases**
+   - Contains user-added items to purchase
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
