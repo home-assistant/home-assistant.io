@@ -37,8 +37,9 @@ There is currently support for the following device types within Home Assistant:
 - [Presence detection](#presence-detection)
 - Sensor - for some additional information of the zones.
 - Weather - for information about the current weather at the location of your Tado home.
+## Unsupported device types
 
-Note: new Tado X devices are NOT supported by this integration, they have to be used through the Matter integration.
+New Tado X devices are not supported by this integration, they have to be used through the [Matter integration](/integrations/matter).
 
 {% include integrations/config_flow.md %}
 
