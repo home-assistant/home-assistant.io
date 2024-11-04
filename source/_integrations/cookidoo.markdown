@@ -30,7 +30,7 @@ The **Cookidoo** integration allows you to interact with your shopping lists of 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
 
 {% details "Security recommendation" %}
-As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protects your credentials accordingly.
+As Cookidoo cannot share shopping lists between accounts and everybody interacting with it uses the same credentials, make sure you protect your credentials accordingly. All users of your Home Assistant instance will have access to the same Cookidoo account.
 {% enddetails %}
 
 {% include integrations/config_flow.md %}
@@ -39,12 +39,12 @@ As Cookidoo cannot share shopping lists between accounts and everybody interacti
 
 This integration provides two non-sortable to-do lists:
 
-1. **Shopping List**
+1. **Shopping list**
    - Contains ingredients from recipes
    - Items can only be `checked`
    - Items cannot be `created`, `deleted`, or `renamed`
 
-2. **Additional Purchases**
+2. **Additional purchases**
    - Contains user-added items to purchase
    - Items can be `created`, `deleted`, and `updated`
    - Items do not have a `description` field
