@@ -1,5 +1,5 @@
 ---
-title: Cookidoo
+title: Cookidoo, Thermomix® recipe platform
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
 ha_category:
   - To-do list
@@ -25,15 +25,21 @@ related:
     title: Vorwerk GmbH
 ---
 
-The **Cookidoo** integration allows you to interact with your [Cookidoo](https://cookidoo.international/) shopping lists within Home Assistant.
+The **Cookidoo** integration allows you to interact with your shopping lists of [Cookidoo the official Thermomix recipe platform](https://cookidoo.international/) within Home Assistant.
 
 For authentication, the integration requires the `email` and `password` you used for your Cookidoo account.
 
 {% include integrations/config_flow.md %}
 
-## To-do lists
+## To-do list: Ingredients
 
-There are two non-sortable to-do lists added in this integration. One containing all ingredients which are part of a recipe and can therefore only be `checked` and **not** `created`, `deleted` or `renamed`. The second to-do list contains additional items, which can be `created`, `deleted`, and `updated` but do not have a `description`.
+The ingredients to-do list contains all ingredients which are part of a recipe being added to the shopping list.
+
+As this to-do list is based on the recipes, the list itself can only be used for checking ingredients off.
+
+## To-do list: Additional items
+
+The additional items to-do list contains items independent of any recipe, and can be `created`, `deleted`, and `updated`, but they do not have a `description`.
 
 ## Actions
 
