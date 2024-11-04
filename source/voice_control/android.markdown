@@ -84,9 +84,11 @@ Assist is available on Wear OS using the [Home Assistant Companion App](https://
 
 The way how Assist can be set up on your phone may differ depending on your version of Wear OS.
 
-1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) on your watch and connecting it to your Home Assistant, Assist might appear automatically on the **Apps screen**.
-   - If it does not, visit your watch companion app or the Wear OS app and select **Add tile** inside the **Tiles** area.
-2. Tap the **Assist** tile to add it to your watch:
+1. After [installing the companion app](https://companion.home-assistant.io/docs/getting_started/) on your watch and connecting it to your Home Assistant, Assist appears automatically on the **Apps screen**.
+    
+    ![Assist app](/images/assist/wearos_assist_app.png)
+
+2. To add an Assist tile, in the Wear OS app, go to the **Tiles** area, select **Add tile** > **Assist**.
     
     ![Conversation tile](/images/assist/android_tile.png)
 
