@@ -420,7 +420,7 @@ The configuration consists of two steps:
    (the *Then do* section)
 
 Note: The webhook ID will be later needed in phase two and will have to be entered
-into the wBox mobile app. You may decide to use more a convenient text value. However, remember
+into the wBox mobile app. You may decide to use a more convenient text value. However, remember
 that this is the only thing that authenticates webhooks within your network. Treat
 this ID like a password.
 
