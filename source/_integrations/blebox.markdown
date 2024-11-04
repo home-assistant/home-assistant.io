@@ -431,7 +431,7 @@ this ID like a password.
 2. Enter the webhook URL that you copied when generating the webhook. It is the URL address for the action.
 
 Note: in order for this integration flow to work, the webhook URL host must be
-resolvable and accessible within the device network. If in doubt please refer to the
+resolvable and accessible within the device network. If in doubt, please refer to the
 general [documentation of automations with webhook triggers](https://www.home-assistant.io/docs/automation/trigger/#webhook-trigger).
 
 ### luxSensor
