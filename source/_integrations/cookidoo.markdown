@@ -40,7 +40,3 @@ As this to-do list is based on the recipes, the list itself can only be used for
 ## To-do list: Additional items
 
 The additional items to-do list contains items independent of any recipe, and can be `created`, `deleted`, and `updated`, but they do not have a `description`.
-
-## Actions
-
-You can use the actions from the [to-do list](/integrations/todo/) to `create`, `update`, or `delete` items on your Cookidoo shopping lists.
