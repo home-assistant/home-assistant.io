@@ -1,5 +1,5 @@
 ---
-title: Cookidoo, Thermomix® recipe platform
+title: Cookidoo
 description: Instructions on how to integrate the Cookidoo todo list with Home Assistant.
 ha_category:
   - To-do list
@@ -20,7 +20,7 @@ related:
   - docs: /dashboards/todo-list/
     title: To-do list card
   - url: https://cookidoo.international/
-    title: Cookidoo
+    title: Cookidoo the official Thermomix recipe platform
   - url: https://www.vorwerk.com/
     title: Vorwerk GmbH
 ---
