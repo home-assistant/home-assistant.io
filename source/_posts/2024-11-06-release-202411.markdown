@@ -91,28 +91,27 @@ Enjoy the (beta) release!
 - [Backward-incompatible changes](#backward-incompatible-changes)
 - [All changes](#all-changes)
 
-## Sections dashboard now generally available
+## Sections dashboard leaves experimental
 
-Exciting news on the dashboarding front; the new sections type dashboards are
-now marked as stable! 
+Exciting news on the dashboarding front; the new sections dashboard is leaving experimental status and is now marked as stable! This is after several months of adding new capabilities such as [resizing cards](/blog/2024/07/03/release-20247/), [wider sections](/blog/2024/09/04/release-20249/), [new badges](/blog/2024/08/07/release-20248/) and most recently, adding [the heading card](/blog/2024/10/02/release-202410/).
 
-This means that, as of this release, when you create a new dashboard, you
-will get our awesome drag and drop experience!
+This means that, as of this release, when you create a new dashboard, you will get our awesome drag-and-drop experience\! Sections is by far the most feature-rich and easy-to-use dashboard type, and is ready for prime time.
 
 ### Convert your old dashboards to sections dashboards
 
-This release also includes a conversion from the old masonry type to the new sections type dashboards. If you change the type of a view to sections you get a button to convert the view. All the cards of the old view are then placed in an imported cards section, and you can drag them into sections as you please!
+This release also includes a new way to convert masonry type to the new sections type dashboard. If you change the view type to sections you get a button to convert the view. All the cards of the old view are then placed in an imported cards section, and you can drag them into sections as you please. This is non-destructive, i.e. your old dashboard view is kept and a new dashboard is created, giving an excellent way for masonry veterans to try out sections while keeping all the hard work they have put into customizing their cards.
 
 ### Precise sizing mode
 
-You now have even more control over the size of cards. In the layout options of a card you can now enable "Precise mode", this will give you 3 time more options for width and height as before!
+You now have even more control over the size of cards. In the layout options of a card you can now enable “Precise mode”, this will give you 3 times more options for the width and height of cards! Precise mode is applied on a card-by-card level, giving more increments in card sizing, and is perfect for advanced dashboards.
 
 ## Low latency cameras using WebRTC
 
-Camera stream will now try to use WebRTC when possible. This is a peer-to-peer connection making for lower latency streams.
-It will try to use the fastest and most direct path. Sometimes a direct connection between the client and camera is not possible, for those situations the stream needs to be relayed by an external server. Home Assistant Cloud by Nabu Casa provides this relay server for all Home Assistant Cloud subscribers! So no matter where you are, you should always be able to stream your camera with low latency.
+Camera streams will now try to use WebRTC whenever possible. WebRTC is an online standard that makes a peer-to-peer connection for lower-latency audio and video streaming. When you’re away from home, it will try to find the fastest and most direct path between your Home Assistant instance and the device you’re using.
 
-If WebRTC is not available it will fallback to using the old method of streaming.
+The Open Home Foundation will host the basic network infrastructure to give all Home Assistant users the capability to use WebRTC for peer-to-peer connections whenever possible. Sometimes, a direct connection between the client and the camera is not possible; in those situations, the stream needs to be relayed by an external server. [Home Assistant Cloud](/cloud/) now provides this relay server, and it's included as one of the many benefits available to subscribers! So, no matter where you are, you should always be able to watch your cameras via this low-latency technology.
+
+If WebRTC is not available, it will fall back to using the old method of streaming.
 
 ## Integrations
 
@@ -213,7 +212,7 @@ _**Insert recording of it streaming**_
 
 ### Assist for Canadian French
 
-When we started Year of the Voice in early 2023, we took the decision to split French and Canadian French into two different languages. This decision was unique among all the languages spoken in more than one country.
+When we started Year of the Voice in early 2023, we took the decision to split French and Canadian French into two separate languages. This decision was unique because we hadn't done this for any other language spoken in more than one country.
 
 Unfortunately, the Canadian French sentences stopped being updated, and a lot of new features never got implemented, such as timers, floor support, and area awareness, to name a few.
 This release, we took the decision to merge both languages, this means that Canadian French users are getting a ton of great new voice features!
