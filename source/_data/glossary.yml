@@ -623,7 +623,7 @@
   excerpt: >
     An update entity is an entity that indicates if an update is available for a
     device or service.
-  link: /integrations/image
+  link: /integrations/update
   aliases:
     - updates
 
