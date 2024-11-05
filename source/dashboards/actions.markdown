@@ -101,7 +101,7 @@ tap_action:
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
-    entity_id:
+    entity:
       required: false
       description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string
@@ -173,7 +173,7 @@ hold_action:
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
-    entity_id:
+    entity:
       required: false
       description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string
@@ -245,7 +245,7 @@ double_tap_action:
       description: "If supported, listen for voice commands when opening the assist dialog and the `action` is defined as `assist`"
       type: boolean
       default: none
-    entity_id:
+    entity:
       required: false
       description: "Overrides the default entity to show when the `action` is defined as `more-info`"
       type: string

@@ -14,7 +14,7 @@
   max-height: 1080px;
   height: 100vh;
   align-content: center;
-  min-height: 720px;
+  min-height: 840px;
   // scroll-snap-align: start;
   color: $white;
 
@@ -86,11 +86,11 @@
     // animation-iteration-count: infinite;
     // animation-direction: alternate;
 
-    @media only screen and (max-height: 720px) {
+    @media only screen and (max-height: 840px) {
       border-bottom: 0;
       margin-bottom: -8px;
       border-radius: 48px 48px 0 0;
-      height: 640px;
+      height: 750px;
 
     }
 
@@ -126,6 +126,7 @@
 
 @media only screen and (max-width: 760px) {
   .hero {
+    min-height: 940px;
     .flex {
       flex-direction: column;
     }

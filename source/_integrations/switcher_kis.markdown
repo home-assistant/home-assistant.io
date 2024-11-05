@@ -33,6 +33,7 @@ Supported devices:
 - Switcher V2 (Espressif chipset - from firmware 3.21)
 - Switcher V2 (Qualcomm chipset - from firmware 72.32)
 - Switcher V4
+- Switcher Mini
 - Switcher Breeze
 - Switcher Runner
 - Switcher Runner S11

@@ -56,7 +56,8 @@ The integration provides a few entities to configure the device settings. The fo
 
 - Display brightness
 - Pre-Amp
-- Early Update
+- Early update
+- Audio output (Speaker select)
 
 ## Playing media
 

@@ -23,3 +23,5 @@ Creating an automation for polling gives you more flexibility on when to poll:
 2. An automation allows you to poll whenever you want. For example, if you have a rate-limited solar panel provider with a maximum number of requests per day, you may want to lower/stop the polling at night but poll more frequently during the day.
 
 {% include common-tasks/define_custom_polling.md %}
+
+{% include common-tasks/remove_device_service.md %}

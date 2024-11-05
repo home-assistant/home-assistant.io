@@ -189,21 +189,26 @@ When looking into the metrics on the Prometheus side, there will be:
 
 - All Home Assistant domains, which can be easily found through the common **namespace** prefix, if defined.
 - The [client library](https://github.com/prometheus/client_python) provided metrics, which are a bunch of **process_\*** and also a single pseudo-metric **python_info** which contains (not as value but as labels) information about the Python version of the client, i.e., the Home Assistant Python interpreter.
-  
+
 Typically, you will only be interested in the first set of metrics.
 
 ## Metrics in unavailable or unknown states
 
-When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not be exported until they are available again. If the entity goes into state unavailable or unknown again, the value exported will always be the latest known one.
+When the Prometheus exporter starts (typically when Home Assistant starts), all non-excluded entities in an unavailable or unknown state are not exported until they are available and known.
 
-While an entity is in those states, the `entity_available` corresponding metric is set to 0. This metric can be used to filter out values while the entity is unavailable or in an unknown state thanks to a [recording rule](https://prometheus.io/docs/prometheus/latest/configuration/recording_rules/).
+If an available entity goes into state unavailable or unknown, then it will automatically be unexported and return again automatically when available and known.
 
-For example:
+{% note %}
+
+To filter out these stale values, `entity_available` could be used in a query or recording rule. For example:
 
 ```yaml
 - record: "known_temperature_c"
   expr: "temperature_c unless entity_available == 0"
 ```
+
+This use of `unless` (which can be slow to compute) is no longer necessary, but will continue to work.
+{% endnote %}
 
 ## Supported metrics
 
