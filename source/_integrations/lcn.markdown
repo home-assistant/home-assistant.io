@@ -135,7 +135,10 @@ To delete multiple entities, enable selection mode, select the desired entries, 
 
 #### Displaying entity properties
 
-Once an entity is created, you can view and configure its properties by clicking on it in the entity list. This opens the Home Assistant dialog for entity properties, allowing you to configure the entity as you would from the general Home Assistant entity configuration panel.
+Once an entity is created, you can view and configure its properties. 
+
+Select the entity in the entity list. 
+  - This opens the Home Assistant dialog for entity properties, allowing you to configure the entity as you would from the general Home Assistant entity configuration panel.
 
 ## Platforms
 
