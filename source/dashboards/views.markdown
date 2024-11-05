@@ -55,8 +55,9 @@ There are four different view types:
    - If you want to use a previously defined theme, select the [theme](/integrations/frontend/#themes).
    - Select the [view type](#view-type).
    - If this view is meant to be used as a [subview](#subview) only, enable the **Subview** toggle.
+   - If you are using **Sections view**, choose the number of columns you want to use, and, if you want to let the system fill gaps between cards, enable **Dense section placement.**.
 
-   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_01.png)
+   ![The create new view configuration dialog](/images/dashboards/dashboard_view_configuration_03.png)
 
 4. To use a background image, on the **Background** tab, select an image.
    - **Upload picture** lets you pick an image from the system used to show your Home Assistant UI.
