@@ -54,7 +54,7 @@ Possible events are:
 - `transmission_started_torrent`
 - `transmission_removed_torrent`
 
-Inside of the event, there is the name of the torrent that is started or completed and the path where the files are downloaded, as it is seen in the Transmission User Interface.
+Inside the event, there is the name of the torrent that is started or completed and the path where the files are downloaded, as seen in the Transmission User Interface.
 
 Example of an automation that notifies on successful download and removes the torrent from the client:
 
@@ -90,7 +90,7 @@ Adds a new torrent to download. It can either be a URL (HTTP, HTTPS or FTP), mag
 | ---------------------- | -------- | ------------------------ |
 | `entry_id`             | no       | The integration entry_id |
 | `torrent`              | no       | Torrent to download      |
-| `download_path`        | yes      | Absolute path to the download directory. If not specified, Transmission's default directory will be used. |
+| `download_path`        | yes      | Absolute path to the download directory. If not specified, the Transmission's default directory will be used. |
 
 ### Action `remove_torrent`
 
