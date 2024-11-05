@@ -28,8 +28,8 @@ You can group cards without using horizontal or vertical stack cards.
 </p>
 
 {% note %}
-Sections view was marked as stable and announced GA (General Availability) in Home Assistant 2024.11 but was available as experimental from March of 2024.<br>
-From Home Assistant 2024.11 release version it is possible to migrate your existing (old) masonry type dashboards into this (new) sections view dashboards.
+Sections view became generally available (GA) in Home Assistant 2024.11, after being experimental since March 2024.<br>
+Home Assistant 2024.11 and later supports migrating existing masonry dashboards to the sections view.
 {% endnote %}
 
 ## Creating a sections view
@@ -46,7 +46,7 @@ From Home Assistant 2024.11 release version it is possible to migrate your exist
 
 ## Convert a masonry dashboard to sections view
 
-Converting your existing (old) masonry type dashboards into this (new) sections view dashboards is non-destructive, i.e. your old dashboard view is kept and a new dashboard is created, giving an excellent way for masonry veterans to try out sections while keeping all the hard work they have put into customizing their cards.
+Converting masonry dashboards to sections view is non-destructive - your original dashboard is preserved while a new one is created. This allows you to try the sections view while retaining all your customized cards.
 
 To convert an existing masonry dashboard:
 
