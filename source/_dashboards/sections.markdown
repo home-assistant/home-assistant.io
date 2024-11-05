@@ -47,9 +47,9 @@ If you change the type of a view to sections you get a button to convert the vie
 
 ## Convert a masonry dashboard to sections view
 
-Home Assistant 2024.11 release and later allow you to convert your existing (old) masonry type dashboards into this (new) sections view dashboards.
+Converting your existing (old) masonry type dashboards into this (new) sections view dashboards is non-destructive, i.e. your old dashboard view is kept and a new dashboard is created, giving an excellent way for masonry veterans to try out sections while keeping all the hard work they have put into customizing their cards.
 
-1. f you change the type of a view to sections you get a button to convert the view.
+1. If you change the type of a view to sections you get a button to convert the view.
 2. All the cards of the old view are then placed in an imported cards section, and you can drag them into sections as you please!
 
 ## Adding sections and cards to a sections view
