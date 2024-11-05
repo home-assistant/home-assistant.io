@@ -91,10 +91,10 @@ To initiate a scan for LCN modules on the bus, in the top-right corner, select t
 
 If module scanning fails or a module is unavailable on the bus, you can manually add it. Groups can also be created manually.
 
-1. To add a module or group manually, select the **Create Module/Group** button to open the dialog.
+1. To add a module or group manually, select the **Create Module/Group** button.
+2. Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. 
 
     ![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
-2. Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. 
 3. To add the new device, select **Create**.
 
 #### Deleting devices
