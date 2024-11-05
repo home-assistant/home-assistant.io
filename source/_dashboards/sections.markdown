@@ -49,8 +49,12 @@ If you change the type of a view to sections you get a button to convert the vie
 
 Converting your existing (old) masonry type dashboards into this (new) sections view dashboards is non-destructive, i.e. your old dashboard view is kept and a new dashboard is created, giving an excellent way for masonry veterans to try out sections while keeping all the hard work they have put into customizing their cards.
 
-1. If you change the type of a view to sections you get a button to convert the view.
-2. All the cards of the old view are then placed in an imported cards section, and you can drag them into sections as you please!
+To convert an existing masonry dashboard:
+
+1. If you want to change the type of a view to the sections view, you will see a convert button.
+2. Click the convert button to migrate your dashboard.
+3. Your existing cards will be placed in an imported cards section.
+4. You can now drag cards into different sections as needed.
 
 ## Adding sections and cards to a sections view
 
