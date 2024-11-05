@@ -117,7 +117,7 @@ To view entities for a specific device (module or group), in the **Modules / Gro
 #### Adding entities
 
 1. To create a new entity, select **Create Entity**.
-2. Select the module or group for which to create the entity from the dropdown menu. 
+2. From the dropdown menu, select the module or group for which to create the entity. 
     - If a single module or group filter is applied, it will be pre-selected.
 
       ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
