@@ -137,7 +137,7 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 
 ### Action `habitica.accept_quest`
 
-Accept a pending invitation to a quest. For an example, see the [**Auto-accept quest invitation**](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
+Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
 ### Action `habitica.reject_quest`
 
