@@ -137,7 +137,7 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 
 ### Action `habitica.accept_quest`
 
-Accept a pending invitation to a quest.
+Accept a pending invitation to a quest. For an example, see the [**Auto-accept quest invitation**](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
 ### Action `habitica.reject_quest`
 
@@ -162,6 +162,42 @@ Cancel a quest that has not yet started. All accepted and pending invitations wi
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!
+
+### Auto-accept quest invitation
+
+Automatically accepts quest invitations from your Habitica party and creates a persistent notification to inform you when a quest has been successfully accepted.
+
+{% my blueprint_import badge blueprint_url="https://community.home-assistant.io/t/habitica-auto-accept-quest-invitation/791002" %}
+
+{% details "Example YAML configuration" %}
+
+{% raw %}
+
+```yaml
+triggers:
+  - trigger: state
+    entity_id: binary_sensor.habitica_pending_quest_invitation
+    from: "off"
+    to: "on"
+actions:
+  - action: habitica.accept_quest
+    data:
+      config_entry: config_entry_id
+    response_variable: action_response
+  - action: notify.persistent_notification
+    data:
+      title: You have been invited to a quest!
+      message: >-
+        ![{{action_response["key"]}}](https://habitica-assets.s3.amazonaws.com/mobileApp/images/inventory_quest_scroll_{{action_response["key"]}}.png)
+
+        The invitation has been accepted, and the quest {% if
+        action_response["active"] %}has already started{% else %}is waiting
+        for other party members to join{% endif %}.
+```
+
+{% endraw %}
+
+{% enddetails %}
 
 ### Create "Empty the dishwasher" to-do
 
