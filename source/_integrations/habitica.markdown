@@ -231,7 +231,7 @@ Fetch tasks from your Habitica account, with optional filters to narrow down the
 | Data attribute | Optional | Description                                                                                              |
 | -------------- | -------- | -------------------------------------------------------------------------------------------------------- |
 | config_entry   | no       | Choose the Habitica character to retrieve tasks from.                                                    |
-| type           | yes      | Filter tasks by type.                                                                                    |
+| type           | yes      | Filter tasks by type.  Valid types: "habits", "dailies", "todos", "rewards".                                                                                     |
 | priority       | yes      | Filter tasks by difficulty.                                                                              |
 | task           | yes      | Select specific tasks by matching their name (or task ID).                                               |
 | tag            | yes      | Filter tasks that have one or more of the selected tags.                                                 |
