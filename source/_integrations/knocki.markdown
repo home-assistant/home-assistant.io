@@ -35,13 +35,15 @@ The **Knocki** {% term integration %} allows you to trigger your favorite automa
 {% include integrations/config_flow.md %}
 
 ## Automation example
+
 1. Go to {% my automations title="**Settings** > **Automations & scenes**" %} and in the lower right corner, select  **Create Automation**.
 2. Select **Create new automation**.
-3. Select **Add Trigger**, select **Entity** as the trigger type.  
-   - Search for the name of the task (as you named it in the Knocki app). Select the entity with that name appended to it.  
+3. Select **Add Trigger**, select **Entity** as the trigger type.
+   - Search for the name of the task (as you named it in the Knocki app). Select the entity with that name appended to it.
    - Select **State** as the type of entity change.
 4. Select **Add action** and choose whatever action(s) you’d like the automation to trigger.
 5. Finally, test the action by tapping the associated gesture pattern. 
 
 ## Troubleshooting
+
 If the new automation isn’t triggering successfully, select the **reload** option from the devices page for Knocki on Home Assistant. It should then start working.
