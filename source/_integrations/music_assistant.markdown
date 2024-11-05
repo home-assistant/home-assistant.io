@@ -151,6 +151,52 @@ Perform a global search on the Music Assistant library and all providers.
   - **Description**: Only include results that are in the library.
   - **Example**: `true`
 
+### Action `music_assistant.get_library`
+
+Perform a local search on the Music Assistant library.
+
+- **Data attribute**: `media_type`
+  - **Optional**: No.
+  - **Description**: The type of content to search for. Select from artist, album, track, radio, or playlist.
+  - **Example**: `artist`
+- **Data attribute**: `favorite`
+  - **Optional**: Yes.
+  - **Description**: When selected only items marked as favorites will be returned.
+  - **Example**: `false`
+- **Data attribute**: `limit`
+  - **Optional**: Yes.
+  - **Description**: Maximum number of items to return.
+  - **Example**: `25`
+- **Data attribute**: `offset`
+  - **Optional**: Yes.
+  - **Description**: From what point in the list should results be returned.
+  - **Example**: `10`
+- **Data attribute**: `search`
+  - **Optional**: Yes.
+  - **Description**: A string that will further filter the results.
+  - **Example**: `Home`
+- **Data attribute**: `order_by`
+  - **Optional**: Yes.
+  - **Description**: Sort the list by this field. The options are numerous so inspect them in the Developer Tools, Actions tab.
+  - **Example**: `year`
+- **Data attribute**: `album_artists_only`
+  - **Optional**: Yes.
+  - **Description**: When `artist` is the `media_type` then this option will restrict the result to album artists only.
+  - **Example**: `true`
+- **Data attribute**: `album_type`
+  - **Optional**: Yes.
+  - **Description**: When `album` is the `media_type` then this option will restrict the result according to the selection of either album, single, compilation, EP or unknown.
+  - **Example**: `album`
+
+### Action `music_assistant.get_queue`
+
+Get the full queue details of a Music Assistant Queue.
+
+- **Data attribute**: `queue_id`
+  - **Optional**: No.
+  - **Description**: The id of the queue to be retrieved. This is the `active_queue` attribute of a MA media player entity.
+  - **Example**: `syncgroup_ajxbx9h2`
+    
 ### Action `music_assistant.transfer_queue`
 
 Transfer the player's queue to another player.
