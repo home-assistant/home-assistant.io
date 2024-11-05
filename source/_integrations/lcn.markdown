@@ -128,7 +128,10 @@ Entities configured for all devices are listed on the **Entities** tab.
 
 #### Deleting entities
 
-To delete an entity, select the trash can icon next to it. This will remove the entity from the list and from Home Assistant. To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
+To delete a sinlge entity, select the trash can icon next to it. 
+- **Result**: This removes the entity from the list and from Home Assistant. 
+
+To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
 
 #### Displaying entity properties
 
