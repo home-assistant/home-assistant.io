@@ -10,14 +10,14 @@ related:
     title: Sidebar view
 ---
 
-The masonry view is the default view type.
+The masonry view sorts cards in columns based on their card size.
 
 <p class='img'>
 <img src='/images/getting-started/lovelace.png' alt='Screenshot of the masonry view'>
 Screenshot of the masonry view.
 </p>
 
-Masonry sorts cards in columns based on their card size. The next card is placed below the smallest card on the dashboard.
+Masonry sorts cards in columns based on size and places the next card below the smallest card on the dashboard.
 
 <p class='img'>
 <img src='/images/dashboards/masonry.png' alt='Image showing how masonry arranges cards based on size.'>
