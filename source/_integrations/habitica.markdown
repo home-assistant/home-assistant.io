@@ -149,15 +149,15 @@ Leave the current quest you are participating in.
 
 ### Action `habitica.abort_quest` 🔒
 
-Terminate your party's ongoing quest. All progress will be lost and the quest roll returned to the owner's inventory. Only quest leader or group leader can perform this action.
+Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 ### Action `habitica.start_quest` 🔒
 
-Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only quest leader or group leader can perform this action.
+Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
 
 ### Action `habitica.cancel_quest` 🔒
 
-Cancel a quest that has not yet startet. All accepted and pending invitations will be canceled and the quest roll returned to the owner's inventory. Only quest leader or group leader can perform this action.
+Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
 
 ## Automations
 
