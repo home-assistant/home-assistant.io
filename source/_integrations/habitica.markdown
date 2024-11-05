@@ -190,11 +190,11 @@ Cancel a quest that has not yet started. All accepted and pending invitations wi
 
 ### Action `habitica.score_habit`
 
-Increase the positive or negative streak of a habit
+Increase the positive or negative streak of a habit.
 
 | Data attribute | Optional |  Description                                                                                                      |
 | -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
-| `config_entry` | no       |  Config entry of the character for tracking the habit.                                                            |
+| `config_entry` | no       |  Config entry of the character tracking the habit.                                                            |
 | `task`         | no       |  The name, `task ID`, or **alias** of the habit to track.                                                         |
 | `direction`    | no       |  `up` for positive progress or `down` for negative progress you want to track for your habit                      |
 
