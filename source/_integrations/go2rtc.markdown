@@ -42,7 +42,7 @@ url:
 
 {% warning %}
 
-The `debug_ui` should only enabled during debugging as it will expose port 1984 without any authentication!
+The `debug_ui` should only be enabled during debugging as it will expose port 1984 without any authentication!
 Please disable the `debug_ui` immediately after debugging.
 
 {% endwarning %}
