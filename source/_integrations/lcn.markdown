@@ -127,7 +127,7 @@ To view entities for a specific device (module or group), in the **Modules / Gro
 
 #### Deleting entities
 
-To delete a sinlge entity, select the trash can icon next to it. 
+To delete a single entity, select the trash can icon next to it. 
 - **Result**: This removes the entity from the list and from Home Assistant. 
 
 To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
