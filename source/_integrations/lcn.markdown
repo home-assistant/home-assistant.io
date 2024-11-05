@@ -108,18 +108,19 @@ To delete multiple devices at once, enable selection mode.  Select the desired e
 
 Entities configured for all devices are listed on the **Entities** tab. 
 
-- To view entities for a specific device (module or group), select the device entry in the **Modules / Groups** tab. This opens the **Entities** tab, filtering entities to show only those for the selected device. 
+To view entities for a specific device (module or group), in the **Modules / Groups** tab, select the device entry.
+  - **Result**: The **Entities** tab opens, showing entities of the selected device. 
 - To apply custom filters, enable the filter option.
 
   ![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
 
 #### Adding entities
 
-1. To create a new entity, select **Create Entity**, which opens the following dialog.
-
-    ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
+1. To create a new entity, select **Create Entity**.
 2. Select the module or group for which to create the entity from the dropdown menu. 
     - If a single module or group filter is applied, it will be pre-selected.
+
+      ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
 3. Choose the domain (platform) for the entity and enter a name.
     - You can change this name later within the Home Assistant entity settings.
 4. Depending on the selected domain, additional options will be shown. To add the entity to the list and to Home Assistant, enter the required information and select **Create** .
