@@ -139,25 +139,53 @@ To use task aliases, make sure **Developer Mode** is enabled under [**Settings -
 
 Accept a pending invitation to a quest. For an example, see the [`Auto-accept quest invitation`](#auto-accept-quest-invitation) automation, which demonstrates how this action can be used to automatically accept quest invitations.
 
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to accept the quest.             |
+
 ### Action `habitica.reject_quest`
 
 Reject a pending invitation to a quest.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to reject the quest.             |
 
 ### Action `habitica.leave_quest`
 
 Leave the current quest you are participating in.
 
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to leave the quest.              |
+
 ### Action `habitica.abort_quest` 🔒
 
 Terminate your party's ongoing quest. All progress will be lost, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to abort the quest.              |
 
 ### Action `habitica.start_quest` 🔒
 
 Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
 
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to force-start the quest.        |
+
 ### Action `habitica.cancel_quest` 🔒
 
 Cancel a quest that has not yet started. All accepted and pending invitations will be canceled, and the quest roll returned to the owner's inventory. Only the quest leader or group leader can perform this action.
+
+| Data attribute | Optional | Description                                                    |
+| -------------- | -------- | -------------------------------------------------------------- |
+| `config_entry` | no       | Config entry of the character to cancel the quest.             |
+
+{% note %}
+Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+{% endnote %}
 
 ## Automations
 
