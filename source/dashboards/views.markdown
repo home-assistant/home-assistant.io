@@ -138,9 +138,9 @@ user:
   type: string
 {% endconfiguration %}
 
-## View type
+## Changing the view type in YAML
 
-You can change the layout of a view by using a different view type. The default is [`masonry`](/dashboards/masonry).
+You can change the layout of a view in YAML by using a different view type. The default is [`section`](/dashboards/section).
 
 ### Example
 
