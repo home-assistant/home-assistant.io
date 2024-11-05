@@ -82,7 +82,9 @@ The **Modules / Groups** tab provides an overview of your configured LCN modules
 
 #### Scanning modules
 
-To initiate a scan for LCN modules on the bus, click the three vertical dots in the upper right corner and select **Scan Modules**. This process polls each module for its name and serial number. When all module responses have been received, they will be listed in the device list.
+To initiate a scan for LCN modules on the bus, in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Scan Modules**.
+- **Result**: This process polls each module for its name and serial number. 
+- When all module responses have been received, they will be listed in the device list.
 
 Scanning modules may take several seconds. The pop-up dialog will close automatically once the process is complete.
 
@@ -90,27 +92,32 @@ Scanning modules may take several seconds. The pop-up dialog will close automati
 
 If module scanning fails or a module is unavailable on the bus, you can manually add it. Groups can also be created manually.
 
-To add a module or group manually, click the **Create Module/Group** button to open the dialog.
+1. To add a module or group manually, select the **Create Module/Group** button to open the dialog.
 
 ![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
 
-Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. Click **Create** to add the new device.
+2. Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. 
+3. To add the new device, select **Create**.
 
 #### Deleting devices
 
-To delete a device, click the trash can icon next to it. This will remove the device from the device list and Home Assistant, including any associated entities.
+To delete a single device, select the trash can icon next to it. 
+- **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
 
-You can also delete multiple devices at once by enabling selection mode, selecting the desired entries, and clicking the **Delete Selected** button in the upper right.
+To delete multiple devices at once, enable selection mode.  Select the desired entries, then select the **Delete Selected** button in the upper right.
 
 ### Configuring entities
 
-Entities configured for all devices are listed on the **Entities** tab. To view entities for a specific device (module or group), click the device entry in the **Modules / Groups** tab. This will open the Entities tab, filtering entities to show only those for the selected device. You can also apply custom filters by enabling the filter option.
+Entities configured for all devices are listed on the **Entities** tab. 
+
+- To view entities for a specific device (module or group), select the device entry in the **Modules / Groups** tab. This opens the **Entities** tab, filtering entities to show only those for the selected device. 
+- To apply custom filters, enable the filter option.
 
 ![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
 
 #### Adding entities
 
-To create a new entity, click the **Create Entity** button, which opens the following dialog.
+To create a new entity, select the **Create Entity** button, which opens the following dialog.
 
 ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
 
@@ -118,11 +125,11 @@ Select the module or group for which to create the entity from the dropdown menu
 
 Choose the domain (platform) for the entity and enter a name. You can change this name later within the Home Assistant entity settings.
 
-Depending on the selected domain, additional options will be shown. Enter the required information and click **Create** to add the entity to the list and Home Assistant.
+Depending on the selected domain, additional options will be shown. To add the entity to the list and to Home Assistant, enter the required information and select **Create** .
 
 #### Deleting entities
 
-To delete an entity, click the trash can icon next to it. This will remove the entity from the list and Home Assistant. To delete multiple entities, enable selection mode, select the desired entries, and click **Delete Selected** in the upper right.
+To delete an entity, select the trash can icon next to it. This will remove the entity from the list and from Home Assistant. To delete multiple entities, enable selection mode, select the desired entries, and select **Delete Selected** in the upper right.
 
 #### Displaying entity properties
 
