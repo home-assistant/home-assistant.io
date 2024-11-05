@@ -35,9 +35,9 @@ Views control the layout.
 There are four different view types:
 
 - **Sections (default)**: Arranges cards in a grid system and lets you group them in sections.
+- **Masonry**: Arranges cards in columns based on their card size.
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
-- **Masonry**: Arranges cards in columns based on their card size.
 
 ## Adding a view to a dashboard
 
@@ -67,6 +67,28 @@ There are four different view types:
 5. On the **Badges** tab, select the entities you want to be represented by a badge.
     - Sidebar and panel views do not support badges.
 6. By default, the new section is visible to all users. On the **Visibility** tab, you can disable the view for users.
+
+## Migrating a view into a sections view
+
+If you have already defined a view but you would now like to have it in a section view type, you can migrate that content. For example, you can migrate from a masonry to a sections view. Currently, you cannot migrate a sections view type into another view type.
+
+Migrating does not affect the current view. It will stay as is, and a new, additional view is created.
+
+To migrate a view into a sections view type, follow these steps:
+
+1. Open the view you want to migrate, and go into edit mode.
+2. In the configuration dialog, select the new view type.
+3. If the new view type offers additional settings, define those settings.
+   - For more information on those settings, refer to the documentation of that view type.
+4. In the top-right corner, select **Convert**.
+   - **Result**: A new, additional view is created.
+   - Your current view will stay untouched.
+   - A new tab opens, and all your cards are imported to the new view.
+5. In the **Imported cards** section, pick each of the cards, and place them into the sections.
+   - To edit and customize the view, follow the steps in the [sections view](/dashboards/sections/) documentation.
+6. To safe your changes, select **Done**.
+    - **Result**: Your new dashboard is shown.
+    - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
 
 ## URL of a view
 
