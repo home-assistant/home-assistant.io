@@ -1,7 +1,7 @@
 ---
 type: view
 title: Sections
-sidebar_label: Sections
+sidebar_label: Sections (default)
 description: "Lets you organize your cards in sections on a grid."
 description: "The panel view shows a single card in the full width of the screen."
 related:
@@ -29,8 +29,7 @@ You can group cards without using horizontal or vertical stack cards.
 
 {% note %}
 Sections view was marked as stable and announced GA (General Availability) in Home Assistant 2024.11 but was available as experimental from March of 2024.<br>
-From Home Assistant 2024.11 release version it is possible to migrate your existing (old) masonry type dashboards into this (new) sections view dashboards.<br>
-If you change the type of a view to sections you get a button to convert the view. All the cards of the old view are then placed in an imported cards section.
+From Home Assistant 2024.11 release version it is possible to migrate your existing (old) masonry type dashboards into this (new) sections view dashboards.
 {% endnote %}
 
 ## Creating a sections view
@@ -89,17 +88,17 @@ In the sections view, you can rearrange sections and cards by dragging them to a
 1. To edit your dashboard, in the top right corner, select the edit {% icon "mdi:edit" %} button.
 2. To rearrange sections, hold the move {% icon "mdi:cursor-move" %} button and move the card.
 
-<p class='img'>
-  <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
-  Rearranging sections by dragging
-</p>
+    <p class='img'>
+      <img src="/images/dashboards/section_view_rearrange_sections.gif" alt="Rearranging sections by dragging"/>
+      Rearranging sections by dragging
+    </p>
 
 3. To rearrange cards, tap and hold the card and move it to your desired location.
 
-<p class='img'>
-  <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
-  Rearranging cards by dragging
-</p>
+    <p class='img'>
+      <img src="/images/dashboards/section_view_rearrange_cards.gif" alt="Rearranging cards by dragging"/>
+      Rearranging cards by dragging
+    </p>
 
 ## Show or hide section conditionally
 

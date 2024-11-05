@@ -1,7 +1,7 @@
 ---
 type: view
 title: Masonry view
-sidebar_label: Masonry (default)
+sidebar_label: Masonry
 description: "The default panel layout uses a masonry algorithm."
 related:
   - docs: /dashboards/panel/

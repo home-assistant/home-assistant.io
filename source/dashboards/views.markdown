@@ -34,12 +34,10 @@ Views control the layout.
 
 There are four different view types:
 
+- **Sections (default)**: Arranges cards in a grid system and lets you group them in sections.
 - **Panel**: Displays one card in full width. For example a map or an image.
 - **Sidebar**: Arranges cards in 2 columns, a wide one and a smaller one on the right.
-- **Masonry (default)**: Arranges cards in columns based on their card size.
-- **Sections (experimental)**: Arranges cards in a grid system and lets you group them in sections.
-
-It is currently not possible to migrate your dashboard from one view type into another. For example, if you have a dashboard in masonry view, and want it in sections view, you need to create a new view.
+- **Masonry**: Arranges cards in columns based on their card size.
 
 ## Adding a view to a dashboard
 
