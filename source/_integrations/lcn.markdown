@@ -85,8 +85,7 @@ The **Modules / Groups** tab provides an overview of your configured LCN modules
 To initiate a scan for LCN modules on the bus, in the top-right corner, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Scan Modules**.
 - **Result**: This process polls each module for its name and serial number. 
 - When all module responses have been received, they will be listed in the device list.
-
-Scanning modules may take several seconds. The pop-up dialog will close automatically once the process is complete.
+- Scanning modules may take several seconds. The pop-up dialog will close automatically once the process is complete.
 
 #### Adding devices
 
@@ -94,7 +93,7 @@ If module scanning fails or a module is unavailable on the bus, you can manually
 
 1. To add a module or group manually, select the **Create Module/Group** button to open the dialog.
 
-![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
+  ![Create module/group dialog](/images/integrations/lcn/lcn_create_device.png)
 
 2. Select whether you want to add a module or group and enter the desired `segment id` and module/group `id`. 
 3. To add the new device, select **Create**.
@@ -104,7 +103,7 @@ If module scanning fails or a module is unavailable on the bus, you can manually
 To delete a single device, select the trash can icon next to it. 
 - **Result**: This will remove the device from the device list and from Home Assistant, including any associated entities.
 
-To delete multiple devices at once, enable selection mode.  Select the desired entries, then select the **Delete Selected** button in the upper right.
+To delete multiple devices at once, enable selection mode.  Select the desired entries, then, in the top-right corner, select  **Delete Selected**.
 
 ### Configuring entities
 
@@ -113,11 +112,11 @@ Entities configured for all devices are listed on the **Entities** tab.
 - To view entities for a specific device (module or group), select the device entry in the **Modules / Groups** tab. This opens the **Entities** tab, filtering entities to show only those for the selected device. 
 - To apply custom filters, enable the filter option.
 
-![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
+  ![Create module/group dialog](/images/integrations/lcn/lcn_entities_page.png)
 
 #### Adding entities
 
-To create a new entity, select the **Create Entity** button, which opens the following dialog.
+To create a new entity, select **Create Entity**, which opens the following dialog.
 
 ![Create entity dialog](/images/integrations/lcn/lcn_create_entity.png)
 
