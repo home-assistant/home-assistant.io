@@ -76,7 +76,7 @@ From the LCN Configuration Panel, you can configure your LCN modules, groups, an
 
 ### Configuring devices
 
-You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](https://www.home-assistant.io/integrations/lcn/#actions) within scripts or automations. For examples, refer to the [Performing actions](https://www.home-assistant.io/docs/scripts/perform-actions/) page.
+You can add and remove modules and groups directly from the configuration panel. Once added, they will appear in Home Assistant as devices, which can be used to trigger [specific actions](#actions) within scripts or automations. For examples, refer to the [Performing actions](/docs/scripts/perform-actions/) page.
 
 The **Modules / Groups** tab provides an overview of your configured LCN modules and groups, showing their name, ID, and segment ID. The LCN Configuration Panel attempts to derive names from the LCN modules; if a module has no name or is part of a group, a standard name is assigned.
 
