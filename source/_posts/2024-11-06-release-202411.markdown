@@ -182,7 +182,7 @@ capability to use WebRTC for peer-to-peer connections whenever possible. If you 
 Sometimes, a direct connection between the client (like your browser
 or mobile app) and the camera is not possible; in those situations, the camera
 stream needs to be relayed by an external server. [Home Assistant Cloud] now
-provides this relay server (TURN server), and it's **included as one of the many benefits**
+provides this relay server ([TURN server]), and it's **included as one of the many benefits**
 available to all subscribers!
 
 So, no matter where you are, you should always be able to watch your cameras
@@ -194,6 +194,7 @@ So, after reading all of this, what changed? Well, camera feeds will do everythi
 
 [Home Assistant Cloud]: /cloud/
 [STUN servers]: https://en.wikipedia.org/wiki/STUN
+[TURN server]: https://en.wikipedia.org/wiki/Traversal_Using_Relays_around_NAT
 [The Open Home Foundation]: https://www.openhomefoundation.org/
 [WebRTC is a standard]: https://webrtc.org/
 [what WebRTC is]: https://en.wikipedia.org/wiki/WebRTC
