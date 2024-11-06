@@ -84,8 +84,10 @@ To migrate a view into a sections view type, follow these steps:
    - **Result**: A new, additional view is created.
    - Your current view will stay untouched.
    - A new tab opens, and all your cards are imported to the new view.
-5. In the **Imported cards** section, pick each of the cards, and place them into the sections.
+5. In the **Imported cards** section, pick each of the cards, and drag them into the sections.
    - To edit and customize the view, follow the steps in the [sections view](/dashboards/sections/) documentation.
+
+    ![Move cards from imported cards section onto your dashboard](/images/dashboards/imported-cards.png)
 6. To save your changes, select **Done**.
     - **Result**: Your new dashboard is shown.
     - If you have cards that were not yet integrated, you can still add them later. They are still available in the Edit mode, in the **Imported cards** section.
