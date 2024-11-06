@@ -454,13 +454,7 @@ To allow a smooth migration from single component discovery to device-based disc
 2. Move the `object_id` inside the discovery payload, if that is available, or use a unique ID or the component.
 3. Consider using the previous `node_id` as the new `object_id` of the device discovery topic.
 4. Ensure the `unique_id` matches and the `device` context has the correct identifiers.
-5. Send the following payload to all existing single component discovery topics:
-
-```json
-{"migrate_discovery": true }
-```
-
-This will unload the discovered item, but its settings will be retained.
+5. Send the following payload to all existing single component discovery topics: `{"migrate_discovery": true }`. This will unload the discovered item, but its settings will be retained.
 6. Switch the discovery topic to the device-based discovery topic and include all the component configurations.
 7. Clean up the single component discovery messages with an empty payload.
 
@@ -1317,6 +1311,7 @@ The following software has built-in support for MQTT discovery:
 - [Nuki Hub](https://github.com/technyon/nuki_hub)
 - [Nuki Smart Lock 3.0 Pro](https://support.nuki.io/hc/articles/12947926779409-MQTT-support), [more info](https://developer.nuki.io/t/mqtt-api-specification-v1-3/17626)
 - [OpenMQTTGateway](https://github.com/1technophile/OpenMQTTGateway)
+- [OTGateway](https://github.com/Laxilef/OTGateway)
 - [room-assistant](https://github.com/mKeRix/room-assistant) (starting with 1.1.0)
 - [SmartHome](https://github.com/roncoa/SmartHome)
 - [SpeedTest-CLI MQTT](https://github.com/adorobis/speedtest-CLI2mqtt)
@@ -1330,7 +1325,6 @@ The following software has built-in support for MQTT discovery:
 - [Xiaomi DaFang Hacks](https://github.com/EliasKotlyar/Xiaomi-Dafang-Hacks)
 - [Zehnder Comfoair RS232 MQTT](https://github.com/adorobis/hacomfoairmqtt)
 - [Zigbee2MQTT](https://github.com/koenkk/zigbee2mqtt)
-- [OTGateway](https://github.com/Laxilef/OTGateway)
 
 ## Manual configured MQTT items
 
