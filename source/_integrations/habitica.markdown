@@ -167,6 +167,10 @@ Terminate your party's ongoing quest. All progress will be lost, and the quest r
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to abort the quest.              |
 
+{% note %}
+Actions marked with 🔒 have usage restrictions. See action descriptions for details.
+{% endnote %}
+
 ### Action `habitica.start_quest` 🔒
 
 Begin the quest immediately, bypassing any pending invitations that haven't been accepted or rejected. Only the quest leader or group leader can perform this action.
@@ -182,10 +186,6 @@ Cancel a quest that has not yet started. All accepted and pending invitations wi
 | Data attribute | Optional | Description                                                    |
 | -------------- | -------- | -------------------------------------------------------------- |
 | `config_entry` | no       | Config entry of the character to cancel the quest.             |
-
-{% note %}
-Actions marked with 🔒 have usage restrictions. See action descriptions for details.
-{% endnote %}
 
 ## Automations
 
