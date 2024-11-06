@@ -163,7 +163,7 @@ Lots of effort has gone into this new and amazing feature for this release:
 <center><p class='no-shadow'><img class="no-shadow" alt="Logo of WebRTC" src="/images/blog/2024-11/webrtc-logo-horiz-retro.png" /></p></center>
 
 Not sure [what WebRTC is]? No worries! Let us try to explain. If you are
-watching a camera in Home Assistant, you might have noticed it is something
+watching a camera in Home Assistant, you might have noticed it is sometimes
 a bit slow and delayed. WebRTC support is going to change that!
 
 Camera streams will now try to use WebRTC whenever possible.
@@ -175,14 +175,14 @@ instance and the camera you are trying to view.
 
 [The Open Home Foundation] will host the negotiating network infrastructure
 ([STUN servers]) **for free for all Home Assistant users** and enable the
-capability to use WebRTC for peer-to-peer connections whenever possible.
+capability to use WebRTC for peer-to-peer connections whenever possible. If you are using Home Assistant OS or our containers, after you update this will automatically work out of the box.
 
 <center><p class='no-shadow'><img class="no-shadow" alt="Logo of the Open Home Foundation" src="https://www.openhomefoundation.org/assets/images/logo/open-home-foundation.svg" style="width: 90%" /></p></center>
 
 Sometimes, a direct connection between the client (like your browser
 or mobile app) and the camera is not possible; in those situations, the camera
 stream needs to be relayed by an external server. [Home Assistant Cloud] now
-provides this relay server, and it's **included as one of the many benefits**
+provides this relay server (TURN server), and it's **included as one of the many benefits**
 available to all subscribers!
 
 So, no matter where you are, you should always be able to watch your cameras
@@ -190,9 +190,7 @@ via this low-latency technology. If, for whatever reason, WebRTC is not
 available, it will fall back to using the old method of streaming to ensure
 you can always see your camera feeds.
 
-So, after reading all of this, what changed? Well, everything will still look
-and work the same, but your camera feeds will be faster, more responsive, and
-less delayed! 🎉
+So, after reading all of this, what changed? Well, camera feeds will do everything they did before, but will be faster, more responsive, and less delayed! 🎉
 
 [Home Assistant Cloud]: /cloud/
 [STUN servers]: https://en.wikipedia.org/wiki/STUN
@@ -351,29 +349,19 @@ noteworthy changes this release:
 
 ### Live logs
 
-Sometimes, if something does not work as expected, you might resort to a more technical
-tool for finding out what is going on: The logs.
+A bit technical maybe, but if you need to view the Home Assistant supervisor logs, you
+can now view those live! No need to press refresh buttons anymore, and you can scroll back in time to see previous log items.
 
-Previously, if you looked at the logs of, for example, an add-on or the Home
-Assistant Supervisor, you would only see the last 100 log lines. You’d had to
-refresh the page to see new log entries.
-
-Well, no more! As of this release, the logs are now **streaming live**! 🎉
-
-<p class='img no-shadow'><img class="no-shadow" alt="Screenshot of the imported cards section" src="/images/blog/2024-11/streaming-live-logs.gif"/>Screen recording demonstrating logs showing up as they happen.</p>
-
-And not just that, you can scroll back in time to see previous log items.  
-That's a pretty cool improvement. 😎
+_**Insert recording of it streaming**_
 
 ## Voice
 
 Last year, 2023, was the [Year of the Voice] for Home Assistant. And while this
-year wasn't specifically dedicated to voice, everyone is still working hard
+year isn't specifically dedicated to voice, everyone is still working hard
 towards the goal of letting users control their homes with their voice in
 their own language.
 
-As you might have heard through many community channels 🕵️‍♀️, this will
-become a reality for everyone. We are working hard to get our Home Assistant
+As you might have heard through many community channels 🕵️‍♀️, we are working to make this a reality for everyone. We are hard at work getting our Home Assistant
 voice satellite hardware ready and available for selling and shipping! 🤗
 
 Stay tuned for more information on that soon!
@@ -384,11 +372,9 @@ Stay tuned for more information on that soon!
 
 One of the things we are working on is the Home Assistant intents. This is a
 way for a voice assistant to understand the intention behind your spoken
-sentence. This is a very crucial part of a local voice assistant.
+sentences. This is a very crucial part of a local voice assistant.
 
-In this release, we decided to align and combine the Canadian French and French
-languages, as they are very similar. This means Canadian French users are
-getting a ton of great new voice features!
+In this release, we decided to align and combine Canadian French and French languages for the time being. Though we understand it is a unique dialect, this is about giving Canadian French users a lot more voice features.
 
 ![Screenshot showing a few commands in Canadian French before and after this release](/images/blog/2024-11/canadian-french-on-assist.png)
 
@@ -408,17 +394,16 @@ in our [developer documentation].
 ### Join the Wake Word Collective
 
 Another essential part of voice is the Wake Word! And this is where **everyone**,
-no matter your skill level, can help out in just a minute of your time!
+no matter your skill level, can help out with just a minute of your time!
 
 Wake words are the words you say to wake up your voice assistant. For example,
 _"Hey Google"_ or _"Alexa"_. As we are building our own voice assistant with
 our own wake words, we need to train our models to recognize these words,
 regardless of your accent, language, gender, or age.
 
-So, get your whole home involved —🏠 Including your kids, your parents,
-friends and family! Take a minute to help us out by recording your voice
+So, get your whole home involved 🏠! Take a minute to help us out by recording your voice
 saying the wake word. It is super easy, and you can do it right from your
-browser, no need to install anything!
+browser or mobile, no need to install anything!
 
 [**Help us improve our wake words today! ❤️**](https://ohf-voice.github.io/wake-word-collective/)
 
