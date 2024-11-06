@@ -62,7 +62,7 @@ The username is the name that is used to log in. It can differ from the display 
 
 1. To edit the username of a person using Home Assistant, go to {% my people title="**Settings** > **People**" %} and select the person for which you want to change the display name.
 2. Change the username and select **Update** to save the change.
-   - It must be lowercase and contains no whitespace.
+   - It must be lowercase and contains no spaces.
    - The log in is case-sensitive.
 
 ## Changing authentication settings
