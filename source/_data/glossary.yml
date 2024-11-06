@@ -207,9 +207,7 @@
   link: /integrations/device_tracker
 - term: Diagnostics
   definition: >-
-    The diagnostics integration provides a way to download diagnostic data from
-    a device or integration, that can be shared in issue reports. Sharing
-    diagnostics data when reporting an issue allows developers to diagnose and
+    The diagnostics integration provides a way to download diagnostic data from a device or integration to share it in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
     fix your reported problem quicker.
   link: /integrations/diagnostics
 - term: Discovery
@@ -617,9 +615,8 @@
 - term: Update
   definition: >-
     An update entity is an entity that indicates if an update is available for a
-    device or service. This can be any update, including update of a firmware
-    for a device like a light bulb or router, or software updates for things
-    like add-ons or containers.
+    device or service. This can be any update, be it a firmware update
+    for a device like a light bulb or router, or a software update for an add-on or a container.
   excerpt: >
     An update entity is an entity that indicates if an update is available for a
     device or service.
