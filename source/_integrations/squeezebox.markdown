@@ -124,7 +124,7 @@ This action allows you to search the LMS music library for albums, artists, genr
 | `tags`          | yes      | Specify tags you wish the search to return, overriding the default tag list                                                       |
 
 This action can be used to integrate a Squeezebox query into an automation. For example, in a Python script, you can get a list of the first 20 albums containing the word "classic" like this:
-`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": 20, "search_string":"classic"] })`
+`hass.services.call("squeezebox", "search", { "entity_id": "media_player.kitchen", "command": "albums", "return_items": "20", "search_string":"classic"] })`
 To work with the results:
 `result = hass.states.get("media_player.kitchen").attributes['query_result']`
 
@@ -136,9 +136,9 @@ This action allows you to play music from the LMS music library. You can play an
 | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `entity_id`       | no       | Name(s) of the Squeezebox entity on which to play the item                                                                                                                                                       |
 | `command`         | no       | Items to play on the Lyrion Music Server. This must be one of album, artist, genre, track, playlist, favorite                                                                                                    |
-| `search_type`     | no       | Either text or item, to specify whether the contents of search_string is an item_id or a text search string                                                                                                      |
+| `search_type`     | no       | Either "text" or "item", to specify whether the contents of search_string is an item_id or a text search string                                                                                                  |
 | `search_string`   | no       | Either text to search to find the item to play, or an item_id of the item, depending on search_type                                                                                                              |
 | `playlist_action` | no       | Either play, add or next. Play will replace the current playlist and play the item, add will add the item to the end of the current playlist and next will add the item as the next item in the current playlist |
 
 This action can be used to integrate a Squeezebox action into an automation. For example, in a Python script, you can play the favorite "Classics" on media_player.kitchen as follows
-`hass.services.call("squeezebox", "play", { "entity_id": "media_player.kitchen", "command": "album", "search_tyoe": "text", "search_string":"classic", "playlist_action"] })`
+`hass.services.call("squeezebox", "play", { "entity_id": "media_player.kitchen", "command": "album", "search_type": "text", "search_string": "classic", "playlist_action": "play"] })`
