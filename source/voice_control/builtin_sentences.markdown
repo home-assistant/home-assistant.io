@@ -131,7 +131,7 @@ Home Assistant comes with [built-in sentences](https://github.com/home-assistant
 - *how much time is left on kitchen timer?*
 - *how much time is left on 5 minute timer?*
 
-"p class='img'""lite-youtube videoid=v3mNdTsX4J0 videotitle=Voice timers with countdown text and loading bar""/lite-youtube"Timers running on an S3-Box-3B, with countdown text and a loading bar!"/p"
+<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3-Box-3B, with countdown text and a loading bar!</p>
 
 To learn how to set this up, refer to the [ESP32-S3-Box-3B tutorial](/voice_control/s3_box_voice_assistant/).
 
