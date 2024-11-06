@@ -35,7 +35,7 @@ There is support for the following platform types within Home Assistant:
 - **{% term "Device tracker" %}** - presence detection by looking at connected devices.
 - **{% term "Binary sensor" %}** - connectivity status.
 - **{% term Image %}** - QR code for Guest Wi-Fi.
-- **{% term Button %}** - reboot, reconnect, firmware_update.
+- **{% term Button %}** - reboot, reconnect, firmware update.
 - **{% term Sensor %}** - external IP address, uptime and network monitors.
 - **{% term Switch %}** - call deflection, port forward, parental control and Wi-Fi networks.
 - **{% term Update %}** - firmware status of the device.
@@ -48,10 +48,10 @@ Both the TR-064 (_Permit access for apps_) and UPnP (_Transmit status informatio
 
 ## Username
 
-We strongly recommend to create a separate user to connect Home Assistant to your FRITZ!Box. This can be done under int the FRITZ!Box under **System** > **FRITZ!Box Users** > **Users** > **Add User**. The user needs the **FRITZ!Box Settings** permission.
+It is recommended to create a separate user to connect Home Assistant to your FRITZ!Box. To create a user, in the FRITZ!Box go to **System** > **FRITZ!Box Users** > **Users** > **Add User**. Make sure the user has the **FRITZ!Box Settings** permission.
 
 {% note %}
-If you still want to use the predefined user, please note that starting from FRITZ!OS 7.24 the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24 the default username was `admin`.
+If you still want to use the predefined user, please note that as of FRITZ!OS 7.24, the FRITZ!Box creates a random username for the admin user if you didn't set one yourself. This can be found after logging into the FRITZ!Box and visiting **System** > **FRITZ!Box Users** > **Users**. The username starts with `fritz` followed by four random numbers. Under properties on the right it says `created automatically`. Prior to FRITZ!OS 7.24, the default username was `admin`.
 {% endnote %}
 
 ## Actions
@@ -153,6 +153,9 @@ In any case, when reporting an issue, please enable [debug logging](/docs/config
 
 ### Device presence detection is not working as expected
 
-You see a device as still present, even it is offline or disconnected for more than the configured [consider home](#consider-home) seconds? You're using additional network equipment like a network switch or wifi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network?
+Check if one of the following cases applies:
 
-Than you should [enable the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options).
+- You see a device as still present, even if it is offline or disconnected for more than the configured [consider home](#consider-home) seconds.
+- You're using additional network equipment like a network switch or Wi-Fi access point other than an AVM Fritz!Repeater or other AVM components, but not configured as a [mesh](https://en.avm.de/service/knowledge-base/dok/FRITZ-Box-7590/3329_Mesh-with-FRITZ/) in your home network.
+
+If one of the above cases applies to your setup, try [enabling the old discovery method](#enable-old-discovery-method) in the [integration options](#integration-options). This might resolve the issue.
