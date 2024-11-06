@@ -95,17 +95,17 @@ Enjoy the (beta) release!
 
 ## Sections dashboard no longer experimental!
 
-This release marks a big milestone in our pursuit to making dashboards easier to customize and use for everyone, aka [Project Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/)! The sections view layout, together with its drag-and-drop 🐲 capabilities and responsive design, is now out of experimental phase, and ready for primetime! This means that, as of this release, when you create a new dashboard, you will get our awesome feature-rich and easy-to-use dashboard editing experience.
+This release marks a big milestone in our pursuit to make dashboards easier to customize and use for everyone, aka [Project Grace](https://www.home-assistant.io/blog/2024/03/04/dashboard-chapter-1/)! The sections view layout, together with its drag-and-drop 🐲 capabilities and responsive design, is now out of its experimental phase, and is ready for primetime! This means that, as of this release, when you create a new dashboard, you will get our awesome feature-rich and easy-to-use dashboard editing experience.
 
-Over the past few months, we worked hard to iterate and listen to your feedback to ensure that our new dashboard is easy to customize for both beginners and advanced users alike. We had added new capabilities such as [resizing cards](/blog/2024/07/03/release-20247/), [visibility options](/blog/2024/06/05/release-20246/), [wider sections](/blog/2024/09/04/release-20249/), [new badges](/blog/2024/08/07/release-20248/) and most recently, adding [the new heading card](/blog/2024/10/02/release-202410/).
+Over the past few months, we have worked hard to iterate and listen to your feedback to ensure that our new dashboard is easy to customize for both beginners and advanced users alike. We had added new capabilities such as [resizing cards](/blog/2024/07/03/release-20247/), [visibility options](/blog/2024/06/05/release-20246/), [wider sections](/blog/2024/09/04/release-20249/), [new badges](/blog/2024/08/07/release-20248/) and most recently, adding [the new heading card](/blog/2024/10/02/release-202410/).
 
-To finish up this journey, we are adding two more features in this release:
+To finish up this journey, we are adding two more features in this release.
 
 ### Convert your old dashboards to sections view layout
 
 <p class='img no-shadow'><img class="no-shadow" alt="Screenshots showing the conversion of a view in masonry into sections" src="/images/blog/2024-11/dashboard-conversion.png"/>Screenshots showing the conversion of a view in masonry into sections</p>
 
-This release includes a way to convert the old masonry view layout to the new sections view layout for your individual dashboard views. When you change the view type to sections, you get a button to convert the view. All the cards of the old view are then copied and placed in an imported cards section in the new view, and you can then easily drag-and-drop them into right sections.
+This release includes a way to convert indiviual dashboard views from the old masonry view layout to the new sections view layout. When you change the view type to sections, you get a button to convert the view. All the cards of the old view are then copied and placed in an imported cards section in the new view, and you can then easily drag-and-drop them into right sections.
 
 Please note that cards placed within the imported cards section are not visible to users until they are moved to a section above the fold. This ensures that cards do not get accidentally shown in the wrong sections while you are still working on the dashboard.
 
@@ -113,7 +113,7 @@ Please note that cards placed within the imported cards section are not visible 
 
 If you are not ready for the new layout yet, no worries! Your old dashboard view is kept when a new dashboard is created, giving an excellent way for masonry view veterans to try out sections while keeping all the hard work they have put into customizing their cards.
 
-Alternatively, you can also move each card one-by-one from another view. All moved cards will also be temporarily placed in the imported cards section.
+Alternatively, you can move each card one-by-one from another view. All moved cards will also be temporarily placed in the imported cards section.
 
 ### Precise mode for card sizes
 
