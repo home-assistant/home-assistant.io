@@ -349,10 +349,19 @@ noteworthy changes this release:
 
 ### Live logs
 
-A bit technical maybe, but if you need to view the Home Assistant supervisor logs, you
-can now view those live! No need to press refresh buttons anymore, and you can scroll back in time to see previous log items.
+Sometimes, if something does not work as expected, you might resort to a more technical
+tool for finding out what is going on: The logs.
 
-_**Insert recording of it streaming**_
+Previously, if you looked at the logs of, for example, an add-on or the Home
+Assistant Supervisor, you would only see the last 100 log lines. You’d had to
+refresh the page to see new log entries.
+
+Well, no more! As of this release, the logs are now **streaming live**! 🎉
+
+<p class='img no-shadow'><img class="no-shadow" alt="Screenshot of the imported cards section" src="/images/blog/2024-11/streaming-live-logs.gif"/>Screen recording demonstrating logs showing up as they happen.</p>
+
+And not just that, you can scroll back in time to see previous log items.  
+That's a pretty cool improvement. 😎
 
 ## Voice
 
