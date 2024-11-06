@@ -101,12 +101,13 @@ You can choose to show or hide certain cards or [badges](/dashboards/badges/) ba
 In [sections view](/dashboards/sections/), you can resize cards. Follow these steps:
 
 1. On the **Layout** tab, move the sliders to adjust the card size.
-    - Don't see a **Layout** tab?
+  ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
+    - **Troubleshooting**: Don't see a **Layout** tab?
       - It is not available inside nested cards: vertical stack, horizontal stack, and grid card
       - It is not available on the picture elements card.
-  ![Screenshot of the Layout tab in the card dialog](/images/dashboards/card_resize.png)
-
-2. Select **Save**.
+2. **Precise mode** gives you a finer grid to size your card. The last row was done using precise mode.
+  ![Screenshot of a section using precise mode for some cards](/images/dashboards/precise-mode-example.png)
+3. Select **Save**.
 
 ## Revert resizing of a card
 
