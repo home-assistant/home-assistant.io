@@ -27,7 +27,7 @@ MAC:
   required: true
   type: string
 Is new style scale:
-  description: "Check this if your scale is a newer model (after 2021). If the integration does not work correctly, try toggling this setting."
+  description: "Check this if your scale is a newer model (manufactured after 2021). This setting affects how commands are sent to the scale. If your scale doesn't respond to commands, try toggling this setting. For example, Lunar models made after 2021 should have this enabled."
   required: false
   type: boolean
 {% endconfiguration_basic %}
@@ -37,21 +37,21 @@ Is new style scale:
 ## Buttons
 
 - **Tare**: Tares the scale
-- **Reset timer**: Reset the timer. If the timer is running, it will continue to run.
+- **Reset timer**: Resets the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
 ## Supported devices
 
-Currently, only
+The following devices have been tested successfully with this integration:
 
-- Lunar (after 2021)
+- Lunar (manufactured after 2021)
 - Pyxis
 
-have been tested successfully with this integration. If you have another model and tested it with this integration, please let us know.
+If you have successfully tested this integration with another Acaia model, please let us know by enhancing this documentation, or by opening an issue in GitHub.
 
 ## Possible use-cases
 
-The main use-case for this integration is to be used with integration for smart coffee machines, e.g. the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/). 
+The main use-case for this integration is to be used with integration for smart coffee machines, e.g. the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/).
 It could also be used to display the weight on secondary displays when brewing on a Pyxis or Lunar and cannot see the display.
 
 ## Automations
