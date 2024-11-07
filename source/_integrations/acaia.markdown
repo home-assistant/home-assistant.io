@@ -37,7 +37,7 @@ Is new style scale:
 ## Buttons
 
 - **Tare**: Tares the scale
-- **Reset timer**: Reset the timer. If the timer is running, will continue to run.
+- **Reset timer**: Reset the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
 ## Supported devices
@@ -52,7 +52,7 @@ have been tested successfully with this integration. If you have another model a
 ## Possible use-cases
 
 The main use-case for this integration is to be used with integration for smart coffee machines, e.g. the [La Marzocco integration](https://www.home-assistant.io/integrations/lamarzocco/). 
-It could be also used to display the weight on secondary displays, in case you are brewing on a Pyxis or Lunar and are not able to see the display.
+It could also be used to display the weight on secondary displays when brewing on a Pyxis or Lunar and cannot see the display.
 
 ## Automations
 
@@ -92,6 +92,7 @@ actions:
 mode: single
 
 ```
+
 {% endraw %}
 {% enddetails %}
 
