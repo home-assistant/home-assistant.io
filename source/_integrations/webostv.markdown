@@ -66,6 +66,33 @@ Any other [actions](/docs/automation/action/) to power on the device can be conf
 
 It is possible to select which sources will be available to the media player. When the TV is powered on press the **CONFIGURE** button in the {% term integration %} card and select the sources to enable. If you don't select any source the media player will offer all of the sources of the TV.
 
+### Sewithching source with automation
+
+Imagine you want to switch your LG TV directly to a certain source after the start. Below is a simple automation example that would start `YouTube` after the TV is switch on.
+It leverages `select_source` action from the [Media player](/integrations/media_player/) integration to launch a specific app installed on your LG TV.
+
+```yml
+alias: Switch TV source to YouTube by Default
+description: 'Regardless if started from TV remote or via wake-on-lan, the TV will switch to YouTube right after it is on'
+triggers:
+  - device_id: <TV DEVICE ID>
+    domain: media_player
+    entity_id: <TV MEDIA PLAYER ENTITY ID>
+    type: turned_on
+    trigger: device
+conditions: []
+actions:
+  - action: media_player.select_source
+    metadata: {}
+    data:
+      source: YouTube
+    target:
+      device_id: <TV DEVICE ID>
+mode: single
+```
+
+The automatin can be fully achieved via the Homeassistant UX with the only manual input required to be the source name.
+
 ## Change channel through play_media action
 
 The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
