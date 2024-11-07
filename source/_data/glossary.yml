@@ -207,7 +207,7 @@
   link: /integrations/device_tracker
 - term: Diagnostics
   definition: >-
-    The diagnostics integration provides a way to download diagnostic data from a device or integration to share it in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
+    The diagnostics integration provides a way to download diagnostic data from a device or integration for sharing in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and
     fix your reported problem quicker.
   link: /integrations/diagnostics
 - term: Discovery
