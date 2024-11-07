@@ -11,7 +11,7 @@ ha_codeowners:
 ha_integration_type: system
 ---
 
-The **Diagnostics** {% term integration %} provides a way to download diagnostic data from a {% term device %} or {% term integration %} to share it in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and fix your reported problem quicker.
+The **Diagnostics** {% term integration %} provides a way to download diagnostic data from a {% term device %} or {% term integration %} for sharing in issue reports. Sharing diagnostics data when reporting an issue allows developers to diagnose and fix your reported problem quicker.
 
 <p class='img'>
 <img class="no-shadow" src='/images/blog/2022-02/diagnostics.png' alt='Screenshot showing the Download Diagnostics button on a Sonos device page'>
