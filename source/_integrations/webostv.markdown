@@ -68,7 +68,7 @@ It is possible to select which sources will be available to the media player. Wh
 
 ### Switching source with automation
 
-Imagine you want to switch your LG TV directly to a certain source after the start. Below is a simple automation example that would start `YouTube` after the TV is switch on.
+Imagine you want your LG TV to automatically switch to a specific source when it turns on. Below is a simple automation example that launches `YouTube` after the TV is switched on.
 It leverages `select_source` action from the [Media player](/integrations/media_player/) integration to launch a specific app installed on your LG TV.
 To find available sources for your TV
 
