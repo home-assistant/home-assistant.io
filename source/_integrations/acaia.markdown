@@ -100,6 +100,6 @@ mode: single
 
 {% details "Problem: Not reacting to commands" %}
 
-Try toggling the **Is new style setting** in the reconfiguration settings.
+Try toggling the **Is new style scale** setting in the reconfiguration settings.
 {% enddetails %}
 
