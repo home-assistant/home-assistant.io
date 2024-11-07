@@ -34,6 +34,10 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 Home Assistant is able to turn on an LG webOS Smart TV if you specify an action, provided by an {% term integration %} like [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/).
 
+{% important %}
+`WakeOnLan` or `HDMI-CED` integrations are not automatically installed together with the `LG webOS Smart TV` integration. Make sure the desired one is already availalbe in `Settings->Devices and services -> Integrations` or use `Add Integration` button to intall it.
+{% endimportant %}
+
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
 On newer models (2017+), WakeOnLan may need to be enabled in the TV settings by going to Settings > General > Mobile TV On > Turn On Via WiFi [instructions](https://support.quanticapps.com/hc/en-us/articles/115005985729-How-to-turn-on-my-LG-Smart-TV-using-the-App-WebOS-).
