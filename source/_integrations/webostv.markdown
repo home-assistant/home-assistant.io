@@ -70,6 +70,15 @@ It is possible to select which sources will be available to the media player. Wh
 
 Imagine you want to switch your LG TV directly to a certain source after the start. Below is a simple automation example that would start `YouTube` after the TV is switch on.
 It leverages `select_source` action from the [Media player](/integrations/media_player/) integration to launch a specific app installed on your LG TV.
+To find available sources for your TV
+
+1. Go to Developer Tools -> States
+2. Find your TV's media_player entity
+3. Look for the `source_list` attribute, which contains all available sources
+   
+{% tip %}
+Source list example: `source_list: ARD Mediathek, Apps, HDMI 1, Home Dashboard, JBL Bar 1300, Media Player, Netflix, Prime Video, Public Value, Spotify - Music and Podcasts, Timer, Web Browser, YouTube, ZDFmediathek`
+{% endtip %} 
 
 ```yml
 alias: Switch TV source to YouTube by Default
