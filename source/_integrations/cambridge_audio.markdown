@@ -11,6 +11,7 @@ ha_platforms:
   - diagnostics
   - media_player
   - select
+  - switch
 ha_codeowners:
   - '@noahhusby'
 ha_config_flow: true

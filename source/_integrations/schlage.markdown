@@ -14,6 +14,7 @@ ha_platforms:
   - binary_sensor
   - diagnostics
   - lock
+  - select
   - sensor
   - switch
 ha_integration_type: integration

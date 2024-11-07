@@ -74,6 +74,6 @@ Title example:
 
 ```yaml
 type: todo-list
-entity: todo-list
-title: todo list
+entity: todo.todo_list
+title: Todo List
 ```

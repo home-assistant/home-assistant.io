@@ -17,6 +17,7 @@ ha_platforms:
   - climate
   - cover
   - diagnostics
+  - light
   - sensor
   - switch
 ha_config_flow: true

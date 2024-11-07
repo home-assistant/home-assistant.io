@@ -6,7 +6,6 @@ ha_category:
 ha_iot_class: Local Polling
 ha_release: 0.22
 ha_domain: local_file
-ha_config_flow: true
 ha_platforms:
   - camera
 ha_integration_type: integration

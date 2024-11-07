@@ -107,9 +107,9 @@ social:
 
 # Home Assistant release details
 current_major_version: 2024
-current_minor_version: 10
-current_patch_version: 4
-date_released: 2024-10-25
+current_minor_version: 11
+current_patch_version: 0
+date_released: 2024-11-06
 
 # Either # or the anchor link to latest release notes in the blog post.
 # Must be prefixed with a # and have double quotes around it.

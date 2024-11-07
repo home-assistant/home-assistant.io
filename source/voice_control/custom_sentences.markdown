@@ -148,7 +148,7 @@ As mentioned above, you can then use the `intent_script` integration to implemen
 # Example configuration.yaml
 intent_script:
   SetVolume:
-    actions:
+    action:
       service: "media_player.volume_set"
       data:
         entity_id: "{{ media_player }}"
