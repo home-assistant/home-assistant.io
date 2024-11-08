@@ -99,6 +99,6 @@ Try toggling the **Is new style scale** setting in the reconfiguration settings.
 
 {% details "Device not discovered or found" %}
 
-Make sure your scale is in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range, if your instance is too far away.
+Make sure your scale is in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away.
 {% enddetails %}
 
