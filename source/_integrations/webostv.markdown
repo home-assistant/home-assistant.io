@@ -102,8 +102,6 @@ actions:
 mode: single
 ```
 
-
-
 ## Change channel through play_media action
 
 The `play_media` action can be used in a script to switch to the specified TV channel. It selects the best matching channel according to the `media_content_id` parameter:
