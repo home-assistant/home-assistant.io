@@ -35,8 +35,7 @@ To create a NASweb user with access to the NASweb API, follow thses steps:
 3. Find the user you want to have access to the NASweb API from Home Assistant. Select **Edit**.
     - The `admin` user cannot be used for this. Select another user.
 
-  ![](/images/integrations/nasweb/users.png)
-
+    ![](/images/integrations/nasweb/users.png)
 4. In the **Modules** column, find the **API** module.
 5. Select the **API** module and move it into the right-hand column (`1`), which lists modules enabled for this user. 
     - To save changes, select **Apply** (`2`).
