@@ -31,7 +31,7 @@ related:
     title: Habitica
 ---
 
-The Habitca {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
+The Habitica {% term integration %} enables you to monitor your adventurer's progress and stats in Home Assistant and seamlessly integrates your to-do's and daily tasks.
 
 ## Prerequisites for Habitica integration
 
