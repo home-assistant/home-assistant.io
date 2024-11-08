@@ -170,7 +170,16 @@ Do not try this step before clearing down all the excess `Authorized Client Devi
 
 #### Step 3
 
-Some users have reported that toggling the "Motion Warning" setting on and off on their devices via the ring.com website has restarted their alerts.
+If alerts are still not working after Steps 1 and 2, try toggling the Motion Warning setting:
+
+1. Go to [ring.com](https://ring.com) and sign in
+2. Select your device
+3. Navigate to Device Settings
+4. Find the Motion Warning toggle
+5. Turn it off, wait 30 seconds
+6. Turn it back on
+
+This has successfully restored alerts for many users.
 
 ## Sensor
 
