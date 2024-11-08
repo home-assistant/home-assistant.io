@@ -20,9 +20,6 @@ The **Water usage yesterday** sensor shows yesterday's water consumption data if
 
 {% include integrations/config_flow.md %}
 
-`counter_id` is the water counter id.
-It should be found automatically during setup.
-If not it can be found on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr). Look in the source code of the page for something similar to `url: '/mon-compte-en-ligne/statMData' + '/123456789'`. The `counter_id` in this case is `123456789`.
 {% configuration_basic %}
 Counter ID:
   description: "The water counter ID. It should be found automatically during setup. If it was not found, the ID can be found on your _Tout Sur Mon Eau_ [user account](https://www.toutsurmoneau.fr/mon-compte-en-ligne/historique-de-consommation-tr). Look in the source code of the page for something similar to `url: '/mon-compte-en-ligne/statMData' + '/123456789'`. The `counter_id` in this case is `123456789`."
