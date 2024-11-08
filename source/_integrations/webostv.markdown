@@ -34,9 +34,6 @@ To begin with enable *LG Connect Apps* feature in *Network* settings of the TV.
 
 If you want to use an automation to turn on an LG webOS Smart TV, install an {% term integration %} such as the [HDMI-CEC](/integrations/hdmi_cec/) or [WakeOnLan](/integrations/wake_on_lan/). They provide an action that can be used for that.
 
-{% important %}
-`WakeOnLan` or `HDMI-CED` integrations are not automatically installed together with the `LG webOS Smart TV` integration. Make sure the desired one is already availalbe in `Settings->Devices and services -> Integrations` or use `Add Integration` button to intall it.
-{% endimportant %}
 
 Common for webOS 3.0 and higher would be to use WakeOnLan feature. To use this feature your TV should be connected to your network via Ethernet rather than Wireless and you should enable the *LG Connect Apps* feature in *Network* settings of the TV (or *Mobile App* in *General* settings for older models) (*may vary by version).
 
