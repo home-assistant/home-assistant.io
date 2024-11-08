@@ -66,7 +66,7 @@ Get started with these automation examples.
 
 ```yaml
 alias: Start timer on scale
-description: "When a brew starts on the machine, tares, resets the timer and starts the timer on the scale"
+description: "When a brew starts on the machine, the following actions are started: tare, reset the timer, and start the timer on the scale."
 triggers:
   - entity_id:
       - binary_sensor.lm001234_brewing_active
