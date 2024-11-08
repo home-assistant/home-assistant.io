@@ -1326,6 +1326,55 @@ For a summary in a more readable format:
 - Bump go2rtc-client to 0.1.0 ([@edenhaus] - [#129965])
 - Add state invitation to list access sensor in Bring integration ([@tr4nt0r] - [#129960])
 
+## Release 2024.11.1 - November 8
+
+- Bump intents to 2024.11.6 ([@synesthesiam] - [#129982])
+- Fix Trunks in Teslemetry and Tesla Fleet ([@Bre77] - [#129986])
+- Update sense energy library to 0.13.3 ([@kbickar] - [#129998])
+- Bump google-nest-sdm to 6.1.4 ([@allenporter] - [#130005])
+- Add missing placeholder description to twitch ([@epenet] - [#130013])
+- Bump agent-py to 0.0.24 ([@ispysoftware] - [#130018])
+- Don't create repairs asking user to remove duplicate ignored config entries ([@emontnemery] - [#130056])
+- Fix `KeyError` in nest integration when the old key format does not exist ([@allenporter] - [#130057])
+- Don't create repairs asking user to remove duplicate flipr config entries ([@emontnemery] - [#130058])
+- Add missing string to tedee plus test ([@zweckj] - [#130081])
+- Force int value on port in P1Monitor ([@klaasnicolaas] - [#130084])
+- Fix typo in insteon strings ([@KelvinDekker] - [#130085])
+- Update frontend to 20241106.1 ([@bramkragten] - [#130086])
+- Bump python-roborock to 2.7.2 ([@Lash-L] - [#130100])
+- Update frontend to 20241106.2 ([@bramkragten] - [#130128])
+- Fix issue when timestamp is None ([@shaiu] - [#130133])
+- Add go2rtc workaround for HA managed one until upstream fixes it ([@edenhaus] - [#130139])
+- Bump spotifyaio to 0.8.7 ([@joostlek] - [#130140])
+- Bump ha-ffmpeg to 3.2.2 ([@MartinHjelmare] - [#130142])
+- Fix volume_up not working in some cases in bluesound integration ([@LouisChrist] - [#130146])
+- Fix bugs in nest stream expiration handling ([@allenporter] - [#130150])
+- Refrase imap fetch service description string ([@jbouwh] - [#130152])
+
+[#129970]: https://github.com/home-assistant/core/pull/129970
+[#129982]: https://github.com/home-assistant/core/pull/129982
+[#129986]: https://github.com/home-assistant/core/pull/129986
+[#129998]: https://github.com/home-assistant/core/pull/129998
+[#130005]: https://github.com/home-assistant/core/pull/130005
+[#130013]: https://github.com/home-assistant/core/pull/130013
+[#130018]: https://github.com/home-assistant/core/pull/130018
+[#130056]: https://github.com/home-assistant/core/pull/130056
+[#130057]: https://github.com/home-assistant/core/pull/130057
+[#130058]: https://github.com/home-assistant/core/pull/130058
+[#130081]: https://github.com/home-assistant/core/pull/130081
+[#130084]: https://github.com/home-assistant/core/pull/130084
+[#130085]: https://github.com/home-assistant/core/pull/130085
+[#130086]: https://github.com/home-assistant/core/pull/130086
+[#130100]: https://github.com/home-assistant/core/pull/130100
+[#130128]: https://github.com/home-assistant/core/pull/130128
+[#130133]: https://github.com/home-assistant/core/pull/130133
+[#130139]: https://github.com/home-assistant/core/pull/130139
+[#130140]: https://github.com/home-assistant/core/pull/130140
+[#130142]: https://github.com/home-assistant/core/pull/130142
+[#130146]: https://github.com/home-assistant/core/pull/130146
+[#130150]: https://github.com/home-assistant/core/pull/130150
+[#130152]: https://github.com/home-assistant/core/pull/130152
+
 [#102871]: https://github.com/home-assistant/core/pull/102871
 [#108171]: https://github.com/home-assistant/core/pull/108171
 [#108326]: https://github.com/home-assistant/core/pull/108326
