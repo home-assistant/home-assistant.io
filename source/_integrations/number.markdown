@@ -49,8 +49,8 @@ The following device classes are supported for numbers:
 - **data_rate**: Data rate in bit/s, kbit/s, Mbit/s, Gbit/s, B/s, kB/s, MB/s, GB/s, KiB/s, MiB/s, or GiB/s
 - **data_size**: Data size in bit, kbit, Mbit, Gbit, B, kB, MB, GB, TB, PB, EB, ZB, YB, KiB, MiB, GiB, TiB, PiB, EiB, ZiB, or YiB
 - **distance**: Generic distance in km, m, cm, mm, mi, yd, or in
-- **energy**: Energy in Wh, kWh, MWh, MJ, or GJ
-- **energy_storage**: Stored energy in Wh, kWh, MWh, MJ, or GJ
+- **energy**: Energy in Wh, kWh, MWh, GWh, TWh, MJ, or GJ
+- **energy_storage**: Stored energy in Wh, kWh, MWh, GWh, TWh, MJ, or GJ
 - **frequency**: Frequency in Hz, kHz, MHz, or GHz
 - **gas**: Gasvolume in m³, ft³, or CCF
 - **humidity**: Percentage of humidity in the air
@@ -67,7 +67,7 @@ The following device classes are supported for numbers:
 - **pm10**: Concentration of particulate matter less than 10 micrometers in µg/m³
 - **pm25**: Concentration of particulate matter less than 2.5 micrometers in µg/m³
 - **power_factor**: Power factor(unitless), unit may be `None` or %
-- **power**: Power in W or kW
+- **power**: Power in W, kW, MW, GW or TW
 - **precipitation**: Accumulated precipitation in cm, in or mm
 - **precipitation_intensity**: Precipitation intensity in in/d, in/h, mm/d, or mm/h
 - **pressure**: Pressure in Pa, kPa, hPa, bar, cbar, mbar, mmHg, inHg, or psi
