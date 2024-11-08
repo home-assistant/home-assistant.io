@@ -20,7 +20,7 @@ The **Suez Water** {% term integration %} fetches your water consumption data fr
 ## Sensors
 
 - The **Water usage yesterday** sensor shows yesterday's water consumption data if that data is available.
-- The **Water price** sensor give the current water price in euro per cubic meter (€/m3).
+- The **Water price** sensor shows the current water price in euros per cubic meter (€/m3).
 
 {% include integrations/config_flow.md %}
 
