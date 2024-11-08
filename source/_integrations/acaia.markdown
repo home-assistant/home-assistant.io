@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Acaia** {% term integrations %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
-If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring this integration, your scale needs to be turned on during setup.
+If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
 
 {% include integrations/config_flow.md %}
 
@@ -92,13 +92,8 @@ mode: single
 
 ## Troubleshooting
 
-{% details "Problem: Not reacting to commands" %}
-
-Try toggling the **Is new style scale** setting in the reconfiguration settings. This setting tells the integration whether you have a newer model (newer than 2021) or not.
-{% enddetails %}
-
 {% details "Device not discovered or found" %}
 
-Make sure your scale is in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away.
+Make sure your scale is turned on and in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the acaia integration and check your logs.
 {% enddetails %}
 
