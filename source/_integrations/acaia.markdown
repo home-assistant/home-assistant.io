@@ -24,10 +24,8 @@ If your machine is within Bluetooth range to your Home Assistant host and the [B
 {% configuration_basic %}
 MAC:
   description: "The MAC address of your scale."
-  required: true
 Is new style scale:
   description: "Check this if your scale is a newer model (manufactured after 2021). This setting affects how commands are sent to the scale. If your scale doesn't respond to commands, try toggling this setting. For example, Lunar models made after 2021 should have this enabled."
-  required: false
 {% endconfiguration_basic %}
 
 # Available platforms & entities
