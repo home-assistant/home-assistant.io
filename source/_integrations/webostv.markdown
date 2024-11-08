@@ -72,9 +72,9 @@ Imagine you want your LG TV to automatically switch to a specific source when it
 It leverages `select_source` action from the [Media player](/integrations/media_player/) integration to launch a specific app installed on your LG TV.
 To find available sources for your TV
 
-1. Go to Developer Tools -> States
-2. Find your TV's media_player entity
-3. Look for the `source_list` attribute, which contains all available sources
+1. Go to {% my developer_states title="**Developer Tools** > **States**" %}.
+2. Find your TV's media_player entity.
+3. Look for the `source_list` attribute which contains all available sources.
    
 {% tip %}
 Source list example: `source_list: ARD Mediathek, Apps, HDMI 1, Home Dashboard, JBL Bar 1300, Media Player, Netflix, Prime Video, Public Value, Spotify - Music and Podcasts, Timer, Web Browser, YouTube, ZDFmediathek`
@@ -100,7 +100,7 @@ actions:
 mode: single
 ```
 
-The automation can be created entirely through the Home Assistant UI. When setting it up, you'll only need to manually enter the source name (e.g., "YouTube") in the action configuration.
+The automation can be created entirely through the Home Assistant UI. When setting it up, you'll only need to manually enter the source name (for example, "YouTube") in the action configuration.
 
 ## Change channel through play_media action
 
