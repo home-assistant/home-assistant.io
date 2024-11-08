@@ -20,27 +20,26 @@ ha_integration_type: hub
 NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions and configured actions.\
 [MORE INFO](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
 
-## NASweb device configuration for Home Assistant
+## Prerequisites
 
-Log into device `NASweb` page:
+Before you can add the NASweb integration to Home Assistant, you need to create a user that has access to the NASweb API.
 
-`https://` + `Device IP` + `/nasweb` (for example: `https://192.168.117.230/nasweb`)
+To create a NASweb user with access to the NASweb API, follow thses steps:
 
-Click on your user in top-right corner and select `Administrators` on pop-up user panel:
+1. To log into device `NASweb` page, enter the device IP in your local network:
+   - `https://` + `Device IP` + `/nasweb` (for example: `https://192.168.117.230/nasweb`)
+2. In the top-right corner, select your user and in the pop-up, select **Administrators** :
 
   ![](/images/integrations/nasweb/dashboard.png)
 
-Find user which will be used by Home Assistant to access NASweb API and click `EDIT` button:
-
-<div class='note warning'>
-
-User `admin` cannot be used for this purpose, select user with different username
-
-</div>
+3. Find the user you want to have access to the NASweb API from Home Assistant. Select **Edit**.
+    - The `admin` user cannot be used for this. Select another user.
 
   ![](/images/integrations/nasweb/users.png)
 
-In `Modules` left-hand column lists available modules for this user, find `API` module and click it to move it into right-hand column (`1`), which lists modules enabled for this user, then press `APPLY` (`2`) to save changes:
+4. In the **Modules** column, find the **API** module.
+5. Select the **API** module and move it into the right-hand column (`1`), which lists modules enabled for this user. 
+    - To save changes, select **Apply** (`2`).
 
   ![](/images/integrations/nasweb/modules.png)
 
