@@ -80,6 +80,8 @@ To find available sources for your TV
 Source list example: `source_list: ARD Mediathek, Apps, HDMI 1, Home Dashboard, JBL Bar 1300, Media Player, Netflix, Prime Video, Public Value, Spotify - Music and Podcasts, Timer, Web Browser, YouTube, ZDFmediathek`
 {% endtip %} 
 
+The automation can be created entirely through the Home Assistant UI. When setting it up, you'll only need to manually enter the source name (for example, "YouTube") in the action configuration. Below is the YAML code generated as a result:
+
 ```yml
 alias: Switch TV source to YouTube by Default
 description: 'Regardless if started from TV remote or via wake-on-lan, the TV will switch to YouTube right after it is on'
