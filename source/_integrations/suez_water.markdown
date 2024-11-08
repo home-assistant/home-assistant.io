@@ -16,7 +16,11 @@ ha_integration_type: integration
 ---
 
 The **Suez Water** {% term integration %} fetches your water consumption data from the French water provider [Tout Sur Mon Eau](https://www.toutsurmoneau.fr) website.
-The **Water usage yesterday** sensor shows yesterday's water consumption data if that data is available.
+
+## Sensors
+
+- The **Water usage yesterday** sensor shows yesterday's water consumption data if that data is available.
+- The **Water price** sensor give the current water price in euro per cubic meter (€/m3).
 
 {% include integrations/config_flow.md %}
 
