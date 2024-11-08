@@ -100,7 +100,7 @@ actions:
 mode: single
 ```
 
-The automation can be created entirely through the Home Assistant UI. When setting it up, you'll only need to manually enter the source name (for example, "YouTube") in the action configuration.
+
 
 ## Change channel through play_media action
 
