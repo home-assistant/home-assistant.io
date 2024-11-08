@@ -15,10 +15,11 @@ ha_platforms:
 ha_integration_type: hub
 ---
 
-  ![](/images/integrations/nasweb/nasweb_scheme.png)
 
 NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions and configured actions.\
 [MORE INFO](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
+
+  ![](/images/integrations/nasweb/nasweb_scheme.png)
 
 ## Prerequisites
 
