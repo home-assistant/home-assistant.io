@@ -39,8 +39,7 @@ To create a NASweb user with access to the NASweb API, follow thses steps:
 4. In the **Modules** column, find the **API** module.
 5. Select the **API** module and move it into the right-hand column (`1`), which lists modules enabled for this user. 
     - To save changes, select **Apply** (`2`).
-
-  ![](/images/integrations/nasweb/modules.png)
+    ![](/images/integrations/nasweb/modules.png)
 
 {% include integrations/config_flow.md %}
 
