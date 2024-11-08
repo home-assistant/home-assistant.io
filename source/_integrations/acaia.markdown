@@ -36,7 +36,7 @@ Is new style scale:
 
 ## Buttons
 
-- **Tare**: Tares the scale
+- **Tare**: Tares the scale.
 - **Reset timer**: Resets the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
