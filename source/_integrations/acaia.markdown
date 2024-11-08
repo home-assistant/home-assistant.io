@@ -17,7 +17,7 @@ ha_integration_type: device
 
 The **Acaia** {% term integrations %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
-If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically.
+If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically.
 
 {% include integrations/config_flow.md %}
 
