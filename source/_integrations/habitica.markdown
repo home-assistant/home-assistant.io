@@ -59,7 +59,8 @@ The Habitca {% term integration %} enables you to monitor your adventurer's prog
 - **Rewards:** Displays the rewards that can be redeemed (for example, "1 task")
 - **Gems:** Shows the total number of gems currently owned by your Habitica character, used for purchasing items and customizations.
 - **Mystic hourglasses:** Displays the number of mystic hourglasses earned as a subscriber, which can be redeemed for exclusive items from past events.
-  
+- **Strength, intelligence, constitution, perception**: Display your character's attribute points (stats). The sensors' attributes provide a breakdown of contributions from level, battle gear, class equip bonus, allocation, and buffs.
+
 ## Binary sensors
 
 - **Pending quest invitation**: Indicates if you have an invitation to a quest awaiting your response.
