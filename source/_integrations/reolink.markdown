@@ -172,6 +172,7 @@ Depending on the supported features of the camera, select entities are added for
 - HDR* (Off, On, Auto)
 - Chime motion ringtone
 - Chime person ringtone
+- Chime vehicle ringtone
 - Chime visitor ringtone
 - Hub alarm ringtone
 - Hub visitor ringtone

@@ -23,7 +23,7 @@ The {% term integration %} provides the public market prices displayed on the [N
 {% include integrations/config_flow.md %}
 
 {% tip %}
-Only a single configuration entry is supported. When setting up the integration, ensure you select all the areas of interest.
+Only a single configuration entry is supported. Use the reconfigure option from the configuration entry if needed to modify the settings.
 
 EUR is the base currency for market prices. If you choose another currency, you can find the conversion rate in the `Exchange rate` sensor.
 All prices are displayed as `selected_currency/kWh`.
