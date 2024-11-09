@@ -117,6 +117,7 @@ Make sure your bridge can reach your Home Assistant instance. This means that if
 {% enddetails %}
 
 {% details "Authentication failures when trying to use the integration" %}
+
 - This integration works with *local* tokens only, tokens from the cloud won't work
 - In the [bridge settings](https://docs.tedee.com/bridge-api#tag/Authenticate) **encrypted token** must be enabled
 - The token that is used to talk to your lock is time limited. Sometimes there were issues when the clock of the Home Assistant host was slightly out of sync, so try to sync your host's clock.
