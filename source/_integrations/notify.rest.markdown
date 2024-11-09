@@ -69,6 +69,11 @@ target_param_name:
   description: Parameter name for the target.
   required: false
   type: string
+allow_multiple_targets:
+  description: Send all targets to the resource. By default, the notifier only sends the first one.
+  required: false
+  default: false
+  type: boolean
 data:
   description: Dictionary of extra parameters to send to the resource.
   required: false
