@@ -138,8 +138,8 @@ After setup, you can modify additional options via the Options Flow. This allows
 
 5. **Adjust Options**:
    - **Scan Interval**: Change the update interval in seconds. Range: `10` to `86400` seconds.
-   - **from**: change the from value.
-   - **to**: change the to value.
+   - **From**: Modify the start time for data collection
+   - **To**: Modify the end time for data collection
    - **Monitored Conditions**: Select the conditions you want to monitor (e.g., `average`, `consumption`, `max`, `min`, `last`).
 
 6. **Save Changes**:
