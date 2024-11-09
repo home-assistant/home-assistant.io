@@ -109,13 +109,13 @@ The `from` and `to` timestamps can be specified in two formats:
 - **Milliseconds Since Epoch**: An integer representing milliseconds since January 1, 1970 (e.g., `1672531200000`).
 - **PHP Date and Time Formats**: A string following [PHP Date and Time Formats](https://www.php.net/manual/en/datetime.formats.php) (e.g., `"2023-01-01 00:00:00"`).
 
-|**Relative Values**: example list |Examples                           |
-|----------------------------------|-----------------------------------|
-|yesterday                         |yesterday 14:00                    |
-|back of `hour`                    |"back of 7pm", "back of 15"        |
-|today                             |The time is set to 00:00:00        |
-|tomorrow                          |Midnight of tomorrow               |
-|number space? (unit \| 'week')'   |"+5 weeks", "12 day", "-7 weekdays"|
+| Relative Value | Example |
+|----------------|---------|
+| yesterday | yesterday 14:00 |
+| back of hour | "back of 7pm", "back of 15" |
+| today | 00:00:00 of current day |
+| tomorrow | 00:00:00 of next day |
+| number + unit | "+5 weeks", "12 days", "-7 weekdays" |
 |first day of                      |"first day of January 2024"        |
 
 ## Options
