@@ -90,6 +90,11 @@ mode: single
 {% endraw %}
 {% enddetails %}
 
+## Known limitations
+
+- While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
+- Certain devices from the 2021 Lunar range have a bug in their firmware, that prohibits the weight being sent correctly. Those devices can be recognized by their Bluetooth names (and the name of the config entry) beginning with `ACAIAL`.
+
 ## Troubleshooting
 
 {% details "Device not discovered or found" %}
