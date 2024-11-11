@@ -12,9 +12,12 @@ ha_codeowners:
   - '@Moustachauve'
 ha_platforms:
   - binary_sensor
+  - diagnostics
+  - number
   - sensor
   - switch
 ha_integration_type: device
+ha_quality_scale: platinum
 ---
 
 The TechnoVE integration provides connectivity with TechnoVE Smart Charging Station through the station local API.
@@ -31,6 +34,14 @@ The {% term integration %} adds the following binary sensors:
 - Power sharing mode - On / Off
 - Static IP - Connected / Not Connected
 - Update - Up-to-date / Update available
+
+## Number
+
+The {% term integration %} adds the following number entity:
+
+| Name        | Description                                                                                                                                                             |
+| ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| max current | Determines the maximum current limit that the charging station can provide to the vehicle. Note: this value can only be set when the power-sharing mode is not enabled. |
 
 ## Sensors
 
@@ -50,4 +61,7 @@ The {% term integration %} adds the following sensors:
 
 The {% term integration %} adds the following switch:
 
-- Auto-charge mode
+| Name             | Description                                                                                                                                                                                                                                              |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Auto-charge mode | When enabled, vehicles will start charging automatically when plugged in. When turned off, charging will need to be manually started each time a vehicle is plugged in. Note: Disabling auto-charge mode does not interrupt an ongoing charging session. |
+| Charging enabled | When enabled, vehicles will be able to charge. Disable it to stop a vehicle from charging. Note: This switch can only be used when auto-charge mode is disabled.                                                                                         |

@@ -31,11 +31,9 @@ panel_custom:
       who: world
 ```
 
-<div class='note'>
-
+{% tip %}
 Store your custom panels in `<config>/www` to make them available in the frontend at the path `/local`.
-
-</div>
+{% endtip %}
 
 {% configuration %}
 name:

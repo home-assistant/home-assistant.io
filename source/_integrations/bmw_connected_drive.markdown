@@ -31,15 +31,16 @@ ha_platforms:
   - sensor
   - switch
 ha_integration_type: integration
+ha_quality_scale: platinum
 ---
 
 The **BMW Connected Drive** {% term integration %} lets you retrieve data of your BMW vehicle from the BMW Connected Drive portal. You need to have a working BMW Connected Drive account and a Connected Drive enabled vehicle for this to work.
 
 The **BMW Connected Drive** {% term integration %} also works with (recent) Mini vehicles. You need to have a working Mini Connected account, and a Mini Connected enabled vehicle for this to work.
 
-<div class='note'>
+{% note %}
 The {% term entities %} available in Home Assistant heavily depend on your vehicle's capabilities (model year, headunit, etc.). The integration will make sure all available car attributes are added as entities.
-</div>
+{% endnote %}
 
 For compatibility with your BMW vehicle check the [bimmer_connected page](https://github.com/bimmerconnected/bimmer_connected) on GitHub.
 
@@ -59,33 +60,30 @@ This integration provides the following platforms:
 
 Enable the `BMW Connected Drive` integration via **Settings** -> **Devices & Services**.
 
-<div class='note'>
-
-  For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
-
-</div>
+{% note %}
+For `china`, it is mandatory to prefix your username/phone number with `86`, i.e. `8612345678`.
+{% endnote %}
 
 After connecting to your account, you can set the following settings in the integration's options:
 
 | Setting | Description |
 |---------|-------------|
-| Read-only | No execution of services to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
+| Read-only | No execution of actions to the vehicle. Still possible to send messages and POIs via `notify` and to request a status update via `bmw_connected_drive.update_state`.
 
 ## Notifications
 
-The `bmw_connected_drive` integration offers a notification service. Using this service you can send Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
-The name of the service is `notify.bmw_connected_drive_<your_vehicle>`.
+The `bmw_connected_drive` integration offers a notification action. Using this action you can send Points of Interest (POI) to your vehicle. In your vehicle you can select this POI and the navigation will automatically start using the POI as a destination.
+The name of the action is `notify.bmw_connected_drive_<your_vehicle>`.
 
 ### Send a Point of Interest to your vehicle
 
 ```yaml
 ...
-action:
-  service: notify.bmw_connected_drive_<your_vehicle>
-  data:
-    message: The name of the POI # this is shown on the iDrive dashboard
+actions:
+  - action: notify.bmw_connected_drive_<your_vehicle>
     data:
-      location:
+      message: The name of the POI # this is shown on the iDrive dashboard
+      data:
         latitude: 48.177024
         longitude: 11.559107
         street: Street name  # Optional
@@ -100,15 +98,15 @@ The vehicle can be locked and unlocked via the lock integration that is created 
 
 ## Buttons
 
-The `bmw_connected_drive` integration offers several buttons to trigger actions in your car. The buttons are automatically created and can be pressed/executed from the UI or using the `button.press` service. Please see the [button documentation](/integrations/button/) for more information.
+The `bmw_connected_drive` integration offers several buttons to trigger actions in your car. The buttons are automatically created and can be pressed/executed from the UI or using the `button.press` action. Please see the [button documentation](/integrations/button/) for more information.
 
-Using these buttons will impact the state of your vehicle. So use these services with care!
+Using these buttons will impact the state of your vehicle. So use these with care!
 
 ### Air conditioning
 
 The air conditioning of the vehicle can be activated with the `button.<your_vehicle>_activate_air_conditioning` button.
 
-What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this service if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
+What exactly is started here depends on the type of vehicle. It might range from just ventilation over auxiliary heating to real air conditioning. If your vehicle is equipped with auxiliary heating, only trigger this action if the vehicle is parked in a location where it is safe to use it (e.g., not in an underground parking or closed garage).
 
 ### Sound the horn
 
@@ -122,22 +120,18 @@ The `button.<your_vehicle>_light_flash` button flashes the lights of the vehicle
 
 The `button.<your_vehicle>_find_vehicle` button requests the vehicle to update the GPS location. This can be used for older vehicles which don't automatically send the updated GPS location.
 
-<div class="note warning">
+{% warning %}
+Using this action will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
+If you do not want this, trigger the `vehicle_finder` action from your phone and it should update in Home Assistant within 5 minutes.
+{% endwarning %}
 
-  Using this service will **send your Home Assistant location to BMW**, as this is required by the API (like sharing your mobile phone's location with the MyBMW app for vehicle tracking).
-  If you do not want this, trigger the `vehicle_finder` service from your phone and it should update in Home Assistant within 5 minutes.
-
-</div>
-
-<div class="note">
-
-  On some older cars (non i3/i8 series produced before 7/2014) this service will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
-
-</div>
+{% note %}
+On some older cars (non i3/i8 series produced before 7/2014) this action will fail in getting your vehicles position, if the vehicle is more than 1.5 km away from the location of your Home Assistant instance. This is a limitation of the BMW API.
+{% endnote %}
 
 ## Selects
 
-If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` service. For more information, please see the [select documentation](/integrations/select/).
+If you have a (PH)EV, you can control the charging process through Home Assistant. The selects are created automatically depending on your vehicle's capabilities and can be pressed/executed from the UI or using the `select.select_option` action. For more information, please see the [select documentation](/integrations/select/).
 
 Using these selects will impact the state of your vehicle. Use them with care!
 
@@ -146,7 +140,7 @@ Using these selects will impact the state of your vehicle. Use them with care!
 
 ## Switches
 
-If supported by your vehicle, you can display and toggle remote services with start/stop functionality.
+If supported by your vehicle, you can display and toggle remote actions with start/stop functionality.
 
 Using these selects will impact the state of your vehicle, use them with care!
 
@@ -155,7 +149,7 @@ Using these selects will impact the state of your vehicle, use them with care!
 
 ## Numbers
 
-If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` service. For more information, please see the [number documentation](/integrations/number/).
+If you have a (PH)EV, you can control the charging process through Home Assistant. The number entities are created automatically depending on your vehicle's capabilities and can be changed from the UI or using the `number.set_value` action. For more information, please see the [number documentation](/integrations/number/).
 
 Using these selects will impact the state of your vehicle, use them with care!
 

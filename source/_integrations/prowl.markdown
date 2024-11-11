@@ -31,7 +31,7 @@ notify:
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   default: notify
   type: string
@@ -41,11 +41,11 @@ api_key:
   type: string
 {% endconfiguration %}
 
-### Prowl service data
+### Prowl action data
 
 The following attributes can be placed `data` for extended functionality.
 
-| Service data attribute | Optional | Default | Description                                                                                                     |
+| Data attribute | Optional | Default | Description                                                                                                     |
 | ---------------------- | -------- | ------- | --------------------------------------------------------------------------------------------------------------- |
 | `priority`             | yes      | 0       | Priority level, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add).     |
 | `url`                  | yes      | n/a     | URL to be attached, for more info refer to the [Prowl API documentation](https://www.prowlapp.com/api.php#add). |

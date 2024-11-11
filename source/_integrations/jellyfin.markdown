@@ -4,6 +4,7 @@ description: Instructions on how to integrate the Jellyfin integration into Home
 ha_category:
   - Media player
   - Media source
+  - Remote
   - Sensor
 ha_release: '2021.12'
 ha_iot_class: Local Polling
@@ -15,6 +16,7 @@ ha_domain: jellyfin
 ha_platforms:
   - diagnostics
   - media_player
+  - remote
   - sensor
 ha_integration_type: service
 ---
@@ -27,6 +29,24 @@ server as a media player in Home Assistant to provide media controls for each se
 
 Browsing media inside Home Assistant in a player's context provides all libraries
 of type Movie and Series.
+
+This integration also creates a `Remote` entity for sending [remote commands](https://github.com/jellyfin/jellyfin/blob/master/MediaBrowser.Model/Session/GeneralCommandType.cs) to the client, if supported. For example, this can be used to tell the client to navigate right twice, down once, and select the focused item:
+
+```yaml
+jellyfin_remote_script:
+  alias: "Jellyfin Remote Script"
+  sequence:
+    - action: remote.send_command
+      target:
+        entity_id: remote.jellyfin_client
+      data:
+        delay_secs: 1.5
+        command:
+          - MoveRight
+          - MoveRight
+          - MoveDown
+          - Select
+```
 
 {% include integrations/config_flow.md %}
 

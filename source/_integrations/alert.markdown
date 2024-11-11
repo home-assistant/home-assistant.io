@@ -135,7 +135,7 @@ provided by the `alert` integration:
 - platform: group
   name: john_phone_sms
   services:
-    - service: twilio_sms
+    - action: twilio_sms
       data:
         target: !secret john_phone
 ```
@@ -285,13 +285,13 @@ but you will still receive the done message.
 
 ```yaml
 - alias: "Telegram callback to stop alerts for garage door"
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: telegram_callback
       event_data:
         data: "/garage_acknowledge"
-  action:
-    - service: alert.turn_off
+  actions:
+    - action: alert.turn_off
       target:
         entity_id: alert.garage_door
 ```

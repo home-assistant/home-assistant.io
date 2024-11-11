@@ -37,7 +37,7 @@ There is currently support for the following device types within Home Assistant:
 ## Configuration options
 
 The integration has a configuration option to change the default amount of time that the irrigation
-will run when turning on a zone switch (default is 6 minutes). This can be overridden with a service call (see below).
+will run when turning on a zone switch (default is 6 minutes). This can be overridden with an action (see below).
 
 ## Binary sensor
 
@@ -57,16 +57,16 @@ The Rain Delay Number Entity lets you set and view  the number of days, if any, 
 
 Switches are automatically added for all available zones of configured controllers.
 
-## Services
+## Actions
 
-The integration exposes services to give additional control over a Rain Bird device.
+The integration exposes actions to give additional control over a Rain Bird device.
 
 ### `rainbird.start_irrigation`
 
-Start a Rain Bird zone for a set number of minutes. This service accepts a Rain Bird sprinkler
+Start a Rain Bird zone for a set number of minutes. This action accepts a Rain Bird sprinkler
 zone switch entity and allows a custom duration unlike the switch.
 
-| Service Data Attribute | Optional | Description                                           |
+| Data attribute | Optional | Description                                           |
 | ---------------------- | -------- | ----------------------------------------------------- |
 | `entity_id`            | no       | The Rain Bird Sprinkler zone switch to turn on.       |
 | `duration`             | no       | Number of minutes for this zone to be turned on.      |
@@ -76,11 +76,11 @@ zone switch entity and allows a custom duration unlike the switch.
 # Example configuration.yaml automation entry
 automation:
   - alias: "Turn irrigation on"
-    trigger:
-      - platform: time
+    triggers:
+      - trigger: time
         at: "5:30:00"
-    action:
-      - service: rainbird.start_irrigation
+    actions:
+      - action: rainbird.start_irrigation
         data:
           entity_id: switch.rain_bird_sprinkler_1
           duration: 5

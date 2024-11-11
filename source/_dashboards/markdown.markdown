@@ -53,6 +53,11 @@ theme:
   required: false
   description: Override the used theme for this card with any loaded theme. For more information about themes, see the [frontend documentation](/integrations/frontend/).
   type: string
+show_empty:
+  required: false
+  description: By default, an empty card will still be shown (resulting in a small empty box). Setting this to `false` hides that empty card instead.
+  default: true
+  type: boolean
 {% endconfiguration %}
 
 ### Example
@@ -124,7 +129,6 @@ content: |
 
 {% endraw %}
 
-
 ## ha-alert
 
 You can also use our [\`ha-alert\`](https://design.home-assistant.io/#components/ha-alert) component in the Markdown card.
@@ -144,4 +148,34 @@ content: |
   <ha-alert alert-type="info">This is an info alert — check it out!</ha-alert>
   <ha-alert alert-type="success">This is a success alert — check it out!</ha-alert>
   <ha-alert title="Test alert">This is an alert with a title</ha-alert>
+```
+
+## ha-qr-code
+
+You can also create QR-Codes in the Markdown card.
+
+<p class='img'>
+<img src='/images/dashboards/markdown_card_qr_code.png' alt='Screenshot of the markdown card with QR codes'>
+Screenshot of the Markdown card with QR codes.
+</p>
+
+Available parameters:
+
+- data: The actual data to encode in the QR-Code
+- scale: A scale factor for the QR code, default is 4
+- width: Width of the QR code in pixels
+- margin: A margin around the QR code
+- error-correction-level: low; medium; quartile; high
+- center-image: An image to place on top of the qr code (might need a higher error-correction-level)
+
+```yaml
+type: markdown
+content: >-
+  <ha-qr-code data='hallo' width="180"></ha-qr-code>
+
+  <ha-qr-code data='hallo' scale="6" margin="0"
+  center-image="/static/icons/favicon-192x192.png"></ha-qr-code>
+
+  <ha-qr-code data='hallo' error-correction-level="quartile" scale="6"
+  center-image="https://brands.home-assistant.io/_/tuya/icon@2x.png"></ha-qr-code>
 ```

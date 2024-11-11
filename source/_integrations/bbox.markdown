@@ -24,9 +24,9 @@ There is currently support for the following device types within Home Assistant:
 - [Presence Detection](#presence-detection)
 - [Sensor](#sensor)
 
-<div class='note warning'>
+{% note %}
 Due to third party limitation, the sensors will only be available if Home Assistant and the Bbox are on the same local area network. You can check this by going to 192.168.1.254 with your web browser.
-</div>
+{% endnote %}
 
 ## Presence detection
 
@@ -55,9 +55,9 @@ host:
   default: 192.168.1.254
 {% endconfiguration %}
 
-<div class='note warning'>
+{% important %}
 For now and due to third party limitation, the Bbox must be on the same local network as the Home Assistant installation.
-</div>
+{% endimportant %}
 
 See the [device tracker integration page](/integrations/device_tracker/) for instructions how to configure the people to be tracked.
 

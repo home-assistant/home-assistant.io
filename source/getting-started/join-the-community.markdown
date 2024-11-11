@@ -7,7 +7,7 @@ You made it here? Good job! You've been able to install Home Assistant and get a
 
 Now that you've got that going, let's see what is next:
 
- - Learn about [advanced configuration](/getting-started/configuration/) using `configuration.yaml` in our bonus step of the getting started guide.
+ - Learn about [next steps](/getting-started/configuration/) of the getting started guide, such as creating a backup or configuring network storage.
  - Join the community in [our forums] or [our chat].
  - Check out [video tutorials] on a wide range of Home Assistant related topics
 

@@ -15,7 +15,7 @@ related:
     title: Configuration file
 ---
 
-The `joaoapps_join` {% term integration %} exposes services from
+The `joaoapps_join` {% term integration %} exposes actions from
 [Join](https://joaoapps.com/join). In Home Assistant, the Joaoapps Join features are
 divided up in two locations, the Join integration, and the Joaoapps Join notify platform.
 The notify platform allows us to send messages to Joaoapps Join devices, the integration
@@ -61,7 +61,7 @@ device_names:
   required: false
   type: string
 name:
-  description: The name parameter is optional but needed if you want to use multiple notification platforms. The platform will be exposed as service `notify.<name>`. The name will default to `notify` if not supplied. See the [Notifications integration](/integrations/notify) for more details.
+  description: The name parameter is optional but needed if you want to use multiple notification platforms. The platform will be exposed as `notify.<name>` action. The name will default to `notify` if not supplied. See the [Notifications integration](/integrations/notify) for more details.
   required: false
   type: string
 {% endconfiguration %}
@@ -81,7 +81,7 @@ notify:
     name: NAME2
 ```
 
-The notify service has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `category`, `tts`, `tts_language` and `vibration`.
+The notify action has several optional parameters: `icon`, `smallicon`, `image`, `sound`, `url`, `notification_id`, `category`, `tts`, `tts_language` and `vibration`.
 You can use them like so:
 
 ```yaml
@@ -105,10 +105,10 @@ data:
     Sleep:
 ```
 
-The services exposed in the `joaoapps_join` integration can be used with the
-service data described below:
+The actions exposed in the `joaoapps_join` integration can be used with the
+action data described below:
 
-| Service                      | Data                                                               |
+| Action                       | Data                                                               |
 | ---------------------------- | ------------------------------------------------------------------ |
 | joaoapps_join/ring           |                                                                    |
 | joaoapps_join/send_sms       | `{"number":"5553334444", "message":"Hello!"}`                      |

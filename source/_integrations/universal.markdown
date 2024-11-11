@@ -32,31 +32,31 @@ media_player:
       - media_player.CHILD_2_ID
     commands:
       turn_on:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       turn_off:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       volume_up:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       volume_down:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       volume_mute:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       media_play:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       media_pause:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       media_previous_track:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA
       media_next_track:
-        service: SERVICE
+        action: SERVICE
         data: SERVICE_DATA 
     attributes:
       is_volume_muted: ENTITY_ID|ATTRIBUTE
@@ -84,7 +84,7 @@ state_template:
   required: false
   type: template
 commands:
-  description: "Media player commands to be overridden. Almost all media player service commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
+  description: "Media player commands to be overridden. Almost all media player action commands may be overridden. Example entries are `turn_on`, `turn_off`, `select_source`, `volume_set`, `volume_up`, `volume_down`, `volume_mute`, `media_play`, `media_pause`, `media_stop`, `media_previous_track`, `media_next_track` and `play_media` (refer to the [`media_player` documentation](/integrations/media_player/) to see the full list)."
   required: false
   type: string
 attributes:
@@ -111,7 +111,7 @@ Using `active_child_template` will allow you to specify an active {% term entity
 
 It is recommended that the command `turn_on`, the command `turn_off`, and the attribute `state` all be provided together. The `state` attribute indicates if the media player is on or off. If `state` indicates the media player is off, this status will take precedence over the states of the children. If all the children are idle/off and `state` is on, the Universal Media Player's state will be on. If not provided, the `toggle` command will delegate to `turn_on` or `turn_off` based on the `state`.
 
-It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term service %} should toggle the mute setting.
+It is also recommended that the command `volume_up`, the command `volume_down`, the command `volume_mute`, and the attribute `is_volume_muted` all be provided together. The attribute `is_volume_muted` should return either True or the on state when the volume is muted. The `volume_mute` {% term action %} should toggle the mute setting.
 
 When providing `select_source` as a command, it is recommended to also provide the attributes `source`, and `source_list`. The `source` attribute is the currently select source, while the `source_list` attribute is a list of all available sources.
 
@@ -138,33 +138,33 @@ media_player:
     - media_player.living_room_kodi
   commands:
     turn_on:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.living_room_tv
     turn_off:
-      service: switch.turn_off
+      action: switch.turn_off
       target:
         entity_id: switch.living_room_tv
     volume_up:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.living_room_volume_up
     volume_down:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.living_room_volume_down
     volume_mute:
-      service: switch.turn_on
+      action: switch.turn_on
       target:
         entity_id: switch.living_room_mute
     select_source:
-      service: media_player.select_source
+      action: media_player.select_source
       target:
         entity_id: media_player.receiver
       data:
         source: "{{ source }}"
     volume_set:
-      service: media_player.volume_set
+      action: media_player.volume_set
       target:
         entity_id: media_player.receiver
       data:
@@ -214,11 +214,11 @@ media_player:
       - media_player.kodi
     commands:
       turn_on:
-        service: media_player.turn_on
+        action: media_player.turn_on
         target:
           entity_id: media_player.kodi
       turn_off:
-        service: media_player.turn_off
+        action: media_player.turn_off
         target:
           entity_id: media_player.kodi
     attributes:
@@ -226,13 +226,13 @@ media_player:
       volume_level: media_player.kodi|volume_level
 
   - platform: kodi
-    name: Kodi
+    name: "Kodi"
     host: 192.168.1.10
     turn_on_action:
-      - service: input_boolean.turn_on
+      - action: input_boolean.turn_on
         target:
           entity_id: input_boolean.kodi_tv_state
-      - service: media_player.kodi_call_method
+      - action: media_player.kodi_call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -240,14 +240,15 @@ media_player:
           addonid: script.json-cec
           params:
             command: activate
+
     turn_off_action:
-      - service: input_boolean.turn_off
+      - action: input_boolean.turn_off
         target:
           entity_id: input_boolean.kodi_tv_state
-      - service: media_player.media_stop
+      - action: media_player.media_stop
         target:
           entity_id: media_player.kodi
-      - service: media_player.kodi_call_method
+      - action: media_player.kodi_call_method
         target:
           entity_id: media_player.kodi
         data:
@@ -257,25 +258,26 @@ media_player:
             command: standby
 
 automation:
-  - alias: Turn on the TV when Kodi is activated
-    trigger:
-      platform: state
-      entity_id: media_player.kodi_tv
-      from: "off"
-      to: playing
-    action:
-      - service: media_player.turn_on
+  - alias: "Turn on the TV when Kodi is activated"
+    triggers:
+      - trigger: state
+        entity_id: media_player.kodi_tv
+        from: "off"
+        to: "playing"
+    actions:
+      - action: media_player.turn_on
         target:
           entity_id: media_player.kodi_tv
-  - alias: Turn off the TV when Kodi is in idle > 15 min
-    trigger:
-      platform: state
-      entity_id: media_player.kodi_tv
-      to: idle
-      for:
-        minutes: 15
-    action:
-      - service: media_player.turn_off
+
+  - alias: "Turn off the TV when Kodi is in idle > 15 min"
+    triggers:
+      - trigger: state
+        entity_id: media_player.kodi_tv
+        to: "idle"
+        for:
+          minutes: 15
+    actions:
+      - action: media_player.turn_off
         target:
           entity_id: media_player.kodi_tv
 ```
@@ -298,29 +300,29 @@ media_player:
       source: remote.harmony_hub|current_activity
     commands:
       turn_on:
-        service: remote.turn_on
+        action: remote.turn_on
         target:
           entity_id: remote.harmony_hub
       turn_off:
-        service: remote.turn_off
+        action: remote.turn_off
         target:
           entity_id: remote.harmony_hub
       volume_up:
-        service: remote.send_command
+        action: remote.send_command
         target:
           entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeUp
       volume_down:
-        service: remote.send_command
+        action: remote.send_command
         target:
           entity_id: remote.harmony_hub
         data:
           device: Receiver
           command: VolumeDown
       select_source:
-        service: remote.turn_on
+        action: remote.turn_on
         target:
           entity_id: remote.harmony_hub
         data:
@@ -357,23 +359,23 @@ media_player:
     browse_media_entity: media_player.denon_avr_x2700h_heos
     commands:
       turn_off:
-        service: media_player.turn_off
+        action: media_player.turn_off
         data:
           entity_id: media_player.denon_avr_x2700h
       turn_on:
-        service: media_player.turn_on
+        action: media_player.turn_on
         data:
           entity_id: media_player.denon_avr_x2700h
       volume_up:
-        service: media_player.volume_up
+        action: media_player.volume_up
         data:
           entity_id: media_player.denon_avr_x2700h
       volume_down:
-        service: media_player.volume_down
+        action: media_player.volume_down
         data:
           entity_id: media_player.denon_avr_x2700h
       select_sound_mode:
-        service: media_player.select_sound_mode
+        action: media_player.select_sound_mode
         target:
           entity_id: media_player.denon_avr_x2700h
         data:

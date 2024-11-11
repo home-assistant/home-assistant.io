@@ -19,9 +19,9 @@ For each stop place given in the configuration, a sensor will be mounted for tha
 
 Real-time data is fetched from [Entur](https://www.entur.no). Entur is a service which collects and delivers information about all public transport available in Norway under an [open source license](https://data.norge.no/nlod/no).
 
-<div class='note'>
-Note that the underlying API is rate limited and to avoid getting your instance blocked from entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
-</div>
+{% note %}
+Note that the underlying API is rate limited and to avoid getting your instance blocked from Entur the sensor is only fetching new information every 45 seconds. It's recommended to not schedule updates more often than this.
+{% endnote %}
 
 ## Configuration
 

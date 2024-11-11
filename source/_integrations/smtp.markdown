@@ -28,7 +28,7 @@ Check your email provider configuration or help pages to get the correct SMTP se
 
 {% configuration %}
 name:
-  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the service `notify.NOTIFIER_NAME`.
+  description: Setting the optional parameter `name` allows multiple notifiers to be created. The notifier will bind to the `notify.NOTIFIER_NAME` action.
   required: false
   type: string
   default: notify
@@ -37,7 +37,7 @@ sender:
   required: true
   type: string
 recipient:
-  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the service call). Any email address(es) specified in the service call's `target` field will override this recipient content.
+  description: Default email address of the recipient of the notification. This can be a recipient address or a list of addresses for multiple recipients.<br>This is where you want to send your email notifications by default (when not specifying `target` in the action). Any email address(es) specified in the action's `target` field will override this recipient content.
   required: true
   type: [list, string]
 server:
@@ -90,22 +90,19 @@ A notify integration will be created using the name without spaces. In the above
 
 ```yaml
 - alias: "Send E-Mail Every Morning"
-  description: ""
-  trigger:
+  triggers:
     - platform: time
       at: "08:00:00"
-  condition: []
-  action:
-    - service: notify.NOTIFIER_NAME
+  actions:
+    - action: notify.NOTIFIER_NAME
       data:
           title: "Good Morning"
           message: "Rise and shine"
           target:
             - "morning@example.com"
-  mode: single
 ```
 
-The optional `target` field is used to specify recipient(s) for this specific service call. When `target` field is not used, this message will be sent to default recipient(s), in this example, morning@example.com.
+The optional `target` field is used to specify recipient(s) for this specific action. When `target` field is not used, this message will be sent to default recipient(s), specified in the `recipient` part of the smtp notifier in `configuration.yaml`. Line breaks can be added in the body part of the email by using `\r\n`, for instance `message: "Rise and shine\r\n\r\nIt's a brand new day!"`
 
 Another example attaching images stored locally in a script:
 
@@ -113,10 +110,10 @@ Another example attaching images stored locally in a script:
 burglar:
   alias: "Burglar Alarm"
   sequence:
-    - service: shell_command.snapshot
+    - action: shell_command.snapshot
     - delay:
           seconds: 1
-    - service: notify.NOTIFIER_NAME
+    - action: notify.NOTIFIER_NAME
       data:
           title: "Intruder alert"
           message: "Intruder alert at apartment!!"
@@ -132,20 +129,18 @@ The optional `html` field makes a custom text/HTML multi-part message, allowing 
 
 The optional `images` field adds image attachments to the email. If `html` is defined, the images need to be added to the message in-line as described above (and as shown in the example below). If `html` is not defined, images will be added as separate attachments.
 
-<div class='note info'>
-
+{% important %}
 When adding images, make sure the folders containing the attachments are added to `allowlist_external_dirs`.<br>See: [Setup basic documentation](/integrations/homeassistant/#allowlist_external_dirs)
-
-</div>
+{% endimportant %}
 
 ```yaml
 burglar:
   alias: "Burglar Alarm"
   sequence:
-    - service: shell_command.snapshot
+    - action: shell_command.snapshot
     - delay:
           seconds: 1
-    - service: notify.NOTIFIER_NAME
+    - action: notify.NOTIFIER_NAME
       data:
           message: "Intruder alert at apartment!!"
           data:

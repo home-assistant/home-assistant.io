@@ -25,11 +25,9 @@ There is currently support for the following device types within Home Assistant:
 
 - [Sensor](#sensor)
 
-<div class='note'>
-
+{% note %}
 The `influxdb` database integration runs parallel to the Home Assistant database. It does not replace it.
-
-</div>
+{% endnote %}
 
 ## Configuration
 
@@ -300,7 +298,7 @@ influxdb:
 
 The `influxdb` sensor allows you to use values from an [InfluxDB](https://influxdb.com/) database to populate a sensor state. This can be used to present statistics as Home Assistant sensors, if used with the `influxdb` history integration. It can also be used with an external data source.
 
-<div class='note'>
+{% important %}
 
   You must configure the `influxdb` history integration in order to create `influxdb` sensors. If you just want to create sensors for an external InfluxDB database and you don't want Home Assistant to write any data to it you can exclude all entities like this:
 
@@ -310,7 +308,7 @@ influxdb:
     entity_globs: "*"
 ```
 
-</div>
+{% endimportant %}
 
 ### Configuration
 

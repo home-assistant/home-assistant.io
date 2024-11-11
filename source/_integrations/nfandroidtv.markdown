@@ -22,11 +22,11 @@ When setting this up be aware, that there are two apps: one for your smartphone 
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-The following options can be specified inside the data field for the notify service call:
+The following options can be specified inside the data field for the notify action:
 
-### Service `notify.[name_of_your_tv]`
+### Action `notify.[name_of_your_tv]`
 
 {% configuration %}
 duration:
@@ -59,7 +59,7 @@ interrupt:
   type: boolean
 {% endconfiguration %}
 
-This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside a service call look at the service example at the end of this page):
+This is a fully customized YAML you can use inside `data` to test how the final notification will look like (for using this inside an action look at the example at the end of this page):
 
 ```yaml
 fontsize: "large"
@@ -70,9 +70,9 @@ color: "red"
 interrupt: 1
 ```
 
-## Service data for sending images and icons
+## Action data for sending images and icons
 
-| Service data attribute | Optional | Description |
+| Data attribute | Optional | Description |
 | ---------------------- | -------- | ----------- |
 | `image`                |      yes | Groups the attributes for image upload. It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided. |
 | `icon`                 |      yes | Groups the attributes for icon upload.  It can take a `url` or `path`. It is optional unless you use authentication options. Then, either `url` or `path` has to be provided.  |
@@ -82,7 +82,7 @@ interrupt: 1
 | `password`             |      yes | Password if the URL requires authentication. Is placed inside `image`, `icon` or both.
 | `auth`                 |      yes | If set to `digest` HTTP-Digest-Authentication is used. If missing, HTTP-BASIC-Authentication is used and is placed inside `image`, `icon` or both.
 
-Example Service data for both image and icons:
+Example action data for both image and icons:
 
 ```yaml
 # If your urls do not require extra authentication
@@ -111,12 +111,12 @@ icon:
   auth: "digest" # Optional
 ```
 
-Example of an automation with an service call, full configuration:
+Example of an automation with an action, full configuration:
 
 {% raw %}
 
 ```yaml
-service: notify.living_room_tv
+action: notify.living_room_tv
 data:
   title: "Thanks for the water!"
   message: "Nigel is {{ states('sensor.nigel_moisture') }}% moisture"

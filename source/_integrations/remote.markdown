@@ -11,23 +11,32 @@ ha_codeowners:
 ha_integration_type: entity
 ---
 
-Keeps track which remotes are in your environment, their state and allows you to control them.
+The **Remote** {% term integration%} manages the state of the remote entities and allows you to control them.
 
 - Maintains a state per remote and a combined state `all_remotes`.
-- Registers services `remote/turn_on`, `remote/turn_off`, `remote/toggle`, and `remote/send_command` to control remotes.
+- Registers actions `remote.turn_on`, `remote.turn_off`, `remote.toggle`, and `remote.send_command` to control remotes.
 
 {% include integrations/building_block_integration.md %}
 
-### Use the services
+## The state of a remote entity
 
-Go to the **Developer Tools**, then to **Call Service** in the frontend, and choose `remote/turn_on`, `remote/turn_off`, or `remote/toggle` from the list of available services (**Available services:** on the left). Enter something like the sample below into the **Service Data** field and hit **Call Service**.
+The state of a remote entity can be either **On** or **Off**.
+
+In addition, the entity can have the following states:
+
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+## Use the actions
+
+Go to the **Developer Tools** and open the **Actions** tab. From the **Actions** dropdown, choose `remote.turn_on`, `remote.turn_off`, or `remote.toggle`. Under target, select the target device. If you are in YAML mode, enter something like the sample below into the **Data** field. Once you are done, select **Perform action**.
 
 ```json
 {"entity_id":"remote.family_room"}
 ```
 
-| Service data attribute | Optional | Description                                     |
-| ---------------------- | -------- | ----------------------------------------------- |
-| `entity_id`            | yes      | Only act on a specific remote, else target all. |
+| Data attribute | Optional | Description                                     |
+| -------------- | -------- | ----------------------------------------------- |
+| `entity_id`    | yes      | Only act on a specific remote, else target all. |
 
 See the platform documentation for each type of remote for more detailed examples.

@@ -18,11 +18,9 @@ The SlimProto integration allows you to control a [Squeezebox](https://en.wikipe
 
 {% include integrations/config_flow.md %}
 
-<div class='note'>
-
+{% note %}
 This integration talks directly to the player running the "SLIM" protocol, effectively turning Home Assistant into the Media Server so you will not need an external Media Server like Logitech Media Server or Roon. This means that the media you want to play is available in/from Home Assistant itself, for example by using the [Radio Browser](/integrations/radio_browser) integration or the custom [Music Assistant](https://github.com/music-assistant/hass-music-assistant) integration.
-
-</div>
+{% endnote %}
 
 ## Basic support only
 

@@ -35,19 +35,19 @@ Go to [developer.tibber.com/settings/accesstoken](https://developer.tibber.com/s
 
 ## Notifications
 
-Tibber can send a notification by calling the [`notify.send_message` service](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
+Tibber can send a notification by calling the [`notify.send_message` action](/integrations/notify/). It will send a notification to all devices registered in the Tibber account.
 
 To use notifications, please see the [getting started with automation page](/getting-started/automation/).
 
 ### Send message
 
 ```yaml
-action:
-  service: notify.send_message
-  data:
-    entity_id: notify.tibber
-    title: Your title
-    message: This is a message for you!
+actions:
+  - action: notify.send_message
+    data:
+      entity_id: notify.tibber
+      title: "Your title"
+      message: "This is a message for you!"
 ```
 
 ## Sensor
@@ -83,18 +83,18 @@ If you have a Tibber Pulse it will also show the electricity consumption in real
 
 </div>
 
-## Services
+## Actions
 
-The hourly prices are exposed using [service calls](/docs/scripts/service-calls/). The services populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+The hourly prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Service `tibber.get_prices`
+### Action `tibber.get_prices`
 
 Fetches hourly energy prices including price level.
 
-| Service data attribute | Optional | Description | Example |
-| ---------------------- | -------- | ----------- | --------|
-| `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2024-01-01 00:00:00 |
-| `end` | yes | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
+| Data attribute | Optional | Description                                           | Example             |
+| -------------- | -------- | ----------------------------------------------------- | ------------------- |
+| `start`        | yes      | Start time to get prices. Defaults to today 00:00:00  | 2024-01-01 00:00:00 |
+| `end`          | yes      | End time to get prices. Defaults to tomorrow 00:00:00 | 2024-01-01 00:00:00 |
 
 #### Response data
 
@@ -143,21 +143,19 @@ The electricity price can be used to make automations. The sensor has a `max_pri
 
 ```yaml
 - alias: "Electricity price"
-  trigger:
-    platform: time_pattern
-  # Matches every hour at 1 minutes past whole
-    minutes: 1
-  condition:
-    condition: template
-    value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
-  action:
-   - service: notify.pushbullet
+  triggers:
+    - trigger: time_pattern
+      # Matches every hour at 1 minutes past whole
+      minutes: 1
+  conditions:
+    - condition: template
+      value_template: '{{ float(states('sensor.electricity_price_hamretunet_10')) > 0.9 * float(state_attr('sensor.electricity_price_hamretunet_10', 'max_price')) }}'
+  actions:
+   - action: notify.pushbullet
      data:
        title: "Electricity price"
        target: "device/daniel_telefon_cat"
        message: "The electricity price is now {{ states('sensor.electricity_price_hamretunet_10') }}"
 ```
-
-
 
 {% endraw %}

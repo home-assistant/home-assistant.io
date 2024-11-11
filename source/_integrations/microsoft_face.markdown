@@ -59,14 +59,14 @@ This limits the processing and detection to elements provided by the group.
 Home Assistant creates an entity for all groups and allows you to show the
 state, person, and IDs directly on the frontend.
 
-The following services are available for managing this feature and can be called
+The following actions are available for managing this feature and can be called
 via the Frontend, a script, or the REST API.
 
 - *microsoft_face.create_group*
 - *microsoft_face.delete_group*
 
 ```yaml
-service: microsoft_face.create_group
+action: microsoft_face.create_group
 data:
   name: "Family"
 ```
@@ -75,7 +75,7 @@ data:
 - *microsoft_face.delete_person*
 
 ```yaml
-service: microsoft_face.create_person
+action: microsoft_face.create_person
 data:
   group: family
   name: "Hans Maier"
@@ -88,7 +88,7 @@ send a local image to your Azure resource.
 - *microsoft_face.face_person*
 
 ```yaml
-service: microsoft_face.face_person
+action: microsoft_face.face_person
 data:
   group: family
   name: "Hans Maier"
@@ -110,7 +110,7 @@ we need train this group to teach the AI how to handle the new data.
 - *microsoft_face.train_group*
 
 ```yaml
-service: microsoft_face.train_group
+action: microsoft_face.train_group
 data:
   group: family
 ```

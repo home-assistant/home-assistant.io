@@ -137,30 +137,30 @@ logger:
       - "^Error handling request$"
 ```
 
-## Services
+## Actions
 
-### Service `set_default_level`
+### Action `set_default_level`
 
 You can alter the default log level (for integrations without a specified log
-level) using the service `logger.set_default_level`.
+level) using the `logger.set_default_level` action.
 
 An example call might look like this:
 
 ```yaml
-service: logger.set_default_level
+action: logger.set_default_level
 data:
   level: info
 ```
 
-### Service `set_level`
+### Action `set_level`
 
-You can alter log level for one or several integrations using the service
-`logger.set_level`. It accepts the same format as `logs` in the configuration.
+You can alter log level for one or several integrations using the `logger.set_level` action.
+It accepts the same format as `logs` in the configuration.
 
 An example call might look like this:
 
 ```yaml
-service: logger.set_level
+action: logger.set_level
 data:
   homeassistant.core: fatal
   homeassistant.components.mqtt: warning

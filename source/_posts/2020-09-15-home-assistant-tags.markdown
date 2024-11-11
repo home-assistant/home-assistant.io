@@ -29,9 +29,9 @@ Thanks to [@David-Development](https://github.com/david-development) for the NFC
   <iframe width="853" height="480" src="https://www.youtube-nocookie.com/embed/Xc120lClUgA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 </div>
 
-<div class='note' data-title='for iPhone users'>
+{% note %}
 Only iPhone XS, XR and iPhone 11 or later support background NFC tag reading.
-</div>
+{% endnote %}
 
 ## Standalone Tag Reader
 

@@ -23,7 +23,7 @@ AirVisual API keys can be obtained [here](https://www.iqair.com/dashboard/api). 
 
 The Community API key is valid for 12 months after which it will expire. You must then go back to the AirVisual website, delete your old key, create a new one following the same steps and update your configuration with the new key.
 
-<div class='note warning'>
+{% note %}
 
 The "Community" API key is limited to 10,000 calls per month. In order to accommodate using the same API key for multiple geographies, the `airvisual` integration will automatically "re-level" the time between API calls so as to not overrun the call limit.
 
@@ -33,7 +33,7 @@ For example:
 - Two instances of the integration: API calls every 10 minutes
 - etc.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

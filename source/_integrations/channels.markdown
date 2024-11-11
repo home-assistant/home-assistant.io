@@ -48,27 +48,27 @@ name:
   type: string
 {% endconfiguration %}
 
-### Service `seek_forward`
+### Action `seek_forward`
 
 Seek forward by the number of seconds currently set in settings on the instance of Channels.
 
-| Service data attribute | Optional | Description                                        |
+| Data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Service `seek_backward`
+### Action `seek_backward`
 
 Seek backward by the number of seconds currently set in settings on the instance of Channels.
 
-| Service data attribute | Optional | Description                                        |
+| Data attribute | Optional | Description                                        |
 | ---------------------- | -------- | -------------------------------------------------- |
 | `entity_id`            | no       | String that points at `entity_id` of Channels app. |
 
-### Service `seek_by`
+### Action `seek_by`
 
 Seek forward or backward by a provided number of seconds.
 
-| Service data attribute | Optional | Description                                                                     |
+| Data attribute | Optional | Description                                                                     |
 | ---------------------- | -------- | ------------------------------------------------------------------------------- |
 | `entity_id`            | no       | String that points at `entity_id` of Channels app.                              |
 | `seconds`              | no       | Number of seconds to seek in the timeline by. Negative seconds seeks backwards. |

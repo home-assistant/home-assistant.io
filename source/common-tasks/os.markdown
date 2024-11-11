@@ -74,19 +74,29 @@ You can manually define that the previous boot slot is used. This can be useful 
     ha os boot-slot other
     ```
 
+Alternatively, if the Operating Systems runs on a platform that uses the GRUB bootloader, a boot menu is presented early in the boot. The alternative boot slot can be selected here, marking it active for future boots if the following boot attempt is successful.
+
 ### Updating Home Assistant Core
 
 {% include common-tasks/update.md %}
+
 {% include common-tasks/network_storage.md %}
-{% include common-tasks/commandline.md %}
 {% include common-tasks/lost_password.md %}
 {% include common-tasks/third-party-addons.md %}
 {% include common-tasks/configuration_check.md %}
 
-## Home Assistant Versions
+## Home Assistant versions
+
+To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
 
 {% include common-tasks/specific_version.md %}
 {% include common-tasks/beta_version.md %}
 {% include common-tasks/development_version.md %}
 
 {% include common-tasks/data_disk.md %}
+
+<!-- Accessing Home Assistant from the commandline-->
+{% include common-tasks/commandline.md %}
+
+<!-- Enabling i2c-->
+{% include common-tasks/enable_i2c.md %}

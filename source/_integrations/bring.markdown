@@ -12,6 +12,8 @@ ha_codeowners:
 ha_domain: bring
 ha_integration_type: service
 ha_platforms:
+  - diagnostics
+  - sensor
   - todo
 related:
   - docs: /integrations/todo
@@ -30,15 +32,23 @@ For authentication, the integration requires the `email` and `password` you used
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Sensors
 
-You can use the services from the [to-do list](/integrations/todo/) to create, update, or delete items on your Bring! shopping lists.
+- **Urgent:** Shows the number of items tagged with the **Urgent** badge on the shopping list. Completed items are excluded.
+- **On occasion:** Displays the count of items marked with the **If convenient** badge.
+- **Discount only:** Indicates the number of items tagged with the **Offer** badge.
+- **Region & Language:** The sensor can be used for diagnostics. If everything is set correctly, it will display the selected region for the shopping list. If it shows **Unknown**, the region has not been set properly in the **Bring!** app.
+- **List access**: Indicates whether the shopping list is **personal** (private) or **shared** (accessible to others).
+
+## Actions
+
+You can use the actions from the [to-do list](/integrations/todo/) to create, update, or delete items on your Bring! shopping lists.
 
 ### Notifications
 
-The **Bring** integration offers a service to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types. Note: If you want to receive these notifications yourself, you need to use a dedicated account as mentioned above.
+The **Bring** integration offers an action to send push notifications to the Bring! mobile apps of other members of a shared shopping list. The Bring! mobile app has 4 predefined notification types. Note: If you want to receive these notifications yourself, you need to use a dedicated account as mentioned above.
 
-| Service data attribute | Optional | Description                                                                                                                      |
+| Data attribute | Optional | Description                                                                                                                      |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `target`               |       no | Target Bring! list(s) whose members should be notified.                                                                          |
 | `message`              |       no | Type of push notification to send to list members. See [Notification types](#available-notification-types).                      |
@@ -57,12 +67,12 @@ The **Bring** integration offers a service to send push notifications to the Bri
 
 ```yaml
 ...
-action:
-  service: bring.send_message
-  target:
-    entity_id: todo.bring_shoppinglist
-  data:
-    message: going_shopping 
+actions:
+  - action: bring.send_message
+    target:
+      entity_id: todo.bring_shoppinglist
+    data:
+      message: going_shopping 
 ```
 
 ### Sending an urgent message notification
@@ -71,11 +81,11 @@ Note that for the notification type `urgent_message` the attribute `item` is **r
 
 ```yaml
 ...
-action:
-  service: bring.send_message
-  target:
-    entity_id: todo.bring_shoppinglist
-  data:
-    message: urgent_message
-    item: Cilantro
+actions:
+  - action: bring.send_message
+    target:
+      entity_id: todo.bring_shoppinglist
+    data:
+      message: urgent_message
+      item: Cilantro
 ```

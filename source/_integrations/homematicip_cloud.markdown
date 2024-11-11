@@ -176,6 +176,7 @@ Within this delay the device registration should be completed in the App, otherw
   - Passage Sensor with Direction Recognition (*HmIP-SPDR*) (delta counter)
   - Alpha IP Wall Thermostat Display (*ALPHA-IP-RBG*)
   - Alpha IP Wall Thermostat Display analog (*ALPHA-IP-RBGa*)
+  - Floor Heating Actuator – 12x channels, motorized - Valve positions (*HmIP-FALMOT-C12*)
 
 - homematicip_cloud.switch
   - Pluggable Switch (*HmIP-PS*)
@@ -203,14 +204,14 @@ Within this delay the device registration should be completed in the App, otherw
 In order for a device to be integrated into Home Assistant, it must first be implemented in the upstream library. A dump of your configuration is required for this, which is then attached to a new issue in the [upstream lib's](https://github.com/hahn-th/homematicip-rest-api) GitHub repository.
 
 1. Create a dump of your access point configuration in Home Assistant: 
-  Developer Tools -> Services -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
+  **Developer Tools** -> **Actions** -> Select `homematicip_cloud.dump_hap_config` -> Execute. 
   The default dump is anonymized and is written to your configuration directory (`hmip_config_XXXX.json`).
 2. Create a [new issue](https://github.com/hahn-th/homematicip-rest-api/issues/new) at this GitHub repository and attach the created dump file.
 
 Please be patient, wait for the implementation and a new release of the upstream library.
 Afterward, this device can be implemented into Home Assistant.
   
-## Services
+## Actions
 
 Executable by all users:
 - `homematicip_cloud.activate_eco_mode_with_duration`: Activate eco mode with duration.
@@ -219,68 +220,69 @@ Executable by all users:
 - `homematicip_cloud.deactivate_eco_mode`: Deactivates the eco mode immediately.
 - `homematicip_cloud.deactivate_vacation`: Deactivates the vacation mode immediately.
 - `homematicip_cloud.set_active_climate_profile`: Set the active climate profile index.
+- `homematicip_cloud.set_home_cooling_mode`: Enable or disable cooling for the home.
 
 Executable by administrators or within the context of an automation:
 - `homematicip_cloud.dump_hap_config`: Dump the configuration of the Homematic IP Access Point(s).
 - `homematicip_cloud.reset_energy_counter`: Reset energy counter of measuring actuators.
 
-### Service examples
+### Action examples
 
-`accesspoint_id` (SGTIN) is optional for all services and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, service will be called for all configured Homematic IP Access Points.
+`accesspoint_id` (SGTIN) is optional for all actions and only relevant if you have multiple Homematic IP Accesspoints connected to HA. If empty, the action will be performed for all configured Homematic IP Access Points.
 The `accesspoint_id` (SGTIN) can be found on top of the integration page, or on the back of your Homematic IP Accesspoint.
 
 Activate eco mode with duration. 
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.activate_eco_mode_with_duration
-  data:
-    duration: 60
-    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+actions:
+  - action: homematicip_cloud.activate_eco_mode_with_duration
+    data:
+      duration: 60
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
 Activate eco mode with period. 
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.activate_eco_mode_with_period
-  data:
-    endtime: 2019-09-17 18:00
-    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+actions:
+  - action: homematicip_cloud.activate_eco_mode_with_period
+    data:
+      endtime: 2019-09-17 18:00
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
 Activates the vacation mode until the given time.
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.activate_vacation
-  data:
-    endtime: 2019-09-17 18:00
-    temperature: 18.5
-    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+actions:
+  - action: homematicip_cloud.activate_vacation
+    data:
+      endtime: 2019-09-17 18:00
+      temperature: 18.5
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
 Deactivates the eco mode immediately.
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.deactivate_eco_mode
-  data:
-    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+actions:
+  - action: homematicip_cloud.deactivate_eco_mode
+    data:
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
 Deactivates the vacation mode immediately.
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.deactivate_vacation
-  data:
-    accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+actions:
+  - action: homematicip_cloud.deactivate_vacation
+    data:
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
 ```
 
 Set the active climate profile index.
@@ -290,34 +292,44 @@ You can get the required index from the native Homematic IP App.
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.set_active_climate_profile
-  target:
-    entity_id: climate.livingroom
-  data:
-    climate_profile_index: 1
+actions:
+  - action: homematicip_cloud.set_active_climate_profile
+    target:
+      entity_id: climate.livingroom
+    data:
+      climate_profile_index: 1
 ```
 
 Dump the configuration of the Homematic IP Access Point(s).
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.dump_hap_config
-  data:
-    anonymize: True
+actions:
+  - action: homematicip_cloud.dump_hap_config
+    data:
+      anonymize: True
 ```
 
 Reset energy counter of measuring actuators.
 
 ```yaml
 ...
-action:
-  service: homematicip_cloud.reset_energy_counter
-  target:
-    entity_id: switch.livingroom
+actions:
+  - action: homematicip_cloud.reset_energy_counter
+    target:
+      entity_id: switch.livingroom
 ```
 
+Enable (or disable) Cooling mode for the entire home. Disabling Cooling mode will revert to Heating.
+
+```yaml
+...
+actions:
+  - action: homematicip_cloud.set_home_cooling_mode
+    data:
+      cooling: True
+      accesspoint_id: 3014xxxxxxxxxxxxxxxxxxxx
+```
 
 ## Additional info
 

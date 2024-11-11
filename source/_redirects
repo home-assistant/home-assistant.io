@@ -34,8 +34,9 @@ layout: null
 /yellow https://yellow.home-assistant.io
 /blog/2021/09/13/home-assistant-amber/ /blog/2021/09/13/home-assistant-yellow/
 
-# User research
+# Design & User research
 /join-research https://forms.clickup.com/2533032/f/2d9n8-12931/52N1KK00E9BXEW71TN
+/join-dashboard-group https://forms.clickup.com/2533032/f/2d9n8-18091/711QWINKTF866N9HYV
 
 # Older development pages
 /developers https://developers.home-assistant.io
@@ -158,7 +159,9 @@ layout: null
 /integrations/binary_sensor.knx /integrations/knx#binary-sensor
 /integrations/binary_sensor.modbus /integrations/modbus/#configuring-binary-sensor-entities
 /integrations/binary_sensor.mysensors /integrations/mysensors#binary-sensor
+/integrations/binary_sensor.rflink /integrations/rflink/#binary-sensor
 /integrations/binary_sensor.template /integrations/template/#binary_sensor
+/integrations/binary_sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#binary-sensor
 /integrations/climate.knx /integrations/knx#climate
 /integrations/climate.modbus/ /integrations/modbus/#configuring-climate-entities
 /integrations/climate.mysensors /integrations/mysensors#climate
@@ -166,13 +169,19 @@ layout: null
 /integrations/cover.group /integrations/group
 /integrations/cover.knx /integrations/knx#cover
 /integrations/cover.mysensors /integrations/mysensors#cover
+/integrations/cover.rflink /integrations/rflink/#cover
+/integrations/cover.xiaomi_aqara/ /integrations/xiaomi_aqara/#covers
 /integrations/device_tracker.mysensors /integrations/mysensors#device-tracker
+/integrations/device_tracker.xiaomi/ /integrations/xiaomi/#router
 /integrations/fan.group /integrations/group
 /integrations/fan.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-air-purifier-air-humidifier-and-standing-fan
 /integrations/light.group /integrations/group
 /integrations/light.knx /integrations/knx#light
 /integrations/light.mysensors /integrations/mysensors#light
+/integrations/light.rflink /integrations/rflink#light
 /integrations/light.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-philips-light
+/integrations/light.xiaomi_aqara/ /integrations/xiaomi_aqara/#lights
+/integrations/lock.xiaomi_aqara/ /integrations/xiaomi_aqara/#locks
 /integrations/media_player.group /integrations/group
 /integrations/notify.command_line /integrations/command_line#Notify
 /integrations/notify.group /integrations/group#notify-groups
@@ -184,12 +193,16 @@ layout: null
 /integrations/sensor.knx /integrations/knx#sensor
 /integrations/sensor.modbus /integrations/modbus/#configuring-sensor-entities
 /integrations/sensor.mysensors /integrations/mysensors#sensor
+/integrations/sensor.rflink /integrations/rflink/#sensor
 /integrations/sensor.websocket_api /integrations/websocket_api/#track-current-connections
 /integrations/sensor.xiaomi_miio /integrations/xiaomi_miio
+/integrations/sensor.xiaomi_aqara/ /integrations/xiaomi_aqara/#sensors
 /integrations/switch.command_line /integrations/command_line#Switch
 /integrations/switch.knx /integrations/knx#switch
 /integrations/switch.modbus /integrations/modbus/#configuring-switch-entities
 /integrations/switch.mysensors /integrations/mysensors#switch
+/integrations/switch.rflink /integrations/rflink/#switch
+/integrations/switch.xiaomi_aqara/ /integrations/xiaomi_aqara/#switches
 /integrations/switch.pca /integrations/elv/
 /integrations/switch.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-smart-wifi-socket-and-smart-power-strip
 /integrations/vacuum.xiaomi_miio /integrations/xiaomi_miio/#xiaomi-mi-robot-vacuum
@@ -253,6 +266,9 @@ layout: null
 /docs/assist/using_voice_assistants_overview/ /voice_control/
 /docs/assist/voice_remote_expose_devices/ /voice_control/voice_remote_expose_devices/
 /docs/assist/voice_remote_local_assistant/ /voice_control/voice_remote_local_assistant/
+/skyconnect /connectzbt1#from-skyconnect
+/glossary/ /docs/glossary/
+
 # Redirect for the QR Codes on the S3 Box
 /s3-box-no-wifi /voice_control/troubleshooting_the_s3_box/#error-unable-to-connect-to-wi-fi
 /s3-box-no-ha /voice_control/troubleshooting_the_s3_box/#error-no-home-assistant
@@ -308,7 +324,7 @@ layout: null
 /docs/z-wave/events /integrations/zwave_js#events
 /docs/z-wave/installation /integrations/zwave_js#configuration
 /docs/z-wave/query-stage /integrations/zwave_js
-/docs/z-wave/services /integrations/zwave_js#services
+/docs/z-wave/services /integrations/zwave_js#actions
 /ecosystem/ios/notifications https://companion.home-assistant.io/docs/notifications/notifications-basic
 /ecosystem/notebooks https://data.home-assistant.io
 /ecosystem/notebooks/api https://data.home-assistant.io
@@ -341,11 +357,10 @@ layout: null
 /getting-started/installation-virtualenv /docs/installation/virtualenv
 /getting-started/installation-raspberry-pi /docs/installation/raspberry-pi
 /getting-started/scripts /docs/scripts
-/getting-started/scripts-service-calls /docs/scripts/service-calls
+/getting-started/scripts-service-calls /docs/scripts/perform-actions/
+/docs/scripts/service-calls /docs/scripts/perform-actions/
 /getting-started/scripts-conditions /docs/scripts/conditions
 /getting-started/securing /docs/configuration/securing
-/getting-started/troubleshooting /docs/troubleshooting
-/getting-started/troubleshooting-configuration /docs/troubleshooting
 /getting-started/updating /common-tasks/os
 /getting-started/yaml /docs/configuration/yaml
 /getting-started/z-wave /integrations/zwave_js
@@ -389,6 +404,10 @@ layout: null
 /common-tasks/supervised/#snapshots /common-tasks/supervised/#backups
 /more-info/unsupported/container /more-info/unsupported/software
 /integrations/zigbee /integrations/zha
+/examples /
+
+# Moved marketing pages / rebranding
+/skyconnect /connectzbt1
 
 # Migrated Community Guides
 /cookbook/apache_configuration https://community.home-assistant.io/t/reverse-proxy-with-apache/196942
@@ -484,6 +503,7 @@ layout: null
 
 # Removed integrations
 /integrations/alarmdotcom /more-info/removed-integration 301
+/integrations/aladdin_connect /more-info/removed-integration 301
 /integrations/almond /more-info/removed-integration 301
 /integrations/ambee /more-info/removed-integration 301
 /integrations/ambiclimate /more-info/removed-integration 301
@@ -492,10 +512,12 @@ layout: null
 /integrations/arduino /more-info/removed-integration 301
 /integrations/asterisk_cdr /more-info/removed-integration 301
 /integrations/asterisk_mbox /more-info/removed-integration 301
+/_docs/asterisk_mbox.markdown /more-info/removed-integration 301
 /integrations/bbb_gpio /more-info/removed-integration 301
 /integrations/bh1750 /more-info/removed-integration 301
 /integrations/binary_sensor.mychevy /more-info/removed-integration 301
 /integrations/blinkt /more-info/removed-integration 301
+/integrations/bloomsky /more-info/removed-integration 301
 /integrations/bme280 /more-info/removed-integration 301
 /integrations/bme680 /more-info/removed-integration 301
 /integrations/bmp280 /more-info/removed-integration 301
@@ -511,6 +533,7 @@ layout: null
 /integrations/dht /more-info/removed-integration 301
 /integrations/digitalloggers /more-info/removed-integration 301
 /integrations/discovery /more-info/removed-integration 301
+/integrations/dte_energy_bridge /more-info/removed-integration 301
 /integrations/duke_energy /more-info/removed-integration 301
 /integrations/dyson /more-info/removed-integration 301
 /integrations/edp_redy /more-info/removed-integration 301
@@ -529,6 +552,7 @@ layout: null
 /integrations/geizhals /more-info/removed-integration 301
 /integrations/gntp /more-info/removed-integration 301
 /integrations/goalfeed /more-info/removed-integration 301
+/integrations/google_domains /more-info/removed-integration 301
 /integrations/gpmdp /more-info/removed-integration 301
 /integrations/griddy /more-info/removed-integration 301
 /integrations/hangouts /more-info/removed-integration 301
@@ -591,6 +615,7 @@ layout: null
 /integrations/sochain /more-info/removed-integration 301
 /integrations/socialblade /more-info/removed-integration 301
 /integrations/somfy /more-info/removed-integration 301
+/integrations/spider /more-info/removed-integration 301
 /integrations/spotcrime /more-info/removed-integration 301
 /integrations/srp_energy /more-info/removed-integration 301
 /integrations/synology /more-info/removed-integration 301
@@ -602,6 +627,7 @@ layout: null
 /integrations/trackr /more-info/removed-integration 301
 /integrations/ubee /more-info/removed-integration 301
 /integrations/uber /more-info/removed-integration 301
+/integrations/ue_smart_radio /more-info/removed-integration 301
 /integrations/updater /more-info/removed-integration 301
 /integrations/ups /more-info/removed-integration 301
 /integrations/uscis /more-info/removed-integration 301

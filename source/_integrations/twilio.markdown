@@ -56,18 +56,18 @@ Here is an example:
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: twilio_data_received
-    event_data:
-      From: '+1XXXXXXXXXXX'
-      To: '+1YYYYYYYYYYY'
-      CallStatus: ringing
-      Direction: inbound
-  action:
-    service: cover.open_cover
-    target:
-      entity_id: cover.garage_door
+  triggers:
+    - trigger: event
+      event_type: twilio_data_received
+      event_data:
+        From: '+1XXXXXXXXXXX'
+        To: '+1YYYYYYYYYYY'
+        CallStatus: ringing
+        Direction: inbound
+  actions:
+    - action: cover.open_cover
+      target:
+        entity_id: cover.garage_door
 ```
 
 The above opens the garage door when the number `+1XXXXXXXXXXX` calls `+1YYYYYYYYYYY` (considering that `+1YYYYYYYYYYY` is one of your numbers registered in Twilio).
@@ -76,17 +76,17 @@ An example of an SMS handler:
 
 {% raw %}
 ```yaml
-alias: Twilio incoming
-trigger:
-  - platform: event
+alias: "Twilio incoming"
+triggers:
+  - trigger: event
     event_type: twilio_data_received
-action:
+actions:
   - variables:
       sender: |
         {{ trigger.event.data.From }}
       message: |
         {{ trigger.event.data.Body }}
-  - service: notify.persistent_notification
+  - action: notify.persistent_notification
     data:
       message: |
         incoming twilio message from {{sender}}: {{ message }}

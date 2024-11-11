@@ -48,6 +48,6 @@ This integration provides the following sensors:
 |Precipitation|Precipitation in mm|
 |Snow|Snow in cm|
 
-<div class='note'>
+{% note %}
 Not every station supports every sensor.
-</div>
+{% endnote %}

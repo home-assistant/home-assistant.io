@@ -7,7 +7,7 @@ toc: true
 ---
 
 <div class="intro">
-  <p>
+  <p class="lead">
     The first step to getting started with Home Assistant is to install it on a
     device. There are many ways to run it for all kinds of scenarios and all
     kinds of skill levels.
@@ -102,7 +102,7 @@ toc: true
             </div>
           </div>
           <div class="buttons">
-            <a href="https://amzn.to/2S0Gcl1" class="button accent"
+            <a href="https://amzn.to/3UH6TcD" class="button accent"
               >Get Raspberry Pi {% include assets/chevron_right.html %}</a
             >
             <a href="/installation/raspberrypi" class="button"
@@ -289,81 +289,58 @@ toc: true
       <th>Supervised<sup>1</sup></th>
       <tr>
         <td><a href="/docs/automation" target="_blank">Automations</a></td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
         <td><a href="/dashboards" target="_blank">Dashboards</a></td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
         <td><a href="/integrations" target="_blank">Integrations</a></td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-      </tr>
-      <tr>
-        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>✅</td>
-      </tr>
-      <tr>
-        <td>Uses container</td>
-        <td>✅</td>
-        <td>✅</td>
-        <td>❌</td>
-        <td>✅</td>
-      </tr>
-      <tr>
-        <td>
-          <a href="/docs/glossary/#home-assistant-supervisor" target="_blank"
-            >Supervisor</a
-          >
-        </td>
-        <td>✅</td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>✅</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
       <tr>
         <td><a href="/addons" target="_blank">Add-ons</a></td>
-        <td>✅</td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>✅</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td><a href="/docs/blueprint" target="_blank">Blueprints</a></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+      </tr>
+      <tr>
+        <td>
+          One-click updates
+        </td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+        <td>{% icon "openmoji:cross-mark" %}</td>
+        <td>{% icon "noto-v1:check-mark" %}<sup>2</sup></td>
       </tr>
       <tr>
         <td><a href="/common-tasks/os/#backups" target="_blank">Backups</a></td>
-        <td>✅</td>
-        <td>✅<sup>2</sup></td>
-        <td>✅<sup>2</sup></td>
-        <td>✅</td>
-      </tr>
-      <tr>
-        <td>Managed Restore</td>
-        <td>✅</td>
-        <td>❌<sup>3</sup></td>
-        <td>❌<sup>3</sup></td>
-        <td>✅</td>
-      </tr>
-      <tr>
-        <td>Managed OS</td>
-        <td>✅</td>
-        <td>❌</td>
-        <td>❌</td>
-        <td>❌</td>
+        <td>{% icon "openmoji:check-mark" %}</td>
+        <td>{% icon "noto-v1:check-mark" %}<sup>3</sup></td>
+        <td>{% icon "noto-v1:check-mark" %}<sup>3</sup></td>
+        <td>{% icon "openmoji:check-mark" %}</td>
       </tr>
     </table>
   </div>
-  
+
   <sub
     >1: Names are abbreviated. The full names of the installation methods are:
     <ul>
@@ -375,11 +352,12 @@ toc: true
   >
   <p>
     <sub
-      >2: Backups for Home Assistant Core and Home Assistant Container is provided
-      by the
-      <a href="/integrations/backup" target="_blank"
-        ><code>backup</code> integration</a
-      >.</sub
+      >2: Home Assistant Supervised requires users to maintain their own operating system.</sub
+    >
+  </p>
+  <p>
+    <sub
+      >3: Home Assistant Core and Home Assistant Container can create backups via the user interface but they need to be manually restored.</sub
     >
   </p>
   <p>
@@ -389,6 +367,49 @@ toc: true
     >
   </p>
   <p></p>
+  <div class="installations-card">
+    <div class="material-card text">
+      <div class="content-container">
+        <div class="image">
+          <img
+            src="/images/installation/rpi.jpg"
+          />
+        </div>
+        <div class="content">
+          <h3>Install Home Assistant variants on Raspberry Pi</h3>
+          <p>A low-cost DIY solution to get started with Home Assistant</p>
+          <div class="columns">
+            <div>
+              <b>SKILLS REQUIRED</b>
+              <ul>
+                <li>Assembling a Raspberry Pi setup</li>
+                <li>Flashing a Raspberry Pi</li>
+                <li>Advanced knowledge of Linux</li>
+                <li>Using Linux command line</li>
+              </ul>
+            </div>
+            <div>
+              <b>TOOLS REQUIRED</b>
+              <ul>
+                <li>Raspberry Pi 3, 4 or 5 with power supply</li>
+                <li>MicroSD card</li>
+                <li>Ethernet connection</li>
+              </ul>
+            </div>
+          </div>
+          <div class="buttons">
+            <a href="https://amzn.to/3UH6TcD" class="button accent"
+              >Get Raspberry Pi {% include assets/chevron_right.html %}</a
+            >
+            <a href="/installation/raspberrypi-other" class="button"
+              >View tutorial {% include assets/chevron_right.html %}</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="installations-card">
     <div class="material-card text">
       <div class="content-container">

@@ -77,6 +77,9 @@ Currently the following device types within Home Assistant are supported.
 - PLC PHY rates
   - Updates every 5 minutes
   - PHY rates to/from the device attached to the router are enabled by default. PHY rates between all other devices are disabled by default.
+- Last restart of the device
+  - Updates every 15 seconds
+  - Is disabled by default because it's of lower interest to most users.
 
 ### Switch
 

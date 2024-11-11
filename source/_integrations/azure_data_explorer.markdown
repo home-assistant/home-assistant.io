@@ -11,7 +11,9 @@ ha_codeowners:
 ha_domain: azure_data_explorer
 related:
   - docs: /docs/configuration/
+ha_integration_type: integration
 ---
+
 [Azure Data Explorer](https://azure.microsoft.com/en-us/services/data-explorer/) is a high-performance time-series database, query engine, and dashboarding tool. The Home Assistant **Azure Data Explorer** {% term integration %} allows you to hook into the Home Assistant event bus and forward events to Azure Data Explorer for analytics and dashboarding. From here, data can be viewed in building dashboards, PowerBi, and Grafana, among others.
 
 ## Prerequisites
@@ -70,7 +72,7 @@ There are a few differences between the **PAYG** and **Free** versions:
 .create table ['<name_to_be_replaced>'] (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
 
 // Creat a mapping from the incoming JSON to the table and columns just created (replace the name with the table name from the previous step)
-.create table ['<name_to_be_replaced>'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
+.create table ['<name_to_be_replaced>'] ingestion json mapping 'ha_json_mapping' '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
 This is an example with a free cluster for reference:
@@ -82,7 +84,7 @@ This is an example with a free cluster for reference:
 
 .create table ['raw'] (entity_id: string, state: string, attributes: dynamic, last_changed: datetime, last_updated: datetime, context: dynamic)
 
-.create table ['raw'] ingestion json mapping ['ha_json_mapping'] '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
+.create table ['raw'] ingestion json mapping 'ha_json_mapping' '[{"column":"entity_id","path":"$.entity_id"},{"column":"state","path":"$.state"},{"column":"attributes","path":"$.attributes"},{"column":"last_changed","path":"$.last_canged"},{"column":"last_updated","path":"$.last_updated"},{"column":"context","path":"$.context"}]'
 ```
 
 {% include integrations/config_flow.md %}
@@ -140,10 +142,9 @@ filter:
       type: list
 {% endconfiguration %}
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Data Explorer.
-</div>
-
+{% endwarning %}
 
 ### Configuring a filter
 

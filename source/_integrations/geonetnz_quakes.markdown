@@ -11,6 +11,7 @@ ha_codeowners:
   - '@exxamalte'
 ha_domain: geonetnz_quakes
 ha_platforms:
+  - diagnostics
   - geo_location
   - sensor
 ha_integration_type: service
@@ -35,7 +36,7 @@ converted to the unit (kilometers or miles) configured in Home Assistant.
 
 The data is updated every 5 minutes.
 
-<div class='note'>
+{% note %}
 
 The material used by this integration is provided under the [Creative Commons Attribution 3.0 New Zealand (CC BY 3.0 NZ) license](https://creativecommons.org/licenses/by/3.0/nz/).
 It has only been modified for the purpose of presenting the material in Home Assistant.
@@ -43,7 +44,7 @@ Please refer to the [creator's disclaimer notice](https://www.geonet.org.nz/disc
 
 We acknowledge the New Zealand GeoNet project and its sponsors EQC, GNS Science and LINZ, for providing data/images used in this integration.
 
-</div>
+{% endnote %}
 
 {% include integrations/config_flow.md %}
 

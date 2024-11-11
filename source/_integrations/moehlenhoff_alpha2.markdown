@@ -42,15 +42,15 @@ Please note that after changing the temperature in Home Assistant,
 it may take up to 10 minutes for your room control units to display these
 changes.
 
-### Integration services
+### Actions
 
-This integration supports the following services (see [Climate](/integrations/climate/)).
+This integration supports the following actions (see [Climate](/integrations/climate/)).
 
-- [`set_temperature`](/integrations/climate/#service-climateset_temperature)
-- [`set_hvac_mode`](/integrations/climate/#service-climateset_hvac_mode)
+- [`set_temperature`](/integrations/climate/#action-climateset_temperature)
+- [`set_hvac_mode`](/integrations/climate/#action-climateset_hvac_mode)
   - `heat` for heating mode
   - `cool` for cooling mode
-- [`set_preset_mode`](/integrations/climate/#service-climateset_preset_mode)
+- [`set_preset_mode`](/integrations/climate/#action-climateset_preset_mode)
   - `auto` enable schedule based operation
   - `day` enable day mode
   - `night` enable night mode

@@ -4,6 +4,8 @@
 
 {% if page.installation != "os" and page.installation != "supervised" %}
 
+To see which version your system is running, go to {% my info title="**Settings** > **About**" %}.
+
 In the event that a Home Assistant Core version doesn't play well with your hardware setup, you can downgrade to a previous release. In this example `{{current_version}}` is used as the target version but you can choose the version you desire to run.
 
 {% endif %}

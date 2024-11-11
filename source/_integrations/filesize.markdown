@@ -17,12 +17,12 @@ ha_integration_type: integration
 
 The **File size** {% term integration %} is for displaying the size in MB of a file.
 
-<div class='note'>
+{% important %}
 
 File paths must also be added to [allowlist_external_dirs](/integrations/homeassistant/#allowlist_external_dirs) in your `configuration.yaml`.
 
 File paths should be absolute paths. For example: `/config/home-assistant_v2.db` to monitor the size of the default database.
 
-</div>
+{% endimportant %}
 
 {% include integrations/config_flow.md %}

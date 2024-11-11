@@ -42,6 +42,10 @@ image:
   required: false
   description: Background image URL.
   type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
+  type: string
 camera_image:
   required: false
   description: Camera entity as Background image.
@@ -139,15 +143,6 @@ double_tap_action:
   type: map
 {% endconfiguration %}
 
-### Options for exemptions
-
-{% configuration badges %}
-user:
-  required: true
-  description: User ID that can see the view tab.
-  type: string
-{% endconfiguration %}
-
 ### How to use state_filter
 
 Specify different [CSS filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
@@ -183,7 +178,7 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
 4. Select **Show code editor**.
 5. For each of the entities, specify an icon, as indicated in the YAML example.
 6. For the buttons to react on press (instead of bringing up the dialog):
-   - For each of the entities, under `tap_action`, call a `button.press` service.
+   - For each of the entities, under `tap_action`, use a `button.press` action.
 
     ```yaml
     camera_view: live
@@ -193,35 +188,35 @@ If your camera supports <abbr title="pan, tilt, and zoom">PTZ</abbr> (can be mov
       - entity: button.camera1_ptz_left
         icon: mdi:pan-left
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_left
       - entity: button.camera1_ptz_right
         icon: mdi:pan-right
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_right
       - entity: button.camera1_ptz_up
         icon: mdi:pan-up
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_up
       - entity: button.camera1_ptz_down
         icon: mdi:pan-down
         tap_action:
-          action: call-service
-          service: button.press
+          action: perform-action
+          perform_action: button.press
           data:
             entity_id: button.camera1_ptz_down
     camera_image: camera.camera1_sub
     tap_action:
-      action: call-service
-      service: light.toggle
+      action: perform-action
+      perform_action: light.toggle
       target:
         entity_id: light.philips_929003052501_01_huelight
     ```

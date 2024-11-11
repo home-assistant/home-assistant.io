@@ -48,19 +48,19 @@ SimpliSafe offers several [monitoring plans](https://support.simplisafe.com/arti
 
 ## Getting an Authorization Code
 
-<div class='note warning'>
+{% important %}
 You must have multi-factor authentication (MFA) enabled on your SimpliSafe account for the below instructions to work. Without MFA enabled, you will never receive the correct authorization code!
-</div>
+{% endimportant %}
 
 SimpliSafe authenticates users via its web app. Due to technical limitations, there is a manual step when adding the integration. For in-depth guidance, refer to step 6 of [the `simplisafe-python` documentation on authentication](https://simplisafe-python.readthedocs.io/en/latest/usage.html#authentication).
 
-## Services
+## Actions
 
 ### `simplisafe.remove_pin`
 
 Remove a SimpliSafe PIN (by label or PIN value).
 
-| Service Data Attribute | Optional | Description                      |
+| Data attribute | Optional | Description                      |
 | ---------------------- | -------- | -------------------------------- |
 | `label_or_pin`         | no       | The PIN label or value to remove |
 
@@ -68,7 +68,7 @@ Remove a SimpliSafe PIN (by label or PIN value).
 
 Set a SimpliSafe PIN.
 
-| Service Data Attribute | Optional | Description                            |
+| Data attribute | Optional | Description                            |
 | ---------------------- | -------- | -------------------------------------- |
 | `label`                | no       | The label to show in the SimpliSafe UI |
 | `pin`                  | no       | The PIN value to use                   |
@@ -77,7 +77,7 @@ Set a SimpliSafe PIN.
 
 Set one or more system properties.
 
-| Service Data Attribute | Optional | Description                                                                  |
+| Data attribute | Optional | Description                                                                  |
 | ---------------------- | -------- | ---------------------------------------------------------------------------- |
 | `alarm_duration`       | yes      | The number of seconds a triggered alarm should sound                         |
 | `chime_volume`         | yes      | The volume of the door chime                                                 |
@@ -146,8 +146,8 @@ as an event trigger, with `last_event_type` as the `event_data`.
 For example, the following will trigger when the doorbell rings:
 
 ```yaml
-trigger:
-  - platform: event
+triggers:
+  - trigger: event
     event_type: SIMPLISAFE_EVENT
     event_data:
         last_event_type: doorbell_detected

@@ -59,11 +59,11 @@ sources:
       type: string
 {% endconfiguration %}
 
-### Service `blackbird.set_all_zones`
+### Action `blackbird.set_all_zones`
 
-Set all zones to the same input source. This service allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
+Set all zones to the same input source. This action allows you to immediately synchronize all the TVs in your home. Regardless of `entity_id` provided, all zones will be updated.
 
-| Service data attribute | Optional | Description                                     |
+| Data attribute | Optional | Description                                     |
 | ---------------------- | -------- | ----------------------------------------------- |
 | `entity_id`            | yes      | String that points at an `entity_id` of a zone. |
 | `source`               | no       | String of source name to activate.              |

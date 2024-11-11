@@ -6,21 +6,21 @@ related:
     title: configuration.yaml file
 ---
 
-<div class='note warning'>
+{% caution %}
   This is an advanced feature.
-</div>
+{% endcaution %}
 
 When you log in, an _auth provider_ checks your credentials to make sure you are an authorized user.
 
 ## Configuring auth providers
 
-<div class='note warning'>
+{% warning %}
 
 Home Assistant automatically configures the standard auth providers so you don't need to specify `auth_providers` in your {% term "`configuration.yaml`" %} file unless you are configuring more than one. Specifying `auth_providers` will disable all auth providers that are not listed, so you could reduce your security or create difficulties logging in if it is not configured correctly.
 
 If you decide to use `trusted_networks` as your `auth_provider` there won't be a way to authenticate for a device outside of your listed trusted network. To overcome this ensure you add the default `auth_provider` with `type: homeassistant` back in manually. This will then present you with the default auth login screen when trusted network authentication fails as expected from outside your LAN.
 
-</div>
+{% endwarning %}
 
 Authentication providers are configured in your {% term "`configuration.yaml`" %} file under the `homeassistant:` block. 
 If you are moving configuration to packages, this particular configuration must stay within 'configuration.yaml'. See Issue 16441 in the warning block at the bottom of this page.
@@ -63,17 +63,13 @@ The trusted networks auth provider defines a range of IP addresses for which no 
 
 When you log in from one of these networks, you will be asked which user account to use and won't need to enter a password.
 
-<div class='note info'>
-
+{% note %}
 The [multi-factor authentication module](/docs/authentication/multi-factor-auth/) will not participate in the login process if you are using this auth provider.
+{% endnote %}
 
-</div>
-
-<div class='note info'>
-
+{% important %}
 You cannot trust a network that you are using in any [trusted_proxies](/integrations/http/#reverse-proxies). The `trusted_networks` authentication will fail with the message: Your computer is not allowed
-
-</div>
+{% endimportant %}
 
 Here is an example in {% term "`configuration.yaml`" %} to set up Trusted Networks:
 
@@ -127,11 +123,16 @@ homeassistant:
           - group: system-users
 ```
 
-First note, for `trusted_users` configuration you need to use `user id`, which you can find through {% my users title="Settings -> People" %} -> View User Detail. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id by yourself.
+First note, for `trusted_users` configuration you need to use `user id`.
 
-Second note, a trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
+1. To find the user ID, in your browser, make sure the URL of your Home Assistant ends in `config/users/`.
+   - For example: `homeassistant:8123/config/users`.
+2. Select the user from the list, and copy the ID.
+   - For example: `acbbff56461748718f3650fb914b88c9`.
+3. The `trusted_users` configuration will not validate the existence of the user, so please make sure you have put in the correct user id.
+4. A trusted user with an IPv6 address must put the IPv6 address in quotes as shown.
 
-In above example, if user try to access Home Assistant from 192.168.0.1, they will have only one user available to choose. They will have two users available if access from 192.168.0.38 (from 192.168.0.0/24 network). If they access from 192.168.10.0/24 network, they can choose from all available users (non-system and active users).
+In the above example, if user try to access Home Assistant from 192.168.0.1, they will have only one user available to choose. They will have two users available if access from 192.168.0.38 (from 192.168.0.0/24 network). If they access from 192.168.10.0/24 network, they can choose from all available users (non-system and active users).
 
 Specially, you can use `group: GROUP_ID` to assign all users in certain `user group` to be available to choose. Group and users can be mix and match.
 
@@ -191,10 +192,10 @@ Leading and trailing whitespace, as well as lines starting with `#` are ignored.
 
 Stderr is not read at all and just passed through to that of the Home Assistant process, hence you can use it for status messages or suchlike.
 
-<div class='note'>
+{% note %}
 Any leading and trailing whitespace is stripped from usernames before they're passed to the configured command. For instance, " hello  " will be rewritten to just "hello".
-</div>
+{% endnote %}
 
-<div class='note'>
+{% note %}
 For now, meta variables are only respected the first time a particular user is authenticated. Upon subsequent authentications of the same user, the previously created user object with the old values is reused.
-</div>
+{% endnote %}

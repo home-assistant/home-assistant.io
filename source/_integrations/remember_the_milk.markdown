@@ -69,7 +69,7 @@ The task creation supports the "smart syntax", so to create a task with the tag 
 **Note:**
 At the moment, smart syntax is *not* supported when updating tasks. All smart syntax commands are ignored during the update and will end up as normal text in the name of the task.
 
-| Service data attribute | Optional | Description                                                                                  | Example                     |
+| Data attribute | Optional | Description                                                                                  | Example                     |
 | ---------------------- | -------- | -------------------------------------------------------------------------------------------- | --------------------------- |
 | name                   | no       | Name of the new task, you can use the smart syntax here.                                     | "do this ^today #from_hass" |
 | id                     | yes      | Identifier for the task you're creating, can be used to update or complete the task later on | "myid"                      |
@@ -80,7 +80,7 @@ Complete a tasks that was privously created from Home Assistant. You can not com
 
 If you have created your task with an `id`, calling `<account>_complete_task` with the parameter `id` will then complete your task.
 
-| Service data attribute | Optional | Description                                        | Example |
+| Data attribute | Optional | Description                                        | Example |
 | ---------------------- | -------- | -------------------------------------------------- | ------- |
 | id                     | no       | Identifier that was defined when creating the task | "myid"  |
 
@@ -91,23 +91,21 @@ Here's an example for an automation that creates a new task whenever `sensor.mys
 {% raw %}
 
 ```yaml
-- id: mysensor_on
-  trigger:
-    platform: state
-    entity_id: sensor.mysensor
-    to: on
-  action:
-    - service: remember_the_milk.myaccount_create_task
+- triggers:
+    - trigger: state
+      entity_id: sensor.mysensor
+      to: "on"
+  actions:
+    - action: remember_the_milk.myaccount_create_task
       data:
         name: "Please switch off {{trigger.entity_id}}"
         id: "{{trigger.entity_id}}"
-- id: mysensor_off
-  trigger:
-    platform: state
-    entity_id: sensor.mysensor
-    to: off
-  action:
-    - service: remember_the_milk.myaccount_complete_task
+- triggers:
+    - trigger: state
+      entity_id: sensor.mysensor
+      to: "off"
+  actions:
+    - action: remember_the_milk.myaccount_complete_task
       data:
         id: "{{trigger.entity_id}}"
 ```

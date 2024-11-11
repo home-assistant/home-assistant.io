@@ -26,6 +26,7 @@ ha_codeowners:
   - '@tetienne'
   - '@nyroDev'
   - '@tronix117'
+  - '@alexfp14'
 ha_domain: overkiz
 ha_dhcp: true
 ha_zeroconf: true
@@ -89,15 +90,15 @@ cover:
         friendly_name: "Stateful RTS Test Shutter" # your name
         optimistic: true # default when no state is available
         open_cover:
-          - service: cover.open_cover
+          - action: cover.open_cover
             target:
               entity_id: cover.rts_test_shutter # change to your device id
         close_cover:
-          - service: cover.close_cover
+          - action: cover.close_cover
             target:
               entity_id: cover.rts_test_shutter # change to your device id
         stop_cover:
-          - service: cover.stop_cover
+          - action: cover.stop_cover
             target:
               entity_id: cover.rts_test_shutter # change to your device id
 ```

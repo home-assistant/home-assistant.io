@@ -12,7 +12,7 @@ related:
     title: Configuration file
 ---
 
-The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and a service to check users in on Swarm.
+The `foursquare` {% term integration %} accepts pushes from the Foursquare [Real-Time API](https://developer.foursquare.com/overview/realtime) and an action to check users in on Swarm.
 
 To enable Foursquare, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}
@@ -58,18 +58,18 @@ Foursquare check-in events can be used out of the box to trigger automation acti
 ```yaml
 automation:
   - alias: "Trigger action when you check into a venue."
-    trigger:
-      platform: event
-      event_type: foursquare.push
-    action:
-      service: script.turn_on
-      target:
-        entity_id: script.my_action
+    triggers:
+      - trigger: event
+        event_type: foursquare.push
+    actions:
+      - action: script.turn_on
+        target:
+          entity_id: script.my_action
 ```
 
 ### Check ins
 
-To check a user in, use the `foursquare/checkin` service.
+To check a user in, use the `foursquare/checkin` action.
 
 Parameters:
 

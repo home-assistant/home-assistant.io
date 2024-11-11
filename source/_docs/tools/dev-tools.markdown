@@ -14,7 +14,7 @@ Screenshot of Home Assistant's developer tools.
 | ---------- | ------------------------------------------------------------------- |
 | YAML       | Lets you validate the configuration and trigger a reload or restart |
 | States     | Sets the representation of an entity                                |
-| Services   | Calls services from integrations                                    |
+| Actions    | Performs actions from integrations                                  |
 | Template   | Renders templates                                                   |
 | Events     | Fires events                                                        |
 | Statistics | Shows a list of long-term statistic entities                        |
@@ -22,7 +22,7 @@ Screenshot of Home Assistant's developer tools.
 
 ## What can I do with Developer Tools?
 
-The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like calling services, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
+The Developer Tools is meant for **all** (not just for the developers) to quickly try out things - like performing actions, updating states, raising events, and publishing messages in MQTT). It is also a necessary tool for those who write custom automations and scripts by hand. The following describes each of the sections in detail.
 
 ## YAML tab
 
@@ -48,30 +48,30 @@ For configuration changes to become effective, the configuration must be reloade
 
 This section shows all the available entities, their corresponding state and the attribute values. The state and the attribute information is what Home Assistant sees at run time. To update the entity with a new state, or a new attribute value, click on the entity, scroll to the top, and modify the values, and click on “SET STATE” button.
 
-Note that this is the state representation of a device within Home Assistant. That means, it is what Home Assistant sees, and it does not communicate with the actual device in any manner. The updated information can still be used to trigger events, and state changes. To communicate with the actual device, it is recommended to call services in the services section above, instead of updating state.
+Note that this is the state representation of a device within Home Assistant. That means, it is what Home Assistant sees, and it does not communicate with the actual device in any manner. The updated information can still be used to trigger events, and state changes. To communicate with the actual device, it is recommended to perform actions in the **Actions** section above, instead of updating state.
 
-For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the “States” section are temporary, and is recommended to use for testing purposes only.
+For example, changing the `light.bedroom` state from `off` to `on` does not turn on the light. If there is an automation that triggers on the `state` change of the `light.bedroom`, it will be triggered – even though the actual bulb has not turned on. Also, when the bulb state changes – the state information will be overridden (the refresh icon can be used to retrieve the latest information that Home Assistant has). In other words, the changes that are made through the “States” section are temporary, and are recommended to use for testing purposes only.
 
 The table containing all entities can be filtered for each column. The used search is a wildcard search meaning that if you input "office" in the entity column filter, every entity whose ID matches "\*office\*" will be shown. You can also add your own wildcards in the search input (e.g., "office\*light").
 The attribute filter supports separate filters for attribute names and values, separated by a colon ":". So the filter "location:3" will result in the table showing all entities that have an attribute name that contains "location" and whose attribute value contains "3".
 
-## Services tab
+## Actions tab
 
-This section is used to call Services that are available in the ServiceRegistry.
+This section is used to perform actions that are available in Home Assistant.
 
-The list of services in the “Service” dropdown are automatically populated based on the integrations that are found in the configuration, automation and script files.  If a desired service does not exist, it means either the integration is not configured properly or not defined in the configuration, automation or script files.
+The list of actions in the **Actions** dropdown are automatically populated based on the integrations that are found in the configuration, automation and script files. If a desired action does not exist, it means either the integration is not configured properly or not defined in the configuration, automation or script files.
 
-When a Service is selected, and if that service requires an `entity_id` to be passed, the “Entity” dropdown will automatically be populated with corresponding entities.
+When an action is selected, and if that action requires an `entity_id` to be passed, the **Entity** dropdown will automatically be populated with corresponding entities.
 
-A Service may also require additional input to be passed. It is commonly referred to as “service data”. The service data is accepted in YAML format, and it may be optional depending on the service.
+An action may also require additional input to be passed. It is commonly referred to as “action data”. The action data is accepted in YAML format, and it may be optional depending on the action.
 
-When an entity is selected from the Entity dropdown, it automatically populates service data with the corresponding `entity_id`. The service data YAML can then be modified to pass additional \[optional\] parameters. The following is an illustration on how to call a `light.turn_on` service.
+When an entity is selected from the Entity dropdown, it automatically populates action data with the corresponding `entity_id`. The action data YAML can then be modified to pass additional \[optional\] parameters. The following is an illustration on how to perform a `light.turn_on` action.
 
 To turn on a light bulb, use the following steps:
 
-1.	Select `light.turn_on` from the Service dropdown
+1.	Select `light.turn_on` from the **Action** dropdown.
 2.	Select the entity (typically the light bulb) from the Entity dropdown (if no entity_id is selected, it turns on ALL lights)
-3.	If an entity is selected, the service data is populated with basic YAML that will be passed to the service. Additional data can also be passed by updating the YAML as below.
+3.	If an entity is selected, the action data is populated with basic YAML that will be passed to the action. Additional data can also be passed by updating the YAML as below.
 
 ```yaml
 entity_id: light.bedroom
@@ -104,11 +104,11 @@ If there is an automation that handles that event, it will be automatically trig
 
 ```yaml
 - alias: "Capture Event"
-  trigger:
-    platform: event
-    event_type: event_light_state_changed
-  action:
-    - service: notify.notify
+  triggers:
+    - trigger: event
+      event_type: event_light_state_changed
+  actions:
+    - action: notify.notify
       data:
         message: "Light is turned {{ trigger.event.data.state }}"
 ```

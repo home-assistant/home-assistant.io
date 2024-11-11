@@ -61,17 +61,17 @@ password:
 
 ## Supported device types
 
-<div class='note warning'>
+{% note %}
 This {% term integration %} currently only covers part of the device types supported by the XS1 gateway, unsupported types are simply ignored.
-</div>
+{% endnote %}
 
 ### Sensors
 
 Any type of sensor is supported.
 
-<div class='note warning'>
+{% note %}
 If you are using climate devices the "current temp" sensor will be automatically used by the actuator (if named correctly). To make this work have a look at the actuator description below.
-</div>
+{% endnote %}
 
 ### Actuators
 

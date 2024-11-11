@@ -88,9 +88,9 @@ For our new Sections view, we are making these sections as the base unit of the 
 
 ### Getting started with Sections
 
-<div class='note warning'>
-    The new Sections view is experimental! Please do not build your daily dashboard on top of it yet!
-</div>
+{% warning %}
+The new Sections view is experimental! Please do not build your daily dashboard on top of it yet!
+{% endwarning %}
 
 <p class='img'>
     <img width="66%" src="/images/blog/2024-03-dashboard-chapter-1/sections-create-new-view.png" alt="The Create New View configuration screen"/>
@@ -99,9 +99,9 @@ For our new Sections view, we are making these sections as the base unit of the 
 
 To get started with the new Sections view, create a new view on your dashboard and choose **Sections (experimental)** as the view type. We currently do not have the option to migrate your current dashboard over yet.
 
-<div class='note info'>
-    If you are using the default dashboard, please read about how to <a href="/dashboards/#get-started-with-your-own-dashboard">create a new dashboard</a>.
-</div>
+{% note %}
+If you are using the default dashboard, please read about how to <a href="/dashboards/#get-started-with-your-own-dashboard">create a new dashboard</a>.
+{% endnote %}
 
 <p class='img'>
     <img src="/images/blog/2024-03-dashboard-chapter-1/sections-blank-sections-view.png" alt="A new dashboard view laid out in Sections"/>

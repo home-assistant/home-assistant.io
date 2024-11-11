@@ -26,8 +26,6 @@ It currently supports reporting the current load of the device in percent and th
 
 The access token for the API can be obtained through the Vilfo web-UI in the pane named "general". Visit [the official API documentation](https://www.vilfo.com/apidocs/#header-authorization) for more information on how to find your token.
 
-<div class="note warning">
-
+{% important %}
 In version 1.0.13 of the Vilfo firmware, access tokens are invalidated when a new login to the web UI is made. To prevent web UI logins from interfering with the API calls, you can create a separate user solely for API purposes and use its access token.
-
-</div>
+{% endimportant %}

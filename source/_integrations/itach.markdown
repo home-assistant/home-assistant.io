@@ -85,7 +85,7 @@ devices:
           type: string
 {% endconfiguration %}
 
-An example to call the integration from developer tools using the `remote.send_command` service: `{ "entity_id":"remote.tv", "command":"menu" }`
+An example to call the integration from developer tools using the `remote.send_command` action: `{ "entity_id":"remote.tv", "command":"menu" }`
 
 Note: Global Cache devices expect data in their own format of "sendir...". This integration converts hex code to Global Cache IR form.
 

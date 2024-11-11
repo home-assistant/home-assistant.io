@@ -5,6 +5,7 @@ ha_category:
   - Camera
   - Climate
   - Doorbell
+  - Event
   - Hub
   - Media source
   - Sensor
@@ -20,6 +21,7 @@ ha_platforms:
   - camera
   - climate
   - diagnostics
+  - event
   - sensor
 ha_integration_type: integration
 ---
@@ -31,22 +33,19 @@ There is currently support for the following device types within Home Assistant:
 - [Climate](#climate)
 - [Sensor](#sensor)
 - [Camera](#camera)
+- [Event](#event)
 
 Cameras and doorbells use [Automation and device triggers](#automation-and-device-triggers) for events and a [media source](#media-source) for capturing media images on supported devices. Other device types like Smoke and CO Alarms or Security systems are not currently supported by the SDM API.
 
 You are in control of the information and capabilities exposed to Home Assistant. You can authorize a single device, multiple devices, or different levels of functionality such as motion events, live streams, for any particular device. The integration is flexible enough to adapt based on what you allow.
 
-<div class='note'>
-
+{% caution %}
 The Nest Smart Device Management (SDM) API **requires a US$5 fee**. Before buying, make sure your device is [supported](https://developers.google.com/nest/device-access/supported-devices).
+{% endcaution %}
 
-</div>
-
-<div class='note'>
-
+{% note %}
 The Google Nest integration uses a Cloud Pub/Sub subscription with a 15-minute retention period by default. The Google Cloud Pub/Sub billing changes, effective June 30, 2024, do not apply. The billing changes only apply to subscriptions with a 24-hour retention period. See the [Pub/Sub console](https://console.cloud.google.com/cloudpubsub/subscription/list) to view your subscriptions if you previously created one manually.
-
-</div>
+{% endnote %}
 
 <lite-youtube videoid="RwZmQ7QfhsM" videotitle="Finally! A WORKING NEST Integration with Home Assistant using Oauth!" posterquality="maxresdefault"></lite-youtube>
 
@@ -60,7 +59,7 @@ To add the **Nest** integration to your Home Assistant, use this My Button:
 {% details "Manual configuration steps" %}
 
 1. Browse to your Home Assistant instance.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. In the bottom right corner, select the
   **{% my config_flow_start icon domain=page.ha_domain %}** button.
 4. From the list, select **Nest** and follow the instructions on screen.
@@ -165,9 +164,9 @@ Now that you have authentication configured, you will create a Nest Device Acces
 2. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
     ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
 
-    <div class='note'>
-    It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
-    </div>
+{% note %}
+It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
+{% endnote %}
 
 3. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
 
@@ -228,13 +227,13 @@ All Google Nest Thermostat models are exposed as a `climate` entity that use the
 
 Given a thermostat named `Upstairs` then the climate entity is created with a name such as `climate.upstairs`
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
+{% endnote %}
 
 ## Sensor
 
@@ -245,38 +244,40 @@ All Google Nest Thermostat models have traits exposed from the SDM API. The init
 
 Given a thermostat named `Upstairs` then sensors are created with names such as `sensor.upstairs_temperature` or `sensor.upstairs_humidity`.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to access and control your thermostat*
 
-</div>
-<div class='note'>
+{% endnote %}
+{% note %}
 Additional Nest Temperature Sensors are not supported by the SDM API.  The Temperature reported by the API will be pulled from whichever device is currently configured as the Active Sensor, which can be adjusted via manual selection or the schedule offered in the Nest App.
-</div>
+{% endnote %}
 
 
 ## Camera
 
 Home Assistant supports all SDM API features. However, every Camera or Doorbell device has a different set of built-in capabilities. A Camera device has one of the following live stream types:
 
-- **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` services like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
-- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` services like stream recording are *not supported*.
+- **RTSP**: These devices have an HLS stream served by the Home Assistant Core. These cameras support server-side `camera` actions like stream recording or image preview. See [Low Latency HLS](/integrations/stream#ll-hls) as a great option to enable to reduce stream latency.
+- **WebRTC**: These devices support direct browser to camera communication and a super low latency stream. A [Picture Glance Card](/dashboards/picture-glance/) can show the live stream in the grid with the *Camera View* set to `live` (not recommended for battery-powered cameras). `camera` actions like stream recording are *not supported*.
 
-<div class='note'>
+Given a camera named `Front Yard`, then the camera is created with a name such as `camera.front_yard`.
+
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to see and display your camera’s livestream*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
+All cameras also expose event entities for automation. Some camera models also
+support capturing media (snapshots or clips) through device triggers. The table below summarizes the [supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
 
-All cameras have motion and person triggers, however only some support capturing snapshots for events. The table below summarizes the [Supported SDM API features](https://developers.google.com/nest/device-access/supported-devices) for each device.
-
-| Device                                                                           |    Live Stream    |         Triggers / Events          | Media Source<br> for Triggers / Events |
+| Device                                                                           |    Live stream    |         Event entities / triggers          | Media source<br> for triggers |
 | -------------------------------------------------------------------------------- | :---------------: | :--------------------------------: | :------------------------------------: |
 | Nest Cam (indoor, wired)<br>Nest Cam (outdoor, battery)                          |      WebRTC       |          Motion<br>Person          |                  N/A                   |
 | Nest Cam Indoor<br>Nest Cam IQ Indoor<br>Nest Cam IQ Outdoor<br>Nest Cam Outdoor | RTSP<br>Recording |     Motion<br>Person<br>Sound      |             Snapshot (jpg)             |
@@ -286,18 +287,31 @@ All cameras have motion and person triggers, however only some support capturing
 | Nest Doorbell (wired, 2nd gen)                                                   |      WebRTC       |     Motion<br>Person<br>Chime      |        Clip Preview (mp4, gif)         |
 | Nest Hub Max                                                                     | RTSP<br>Recording |   Motion<br>Person<br>Sound<br>    |             Snapshot (jpg)             |
 
-Given a camera named `Front Yard` then the camera is created with a name such as `camera.front_yard`.
 
+## Event
 
-## Automation and device triggers
+All doorbells and cameras support event entities. See the [Event](https://www.home-assistant.io/integrations/event/) integration documentation for more about how to use event entities in automations.
+
+There are two classes of event entities that are available based on the above camera features:
+
+- `motion` for cameras that support any of the event types `camera_motion`, `camera_person`, or `camera_sound`
+- `doorbell` for all cameras that are doorbells and support `doorbell_chime` events
+
+Nest event entities are updated immediately when an event message is received
+without waiting for any media to be fetched. See Device Triggers for media support.
+
+## Device Triggers
 
 The Nest integration provides [device triggers](/docs/automation/trigger/#device-triggers) to enable automation in Home Assistant. You should review the [Automating Home Assistant](/getting-started/automation/) getting started guide on automations or the [Automation](/docs/automation/) documentation for full details.
+
+Device triggers will wait to fire after any media associated with the event is downloaded. Use an
+event entity for immediate notifications without media.
 
 {% my automations badge %}
 
 ![Screenshot Device Triggers](/images/integrations/nest/device_triggers.png)
 
-{% details "Example Device Trigger / Event payload %}
+{% details "Example Device Trigger / Event payload" %}
 
 This is an example of what the `nest_event` payload looks like for a Device Trigger that you can use to power automations.
 
@@ -309,29 +323,34 @@ This is an example of what the `nest_event` payload looks like for a Device Trig
         "type": "doorbell_chime",
         "timestamp": "2022-01-26T04:56:54.031000+00:00",
         "nest_event_id": "EXAMPLE_EVENT_ID",
+        "attachment": {
+          "image": "/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail",
+          "video": "/api/nest/event_media/DEVICE_ID/EVENT_ID",
+        }
         "zones": ["Zone 1"],
     },
 }
 ```
 
 - `device_id`: The Home Assistant device identifier for the camera
-- `nest_event_id`: is an opaque identifier that can be used with the Media Source Attachments described below for supported cameras.
+- `nest_event_id`: is an opaque identifier that identifies the event.
+- `attachment`: May be present if the device supports snapshots or clips and depends on the device's capabilities. This is a URL where media can be fetched from the media source.
 - `zones`: Zones triggering the event if available. Zones are configured in the Google Home App, though not supported by all cameras. Events in the area outside of a named zone will be an empty zone name.
 
 {% enddetails %}
 
 Continue reading below to *Media Source Attachments* to see how to use media with notification actions.
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
 - *Allow Home Assistant to know when there's a camera event*
 - *Allow Home Assistant to know when there's a doorbell event*
 - *Other permissions and notification settings in the Nest or Google Home apps*.
-</div>
+{% endnote %}
 
-### Google Home App Notification Settings
+## Google Home App Notification Settings
 
 The Google Home App Notifications settings control not only which notifications are sent to your phone,
 but also what gets published to the Pub/Sub feed.
@@ -350,7 +369,6 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 {% details "Google Home App Notification Settings" %}
 
-
 | Google Home App Setting  |                                  Notes                                  |
 | ------------------------ | :---------------------------------------------------------------------: |
 | Notifications: Push      |            Required for any detection event to be published             |
@@ -366,7 +384,7 @@ If you are still not getting notifications, you can read this [troubleshooting g
 
 The Nest [media source](/integrations/media_source) platform allows you to browse clips for recent camera events. Home Assistant is not intended to be a Network Video Recorder (NVR) platform, however, basic support for capturing recent events is supported.
 
-The table above describes which devices support event image snapshots or 10-frame mp4 video clips for recent events.
+The table above describes which devices support image snapshots or 10-frame mp4 video clips.
 
 ### Media Attachments
 
@@ -376,72 +394,67 @@ The Media Source APIs can be used in [Companion App Attachments](https://compani
 
 - `/api/nest/event_media/DEVICE_ID/EVENT_ID/thumbnail`: A thumbnail preview of the media, which supports image snapshots (jpg) or clip previews (gif) depending on the camera type.
 
-You can use the event payload fields `device_id` and `event_id` in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
+You can use the Nest Device Trigger payload fields `attachment.image` or `attachment.video`in an [automation](/getting-started/automation/) to send a notification from an [actions](/getting-started/automation-action/) as shown in the examples below.
 
-{% details "Example Action: Clip Preview (mp4) attachment for iOS %}
+{% details "Example Action: Clip Preview (mp4) attachment for Android or iOS" %}
 
 Example for cameras that support Clip Previews used with iOS which can render video in notifications.
 
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_iphone
+action: notify.mobile_app_iphone
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
-    video: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id  }}
-mode: single
+    image: "{{ trigger.event.data.attachment.image }}"
+    video: "{{ trigger.event.data.attachment.video }}"
 ```
 
 {% endraw %}
 
 {% enddetails %}
 
-{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS %}
+{% details "Example Action: Clip Preview thumbnail (gif) for Android or iOS" %}
 
 Example for cameras that support Clip Previews, but transcoded to an animated gif (Android does not render video notifications).
 
 {% raw %}
 
 ```yaml
-service: notify.mobile_app_android
+action: notify.mobile_app_android
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+    image: "{{ trigger.event.data.attachment.image }}"
 ```
 
 {% endraw %}
 
 {% enddetails %}
 
-{% details "Example Action: Snapshot (jpg) attachment for Android or iOS %}
+{% details "Example Action: Snapshot (jpg) attachment for Android or iOS" %}
 
 Example for cameras that support Snapshot (jpg) on either Android or iOS.
 
 {% raw %}
 
 ```yaml
-service: notify.mobile_app
+action: notify.mobile_app
 data:
   message: Doorbell Pressed
   title: Someone pressed the doorbell
   data:
-    image: >-
-      /api/nest/event_media/{{ trigger.event.data.device_id }}/{{ trigger.event.data.nest_event_id }}/thumbnail
+    image: "{{ trigger.event.data.attachment.image }}"
 ```
 
 {% endraw %}
 
 {% enddetails %}
 
-<div class='note'>
+{% note %}
 
 This feature is enabled by the following permissions:
 
@@ -449,16 +462,16 @@ This feature is enabled by the following permissions:
 - *Based on the events you've selected to share from this device, allow Home Assistant to access camera snapshots*
 - *Other permissions in the Nest or Google Home apps*.
 
-</div>
+{% endnote %}
 
 ## Deprecated App Auth Credentials
 
 To improve security and reduce phishing risk Google has [deprecated](https://developers.googleblog.com/2022/02/making-oauth-flows-safer.html) a previous authentication method used by Home Assistant. **This requires action by you to resolve** if you previously configured *Nest* using *App Auth*.
 
-{% details "Reconfigure the integration %}
+{% details "Reconfigure the integration" %}
 
 1. Make sure to upgrade to the latest version of Home Assistant.
-2. Go to **{% my integrations title="Settings > Devices & Services" %}**.
+2. Go to **{% my integrations title="Settings > Devices & services" %}**.
 3. The **Nest** integration should appear with alert.
 
     ![Screenshot of success](/images/integrations/nest/attention.png)
@@ -576,7 +589,7 @@ The *OAuth Client ID* used must be consistent, so check these:
 
 - Restart the Thermostat device. See [How to restart or reset a Nest thermostat](https://support.google.com/googlenest/answer/9247296) for more details.
 - In the official Nest app or on https://home.nest.com: Move the Thermostat to a different or fake/temporary room.
-- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & Services**, click `...` next to *Nest* and choose **Reload**.
+- Reload the integration in Home Assistant:  Navigate to **Configuration** then **Devices & services**, click `...` next to *Nest* and choose **Reload**.
 
 {% enddetails %}
 

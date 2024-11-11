@@ -23,13 +23,11 @@ Please make sure that you have read the [considerations](#considerations) listed
 some trouble later. However, if you do encounter issues, check out the
 [troubleshooting](#troubleshooting) section.
 
-<div class="note">
-
-  If you want to control HomeKit-only devices with Home Assistant,
-  check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
-  which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
-
-</div>
+{% tip %}
+If you want to control HomeKit-only devices with Home Assistant,
+check out the [HomeKit Device](/integrations/homekit_controller/) integration, 
+which provides the possibility to pull HomeKit-enabled devices into Home Assistant.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -162,7 +160,7 @@ homekit:
               required: false
               type: string
             linked_doorbell_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the doorbell sensor of the camera accessory to enable doorbell notifications.
               required: false
               type: string
             linked_humidity_sensor:
@@ -170,7 +168,7 @@ homekit:
               required: false
               type: string
             linked_motion_sensor:
-              description: The `entity_id` of a `binary_sensor` entity to use as the motion sensor of the camera accessory to enable motion notifications.
+              description: The `entity_id` of a `binary_sensor` or `event` entity to use as the motion sensor of the camera accessory to enable motion notifications.
               required: false
               type: string
             linked_obstruction_sensor:
@@ -274,7 +272,7 @@ homekit:
               default: libopus
               available options: copy, libopus
             co_threshold:
-              description: Only for `sensor` entities with `device_class` `carbon_monoxide` or `co` in `entity_id`. Used as the threshold value once HomeKit will warn/notify the user.
+              description: Only for `sensor` entities with `device_class` `carbon_monoxide`. Used as the threshold value once HomeKit will warn/notify the user.
               required: false
               type: integer
               default: 25
@@ -332,7 +330,7 @@ The HomeKit Accessory Protocol Specification only allows a maximum of 150 unique
 
 ### Multiple HomeKit instances
 
-If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & Services**), it must be configured via the UI **only**. While the UI only offers limited configuration options at the moment, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
+If you create a HomeKit integration via the UI (i.e., **Settings** > **Devices & services**), it must be configured via the UI **only**. While the UI currently offers limited configuration options, any attempt to configure a HomeKit instance created in the UI via the {% term "`configuration.yaml`" %} file will result in another instance of HomeKit running on a different port.
 
 It is recommended to only edit a HomeKit instance in the UI that was created in the UI, and likewise, only edit a HomeKit instance in YAML that was created in YAML.
 
@@ -342,7 +340,7 @@ When exposing a Camera, Activity based remote (a `remote` that supports activiti
 
 To quickly add all accessory mode entities in the UI:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & Services" domain=page.ha_domain %}**).
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**).
 2. Select `media_player`, `remote`, `lock`, and `camera` domains.
 3. Complete the flow as normal.
 4. Additional HomeKit entries for each entity that must operate in accessory mode will be created for each entity that does not already have one.
@@ -351,7 +349,7 @@ To quickly add all accessory mode entities in the UI:
 
 To add a single entity in accessory mode:
 
-1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & Services" domain=page.ha_domain %}**)
+1. Create a new bridge via the UI (i.e., **{% my config_flow_start title="Settings > Devices & services" domain=page.ha_domain %}**)
 2. Before pairing the bridge, access the options for the bridge.
 3. Change the mode to `accessory`
 4. Select the entity.
@@ -430,16 +428,17 @@ The following integrations are currently supported:
 | sensor                                                        | TemperatureSensor      | All sensors that have `°C` or `°F` as their `unit_of_measurement` and `temperature` as their `device_class`.                                                                                                                                                                                                                                                                                                                                 |
 | sensor                                                        | HumiditySensor         | All sensors that have `%` as their `unit_of_measurement` and `humidity` as their `device_class`.                                                                                                                                                                                                                                                                                                                                             |
 | sensor                                                        | AirQualitySensor       | All sensors that have `gas`/`pm10`/`pm25` as part of their `entity_id` or `gas`/`pm10`/`pm25`/`nitrogen_dioxide`/`volatile_organic_compounds` as their `device_class`. The VOC mappings use the IAQ guidelines for Europe released by the WHO (World Health Organization).                                                                                                                                                                   |
-| sensor                                                        | CarbonMonoxideSensor   | All sensors that have `co` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
-| sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `co2` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
+| sensor                                                        | CarbonMonoxideSensor   | All sensors that have `carbon_monoxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                                                           |
+| sensor                                                        | CarbonDioxideSensor    | All sensors that have `co2` as part of their `entity_id` or `carbon_dioxide` as their `device_class`                                                                                                                                                                                                                                                                                                                                                    |
 | sensor                                                        | LightSensor            | All sensors that have `lm` or `lx` as their `unit_of_measurement` or `illuminance` as their `device_class`                                                                                                                                                                                                                                                                                                                                   |
 | switch                                                        | Switch                 | Represented as a switch by default but can be changed by using `type` within `entity_config`.                                                                                                                                                                                                                                                                                                                                                |
 | water_heater                                                  | WaterHeater            | All `water_heater` devices.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | device_automation                                             | DeviceTriggerAccessory | All devices that support triggers.                                                                                                                                                                                                                                                                                                                                                                                                           |
+| valve                                                         | Valve                 | All `valve` devices.                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 # Device triggers
 
-Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings > Devices & Services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
+Devices that support triggers can be added to the bridge by accessing options for the bridge in **{% my integrations title="Settings > Devices & services" %}**. To use this feature, Advanced Mode must be enabled in your user profile.
 
 Bridged device triggers are represented as a single press button on stateless programmable switches. This allows a HomeKit automation to run when a device trigger fires. Because the Apple Home app currently only shows the number of the button and not the name, users may find it easier to identify the name of the button in the `Eve for HomeKit` app.
 
@@ -448,24 +447,24 @@ Bridged device triggers are represented as a single press button on stateless pr
 Entities exposed as `TelevisionMediaPlayer` and `ReceiverMediaPlayer` are controllable within the Apple Remote widget in
 Control Center. Play, pause, volume up and volume down should work out of the box depending on the `supported_features`
 of the entity. However, if your television can be controlled in other ways outside of the `media_player` entity, (e.g.,
-service calls to an IR blaster), it is possible to build an automation to take advantage of these events.
+performing actions to an IR blaster), it is possible to build an automation to take advantage of these events.
 
 When a key is pressed within the Control Center Remote widget, the event `homekit_tv_remote_key_pressed` will be fired.
 The key name will be available in the event data in the `key_name` field. Example:
 
 ```yaml
 automation:
-  trigger:
-    platform: event
-    event_type: homekit_tv_remote_key_pressed
-    event_data:
-      key_name: arrow_right
+  triggers:
+    - trigger: event
+      event_type: homekit_tv_remote_key_pressed
+      event_data:
+        key_name: arrow_right
 
   # Send the arrow right key via a broadlink IR blaster
-  action:
-    service: broadlink.send
-    host: 192.168.1.55
-    packet: XXXXXXXX
+  actions:
+    - action: broadlink.send
+      host: 192.168.1.55
+      packet: XXXXXXXX
 ```
 
 ## Events
@@ -475,14 +474,14 @@ The HomeKit integration emits `homekit_state_change` events. These events can be
 ```yaml
 # Example for handling a HomeKit event
 automation:
-  trigger:
-    - platform: event
+  triggers:
+    - trigger: event
       event_type: homekit_state_change
       event_data:
         entity_id: cover.garage_door
-        service: open_cover
-  action:
-    - service: persistent_notification.create
+        action: open_cover
+  actions:
+    - action: persistent_notification.create
       data:
         message: "The garage door got opened via HomeKit"
 ```
@@ -641,7 +640,7 @@ Ensure that the [`ffmpeg`](/integrations/ffmpeg) integration is configured corre
 
 #### Camera streaming is unstable or slow 
 
-If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Settings** > **Devices & Services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
+If your camera supports native H.264 streams, Home Assistant can avoid converting the video stream, which is an expensive operation. To enable native H.264 streaming when configured via YAML, change the `video_codec` to `copy`. To allow native H.264 streaming when setting up HomeKit via the UI, go to **Settings** > **Devices & services** in the UI, click **Options** for your HomeKit Bridge, and check the box for your camera on the `Cameras that support native H.264 streams` screen.
 
 #### Multiple camera streams
 
@@ -665,7 +664,7 @@ HomeKit camera snapshots tie up the HomeKit connection during snapshots. To avoi
 
 #### Resetting accessories
 
-You may use the service `homekit.reset_accessory` with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
+You may use the `homekit.reset_accessory` action with one or more entity IDs to reset accessories whose configuration may have changed. This can be useful when changing a media player's device class to `tv`, linking a battery, or whenever Home Assistant adds support for new HomeKit features to existing entities.
 
 On earlier versions of Home Assistant, you can reset accessories by removing the entity from HomeKit (via [filter](#configure-filter)) and then re-adding the accessory.
 
@@ -673,6 +672,18 @@ With either strategy, the accessory will behave as if it's the first time the ac
 
 #### Unpairing and Re-pairing
 
-The HomeKit integration remembers a public key for each paired device. Occasionally the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` service will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
+The HomeKit integration remembers a public key for each paired device. Occasionally, the public key for a device pairing will be missing because of pairing failures. Suppose one or more devices show the accessory as unavailable. In that case, it may be necessary to unpair and re-pair the device to ensure the integration has the public key for each paired client. The `homekit.unpair` action will forcefully remove all pairings and allow re-pairing with the accessory. When setting up HomeKit from the UI, this avoids the sometimes time-consuming process of deleting and create a new instance.
 
 The accessory will behave as if it's the first time the accessory has been set up, so you will need to restore the name, group, room, scene, and/or automation settings.
+
+#### Air Quality Sensor Entities
+
+HomeKit provides five values to represent air quality: Excellent, Good, Fair, Inferior, and Poor. For PM2.5 sensor entities in Home Assistant, the raw density value (µg/m3) is used to determine the corresponding value based on the [2024 US AQI](https://www.epa.gov/system/files/documents/2024-02/pm-naaqs-air-quality-index-fact-sheet.pdf) standard. The mapping is as follows:
+
+| HomeKit   | US AQI                                   | PM2.5 µg/m³   |
+|-----------|------------------------------------------|---------------|
+| Excellent | Good (0-50)                              | 0.0 to 9.0    |
+| Good      | Moderate (51-100)                        | 9.1 to 35.4   |
+| Fair      | Unhealthy for Sensitive Groups (101-150) | 35.5 to 55.4  |
+| Inferior  | Unhealthy (151-200)                      | 55.5 to 125.4 |
+| Poor      | Very Unhealthy (201+)                    | 125.5+        |

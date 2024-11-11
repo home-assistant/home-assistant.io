@@ -114,9 +114,9 @@ of a section by default at the moment. Moreover, we have tweaked our
 "Add Cards" dialogs to recommend Tile cards by default when the sections
 view type is in use.
 
-<div class='note warning'>
-    The new Sections view is experimental! Please do not build your daily dashboard on top of it yet! We are releasing this early so that we can collect your feedback.
-</div>
+{% warning %}
+The new Sections view is experimental! Do not build your daily dashboard on top of it yet! We are releasing this early so that we can collect your feedback.
+{% endwarning %}
 
 To get started with the new Sections view type, create a new view on your
 dashboard and select **Sections (experimental)** as the view type.

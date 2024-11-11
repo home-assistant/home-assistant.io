@@ -66,15 +66,15 @@ For the dynamic gas prices, only entities are created that display the
 `current` and `next hour` price because the price is always fixed for
 24 hours; new prices are published every morning at **05:00 UTC time**.
 
-## Services
+## Actions
 
-The energy and gas prices are exposed using [service calls](/docs/scripts/service-calls/). The services populate [response data](/docs/scripts/service-calls#use-templates-to-handle-response-data) with price data.
+The energy and gas prices are exposed using [actions](/docs/scripts/perform-actions/). The actions populate [response data](/docs/scripts/perform-actions#use-templates-to-handle-response-data) with price data.
 
-### Service `easyenergy.get_gas_prices`
+### Action `easyenergy.get_gas_prices`
 
 Fetches the hourly prices for gas.
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `incl_vat` | no | Defines whether the prices include or exclude VAT. Defaults to True | False
@@ -100,11 +100,11 @@ The response data is a dictionary with the gas timestamps and prices as string a
 }
 ```
 
-### Service `easyenergy.get_energy_usage_prices`
+### Action `easyenergy.get_energy_usage_prices`
 
 Fetches the hourly prices for energy that you use (buy).
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `incl_vat` | no | Defines whether the prices include or exclude VAT.  Defaults to True | False
@@ -130,11 +130,11 @@ The response data is a dictionary with the energy timestamps as strings and pric
 }
 ```
 
-### Service `easyenergy.get_energy_return_prices`
+### Action `easyenergy.get_energy_return_prices`
 
 Fetches the hourly prices for energy that you return (sell).
 
-| Service data attribute | Optional | Description | Example |
+| Data attribute | Optional | Description | Example |
 | ---------------------- | -------- | ----------- | --------|
 | `config_entry` | no | Config entry to use. | 013713c172577bada2874a32dbe44feb
 | `start` | yes | Start time to get prices. Defaults to today 00:00:00 | 2023-01-01 00:00:00
@@ -167,11 +167,11 @@ You can use the response data in a template sensor that is updated every hour:
 
 ```yaml
 template:
-  - trigger:
-      - platform: time_pattern
+  - triggers:
+      - trigger: time_pattern
         seconds: "*"
-    action:
-      - service: easyenergy.get_energy_usage_prices
+    actions:
+      - action: easyenergy.get_energy_usage_prices
         response_variable: response
         data:
           config_entry: "013713c172577bada2874a32dbe44feb"

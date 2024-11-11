@@ -13,7 +13,9 @@ ha_codeowners:
 ha_domain: spotify
 ha_zeroconf: true
 ha_platforms:
+  - diagnostics
   - media_player
+  - sensor
 ha_integration_type: service
 ---
 
@@ -120,7 +122,7 @@ To play media Spotify first needs a device selected for audio output known as th
 
 ```yaml
 # Example code to select an AV receiver as the output device
-service: media_player.select_source
+action: media_player.select_source
 target:
   entity_id: media_player.spotify
 data:
@@ -132,14 +134,14 @@ The Spotify API cannot initiate playback to a device not already known to the Sp
 ## Playing Spotify playlists
 
 You can send playlists to Spotify using the `"media_content_type": "playlist"`, which is part of the
-[media_player.play_media](/integrations/media_player/#service-media_playerplay_media) service, for example:
+[media_player.play_media](/integrations/media_player/#action-media_playerplay_media) action, for example:
 
 ```yaml
 # Example script to play playlist
 script:
   play_jazz_guitar:
     sequence:
-      - service: media_player.play_media
+      - action: media_player.play_media
         target:
           entity_id: media_player.spotify
         data:
@@ -152,3 +154,19 @@ The `media_content_id` value can be obtained from the Spotify desktop app by cli
 ## Unsupported devices
 
 - **Sonos**: Although Sonos is a Spotify Connect device, it is not supported by the official Spotify API.
+
+## Sensors
+
+Spotify provides sensors that display information about the song that is currently being played. The following sensors are available:
+
+- **Song acousticness**: Indicates how much the sound is free from electronic modification. 100% indicates it not electronically modified.
+- **Song danceability**. In percent. Describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity. The higher the value, the more danceable.
+- **Song energy**. In percent.  A measure of intensity and activity. Typically, energetic tracks feel fast, loud, and noisy. For example, death metal has high energy, while a Bach prelude scores low on the scale. Perceptual features contributing to this attribute include dynamic range, perceived loudness, timbre, onset rate, and general entropy. A higher number means more energetic.
+- **Song instrumentalness**: In percent. Describes whether a track contains no vocals. “Ooh” and “aah” sounds are treated as instrumental in this context. Rap or spoken word tracks are clearly “vocal”. The higher the value the more instrumental the song is. 
+- **Song key**: The estimated overall key of the track. If no key was detected, the value is unknown. For example, C sharp or E flat.
+- **Song liveness**: In percent.  Describes the presence of an audience in the recording. Higher liveness values represent an increased probability that the track was performed live.
+- **Song mode**: The modality (major or minor) of a song.
+- **Song speechiness**: In percent. Describes the presence of spoken words in a song. The more exclusively speech-like the recording (for example, talk show, audio book, poetry), the higher the value.
+- **Song tempo**: The speed of the piece of music that is currently playing, in beats per minute (bpm).
+- **Song time signature**: The time signature (meter) is a notational convention to specify how many beats are in each bar (or measure). For example: 4/4, 6/8.
+- **Song valence**. In percent. Tracks with high valence sound more positive (happy, cheerful, euphoric), while tracks with low valence sound more negative (sad, depressed, angry).

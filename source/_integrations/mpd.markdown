@@ -12,11 +12,12 @@ ha_integration_type: integration
 related:
   - docs: /docs/configuration/
     title: Configuration file
+ha_config_flow: true
 ---
 
 The Music Player Daemon {% term integration %} allows you to control a [Music Player Daemon](https://www.musicpd.org/) from Home Assistant. Unfortunately, it does not allow you to manipulate the playlist (add or delete songs) or add transitions between the songs.
 
-Even though no playlist manipulation is possible, it is possible to use the play_media service to load an existing saved playlist as part of an automation or scene.
+Even though no playlist manipulation is possible, it is possible to use the `play_media` action to load an existing saved playlist as part of an automation or scene.
 
 {% include integrations/config_flow.md %}
 
@@ -25,14 +26,14 @@ Example script to load a saved playlist called "DeckMusic" and set the volume:
 ```yaml
 relaxdeck:
     sequence:
-    - service: media_player.play_media
+    - action: media_player.play_media
       target:
         entity_id: media_player.main
       data:
         media_content_type: playlist
         media_content_id: DeckMusic
 
-    - service: media_player.volume_set
+    - action: media_player.volume_set
       target:
         entity_id: media_player.main
       data:

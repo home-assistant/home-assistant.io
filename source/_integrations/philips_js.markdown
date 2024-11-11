@@ -59,7 +59,7 @@ The Philips TV does not always support turning on via the API. You can either tu
 
 ### Remote
 
-The integration provides a remote entity for sending remote key presses directly to the TV. The following list of commands are available for use with the `remote.send_command` service.
+The integration provides a remote entity for sending remote key presses directly to the TV. The following list of commands are available for use with the `remote.send_command` action.
 
 | Command          | Comment                                   |
 | ---------------- | ----------------------------------------- |

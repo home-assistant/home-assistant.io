@@ -2,13 +2,13 @@
 title: microBees
 description: Instructions on how to integrate microBees devices into Home Assistant.
 ha_category:
-  - Switch
+  - Button
   - Climate
   - Cover
-  - Button
   - Cover
   - Light
   - Sensor
+  - Switch
   - Switch
 ha_release: 2024.3
 ha_codeowners:
@@ -17,11 +17,9 @@ ha_config_flow: true
 ha_domain: microbees
 ha_iot_class: Cloud Polling
 ha_platforms:
-  - switch
-  - climate
-  - cover
   - binary_sensor
   - button
+  - climate
   - cover
   - light
   - sensor

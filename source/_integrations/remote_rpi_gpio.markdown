@@ -19,7 +19,7 @@ related:
 
 The `remote_rpi_gpio` {% term integration %} is the base for all related GPIO platforms in Home Assistant. For the platform configurations, please check their corresponding sections.
 
-The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details.
+The remote Raspberry Pi, and the control computer where Home Assistant is running must be configured to be able to run `remote_rpi_gpio`, see [Configuring Remote GPIO](https://gpiozero.readthedocs.io/en/stable/remote_gpio.html) for more details. Unfortunately, this setup is not currently possible with remote, Raspberry Pi 5 hosts, [due to a lack of support in pigiod](https://github.com/joan2937/pigpio/issues/586).
 
 Note that for virtual environments, you may need to set an environment variable when starting the environment to set the pin factory, for example:
 
@@ -112,9 +112,9 @@ invert_logic:
 
 For more details about the GPIO layout, visit the Wikipedia [article](https://en.wikipedia.org/wiki/Raspberry_Pi#J8_header_and_general_purpose_input-output_(GPIO)) about the Raspberry Pi.
 
-<div class='note warning'>
+{% note %}
 Note that a pin managed by Home Assistant is expected to be exclusive to Home Assistant.
-</div>
+{% endnote %}
 
 A common question is what does port refer to? This number is the actual GPIO #, not the pin #.
 For example, if you have a relay connected to pin 11 its GPIO # is 17.

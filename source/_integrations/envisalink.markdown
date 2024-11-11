@@ -109,7 +109,7 @@ timeout:
   default: 10
   type: integer
 panic_type:
-  description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger service is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
+  description: "Both DSC and Honeywell boards support a panic alarm. This is used when the alarm_trigger action is called in Home Assistant. This determines which type of panic alarm to raise. Valid values are: Police, Fire, Ambulance."
   required: false
   default: Police
   type: string
@@ -138,9 +138,9 @@ partitions:
       type: string
 {% endconfiguration %}
 
-## Services
+## Actions
 
-The following services are supported by Envisalink and can be used to script or automate the alarm.
+The following actions are supported by Envisalink and can be used to script or automate the alarm.
 
 - **alarm_disarm**: Disarms the alarm with the user code provided, or the code specified in the configuration.
 - **alarm_arm_home**: Arms the alarm in home mode.
@@ -155,8 +155,8 @@ The following services are supported by Envisalink and can be used to script or 
 The zone status binary sensors have extra attributes representing additional
 information about each zone.
 
-| Name                | Description                                                           |
-| ------------------- | --------------------------------------------------------------------- |
-| `last_tripped_time` | Last time this zone was tripped.                                      |
-| `zone`              | Zone number. Can be used in combination with `alarm_keypress` service |
+| Name                | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `last_tripped_time` | Last time this zone was tripped.                                     |
+| `zone`              | Zone number. Can be used in combination with `alarm_keypress` action |
 to issue commands relating to this zone.

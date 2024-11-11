@@ -42,8 +42,8 @@ The following sensors are provided:
 
 ## Purchasing
 
-<div class='note'>
+{% note %}
 There are multiple similar versions of the board. Make sure to buy the LD2410B or LD2410C versions as these are the ones with Bluetooth and have been tested. The C variant has 2.54mm pitch pins which is the one used by Arduino type devices, whereas the B variant has half pitch pins.
-</div>
+{% endnote %}
 
 You can buy this module bareboard or in a devkit from [AliExpress](https://www.aliexpress.com/item/1005004351593073.html).

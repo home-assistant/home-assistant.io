@@ -28,11 +28,9 @@ There is currently support for the following device types within Home Assistant:
 
 {% include integrations/config_flow.md %}
 
-<div class='note warning'>
-
+{% important %}
 You need to enable telnet on your router if you choose to use `protocol: telnet`.
-
-</div>
+{% endimportant %}
 
 ### Sensors configuration
 
@@ -44,9 +42,18 @@ These sensors are automatically created and associated to the router device:
 - Upload sensor (unit_of_measurement: Gigabyte - *Daily accumulation*)
 - Upload Speed sensor (unit_of_measurement: Mbit/s)
 - Load average sensors (1min, 5min, 15min)
-- Temperature sensors (2ghz, 5ghz, cpu). NB: only temperature sensors available on your router will be created
+- Temperature sensors (2 GHz, 5 GHz, 6 GHz, CPU). Only temperature sensors available on your router will be created.
 
-Only `Connected devices sensor` is created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
+If the integration is configured to use the http(s) protocol, also the following sensors will be available:
+
+- CPU usage sensors (percentage for total and single core)
+- Memory usage sensor (percentage)
+- Free memory sensor (Megabyte)
+- Memory used sensor (Megabyte)
+- Last boot sensor (Timestamp)
+- Uptime sensor (HH:MM:SS)
+
+Only `Connected devices sensor` and `Last boot sensor` are created in status **enabled**, all other sensors are created in status **disabled**. To use them, simply **enable** on the devices page.
 
 {% include integrations/option_flow.md %}
 {% configuration_basic %}
@@ -62,11 +69,9 @@ Require IP:
   description: If devices must have IP (this option is available only for access point mode).
 {% endconfiguration_basic %}
 
-<div class='note'>
-
+{% note %}
 If you don't want to automatically track new detected device, disable the integration system option `Enable new added entities`
-
-</div>
+{% endnote %}
 
 ## Padavan custom firmware (The rt-n56u project)
 

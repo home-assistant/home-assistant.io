@@ -36,11 +36,11 @@ On the Z-Wave front a lot has happened. The biggest one is that we have a major 
 </p>
 Thanks to the work by the Python Open Z-Wave team we are now able to install it on demand from PyPi! There is no longer a need to pre-compile it yourself. This should give us the guarantee that we work with the Python Open Z-Wave version that the code expects.
 
-<div class='note warning'>
+{% warning %}
 
 If you have a security key set in your Open Z-Wave `options.xml`, copy `options.xml` to your Home Assistant configuration directory. This is the only place where options will get persisted.
 
-</div>
+{% endwarning %}
 
 Next to that [@armills] has lead the charge and managed to get full test coverage for Z-Wave! Thanks for all the hard work!
 

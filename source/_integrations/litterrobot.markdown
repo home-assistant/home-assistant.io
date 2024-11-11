@@ -77,9 +77,9 @@ Some entities have attributes in addition to the default ones that are available
 | sleep_mode_enabled | boolean | Whether or not sleep mode is enabled.                                                                                                                              |
 | power_status       | string  | Current power status of the unit. `AC` indicates normal power, `DC` indicates battery backup and `NC` indicates that the unit is not connected and/or powered off. |
 
-## Services
+## Actions
 
-Services are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
+Actions are utilized for additional functionality that is available in the Whisker (previously Litter-Robot) companion app. The following are currently available:
 
 ### set_sleep_mode
 
@@ -93,7 +93,7 @@ Enables (with `start_time` parameter) or disables sleep mode on the Litter-Robot
 Example of setting the sleep mode to begin at 10:30 PM.
 
 ```yaml
-service: litterrobot.set_sleep_mode
+action: litterrobot.set_sleep_mode
 target:
   entity_id: vacuum.litter_robot_litter_box
 data:

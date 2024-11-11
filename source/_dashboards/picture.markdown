@@ -2,7 +2,7 @@
 type: card
 title: "Picture card"
 sidebar_label: Picture
-description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service."
+description: "The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action."
 related:
   - docs: /dashboards/actions/
     title: Card actions
@@ -12,7 +12,7 @@ related:
     title: Dashboard cards
 ---
 
-The picture card allows you to set an image to use for navigation to various paths in your interface or to call a service.
+The picture card allows you to set an image to use for navigation to various paths in your interface or to perform an action.
 
 <p class='img'>
 <img src='/images/dashboards/picture.png' alt='Screenshot of the picture card'>
@@ -33,6 +33,10 @@ type:
 image:
   required: true
   description: "The URL of an image. When you want to store images in your Home Assistant installation use the [hosting files documentation](/integrations/http/#hosting-files). After storing your files, use the `/local` path, for example, `/local/filename.jpg`."
+  type: string
+image_entity:
+  required: false
+  description: Image or person entity to display.
   type: string
 alt_text:
   required: false
@@ -70,14 +74,14 @@ tap_action:
 
 Check the [views](/dashboards/views/) setup on how to setup custom IDs.
 
-Toggle entity using a service:
+Toggle entity using an action:
 
 ```yaml
 type: picture
 image: /local/light.png
 tap_action:
-  action: call-service
-  service: light.toggle
+  action: perform-action
+  perform_action: light.toggle
   data:
     entity_id: light.ceiling_lights
 ```

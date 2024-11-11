@@ -8,7 +8,6 @@ ha_category:
 ha_iot_class: Cloud Push
 ha_release: 0.77
 ha_codeowners:
-  - '@OverloadUT'
   - '@mib1185'
   - '@edenhaus'
   - '@Augar'
@@ -56,6 +55,7 @@ Additionally, **depending on your model**, the integration provides the followin
   - `Map`: The floorplan/map as an image in SVG format.
 - **Number**:
   - `Clean count`: Set the number of times to clean the area.
+  - `Cut direction`: Set the mower cutting direction (from 0 to 180 degrees).
   - `Volume`: Set the volume.
 - **Select**:
   - `Water amount`: Specify the water amount used during cleaning with the mop.
@@ -142,18 +142,18 @@ Finally, if a vacuum becomes unavailable (usually due to being idle and off its 
 
 ### Getting device and chargers coordinates
 
-The integration has a `raw_get_positions` service to retrieve device and chargers coordinates.
+The integration has a `raw_get_positions` action to retrieve device and chargers coordinates.
 
 Example:
 
 ```yaml
-service: ecovacs.raw_get_positions
+action: ecovacs.raw_get_positions
 target:
   entity_id: vacuum.deebot_n8_plus
 ```
 
-{% details "Service response example" %}
-The service call returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
+{% details "Action response example" %}
+The action returns a raw response with a list of coordinates available in `resp -> body -> data` like this:
 
 ```yaml
 vacuum.deebot_n8_plus:

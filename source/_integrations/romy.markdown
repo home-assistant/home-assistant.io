@@ -27,9 +27,9 @@ This integration currently supports the following models:
 
 {% include integrations/config_flow.md %}
 
-## Services
+## Actions
 
-Currently supported services are:
+Currently supported actions are:
 
 - `start`
 - `pause`

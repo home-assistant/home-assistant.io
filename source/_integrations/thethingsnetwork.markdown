@@ -11,7 +11,8 @@ ha_codeowners:
 ha_domain: thethingsnetwork
 ha_platforms:
   - sensor
-ha_integration_type: integration
+ha_integration_type: hub
+ha_config_flow: true
 ---
 
 The `thethingsnetwork` {% term integration%} allows you to interact with the [The Things Network](https://www.thethingsnetwork.org) from within Home Assistant. This community-driven and open network supports [LoRaWAN](https://www.lora-alliance.org/) for long-range (~5 to 15 km) communication with low bandwidth (51 bytes/message). [Gateways](https://www.thethingsnetwork.org/docs/gateways/) transfer the received data from the sensors to The Things Network.
@@ -20,7 +21,7 @@ The Things Network supports various integrations to make the data available:
 
 | The Things Network Integration | Home Assistant platform |
 |---|---|
-| [MQTT](https://www.thethingsindustries.com/docs/integrations/mqtt) | [`MQTT`](integrations/mqtt) |
+| [MQTT](https://www.thethingsindustries.com/docs/integrations/mqtt) | [`MQTT`](/integrations/mqtt) |
 | [Storage](https://www.thethingsindustries.com/docs/integrations/storage) | [`thethingsnetwork`](#setup) |
 | [HTTP](https://www.thethingsindustries.com/docs/integrations/webhooks) | |
 
@@ -58,4 +59,3 @@ There is currently support for the following device types within Home Assistant:
 ## Sensor
 
 All uplink messages decoded by The Things Network (including a `decoded_payload` entry) will be processes by this integration. Each field in `decoded_payload` will be added as a Home Assistant sensor entity.
-

@@ -1,6 +1,6 @@
 ---
 title: "Alternative"
-description: "Install Home Assistant"
+description: "Alternative ways to install Home Assistant"
 installation_type: alternative
 ---
 {% comment %}

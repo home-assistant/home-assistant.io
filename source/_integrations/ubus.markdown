@@ -49,7 +49,7 @@ Then, create an ACL file at `/usr/share/rpcd/acl.d/hass.json` for the user `hass
       "ubus": {
         "hostapd.*": ["get_clients"],
         "uci": ["get"]
-      },
+      }
     },
     "write": {}
   }

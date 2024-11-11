@@ -20,11 +20,9 @@ ha_integration_type: integration
 
 Traccar uses GPS for tracking and has support for over 1500 different types of devices. You can use the Traccar Server integration to communicate with your own [Traccar Server](https://www.traccar.org/server/), which is also available as [Home Assistant add-on](https://my.home-assistant.io/redirect/supervisor_addon/?addon=a0d7b954_traccar).
 
-<div class="note">
-
-  Looking for documentation on how to setup the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
-
-</div>
+{% tip %}
+Looking for documentation on how to setup the Traccar Client with webhooks in Home Assistant? See the [Traccar Client](/integrations/traccar/) integration documentation.
+{% endtip %}
 
 {% include integrations/config_flow.md %}
 
@@ -76,7 +74,7 @@ Attributes:
 
 The Traccar Server integration will create devices for each device registered in the Traccar Server with at least one position update.
 
-These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/script), and display on your [dashboard](/docs/dashboard).
+These device representations in Home Assistant will have [entities](#entities) associated with them, which you can use in [automations](/docs/automation), [scripts](/docs/scripts), and display on your [dashboard](/dashboards).
 
 ## Entities
 
@@ -268,11 +266,11 @@ The allows you to do something when the device "Millennium Falcon" enters the de
 {% details "Show me the YAML!" %}
 
 ```yaml
-trigger:
-  - platform: state
+triggers:
+  - trigger: state
     entity_id: sensor.millennium_falcon_geofence
     to: 'Tatooine'
-action:
+actions:
   ...
 ```
 
@@ -287,11 +285,11 @@ The allows you to do something when the device "Millennium Falcon" exceeds a def
 {% details "Show me the YAML!" %}
 
 ```yaml
-trigger:
-  - platform: numeric_state
+triggers:
+  - trigger: numeric_state
     entity_id: sensor.millennium_falcon_speed
     above: 1337
-action:
+actions:
   ...
 ```
 
@@ -300,10 +298,10 @@ If you want to include the speed in a notification, you can use the `{{ trigger.
 Partial example:
 
 ```yaml
-trigger:
+triggers:
   ...
-action:
-  - service: notify.notify
+actions:
+  - action: notify.notify
     data:
       message: "The current speed of the Millennium falcon is {{ trigger.to_state.state }}!"
 ```

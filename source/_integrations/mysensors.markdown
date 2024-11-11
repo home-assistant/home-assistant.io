@@ -44,9 +44,9 @@ In addition to the serial device you also need to enter the baud rate.
 If you are using the MQTT gateway, you will need to enter topic prefixes for input and output. These need to be swapped
 with the settings of the gateway. I.e. the input topic for Home Assistant needs to be the output (publish) topic of the gateway.
 
-<div class='note'>
+{% note %}
 The MQTT gateway requires MySensors version 2.0+ and only the MQTT client gateway is supported.
-</div>
+{% endnote %}
 
 ### Ethernet gateway
 

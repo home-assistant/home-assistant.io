@@ -27,7 +27,9 @@ ha_integration_type: integration
 ha_dhcp: true
 ---
 
-<p class='note warning'>The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.</p>
+{% important %}
+The Insteon apps (Director or Insteon for Hub) are a paid service utilizing the Insteon cloud to control an Insteon Hub. Home Assistant does not require the use of the Insteon app but can operate in conjunction with the app if desired.
+{% endimportant %}
 
 This integration adds support for integrating your Insteon network with Home Assistant. It has been tested with all USB and serial PowerLinc Modems (PLM) including [2413U], [2448A7], [2413S] and [2412S] models. It has also been tested to work with the [2242] and [2245] Hubs.
 
@@ -60,7 +62,7 @@ The Insteon configuration panel allows for product specific configuration of Ins
 
 To open the Insteon configuration panel:
 
-1. Go to {% my integrations title="**Settings** > **Devices & Services**" %}.
+1. Go to {% my integrations title="**Settings** > **Devices & services**" %}.
 2. Select the **Insteon** {% term integration %}. Then, select **Configure** to open the Insteon configuration panel.
 
 The following capabilities are available in the Insteon configuration panel:
@@ -102,8 +104,13 @@ The Insteon All-Link Database (ALDB) contains the list of links to other devices
 - **Undo changes**: Undoes ALDB record changes before they are written to the device.
 - **Delete device**: Deletes the Insteon device from Home Assistant and removes all references to the device in the modem. Optionally, it can remove any references to the device in other Insteon devices.
 
-<p class='note warning'>If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well. Devices and scenes added in Home Assistant will not be available in the Insteon app.</p>
-<p class='note warning'>Editing a device's All-Link Database can cause the device to become unresponsive. If this occurs, simply relink the device to the modem using the <a href="#add-device">Add device</a> directions above.</p>
+{% tip %}
+If you choose to use the Insteon app, it is recommended to add devices and scenes using the Insteon app. Home Assistant will see the devices and scenes as well. Devices and scenes added in Home Assistant will not be available in the Insteon app.
+{% endtip %}
+
+{% warning %}
+Editing a device's All-Link Database can cause the device to become unresponsive. If this occurs, simply relink the device to the modem using the <a href="#add-device">Add device</a> directions above.
+{% endwarning %}
 
 [understanding linking]: https://www.insteon.com/support-knowledgebase/2015/1/28/understanding-linking
 
@@ -115,7 +122,7 @@ The Insteon All-Link Database (ALDB) contains the list of links to other devices
 
 ## Triggering Insteon scenes
 
-Triggering an Insteon scene on or off is done via automations. Two services are provided to support this feature:
+Triggering an Insteon scene on or off is done via automations. Two actions are provided to support this feature:
 
 - **insteon.scene_on**
   - **group**: (required) The Insteon scene number to trigger.
@@ -125,10 +132,9 @@ Triggering an Insteon scene on or off is done via automations. Two services are 
 ```yaml
 automation:
   # Trigger an Insteon scene 25
-  - id: trigger_scene_25_on
-    alias: "Turn on scene 25"
-    action:
-      - service: insteon.scene_on
+  - alias: "Turn on scene 25"
+    actions:
+      - action: insteon.scene_on
         group: 25
 ```
 
@@ -148,44 +154,42 @@ This allows the mini-remotes to be configured as triggers for automations. Here 
 ```yaml
 automation:
   # 4 or 8 button remote with button c pressed
-  - id: light_on
-    alias: "Turn a light on"
-    trigger:
-      - platform: event
+  - alias: "Turn a light on"
+    triggers:
+      - trigger: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c
       button: c
-    condition:
+    conditions:
       - condition: state
         entity_id: light.some_light
         state: "off"
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 
   # single button remote
-  - id: light_off
-    alias: "Turn a light off"
-    trigger:
-      - platform: event
+  - alias: "Turn a light off"
+    triggers:
+      - trigger: event
         event_type: insteon.button_on
     event_data:
       address: 1a2b3c
-    condition:
+    conditions:
       - condition: state
         entity_id: light.some_light
         state: "off"
-    action:
-      - service: light.turn_on
+    actions:
+      - action: light.turn_on
         target:
           entity_id: light.some_light
 ```
 
-## Services
+## Actions
 
-The following services are available:
+The following actions are available:
 
 - **insteon.add_all_link**: Puts the Insteon Modem (IM) into All-Linking mode. The IM can be set as a controller or a responder. If the IM is a controller, put the IM into linking mode then press the SET button on the device. If the IM is a responder, press the SET button on the device then put the IM into linking mode.
 - **insteon.delete_all_link**: Tells the Insteon Modem (IM) to remove an All-Link record from the All-Link Database of the IM and a device. Once the IM is set to delete the link, press the SET button on the corresponding device to complete the process.
@@ -196,7 +200,9 @@ The following services are available:
 
 ## Device overrides
 
-<p class='note warning'>Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
+{% warning %}
+Device overrides are not used to add a device to the Insteon integration. They are only used if a device that was linked correctly to the Insteon Modem but is not appearing in Home Assistant.
+{% endwarning %}
 
 There are two primary uses for the **device override** feature:
 

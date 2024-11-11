@@ -7,6 +7,7 @@ ha_release: 2023.2
 ha_iot_class: Local Polling
 ha_domain: zeversolar
 ha_platforms:
+  - diagnostics
   - sensor
 ha_config_flow: true
 ha_integration_type: device

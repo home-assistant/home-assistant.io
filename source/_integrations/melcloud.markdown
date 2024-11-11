@@ -9,9 +9,12 @@ ha_config_flow: true
 ha_domain: melcloud
 ha_platforms:
   - climate
+  - diagnostics
   - sensor
   - water_heater
 ha_integration_type: integration
+ha_codeowners:
+  - '@erwindouna'
 ---
 
 The `melcloud` integration integrates Mitsubishi Electric's [MELCloud](https://www.melcloud.com/) enabled devices into Home Assistant.
@@ -50,7 +53,7 @@ The following parameters can be controlled for the `climate` platform entities:
 
 #### Controlling vanes
 
-The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` services.
+The horizontal and vertical vane positions can be controlled using the corresponding `melcloud.set_vane_horizontal` and `melcloud.set_vane_vertical` actions.
 
 Swing mode can also be used to control vertical vane position.
 

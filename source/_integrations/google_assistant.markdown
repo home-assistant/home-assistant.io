@@ -9,7 +9,7 @@ ha_iot_class: Cloud Push
 ha_codeowners:
   - '@home-assistant/cloud'
 ha_domain: google_assistant
-ha_integration_type: integration
+ha_integration_type: system
 ha_platforms:
   - button
   - diagnostics
@@ -29,11 +29,9 @@ For Home Assistant Cloud users, documentation can be found [here](https://www.na
 
 The Google Assistant integration (without Home Assistant Cloud) requires a bit more setup than most due to the way Google requires Assistant Apps to be set up.
 
-<div class='note warning'>
-
+{% important %}
 To use Google Assistant, your Home Assistant configuration has to be [externally accessible with a hostname and SSL certificate](/docs/configuration/remote/). If you haven't already configured that, you should do so before continuing. If you make DNS changes to accomplish this, please ensure you have allowed up to the full 48 hours for DNS changes to propagate, otherwise, Google may not be able to reach your server. Once you have confirmed you can reach your Home Assistant from outside your home network, you can set up the Google integration:
-
-</div>
+{% endimportant %}
 
 ### Google Cloud Platform configuration
 
@@ -93,11 +91,9 @@ To use Google Assistant, your Home Assistant configuration has to be [externally
     1. Open the Google Home app.
     2. Select the `+` button on the top left corner, select **Set up device**. In the **Set up a device** screen, select **Works with Google**. You should have `[test] <Action Name>` listed under **Add new**. Selecting that should lead you to a browser to login your Home Assistant instance, then redirect back to a screen where you can set rooms and nicknames for your devices if you wish.
 
-<div class='note'>
-
+{% important %}
 If you've added Home Assistant to your phone's home screen, you have to first remove it from the home screen. Otherwise, this HTML5 app will show up instead of a browser. Using it would prevent Home Assistant redirecting back to the Google Home app.
-
-</div>
+{% endimportant %}
 
 ### Allow other users
 
@@ -134,15 +130,13 @@ Your Google Assistant devices will still communicate via the internet to:
 - Send commands that involve a [secure device](#secure-devices).
 - Send commands if local fulfillment fails.
 
-<div class='note'>
-
+{% important %}
 The [HTTP integration](/integrations/http) must **not** be configured to use an SSL certificate with the [`ssl_certificate` option](/integrations/http/#ssl_certificate).
 
 This is because the Google Assistant device will connect directly to the IP of your Home Assistant instance and will fail if it encounters an invalid SSL certificate.
 
 For secure remote access, use a reverse proxy such as the {% my supervisor_addon addon="core_nginx_proxy" title="NGINX SSL" %} add-on instead of directing external traffic straight to Home Assistant.
-
-</div>
+{% endimportant %}
 
 1. Open the project you created in the [Actions on Google console](https://console.actions.google.com/).
 2. Select **Develop** on the top of the page, then select **Actions** located in the hamburger menu on the top left.
@@ -283,11 +277,9 @@ Currently, the following domains are available to be used with Google Assistant,
 - valve (open/close/set position/stop/start=toggle valve)
 - water_heater (on-off/temperature setting/operation mode)
 
-<div class='note'>
-
+{% note %}
 Some of these devices may not display correctly in the Google Home app, such as media_player, however voice commands will still work.
-
-</div>
+{% endnote %}
 
 ### Secure devices
 
@@ -301,13 +293,11 @@ If a code is set for the Alarm control panel, it must be the same as the `secure
 
 Entities that have not been explicitly assigned to rooms but have been placed in Home Assistant areas will return room hints to Google with the devices in those areas.
 
-<div class='note'>
-
+{% note %}
 Some devices, such as `scene` or `script`, must be assigned to an `area` before other members of a shared Google Home Household can use them. This is because household members in a shared Google Home will not be able to view devices that are not assigned to a room _unless_ they were the user who linked the service to Google Home. This issue isn't immediately apparent because `script` and `scene` devices aren't visible in the main Google Home dashboard.
   
 The automatic room assignment will not work when multiple homes are set up in your Google account.
-
-</div>
+{% endnote %}
 
 ### Climate operation modes
 
@@ -348,11 +338,11 @@ Verify that the Google Assistant is available on `https://[YOUR HOME ASSISTANT U
 
 #### 403 errors on request sync
 
-The `request_sync` service may fail with a 403 if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project.
+The `request_sync` action may fail with a 403 if the HomeGraph API is not enabled. Go to [Google API Console](https://console.cloud.google.com/apis/api/homegraph.googleapis.com/overview) and verify that HomeGraph API is enabled for your project.
 
 #### 404 errors on report state
 
-If you receive 404 errors linked to reporting state in your log, Home Assistant is reporting state for entities that were never synced to Google. Ask your Google Home to `Sync my devices` or run the service `google_assistant.request_sync`.
+If you receive 404 errors linked to reporting state in your log, Home Assistant is reporting state for entities that were never synced to Google. Ask your Google Home to `Sync my devices` or run the `google_assistant.request_sync` action.
 
 #### Error during linking: "Could not update the setting. Please check your connection"
 

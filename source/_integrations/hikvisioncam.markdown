@@ -18,9 +18,9 @@ related:
 
 This `hikvisioncam` switch {% term integration %} allows you to control your motion detection setting on your [Hikvision](https://www.hikvision.com/) camera.
 
-<div class='note warning'>
-Currently works using default https port only.
-</div>
+{% important %}
+Currently works using default HTTPS port only.
+{% endimportant %}
 
 To use your Hikvision cam in your installation, add the following to your {% term "`configuration.yaml`" %} file.
 {% include integrations/restart_ha_after_config_inclusion.md %}

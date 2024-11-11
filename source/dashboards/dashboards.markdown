@@ -96,7 +96,8 @@ This will leave the default dashboard intact.
    - The **Edit dashboard** dialog appears.
      - By editing the dashboard, you are taking over control of this dashboard.
      - This means that it is no longer automatically updated when new dashboard elements become available.
-     - To continue, in the dialog, select the three dots menu, then select **Take control**.
+     - Once you've taken control, ou can't get this specific dashboard back to update automatically. However, you can create a new default dashboard.
+     - To continue, in the dialog, select the three dots {% icon "mdi:dots-vertical" %} menu, then select **Take control**.
 7. You can now [add a card](/dashboards/cards/#adding-cards-to-your-dashboard) or [add a view](/dashboards/views/#adding-a-view-to-a-dashboard).
 
 ## Deleting a dashboard
@@ -121,10 +122,10 @@ A good way to start this file is to copy and paste the "Raw configuration" from 
 
 - In your sidebar, select **Overview**.
 - In the top-right corner, select the pencil icon.
-- Select the three dots menu and select **Raw configuration editor**.
+- Select the three dots {% icon "mdi:dots-vertical" %} menu and select **Raw configuration editor**.
 - There you see the configuration for your current dashboard. Copy that into the `<config>/ui-lovelace.yaml` file.
 
-Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore and new entities will not automatically be added to your UI.
+Once you take control of your UI via YAML, the Home Assistant interface for modifying it won't be available anymore, and new entities will not automatically be added to your UI.
 
 When you make changes to `ui-lovelace.yaml`, you don't have to restart Home Assistant or refresh the page. Just hit the refresh button in the menu at the top of the UI.
 
@@ -181,7 +182,7 @@ mode:
   type: string
 resources:
   required: false
-  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` service directly."
+  description: "List of resources that should be loaded. Only use this when mode is `yaml`. If you change anything here, click the three dots {% icon "mdi:dots-vertical" %} menu (top-right) and click on `Reload resources` to pick up changes without restarting Home Assistant. You can also call `lovelace.reload_resources` action directly."
   type: list
   keys:
     url:

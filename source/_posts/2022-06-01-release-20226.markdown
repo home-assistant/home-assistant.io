@@ -177,7 +177,7 @@ or a reminder 15 minutes before a meeting.
 
 <img class="no-shadow" src='/images/blog/2022-06/calendar-offset.png' alt='Screenshot showing the calendar trigger using an offset'>
 
-<div class='note' data-title=" / Pro-tip!">
+{% tip %}
   <b>Use the calendar trigger to schedule anything in your home!</b><br>
   <br>
   Create a calendar and add events to it as a schedule, for example, for your
@@ -186,7 +186,7 @@ or a reminder 15 minutes before a meeting.
   <br>
   This way, you can create complex schedules with repeating patterns
   and schedule exceptions, with the ease of using your calendar.
-</div>
+{% endtip %}
 
 ## Improved scene editor
 

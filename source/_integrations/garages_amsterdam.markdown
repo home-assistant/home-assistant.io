@@ -29,11 +29,9 @@ When you add a parking garage, 4 sensors are created in your configuration by de
 - **Long capacity** - Total of parking spaces for cardholders or reserved spaces
 - **Short capacity** - Total of parking spaces for regular paid parking
 
-<div class='note warning'>
-
-  Some parking garages don't have long-term parking spaces, in which case the 2 specific **Long** sensors will not be created.
-
-</div>
+{% note %}
+Some parking garages don't have long-term parking spaces, in which case the 2 specific **Long** sensors will not be created.
+{% endnote %}
 
 ### Binary sensor
 

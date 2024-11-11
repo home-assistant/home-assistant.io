@@ -20,6 +20,20 @@ Home Assistant can give you an interface to control covers such as rollershutter
 
 {% include integrations/building_block_integration.md %}
 
+## The state of a cover
+
+A cover can have the following states:
+
+- **Opening**: The cover is in the process of opening to reach a set position.
+- **Open**: The cover has reached the open position.
+- **Closing**: The cover is in the process of closing to reach a set position.
+- **Closed**: The cover has reached the closed position.
+- **Unavailable**: The entity is currently unavailable.
+- **Unknown**: The state is not yet known.
+
+
+How the state of a cover is represented in the frontend depends on the device class.
+
 ## Device class
 
 {% include integrations/device_class_intro.md %}
@@ -47,71 +61,71 @@ The following device classes are supported for covers.
 - **shutter**: Control of shutters, which are linked slats that swing out/in to covering an opening or may be tilted to partially cover an opening, such as indoor or exterior window shutters.
 - **window**: Control of a physical window that opens and closes or may tilt.
 
-## Services
+## Actions
 
-### Cover control services
+### Cover control actions
 
-Available services: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
+Available actions: `cover.open_cover`, `cover.close_cover`, `cover.stop_cover`, `cover.toggle`, `cover.open_cover_tilt`, `cover.close_cover_tilt`, `cover.stop_cover_tilt`, `cover.toggle_tilt`
 
-| Service data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| Data attribute | Optional | Description                                                                                          |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
 
 #### Automation example
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: cover.open_cover
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: cover.open_cover
       target:
         entity_id: cover.demo
 ```
 
-### Service `cover.set_cover_position`
+### Action `cover.set_cover_position`
 
 Set cover position of one or multiple covers.
 
-| Service data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
-| `position`             | no       | Integer between 0 and 100.                                                                           |
+| Data attribute | Optional | Description                                                                                          |
+| -------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`    | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `position`     | no       | Integer between 0 and 100.                                                                           |
 
 #### Automation example
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: cover.set_cover_position
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: cover.set_cover_position
       target:
         entity_id: cover.demo
       data:
         position: 50
 ```
 
-### Service `cover.set_cover_tilt_position`
+### Action `cover.set_cover_tilt_position`
 
 Set cover tilt position of one or multiple covers.
 
-| Service data attribute | Optional | Description                                                                                          |
-| ---------------------- | -------- | ---------------------------------------------------------------------------------------------------- |
-| `entity_id`            | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
-| `tilt_position`        | no       | Integer between 0 and 100.                                                                           |
+| Data attribute  | Optional | Description                                                                                          |
+| --------------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| `entity_id`     | yes      | String or list of strings that point at `entity_id`'s of covers. Use `entity_id: all` to target all. |
+| `tilt_position` | no       | Integer between 0 and 100.                                                                           |
 
 #### Automation example
 
 ```yaml
 automation:
-  trigger:
-    platform: time
-    at: "07:15:00"
-  action:
-    - service: cover.set_cover_tilt_position
+  triggers:
+    - trigger: time
+      at: "07:15:00"
+  actions:
+    - action: cover.set_cover_tilt_position
       target:
         entity_id: cover.demo
       data:

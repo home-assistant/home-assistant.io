@@ -41,7 +41,7 @@ For more detailed steps on how to define a custom interval, follow the procedure
 ## Integration options
 
 It is possible to change some behaviors through the integration options.
-To change the settings, go to {% my integrations title="**Settings** > **Devices & Services**" %}. Select the **Ping** integration, then select **Configure**.
+To change the settings, go to {% my integrations title="**Settings** > **Devices & services**" %}. Select the **Ping** integration, then select **Configure**.
 
 - **Ping count**: Number of echo requests to send to the target. The default is 5.
 - **Consider home**: Number of seconds that must elapse before considering a disconnected device "not at home". The default is 180 seconds (3 minutes).
@@ -62,9 +62,9 @@ The integration exposes the different round trip times milliseconds as entities:
 
 **These entities are disabled by default and can be enabled in the UI if needed.**
 
-<div class='note'>
+{% note %}
 When run on Windows systems, the round trip time attributes are rounded to the nearest millisecond and the mdev value is unavailable.
-</div>
+{% endnote %}
 
 ## Presence detection
 
@@ -72,8 +72,8 @@ The `ping` device tracker platform offers presence detection by using `ping` to 
 
 The device tracker is disabled by default and can be enabled in the UI.
 
-<div class='note'>
-  Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
-</div>
+{% note %}
+Please keep in mind that modern smart phones will usually turn off WiFi when they are idle. Simple trackers like this may not be reliable on their own.
+{% endnote %}
 
 See the [person integration page](/integrations/person/) for instructions on how to configure the people to be tracked.

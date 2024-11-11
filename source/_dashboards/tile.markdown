@@ -61,7 +61,7 @@ hide_state:
 state_content:
   required: false
   description: >
-    Content to display for the state. Can be `state`, `last-changed`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
+    Content to display for the state. Can be `state`, `last_changed`, `last_updated`, or any attribute of the entity. Can be either a string with a single item, or a list of string items. Default depends on the entity domain.
   type: [string, list]
 tap_action:
   required: false
@@ -78,6 +78,14 @@ double_tap_action:
 icon_tap_action:
   required: false
   description: Action taken on icon card tap. See [action documentation](/dashboards/actions/#tap-action). By default, it will `toggle` the entity (if possible), otherwise, show the "more-info" dialog.
+  type: map
+icon_hold_action:
+  required: false
+  description: Action taken on icon tap-and-hold. See [action documentation](/dashboards/actions/#hold-action).
+  type: map
+icon_double_tap_action:
+  required: false
+  description: Action taken on icon double tap. See [action documentation](/dashboards/actions/#double-tap-action).
   type: map
 features:
   required: false

@@ -35,13 +35,13 @@ The final thing to consider is how often you want the integration to send messag
 
 You can setup [filters](#filter-configuration) through the {% term "`configuration.yaml`" %}.
 
-<div class='note warning'>
+{% warning %}
 Not filtering domains or entities will send every event to Azure Event Hub, thus taking up a lot of space and bandwidth.
-</div>
+{% endwarning %}
 
-<div class='note warning'>
+{% note %}
 Event Hubs have a retention time of at most 7 days, if you do not capture or use the events they are deleted automatically from the Event Hub, the default retention is 1 day.
-</div>
+{% endnote %}
 
 ### Filter configuration
 

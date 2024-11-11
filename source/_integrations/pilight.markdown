@@ -8,8 +8,6 @@ ha_category:
   - Switch
 ha_release: 0.26
 ha_iot_class: Local Push
-ha_codeowners:
-  - '@trekky12'
 ha_domain: pilight
 ha_platforms:
   - binary_sensor
@@ -26,7 +24,7 @@ related:
 
 This pilight hub connects to the [pilight-daemon](https://manual.pilight.org/programs/daemon.html) via a socket connection to receive and send codes. Thus Home Assistant does not have to run on the computer in charge of the RF communication.
 
-The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other integrations (e.g., automation). Additionally a send service is provided to send RF codes.
+The received and supported RF codes are put on the event bus of Home Assistant and are therefore directly usable by other integrations (e.g., automation). Additionally a send action is provided to send RF codes.
 
 There is currently support for the following device types within Home Assistant:
 

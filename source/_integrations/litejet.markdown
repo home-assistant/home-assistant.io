@@ -43,7 +43,7 @@ The trigger will activate at the earliest moment both `held_more_than` and `held
 
 ```yaml
 automation:
-- trigger:
+- triggers:
     platform: litejet
     number: 55
     held_more_than:

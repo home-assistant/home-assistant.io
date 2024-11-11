@@ -13,9 +13,9 @@ og_image: /images/blog/2017-11-0.58/components.png
 
 <a href='/integrations/#version/0.58'><img src='/images/blog/2017-11-0.58/components.png' style='border: 0;box-shadow: none;'></a>
 
-<div class='note'>
+{% note %}
 The Hass.io release of 0.58 will be delayed by a couple of days because Pascal is moving this weekend.
-</div>
+{% endnote %}
 
 ## Translation update
 
@@ -38,9 +38,9 @@ frontend:
   javascript_version: latest
 ```
 
-<div class='note'>
+{% important %}
 For Custom UI users: your custom UI will need to be updated before it can work with the new version of the frontend.
-</div>
+{% endimportant %}
 
 ### System log enhanced
 

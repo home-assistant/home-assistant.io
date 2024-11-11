@@ -16,8 +16,6 @@ ha_category:
 ha_release: 0.87
 ha_iot_class: Cloud Push
 ha_config_flow: true
-ha_codeowners:
-  - '@andrewsayre'
 ha_domain: smartthings
 ha_platforms:
   - binary_sensor
@@ -82,11 +80,9 @@ After completing the prerequisite steps above, you are ready to setup the integr
    4. Select **Close Window** or close it manually.
 5. Back in Home Assistant select **Finish**.
 
-<div class='note info'>
-
+{% note %}
 If you want to integrate additional SmartThings accounts or locations, repeat the steps above.
-
-</div>
+{% endnote %}
 
 ## Removal instructions
 
@@ -175,7 +171,6 @@ For a SmartThings thermostat to be represented by the climate platform, it must 
 | --------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
 | [`thermostat`](https://developer.smartthings.com/docs/devices/capabilities/deprecated#thermostat) (set a)                                           | `hvac mode`, `hvac action`, `target temp high`, `target temp low` and `fan mode` |
 | [`thermostatMode`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatMode) (set b)                       | `hvac mode`                                                                      |
-| [`thermostatCoolingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatCoolingSetpoint) (seb b) | `target temp low`                                                                |
 | [`thermostatHeatingSetpoint`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatHeatingSetpoint) (set b) | `target temp high`                                                               |
 | [`temperatureMeasurement`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#temperatureMeasurement) (set b)       |
 | [`thermostatOperatingState`](https://developer.smartthings.com/docs/devices/capabilities/capabilities-reference#thermostatOperatingState)           | `hvac action`                                                                    |

@@ -23,11 +23,9 @@ The configuration includes a list of entities to expose with attributes for the 
 If the entity is a sensor, that value will be reported as the current power usage unless the power field is defined.
 The power field can contain a hardcoded value, a sensor, or a template (see configuration example).
 
-<div class='note'>
-
+{% note %}
 The provided power unit must be the current power usage in Watts. Values of `kW` can be converted, but the values of `kWh` cannot be used.
-
-</div>
+{% endnote %}
 
 ## Configuration
 
