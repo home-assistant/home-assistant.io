@@ -111,7 +111,7 @@ GEM
       logger
     regexp_parser (2.9.2)
     rexml (3.3.9)
-    rouge (4.4.0)
+    rouge (4.5.0)
     rubocop (1.68.0)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
