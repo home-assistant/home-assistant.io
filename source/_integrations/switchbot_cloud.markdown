@@ -46,8 +46,11 @@ Please note, device names configured in the SwitchBot app are transferred into H
 - Lock
 - Meter
 - MeterPlus
+- MeterPro
+- MeterPro (C02)
 - Outdoor Meter
 - Vacuum K10+, K10+ pro, S1, S1 Plus
+- Hub 2
 
 ## Important considerations
 
