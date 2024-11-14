@@ -215,7 +215,7 @@ When MQTT starts up, all existing MQTT devices, entities, tags, and device trigg
 Alternative approaches:
 
 - Retaining the [discovery payload](#discovery-payload): This will store the discovery payload at the MQTT broker, and offer it to the MQTT integration as soon as it subscribes for MQTT discovery. When there are a lot of entities, this can cause high IO loads.
-- Periodically resending the discovery payload: This can could some delay, or a lot of IO if there are a lot of MQTT discovery messages.
+- Periodically resending the discovery payload: This can cause some delay, or a lot of IO if there are a lot of MQTT discovery messages.
 
 By default, Home Assistant sends `online` and `offline` to `homeassistant/status`.
 
