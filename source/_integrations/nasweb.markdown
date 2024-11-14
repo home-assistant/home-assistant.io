@@ -27,7 +27,7 @@ NASweb combines the functions of a control panel and the ability to manage build
 
 Before you can add the NASweb integration to Home Assistant, you need to create a user that has access to the NASweb API.
 
-To create a NASweb user with access to the NASweb API, follow thses steps:
+To create a NASweb user with access to the NASweb API, follow these steps:
 
 1. To log into device `NASweb` page, enter the device IP in your local network:
    - `https://` + `Device IP` + `/nasweb` (for example: `https://192.168.117.230/nasweb`)
