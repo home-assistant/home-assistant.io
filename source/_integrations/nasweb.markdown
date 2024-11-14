@@ -16,6 +16,8 @@ ha_integration_type: hub
 ---
 
 
+The **NASweb** {% term integration %} brings device's smart home features into **Home Assistant**, converting them into {% term entities %} that users can monitor, control, and incorporate into {% term scripts %} and {% term automations %}.
+
 NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions and configured actions.\
 [MORE INFO](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
 
