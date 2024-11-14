@@ -209,6 +209,14 @@ See also [MQTT Discovery section](#mqtt-discovery)
 
 Home Assistant's MQTT integration supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about a disconnected client. Please note that the LWT message will be sent both in case of a clean (e.g. Home Assistant shutting down) and in case of an unclean (e.g. Home Assistant crashing or losing its network connection) disconnect.
 
+In case a disabled entity is enabled and added after 30 seconds, the MQTT integration will be reloaded and will cause all discovered MQTT entities to be unloaded.
+When MQTT starts up, all existing MQTT devices, entities, tags and device triggers, will be unavailable until a discovery message is received and processed. A device or service that exposes the MQTT discovery should subscribe the Birth message and use this as a trigger to send the [discovery payload](#discovery-payload). To avoid high IO loads on the MQTT broker, adding some random delay in sending the discovery payload is recommended.
+
+An alternative approaches are:
+
+- Retaining the [discovery payload](#discovery-payload). This will store the discovery payload at the MQTT broker, and offer it to the MQTT integration as soon as it subscribes for MQTT discovery. When there are a lot of entities this can cause high IO loads.
+- Periodic re-sending the discovery payload. This can could some delay, or a lot of IO if there are a lot of MQTT discovery messages.
+
 By default, Home Assistant sends `online` and `offline` to `homeassistant/status`.
 
 MQTT Birth and Last Will messages can be customized or disabled from the UI. To do this, click on "Configure" in the integration page in the UI, then "Re-configure MQTT" and then "Next".
@@ -620,6 +628,8 @@ For more examples [see](/integrations/mqtt/#discovery-examples-with-component-di
 #### Discovery payload
 
 The payload must be a serialized JSON dictionary and will be checked like an entry in your {% term "`configuration.yaml`" %} file if a new device is added, with the exception that unknown configuration keys are allowed but ignored. This means that missing variables will be filled with the integration's default values. All configuration variables which are *required* must be present in the payload. The reason for allowing unknown documentation keys is allow some backwards compatibility, software generating MQTT discovery messages can then be used with older Home Assistant versions which will simply ignore new features.
+
+A discovery payload could be sent with a retain flag set. In that case it will be stored at the MQTT broker and will be processed automatically without the need to resent the discovery messages. A better approach thought, is that the software generating MQTT discovery messages, sends them when the MQTT integration sends the [Birth message](#birth-and-last-will-messages).
 
 Subsequent messages on a topic where a valid payload has been received will be handled as a configuration update, and a configuration update with an empty payload will cause a previously discovered device to be deleted.
 
