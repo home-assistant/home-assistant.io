@@ -24,9 +24,8 @@ The state can provide three different levels of recommendations:
 - **Code Orange**: It is recommended not to burn wood now.
 - **Code Red**: Do not burn wood now.
 
-Additionally, various sensor and binary sensor entities are provided:
+Additionally, various sensor entities are provided:
 
-- **Stookalert**: Binary sensor indicating whether there is a Stookalert in the region or province.
 - **Windspeed**: Sensor containing the current windspeed at the selected location.
 - **Air Quality Index**: Sensor containing the air quality index at the selected location.
 
