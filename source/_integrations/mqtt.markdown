@@ -212,10 +212,10 @@ Home Assistant's MQTT integration supports so-called Birth and Last Will and Tes
 If a disabled entity is enabled and added after 30 seconds, the MQTT integration will be reloaded and will cause all discovered MQTT entities to be unloaded.
 When MQTT starts up, all existing MQTT devices, entities, tags, and device triggers, will be unavailable until a discovery message is received and processed. A device or service that exposes the MQTT discovery should subscribe to the Birth message and use this as a trigger to send the [discovery payload](#discovery-payload). To avoid high IO loads on the MQTT broker, adding some random delay in sending the discovery payload is recommended.
 
-Alternative approaches are:
+Alternative approaches:
 
 - Retaining the [discovery payload](#discovery-payload): This will store the discovery payload at the MQTT broker, and offer it to the MQTT integration as soon as it subscribes for MQTT discovery. When there are a lot of entities, this can cause high IO loads.
-- Periodic re-sending the discovery payload: This can could some delay, or a lot of IO if there are a lot of MQTT discovery messages.
+- Periodically resending the discovery payload: This can could some delay, or a lot of IO if there are a lot of MQTT discovery messages.
 
 By default, Home Assistant sends `online` and `offline` to `homeassistant/status`.
 
