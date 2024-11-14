@@ -210,7 +210,7 @@ See also [MQTT Discovery section](#mqtt-discovery)
 Home Assistant's MQTT integration supports so-called Birth and Last Will and Testament (LWT) messages. The former is used to send a message after the service has started, and the latter is used to notify other clients about a disconnected client. Please note that the LWT message will be sent both in case of a clean (e.g. Home Assistant shutting down) and in case of an unclean (e.g. Home Assistant crashing or losing its network connection) disconnect.
 
 If a disabled entity is enabled and added after 30 seconds, the MQTT integration will be reloaded and will cause all discovered MQTT entities to be unloaded.
-When MQTT starts up, all existing MQTT devices, entities, tags and device triggers, will be unavailable until a discovery message is received and processed. A device or service that exposes the MQTT discovery should subscribe the Birth message and use this as a trigger to send the [discovery payload](#discovery-payload). To avoid high IO loads on the MQTT broker, adding some random delay in sending the discovery payload is recommended.
+When MQTT starts up, all existing MQTT devices, entities, tags, and device triggers, will be unavailable until a discovery message is received and processed. A device or service that exposes the MQTT discovery should subscribe to the Birth message and use this as a trigger to send the [discovery payload](#discovery-payload). To avoid high IO loads on the MQTT broker, adding some random delay in sending the discovery payload is recommended.
 
 Alternative approaches are:
 
