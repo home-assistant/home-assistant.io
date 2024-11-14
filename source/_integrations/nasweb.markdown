@@ -37,7 +37,7 @@ To create a NASweb user with access to the NASweb API, follow thses steps:
     - The `admin` user cannot be used for this. Select another user.
     ![Device Administrators](/images/integrations/nasweb/users.png)
 4. In the left **Modules** column, find the **API** module.
-5. Select the **API** module and drag it into the right-hand column (`1`), which lists modules enabled for this user. 
+5. Click the **API** module to move it into the right-hand column (`1`), which lists modules enabled for this user.
     - To save changes, select **Apply** (`2`).
     ![Administrator User Details](/images/integrations/nasweb/modules.png)
 
