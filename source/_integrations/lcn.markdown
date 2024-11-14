@@ -431,59 +431,7 @@ For an explanation of the attributes refer to the corresponding [events](#events
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
-When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant. To retrieve the `device_id` for an LCN module or group, you can use the [address_to_device_id](#action-address_to_device_id) action.
-
-### Action: `address_to_device_id`
-
-Obtain the `device_id` provided by Home Assistant by specifying the LCN module or group address. The `device_id` is stored in the action's response and can be accessed using the `device_id` key.
-
-LCN modules and groups are identified by a combination of a numeric ID and a segment ID.
-
-The module/group ID typically ranges from 5 to 254. Segments can be addressed by their numeric ID (5 to 128) or 0 (indicating no segment).
-
-If multiple LCN integrations are set up, the specific integration is identified by its host's `name` (integration title) set in the integration panel.
-
-| Data attribute         | Optional | Description                       | Values                |
-| ---------------------- | -------- | --------------------------------- | --------------------- |
-| `id`                   | No       | Module or group id                | 5-254                |
-| `segment_id`           | Yes      | Segment id (default: 0)           | (0, 5-128)           |
-| `type`                 | Yes      | Device type (default: `module`)   | `module`, `group`     |
-| `host`                 | Yes      | Host name (default: first host)   ||
-
-| Response    | Description              | Value  |
-| ----------- | ------------------------ | ------ |
-| `device_id` | Home Assistant device id ||
-
-Example:
-
-```yaml
-action: lcn.address_to_device_id
-data:
-  id: 7
-  segment_id: 0
-  type: module
-  host: pchk
-```
-
-The action's response can also be used to obtain the `device_id` as an input for other actions:
-
-{% raw %}
-
-```yaml
-actions:
-  - action: lcn_address_to_device_id
-    data:
-      id: 7
-    # Store response in a variable
-    response_variable: response
-  - action: lcn.pck
-    data:
-      # Access response variable using a template
-      device_id: "{{ response['device_id'] }}"
-      pck: PIN002
-```
-
-{% endraw %}
+When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant.
 
 ### Action: `output_abs`
 
