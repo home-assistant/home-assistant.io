@@ -431,7 +431,7 @@ For an explanation of the attributes refer to the corresponding [events](#events
 In order to directly interact with the LCN system, and invoke commands which are not covered by the implemented platforms, the following actions can be used.
 Refer to the [Performing actions](/docs/scripts/service-calls) page for examples on how to use them.
 
-When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant. To retrieve the `device_id` for a LCN module or group, you can use the [address_to_device_id](#action-address_to_device_id) action.
+When actions are linked to a particular device, the device is identified by its `device_id`. This `device_id` is a unique identifier supplied by Home Assistant. To retrieve the `device_id` for an LCN module or group, you can use the [address_to_device_id](#action-address_to_device_id) action.
 
 ### Action: `address_to_device_id`
 
@@ -445,8 +445,8 @@ If multiple LCN integrations are set up, the specific integration is identified 
 
 | Data attribute         | Optional | Description                       | Values                |
 | ---------------------- | -------- | --------------------------------- | --------------------- |
-| `id`                   | No       | Module or group id                | 5..254                |
-| `segment_id`           | Yes      | Segment id (default: 0)           | (0, 5..128)           |
+| `id`                   | No       | Module or group id                | 5-254                |
+| `segment_id`           | Yes      | Segment id (default: 0)           | (0, 5-128)           |
 | `type`                 | Yes      | Device type (default: `module`)   | `module`, `group`     |
 | `host`                 | Yes      | Host name (default: first host)   ||
 
@@ -773,7 +773,7 @@ Each row can be set independently and can store up to 60 characters (encoded in 
 | Data attribute         | Optional | Description                        | Values |
 | ---------------------- | -------- | ---------------------------------- | ------ |
 | `device_id`            | No       | Home Assistant device id           ||
-| `row`                  | No       | Text row 1..4                      ||
+| `row`                  | No       | Text row 1-4                      ||
 | `text`                 | No       | Text to send for the specified row ||
 
 Example:
