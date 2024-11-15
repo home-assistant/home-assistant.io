@@ -226,7 +226,7 @@ Use a transformation item from your Habitica character's inventory on a member o
 
 ### Task update actions
 
-The Habitica integration offers four actions to update the details and configuration of dailies, to-do's, habits and rewards.
+The Habitica integration offers four actions to update the details and configuration of dailies, to-do's, habits, and rewards.
 
 #### Common attributes
 
