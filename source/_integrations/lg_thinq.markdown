@@ -10,14 +10,16 @@ ha_code_owners:
 ha_config_flow: true
 ha_domain: lg_thinq
 ha_platforms:
-  - switch
   - binary_sensor
+  - button
   - climate
   - event
   - fan
   - number
-  - sensor
   - select
+  - sensor
+  - switch
+  - time
   - vacuum
 ha_integration_type: integration
 ---
@@ -25,6 +27,7 @@ ha_integration_type: integration
 The **LG ThinQ** integration allows you to connect LG ThinQ devices to Home Assistant. The features of this integration include:
 
 - Control LG appliances as Home Assistant entities through the [LG ThinQ Connect API](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/overview/).
+- The [thinqconnect](https://github.com/thinq-connect/pythinqconnect/) provides a robust interface for interacting with the LG ThinQ Connect API
 
 ## Prerequisites
 
@@ -94,6 +97,7 @@ LG ThinQ represents devices as a set of [profiles](https://thinq.developer.lge.c
 A list of all Entity Platforms provided by LG ThinQ Integration:
 
 - [Binary sensor](#binary-sensor)
+- [Button](#button)
 - [Climate](#climate)
 - [Event](#event)
 - [Fan](#fan)
@@ -101,6 +105,7 @@ A list of all Entity Platforms provided by LG ThinQ Integration:
 - [Select](#select)
 - [Sensor](#sensor)
 - [Switch](#switch)
+- [Time](#time)
 - [Vacuum](#vacuum)
 
 ### Binary sensor
@@ -121,6 +126,18 @@ A read-only property which has only two states that can be toggled is represente
 | [Washtower](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Single-Unit/)<br>[Washtower Dryer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Dryer/)<br>[Washtower Washer](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/WashTower-Washer/) | Remote start |
 | [Water Heater](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Water-Heater/) | Power |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Sabbath |
+
+### Button
+
+The properties for unset schedule turn-on/off.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Unset scheduled turn-on<br>Unset scheduled turn-off |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Unset scheduled turn-on<br>Unset scheduled turn-off |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Unset scheduled turn-on<br>Unset scheduled turn-off |
+| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Unset scheduled turn-on<br>Unset scheduled turn-off |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Unset scheduled turn-on |
 
 ### Climate
 
@@ -246,6 +263,18 @@ A read-write property which has only two states that can be toggled is represent
 | [Refrigerator](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/refrigerator/) | Ice plus<br>Quick freeze |
 | [System Boiler](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/System-Boiler/) | Hot water |
 | [Wine Cellar](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Wine-Cellar/) | Ventilation |
+
+### Time
+
+The properties for set or modify schedule turn-on/off.
+
+| Device | Property |
+| ------ | -------- |
+| [Air Conditioner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-conditioner/) | Schedule turn-on<br>Schedule turn-off |
+| [Air Purifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/air-purifier/) | Schedule turn-on<br>Schedule turn-off |
+| [Air Purifier Fan](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/Air-Purifier-Fan/) | Schedule turn-on<br>Schedule turn-off |
+| [Humidifier](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/humidifier/) | Schedule turn-on<br>Schedule turn-off |
+| [Robot Cleaner](https://thinq.developer.lge.com/en/cloud/docs/thinq-connect/device-profile/robot-cleaner/) | Schedule turn-on |
 
 ### Vacuum
 
