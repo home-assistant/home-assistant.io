@@ -186,7 +186,7 @@ As one of the first in the industry, in June, we proudly announced that Home Ass
 
 We have brought expanded device support and performance improvements to Home Assistant's Matter integration. Air purifiers, room air conditioners, and thermostats are now better supported, along with custom clusters, which allow Home Assistant to detect data changes in real time, improving network efficiency.
 
-Update entities now provide firmware updates via official Matter update channels, while event entities provide more event types, allowing you to react to single press or double press events with ease. Additional features include water valve support, operation state tracking for appliances, and smoke and CO sensor integration. Matter 1.3 power and energy sensors are also supported, providing useful data for the energy dashboard.
+Update entities now provide firmware updates via official Matter update channels, while event entities provide more event types, allowing you to react to single-press or double-press events with ease. Additional features include water valve support, operation state tracking for appliances, and smoke and CO sensor integration. Matter 1.3 power and energy sensors are also supported, providing useful data for the energy dashboard.
 
 In the meantime, we will continue to work on Matter 1.4 compatibility, as well as making device commissioning easier and working with Thread credentials. We have made major strides forward and hopefully we will be able to get through some of our roadblocks soon.
 
