@@ -28,6 +28,11 @@ MAC:
 
 # Available platforms & entities
 
+## Binary sensors
+
+- **Connectivity**: Is `on`, if the scale is connected to Home Assistant
+- **Timer running**: Whether the timer is currently running on the scale
+
 ## Buttons
 
 - **Tare**: Tares the scale.
