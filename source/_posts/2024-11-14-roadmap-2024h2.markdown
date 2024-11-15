@@ -108,7 +108,9 @@ So Assist is more capable, but what about getting started with Voice?
 
 Voice is hard because it is a combination of great software and great hardware. Up until recently, we primarily focused on making the software experience great and relied on readily available hardware to power our voice assistants.
 
-However, this is changing - over the last 6 months, we have built our own hardware! It will be the first voice assistant hardware built from the ground up to work with Home Assistant, fully open source (firmware and hardware), and it is going to be released *very soon*. It is truly the missing hardware piece to a more approachable voice experience in Home Assistant, and we cannot wait to see what you will build with it.
+![Voice hardware teaser](/images/blog/2024-11-roadmap-2024h2/voice-hardware-teaser.jpg)
+
+However, this is changing - over the past 6 months, we have built our own hardware! It will be the first voice assistant hardware built from the ground up to work with Home Assistant, fully open source (firmware and hardware), and it is going to be released *very soon*. It is truly the missing hardware piece to a more approachable voice experience in Home Assistant, and we cannot wait to see what you will build with it.
 
 #### Later priority: Make Assist more conversational
 
@@ -153,9 +155,7 @@ In the past six months, we have made significant steps towards certifications, e
 
 In [September](/blog/2024/09/24/we-are-joining-the-z-wave-alliance-board/), Paulus, the founder of Home Assistant, announced his new role on the Z-Wave Alliance Board of Directors, representing Nabu Casa. Serving on the board will allow Nabu Casa to contribute meaningfully to Z-Wave’s development and ensure that the needs of Home Assistant users and open-source values are represented.
 
-As interest in Z-Wave devices in our ecosystem continues to grow, this has driven Home Assistant to advance the Z-Wave JS stack and create its own Z-Wave hardware.
-
-The work on building our own Z-Wave antenna has also been progressing smoothly. We base the design of our antenna on the [Z-Wave Reference Application Design](https://github.com/drzwave/ZRAD) to create a Z-Wave antenna with the best performance in the market.
+As interest in Z-Wave devices in our ecosystem continues to grow, this has driven Home Assistant to advance the Z-Wave JS stack and create its own Z-Wave hardware. While we are working on the [certification of our Z-Wave implementation](/blog/2024/05/08/zwave-is-not-dead), our work on building our own Z-Wave antenna has also been progressing smoothly. We base the design of our antenna on the [Z-Wave Reference Application Design](https://github.com/drzwave/ZRAD) to create a Z-Wave antenna with the best performance in the market.
 
 ### Matter
 
