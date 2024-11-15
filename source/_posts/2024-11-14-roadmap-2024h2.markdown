@@ -1,38 +1,44 @@
 ---
 layout: post
-title: "Roadmap 2024 Year-end Update: Good progress so far!"
+title: "Roadmap 2024 Year-end Update: Full steam ahead!"
 description: ""
 date: 2024-11-15 00:00:00
 date_formatted: "November 15, 2024"
 author: Madelena Mak
 comments: true
 categories: Announcements Roadmap
-og_image: /images/blog/2024-11-roadmap-2024h2/banner.png
+og_image: /images/blog/2024-11-roadmap-2024h2/banner.jpg
 ---
-
-<p><img src='/images/blog/2024-11-roadmap-2024h2/banner.png' class='no-shadow' alt='Banner for Roadmap 2024 Year-end Update'/></p>
-
-**TL;DR** We are making great progress on our roadmap, and moving forward onto the next priorities on the roadmap.
-
-As we had previously mentioned, the goal of the roadmap is to provide a North Star for all of our product initiatives to follow in a coherent and consistent direction. At the State of the Open Home in April this year, we introduced to our community our first roadmap. We intended to keep our community informed every half year, and this is our first update to our public roadmap.
-
-We are happy to report that we have made good progress on the product initiatives on our roadmap so far, thanks to our core maintainers along with the help of the team at Nabu Casa, the commercial partner of the Open Home Foundation. Most of the previous product initiatives in our last roadmap have matured according to plan, and now the team has begun to focus on the ones that we had planned for next.
-
-## Home Assistant: “A Home-Approved Smart Home”
 
 <p><img src='/images/blog/2024-11-roadmap-2024h2/ha-roadmap-2024h2.png' class='no-shadow' alt='Roadmap 2024 H2 diagram, showing the priorities as a table'/></p>
 
-The theme of the Home Assistant roadmap is to improve the Home Approval Factor of our platform, ensuring the adoption of Home Assistant by other household members within a smart home.  This can be done by improving the touchpoints that all members of the household will interact with, such as automations, dashboards, and voice assistants, while maintaining the power and depth of the platform for our power users and admins. Our plan is divided into the following areas:
+**TL;DR** We are making great progress on our roadmap, and moving forward onto the next priorities on the roadmap. 🚂🚃🚃🚃🚃🚃🚃🚃🚃
+
+As [we had previously mentioned](/blog/2024/06/12/roadmap-introduction/), the goal of the roadmap is to provide a North Star for all of our product initiatives to follow in a coherent and consistent direction. At the [State of the Open Home](/blog/2024/04/24/state-of-the-open-home-2024/) in April this year, we introduced to our community [our first roadmap](/blog/2024/06/12/roadmap-2024h1/). We intended to keep our community informed every half year, and this is our first update to our public roadmap.
+
+We are happy to report that we have made good progress on the product initiatives on our roadmap so far, thanks to our core maintainers along with the help of the team at [Nabu Casa](https://nabucasa.com), the commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org). Most of the product initiatives in the 2024 roadmap have matured according to plan, and now the team has begun to focus on the ones that we had planned for next.
+
+\- [Madelena] & [JLo]
+
+<!--more-->
+
+## Home Assistant: “A Home-Approved Smart Home”
+
+The theme of the Home Assistant roadmap is to improve the [Home Approval Factor](https://newsletter.openhomefoundation.org/open-home-approval-factor/) of our platform, ensuring the adoption of Home Assistant by other household members within a smart home.
+
+This can be done by improving the touchpoints that all members of the household will interact with, such as [automations](#automations), [dashboards](#dashboards), and [voice assistants](#voice-assistants), while maintaining the power and depth of the platform for our power users and admins. Our plan is categorized into the following product areas:
 
 ### Automations
 
 #### In good shape: Make automations easier to organize
 
-Organizing automations was our first focus on the automation stream.
+For a long time, the ability to organize automation was at the top of our feature requests. Therefore, organizing automations was our first focus on the automation product area.
 
-We gave users the ability to categorize them; This makes the process of managing, editing, debugging, and searching automations much simpler. The categories are up to the users to define. For instance, I personally created categories per functionality such as “Smart Heating” or “Smart Cleaning”, and I particularly like my “Tests” categories where I keep all the automations that are currently being tested in my home.
+We gave users the ability to categorize automations, which makes the process of managing, editing, debugging, and searching automations much simpler. The categories are up to the users to define. For instance, I personally created categories per functionality such as “Smart Heating” or “Smart Cleaning”, and I particularly like my “Tests” categories where I keep all the automations that are currently being tested in my home.
 
-On top of categories, users can now attach labels to automations, just like any other entity found in Home Assistant. Labels can be used to filter the automation list further, but what I am most interested in is the automation capabilities of the labels themselves. I saw some great ideas in the community, one of them that struck me was the idea to label some automation as “Not Guest Friendly” and deactivate them when a guest mode was activated. It’s nice to see labels as a tool to automate everything, even your automations themselves 😀.
+![Screenshot of Automations settings with filter panel](/images/blog/2024-04/filter-panel.png)
+
+On top of categories, users can now attach labels to automations, just like any other entity found in Home Assistant. Labels can be used to filter the automation list further, but what I am most interested in is the automation capabilities of the labels themselves. I saw some great ideas in the community, one of them that struck me was the idea to label some automation as “Not Guest Friendly” and deactivate them when a guest mode was activated. It’s nice to see labels as a tool to automate everything, even your automations themselves. 😀
 
 All in all, Home Assistant truly made automations easier to organize in the past 6 months. We could still work on that, no opportunity is ever really done, but for the time being, we are considering this one done so that we can focus on bigger problems.
 
@@ -40,7 +46,9 @@ All in all, Home Assistant truly made automations easier to organize in the past
 
 Automations are one of the cornerstones of Home Assistant, but it’s not an easy task to create them, especially if you are just starting out. There are a dozen things to know before you start and a dozen things to learn along the way.
 
-Last year we redesigned our action picker and replaced a single option with an obscure name, “Call Service”, with hundreds of neatly categorized entries that we called “Actions”. This improved the automation creation process by quite a margin.
+<img class="no-shadow" src="/images/blog/2024-01/add-action-search.png" alt="Screenshot showing the new add action dialog utilizing the search function to find whatever you need.">
+
+Last year we redesigned our action picker and replaced a single option with an obscure name, **“Call Service”**, with hundreds of neatly categorized entries that we called **“Actions”**. This improved the automation creation process by quite a margin.
 
 Today, the automation editor feels like it has progressed at two different speeds; our actions are easy to use, but our triggers and conditions are not. So we have begun bringing the same level of convenience that we previously brought to actions to our beloved triggers and conditions.
 
@@ -56,13 +64,17 @@ We are aware that using (and sharing) blueprints is not the most straightforward
 
 #### In good shape: Make customization of dashboards easy and intuitive
 
-With the stable release of the new Sections view layout in Home Assistant 2024.11, our work on making customization of dashboards easier is now in good shape! The learning curve for creating nice dashboards has been vastly reduced, and we are seeing more and more people being interested in and being able to create high-quality dashboards that are usable for everyone in the household.
+With the stable release of the new Sections view layout in Home Assistant [2024.11](/blog/2024/11/06/release-202411/), our work on making customization of dashboards easier is now in good shape! The learning curve for creating nice dashboards has been vastly reduced, and we are seeing more and more people being interested in and being able to create high-quality dashboards that are usable for everyone in the household.
 
-Work will continue with the dashboard working group. The group is currently looking into standardizing the appearance of our default cards. Please reach out to us if you are a frontend developer who would like to contribute and be part of the journey!
+<p class='img no-shadow'><img class="no-shadow" alt="Screenshots showing the conversion of a view in masonry into sections" src="/images/blog/2024-11/dashboard-conversion.png"/>Screenshots showing the conversion of a view in masonry into sections</p>
+
+Work will continue with the dashboard working group. The group is currently looking into standardizing the appearance of our default cards. **Please [reach out to us](/blog/2024/07/26/dashboard-chapter-2/#process-how-can-we-work-together) if you are a frontend developer** who would like to contribute and be part of the journey!
 
 #### Newly in progress: Make default dashboards more useful and relevant
 
 Now that we’ve made customization of dashboards easier than ever, what’s next? We understand that it can be intimidating for users when they are faced with a blank slate. Some may be full of ideas on how they would like to fill their dashboards up, but some would prefer if Home Assistant came with something useful out-of-the-box. Therefore, we are now looking into making dashboards easier, even if you don’t know how to create one.
+
+![Dashboard case studies](/images/blog/2024-11-roadmap-2024h2/dashboard-casestudies.png)
 
 Over the past year, we have looked into dozens of case studies - dashboards created by many of you, from the most popular to the most pragmatic - and began to notice patterns in how our users organize their dashboards. Home Assistant is unique compared to other smart home platforms in that our dashboards are not just about controlling devices. After all, the perfect app is no app, as in, opening an app to control your light bulb is less convenient than simply flicking a light switch, or better yet, just automating it.
 
@@ -82,11 +94,13 @@ Assist, our private voice assistant, received a lot of love over the last 6 mont
 
 We brought area awareness, which allows you to target devices in the same area without mentioning the area (eg. “Close the curtains” or “Turn off the lights”). We brought floor support, which allows you to target devices across areas on the same floor; very useful for homes with an open floor design (eg. “Turn on all lights on the first floor”).
 
+<p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
+
 We implemented timers, allowing any voice assistant device to be able to “ring” when a timer ends, including supporting the creation of multiple timers. You can also pause and resume them, and add or remove time from them. You can combine commands with timers by giving a delayed command, allowing you to perform an action after a specific amount of time (eg. “Turn off the TV in 30 minutes)”.
 
 We also brought the ability to control media via voice. Pausing or resuming them, controlling the volume, and going to the next track. This, combined with the area awareness capability mentioned above made for some really interesting short commands that work in a room with a TV playing or music streaming, such as “Pause”, “Resume” and “Next”.
 
-Finally, our on-device wake word engine called microWakeWord became much faster and much better at recognizing wake words. This is the result of using real voice data in the training process to fine-tune the models. You can read more about it in this blog post
+Finally, our on-device wake word engine called microWakeWord became much faster and much better at recognizing wake words. This is the result of using real voice data in the training process to fine-tune the models. With [Wake Word Collective](https://ohf-voice.github.io/wake-word-collective/), you can now contribute by lending your voice to improve our community-driven, privacy-focused voice assistant! You can read more about it in [this blog post](/2024/10/24/wake-word-collective/).
 
 #### In progress: Make Assist easier to start with
 
@@ -94,7 +108,7 @@ So Assist is more capable, but what about getting started with Voice?
 
 Voice is hard because it is a combination of great software and great hardware. Up until recently, we primarily focused on making the software experience great and relied on readily available hardware to power our voice assistants.
 
-However, this is changing - over the last 6 months, we built our own hardware. The first voice assistant hardware built from the ground up to work with Home Assistant, fully open source (firmware, and hardware),  and it is going to be released very soon.  It is truly the missing hardware piece to a more approachable voice experience in Home Assistant, and I cannot wait to see what you will build with it.
+However, this is changing - over the last 6 months, we have built our own hardware! It will be the first voice assistant hardware built from the ground up to work with Home Assistant, fully open source (firmware and hardware), and it is going to be released *very soon*. It is truly the missing hardware piece to a more approachable voice experience in Home Assistant, and we cannot wait to see what you will build with it.
 
 #### Later priority: Make Assist more conversational
 
@@ -110,6 +124,8 @@ This pairs very well with LLM-based conversation agents due to their ability to 
 In the past six months, we’ve introduced support for LLM local tools and [Ollama](/blog/2024/08/07/release-20248/#control-home-assistant-using-ai-with-ollama), pushing our efforts to make AI more accessible and private for experimentation within Home Assistant. We’ve also dedicated significant effort to creating realistic benchmarks, focusing on natural, conversational use cases rather than edge cases. This approach lets us better understand performance and user experience in day-to-day interactions.
 
 Our latest benchmark for local language models (LLMs) can be explored [here](https://github.com/allenporter/home-assistant-datasets/tree/main/reports), showcasing how models like qwen2.5 perform in realistic settings. With these insights, we’re continuing to refine LLM integrations and to ensure that LLMs can be depended upon for common use cases at home.
+
+<img src='/images/blog/2024-06-voice-chapter-7/voice-script.png' alt="Exposing voice scripts to Assist in Home Assistant Voice settings" class='no-shadow'>
 
 You can now expand LLM capabilities by [allowing them access your scripts](/blog/2024/07/03/release-20247/#expand-an-llm-using-your-scripts). This feature lets you precisely control what the LLM does in specific situations, while still benefiting from the flexibility and natural language processing that AIs excel at.
 
@@ -163,7 +179,7 @@ We will also start preparing for the roadmap for next year. It will have a new t
 
 See you in 6 months!
 
-- [Madelena] & [JLo]
+\- [Madelena] & [JLo]
 
 [Madelena]: https://github.com/Madelena
 [JLo]: https://github.com/jlpouffier
