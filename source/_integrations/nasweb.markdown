@@ -8,7 +8,6 @@ ha_codeowners:
   - '@nasWebio'
 ha_iot_class: Local Push
 ha_domain: nasweb
-featured: true
 ha_config_flow: true
 ha_platforms:
   - switch
