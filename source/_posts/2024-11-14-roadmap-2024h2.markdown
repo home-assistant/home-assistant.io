@@ -22,6 +22,29 @@ We are happy to report that we have made good progress on the product initiative
 
 <!--more-->
 
+- [Home Assistant: “A Home-Approved Smart Home”](#home-assistant-a-home-approved-smart-home)
+  - [Automations](#automations)
+    - [In good shape: Make automations easier to organize](#in-good-shape-make-automations-easier-to-organize)
+    - [Newly in progress: Make automations easier to create](#newly-in-progress-make-automations-easier-to-create)
+    - [Later priority: Make blueprints easier to use](#later-priority-make-blueprints-easier-to-use)
+  - [Dashboards](#dashboards)
+    - [In good shape: Make customization of dashboards easy and intuitive](#in-good-shape-make-customization-of-dashboards-easy-and-intuitive)
+    - [Newly in progress: Make default dashboards more useful and relevant](#newly-in-progress-make-default-dashboards-more-useful-and-relevant)
+    - [Next priority: Improve privacy in user, guest, and public access](#next-priority-improve-privacy-in-user-guest-and-public-access)
+  - [Voice Assistants](#voice-assistants)
+    - [In good shape: Improve Assist capabilities out of the box](#in-good-shape-improve-assist-capabilities-out-of-the-box)
+    - [In progress: Make Assist easier to start with](#in-progress-make-assist-easier-to-start-with)
+    - [Later priority: Make Assist more conversational](#later-priority-make-assist-more-conversational)
+  - [Research](#research)
+    - [In good shape: Build local LLM infrastructure](#in-good-shape-build-local-llm-infrastructure)
+    - [In progress: Investigate on privacy](#in-progress-investigate-on-privacy)
+- [Home Assistant Cloud](#home-assistant-cloud)
+- [Open Protocols](#open-protocols)
+  - [Z-Wave](#z-wave)
+  - [Matter](#matter)
+  - [Zigbee](#zigbee)
+- [What’s next?](#whats-next)
+
 ## Home Assistant: “A Home-Approved Smart Home”
 
 The theme of the Home Assistant roadmap is to improve the [Home Approval Factor](https://newsletter.openhomefoundation.org/open-home-approval-factor/) of our platform, ensuring the adoption of Home Assistant by other household members within a smart home.
