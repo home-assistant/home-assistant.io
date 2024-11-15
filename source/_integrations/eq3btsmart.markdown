@@ -13,7 +13,11 @@ ha_domain: eq3btsmart
 ha_integration_type: device
 ha_quality_scale: silver
 ha_platforms:
+  - binary_sensor
   - climate
+  - number
+  - sensor
+  - switch
 ---
 
 The `eq3btsmart` climate platform allows you to integrate eQ-3 Bluetooth Smart Thermostats.

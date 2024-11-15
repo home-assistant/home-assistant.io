@@ -3,11 +3,13 @@ title: Acaia
 description: Instructions on how to integrate your Acaia smart coffee scale with Home Assistant.
 ha_release: 2024.12
 ha_category:
+  - Binary sensor
   - Button
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: acaia
 ha_platforms:
+  - binary_sensor
   - button
 ha_bluetooth: true
 ha_codeowners:
@@ -30,7 +32,6 @@ MAC:
 
 ## Binary sensors
 
-- **Connectivity**: Is `on`, if the scale is connected to Home Assistant
 - **Timer running**: Whether the timer is currently running on the scale
 
 ## Buttons
@@ -64,32 +65,26 @@ Get started with these automation examples.
 {% raw %}
 
 ```yaml
-alias: Start timer on scale
+alias: "Start timer on scale"
 description: "When a brew starts on the machine, the following actions are started: tare, reset the timer, and start the timer on the scale."
 triggers:
-  - entity_id:
+  - trigger: state
+    entity_id:
       - binary_sensor.lm001234_brewing_active
     to: "on"
     from: "off"
-    trigger: state
-conditions: []
 actions:
   - action: button.press
     target:
       entity_id: button.lunar_tare
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_reset_timer
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_start_stop_timer
-    data: {}
-mode: single
-
 ```
 
 {% endraw %}
@@ -105,4 +100,3 @@ mode: single
 
 Make sure your scale is turned on and in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the acaia integration and check your logs.
 {% enddetails %}
-

@@ -39,11 +39,21 @@ Supported devices:
 - Switcher Runner
 - Switcher Runner S11
 - Switcher Runner S12
+- Switcher Light SL01
+- Switcher Light SL01 Mini
+- Switcher Light SL02
+- Switcher Light SL02 Mini
+- Switcher Light SL03
 
 Devices that require a token:
 
 - Switcher Runner S11
 - Switcher Runner S12
+- Switcher Light SL01
+- Switcher Light SL01 Mini
+- Switcher Light SL02
+- Switcher Light SL02 Mini
+- Switcher Light SL03
 
 If you completed the integration setup but are still unable to control the device, please make sure your device's firmware is up-to-date.
 
@@ -76,7 +86,7 @@ For Switcher cover control devices (Switcher Runner, Switcher Runner S11, Switch
 
 ## Lights
 
-For Switcher light control devices (Switcher Runner S11, Switcher Runner S12) the integration allows you to control its lights on/off state.
+For Switcher light control devices (Switcher Runner S11, Switcher Runner S12, and Switcher Lights), the integration allows you to control its lights on/off state.
   
 ## Sensors
 
@@ -89,7 +99,12 @@ For Switcher power control devices (Switcher Power Plug, Switcher Touch, Switche
 | `Power Consumption` | The power consumption in watts                         | 2756 W            |
 
 *Currently not supported for Switcher Power Plug
-  
+
+For Switcher Breeze the integration provides the following sensor:
+| Sensor Name           | Description                                            | Example           |
+| --------------------- | ------------------------------------------------------ | ----------------- |
+| `Current temperature` | The current temperature in celsius                     | 25.0 °C           |
+
 ## Actions
 
 For Switcher power control devices (Switcher Touch, Switcher V2/V4) the integration provides the following sensors:
