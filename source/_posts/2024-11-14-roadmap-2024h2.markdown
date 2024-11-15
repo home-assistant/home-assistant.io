@@ -74,7 +74,7 @@ Work will continue with the dashboard working group. The group is currently look
 
 Now that we’ve made customization of dashboards easier than ever, what’s next? We understand that it can be intimidating for users when they are faced with a blank slate. Some may be full of ideas on how they would like to fill their dashboards up, but some would prefer if Home Assistant came with something useful out-of-the-box. Therefore, we are now looking into making dashboards easier, even if you don’t know how to create one.
 
-![Dashboard case studies](/images/blog/2024-11-roadmap-2024h2/dashboard-casestudies.png)
+<p class='img'><img alt="Case studies of many dashboards of our users" src="/images/blog/2024-11-roadmap-2024h2/dashboard-casestudies.png"/>Case studies of many dashboards of our users</p>
 
 Over the past year, we have looked into dozens of case studies - dashboards created by many of you, from the most popular to the most pragmatic - and began to notice patterns in how our users organize their dashboards. Home Assistant is unique compared to other smart home platforms in that our dashboards are not just about controlling devices. After all, the perfect app is no app, as in, opening an app to control your light bulb is less convenient than simply flicking a light switch, or better yet, just automating it.
 
@@ -108,7 +108,7 @@ So Assist is more capable, but what about getting started with Voice?
 
 Voice is hard because it is a combination of great software and great hardware. Up until recently, we primarily focused on making the software experience great and relied on readily available hardware to power our voice assistants.
 
-![Voice hardware teaser](/images/blog/2024-11-roadmap-2024h2/voice-hardware-teaser.jpg)
+<p class='img'><img alt="A teaser of our voice hardware" src="/images/blog/2024-11-roadmap-2024h2/voice-hardware-teaser.jpg"/>A teaser of our voice hardware</p>
 
 However, this is changing - over the past 6 months, we have built our own hardware! It will be the first voice assistant hardware built from the ground up to work with Home Assistant, fully open source (firmware and hardware), and it is going to be released *very soon*. It is truly the missing hardware piece to a more approachable voice experience in Home Assistant, and we cannot wait to see what you will build with it.
 
