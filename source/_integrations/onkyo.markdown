@@ -34,7 +34,7 @@ Input sources:
   type: list
 {% endconfiguration_basic %}
 
-The above can also be adjusted later using the **Reconfigure** flow.
+The above settings can also be adjusted later. To do this, click the three-dot menu on the integration entry and select **Reconfigure**.
 
 {% include integrations/option_flow.md %}
 
