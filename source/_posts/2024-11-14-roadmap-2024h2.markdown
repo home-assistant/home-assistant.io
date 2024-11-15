@@ -139,9 +139,9 @@ While we are ramping up our user research pipeline, we have started working on i
 
 Home Assistant Cloud, powered by our commercial partner Nabu Casa brings, to the many, the hard-to-reach features of Home Assistant usually reserved for power users with expensive hardware at home, with no compromise on privacy.
 
-In recent months, the Nabu Casa team has been hard at work in bringing peace of mind to using Home Assistant. For the cloud backup feature, the Home Assistant team and the Nabu Casa team are working closely together on a comprehensive revamp of backup integrations, to create a one-stop solution to a good backup strategy. We are also working to ensure users a smooth onboarding for backing up to Home Assistant Cloud, as well as other third-party backup locations.
+In recent months, the Nabu Casa team has been hard at work in bringing peace of mind to using Home Assistant. For the cloud backup feature, the Home Assistant team and the Nabu Casa team are now working closely together on a comprehensive revamp of backup integrations, to create an easy one-stop solution to a good backup strategy. We are also working to ensure users a smooth onboarding for backing up to Home Assistant Cloud, as well as other third-party backup locations.
 
-The team had to postpone some features in favor of others like WebRTC. They had successfully released the infrastructure needed to support WebRTC, both STUN servers for every Home Assistant user and TURN servers for every Home Assistant Cloud subscriber, enhancing real-time communication capabilities within Home Assistant. Two-factor authentication (2FA) is one of the postponed features, but it is still in the Nabu Casa pipeline.
+The team had to postpone some features in favor of others like [WebRTC](/blog/2024/11/06/release-202411/#low-latency-cameras-using-webrtc). They had successfully released the infrastructure needed to support WebRTC, both STUN servers for every Home Assistant user and TURN servers for every Home Assistant Cloud subscriber, enhancing real-time communication capabilities within Home Assistant. Two-factor authentication (2FA) is one of the postponed features, but it is still in the Nabu Casa pipeline.
 
 ## Open Protocols
 
@@ -157,19 +157,19 @@ As interest in Z-Wave devices in our ecosystem continues to grow, this has drive
 
 The work on building our own Z-Wave antenna has also been progressing smoothly. We base the design of our antenna on the [Z-Wave Reference Application Design](https://github.com/drzwave/ZRAD) to create a Z-Wave antenna with the best performance in the market.
 
-### Zigbee
-
-The Zigbee Home Automation (ZHA) integration got a massive overhaul in 2024.8. The whole integration has been split into a separate codebase, making it easier to maintain and improve. This is a huge step forward for the integration, and took months of work to get done.
-
 ### Matter
 
-As one of the first in the industry, in [June](/blog/2024/06/05/release-20246/#matter-turns-13) we proudly announced that Home Assistant is now based on the latest Matter 1.3 specification. Since then, we continued to update our Matter implementation to improve the reliability and compatibility of Matter devices, and Matter certification should happen any day now soon!
+As one of the first in the industry, in June, we proudly announced that Home Assistant is now based on the [latest Matter 1.3 specification](/blog/2024/06/05/release-20246/#matter-turns-13). Since then, we continued to update our Matter implementation to improve the reliability and compatibility of Matter devices, and Matter certification should hopefully happen any day now soon!
 
 We have brought expanded device support and performance improvements to Home Assistant's Matter integration. Air purifiers, room air conditioners, and thermostats are now better supported, along with custom clusters, which allow Home Assistant to detect data changes in real time, improving network efficiency.
 
 Update entities now provide firmware updates via official Matter update channels, while event entities provide more event types, allowing you to react to single press or double press events with ease. Additional features include water valve support, operation state tracking for appliances, and smoke and CO sensor integration. Matter 1.3 power and energy sensors are also supported, providing useful data for the energy dashboard.
 
 In the meantime, we will continue to work on Matter 1.4 compatibility, as well as making device commissioning easier and working with Thread credentials. We have made major strides forward and hopefully we will be able to get through some of our roadblocks soon.
+
+### Zigbee
+
+The Zigbee Home Automation (ZHA) integration got a massive overhaul [during Summer](/blog/2024/08/07/release-20248/#zigbee-home-automation-zha-updates). The whole integration has been split into a separate codebase, making it easier to maintain and improve. This is a huge step forward for the integration, and took months of work to get done. This change will make the integration easier to maintain and improve in the future, including allowing code contributors to contribute more easily.
 
 ## What’s next?
 
