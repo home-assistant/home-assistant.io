@@ -119,7 +119,7 @@ We brought area awareness, which allows you to target devices in the same area w
 
 <p class='img'><lite-youtube videoid="v3mNdTsX4J0" videotitle="Voice timers with countdown text and loading bar"></lite-youtube>Timers running on an S3 Box, with countdown text and a loading bar!</p>
 
-We implemented timers, allowing any voice assistant device to be able to “ring” when a timer ends, including supporting the creation of multiple timers. You can also pause and resume them, and add or remove time from them. You can combine commands with timers by giving a delayed command, allowing you to perform an action after a specific amount of time (eg. “Turn off the TV in 30 minutes)”.
+We implemented timers, allowing any voice assistant device to “ring” when a timer ends, including supporting the creation of multiple timers. You can also pause and resume them and add or remove time from them. You can combine commands with timers by giving a delayed command, allowing you to perform an action after a specific amount of time (like “Turn off the TV in 30 minutes)”.
 
 We also brought the ability to control media via voice. Pausing or resuming them, controlling the volume, and going to the next track. This, combined with the area awareness capability mentioned above made for some really interesting short commands that work in a room with a TV playing or music streaming, such as “Pause”, “Resume” and “Next”.
 
