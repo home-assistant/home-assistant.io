@@ -50,7 +50,7 @@ Input sources:
 
 ### Zones
 
-If your receiver has second or third zone available, they are displayed as additional media players with a similar functionality as the main zone.
+If your receiver has a second or third zone available, they are displayed as additional media players with functionality similar to the main zone.
 
 ### Action `onkyo_select_hdmi_output`
 
