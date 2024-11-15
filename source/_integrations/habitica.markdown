@@ -232,16 +232,21 @@ The Habitica integration offers four actions to update the details and configura
 
 Habitica tasks share a common set of details and configuration options, and as such, the attributes listed below are available for all task update actions.
 
-| Data attribute         | Optional | Description                                                                                                                                             |
-| ---------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| config_entry           | no       | Select the Habitica account to update a task.                                                                                                           |
-| task                   | no       | The name (or task ID) of the daily you want to update.                                                                                                  |
-| rename                 | yes      | The new title for the Habitica task.                                                                                                                    |
-| description            | yes      | The new description for the Habitica task.                                                                                                              |
-| priority               | yes      | Update the difficulty of a task. (not available for rewards)                                                                                            |
-| tag                    | yes      | Add tags to the Habitica task. If a tag does not already exist, a new one will be created.                                                              |
-| remove_tag             | yes      | Remove tags from the Habitica task.                                                                                                                     |
+| Data attribute         | Optional | Description                                                                                |
+| ---------------------- | -------- | -------------------------------------------------------------------------------------------|
+| config_entry           | no       | Select the Habitica account to update a task.                                              |
+| task                   | no       | The name or task ID of the task you want to update.                                        |
+| rename                 | yes      | The new title for the Habitica task.                                                       |
+| description            | yes      | The new description for the Habitica task.                                                 |
+| priority               | yes      | Update the difficulty of a task.                                                           |
+| tag                    | yes      | Add one or more tags to the task. Non-existent tags will be created automatically.         |
+| remove_tag             | yes      | Remove one or more tags the Habitica task.                                                 |
 | alias                  | yes      | A task alias can be used instead of the name or task ID. Only dashes, underscores, and alphanumeric characters are supported. The task alias must be unique among all your tasks. |
+
+{% note %}
+The `priority` attribute is not available for rewards.
+{% endnote %}
+
 
 #### Action `habitica.update_daily`
 
