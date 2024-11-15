@@ -59,32 +59,26 @@ Get started with these automation examples.
 {% raw %}
 
 ```yaml
-alias: Start timer on scale
+alias: "Start timer on scale"
 description: "When a brew starts on the machine, the following actions are started: tare, reset the timer, and start the timer on the scale."
 triggers:
-  - entity_id:
+  - trigger: state
+    entity_id:
       - binary_sensor.lm001234_brewing_active
     to: "on"
     from: "off"
-    trigger: state
-conditions: []
 actions:
   - action: button.press
     target:
       entity_id: button.lunar_tare
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_reset_timer
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_start_stop_timer
-    data: {}
-mode: single
-
 ```
 
 {% endraw %}
