@@ -152,7 +152,7 @@ Our latest benchmark for local language models (LLMs) can be explored [here](htt
 
 <img src='/images/blog/2024-06-voice-chapter-7/voice-script.png' alt="Exposing voice scripts to Assist in Home Assistant Voice settings" class='no-shadow'>
 
-You can now expand LLM capabilities by [allowing them access your scripts](/blog/2024/07/03/release-20247/#expand-an-llm-using-your-scripts). This feature lets you precisely control what the LLM does in specific situations, while still benefiting from the flexibility and natural language processing that AIs excel at.
+You can now expand LLM capabilities by [allowing them access to your scripts](/blog/2024/07/03/release-20247/#expand-an-llm-using-your-scripts). This feature lets you precisely control what the LLM does in specific situations, while still benefiting from the flexibility and natural language processing that AIs excel at.
 
 #### In progress: Investigate on privacy
 
