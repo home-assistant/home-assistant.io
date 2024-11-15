@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Roadmap 2024 Year-end Update: Full steam ahead!"
-description: "Here is an update on the progress of our 2024 roadmap and a glimpse of what's coming up next."
+description: "Update on the progress of our 2024 roadmap and a glimpse of what's coming up next."
 date: 2024-11-15 00:00:00
 date_formatted: "November 15, 2024"
 author: Madelena Mak
