@@ -175,9 +175,9 @@ In the meantime, we will continue to work on Matter 1.4 compatibility, as well a
 
 We hope that you can feel the results of all this work.  Given the positive feedback we have received from our users, we will continue to follow our roadmap to work on the next product initiatives.
 
-We will also start preparing for the roadmap for next year. It will have a new theme, and we would like to have our community be more involved in the process of its creation. Planning has already begun, and we hope to announce it in the next State of the Open Home. Again, get in the comments and give us your feedback, we read it all!
+We will also start preparing for the roadmap for next year. It will have a new theme, and we would like to have our community be more involved in the process of its creation. Planning has already begun, and we hope to announce it at the next State of the Open Home. Last but not the least, please get in the comments and give us your feedback - we read it all!
 
-See you in 6 months!
+See you next year!
 
 \- [Madelena] & [JLo]
 
