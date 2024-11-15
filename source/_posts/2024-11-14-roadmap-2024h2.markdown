@@ -14,7 +14,7 @@ og_image: /images/blog/2024-11-roadmap-2024h2/banner.jpg
 
 **TL;DR** We are making great progress on our roadmap, and moving forward onto the next priorities on the roadmap. 🚂🚃🚃🚃🚃🚃🚃🚃🚃
 
-As [we had previously mentioned](/blog/2024/06/12/roadmap-introduction/), the goal of the roadmap is to provide a North Star for all of our product initiatives to follow in a coherent and consistent direction. At the [State of the Open Home](/blog/2024/04/24/state-of-the-open-home-2024/) in April this year, we introduced to our community [our first roadmap](/blog/2024/06/12/roadmap-2024h1/). We intended to keep our community informed every half year, and this is our first update to our public roadmap.
+As [we had previously mentioned](/blog/2024/06/12/roadmap-introduction/), the goal of the roadmap is to provide a North Star for all of our product initiatives to follow in a coherent and consistent direction. At the [State of the Open Home](/blog/2024/04/24/state-of-the-open-home-2024/) in April this year, we introduced to our community [our first roadmap](/blog/2024/06/12/roadmap-2024h1/). We intend to keep our community informed every half year, and this is our first update to our public roadmap.
 
 We are happy to report that we have made good progress on the product initiatives on our roadmap so far, thanks to our core maintainers along with the help of the team at [Nabu Casa](https://nabucasa.com), the commercial partner of the [Open Home Foundation](https://www.openhomefoundation.org). Most of the product initiatives in the 2024 roadmap have matured according to plan, and now the team has begun to focus on the ones that we had planned for next.
 
