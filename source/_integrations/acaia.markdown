@@ -37,6 +37,7 @@ MAC:
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
 
 ## Sensors
+
 - **Battery**: Current battery level of the scale.
 - **Weight**: The weight currently shown on the scale.
 
@@ -65,32 +66,26 @@ Get started with these automation examples.
 {% raw %}
 
 ```yaml
-alias: Start timer on scale
+alias: "Start timer on scale"
 description: "When a brew starts on the machine, the following actions are started: tare, reset the timer, and start the timer on the scale."
 triggers:
-  - entity_id:
+  - trigger: state
+    entity_id:
       - binary_sensor.lm001234_brewing_active
     to: "on"
     from: "off"
-    trigger: state
-conditions: []
 actions:
   - action: button.press
     target:
       entity_id: button.lunar_tare
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_reset_timer
-    data: {}
   - action: button.press
     target:
       entity_id:
         - button.lunar_start_stop_timer
-    data: {}
-mode: single
-
 ```
 
 {% endraw %}
@@ -106,4 +101,3 @@ mode: single
 
 Make sure your scale is turned on and in Bluetooth range to your Home Assistant instance. [ESPHome Bluetooth Proxies](https://esphome.io/components/bluetooth_proxy.html) are a great way to increase the range if your instance is too far away. Turn on debug settings in the acaia integration and check your logs.
 {% enddetails %}
-
