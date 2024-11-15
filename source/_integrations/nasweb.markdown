@@ -16,10 +16,9 @@ ha_integration_type: hub
 ---
 
 
-The **NASweb** {% term integration %} brings device's smart home features into **Home Assistant**, converting them into {% term entities %} that users can monitor, control, and incorporate into {% term scripts %} and {% term automations %}.
+The **NASweb** {% term integration %} brings the device's smart home features into **Home Assistant**, converting them into {% term entities %} that users can monitor, control, and incorporate into {% term scripts %} and {% term automations %}.
 
-NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions and configured actions.\
-[MORE INFO](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
+NASweb combines the functions of a control panel and the ability to manage building automation. The device monitors the flow of information from sensors and programmable switches and stores settings, definitions, and configured actions. [More information.](https://www.chomtech.pl/produkt/naswebio-multisystemowy-sterownik-automatyki-budynkowej/)
 
   ![NASweb Smart Home Features Graph](/images/integrations/nasweb/nasweb_scheme.png)
 
@@ -29,8 +28,8 @@ Before you can add the NASweb integration to Home Assistant, you need to create 
 
 To create a NASweb user with access to the NASweb API, follow these steps:
 
-1. To log into device `NASweb` page, enter the device IP in your local network:
-   - `https://` + `Device IP` + `/nasweb` (for example: `https://192.168.117.230/nasweb`)
+1. To log into device **NASweb** page, enter the device IP in your local network:
+   - `https://<Device IP address>/nasweb` (for example: `https://192.168.117.230/nasweb`)
 2. In the top-right corner, select your user and in the pop-up, select **Administrators**.
     ![Device Dashboard](/images/integrations/nasweb/dashboard.png)
 3. Find the user you want to have access to the NASweb API from Home Assistant. Select **Edit**.
@@ -48,9 +47,9 @@ Host:
   description: NASweb device address
 
 User:
-  description: Login of user with enabled `API` module
+  description: Login of user with enabled API module
 
 Password:
-  description: Password of user with enabled `API` module
+  description: Password of user with enabled API module
 
 {% endconfiguration_basic %}
