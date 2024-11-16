@@ -1,5 +1,5 @@
 ---
-title: igloohome Integration
+title: igloohome
 description: Integrates igloohome devices via the igloodeveloper API.
 ha_category:
   - Lock
