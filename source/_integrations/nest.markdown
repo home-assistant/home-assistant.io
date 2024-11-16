@@ -105,7 +105,7 @@ your cloud project.
 
 2. Click [OAuth consent screen](https://console.cloud.google.com/apis/credentials/consent) and configure it.
 
-3. Select **External** (the only choice if you are not a G-Suite user) then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
+3. Select **External** then click **Create**. While you are here, you may click the *Let us know what you think* to give Google's OAuth team any feedback about your experience configuring credentials for self-hosted software. They make regular improvements to this flow and appear to value feedback.
     ![Screenshot of OAuth consent screen creation](/images/integrations/nest/oauth_consent_create.png)
 
 4. The *App Information* screen needs you to enter an **App name** and **User support email**, then enter your email again under **Developer contact email**. These are only shown while you later go through the OAuth flow to authorize Home Assistant to access your account. Click **Save and Continue**. Omit unnecessary information (e.g. logo) to avoid additional review by Google.
@@ -125,7 +125,7 @@ your cloud project.
 
 {% enddetails %}
 
-{% details "Configure OAuth Application Credentials[Cloud Console]" %}
+{% details "Configure OAuth Application Credentials [Cloud Console]" %}
 
 By the end of this section you will have the OAuth *Client ID* and *Client Secret* needed for Application Credentials setup.
 
@@ -158,15 +158,17 @@ The steps below use *Web Application Auth* with *My Home Assistant* to handle Go
 
 Now that you have authentication configured, you will create a Nest Device Access Project which *requires a US$5 fee*. Once completed, you will have a *Device Access Project ID*.
 
-1. Go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
+1. Go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. 
+
+{% note %}
+Read the warnings on the page before proceeding, including warnings about Google Account type limitations.
+{% endnote %}
+
+1. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
     ![Screenshot of Device Access Registration](/images/integrations/nest/device_access.png)
 
 2. Check the box to "Accept the Terms of Service" and click **Continue to Payment** where you need to pay a fee (currently US$5).
     ![Screenshot of accepting terms](/images/integrations/nest/accept_terms.png)
-
-{% note %}
-It is currently not possible to share/be invited to a home with a G-Suite account. Make sure that you pay the fee with an account that has access to your devices.
-{% endnote %}
 
 3. Now the [Device Access Console](https://console.nest.google.com/device-access/project-list) should be visible. Click on **Create project**.
 
