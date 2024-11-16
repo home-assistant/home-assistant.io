@@ -15,9 +15,9 @@ ha_platforms:
 ha_integration_type: device
 ---
 
-The **igloohome** {% term integration %} regularly updates the status of your devices by leveraging the [igloodeveloper API](https://igloocompany.stoplight.io/docs/igloohome-api/1w1cuv56ge5xq-overview).
+The **igloohome** {% term integration %} regularly updates the battery level of your devices by leveraging the [igloodeveloper API](https://igloocompany.stoplight.io/docs/igloohome-api/1w1cuv56ge5xq-overview).
 
-## Pre-requisites
+## Prerequisites
 
 An account with [iglooaccess](https://access.igloocompany.co/register) is required.
 
@@ -26,7 +26,8 @@ An account with [iglooaccess](https://access.igloocompany.co/register) is requir
 Once the account has been created:
 - [Sign in](https://access.igloocompany.co/login).
 - Jump to [API access](https://access.igloocompany.co/api-access).
-- Copy out the `Client ID` & `Client Secret`
+- Create a set of crendentials with the name `Home Assistant`. 
+- Copy out the `Client ID` & `Client Secret`.
 - Add this integration to your Home Assistance instance.
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
-- The integration will retrieve the devices you own and provide you the last know statuses of the devices.
+- The integration will retrieve the devices under your account and update their last known battery level regularly.
