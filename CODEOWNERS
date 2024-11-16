@@ -388,7 +388,6 @@ source/_integrations/ibeacon.markdown @bdraco
 source/_integrations/icloud.markdown @Quentame @nzapponi
 source/_integrations/idasen_desk.markdown @abmantis
 source/_integrations/ign_sismologia.markdown @exxamalte
-source/_integrations/igloohome.markdown @keithle888
 source/_integrations/image.markdown @home-assistant/core
 source/_integrations/image_processing.markdown @home-assistant/core
 source/_integrations/image_upload.markdown @home-assistant/core
