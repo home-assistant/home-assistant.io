@@ -161,7 +161,7 @@ Now that you have authentication configured, you will create a Nest Device Acces
 1. Go to the [Device Access Registration](https://developers.google.com/nest/device-access/registration) page. 
 
 {% note %}
-Read the warnings on the page before proceeding, including warnings about Google Account type limitations.
+Read the warnings on the page before proceeding, including Google Account type limitations.
 {% endnote %}
 
 1. Click on the button **[Go to the Device Access Console](https://console.nest.google.com/device-access/)**.
