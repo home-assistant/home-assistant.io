@@ -207,6 +207,23 @@ Buy a custom reward with gold.
 | `config_entry` | no       |  Config entry of the character buying the reward.                                                                 |
 | `task`         | no       |  The name, `task ID`, or **alias** of the custom reward to buy.                                                   |
 
+### Action `habitica.transformation`
+
+Use a transformation item from your Habitica character's inventory on a member of your party or yourself.
+
+| Data attribute | Optional |  Description                                                                                                      |
+| -------------- | -------- | ----------------------------------------------------------------------------------------------------------------- |
+| `config_entry` | no       |  Config entry of the character using the transformation item.                                                    |
+| `item`         | no       |  The transformation item you want to use. Item must be in the character's inventory.                               |
+| `target`       | no       |  The character you want to use the transformation item on. Matches by display name, username, or user ID.           |
+
+#### Available transformation items
+
+- **Snowball**: `snowball` (transforms into a snowfriend)
+- **Spooky sparkles**: `spooky_sparkles` (transforms into a ghost)
+- **Seafoam**: `seafoam` (transforms into a starfish)
+- **Shiny seed** `shiny_seed` (transforms into flower)
+
 ## Automations
 
 Get started with these automation examples for Habitica, each featuring ready-to-use blueprints!

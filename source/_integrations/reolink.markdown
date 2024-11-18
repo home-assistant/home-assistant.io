@@ -257,9 +257,8 @@ Depending on the supported features of the camera, the following sensor entities
 ## Update entity
 
 An update entity is available that checks for firmware updates every 12 hours.
-This does the same as pressing the "Check for latest version" in the Reolink applications.
-Unfortunately this does not always shows the latest available firmware (also not in the Reolink applications).
-The latest firmware can be downloaded from the [Reolink download center](https://reolink.com/download-center/) and uploaded to the camera/NVR manually.
+Updates are checked both through the camera API and directly from the [Reolink download center](https://reolink.com/download-center/).
+Therefore the update entity in Home Assistant can find and install a firmware update from the [Reolink download center](https://reolink.com/download-center/) while the Reolink app/windows/web client does not always find this update.
 
 ## Media browser for playback of recordings
 
