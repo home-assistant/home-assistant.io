@@ -3,7 +3,7 @@ title: igloohome
 description: Integrates igloohome devices via the igloodeveloper API.
 ha_category:
   - Sensor
-ha_release: 0.0.1
+ha_release: 2024.11.0
 ha_config_flow: true
 ha_iot_class: Cloud Polling
 ha_codeowners:
@@ -28,7 +28,7 @@ Once the account has been created:
 - Jump to [API access](https://access.igloocompany.co/api-access).
 - Create a set of credentials with the name `Home Assistant`.
 - Copy out the `Client ID` & `Client Secret`.
-- Add this integration to your Home Assistance instance.
+- Add this integration to your Home Assistant instance.
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
 - The integration will retrieve the devices under your account and update their last known battery level regularly.
 
