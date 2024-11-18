@@ -29,7 +29,7 @@ After a few years of being in 2nd place, we are now the #1 open source project o
 
 What started as a simple request to attend the event tumbled into not only being a part of the Day 2 Keynote of GitHub Universe ❗❗ but being offered a venue at GitHub HQ for a community meetup. It picked up from there - interviews, speaking on panels, and after parties - this 2-day event spun into a 7-day trip to San Francisco. Not only was this my first event as a part of an open source project, but it was also my first time meeting [Paulus](https://github.com/balloob) and [Frenck](https://github.com/frenck) in person. Paulus is taller than I expected 😅 and Frenck has legs! 😱
 
-While there is a lot of good news for us that came out of GitHub Universe (and I will get to that), I would be a poor community manager if I didn't start this out with the first in-person meetup I coordinated as the Community Manager for Home Assistant. 😌
+While there is a lot of good news for us that came out of GitHub Universe (and I will get to that), I would be a poor community manager if I didn't start this out with the first in-person meetup I coordinated for Home Assistant. 😌
 
 I knew immediately that I needed custom swag for the event, and got to work with our Graphic Artist, Clelia. We wanted to make sure it was connected to where we were holding the meetup and that it was collectible - we landed on postcards and pins in the shape of stamps.
 
@@ -69,7 +69,7 @@ Our booth was a great success, and we had so many members of the community come 
 
 <p class='img'><img src='/images/blog/2024-11-universe/booth.jpg' alt="Our booth in the Open Source Zone">Our booth in the <a href="https://github.blog/open-source/10-projects-in-the-open-source-zone-at-github-universe-2024/">Open Source Zone</a></p>
 
-Day 2 was when Paulus and Frenck took the stage, and I got there early to ensure I got a good seat up front. We had not only a good crowd in person, but [Joost](https://github.com/joostlek) hosted a watch party on the Community Stage in [our Discord server](https://home-assistant.io/join-chat)!
+Day 2 was when Paulus and Frenck took the stage, and I got there early to ensure I got a good seat up front. We had not only a good crowd in person, but [Joost](https://github.com/joostlek) hosted a watch party on the Community Stage in [our Discord server](/join-chat)!
 
 <p class='img'><img src='/images/blog/2024-11-universe/ha-keynote.jpg' alt="Frenck and Paulus on the keynote stage representing Home Assistant">Their final message to the crowd - <i>what are you going to build?</i></p>
 
