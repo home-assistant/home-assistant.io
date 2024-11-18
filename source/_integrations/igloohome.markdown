@@ -23,9 +23,10 @@ An account with [iglooaccess](https://access.igloocompany.co/register) is requir
 ## Setup
 
 Once the account has been created:
+
 - [Sign in](https://access.igloocompany.co/login).
 - Jump to [API access](https://access.igloocompany.co/api-access).
-- Create a set of credentials with the name `Home Assistant`. 
+- Create a set of credentials with the name `Home Assistant`.
 - Copy out the `Client ID` & `Client Secret`.
 - Add this integration to your Home Assistance instance.
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
