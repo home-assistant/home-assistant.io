@@ -312,6 +312,7 @@ The following models have been tested and confirmed to work with a direct link t
 - [Reolink Duo 3 PoE](https://reolink.com/product/reolink-duo-3-poe/)
 - Reolink Duo Floodlight ([PoE](https://reolink.com/product/reolink-duo-floodlight-poe/) and [Wi-Fi](https://reolink.com/product/reolink-duo-floodlight-wifi/))
 - [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
+- [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
 - Reolink TrackMix ([PoE](https://reolink.com/product/reolink-trackmix-poe/) and [Wi-Fi](https://reolink.com/product/reolink-trackmix-wifi/))
 - Reolink Video Doorbell ([PoE Black](https://reolink.com/product/reolink-video-doorbell/), [Wi-Fi Black](https://reolink.com/product/reolink-video-doorbell-wifi/), [PoE White](https://reolink.com/product/reolink-video-doorbell/) and [Wi-Fi White](https://reolink.com/product/reolink-video-doorbell-wifi/))
 
@@ -319,9 +320,15 @@ The following models have been tested and confirmed to work with a direct link t
 
 ### Tested battery-powered models
 
-Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/). The Home Hub will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
+Battery-powered Reolink cameras can be used with Home Assistant with the help of a [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/) or NVR ([RLN8-410 N7MB01](https://reolink.com/product/rln8-410/)). The Home Hub/NVR will act as a bridge between the battery-powered cameras and Home Assistant, conserving the battery life. All features of the battery-powered cameras will be available just like regular-powered cameras. Viewing the camera stream in Home Assistant will keep the battery camera awake during viewing, consuming battery life. Therefore, ensure you do not use the camera stream on a dashboard that is constantly being viewed, like a wall panel dashboard. You can check proper operation by ensuring that the "Sleep status" entity will go to "Sleeping" if the battery camera is not being actively used.
 
-The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub:
+The following hubs/NVRs have been tested and confirmed to work with battery-powered models in Home Assistant:
+
+- [Reolink Home Hub](https://reolink.com/product/reolink-home-hub/)
+- [Reolink Home Hub Pro](https://reolink.com/product/reolink-home-hub-pro/)
+- [RLN8-410 NVR](https://reolink.com/product/rln8-410/) (only the latest hardware version N7MB01, older versions might receive the required firmware update later)
+
+The following battery-powered models have been tested and confirmed to work through the Reolink Home Hub/NVR:
 
 - [Argus 3 Pro](https://reolink.com/product/argus-3-pro/)
 - [Argus 4 Pro](https://reolink.com/product/argus-4-pro/)
