@@ -27,7 +27,7 @@ After a few years of being in 2nd place, we are now the #1 open source project o
 
 ## Community comes together
 
-What started as a simple request to attend the event tumbled into not only being a part of the Day 2 Keynote of GitHub Universe ❗❗ but being offered a venue at GitHub HQ for a community meetup. It picked up from there - interviews, speaking on panels, and after parties - this 2-day event spun into a 7-day trip to San Francisco. Not only was this my first event as a part of an open source project, but it was also my first time meeting [Paulus](https://github.com/balloob) and [Frenck](https://github.com/frenck) in person. Paulus is taller than I expected 😅 and Frenck has legs! 😱
+What started as a simple request to attend the event tumbled into not only being a part of the Day 2 Keynote of GitHub Universe ❗❗ but being offered a venue at GitHub HQ for a community meetup. It picked up from there - interviews, speaking on panels, and after-parties - this 2-day event spun into a 7-day trip to San Francisco. Not only was this my first event as a part of an open source project, but it was also my first time meeting [Paulus](https://github.com/balloob) and [Frenck](https://github.com/frenck) in person. Paulus is taller than I expected 😅 and Frenck has legs! 😱
 
 While there is a lot of good news for us that came out of GitHub Universe (and I will get to that), I would be a poor community manager if I didn't start this out with the first in-person meetup I coordinated for Home Assistant. 😌
 
@@ -39,7 +39,7 @@ And, of course, you can't go to an event without stickers, so we took our Home A
 
 <img src='/images/blog/2024-11-universe/shiny.png' alt="our shiny stickers" style='border: 0;box-shadow: none;'>
 
-The event itself ended up being a small gathering, but it was filled with amazing connections and conversations. Paulus and Frenck talked for over an hour about the status of Home Assistant and what we're working on right now then took questions from the community members. It was great talking to everyone who attended - being able to bring people from different aspects of life together energizes me, and I am excited to plan whatever the next meetup will be. 👀
+The event itself ended up being a small gathering, but it was filled with amazing connections and conversations. Paulus and Frenck talked for over an hour about the status of Home Assistant and what we're working on right now, then took questions from the community members. It was great talking to everyone who attended - being able to bring people from different aspects of life together energizes me, and I am excited to plan whatever the next meetup will be. 👀
 
 <p class='img'><img src='/images/blog/2024-11-universe/meetup-audience.jpg' alt="Universe meetup ahead of the event at GitHub HQ"></p>
 
