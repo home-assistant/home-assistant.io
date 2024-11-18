@@ -4,4 +4,4 @@
 2. From the list of devices, select the integration instance you want to remove.
 3. Next to the entry, select the three-dot menu. Then, select **Delete**.
 
-   ![Screenshot showing how to remove an integration instance](images/docs/configuration/integration_instance_delete.png)
+   ![Screenshot showing how to remove an integration instance](/images/docs/configuration/integration_instance_delete.png)
