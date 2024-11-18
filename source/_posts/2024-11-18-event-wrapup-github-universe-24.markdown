@@ -29,7 +29,7 @@ After a few years of being in 2nd place, we are now the #1 open source project o
 
 What started as a simple request to attend the event tumbled into not only being a part of the Day 2 Keynote of GitHub Universe ❗❗ but being offered a venue at GitHub HQ for a community meetup. It picked up from there - interviews, speaking on panels, and after-parties - this 2-day event spun into a 7-day trip to San Francisco. Not only was this my first event as a part of an open source project, but it was also my first time meeting [Paulus](https://github.com/balloob) and [Frenck](https://github.com/frenck) in person. Paulus is taller than I expected 😅 and Frenck has legs! 😱
 
-While there is a lot of good news for us that came out of GitHub Universe (and I will get to that), I would be a poor community manager if I didn't start this out with the first in-person meetup I coordinated for Home Assistant. 😌
+While there is a lot of good news for us that came out of GitHub Universe (and I _will_ get to that), I would be a poor community manager if I didn't start this out with the first in-person meetup I coordinated for Home Assistant. 😌
 
 I knew immediately that I needed custom swag for the event, and got to work with our Graphic Artist, Clelia. We wanted to make sure it was connected to where we were holding the meetup and that it was collectible - we landed on postcards and pins in the shape of stamps.
 
@@ -47,7 +47,7 @@ The event itself ended up being a small gathering, but it was filled with amazin
 
 <p class='img'><img src='/images/blog/2024-11-universe/number-1.png' alt="We are number one"></p>
 
-It was an honor just for Home Assistant to be asked to speak at the Day 2 Keynote; what we didn't know when we started this ride was that the keynote would announce something new: we are the #1 open source project on GitHub by active contributors!! 🎉 Not only that, on the rankings for first-time contributors, we moved up to 2nd place, and an Open Home Foundation collaboration partner, [Zigbee2MQTT](https://www.zigbee2mqtt.io/), is also now in the top 10! 🥳 This is all featured in the [GitHub Octoverse 2024 report](https://github.blog/news-insights/octoverse/octoverse-2024/), which is a really interesting read.
+It was an honor just for Home Assistant to be asked to speak at the Day 2 Keynote; what we _didn't_ know when we started this ride was that the keynote would announce something new: **we are the #1 open source project on GitHub** by active contributors!! 🎉 Not only that, on the rankings for first-time contributors, we moved up to 2nd place, and an Open Home Foundation collaboration partner, [Zigbee2MQTT](https://www.zigbee2mqtt.io/), is also now in the top 10! 🥳 This is all featured in the [GitHub Octoverse 2024 report](https://github.blog/news-insights/octoverse/octoverse-2024/), which is a really interesting read.
 
 <img src='/images/blog/2024-11-universe/octoverse-contributors.png' style='border: 0;box-shadow: none;' alt="top five projects by contributors - source GitHub Octoverse 2024 report">
 
