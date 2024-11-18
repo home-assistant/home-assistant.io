@@ -5,12 +5,14 @@ ha_release: 2024.12
 ha_category:
   - Binary sensor
   - Button
+  - Sensor
 ha_iot_class: Local Push
 ha_config_flow: true
 ha_domain: acaia
 ha_platforms:
   - binary_sensor
   - button
+  - sensor
 ha_bluetooth: true
 ha_codeowners:
   - '@zweckj'
@@ -39,6 +41,11 @@ MAC:
 - **Tare**: Tares the scale.
 - **Reset timer**: Resets the timer. If the timer is running, it will continue to run.
 - **Start/stop timer**: Starts or stops the timer, depending on whether the timer is currently running. Does not reset, but continue the timer.
+
+## Sensors
+
+- **Battery**: Current battery level of the scale.
+- **Weight**: The weight currently shown on the scale.
 
 ## Supported devices
 
