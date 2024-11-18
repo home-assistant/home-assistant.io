@@ -31,3 +31,12 @@ Once the account has been created:
 - Add this integration to your Home Assistance instance.
 - Copy the `Client ID` & `Client Secret` to the respective text fields when prompted by the integration.
 - The integration will retrieve the devices under your account and update their last known battery level regularly.
+
+## Verify successful integration
+
+Once the correct `Client ID` & `Client Secret` has been provided:
+- Battery entities:
+  - Devices that have a battery level should be automatically recognized, and entities created. If devices are added post-integration, kindly reload the set of `Client Credentials`.
+ 
+
+
