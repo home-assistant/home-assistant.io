@@ -33,7 +33,7 @@ This integration interacts with [La Marzocco](https://lamarzocco.com/it/en/) cof
 
 If your machine is in Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the machine will be discovered automatically.
 
-By default, this integration will query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optinonal local connection, your machine will receive immediate push updates about its state, for everything except statistics and firmware updates.
+By default, this integration will query your machine every 30 seconds for an update, every 5 minutes for new statistics, and every hour for a firmware update. If configure the optional local connection, your machine will receive immediate push updates about its state for everything except statistics and firmware updates.
 
 ## Prerequisites
 
