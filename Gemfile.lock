@@ -67,8 +67,8 @@ GEM
     jekyll-watch (2.2.1)
       listen (~> 3.0)
     json (2.8.2)
-    kramdown (2.4.0)
-      rexml
+    kramdown (2.5.1)
+      rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     language_server-protocol (3.17.0.3)
