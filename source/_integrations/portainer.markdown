@@ -18,24 +18,23 @@ The Portainer integration provides connectivity with one or more portainer insta
 
 In order to use this integration you must get an access token.  Refer to [this guide](https://docs.portainer.io/api/access) for general overview of the process.
 
+{% include integrations/config_flow.md %}
+
 ### Installation
 
-1. Add the integration to your Home Assistant installation:
-   [![my_button](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=portainer)
 
-2. Enter the access token you've got from the guid above.
+1. Enter the access token you've got from the guid above. The access token typically looks like this: `ptr_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
 
-3. Also enter the URL of the portainer instance. Here are a some valid example URLs:
+2. Also enter the URL of the portainer instance. Here are a some valid example URLs:
    - `https://www.myportainer.com`
    - `https://192.168.178.99:9443`
    - `http://192.168.178.99:9000` - legacy
    - `https://myintranet:9443/portainer`
 
-4. Also choose, if the SSL certificate should be verified.
+3. Also choose, if the SSL certificate should be verified.
 
-5. Click **OK**
+4. Click **OK**
 
-{% include integrations/config_flow.md %}
 
 ## Entities
 
