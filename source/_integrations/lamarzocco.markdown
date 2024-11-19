@@ -180,6 +180,7 @@ mode: single
 - Currently it is only possible to view the schedules configured in the La Marzocco Home app, but not to edit the schedules from Home Assistant. You can, of course, build Home Assistant native automations to reflect the same functionality in Home Assistant.
 
 ## Remove integration
+
 This integration follows standard integration removal, no extra steps are required.
 
 {% include common-tasks/remove_device_service.md %}
