@@ -103,6 +103,10 @@ unique_id:
   description: A unique identifier for this entity. Needs to be unique within the `media_player` platform.
   required: false
   type: string
+process_media_id:
+  description: Enable rewriting of media source URLs for children or custom commands expecting URLs accessible from outside Home Assistant without authentication (default false).
+  required: false
+  type: boolean
 {% endconfiguration %}
 
 The universal media player will primarily imitate one of its `children`. The universal media player will control the first child on the list that is active (not idle/off). The universal media player will also inherit its state from the first active child if a `state_template` is not provided. Entities in the `children:` list must be media players, but the state template can contain any {% term entity %}.
@@ -118,6 +122,8 @@ When providing `select_source` as a command, it is recommended to also provide t
 When using `state_template`, if you use a template that depends on the current time it is recommended to use `now()`. Using `now()` will cause templates to be refreshed at the start of every new minute. For more information see the [time](/docs/configuration/templating/#time) section in the template documentation.
 
 The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
+
+Setting `process_media_id` to true activates rewriting of `media-source:` URLs in the `media_content_id` variable. In that case, the `play_media` action of children media players and the custom `play_media` command no longer receive `media-source:` URLs in their `media_content_id` parameter which gets converted to external URLs with short-lived tokens. Additionally, media browsing support is enabled as a fallback if `browse_media_entity` is not provided or invalid.
 
 ## Usage examples
 
