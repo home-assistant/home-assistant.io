@@ -21,7 +21,9 @@ ha_integration_type: device
 
 The **Acaia** {% term integrations %} allows you to control [Acaia](https://acaia.co/) scales through Home Assistant.
 
-If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup.
+If your machine is within Bluetooth range to your Home Assistant host and the [Bluetooth](/integrations/bluetooth) integration is fully loaded, the scale should be discovered automatically. If you are configuring the device manually, your scale needs to be turned on during setup. 
+
+Once the integration is setup, Home Assistant will try to connect to your scale every 15 seconds. This means there is sometimes a small delay between you turning the scale on and Home Assistant connecting to it.
 
 {% include integrations/config_flow.md %}
 
@@ -100,6 +102,12 @@ actions:
 ## Known limitations
 
 - While this integration is configured for your device, you won't be able to use the official app, as only one connection at a time is supported.
+
+## Remove integration
+
+This integration follows standard integration removal, no extra steps are required.
+
+{% include common-tasks/remove_device_service.md %}
 
 ## Troubleshooting
 
