@@ -104,7 +104,7 @@ unique_id:
   required: false
   type: string
 process_media_id:
-  description: Enable rewriting of media source URLs for children or custom commands expecting URLs accessible from outside Home Assistant without authentication (default false).
+  description: Enable rewriting of media source URLs for children or custom commands expecting URLs accessible from outside Home Assistant (default false).
   required: false
   type: boolean
 {% endconfiguration %}
@@ -123,7 +123,7 @@ When using `state_template`, if you use a template that depends on the current t
 
 The `browse_media_entity` parameter allows you to specify which media player will be used in media browser.
 
-Setting `process_media_id` to true activates rewriting of `media-source:` URLs in the `media_content_id` variable. In that case, the `play_media` action of children media players and the custom `play_media` command no longer receive `media-source:` URLs in their `media_content_id` parameter which gets converted to external URLs with short-lived tokens. Additionally, media browsing support is enabled as a fallback if `browse_media_entity` is not provided or invalid.
+When `process_media_id` is set to true, at the start of every `play_media` action `media_content_id` parameters containing `media-source:` URLs will be converted into external URLs with short-lived tokens. This rewritten `media_content_id` will be passed to either the custom `play_media` command or child media players, enabling these to play content from Home Assistant media sources without dedicated support. Additionally, media browsing support is automatically enabled to advertise that the player can handle media sources, but can still be overridden by the `browse_media_entity` parameter.
 
 ## Usage examples
 
