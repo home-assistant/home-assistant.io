@@ -53,8 +53,7 @@ Host:
 
 ## Data updates
 
-Cambridge Audio devices have the ability to push data. 
-Home Assistant will be made aware of new data immediately when it's available.
+Cambridge Audio devices push data directly to Home Assistant, enabling immediate updates for device state changes, media information, and playback status.
 
 ## Available configuration entities
 
