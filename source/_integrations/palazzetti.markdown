@@ -45,11 +45,12 @@ This integration supports the following actions (see [Climate](/integrations/cli
 
 The Palazzetti integration offers the following sensors, for the products that provide them:
 
-- Outlet air temperature
-- Wood combustion temperature
-- Room temperature
-- Return water temperature
-- Tank water temperature
-- Hydro temperature 1
-- Hydro temperature 2
-- Pellet quantity
+- Outlet air temperature (°C)
+- Wood combustion temperature (°C)
+- Room temperature (°C)
+- Return water temperature (°C)
+- Tank water temperature (°C)
+- Hydro temperature 1 (°C)
+- Hydro temperature 2 (°C)
+- Pellet quantity (kg)
+- Pellet level (cm)
