@@ -19,9 +19,9 @@ ha_integration_type: device
 ha_zeroconf: true
 ---
 
-The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the StreamMagic app.
+The **Cambridge Audio** {% term integration %} allows you to control all receivers and streamers that support the [StreamMagic](https://www.cambridgeaudio.com/usa/en/products/streammagic) app.
 
-The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it.
+The integration automatically discovers all enabled zones and sources. Each zone is added as a media player device with the enabled sources available as inputs. Media information and controls (such as play, pause, skip) are supported if the selected source reports it. The integration allows you to navigate presets, control streaming (Spotify, Tidal, Qobuz), and play radio stations all from your Home Assistant dashboard.
 
 ## Supported devices
 
@@ -50,6 +50,11 @@ Host:
     required: true
     type: string
 {% endconfiguration_basic %}
+
+## Data updates
+
+Cambridge Audio devices have the ability to push data. 
+Home Assistant will be made aware of new data immediately when it's available.
 
 ## Available configuration entities
 
