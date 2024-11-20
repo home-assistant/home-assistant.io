@@ -51,6 +51,12 @@ Host:
     type: string
 {% endconfiguration_basic %}
 
+## Remove integration
+
+To remove the integration, go to {% my integrations title="**Settings** > **Devices & services**" %} and select the integration card. Then, select the three dots {% icon "mdi:dots-vertical" %} menu and select **Delete**.
+After deleting the integration, go to the app of the manufacturer and remove the Home Assistant integration from there as well.
+
+
 ## Available configuration entities
 
 The integration provides a few entities to configure the device settings. The following entities are supported:
