@@ -63,6 +63,7 @@ Host:
 {% configuration_basic %}
 Use Bluetooth:
   description: Allows you to manually disable whether the communication to the machine should happen also over Bluetooth (if available). Can be used to avoid longer timeouts, e.g. when your machine is only sometimes in range.
+{% endconfiguration_basic %}
 
 # Available platforms & entities
 
