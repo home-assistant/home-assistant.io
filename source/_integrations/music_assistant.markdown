@@ -196,7 +196,7 @@ Get the full queue details of a Music Assistant Queue.
   - **Optional**: No.
   - **Description**: The entity_id of the queue to be retrieved.
   - **Example**: `media_player.kitchen_speaker`
-    
+
 ### Action `music_assistant.transfer_queue`
 
 Transfer the player's queue to another player.
