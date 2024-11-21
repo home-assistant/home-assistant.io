@@ -183,7 +183,7 @@ mode: single
 
 This integration follows standard integration removal, no extra steps are required.
 
-{% include common-tasks/remove_device_service.md %}
+{% include integrations/remove_device_service.md %}
 
 ## Troubleshooting
 

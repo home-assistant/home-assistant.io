@@ -12,7 +12,7 @@ group :development do
   gem 'sassc', '2.1.0'
   gem 'sass-embedded', '1.81.0'
   gem 'rubocop', '1.68.0'
-  gem 'ruby-lsp', '0.21.3'
+  gem 'ruby-lsp', '0.22.0'
   gem 'rackup', '2.2.1'
 end
 
@@ -23,7 +23,7 @@ group :jekyll_plugins do
   gem 'jekyll-toc', '0.19.0'
 end
 
-gem 'sinatra', '4.1.0'
+gem 'sinatra', '4.1.1'
 gem 'nokogiri', '1.16.7'
 
 # Windows and JRuby does not include zoneinfo files, so bundle the tzinfo-data gem
