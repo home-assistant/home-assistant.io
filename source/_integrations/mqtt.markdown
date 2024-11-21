@@ -53,7 +53,17 @@ MQTT (aka MQ Telemetry Transport) is a machine-to-machine or "Internet of Things
 
 ### Removing the MQTT integration
 
-The MQTT integration and its entities can be removed from by removing the MQTT config entry. Note that this does not remove the [MQTT broker](#setting-up-a-broker), or the MQTT broker data. Make sure you cleanup any MQTT related YAML configuration if you choose to remove MQTT.
+The MQTT integration and its entities can be removed by following these steps:
+
+1. Navigate to **Settings** > **Devices & Services**
+2. Find the MQTT integration and click on it
+3. Click the delete button to remove the MQTT config entry
+
+Note: This action does not remove the [MQTT broker]((#setting-up-a-broker)) or its data. If you want to completely remove MQTT:
+
+1. Check your `configuration.yaml` and other YAML files for MQTT-related configurations and remove them
+2. Review your automations and scripts for any MQTT dependencies
+3. Consider backing up your configuration before making these changes
 
 <a name="configuration-via-mqtt-discovery"></a>
 {% details "Configuration of MQTT components via MQTT discovery" %}
