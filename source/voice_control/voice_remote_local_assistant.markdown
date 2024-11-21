@@ -1,5 +1,5 @@
 ---
-title: "Installing a local Assist pipeline"
+title: "Getting started - Local"
 related:
   - docs: /voice_control/voice_remote_expose_devices/#exposing-your-devices
     title: Expose your devices to Assist
@@ -11,11 +11,10 @@ related:
     title: Piper for text-to-speech
 ---
 
-Before being able to use Assist, you need to configure it.
-
-The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and test-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant) 
+The simplest and most effective way to use Assist is to leverage the voice providers (for speech-to-text and test-to-speech) included in [Home Assistant Cloud](/voice_control/voice_remote_cloud_assistant/) 
 
 If you are interested in setting up a fully local voice assistant, follow this setup:
+
 
 ## Prerrequisites
 

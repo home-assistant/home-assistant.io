@@ -1,0 +1,36 @@
+---
+title: "Assigning devices to areas and areas to floors"
+related:
+  - docs: /docs/organizing/areas/
+    title: Areas
+  - docs: /docs/organizing/floors/
+    title: Floors
+  - docs: /voice_control/custom_sentences/
+    title: Assist - custom sentences
+---
+
+Another best practice with Assist is to create an architecture of areas and floors in your home, since it will make it consistent and easy to understand for Assist.
+
+### To create missing areas 
+
+1. Go to Settings > Areas, Labels & Zones
+2. Click on Create area
+
+### To create missing floors
+
+1. Go to Settings > Areas, Labels & Zones
+2. Click on Create floor
+3. Inside the floor creation dialog, you will be able to assign areas to it
+
+### To assign areas to existing floors
+
+1. Go to Settings > Areas, Labels & Zones
+2. Click on the ... icon on a floor
+3. Click on Edit Floor
+4. Assign your areas to this floor
+
+### To assign a device to an area
+1. Go to Settings > Devices and Services > Devices
+2. Click on a device
+3. Click on the pencil icon in the top bar of the device page
+4. Assign it to an area

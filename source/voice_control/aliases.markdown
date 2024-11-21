@@ -1,5 +1,5 @@
 ---
-title: "Assist - entity, area, and floor aliases"
+title: "Aliases - entity, area, and floor"
 related:
   - docs: /docs/organizing/areas/
     title: Areas

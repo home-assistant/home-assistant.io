@@ -1,5 +1,5 @@
 ---
-title: "Exposing devices"
+title: "Exposing entities to Assist"
 description: Step-by-step instructions on exposing entities to an assistant such as Assist, Google Assistant, or Alexa.
 related:
   - docs: /voice_control/voice_remote_cloud_assistant/
